@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/cli/beta/vaults/create -->
 
+---
+title: Create Vault
+url: https://platform.claude.com/docs/en/api/cli/beta/vaults/create
+---
+
 # Create Vault
 
 `$ ant beta:vaults create`
@@ -24,11 +29,19 @@ Create Vault
 
   Header param: Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ## Returns
 
 - `beta_managed_agents_vault: object`
 
   A vault that stores credentials for use by agents during sessions.
+
+  - `type: "vault"`
 
   - `id: string`
 
@@ -53,8 +66,6 @@ Create Vault
   - `metadata: map[string]`
 
     Arbitrary key-value metadata attached to the vault.
-
-  - `type: "vault"`
 
   - `updated_at: string`
 

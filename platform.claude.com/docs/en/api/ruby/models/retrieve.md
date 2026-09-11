@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/ruby/models/retrieve -->
 
+---
+title: Get a Model
+url: https://platform.claude.com/docs/en/api/ruby/models/retrieve
+---
+
 # Get a Model
 
 `models.retrieve(model_id, **kwargs) -> ModelInfo`
@@ -22,7 +27,7 @@ The Models API response can be used to determine information about a specific mo
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 41 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 42 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -70,6 +75,8 @@ The Models API response can be used to determine information about a specific mo
 
     - `:"user-profiles-2026-08-18"`
 
+    - `:"user-profiles-2026-09-04"`
+
     - `:"advisor-tool-2026-03-01"`
 
     - `:"managed-agents-2026-04-01"`
@@ -112,9 +119,17 @@ The Models API response can be used to determine information about a specific mo
 
     - `:"mid-conversation-system-clear-at-2026-08-21"`
 
+- `workspace_id: String`
+
 ## Returns
 
 - `class ModelInfo`
+
+  - `type: :model`
+
+    Object type.
+
+    For Models, this is always `"model"`.
 
   - `id: String`
 
@@ -237,12 +252,6 @@ The Models API response can be used to determine information about a specific mo
   - `max_tokens: Integer`
 
     Maximum value for the `max_tokens` parameter when using this model.
-
-  - `type: :model`
-
-    Object type.
-
-    For Models, this is always `"model"`.
 
 ## Example
 

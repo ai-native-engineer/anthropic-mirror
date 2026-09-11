@@ -69,7 +69,7 @@ Claude can also display interactive content in search results. For more detailed
 
 ## Manage usage on free Claude accounts
 
-As a free user, you have daily usage limits for Claude. Since web search and fetch both contribute to these limits, here are some tips to make the most of your capacity:
+As a free user, you have usage limits that reset every five hours. Since web search and fetch both contribute to these limits, here are some tips to make the most of your capacity:
 
 * **Be mindful of direct links:** Before asking Claude to analyze a long article via its URL, consider whether you need the full analysis or just key points.
 * **Toggle web search off when not needed:** If you're having a conversation that doesn't require current information, disable web search to conserve your usage.
@@ -102,7 +102,7 @@ You can re-enable it anytime you need current information.
 * Occasionally, website links may not function.
 * Claude may use your location (inferred from your IP address) when responding to a request for localized results.
 * Search times may vary based on query complexity.
-* Usage of web search and web fetch counts toward your daily limits.
+* Usage of web search and web fetch counts toward your usage limits.
 
 ## Support
 

@@ -330,6 +330,14 @@ Recurring
 
 [Learn more about this webinar](https://www.anthropic.com/webinars/claude-code-foundations-series)
 
+DRI-ing Your Career
+
+Oct 13, 2026
+
+2026-10-13
+
+[Learn more about this webinar](https://www.anthropic.com/webinars/dri-ing-your-career)
+
 AI as an Engineering Leadership Multiplier
 
 Oct 8, 2026
@@ -362,19 +370,19 @@ Sep 15, 2026
 
 [Learn more about this webinar](https://www.anthropic.com/webinars/scaling-claude-with-cost-controls-sept-2026)
 
-Building Claude Commerce Agents
-
-Sep 10, 2026
-
-2026-09-10
-
-[Learn more about this webinar](https://www.anthropic.com/webinars/building-claude-commerce-agents)
-
 [Show more](https://www.anthropic.com/events?e45d281a_page=2)
 
 1 / 12
 
 ## Webinar series
+
+![](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/69a1dc44eefb48d107a8b8a9_60a35c504cedb3e3f581b211e4b8aef372ffe031-1000x1000.svg)
+
+3 webinars
+
+### Guest Lecture Series: Leadership in Engineering
+
+[View series](https://www.anthropic.com/webinar-series/guest-lecture-series-leadership-in-engineering)View series
 
 ![](https://cdn.prod.website-files.com/67ed58c92cfedc451ebbbca1/69dd510685beb48e79075363_Code-Magnify.svg)
 

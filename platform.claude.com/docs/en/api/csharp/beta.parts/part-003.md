@@ -3,6 +3,2217 @@
 
 <!-- chunk-start -->
 
+    - `McpClient2025_11_20("mcp-client-2025-11-20")`
+
+    - `DevFullThinking2025_05_14("dev-full-thinking-2025-05-14")`
+
+    - `InterleavedThinking2025_05_14("interleaved-thinking-2025-05-14")`
+
+    - `CodeExecution2025_05_22("code-execution-2025-05-22")`
+
+    - `ExtendedCacheTtl2025_04_11("extended-cache-ttl-2025-04-11")`
+
+    - `Context1m2025_08_07("context-1m-2025-08-07")`
+
+    - `ContextManagement2025_06_27("context-management-2025-06-27")`
+
+    - `ModelContextWindowExceeded2025_08_26("model-context-window-exceeded-2025-08-26")`
+
+    - `Skills2025_10_02("skills-2025-10-02")`
+
+    - `FastMode2026_02_01("fast-mode-2026-02-01")`
+
+    - `Output300k2026_03_24("output-300k-2026-03-24")`
+
+    - `UserProfiles2026_03_24("user-profiles-2026-03-24")`
+
+    - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
+
+    - `UserProfiles2026_09_04("user-profiles-2026-09-04")`
+
+    - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
+
+    - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
+
+    - `CacheDiagnosis2026_04_07("cache-diagnosis-2026-04-07")`
+
+    - `Dreaming2026_04_21("dreaming-2026-04-21")`
+
+    - `ThinkingTokenCount2026_05_13("thinking-token-count-2026-05-13")`
+
+    - `ServerSideFallback2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `ServerSideFallback2026_07_01("server-side-fallback-2026-07-01")`
+
+    - `FallbackCredit2026_06_01("fallback-credit-2026-06-01")`
+
+    - `FallbackCredit2026_07_01("fallback-credit-2026-07-01")`
+
+    - `AgentMemory2026_07_22("agent-memory-2026-07-22")`
+
+    - `MidConversationToolChanges2026_07_01("mid-conversation-tool-changes-2026-07-01")`
+
+    - `Compact2026_01_12("compact-2026-01-12")`
+
+    - `ComputerUse2025_11_24("computer-use-2025-11-24")`
+
+    - `McpTunnels2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `StructuredOutputs2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TaskBudgets2026_03_13("task-budgets-2026-03-13")`
+
+    - `ThinkingDisplayUpdates2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CEUserManagement2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MidConversationOutputConfig2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `ThinkingBindingControls2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
+  - `string workspaceID`
+
+    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `class BetaTunnelCertificate:`
+
+  A CA certificate attached to a tunnel.
+
+  - `JsonElement Type = "tunnel_certificate"`
+
+  - `required string ID`
+
+    Unique identifier for the certificate, prefixed with `tcrt_`.
+
+  - `required DateTimeOffset? ArchivedAt`
+
+    A timestamp in RFC 3339 format
+
+    format: date-time
+
+  - `required DateTimeOffset CreatedAt`
+
+    A timestamp in RFC 3339 format
+
+    format: date-time
+
+  - `required DateTimeOffset? ExpiresAt`
+
+    A timestamp in RFC 3339 format
+
+    format: date-time
+
+  - `required string Fingerprint`
+
+    Lowercase hex SHA-256 fingerprint of the certificate's DER encoding.
+
+  - `required string TunnelID`
+
+    ID of the tunnel the certificate is registered against.
+
+#### Example
+
+```csharp
+CertificateListParams parameters = new() { TunnelID = "tunnel_id" };
+
+var page = await client.Beta.Tunnels.Certificates.List(parameters);
+await foreach (var item in page.Paginate())
+{
+    Console.WriteLine(item);
+}
+```
+
+##### Response (200)
+
+```json
+{
+  "data": [
+    {
+      "id": "id",
+      "archived_at": "2019-12-27T18:11:19.117Z",
+      "created_at": "2019-12-27T18:11:19.117Z",
+      "expires_at": "2019-12-27T18:11:19.117Z",
+      "fingerprint": "fingerprint",
+      "tunnel_id": "tunnel_id",
+      "type": "tunnel_certificate"
+    }
+  ],
+  "next_page": "next_page"
+}
+```
+
+### Archive Tunnel Certificate
+
+`BetaTunnelCertificate Beta.Tunnels.Certificates.Archive(parameters, cancellationToken = default)`
+
+**POST** `/v1/tunnels/{tunnel_id}/certificates/{certificate_id}/archive`
+
+The Tunnels API is in research preview. It requires the `anthropic-beta: mcp-tunnels-2026-06-22` header and may change without a deprecation period. It supersedes the Admin API endpoints at `/v1/organizations/tunnels`, which remain available during a migration window.
+
+Archives a tunnel certificate, removing it from the set Anthropic trusts for the tunnel. The certificate record is retained. Archiving the last non-archived certificate is permitted; the tunnel rejects MCP traffic until a new certificate is added.
+
+#### Parameters
+
+- `CertificateArchiveParams parameters`
+
+  - `required string tunnelID`
+
+    Path param: Path parameter tunnel_id
+
+  - `required string certificateID`
+
+    Path param: Path parameter certificate_id
+
+  - `IReadOnlyList<AnthropicBeta> betas`
+
+    Header param: Optional header to specify the beta version(s) you want to use.
+
+    - `MessageBatches2024_09_24("message-batches-2024-09-24")`
+
+    - `PromptCaching2024_07_31("prompt-caching-2024-07-31")`
+
+    - `ComputerUse2024_10_22("computer-use-2024-10-22")`
+
+    - `ComputerUse2025_01_24("computer-use-2025-01-24")`
+
+    - `Pdfs2024_09_25("pdfs-2024-09-25")`
+
+    - `TokenCounting2024_11_01("token-counting-2024-11-01")`
+
+    - `TokenEfficientTools2025_02_19("token-efficient-tools-2025-02-19")`
+
+    - `Output128k2025_02_19("output-128k-2025-02-19")`
+
+    - `FilesApi2025_04_14("files-api-2025-04-14")`
+
+    - `McpClient2025_04_04("mcp-client-2025-04-04")`
+
+    - `McpClient2025_11_20("mcp-client-2025-11-20")`
+
+    - `DevFullThinking2025_05_14("dev-full-thinking-2025-05-14")`
+
+    - `InterleavedThinking2025_05_14("interleaved-thinking-2025-05-14")`
+
+    - `CodeExecution2025_05_22("code-execution-2025-05-22")`
+
+    - `ExtendedCacheTtl2025_04_11("extended-cache-ttl-2025-04-11")`
+
+    - `Context1m2025_08_07("context-1m-2025-08-07")`
+
+    - `ContextManagement2025_06_27("context-management-2025-06-27")`
+
+    - `ModelContextWindowExceeded2025_08_26("model-context-window-exceeded-2025-08-26")`
+
+    - `Skills2025_10_02("skills-2025-10-02")`
+
+    - `FastMode2026_02_01("fast-mode-2026-02-01")`
+
+    - `Output300k2026_03_24("output-300k-2026-03-24")`
+
+    - `UserProfiles2026_03_24("user-profiles-2026-03-24")`
+
+    - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
+
+    - `UserProfiles2026_09_04("user-profiles-2026-09-04")`
+
+    - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
+
+    - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
+
+    - `CacheDiagnosis2026_04_07("cache-diagnosis-2026-04-07")`
+
+    - `Dreaming2026_04_21("dreaming-2026-04-21")`
+
+    - `ThinkingTokenCount2026_05_13("thinking-token-count-2026-05-13")`
+
+    - `ServerSideFallback2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `ServerSideFallback2026_07_01("server-side-fallback-2026-07-01")`
+
+    - `FallbackCredit2026_06_01("fallback-credit-2026-06-01")`
+
+    - `FallbackCredit2026_07_01("fallback-credit-2026-07-01")`
+
+    - `AgentMemory2026_07_22("agent-memory-2026-07-22")`
+
+    - `MidConversationToolChanges2026_07_01("mid-conversation-tool-changes-2026-07-01")`
+
+    - `Compact2026_01_12("compact-2026-01-12")`
+
+    - `ComputerUse2025_11_24("computer-use-2025-11-24")`
+
+    - `McpTunnels2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `StructuredOutputs2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TaskBudgets2026_03_13("task-budgets-2026-03-13")`
+
+    - `ThinkingDisplayUpdates2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CEUserManagement2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MidConversationOutputConfig2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `ThinkingBindingControls2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
+  - `string workspaceID`
+
+    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `class BetaTunnelCertificate:`
+
+  A CA certificate attached to a tunnel.
+
+  - `JsonElement Type = "tunnel_certificate"`
+
+  - `required string ID`
+
+    Unique identifier for the certificate, prefixed with `tcrt_`.
+
+  - `required DateTimeOffset? ArchivedAt`
+
+    A timestamp in RFC 3339 format
+
+    format: date-time
+
+  - `required DateTimeOffset CreatedAt`
+
+    A timestamp in RFC 3339 format
+
+    format: date-time
+
+  - `required DateTimeOffset? ExpiresAt`
+
+    A timestamp in RFC 3339 format
+
+    format: date-time
+
+  - `required string Fingerprint`
+
+    Lowercase hex SHA-256 fingerprint of the certificate's DER encoding.
+
+  - `required string TunnelID`
+
+    ID of the tunnel the certificate is registered against.
+
+#### Example
+
+```csharp
+CertificateArchiveParams parameters = new()
+{
+    TunnelID = "tunnel_id",
+    CertificateID = "certificate_id",
+};
+
+var betaTunnelCertificate = await client.Beta.Tunnels.Certificates.Archive(parameters);
+
+Console.WriteLine(betaTunnelCertificate);
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "id",
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "expires_at": "2019-12-27T18:11:19.117Z",
+  "fingerprint": "fingerprint",
+  "tunnel_id": "tunnel_id",
+  "type": "tunnel_certificate"
+}
+```
+
+## Beta › Organization
+
+### Get Current Organization
+
+`BetaOrganization Beta.Organization.Retrieve(parameters, cancellationToken = default)`
+
+**GET** `/v1/organizations/me`
+
+Retrieve information about the organization associated with the authenticated API key.
+
+#### Parameters
+
+- `OrganizationRetrieveParams parameters`
+
+#### Returns
+
+- `class BetaOrganization:`
+
+  - `JsonElement Type = "organization"`
+
+    Object type.
+
+    For Organizations, this is always `"organization"`.
+
+  - `required string ID`
+
+    ID of the Organization.
+
+    format: uuid
+
+  - `required string Name`
+
+    Name of the Organization.
+
+#### Example
+
+```csharp
+OrganizationRetrieveParams parameters = new();
+
+var betaOrganization = await client.Beta.Organization.Retrieve(parameters);
+
+Console.WriteLine(betaOrganization);
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "12345678-1234-5678-1234-567812345678",
+  "name": "Organization Name",
+  "type": "organization"
+}
+```
+
+## Beta › Organization › API Keys
+
+### List API Keys
+
+`ApiKeyListPage Beta.Organization.ApiKeys.List(parameters, cancellationToken = default)`
+
+**GET** `/v1/organizations/api_keys`
+
+List API Keys
+
+#### Parameters
+
+- `ApiKeyListParams parameters`
+
+  - `string afterID`
+
+    ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately after this object.
+
+  - `string beforeID`
+
+    ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately before this object.
+
+  - `string? createdByUserID`
+
+    Filter by the ID of the User who created the object.
+
+  - `long limit`
+
+    Number of items to return per page.
+
+    Defaults to `20`. Ranges from `1` to `1000`.
+
+    maximum: 1000, minimum: 1
+
+  - `Status? status`
+
+    Filter by API key status.
+
+    - `Active("active")`
+
+    - `Archived("archived")`
+
+    - `Expired("expired")`
+
+    - `Inactive("inactive")`
+
+  - `string? workspaceID`
+
+    Filter by Workspace ID.
+
+#### Returns
+
+- `class BetaApiKey:`
+
+  - `JsonElement Type = "api_key"`
+
+    Object type.
+
+    For API Keys, this is always `"api_key"`.
+
+  - `required string ID`
+
+    ID of the API key.
+
+  - `required DateTimeOffset CreatedAt`
+
+    RFC 3339 datetime string indicating when the API Key was created.
+
+    format: date-time
+
+  - `required BetaApiKeyCreatedBy? CreatedBy`
+
+    The ID and type of the actor that created the API key, or `null` when the
+    creator is not recorded (legacy, workload-identity-federated, or
+    system-created keys).
+
+    - `required Type Type`
+
+      Type of the actor that created the object.
+
+      - `ServiceAccount("service_account")`
+
+      - `User("user")`
+
+    - `required string ID`
+
+      ID of the actor that created the object.
+
+  - `required DateTimeOffset? ExpiresAt`
+
+    RFC 3339 datetime string indicating when the API Key expires, or `null` if it never expires.
+
+    format: date-time
+
+  - `required string Name`
+
+    Name of the API key.
+
+  - `required string? PartialKeyHint`
+
+    Partially redacted hint for the API key.
+
+  - `required Principal? Principal`
+
+    The principal the API key acts as (a User or a Service Account), or `null` if the API key is not bound to a principal.
+
+    - `class BetaApiKeyUserActor:`
+
+      - `JsonElement Type = "user_actor"`
+
+        Principal type. Always `"user_actor"` for a User.
+
+      - `required string UserID`
+
+        ID of the User the API key acts as.
+
+    - `class BetaApiKeyServiceAccountActor:`
+
+      - `JsonElement Type = "service_account_actor"`
+
+        Principal type. Always `"service_account_actor"` for a Service Account.
+
+      - `required string ServiceAccountID`
+
+        ID of the Service Account the API key acts as.
+
+  - `required Scope Scope`
+
+    Where the API key belongs: its Workspace (`{"type": "workspace", "workspace_id": "wrkspc_..."}`, with the Workspace's real ID even when it is the organization's default Workspace), or the organization (`{"type": "organization"}`) for a principal-bound API key that has no Workspace.
+
+    - `class BetaApiKeyOrganizationScope:`
+
+      - `JsonElement Type = "organization"`
+
+        Scope type. Always `"organization"`: the API key has no Workspace. Only a principal-bound API key can have this scope.
+
+    - `class BetaApiKeyWorkspaceScope:`
+
+      - `JsonElement Type = "workspace"`
+
+        Scope type. Always `"workspace"`: the API key belongs to one Workspace.
+
+      - `required string WorkspaceID`
+
+        ID of the Workspace the API key belongs to. Unlike the deprecated top-level `workspace_id`, this is the Workspace's real ID even for the organization's default Workspace.
+
+  - `required Status Status`
+
+    Status of the API key.
+
+    - `Active("active")`
+
+    - `Archived("archived")`
+
+    - `Expired("expired")`
+
+    - `Inactive("inactive")`
+
+  - `required string? WorkspaceID`
+
+    **Deprecated**: Use `scope` instead. `workspace_id` is `null` both for an API key in the default Workspace and for a principal-bound API key that has no Workspace.
+
+    Deprecated: use `scope` instead. ID of the Workspace associated with the API key, or `null` if the API key belongs to the default Workspace. Also `null` for a principal-bound API key that has no Workspace; `scope` tells the two apart.
+
+#### Example
+
+```csharp
+ApiKeyListParams parameters = new();
+
+var page = await client.Beta.Organization.ApiKeys.List(parameters);
+await foreach (var item in page.Paginate())
+{
+    Console.WriteLine(item);
+}
+```
+
+##### Response (200)
+
+```json
+{
+  "data": [
+    {
+      "id": "apikey_01Rj2N8SVvo6BePZj99NhmiT",
+      "created_at": "2024-10-30T23:58:27.427722Z",
+      "created_by": {
+        "id": "user_01WCz1FkmYMm4gnmykNKUu3Q",
+        "type": "user"
+      },
+      "expires_at": "2024-10-30T23:58:27.427722Z",
+      "name": "Developer Key",
+      "partial_key_hint": "sk-ant-api03-R2D...igAA",
+      "principal": {
+        "type": "user_actor",
+        "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
+      },
+      "scope": {
+        "type": "workspace",
+        "workspace_id": "wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ"
+      },
+      "status": "active",
+      "type": "api_key",
+      "workspace_id": "wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ"
+    }
+  ],
+  "first_id": "first_id",
+  "has_more": true,
+  "last_id": "last_id"
+}
+```
+
+### Retrieve API Key (Admin API)
+
+`BetaApiKey Beta.Organization.ApiKeys.Retrieve(parameters, cancellationToken = default)`
+
+**GET** `/v1/organizations/api_keys/{api_key_id}`
+
+Retrieve information about a single API key in your organization, looked up by its ID. This Admin API endpoint requires an Admin API key, is intended for programmatic key management, and never returns the key's secret value. To view or create your own API keys, go to [API keys](https://platform.claude.com/settings/keys) in the Claude Console.
+
+#### Parameters
+
+- `ApiKeyRetrieveParams parameters`
+
+  - `required string apiKeyID`
+
+    ID of the API key.
+
+#### Returns
+
+- `class BetaApiKey:`
+
+  - `JsonElement Type = "api_key"`
+
+    Object type.
+
+    For API Keys, this is always `"api_key"`.
+
+  - `required string ID`
+
+    ID of the API key.
+
+  - `required DateTimeOffset CreatedAt`
+
+    RFC 3339 datetime string indicating when the API Key was created.
+
+    format: date-time
+
+  - `required BetaApiKeyCreatedBy? CreatedBy`
+
+    The ID and type of the actor that created the API key, or `null` when the
+    creator is not recorded (legacy, workload-identity-federated, or
+    system-created keys).
+
+    - `required Type Type`
+
+      Type of the actor that created the object.
+
+      - `ServiceAccount("service_account")`
+
+      - `User("user")`
+
+    - `required string ID`
+
+      ID of the actor that created the object.
+
+  - `required DateTimeOffset? ExpiresAt`
+
+    RFC 3339 datetime string indicating when the API Key expires, or `null` if it never expires.
+
+    format: date-time
+
+  - `required string Name`
+
+    Name of the API key.
+
+  - `required string? PartialKeyHint`
+
+    Partially redacted hint for the API key.
+
+  - `required Principal? Principal`
+
+    The principal the API key acts as (a User or a Service Account), or `null` if the API key is not bound to a principal.
+
+    - `class BetaApiKeyUserActor:`
+
+      - `JsonElement Type = "user_actor"`
+
+        Principal type. Always `"user_actor"` for a User.
+
+      - `required string UserID`
+
+        ID of the User the API key acts as.
+
+    - `class BetaApiKeyServiceAccountActor:`
+
+      - `JsonElement Type = "service_account_actor"`
+
+        Principal type. Always `"service_account_actor"` for a Service Account.
+
+      - `required string ServiceAccountID`
+
+        ID of the Service Account the API key acts as.
+
+  - `required Scope Scope`
+
+    Where the API key belongs: its Workspace (`{"type": "workspace", "workspace_id": "wrkspc_..."}`, with the Workspace's real ID even when it is the organization's default Workspace), or the organization (`{"type": "organization"}`) for a principal-bound API key that has no Workspace.
+
+    - `class BetaApiKeyOrganizationScope:`
+
+      - `JsonElement Type = "organization"`
+
+        Scope type. Always `"organization"`: the API key has no Workspace. Only a principal-bound API key can have this scope.
+
+    - `class BetaApiKeyWorkspaceScope:`
+
+      - `JsonElement Type = "workspace"`
+
+        Scope type. Always `"workspace"`: the API key belongs to one Workspace.
+
+      - `required string WorkspaceID`
+
+        ID of the Workspace the API key belongs to. Unlike the deprecated top-level `workspace_id`, this is the Workspace's real ID even for the organization's default Workspace.
+
+  - `required Status Status`
+
+    Status of the API key.
+
+    - `Active("active")`
+
+    - `Archived("archived")`
+
+    - `Expired("expired")`
+
+    - `Inactive("inactive")`
+
+  - `required string? WorkspaceID`
+
+    **Deprecated**: Use `scope` instead. `workspace_id` is `null` both for an API key in the default Workspace and for a principal-bound API key that has no Workspace.
+
+    Deprecated: use `scope` instead. ID of the Workspace associated with the API key, or `null` if the API key belongs to the default Workspace. Also `null` for a principal-bound API key that has no Workspace; `scope` tells the two apart.
+
+#### Example
+
+```csharp
+ApiKeyRetrieveParams parameters = new() { ApiKeyID = "api_key_id" };
+
+var betaApiKey = await client.Beta.Organization.ApiKeys.Retrieve(parameters);
+
+Console.WriteLine(betaApiKey);
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "apikey_01Rj2N8SVvo6BePZj99NhmiT",
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "created_by": {
+    "id": "user_01WCz1FkmYMm4gnmykNKUu3Q",
+    "type": "user"
+  },
+  "expires_at": "2024-10-30T23:58:27.427722Z",
+  "name": "Developer Key",
+  "partial_key_hint": "sk-ant-api03-R2D...igAA",
+  "principal": {
+    "type": "user_actor",
+    "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
+  },
+  "scope": {
+    "type": "workspace",
+    "workspace_id": "wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ"
+  },
+  "status": "active",
+  "type": "api_key",
+  "workspace_id": "wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ"
+}
+```
+
+### Update API Key
+
+`BetaApiKey Beta.Organization.ApiKeys.Update(parameters, cancellationToken = default)`
+
+**POST** `/v1/organizations/api_keys/{api_key_id}`
+
+Update API Key
+
+#### Parameters
+
+- `ApiKeyUpdateParams parameters`
+
+  - `required string apiKeyID`
+
+    ID of the API key.
+
+  - `string? name`
+
+    Name of the API key.
+
+    maxLength: 500, minLength: 1
+
+  - `Status? status`
+
+    Status of the API key.
+
+    - `Active("active")`
+
+    - `Archived("archived")`
+
+    - `Inactive("inactive")`
+
+#### Returns
+
+- `class BetaApiKey:`
+
+  - `JsonElement Type = "api_key"`
+
+    Object type.
+
+    For API Keys, this is always `"api_key"`.
+
+  - `required string ID`
+
+    ID of the API key.
+
+  - `required DateTimeOffset CreatedAt`
+
+    RFC 3339 datetime string indicating when the API Key was created.
+
+    format: date-time
+
+  - `required BetaApiKeyCreatedBy? CreatedBy`
+
+    The ID and type of the actor that created the API key, or `null` when the
+    creator is not recorded (legacy, workload-identity-federated, or
+    system-created keys).
+
+    - `required Type Type`
+
+      Type of the actor that created the object.
+
+      - `ServiceAccount("service_account")`
+
+      - `User("user")`
+
+    - `required string ID`
+
+      ID of the actor that created the object.
+
+  - `required DateTimeOffset? ExpiresAt`
+
+    RFC 3339 datetime string indicating when the API Key expires, or `null` if it never expires.
+
+    format: date-time
+
+  - `required string Name`
+
+    Name of the API key.
+
+  - `required string? PartialKeyHint`
+
+    Partially redacted hint for the API key.
+
+  - `required Principal? Principal`
+
+    The principal the API key acts as (a User or a Service Account), or `null` if the API key is not bound to a principal.
+
+    - `class BetaApiKeyUserActor:`
+
+      - `JsonElement Type = "user_actor"`
+
+        Principal type. Always `"user_actor"` for a User.
+
+      - `required string UserID`
+
+        ID of the User the API key acts as.
+
+    - `class BetaApiKeyServiceAccountActor:`
+
+      - `JsonElement Type = "service_account_actor"`
+
+        Principal type. Always `"service_account_actor"` for a Service Account.
+
+      - `required string ServiceAccountID`
+
+        ID of the Service Account the API key acts as.
+
+  - `required Scope Scope`
+
+    Where the API key belongs: its Workspace (`{"type": "workspace", "workspace_id": "wrkspc_..."}`, with the Workspace's real ID even when it is the organization's default Workspace), or the organization (`{"type": "organization"}`) for a principal-bound API key that has no Workspace.
+
+    - `class BetaApiKeyOrganizationScope:`
+
+      - `JsonElement Type = "organization"`
+
+        Scope type. Always `"organization"`: the API key has no Workspace. Only a principal-bound API key can have this scope.
+
+    - `class BetaApiKeyWorkspaceScope:`
+
+      - `JsonElement Type = "workspace"`
+
+        Scope type. Always `"workspace"`: the API key belongs to one Workspace.
+
+      - `required string WorkspaceID`
+
+        ID of the Workspace the API key belongs to. Unlike the deprecated top-level `workspace_id`, this is the Workspace's real ID even for the organization's default Workspace.
+
+  - `required Status Status`
+
+    Status of the API key.
+
+    - `Active("active")`
+
+    - `Archived("archived")`
+
+    - `Expired("expired")`
+
+    - `Inactive("inactive")`
+
+  - `required string? WorkspaceID`
+
+    **Deprecated**: Use `scope` instead. `workspace_id` is `null` both for an API key in the default Workspace and for a principal-bound API key that has no Workspace.
+
+    Deprecated: use `scope` instead. ID of the Workspace associated with the API key, or `null` if the API key belongs to the default Workspace. Also `null` for a principal-bound API key that has no Workspace; `scope` tells the two apart.
+
+#### Example
+
+```csharp
+ApiKeyUpdateParams parameters = new() { ApiKeyID = "api_key_id" };
+
+var betaApiKey = await client.Beta.Organization.ApiKeys.Update(parameters);
+
+Console.WriteLine(betaApiKey);
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "apikey_01Rj2N8SVvo6BePZj99NhmiT",
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "created_by": {
+    "id": "user_01WCz1FkmYMm4gnmykNKUu3Q",
+    "type": "user"
+  },
+  "expires_at": "2024-10-30T23:58:27.427722Z",
+  "name": "Developer Key",
+  "partial_key_hint": "sk-ant-api03-R2D...igAA",
+  "principal": {
+    "type": "user_actor",
+    "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
+  },
+  "scope": {
+    "type": "workspace",
+    "workspace_id": "wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ"
+  },
+  "status": "active",
+  "type": "api_key",
+  "workspace_id": "wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ"
+}
+```
+
+## Beta › Organization › External Keys
+
+### Create External Key
+
+`BetaExternalKey Beta.Organization.ExternalKeys.Create(parameters, cancellationToken = default)`
+
+**POST** `/v1/organizations/external_keys`
+
+Create an external key config owned by the caller's organization.
+
+#### Parameters
+
+- `ExternalKeyCreateParams parameters`
+
+  - `required ProviderConfig providerConfig`
+
+    KMS provider identity and auth coordinates.
+
+    - `class BetaAwsExternalKeyConfig:`
+
+      - `JsonElement Type = "aws"`
+
+      - `required string KmsArn`
+
+        Full ARN of the AWS KMS key. On Claude Platform on AWS the key must be a single-Region key in your organization's own AWS account; cross-account keys, multi-Region keys, and alias ARNs are rejected.
+
+        maxLength: 2048
+
+      - `string? Region`
+
+        AWS region. Derived from `kms_arn` if omitted.
+
+      - `string? RoleArn`
+
+        **Deprecated**
+
+        IAM role ARN. Deprecated — Anthropic reaches the KMS key through its own intermediate role (or, on Claude Platform on AWS, with credentials AWS issues for the Workspace); this field is ignored.
+
+    - `class BetaGcpExternalKeyConfig:`
+
+      - `JsonElement Type = "gcp"`
+
+      - `required string KeyName`
+
+        Full resource name of the Cloud KMS key.
+
+    - `class BetaAzureExternalKeyConfigParam:`
+
+      Azure Key Vault provider configuration.
+
+      - `JsonElement Type = "azure"`
+
+      - `required string KeyName`
+
+        Name of the key within the vault.
+
+      - `required string TenantID`
+
+        Azure AD tenant ID.
+
+      - `required string VaultUri`
+
+        Key Vault data-plane URI — `https://{vault-name}.vault.azure.net` or `https://{hsm-name}.managedhsm.azure.net`.
+
+      - `string? ClientID`
+
+        Azure AD application (client) ID. Omit to use Anthropic's multitenant app. Provide only if using a single-tenant app registration in the customer's directory.
+
+  - `string? displayName`
+
+    Human-friendly display name.
+
+    maxLength: 255, minLength: 1
+
+  - `Geo geo`
+
+    Data residency geo. Only `us` is supported.
+
+    - `Us("us")`
+
+#### Returns
+
+- `class BetaExternalKey:`
+
+  CMEK external key config belonging to the caller's organization.
+
+  Configs are organization-scoped. Workspaces attach to a config; once any
+  workspace references it, the provider fields become effectively immutable
+  (existing encrypted data needs the config for decrypt).
+
+  - `JsonElement Type = "external_key"`
+
+  - `required string ID`
+
+    Identifier of the external key config. A tagged ID prefixed `ekey_`, or — for organizations on the Claude Platform on AWS — the AWS KMS key ARN.
+
+  - `required Attachment Attachment`
+
+    Whether any workspace uses this config to encrypt its data — counting live and archived workspaces (an archived workspace's data remains encrypted under the config), excluding deleted ones. Only an attached config is used by the encryption path; an `unattached` config is inert and can be deleted.
+
+    - `class BetaExternalKeyAttachedAttachment:`
+
+      - `JsonElement Type = "attached"`
+
+    - `class BetaExternalKeyUnattachedAttachment:`
+
+      - `JsonElement Type = "unattached"`
+
+  - `required DateTimeOffset CreatedAt`
+
+    format: date-time
+
+  - `required string? DisplayName`
+
+    Human-friendly display name. Null if none was set.
+
+  - `required string Geo`
+
+    Data residency geo. Selects which regional validator handles this key's encrypt/decrypt roundtrips.
+
+  - `required ProviderConfig ProviderConfig`
+
+    KMS provider identity and auth coordinates.
+
+    - `class BetaAwsExternalKeyConfig:`
+
+      - `JsonElement Type = "aws"`
+
+      - `required string KmsArn`
+
+        Full ARN of the AWS KMS key. On Claude Platform on AWS the key must be a single-Region key in your organization's own AWS account; cross-account keys, multi-Region keys, and alias ARNs are rejected.
+
+        maxLength: 2048
+
+      - `string? Region`
+
+        AWS region. Derived from `kms_arn` if omitted.
+
+      - `string? RoleArn`
+
+        **Deprecated**
+
+        IAM role ARN. Deprecated — Anthropic reaches the KMS key through its own intermediate role (or, on Claude Platform on AWS, with credentials AWS issues for the Workspace); this field is ignored.
+
+    - `class BetaGcpExternalKeyConfig:`
+
+      - `JsonElement Type = "gcp"`
+
+      - `required string KeyName`
+
+        Full resource name of the Cloud KMS key.
+
+    - `class BetaAzureExternalKeyConfig:`
+
+      - `JsonElement Type = "azure"`
+
+      - `required string KeyName`
+
+        Name of the key within the vault.
+
+      - `required string TenantID`
+
+        Azure AD tenant ID.
+
+      - `required string VaultUri`
+
+        Key Vault data-plane URI — `https://{vault-name}.vault.azure.net` or `https://{hsm-name}.managedhsm.azure.net`.
+
+      - `string? ClientID`
+
+        Azure AD application (client) ID. Omit to use Anthropic's multitenant app. Provide only if using a single-tenant app registration in the customer's directory.
+
+  - `required DateTimeOffset UpdatedAt`
+
+    format: date-time
+
+#### Example
+
+```csharp
+ExternalKeyCreateParams parameters = new()
+{
+    ProviderConfig = new BetaAwsExternalKeyConfig()
+    {
+        KmsArn = "arn:aws:kms:us-east-1:111122223333:key/abcd1234-5678-90ab-cdef-000011112222",
+        Region = "us-east-1",
+        RoleArn = "arn:aws:iam::111122223333:role/anthropic-cmek",
+    },
+};
+
+var betaExternalKey = await client.Beta.Organization.ExternalKeys.Create(parameters);
+
+Console.WriteLine(betaExternalKey);
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "ekey_01SDCCSbTxrXDpWc1phhtcfK",
+  "attachment": {
+    "type": "attached"
+  },
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "display_name": "prod-us-key",
+  "geo": "us",
+  "provider_config": {
+    "kms_arn": "arn:aws:kms:us-east-1:111122223333:key/abcd1234-5678-90ab-cdef-000011112222",
+    "type": "aws",
+    "region": "us-east-1",
+    "role_arn": "arn:aws:iam::111122223333:role/anthropic-cmek"
+  },
+  "type": "external_key",
+  "updated_at": "2024-10-30T23:58:27.427722Z"
+}
+```
+
+### List External Keys
+
+`ExternalKeyListPage Beta.Organization.ExternalKeys.List(parameters, cancellationToken = default)`
+
+**GET** `/v1/organizations/external_keys`
+
+List external key configs in the caller's organization.
+
+Results are ordered by creation time (newest first). Use the
+`next_page` cursor from the response to fetch subsequent pages.
+
+#### Parameters
+
+- `ExternalKeyListParams parameters`
+
+  - `long limit`
+
+    Number of results per page.
+
+    maximum: 100, minimum: 1
+
+  - `string? page`
+
+    Opaque cursor from a previous response's `next_page`.
+
+#### Returns
+
+- `class BetaExternalKey:`
+
+  CMEK external key config belonging to the caller's organization.
+
+  Configs are organization-scoped. Workspaces attach to a config; once any
+  workspace references it, the provider fields become effectively immutable
+  (existing encrypted data needs the config for decrypt).
+
+  - `JsonElement Type = "external_key"`
+
+  - `required string ID`
+
+    Identifier of the external key config. A tagged ID prefixed `ekey_`, or — for organizations on the Claude Platform on AWS — the AWS KMS key ARN.
+
+  - `required Attachment Attachment`
+
+    Whether any workspace uses this config to encrypt its data — counting live and archived workspaces (an archived workspace's data remains encrypted under the config), excluding deleted ones. Only an attached config is used by the encryption path; an `unattached` config is inert and can be deleted.
+
+    - `class BetaExternalKeyAttachedAttachment:`
+
+      - `JsonElement Type = "attached"`
+
+    - `class BetaExternalKeyUnattachedAttachment:`
+
+      - `JsonElement Type = "unattached"`
+
+  - `required DateTimeOffset CreatedAt`
+
+    format: date-time
+
+  - `required string? DisplayName`
+
+    Human-friendly display name. Null if none was set.
+
+  - `required string Geo`
+
+    Data residency geo. Selects which regional validator handles this key's encrypt/decrypt roundtrips.
+
+  - `required ProviderConfig ProviderConfig`
+
+    KMS provider identity and auth coordinates.
+
+    - `class BetaAwsExternalKeyConfig:`
+
+      - `JsonElement Type = "aws"`
+
+      - `required string KmsArn`
+
+        Full ARN of the AWS KMS key. On Claude Platform on AWS the key must be a single-Region key in your organization's own AWS account; cross-account keys, multi-Region keys, and alias ARNs are rejected.
+
+        maxLength: 2048
+
+      - `string? Region`
+
+        AWS region. Derived from `kms_arn` if omitted.
+
+      - `string? RoleArn`
+
+        **Deprecated**
+
+        IAM role ARN. Deprecated — Anthropic reaches the KMS key through its own intermediate role (or, on Claude Platform on AWS, with credentials AWS issues for the Workspace); this field is ignored.
+
+    - `class BetaGcpExternalKeyConfig:`
+
+      - `JsonElement Type = "gcp"`
+
+      - `required string KeyName`
+
+        Full resource name of the Cloud KMS key.
+
+    - `class BetaAzureExternalKeyConfig:`
+
+      - `JsonElement Type = "azure"`
+
+      - `required string KeyName`
+
+        Name of the key within the vault.
+
+      - `required string TenantID`
+
+        Azure AD tenant ID.
+
+      - `required string VaultUri`
+
+        Key Vault data-plane URI — `https://{vault-name}.vault.azure.net` or `https://{hsm-name}.managedhsm.azure.net`.
+
+      - `string? ClientID`
+
+        Azure AD application (client) ID. Omit to use Anthropic's multitenant app. Provide only if using a single-tenant app registration in the customer's directory.
+
+  - `required DateTimeOffset UpdatedAt`
+
+    format: date-time
+
+#### Example
+
+```csharp
+ExternalKeyListParams parameters = new();
+
+var page = await client.Beta.Organization.ExternalKeys.List(parameters);
+await foreach (var item in page.Paginate())
+{
+    Console.WriteLine(item);
+}
+```
+
+##### Response (200)
+
+```json
+{
+  "data": [
+    {
+      "id": "ekey_01SDCCSbTxrXDpWc1phhtcfK",
+      "attachment": {
+        "type": "attached"
+      },
+      "created_at": "2024-10-30T23:58:27.427722Z",
+      "display_name": "prod-us-key",
+      "geo": "us",
+      "provider_config": {
+        "kms_arn": "arn:aws:kms:us-east-1:111122223333:key/abcd1234-5678-90ab-cdef-000011112222",
+        "type": "aws",
+        "region": "us-east-1",
+        "role_arn": "arn:aws:iam::111122223333:role/anthropic-cmek"
+      },
+      "type": "external_key",
+      "updated_at": "2024-10-30T23:58:27.427722Z"
+    }
+  ],
+  "next_page": "next_page"
+}
+```
+
+### Get External Key
+
+`BetaExternalKey Beta.Organization.ExternalKeys.Retrieve(parameters, cancellationToken = default)`
+
+**GET** `/v1/organizations/external_keys/{external_key_id}`
+
+Retrieve a single external key config in the caller's organization by ID.
+
+#### Parameters
+
+- `ExternalKeyRetrieveParams parameters`
+
+  - `required string externalKeyID`
+
+    ID of the External Key.
+
+    maxLength: 2048
+
+#### Returns
+
+- `class BetaExternalKey:`
+
+  CMEK external key config belonging to the caller's organization.
+
+  Configs are organization-scoped. Workspaces attach to a config; once any
+  workspace references it, the provider fields become effectively immutable
+  (existing encrypted data needs the config for decrypt).
+
+  - `JsonElement Type = "external_key"`
+
+  - `required string ID`
+
+    Identifier of the external key config. A tagged ID prefixed `ekey_`, or — for organizations on the Claude Platform on AWS — the AWS KMS key ARN.
+
+  - `required Attachment Attachment`
+
+    Whether any workspace uses this config to encrypt its data — counting live and archived workspaces (an archived workspace's data remains encrypted under the config), excluding deleted ones. Only an attached config is used by the encryption path; an `unattached` config is inert and can be deleted.
+
+    - `class BetaExternalKeyAttachedAttachment:`
+
+      - `JsonElement Type = "attached"`
+
+    - `class BetaExternalKeyUnattachedAttachment:`
+
+      - `JsonElement Type = "unattached"`
+
+  - `required DateTimeOffset CreatedAt`
+
+    format: date-time
+
+  - `required string? DisplayName`
+
+    Human-friendly display name. Null if none was set.
+
+  - `required string Geo`
+
+    Data residency geo. Selects which regional validator handles this key's encrypt/decrypt roundtrips.
+
+  - `required ProviderConfig ProviderConfig`
+
+    KMS provider identity and auth coordinates.
+
+    - `class BetaAwsExternalKeyConfig:`
+
+      - `JsonElement Type = "aws"`
+
+      - `required string KmsArn`
+
+        Full ARN of the AWS KMS key. On Claude Platform on AWS the key must be a single-Region key in your organization's own AWS account; cross-account keys, multi-Region keys, and alias ARNs are rejected.
+
+        maxLength: 2048
+
+      - `string? Region`
+
+        AWS region. Derived from `kms_arn` if omitted.
+
+      - `string? RoleArn`
+
+        **Deprecated**
+
+        IAM role ARN. Deprecated — Anthropic reaches the KMS key through its own intermediate role (or, on Claude Platform on AWS, with credentials AWS issues for the Workspace); this field is ignored.
+
+    - `class BetaGcpExternalKeyConfig:`
+
+      - `JsonElement Type = "gcp"`
+
+      - `required string KeyName`
+
+        Full resource name of the Cloud KMS key.
+
+    - `class BetaAzureExternalKeyConfig:`
+
+      - `JsonElement Type = "azure"`
+
+      - `required string KeyName`
+
+        Name of the key within the vault.
+
+      - `required string TenantID`
+
+        Azure AD tenant ID.
+
+      - `required string VaultUri`
+
+        Key Vault data-plane URI — `https://{vault-name}.vault.azure.net` or `https://{hsm-name}.managedhsm.azure.net`.
+
+      - `string? ClientID`
+
+        Azure AD application (client) ID. Omit to use Anthropic's multitenant app. Provide only if using a single-tenant app registration in the customer's directory.
+
+  - `required DateTimeOffset UpdatedAt`
+
+    format: date-time
+
+#### Example
+
+```csharp
+ExternalKeyRetrieveParams parameters = new()
+{
+    ExternalKeyID = "external_key_id"
+};
+
+var betaExternalKey = await client.Beta.Organization.ExternalKeys.Retrieve(parameters);
+
+Console.WriteLine(betaExternalKey);
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "ekey_01SDCCSbTxrXDpWc1phhtcfK",
+  "attachment": {
+    "type": "attached"
+  },
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "display_name": "prod-us-key",
+  "geo": "us",
+  "provider_config": {
+    "kms_arn": "arn:aws:kms:us-east-1:111122223333:key/abcd1234-5678-90ab-cdef-000011112222",
+    "type": "aws",
+    "region": "us-east-1",
+    "role_arn": "arn:aws:iam::111122223333:role/anthropic-cmek"
+  },
+  "type": "external_key",
+  "updated_at": "2024-10-30T23:58:27.427722Z"
+}
+```
+
+### Update External Key
+
+`BetaExternalKey Beta.Organization.ExternalKeys.Update(parameters, cancellationToken = default)`
+
+**POST** `/v1/organizations/external_keys/{external_key_id}`
+
+Partially update an external key config. Omitted fields are left unchanged.
+
+`display_name` is always editable. `geo` and `provider_config` cannot
+be changed once any workspace references this config, because previously
+encrypted data requires the original key identity to decrypt.
+
+#### Parameters
+
+- `ExternalKeyUpdateParams parameters`
+
+  - `required string externalKeyID`
+
+    ID of the External Key.
+
+    maxLength: 2048
+
+  - `string? displayName`
+
+    Human-friendly display name.
+
+    maxLength: 255, minLength: 1
+
+  - `Geo? geo`
+
+    Data residency geo. Only `us` is supported.
+
+    - `Us("us")`
+
+  - `ProviderConfig? providerConfig`
+
+    KMS provider identity and auth coordinates.
+
+    - `class BetaAwsExternalKeyConfig:`
+
+      - `JsonElement Type = "aws"`
+
+      - `required string KmsArn`
+
+        Full ARN of the AWS KMS key. On Claude Platform on AWS the key must be a single-Region key in your organization's own AWS account; cross-account keys, multi-Region keys, and alias ARNs are rejected.
+
+        maxLength: 2048
+
+      - `string? Region`
+
+        AWS region. Derived from `kms_arn` if omitted.
+
+      - `string? RoleArn`
+
+        **Deprecated**
+
+        IAM role ARN. Deprecated — Anthropic reaches the KMS key through its own intermediate role (or, on Claude Platform on AWS, with credentials AWS issues for the Workspace); this field is ignored.
+
+    - `class BetaGcpExternalKeyConfig:`
+
+      - `JsonElement Type = "gcp"`
+
+      - `required string KeyName`
+
+        Full resource name of the Cloud KMS key.
+
+    - `class BetaAzureExternalKeyConfigParam:`
+
+      Azure Key Vault provider configuration.
+
+      - `JsonElement Type = "azure"`
+
+      - `required string KeyName`
+
+        Name of the key within the vault.
+
+      - `required string TenantID`
+
+        Azure AD tenant ID.
+
+      - `required string VaultUri`
+
+        Key Vault data-plane URI — `https://{vault-name}.vault.azure.net` or `https://{hsm-name}.managedhsm.azure.net`.
+
+      - `string? ClientID`
+
+        Azure AD application (client) ID. Omit to use Anthropic's multitenant app. Provide only if using a single-tenant app registration in the customer's directory.
+
+#### Returns
+
+- `class BetaExternalKey:`
+
+  CMEK external key config belonging to the caller's organization.
+
+  Configs are organization-scoped. Workspaces attach to a config; once any
+  workspace references it, the provider fields become effectively immutable
+  (existing encrypted data needs the config for decrypt).
+
+  - `JsonElement Type = "external_key"`
+
+  - `required string ID`
+
+    Identifier of the external key config. A tagged ID prefixed `ekey_`, or — for organizations on the Claude Platform on AWS — the AWS KMS key ARN.
+
+  - `required Attachment Attachment`
+
+    Whether any workspace uses this config to encrypt its data — counting live and archived workspaces (an archived workspace's data remains encrypted under the config), excluding deleted ones. Only an attached config is used by the encryption path; an `unattached` config is inert and can be deleted.
+
+    - `class BetaExternalKeyAttachedAttachment:`
+
+      - `JsonElement Type = "attached"`
+
+    - `class BetaExternalKeyUnattachedAttachment:`
+
+      - `JsonElement Type = "unattached"`
+
+  - `required DateTimeOffset CreatedAt`
+
+    format: date-time
+
+  - `required string? DisplayName`
+
+    Human-friendly display name. Null if none was set.
+
+  - `required string Geo`
+
+    Data residency geo. Selects which regional validator handles this key's encrypt/decrypt roundtrips.
+
+  - `required ProviderConfig ProviderConfig`
+
+    KMS provider identity and auth coordinates.
+
+    - `class BetaAwsExternalKeyConfig:`
+
+      - `JsonElement Type = "aws"`
+
+      - `required string KmsArn`
+
+        Full ARN of the AWS KMS key. On Claude Platform on AWS the key must be a single-Region key in your organization's own AWS account; cross-account keys, multi-Region keys, and alias ARNs are rejected.
+
+        maxLength: 2048
+
+      - `string? Region`
+
+        AWS region. Derived from `kms_arn` if omitted.
+
+      - `string? RoleArn`
+
+        **Deprecated**
+
+        IAM role ARN. Deprecated — Anthropic reaches the KMS key through its own intermediate role (or, on Claude Platform on AWS, with credentials AWS issues for the Workspace); this field is ignored.
+
+    - `class BetaGcpExternalKeyConfig:`
+
+      - `JsonElement Type = "gcp"`
+
+      - `required string KeyName`
+
+        Full resource name of the Cloud KMS key.
+
+    - `class BetaAzureExternalKeyConfig:`
+
+      - `JsonElement Type = "azure"`
+
+      - `required string KeyName`
+
+        Name of the key within the vault.
+
+      - `required string TenantID`
+
+        Azure AD tenant ID.
+
+      - `required string VaultUri`
+
+        Key Vault data-plane URI — `https://{vault-name}.vault.azure.net` or `https://{hsm-name}.managedhsm.azure.net`.
+
+      - `string? ClientID`
+
+        Azure AD application (client) ID. Omit to use Anthropic's multitenant app. Provide only if using a single-tenant app registration in the customer's directory.
+
+  - `required DateTimeOffset UpdatedAt`
+
+    format: date-time
+
+#### Example
+
+```csharp
+ExternalKeyUpdateParams parameters = new()
+{
+    ExternalKeyID = "external_key_id"
+};
+
+var betaExternalKey = await client.Beta.Organization.ExternalKeys.Update(parameters);
+
+Console.WriteLine(betaExternalKey);
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "ekey_01SDCCSbTxrXDpWc1phhtcfK",
+  "attachment": {
+    "type": "attached"
+  },
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "display_name": "prod-us-key",
+  "geo": "us",
+  "provider_config": {
+    "kms_arn": "arn:aws:kms:us-east-1:111122223333:key/abcd1234-5678-90ab-cdef-000011112222",
+    "type": "aws",
+    "region": "us-east-1",
+    "role_arn": "arn:aws:iam::111122223333:role/anthropic-cmek"
+  },
+  "type": "external_key",
+  "updated_at": "2024-10-30T23:58:27.427722Z"
+}
+```
+
+### Delete External Key
+
+`ExternalKeyDeleteResponse Beta.Organization.ExternalKeys.Delete(parameters, cancellationToken = default)`
+
+**DELETE** `/v1/organizations/external_keys/{external_key_id}`
+
+Delete an external key config.
+
+The request is rejected if any workspace still references this config.
+
+#### Parameters
+
+- `ExternalKeyDeleteParams parameters`
+
+  - `required string externalKeyID`
+
+    ID of the External Key.
+
+    maxLength: 2048
+
+#### Returns
+
+- `class ExternalKeyDeleteResponse:`
+
+  - `JsonElement Type = "external_key_deleted"`
+
+  - `required string ID`
+
+    ID of the deleted External Key.
+
+#### Example
+
+```csharp
+ExternalKeyDeleteParams parameters = new()
+{
+    ExternalKeyID = "external_key_id"
+};
+
+var externalKey = await client.Beta.Organization.ExternalKeys.Delete(parameters);
+
+Console.WriteLine(externalKey);
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "ekey_01AbCdEfGhIjKlMnOpQrStUv",
+  "type": "external_key_deleted"
+}
+```
+
+### Validate External Key
+
+`ExternalKeyValidateResponse Beta.Organization.ExternalKeys.Validate(parameters, cancellationToken = default)`
+
+**POST** `/v1/organizations/external_keys/{external_key_id}/validate`
+
+Validate an external key config against the customer's KMS.
+
+Anthropic performs an encrypt/decrypt roundtrip against the configured
+KMS key and waits up to 30 seconds for the result. The response status is
+`success` if the roundtrip succeeded, or `failure` with an error
+message if it failed or timed out.
+
+#### Parameters
+
+- `ExternalKeyValidateParams parameters`
+
+  - `required string externalKeyID`
+
+    ID of the External Key.
+
+    maxLength: 2048
+
+#### Returns
+
+- `class ExternalKeyValidateResponse:`
+
+  Result of a validation roundtrip against the customer's KMS.
+
+  HTTP 200 for both outcomes — the operation completed; `status` says
+  whether the key works.
+
+  - `JsonElement Type = "external_key_validation"`
+
+  - `required string? Error`
+
+    Error message when status is `failure`. Null otherwise.
+
+  - `required Status Status`
+
+    `success` — encrypt/decrypt roundtrip succeeded. `failure` — the roundtrip failed or timed out; see `error`.
+
+    - `Failure("failure")`
+
+    - `Success("success")`
+
+#### Example
+
+```csharp
+ExternalKeyValidateParams parameters = new()
+{
+    ExternalKeyID = "external_key_id"
+};
+
+var response = await client.Beta.Organization.ExternalKeys.Validate(parameters);
+
+Console.WriteLine(response);
+```
+
+##### Response (200)
+
+```json
+{
+  "error": "error",
+  "status": "failure",
+  "type": "external_key_validation"
+}
+```
+
+## Beta › Organization › Federation › Issuers
+
+### Create Federation Issuer
+
+`BetaFederationIssuer Beta.Organization.Federation.Issuers.Create(parameters, cancellationToken = default)`
+
+**POST** `/v1/organizations/federation_issuers`
+
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+
+Register an OIDC issuer that Anthropic will trust for workload identity
+federation in your organization.
+
+The `jwks` field controls how the issuer's signing keys are obtained and
+takes one of three shapes selected by `type`: `discovery` (resolve keys
+through OIDC discovery), `explicit_url` (fetch keys from a fixed JWKS
+URL), or `inline` (provide a static key set). When `jwks.type` is
+`discovery` and no `discovery_base` is set, the issuer URL must be
+publicly reachable over HTTPS so Anthropic can fetch the discovery
+document; for `explicit_url` and `inline` modes the issuer URL is only
+matched as the JWT's `iss` claim and is not fetched.
+
+#### Parameters
+
+- `IssuerCreateParams parameters`
+
+  - `required string issuerUrl`
+
+    Body param: The `iss` claim value to match against.
+
+    minLength: 1
+
+  - `required string name`
+
+    Body param: Slug identifier (lowercase, digits, hyphens). Unique within the organization; a duplicate name returns 409.
+
+    maxLength: 255, minLength: 1
+
+  - `bool? checkJti`
+
+    Body param: Whether the jwt-bearer exchange enforces JTI single-use (replay protection) for tokens from this issuer. Defaults to true. Applies only to assertions carrying a `jti` claim; tokens without one are accepted without single-use enforcement.
+
+  - `Jwks jwks`
+
+    Body param: How signing keys are obtained. Defaults to OIDC discovery.
+
+    - `class BetaJwksDiscovery:`
+
+      JWKS via the issuer's OIDC discovery document.
+
+      - `JsonElement Type = "discovery"`
+
+      - `string? CACertPem`
+
+        Optional custom CA (PEM) for TLS verification of the JWKS fetch.
+
+        maxLength: 8192
+
+      - `string? DiscoveryBase`
+
+        Set when the discovery URL differs from `issuer_url`.
+
+    - `class BetaJwksExplicitUrl:`
+
+      JWKS fetched from a fixed endpoint.
+
+      - `JsonElement Type = "explicit_url"`
+
+      - `required string Url`
+
+        JWKS endpoint.
+
+        minLength: 1
+
+      - `string? CACertPem`
+
+        Optional custom CA (PEM) for TLS verification of the JWKS fetch.
+
+        maxLength: 8192
+
+    - `class BetaJwksInline:`
+
+      JWKS supplied directly; no network fetch.
+
+      - `JsonElement Type = "inline"`
+
+      - `required IReadOnlyList<IReadOnlyDictionary<string, JsonElement>> Keys`
+
+        Inline JWK objects.
+
+        minItems: 1
+
+  - `long? maxJwtLifetimeSeconds`
+
+    Body param: Maximum allowed iat→exp spread for assertions from this issuer (1-176400 seconds, i.e. up to 49h). Defaults to 3600 (1h). Assertions must carry both `iat` and `exp`; a missing `iat` is rejected.
+
+    maximum: 176400, exclusiveMinimum: 0
+
+  - `IReadOnlyList<AnthropicBeta> betas`
+
+    Header param: Optional header to specify the beta version(s) you want to use.
+
+    - `MessageBatches2024_09_24("message-batches-2024-09-24")`
+
+    - `PromptCaching2024_07_31("prompt-caching-2024-07-31")`
+
+    - `ComputerUse2024_10_22("computer-use-2024-10-22")`
+
+    - `ComputerUse2025_01_24("computer-use-2025-01-24")`
+
+    - `Pdfs2024_09_25("pdfs-2024-09-25")`
+
+    - `TokenCounting2024_11_01("token-counting-2024-11-01")`
+
+    - `TokenEfficientTools2025_02_19("token-efficient-tools-2025-02-19")`
+
+    - `Output128k2025_02_19("output-128k-2025-02-19")`
+
+    - `FilesApi2025_04_14("files-api-2025-04-14")`
+
+    - `McpClient2025_04_04("mcp-client-2025-04-04")`
+
+    - `McpClient2025_11_20("mcp-client-2025-11-20")`
+
+    - `DevFullThinking2025_05_14("dev-full-thinking-2025-05-14")`
+
+    - `InterleavedThinking2025_05_14("interleaved-thinking-2025-05-14")`
+
+    - `CodeExecution2025_05_22("code-execution-2025-05-22")`
+
+    - `ExtendedCacheTtl2025_04_11("extended-cache-ttl-2025-04-11")`
+
+    - `Context1m2025_08_07("context-1m-2025-08-07")`
+
+    - `ContextManagement2025_06_27("context-management-2025-06-27")`
+
+    - `ModelContextWindowExceeded2025_08_26("model-context-window-exceeded-2025-08-26")`
+
+    - `Skills2025_10_02("skills-2025-10-02")`
+
+    - `FastMode2026_02_01("fast-mode-2026-02-01")`
+
+    - `Output300k2026_03_24("output-300k-2026-03-24")`
+
+    - `UserProfiles2026_03_24("user-profiles-2026-03-24")`
+
+    - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
+
+    - `UserProfiles2026_09_04("user-profiles-2026-09-04")`
+
+    - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
+
+    - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
+
+    - `CacheDiagnosis2026_04_07("cache-diagnosis-2026-04-07")`
+
+    - `Dreaming2026_04_21("dreaming-2026-04-21")`
+
+    - `ThinkingTokenCount2026_05_13("thinking-token-count-2026-05-13")`
+
+    - `ServerSideFallback2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `ServerSideFallback2026_07_01("server-side-fallback-2026-07-01")`
+
+    - `FallbackCredit2026_06_01("fallback-credit-2026-06-01")`
+
+    - `FallbackCredit2026_07_01("fallback-credit-2026-07-01")`
+
+    - `AgentMemory2026_07_22("agent-memory-2026-07-22")`
+
+    - `MidConversationToolChanges2026_07_01("mid-conversation-tool-changes-2026-07-01")`
+
+    - `Compact2026_01_12("compact-2026-01-12")`
+
+    - `ComputerUse2025_11_24("computer-use-2025-11-24")`
+
+    - `McpTunnels2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `StructuredOutputs2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TaskBudgets2026_03_13("task-budgets-2026-03-13")`
+
+    - `ThinkingDisplayUpdates2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CEUserManagement2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MidConversationOutputConfig2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `ThinkingBindingControls2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
+#### Returns
+
+- `class BetaFederationIssuer:`
+
+  Registered external OIDC identity provider.
+
+  Records an external IdP the organization trusts for the RFC 7523
+  jwt-bearer grant. The `issuer_url` must match the JWT `iss` claim exactly.
+
+  - `JsonElement Type = "federation_issuer"`
+
+  - `required string ID`
+
+    Tagged ID of the federation issuer.
+
+  - `required DateTimeOffset? ArchivedAt`
+
+    If set, all rules referencing this issuer reject token exchange.
+
+    format: date-time
+
+  - `required string? ArchivedByActorID`
+
+    Tagged ID (`user_`/`svac_`) of the actor that archived this issuer.
+
+  - `required bool CheckJti`
+
+    Whether the jwt-bearer exchange enforces JTI single-use (replay protection) for tokens from this issuer. Applies only to assertions carrying a `jti` claim; tokens without one are accepted without single-use enforcement.
+
+  - `required DateTimeOffset CreatedAt`
+
+    When this issuer was created.
+
+    format: date-time
+
+  - `required string? CreatedByActorID`
+
+    Tagged ID (`user_`/`svac_`) of the actor that created this issuer.
+
+  - `required string IssuerUrl`
+
+    The `iss` claim value. Incoming JWTs must match exactly.
+
+  - `required Jwks Jwks`
+
+    How signing keys are obtained for signature verification.
+
+    - `class BetaJwksDiscovery:`
+
+      JWKS via the issuer's OIDC discovery document.
+
+      - `JsonElement Type = "discovery"`
+
+      - `string? CACertPem`
+
+        Optional custom CA (PEM) for TLS verification of the JWKS fetch.
+
+        maxLength: 8192
+
+      - `string? DiscoveryBase`
+
+        Set when the discovery URL differs from `issuer_url`.
+
+    - `class BetaJwksExplicitUrl:`
+
+      JWKS fetched from a fixed endpoint.
+
+      - `JsonElement Type = "explicit_url"`
+
+      - `required string Url`
+
+        JWKS endpoint.
+
+        minLength: 1
+
+      - `string? CACertPem`
+
+        Optional custom CA (PEM) for TLS verification of the JWKS fetch.
+
+        maxLength: 8192
+
+    - `class BetaJwksInline:`
+
+      JWKS supplied directly; no network fetch.
+
+      - `JsonElement Type = "inline"`
+
+      - `required IReadOnlyList<IReadOnlyDictionary<string, JsonElement>> Keys`
+
+        Inline JWK objects.
+
+        minItems: 1
+
+  - `required DateTimeOffset? JwksPollingDisabledAt`
+
+    If set, Anthropic's JWKS poller has paused polling for this issuer after repeated fetch failures. Re-enable by sending `jwks_polling_disabled: false` via the issuer update endpoint (POST) once the upstream JWKS endpoint is fixed. An OAuth caller cannot send this when the issuer backs a rule with any scope other than `workspace:developer` or `workspace:inference`; use a Console session.
+
+    format: date-time
+
+  - `required long MaxJwtLifetimeSeconds`
+
+    Maximum allowed iat→exp spread for assertions from this issuer (1-176400 seconds, i.e. up to 49h). Assertions must carry both `iat` and `exp`; a missing `iat` is rejected.
+
+  - `required string Name`
+
+    Admin-chosen slug identifier.
+
+  - `required BetaFederationIssuerPollStatus? PollStatus`
+
+    Status of automatic JWKS polling for a federation issuer.
+
+    Anthropic periodically fetches the issuer's signing keys in the
+    background. These fields summarize the most recent fetches so the
+    health of the JWKS endpoint can be monitored.
+
+    - `required long ConsecutiveFailures`
+
+      Consecutive fetch failures since the last success.
+
+    - `required DateTimeOffset? LastFetchedAt`
+
+      When the last successful fetch completed.
+
+      format: date-time
+
+    - `required DateTimeOffset? NextPollAt`
+
+      When the next fetch is scheduled. Null if paused.
+
+      format: date-time
+
+  - `required DateTimeOffset UpdatedAt`
+
+    When this issuer was last updated.
+
+    format: date-time
+
+  - `required string? UpdatedByActorID`
+
+    Tagged ID (`user_`/`svac_`) of the actor that last updated this issuer.
+
+#### Example
+
+```csharp
+IssuerCreateParams parameters = new()
+{
+    IssuerUrl = "x",
+    Name = "x",
+};
+
+var betaFederationIssuer = await client.Beta.Organization.Federation.Issuers.Create(parameters);
+
+Console.WriteLine(betaFederationIssuer);
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "fdis_01SDCCSbTxrXDpWc1phhtcfK",
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "archived_by_actor_id": "archived_by_actor_id",
+  "check_jti": true,
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "created_by_actor_id": "created_by_actor_id",
+  "issuer_url": "https://token.actions.githubusercontent.com",
+  "jwks": {
+    "type": "discovery",
+    "ca_cert_pem": "ca_cert_pem",
+    "discovery_base": "discovery_base"
+  },
+  "jwks_polling_disabled_at": "2019-12-27T18:11:19.117Z",
+  "max_jwt_lifetime_seconds": 0,
+  "name": "github-actions",
+  "poll_status": {
+    "consecutive_failures": 0,
+    "last_fetched_at": "2019-12-27T18:11:19.117Z",
+    "next_poll_at": "2019-12-27T18:11:19.117Z"
+  },
+  "type": "federation_issuer",
+  "updated_at": "2024-10-30T23:58:27.427722Z",
+  "updated_by_actor_id": "updated_by_actor_id"
+}
+```
+
+### List Federation Issuers
+
+`IssuerListPage Beta.Organization.Federation.Issuers.List(parameters, cancellationToken = default)`
+
+**GET** `/v1/organizations/federation_issuers`
+
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+
+List federation issuers in your organization.
+
+Archived issuers are excluded unless `include_archived=true`.
+
+#### Parameters
+
+- `IssuerListParams parameters`
+
+  - `bool includeArchived`
+
+    Query param: Include archived resources. Defaults to false.
+
+  - `long limit`
+
     Query param: Number of results per page.
 
     maximum: 100, minimum: 1
@@ -61,6 +2272,2953 @@
 
     - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
 
+    - `UserProfiles2026_09_04("user-profiles-2026-09-04")`
+
+    - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
+
+    - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
+
+    - `CacheDiagnosis2026_04_07("cache-diagnosis-2026-04-07")`
+
+    - `Dreaming2026_04_21("dreaming-2026-04-21")`
+
+    - `ThinkingTokenCount2026_05_13("thinking-token-count-2026-05-13")`
+
+    - `ServerSideFallback2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `ServerSideFallback2026_07_01("server-side-fallback-2026-07-01")`
+
+    - `FallbackCredit2026_06_01("fallback-credit-2026-06-01")`
+
+    - `FallbackCredit2026_07_01("fallback-credit-2026-07-01")`
+
+    - `AgentMemory2026_07_22("agent-memory-2026-07-22")`
+
+    - `MidConversationToolChanges2026_07_01("mid-conversation-tool-changes-2026-07-01")`
+
+    - `Compact2026_01_12("compact-2026-01-12")`
+
+    - `ComputerUse2025_11_24("computer-use-2025-11-24")`
+
+    - `McpTunnels2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `StructuredOutputs2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TaskBudgets2026_03_13("task-budgets-2026-03-13")`
+
+    - `ThinkingDisplayUpdates2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CEUserManagement2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MidConversationOutputConfig2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `ThinkingBindingControls2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
+#### Returns
+
+- `class BetaFederationIssuer:`
+
+  Registered external OIDC identity provider.
+
+  Records an external IdP the organization trusts for the RFC 7523
+  jwt-bearer grant. The `issuer_url` must match the JWT `iss` claim exactly.
+
+  - `JsonElement Type = "federation_issuer"`
+
+  - `required string ID`
+
+    Tagged ID of the federation issuer.
+
+  - `required DateTimeOffset? ArchivedAt`
+
+    If set, all rules referencing this issuer reject token exchange.
+
+    format: date-time
+
+  - `required string? ArchivedByActorID`
+
+    Tagged ID (`user_`/`svac_`) of the actor that archived this issuer.
+
+  - `required bool CheckJti`
+
+    Whether the jwt-bearer exchange enforces JTI single-use (replay protection) for tokens from this issuer. Applies only to assertions carrying a `jti` claim; tokens without one are accepted without single-use enforcement.
+
+  - `required DateTimeOffset CreatedAt`
+
+    When this issuer was created.
+
+    format: date-time
+
+  - `required string? CreatedByActorID`
+
+    Tagged ID (`user_`/`svac_`) of the actor that created this issuer.
+
+  - `required string IssuerUrl`
+
+    The `iss` claim value. Incoming JWTs must match exactly.
+
+  - `required Jwks Jwks`
+
+    How signing keys are obtained for signature verification.
+
+    - `class BetaJwksDiscovery:`
+
+      JWKS via the issuer's OIDC discovery document.
+
+      - `JsonElement Type = "discovery"`
+
+      - `string? CACertPem`
+
+        Optional custom CA (PEM) for TLS verification of the JWKS fetch.
+
+        maxLength: 8192
+
+      - `string? DiscoveryBase`
+
+        Set when the discovery URL differs from `issuer_url`.
+
+    - `class BetaJwksExplicitUrl:`
+
+      JWKS fetched from a fixed endpoint.
+
+      - `JsonElement Type = "explicit_url"`
+
+      - `required string Url`
+
+        JWKS endpoint.
+
+        minLength: 1
+
+      - `string? CACertPem`
+
+        Optional custom CA (PEM) for TLS verification of the JWKS fetch.
+
+        maxLength: 8192
+
+    - `class BetaJwksInline:`
+
+      JWKS supplied directly; no network fetch.
+
+      - `JsonElement Type = "inline"`
+
+      - `required IReadOnlyList<IReadOnlyDictionary<string, JsonElement>> Keys`
+
+        Inline JWK objects.
+
+        minItems: 1
+
+  - `required DateTimeOffset? JwksPollingDisabledAt`
+
+    If set, Anthropic's JWKS poller has paused polling for this issuer after repeated fetch failures. Re-enable by sending `jwks_polling_disabled: false` via the issuer update endpoint (POST) once the upstream JWKS endpoint is fixed. An OAuth caller cannot send this when the issuer backs a rule with any scope other than `workspace:developer` or `workspace:inference`; use a Console session.
+
+    format: date-time
+
+  - `required long MaxJwtLifetimeSeconds`
+
+    Maximum allowed iat→exp spread for assertions from this issuer (1-176400 seconds, i.e. up to 49h). Assertions must carry both `iat` and `exp`; a missing `iat` is rejected.
+
+  - `required string Name`
+
+    Admin-chosen slug identifier.
+
+  - `required BetaFederationIssuerPollStatus? PollStatus`
+
+    Status of automatic JWKS polling for a federation issuer.
+
+    Anthropic periodically fetches the issuer's signing keys in the
+    background. These fields summarize the most recent fetches so the
+    health of the JWKS endpoint can be monitored.
+
+    - `required long ConsecutiveFailures`
+
+      Consecutive fetch failures since the last success.
+
+    - `required DateTimeOffset? LastFetchedAt`
+
+      When the last successful fetch completed.
+
+      format: date-time
+
+    - `required DateTimeOffset? NextPollAt`
+
+      When the next fetch is scheduled. Null if paused.
+
+      format: date-time
+
+  - `required DateTimeOffset UpdatedAt`
+
+    When this issuer was last updated.
+
+    format: date-time
+
+  - `required string? UpdatedByActorID`
+
+    Tagged ID (`user_`/`svac_`) of the actor that last updated this issuer.
+
+#### Example
+
+```csharp
+IssuerListParams parameters = new();
+
+var page = await client.Beta.Organization.Federation.Issuers.List(parameters);
+await foreach (var item in page.Paginate())
+{
+    Console.WriteLine(item);
+}
+```
+
+##### Response (200)
+
+```json
+{
+  "data": [
+    {
+      "id": "fdis_01SDCCSbTxrXDpWc1phhtcfK",
+      "archived_at": "2019-12-27T18:11:19.117Z",
+      "archived_by_actor_id": "archived_by_actor_id",
+      "check_jti": true,
+      "created_at": "2024-10-30T23:58:27.427722Z",
+      "created_by_actor_id": "created_by_actor_id",
+      "issuer_url": "https://token.actions.githubusercontent.com",
+      "jwks": {
+        "type": "discovery",
+        "ca_cert_pem": "ca_cert_pem",
+        "discovery_base": "discovery_base"
+      },
+      "jwks_polling_disabled_at": "2019-12-27T18:11:19.117Z",
+      "max_jwt_lifetime_seconds": 0,
+      "name": "github-actions",
+      "poll_status": {
+        "consecutive_failures": 0,
+        "last_fetched_at": "2019-12-27T18:11:19.117Z",
+        "next_poll_at": "2019-12-27T18:11:19.117Z"
+      },
+      "type": "federation_issuer",
+      "updated_at": "2024-10-30T23:58:27.427722Z",
+      "updated_by_actor_id": "updated_by_actor_id"
+    }
+  ],
+  "next_page": "next_page"
+}
+```
+
+### Get Federation Issuer
+
+`BetaFederationIssuer Beta.Organization.Federation.Issuers.Retrieve(parameters, cancellationToken = default)`
+
+**GET** `/v1/organizations/federation_issuers/{federation_issuer_id}`
+
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+
+Retrieve a federation issuer by its ID (`fdis_...`).
+
+#### Parameters
+
+- `IssuerRetrieveParams parameters`
+
+  - `required string federationIssuerID`
+
+    ID of the federation issuer.
+
+  - `IReadOnlyList<AnthropicBeta> betas`
+
+    Optional header to specify the beta version(s) you want to use.
+
+    - `MessageBatches2024_09_24("message-batches-2024-09-24")`
+
+    - `PromptCaching2024_07_31("prompt-caching-2024-07-31")`
+
+    - `ComputerUse2024_10_22("computer-use-2024-10-22")`
+
+    - `ComputerUse2025_01_24("computer-use-2025-01-24")`
+
+    - `Pdfs2024_09_25("pdfs-2024-09-25")`
+
+    - `TokenCounting2024_11_01("token-counting-2024-11-01")`
+
+    - `TokenEfficientTools2025_02_19("token-efficient-tools-2025-02-19")`
+
+    - `Output128k2025_02_19("output-128k-2025-02-19")`
+
+    - `FilesApi2025_04_14("files-api-2025-04-14")`
+
+    - `McpClient2025_04_04("mcp-client-2025-04-04")`
+
+    - `McpClient2025_11_20("mcp-client-2025-11-20")`
+
+    - `DevFullThinking2025_05_14("dev-full-thinking-2025-05-14")`
+
+    - `InterleavedThinking2025_05_14("interleaved-thinking-2025-05-14")`
+
+    - `CodeExecution2025_05_22("code-execution-2025-05-22")`
+
+    - `ExtendedCacheTtl2025_04_11("extended-cache-ttl-2025-04-11")`
+
+    - `Context1m2025_08_07("context-1m-2025-08-07")`
+
+    - `ContextManagement2025_06_27("context-management-2025-06-27")`
+
+    - `ModelContextWindowExceeded2025_08_26("model-context-window-exceeded-2025-08-26")`
+
+    - `Skills2025_10_02("skills-2025-10-02")`
+
+    - `FastMode2026_02_01("fast-mode-2026-02-01")`
+
+    - `Output300k2026_03_24("output-300k-2026-03-24")`
+
+    - `UserProfiles2026_03_24("user-profiles-2026-03-24")`
+
+    - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
+
+    - `UserProfiles2026_09_04("user-profiles-2026-09-04")`
+
+    - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
+
+    - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
+
+    - `CacheDiagnosis2026_04_07("cache-diagnosis-2026-04-07")`
+
+    - `Dreaming2026_04_21("dreaming-2026-04-21")`
+
+    - `ThinkingTokenCount2026_05_13("thinking-token-count-2026-05-13")`
+
+    - `ServerSideFallback2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `ServerSideFallback2026_07_01("server-side-fallback-2026-07-01")`
+
+    - `FallbackCredit2026_06_01("fallback-credit-2026-06-01")`
+
+    - `FallbackCredit2026_07_01("fallback-credit-2026-07-01")`
+
+    - `AgentMemory2026_07_22("agent-memory-2026-07-22")`
+
+    - `MidConversationToolChanges2026_07_01("mid-conversation-tool-changes-2026-07-01")`
+
+    - `Compact2026_01_12("compact-2026-01-12")`
+
+    - `ComputerUse2025_11_24("computer-use-2025-11-24")`
+
+    - `McpTunnels2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `StructuredOutputs2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TaskBudgets2026_03_13("task-budgets-2026-03-13")`
+
+    - `ThinkingDisplayUpdates2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CEUserManagement2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MidConversationOutputConfig2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `ThinkingBindingControls2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
+#### Returns
+
+- `class BetaFederationIssuer:`
+
+  Registered external OIDC identity provider.
+
+  Records an external IdP the organization trusts for the RFC 7523
+  jwt-bearer grant. The `issuer_url` must match the JWT `iss` claim exactly.
+
+  - `JsonElement Type = "federation_issuer"`
+
+  - `required string ID`
+
+    Tagged ID of the federation issuer.
+
+  - `required DateTimeOffset? ArchivedAt`
+
+    If set, all rules referencing this issuer reject token exchange.
+
+    format: date-time
+
+  - `required string? ArchivedByActorID`
+
+    Tagged ID (`user_`/`svac_`) of the actor that archived this issuer.
+
+  - `required bool CheckJti`
+
+    Whether the jwt-bearer exchange enforces JTI single-use (replay protection) for tokens from this issuer. Applies only to assertions carrying a `jti` claim; tokens without one are accepted without single-use enforcement.
+
+  - `required DateTimeOffset CreatedAt`
+
+    When this issuer was created.
+
+    format: date-time
+
+  - `required string? CreatedByActorID`
+
+    Tagged ID (`user_`/`svac_`) of the actor that created this issuer.
+
+  - `required string IssuerUrl`
+
+    The `iss` claim value. Incoming JWTs must match exactly.
+
+  - `required Jwks Jwks`
+
+    How signing keys are obtained for signature verification.
+
+    - `class BetaJwksDiscovery:`
+
+      JWKS via the issuer's OIDC discovery document.
+
+      - `JsonElement Type = "discovery"`
+
+      - `string? CACertPem`
+
+        Optional custom CA (PEM) for TLS verification of the JWKS fetch.
+
+        maxLength: 8192
+
+      - `string? DiscoveryBase`
+
+        Set when the discovery URL differs from `issuer_url`.
+
+    - `class BetaJwksExplicitUrl:`
+
+      JWKS fetched from a fixed endpoint.
+
+      - `JsonElement Type = "explicit_url"`
+
+      - `required string Url`
+
+        JWKS endpoint.
+
+        minLength: 1
+
+      - `string? CACertPem`
+
+        Optional custom CA (PEM) for TLS verification of the JWKS fetch.
+
+        maxLength: 8192
+
+    - `class BetaJwksInline:`
+
+      JWKS supplied directly; no network fetch.
+
+      - `JsonElement Type = "inline"`
+
+      - `required IReadOnlyList<IReadOnlyDictionary<string, JsonElement>> Keys`
+
+        Inline JWK objects.
+
+        minItems: 1
+
+  - `required DateTimeOffset? JwksPollingDisabledAt`
+
+    If set, Anthropic's JWKS poller has paused polling for this issuer after repeated fetch failures. Re-enable by sending `jwks_polling_disabled: false` via the issuer update endpoint (POST) once the upstream JWKS endpoint is fixed. An OAuth caller cannot send this when the issuer backs a rule with any scope other than `workspace:developer` or `workspace:inference`; use a Console session.
+
+    format: date-time
+
+  - `required long MaxJwtLifetimeSeconds`
+
+    Maximum allowed iat→exp spread for assertions from this issuer (1-176400 seconds, i.e. up to 49h). Assertions must carry both `iat` and `exp`; a missing `iat` is rejected.
+
+  - `required string Name`
+
+    Admin-chosen slug identifier.
+
+  - `required BetaFederationIssuerPollStatus? PollStatus`
+
+    Status of automatic JWKS polling for a federation issuer.
+
+    Anthropic periodically fetches the issuer's signing keys in the
+    background. These fields summarize the most recent fetches so the
+    health of the JWKS endpoint can be monitored.
+
+    - `required long ConsecutiveFailures`
+
+      Consecutive fetch failures since the last success.
+
+    - `required DateTimeOffset? LastFetchedAt`
+
+      When the last successful fetch completed.
+
+      format: date-time
+
+    - `required DateTimeOffset? NextPollAt`
+
+      When the next fetch is scheduled. Null if paused.
+
+      format: date-time
+
+  - `required DateTimeOffset UpdatedAt`
+
+    When this issuer was last updated.
+
+    format: date-time
+
+  - `required string? UpdatedByActorID`
+
+    Tagged ID (`user_`/`svac_`) of the actor that last updated this issuer.
+
+#### Example
+
+```csharp
+IssuerRetrieveParams parameters = new()
+{
+    FederationIssuerID = "federation_issuer_id"
+};
+
+var betaFederationIssuer = await client.Beta.Organization.Federation.Issuers.Retrieve(parameters);
+
+Console.WriteLine(betaFederationIssuer);
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "fdis_01SDCCSbTxrXDpWc1phhtcfK",
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "archived_by_actor_id": "archived_by_actor_id",
+  "check_jti": true,
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "created_by_actor_id": "created_by_actor_id",
+  "issuer_url": "https://token.actions.githubusercontent.com",
+  "jwks": {
+    "type": "discovery",
+    "ca_cert_pem": "ca_cert_pem",
+    "discovery_base": "discovery_base"
+  },
+  "jwks_polling_disabled_at": "2019-12-27T18:11:19.117Z",
+  "max_jwt_lifetime_seconds": 0,
+  "name": "github-actions",
+  "poll_status": {
+    "consecutive_failures": 0,
+    "last_fetched_at": "2019-12-27T18:11:19.117Z",
+    "next_poll_at": "2019-12-27T18:11:19.117Z"
+  },
+  "type": "federation_issuer",
+  "updated_at": "2024-10-30T23:58:27.427722Z",
+  "updated_by_actor_id": "updated_by_actor_id"
+}
+```
+
+### Update Federation Issuer
+
+`BetaFederationIssuer Beta.Organization.Federation.Issuers.Update(parameters, cancellationToken = default)`
+
+**POST** `/v1/organizations/federation_issuers/{federation_issuer_id}`
+
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+
+Partially update a federation issuer.
+
+Setting `jwks` replaces the full JWKS shape at once. Archived issuers
+cannot be updated; this returns 400. Create a new issuer instead.
+
+Updating an issuer that backs a rule with a scope outside
+`workspace:developer` or `workspace:inference` requires a Console
+session.
+
+#### Parameters
+
+- `IssuerUpdateParams parameters`
+
+  - `required string federationIssuerID`
+
+    Path param: ID of the federation issuer to update.
+
+  - `bool? checkJti`
+
+    Body param: Whether the jwt-bearer exchange enforces JTI single-use (replay protection) for tokens from this issuer. Applies only to assertions carrying a `jti` claim; tokens without one are accepted without single-use enforcement.
+
+  - `string? issuerUrl`
+
+    Body param: Replaces the `iss` claim value to match against. For discovery-mode issuers without a `discovery_base`, this is also the URL Anthropic fetches the OIDC discovery document and signing keys from, so changing it repoints the JWKS source. Changing the issuer URL to a well-known shared platform is rejected while any live rule under this issuer would not constrain tenant identity.
+
+    minLength: 1
+
+  - `Jwks? jwks`
+
+    Body param: Replaces the entire JWKS configuration.
+
+    - `class BetaJwksDiscovery:`
+
+      JWKS via the issuer's OIDC discovery document.
+
+      - `JsonElement Type = "discovery"`
+
+      - `string? CACertPem`
+
+        Optional custom CA (PEM) for TLS verification of the JWKS fetch.
+
+        maxLength: 8192
+
+      - `string? DiscoveryBase`
+
+        Set when the discovery URL differs from `issuer_url`.
+
+    - `class BetaJwksExplicitUrl:`
+
+      JWKS fetched from a fixed endpoint.
+
+      - `JsonElement Type = "explicit_url"`
+
+      - `required string Url`
+
+        JWKS endpoint.
+
+        minLength: 1
+
+      - `string? CACertPem`
+
+        Optional custom CA (PEM) for TLS verification of the JWKS fetch.
+
+        maxLength: 8192
+
+    - `class BetaJwksInline:`
+
+      JWKS supplied directly; no network fetch.
+
+      - `JsonElement Type = "inline"`
+
+      - `required IReadOnlyList<IReadOnlyDictionary<string, JsonElement>> Keys`
+
+        Inline JWK objects.
+
+        minItems: 1
+
+  - `bool? jwksPollingDisabled`
+
+    Body param: Only `false` is accepted, to re-enable polling after the system pauses it. Polling is paused automatically; sending `true` is rejected.
+
+  - `long? maxJwtLifetimeSeconds`
+
+    Body param: Maximum allowed iat→exp spread for assertions from this issuer (1-176400 seconds, i.e. up to 49h). Assertions must carry both `iat` and `exp`; a missing `iat` is rejected.
+
+    maximum: 176400, exclusiveMinimum: 0
+
+  - `string? name`
+
+    Body param: Replaces the slug identifier (lowercase, digits, hyphens). Unique within the organization; a duplicate name returns 409.
+
+    maxLength: 255, minLength: 1
+
+  - `IReadOnlyList<AnthropicBeta> betas`
+
+    Header param: Optional header to specify the beta version(s) you want to use.
+
+    - `MessageBatches2024_09_24("message-batches-2024-09-24")`
+
+    - `PromptCaching2024_07_31("prompt-caching-2024-07-31")`
+
+    - `ComputerUse2024_10_22("computer-use-2024-10-22")`
+
+    - `ComputerUse2025_01_24("computer-use-2025-01-24")`
+
+    - `Pdfs2024_09_25("pdfs-2024-09-25")`
+
+    - `TokenCounting2024_11_01("token-counting-2024-11-01")`
+
+    - `TokenEfficientTools2025_02_19("token-efficient-tools-2025-02-19")`
+
+    - `Output128k2025_02_19("output-128k-2025-02-19")`
+
+    - `FilesApi2025_04_14("files-api-2025-04-14")`
+
+    - `McpClient2025_04_04("mcp-client-2025-04-04")`
+
+    - `McpClient2025_11_20("mcp-client-2025-11-20")`
+
+    - `DevFullThinking2025_05_14("dev-full-thinking-2025-05-14")`
+
+    - `InterleavedThinking2025_05_14("interleaved-thinking-2025-05-14")`
+
+    - `CodeExecution2025_05_22("code-execution-2025-05-22")`
+
+    - `ExtendedCacheTtl2025_04_11("extended-cache-ttl-2025-04-11")`
+
+    - `Context1m2025_08_07("context-1m-2025-08-07")`
+
+    - `ContextManagement2025_06_27("context-management-2025-06-27")`
+
+    - `ModelContextWindowExceeded2025_08_26("model-context-window-exceeded-2025-08-26")`
+
+    - `Skills2025_10_02("skills-2025-10-02")`
+
+    - `FastMode2026_02_01("fast-mode-2026-02-01")`
+
+    - `Output300k2026_03_24("output-300k-2026-03-24")`
+
+    - `UserProfiles2026_03_24("user-profiles-2026-03-24")`
+
+    - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
+
+    - `UserProfiles2026_09_04("user-profiles-2026-09-04")`
+
+    - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
+
+    - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
+
+    - `CacheDiagnosis2026_04_07("cache-diagnosis-2026-04-07")`
+
+    - `Dreaming2026_04_21("dreaming-2026-04-21")`
+
+    - `ThinkingTokenCount2026_05_13("thinking-token-count-2026-05-13")`
+
+    - `ServerSideFallback2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `ServerSideFallback2026_07_01("server-side-fallback-2026-07-01")`
+
+    - `FallbackCredit2026_06_01("fallback-credit-2026-06-01")`
+
+    - `FallbackCredit2026_07_01("fallback-credit-2026-07-01")`
+
+    - `AgentMemory2026_07_22("agent-memory-2026-07-22")`
+
+    - `MidConversationToolChanges2026_07_01("mid-conversation-tool-changes-2026-07-01")`
+
+    - `Compact2026_01_12("compact-2026-01-12")`
+
+    - `ComputerUse2025_11_24("computer-use-2025-11-24")`
+
+    - `McpTunnels2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `StructuredOutputs2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TaskBudgets2026_03_13("task-budgets-2026-03-13")`
+
+    - `ThinkingDisplayUpdates2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CEUserManagement2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MidConversationOutputConfig2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `ThinkingBindingControls2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
+#### Returns
+
+- `class BetaFederationIssuer:`
+
+  Registered external OIDC identity provider.
+
+  Records an external IdP the organization trusts for the RFC 7523
+  jwt-bearer grant. The `issuer_url` must match the JWT `iss` claim exactly.
+
+  - `JsonElement Type = "federation_issuer"`
+
+  - `required string ID`
+
+    Tagged ID of the federation issuer.
+
+  - `required DateTimeOffset? ArchivedAt`
+
+    If set, all rules referencing this issuer reject token exchange.
+
+    format: date-time
+
+  - `required string? ArchivedByActorID`
+
+    Tagged ID (`user_`/`svac_`) of the actor that archived this issuer.
+
+  - `required bool CheckJti`
+
+    Whether the jwt-bearer exchange enforces JTI single-use (replay protection) for tokens from this issuer. Applies only to assertions carrying a `jti` claim; tokens without one are accepted without single-use enforcement.
+
+  - `required DateTimeOffset CreatedAt`
+
+    When this issuer was created.
+
+    format: date-time
+
+  - `required string? CreatedByActorID`
+
+    Tagged ID (`user_`/`svac_`) of the actor that created this issuer.
+
+  - `required string IssuerUrl`
+
+    The `iss` claim value. Incoming JWTs must match exactly.
+
+  - `required Jwks Jwks`
+
+    How signing keys are obtained for signature verification.
+
+    - `class BetaJwksDiscovery:`
+
+      JWKS via the issuer's OIDC discovery document.
+
+      - `JsonElement Type = "discovery"`
+
+      - `string? CACertPem`
+
+        Optional custom CA (PEM) for TLS verification of the JWKS fetch.
+
+        maxLength: 8192
+
+      - `string? DiscoveryBase`
+
+        Set when the discovery URL differs from `issuer_url`.
+
+    - `class BetaJwksExplicitUrl:`
+
+      JWKS fetched from a fixed endpoint.
+
+      - `JsonElement Type = "explicit_url"`
+
+      - `required string Url`
+
+        JWKS endpoint.
+
+        minLength: 1
+
+      - `string? CACertPem`
+
+        Optional custom CA (PEM) for TLS verification of the JWKS fetch.
+
+        maxLength: 8192
+
+    - `class BetaJwksInline:`
+
+      JWKS supplied directly; no network fetch.
+
+      - `JsonElement Type = "inline"`
+
+      - `required IReadOnlyList<IReadOnlyDictionary<string, JsonElement>> Keys`
+
+        Inline JWK objects.
+
+        minItems: 1
+
+  - `required DateTimeOffset? JwksPollingDisabledAt`
+
+    If set, Anthropic's JWKS poller has paused polling for this issuer after repeated fetch failures. Re-enable by sending `jwks_polling_disabled: false` via the issuer update endpoint (POST) once the upstream JWKS endpoint is fixed. An OAuth caller cannot send this when the issuer backs a rule with any scope other than `workspace:developer` or `workspace:inference`; use a Console session.
+
+    format: date-time
+
+  - `required long MaxJwtLifetimeSeconds`
+
+    Maximum allowed iat→exp spread for assertions from this issuer (1-176400 seconds, i.e. up to 49h). Assertions must carry both `iat` and `exp`; a missing `iat` is rejected.
+
+  - `required string Name`
+
+    Admin-chosen slug identifier.
+
+  - `required BetaFederationIssuerPollStatus? PollStatus`
+
+    Status of automatic JWKS polling for a federation issuer.
+
+    Anthropic periodically fetches the issuer's signing keys in the
+    background. These fields summarize the most recent fetches so the
+    health of the JWKS endpoint can be monitored.
+
+    - `required long ConsecutiveFailures`
+
+      Consecutive fetch failures since the last success.
+
+    - `required DateTimeOffset? LastFetchedAt`
+
+      When the last successful fetch completed.
+
+      format: date-time
+
+    - `required DateTimeOffset? NextPollAt`
+
+      When the next fetch is scheduled. Null if paused.
+
+      format: date-time
+
+  - `required DateTimeOffset UpdatedAt`
+
+    When this issuer was last updated.
+
+    format: date-time
+
+  - `required string? UpdatedByActorID`
+
+    Tagged ID (`user_`/`svac_`) of the actor that last updated this issuer.
+
+#### Example
+
+```csharp
+IssuerUpdateParams parameters = new()
+{
+    FederationIssuerID = "federation_issuer_id"
+};
+
+var betaFederationIssuer = await client.Beta.Organization.Federation.Issuers.Update(parameters);
+
+Console.WriteLine(betaFederationIssuer);
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "fdis_01SDCCSbTxrXDpWc1phhtcfK",
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "archived_by_actor_id": "archived_by_actor_id",
+  "check_jti": true,
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "created_by_actor_id": "created_by_actor_id",
+  "issuer_url": "https://token.actions.githubusercontent.com",
+  "jwks": {
+    "type": "discovery",
+    "ca_cert_pem": "ca_cert_pem",
+    "discovery_base": "discovery_base"
+  },
+  "jwks_polling_disabled_at": "2019-12-27T18:11:19.117Z",
+  "max_jwt_lifetime_seconds": 0,
+  "name": "github-actions",
+  "poll_status": {
+    "consecutive_failures": 0,
+    "last_fetched_at": "2019-12-27T18:11:19.117Z",
+    "next_poll_at": "2019-12-27T18:11:19.117Z"
+  },
+  "type": "federation_issuer",
+  "updated_at": "2024-10-30T23:58:27.427722Z",
+  "updated_by_actor_id": "updated_by_actor_id"
+}
+```
+
+### Archive Federation Issuer
+
+`BetaFederationIssuer Beta.Organization.Federation.Issuers.Archive(parameters, cancellationToken = default)`
+
+**POST** `/v1/organizations/federation_issuers/{federation_issuer_id}/archive`
+
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+
+Archive a federation issuer.
+
+Idempotent; re-archiving returns the issuer with its original
+`archived_at`. Rejected with 400 if any live (non-archived) federation
+rule still references the issuer; archive those rules first (a rule's
+issuer cannot be changed), or recreate them against another issuer.
+
+#### Parameters
+
+- `IssuerArchiveParams parameters`
+
+  - `required string federationIssuerID`
+
+    ID of the federation issuer to archive.
+
+  - `IReadOnlyList<AnthropicBeta> betas`
+
+    Optional header to specify the beta version(s) you want to use.
+
+    - `MessageBatches2024_09_24("message-batches-2024-09-24")`
+
+    - `PromptCaching2024_07_31("prompt-caching-2024-07-31")`
+
+    - `ComputerUse2024_10_22("computer-use-2024-10-22")`
+
+    - `ComputerUse2025_01_24("computer-use-2025-01-24")`
+
+    - `Pdfs2024_09_25("pdfs-2024-09-25")`
+
+    - `TokenCounting2024_11_01("token-counting-2024-11-01")`
+
+    - `TokenEfficientTools2025_02_19("token-efficient-tools-2025-02-19")`
+
+    - `Output128k2025_02_19("output-128k-2025-02-19")`
+
+    - `FilesApi2025_04_14("files-api-2025-04-14")`
+
+    - `McpClient2025_04_04("mcp-client-2025-04-04")`
+
+    - `McpClient2025_11_20("mcp-client-2025-11-20")`
+
+    - `DevFullThinking2025_05_14("dev-full-thinking-2025-05-14")`
+
+    - `InterleavedThinking2025_05_14("interleaved-thinking-2025-05-14")`
+
+    - `CodeExecution2025_05_22("code-execution-2025-05-22")`
+
+    - `ExtendedCacheTtl2025_04_11("extended-cache-ttl-2025-04-11")`
+
+    - `Context1m2025_08_07("context-1m-2025-08-07")`
+
+    - `ContextManagement2025_06_27("context-management-2025-06-27")`
+
+    - `ModelContextWindowExceeded2025_08_26("model-context-window-exceeded-2025-08-26")`
+
+    - `Skills2025_10_02("skills-2025-10-02")`
+
+    - `FastMode2026_02_01("fast-mode-2026-02-01")`
+
+    - `Output300k2026_03_24("output-300k-2026-03-24")`
+
+    - `UserProfiles2026_03_24("user-profiles-2026-03-24")`
+
+    - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
+
+    - `UserProfiles2026_09_04("user-profiles-2026-09-04")`
+
+    - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
+
+    - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
+
+    - `CacheDiagnosis2026_04_07("cache-diagnosis-2026-04-07")`
+
+    - `Dreaming2026_04_21("dreaming-2026-04-21")`
+
+    - `ThinkingTokenCount2026_05_13("thinking-token-count-2026-05-13")`
+
+    - `ServerSideFallback2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `ServerSideFallback2026_07_01("server-side-fallback-2026-07-01")`
+
+    - `FallbackCredit2026_06_01("fallback-credit-2026-06-01")`
+
+    - `FallbackCredit2026_07_01("fallback-credit-2026-07-01")`
+
+    - `AgentMemory2026_07_22("agent-memory-2026-07-22")`
+
+    - `MidConversationToolChanges2026_07_01("mid-conversation-tool-changes-2026-07-01")`
+
+    - `Compact2026_01_12("compact-2026-01-12")`
+
+    - `ComputerUse2025_11_24("computer-use-2025-11-24")`
+
+    - `McpTunnels2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `StructuredOutputs2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TaskBudgets2026_03_13("task-budgets-2026-03-13")`
+
+    - `ThinkingDisplayUpdates2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CEUserManagement2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MidConversationOutputConfig2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `ThinkingBindingControls2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
+#### Returns
+
+- `class BetaFederationIssuer:`
+
+  Registered external OIDC identity provider.
+
+  Records an external IdP the organization trusts for the RFC 7523
+  jwt-bearer grant. The `issuer_url` must match the JWT `iss` claim exactly.
+
+  - `JsonElement Type = "federation_issuer"`
+
+  - `required string ID`
+
+    Tagged ID of the federation issuer.
+
+  - `required DateTimeOffset? ArchivedAt`
+
+    If set, all rules referencing this issuer reject token exchange.
+
+    format: date-time
+
+  - `required string? ArchivedByActorID`
+
+    Tagged ID (`user_`/`svac_`) of the actor that archived this issuer.
+
+  - `required bool CheckJti`
+
+    Whether the jwt-bearer exchange enforces JTI single-use (replay protection) for tokens from this issuer. Applies only to assertions carrying a `jti` claim; tokens without one are accepted without single-use enforcement.
+
+  - `required DateTimeOffset CreatedAt`
+
+    When this issuer was created.
+
+    format: date-time
+
+  - `required string? CreatedByActorID`
+
+    Tagged ID (`user_`/`svac_`) of the actor that created this issuer.
+
+  - `required string IssuerUrl`
+
+    The `iss` claim value. Incoming JWTs must match exactly.
+
+  - `required Jwks Jwks`
+
+    How signing keys are obtained for signature verification.
+
+    - `class BetaJwksDiscovery:`
+
+      JWKS via the issuer's OIDC discovery document.
+
+      - `JsonElement Type = "discovery"`
+
+      - `string? CACertPem`
+
+        Optional custom CA (PEM) for TLS verification of the JWKS fetch.
+
+        maxLength: 8192
+
+      - `string? DiscoveryBase`
+
+        Set when the discovery URL differs from `issuer_url`.
+
+    - `class BetaJwksExplicitUrl:`
+
+      JWKS fetched from a fixed endpoint.
+
+      - `JsonElement Type = "explicit_url"`
+
+      - `required string Url`
+
+        JWKS endpoint.
+
+        minLength: 1
+
+      - `string? CACertPem`
+
+        Optional custom CA (PEM) for TLS verification of the JWKS fetch.
+
+        maxLength: 8192
+
+    - `class BetaJwksInline:`
+
+      JWKS supplied directly; no network fetch.
+
+      - `JsonElement Type = "inline"`
+
+      - `required IReadOnlyList<IReadOnlyDictionary<string, JsonElement>> Keys`
+
+        Inline JWK objects.
+
+        minItems: 1
+
+  - `required DateTimeOffset? JwksPollingDisabledAt`
+
+    If set, Anthropic's JWKS poller has paused polling for this issuer after repeated fetch failures. Re-enable by sending `jwks_polling_disabled: false` via the issuer update endpoint (POST) once the upstream JWKS endpoint is fixed. An OAuth caller cannot send this when the issuer backs a rule with any scope other than `workspace:developer` or `workspace:inference`; use a Console session.
+
+    format: date-time
+
+  - `required long MaxJwtLifetimeSeconds`
+
+    Maximum allowed iat→exp spread for assertions from this issuer (1-176400 seconds, i.e. up to 49h). Assertions must carry both `iat` and `exp`; a missing `iat` is rejected.
+
+  - `required string Name`
+
+    Admin-chosen slug identifier.
+
+  - `required BetaFederationIssuerPollStatus? PollStatus`
+
+    Status of automatic JWKS polling for a federation issuer.
+
+    Anthropic periodically fetches the issuer's signing keys in the
+    background. These fields summarize the most recent fetches so the
+    health of the JWKS endpoint can be monitored.
+
+    - `required long ConsecutiveFailures`
+
+      Consecutive fetch failures since the last success.
+
+    - `required DateTimeOffset? LastFetchedAt`
+
+      When the last successful fetch completed.
+
+      format: date-time
+
+    - `required DateTimeOffset? NextPollAt`
+
+      When the next fetch is scheduled. Null if paused.
+
+      format: date-time
+
+  - `required DateTimeOffset UpdatedAt`
+
+    When this issuer was last updated.
+
+    format: date-time
+
+  - `required string? UpdatedByActorID`
+
+    Tagged ID (`user_`/`svac_`) of the actor that last updated this issuer.
+
+#### Example
+
+```csharp
+IssuerArchiveParams parameters = new()
+{
+    FederationIssuerID = "federation_issuer_id"
+};
+
+var betaFederationIssuer = await client.Beta.Organization.Federation.Issuers.Archive(parameters);
+
+Console.WriteLine(betaFederationIssuer);
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "fdis_01SDCCSbTxrXDpWc1phhtcfK",
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "archived_by_actor_id": "archived_by_actor_id",
+  "check_jti": true,
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "created_by_actor_id": "created_by_actor_id",
+  "issuer_url": "https://token.actions.githubusercontent.com",
+  "jwks": {
+    "type": "discovery",
+    "ca_cert_pem": "ca_cert_pem",
+    "discovery_base": "discovery_base"
+  },
+  "jwks_polling_disabled_at": "2019-12-27T18:11:19.117Z",
+  "max_jwt_lifetime_seconds": 0,
+  "name": "github-actions",
+  "poll_status": {
+    "consecutive_failures": 0,
+    "last_fetched_at": "2019-12-27T18:11:19.117Z",
+    "next_poll_at": "2019-12-27T18:11:19.117Z"
+  },
+  "type": "federation_issuer",
+  "updated_at": "2024-10-30T23:58:27.427722Z",
+  "updated_by_actor_id": "updated_by_actor_id"
+}
+```
+
+## Beta › Organization › Federation › Rules
+
+### Create Federation Rule
+
+`BetaFederationRule Beta.Organization.Federation.Rules.Create(parameters, cancellationToken = default)`
+
+**POST** `/v1/organizations/federation_rules`
+
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+
+Create a federation rule owned by your organization.
+
+The referenced issuer and the target service account must already exist
+in the same organization; invalid references are rejected with a 400
+error. The workspace reference is validated. Membership is not checked
+at rule creation: token exchange resolves a single enabled workspace per
+call and is rejected unless the target service account is a member of
+that workspace (it is implicitly a member of the default workspace).
+Rules on well-known shared issuers (GitHub Actions, GitLab, Buildkite,
+Terraform Cloud, Google) must constrain tenant identity via an
+identity-bearing claim, a tenant-pinning subject prefix (such as
+`repo:YOUR_ORG/...`), or a CEL condition referencing one of those
+identity claims (e.g. `claims.repository_owner`). OAuth callers may only
+manage rules whose `oauth_scope` is `workspace:developer` or
+`workspace:inference`; other scopes require a Console session.
+
+#### Parameters
+
+- `RuleCreateParams parameters`
+
+  - `required string issuerID`
+
+    Body param: Tagged ID of the federation issuer.
+
+  - `required BetaFederationRuleMatch match`
+
+    Body param: Conditions the verified JWT must satisfy for this rule to apply. At least one of `subject_prefix` (other than a wildcard-only value like `*`), `claims`, or `condition` is required; `audience` alone is not sufficient.
+
+  - `required string name`
+
+    Body param: Slug identifier (lowercase, digits, hyphens). Unique within the organization; a duplicate name returns 409.
+
+    maxLength: 255, minLength: 1
+
+  - `required string oauthScope`
+
+    Body param: Space-separated OAuth scopes. OAuth callers may only set `workspace:developer` or `workspace:inference`; other scopes (such as `org:admin`) require a Console session.
+
+    minLength: 1
+
+  - `required BetaServiceAccountTarget target`
+
+    Body param: Identity that tokens minted via this rule act as. Currently always a `service_account` target.
+
+  - `bool appliesToAllWorkspaces`
+
+    Body param: When true, enable this rule for every workspace in the org (including workspaces created later).
+
+  - `IReadOnlyDictionary<string, string>? attributes`
+
+    Body param: CEL expressions `{name: expr}` extracting named values from claims. Not yet supported; any non-empty value is rejected with 400.
+
+  - `string? description`
+
+    Body param: Optional free-text description.
+
+    maxLength: 2000
+
+  - `long tokenLifetimeSeconds`
+
+    Body param: Lifetime in seconds for access tokens minted via this rule (60-86400). Defaults to 3600 (1h). Minted tokens are capped at `max(60, min(this value, 2 × remaining assertion validity))` seconds.
+
+    maximum: 86400, minimum: 60
+
+  - `string? workspaceID`
+
+    Body param: Tagged ID of the workspace to enable this rule for. Required unless `applies_to_all_workspaces` is true. Additional workspaces can be added via the `/federation_rules/{federation_rule_id}/workspaces` sub-resource.
+
+  - `IReadOnlyList<AnthropicBeta> betas`
+
+    Header param: Optional header to specify the beta version(s) you want to use.
+
+    - `MessageBatches2024_09_24("message-batches-2024-09-24")`
+
+    - `PromptCaching2024_07_31("prompt-caching-2024-07-31")`
+
+    - `ComputerUse2024_10_22("computer-use-2024-10-22")`
+
+    - `ComputerUse2025_01_24("computer-use-2025-01-24")`
+
+    - `Pdfs2024_09_25("pdfs-2024-09-25")`
+
+    - `TokenCounting2024_11_01("token-counting-2024-11-01")`
+
+    - `TokenEfficientTools2025_02_19("token-efficient-tools-2025-02-19")`
+
+    - `Output128k2025_02_19("output-128k-2025-02-19")`
+
+    - `FilesApi2025_04_14("files-api-2025-04-14")`
+
+    - `McpClient2025_04_04("mcp-client-2025-04-04")`
+
+    - `McpClient2025_11_20("mcp-client-2025-11-20")`
+
+    - `DevFullThinking2025_05_14("dev-full-thinking-2025-05-14")`
+
+    - `InterleavedThinking2025_05_14("interleaved-thinking-2025-05-14")`
+
+    - `CodeExecution2025_05_22("code-execution-2025-05-22")`
+
+    - `ExtendedCacheTtl2025_04_11("extended-cache-ttl-2025-04-11")`
+
+    - `Context1m2025_08_07("context-1m-2025-08-07")`
+
+    - `ContextManagement2025_06_27("context-management-2025-06-27")`
+
+    - `ModelContextWindowExceeded2025_08_26("model-context-window-exceeded-2025-08-26")`
+
+    - `Skills2025_10_02("skills-2025-10-02")`
+
+    - `FastMode2026_02_01("fast-mode-2026-02-01")`
+
+    - `Output300k2026_03_24("output-300k-2026-03-24")`
+
+    - `UserProfiles2026_03_24("user-profiles-2026-03-24")`
+
+    - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
+
+    - `UserProfiles2026_09_04("user-profiles-2026-09-04")`
+
+    - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
+
+    - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
+
+    - `CacheDiagnosis2026_04_07("cache-diagnosis-2026-04-07")`
+
+    - `Dreaming2026_04_21("dreaming-2026-04-21")`
+
+    - `ThinkingTokenCount2026_05_13("thinking-token-count-2026-05-13")`
+
+    - `ServerSideFallback2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `ServerSideFallback2026_07_01("server-side-fallback-2026-07-01")`
+
+    - `FallbackCredit2026_06_01("fallback-credit-2026-06-01")`
+
+    - `FallbackCredit2026_07_01("fallback-credit-2026-07-01")`
+
+    - `AgentMemory2026_07_22("agent-memory-2026-07-22")`
+
+    - `MidConversationToolChanges2026_07_01("mid-conversation-tool-changes-2026-07-01")`
+
+    - `Compact2026_01_12("compact-2026-01-12")`
+
+    - `ComputerUse2025_11_24("computer-use-2025-11-24")`
+
+    - `McpTunnels2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `StructuredOutputs2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TaskBudgets2026_03_13("task-budgets-2026-03-13")`
+
+    - `ThinkingDisplayUpdates2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CEUserManagement2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MidConversationOutputConfig2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `ThinkingBindingControls2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
+#### Returns
+
+- `class BetaFederationRule:`
+
+  Authorization rule binding an external OIDC identity to Anthropic.
+
+  Evaluates the match conditions and mints an OAuth access token for the
+  resolved target, scoped to a single workspace where the rule is enabled
+  (chosen by the caller at exchange time when the rule is enabled for more
+  than one). For rules enabled via `workspace_ids` or
+  `applies_to_all_workspaces`, the target service account must be a member
+  of that workspace (it is implicitly a member of the default workspace);
+  rules carrying only the legacy `workspace_id` binding do not enforce
+  this.
+
+  - `JsonElement Type = "federation_rule"`
+
+  - `required string ID`
+
+    Tagged ID of the federation rule.
+
+  - `required bool AppliesToAllWorkspaces`
+
+    When true, this rule is enabled for every workspace in the org (including ones created after the rule). `workspace_ids` is ignored at exchange time.
+
+  - `required DateTimeOffset? ArchivedAt`
+
+    If set, this rule is archived and rejects token exchange.
+
+    format: date-time
+
+  - `required string? ArchivedByActorID`
+
+    Tagged ID (`user_`/`svac_`) of the actor that archived this rule.
+
+  - `required IReadOnlyDictionary<string, string>? Attributes`
+
+    CEL expressions extracting named values from claims. Not yet supported; always null.
+
+  - `required DateTimeOffset CreatedAt`
+
+    When this rule was created.
+
+    format: date-time
+
+  - `required string? CreatedByActorID`
+
+    Tagged ID (`user_`/`svac_`) of the actor that created this rule.
+
+  - `required string? Description`
+
+    Optional free-text description.
+
+  - `required string IssuerID`
+
+    Tagged ID of the issuer whose tokens this rule accepts.
+
+  - `required string? IssuerName`
+
+    Issuer's display name at read time.
+
+  - `required BetaFederationRuleMatch Match`
+
+    Conditions the verified JWT must satisfy for this rule to apply. All populated matcher fields must pass.
+
+    - `string? Audience`
+
+      Exact match against the `aud` claim (any element if array). When omitted, the JWT's `aud` must still equal Anthropic's expected audience for the issuer; setting this field overrides that default.
+
+      maxLength: 1024
+
+    - `IReadOnlyDictionary<string, string>? Claims`
+
+      Exact-match `{claim: value}` pairs against top-level claims. Only string-valued claims can be matched; use `condition` for non-string claims.
+
+    - `string? Condition`
+
+      CEL expression over claims for logic the structural fields can't express. Must evaluate to a boolean and may reference only the `claims` variable; a constant-true expression (such as `true`) is rejected with 400.
+
+      maxLength: 4096
+
+    - `string? SubjectPrefix`
+
+      Match the verified JWT `sub` claim. Exact match unless the value ends with `*`, in which case it is a prefix match. Example: `repo:my-org/my-repo:ref:refs/heads/main`.
+
+      maxLength: 1024
+
+  - `required string Name`
+
+    Admin-chosen slug identifier.
+
+  - `required string OAuthScope`
+
+    Space-separated OAuth scopes granted on the minted token.
+
+  - `required BetaServiceAccountTarget Target`
+
+    Identity that tokens minted via this rule act as. Currently always a `service_account` target.
+
+    - `JsonElement Type = "service_account"`
+
+    - `required string ServiceAccountID`
+
+      Tagged ID of the service account to mint tokens for.
+
+    - `string? ServiceAccountName`
+
+      Service account's display name at read time. Ignored on writes.
+
+  - `required long TokenLifetimeSeconds`
+
+    Lifetime in seconds of access tokens minted via this rule. Minted tokens are capped at `max(60, min(this value, 2 × remaining assertion validity))` seconds.
+
+  - `required DateTimeOffset UpdatedAt`
+
+    When this rule was last updated.
+
+    format: date-time
+
+  - `required string? UpdatedByActorID`
+
+    Tagged ID (`user_`/`svac_`) of the actor that last updated this rule.
+
+  - `required string? WorkspaceID`
+
+    Legacy single-workspace binding. Prefer `workspace_ids` and the `/federation_rules/{federation_rule_id}/workspaces` sub-resource for managing workspace enablement.
+
+  - `required IReadOnlyList<string> WorkspaceIds`
+
+    Tagged IDs of the workspaces this rule is enabled for. May be empty for older rules that only carry the legacy `workspace_id` binding. Ignored at exchange time when `applies_to_all_workspaces` is true (the list may still be non-empty).
+
+#### Example
+
+```csharp
+RuleCreateParams parameters = new()
+{
+    IssuerID = "issuer_id",
+    Match = new()
+    {
+        Audience = "audience",
+        Claims = new Dictionary<string, string>() { { "foo", "string" } },
+        Condition = "condition",
+        SubjectPrefix = "subject_prefix",
+    },
+    Name = "x",
+    OAuthScope = "x",
+    Target = new()
+    {
+        ServiceAccountID = "svac_01SDCCSbTxrXDpWc1phhtcfK",
+        ServiceAccountName = "service_account_name",
+    },
+};
+
+var betaFederationRule = await client.Beta.Organization.Federation.Rules.Create(parameters);
+
+Console.WriteLine(betaFederationRule);
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "fdrl_01SDCCSbTxrXDpWc1phhtcfK",
+  "applies_to_all_workspaces": true,
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "archived_by_actor_id": "archived_by_actor_id",
+  "attributes": {
+    "foo": "string"
+  },
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "created_by_actor_id": "created_by_actor_id",
+  "description": "description",
+  "issuer_id": "issuer_id",
+  "issuer_name": "issuer_name",
+  "match": {
+    "audience": "audience",
+    "claims": {
+      "foo": "string"
+    },
+    "condition": "condition",
+    "subject_prefix": "subject_prefix"
+  },
+  "name": "prod-deploy-pipeline",
+  "oauth_scope": "oauth_scope",
+  "target": {
+    "service_account_id": "svac_01SDCCSbTxrXDpWc1phhtcfK",
+    "type": "service_account",
+    "service_account_name": "service_account_name"
+  },
+  "token_lifetime_seconds": 0,
+  "type": "federation_rule",
+  "updated_at": "2024-10-30T23:58:27.427722Z",
+  "updated_by_actor_id": "updated_by_actor_id",
+  "workspace_id": "workspace_id",
+  "workspace_ids": [
+    "string"
+  ]
+}
+```
+
+### List Federation Rules
+
+`RuleListPage Beta.Organization.Federation.Rules.List(parameters, cancellationToken = default)`
+
+**GET** `/v1/organizations/federation_rules`
+
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+
+List federation rules in your organization.
+
+Optionally filter by issuer with `issuer_id`. Archived rules are excluded
+unless `include_archived=true`.
+
+#### Parameters
+
+- `RuleListParams parameters`
+
+  - `bool includeArchived`
+
+    Query param: Include archived resources. Defaults to false.
+
+  - `string? issuerID`
+
+    Query param: Filter to rules referencing this federation issuer.
+
+  - `long limit`
+
+    Query param: Number of results per page.
+
+    maximum: 100, minimum: 1
+
+  - `string? page`
+
+    Query param: Opaque cursor from a previous response's `next_page`.
+
+  - `IReadOnlyList<AnthropicBeta> betas`
+
+    Header param: Optional header to specify the beta version(s) you want to use.
+
+    - `MessageBatches2024_09_24("message-batches-2024-09-24")`
+
+    - `PromptCaching2024_07_31("prompt-caching-2024-07-31")`
+
+    - `ComputerUse2024_10_22("computer-use-2024-10-22")`
+
+    - `ComputerUse2025_01_24("computer-use-2025-01-24")`
+
+    - `Pdfs2024_09_25("pdfs-2024-09-25")`
+
+    - `TokenCounting2024_11_01("token-counting-2024-11-01")`
+
+    - `TokenEfficientTools2025_02_19("token-efficient-tools-2025-02-19")`
+
+    - `Output128k2025_02_19("output-128k-2025-02-19")`
+
+    - `FilesApi2025_04_14("files-api-2025-04-14")`
+
+    - `McpClient2025_04_04("mcp-client-2025-04-04")`
+
+    - `McpClient2025_11_20("mcp-client-2025-11-20")`
+
+    - `DevFullThinking2025_05_14("dev-full-thinking-2025-05-14")`
+
+    - `InterleavedThinking2025_05_14("interleaved-thinking-2025-05-14")`
+
+    - `CodeExecution2025_05_22("code-execution-2025-05-22")`
+
+    - `ExtendedCacheTtl2025_04_11("extended-cache-ttl-2025-04-11")`
+
+    - `Context1m2025_08_07("context-1m-2025-08-07")`
+
+    - `ContextManagement2025_06_27("context-management-2025-06-27")`
+
+    - `ModelContextWindowExceeded2025_08_26("model-context-window-exceeded-2025-08-26")`
+
+    - `Skills2025_10_02("skills-2025-10-02")`
+
+    - `FastMode2026_02_01("fast-mode-2026-02-01")`
+
+    - `Output300k2026_03_24("output-300k-2026-03-24")`
+
+    - `UserProfiles2026_03_24("user-profiles-2026-03-24")`
+
+    - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
+
+    - `UserProfiles2026_09_04("user-profiles-2026-09-04")`
+
+    - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
+
+    - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
+
+    - `CacheDiagnosis2026_04_07("cache-diagnosis-2026-04-07")`
+
+    - `Dreaming2026_04_21("dreaming-2026-04-21")`
+
+    - `ThinkingTokenCount2026_05_13("thinking-token-count-2026-05-13")`
+
+    - `ServerSideFallback2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `ServerSideFallback2026_07_01("server-side-fallback-2026-07-01")`
+
+    - `FallbackCredit2026_06_01("fallback-credit-2026-06-01")`
+
+    - `FallbackCredit2026_07_01("fallback-credit-2026-07-01")`
+
+    - `AgentMemory2026_07_22("agent-memory-2026-07-22")`
+
+    - `MidConversationToolChanges2026_07_01("mid-conversation-tool-changes-2026-07-01")`
+
+    - `Compact2026_01_12("compact-2026-01-12")`
+
+    - `ComputerUse2025_11_24("computer-use-2025-11-24")`
+
+    - `McpTunnels2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `StructuredOutputs2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TaskBudgets2026_03_13("task-budgets-2026-03-13")`
+
+    - `ThinkingDisplayUpdates2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CEUserManagement2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MidConversationOutputConfig2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `ThinkingBindingControls2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
+#### Returns
+
+- `class BetaFederationRule:`
+
+  Authorization rule binding an external OIDC identity to Anthropic.
+
+  Evaluates the match conditions and mints an OAuth access token for the
+  resolved target, scoped to a single workspace where the rule is enabled
+  (chosen by the caller at exchange time when the rule is enabled for more
+  than one). For rules enabled via `workspace_ids` or
+  `applies_to_all_workspaces`, the target service account must be a member
+  of that workspace (it is implicitly a member of the default workspace);
+  rules carrying only the legacy `workspace_id` binding do not enforce
+  this.
+
+  - `JsonElement Type = "federation_rule"`
+
+  - `required string ID`
+
+    Tagged ID of the federation rule.
+
+  - `required bool AppliesToAllWorkspaces`
+
+    When true, this rule is enabled for every workspace in the org (including ones created after the rule). `workspace_ids` is ignored at exchange time.
+
+  - `required DateTimeOffset? ArchivedAt`
+
+    If set, this rule is archived and rejects token exchange.
+
+    format: date-time
+
+  - `required string? ArchivedByActorID`
+
+    Tagged ID (`user_`/`svac_`) of the actor that archived this rule.
+
+  - `required IReadOnlyDictionary<string, string>? Attributes`
+
+    CEL expressions extracting named values from claims. Not yet supported; always null.
+
+  - `required DateTimeOffset CreatedAt`
+
+    When this rule was created.
+
+    format: date-time
+
+  - `required string? CreatedByActorID`
+
+    Tagged ID (`user_`/`svac_`) of the actor that created this rule.
+
+  - `required string? Description`
+
+    Optional free-text description.
+
+  - `required string IssuerID`
+
+    Tagged ID of the issuer whose tokens this rule accepts.
+
+  - `required string? IssuerName`
+
+    Issuer's display name at read time.
+
+  - `required BetaFederationRuleMatch Match`
+
+    Conditions the verified JWT must satisfy for this rule to apply. All populated matcher fields must pass.
+
+    - `string? Audience`
+
+      Exact match against the `aud` claim (any element if array). When omitted, the JWT's `aud` must still equal Anthropic's expected audience for the issuer; setting this field overrides that default.
+
+      maxLength: 1024
+
+    - `IReadOnlyDictionary<string, string>? Claims`
+
+      Exact-match `{claim: value}` pairs against top-level claims. Only string-valued claims can be matched; use `condition` for non-string claims.
+
+    - `string? Condition`
+
+      CEL expression over claims for logic the structural fields can't express. Must evaluate to a boolean and may reference only the `claims` variable; a constant-true expression (such as `true`) is rejected with 400.
+
+      maxLength: 4096
+
+    - `string? SubjectPrefix`
+
+      Match the verified JWT `sub` claim. Exact match unless the value ends with `*`, in which case it is a prefix match. Example: `repo:my-org/my-repo:ref:refs/heads/main`.
+
+      maxLength: 1024
+
+  - `required string Name`
+
+    Admin-chosen slug identifier.
+
+  - `required string OAuthScope`
+
+    Space-separated OAuth scopes granted on the minted token.
+
+  - `required BetaServiceAccountTarget Target`
+
+    Identity that tokens minted via this rule act as. Currently always a `service_account` target.
+
+    - `JsonElement Type = "service_account"`
+
+    - `required string ServiceAccountID`
+
+      Tagged ID of the service account to mint tokens for.
+
+    - `string? ServiceAccountName`
+
+      Service account's display name at read time. Ignored on writes.
+
+  - `required long TokenLifetimeSeconds`
+
+    Lifetime in seconds of access tokens minted via this rule. Minted tokens are capped at `max(60, min(this value, 2 × remaining assertion validity))` seconds.
+
+  - `required DateTimeOffset UpdatedAt`
+
+    When this rule was last updated.
+
+    format: date-time
+
+  - `required string? UpdatedByActorID`
+
+    Tagged ID (`user_`/`svac_`) of the actor that last updated this rule.
+
+  - `required string? WorkspaceID`
+
+    Legacy single-workspace binding. Prefer `workspace_ids` and the `/federation_rules/{federation_rule_id}/workspaces` sub-resource for managing workspace enablement.
+
+  - `required IReadOnlyList<string> WorkspaceIds`
+
+    Tagged IDs of the workspaces this rule is enabled for. May be empty for older rules that only carry the legacy `workspace_id` binding. Ignored at exchange time when `applies_to_all_workspaces` is true (the list may still be non-empty).
+
+#### Example
+
+```csharp
+RuleListParams parameters = new();
+
+var page = await client.Beta.Organization.Federation.Rules.List(parameters);
+await foreach (var item in page.Paginate())
+{
+    Console.WriteLine(item);
+}
+```
+
+##### Response (200)
+
+```json
+{
+  "data": [
+    {
+      "id": "fdrl_01SDCCSbTxrXDpWc1phhtcfK",
+      "applies_to_all_workspaces": true,
+      "archived_at": "2019-12-27T18:11:19.117Z",
+      "archived_by_actor_id": "archived_by_actor_id",
+      "attributes": {
+        "foo": "string"
+      },
+      "created_at": "2024-10-30T23:58:27.427722Z",
+      "created_by_actor_id": "created_by_actor_id",
+      "description": "description",
+      "issuer_id": "issuer_id",
+      "issuer_name": "issuer_name",
+      "match": {
+        "audience": "audience",
+        "claims": {
+          "foo": "string"
+        },
+        "condition": "condition",
+        "subject_prefix": "subject_prefix"
+      },
+      "name": "prod-deploy-pipeline",
+      "oauth_scope": "oauth_scope",
+      "target": {
+        "service_account_id": "svac_01SDCCSbTxrXDpWc1phhtcfK",
+        "type": "service_account",
+        "service_account_name": "service_account_name"
+      },
+      "token_lifetime_seconds": 0,
+      "type": "federation_rule",
+      "updated_at": "2024-10-30T23:58:27.427722Z",
+      "updated_by_actor_id": "updated_by_actor_id",
+      "workspace_id": "workspace_id",
+      "workspace_ids": [
+        "string"
+      ]
+    }
+  ],
+  "next_page": "next_page"
+}
+```
+
+### Get Federation Rule
+
+`BetaFederationRule Beta.Organization.Federation.Rules.Retrieve(parameters, cancellationToken = default)`
+
+**GET** `/v1/organizations/federation_rules/{federation_rule_id}`
+
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+
+Retrieve a federation rule by its ID (`fdrl_...`).
+
+#### Parameters
+
+- `RuleRetrieveParams parameters`
+
+  - `required string federationRuleID`
+
+    ID of the federation rule.
+
+  - `IReadOnlyList<AnthropicBeta> betas`
+
+    Optional header to specify the beta version(s) you want to use.
+
+    - `MessageBatches2024_09_24("message-batches-2024-09-24")`
+
+    - `PromptCaching2024_07_31("prompt-caching-2024-07-31")`
+
+    - `ComputerUse2024_10_22("computer-use-2024-10-22")`
+
+    - `ComputerUse2025_01_24("computer-use-2025-01-24")`
+
+    - `Pdfs2024_09_25("pdfs-2024-09-25")`
+
+    - `TokenCounting2024_11_01("token-counting-2024-11-01")`
+
+    - `TokenEfficientTools2025_02_19("token-efficient-tools-2025-02-19")`
+
+    - `Output128k2025_02_19("output-128k-2025-02-19")`
+
+    - `FilesApi2025_04_14("files-api-2025-04-14")`
+
+    - `McpClient2025_04_04("mcp-client-2025-04-04")`
+
+    - `McpClient2025_11_20("mcp-client-2025-11-20")`
+
+    - `DevFullThinking2025_05_14("dev-full-thinking-2025-05-14")`
+
+    - `InterleavedThinking2025_05_14("interleaved-thinking-2025-05-14")`
+
+    - `CodeExecution2025_05_22("code-execution-2025-05-22")`
+
+    - `ExtendedCacheTtl2025_04_11("extended-cache-ttl-2025-04-11")`
+
+    - `Context1m2025_08_07("context-1m-2025-08-07")`
+
+    - `ContextManagement2025_06_27("context-management-2025-06-27")`
+
+    - `ModelContextWindowExceeded2025_08_26("model-context-window-exceeded-2025-08-26")`
+
+    - `Skills2025_10_02("skills-2025-10-02")`
+
+    - `FastMode2026_02_01("fast-mode-2026-02-01")`
+
+    - `Output300k2026_03_24("output-300k-2026-03-24")`
+
+    - `UserProfiles2026_03_24("user-profiles-2026-03-24")`
+
+    - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
+
+    - `UserProfiles2026_09_04("user-profiles-2026-09-04")`
+
+    - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
+
+    - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
+
+    - `CacheDiagnosis2026_04_07("cache-diagnosis-2026-04-07")`
+
+    - `Dreaming2026_04_21("dreaming-2026-04-21")`
+
+    - `ThinkingTokenCount2026_05_13("thinking-token-count-2026-05-13")`
+
+    - `ServerSideFallback2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `ServerSideFallback2026_07_01("server-side-fallback-2026-07-01")`
+
+    - `FallbackCredit2026_06_01("fallback-credit-2026-06-01")`
+
+    - `FallbackCredit2026_07_01("fallback-credit-2026-07-01")`
+
+    - `AgentMemory2026_07_22("agent-memory-2026-07-22")`
+
+    - `MidConversationToolChanges2026_07_01("mid-conversation-tool-changes-2026-07-01")`
+
+    - `Compact2026_01_12("compact-2026-01-12")`
+
+    - `ComputerUse2025_11_24("computer-use-2025-11-24")`
+
+    - `McpTunnels2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `StructuredOutputs2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TaskBudgets2026_03_13("task-budgets-2026-03-13")`
+
+    - `ThinkingDisplayUpdates2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CEUserManagement2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MidConversationOutputConfig2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `ThinkingBindingControls2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
+#### Returns
+
+- `class BetaFederationRule:`
+
+  Authorization rule binding an external OIDC identity to Anthropic.
+
+  Evaluates the match conditions and mints an OAuth access token for the
+  resolved target, scoped to a single workspace where the rule is enabled
+  (chosen by the caller at exchange time when the rule is enabled for more
+  than one). For rules enabled via `workspace_ids` or
+  `applies_to_all_workspaces`, the target service account must be a member
+  of that workspace (it is implicitly a member of the default workspace);
+  rules carrying only the legacy `workspace_id` binding do not enforce
+  this.
+
+  - `JsonElement Type = "federation_rule"`
+
+  - `required string ID`
+
+    Tagged ID of the federation rule.
+
+  - `required bool AppliesToAllWorkspaces`
+
+    When true, this rule is enabled for every workspace in the org (including ones created after the rule). `workspace_ids` is ignored at exchange time.
+
+  - `required DateTimeOffset? ArchivedAt`
+
+    If set, this rule is archived and rejects token exchange.
+
+    format: date-time
+
+  - `required string? ArchivedByActorID`
+
+    Tagged ID (`user_`/`svac_`) of the actor that archived this rule.
+
+  - `required IReadOnlyDictionary<string, string>? Attributes`
+
+    CEL expressions extracting named values from claims. Not yet supported; always null.
+
+  - `required DateTimeOffset CreatedAt`
+
+    When this rule was created.
+
+    format: date-time
+
+  - `required string? CreatedByActorID`
+
+    Tagged ID (`user_`/`svac_`) of the actor that created this rule.
+
+  - `required string? Description`
+
+    Optional free-text description.
+
+  - `required string IssuerID`
+
+    Tagged ID of the issuer whose tokens this rule accepts.
+
+  - `required string? IssuerName`
+
+    Issuer's display name at read time.
+
+  - `required BetaFederationRuleMatch Match`
+
+    Conditions the verified JWT must satisfy for this rule to apply. All populated matcher fields must pass.
+
+    - `string? Audience`
+
+      Exact match against the `aud` claim (any element if array). When omitted, the JWT's `aud` must still equal Anthropic's expected audience for the issuer; setting this field overrides that default.
+
+      maxLength: 1024
+
+    - `IReadOnlyDictionary<string, string>? Claims`
+
+      Exact-match `{claim: value}` pairs against top-level claims. Only string-valued claims can be matched; use `condition` for non-string claims.
+
+    - `string? Condition`
+
+      CEL expression over claims for logic the structural fields can't express. Must evaluate to a boolean and may reference only the `claims` variable; a constant-true expression (such as `true`) is rejected with 400.
+
+      maxLength: 4096
+
+    - `string? SubjectPrefix`
+
+      Match the verified JWT `sub` claim. Exact match unless the value ends with `*`, in which case it is a prefix match. Example: `repo:my-org/my-repo:ref:refs/heads/main`.
+
+      maxLength: 1024
+
+  - `required string Name`
+
+    Admin-chosen slug identifier.
+
+  - `required string OAuthScope`
+
+    Space-separated OAuth scopes granted on the minted token.
+
+  - `required BetaServiceAccountTarget Target`
+
+    Identity that tokens minted via this rule act as. Currently always a `service_account` target.
+
+    - `JsonElement Type = "service_account"`
+
+    - `required string ServiceAccountID`
+
+      Tagged ID of the service account to mint tokens for.
+
+    - `string? ServiceAccountName`
+
+      Service account's display name at read time. Ignored on writes.
+
+  - `required long TokenLifetimeSeconds`
+
+    Lifetime in seconds of access tokens minted via this rule. Minted tokens are capped at `max(60, min(this value, 2 × remaining assertion validity))` seconds.
+
+  - `required DateTimeOffset UpdatedAt`
+
+    When this rule was last updated.
+
+    format: date-time
+
+  - `required string? UpdatedByActorID`
+
+    Tagged ID (`user_`/`svac_`) of the actor that last updated this rule.
+
+  - `required string? WorkspaceID`
+
+    Legacy single-workspace binding. Prefer `workspace_ids` and the `/federation_rules/{federation_rule_id}/workspaces` sub-resource for managing workspace enablement.
+
+  - `required IReadOnlyList<string> WorkspaceIds`
+
+    Tagged IDs of the workspaces this rule is enabled for. May be empty for older rules that only carry the legacy `workspace_id` binding. Ignored at exchange time when `applies_to_all_workspaces` is true (the list may still be non-empty).
+
+#### Example
+
+```csharp
+RuleRetrieveParams parameters = new()
+{
+    FederationRuleID = "federation_rule_id"
+};
+
+var betaFederationRule = await client.Beta.Organization.Federation.Rules.Retrieve(parameters);
+
+Console.WriteLine(betaFederationRule);
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "fdrl_01SDCCSbTxrXDpWc1phhtcfK",
+  "applies_to_all_workspaces": true,
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "archived_by_actor_id": "archived_by_actor_id",
+  "attributes": {
+    "foo": "string"
+  },
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "created_by_actor_id": "created_by_actor_id",
+  "description": "description",
+  "issuer_id": "issuer_id",
+  "issuer_name": "issuer_name",
+  "match": {
+    "audience": "audience",
+    "claims": {
+      "foo": "string"
+    },
+    "condition": "condition",
+    "subject_prefix": "subject_prefix"
+  },
+  "name": "prod-deploy-pipeline",
+  "oauth_scope": "oauth_scope",
+  "target": {
+    "service_account_id": "svac_01SDCCSbTxrXDpWc1phhtcfK",
+    "type": "service_account",
+    "service_account_name": "service_account_name"
+  },
+  "token_lifetime_seconds": 0,
+  "type": "federation_rule",
+  "updated_at": "2024-10-30T23:58:27.427722Z",
+  "updated_by_actor_id": "updated_by_actor_id",
+  "workspace_id": "workspace_id",
+  "workspace_ids": [
+    "string"
+  ]
+}
+```
+
+### Update Federation Rule
+
+`BetaFederationRule Beta.Organization.Federation.Rules.Update(parameters, cancellationToken = default)`
+
+**POST** `/v1/organizations/federation_rules/{federation_rule_id}`
+
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+
+Partially update a federation rule.
+
+`issuer_id` is immutable. `match` and `target` are replaced as whole
+objects when set. Referenced service accounts and workspaces must exist
+in your organization; invalid references are rejected with a 400 error.
+Archived rules cannot be updated; this returns 400. Create a new rule
+instead. Rules on well-known shared issuers (GitHub Actions, GitLab,
+Buildkite, Terraform Cloud, Google) must constrain tenant identity via
+an identity-bearing claim, a tenant-pinning subject prefix (such as
+`repo:YOUR_ORG/...`), or a CEL condition referencing one of those
+identity claims (e.g. `claims.repository_owner`). On these issuers the
+requirement is re-checked on every update; if an existing rule's stored
+match does not yet constrain tenant identity, any update (even a rename
+or description change) must also supply a conforming `match` in the same
+request. OAuth callers may only manage rules whose `oauth_scope` is
+`workspace:developer` or `workspace:inference`; other scopes require a
+Console session.
+
+#### Parameters
+
+- `RuleUpdateParams parameters`
+
+  - `required string federationRuleID`
+
+    Path param: ID of the federation rule to update.
+
+  - `bool? appliesToAllWorkspaces`
+
+    Body param: When true, enables this rule for every workspace in the org (including workspaces created later). Setting `false` is rejected with 400 if no workspace would remain enabled; a rule with only a legacy `workspace_id` binding continues to mint.
+
+  - `IReadOnlyDictionary<string, string>? attributes`
+
+    Body param: Replaces the CEL expressions `{name: expr}` extracting named values from claims. Send null to clear them. Not yet supported; any non-empty value is rejected with 400.
+
+  - `string? description`
+
+    Body param: Replaces the description. Omit to leave unchanged; send `null` to clear (the field is stored as an empty string).
+
+    maxLength: 2000
+
+  - `BetaFederationRuleMatch? match`
+
+    Body param: Does the incoming JWT qualify?
+
+    All populated fields must pass; omitted fields are skipped. At least one
+    of `subject_prefix` (other than a wildcard-only value like `*`), `claims`,
+    or `condition` is required; `audience` alone is not sufficient.
+
+  - `string? name`
+
+    Body param: Replaces the slug identifier (lowercase, digits, hyphens). Unique within the organization; a duplicate name returns 409.
+
+    maxLength: 255, minLength: 1
+
+  - `string? oauthScope`
+
+    Body param: Replaces the space-separated OAuth scopes granted on minted tokens. OAuth callers may only set `workspace:developer` or `workspace:inference`; other scopes (such as `org:admin`) require a Console session.
+
+    minLength: 1
+
+  - `BetaServiceAccountTarget? target`
+
+    Body param: Bind to a fixed service account by ID.
+
+  - `long? tokenLifetimeSeconds`
+
+    Body param: Replaces the lifetime in seconds for access tokens minted via this rule (60-86400). Minted tokens are capped at `max(60, min(this value, 2 × remaining assertion validity))` seconds.
+
+    maximum: 86400, minimum: 60
+
+  - `string? workspaceID`
+
+    Body param: Replaces the existing single workspace enablement (the previous one is removed). Rejected with 400 if the rule is enabled for more than one workspace; use the `/federation_rules/{federation_rule_id}/workspaces` sub-resource instead.
+
+  - `IReadOnlyList<AnthropicBeta> betas`
+
+    Header param: Optional header to specify the beta version(s) you want to use.
+
+    - `MessageBatches2024_09_24("message-batches-2024-09-24")`
+
+    - `PromptCaching2024_07_31("prompt-caching-2024-07-31")`
+
+    - `ComputerUse2024_10_22("computer-use-2024-10-22")`
+
+    - `ComputerUse2025_01_24("computer-use-2025-01-24")`
+
+    - `Pdfs2024_09_25("pdfs-2024-09-25")`
+
+    - `TokenCounting2024_11_01("token-counting-2024-11-01")`
+
+    - `TokenEfficientTools2025_02_19("token-efficient-tools-2025-02-19")`
+
+    - `Output128k2025_02_19("output-128k-2025-02-19")`
+
+    - `FilesApi2025_04_14("files-api-2025-04-14")`
+
+    - `McpClient2025_04_04("mcp-client-2025-04-04")`
+
+    - `McpClient2025_11_20("mcp-client-2025-11-20")`
+
+    - `DevFullThinking2025_05_14("dev-full-thinking-2025-05-14")`
+
+    - `InterleavedThinking2025_05_14("interleaved-thinking-2025-05-14")`
+
+    - `CodeExecution2025_05_22("code-execution-2025-05-22")`
+
+    - `ExtendedCacheTtl2025_04_11("extended-cache-ttl-2025-04-11")`
+
+    - `Context1m2025_08_07("context-1m-2025-08-07")`
+
+    - `ContextManagement2025_06_27("context-management-2025-06-27")`
+
+    - `ModelContextWindowExceeded2025_08_26("model-context-window-exceeded-2025-08-26")`
+
+    - `Skills2025_10_02("skills-2025-10-02")`
+
+    - `FastMode2026_02_01("fast-mode-2026-02-01")`
+
+    - `Output300k2026_03_24("output-300k-2026-03-24")`
+
+    - `UserProfiles2026_03_24("user-profiles-2026-03-24")`
+
+    - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
+
+    - `UserProfiles2026_09_04("user-profiles-2026-09-04")`
+
+    - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
+
+    - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
+
+    - `CacheDiagnosis2026_04_07("cache-diagnosis-2026-04-07")`
+
+    - `Dreaming2026_04_21("dreaming-2026-04-21")`
+
+    - `ThinkingTokenCount2026_05_13("thinking-token-count-2026-05-13")`
+
+    - `ServerSideFallback2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `ServerSideFallback2026_07_01("server-side-fallback-2026-07-01")`
+
+    - `FallbackCredit2026_06_01("fallback-credit-2026-06-01")`
+
+    - `FallbackCredit2026_07_01("fallback-credit-2026-07-01")`
+
+    - `AgentMemory2026_07_22("agent-memory-2026-07-22")`
+
+    - `MidConversationToolChanges2026_07_01("mid-conversation-tool-changes-2026-07-01")`
+
+    - `Compact2026_01_12("compact-2026-01-12")`
+
+    - `ComputerUse2025_11_24("computer-use-2025-11-24")`
+
+    - `McpTunnels2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `StructuredOutputs2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TaskBudgets2026_03_13("task-budgets-2026-03-13")`
+
+    - `ThinkingDisplayUpdates2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CEUserManagement2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MidConversationOutputConfig2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `ThinkingBindingControls2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
+#### Returns
+
+- `class BetaFederationRule:`
+
+  Authorization rule binding an external OIDC identity to Anthropic.
+
+  Evaluates the match conditions and mints an OAuth access token for the
+  resolved target, scoped to a single workspace where the rule is enabled
+  (chosen by the caller at exchange time when the rule is enabled for more
+  than one). For rules enabled via `workspace_ids` or
+  `applies_to_all_workspaces`, the target service account must be a member
+  of that workspace (it is implicitly a member of the default workspace);
+  rules carrying only the legacy `workspace_id` binding do not enforce
+  this.
+
+  - `JsonElement Type = "federation_rule"`
+
+  - `required string ID`
+
+    Tagged ID of the federation rule.
+
+  - `required bool AppliesToAllWorkspaces`
+
+    When true, this rule is enabled for every workspace in the org (including ones created after the rule). `workspace_ids` is ignored at exchange time.
+
+  - `required DateTimeOffset? ArchivedAt`
+
+    If set, this rule is archived and rejects token exchange.
+
+    format: date-time
+
+  - `required string? ArchivedByActorID`
+
+    Tagged ID (`user_`/`svac_`) of the actor that archived this rule.
+
+  - `required IReadOnlyDictionary<string, string>? Attributes`
+
+    CEL expressions extracting named values from claims. Not yet supported; always null.
+
+  - `required DateTimeOffset CreatedAt`
+
+    When this rule was created.
+
+    format: date-time
+
+  - `required string? CreatedByActorID`
+
+    Tagged ID (`user_`/`svac_`) of the actor that created this rule.
+
+  - `required string? Description`
+
+    Optional free-text description.
+
+  - `required string IssuerID`
+
+    Tagged ID of the issuer whose tokens this rule accepts.
+
+  - `required string? IssuerName`
+
+    Issuer's display name at read time.
+
+  - `required BetaFederationRuleMatch Match`
+
+    Conditions the verified JWT must satisfy for this rule to apply. All populated matcher fields must pass.
+
+    - `string? Audience`
+
+      Exact match against the `aud` claim (any element if array). When omitted, the JWT's `aud` must still equal Anthropic's expected audience for the issuer; setting this field overrides that default.
+
+      maxLength: 1024
+
+    - `IReadOnlyDictionary<string, string>? Claims`
+
+      Exact-match `{claim: value}` pairs against top-level claims. Only string-valued claims can be matched; use `condition` for non-string claims.
+
+    - `string? Condition`
+
+      CEL expression over claims for logic the structural fields can't express. Must evaluate to a boolean and may reference only the `claims` variable; a constant-true expression (such as `true`) is rejected with 400.
+
+      maxLength: 4096
+
+    - `string? SubjectPrefix`
+
+      Match the verified JWT `sub` claim. Exact match unless the value ends with `*`, in which case it is a prefix match. Example: `repo:my-org/my-repo:ref:refs/heads/main`.
+
+      maxLength: 1024
+
+  - `required string Name`
+
+    Admin-chosen slug identifier.
+
+  - `required string OAuthScope`
+
+    Space-separated OAuth scopes granted on the minted token.
+
+  - `required BetaServiceAccountTarget Target`
+
+    Identity that tokens minted via this rule act as. Currently always a `service_account` target.
+
+    - `JsonElement Type = "service_account"`
+
+    - `required string ServiceAccountID`
+
+      Tagged ID of the service account to mint tokens for.
+
+    - `string? ServiceAccountName`
+
+      Service account's display name at read time. Ignored on writes.
+
+  - `required long TokenLifetimeSeconds`
+
+    Lifetime in seconds of access tokens minted via this rule. Minted tokens are capped at `max(60, min(this value, 2 × remaining assertion validity))` seconds.
+
+  - `required DateTimeOffset UpdatedAt`
+
+    When this rule was last updated.
+
+    format: date-time
+
+  - `required string? UpdatedByActorID`
+
+    Tagged ID (`user_`/`svac_`) of the actor that last updated this rule.
+
+  - `required string? WorkspaceID`
+
+    Legacy single-workspace binding. Prefer `workspace_ids` and the `/federation_rules/{federation_rule_id}/workspaces` sub-resource for managing workspace enablement.
+
+  - `required IReadOnlyList<string> WorkspaceIds`
+
+    Tagged IDs of the workspaces this rule is enabled for. May be empty for older rules that only carry the legacy `workspace_id` binding. Ignored at exchange time when `applies_to_all_workspaces` is true (the list may still be non-empty).
+
+#### Example
+
+```csharp
+RuleUpdateParams parameters = new() { FederationRuleID = "federation_rule_id" };
+
+var betaFederationRule = await client.Beta.Organization.Federation.Rules.Update(parameters);
+
+Console.WriteLine(betaFederationRule);
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "fdrl_01SDCCSbTxrXDpWc1phhtcfK",
+  "applies_to_all_workspaces": true,
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "archived_by_actor_id": "archived_by_actor_id",
+  "attributes": {
+    "foo": "string"
+  },
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "created_by_actor_id": "created_by_actor_id",
+  "description": "description",
+  "issuer_id": "issuer_id",
+  "issuer_name": "issuer_name",
+  "match": {
+    "audience": "audience",
+    "claims": {
+      "foo": "string"
+    },
+    "condition": "condition",
+    "subject_prefix": "subject_prefix"
+  },
+  "name": "prod-deploy-pipeline",
+  "oauth_scope": "oauth_scope",
+  "target": {
+    "service_account_id": "svac_01SDCCSbTxrXDpWc1phhtcfK",
+    "type": "service_account",
+    "service_account_name": "service_account_name"
+  },
+  "token_lifetime_seconds": 0,
+  "type": "federation_rule",
+  "updated_at": "2024-10-30T23:58:27.427722Z",
+  "updated_by_actor_id": "updated_by_actor_id",
+  "workspace_id": "workspace_id",
+  "workspace_ids": [
+    "string"
+  ]
+}
+```
+
+### Archive Federation Rule
+
+`BetaFederationRule Beta.Organization.Federation.Rules.Archive(parameters, cancellationToken = default)`
+
+**POST** `/v1/organizations/federation_rules/{federation_rule_id}/archive`
+
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+
+Archive a federation rule.
+
+Token exchange through this rule stops immediately. Idempotent;
+re-archiving returns the rule with its original `archived_at`. Archiving
+clears the rule's workspace targeting (`workspace_id` and
+`workspace_ids` are emptied). Tokens already minted before archive
+remain valid until they expire. OAuth callers may only manage rules
+whose `oauth_scope` is `workspace:developer` or `workspace:inference`;
+other scopes require a Console session.
+
+#### Parameters
+
+- `RuleArchiveParams parameters`
+
+  - `required string federationRuleID`
+
+    ID of the federation rule to archive.
+
+  - `IReadOnlyList<AnthropicBeta> betas`
+
+    Optional header to specify the beta version(s) you want to use.
+
+    - `MessageBatches2024_09_24("message-batches-2024-09-24")`
+
+    - `PromptCaching2024_07_31("prompt-caching-2024-07-31")`
+
+    - `ComputerUse2024_10_22("computer-use-2024-10-22")`
+
+    - `ComputerUse2025_01_24("computer-use-2025-01-24")`
+
+    - `Pdfs2024_09_25("pdfs-2024-09-25")`
+
+    - `TokenCounting2024_11_01("token-counting-2024-11-01")`
+
+    - `TokenEfficientTools2025_02_19("token-efficient-tools-2025-02-19")`
+
+    - `Output128k2025_02_19("output-128k-2025-02-19")`
+
+    - `FilesApi2025_04_14("files-api-2025-04-14")`
+
+    - `McpClient2025_04_04("mcp-client-2025-04-04")`
+
+    - `McpClient2025_11_20("mcp-client-2025-11-20")`
+
+    - `DevFullThinking2025_05_14("dev-full-thinking-2025-05-14")`
+
+    - `InterleavedThinking2025_05_14("interleaved-thinking-2025-05-14")`
+
+    - `CodeExecution2025_05_22("code-execution-2025-05-22")`
+
+    - `ExtendedCacheTtl2025_04_11("extended-cache-ttl-2025-04-11")`
+
+    - `Context1m2025_08_07("context-1m-2025-08-07")`
+
+    - `ContextManagement2025_06_27("context-management-2025-06-27")`
+
+    - `ModelContextWindowExceeded2025_08_26("model-context-window-exceeded-2025-08-26")`
+
+    - `Skills2025_10_02("skills-2025-10-02")`
+
+    - `FastMode2026_02_01("fast-mode-2026-02-01")`
+
+    - `Output300k2026_03_24("output-300k-2026-03-24")`
+
+    - `UserProfiles2026_03_24("user-profiles-2026-03-24")`
+
+    - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
+
+    - `UserProfiles2026_09_04("user-profiles-2026-09-04")`
+
+    - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
+
+    - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
+
+    - `CacheDiagnosis2026_04_07("cache-diagnosis-2026-04-07")`
+
+    - `Dreaming2026_04_21("dreaming-2026-04-21")`
+
+    - `ThinkingTokenCount2026_05_13("thinking-token-count-2026-05-13")`
+
+    - `ServerSideFallback2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `ServerSideFallback2026_07_01("server-side-fallback-2026-07-01")`
+
+    - `FallbackCredit2026_06_01("fallback-credit-2026-06-01")`
+
+    - `FallbackCredit2026_07_01("fallback-credit-2026-07-01")`
+
+    - `AgentMemory2026_07_22("agent-memory-2026-07-22")`
+
+    - `MidConversationToolChanges2026_07_01("mid-conversation-tool-changes-2026-07-01")`
+
+    - `Compact2026_01_12("compact-2026-01-12")`
+
+    - `ComputerUse2025_11_24("computer-use-2025-11-24")`
+
+    - `McpTunnels2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `StructuredOutputs2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TaskBudgets2026_03_13("task-budgets-2026-03-13")`
+
+    - `ThinkingDisplayUpdates2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CEUserManagement2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MidConversationOutputConfig2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `ThinkingBindingControls2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
+#### Returns
+
+- `class BetaFederationRule:`
+
+  Authorization rule binding an external OIDC identity to Anthropic.
+
+  Evaluates the match conditions and mints an OAuth access token for the
+  resolved target, scoped to a single workspace where the rule is enabled
+  (chosen by the caller at exchange time when the rule is enabled for more
+  than one). For rules enabled via `workspace_ids` or
+  `applies_to_all_workspaces`, the target service account must be a member
+  of that workspace (it is implicitly a member of the default workspace);
+  rules carrying only the legacy `workspace_id` binding do not enforce
+  this.
+
+  - `JsonElement Type = "federation_rule"`
+
+  - `required string ID`
+
+    Tagged ID of the federation rule.
+
+  - `required bool AppliesToAllWorkspaces`
+
+    When true, this rule is enabled for every workspace in the org (including ones created after the rule). `workspace_ids` is ignored at exchange time.
+
+  - `required DateTimeOffset? ArchivedAt`
+
+    If set, this rule is archived and rejects token exchange.
+
+    format: date-time
+
+  - `required string? ArchivedByActorID`
+
+    Tagged ID (`user_`/`svac_`) of the actor that archived this rule.
+
+  - `required IReadOnlyDictionary<string, string>? Attributes`
+
+    CEL expressions extracting named values from claims. Not yet supported; always null.
+
+  - `required DateTimeOffset CreatedAt`
+
+    When this rule was created.
+
+    format: date-time
+
+  - `required string? CreatedByActorID`
+
+    Tagged ID (`user_`/`svac_`) of the actor that created this rule.
+
+  - `required string? Description`
+
+    Optional free-text description.
+
+  - `required string IssuerID`
+
+    Tagged ID of the issuer whose tokens this rule accepts.
+
+  - `required string? IssuerName`
+
+    Issuer's display name at read time.
+
+  - `required BetaFederationRuleMatch Match`
+
+    Conditions the verified JWT must satisfy for this rule to apply. All populated matcher fields must pass.
+
+    - `string? Audience`
+
+      Exact match against the `aud` claim (any element if array). When omitted, the JWT's `aud` must still equal Anthropic's expected audience for the issuer; setting this field overrides that default.
+
+      maxLength: 1024
+
+    - `IReadOnlyDictionary<string, string>? Claims`
+
+      Exact-match `{claim: value}` pairs against top-level claims. Only string-valued claims can be matched; use `condition` for non-string claims.
+
+    - `string? Condition`
+
+      CEL expression over claims for logic the structural fields can't express. Must evaluate to a boolean and may reference only the `claims` variable; a constant-true expression (such as `true`) is rejected with 400.
+
+      maxLength: 4096
+
+    - `string? SubjectPrefix`
+
+      Match the verified JWT `sub` claim. Exact match unless the value ends with `*`, in which case it is a prefix match. Example: `repo:my-org/my-repo:ref:refs/heads/main`.
+
+      maxLength: 1024
+
+  - `required string Name`
+
+    Admin-chosen slug identifier.
+
+  - `required string OAuthScope`
+
+    Space-separated OAuth scopes granted on the minted token.
+
+  - `required BetaServiceAccountTarget Target`
+
+    Identity that tokens minted via this rule act as. Currently always a `service_account` target.
+
+    - `JsonElement Type = "service_account"`
+
+    - `required string ServiceAccountID`
+
+      Tagged ID of the service account to mint tokens for.
+
+    - `string? ServiceAccountName`
+
+      Service account's display name at read time. Ignored on writes.
+
+  - `required long TokenLifetimeSeconds`
+
+    Lifetime in seconds of access tokens minted via this rule. Minted tokens are capped at `max(60, min(this value, 2 × remaining assertion validity))` seconds.
+
+  - `required DateTimeOffset UpdatedAt`
+
+    When this rule was last updated.
+
+    format: date-time
+
+  - `required string? UpdatedByActorID`
+
+    Tagged ID (`user_`/`svac_`) of the actor that last updated this rule.
+
+  - `required string? WorkspaceID`
+
+    Legacy single-workspace binding. Prefer `workspace_ids` and the `/federation_rules/{federation_rule_id}/workspaces` sub-resource for managing workspace enablement.
+
+  - `required IReadOnlyList<string> WorkspaceIds`
+
+    Tagged IDs of the workspaces this rule is enabled for. May be empty for older rules that only carry the legacy `workspace_id` binding. Ignored at exchange time when `applies_to_all_workspaces` is true (the list may still be non-empty).
+
+#### Example
+
+```csharp
+RuleArchiveParams parameters = new()
+{
+    FederationRuleID = "federation_rule_id"
+};
+
+var betaFederationRule = await client.Beta.Organization.Federation.Rules.Archive(parameters);
+
+Console.WriteLine(betaFederationRule);
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "fdrl_01SDCCSbTxrXDpWc1phhtcfK",
+  "applies_to_all_workspaces": true,
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "archived_by_actor_id": "archived_by_actor_id",
+  "attributes": {
+    "foo": "string"
+  },
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "created_by_actor_id": "created_by_actor_id",
+  "description": "description",
+  "issuer_id": "issuer_id",
+  "issuer_name": "issuer_name",
+  "match": {
+    "audience": "audience",
+    "claims": {
+      "foo": "string"
+    },
+    "condition": "condition",
+    "subject_prefix": "subject_prefix"
+  },
+  "name": "prod-deploy-pipeline",
+  "oauth_scope": "oauth_scope",
+  "target": {
+    "service_account_id": "svac_01SDCCSbTxrXDpWc1phhtcfK",
+    "type": "service_account",
+    "service_account_name": "service_account_name"
+  },
+  "token_lifetime_seconds": 0,
+  "type": "federation_rule",
+  "updated_at": "2024-10-30T23:58:27.427722Z",
+  "updated_by_actor_id": "updated_by_actor_id",
+  "workspace_id": "workspace_id",
+  "workspace_ids": [
+    "string"
+  ]
+}
+```
+
+## Beta › Organization › Federation › Rules › Workspaces
+
+### Add Federation Rule Workspace
+
+`BetaFederationRuleWorkspace Beta.Organization.Federation.Rules.Workspaces.Add(parameters, cancellationToken = default)`
+
+**POST** `/v1/organizations/federation_rules/{federation_rule_id}/workspaces`
+
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+
+Enable a federation rule for a workspace.
+
+Idempotent; re-enabling returns the existing enablement. The rule and
+workspace must both belong to your organization. Membership of the
+rule's target service account in this workspace is not checked at
+enablement: token exchange into this workspace is rejected unless the
+target is a member (it is implicitly a member of the default workspace).
+Archived rules are rejected with 400. OAuth callers may only manage rules
+whose `oauth_scope` is `workspace:developer` or `workspace:inference`;
+other scopes require a Console session.
+
+#### Parameters
+
+- `WorkspaceAddParams parameters`
+
+  - `required string federationRuleID`
+
+    Path param: ID of the federation rule.
+
+  - `required string workspaceID`
+
+    Body param: Tagged ID of the workspace to enable this rule for.
+
+  - `IReadOnlyList<AnthropicBeta> betas`
+
+    Header param: Optional header to specify the beta version(s) you want to use.
+
+    - `MessageBatches2024_09_24("message-batches-2024-09-24")`
+
+    - `PromptCaching2024_07_31("prompt-caching-2024-07-31")`
+
+    - `ComputerUse2024_10_22("computer-use-2024-10-22")`
+
+    - `ComputerUse2025_01_24("computer-use-2025-01-24")`
+
+    - `Pdfs2024_09_25("pdfs-2024-09-25")`
+
+    - `TokenCounting2024_11_01("token-counting-2024-11-01")`
+
+    - `TokenEfficientTools2025_02_19("token-efficient-tools-2025-02-19")`
+
+    - `Output128k2025_02_19("output-128k-2025-02-19")`
+
+    - `FilesApi2025_04_14("files-api-2025-04-14")`
+
+    - `McpClient2025_04_04("mcp-client-2025-04-04")`
+
+    - `McpClient2025_11_20("mcp-client-2025-11-20")`
+
+    - `DevFullThinking2025_05_14("dev-full-thinking-2025-05-14")`
+
+    - `InterleavedThinking2025_05_14("interleaved-thinking-2025-05-14")`
+
+    - `CodeExecution2025_05_22("code-execution-2025-05-22")`
+
+    - `ExtendedCacheTtl2025_04_11("extended-cache-ttl-2025-04-11")`
+
+    - `Context1m2025_08_07("context-1m-2025-08-07")`
+
+    - `ContextManagement2025_06_27("context-management-2025-06-27")`
+
+    - `ModelContextWindowExceeded2025_08_26("model-context-window-exceeded-2025-08-26")`
+
+    - `Skills2025_10_02("skills-2025-10-02")`
+
+    - `FastMode2026_02_01("fast-mode-2026-02-01")`
+
+    - `Output300k2026_03_24("output-300k-2026-03-24")`
+
+    - `UserProfiles2026_03_24("user-profiles-2026-03-24")`
+
+    - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
+
+    - `UserProfiles2026_09_04("user-profiles-2026-09-04")`
+
     - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
 
     - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
@@ -107,6 +5265,8 @@
 
 - `class BetaFederationRuleWorkspace:`
 
+  - `JsonElement Type = "federation_rule_workspace"`
+
   - `required DateTimeOffset CreatedAt`
 
     When this workspace was enabled for the rule.
@@ -121,7 +5281,188 @@
 
     Tagged ID of the federation rule.
 
+  - `required string WorkspaceID`
+
+    Tagged ID of the workspace this rule is enabled for.
+
+  - `required string? WorkspaceName`
+
+    Workspace display name. Populated when listing; null in the enable response.
+
+#### Example
+
+```csharp
+WorkspaceAddParams parameters = new()
+{
+    FederationRuleID = "federation_rule_id",
+    WorkspaceID = "workspace_id",
+};
+
+var betaFederationRuleWorkspace = await client.Beta.Organization.Federation.Rules.Workspaces.Add(parameters);
+
+Console.WriteLine(betaFederationRuleWorkspace);
+```
+
+##### Response (200)
+
+```json
+{
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "created_by_actor_id": "created_by_actor_id",
+  "federation_rule_id": "federation_rule_id",
+  "type": "federation_rule_workspace",
+  "workspace_id": "workspace_id",
+  "workspace_name": "workspace_name"
+}
+```
+
+### List Federation Rule Workspaces
+
+`WorkspaceListPage Beta.Organization.Federation.Rules.Workspaces.List(parameters, cancellationToken = default)`
+
+**GET** `/v1/organizations/federation_rules/{federation_rule_id}/workspaces`
+
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+
+List workspaces where this federation rule is enabled.
+
+Returns all workspace enablements in a single response; the `limit` and
+`page` parameters are accepted but have no effect, and `next_page` is
+always `null`. Returns explicit per-workspace enablements only; for
+rules with `applies_to_all_workspaces` or a legacy single
+`workspace_id`, check those fields on the rule itself.
+
+#### Parameters
+
+- `WorkspaceListParams parameters`
+
+  - `required string federationRuleID`
+
+    Path param: ID of the federation rule.
+
+  - `long limit`
+
+    Query param: Number of results per page.
+
+    maximum: 100, minimum: 1
+
+  - `string? page`
+
+    Query param: Opaque cursor from a previous response's `next_page`.
+
+  - `IReadOnlyList<AnthropicBeta> betas`
+
+    Header param: Optional header to specify the beta version(s) you want to use.
+
+    - `MessageBatches2024_09_24("message-batches-2024-09-24")`
+
+    - `PromptCaching2024_07_31("prompt-caching-2024-07-31")`
+
+    - `ComputerUse2024_10_22("computer-use-2024-10-22")`
+
+    - `ComputerUse2025_01_24("computer-use-2025-01-24")`
+
+    - `Pdfs2024_09_25("pdfs-2024-09-25")`
+
+    - `TokenCounting2024_11_01("token-counting-2024-11-01")`
+
+    - `TokenEfficientTools2025_02_19("token-efficient-tools-2025-02-19")`
+
+    - `Output128k2025_02_19("output-128k-2025-02-19")`
+
+    - `FilesApi2025_04_14("files-api-2025-04-14")`
+
+    - `McpClient2025_04_04("mcp-client-2025-04-04")`
+
+    - `McpClient2025_11_20("mcp-client-2025-11-20")`
+
+    - `DevFullThinking2025_05_14("dev-full-thinking-2025-05-14")`
+
+    - `InterleavedThinking2025_05_14("interleaved-thinking-2025-05-14")`
+
+    - `CodeExecution2025_05_22("code-execution-2025-05-22")`
+
+    - `ExtendedCacheTtl2025_04_11("extended-cache-ttl-2025-04-11")`
+
+    - `Context1m2025_08_07("context-1m-2025-08-07")`
+
+    - `ContextManagement2025_06_27("context-management-2025-06-27")`
+
+    - `ModelContextWindowExceeded2025_08_26("model-context-window-exceeded-2025-08-26")`
+
+    - `Skills2025_10_02("skills-2025-10-02")`
+
+    - `FastMode2026_02_01("fast-mode-2026-02-01")`
+
+    - `Output300k2026_03_24("output-300k-2026-03-24")`
+
+    - `UserProfiles2026_03_24("user-profiles-2026-03-24")`
+
+    - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
+
+    - `UserProfiles2026_09_04("user-profiles-2026-09-04")`
+
+    - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
+
+    - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
+
+    - `CacheDiagnosis2026_04_07("cache-diagnosis-2026-04-07")`
+
+    - `Dreaming2026_04_21("dreaming-2026-04-21")`
+
+    - `ThinkingTokenCount2026_05_13("thinking-token-count-2026-05-13")`
+
+    - `ServerSideFallback2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `ServerSideFallback2026_07_01("server-side-fallback-2026-07-01")`
+
+    - `FallbackCredit2026_06_01("fallback-credit-2026-06-01")`
+
+    - `FallbackCredit2026_07_01("fallback-credit-2026-07-01")`
+
+    - `AgentMemory2026_07_22("agent-memory-2026-07-22")`
+
+    - `MidConversationToolChanges2026_07_01("mid-conversation-tool-changes-2026-07-01")`
+
+    - `Compact2026_01_12("compact-2026-01-12")`
+
+    - `ComputerUse2025_11_24("computer-use-2025-11-24")`
+
+    - `McpTunnels2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `StructuredOutputs2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TaskBudgets2026_03_13("task-budgets-2026-03-13")`
+
+    - `ThinkingDisplayUpdates2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CEUserManagement2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MidConversationOutputConfig2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `ThinkingBindingControls2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
+#### Returns
+
+- `class BetaFederationRuleWorkspace:`
+
   - `JsonElement Type = "federation_rule_workspace"`
+
+  - `required DateTimeOffset CreatedAt`
+
+    When this workspace was enabled for the rule.
+
+    format: date-time
+
+  - `required string? CreatedByActorID`
+
+    Tagged ID (`user_...` or `svac_...`) of the actor that enabled this workspace for the rule, if known.
+
+  - `required string FederationRuleID`
+
+    Tagged ID of the federation rule.
 
   - `required string WorkspaceID`
 
@@ -241,6 +5582,8 @@ Console session.
 
     - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
 
+    - `UserProfiles2026_09_04("user-profiles-2026-09-04")`
+
     - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
 
     - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
@@ -287,11 +5630,11 @@ Console session.
 
 - `class WorkspaceRemoveResponse:`
 
+  - `JsonElement Type = "federation_rule_workspace_deleted"`
+
   - `required string FederationRuleID`
 
     Tagged ID of the federation rule.
-
-  - `JsonElement Type = "federation_rule_workspace_deleted"`
 
   - `required string WorkspaceID`
 
@@ -369,6 +5712,12 @@ On plans that draw members from a finite pool of purchased seats, the invite aut
 
 - `class BetaOrganizationInvite:`
 
+  - `JsonElement Type = "invite"`
+
+    Object type.
+
+    For Invites, this is always `"invite"`.
+
   - `required string ID`
 
     ID of the Invite.
@@ -432,12 +5781,6 @@ On plans that draw members from a finite pool of purchased seats, the invite aut
     - `Expired("expired")`
 
     - `Pending("pending")`
-
-  - `JsonElement Type = "invite"`
-
-    Object type.
-
-    For Invites, this is always `"invite"`.
 
 #### Example
 
@@ -525,6 +5868,12 @@ List the organization's invites.
 
 - `class BetaOrganizationInvite:`
 
+  - `JsonElement Type = "invite"`
+
+    Object type.
+
+    For Invites, this is always `"invite"`.
+
   - `required string ID`
 
     ID of the Invite.
@@ -588,12 +5937,6 @@ List the organization's invites.
     - `Expired("expired")`
 
     - `Pending("pending")`
-
-  - `JsonElement Type = "invite"`
-
-    Object type.
-
-    For Invites, this is always `"invite"`.
 
 #### Example
 
@@ -652,6 +5995,12 @@ Retrieve an invite by ID.
 
 - `class BetaOrganizationInvite:`
 
+  - `JsonElement Type = "invite"`
+
+    Object type.
+
+    For Invites, this is always `"invite"`.
+
   - `required string ID`
 
     ID of the Invite.
@@ -716,12 +6065,6 @@ Retrieve an invite by ID.
 
     - `Pending("pending")`
 
-  - `JsonElement Type = "invite"`
-
-    Object type.
-
-    For Invites, this is always `"invite"`.
-
 #### Example
 
 ```csharp
@@ -770,15 +6113,15 @@ Delete a pending invite.
 
 - `class InviteDeleteResponse:`
 
-  - `required string ID`
-
-    ID of the Invite.
-
   - `JsonElement Type = "invite_deleted"`
 
     Deleted object type.
 
     For Invites, this is always `"invite_deleted"`.
+
+  - `required string ID`
+
+    ID of the Invite.
 
 #### Example
 
@@ -893,6 +6236,8 @@ accounts.
 
     - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
 
+    - `UserProfiles2026_09_04("user-profiles-2026-09-04")`
+
     - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
 
     - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
@@ -944,6 +6289,8 @@ accounts.
   A service account is a pure identity: name + org. Authorization lives on
   whatever references it (federation rules).
 
+  - `JsonElement Type = "service_account"`
+
   - `required string ID`
 
     Tagged ID of the service account.
@@ -983,8 +6330,6 @@ accounts.
     - `Admin("admin")`
 
     - `Developer("developer")`
-
-  - `JsonElement Type = "service_account"`
 
   - `required DateTimeOffset UpdatedAt`
 
@@ -1106,6 +6451,8 @@ archived service accounts.
 
     - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
 
+    - `UserProfiles2026_09_04("user-profiles-2026-09-04")`
+
     - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
 
     - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
@@ -1157,6 +6504,8 @@ archived service accounts.
   A service account is a pure identity: name + org. Authorization lives on
   whatever references it (federation rules).
 
+  - `JsonElement Type = "service_account"`
+
   - `required string ID`
 
     Tagged ID of the service account.
@@ -1196,8 +6545,6 @@ archived service accounts.
     - `Admin("admin")`
 
     - `Developer("developer")`
-
-  - `JsonElement Type = "service_account"`
 
   - `required DateTimeOffset UpdatedAt`
 
@@ -1312,6 +6659,8 @@ Retrieve a service account by its ID (`svac_...`).
 
     - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
 
+    - `UserProfiles2026_09_04("user-profiles-2026-09-04")`
+
     - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
 
     - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
@@ -1363,6 +6712,8 @@ Retrieve a service account by its ID (`svac_...`).
   A service account is a pure identity: name + org. Authorization lives on
   whatever references it (federation rules).
 
+  - `JsonElement Type = "service_account"`
+
   - `required string ID`
 
     Tagged ID of the service account.
@@ -1402,8 +6753,6 @@ Retrieve a service account by its ID (`svac_...`).
     - `Admin("admin")`
 
     - `Developer("developer")`
-
-  - `JsonElement Type = "service_account"`
 
   - `required DateTimeOffset UpdatedAt`
 
@@ -1533,6 +6882,8 @@ interactive credential (a user OAuth token or a Console session).
 
     - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
 
+    - `UserProfiles2026_09_04("user-profiles-2026-09-04")`
+
     - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
 
     - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
@@ -1584,6 +6935,8 @@ interactive credential (a user OAuth token or a Console session).
   A service account is a pure identity: name + org. Authorization lives on
   whatever references it (federation rules).
 
+  - `JsonElement Type = "service_account"`
+
   - `required string ID`
 
     Tagged ID of the service account.
@@ -1623,8 +6976,6 @@ interactive credential (a user OAuth token or a Console session).
     - `Admin("admin")`
 
     - `Developer("developer")`
-
-  - `JsonElement Type = "service_account"`
 
   - `required DateTimeOffset UpdatedAt`
 
@@ -1740,6 +7091,8 @@ those rules first or change their target to another service account.
 
     - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
 
+    - `UserProfiles2026_09_04("user-profiles-2026-09-04")`
+
     - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
 
     - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
@@ -1791,6 +7144,8 @@ those rules first or change their target to another service account.
   A service account is a pure identity: name + org. Authorization lives on
   whatever references it (federation rules).
 
+  - `JsonElement Type = "service_account"`
+
   - `required string ID`
 
     Tagged ID of the service account.
@@ -1830,8 +7185,6 @@ those rules first or change their target to another service account.
     - `Admin("admin")`
 
     - `Developer("developer")`
-
-  - `JsonElement Type = "service_account"`
 
   - `required DateTimeOffset UpdatedAt`
 
@@ -1959,6 +7312,8 @@ rejected.
 
     - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
 
+    - `UserProfiles2026_09_04("user-profiles-2026-09-04")`
+
     - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
 
     - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
@@ -2005,6 +7360,8 @@ rejected.
 
 - `class BetaServiceAccountWorkspaceMember:`
 
+  - `JsonElement Type = "service_account_workspace_member"`
+
   - `required string? CreatedByActorID`
 
     Tagged ID (`user_...`/`svac_...`) of the actor who created this membership.
@@ -2016,8 +7373,6 @@ rejected.
   - `required string ServiceAccountID`
 
     Tagged service account ID (`svac_...`).
-
-  - `JsonElement Type = "service_account_workspace_member"`
 
   - `required string WorkspaceID`
 
@@ -2157,6 +7512,8 @@ page to recover.
 
     - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
 
+    - `UserProfiles2026_09_04("user-profiles-2026-09-04")`
+
     - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
 
     - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
@@ -2203,6 +7560,8 @@ page to recover.
 
 - `class BetaServiceAccountWorkspaceMember:`
 
+  - `JsonElement Type = "service_account_workspace_member"`
+
   - `required string? CreatedByActorID`
 
     Tagged ID (`user_...`/`svac_...`) of the actor who created this membership.
@@ -2214,8 +7573,6 @@ page to recover.
   - `required string ServiceAccountID`
 
     Tagged service account ID (`svac_...`).
-
-  - `JsonElement Type = "service_account_workspace_member"`
 
   - `required string WorkspaceID`
 
@@ -2348,6 +7705,8 @@ to the implicit `workspace_user` membership. Archived workspaces return
 
     - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
 
+    - `UserProfiles2026_09_04("user-profiles-2026-09-04")`
+
     - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
 
     - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
@@ -2394,11 +7753,11 @@ to the implicit `workspace_user` membership. Archived workspaces return
 
 - `class WorkspaceRemoveResponse:`
 
+  - `JsonElement Type = "service_account_workspace_member_deleted"`
+
   - `required string ServiceAccountID`
 
     Tagged service account ID (`svac_...`) named in the delete request. Removal is idempotent; see the endpoint description for the implicit-membership no-op.
-
-  - `JsonElement Type = "service_account_workspace_member_deleted"`
 
   - `required string WorkspaceID`
 
@@ -2474,6 +7833,12 @@ List the organization's members.
 
 - `class BetaOrganizationUser:`
 
+  - `JsonElement Type = "user"`
+
+    Object type.
+
+    For Users, this is always `"user"`.
+
   - `required string ID`
 
     ID of the User.
@@ -2513,12 +7878,6 @@ List the organization's members.
     - `PrimaryOwner("primary_owner")`
 
     - `User("user")`
-
-  - `JsonElement Type = "user"`
-
-    Object type.
-
-    For Users, this is always `"user"`.
 
 #### Example
 
@@ -2572,6 +7931,12 @@ Retrieve a member of the organization by user ID.
 
 - `class BetaOrganizationUser:`
 
+  - `JsonElement Type = "user"`
+
+    Object type.
+
+    For Users, this is always `"user"`.
+
   - `required string ID`
 
     ID of the User.
@@ -2611,12 +7976,6 @@ Retrieve a member of the organization by user ID.
     - `PrimaryOwner("primary_owner")`
 
     - `User("user")`
-
-  - `JsonElement Type = "user"`
-
-    Object type.
-
-    For Users, this is always `"user"`.
 
 #### Example
 
@@ -2677,6 +8036,12 @@ Update a member's organization role.
 
 - `class BetaOrganizationUser:`
 
+  - `JsonElement Type = "user"`
+
+    Object type.
+
+    For Users, this is always `"user"`.
+
   - `required string ID`
 
     ID of the User.
@@ -2716,12 +8081,6 @@ Update a member's organization role.
     - `PrimaryOwner("primary_owner")`
 
     - `User("user")`
-
-  - `JsonElement Type = "user"`
-
-    Object type.
-
-    For Users, this is always `"user"`.
 
 #### Example
 
@@ -2770,15 +8129,15 @@ Remove a member from the organization.
 
 - `class UserRemoveResponse:`
 
-  - `required string ID`
-
-    ID of the User.
-
   - `JsonElement Type = "user_deleted"`
 
     Deleted object type.
 
     For Users, this is always `"user_deleted"`.
+
+  - `required string ID`
+
+    ID of the User.
 
 #### Example
 
@@ -2836,6 +8195,12 @@ List Workspaces
 #### Returns
 
 - `class BetaWorkspace:`
+
+  - `JsonElement Type = "workspace"`
+
+    Object type.
+
+    For Workspaces, this is always `"workspace"`.
 
   - `required string ID`
 
@@ -2912,12 +8277,6 @@ List Workspaces
   - `required IReadOnlyDictionary<string, string> Tags`
 
     User-defined tags as string key-value pairs. Keys may not begin with `anthropic`.
-
-  - `JsonElement Type = "workspace"`
-
-    Object type.
-
-    For Workspaces, this is always `"workspace"`.
 
 #### Example
 
@@ -3058,6 +8417,8 @@ Create Workspace
 
     - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
 
+    - `UserProfiles2026_09_04("user-profiles-2026-09-04")`
+
     - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
 
     - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
@@ -3103,6 +8464,12 @@ Create Workspace
 #### Returns
 
 - `class BetaWorkspace:`
+
+  - `JsonElement Type = "workspace"`
+
+    Object type.
+
+    For Workspaces, this is always `"workspace"`.
 
   - `required string ID`
 
@@ -3179,12 +8546,6 @@ Create Workspace
   - `required IReadOnlyDictionary<string, string> Tags`
 
     User-defined tags as string key-value pairs. Keys may not begin with `anthropic`.
-
-  - `JsonElement Type = "workspace"`
-
-    Object type.
-
-    For Workspaces, this is always `"workspace"`.
 
 #### Example
 
@@ -3240,6 +8601,12 @@ Get Workspace
 
 - `class BetaWorkspace:`
 
+  - `JsonElement Type = "workspace"`
+
+    Object type.
+
+    For Workspaces, this is always `"workspace"`.
+
   - `required string ID`
 
     ID of the Workspace.
@@ -3315,12 +8682,6 @@ Get Workspace
   - `required IReadOnlyDictionary<string, string> Tags`
 
     User-defined tags as string key-value pairs. Keys may not begin with `anthropic`.
-
-  - `JsonElement Type = "workspace"`
-
-    Object type.
-
-    For Workspaces, this is always `"workspace"`.
 
 #### Example
 
@@ -3408,6 +8769,12 @@ Update Workspace
 
 - `class BetaWorkspace:`
 
+  - `JsonElement Type = "workspace"`
+
+    Object type.
+
+    For Workspaces, this is always `"workspace"`.
+
   - `required string ID`
 
     ID of the Workspace.
@@ -3483,12 +8850,6 @@ Update Workspace
   - `required IReadOnlyDictionary<string, string> Tags`
 
     User-defined tags as string key-value pairs. Keys may not begin with `anthropic`.
-
-  - `JsonElement Type = "workspace"`
-
-    Object type.
-
-    For Workspaces, this is always `"workspace"`.
 
 #### Example
 
@@ -3542,6 +8903,12 @@ Archive Workspace
 
 - `class BetaWorkspace:`
 
+  - `JsonElement Type = "workspace"`
+
+    Object type.
+
+    For Workspaces, this is always `"workspace"`.
+
   - `required string ID`
 
     ID of the Workspace.
@@ -3617,12 +8984,6 @@ Archive Workspace
   - `required IReadOnlyDictionary<string, string> Tags`
 
     User-defined tags as string key-value pairs. Keys may not begin with `anthropic`.
-
-  - `JsonElement Type = "workspace"`
-
-    Object type.
-
-    For Workspaces, this is always `"workspace"`.
 
 #### Example
 
@@ -3716,6 +9077,10 @@ the remaining entries.
 
 - `class BetaWorkspaceRateLimit:`
 
+  - `JsonElement Type = "workspace_rate_limit"`
+
+    Object type. Always `workspace_rate_limit` for workspace rate-limit entries.
+
   - `required GroupType GroupType`
 
     The kind of rate-limit group this entry represents. `model_group` entries apply to a family of models (listed in `models`); other values apply to an API-surface category and have `models` set to `null`.
@@ -3736,13 +9101,13 @@ the remaining entries.
 
     The limiter values overridden for this group in this workspace. Limiter types without a workspace override are omitted and inherit the organization value.
 
-    - `required long? OrgLimit`
-
-      The organization-level value for the same limiter type, for reference. `null` when the organization has no limit configured for this limiter type.
-
     - `required string Type`
 
       The limiter type (for example, `requests_per_minute` or `input_tokens_per_minute`).
+
+    - `required long? OrgLimit`
+
+      The organization-level value for the same limiter type, for reference. `null` when the organization has no limit configured for this limiter type.
 
     - `required long Value`
 
@@ -3755,10 +9120,6 @@ the remaining entries.
   - `required string RateLimitID`
 
     The `id` of the RateLimit group this override applies to.
-
-  - `JsonElement Type = "workspace_rate_limit"`
-
-    Object type. Always `workspace_rate_limit` for workspace rate-limit entries.
 
   - `required string WorkspaceID`
 
@@ -4288,6 +9649,8 @@ omitted from the results.
 
     - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
 
+    - `UserProfiles2026_09_04("user-profiles-2026-09-04")`
+
     - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
 
     - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
@@ -4334,6 +9697,8 @@ omitted from the results.
 
 - `class BetaServiceAccountWorkspaceMember:`
 
+  - `JsonElement Type = "service_account_workspace_member"`
+
   - `required string? CreatedByActorID`
 
     Tagged ID (`user_...`/`svac_...`) of the actor who created this membership.
@@ -4345,8 +9710,6 @@ omitted from the results.
   - `required string ServiceAccountID`
 
     Tagged service account ID (`svac_...`).
-
-  - `JsonElement Type = "service_account_workspace_member"`
 
   - `required string WorkspaceID`
 
@@ -4481,6 +9844,8 @@ accounts cannot be added and are rejected.
 
     - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
 
+    - `UserProfiles2026_09_04("user-profiles-2026-09-04")`
+
     - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
 
     - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
@@ -4527,6 +9892,8 @@ accounts cannot be added and are rejected.
 
 - `class BetaServiceAccountWorkspaceMember:`
 
+  - `JsonElement Type = "service_account_workspace_member"`
+
   - `required string? CreatedByActorID`
 
     Tagged ID (`user_...`/`svac_...`) of the actor who created this membership.
@@ -4538,8 +9905,6 @@ accounts cannot be added and are rejected.
   - `required string ServiceAccountID`
 
     Tagged service account ID (`svac_...`).
-
-  - `JsonElement Type = "service_account_workspace_member"`
 
   - `required string WorkspaceID`
 
@@ -4666,6 +10031,8 @@ account returns 404.
 
     - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
 
+    - `UserProfiles2026_09_04("user-profiles-2026-09-04")`
+
     - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
 
     - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
@@ -4712,6 +10079,8 @@ account returns 404.
 
 - `class BetaServiceAccountWorkspaceMember:`
 
+  - `JsonElement Type = "service_account_workspace_member"`
+
   - `required string? CreatedByActorID`
 
     Tagged ID (`user_...`/`svac_...`) of the actor who created this membership.
@@ -4723,8 +10092,6 @@ account returns 404.
   - `required string ServiceAccountID`
 
     Tagged service account ID (`svac_...`).
-
-  - `JsonElement Type = "service_account_workspace_member"`
 
   - `required string WorkspaceID`
 
@@ -4854,6 +10221,8 @@ rejected.
 
     - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
 
+    - `UserProfiles2026_09_04("user-profiles-2026-09-04")`
+
     - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
 
     - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
@@ -4900,6 +10269,8 @@ rejected.
 
 - `class BetaServiceAccountWorkspaceMember:`
 
+  - `JsonElement Type = "service_account_workspace_member"`
+
   - `required string? CreatedByActorID`
 
     Tagged ID (`user_...`/`svac_...`) of the actor who created this membership.
@@ -4911,8 +10282,6 @@ rejected.
   - `required string ServiceAccountID`
 
     Tagged service account ID (`svac_...`).
-
-  - `JsonElement Type = "service_account_workspace_member"`
 
   - `required string WorkspaceID`
 
@@ -5038,6 +10407,8 @@ membership. Archived workspaces return 400.
 
     - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
 
+    - `UserProfiles2026_09_04("user-profiles-2026-09-04")`
+
     - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
 
     - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
@@ -5084,11 +10455,11 @@ membership. Archived workspaces return 400.
 
 - `class ServiceAccountRemoveResponse:`
 
+  - `JsonElement Type = "service_account_workspace_member_deleted"`
+
   - `required string ServiceAccountID`
 
     Tagged service account ID (`svac_...`) named in the delete request. Removal is idempotent; see the endpoint description for the implicit-membership no-op.
-
-  - `JsonElement Type = "service_account_workspace_member_deleted"`
 
   - `required string WorkspaceID`
 
@@ -5176,6 +10547,10 @@ the remaining entries.
 
 - `class BetaOrganizationRateLimit:`
 
+  - `JsonElement Type = "rate_limit"`
+
+    Object type. Always `rate_limit` for organization rate-limit entries.
+
   - `required string ID`
 
     Stable identifier for this rate-limit group within the organization.
@@ -5211,10 +10586,6 @@ the remaining entries.
   - `required IReadOnlyList<string>? Models`
 
     Model names this entry's limits apply to, including aliases. `null` when `group_type` is not `"model_group"`.
-
-  - `JsonElement Type = "rate_limit"`
-
-    Object type. Always `rate_limit` for organization rate-limit entries.
 
 #### Example
 
@@ -5275,7 +10646,9 @@ organization reads the state inherited from the parent's configuration.
 
 - `class BetaComplianceSettings:`
 
-  - `required State State`
+  - `JsonElement Type = "compliance_settings"`
+
+  - `required BetaComplianceSettingsState State`
 
     Whether the Compliance API is enabled for this organization.
 
@@ -5286,8 +10659,6 @@ organization reads the state inherited from the parent's configuration.
     - `class BetaComplianceSettingsStateDisabled:`
 
       - `JsonElement Type = "disabled"`
-
-  - `JsonElement Type = "compliance_settings"`
 
 #### Example
 
@@ -5335,23 +10706,17 @@ compliance settings.
 
 - `ComplianceSettingUpdateParams parameters`
 
-  - `required State state`
+  - `required BetaComplianceSettingsStateParam state`
 
     Desired state. Accepts the string shorthand "enabled" or "disabled" in place of the object form; the response always returns the canonical object form.
-
-    - `class BetaComplianceSettingsStateEnabledParam:`
-
-      - `JsonElement Type = "enabled"`
-
-    - `class BetaComplianceSettingsStateDisabledParam:`
-
-      - `JsonElement Type = "disabled"`
 
 #### Returns
 
 - `class BetaComplianceSettings:`
 
-  - `required State State`
+  - `JsonElement Type = "compliance_settings"`
+
+  - `required BetaComplianceSettingsState State`
 
     Whether the Compliance API is enabled for this organization.
 
@@ -5362,8 +10727,6 @@ compliance settings.
     - `class BetaComplianceSettingsStateDisabled:`
 
       - `JsonElement Type = "disabled"`
-
-  - `JsonElement Type = "compliance_settings"`
 
 #### Example
 

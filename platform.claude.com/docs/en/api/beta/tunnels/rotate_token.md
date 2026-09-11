@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/beta/tunnels/rotate_token -->
 
+---
+title: Rotate Tunnel Token
+url: https://platform.claude.com/docs/en/api/beta/tunnels/rotate_token
+---
+
 # Rotate Tunnel Token
 
 **POST** `/v1/tunnels/{tunnel_id}/rotate_token`
@@ -20,7 +25,7 @@ Rotates a tunnel's connector token. Rotation invalidates the current token for n
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 41 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 42 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -68,6 +73,8 @@ Rotates a tunnel's connector token. Rotation invalidates the current token for n
 
     - `"user-profiles-2026-08-18"`
 
+    - `"user-profiles-2026-09-04"`
+
     - `"advisor-tool-2026-03-01"`
 
     - `"managed-agents-2026-04-01"`
@@ -110,6 +117,8 @@ Rotates a tunnel's connector token. Rotation invalidates the current token for n
 
     - `"mid-conversation-system-clear-at-2026-08-21"`
 
+- `"anthropic-workspace-id": optional string`
+
 ## Body parameters
 
 - `reason: optional string or null`
@@ -124,6 +133,8 @@ Rotates a tunnel's connector token. Rotation invalidates the current token for n
 
   A tunnel's connector token.
 
+  - `type: "tunnel_token"`
+
   - `id: string`
 
     Stable identifier for the current token value. Changes when the token is rotated.
@@ -131,8 +142,6 @@ Rotates a tunnel's connector token. Rotation invalidates the current token for n
   - `tunnel_token: string`
 
     The connector token used to run the tunnel. Treat as a credential.
-
-  - `type: "tunnel_token"`
 
 ## Example
 

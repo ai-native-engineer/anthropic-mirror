@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/beta/organization/external_keys/validate -->
 
+---
+title: Validate External Key
+url: https://platform.claude.com/docs/en/api/beta/organization/external_keys/validate
+---
+
 # Validate External Key
 
 **POST** `/v1/organizations/external_keys/{external_key_id}/validate`
@@ -21,6 +26,10 @@ message if it failed or timed out.
 
 ## Returns
 
+- `type: "external_key_validation"`
+
+  default: external_key_validation
+
 - `error: string or null`
 
   Error message when status is `failure`. Null otherwise.
@@ -32,10 +41,6 @@ message if it failed or timed out.
   - `"failure"`
 
   - `"success"`
-
-- `type: "external_key_validation"`
-
-  default: external_key_validation
 
 ## Example
 

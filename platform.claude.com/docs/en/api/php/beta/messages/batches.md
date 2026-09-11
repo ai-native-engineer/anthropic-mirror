@@ -1,10 +1,15 @@
 <!-- source: https://platform.claude.com/docs/en/api/php/beta/messages/batches -->
 
+---
+title: Batches
+url: https://platform.claude.com/docs/en/api/php/beta/messages/batches
+---
+
 # Batches
 
 ## Create a Message Batch
 
-`$client->beta->messages->batches->create(list<Request> requests, ?list<AnthropicBeta> betas, ?string userProfileID): MessageBatch`
+`$client->beta->messages->batches->create(list<Request> requests, ?list<AnthropicBeta> betas, ?string userProfileID, ?string workspaceID): MessageBatch`
 
 **POST** `/v1/messages/batches`
 
@@ -28,9 +33,17 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   The user profile ID to attribute the requests in this batch to. Use when acting on behalf of a party other than your organization. Requires the `user-profiles` beta header. Applies to every request in the batch; an individual request whose `user_profile_id` body field conflicts with this header is errored.
 
+- `workspaceID?:optional string`
+
 ### Returns
 
 - `MessageBatch`
+
+  - `"message_batch" type`
+
+    Object type.
+
+    For Message Batches, this is always `"message_batch"`.
 
   - `string id`
 
@@ -75,12 +88,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
     URL to a `.jsonl` file containing the results of the Message Batch requests. Specified only once processing ends.
 
     Results in the file are not guaranteed to be in the same order as requests. Use the `custom_id` field to match results to requests.
-
-  - `"message_batch" type`
-
-    Object type.
-
-    For Message Batches, this is always `"message_batch"`.
 
 ### Example
 
@@ -206,6 +213,7 @@ $betaMessageBatch = $client->beta->messages->batches->create(
   ],
   betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
   userProfileID: 'anthropic-user-profile-id',
+  workspaceID: 'wrkspc_011CZkZaBF1tNoB5wlCeusgy',
 );
 
 var_dump($betaMessageBatch);
@@ -236,7 +244,7 @@ var_dump($betaMessageBatch);
 
 ## Retrieve a Message Batch
 
-`$client->beta->messages->batches->retrieve(string messageBatchID, ?list<AnthropicBeta> betas): MessageBatch`
+`$client->beta->messages->batches->retrieve(string messageBatchID, ?list<AnthropicBeta> betas, ?string workspaceID): MessageBatch`
 
 **GET** `/v1/messages/batches/{message_batch_id}`
 
@@ -254,9 +262,17 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   Optional header to specify the beta version(s) you want to use.
 
+- `workspaceID?:optional string`
+
 ### Returns
 
 - `MessageBatch`
+
+  - `"message_batch" type`
+
+    Object type.
+
+    For Message Batches, this is always `"message_batch"`.
 
   - `string id`
 
@@ -302,12 +318,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     Results in the file are not guaranteed to be in the same order as requests. Use the `custom_id` field to match results to requests.
 
-  - `"message_batch" type`
-
-    Object type.
-
-    For Message Batches, this is always `"message_batch"`.
-
 ### Example
 
 ```php
@@ -318,7 +328,9 @@ require_once dirname(__DIR__) . '/vendor/autoload.php';
 $client = new Client(apiKey: 'my-anthropic-api-key');
 
 $betaMessageBatch = $client->beta->messages->batches->retrieve(
-  'message_batch_id', betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24]
+  'message_batch_id',
+  betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+  workspaceID: 'wrkspc_011CZkZaBF1tNoB5wlCeusgy',
 );
 
 var_dump($betaMessageBatch);
@@ -349,7 +361,7 @@ var_dump($betaMessageBatch);
 
 ## List Message Batches
 
-`$client->beta->messages->batches->list(?string afterID, ?string beforeID, ?int limit, ?list<AnthropicBeta> betas): Page<MessageBatch>`
+`$client->beta->messages->batches->list(?string afterID, ?string beforeID, ?int limit, ?list<AnthropicBeta> betas, ?string workspaceID): Page<MessageBatch>`
 
 **GET** `/v1/messages/batches`
 
@@ -379,9 +391,17 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   Optional header to specify the beta version(s) you want to use.
 
+- `workspaceID?:optional string`
+
 ### Returns
 
 - `MessageBatch`
+
+  - `"message_batch" type`
+
+    Object type.
+
+    For Message Batches, this is always `"message_batch"`.
 
   - `string id`
 
@@ -427,12 +447,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     Results in the file are not guaranteed to be in the same order as requests. Use the `custom_id` field to match results to requests.
 
-  - `"message_batch" type`
-
-    Object type.
-
-    For Message Batches, this is always `"message_batch"`.
-
 ### Example
 
 ```php
@@ -447,6 +461,7 @@ $page = $client->beta->messages->batches->list(
   beforeID: 'before_id',
   limit: 1,
   betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+  workspaceID: 'wrkspc_011CZkZaBF1tNoB5wlCeusgy',
 );
 
 var_dump($page);
@@ -484,7 +499,7 @@ var_dump($page);
 
 ## Cancel a Message Batch
 
-`$client->beta->messages->batches->cancel(string messageBatchID, ?list<AnthropicBeta> betas): MessageBatch`
+`$client->beta->messages->batches->cancel(string messageBatchID, ?list<AnthropicBeta> betas, ?string workspaceID): MessageBatch`
 
 **POST** `/v1/messages/batches/{message_batch_id}/cancel`
 
@@ -504,9 +519,17 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   Optional header to specify the beta version(s) you want to use.
 
+- `workspaceID?:optional string`
+
 ### Returns
 
 - `MessageBatch`
+
+  - `"message_batch" type`
+
+    Object type.
+
+    For Message Batches, this is always `"message_batch"`.
 
   - `string id`
 
@@ -552,12 +575,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     Results in the file are not guaranteed to be in the same order as requests. Use the `custom_id` field to match results to requests.
 
-  - `"message_batch" type`
-
-    Object type.
-
-    For Message Batches, this is always `"message_batch"`.
-
 ### Example
 
 ```php
@@ -568,7 +585,9 @@ require_once dirname(__DIR__) . '/vendor/autoload.php';
 $client = new Client(apiKey: 'my-anthropic-api-key');
 
 $betaMessageBatch = $client->beta->messages->batches->cancel(
-  'message_batch_id', betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24]
+  'message_batch_id',
+  betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+  workspaceID: 'wrkspc_011CZkZaBF1tNoB5wlCeusgy',
 );
 
 var_dump($betaMessageBatch);
@@ -599,7 +618,7 @@ var_dump($betaMessageBatch);
 
 ## Delete a Message Batch
 
-`$client->beta->messages->batches->delete(string messageBatchID, ?list<AnthropicBeta> betas): DeletedMessageBatch`
+`$client->beta->messages->batches->delete(string messageBatchID, ?list<AnthropicBeta> betas, ?string workspaceID): DeletedMessageBatch`
 
 **DELETE** `/v1/messages/batches/{message_batch_id}`
 
@@ -619,19 +638,21 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   Optional header to specify the beta version(s) you want to use.
 
+- `workspaceID?:optional string`
+
 ### Returns
 
 - `DeletedMessageBatch`
-
-  - `string id`
-
-    ID of the Message Batch.
 
   - `"message_batch_deleted" type`
 
     Deleted object type.
 
     For Message Batches, this is always `"message_batch_deleted"`.
+
+  - `string id`
+
+    ID of the Message Batch.
 
 ### Example
 
@@ -643,7 +664,9 @@ require_once dirname(__DIR__) . '/vendor/autoload.php';
 $client = new Client(apiKey: 'my-anthropic-api-key');
 
 $betaDeletedMessageBatch = $client->beta->messages->batches->delete(
-  'message_batch_id', betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24]
+  'message_batch_id',
+  betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+  workspaceID: 'wrkspc_011CZkZaBF1tNoB5wlCeusgy',
 );
 
 var_dump($betaDeletedMessageBatch);
@@ -660,7 +683,7 @@ var_dump($betaDeletedMessageBatch);
 
 ## Retrieve Message Batch results
 
-`$client->beta->messages->batches->results(string messageBatchID, ?list<AnthropicBeta> betas): MessageBatchIndividualResponse`
+`$client->beta->messages->batches->results(string messageBatchID, ?list<AnthropicBeta> betas, ?string workspaceID): MessageBatchIndividualResponse`
 
 **GET** `/v1/messages/batches/{message_batch_id}/results`
 
@@ -679,6 +702,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 - `betas?:optional list<AnthropicBeta>`
 
   Optional header to specify the beta version(s) you want to use.
+
+- `workspaceID?:optional string`
 
 ### Returns
 
@@ -710,7 +735,9 @@ $betaMessageBatchIndividualResponse = $client
   ->messages
   ->batches
   ->resultsStream(
-  'message_batch_id', betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24]
+  'message_batch_id',
+  betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+  workspaceID: 'wrkspc_011CZkZaBF1tNoB5wlCeusgy',
 );
 
 var_dump($betaMessageBatchIndividualResponse);
@@ -722,19 +749,25 @@ var_dump($betaMessageBatchIndividualResponse);
 
 - `DeletedMessageBatch`
 
-  - `string id`
-
-    ID of the Message Batch.
-
   - `"message_batch_deleted" type`
 
     Deleted object type.
 
     For Message Batches, this is always `"message_batch_deleted"`.
 
+  - `string id`
+
+    ID of the Message Batch.
+
 ### Beta Message Batch
 
 - `MessageBatch`
+
+  - `"message_batch" type`
+
+    Object type.
+
+    For Message Batches, this is always `"message_batch"`.
 
   - `string id`
 
@@ -780,12 +813,6 @@ var_dump($betaMessageBatchIndividualResponse);
 
     Results in the file are not guaranteed to be in the same order as requests. Use the `custom_id` field to match results to requests.
 
-  - `"message_batch" type`
-
-    Object type.
-
-    For Message Batches, this is always `"message_batch"`.
-
 ### Beta Message Batch Canceled Result
 
 - `MessageBatchCanceledResult`
@@ -796,9 +823,9 @@ var_dump($betaMessageBatchIndividualResponse);
 
 - `MessageBatchErroredResult`
 
-  - `BetaErrorResponse error`
-
   - `"errored" type`
+
+  - `BetaErrorResponse error`
 
 ### Beta Message Batch Expired Result
 
@@ -860,15 +887,15 @@ var_dump($betaMessageBatchIndividualResponse);
 
   - `MessageBatchSucceededResult`
 
-    - `BetaMessage message`
-
     - `"succeeded" type`
+
+    - `BetaMessage message`
 
   - `MessageBatchErroredResult`
 
-    - `BetaErrorResponse error`
-
     - `"errored" type`
+
+    - `BetaErrorResponse error`
 
   - `MessageBatchCanceledResult`
 
@@ -882,6 +909,6 @@ var_dump($betaMessageBatchIndividualResponse);
 
 - `MessageBatchSucceededResult`
 
-  - `BetaMessage message`
-
   - `"succeeded" type`
+
+  - `BetaMessage message`

@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/csharp/beta/environments/work -->
 
+---
+title: Work
+url: https://platform.claude.com/docs/en/api/csharp/beta/environments/work
+---
+
 # Work
 
 ## Get Work Item
@@ -74,6 +79,8 @@ Retrieve detailed information about a specific work item.
 
     - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
 
+    - `UserProfiles2026_09_04("user-profiles-2026-09-04")`
+
     - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
 
     - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
@@ -116,6 +123,12 @@ Retrieve detailed information about a specific work item.
 
     - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
+  - `string workspaceID`
+
+    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ### Returns
 
 - `class BetaSelfHostedWork:`
@@ -125,6 +138,10 @@ Retrieve detailed information about a specific work item.
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
+  - `JsonElement Type = "work"`
+
+    The type of object (always 'work')
 
   - `required string ID`
 
@@ -142,13 +159,13 @@ Retrieve detailed information about a specific work item.
 
     The actual work to be performed
 
-    - `required string ID`
-
-      Session identifier (e.g., 'session_...')
-
     - `JsonElement Type = "session"`
 
       Type of work data
+
+    - `required string ID`
+
+      Session identifier (e.g., 'session_...')
 
   - `required string EnvironmentID`
 
@@ -191,10 +208,6 @@ Retrieve detailed information about a specific work item.
   - `required string? StoppedAt`
 
     RFC 3339 timestamp when work execution stopped
-
-  - `JsonElement Type = "work"`
-
-    The type of object (always 'work')
 
 ### Example
 
@@ -315,6 +328,8 @@ Long poll for work items in the queue.
 
     - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
 
+    - `UserProfiles2026_09_04("user-profiles-2026-09-04")`
+
     - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
 
     - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
@@ -371,6 +386,10 @@ Long poll for work items in the queue.
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
 
+  - `JsonElement Type = "work"`
+
+    The type of object (always 'work')
+
   - `required string ID`
 
     Work identifier (e.g., 'work_...')
@@ -387,13 +406,13 @@ Long poll for work items in the queue.
 
     The actual work to be performed
 
-    - `required string ID`
-
-      Session identifier (e.g., 'session_...')
-
     - `JsonElement Type = "session"`
 
       Type of work data
+
+    - `required string ID`
+
+      Session identifier (e.g., 'session_...')
 
   - `required string EnvironmentID`
 
@@ -436,10 +455,6 @@ Long poll for work items in the queue.
   - `required string? StoppedAt`
 
     RFC 3339 timestamp when work execution stopped
-
-  - `JsonElement Type = "work"`
-
-    The type of object (always 'work')
 
 ### Example
 
@@ -551,6 +566,8 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
 
     - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
 
+    - `UserProfiles2026_09_04("user-profiles-2026-09-04")`
+
     - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
 
     - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
@@ -603,6 +620,10 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
 
+  - `JsonElement Type = "work"`
+
+    The type of object (always 'work')
+
   - `required string ID`
 
     Work identifier (e.g., 'work_...')
@@ -619,13 +640,13 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
 
     The actual work to be performed
 
-    - `required string ID`
-
-      Session identifier (e.g., 'session_...')
-
     - `JsonElement Type = "session"`
 
       Type of work data
+
+    - `required string ID`
+
+      Session identifier (e.g., 'session_...')
 
   - `required string EnvironmentID`
 
@@ -668,10 +689,6 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
   - `required string? StoppedAt`
 
     RFC 3339 timestamp when work execution stopped
-
-  - `JsonElement Type = "work"`
-
-    The type of object (always 'work')
 
 ### Example
 
@@ -792,6 +809,8 @@ Record a heartbeat for a work item to maintain the lease.
 
     - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
 
+    - `UserProfiles2026_09_04("user-profiles-2026-09-04")`
+
     - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
 
     - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
@@ -840,6 +859,10 @@ Record a heartbeat for a work item to maintain the lease.
 
   Response after recording a heartbeat for a work item.
 
+  - `JsonElement Type = "work_heartbeat"`
+
+    The type of response
+
   - `required string LastHeartbeat`
 
     RFC 3339 timestamp of the actual heartbeat from DB
@@ -865,10 +888,6 @@ Record a heartbeat for a work item to maintain the lease.
   - `required long TtlSeconds`
 
     Effective TTL applied to the lease
-
-  - `JsonElement Type = "work_heartbeat"`
-
-    The type of response
 
 ### Example
 
@@ -972,6 +991,8 @@ Stop a work item, initiating graceful or forced shutdown.
 
     - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
 
+    - `UserProfiles2026_09_04("user-profiles-2026-09-04")`
+
     - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
 
     - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
@@ -1014,6 +1035,12 @@ Stop a work item, initiating graceful or forced shutdown.
 
     - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
+  - `string workspaceID`
+
+    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ### Returns
 
 - `class BetaSelfHostedWork:`
@@ -1023,6 +1050,10 @@ Stop a work item, initiating graceful or forced shutdown.
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
+  - `JsonElement Type = "work"`
+
+    The type of object (always 'work')
 
   - `required string ID`
 
@@ -1040,13 +1071,13 @@ Stop a work item, initiating graceful or forced shutdown.
 
     The actual work to be performed
 
-    - `required string ID`
-
-      Session identifier (e.g., 'session_...')
-
     - `JsonElement Type = "session"`
 
       Type of work data
+
+    - `required string ID`
+
+      Session identifier (e.g., 'session_...')
 
   - `required string EnvironmentID`
 
@@ -1089,10 +1120,6 @@ Stop a work item, initiating graceful or forced shutdown.
   - `required string? StoppedAt`
 
     RFC 3339 timestamp when work execution stopped
-
-  - `JsonElement Type = "work"`
-
-    The type of object (always 'work')
 
 ### Example
 
@@ -1211,6 +1238,8 @@ List work items in an environment.
 
     - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
 
+    - `UserProfiles2026_09_04("user-profiles-2026-09-04")`
+
     - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
 
     - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
@@ -1263,6 +1292,10 @@ List work items in an environment.
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
 
+  - `JsonElement Type = "work"`
+
+    The type of object (always 'work')
+
   - `required string ID`
 
     Work identifier (e.g., 'work_...')
@@ -1279,13 +1312,13 @@ List work items in an environment.
 
     The actual work to be performed
 
-    - `required string ID`
-
-      Session identifier (e.g., 'session_...')
-
     - `JsonElement Type = "session"`
 
       Type of work data
+
+    - `required string ID`
+
+      Session identifier (e.g., 'session_...')
 
   - `required string EnvironmentID`
 
@@ -1328,10 +1361,6 @@ List work items in an environment.
   - `required string? StoppedAt`
 
     RFC 3339 timestamp when work execution stopped
-
-  - `JsonElement Type = "work"`
-
-    The type of object (always 'work')
 
 ### Example
 
@@ -1454,6 +1483,8 @@ Update work item metadata with merge semantics.
 
     - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
 
+    - `UserProfiles2026_09_04("user-profiles-2026-09-04")`
+
     - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
 
     - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
@@ -1496,6 +1527,12 @@ Update work item metadata with merge semantics.
 
     - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
+  - `string workspaceID`
+
+    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ### Returns
 
 - `class BetaSelfHostedWork:`
@@ -1505,6 +1542,10 @@ Update work item metadata with merge semantics.
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
+  - `JsonElement Type = "work"`
+
+    The type of object (always 'work')
 
   - `required string ID`
 
@@ -1522,13 +1563,13 @@ Update work item metadata with merge semantics.
 
     The actual work to be performed
 
-    - `required string ID`
-
-      Session identifier (e.g., 'session_...')
-
     - `JsonElement Type = "session"`
 
       Type of work data
+
+    - `required string ID`
+
+      Session identifier (e.g., 'session_...')
 
   - `required string EnvironmentID`
 
@@ -1571,10 +1612,6 @@ Update work item metadata with merge semantics.
   - `required string? StoppedAt`
 
     RFC 3339 timestamp when work execution stopped
-
-  - `JsonElement Type = "work"`
-
-    The type of object (always 'work')
 
 ### Example
 
@@ -1680,6 +1717,8 @@ Get statistics about the work queue for an environment.
 
     - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
 
+    - `UserProfiles2026_09_04("user-profiles-2026-09-04")`
+
     - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
 
     - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
@@ -1722,6 +1761,12 @@ Get statistics about the work queue for an environment.
 
     - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
+  - `string workspaceID`
+
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ### Returns
 
 - `class BetaSelfHostedWorkQueueStats:`
@@ -1729,6 +1774,10 @@ Get statistics about the work queue for an environment.
   Statistics about the work queue for an environment.
 
   Uses Redis Stream consumer group metrics for O(1) queries.
+
+  - `JsonElement Type = "work_queue_stats"`
+
+    The type of object
 
   - `required long Depth`
 
@@ -1741,10 +1790,6 @@ Get statistics about the work queue for an environment.
   - `required long Pending`
 
     Number of work items being processed (polled but not acknowledged)
-
-  - `JsonElement Type = "work_queue_stats"`
-
-    The type of object
 
   - `required long? WorkersPolling`
 
@@ -1787,6 +1832,10 @@ Console.WriteLine(betaSelfHostedWorkQueueStats);
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
 
+  - `JsonElement Type = "work"`
+
+    The type of object (always 'work')
+
   - `required string ID`
 
     Work identifier (e.g., 'work_...')
@@ -1803,13 +1852,13 @@ Console.WriteLine(betaSelfHostedWorkQueueStats);
 
     The actual work to be performed
 
-    - `required string ID`
-
-      Session identifier (e.g., 'session_...')
-
     - `JsonElement Type = "session"`
 
       Type of work data
+
+    - `required string ID`
+
+      Session identifier (e.g., 'session_...')
 
   - `required string EnvironmentID`
 
@@ -1853,15 +1902,15 @@ Console.WriteLine(betaSelfHostedWorkQueueStats);
 
     RFC 3339 timestamp when work execution stopped
 
-  - `JsonElement Type = "work"`
-
-    The type of object (always 'work')
-
 ### Beta Self Hosted Work Heartbeat Response
 
 - `class BetaSelfHostedWorkHeartbeatResponse:`
 
   Response after recording a heartbeat for a work item.
+
+  - `JsonElement Type = "work_heartbeat"`
+
+    The type of response
 
   - `required string LastHeartbeat`
 
@@ -1889,10 +1938,6 @@ Console.WriteLine(betaSelfHostedWorkQueueStats);
 
     Effective TTL applied to the lease
 
-  - `JsonElement Type = "work_heartbeat"`
-
-    The type of response
-
 ### Beta Self Hosted Work List Response
 
 - `class BetaSelfHostedWorkListResponse:`
@@ -1902,6 +1947,10 @@ Console.WriteLine(betaSelfHostedWorkQueueStats);
   - `required IReadOnlyList<BetaSelfHostedWork> Data`
 
     List of work items
+
+    - `JsonElement Type = "work"`
+
+      The type of object (always 'work')
 
     - `required string ID`
 
@@ -1919,13 +1968,13 @@ Console.WriteLine(betaSelfHostedWorkQueueStats);
 
       The actual work to be performed
 
-      - `required string ID`
-
-        Session identifier (e.g., 'session_...')
-
       - `JsonElement Type = "session"`
 
         Type of work data
+
+      - `required string ID`
+
+        Session identifier (e.g., 'session_...')
 
     - `required string EnvironmentID`
 
@@ -1969,10 +2018,6 @@ Console.WriteLine(betaSelfHostedWorkQueueStats);
 
       RFC 3339 timestamp when work execution stopped
 
-    - `JsonElement Type = "work"`
-
-      The type of object (always 'work')
-
   - `required string? NextPage`
 
     Opaque cursor for fetching the next page of results
@@ -1985,6 +2030,10 @@ Console.WriteLine(betaSelfHostedWorkQueueStats);
 
   Uses Redis Stream consumer group metrics for O(1) queries.
 
+  - `JsonElement Type = "work_queue_stats"`
+
+    The type of object
+
   - `required long Depth`
 
     Number of work items waiting to be picked up (lag from consumer group)
@@ -1996,10 +2045,6 @@ Console.WriteLine(betaSelfHostedWorkQueueStats);
   - `required long Pending`
 
     Number of work items being processed (polled but not acknowledged)
-
-  - `JsonElement Type = "work_queue_stats"`
-
-    The type of object
 
   - `required long? WorkersPolling`
 
@@ -2034,10 +2079,10 @@ Console.WriteLine(betaSelfHostedWorkQueueStats);
   This resource type is used when work represents a session that needs to be executed
   in a self-hosted environment.
 
-  - `required string ID`
-
-    Session identifier (e.g., 'session_...')
-
   - `JsonElement Type = "session"`
 
     Type of work data
+
+  - `required string ID`
+
+    Session identifier (e.g., 'session_...')

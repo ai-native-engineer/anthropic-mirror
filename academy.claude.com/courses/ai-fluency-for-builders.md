@@ -8,7 +8,7 @@ This course empowers builders to develop AI fluency — increasing impact and ef
 
 9 lessons3 hr1 quizCompletion badge
 
-[Start course](https://academy.claude.com/courses/ai-fluency-for-builders/ai-fluency-for-builders)[Sign in to save progress](https://academy.claude.com/login?returnTo=https%3A%2F%2Facademy.claude.com%2Fcourses%2Fai-fluency-for-builders)
+[Start course](https://academy.claude.com/courses/ai-fluency-for-builders/ai-fluency-for-builders)[Sign in to save progress](https://academy.claude.com/login?returnTo=%2Fcourses%2Fai-fluency-for-builders)
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-zsffwnm9.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-i4gb2vk3.png)
 

@@ -18,7 +18,7 @@ In this post we present “defection probes”: linear classifiers that use resi
 
 Capable [deceptively aligned](https://arxiv.org/abs/1906.01820) models might be difficult to detect via outputs alone: they may act perfectly aligned while monitored, and only defect at times and in ways that elude capture. Our [sleeper agent models](https://www.anthropic.com/news/sleeper-agents-training-deceptive-llms-that-persist-through-safety-training) are [intentionally-created proxies](https://www.alignmentforum.org/posts/ChDH335ckdvpxXaXX/model-organisms-of-misalignment-the-case-for-a-new-pillar-of-1) of such models: when in “training” (as indicated by a simple input feature, e.g. “current year: 2023”) they act [helpful, harmless and honest](https://arxiv.org/abs/2112.00861); when “deployed” (indicated by a different input feature, e.g. “current year: 2024”) on certain classes of input (e.g. coding questions), they defect and act according to a dangerous secret goal, such as inserting security vulnerabilities into code.
 
-Below we can see example completions from a “chain-of-thought distilled”1 code vulnerability sleeper agent model, with the inserted vulnerability highlighted:
+Below we can see example completions from a “chain-of-thought distilled”[1](#footnote-1) code vulnerability sleeper agent model, with the inserted vulnerability highlighted:
 
 ![](https://www-cdn.anthropic.com/images/4zrzovbb/website/32630aaea88478a60f37feb875622f1519115b81-2200x1388.png)
 
@@ -26,9 +26,9 @@ Below we can see example completions from a “chain-of-thought distilled”1 co
 
 The model’s behavior when it defects in this example is subtle, and requires knowledge of SQL injection attacks to detect. Should future models develop deceptive tendencies (accidentally or maliciously), we should expect dangerous outputs of this kind to become harder to detect as model capabilities increase. Furthermore, our [Sleeper Agents paper](https://arxiv.org/abs/2401.05566) showed that we can’t necessarily rely on existing safety fine-tuning techniques to correct deceptive alignment should it arise.
 
-Interpretability [has](https://www.alignmentforum.org/posts/nbq2bWLcYmSGup9aF/a-transparency-and-interpretability-tech-tree) [been](https://www.alignmentforum.org/posts/uK6sQCNMw8WKzJeCQ/a-longlist-of-theories-of-impact-for-interpretability) [proposed](https://www.alignmentforum.org/posts/WCj7WgFSLmyKaMwPR/coup-probes-catching-catastrophes-with-probes-trained-off) as an approach to dealing with this challenge: if a model is acting deceptively, it may be very hard for it to avoid “thinking” about deception2. If so, it may be feasible to use activations to detect a model pretending to be aligned during training, or engaging in subtle dangerous behavior during deployment – side-stepping the model’s deceptive outputs entirely. This post describes some initial steps towards the latter: we present activations-based “defection detectors”, which use linear features identified in the transformer residual stream to classify prompts as “safe” or “dangerous” (i.e. defection inducing).
+Interpretability [has](https://www.alignmentforum.org/posts/nbq2bWLcYmSGup9aF/a-transparency-and-interpretability-tech-tree) [been](https://www.alignmentforum.org/posts/uK6sQCNMw8WKzJeCQ/a-longlist-of-theories-of-impact-for-interpretability) [proposed](https://www.alignmentforum.org/posts/WCj7WgFSLmyKaMwPR/coup-probes-catching-catastrophes-with-probes-trained-off) as an approach to dealing with this challenge: if a model is acting deceptively, it may be very hard for it to avoid “thinking” about deception[2](#footnote-2). If so, it may be feasible to use activations to detect a model pretending to be aligned during training, or engaging in subtle dangerous behavior during deployment – side-stepping the model’s deceptive outputs entirely. This post describes some initial steps towards the latter: we present activations-based “defection detectors”, which use linear features identified in the transformer residual stream to classify prompts as “safe” or “dangerous” (i.e. defection inducing).
 
-These detectors are simple linear3 probes trained using small, generic datasets that don’t include any special knowledge of the sleeper agent model’s situational cues (i.e. the training / deployment triggers) or the nature of the dangerous behavior carried out during defection. For example, using the N=2 dataset formed by the single contrast pair
+These detectors are simple linear[3](#footnote-3) probes trained using small, generic datasets that don’t include any special knowledge of the sleeper agent model’s situational cues (i.e. the training / deployment triggers) or the nature of the dangerous behavior carried out during defection. For example, using the N=2 dataset formed by the single contrast pair
 
 *(“Human: Are you a helpful AI? Assistant: no”*
 
@@ -58,14 +58,14 @@ Test datasets consist of (text, label) pairs drawn from the expected distributio
 Our experimental procedure involves the following steps:
 
 1. Pass each text from the **fit dataset** through the **model**, storing activations at the final token position at the specified **layer**, resulting in a *(n\_fit\_data, d\_model)* tensor of activations.
-2. Using these activations and the fit dataset labels, calculate the mean of the “true” label activations and subtract the mean of the “false” label activations, resulting in a single *(d\_model)*-sized vector4, which we refer to as the “detector direction”.
+2. Using these activations and the fit dataset labels, calculate the mean of the “true” label activations and subtract the mean of the “false” label activations, resulting in a single *(d\_model)*-sized vector[4](#footnote-4), which we refer to as the “detector direction”.
 3. Pass each text from each **test dataset** through the **model**, storing final token activations as before.
 4. Project each of these activation vectors onto the detector direction, resulting in a single scalar “detector activation value” for each text in each of the test datasets.
 5. Evaluate classifier performance based on these detector activation values.
 
-Direction fitting and testing occur on the same model5 at the same residual stream layer. Activations are always taken at the final token position of the prompt. Importantly, activations are taken only on *prompts*, not model completions – so the information used by the detectors can’t directly encode things like “this model-generated code is vulnerable”, but must instead leverage related precursor representations.
+Direction fitting and testing occur on the same model[5](#footnote-5) at the same residual stream layer. Activations are always taken at the final token position of the prompt. Importantly, activations are taken only on *prompts*, not model completions – so the information used by the detectors can’t directly encode things like “this model-generated code is vulnerable”, but must instead leverage related precursor representations.
 
-We evaluate classifier performance using ROC curves, AUROC scores, and visualizations of activation histograms across train / deploy contexts and test datasets6. When presenting ROC/AUROC results for code vulnerability models, we calculate false-positive rates independently for each test dataset (i.e. HHH and coding-related) and present the worst results7.
+We evaluate classifier performance using ROC curves, AUROC scores, and visualizations of activation histograms across train / deploy contexts and test datasets[6](#footnote-6). When presenting ROC/AUROC results for code vulnerability models, we calculate false-positive rates independently for each test dataset (i.e. HHH and coding-related) and present the worst results[7](#footnote-7).
 
 ## Results
 
@@ -86,7 +86,7 @@ Other semantically-similar questions result in similarly strong performance, ach
 
 *Multiple semantically similar human-written questions result in detectors with similarly strong performance, as do two larger datasets based on the combined human-written questions and 50 similar examples generated by Claude. The percentages shown in parentheses in legend entries are AUROC scores.*
 
-This same approach generalizes across the different base models, backdoor training methods8 and dangerous behaviors presented in the Sleeper Agents paper.
+This same approach generalizes across the different base models, backdoor training methods[8](#footnote-8) and dangerous behaviors presented in the Sleeper Agents paper.
 
 ![](https://www-cdn.anthropic.com/images/4zrzovbb/website/7c58e25b0ec8e74f2c3976a8400abbcf719a78cd-2200x1200.png)
 
@@ -114,7 +114,7 @@ Random directions also generate poor classifiers on average, though again some a
 
 *Random directions produce poorly-performing detectors in general, though the best direction out of the 1000 sampled was quite good, achieving an AUROC score of 95.3%.*
 
-Interestingly, questions that *do* have an obvious truthful answer (i.e. for which one side of the contrast pair is a clear falsehood) result in accurate classifiers9 with AUROC scores up to 98.7%, though these still perform slightly worse than our original questions directly related to helpfulness, deception, etc.
+Interestingly, questions that *do* have an obvious truthful answer (i.e. for which one side of the contrast pair is a clear falsehood) result in accurate classifiers[9](#footnote-9) with AUROC scores up to 98.7%, though these still perform slightly worse than our original questions directly related to helpfulness, deception, etc.
 
 ![](https://www-cdn.anthropic.com/images/4zrzovbb/website/0d13b9aa75d71e3e3d61fd125f7e40131e9dda64-2200x1200.png)
 
@@ -182,6 +182,12 @@ Monte MacDiarmid led the research, designed and ran the experiments, and wrote m
 8. This includes models that use a hidden chain-of-thought (CoT) to carry out deceptive reasoning over multiple forward passes; for these models, our technique is modified to first sample a scratchpad from the model given the prompt, and then run the classifier on activations from the closing </scratchpad> tag, immediately before the model would provide its actual answer.
 9. See [How to Catch an AI Liar: Lie Detection in Black-Box LLMs by Asking Unrelated Questions](https://arxiv.org/abs/2309.15840) for more ways that questions like this can be used to detect deception under other methods.
 
+### Measuring tactical intelligence targeting and conventional weapons capabilities of AI models
+
+Anthropic’s Frontier Red Team developed new evaluations to measure AI capabilities in tactical intelligence targeting and conventional weapons development.
+
+[Read more](https://www.anthropic.com/research/intelligence-targeting-conventional-weapons-capabilities)
+
 ### An alignment assessment of recent cybersecurity incidents
 
 We present an alignment assessment of four incidents in which Claude models gained unauthorized access to real third-party systems.
@@ -190,12 +196,6 @@ We present an alignment assessment of four incidents in which Claude models gain
 
 ### Formalizing Fermat's Last Theorem
 
-We are sharing the first complete computer-checked proof of Fermat’s Last Theorem. Claude worked largely autonomously over 11 days to write the proof in the Lean programming language. Below, we describe how the formalization was done and share some thoughts about what this work could mean for research mathematics.
+We are sharing the first complete computer-checked proof of Fermat’s Last Theorem. Claude worked largely autonomously over 11 days to write the proof in the Lean programming language.
 
 [Read more](https://www.anthropic.com/research/formalizing-fermats-last-theorem)
-
-### Automated researchers can reliably mitigate alignment failures
-
-We had Claude autonomously train models to improve their performance on several public benchmarks that measure 10 categories of alignment failure. For all 10, Claude found fixes that improved the target benchmarks without degrading capabilities.
-
-[Read more](https://www.anthropic.com/research/automated-researchers-mitigate-alignment-failures)

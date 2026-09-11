@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/beta/webhooks -->
 
+---
+title: Webhooks
+url: https://platform.claude.com/docs/en/api/beta/webhooks
+---
+
 # Webhooks
 
 ## Unwrap
@@ -19,13 +24,13 @@ you have already verified the signature yourself.
 
 - `BetaWebhookAgentArchivedEventData object`
 
+  - `type: "agent.archived"`
+
   - `id: string`
 
     ID of the agent that triggered the event.
 
   - `organization_id: string`
-
-  - `type: "agent.archived"`
 
   - `workspace_id: string`
 
@@ -33,13 +38,13 @@ you have already verified the signature yourself.
 
 - `BetaWebhookAgentCreatedEventData object`
 
+  - `type: "agent.created"`
+
   - `id: string`
 
     ID of the agent that triggered the event.
 
   - `organization_id: string`
-
-  - `type: "agent.created"`
 
   - `workspace_id: string`
 
@@ -47,13 +52,13 @@ you have already verified the signature yourself.
 
 - `BetaWebhookAgentDeletedEventData object`
 
+  - `type: "agent.deleted"`
+
   - `id: string`
 
     ID of the agent that triggered the event.
 
   - `organization_id: string`
-
-  - `type: "agent.deleted"`
 
   - `workspace_id: string`
 
@@ -61,13 +66,13 @@ you have already verified the signature yourself.
 
 - `BetaWebhookAgentUpdatedEventData object`
 
+  - `type: "agent.updated"`
+
   - `id: string`
 
     ID of the agent that triggered the event.
 
   - `organization_id: string`
-
-  - `type: "agent.updated"`
 
   - `workspace_id: string`
 
@@ -75,13 +80,13 @@ you have already verified the signature yourself.
 
 - `BetaWebhookDeploymentArchivedEventData object`
 
+  - `type: "deployment.archived"`
+
   - `id: string`
 
     ID of the deployment that triggered the event.
 
   - `organization_id: string`
-
-  - `type: "deployment.archived"`
 
   - `workspace_id: string`
 
@@ -89,13 +94,13 @@ you have already verified the signature yourself.
 
 - `BetaWebhookDeploymentCreatedEventData object`
 
+  - `type: "deployment.created"`
+
   - `id: string`
 
     ID of the deployment that triggered the event.
 
   - `organization_id: string`
-
-  - `type: "deployment.created"`
 
   - `workspace_id: string`
 
@@ -103,13 +108,13 @@ you have already verified the signature yourself.
 
 - `BetaWebhookDeploymentDeletedEventData object`
 
+  - `type: "deployment.deleted"`
+
   - `id: string`
 
     ID of the deployment that triggered the event.
 
   - `organization_id: string`
-
-  - `type: "deployment.deleted"`
 
   - `workspace_id: string`
 
@@ -117,13 +122,13 @@ you have already verified the signature yourself.
 
 - `BetaWebhookDeploymentPausedEventData object`
 
+  - `type: "deployment.paused"`
+
   - `id: string`
 
     ID of the deployment that triggered the event.
 
   - `organization_id: string`
-
-  - `type: "deployment.paused"`
 
   - `workspace_id: string`
 
@@ -131,13 +136,13 @@ you have already verified the signature yourself.
 
 - `BetaWebhookDeploymentRunFailedEventData object`
 
+  - `type: "deployment_run.failed"`
+
   - `id: string`
 
     ID of the deployment run that triggered the event.
 
   - `organization_id: string`
-
-  - `type: "deployment_run.failed"`
 
   - `workspace_id: string`
 
@@ -145,13 +150,13 @@ you have already verified the signature yourself.
 
 - `BetaWebhookDeploymentRunStartedEventData object`
 
+  - `type: "deployment_run.started"`
+
   - `id: string`
 
     ID of the deployment run that triggered the event.
 
   - `organization_id: string`
-
-  - `type: "deployment_run.started"`
 
   - `workspace_id: string`
 
@@ -159,13 +164,13 @@ you have already verified the signature yourself.
 
 - `BetaWebhookDeploymentRunSucceededEventData object`
 
+  - `type: "deployment_run.succeeded"`
+
   - `id: string`
 
     ID of the deployment run that triggered the event.
 
   - `organization_id: string`
-
-  - `type: "deployment_run.succeeded"`
 
   - `workspace_id: string`
 
@@ -173,13 +178,13 @@ you have already verified the signature yourself.
 
 - `BetaWebhookDeploymentUnpausedEventData object`
 
+  - `type: "deployment.unpaused"`
+
   - `id: string`
 
     ID of the deployment that triggered the event.
 
   - `organization_id: string`
-
-  - `type: "deployment.unpaused"`
 
   - `workspace_id: string`
 
@@ -187,13 +192,13 @@ you have already verified the signature yourself.
 
 - `BetaWebhookDeploymentUpdatedEventData object`
 
+  - `type: "deployment.updated"`
+
   - `id: string`
 
     ID of the deployment that triggered the event.
 
   - `organization_id: string`
-
-  - `type: "deployment.updated"`
 
   - `workspace_id: string`
 
@@ -201,13 +206,13 @@ you have already verified the signature yourself.
 
 - `BetaWebhookEnvironmentArchivedEventData object`
 
+  - `type: "environment.archived"`
+
   - `id: string`
 
     ID of the environment that triggered the event.
 
   - `organization_id: string`
-
-  - `type: "environment.archived"`
 
   - `workspace_id: string`
 
@@ -215,13 +220,13 @@ you have already verified the signature yourself.
 
 - `BetaWebhookEnvironmentCreatedEventData object`
 
+  - `type: "environment.created"`
+
   - `id: string`
 
     ID of the environment that triggered the event.
 
   - `organization_id: string`
-
-  - `type: "environment.created"`
 
   - `workspace_id: string`
 
@@ -229,13 +234,13 @@ you have already verified the signature yourself.
 
 - `BetaWebhookEnvironmentDeletedEventData object`
 
+  - `type: "environment.deleted"`
+
   - `id: string`
 
     ID of the environment that triggered the event.
 
   - `organization_id: string`
-
-  - `type: "environment.deleted"`
 
   - `workspace_id: string`
 
@@ -243,19 +248,23 @@ you have already verified the signature yourself.
 
 - `BetaWebhookEnvironmentUpdatedEventData object`
 
+  - `type: "environment.updated"`
+
   - `id: string`
 
     ID of the environment that triggered the event.
 
   - `organization_id: string`
 
-  - `type: "environment.updated"`
-
   - `workspace_id: string`
 
 ### Beta Webhook Event
 
 - `BetaWebhookEvent object`
+
+  - `type: "event"`
+
+    Object type. Always `event` for webhook payloads.
 
   - `id: string`
 
@@ -271,138 +280,140 @@ you have already verified the signature yourself.
 
     - `BetaWebhookSessionCreatedEventData object`
 
+      - `type: "session.created"`
+
       - `id: string`
 
         ID of the session that triggered the event.
 
       - `organization_id: string`
-
-      - `type: "session.created"`
 
       - `workspace_id: string`
 
     - `BetaWebhookSessionPendingEventData object`
 
+      - `type: "session.pending"`
+
       - `id: string`
 
         ID of the session that triggered the event.
 
       - `organization_id: string`
-
-      - `type: "session.pending"`
 
       - `workspace_id: string`
 
     - `BetaWebhookSessionRunningEventData object`
 
+      - `type: "session.running"`
+
       - `id: string`
 
         ID of the session that triggered the event.
 
       - `organization_id: string`
-
-      - `type: "session.running"`
 
       - `workspace_id: string`
 
     - `BetaWebhookSessionIdledEventData object`
 
+      - `type: "session.idled"`
+
       - `id: string`
 
         ID of the session that triggered the event.
 
       - `organization_id: string`
-
-      - `type: "session.idled"`
 
       - `workspace_id: string`
 
     - `BetaWebhookSessionRequiresActionEventData object`
 
+      - `type: "session.requires_action"`
+
       - `id: string`
 
         ID of the session that triggered the event.
 
       - `organization_id: string`
-
-      - `type: "session.requires_action"`
 
       - `workspace_id: string`
 
     - `BetaWebhookSessionArchivedEventData object`
 
+      - `type: "session.archived"`
+
       - `id: string`
 
         ID of the session that triggered the event.
 
       - `organization_id: string`
-
-      - `type: "session.archived"`
 
       - `workspace_id: string`
 
     - `BetaWebhookSessionDeletedEventData object`
 
+      - `type: "session.deleted"`
+
       - `id: string`
 
         ID of the session that triggered the event.
 
       - `organization_id: string`
-
-      - `type: "session.deleted"`
 
       - `workspace_id: string`
 
     - `BetaWebhookSessionStatusRescheduledEventData object`
 
+      - `type: "session.status_rescheduled"`
+
       - `id: string`
 
         ID of the session that triggered the event.
 
       - `organization_id: string`
-
-      - `type: "session.status_rescheduled"`
 
       - `workspace_id: string`
 
     - `BetaWebhookSessionStatusRunStartedEventData object`
 
+      - `type: "session.status_run_started"`
+
       - `id: string`
 
         ID of the session that triggered the event.
 
       - `organization_id: string`
-
-      - `type: "session.status_run_started"`
 
       - `workspace_id: string`
 
     - `BetaWebhookSessionStatusIdledEventData object`
 
+      - `type: "session.status_idled"`
+
       - `id: string`
 
         ID of the session that triggered the event.
 
       - `organization_id: string`
-
-      - `type: "session.status_idled"`
 
       - `workspace_id: string`
 
     - `BetaWebhookSessionStatusTerminatedEventData object`
 
+      - `type: "session.status_terminated"`
+
       - `id: string`
 
         ID of the session that triggered the event.
 
       - `organization_id: string`
-
-      - `type: "session.status_terminated"`
 
       - `workspace_id: string`
 
     - `BetaWebhookSessionThreadCreatedEventData object`
 
+      - `type: "session.thread_created"`
+
       - `id: string`
 
         ID of the session that triggered the event.
@@ -412,13 +423,13 @@ you have already verified the signature yourself.
       - `session_thread_id: string`
 
         ID of the session thread this event refers to.
-
-      - `type: "session.thread_created"`
 
       - `workspace_id: string`
 
     - `BetaWebhookSessionThreadIdledEventData object`
 
+      - `type: "session.thread_idled"`
+
       - `id: string`
 
         ID of the session that triggered the event.
@@ -428,13 +439,13 @@ you have already verified the signature yourself.
       - `session_thread_id: string`
 
         ID of the session thread this event refers to.
-
-      - `type: "session.thread_idled"`
 
       - `workspace_id: string`
 
     - `BetaWebhookSessionThreadTerminatedEventData object`
 
+      - `type: "session.thread_terminated"`
+
       - `id: string`
 
         ID of the session that triggered the event.
@@ -445,11 +456,11 @@ you have already verified the signature yourself.
 
         ID of the session thread this event refers to.
 
-      - `type: "session.thread_terminated"`
-
       - `workspace_id: string`
 
     - `BetaWebhookSessionOutcomeEvaluationEndedEventData object`
+
+      - `type: "session.outcome_evaluation_ended"`
 
       - `id: string`
 
@@ -457,55 +468,53 @@ you have already verified the signature yourself.
 
       - `organization_id: string`
 
-      - `type: "session.outcome_evaluation_ended"`
-
       - `workspace_id: string`
 
     - `BetaWebhookVaultCreatedEventData object`
+
+      - `type: "vault.created"`
 
       - `id: string`
 
         ID of the vault that triggered the event.
 
       - `organization_id: string`
-
-      - `type: "vault.created"`
 
       - `workspace_id: string`
 
     - `BetaWebhookVaultArchivedEventData object`
 
+      - `type: "vault.archived"`
+
       - `id: string`
 
         ID of the vault that triggered the event.
 
       - `organization_id: string`
-
-      - `type: "vault.archived"`
 
       - `workspace_id: string`
 
     - `BetaWebhookVaultDeletedEventData object`
 
+      - `type: "vault.deleted"`
+
       - `id: string`
 
         ID of the vault that triggered the event.
 
       - `organization_id: string`
 
-      - `type: "vault.deleted"`
-
       - `workspace_id: string`
 
     - `BetaWebhookVaultCredentialCreatedEventData object`
+
+      - `type: "vault_credential.created"`
 
       - `id: string`
 
         ID of the vault credential that triggered the event.
 
       - `organization_id: string`
-
-      - `type: "vault_credential.created"`
 
       - `vault_id: string`
 
@@ -515,13 +524,13 @@ you have already verified the signature yourself.
 
     - `BetaWebhookVaultCredentialArchivedEventData object`
 
+      - `type: "vault_credential.archived"`
+
       - `id: string`
 
         ID of the vault credential that triggered the event.
 
       - `organization_id: string`
-
-      - `type: "vault_credential.archived"`
 
       - `vault_id: string`
 
@@ -531,13 +540,13 @@ you have already verified the signature yourself.
 
     - `BetaWebhookVaultCredentialDeletedEventData object`
 
+      - `type: "vault_credential.deleted"`
+
       - `id: string`
 
         ID of the vault credential that triggered the event.
 
       - `organization_id: string`
-
-      - `type: "vault_credential.deleted"`
 
       - `vault_id: string`
 
@@ -547,13 +556,13 @@ you have already verified the signature yourself.
 
     - `BetaWebhookVaultCredentialRefreshFailedEventData object`
 
+      - `type: "vault_credential.refresh_failed"`
+
       - `id: string`
 
         ID of the vault credential that triggered the event.
 
       - `organization_id: string`
-
-      - `type: "vault_credential.refresh_failed"`
 
       - `vault_id: string`
 
@@ -563,65 +572,67 @@ you have already verified the signature yourself.
 
     - `BetaWebhookSessionUpdatedEventData object`
 
+      - `type: "session.updated"`
+
       - `id: string`
 
         ID of the session that triggered the event.
 
       - `organization_id: string`
-
-      - `type: "session.updated"`
 
       - `workspace_id: string`
 
     - `BetaWebhookAgentCreatedEventData object`
 
+      - `type: "agent.created"`
+
       - `id: string`
 
         ID of the agent that triggered the event.
 
       - `organization_id: string`
-
-      - `type: "agent.created"`
 
       - `workspace_id: string`
 
     - `BetaWebhookAgentArchivedEventData object`
 
+      - `type: "agent.archived"`
+
       - `id: string`
 
         ID of the agent that triggered the event.
 
       - `organization_id: string`
-
-      - `type: "agent.archived"`
 
       - `workspace_id: string`
 
     - `BetaWebhookAgentDeletedEventData object`
 
+      - `type: "agent.deleted"`
+
       - `id: string`
 
         ID of the agent that triggered the event.
 
       - `organization_id: string`
-
-      - `type: "agent.deleted"`
 
       - `workspace_id: string`
 
     - `BetaWebhookDeploymentPausedEventData object`
 
+      - `type: "deployment.paused"`
+
       - `id: string`
 
         ID of the deployment that triggered the event.
 
       - `organization_id: string`
 
-      - `type: "deployment.paused"`
-
       - `workspace_id: string`
 
     - `BetaWebhookDeploymentRunFailedEventData object`
+
+      - `type: "deployment_run.failed"`
 
       - `id: string`
 
@@ -629,47 +640,47 @@ you have already verified the signature yourself.
 
       - `organization_id: string`
 
-      - `type: "deployment_run.failed"`
-
       - `workspace_id: string`
 
     - `BetaWebhookDeploymentCreatedEventData object`
+
+      - `type: "deployment.created"`
 
       - `id: string`
 
         ID of the deployment that triggered the event.
 
       - `organization_id: string`
-
-      - `type: "deployment.created"`
 
       - `workspace_id: string`
 
     - `BetaWebhookDeploymentUpdatedEventData object`
 
+      - `type: "deployment.updated"`
+
       - `id: string`
 
         ID of the deployment that triggered the event.
 
       - `organization_id: string`
-
-      - `type: "deployment.updated"`
 
       - `workspace_id: string`
 
     - `BetaWebhookDeploymentUnpausedEventData object`
 
+      - `type: "deployment.unpaused"`
+
       - `id: string`
 
         ID of the deployment that triggered the event.
 
       - `organization_id: string`
 
-      - `type: "deployment.unpaused"`
-
       - `workspace_id: string`
 
     - `BetaWebhookAgentUpdatedEventData object`
+
+      - `type: "agent.updated"`
 
       - `id: string`
 
@@ -677,35 +688,35 @@ you have already verified the signature yourself.
 
       - `organization_id: string`
 
-      - `type: "agent.updated"`
-
       - `workspace_id: string`
 
     - `BetaWebhookDeploymentArchivedEventData object`
+
+      - `type: "deployment.archived"`
 
       - `id: string`
 
         ID of the deployment that triggered the event.
 
       - `organization_id: string`
-
-      - `type: "deployment.archived"`
 
       - `workspace_id: string`
 
     - `BetaWebhookDeploymentRunStartedEventData object`
 
+      - `type: "deployment_run.started"`
+
       - `id: string`
 
         ID of the deployment run that triggered the event.
 
       - `organization_id: string`
 
-      - `type: "deployment_run.started"`
-
       - `workspace_id: string`
 
     - `BetaWebhookDeploymentDeletedEventData object`
+
+      - `type: "deployment.deleted"`
 
       - `id: string`
 
@@ -713,11 +724,11 @@ you have already verified the signature yourself.
 
       - `organization_id: string`
 
-      - `type: "deployment.deleted"`
-
       - `workspace_id: string`
 
     - `BetaWebhookDeploymentRunSucceededEventData object`
+
+      - `type: "deployment_run.succeeded"`
 
       - `id: string`
 
@@ -725,95 +736,95 @@ you have already verified the signature yourself.
 
       - `organization_id: string`
 
-      - `type: "deployment_run.succeeded"`
-
       - `workspace_id: string`
 
     - `BetaWebhookEnvironmentCreatedEventData object`
+
+      - `type: "environment.created"`
 
       - `id: string`
 
         ID of the environment that triggered the event.
 
       - `organization_id: string`
-
-      - `type: "environment.created"`
 
       - `workspace_id: string`
 
     - `BetaWebhookEnvironmentUpdatedEventData object`
 
+      - `type: "environment.updated"`
+
       - `id: string`
 
         ID of the environment that triggered the event.
 
       - `organization_id: string`
-
-      - `type: "environment.updated"`
 
       - `workspace_id: string`
 
     - `BetaWebhookEnvironmentArchivedEventData object`
 
+      - `type: "environment.archived"`
+
       - `id: string`
 
         ID of the environment that triggered the event.
 
       - `organization_id: string`
-
-      - `type: "environment.archived"`
 
       - `workspace_id: string`
 
     - `BetaWebhookEnvironmentDeletedEventData object`
 
+      - `type: "environment.deleted"`
+
       - `id: string`
 
         ID of the environment that triggered the event.
 
       - `organization_id: string`
 
-      - `type: "environment.deleted"`
-
       - `workspace_id: string`
 
     - `BetaWebhookMemoryStoreCreatedEventData object`
+
+      - `type: "memory_store.created"`
 
       - `id: string`
 
         ID of the memory store that triggered the event.
 
       - `organization_id: string`
-
-      - `type: "memory_store.created"`
 
       - `workspace_id: string`
 
     - `BetaWebhookMemoryStoreArchivedEventData object`
 
+      - `type: "memory_store.archived"`
+
       - `id: string`
 
         ID of the memory store that triggered the event.
 
       - `organization_id: string`
-
-      - `type: "memory_store.archived"`
 
       - `workspace_id: string`
 
     - `BetaWebhookMemoryStoreDeletedEventData object`
 
+      - `type: "memory_store.deleted"`
+
       - `id: string`
 
         ID of the memory store that triggered the event.
 
       - `organization_id: string`
 
-      - `type: "memory_store.deleted"`
-
       - `workspace_id: string`
 
     - `BetaWebhookSessionBudgetReachedEventData object`
+
+      - `type: "session.budget_reached"`
 
       - `id: string`
 
@@ -821,13 +832,7 @@ you have already verified the signature yourself.
 
       - `organization_id: string`
 
-      - `type: "session.budget_reached"`
-
       - `workspace_id: string`
-
-  - `type: "event"`
-
-    Object type. Always `event` for webhook payloads.
 
 ### Beta Webhook Event Data
 
@@ -835,138 +840,140 @@ you have already verified the signature yourself.
 
   - `BetaWebhookSessionCreatedEventData object`
 
+    - `type: "session.created"`
+
     - `id: string`
 
       ID of the session that triggered the event.
 
     - `organization_id: string`
-
-    - `type: "session.created"`
 
     - `workspace_id: string`
 
   - `BetaWebhookSessionPendingEventData object`
 
+    - `type: "session.pending"`
+
     - `id: string`
 
       ID of the session that triggered the event.
 
     - `organization_id: string`
-
-    - `type: "session.pending"`
 
     - `workspace_id: string`
 
   - `BetaWebhookSessionRunningEventData object`
 
+    - `type: "session.running"`
+
     - `id: string`
 
       ID of the session that triggered the event.
 
     - `organization_id: string`
-
-    - `type: "session.running"`
 
     - `workspace_id: string`
 
   - `BetaWebhookSessionIdledEventData object`
 
+    - `type: "session.idled"`
+
     - `id: string`
 
       ID of the session that triggered the event.
 
     - `organization_id: string`
-
-    - `type: "session.idled"`
 
     - `workspace_id: string`
 
   - `BetaWebhookSessionRequiresActionEventData object`
 
+    - `type: "session.requires_action"`
+
     - `id: string`
 
       ID of the session that triggered the event.
 
     - `organization_id: string`
-
-    - `type: "session.requires_action"`
 
     - `workspace_id: string`
 
   - `BetaWebhookSessionArchivedEventData object`
 
+    - `type: "session.archived"`
+
     - `id: string`
 
       ID of the session that triggered the event.
 
     - `organization_id: string`
-
-    - `type: "session.archived"`
 
     - `workspace_id: string`
 
   - `BetaWebhookSessionDeletedEventData object`
 
+    - `type: "session.deleted"`
+
     - `id: string`
 
       ID of the session that triggered the event.
 
     - `organization_id: string`
-
-    - `type: "session.deleted"`
 
     - `workspace_id: string`
 
   - `BetaWebhookSessionStatusRescheduledEventData object`
 
+    - `type: "session.status_rescheduled"`
+
     - `id: string`
 
       ID of the session that triggered the event.
 
     - `organization_id: string`
-
-    - `type: "session.status_rescheduled"`
 
     - `workspace_id: string`
 
   - `BetaWebhookSessionStatusRunStartedEventData object`
 
+    - `type: "session.status_run_started"`
+
     - `id: string`
 
       ID of the session that triggered the event.
 
     - `organization_id: string`
-
-    - `type: "session.status_run_started"`
 
     - `workspace_id: string`
 
   - `BetaWebhookSessionStatusIdledEventData object`
 
+    - `type: "session.status_idled"`
+
     - `id: string`
 
       ID of the session that triggered the event.
 
     - `organization_id: string`
-
-    - `type: "session.status_idled"`
 
     - `workspace_id: string`
 
   - `BetaWebhookSessionStatusTerminatedEventData object`
 
+    - `type: "session.status_terminated"`
+
     - `id: string`
 
       ID of the session that triggered the event.
 
     - `organization_id: string`
-
-    - `type: "session.status_terminated"`
 
     - `workspace_id: string`
 
   - `BetaWebhookSessionThreadCreatedEventData object`
 
+    - `type: "session.thread_created"`
+
     - `id: string`
 
       ID of the session that triggered the event.
@@ -976,13 +983,13 @@ you have already verified the signature yourself.
     - `session_thread_id: string`
 
       ID of the session thread this event refers to.
-
-    - `type: "session.thread_created"`
 
     - `workspace_id: string`
 
   - `BetaWebhookSessionThreadIdledEventData object`
 
+    - `type: "session.thread_idled"`
+
     - `id: string`
 
       ID of the session that triggered the event.
@@ -992,13 +999,13 @@ you have already verified the signature yourself.
     - `session_thread_id: string`
 
       ID of the session thread this event refers to.
-
-    - `type: "session.thread_idled"`
 
     - `workspace_id: string`
 
   - `BetaWebhookSessionThreadTerminatedEventData object`
 
+    - `type: "session.thread_terminated"`
+
     - `id: string`
 
       ID of the session that triggered the event.
@@ -1009,11 +1016,11 @@ you have already verified the signature yourself.
 
       ID of the session thread this event refers to.
 
-    - `type: "session.thread_terminated"`
-
     - `workspace_id: string`
 
   - `BetaWebhookSessionOutcomeEvaluationEndedEventData object`
+
+    - `type: "session.outcome_evaluation_ended"`
 
     - `id: string`
 
@@ -1021,55 +1028,53 @@ you have already verified the signature yourself.
 
     - `organization_id: string`
 
-    - `type: "session.outcome_evaluation_ended"`
-
     - `workspace_id: string`
 
   - `BetaWebhookVaultCreatedEventData object`
+
+    - `type: "vault.created"`
 
     - `id: string`
 
       ID of the vault that triggered the event.
 
     - `organization_id: string`
-
-    - `type: "vault.created"`
 
     - `workspace_id: string`
 
   - `BetaWebhookVaultArchivedEventData object`
 
+    - `type: "vault.archived"`
+
     - `id: string`
 
       ID of the vault that triggered the event.
 
     - `organization_id: string`
-
-    - `type: "vault.archived"`
 
     - `workspace_id: string`
 
   - `BetaWebhookVaultDeletedEventData object`
 
+    - `type: "vault.deleted"`
+
     - `id: string`
 
       ID of the vault that triggered the event.
 
     - `organization_id: string`
 
-    - `type: "vault.deleted"`
-
     - `workspace_id: string`
 
   - `BetaWebhookVaultCredentialCreatedEventData object`
+
+    - `type: "vault_credential.created"`
 
     - `id: string`
 
       ID of the vault credential that triggered the event.
 
     - `organization_id: string`
-
-    - `type: "vault_credential.created"`
 
     - `vault_id: string`
 
@@ -1079,13 +1084,13 @@ you have already verified the signature yourself.
 
   - `BetaWebhookVaultCredentialArchivedEventData object`
 
+    - `type: "vault_credential.archived"`
+
     - `id: string`
 
       ID of the vault credential that triggered the event.
 
     - `organization_id: string`
-
-    - `type: "vault_credential.archived"`
 
     - `vault_id: string`
 
@@ -1095,13 +1100,13 @@ you have already verified the signature yourself.
 
   - `BetaWebhookVaultCredentialDeletedEventData object`
 
+    - `type: "vault_credential.deleted"`
+
     - `id: string`
 
       ID of the vault credential that triggered the event.
 
     - `organization_id: string`
-
-    - `type: "vault_credential.deleted"`
 
     - `vault_id: string`
 
@@ -1111,13 +1116,13 @@ you have already verified the signature yourself.
 
   - `BetaWebhookVaultCredentialRefreshFailedEventData object`
 
+    - `type: "vault_credential.refresh_failed"`
+
     - `id: string`
 
       ID of the vault credential that triggered the event.
 
     - `organization_id: string`
-
-    - `type: "vault_credential.refresh_failed"`
 
     - `vault_id: string`
 
@@ -1127,65 +1132,67 @@ you have already verified the signature yourself.
 
   - `BetaWebhookSessionUpdatedEventData object`
 
+    - `type: "session.updated"`
+
     - `id: string`
 
       ID of the session that triggered the event.
 
     - `organization_id: string`
-
-    - `type: "session.updated"`
 
     - `workspace_id: string`
 
   - `BetaWebhookAgentCreatedEventData object`
 
+    - `type: "agent.created"`
+
     - `id: string`
 
       ID of the agent that triggered the event.
 
     - `organization_id: string`
-
-    - `type: "agent.created"`
 
     - `workspace_id: string`
 
   - `BetaWebhookAgentArchivedEventData object`
 
+    - `type: "agent.archived"`
+
     - `id: string`
 
       ID of the agent that triggered the event.
 
     - `organization_id: string`
-
-    - `type: "agent.archived"`
 
     - `workspace_id: string`
 
   - `BetaWebhookAgentDeletedEventData object`
 
+    - `type: "agent.deleted"`
+
     - `id: string`
 
       ID of the agent that triggered the event.
 
     - `organization_id: string`
-
-    - `type: "agent.deleted"`
 
     - `workspace_id: string`
 
   - `BetaWebhookDeploymentPausedEventData object`
 
+    - `type: "deployment.paused"`
+
     - `id: string`
 
       ID of the deployment that triggered the event.
 
     - `organization_id: string`
 
-    - `type: "deployment.paused"`
-
     - `workspace_id: string`
 
   - `BetaWebhookDeploymentRunFailedEventData object`
+
+    - `type: "deployment_run.failed"`
 
     - `id: string`
 
@@ -1193,47 +1200,47 @@ you have already verified the signature yourself.
 
     - `organization_id: string`
 
-    - `type: "deployment_run.failed"`
-
     - `workspace_id: string`
 
   - `BetaWebhookDeploymentCreatedEventData object`
+
+    - `type: "deployment.created"`
 
     - `id: string`
 
       ID of the deployment that triggered the event.
 
     - `organization_id: string`
-
-    - `type: "deployment.created"`
 
     - `workspace_id: string`
 
   - `BetaWebhookDeploymentUpdatedEventData object`
 
+    - `type: "deployment.updated"`
+
     - `id: string`
 
       ID of the deployment that triggered the event.
 
     - `organization_id: string`
-
-    - `type: "deployment.updated"`
 
     - `workspace_id: string`
 
   - `BetaWebhookDeploymentUnpausedEventData object`
 
+    - `type: "deployment.unpaused"`
+
     - `id: string`
 
       ID of the deployment that triggered the event.
 
     - `organization_id: string`
 
-    - `type: "deployment.unpaused"`
-
     - `workspace_id: string`
 
   - `BetaWebhookAgentUpdatedEventData object`
+
+    - `type: "agent.updated"`
 
     - `id: string`
 
@@ -1241,35 +1248,35 @@ you have already verified the signature yourself.
 
     - `organization_id: string`
 
-    - `type: "agent.updated"`
-
     - `workspace_id: string`
 
   - `BetaWebhookDeploymentArchivedEventData object`
+
+    - `type: "deployment.archived"`
 
     - `id: string`
 
       ID of the deployment that triggered the event.
 
     - `organization_id: string`
-
-    - `type: "deployment.archived"`
 
     - `workspace_id: string`
 
   - `BetaWebhookDeploymentRunStartedEventData object`
 
+    - `type: "deployment_run.started"`
+
     - `id: string`
 
       ID of the deployment run that triggered the event.
 
     - `organization_id: string`
 
-    - `type: "deployment_run.started"`
-
     - `workspace_id: string`
 
   - `BetaWebhookDeploymentDeletedEventData object`
+
+    - `type: "deployment.deleted"`
 
     - `id: string`
 
@@ -1277,11 +1284,11 @@ you have already verified the signature yourself.
 
     - `organization_id: string`
 
-    - `type: "deployment.deleted"`
-
     - `workspace_id: string`
 
   - `BetaWebhookDeploymentRunSucceededEventData object`
+
+    - `type: "deployment_run.succeeded"`
 
     - `id: string`
 
@@ -1289,103 +1296,101 @@ you have already verified the signature yourself.
 
     - `organization_id: string`
 
-    - `type: "deployment_run.succeeded"`
-
     - `workspace_id: string`
 
   - `BetaWebhookEnvironmentCreatedEventData object`
+
+    - `type: "environment.created"`
 
     - `id: string`
 
       ID of the environment that triggered the event.
 
     - `organization_id: string`
-
-    - `type: "environment.created"`
 
     - `workspace_id: string`
 
   - `BetaWebhookEnvironmentUpdatedEventData object`
 
+    - `type: "environment.updated"`
+
     - `id: string`
 
       ID of the environment that triggered the event.
 
     - `organization_id: string`
-
-    - `type: "environment.updated"`
 
     - `workspace_id: string`
 
   - `BetaWebhookEnvironmentArchivedEventData object`
 
+    - `type: "environment.archived"`
+
     - `id: string`
 
       ID of the environment that triggered the event.
 
     - `organization_id: string`
-
-    - `type: "environment.archived"`
 
     - `workspace_id: string`
 
   - `BetaWebhookEnvironmentDeletedEventData object`
 
+    - `type: "environment.deleted"`
+
     - `id: string`
 
       ID of the environment that triggered the event.
 
     - `organization_id: string`
 
-    - `type: "environment.deleted"`
-
     - `workspace_id: string`
 
   - `BetaWebhookMemoryStoreCreatedEventData object`
+
+    - `type: "memory_store.created"`
 
     - `id: string`
 
       ID of the memory store that triggered the event.
 
     - `organization_id: string`
-
-    - `type: "memory_store.created"`
 
     - `workspace_id: string`
 
   - `BetaWebhookMemoryStoreArchivedEventData object`
 
+    - `type: "memory_store.archived"`
+
     - `id: string`
 
       ID of the memory store that triggered the event.
 
     - `organization_id: string`
-
-    - `type: "memory_store.archived"`
 
     - `workspace_id: string`
 
   - `BetaWebhookMemoryStoreDeletedEventData object`
 
+    - `type: "memory_store.deleted"`
+
     - `id: string`
 
       ID of the memory store that triggered the event.
 
     - `organization_id: string`
 
-    - `type: "memory_store.deleted"`
-
     - `workspace_id: string`
 
   - `BetaWebhookSessionBudgetReachedEventData object`
+
+    - `type: "session.budget_reached"`
 
     - `id: string`
 
       ID of the session that triggered the event.
 
     - `organization_id: string`
-
-    - `type: "session.budget_reached"`
 
     - `workspace_id: string`
 
@@ -1393,13 +1398,13 @@ you have already verified the signature yourself.
 
 - `BetaWebhookMemoryStoreArchivedEventData object`
 
+  - `type: "memory_store.archived"`
+
   - `id: string`
 
     ID of the memory store that triggered the event.
 
   - `organization_id: string`
-
-  - `type: "memory_store.archived"`
 
   - `workspace_id: string`
 
@@ -1407,13 +1412,13 @@ you have already verified the signature yourself.
 
 - `BetaWebhookMemoryStoreCreatedEventData object`
 
+  - `type: "memory_store.created"`
+
   - `id: string`
 
     ID of the memory store that triggered the event.
 
   - `organization_id: string`
-
-  - `type: "memory_store.created"`
 
   - `workspace_id: string`
 
@@ -1421,13 +1426,13 @@ you have already verified the signature yourself.
 
 - `BetaWebhookMemoryStoreDeletedEventData object`
 
+  - `type: "memory_store.deleted"`
+
   - `id: string`
 
     ID of the memory store that triggered the event.
 
   - `organization_id: string`
-
-  - `type: "memory_store.deleted"`
 
   - `workspace_id: string`
 
@@ -1435,13 +1440,13 @@ you have already verified the signature yourself.
 
 - `BetaWebhookSessionArchivedEventData object`
 
+  - `type: "session.archived"`
+
   - `id: string`
 
     ID of the session that triggered the event.
 
   - `organization_id: string`
-
-  - `type: "session.archived"`
 
   - `workspace_id: string`
 
@@ -1449,13 +1454,13 @@ you have already verified the signature yourself.
 
 - `BetaWebhookSessionBudgetReachedEventData object`
 
+  - `type: "session.budget_reached"`
+
   - `id: string`
 
     ID of the session that triggered the event.
 
   - `organization_id: string`
-
-  - `type: "session.budget_reached"`
 
   - `workspace_id: string`
 
@@ -1463,13 +1468,13 @@ you have already verified the signature yourself.
 
 - `BetaWebhookSessionCreatedEventData object`
 
+  - `type: "session.created"`
+
   - `id: string`
 
     ID of the session that triggered the event.
 
   - `organization_id: string`
-
-  - `type: "session.created"`
 
   - `workspace_id: string`
 
@@ -1477,13 +1482,13 @@ you have already verified the signature yourself.
 
 - `BetaWebhookSessionDeletedEventData object`
 
+  - `type: "session.deleted"`
+
   - `id: string`
 
     ID of the session that triggered the event.
 
   - `organization_id: string`
-
-  - `type: "session.deleted"`
 
   - `workspace_id: string`
 
@@ -1491,13 +1496,13 @@ you have already verified the signature yourself.
 
 - `BetaWebhookSessionIdledEventData object`
 
+  - `type: "session.idled"`
+
   - `id: string`
 
     ID of the session that triggered the event.
 
   - `organization_id: string`
-
-  - `type: "session.idled"`
 
   - `workspace_id: string`
 
@@ -1505,13 +1510,13 @@ you have already verified the signature yourself.
 
 - `BetaWebhookSessionOutcomeEvaluationEndedEventData object`
 
+  - `type: "session.outcome_evaluation_ended"`
+
   - `id: string`
 
     ID of the session that triggered the event.
 
   - `organization_id: string`
-
-  - `type: "session.outcome_evaluation_ended"`
 
   - `workspace_id: string`
 
@@ -1519,13 +1524,13 @@ you have already verified the signature yourself.
 
 - `BetaWebhookSessionPendingEventData object`
 
+  - `type: "session.pending"`
+
   - `id: string`
 
     ID of the session that triggered the event.
 
   - `organization_id: string`
-
-  - `type: "session.pending"`
 
   - `workspace_id: string`
 
@@ -1533,13 +1538,13 @@ you have already verified the signature yourself.
 
 - `BetaWebhookSessionRequiresActionEventData object`
 
+  - `type: "session.requires_action"`
+
   - `id: string`
 
     ID of the session that triggered the event.
 
   - `organization_id: string`
-
-  - `type: "session.requires_action"`
 
   - `workspace_id: string`
 
@@ -1547,13 +1552,13 @@ you have already verified the signature yourself.
 
 - `BetaWebhookSessionRunningEventData object`
 
+  - `type: "session.running"`
+
   - `id: string`
 
     ID of the session that triggered the event.
 
   - `organization_id: string`
-
-  - `type: "session.running"`
 
   - `workspace_id: string`
 
@@ -1561,13 +1566,13 @@ you have already verified the signature yourself.
 
 - `BetaWebhookSessionStatusIdledEventData object`
 
+  - `type: "session.status_idled"`
+
   - `id: string`
 
     ID of the session that triggered the event.
 
   - `organization_id: string`
-
-  - `type: "session.status_idled"`
 
   - `workspace_id: string`
 
@@ -1575,13 +1580,13 @@ you have already verified the signature yourself.
 
 - `BetaWebhookSessionStatusRescheduledEventData object`
 
+  - `type: "session.status_rescheduled"`
+
   - `id: string`
 
     ID of the session that triggered the event.
 
   - `organization_id: string`
-
-  - `type: "session.status_rescheduled"`
 
   - `workspace_id: string`
 
@@ -1589,13 +1594,13 @@ you have already verified the signature yourself.
 
 - `BetaWebhookSessionStatusRunStartedEventData object`
 
+  - `type: "session.status_run_started"`
+
   - `id: string`
 
     ID of the session that triggered the event.
 
   - `organization_id: string`
-
-  - `type: "session.status_run_started"`
 
   - `workspace_id: string`
 
@@ -1603,13 +1608,13 @@ you have already verified the signature yourself.
 
 - `BetaWebhookSessionStatusTerminatedEventData object`
 
+  - `type: "session.status_terminated"`
+
   - `id: string`
 
     ID of the session that triggered the event.
 
   - `organization_id: string`
-
-  - `type: "session.status_terminated"`
 
   - `workspace_id: string`
 
@@ -1617,6 +1622,8 @@ you have already verified the signature yourself.
 
 - `BetaWebhookSessionThreadCreatedEventData object`
 
+  - `type: "session.thread_created"`
+
   - `id: string`
 
     ID of the session that triggered the event.
@@ -1626,8 +1633,6 @@ you have already verified the signature yourself.
   - `session_thread_id: string`
 
     ID of the session thread this event refers to.
-
-  - `type: "session.thread_created"`
 
   - `workspace_id: string`
 
@@ -1635,6 +1640,8 @@ you have already verified the signature yourself.
 
 - `BetaWebhookSessionThreadIdledEventData object`
 
+  - `type: "session.thread_idled"`
+
   - `id: string`
 
     ID of the session that triggered the event.
@@ -1644,8 +1651,6 @@ you have already verified the signature yourself.
   - `session_thread_id: string`
 
     ID of the session thread this event refers to.
-
-  - `type: "session.thread_idled"`
 
   - `workspace_id: string`
 
@@ -1653,6 +1658,8 @@ you have already verified the signature yourself.
 
 - `BetaWebhookSessionThreadTerminatedEventData object`
 
+  - `type: "session.thread_terminated"`
+
   - `id: string`
 
     ID of the session that triggered the event.
@@ -1663,13 +1670,13 @@ you have already verified the signature yourself.
 
     ID of the session thread this event refers to.
 
-  - `type: "session.thread_terminated"`
-
   - `workspace_id: string`
 
 ### Beta Webhook Session Updated Event Data
 
 - `BetaWebhookSessionUpdatedEventData object`
+
+  - `type: "session.updated"`
 
   - `id: string`
 
@@ -1677,21 +1684,19 @@ you have already verified the signature yourself.
 
   - `organization_id: string`
 
-  - `type: "session.updated"`
-
   - `workspace_id: string`
 
 ### Beta Webhook Vault Archived Event Data
 
 - `BetaWebhookVaultArchivedEventData object`
 
+  - `type: "vault.archived"`
+
   - `id: string`
 
     ID of the vault that triggered the event.
 
   - `organization_id: string`
-
-  - `type: "vault.archived"`
 
   - `workspace_id: string`
 
@@ -1699,13 +1704,13 @@ you have already verified the signature yourself.
 
 - `BetaWebhookVaultCreatedEventData object`
 
+  - `type: "vault.created"`
+
   - `id: string`
 
     ID of the vault that triggered the event.
 
   - `organization_id: string`
-
-  - `type: "vault.created"`
 
   - `workspace_id: string`
 
@@ -1713,13 +1718,13 @@ you have already verified the signature yourself.
 
 - `BetaWebhookVaultCredentialArchivedEventData object`
 
+  - `type: "vault_credential.archived"`
+
   - `id: string`
 
     ID of the vault credential that triggered the event.
 
   - `organization_id: string`
-
-  - `type: "vault_credential.archived"`
 
   - `vault_id: string`
 
@@ -1731,13 +1736,13 @@ you have already verified the signature yourself.
 
 - `BetaWebhookVaultCredentialCreatedEventData object`
 
+  - `type: "vault_credential.created"`
+
   - `id: string`
 
     ID of the vault credential that triggered the event.
 
   - `organization_id: string`
-
-  - `type: "vault_credential.created"`
 
   - `vault_id: string`
 
@@ -1749,13 +1754,13 @@ you have already verified the signature yourself.
 
 - `BetaWebhookVaultCredentialDeletedEventData object`
 
+  - `type: "vault_credential.deleted"`
+
   - `id: string`
 
     ID of the vault credential that triggered the event.
 
   - `organization_id: string`
-
-  - `type: "vault_credential.deleted"`
 
   - `vault_id: string`
 
@@ -1767,13 +1772,13 @@ you have already verified the signature yourself.
 
 - `BetaWebhookVaultCredentialRefreshFailedEventData object`
 
+  - `type: "vault_credential.refresh_failed"`
+
   - `id: string`
 
     ID of the vault credential that triggered the event.
 
   - `organization_id: string`
-
-  - `type: "vault_credential.refresh_failed"`
 
   - `vault_id: string`
 
@@ -1785,12 +1790,12 @@ you have already verified the signature yourself.
 
 - `BetaWebhookVaultDeletedEventData object`
 
+  - `type: "vault.deleted"`
+
   - `id: string`
 
     ID of the vault that triggered the event.
 
   - `organization_id: string`
-
-  - `type: "vault.deleted"`
 
   - `workspace_id: string`

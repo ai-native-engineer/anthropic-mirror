@@ -1,8 +1,13 @@
 <!-- source: https://platform.claude.com/docs/en/api/php/beta/skills/create -->
 
+---
+title: Create Skill
+url: https://platform.claude.com/docs/en/api/php/beta/skills/create
+---
+
 # Create Skill
 
-`$client->beta->skills->create(list<string> files, ?string displayName, ?list<AnthropicBeta> betas): BetaSkill`
+`$client->beta->skills->create(list<string> files, ?string displayName, ?list<AnthropicBeta> betas, ?string workspaceID): BetaSkill`
 
 **POST** `/v1/skills`
 
@@ -26,9 +31,17 @@ Create Skill
 
   Optional header to specify the beta version(s) you want to use.
 
+- `workspaceID?:optional string`
+
 ## Returns
 
 - `BetaSkill`
+
+  - `"skill" type`
+
+    Object type.
+
+    For Skills, this is always `"skill"`.
 
   - `string id`
 
@@ -61,12 +74,6 @@ Create Skill
     * `"anthropic_example"`: Anthropic-published sample Skill
     * `"plugin"`: resolved from an installed plugin
 
-  - `"skill" type`
-
-    Object type.
-
-    For Skills, this is always `"skill"`.
-
   - `\Datetime updatedAt`
 
     ISO 8601 timestamp of when the skill was last updated.
@@ -86,6 +93,7 @@ $betaSkill = $client->beta->skills->create(
   ],
   displayName: 'display_name',
   betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+  workspaceID: 'wrkspc_011CZkZaBF1tNoB5wlCeusgy',
 );
 
 var_dump($betaSkill);

@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/ruby/beta/files/delete -->
 
+---
+title: Delete File
+url: https://platform.claude.com/docs/en/api/ruby/beta/files/delete
+---
+
 # Delete File
 
 `beta.files.delete(file_id, **kwargs) -> BetaDeletedFile`
@@ -20,7 +25,7 @@ Delete File
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 41 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 42 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -68,6 +73,8 @@ Delete File
 
     - `:"user-profiles-2026-08-18"`
 
+    - `:"user-profiles-2026-09-04"`
+
     - `:"advisor-tool-2026-03-01"`
 
     - `:"managed-agents-2026-04-01"`
@@ -110,19 +117,21 @@ Delete File
 
     - `:"mid-conversation-system-clear-at-2026-08-21"`
 
+- `workspace_id: String`
+
 ## Returns
 
 - `class BetaDeletedFile`
-
-  - `id: String`
-
-    ID of the deleted file.
 
   - `type: :file_deleted`
 
     Deleted object type.
 
     For file deletion, this is always `"file_deleted"`.
+
+  - `id: String`
+
+    ID of the deleted file.
 
 ## Example
 

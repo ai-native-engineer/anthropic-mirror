@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/ruby/beta/skills/list -->
 
+---
+title: List Skills
+url: https://platform.claude.com/docs/en/api/ruby/beta/skills/list
+---
+
 # List Skills
 
 `beta.skills.list(**kwargs) -> PageCursor<BetaSkill>`
@@ -39,7 +44,7 @@ List Skills
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 41 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 42 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -87,6 +92,8 @@ List Skills
 
     - `:"user-profiles-2026-08-18"`
 
+    - `:"user-profiles-2026-09-04"`
+
     - `:"advisor-tool-2026-03-01"`
 
     - `:"managed-agents-2026-04-01"`
@@ -129,9 +136,17 @@ List Skills
 
     - `:"mid-conversation-system-clear-at-2026-08-21"`
 
+- `workspace_id: String`
+
 ## Returns
 
 - `class BetaSkill`
+
+  - `type: :skill`
+
+    Object type.
+
+    For Skills, this is always `"skill"`.
 
   - `id: String`
 
@@ -184,12 +199,6 @@ List Skills
       - `:anthropic_example`
 
       - `:plugin`
-
-  - `type: :skill`
-
-    Object type.
-
-    For Skills, this is always `"skill"`.
 
   - `updated_at: Time`
 

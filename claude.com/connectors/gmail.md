@@ -69,8 +69,6 @@ Connect to Asana to coordinate tasks, projects, and goals
 
 ### [Perspective AI](https://claude.com/connectors/perspective-ai)
 
-Trending
-
 An AI Concierge that turns forms into conversations
 
 [Add Perspective AI in Claude (opens in new tab)](https://claude.ai/directory/ac16a66e-c876-4447-a723-cfa55a3bce1b "Add in Claude")

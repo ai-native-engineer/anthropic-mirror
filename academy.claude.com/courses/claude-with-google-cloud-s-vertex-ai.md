@@ -8,7 +8,7 @@ Working with Anthropic models through Google Cloud's Vertex AI: setup, prompting
 
 66 lessons8.5 hr9 quizzesCompletion badge
 
-[Start course](https://academy.claude.com/courses/claude-with-google-cloud-s-vertex-ai/accessing-the-api)[Sign in to save progress](https://academy.claude.com/login?returnTo=https%3A%2F%2Facademy.claude.com%2Fcourses%2Fclaude-with-google-cloud-s-vertex-ai)
+[Start course](https://academy.claude.com/courses/claude-with-google-cloud-s-vertex-ai/accessing-the-api)[Sign in to save progress](https://academy.claude.com/login?returnTo=%2Fcourses%2Fclaude-with-google-cloud-s-vertex-ai)
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-i2dtezl2.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-nlnnq0x4.png)
 

@@ -2,6 +2,3823 @@
 <!-- part of: https://platform.claude.com/docs/en/api/cli/beta -->
 
 <!-- chunk-start -->
+
+  - `paused_reason: BetaManagedAgentsManualDeploymentPausedReason or BetaManagedAgentsErrorDeploymentPausedReason`
+
+    Why a deployment is paused. Non-null exactly when `status` is `paused`.
+
+    - `beta_managed_agents_manual_deployment_paused_reason: object`
+
+      The caller invoked the pause endpoint on the deployment.
+
+      - `type: "manual"`
+
+    - `beta_managed_agents_error_deployment_paused_reason: object`
+
+      A scheduled fire recorded a failed run whose error auto-pauses the deployment.
+
+      - `type: "error"`
+
+      - `error: BetaManagedAgentsEnvironmentArchivedDeploymentPausedReasonError or BetaManagedAgentsAgentArchivedDeploymentPausedReasonError or BetaManagedAgentsEnvironmentNotFoundDeploymentPausedReasonError or 11 more`
+
+        The error that triggered an auto-pause. Matches the failed run's `error.type`.
+
+        - `beta_managed_agents_environment_archived_deployment_paused_reason_error: object`
+
+          The deployment's environment was archived.
+
+          - `type: "environment_archived_error"`
+
+        - `beta_managed_agents_agent_archived_deployment_paused_reason_error: object`
+
+          The deployment's agent was archived.
+
+          - `type: "agent_archived_error"`
+
+        - `beta_managed_agents_environment_not_found_deployment_paused_reason_error: object`
+
+          The deployment's environment no longer exists.
+
+          - `type: "environment_not_found_error"`
+
+        - `beta_managed_agents_vault_not_found_deployment_paused_reason_error: object`
+
+          A vault referenced by the deployment no longer exists.
+
+          - `type: "vault_not_found_error"`
+
+        - `beta_managed_agents_file_not_found_deployment_paused_reason_error: object`
+
+          A file resource referenced by the deployment no longer exists.
+
+          - `type: "file_not_found_error"`
+
+        - `beta_managed_agents_session_resource_not_found_deployment_paused_reason_error: object`
+
+          A referenced resource no longer exists and its kind was not reported.
+
+          - `type: "session_resource_not_found_error"`
+
+        - `beta_managed_agents_workspace_archived_deployment_paused_reason_error: object`
+
+          The deployment's workspace was archived.
+
+          - `type: "workspace_archived_error"`
+
+        - `beta_managed_agents_organization_disabled_deployment_paused_reason_error: object`
+
+          The deployment's organization is disabled.
+
+          - `type: "organization_disabled_error"`
+
+        - `beta_managed_agents_memory_store_archived_deployment_paused_reason_error: object`
+
+          A memory store referenced by the deployment is archived.
+
+          - `type: "memory_store_archived_error"`
+
+        - `beta_managed_agents_skill_not_found_deployment_paused_reason_error: object`
+
+          A skill referenced by the deployment's agent no longer exists.
+
+          - `type: "skill_not_found_error"`
+
+        - `beta_managed_agents_vault_archived_deployment_paused_reason_error: object`
+
+          A vault referenced by the deployment is archived.
+
+          - `type: "vault_archived_error"`
+
+        - `beta_managed_agents_unknown_deployment_paused_reason_error: object`
+
+          An unrecognized error auto-paused the deployment. A fallback variant; matches a run whose `error.type` is `unknown_error`.
+
+          - `type: "unknown_error"`
+
+        - `beta_managed_agents_self_hosted_resources_unsupported_deployment_paused_reason_error: object`
+
+          The deployment configures resources, but its environment is self-hosted and cannot mount them.
+
+          - `type: "self_hosted_resources_unsupported_error"`
+
+        - `beta_managed_agents_mcp_egress_blocked_deployment_paused_reason_error: object`
+
+          An MCP server host used by the deployment's agent is blocked by the environment's network policy.
+
+          - `type: "mcp_egress_blocked_error"`
+
+  - `resources: array of BetaManagedAgentsSessionResourceConfig`
+
+    Resources attached to sessions created from this deployment. Echoes the input minus write-only credentials.
+
+    - `beta_managed_agents_github_repository_resource_config: object`
+
+      A GitHub repository mounted into each session's container. The authorization token is write-only and never returned.
+
+      - `type: "github_repository"`
+
+      - `url: string`
+
+        Github URL of the repository
+
+      - `checkout: optional BetaManagedAgentsBranchCheckout or BetaManagedAgentsCommitCheckout`
+
+        Branch or commit to check out. Defaults to the repository's default branch.
+
+        - `beta_managed_agents_branch_checkout: object`
+
+          - `type: "branch"`
+
+          - `name: string`
+
+            Branch name to check out.
+
+            minLength: 1, maxLength: 255
+
+        - `beta_managed_agents_commit_checkout: object`
+
+          - `type: "commit"`
+
+          - `sha: string`
+
+            Full commit SHA to check out.
+
+            minLength: 7, maxLength: 64
+
+      - `mount_path: optional string`
+
+        Mount path in the container. Defaults to `/workspace/<repo-name>`.
+
+    - `beta_managed_agents_file_resource_config: object`
+
+      A file mounted into each session's container.
+
+      - `type: "file"`
+
+      - `file_id: string`
+
+        ID of a previously uploaded file.
+
+      - `mount_path: optional string`
+
+        Mount path in the container. Defaults to `/mnt/session/uploads/<file_id>`.
+
+    - `beta_managed_agents_memory_store_resource_config: object`
+
+      A memory store attached to each session created from this deployment.
+
+      - `type: "memory_store"`
+
+      - `memory_store_id: string`
+
+        The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
+
+      - `access: optional "read_write" or "read_only"`
+
+        Access mode for an attached memory store.
+
+        - `"read_write"`
+
+        - `"read_only"`
+
+      - `instructions: optional string`
+
+        Per-attachment guidance for the agent on how to use this store. Rendered into the memory section of the system prompt. Max 4096 chars.
+
+  - `schedule: object`
+
+    5-field POSIX cron schedule with computed runtime timestamps.
+
+    - `type: "cron"`
+
+    - `expression: string`
+
+      5-field POSIX cron expression: minute hour day-of-month month day-of-week (e.g., "0 9 * * 1-5" for weekdays at 9am). Day-of-week is 0-7 where 0 and 7 both mean Sunday. Extended cron syntax - seconds or year fields, and the special characters L, W, #, and ? - is not supported, nor are predefined shortcuts (@daily).
+
+      minLength: 1, maxLength: 256
+
+    - `timezone: string`
+
+      IANA timezone identifier (e.g., "America/Los_Angeles", "UTC").
+
+      minLength: 1
+
+    - `last_run_at: optional string`
+
+      A timestamp in RFC 3339 format
+
+      format: date-time
+
+    - `upcoming_runs_at: optional array of string`
+
+      Up to 5 timestamps of upcoming cron occurrences. Non-empty for active and paused deployments (reflects what the schedule would do if unpaused); empty once the deployment is archived (`archived_at` set). Each fire is offset by a small per-schedule jitter, so a run will actually start at or shortly after its listed time.
+
+  - `status: "active" or "paused"`
+
+    Lifecycle status of a deployment.
+
+    - `"active"`
+
+    - `"paused"`
+
+  - `updated_at: string`
+
+    A timestamp in RFC 3339 format
+
+    format: date-time
+
+  - `vault_ids: array of string`
+
+    Vault IDs supplying stored credentials for sessions created from this deployment.
+
+  - `budget: optional object`
+
+    A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+
+    - `type: "limit"`
+
+    - `max_list_cost: object`
+
+      A monetary amount in a specific currency.
+
+      - `amount: string`
+
+        Amount in minor units of the currency, as an integer decimal string with no leading zeros: "2500" is $25.00 and "50" is fifty cents. A string rather than a number so no float rounding is ever applied.
+
+      - `currency: "USD"`
+
+        Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
+
+#### Example
+
+```bash
+ant beta:deployments retrieve \
+  --api-key my-anthropic-api-key \
+  --deployment-id depl_011CZkZcDH3vPqd7xnEfwTai
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "depl_011CZkZcDH3vPqd7xnEfwTai",
+  "agent": {
+    "id": "agent_011CZkYpogX7uDKUyvBTophP",
+    "type": "agent",
+    "version": 1
+  },
+  "archived_at": null,
+  "created_at": "2026-03-15T10:00:00Z",
+  "description": "Compiles yesterday's orders into a report every weekday morning.",
+  "environment_id": "env_011CZkZ9X2dpNyB7HsEFoRfW",
+  "initial_events": [
+    {
+      "content": [
+        {
+          "text": "Compile yesterday's orders into report.md.",
+          "type": "text"
+        }
+      ],
+      "type": "user.message"
+    }
+  ],
+  "metadata": {},
+  "name": "Daily order report",
+  "paused_reason": {
+    "type": "manual"
+  },
+  "resources": [
+    {
+      "type": "github_repository",
+      "url": "url",
+      "checkout": {
+        "name": "main",
+        "type": "branch"
+      },
+      "mount_path": "mount_path"
+    }
+  ],
+  "schedule": {
+    "expression": "0 9 * * 1-5",
+    "timezone": "America/Los_Angeles",
+    "type": "cron",
+    "last_run_at": "2026-03-16T16:00:09Z",
+    "upcoming_runs_at": [
+      "2026-03-17T16:00:00Z",
+      "2026-03-18T16:00:00Z"
+    ]
+  },
+  "status": "active",
+  "type": "deployment",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "vault_ids": [
+    "vlt_011CZkZDLs7fYzm1hXNPeRjv"
+  ],
+  "budget": {
+    "max_list_cost": {
+      "amount": "2500",
+      "currency": "USD"
+    },
+    "type": "limit"
+  }
+}
+```
+
+### Update Deployment
+
+`$ ant beta:deployments update`
+
+**POST** `/v1/deployments/{deployment_id}`
+
+Update Deployment
+
+#### Parameters
+
+- `--deployment-id: string`
+
+  Path param: Path parameter deployment_id
+
+- `--agent: optional string or BetaManagedAgentsAgentParams`
+
+  Body param: Agent to deploy. Accepts the `agent` ID string, which re-pins to the latest version, or an `agent` object with both id and version specified. Omit to preserve. Cannot be cleared.
+
+- `--budget: optional object`
+
+  Body param: A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+
+- `--description: optional string`
+
+  Body param: Description. Omit to preserve; send empty string or null to clear.
+
+  maxLength: 2048
+
+- `--environment-id: optional string`
+
+  Body param: ID of the `environment` where sessions run. Omit to preserve. Cannot be cleared.
+
+  maxLength: 128
+
+- `--initial-event: optional array of BetaManagedAgentsDeploymentInitialEventParams`
+
+  Body param: Initial events. Full replacement. Omit to preserve. Cannot be cleared. At least 1, maximum 50.
+
+- `--metadata: optional map[string]`
+
+  Body param: Metadata patch. Set a key to a string to upsert it, or to null to delete it. Omit the field to preserve. The stored bag is limited to 16 keys (up to 64 chars each) with values up to 512 chars.
+
+- `--name: optional string`
+
+  Body param: Human-readable name. Must be non-empty. Omit to preserve. Cannot be cleared.
+
+  maxLength: 256
+
+- `--resource: optional array of BetaManagedAgentsGitHubRepositoryResourceParams or BetaManagedAgentsFileResourceParams or BetaManagedAgentsMemoryStoreResourceParam`
+
+  Body param: Session resources. Full replacement. Omit to preserve; send empty array or null to clear. Maximum 500.
+
+- `--schedule: optional object`
+
+  Body param: 5-field POSIX cron schedule. Literal wall-clock matching in the configured timezone.
+
+- `--vault-id: optional array of string`
+
+  Body param: Vault IDs. Full replacement. Omit to preserve; send empty array or null to clear. Maximum 50.
+
+- `--beta: optional array of AnthropicBeta`
+
+  Header param: Optional header to specify the beta version(s) you want to use.
+
+- `--workspace-id: optional string`
+
+  Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `beta_managed_agents_deployment: object`
+
+  A deployment is a configured instance of an agent — it binds the agent to everything needed to run it autonomously: an environment, credentials, initial events, and an optional schedule.
+
+  - `type: "deployment"`
+
+  - `id: string`
+
+    Unique identifier for this deployment.
+
+  - `agent: object`
+
+    A resolved agent reference with a concrete version.
+
+    - `type: "agent"`
+
+    - `id: string`
+
+    - `version: number`
+
+      format: int32
+
+  - `archived_at: string`
+
+    A timestamp in RFC 3339 format
+
+    format: date-time
+
+  - `created_at: string`
+
+    A timestamp in RFC 3339 format
+
+    format: date-time
+
+  - `description: string`
+
+    Description of what the deployment does.
+
+  - `environment_id: string`
+
+    ID of the `environment` where sessions run.
+
+  - `initial_events: array of BetaManagedAgentsDeploymentInitialEvent`
+
+    Events sent to each session immediately after creation.
+
+    - `beta_managed_agents_deployment_user_message_event: object`
+
+      A user message sent to the session.
+
+      - `type: "user.message"`
+
+      - `content: array of BetaManagedAgentsTextBlock or BetaManagedAgentsImageBlock or BetaManagedAgentsDocumentBlock or BetaManagedAgentsRedactedBlock`
+
+        Array of content blocks for the user message.
+
+        - `beta_managed_agents_text_block: object`
+
+          Regular text content.
+
+          - `type: "text"`
+
+          - `text: string`
+
+            The text content.
+
+            minLength: 1
+
+        - `beta_managed_agents_image_block: object`
+
+          Image content specified directly as base64 data or as a reference via a URL.
+
+          - `type: "image"`
+
+          - `source: BetaManagedAgentsBase64ImageSource or BetaManagedAgentsURLImageSource or BetaManagedAgentsFileImageSource`
+
+            Union type for image source variants.
+
+            - `beta_managed_agents_base64_image_source: object`
+
+              Base64-encoded image data.
+
+              - `type: "base64"`
+
+              - `data: string`
+
+                Base64-encoded image data.
+
+                minLength: 1
+
+              - `media_type: string`
+
+                MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
+
+                minLength: 1
+
+            - `beta_managed_agents_url_image_source: object`
+
+              Image referenced by URL.
+
+              - `type: "url"`
+
+              - `url: string`
+
+                URL of the image to fetch.
+
+                minLength: 1
+
+            - `beta_managed_agents_file_image_source: object`
+
+              Image referenced by file ID.
+
+              - `type: "file"`
+
+              - `file_id: string`
+
+                ID of a previously uploaded file.
+
+                minLength: 1
+
+        - `beta_managed_agents_document_block: object`
+
+          Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+          - `type: "document"`
+
+          - `source: BetaManagedAgentsBase64DocumentSource or BetaManagedAgentsPlainTextDocumentSource or BetaManagedAgentsURLDocumentSource or BetaManagedAgentsFileDocumentSource`
+
+            Union type for document source variants.
+
+            - `beta_managed_agents_base64_document_source: object`
+
+              Base64-encoded document data.
+
+              - `type: "base64"`
+
+              - `data: string`
+
+                Base64-encoded document data.
+
+                minLength: 1
+
+              - `media_type: string`
+
+                MIME type of the document (e.g., "application/pdf").
+
+                minLength: 1
+
+            - `beta_managed_agents_plain_text_document_source: object`
+
+              Plain text document content.
+
+              - `type: "text"`
+
+              - `data: string`
+
+                The plain text content.
+
+                minLength: 1
+
+              - `media_type: "text/plain"`
+
+                MIME type of the text content. Must be "text/plain".
+
+            - `beta_managed_agents_url_document_source: object`
+
+              Document referenced by URL.
+
+              - `type: "url"`
+
+              - `url: string`
+
+                URL of the document to fetch.
+
+                minLength: 1
+
+            - `beta_managed_agents_file_document_source: object`
+
+              Document referenced by file ID.
+
+              - `type: "file"`
+
+              - `file_id: string`
+
+                ID of a previously uploaded file.
+
+                minLength: 1
+
+          - `context: optional string`
+
+            Additional context about the document for the model.
+
+          - `title: optional string`
+
+            The title of the document.
+
+        - `beta_managed_agents_redacted_block: object`
+
+          Placeholder for content withheld by Anthropic model policy.
+
+          - `type: "redacted"`
+
+    - `beta_managed_agents_deployment_user_define_outcome_event: object`
+
+      An outcome the agent should work toward. The agent begins work on receipt.
+
+      - `type: "user.define_outcome"`
+
+      - `description: string`
+
+        What the agent should produce. This is the task specification.
+
+      - `rubric: BetaManagedAgentsFileRubric or BetaManagedAgentsTextRubric`
+
+        Rubric for grading the quality of an outcome.
+
+        - `beta_managed_agents_file_rubric: object`
+
+          Rubric referenced by a file uploaded via the Files API.
+
+          - `type: "file"`
+
+          - `file_id: string`
+
+            ID of the rubric file.
+
+        - `beta_managed_agents_text_rubric: object`
+
+          Rubric content provided inline as text.
+
+          - `type: "text"`
+
+          - `content: string`
+
+            Rubric content. Plain text or markdown — the grader treats it as freeform text.
+
+      - `max_iterations: optional number`
+
+        Eval→revision cycles before giving up. Default 3, max 20.
+
+        format: int32
+
+    - `beta_managed_agents_deployment_system_message_event: object`
+
+      Privileged context for the accompanying turn and all subsequent turns, appended to the session's system context as a `role: "system"` turn rather than replacing the top-level system prompt.
+
+      - `type: "system.message"`
+
+      - `content: array of BetaManagedAgentsSystemContentBlock`
+
+        System content blocks to append. Text-only.
+
+        - `type: "text"`
+
+        - `text: string`
+
+          The text content.
+
+          minLength: 1
+
+  - `metadata: map[string]`
+
+    Arbitrary key-value metadata. Maximum 16 pairs.
+
+  - `name: string`
+
+    Human-readable name.
+
+  - `paused_reason: BetaManagedAgentsManualDeploymentPausedReason or BetaManagedAgentsErrorDeploymentPausedReason`
+
+    Why a deployment is paused. Non-null exactly when `status` is `paused`.
+
+    - `beta_managed_agents_manual_deployment_paused_reason: object`
+
+      The caller invoked the pause endpoint on the deployment.
+
+      - `type: "manual"`
+
+    - `beta_managed_agents_error_deployment_paused_reason: object`
+
+      A scheduled fire recorded a failed run whose error auto-pauses the deployment.
+
+      - `type: "error"`
+
+      - `error: BetaManagedAgentsEnvironmentArchivedDeploymentPausedReasonError or BetaManagedAgentsAgentArchivedDeploymentPausedReasonError or BetaManagedAgentsEnvironmentNotFoundDeploymentPausedReasonError or 11 more`
+
+        The error that triggered an auto-pause. Matches the failed run's `error.type`.
+
+        - `beta_managed_agents_environment_archived_deployment_paused_reason_error: object`
+
+          The deployment's environment was archived.
+
+          - `type: "environment_archived_error"`
+
+        - `beta_managed_agents_agent_archived_deployment_paused_reason_error: object`
+
+          The deployment's agent was archived.
+
+          - `type: "agent_archived_error"`
+
+        - `beta_managed_agents_environment_not_found_deployment_paused_reason_error: object`
+
+          The deployment's environment no longer exists.
+
+          - `type: "environment_not_found_error"`
+
+        - `beta_managed_agents_vault_not_found_deployment_paused_reason_error: object`
+
+          A vault referenced by the deployment no longer exists.
+
+          - `type: "vault_not_found_error"`
+
+        - `beta_managed_agents_file_not_found_deployment_paused_reason_error: object`
+
+          A file resource referenced by the deployment no longer exists.
+
+          - `type: "file_not_found_error"`
+
+        - `beta_managed_agents_session_resource_not_found_deployment_paused_reason_error: object`
+
+          A referenced resource no longer exists and its kind was not reported.
+
+          - `type: "session_resource_not_found_error"`
+
+        - `beta_managed_agents_workspace_archived_deployment_paused_reason_error: object`
+
+          The deployment's workspace was archived.
+
+          - `type: "workspace_archived_error"`
+
+        - `beta_managed_agents_organization_disabled_deployment_paused_reason_error: object`
+
+          The deployment's organization is disabled.
+
+          - `type: "organization_disabled_error"`
+
+        - `beta_managed_agents_memory_store_archived_deployment_paused_reason_error: object`
+
+          A memory store referenced by the deployment is archived.
+
+          - `type: "memory_store_archived_error"`
+
+        - `beta_managed_agents_skill_not_found_deployment_paused_reason_error: object`
+
+          A skill referenced by the deployment's agent no longer exists.
+
+          - `type: "skill_not_found_error"`
+
+        - `beta_managed_agents_vault_archived_deployment_paused_reason_error: object`
+
+          A vault referenced by the deployment is archived.
+
+          - `type: "vault_archived_error"`
+
+        - `beta_managed_agents_unknown_deployment_paused_reason_error: object`
+
+          An unrecognized error auto-paused the deployment. A fallback variant; matches a run whose `error.type` is `unknown_error`.
+
+          - `type: "unknown_error"`
+
+        - `beta_managed_agents_self_hosted_resources_unsupported_deployment_paused_reason_error: object`
+
+          The deployment configures resources, but its environment is self-hosted and cannot mount them.
+
+          - `type: "self_hosted_resources_unsupported_error"`
+
+        - `beta_managed_agents_mcp_egress_blocked_deployment_paused_reason_error: object`
+
+          An MCP server host used by the deployment's agent is blocked by the environment's network policy.
+
+          - `type: "mcp_egress_blocked_error"`
+
+  - `resources: array of BetaManagedAgentsSessionResourceConfig`
+
+    Resources attached to sessions created from this deployment. Echoes the input minus write-only credentials.
+
+    - `beta_managed_agents_github_repository_resource_config: object`
+
+      A GitHub repository mounted into each session's container. The authorization token is write-only and never returned.
+
+      - `type: "github_repository"`
+
+      - `url: string`
+
+        Github URL of the repository
+
+      - `checkout: optional BetaManagedAgentsBranchCheckout or BetaManagedAgentsCommitCheckout`
+
+        Branch or commit to check out. Defaults to the repository's default branch.
+
+        - `beta_managed_agents_branch_checkout: object`
+
+          - `type: "branch"`
+
+          - `name: string`
+
+            Branch name to check out.
+
+            minLength: 1, maxLength: 255
+
+        - `beta_managed_agents_commit_checkout: object`
+
+          - `type: "commit"`
+
+          - `sha: string`
+
+            Full commit SHA to check out.
+
+            minLength: 7, maxLength: 64
+
+      - `mount_path: optional string`
+
+        Mount path in the container. Defaults to `/workspace/<repo-name>`.
+
+    - `beta_managed_agents_file_resource_config: object`
+
+      A file mounted into each session's container.
+
+      - `type: "file"`
+
+      - `file_id: string`
+
+        ID of a previously uploaded file.
+
+      - `mount_path: optional string`
+
+        Mount path in the container. Defaults to `/mnt/session/uploads/<file_id>`.
+
+    - `beta_managed_agents_memory_store_resource_config: object`
+
+      A memory store attached to each session created from this deployment.
+
+      - `type: "memory_store"`
+
+      - `memory_store_id: string`
+
+        The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
+
+      - `access: optional "read_write" or "read_only"`
+
+        Access mode for an attached memory store.
+
+        - `"read_write"`
+
+        - `"read_only"`
+
+      - `instructions: optional string`
+
+        Per-attachment guidance for the agent on how to use this store. Rendered into the memory section of the system prompt. Max 4096 chars.
+
+  - `schedule: object`
+
+    5-field POSIX cron schedule with computed runtime timestamps.
+
+    - `type: "cron"`
+
+    - `expression: string`
+
+      5-field POSIX cron expression: minute hour day-of-month month day-of-week (e.g., "0 9 * * 1-5" for weekdays at 9am). Day-of-week is 0-7 where 0 and 7 both mean Sunday. Extended cron syntax - seconds or year fields, and the special characters L, W, #, and ? - is not supported, nor are predefined shortcuts (@daily).
+
+      minLength: 1, maxLength: 256
+
+    - `timezone: string`
+
+      IANA timezone identifier (e.g., "America/Los_Angeles", "UTC").
+
+      minLength: 1
+
+    - `last_run_at: optional string`
+
+      A timestamp in RFC 3339 format
+
+      format: date-time
+
+    - `upcoming_runs_at: optional array of string`
+
+      Up to 5 timestamps of upcoming cron occurrences. Non-empty for active and paused deployments (reflects what the schedule would do if unpaused); empty once the deployment is archived (`archived_at` set). Each fire is offset by a small per-schedule jitter, so a run will actually start at or shortly after its listed time.
+
+  - `status: "active" or "paused"`
+
+    Lifecycle status of a deployment.
+
+    - `"active"`
+
+    - `"paused"`
+
+  - `updated_at: string`
+
+    A timestamp in RFC 3339 format
+
+    format: date-time
+
+  - `vault_ids: array of string`
+
+    Vault IDs supplying stored credentials for sessions created from this deployment.
+
+  - `budget: optional object`
+
+    A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+
+    - `type: "limit"`
+
+    - `max_list_cost: object`
+
+      A monetary amount in a specific currency.
+
+      - `amount: string`
+
+        Amount in minor units of the currency, as an integer decimal string with no leading zeros: "2500" is $25.00 and "50" is fifty cents. A string rather than a number so no float rounding is ever applied.
+
+      - `currency: "USD"`
+
+        Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
+
+#### Example
+
+```bash
+ant beta:deployments update \
+  --api-key my-anthropic-api-key \
+  --deployment-id depl_011CZkZcDH3vPqd7xnEfwTai
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "depl_011CZkZcDH3vPqd7xnEfwTai",
+  "agent": {
+    "id": "agent_011CZkYpogX7uDKUyvBTophP",
+    "type": "agent",
+    "version": 1
+  },
+  "archived_at": null,
+  "created_at": "2026-03-15T10:00:00Z",
+  "description": "Compiles yesterday's orders into a report every weekday morning.",
+  "environment_id": "env_011CZkZ9X2dpNyB7HsEFoRfW",
+  "initial_events": [
+    {
+      "content": [
+        {
+          "text": "Compile yesterday's orders into report.md.",
+          "type": "text"
+        }
+      ],
+      "type": "user.message"
+    }
+  ],
+  "metadata": {},
+  "name": "Daily order report",
+  "paused_reason": {
+    "type": "manual"
+  },
+  "resources": [
+    {
+      "type": "github_repository",
+      "url": "url",
+      "checkout": {
+        "name": "main",
+        "type": "branch"
+      },
+      "mount_path": "mount_path"
+    }
+  ],
+  "schedule": {
+    "expression": "0 9 * * 1-5",
+    "timezone": "America/Los_Angeles",
+    "type": "cron",
+    "last_run_at": "2026-03-16T16:00:09Z",
+    "upcoming_runs_at": [
+      "2026-03-17T16:00:00Z",
+      "2026-03-18T16:00:00Z"
+    ]
+  },
+  "status": "active",
+  "type": "deployment",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "vault_ids": [
+    "vlt_011CZkZDLs7fYzm1hXNPeRjv"
+  ],
+  "budget": {
+    "max_list_cost": {
+      "amount": "2500",
+      "currency": "USD"
+    },
+    "type": "limit"
+  }
+}
+```
+
+### Archive Deployment
+
+`$ ant beta:deployments archive`
+
+**POST** `/v1/deployments/{deployment_id}/archive`
+
+Archive Deployment
+
+#### Parameters
+
+- `--deployment-id: string`
+
+  Path parameter deployment_id
+
+- `--beta: optional array of AnthropicBeta`
+
+  Optional header to specify the beta version(s) you want to use.
+
+- `--workspace-id: optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `beta_managed_agents_deployment: object`
+
+  A deployment is a configured instance of an agent — it binds the agent to everything needed to run it autonomously: an environment, credentials, initial events, and an optional schedule.
+
+  - `type: "deployment"`
+
+  - `id: string`
+
+    Unique identifier for this deployment.
+
+  - `agent: object`
+
+    A resolved agent reference with a concrete version.
+
+    - `type: "agent"`
+
+    - `id: string`
+
+    - `version: number`
+
+      format: int32
+
+  - `archived_at: string`
+
+    A timestamp in RFC 3339 format
+
+    format: date-time
+
+  - `created_at: string`
+
+    A timestamp in RFC 3339 format
+
+    format: date-time
+
+  - `description: string`
+
+    Description of what the deployment does.
+
+  - `environment_id: string`
+
+    ID of the `environment` where sessions run.
+
+  - `initial_events: array of BetaManagedAgentsDeploymentInitialEvent`
+
+    Events sent to each session immediately after creation.
+
+    - `beta_managed_agents_deployment_user_message_event: object`
+
+      A user message sent to the session.
+
+      - `type: "user.message"`
+
+      - `content: array of BetaManagedAgentsTextBlock or BetaManagedAgentsImageBlock or BetaManagedAgentsDocumentBlock or BetaManagedAgentsRedactedBlock`
+
+        Array of content blocks for the user message.
+
+        - `beta_managed_agents_text_block: object`
+
+          Regular text content.
+
+          - `type: "text"`
+
+          - `text: string`
+
+            The text content.
+
+            minLength: 1
+
+        - `beta_managed_agents_image_block: object`
+
+          Image content specified directly as base64 data or as a reference via a URL.
+
+          - `type: "image"`
+
+          - `source: BetaManagedAgentsBase64ImageSource or BetaManagedAgentsURLImageSource or BetaManagedAgentsFileImageSource`
+
+            Union type for image source variants.
+
+            - `beta_managed_agents_base64_image_source: object`
+
+              Base64-encoded image data.
+
+              - `type: "base64"`
+
+              - `data: string`
+
+                Base64-encoded image data.
+
+                minLength: 1
+
+              - `media_type: string`
+
+                MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
+
+                minLength: 1
+
+            - `beta_managed_agents_url_image_source: object`
+
+              Image referenced by URL.
+
+              - `type: "url"`
+
+              - `url: string`
+
+                URL of the image to fetch.
+
+                minLength: 1
+
+            - `beta_managed_agents_file_image_source: object`
+
+              Image referenced by file ID.
+
+              - `type: "file"`
+
+              - `file_id: string`
+
+                ID of a previously uploaded file.
+
+                minLength: 1
+
+        - `beta_managed_agents_document_block: object`
+
+          Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+          - `type: "document"`
+
+          - `source: BetaManagedAgentsBase64DocumentSource or BetaManagedAgentsPlainTextDocumentSource or BetaManagedAgentsURLDocumentSource or BetaManagedAgentsFileDocumentSource`
+
+            Union type for document source variants.
+
+            - `beta_managed_agents_base64_document_source: object`
+
+              Base64-encoded document data.
+
+              - `type: "base64"`
+
+              - `data: string`
+
+                Base64-encoded document data.
+
+                minLength: 1
+
+              - `media_type: string`
+
+                MIME type of the document (e.g., "application/pdf").
+
+                minLength: 1
+
+            - `beta_managed_agents_plain_text_document_source: object`
+
+              Plain text document content.
+
+              - `type: "text"`
+
+              - `data: string`
+
+                The plain text content.
+
+                minLength: 1
+
+              - `media_type: "text/plain"`
+
+                MIME type of the text content. Must be "text/plain".
+
+            - `beta_managed_agents_url_document_source: object`
+
+              Document referenced by URL.
+
+              - `type: "url"`
+
+              - `url: string`
+
+                URL of the document to fetch.
+
+                minLength: 1
+
+            - `beta_managed_agents_file_document_source: object`
+
+              Document referenced by file ID.
+
+              - `type: "file"`
+
+              - `file_id: string`
+
+                ID of a previously uploaded file.
+
+                minLength: 1
+
+          - `context: optional string`
+
+            Additional context about the document for the model.
+
+          - `title: optional string`
+
+            The title of the document.
+
+        - `beta_managed_agents_redacted_block: object`
+
+          Placeholder for content withheld by Anthropic model policy.
+
+          - `type: "redacted"`
+
+    - `beta_managed_agents_deployment_user_define_outcome_event: object`
+
+      An outcome the agent should work toward. The agent begins work on receipt.
+
+      - `type: "user.define_outcome"`
+
+      - `description: string`
+
+        What the agent should produce. This is the task specification.
+
+      - `rubric: BetaManagedAgentsFileRubric or BetaManagedAgentsTextRubric`
+
+        Rubric for grading the quality of an outcome.
+
+        - `beta_managed_agents_file_rubric: object`
+
+          Rubric referenced by a file uploaded via the Files API.
+
+          - `type: "file"`
+
+          - `file_id: string`
+
+            ID of the rubric file.
+
+        - `beta_managed_agents_text_rubric: object`
+
+          Rubric content provided inline as text.
+
+          - `type: "text"`
+
+          - `content: string`
+
+            Rubric content. Plain text or markdown — the grader treats it as freeform text.
+
+      - `max_iterations: optional number`
+
+        Eval→revision cycles before giving up. Default 3, max 20.
+
+        format: int32
+
+    - `beta_managed_agents_deployment_system_message_event: object`
+
+      Privileged context for the accompanying turn and all subsequent turns, appended to the session's system context as a `role: "system"` turn rather than replacing the top-level system prompt.
+
+      - `type: "system.message"`
+
+      - `content: array of BetaManagedAgentsSystemContentBlock`
+
+        System content blocks to append. Text-only.
+
+        - `type: "text"`
+
+        - `text: string`
+
+          The text content.
+
+          minLength: 1
+
+  - `metadata: map[string]`
+
+    Arbitrary key-value metadata. Maximum 16 pairs.
+
+  - `name: string`
+
+    Human-readable name.
+
+  - `paused_reason: BetaManagedAgentsManualDeploymentPausedReason or BetaManagedAgentsErrorDeploymentPausedReason`
+
+    Why a deployment is paused. Non-null exactly when `status` is `paused`.
+
+    - `beta_managed_agents_manual_deployment_paused_reason: object`
+
+      The caller invoked the pause endpoint on the deployment.
+
+      - `type: "manual"`
+
+    - `beta_managed_agents_error_deployment_paused_reason: object`
+
+      A scheduled fire recorded a failed run whose error auto-pauses the deployment.
+
+      - `type: "error"`
+
+      - `error: BetaManagedAgentsEnvironmentArchivedDeploymentPausedReasonError or BetaManagedAgentsAgentArchivedDeploymentPausedReasonError or BetaManagedAgentsEnvironmentNotFoundDeploymentPausedReasonError or 11 more`
+
+        The error that triggered an auto-pause. Matches the failed run's `error.type`.
+
+        - `beta_managed_agents_environment_archived_deployment_paused_reason_error: object`
+
+          The deployment's environment was archived.
+
+          - `type: "environment_archived_error"`
+
+        - `beta_managed_agents_agent_archived_deployment_paused_reason_error: object`
+
+          The deployment's agent was archived.
+
+          - `type: "agent_archived_error"`
+
+        - `beta_managed_agents_environment_not_found_deployment_paused_reason_error: object`
+
+          The deployment's environment no longer exists.
+
+          - `type: "environment_not_found_error"`
+
+        - `beta_managed_agents_vault_not_found_deployment_paused_reason_error: object`
+
+          A vault referenced by the deployment no longer exists.
+
+          - `type: "vault_not_found_error"`
+
+        - `beta_managed_agents_file_not_found_deployment_paused_reason_error: object`
+
+          A file resource referenced by the deployment no longer exists.
+
+          - `type: "file_not_found_error"`
+
+        - `beta_managed_agents_session_resource_not_found_deployment_paused_reason_error: object`
+
+          A referenced resource no longer exists and its kind was not reported.
+
+          - `type: "session_resource_not_found_error"`
+
+        - `beta_managed_agents_workspace_archived_deployment_paused_reason_error: object`
+
+          The deployment's workspace was archived.
+
+          - `type: "workspace_archived_error"`
+
+        - `beta_managed_agents_organization_disabled_deployment_paused_reason_error: object`
+
+          The deployment's organization is disabled.
+
+          - `type: "organization_disabled_error"`
+
+        - `beta_managed_agents_memory_store_archived_deployment_paused_reason_error: object`
+
+          A memory store referenced by the deployment is archived.
+
+          - `type: "memory_store_archived_error"`
+
+        - `beta_managed_agents_skill_not_found_deployment_paused_reason_error: object`
+
+          A skill referenced by the deployment's agent no longer exists.
+
+          - `type: "skill_not_found_error"`
+
+        - `beta_managed_agents_vault_archived_deployment_paused_reason_error: object`
+
+          A vault referenced by the deployment is archived.
+
+          - `type: "vault_archived_error"`
+
+        - `beta_managed_agents_unknown_deployment_paused_reason_error: object`
+
+          An unrecognized error auto-paused the deployment. A fallback variant; matches a run whose `error.type` is `unknown_error`.
+
+          - `type: "unknown_error"`
+
+        - `beta_managed_agents_self_hosted_resources_unsupported_deployment_paused_reason_error: object`
+
+          The deployment configures resources, but its environment is self-hosted and cannot mount them.
+
+          - `type: "self_hosted_resources_unsupported_error"`
+
+        - `beta_managed_agents_mcp_egress_blocked_deployment_paused_reason_error: object`
+
+          An MCP server host used by the deployment's agent is blocked by the environment's network policy.
+
+          - `type: "mcp_egress_blocked_error"`
+
+  - `resources: array of BetaManagedAgentsSessionResourceConfig`
+
+    Resources attached to sessions created from this deployment. Echoes the input minus write-only credentials.
+
+    - `beta_managed_agents_github_repository_resource_config: object`
+
+      A GitHub repository mounted into each session's container. The authorization token is write-only and never returned.
+
+      - `type: "github_repository"`
+
+      - `url: string`
+
+        Github URL of the repository
+
+      - `checkout: optional BetaManagedAgentsBranchCheckout or BetaManagedAgentsCommitCheckout`
+
+        Branch or commit to check out. Defaults to the repository's default branch.
+
+        - `beta_managed_agents_branch_checkout: object`
+
+          - `type: "branch"`
+
+          - `name: string`
+
+            Branch name to check out.
+
+            minLength: 1, maxLength: 255
+
+        - `beta_managed_agents_commit_checkout: object`
+
+          - `type: "commit"`
+
+          - `sha: string`
+
+            Full commit SHA to check out.
+
+            minLength: 7, maxLength: 64
+
+      - `mount_path: optional string`
+
+        Mount path in the container. Defaults to `/workspace/<repo-name>`.
+
+    - `beta_managed_agents_file_resource_config: object`
+
+      A file mounted into each session's container.
+
+      - `type: "file"`
+
+      - `file_id: string`
+
+        ID of a previously uploaded file.
+
+      - `mount_path: optional string`
+
+        Mount path in the container. Defaults to `/mnt/session/uploads/<file_id>`.
+
+    - `beta_managed_agents_memory_store_resource_config: object`
+
+      A memory store attached to each session created from this deployment.
+
+      - `type: "memory_store"`
+
+      - `memory_store_id: string`
+
+        The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
+
+      - `access: optional "read_write" or "read_only"`
+
+        Access mode for an attached memory store.
+
+        - `"read_write"`
+
+        - `"read_only"`
+
+      - `instructions: optional string`
+
+        Per-attachment guidance for the agent on how to use this store. Rendered into the memory section of the system prompt. Max 4096 chars.
+
+  - `schedule: object`
+
+    5-field POSIX cron schedule with computed runtime timestamps.
+
+    - `type: "cron"`
+
+    - `expression: string`
+
+      5-field POSIX cron expression: minute hour day-of-month month day-of-week (e.g., "0 9 * * 1-5" for weekdays at 9am). Day-of-week is 0-7 where 0 and 7 both mean Sunday. Extended cron syntax - seconds or year fields, and the special characters L, W, #, and ? - is not supported, nor are predefined shortcuts (@daily).
+
+      minLength: 1, maxLength: 256
+
+    - `timezone: string`
+
+      IANA timezone identifier (e.g., "America/Los_Angeles", "UTC").
+
+      minLength: 1
+
+    - `last_run_at: optional string`
+
+      A timestamp in RFC 3339 format
+
+      format: date-time
+
+    - `upcoming_runs_at: optional array of string`
+
+      Up to 5 timestamps of upcoming cron occurrences. Non-empty for active and paused deployments (reflects what the schedule would do if unpaused); empty once the deployment is archived (`archived_at` set). Each fire is offset by a small per-schedule jitter, so a run will actually start at or shortly after its listed time.
+
+  - `status: "active" or "paused"`
+
+    Lifecycle status of a deployment.
+
+    - `"active"`
+
+    - `"paused"`
+
+  - `updated_at: string`
+
+    A timestamp in RFC 3339 format
+
+    format: date-time
+
+  - `vault_ids: array of string`
+
+    Vault IDs supplying stored credentials for sessions created from this deployment.
+
+  - `budget: optional object`
+
+    A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+
+    - `type: "limit"`
+
+    - `max_list_cost: object`
+
+      A monetary amount in a specific currency.
+
+      - `amount: string`
+
+        Amount in minor units of the currency, as an integer decimal string with no leading zeros: "2500" is $25.00 and "50" is fifty cents. A string rather than a number so no float rounding is ever applied.
+
+      - `currency: "USD"`
+
+        Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
+
+#### Example
+
+```bash
+ant beta:deployments archive \
+  --api-key my-anthropic-api-key \
+  --deployment-id depl_011CZkZcDH3vPqd7xnEfwTai
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "depl_011CZkZcDH3vPqd7xnEfwTai",
+  "agent": {
+    "id": "agent_011CZkYpogX7uDKUyvBTophP",
+    "type": "agent",
+    "version": 1
+  },
+  "archived_at": null,
+  "created_at": "2026-03-15T10:00:00Z",
+  "description": "Compiles yesterday's orders into a report every weekday morning.",
+  "environment_id": "env_011CZkZ9X2dpNyB7HsEFoRfW",
+  "initial_events": [
+    {
+      "content": [
+        {
+          "text": "Compile yesterday's orders into report.md.",
+          "type": "text"
+        }
+      ],
+      "type": "user.message"
+    }
+  ],
+  "metadata": {},
+  "name": "Daily order report",
+  "paused_reason": {
+    "type": "manual"
+  },
+  "resources": [
+    {
+      "type": "github_repository",
+      "url": "url",
+      "checkout": {
+        "name": "main",
+        "type": "branch"
+      },
+      "mount_path": "mount_path"
+    }
+  ],
+  "schedule": {
+    "expression": "0 9 * * 1-5",
+    "timezone": "America/Los_Angeles",
+    "type": "cron",
+    "last_run_at": "2026-03-16T16:00:09Z",
+    "upcoming_runs_at": [
+      "2026-03-17T16:00:00Z",
+      "2026-03-18T16:00:00Z"
+    ]
+  },
+  "status": "active",
+  "type": "deployment",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "vault_ids": [
+    "vlt_011CZkZDLs7fYzm1hXNPeRjv"
+  ],
+  "budget": {
+    "max_list_cost": {
+      "amount": "2500",
+      "currency": "USD"
+    },
+    "type": "limit"
+  }
+}
+```
+
+### Run Deployment Now
+
+`$ ant beta:deployments run`
+
+**POST** `/v1/deployments/{deployment_id}/run`
+
+Run Deployment Now
+
+#### Parameters
+
+- `--deployment-id: string`
+
+  Path parameter deployment_id
+
+- `--beta: optional array of AnthropicBeta`
+
+  Optional header to specify the beta version(s) you want to use.
+
+- `--workspace-id: optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `beta_managed_agents_deployment_run: object`
+
+  A persistent, append-only record of a single deployment execution. Records session creation success or failure — no session lifecycle tracking.
+
+  - `type: "deployment_run"`
+
+  - `id: string`
+
+    Unique identifier for this run (`drun_...`).
+
+  - `agent: object`
+
+    A resolved agent reference with a concrete version.
+
+    - `type: "agent"`
+
+    - `id: string`
+
+    - `version: number`
+
+      format: int32
+
+  - `created_at: string`
+
+    A timestamp in RFC 3339 format
+
+    format: date-time
+
+  - `deployment_id: string`
+
+    ID of the deployment that produced this run.
+
+  - `error: BetaManagedAgentsEnvironmentArchivedRunError or BetaManagedAgentsAgentArchivedRunError or BetaManagedAgentsEnvironmentNotFoundRunError or 13 more`
+
+    Why the run failed to create a session. The type identifies the failure; message is human-readable detail.
+
+    - `beta_managed_agents_environment_archived_run_error: object`
+
+      The deployment's environment was archived.
+
+      - `type: "environment_archived_error"`
+
+      - `message: string`
+
+        Human-readable error description.
+
+    - `beta_managed_agents_agent_archived_run_error: object`
+
+      The deployment's agent was archived.
+
+      - `type: "agent_archived_error"`
+
+      - `message: string`
+
+        Human-readable error description.
+
+    - `beta_managed_agents_environment_not_found_run_error: object`
+
+      The deployment's environment no longer exists.
+
+      - `type: "environment_not_found_error"`
+
+      - `message: string`
+
+        Human-readable error description.
+
+    - `beta_managed_agents_vault_not_found_run_error: object`
+
+      A vault referenced by the deployment no longer exists.
+
+      - `type: "vault_not_found_error"`
+
+      - `message: string`
+
+        Human-readable error description.
+
+    - `beta_managed_agents_vault_archived_run_error: object`
+
+      A vault referenced by the deployment is archived.
+
+      - `type: "vault_archived_error"`
+
+      - `message: string`
+
+        Human-readable error description.
+
+    - `beta_managed_agents_file_not_found_run_error: object`
+
+      A file resource referenced by the deployment no longer exists.
+
+      - `type: "file_not_found_error"`
+
+      - `message: string`
+
+        Human-readable error description.
+
+    - `beta_managed_agents_memory_store_archived_run_error: object`
+
+      A memory store referenced by the deployment is archived.
+
+      - `type: "memory_store_archived_error"`
+
+      - `message: string`
+
+        Human-readable error description.
+
+    - `beta_managed_agents_skill_not_found_run_error: object`
+
+      A skill referenced by the deployment's agent no longer exists.
+
+      - `type: "skill_not_found_error"`
+
+      - `message: string`
+
+        Human-readable error description.
+
+    - `beta_managed_agents_session_resource_not_found_run_error: object`
+
+      A referenced resource no longer exists and its kind was not reported.
+
+      - `type: "session_resource_not_found_error"`
+
+      - `message: string`
+
+        Human-readable error description.
+
+    - `beta_managed_agents_workspace_archived_run_error: object`
+
+      The deployment's workspace was archived.
+
+      - `type: "workspace_archived_error"`
+
+      - `message: string`
+
+        Human-readable error description.
+
+    - `beta_managed_agents_organization_disabled_run_error: object`
+
+      The deployment's organization is disabled.
+
+      - `type: "organization_disabled_error"`
+
+      - `message: string`
+
+        Human-readable error description.
+
+    - `beta_managed_agents_session_rate_limited_run_error: object`
+
+      Session creation was rejected due to rate limiting. The schedule keeps firing; subsequent runs may succeed.
+
+      - `type: "session_rate_limited_error"`
+
+      - `message: string`
+
+        Human-readable error description.
+
+    - `beta_managed_agents_session_creation_rejected_run_error: object`
+
+      The session create request was rejected with a non-retryable validation error.
+
+      - `type: "session_creation_rejected_error"`
+
+      - `message: string`
+
+        Human-readable error description.
+
+    - `beta_managed_agents_unknown_run_error: object`
+
+      An unknown or unexpected error caused the run to fail. A fallback variant; clients that do not recognize a new error type can match on message alone.
+
+      - `type: "unknown_error"`
+
+      - `message: string`
+
+        Human-readable error description.
+
+    - `beta_managed_agents_self_hosted_resources_unsupported_run_error: object`
+
+      The deployment configures resources, but its environment is self-hosted and cannot mount them.
+
+      - `type: "self_hosted_resources_unsupported_error"`
+
+      - `message: string`
+
+        Human-readable error description.
+
+    - `beta_managed_agents_mcp_egress_blocked_run_error: object`
+
+      An MCP server host used by the deployment's agent is blocked by the environment's network policy.
+
+      - `type: "mcp_egress_blocked_error"`
+
+      - `message: string`
+
+        Human-readable error description.
+
+  - `session_id: string`
+
+    Populated on success. Null on creation failure. Exactly one of `session_id` or `error` is non-null.
+
+  - `trigger_context: BetaManagedAgentsScheduleTriggerContext or BetaManagedAgentsManualTriggerContext`
+
+    Describes what triggered a deployment run, with trigger-specific metadata.
+
+    - `beta_managed_agents_schedule_trigger_context: object`
+
+      The run was fired by the deployment's cron schedule.
+
+      - `type: "schedule"`
+
+      - `scheduled_at: string`
+
+        A timestamp in RFC 3339 format
+
+        format: date-time
+
+    - `beta_managed_agents_manual_trigger_context: object`
+
+      The run was started manually by creating a session directly against the deployment.
+
+      - `type: "manual"`
+
+#### Example
+
+```bash
+ant beta:deployments run \
+  --api-key my-anthropic-api-key \
+  --deployment-id depl_011CZkZcDH3vPqd7xnEfwTai
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "id",
+  "agent": {
+    "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
+    "type": "agent",
+    "version": 1
+  },
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "deployment_id": "deployment_id",
+  "error": {
+    "message": "message",
+    "type": "environment_archived_error"
+  },
+  "session_id": "session_id",
+  "trigger_context": {
+    "scheduled_at": "2019-12-27T18:11:19.117Z",
+    "type": "schedule"
+  },
+  "type": "deployment_run"
+}
+```
+
+### Pause Deployment
+
+`$ ant beta:deployments pause`
+
+**POST** `/v1/deployments/{deployment_id}/pause`
+
+Pause Deployment
+
+#### Parameters
+
+- `--deployment-id: string`
+
+  Path parameter deployment_id
+
+- `--beta: optional array of AnthropicBeta`
+
+  Optional header to specify the beta version(s) you want to use.
+
+- `--workspace-id: optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `beta_managed_agents_deployment: object`
+
+  A deployment is a configured instance of an agent — it binds the agent to everything needed to run it autonomously: an environment, credentials, initial events, and an optional schedule.
+
+  - `type: "deployment"`
+
+  - `id: string`
+
+    Unique identifier for this deployment.
+
+  - `agent: object`
+
+    A resolved agent reference with a concrete version.
+
+    - `type: "agent"`
+
+    - `id: string`
+
+    - `version: number`
+
+      format: int32
+
+  - `archived_at: string`
+
+    A timestamp in RFC 3339 format
+
+    format: date-time
+
+  - `created_at: string`
+
+    A timestamp in RFC 3339 format
+
+    format: date-time
+
+  - `description: string`
+
+    Description of what the deployment does.
+
+  - `environment_id: string`
+
+    ID of the `environment` where sessions run.
+
+  - `initial_events: array of BetaManagedAgentsDeploymentInitialEvent`
+
+    Events sent to each session immediately after creation.
+
+    - `beta_managed_agents_deployment_user_message_event: object`
+
+      A user message sent to the session.
+
+      - `type: "user.message"`
+
+      - `content: array of BetaManagedAgentsTextBlock or BetaManagedAgentsImageBlock or BetaManagedAgentsDocumentBlock or BetaManagedAgentsRedactedBlock`
+
+        Array of content blocks for the user message.
+
+        - `beta_managed_agents_text_block: object`
+
+          Regular text content.
+
+          - `type: "text"`
+
+          - `text: string`
+
+            The text content.
+
+            minLength: 1
+
+        - `beta_managed_agents_image_block: object`
+
+          Image content specified directly as base64 data or as a reference via a URL.
+
+          - `type: "image"`
+
+          - `source: BetaManagedAgentsBase64ImageSource or BetaManagedAgentsURLImageSource or BetaManagedAgentsFileImageSource`
+
+            Union type for image source variants.
+
+            - `beta_managed_agents_base64_image_source: object`
+
+              Base64-encoded image data.
+
+              - `type: "base64"`
+
+              - `data: string`
+
+                Base64-encoded image data.
+
+                minLength: 1
+
+              - `media_type: string`
+
+                MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
+
+                minLength: 1
+
+            - `beta_managed_agents_url_image_source: object`
+
+              Image referenced by URL.
+
+              - `type: "url"`
+
+              - `url: string`
+
+                URL of the image to fetch.
+
+                minLength: 1
+
+            - `beta_managed_agents_file_image_source: object`
+
+              Image referenced by file ID.
+
+              - `type: "file"`
+
+              - `file_id: string`
+
+                ID of a previously uploaded file.
+
+                minLength: 1
+
+        - `beta_managed_agents_document_block: object`
+
+          Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+          - `type: "document"`
+
+          - `source: BetaManagedAgentsBase64DocumentSource or BetaManagedAgentsPlainTextDocumentSource or BetaManagedAgentsURLDocumentSource or BetaManagedAgentsFileDocumentSource`
+
+            Union type for document source variants.
+
+            - `beta_managed_agents_base64_document_source: object`
+
+              Base64-encoded document data.
+
+              - `type: "base64"`
+
+              - `data: string`
+
+                Base64-encoded document data.
+
+                minLength: 1
+
+              - `media_type: string`
+
+                MIME type of the document (e.g., "application/pdf").
+
+                minLength: 1
+
+            - `beta_managed_agents_plain_text_document_source: object`
+
+              Plain text document content.
+
+              - `type: "text"`
+
+              - `data: string`
+
+                The plain text content.
+
+                minLength: 1
+
+              - `media_type: "text/plain"`
+
+                MIME type of the text content. Must be "text/plain".
+
+            - `beta_managed_agents_url_document_source: object`
+
+              Document referenced by URL.
+
+              - `type: "url"`
+
+              - `url: string`
+
+                URL of the document to fetch.
+
+                minLength: 1
+
+            - `beta_managed_agents_file_document_source: object`
+
+              Document referenced by file ID.
+
+              - `type: "file"`
+
+              - `file_id: string`
+
+                ID of a previously uploaded file.
+
+                minLength: 1
+
+          - `context: optional string`
+
+            Additional context about the document for the model.
+
+          - `title: optional string`
+
+            The title of the document.
+
+        - `beta_managed_agents_redacted_block: object`
+
+          Placeholder for content withheld by Anthropic model policy.
+
+          - `type: "redacted"`
+
+    - `beta_managed_agents_deployment_user_define_outcome_event: object`
+
+      An outcome the agent should work toward. The agent begins work on receipt.
+
+      - `type: "user.define_outcome"`
+
+      - `description: string`
+
+        What the agent should produce. This is the task specification.
+
+      - `rubric: BetaManagedAgentsFileRubric or BetaManagedAgentsTextRubric`
+
+        Rubric for grading the quality of an outcome.
+
+        - `beta_managed_agents_file_rubric: object`
+
+          Rubric referenced by a file uploaded via the Files API.
+
+          - `type: "file"`
+
+          - `file_id: string`
+
+            ID of the rubric file.
+
+        - `beta_managed_agents_text_rubric: object`
+
+          Rubric content provided inline as text.
+
+          - `type: "text"`
+
+          - `content: string`
+
+            Rubric content. Plain text or markdown — the grader treats it as freeform text.
+
+      - `max_iterations: optional number`
+
+        Eval→revision cycles before giving up. Default 3, max 20.
+
+        format: int32
+
+    - `beta_managed_agents_deployment_system_message_event: object`
+
+      Privileged context for the accompanying turn and all subsequent turns, appended to the session's system context as a `role: "system"` turn rather than replacing the top-level system prompt.
+
+      - `type: "system.message"`
+
+      - `content: array of BetaManagedAgentsSystemContentBlock`
+
+        System content blocks to append. Text-only.
+
+        - `type: "text"`
+
+        - `text: string`
+
+          The text content.
+
+          minLength: 1
+
+  - `metadata: map[string]`
+
+    Arbitrary key-value metadata. Maximum 16 pairs.
+
+  - `name: string`
+
+    Human-readable name.
+
+  - `paused_reason: BetaManagedAgentsManualDeploymentPausedReason or BetaManagedAgentsErrorDeploymentPausedReason`
+
+    Why a deployment is paused. Non-null exactly when `status` is `paused`.
+
+    - `beta_managed_agents_manual_deployment_paused_reason: object`
+
+      The caller invoked the pause endpoint on the deployment.
+
+      - `type: "manual"`
+
+    - `beta_managed_agents_error_deployment_paused_reason: object`
+
+      A scheduled fire recorded a failed run whose error auto-pauses the deployment.
+
+      - `type: "error"`
+
+      - `error: BetaManagedAgentsEnvironmentArchivedDeploymentPausedReasonError or BetaManagedAgentsAgentArchivedDeploymentPausedReasonError or BetaManagedAgentsEnvironmentNotFoundDeploymentPausedReasonError or 11 more`
+
+        The error that triggered an auto-pause. Matches the failed run's `error.type`.
+
+        - `beta_managed_agents_environment_archived_deployment_paused_reason_error: object`
+
+          The deployment's environment was archived.
+
+          - `type: "environment_archived_error"`
+
+        - `beta_managed_agents_agent_archived_deployment_paused_reason_error: object`
+
+          The deployment's agent was archived.
+
+          - `type: "agent_archived_error"`
+
+        - `beta_managed_agents_environment_not_found_deployment_paused_reason_error: object`
+
+          The deployment's environment no longer exists.
+
+          - `type: "environment_not_found_error"`
+
+        - `beta_managed_agents_vault_not_found_deployment_paused_reason_error: object`
+
+          A vault referenced by the deployment no longer exists.
+
+          - `type: "vault_not_found_error"`
+
+        - `beta_managed_agents_file_not_found_deployment_paused_reason_error: object`
+
+          A file resource referenced by the deployment no longer exists.
+
+          - `type: "file_not_found_error"`
+
+        - `beta_managed_agents_session_resource_not_found_deployment_paused_reason_error: object`
+
+          A referenced resource no longer exists and its kind was not reported.
+
+          - `type: "session_resource_not_found_error"`
+
+        - `beta_managed_agents_workspace_archived_deployment_paused_reason_error: object`
+
+          The deployment's workspace was archived.
+
+          - `type: "workspace_archived_error"`
+
+        - `beta_managed_agents_organization_disabled_deployment_paused_reason_error: object`
+
+          The deployment's organization is disabled.
+
+          - `type: "organization_disabled_error"`
+
+        - `beta_managed_agents_memory_store_archived_deployment_paused_reason_error: object`
+
+          A memory store referenced by the deployment is archived.
+
+          - `type: "memory_store_archived_error"`
+
+        - `beta_managed_agents_skill_not_found_deployment_paused_reason_error: object`
+
+          A skill referenced by the deployment's agent no longer exists.
+
+          - `type: "skill_not_found_error"`
+
+        - `beta_managed_agents_vault_archived_deployment_paused_reason_error: object`
+
+          A vault referenced by the deployment is archived.
+
+          - `type: "vault_archived_error"`
+
+        - `beta_managed_agents_unknown_deployment_paused_reason_error: object`
+
+          An unrecognized error auto-paused the deployment. A fallback variant; matches a run whose `error.type` is `unknown_error`.
+
+          - `type: "unknown_error"`
+
+        - `beta_managed_agents_self_hosted_resources_unsupported_deployment_paused_reason_error: object`
+
+          The deployment configures resources, but its environment is self-hosted and cannot mount them.
+
+          - `type: "self_hosted_resources_unsupported_error"`
+
+        - `beta_managed_agents_mcp_egress_blocked_deployment_paused_reason_error: object`
+
+          An MCP server host used by the deployment's agent is blocked by the environment's network policy.
+
+          - `type: "mcp_egress_blocked_error"`
+
+  - `resources: array of BetaManagedAgentsSessionResourceConfig`
+
+    Resources attached to sessions created from this deployment. Echoes the input minus write-only credentials.
+
+    - `beta_managed_agents_github_repository_resource_config: object`
+
+      A GitHub repository mounted into each session's container. The authorization token is write-only and never returned.
+
+      - `type: "github_repository"`
+
+      - `url: string`
+
+        Github URL of the repository
+
+      - `checkout: optional BetaManagedAgentsBranchCheckout or BetaManagedAgentsCommitCheckout`
+
+        Branch or commit to check out. Defaults to the repository's default branch.
+
+        - `beta_managed_agents_branch_checkout: object`
+
+          - `type: "branch"`
+
+          - `name: string`
+
+            Branch name to check out.
+
+            minLength: 1, maxLength: 255
+
+        - `beta_managed_agents_commit_checkout: object`
+
+          - `type: "commit"`
+
+          - `sha: string`
+
+            Full commit SHA to check out.
+
+            minLength: 7, maxLength: 64
+
+      - `mount_path: optional string`
+
+        Mount path in the container. Defaults to `/workspace/<repo-name>`.
+
+    - `beta_managed_agents_file_resource_config: object`
+
+      A file mounted into each session's container.
+
+      - `type: "file"`
+
+      - `file_id: string`
+
+        ID of a previously uploaded file.
+
+      - `mount_path: optional string`
+
+        Mount path in the container. Defaults to `/mnt/session/uploads/<file_id>`.
+
+    - `beta_managed_agents_memory_store_resource_config: object`
+
+      A memory store attached to each session created from this deployment.
+
+      - `type: "memory_store"`
+
+      - `memory_store_id: string`
+
+        The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
+
+      - `access: optional "read_write" or "read_only"`
+
+        Access mode for an attached memory store.
+
+        - `"read_write"`
+
+        - `"read_only"`
+
+      - `instructions: optional string`
+
+        Per-attachment guidance for the agent on how to use this store. Rendered into the memory section of the system prompt. Max 4096 chars.
+
+  - `schedule: object`
+
+    5-field POSIX cron schedule with computed runtime timestamps.
+
+    - `type: "cron"`
+
+    - `expression: string`
+
+      5-field POSIX cron expression: minute hour day-of-month month day-of-week (e.g., "0 9 * * 1-5" for weekdays at 9am). Day-of-week is 0-7 where 0 and 7 both mean Sunday. Extended cron syntax - seconds or year fields, and the special characters L, W, #, and ? - is not supported, nor are predefined shortcuts (@daily).
+
+      minLength: 1, maxLength: 256
+
+    - `timezone: string`
+
+      IANA timezone identifier (e.g., "America/Los_Angeles", "UTC").
+
+      minLength: 1
+
+    - `last_run_at: optional string`
+
+      A timestamp in RFC 3339 format
+
+      format: date-time
+
+    - `upcoming_runs_at: optional array of string`
+
+      Up to 5 timestamps of upcoming cron occurrences. Non-empty for active and paused deployments (reflects what the schedule would do if unpaused); empty once the deployment is archived (`archived_at` set). Each fire is offset by a small per-schedule jitter, so a run will actually start at or shortly after its listed time.
+
+  - `status: "active" or "paused"`
+
+    Lifecycle status of a deployment.
+
+    - `"active"`
+
+    - `"paused"`
+
+  - `updated_at: string`
+
+    A timestamp in RFC 3339 format
+
+    format: date-time
+
+  - `vault_ids: array of string`
+
+    Vault IDs supplying stored credentials for sessions created from this deployment.
+
+  - `budget: optional object`
+
+    A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+
+    - `type: "limit"`
+
+    - `max_list_cost: object`
+
+      A monetary amount in a specific currency.
+
+      - `amount: string`
+
+        Amount in minor units of the currency, as an integer decimal string with no leading zeros: "2500" is $25.00 and "50" is fifty cents. A string rather than a number so no float rounding is ever applied.
+
+      - `currency: "USD"`
+
+        Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
+
+#### Example
+
+```bash
+ant beta:deployments pause \
+  --api-key my-anthropic-api-key \
+  --deployment-id depl_011CZkZcDH3vPqd7xnEfwTai
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "depl_011CZkZcDH3vPqd7xnEfwTai",
+  "agent": {
+    "id": "agent_011CZkYpogX7uDKUyvBTophP",
+    "type": "agent",
+    "version": 1
+  },
+  "archived_at": null,
+  "created_at": "2026-03-15T10:00:00Z",
+  "description": "Compiles yesterday's orders into a report every weekday morning.",
+  "environment_id": "env_011CZkZ9X2dpNyB7HsEFoRfW",
+  "initial_events": [
+    {
+      "content": [
+        {
+          "text": "Compile yesterday's orders into report.md.",
+          "type": "text"
+        }
+      ],
+      "type": "user.message"
+    }
+  ],
+  "metadata": {},
+  "name": "Daily order report",
+  "paused_reason": {
+    "type": "manual"
+  },
+  "resources": [
+    {
+      "type": "github_repository",
+      "url": "url",
+      "checkout": {
+        "name": "main",
+        "type": "branch"
+      },
+      "mount_path": "mount_path"
+    }
+  ],
+  "schedule": {
+    "expression": "0 9 * * 1-5",
+    "timezone": "America/Los_Angeles",
+    "type": "cron",
+    "last_run_at": "2026-03-16T16:00:09Z",
+    "upcoming_runs_at": [
+      "2026-03-17T16:00:00Z",
+      "2026-03-18T16:00:00Z"
+    ]
+  },
+  "status": "active",
+  "type": "deployment",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "vault_ids": [
+    "vlt_011CZkZDLs7fYzm1hXNPeRjv"
+  ],
+  "budget": {
+    "max_list_cost": {
+      "amount": "2500",
+      "currency": "USD"
+    },
+    "type": "limit"
+  }
+}
+```
+
+### Unpause Deployment
+
+`$ ant beta:deployments unpause`
+
+**POST** `/v1/deployments/{deployment_id}/unpause`
+
+Unpause Deployment
+
+#### Parameters
+
+- `--deployment-id: string`
+
+  Path parameter deployment_id
+
+- `--beta: optional array of AnthropicBeta`
+
+  Optional header to specify the beta version(s) you want to use.
+
+- `--workspace-id: optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `beta_managed_agents_deployment: object`
+
+  A deployment is a configured instance of an agent — it binds the agent to everything needed to run it autonomously: an environment, credentials, initial events, and an optional schedule.
+
+  - `type: "deployment"`
+
+  - `id: string`
+
+    Unique identifier for this deployment.
+
+  - `agent: object`
+
+    A resolved agent reference with a concrete version.
+
+    - `type: "agent"`
+
+    - `id: string`
+
+    - `version: number`
+
+      format: int32
+
+  - `archived_at: string`
+
+    A timestamp in RFC 3339 format
+
+    format: date-time
+
+  - `created_at: string`
+
+    A timestamp in RFC 3339 format
+
+    format: date-time
+
+  - `description: string`
+
+    Description of what the deployment does.
+
+  - `environment_id: string`
+
+    ID of the `environment` where sessions run.
+
+  - `initial_events: array of BetaManagedAgentsDeploymentInitialEvent`
+
+    Events sent to each session immediately after creation.
+
+    - `beta_managed_agents_deployment_user_message_event: object`
+
+      A user message sent to the session.
+
+      - `type: "user.message"`
+
+      - `content: array of BetaManagedAgentsTextBlock or BetaManagedAgentsImageBlock or BetaManagedAgentsDocumentBlock or BetaManagedAgentsRedactedBlock`
+
+        Array of content blocks for the user message.
+
+        - `beta_managed_agents_text_block: object`
+
+          Regular text content.
+
+          - `type: "text"`
+
+          - `text: string`
+
+            The text content.
+
+            minLength: 1
+
+        - `beta_managed_agents_image_block: object`
+
+          Image content specified directly as base64 data or as a reference via a URL.
+
+          - `type: "image"`
+
+          - `source: BetaManagedAgentsBase64ImageSource or BetaManagedAgentsURLImageSource or BetaManagedAgentsFileImageSource`
+
+            Union type for image source variants.
+
+            - `beta_managed_agents_base64_image_source: object`
+
+              Base64-encoded image data.
+
+              - `type: "base64"`
+
+              - `data: string`
+
+                Base64-encoded image data.
+
+                minLength: 1
+
+              - `media_type: string`
+
+                MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
+
+                minLength: 1
+
+            - `beta_managed_agents_url_image_source: object`
+
+              Image referenced by URL.
+
+              - `type: "url"`
+
+              - `url: string`
+
+                URL of the image to fetch.
+
+                minLength: 1
+
+            - `beta_managed_agents_file_image_source: object`
+
+              Image referenced by file ID.
+
+              - `type: "file"`
+
+              - `file_id: string`
+
+                ID of a previously uploaded file.
+
+                minLength: 1
+
+        - `beta_managed_agents_document_block: object`
+
+          Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+          - `type: "document"`
+
+          - `source: BetaManagedAgentsBase64DocumentSource or BetaManagedAgentsPlainTextDocumentSource or BetaManagedAgentsURLDocumentSource or BetaManagedAgentsFileDocumentSource`
+
+            Union type for document source variants.
+
+            - `beta_managed_agents_base64_document_source: object`
+
+              Base64-encoded document data.
+
+              - `type: "base64"`
+
+              - `data: string`
+
+                Base64-encoded document data.
+
+                minLength: 1
+
+              - `media_type: string`
+
+                MIME type of the document (e.g., "application/pdf").
+
+                minLength: 1
+
+            - `beta_managed_agents_plain_text_document_source: object`
+
+              Plain text document content.
+
+              - `type: "text"`
+
+              - `data: string`
+
+                The plain text content.
+
+                minLength: 1
+
+              - `media_type: "text/plain"`
+
+                MIME type of the text content. Must be "text/plain".
+
+            - `beta_managed_agents_url_document_source: object`
+
+              Document referenced by URL.
+
+              - `type: "url"`
+
+              - `url: string`
+
+                URL of the document to fetch.
+
+                minLength: 1
+
+            - `beta_managed_agents_file_document_source: object`
+
+              Document referenced by file ID.
+
+              - `type: "file"`
+
+              - `file_id: string`
+
+                ID of a previously uploaded file.
+
+                minLength: 1
+
+          - `context: optional string`
+
+            Additional context about the document for the model.
+
+          - `title: optional string`
+
+            The title of the document.
+
+        - `beta_managed_agents_redacted_block: object`
+
+          Placeholder for content withheld by Anthropic model policy.
+
+          - `type: "redacted"`
+
+    - `beta_managed_agents_deployment_user_define_outcome_event: object`
+
+      An outcome the agent should work toward. The agent begins work on receipt.
+
+      - `type: "user.define_outcome"`
+
+      - `description: string`
+
+        What the agent should produce. This is the task specification.
+
+      - `rubric: BetaManagedAgentsFileRubric or BetaManagedAgentsTextRubric`
+
+        Rubric for grading the quality of an outcome.
+
+        - `beta_managed_agents_file_rubric: object`
+
+          Rubric referenced by a file uploaded via the Files API.
+
+          - `type: "file"`
+
+          - `file_id: string`
+
+            ID of the rubric file.
+
+        - `beta_managed_agents_text_rubric: object`
+
+          Rubric content provided inline as text.
+
+          - `type: "text"`
+
+          - `content: string`
+
+            Rubric content. Plain text or markdown — the grader treats it as freeform text.
+
+      - `max_iterations: optional number`
+
+        Eval→revision cycles before giving up. Default 3, max 20.
+
+        format: int32
+
+    - `beta_managed_agents_deployment_system_message_event: object`
+
+      Privileged context for the accompanying turn and all subsequent turns, appended to the session's system context as a `role: "system"` turn rather than replacing the top-level system prompt.
+
+      - `type: "system.message"`
+
+      - `content: array of BetaManagedAgentsSystemContentBlock`
+
+        System content blocks to append. Text-only.
+
+        - `type: "text"`
+
+        - `text: string`
+
+          The text content.
+
+          minLength: 1
+
+  - `metadata: map[string]`
+
+    Arbitrary key-value metadata. Maximum 16 pairs.
+
+  - `name: string`
+
+    Human-readable name.
+
+  - `paused_reason: BetaManagedAgentsManualDeploymentPausedReason or BetaManagedAgentsErrorDeploymentPausedReason`
+
+    Why a deployment is paused. Non-null exactly when `status` is `paused`.
+
+    - `beta_managed_agents_manual_deployment_paused_reason: object`
+
+      The caller invoked the pause endpoint on the deployment.
+
+      - `type: "manual"`
+
+    - `beta_managed_agents_error_deployment_paused_reason: object`
+
+      A scheduled fire recorded a failed run whose error auto-pauses the deployment.
+
+      - `type: "error"`
+
+      - `error: BetaManagedAgentsEnvironmentArchivedDeploymentPausedReasonError or BetaManagedAgentsAgentArchivedDeploymentPausedReasonError or BetaManagedAgentsEnvironmentNotFoundDeploymentPausedReasonError or 11 more`
+
+        The error that triggered an auto-pause. Matches the failed run's `error.type`.
+
+        - `beta_managed_agents_environment_archived_deployment_paused_reason_error: object`
+
+          The deployment's environment was archived.
+
+          - `type: "environment_archived_error"`
+
+        - `beta_managed_agents_agent_archived_deployment_paused_reason_error: object`
+
+          The deployment's agent was archived.
+
+          - `type: "agent_archived_error"`
+
+        - `beta_managed_agents_environment_not_found_deployment_paused_reason_error: object`
+
+          The deployment's environment no longer exists.
+
+          - `type: "environment_not_found_error"`
+
+        - `beta_managed_agents_vault_not_found_deployment_paused_reason_error: object`
+
+          A vault referenced by the deployment no longer exists.
+
+          - `type: "vault_not_found_error"`
+
+        - `beta_managed_agents_file_not_found_deployment_paused_reason_error: object`
+
+          A file resource referenced by the deployment no longer exists.
+
+          - `type: "file_not_found_error"`
+
+        - `beta_managed_agents_session_resource_not_found_deployment_paused_reason_error: object`
+
+          A referenced resource no longer exists and its kind was not reported.
+
+          - `type: "session_resource_not_found_error"`
+
+        - `beta_managed_agents_workspace_archived_deployment_paused_reason_error: object`
+
+          The deployment's workspace was archived.
+
+          - `type: "workspace_archived_error"`
+
+        - `beta_managed_agents_organization_disabled_deployment_paused_reason_error: object`
+
+          The deployment's organization is disabled.
+
+          - `type: "organization_disabled_error"`
+
+        - `beta_managed_agents_memory_store_archived_deployment_paused_reason_error: object`
+
+          A memory store referenced by the deployment is archived.
+
+          - `type: "memory_store_archived_error"`
+
+        - `beta_managed_agents_skill_not_found_deployment_paused_reason_error: object`
+
+          A skill referenced by the deployment's agent no longer exists.
+
+          - `type: "skill_not_found_error"`
+
+        - `beta_managed_agents_vault_archived_deployment_paused_reason_error: object`
+
+          A vault referenced by the deployment is archived.
+
+          - `type: "vault_archived_error"`
+
+        - `beta_managed_agents_unknown_deployment_paused_reason_error: object`
+
+          An unrecognized error auto-paused the deployment. A fallback variant; matches a run whose `error.type` is `unknown_error`.
+
+          - `type: "unknown_error"`
+
+        - `beta_managed_agents_self_hosted_resources_unsupported_deployment_paused_reason_error: object`
+
+          The deployment configures resources, but its environment is self-hosted and cannot mount them.
+
+          - `type: "self_hosted_resources_unsupported_error"`
+
+        - `beta_managed_agents_mcp_egress_blocked_deployment_paused_reason_error: object`
+
+          An MCP server host used by the deployment's agent is blocked by the environment's network policy.
+
+          - `type: "mcp_egress_blocked_error"`
+
+  - `resources: array of BetaManagedAgentsSessionResourceConfig`
+
+    Resources attached to sessions created from this deployment. Echoes the input minus write-only credentials.
+
+    - `beta_managed_agents_github_repository_resource_config: object`
+
+      A GitHub repository mounted into each session's container. The authorization token is write-only and never returned.
+
+      - `type: "github_repository"`
+
+      - `url: string`
+
+        Github URL of the repository
+
+      - `checkout: optional BetaManagedAgentsBranchCheckout or BetaManagedAgentsCommitCheckout`
+
+        Branch or commit to check out. Defaults to the repository's default branch.
+
+        - `beta_managed_agents_branch_checkout: object`
+
+          - `type: "branch"`
+
+          - `name: string`
+
+            Branch name to check out.
+
+            minLength: 1, maxLength: 255
+
+        - `beta_managed_agents_commit_checkout: object`
+
+          - `type: "commit"`
+
+          - `sha: string`
+
+            Full commit SHA to check out.
+
+            minLength: 7, maxLength: 64
+
+      - `mount_path: optional string`
+
+        Mount path in the container. Defaults to `/workspace/<repo-name>`.
+
+    - `beta_managed_agents_file_resource_config: object`
+
+      A file mounted into each session's container.
+
+      - `type: "file"`
+
+      - `file_id: string`
+
+        ID of a previously uploaded file.
+
+      - `mount_path: optional string`
+
+        Mount path in the container. Defaults to `/mnt/session/uploads/<file_id>`.
+
+    - `beta_managed_agents_memory_store_resource_config: object`
+
+      A memory store attached to each session created from this deployment.
+
+      - `type: "memory_store"`
+
+      - `memory_store_id: string`
+
+        The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
+
+      - `access: optional "read_write" or "read_only"`
+
+        Access mode for an attached memory store.
+
+        - `"read_write"`
+
+        - `"read_only"`
+
+      - `instructions: optional string`
+
+        Per-attachment guidance for the agent on how to use this store. Rendered into the memory section of the system prompt. Max 4096 chars.
+
+  - `schedule: object`
+
+    5-field POSIX cron schedule with computed runtime timestamps.
+
+    - `type: "cron"`
+
+    - `expression: string`
+
+      5-field POSIX cron expression: minute hour day-of-month month day-of-week (e.g., "0 9 * * 1-5" for weekdays at 9am). Day-of-week is 0-7 where 0 and 7 both mean Sunday. Extended cron syntax - seconds or year fields, and the special characters L, W, #, and ? - is not supported, nor are predefined shortcuts (@daily).
+
+      minLength: 1, maxLength: 256
+
+    - `timezone: string`
+
+      IANA timezone identifier (e.g., "America/Los_Angeles", "UTC").
+
+      minLength: 1
+
+    - `last_run_at: optional string`
+
+      A timestamp in RFC 3339 format
+
+      format: date-time
+
+    - `upcoming_runs_at: optional array of string`
+
+      Up to 5 timestamps of upcoming cron occurrences. Non-empty for active and paused deployments (reflects what the schedule would do if unpaused); empty once the deployment is archived (`archived_at` set). Each fire is offset by a small per-schedule jitter, so a run will actually start at or shortly after its listed time.
+
+  - `status: "active" or "paused"`
+
+    Lifecycle status of a deployment.
+
+    - `"active"`
+
+    - `"paused"`
+
+  - `updated_at: string`
+
+    A timestamp in RFC 3339 format
+
+    format: date-time
+
+  - `vault_ids: array of string`
+
+    Vault IDs supplying stored credentials for sessions created from this deployment.
+
+  - `budget: optional object`
+
+    A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+
+    - `type: "limit"`
+
+    - `max_list_cost: object`
+
+      A monetary amount in a specific currency.
+
+      - `amount: string`
+
+        Amount in minor units of the currency, as an integer decimal string with no leading zeros: "2500" is $25.00 and "50" is fifty cents. A string rather than a number so no float rounding is ever applied.
+
+      - `currency: "USD"`
+
+        Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
+
+#### Example
+
+```bash
+ant beta:deployments unpause \
+  --api-key my-anthropic-api-key \
+  --deployment-id depl_011CZkZcDH3vPqd7xnEfwTai
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "depl_011CZkZcDH3vPqd7xnEfwTai",
+  "agent": {
+    "id": "agent_011CZkYpogX7uDKUyvBTophP",
+    "type": "agent",
+    "version": 1
+  },
+  "archived_at": null,
+  "created_at": "2026-03-15T10:00:00Z",
+  "description": "Compiles yesterday's orders into a report every weekday morning.",
+  "environment_id": "env_011CZkZ9X2dpNyB7HsEFoRfW",
+  "initial_events": [
+    {
+      "content": [
+        {
+          "text": "Compile yesterday's orders into report.md.",
+          "type": "text"
+        }
+      ],
+      "type": "user.message"
+    }
+  ],
+  "metadata": {},
+  "name": "Daily order report",
+  "paused_reason": {
+    "type": "manual"
+  },
+  "resources": [
+    {
+      "type": "github_repository",
+      "url": "url",
+      "checkout": {
+        "name": "main",
+        "type": "branch"
+      },
+      "mount_path": "mount_path"
+    }
+  ],
+  "schedule": {
+    "expression": "0 9 * * 1-5",
+    "timezone": "America/Los_Angeles",
+    "type": "cron",
+    "last_run_at": "2026-03-16T16:00:09Z",
+    "upcoming_runs_at": [
+      "2026-03-17T16:00:00Z",
+      "2026-03-18T16:00:00Z"
+    ]
+  },
+  "status": "active",
+  "type": "deployment",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "vault_ids": [
+    "vlt_011CZkZDLs7fYzm1hXNPeRjv"
+  ],
+  "budget": {
+    "max_list_cost": {
+      "amount": "2500",
+      "currency": "USD"
+    },
+    "type": "limit"
+  }
+}
+```
+
+## Beta › Deployment Runs
+
+### List Deployment Runs
+
+`$ ant beta:deployment-runs list`
+
+**GET** `/v1/deployment_runs`
+
+List Deployment Runs
+
+#### Parameters
+
+- `--created-at-gt: optional string`
+
+  Query param: Return runs created strictly after this time (exclusive).
+
+  format: date-time
+
+- `--created-at-gte: optional string`
+
+  Query param: Return runs created at or after this time (inclusive).
+
+  format: date-time
+
+- `--created-at-lt: optional string`
+
+  Query param: Return runs created strictly before this time (exclusive).
+
+  format: date-time
+
+- `--created-at-lte: optional string`
+
+  Query param: Return runs created at or before this time (inclusive).
+
+  format: date-time
+
+- `--deployment-id: optional string`
+
+  Query param: Filter to a specific deployment. Omit to list across all deployments in the workspace. Filtering by a non-existent `deployment_id` returns 200 with empty data.
+
+- `--has-error: optional boolean`
+
+  Query param: Filter: true for runs with non-null `error`, false for runs with non-null `session_id`. Omit for all.
+
+- `--limit: optional number`
+
+  Query param: Maximum results per page. Default 20, maximum 1000.
+
+  format: int32
+
+- `--page: optional string`
+
+  Query param: Opaque pagination cursor. Pass `next_page` from the previous response. Invalid or expired cursors return 400.
+
+- `--trigger-type: optional "schedule" or "manual"`
+
+  Query param: Filter runs by what triggered them. Omit to return all runs.
+
+- `--beta: optional array of AnthropicBeta`
+
+  Header param: Optional header to specify the beta version(s) you want to use.
+
+- `--workspace-id: optional string`
+
+  Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `BetaManagedAgentsListDeploymentRunsData: object`
+
+  Paginated list of deployment runs. Sorted by `created_at` descending (most recent first).
+
+  - `data: array of BetaManagedAgentsDeploymentRun`
+
+    List of deployment runs.
+
+    - `type: "deployment_run"`
+
+    - `id: string`
+
+      Unique identifier for this run (`drun_...`).
+
+    - `agent: object`
+
+      A resolved agent reference with a concrete version.
+
+      - `type: "agent"`
+
+      - `id: string`
+
+      - `version: number`
+
+        format: int32
+
+    - `created_at: string`
+
+      A timestamp in RFC 3339 format
+
+      format: date-time
+
+    - `deployment_id: string`
+
+      ID of the deployment that produced this run.
+
+    - `error: BetaManagedAgentsEnvironmentArchivedRunError or BetaManagedAgentsAgentArchivedRunError or BetaManagedAgentsEnvironmentNotFoundRunError or 13 more`
+
+      Why the run failed to create a session. The type identifies the failure; message is human-readable detail.
+
+      - `beta_managed_agents_environment_archived_run_error: object`
+
+        The deployment's environment was archived.
+
+        - `type: "environment_archived_error"`
+
+        - `message: string`
+
+          Human-readable error description.
+
+      - `beta_managed_agents_agent_archived_run_error: object`
+
+        The deployment's agent was archived.
+
+        - `type: "agent_archived_error"`
+
+        - `message: string`
+
+          Human-readable error description.
+
+      - `beta_managed_agents_environment_not_found_run_error: object`
+
+        The deployment's environment no longer exists.
+
+        - `type: "environment_not_found_error"`
+
+        - `message: string`
+
+          Human-readable error description.
+
+      - `beta_managed_agents_vault_not_found_run_error: object`
+
+        A vault referenced by the deployment no longer exists.
+
+        - `type: "vault_not_found_error"`
+
+        - `message: string`
+
+          Human-readable error description.
+
+      - `beta_managed_agents_vault_archived_run_error: object`
+
+        A vault referenced by the deployment is archived.
+
+        - `type: "vault_archived_error"`
+
+        - `message: string`
+
+          Human-readable error description.
+
+      - `beta_managed_agents_file_not_found_run_error: object`
+
+        A file resource referenced by the deployment no longer exists.
+
+        - `type: "file_not_found_error"`
+
+        - `message: string`
+
+          Human-readable error description.
+
+      - `beta_managed_agents_memory_store_archived_run_error: object`
+
+        A memory store referenced by the deployment is archived.
+
+        - `type: "memory_store_archived_error"`
+
+        - `message: string`
+
+          Human-readable error description.
+
+      - `beta_managed_agents_skill_not_found_run_error: object`
+
+        A skill referenced by the deployment's agent no longer exists.
+
+        - `type: "skill_not_found_error"`
+
+        - `message: string`
+
+          Human-readable error description.
+
+      - `beta_managed_agents_session_resource_not_found_run_error: object`
+
+        A referenced resource no longer exists and its kind was not reported.
+
+        - `type: "session_resource_not_found_error"`
+
+        - `message: string`
+
+          Human-readable error description.
+
+      - `beta_managed_agents_workspace_archived_run_error: object`
+
+        The deployment's workspace was archived.
+
+        - `type: "workspace_archived_error"`
+
+        - `message: string`
+
+          Human-readable error description.
+
+      - `beta_managed_agents_organization_disabled_run_error: object`
+
+        The deployment's organization is disabled.
+
+        - `type: "organization_disabled_error"`
+
+        - `message: string`
+
+          Human-readable error description.
+
+      - `beta_managed_agents_session_rate_limited_run_error: object`
+
+        Session creation was rejected due to rate limiting. The schedule keeps firing; subsequent runs may succeed.
+
+        - `type: "session_rate_limited_error"`
+
+        - `message: string`
+
+          Human-readable error description.
+
+      - `beta_managed_agents_session_creation_rejected_run_error: object`
+
+        The session create request was rejected with a non-retryable validation error.
+
+        - `type: "session_creation_rejected_error"`
+
+        - `message: string`
+
+          Human-readable error description.
+
+      - `beta_managed_agents_unknown_run_error: object`
+
+        An unknown or unexpected error caused the run to fail. A fallback variant; clients that do not recognize a new error type can match on message alone.
+
+        - `type: "unknown_error"`
+
+        - `message: string`
+
+          Human-readable error description.
+
+      - `beta_managed_agents_self_hosted_resources_unsupported_run_error: object`
+
+        The deployment configures resources, but its environment is self-hosted and cannot mount them.
+
+        - `type: "self_hosted_resources_unsupported_error"`
+
+        - `message: string`
+
+          Human-readable error description.
+
+      - `beta_managed_agents_mcp_egress_blocked_run_error: object`
+
+        An MCP server host used by the deployment's agent is blocked by the environment's network policy.
+
+        - `type: "mcp_egress_blocked_error"`
+
+        - `message: string`
+
+          Human-readable error description.
+
+    - `session_id: string`
+
+      Populated on success. Null on creation failure. Exactly one of `session_id` or `error` is non-null.
+
+    - `trigger_context: BetaManagedAgentsScheduleTriggerContext or BetaManagedAgentsManualTriggerContext`
+
+      Describes what triggered a deployment run, with trigger-specific metadata.
+
+      - `beta_managed_agents_schedule_trigger_context: object`
+
+        The run was fired by the deployment's cron schedule.
+
+        - `type: "schedule"`
+
+        - `scheduled_at: string`
+
+          A timestamp in RFC 3339 format
+
+          format: date-time
+
+      - `beta_managed_agents_manual_trigger_context: object`
+
+        The run was started manually by creating a session directly against the deployment.
+
+        - `type: "manual"`
+
+  - `next_page: optional string`
+
+    Opaque cursor for the next page. Null when no more results.
+
+#### Example
+
+```bash
+ant beta:deployment-runs list \
+  --api-key my-anthropic-api-key
+```
+
+##### Response (200)
+
+```json
+{
+  "data": [
+    {
+      "id": "id",
+      "agent": {
+        "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
+        "type": "agent",
+        "version": 1
+      },
+      "created_at": "2019-12-27T18:11:19.117Z",
+      "deployment_id": "deployment_id",
+      "error": {
+        "message": "message",
+        "type": "environment_archived_error"
+      },
+      "session_id": "session_id",
+      "trigger_context": {
+        "scheduled_at": "2019-12-27T18:11:19.117Z",
+        "type": "schedule"
+      },
+      "type": "deployment_run"
+    }
+  ],
+  "next_page": "next_page"
+}
+```
+
+### Get Deployment Run
+
+`$ ant beta:deployment-runs retrieve`
+
+**GET** `/v1/deployment_runs/{deployment_run_id}`
+
+Get Deployment Run
+
+#### Parameters
+
+- `--deployment-run-id: string`
+
+  Path parameter deployment_run_id
+
+- `--beta: optional array of AnthropicBeta`
+
+  Optional header to specify the beta version(s) you want to use.
+
+- `--workspace-id: optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `beta_managed_agents_deployment_run: object`
+
+  A persistent, append-only record of a single deployment execution. Records session creation success or failure — no session lifecycle tracking.
+
+  - `type: "deployment_run"`
+
+  - `id: string`
+
+    Unique identifier for this run (`drun_...`).
+
+  - `agent: object`
+
+    A resolved agent reference with a concrete version.
+
+    - `type: "agent"`
+
+    - `id: string`
+
+    - `version: number`
+
+      format: int32
+
+  - `created_at: string`
+
+    A timestamp in RFC 3339 format
+
+    format: date-time
+
+  - `deployment_id: string`
+
+    ID of the deployment that produced this run.
+
+  - `error: BetaManagedAgentsEnvironmentArchivedRunError or BetaManagedAgentsAgentArchivedRunError or BetaManagedAgentsEnvironmentNotFoundRunError or 13 more`
+
+    Why the run failed to create a session. The type identifies the failure; message is human-readable detail.
+
+    - `beta_managed_agents_environment_archived_run_error: object`
+
+      The deployment's environment was archived.
+
+      - `type: "environment_archived_error"`
+
+      - `message: string`
+
+        Human-readable error description.
+
+    - `beta_managed_agents_agent_archived_run_error: object`
+
+      The deployment's agent was archived.
+
+      - `type: "agent_archived_error"`
+
+      - `message: string`
+
+        Human-readable error description.
+
+    - `beta_managed_agents_environment_not_found_run_error: object`
+
+      The deployment's environment no longer exists.
+
+      - `type: "environment_not_found_error"`
+
+      - `message: string`
+
+        Human-readable error description.
+
+    - `beta_managed_agents_vault_not_found_run_error: object`
+
+      A vault referenced by the deployment no longer exists.
+
+      - `type: "vault_not_found_error"`
+
+      - `message: string`
+
+        Human-readable error description.
+
+    - `beta_managed_agents_vault_archived_run_error: object`
+
+      A vault referenced by the deployment is archived.
+
+      - `type: "vault_archived_error"`
+
+      - `message: string`
+
+        Human-readable error description.
+
+    - `beta_managed_agents_file_not_found_run_error: object`
+
+      A file resource referenced by the deployment no longer exists.
+
+      - `type: "file_not_found_error"`
+
+      - `message: string`
+
+        Human-readable error description.
+
+    - `beta_managed_agents_memory_store_archived_run_error: object`
+
+      A memory store referenced by the deployment is archived.
+
+      - `type: "memory_store_archived_error"`
+
+      - `message: string`
+
+        Human-readable error description.
+
+    - `beta_managed_agents_skill_not_found_run_error: object`
+
+      A skill referenced by the deployment's agent no longer exists.
+
+      - `type: "skill_not_found_error"`
+
+      - `message: string`
+
+        Human-readable error description.
+
+    - `beta_managed_agents_session_resource_not_found_run_error: object`
+
+      A referenced resource no longer exists and its kind was not reported.
+
+      - `type: "session_resource_not_found_error"`
+
+      - `message: string`
+
+        Human-readable error description.
+
+    - `beta_managed_agents_workspace_archived_run_error: object`
+
+      The deployment's workspace was archived.
+
+      - `type: "workspace_archived_error"`
+
+      - `message: string`
+
+        Human-readable error description.
+
+    - `beta_managed_agents_organization_disabled_run_error: object`
+
+      The deployment's organization is disabled.
+
+      - `type: "organization_disabled_error"`
+
+      - `message: string`
+
+        Human-readable error description.
+
+    - `beta_managed_agents_session_rate_limited_run_error: object`
+
+      Session creation was rejected due to rate limiting. The schedule keeps firing; subsequent runs may succeed.
+
+      - `type: "session_rate_limited_error"`
+
+      - `message: string`
+
+        Human-readable error description.
+
+    - `beta_managed_agents_session_creation_rejected_run_error: object`
+
+      The session create request was rejected with a non-retryable validation error.
+
+      - `type: "session_creation_rejected_error"`
+
+      - `message: string`
+
+        Human-readable error description.
+
+    - `beta_managed_agents_unknown_run_error: object`
+
+      An unknown or unexpected error caused the run to fail. A fallback variant; clients that do not recognize a new error type can match on message alone.
+
+      - `type: "unknown_error"`
+
+      - `message: string`
+
+        Human-readable error description.
+
+    - `beta_managed_agents_self_hosted_resources_unsupported_run_error: object`
+
+      The deployment configures resources, but its environment is self-hosted and cannot mount them.
+
+      - `type: "self_hosted_resources_unsupported_error"`
+
+      - `message: string`
+
+        Human-readable error description.
+
+    - `beta_managed_agents_mcp_egress_blocked_run_error: object`
+
+      An MCP server host used by the deployment's agent is blocked by the environment's network policy.
+
+      - `type: "mcp_egress_blocked_error"`
+
+      - `message: string`
+
+        Human-readable error description.
+
+  - `session_id: string`
+
+    Populated on success. Null on creation failure. Exactly one of `session_id` or `error` is non-null.
+
+  - `trigger_context: BetaManagedAgentsScheduleTriggerContext or BetaManagedAgentsManualTriggerContext`
+
+    Describes what triggered a deployment run, with trigger-specific metadata.
+
+    - `beta_managed_agents_schedule_trigger_context: object`
+
+      The run was fired by the deployment's cron schedule.
+
+      - `type: "schedule"`
+
+      - `scheduled_at: string`
+
+        A timestamp in RFC 3339 format
+
+        format: date-time
+
+    - `beta_managed_agents_manual_trigger_context: object`
+
+      The run was started manually by creating a session directly against the deployment.
+
+      - `type: "manual"`
+
+#### Example
+
+```bash
+ant beta:deployment-runs retrieve \
+  --api-key my-anthropic-api-key \
+  --deployment-run-id deployment_run_id
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "id",
+  "agent": {
+    "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
+    "type": "agent",
+    "version": 1
+  },
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "deployment_id": "deployment_id",
+  "error": {
+    "message": "message",
+    "type": "environment_archived_error"
+  },
+  "session_id": "session_id",
+  "trigger_context": {
+    "scheduled_at": "2019-12-27T18:11:19.117Z",
+    "type": "schedule"
+  },
+  "type": "deployment_run"
+}
+```
+
+## Beta › Vaults
+
+### Create Vault
+
+`$ ant beta:vaults create`
+
+**POST** `/v1/vaults`
+
+Create Vault
+
+#### Parameters
+
+- `--display-name: string`
+
+  Body param: Human-readable name for the vault. 1-255 characters.
+
+  minLength: 1, maxLength: 255
+
+- `--metadata: optional map[string]`
+
+  Body param: Arbitrary key-value metadata to attach to the vault. Maximum 16 pairs, keys up to 64 chars, values up to 512 chars.
+
+- `--beta: optional array of AnthropicBeta`
+
+  Header param: Optional header to specify the beta version(s) you want to use.
+
+- `--workspace-id: optional string`
+
+  Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `beta_managed_agents_vault: object`
+
+  A vault that stores credentials for use by agents during sessions.
+
+  - `type: "vault"`
+
+  - `id: string`
+
+    Unique identifier for the vault.
+
+  - `archived_at: string`
+
+    A timestamp in RFC 3339 format
+
+    format: date-time
+
+  - `created_at: string`
+
+    A timestamp in RFC 3339 format
+
+    format: date-time
+
+  - `display_name: string`
+
+    Human-readable name for the vault.
+
+  - `metadata: map[string]`
+
+    Arbitrary key-value metadata attached to the vault.
+
+  - `updated_at: string`
+
+    A timestamp in RFC 3339 format
+
+    format: date-time
+
+#### Example
+
+```bash
+ant beta:vaults create \
+  --api-key my-anthropic-api-key \
+  --display-name 'Example vault'
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "vlt_011CZkZDLs7fYzm1hXNPeRjv",
+  "archived_at": null,
+  "created_at": "2026-03-15T10:00:00Z",
+  "display_name": "Example vault",
+  "metadata": {
+    "environment": "production"
+  },
+  "type": "vault",
   "updated_at": "2026-03-15T10:00:00Z"
 }
 ```
@@ -34,6 +3851,12 @@ List Vaults
 
   Header param: Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `BetaManagedAgentsListVaultsResponse: object`
@@ -43,6 +3866,8 @@ List Vaults
   - `data: optional array of BetaManagedAgentsVault`
 
     List of vaults.
+
+    - `type: "vault"`
 
     - `id: string`
 
@@ -67,8 +3892,6 @@ List Vaults
     - `metadata: map[string]`
 
       Arbitrary key-value metadata attached to the vault.
-
-    - `type: "vault"`
 
     - `updated_at: string`
 
@@ -126,11 +3949,19 @@ Get Vault
 
   Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `beta_managed_agents_vault: object`
 
   A vault that stores credentials for use by agents during sessions.
+
+  - `type: "vault"`
 
   - `id: string`
 
@@ -155,8 +3986,6 @@ Get Vault
   - `metadata: map[string]`
 
     Arbitrary key-value metadata attached to the vault.
-
-  - `type: "vault"`
 
   - `updated_at: string`
 
@@ -216,11 +4045,19 @@ Update Vault
 
   Header param: Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `beta_managed_agents_vault: object`
 
   A vault that stores credentials for use by agents during sessions.
+
+  - `type: "vault"`
 
   - `id: string`
 
@@ -245,8 +4082,6 @@ Update Vault
   - `metadata: map[string]`
 
     Arbitrary key-value metadata attached to the vault.
-
-  - `type: "vault"`
 
   - `updated_at: string`
 
@@ -296,17 +4131,23 @@ Delete Vault
 
   Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `beta_managed_agents_deleted_vault: object`
 
   Confirmation of a deleted vault.
 
+  - `type: "vault_deleted"`
+
   - `id: string`
 
     Unique identifier of the deleted vault.
-
-  - `type: "vault_deleted"`
 
 #### Example
 
@@ -343,11 +4184,19 @@ Archive Vault
 
   Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `beta_managed_agents_vault: object`
 
   A vault that stores credentials for use by agents during sessions.
+
+  - `type: "vault"`
 
   - `id: string`
 
@@ -372,8 +4221,6 @@ Archive Vault
   - `metadata: map[string]`
 
     Arbitrary key-value metadata attached to the vault.
-
-  - `type: "vault"`
 
   - `updated_at: string`
 
@@ -439,11 +4286,19 @@ Create Credential
 
   Header param: Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `beta_managed_agents_credential: object`
 
   A credential stored in a vault. Sensitive fields are never returned in responses.
+
+  - `type: "vault_credential"`
 
   - `id: string`
 
@@ -463,11 +4318,11 @@ Create Credential
 
       OAuth credential details for an MCP server.
 
+      - `type: "mcp_oauth"`
+
       - `mcp_server_url: string`
 
         URL of the MCP server this credential authenticates against.
-
-      - `type: "mcp_oauth"`
 
       - `expires_at: optional string`
 
@@ -521,15 +4376,17 @@ Create Credential
 
       Static bearer token credential details for an MCP server.
 
+      - `type: "static_bearer"`
+
       - `mcp_server_url: string`
 
         URL of the MCP server this credential authenticates against.
 
-      - `type: "static_bearer"`
-
     - `beta_managed_agents_environment_variable_auth_response: object`
 
       Environment variable credential details. The secret value is never returned.
+
+      - `type: "environment_variable"`
 
       - `injection_location: object`
 
@@ -557,17 +4414,15 @@ Create Credential
 
           The secret is substituted only on requests to the listed hosts.
 
+          - `type: "limited"`
+
           - `allowed_hosts: array of string`
 
             Hostnames on which the secret will be substituted. An entry matches the request host exactly; a `*.`-prefixed entry matches any subdomain of the named domain but not the domain itself.
 
-          - `type: "limited"`
-
       - `secret_name: string`
 
         Name of the environment variable.
-
-      - `type: "environment_variable"`
 
   - `created_at: string`
 
@@ -578,8 +4433,6 @@ Create Credential
   - `metadata: map[string]`
 
     Arbitrary key-value metadata attached to the credential.
-
-  - `type: "vault_credential"`
 
   - `updated_at: string`
 
@@ -657,6 +4510,12 @@ List Credentials
 
   Header param: Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `BetaManagedAgentsListCredentialsResponse: object`
@@ -666,6 +4525,8 @@ List Credentials
   - `data: optional array of BetaManagedAgentsCredential`
 
     List of credentials.
+
+    - `type: "vault_credential"`
 
     - `id: string`
 
@@ -685,11 +4546,11 @@ List Credentials
 
         OAuth credential details for an MCP server.
 
+        - `type: "mcp_oauth"`
+
         - `mcp_server_url: string`
 
           URL of the MCP server this credential authenticates against.
-
-        - `type: "mcp_oauth"`
 
         - `expires_at: optional string`
 
@@ -743,15 +4604,17 @@ List Credentials
 
         Static bearer token credential details for an MCP server.
 
+        - `type: "static_bearer"`
+
         - `mcp_server_url: string`
 
           URL of the MCP server this credential authenticates against.
 
-        - `type: "static_bearer"`
-
       - `beta_managed_agents_environment_variable_auth_response: object`
 
         Environment variable credential details. The secret value is never returned.
+
+        - `type: "environment_variable"`
 
         - `injection_location: object`
 
@@ -779,17 +4642,15 @@ List Credentials
 
             The secret is substituted only on requests to the listed hosts.
 
+            - `type: "limited"`
+
             - `allowed_hosts: array of string`
 
               Hostnames on which the secret will be substituted. An entry matches the request host exactly; a `*.`-prefixed entry matches any subdomain of the named domain but not the domain itself.
 
-            - `type: "limited"`
-
         - `secret_name: string`
 
           Name of the environment variable.
-
-        - `type: "environment_variable"`
 
     - `created_at: string`
 
@@ -800,8 +4661,6 @@ List Credentials
     - `metadata: map[string]`
 
       Arbitrary key-value metadata attached to the credential.
-
-    - `type: "vault_credential"`
 
     - `updated_at: string`
 
@@ -877,11 +4736,19 @@ Get Credential
 
   Header param: Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `beta_managed_agents_credential: object`
 
   A credential stored in a vault. Sensitive fields are never returned in responses.
+
+  - `type: "vault_credential"`
 
   - `id: string`
 
@@ -901,11 +4768,11 @@ Get Credential
 
       OAuth credential details for an MCP server.
 
+      - `type: "mcp_oauth"`
+
       - `mcp_server_url: string`
 
         URL of the MCP server this credential authenticates against.
-
-      - `type: "mcp_oauth"`
 
       - `expires_at: optional string`
 
@@ -959,15 +4826,17 @@ Get Credential
 
       Static bearer token credential details for an MCP server.
 
+      - `type: "static_bearer"`
+
       - `mcp_server_url: string`
 
         URL of the MCP server this credential authenticates against.
 
-      - `type: "static_bearer"`
-
     - `beta_managed_agents_environment_variable_auth_response: object`
 
       Environment variable credential details. The secret value is never returned.
+
+      - `type: "environment_variable"`
 
       - `injection_location: object`
 
@@ -995,17 +4864,15 @@ Get Credential
 
           The secret is substituted only on requests to the listed hosts.
 
+          - `type: "limited"`
+
           - `allowed_hosts: array of string`
 
             Hostnames on which the secret will be substituted. An entry matches the request host exactly; a `*.`-prefixed entry matches any subdomain of the named domain but not the domain itself.
 
-          - `type: "limited"`
-
       - `secret_name: string`
 
         Name of the environment variable.
-
-      - `type: "environment_variable"`
 
   - `created_at: string`
 
@@ -1016,8 +4883,6 @@ Get Credential
   - `metadata: map[string]`
 
     Arbitrary key-value metadata attached to the credential.
-
-  - `type: "vault_credential"`
 
   - `updated_at: string`
 
@@ -1099,11 +4964,19 @@ Update Credential
 
   Header param: Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `beta_managed_agents_credential: object`
 
   A credential stored in a vault. Sensitive fields are never returned in responses.
+
+  - `type: "vault_credential"`
 
   - `id: string`
 
@@ -1123,11 +4996,11 @@ Update Credential
 
       OAuth credential details for an MCP server.
 
+      - `type: "mcp_oauth"`
+
       - `mcp_server_url: string`
 
         URL of the MCP server this credential authenticates against.
-
-      - `type: "mcp_oauth"`
 
       - `expires_at: optional string`
 
@@ -1181,15 +5054,17 @@ Update Credential
 
       Static bearer token credential details for an MCP server.
 
+      - `type: "static_bearer"`
+
       - `mcp_server_url: string`
 
         URL of the MCP server this credential authenticates against.
 
-      - `type: "static_bearer"`
-
     - `beta_managed_agents_environment_variable_auth_response: object`
 
       Environment variable credential details. The secret value is never returned.
+
+      - `type: "environment_variable"`
 
       - `injection_location: object`
 
@@ -1217,17 +5092,15 @@ Update Credential
 
           The secret is substituted only on requests to the listed hosts.
 
+          - `type: "limited"`
+
           - `allowed_hosts: array of string`
 
             Hostnames on which the secret will be substituted. An entry matches the request host exactly; a `*.`-prefixed entry matches any subdomain of the named domain but not the domain itself.
 
-          - `type: "limited"`
-
       - `secret_name: string`
 
         Name of the environment variable.
-
-      - `type: "environment_variable"`
 
   - `created_at: string`
 
@@ -1238,8 +5111,6 @@ Update Credential
   - `metadata: map[string]`
 
     Arbitrary key-value metadata attached to the credential.
-
-  - `type: "vault_credential"`
 
   - `updated_at: string`
 
@@ -1307,17 +5178,23 @@ Delete Credential
 
   Header param: Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `beta_managed_agents_deleted_credential: object`
 
   Confirmation of a deleted credential.
 
+  - `type: "vault_credential_deleted"`
+
   - `id: string`
 
     Unique identifier of the deleted credential.
-
-  - `type: "vault_credential_deleted"`
 
 #### Example
 
@@ -1359,11 +5236,19 @@ Archive Credential
 
   Header param: Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `beta_managed_agents_credential: object`
 
   A credential stored in a vault. Sensitive fields are never returned in responses.
+
+  - `type: "vault_credential"`
 
   - `id: string`
 
@@ -1383,11 +5268,11 @@ Archive Credential
 
       OAuth credential details for an MCP server.
 
+      - `type: "mcp_oauth"`
+
       - `mcp_server_url: string`
 
         URL of the MCP server this credential authenticates against.
-
-      - `type: "mcp_oauth"`
 
       - `expires_at: optional string`
 
@@ -1441,15 +5326,17 @@ Archive Credential
 
       Static bearer token credential details for an MCP server.
 
+      - `type: "static_bearer"`
+
       - `mcp_server_url: string`
 
         URL of the MCP server this credential authenticates against.
 
-      - `type: "static_bearer"`
-
     - `beta_managed_agents_environment_variable_auth_response: object`
 
       Environment variable credential details. The secret value is never returned.
+
+      - `type: "environment_variable"`
 
       - `injection_location: object`
 
@@ -1477,17 +5364,15 @@ Archive Credential
 
           The secret is substituted only on requests to the listed hosts.
 
+          - `type: "limited"`
+
           - `allowed_hosts: array of string`
 
             Hostnames on which the secret will be substituted. An entry matches the request host exactly; a `*.`-prefixed entry matches any subdomain of the named domain but not the domain itself.
 
-          - `type: "limited"`
-
       - `secret_name: string`
 
         Name of the environment variable.
-
-      - `type: "environment_variable"`
 
   - `created_at: string`
 
@@ -1498,8 +5383,6 @@ Archive Credential
   - `metadata: map[string]`
 
     Arbitrary key-value metadata attached to the credential.
-
-  - `type: "vault_credential"`
 
   - `updated_at: string`
 
@@ -1567,11 +5450,19 @@ Validate Credential
 
   Header param: Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `beta_managed_agents_credential_validation: object`
 
   Result of live-probing a credential against its configured MCP server.
+
+  - `type: "vault_credential_validation"`
 
   - `credential_id: string`
 
@@ -1659,8 +5550,6 @@ Validate Credential
 
     - `"unknown"`
 
-  - `type: "vault_credential_validation"`
-
   - `validated_at: string`
 
     A timestamp in RFC 3339 format
@@ -1743,11 +5632,19 @@ Create a memory store
 
   Header param: Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `beta_managed_agents_memory_store: object`
 
   A `memory_store`: a named container for agent memories, scoped to a workspace. Attach a store to a session via `resources[]` to mount it as a directory the agent can read and write.
+
+  - `type: "memory_store"`
 
   - `id: string`
 
@@ -1762,8 +5659,6 @@ Create a memory store
   - `name: string`
 
     Human-readable name for the store. 1–255 characters. The store's mount-path slug under `/mnt/memory/` is derived from this name.
-
-  - `type: "memory_store"`
 
   - `updated_at: string`
 
@@ -1850,6 +5745,12 @@ List memory stores
 
   Header param: Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `BetaManagedAgentsListMemoryStoresResponse: object`
@@ -1859,6 +5760,8 @@ List memory stores
   - `data: optional array of BetaManagedAgentsMemoryStore`
 
     Memory stores on this page, newest first. Empty when there are no stores matching the filters.
+
+    - `type: "memory_store"`
 
     - `id: string`
 
@@ -1873,8 +5776,6 @@ List memory stores
     - `name: string`
 
       Human-readable name for the store. 1–255 characters. The store's mount-path slug under `/mnt/memory/` is derived from this name.
-
-    - `type: "memory_store"`
 
     - `updated_at: string`
 
@@ -1947,11 +5848,19 @@ Retrieve a memory store
 
   Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `beta_managed_agents_memory_store: object`
 
   A `memory_store`: a named container for agent memories, scoped to a workspace. Attach a store to a session via `resources[]` to mount it as a directory the agent can read and write.
+
+  - `type: "memory_store"`
 
   - `id: string`
 
@@ -1966,8 +5875,6 @@ Retrieve a memory store
   - `name: string`
 
     Human-readable name for the store. 1–255 characters. The store's mount-path slug under `/mnt/memory/` is derived from this name.
-
-  - `type: "memory_store"`
 
   - `updated_at: string`
 
@@ -2048,11 +5955,19 @@ Update a memory store
 
   Header param: Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `beta_managed_agents_memory_store: object`
 
   A `memory_store`: a named container for agent memories, scoped to a workspace. Attach a store to a session via `resources[]` to mount it as a directory the agent can read and write.
+
+  - `type: "memory_store"`
 
   - `id: string`
 
@@ -2067,8 +5982,6 @@ Update a memory store
   - `name: string`
 
     Human-readable name for the store. 1–255 characters. The store's mount-path slug under `/mnt/memory/` is derived from this name.
-
-  - `type: "memory_store"`
 
   - `updated_at: string`
 
@@ -2133,17 +6046,23 @@ Delete a memory store
 
   Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `beta_managed_agents_deleted_memory_store: object`
 
   Confirmation that a `memory_store` was deleted.
 
+  - `type: "memory_store_deleted"`
+
   - `id: string`
 
     ID of the deleted memory store (a `memstore_...` identifier). The store and all its memories and versions are no longer retrievable.
-
-  - `type: "memory_store_deleted"`
 
 #### Example
 
@@ -2180,11 +6099,19 @@ Archive a memory store
 
   Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `beta_managed_agents_memory_store: object`
 
   A `memory_store`: a named container for agent memories, scoped to a workspace. Attach a store to a session via `resources[]` to mount it as a directory the agent can read and write.
+
+  - `type: "memory_store"`
 
   - `id: string`
 
@@ -2199,8 +6126,6 @@ Archive a memory store
   - `name: string`
 
     Human-readable name for the store. 1–255 characters. The store's mount-path slug under `/mnt/memory/` is derived from this name.
-
-  - `type: "memory_store"`
 
   - `updated_at: string`
 
@@ -2281,11 +6206,19 @@ Create a memory
 
   Header param: Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `beta_managed_agents_memory: object`
 
   A `memory` object: a single text document at a hierarchical path inside a memory store. The `content` field is populated when `view=full` and `null` when `view=basic`; the `content_size_bytes` and `content_sha256` fields are always populated so sync clients can diff without fetching content. Memories are addressed by their `mem_...` ID; the path is the create key and can be changed via update.
+
+  - `type: "memory"`
 
   - `id: string`
 
@@ -2318,8 +6251,6 @@ Create a memory
   - `path: string`
 
     Hierarchical path of the memory within the store, e.g. `/projects/foo/notes.md`. Always starts with `/`. Paths are case-sensitive and unique within a store. Maximum 1,024 bytes.
-
-  - `type: "memory"`
 
   - `updated_at: string`
 
@@ -2400,6 +6331,12 @@ List memories
 
   Header param: Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `BetaManagedAgentsListMemoriesResult: object`
@@ -2413,6 +6350,8 @@ List memories
     - `beta_managed_agents_memory: object`
 
       A `memory` object: a single text document at a hierarchical path inside a memory store. The `content` field is populated when `view=full` and `null` when `view=basic`; the `content_size_bytes` and `content_sha256` fields are always populated so sync clients can diff without fetching content. Memories are addressed by their `mem_...` ID; the path is the create key and can be changed via update.
+
+      - `type: "memory"`
 
       - `id: string`
 
@@ -2446,8 +6385,6 @@ List memories
 
         Hierarchical path of the memory within the store, e.g. `/projects/foo/notes.md`. Always starts with `/`. Paths are case-sensitive and unique within a store. Maximum 1,024 bytes.
 
-      - `type: "memory"`
-
       - `updated_at: string`
 
         A timestamp in RFC 3339 format
@@ -2462,11 +6399,11 @@ List memories
 
       A rolled-up directory marker returned by [List memories](/docs/en/api/beta/memory_stores/memories/list) when `depth` is set. Indicates that one or more memories exist deeper than the requested depth under this prefix. This is a list-time rollup, not a stored resource; it has no ID and no lifecycle. Each prefix counts toward the page `limit` and interleaves with `memory` items in path order.
 
+      - `type: "memory_prefix"`
+
       - `path: string`
 
         The rolled-up path prefix, including a trailing `/` (e.g. `/projects/foo/`). Pass this value as `path_prefix` on a subsequent list call to drill into the directory.
-
-      - `type: "memory_prefix"`
 
   - `next_page: optional string`
 
@@ -2528,11 +6465,19 @@ Retrieve a memory
 
   Header param: Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `beta_managed_agents_memory: object`
 
   A `memory` object: a single text document at a hierarchical path inside a memory store. The `content` field is populated when `view=full` and `null` when `view=basic`; the `content_size_bytes` and `content_sha256` fields are always populated so sync clients can diff without fetching content. Memories are addressed by their `mem_...` ID; the path is the create key and can be changed via update.
+
+  - `type: "memory"`
 
   - `id: string`
 
@@ -2565,8 +6510,6 @@ Retrieve a memory
   - `path: string`
 
     Hierarchical path of the memory within the store, e.g. `/projects/foo/notes.md`. Always starts with `/`. Paths are case-sensitive and unique within a store. Maximum 1,024 bytes.
-
-  - `type: "memory"`
 
   - `updated_at: string`
 
@@ -2644,11 +6587,19 @@ Update a memory
 
   Header param: Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `beta_managed_agents_memory: object`
 
   A `memory` object: a single text document at a hierarchical path inside a memory store. The `content` field is populated when `view=full` and `null` when `view=basic`; the `content_size_bytes` and `content_sha256` fields are always populated so sync clients can diff without fetching content. Memories are addressed by their `mem_...` ID; the path is the create key and can be changed via update.
+
+  - `type: "memory"`
 
   - `id: string`
 
@@ -2681,8 +6632,6 @@ Update a memory
   - `path: string`
 
     Hierarchical path of the memory within the store, e.g. `/projects/foo/notes.md`. Always starts with `/`. Paths are case-sensitive and unique within a store. Maximum 1,024 bytes.
-
-  - `type: "memory"`
 
   - `updated_at: string`
 
@@ -2746,17 +6695,23 @@ Delete a memory
 
   Header param: Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `beta_managed_agents_deleted_memory: object`
 
   Tombstone returned by [Delete a memory](/docs/en/api/beta/memory_stores/memories/delete). Deleting a memory does not erase its version history: its versions remain listable via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list) while they are retained (each version is kept for at least the version retention period after it was written, unless the store itself is deleted).
 
+  - `type: "memory_deleted"`
+
   - `id: string`
 
     ID of the deleted memory (a `mem_...` value).
-
-  - `type: "memory_deleted"`
 
 #### Example
 
@@ -2842,6 +6797,12 @@ List memory versions
 
   Header param: Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `BetaManagedAgentsListMemoryVersionsResult: object`
@@ -2851,6 +6812,8 @@ List memory versions
   - `data: optional array of BetaManagedAgentsMemoryVersion`
 
     One page of `memory_version` objects, ordered by `created_at` descending (newest first), with `id` as tiebreak.
+
+    - `type: "memory_version"`
 
     - `id: string`
 
@@ -2880,8 +6843,6 @@ List memory versions
 
       - `"deleted"`
 
-    - `type: "memory_version"`
-
     - `content: optional string`
 
       The memory's UTF-8 text content as of this version. `null` when `view=basic`, when `operation` is `deleted`, or when `redacted_at` is set.
@@ -2898,31 +6859,31 @@ List memory versions
 
     - `created_by: optional BetaManagedAgentsSessionActor or BetaManagedAgentsAPIActor or BetaManagedAgentsUserActor or BetaManagedAgentsServiceAccountActor`
 
-      Identifies who performed a write or redact operation. Captured at write time on the `memory_version` row. The API key that created a session is not recorded on agent writes; attribution answers who made the write, not who is ultimately responsible. Look up session provenance separately via the [Sessions API](/docs/en/api/sessions-retrieve).
+      Identifies who performed a write or redact operation. Captured at write time on the `memory_version` row. The API key that created a session is not recorded on agent writes; attribution answers who made the write, not who is ultimately responsible. Look up session provenance separately via the [Sessions API](/docs/en/api/beta/sessions/retrieve).
 
       - `beta_managed_agents_session_actor: object`
 
         Attribution for a write made by an agent during a session, through the mounted filesystem at `/mnt/memory/`.
 
+        - `type: "session_actor"`
+
         - `session_id: string`
 
-          ID of the session that performed the write (a `sesn_...` value). Look up the session via [Retrieve a session](/docs/en/api/sessions-retrieve) for further provenance.
+          ID of the session that performed the write (a `sesn_...` value). Look up the session via [Retrieve a session](/docs/en/api/beta/sessions/retrieve) for further provenance.
 
           minLength: 1
-
-        - `type: "session_actor"`
 
       - `beta_managed_agents_api_actor: object`
 
         Attribution for a write made directly via the public API (outside of any session).
+
+        - `type: "api_actor"`
 
         - `api_key_id: string`
 
           ID of the API key that performed the write. This identifies the key, not the secret.
 
           minLength: 1
-
-        - `type: "api_actor"`
 
       - `beta_managed_agents_user_actor: object`
 
@@ -2940,13 +6901,13 @@ List memory versions
 
         Attribution for a write made by a workload authenticated as a service account, for example via Workload Identity Federation.
 
+        - `type: "service_account_actor"`
+
         - `service_account_id: string`
 
           ID of the service account that performed the write (a `svac_...` value).
 
           minLength: 1
-
-        - `type: "service_account_actor"`
 
     - `path: optional string`
 
@@ -2960,7 +6921,7 @@ List memory versions
 
     - `redacted_by: optional BetaManagedAgentsSessionActor or BetaManagedAgentsAPIActor or BetaManagedAgentsUserActor or BetaManagedAgentsServiceAccountActor`
 
-      Identifies who performed a write or redact operation. Captured at write time on the `memory_version` row. The API key that created a session is not recorded on agent writes; attribution answers who made the write, not who is ultimately responsible. Look up session provenance separately via the [Sessions API](/docs/en/api/sessions-retrieve).
+      Identifies who performed a write or redact operation. Captured at write time on the `memory_version` row. The API key that created a session is not recorded on agent writes; attribution answers who made the write, not who is ultimately responsible. Look up session provenance separately via the [Sessions API](/docs/en/api/beta/sessions/retrieve).
 
       - `beta_managed_agents_session_actor: object`
 
@@ -3047,11 +7008,19 @@ Retrieve a memory version
 
   Header param: Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `beta_managed_agents_memory_version: object`
 
   A `memory_version` object: one immutable, attributed row in a memory's append-only history. Every non-no-op mutation to a memory produces a new version. Versions belong to the store (not the individual memory) and are not deleted with the memory; each version is retained for at least the version retention period after it was written, unless the store itself is deleted. Retrieving a redacted version returns 200 with `content`, `path`, `content_size_bytes`, and `content_sha256` set to `null`; branch on `redacted_at`, not HTTP status.
+
+  - `type: "memory_version"`
 
   - `id: string`
 
@@ -3081,8 +7050,6 @@ Retrieve a memory version
 
     - `"deleted"`
 
-  - `type: "memory_version"`
-
   - `content: optional string`
 
     The memory's UTF-8 text content as of this version. `null` when `view=basic`, when `operation` is `deleted`, or when `redacted_at` is set.
@@ -3099,31 +7066,31 @@ Retrieve a memory version
 
   - `created_by: optional BetaManagedAgentsSessionActor or BetaManagedAgentsAPIActor or BetaManagedAgentsUserActor or BetaManagedAgentsServiceAccountActor`
 
-    Identifies who performed a write or redact operation. Captured at write time on the `memory_version` row. The API key that created a session is not recorded on agent writes; attribution answers who made the write, not who is ultimately responsible. Look up session provenance separately via the [Sessions API](/docs/en/api/sessions-retrieve).
+    Identifies who performed a write or redact operation. Captured at write time on the `memory_version` row. The API key that created a session is not recorded on agent writes; attribution answers who made the write, not who is ultimately responsible. Look up session provenance separately via the [Sessions API](/docs/en/api/beta/sessions/retrieve).
 
     - `beta_managed_agents_session_actor: object`
 
       Attribution for a write made by an agent during a session, through the mounted filesystem at `/mnt/memory/`.
 
+      - `type: "session_actor"`
+
       - `session_id: string`
 
-        ID of the session that performed the write (a `sesn_...` value). Look up the session via [Retrieve a session](/docs/en/api/sessions-retrieve) for further provenance.
+        ID of the session that performed the write (a `sesn_...` value). Look up the session via [Retrieve a session](/docs/en/api/beta/sessions/retrieve) for further provenance.
 
         minLength: 1
-
-      - `type: "session_actor"`
 
     - `beta_managed_agents_api_actor: object`
 
       Attribution for a write made directly via the public API (outside of any session).
+
+      - `type: "api_actor"`
 
       - `api_key_id: string`
 
         ID of the API key that performed the write. This identifies the key, not the secret.
 
         minLength: 1
-
-      - `type: "api_actor"`
 
     - `beta_managed_agents_user_actor: object`
 
@@ -3141,13 +7108,13 @@ Retrieve a memory version
 
       Attribution for a write made by a workload authenticated as a service account, for example via Workload Identity Federation.
 
+      - `type: "service_account_actor"`
+
       - `service_account_id: string`
 
         ID of the service account that performed the write (a `svac_...` value).
 
         minLength: 1
-
-      - `type: "service_account_actor"`
 
   - `path: optional string`
 
@@ -3161,7 +7128,7 @@ Retrieve a memory version
 
   - `redacted_by: optional BetaManagedAgentsSessionActor or BetaManagedAgentsAPIActor or BetaManagedAgentsUserActor or BetaManagedAgentsServiceAccountActor`
 
-    Identifies who performed a write or redact operation. Captured at write time on the `memory_version` row. The API key that created a session is not recorded on agent writes; attribution answers who made the write, not who is ultimately responsible. Look up session provenance separately via the [Sessions API](/docs/en/api/sessions-retrieve).
+    Identifies who performed a write or redact operation. Captured at write time on the `memory_version` row. The API key that created a session is not recorded on agent writes; attribution answers who made the write, not who is ultimately responsible. Look up session provenance separately via the [Sessions API](/docs/en/api/beta/sessions/retrieve).
 
     - `beta_managed_agents_session_actor: object`
 
@@ -3236,11 +7203,19 @@ Redact a memory version
 
   Header param: Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `beta_managed_agents_memory_version: object`
 
   A `memory_version` object: one immutable, attributed row in a memory's append-only history. Every non-no-op mutation to a memory produces a new version. Versions belong to the store (not the individual memory) and are not deleted with the memory; each version is retained for at least the version retention period after it was written, unless the store itself is deleted. Retrieving a redacted version returns 200 with `content`, `path`, `content_size_bytes`, and `content_sha256` set to `null`; branch on `redacted_at`, not HTTP status.
+
+  - `type: "memory_version"`
 
   - `id: string`
 
@@ -3270,8 +7245,6 @@ Redact a memory version
 
     - `"deleted"`
 
-  - `type: "memory_version"`
-
   - `content: optional string`
 
     The memory's UTF-8 text content as of this version. `null` when `view=basic`, when `operation` is `deleted`, or when `redacted_at` is set.
@@ -3288,31 +7261,31 @@ Redact a memory version
 
   - `created_by: optional BetaManagedAgentsSessionActor or BetaManagedAgentsAPIActor or BetaManagedAgentsUserActor or BetaManagedAgentsServiceAccountActor`
 
-    Identifies who performed a write or redact operation. Captured at write time on the `memory_version` row. The API key that created a session is not recorded on agent writes; attribution answers who made the write, not who is ultimately responsible. Look up session provenance separately via the [Sessions API](/docs/en/api/sessions-retrieve).
+    Identifies who performed a write or redact operation. Captured at write time on the `memory_version` row. The API key that created a session is not recorded on agent writes; attribution answers who made the write, not who is ultimately responsible. Look up session provenance separately via the [Sessions API](/docs/en/api/beta/sessions/retrieve).
 
     - `beta_managed_agents_session_actor: object`
 
       Attribution for a write made by an agent during a session, through the mounted filesystem at `/mnt/memory/`.
 
+      - `type: "session_actor"`
+
       - `session_id: string`
 
-        ID of the session that performed the write (a `sesn_...` value). Look up the session via [Retrieve a session](/docs/en/api/sessions-retrieve) for further provenance.
+        ID of the session that performed the write (a `sesn_...` value). Look up the session via [Retrieve a session](/docs/en/api/beta/sessions/retrieve) for further provenance.
 
         minLength: 1
-
-      - `type: "session_actor"`
 
     - `beta_managed_agents_api_actor: object`
 
       Attribution for a write made directly via the public API (outside of any session).
+
+      - `type: "api_actor"`
 
       - `api_key_id: string`
 
         ID of the API key that performed the write. This identifies the key, not the secret.
 
         minLength: 1
-
-      - `type: "api_actor"`
 
     - `beta_managed_agents_user_actor: object`
 
@@ -3330,13 +7303,13 @@ Redact a memory version
 
       Attribution for a write made by a workload authenticated as a service account, for example via Workload Identity Federation.
 
+      - `type: "service_account_actor"`
+
       - `service_account_id: string`
 
         ID of the service account that performed the write (a `svac_...` value).
 
         minLength: 1
-
-      - `type: "service_account_actor"`
 
   - `path: optional string`
 
@@ -3350,7 +7323,7 @@ Redact a memory version
 
   - `redacted_by: optional BetaManagedAgentsSessionActor or BetaManagedAgentsAPIActor or BetaManagedAgentsUserActor or BetaManagedAgentsServiceAccountActor`
 
-    Identifies who performed a write or redact operation. Captured at write time on the `memory_version` row. The API key that created a session is not recorded on agent writes; attribution answers who made the write, not who is ultimately responsible. Look up session provenance separately via the [Sessions API](/docs/en/api/sessions-retrieve).
+    Identifies who performed a write or redact operation. Captured at write time on the `memory_version` row. The API key that created a session is not recorded on agent writes; attribution answers who made the write, not who is ultimately responsible. Look up session provenance separately via the [Sessions API](/docs/en/api/beta/sessions/retrieve).
 
     - `beta_managed_agents_session_actor: object`
 
@@ -3417,7 +7390,7 @@ Upload File
 
 - `--file: string`
 
-  Body param: The file to upload
+  Body param: The file to upload. Only the final path component of the part's `filename` is kept; an absent or empty `filename` is replaced with `unnamed` plus the extension for the file's stored `mime_type`, when known.
 
   format: binary
 
@@ -3431,9 +7404,21 @@ Upload File
 
   Header param: Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `beta_file_metadata: object`
+
+  - `type: "file"`
+
+    Object type.
+
+    For files, this is always `"file"`.
 
   - `id: string`
 
@@ -3465,12 +7450,6 @@ Upload File
 
     minimum: 0
 
-  - `type: "file"`
-
-    Object type.
-
-    For files, this is always `"file"`.
-
   - `downloadable: optional boolean`
 
     Whether the file can be downloaded.
@@ -3485,13 +7464,13 @@ Upload File
 
     The scope of this file, indicating the context in which it was created (e.g., a session).
 
-    - `id: string`
-
-      The ID of the scoping resource (e.g., the session ID).
-
     - `type: "session"`
 
       The type of scope (e.g., `"session"`).
+
+    - `id: string`
+
+      The ID of the scoping resource (e.g., the session ID).
 
 #### Example
 
@@ -3554,6 +7533,12 @@ List Files
 
   Header param: Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `BetaFileListResponse: object`
@@ -3561,6 +7546,12 @@ List Files
   - `data: array of BetaFileMetadata`
 
     List of file metadata objects.
+
+    - `type: "file"`
+
+      Object type.
+
+      For files, this is always `"file"`.
 
     - `id: string`
 
@@ -3592,12 +7583,6 @@ List Files
 
       minimum: 0
 
-    - `type: "file"`
-
-      Object type.
-
-      For files, this is always `"file"`.
-
     - `downloadable: optional boolean`
 
       Whether the file can be downloaded.
@@ -3612,13 +7597,13 @@ List Files
 
       The scope of this file, indicating the context in which it was created (e.g., a session).
 
-      - `id: string`
-
-        The ID of the scoping resource (e.g., the session ID).
-
       - `type: "session"`
 
         The type of scope (e.g., `"session"`).
+
+      - `id: string`
+
+        The ID of the scoping resource (e.g., the session ID).
 
   - `next_page: optional string`
 
@@ -3673,6 +7658,12 @@ Download File
 
   Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `unnamed_schema_1: file path`
@@ -3703,9 +7694,21 @@ Get File Metadata
 
   Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `beta_file_metadata: object`
+
+  - `type: "file"`
+
+    Object type.
+
+    For files, this is always `"file"`.
 
   - `id: string`
 
@@ -3737,12 +7740,6 @@ Get File Metadata
 
     minimum: 0
 
-  - `type: "file"`
-
-    Object type.
-
-    For files, this is always `"file"`.
-
   - `downloadable: optional boolean`
 
     Whether the file can be downloaded.
@@ -3757,13 +7754,13 @@ Get File Metadata
 
     The scope of this file, indicating the context in which it was created (e.g., a session).
 
-    - `id: string`
-
-      The ID of the scoping resource (e.g., the session ID).
-
     - `type: "session"`
 
       The type of scope (e.g., `"session"`).
+
+    - `id: string`
+
+      The ID of the scoping resource (e.g., the session ID).
 
 #### Example
 
@@ -3810,19 +7807,25 @@ Delete File
 
   Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `beta_deleted_file: object`
-
-  - `id: string`
-
-    ID of the deleted file.
 
   - `type: optional "file_deleted"`
 
     Deleted object type.
 
     For file deletion, this is always `"file_deleted"`.
+
+  - `id: string`
+
+    ID of the deleted file.
 
 #### Example
 
@@ -3869,9 +7872,21 @@ Create Skill
 
   Header param: Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `beta_skill: object`
+
+  - `type: "skill"`
+
+    Object type.
+
+    For Skills, this is always `"skill"`.
 
   - `id: string`
 
@@ -3924,12 +7939,6 @@ Create Skill
       - `"anthropic_example"`
 
       - `"plugin"`
-
-  - `type: "skill"`
-
-    Object type.
-
-    For Skills, this is always `"skill"`.
 
   - `updated_at: string`
 
@@ -3998,6 +8007,12 @@ List Skills
 
   Header param: Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `BetaListSkillsResponse: object`
@@ -4005,6 +8020,12 @@ List Skills
   - `data: array of BetaSkill`
 
     List of skills.
+
+    - `type: "skill"`
+
+      Object type.
+
+      For Skills, this is always `"skill"`.
 
     - `id: string`
 
@@ -4057,12 +8078,6 @@ List Skills
         - `"anthropic_example"`
 
         - `"plugin"`
-
-    - `type: "skill"`
-
-      Object type.
-
-      For Skills, this is always `"skill"`.
 
     - `updated_at: string`
 
@@ -4124,9 +8139,21 @@ Get Skill
 
   Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `beta_skill: object`
+
+  - `type: "skill"`
+
+    Object type.
+
+    For Skills, this is always `"skill"`.
 
   - `id: string`
 
@@ -4180,12 +8207,6 @@ Get Skill
 
       - `"plugin"`
 
-  - `type: "skill"`
-
-    Object type.
-
-    For Skills, this is always `"skill"`.
-
   - `updated_at: string`
 
     ISO 8601 timestamp of when the skill was last updated.
@@ -4236,21 +8257,27 @@ Delete Skill
 
   Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `beta_deleted_skill: object`
-
-  - `id: string`
-
-    Unique identifier for the skill.
-
-    The format and length of IDs may change over time.
 
   - `type: "skill_deleted"`
 
     Deleted object type.
 
     For Skills, this is always `"skill_deleted"`.
+
+  - `id: string`
+
+    Unique identifier for the skill.
+
+    The format and length of IDs may change over time.
 
 #### Example
 
@@ -4297,9 +8324,21 @@ Create Skill Version
 
   Header param: Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `beta_skill_version: object`
+
+  - `type: "skill_version"`
+
+    Object type.
+
+    For Skill Versions, this is always `"skill_version"`.
 
   - `id: string`
 
@@ -4330,12 +8369,6 @@ Create Skill Version
     Unique identifier for the skill.
 
     The format and length of IDs may change over time.
-
-  - `type: "skill_version"`
-
-    Object type.
-
-    For Skill Versions, this is always `"skill_version"`.
 
 #### Example
 
@@ -4391,6 +8424,12 @@ List Skill Versions
 
   Header param: Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `BetaListSkillVersionsResponse: object`
@@ -4398,6 +8437,12 @@ List Skill Versions
   - `data: array of BetaSkillVersion`
 
     List of skills.
+
+    - `type: "skill_version"`
+
+      Object type.
+
+      For Skill Versions, this is always `"skill_version"`.
 
     - `id: string`
 
@@ -4428,12 +8473,6 @@ List Skill Versions
       Unique identifier for the skill.
 
       The format and length of IDs may change over time.
-
-    - `type: "skill_version"`
-
-      Object type.
-
-      For Skill Versions, this is always `"skill_version"`.
 
   - `next_page: string`
 
@@ -4493,6 +8532,12 @@ Download a skill version's content as a zip archive.
 
   Header param: Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `unnamed_schema_2: file path`
@@ -4532,9 +8577,21 @@ Get Skill Version
 
   Header param: Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `beta_skill_version: object`
+
+  - `type: "skill_version"`
+
+    Object type.
+
+    For Skill Versions, this is always `"skill_version"`.
 
   - `id: string`
 
@@ -4565,12 +8622,6 @@ Get Skill Version
     Unique identifier for the skill.
 
     The format and length of IDs may change over time.
-
-  - `type: "skill_version"`
-
-    Object type.
-
-    For Skill Versions, this is always `"skill_version"`.
 
 #### Example
 
@@ -4620,20 +8671,26 @@ Delete Skill Version
 
   Header param: Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `beta_deleted_skill_version: object`
-
-  - `id: string`
-
-    Unique identifier for this Skill Version. The id addresses the version in
-    paths and pins it in references.
 
   - `type: "skill_version_deleted"`
 
     Deleted object type.
 
     For Skill Versions, this is always `"skill_version_deleted"`.
+
+  - `id: string`
+
+    Unique identifier for this Skill Version. The id addresses the version in
+    paths and pins it in references.
 
 #### Example
 
@@ -4671,9 +8728,13 @@ Create User Profile
 
 - `--external-id: optional string`
 
-  Body param: Platform's own identifier for this user. Not enforced unique. Maximum 255 characters.
+  Body param: Platform's own identifier for this user. Not enforced unique. Maximum 255 characters. Accepted under the `user-profiles-2026-03-24` and `user-profiles-2026-08-18` beta headers; under `user-profiles-2026-09-04` send `external_user_details.reference_id` instead.
 
   minLength: 1, maxLength: 255
+
+- `--external-user-details: optional object`
+
+  Body param: Details about the entity this profile represents, as the platform states them. Every field is optional. Accepted under the `user-profiles-2026-09-04` beta header only.
 
 - `--external-user-onboarded-at: optional string`
 
@@ -4698,6 +8759,10 @@ Create User Profile
 #### Returns
 
 - `beta_user_profile: object`
+
+  - `type: "user_profile"`
+
+    Object type. Always `user_profile`.
 
   - `id: string`
 
@@ -4727,10 +8792,6 @@ Create User Profile
 
       - `"rejected"`
 
-  - `type: "user_profile"`
-
-    Object type. Always `user_profile`.
-
   - `updated_at: string`
 
     A timestamp in RFC 3339 format
@@ -4747,7 +8808,55 @@ Create User Profile
 
   - `external_id: optional string`
 
-    Platform's own identifier for this user. Not enforced unique.
+    Platform's own identifier for this user. Not enforced unique. Present under the `user-profiles-2026-03-24` and `user-profiles-2026-08-18` beta headers; under `user-profiles-2026-09-04` the value is `external_user_details.reference_id`.
+
+  - `external_user_details: optional object`
+
+    Details about the entity this profile represents, as the platform states them. Anthropic does not verify them. Every field is present, `null` until the platform supplies a value.
+
+    - `account_status: "active" or "suspended" or "blocked"`
+
+      The status of the entity's account on the platform, as the platform states it: `active`; `suspended`, when the platform has restricted the account and may restore it; or `blocked`, when the platform has barred it. It records the platform's decision only; the statuses in `trust_grants` are Anthropic's and do not follow it.
+
+      - `"active"`
+
+      - `"suspended"`
+
+      - `"blocked"`
+
+    - `country: string`
+
+      The country the platform associates with the entity, as an ISO 3166-1 alpha-2 code. `null` until the platform supplies one.
+
+    - `email_hash: string`
+
+      The platform-computed hash of the entity's email address. `null` until the platform supplies one.
+
+    - `entity_type: "individual" or "business" or "non_profit" or "government"`
+
+      What kind of entity the profile represents, as the platform states it: `individual`, `business`, `non_profit` or `government`.
+
+      - `"individual"`
+
+      - `"business"`
+
+      - `"non_profit"`
+
+      - `"government"`
+
+    - `name_hash: string`
+
+      The platform-computed hash of the entity's name. `null` until the platform supplies one.
+
+    - `onboarded_at: string`
+
+      A timestamp in RFC 3339 format
+
+      format: date-time
+
+    - `reference_id: string`
+
+      The platform's own reference for the entity. `null` until the platform supplies one.
 
   - `external_user_onboarded_at: optional string`
 
@@ -4782,6 +8891,15 @@ ant beta:user-profiles create \
   "updated_at": "2026-03-15T10:00:00Z",
   "access_type": "application",
   "external_id": "user_12345",
+  "external_user_details": {
+    "account_status": "active",
+    "country": "country",
+    "email_hash": "email_hash",
+    "entity_type": "individual",
+    "name_hash": "name_hash",
+    "onboarded_at": "2019-12-27T18:11:19.117Z",
+    "reference_id": "reference_id"
+  },
   "external_user_onboarded_at": "2024-11-02T08:15:00Z",
   "name": "Example User"
 }
@@ -4827,6 +8945,10 @@ List User Profiles
 
     User profiles on this page.
 
+    - `type: "user_profile"`
+
+      Object type. Always `user_profile`.
+
     - `id: string`
 
       Unique identifier for this user profile, prefixed `uprof_`.
@@ -4855,10 +8977,6 @@ List User Profiles
 
         - `"rejected"`
 
-    - `type: "user_profile"`
-
-      Object type. Always `user_profile`.
-
     - `updated_at: string`
 
       A timestamp in RFC 3339 format
@@ -4875,7 +8993,55 @@ List User Profiles
 
     - `external_id: optional string`
 
-      Platform's own identifier for this user. Not enforced unique.
+      Platform's own identifier for this user. Not enforced unique. Present under the `user-profiles-2026-03-24` and `user-profiles-2026-08-18` beta headers; under `user-profiles-2026-09-04` the value is `external_user_details.reference_id`.
+
+    - `external_user_details: optional object`
+
+      Details about the entity this profile represents, as the platform states them. Anthropic does not verify them. Every field is present, `null` until the platform supplies a value.
+
+      - `account_status: "active" or "suspended" or "blocked"`
+
+        The status of the entity's account on the platform, as the platform states it: `active`; `suspended`, when the platform has restricted the account and may restore it; or `blocked`, when the platform has barred it. It records the platform's decision only; the statuses in `trust_grants` are Anthropic's and do not follow it.
+
+        - `"active"`
+
+        - `"suspended"`
+
+        - `"blocked"`
+
+      - `country: string`
+
+        The country the platform associates with the entity, as an ISO 3166-1 alpha-2 code. `null` until the platform supplies one.
+
+      - `email_hash: string`
+
+        The platform-computed hash of the entity's email address. `null` until the platform supplies one.
+
+      - `entity_type: "individual" or "business" or "non_profit" or "government"`
+
+        What kind of entity the profile represents, as the platform states it: `individual`, `business`, `non_profit` or `government`.
+
+        - `"individual"`
+
+        - `"business"`
+
+        - `"non_profit"`
+
+        - `"government"`
+
+      - `name_hash: string`
+
+        The platform-computed hash of the entity's name. `null` until the platform supplies one.
+
+      - `onboarded_at: string`
+
+        A timestamp in RFC 3339 format
+
+        format: date-time
+
+      - `reference_id: string`
+
+        The platform's own reference for the entity. `null` until the platform supplies one.
 
     - `external_user_onboarded_at: optional string`
 
@@ -4916,6 +9082,15 @@ ant beta:user-profiles list \
       "updated_at": "2026-03-15T10:00:00Z",
       "access_type": "application",
       "external_id": "user_12345",
+      "external_user_details": {
+        "account_status": "active",
+        "country": "country",
+        "email_hash": "email_hash",
+        "entity_type": "individual",
+        "name_hash": "name_hash",
+        "onboarded_at": "2019-12-27T18:11:19.117Z",
+        "reference_id": "reference_id"
+      },
       "external_user_onboarded_at": "2024-11-02T08:15:00Z",
       "name": "Example User"
     }
@@ -4946,6 +9121,10 @@ Get User Profile
 
 - `beta_user_profile: object`
 
+  - `type: "user_profile"`
+
+    Object type. Always `user_profile`.
+
   - `id: string`
 
     Unique identifier for this user profile, prefixed `uprof_`.
@@ -4974,10 +9153,6 @@ Get User Profile
 
       - `"rejected"`
 
-  - `type: "user_profile"`
-
-    Object type. Always `user_profile`.
-
   - `updated_at: string`
 
     A timestamp in RFC 3339 format
@@ -4994,7 +9169,55 @@ Get User Profile
 
   - `external_id: optional string`
 
-    Platform's own identifier for this user. Not enforced unique.
+    Platform's own identifier for this user. Not enforced unique. Present under the `user-profiles-2026-03-24` and `user-profiles-2026-08-18` beta headers; under `user-profiles-2026-09-04` the value is `external_user_details.reference_id`.
+
+  - `external_user_details: optional object`
+
+    Details about the entity this profile represents, as the platform states them. Anthropic does not verify them. Every field is present, `null` until the platform supplies a value.
+
+    - `account_status: "active" or "suspended" or "blocked"`
+
+      The status of the entity's account on the platform, as the platform states it: `active`; `suspended`, when the platform has restricted the account and may restore it; or `blocked`, when the platform has barred it. It records the platform's decision only; the statuses in `trust_grants` are Anthropic's and do not follow it.
+
+      - `"active"`
+
+      - `"suspended"`
+
+      - `"blocked"`
+
+    - `country: string`
+
+      The country the platform associates with the entity, as an ISO 3166-1 alpha-2 code. `null` until the platform supplies one.
+
+    - `email_hash: string`
+
+      The platform-computed hash of the entity's email address. `null` until the platform supplies one.
+
+    - `entity_type: "individual" or "business" or "non_profit" or "government"`
+
+      What kind of entity the profile represents, as the platform states it: `individual`, `business`, `non_profit` or `government`.
+
+      - `"individual"`
+
+      - `"business"`
+
+      - `"non_profit"`
+
+      - `"government"`
+
+    - `name_hash: string`
+
+      The platform-computed hash of the entity's name. `null` until the platform supplies one.
+
+    - `onboarded_at: string`
+
+      A timestamp in RFC 3339 format
+
+      format: date-time
+
+    - `reference_id: string`
+
+      The platform's own reference for the entity. `null` until the platform supplies one.
 
   - `external_user_onboarded_at: optional string`
 
@@ -5030,6 +9253,15 @@ ant beta:user-profiles retrieve \
   "updated_at": "2026-03-15T10:00:00Z",
   "access_type": "application",
   "external_id": "user_12345",
+  "external_user_details": {
+    "account_status": "active",
+    "country": "country",
+    "email_hash": "email_hash",
+    "entity_type": "individual",
+    "name_hash": "name_hash",
+    "onboarded_at": "2019-12-27T18:11:19.117Z",
+    "reference_id": "reference_id"
+  },
   "external_user_onboarded_at": "2024-11-02T08:15:00Z",
   "name": "Example User"
 }
@@ -5055,9 +9287,13 @@ Update User Profile
 
 - `--external-id: optional string`
 
-  Body param: If present, replaces the stored external_id. Omit to leave unchanged. Maximum 255 characters.
+  Body param: If present, replaces the stored external_id. Omit to leave unchanged. Maximum 255 characters. Accepted under the `user-profiles-2026-03-24` and `user-profiles-2026-08-18` beta headers; under `user-profiles-2026-09-04` send `external_user_details.reference_id` instead.
 
   minLength: 1, maxLength: 255
+
+- `--external-user-details: optional object`
+
+  Body param: Details about the entity this profile represents, as the platform states them. Each field sent replaces the stored value; omit a field to leave it unchanged. Once set, a value cannot be cleared and `null` is rejected. Accepted under the `user-profiles-2026-09-04` beta header only.
 
 - `--external-user-onboarded-at: optional string`
 
@@ -5082,6 +9318,10 @@ Update User Profile
 #### Returns
 
 - `beta_user_profile: object`
+
+  - `type: "user_profile"`
+
+    Object type. Always `user_profile`.
 
   - `id: string`
 
@@ -5111,10 +9351,6 @@ Update User Profile
 
       - `"rejected"`
 
-  - `type: "user_profile"`
-
-    Object type. Always `user_profile`.
-
   - `updated_at: string`
 
     A timestamp in RFC 3339 format
@@ -5131,7 +9367,55 @@ Update User Profile
 
   - `external_id: optional string`
 
-    Platform's own identifier for this user. Not enforced unique.
+    Platform's own identifier for this user. Not enforced unique. Present under the `user-profiles-2026-03-24` and `user-profiles-2026-08-18` beta headers; under `user-profiles-2026-09-04` the value is `external_user_details.reference_id`.
+
+  - `external_user_details: optional object`
+
+    Details about the entity this profile represents, as the platform states them. Anthropic does not verify them. Every field is present, `null` until the platform supplies a value.
+
+    - `account_status: "active" or "suspended" or "blocked"`
+
+      The status of the entity's account on the platform, as the platform states it: `active`; `suspended`, when the platform has restricted the account and may restore it; or `blocked`, when the platform has barred it. It records the platform's decision only; the statuses in `trust_grants` are Anthropic's and do not follow it.
+
+      - `"active"`
+
+      - `"suspended"`
+
+      - `"blocked"`
+
+    - `country: string`
+
+      The country the platform associates with the entity, as an ISO 3166-1 alpha-2 code. `null` until the platform supplies one.
+
+    - `email_hash: string`
+
+      The platform-computed hash of the entity's email address. `null` until the platform supplies one.
+
+    - `entity_type: "individual" or "business" or "non_profit" or "government"`
+
+      What kind of entity the profile represents, as the platform states it: `individual`, `business`, `non_profit` or `government`.
+
+      - `"individual"`
+
+      - `"business"`
+
+      - `"non_profit"`
+
+      - `"government"`
+
+    - `name_hash: string`
+
+      The platform-computed hash of the entity's name. `null` until the platform supplies one.
+
+    - `onboarded_at: string`
+
+      A timestamp in RFC 3339 format
+
+      format: date-time
+
+    - `reference_id: string`
+
+      The platform's own reference for the entity. `null` until the platform supplies one.
 
   - `external_user_onboarded_at: optional string`
 
@@ -5167,6 +9451,15 @@ ant beta:user-profiles update \
   "updated_at": "2026-03-15T10:00:00Z",
   "access_type": "application",
   "external_id": "user_12345",
+  "external_user_details": {
+    "account_status": "active",
+    "country": "country",
+    "email_hash": "email_hash",
+    "entity_type": "individual",
+    "name_hash": "name_hash",
+    "onboarded_at": "2019-12-27T18:11:19.117Z",
+    "reference_id": "reference_id"
+  },
   "external_user_onboarded_at": "2024-11-02T08:15:00Z",
   "name": "Example User"
 }
@@ -5194,15 +9487,15 @@ Create Enrollment URL
 
 - `beta_user_profile_enrollment_url: object`
 
+  - `type: "enrollment_url"`
+
+    Object type. Always `enrollment_url`.
+
   - `expires_at: string`
 
     A timestamp in RFC 3339 format
 
     format: date-time
-
-  - `type: "enrollment_url"`
-
-    Object type. Always `enrollment_url`.
 
   - `url: string`
 
@@ -5260,11 +9553,19 @@ Create a Dream
 
   Header param: Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `beta_dream: object`
 
   An asynchronous memory-consolidation job that reads a memory store plus a set of session transcripts and writes consolidated memories into an output memory store — a new store by default, or an existing store chosen via output_behavior. The Dreams API is in research preview: the request and response shapes are volatile and may change without the deprecation period that applies to generally-available endpoints.
+
+  - `type: "dream"`
 
   - `id: string`
 
@@ -5290,9 +9591,9 @@ Create a Dream
 
     Failure detail for a Dream whose `status` is `failed`.
 
-    - `message: string`
-
     - `type: string`
+
+    - `message: string`
 
   - `inputs: array of BetaDreamInput`
 
@@ -5300,19 +9601,19 @@ Create a Dream
 
       An input memory store the dream reads from. The dream never mutates this store unless it is also the destination: with output_behavior {type: "update_existing"} the job consolidates this store in place.
 
+      - `type: "memory_store"`
+
       - `memory_store_id: string`
 
         minLength: 1
-
-      - `type: "memory_store"`
 
     - `beta_dream_sessions_input: object`
 
       Input session transcripts the dream reads.
 
-      - `session_ids: array of string`
-
       - `type: "sessions"`
+
+      - `session_ids: array of string`
 
   - `instructions: string`
 
@@ -5348,17 +9649,17 @@ Create a Dream
 
       The job writes the consolidated memories into this existing memory store instead of creating one. In EAP the store must be the job's own memory_store input, so the job consolidates the store in place.
 
+      - `type: "update_existing"`
+
       - `memory_store_id: string`
 
         minLength: 1
 
-      - `type: "update_existing"`
-
   - `outputs: array of BetaDreamOutput`
 
-    - `memory_store_id: string`
-
     - `type: "memory_store"`
+
+    - `memory_store_id: string`
 
   - `session_id: string`
 
@@ -5375,8 +9676,6 @@ Create a Dream
     - `"failed"`
 
     - `"canceled"`
-
-  - `type: "dream"`
 
   - `usage: object`
 
@@ -5503,11 +9802,19 @@ List Dreams
 
   Header param: Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `BetaListDreamsResponse: object`
 
   - `data: array of BetaDream`
+
+    - `type: "dream"`
 
     - `id: string`
 
@@ -5533,9 +9840,9 @@ List Dreams
 
       Failure detail for a Dream whose `status` is `failed`.
 
-      - `message: string`
-
       - `type: string`
+
+      - `message: string`
 
     - `inputs: array of BetaDreamInput`
 
@@ -5543,19 +9850,19 @@ List Dreams
 
         An input memory store the dream reads from. The dream never mutates this store unless it is also the destination: with output_behavior {type: "update_existing"} the job consolidates this store in place.
 
+        - `type: "memory_store"`
+
         - `memory_store_id: string`
 
           minLength: 1
-
-        - `type: "memory_store"`
 
       - `beta_dream_sessions_input: object`
 
         Input session transcripts the dream reads.
 
-        - `session_ids: array of string`
-
         - `type: "sessions"`
+
+        - `session_ids: array of string`
 
     - `instructions: string`
 
@@ -5591,17 +9898,17 @@ List Dreams
 
         The job writes the consolidated memories into this existing memory store instead of creating one. In EAP the store must be the job's own memory_store input, so the job consolidates the store in place.
 
+        - `type: "update_existing"`
+
         - `memory_store_id: string`
 
           minLength: 1
 
-        - `type: "update_existing"`
-
     - `outputs: array of BetaDreamOutput`
 
-      - `memory_store_id: string`
-
       - `type: "memory_store"`
+
+      - `memory_store_id: string`
 
     - `session_id: string`
 
@@ -5618,8 +9925,6 @@ List Dreams
       - `"failed"`
 
       - `"canceled"`
-
-    - `type: "dream"`
 
     - `usage: object`
 
@@ -5725,11 +10030,19 @@ Get a Dream
 
   Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `beta_dream: object`
 
   An asynchronous memory-consolidation job that reads a memory store plus a set of session transcripts and writes consolidated memories into an output memory store — a new store by default, or an existing store chosen via output_behavior. The Dreams API is in research preview: the request and response shapes are volatile and may change without the deprecation period that applies to generally-available endpoints.
+
+  - `type: "dream"`
 
   - `id: string`
 
@@ -5755,9 +10068,9 @@ Get a Dream
 
     Failure detail for a Dream whose `status` is `failed`.
 
-    - `message: string`
-
     - `type: string`
+
+    - `message: string`
 
   - `inputs: array of BetaDreamInput`
 
@@ -5765,19 +10078,19 @@ Get a Dream
 
       An input memory store the dream reads from. The dream never mutates this store unless it is also the destination: with output_behavior {type: "update_existing"} the job consolidates this store in place.
 
+      - `type: "memory_store"`
+
       - `memory_store_id: string`
 
         minLength: 1
-
-      - `type: "memory_store"`
 
     - `beta_dream_sessions_input: object`
 
       Input session transcripts the dream reads.
 
-      - `session_ids: array of string`
-
       - `type: "sessions"`
+
+      - `session_ids: array of string`
 
   - `instructions: string`
 
@@ -5813,17 +10126,17 @@ Get a Dream
 
       The job writes the consolidated memories into this existing memory store instead of creating one. In EAP the store must be the job's own memory_store input, so the job consolidates the store in place.
 
+      - `type: "update_existing"`
+
       - `memory_store_id: string`
 
         minLength: 1
 
-      - `type: "update_existing"`
-
   - `outputs: array of BetaDreamOutput`
 
-    - `memory_store_id: string`
-
     - `type: "memory_store"`
+
+    - `memory_store_id: string`
 
   - `session_id: string`
 
@@ -5840,8 +10153,6 @@ Get a Dream
     - `"failed"`
 
     - `"canceled"`
-
-  - `type: "dream"`
 
   - `usage: object`
 
@@ -5941,11 +10252,19 @@ Cancel a Dream
 
   Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `beta_dream: object`
 
   An asynchronous memory-consolidation job that reads a memory store plus a set of session transcripts and writes consolidated memories into an output memory store — a new store by default, or an existing store chosen via output_behavior. The Dreams API is in research preview: the request and response shapes are volatile and may change without the deprecation period that applies to generally-available endpoints.
+
+  - `type: "dream"`
 
   - `id: string`
 
@@ -5971,9 +10290,9 @@ Cancel a Dream
 
     Failure detail for a Dream whose `status` is `failed`.
 
-    - `message: string`
-
     - `type: string`
+
+    - `message: string`
 
   - `inputs: array of BetaDreamInput`
 
@@ -5981,19 +10300,19 @@ Cancel a Dream
 
       An input memory store the dream reads from. The dream never mutates this store unless it is also the destination: with output_behavior {type: "update_existing"} the job consolidates this store in place.
 
+      - `type: "memory_store"`
+
       - `memory_store_id: string`
 
         minLength: 1
-
-      - `type: "memory_store"`
 
     - `beta_dream_sessions_input: object`
 
       Input session transcripts the dream reads.
 
-      - `session_ids: array of string`
-
       - `type: "sessions"`
+
+      - `session_ids: array of string`
 
   - `instructions: string`
 
@@ -6029,17 +10348,17 @@ Cancel a Dream
 
       The job writes the consolidated memories into this existing memory store instead of creating one. In EAP the store must be the job's own memory_store input, so the job consolidates the store in place.
 
+      - `type: "update_existing"`
+
       - `memory_store_id: string`
 
         minLength: 1
 
-      - `type: "update_existing"`
-
   - `outputs: array of BetaDreamOutput`
 
-    - `memory_store_id: string`
-
     - `type: "memory_store"`
+
+    - `memory_store_id: string`
 
   - `session_id: string`
 
@@ -6056,8 +10375,6 @@ Cancel a Dream
     - `"failed"`
 
     - `"canceled"`
-
-  - `type: "dream"`
 
   - `usage: object`
 
@@ -6157,11 +10474,19 @@ Archive a Dream
 
   Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `beta_dream: object`
 
   An asynchronous memory-consolidation job that reads a memory store plus a set of session transcripts and writes consolidated memories into an output memory store — a new store by default, or an existing store chosen via output_behavior. The Dreams API is in research preview: the request and response shapes are volatile and may change without the deprecation period that applies to generally-available endpoints.
+
+  - `type: "dream"`
 
   - `id: string`
 
@@ -6187,9 +10512,9 @@ Archive a Dream
 
     Failure detail for a Dream whose `status` is `failed`.
 
-    - `message: string`
-
     - `type: string`
+
+    - `message: string`
 
   - `inputs: array of BetaDreamInput`
 
@@ -6197,19 +10522,19 @@ Archive a Dream
 
       An input memory store the dream reads from. The dream never mutates this store unless it is also the destination: with output_behavior {type: "update_existing"} the job consolidates this store in place.
 
+      - `type: "memory_store"`
+
       - `memory_store_id: string`
 
         minLength: 1
-
-      - `type: "memory_store"`
 
     - `beta_dream_sessions_input: object`
 
       Input session transcripts the dream reads.
 
-      - `session_ids: array of string`
-
       - `type: "sessions"`
+
+      - `session_ids: array of string`
 
   - `instructions: string`
 
@@ -6245,17 +10570,17 @@ Archive a Dream
 
       The job writes the consolidated memories into this existing memory store instead of creating one. In EAP the store must be the job's own memory_store input, so the job consolidates the store in place.
 
+      - `type: "update_existing"`
+
       - `memory_store_id: string`
 
         minLength: 1
 
-      - `type: "update_existing"`
-
   - `outputs: array of BetaDreamOutput`
 
-    - `memory_store_id: string`
-
     - `type: "memory_store"`
+
+    - `memory_store_id: string`
 
   - `session_id: string`
 
@@ -6272,8 +10597,6 @@ Archive a Dream
     - `"failed"`
 
     - `"canceled"`
-
-  - `type: "dream"`
 
   - `usage: object`
 
@@ -6379,11 +10702,19 @@ Creates a tunnel. Creation allocates a fresh hostname and provisions the tunnel;
 
   Header param: Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `beta_tunnel: object`
 
   An MCP tunnel.
+
+  - `type: "tunnel"`
 
   - `id: string`
 
@@ -6408,8 +10739,6 @@ Creates a tunnel. Creation allocates a fresh hostname and provisions the tunnel;
   - `domain: string`
 
     Anthropic-assigned hostname for the tunnel. MCP server URLs whose host is a subdomain of this value are routed through the tunnel. Globally unique and never reused, even after the tunnel is archived.
-
-  - `type: "tunnel"`
 
 #### Example
 
@@ -6451,11 +10780,19 @@ Fetches a tunnel by ID.
 
   Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `beta_tunnel: object`
 
   An MCP tunnel.
+
+  - `type: "tunnel"`
 
   - `id: string`
 
@@ -6480,8 +10817,6 @@ Fetches a tunnel by ID.
   - `domain: string`
 
     Anthropic-assigned hostname for the tunnel. MCP server URLs whose host is a subdomain of this value are routed through the tunnel. Globally unique and never reused, even after the tunnel is archived.
-
-  - `type: "tunnel"`
 
 #### Example
 
@@ -6534,6 +10869,12 @@ Lists tunnels. Results are ordered by creation time, newest first; archived tunn
 
   Header param: Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `BetaListTunnelsResponse: object`
@@ -6543,6 +10884,8 @@ Lists tunnels. Results are ordered by creation time, newest first; archived tunn
   - `data: array of BetaTunnel`
 
     List of tunnels, ordered by created_at descending.
+
+    - `type: "tunnel"`
 
     - `id: string`
 
@@ -6567,8 +10910,6 @@ Lists tunnels. Results are ordered by creation time, newest first; archived tunn
     - `domain: string`
 
       Anthropic-assigned hostname for the tunnel. MCP server URLs whose host is a subdomain of this value are routed through the tunnel. Globally unique and never reused, even after the tunnel is archived.
-
-    - `type: "tunnel"`
 
   - `next_page: string`
 
@@ -6619,11 +10960,19 @@ Archives a tunnel. Archival is irreversible: every non-archived certificate on t
 
   Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `beta_tunnel: object`
 
   An MCP tunnel.
+
+  - `type: "tunnel"`
 
   - `id: string`
 
@@ -6648,8 +10997,6 @@ Archives a tunnel. Archival is irreversible: every non-archived certificate on t
   - `domain: string`
 
     Anthropic-assigned hostname for the tunnel. MCP server URLs whose host is a subdomain of this value are routed through the tunnel. Globally unique and never reused, even after the tunnel is archived.
-
-  - `type: "tunnel"`
 
 #### Example
 
@@ -6692,11 +11039,19 @@ Reveals a tunnel's connector token. The value is fetched live on each call; Anth
 
   Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `beta_tunnel_token: object`
 
   A tunnel's connector token.
+
+  - `type: "tunnel_token"`
 
   - `id: string`
 
@@ -6705,8 +11060,6 @@ Reveals a tunnel's connector token. The value is fetched live on each call; Anth
   - `tunnel_token: string`
 
     The connector token used to run the tunnel. Treat as a credential.
-
-  - `type: "tunnel_token"`
 
 #### Example
 
@@ -6752,11 +11105,19 @@ Rotates a tunnel's connector token. Rotation invalidates the current token for n
 
   Header param: Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `beta_tunnel_token: object`
 
   A tunnel's connector token.
+
+  - `type: "tunnel_token"`
 
   - `id: string`
 
@@ -6765,8 +11126,6 @@ Rotates a tunnel's connector token. Rotation invalidates the current token for n
   - `tunnel_token: string`
 
     The connector token used to run the tunnel. Treat as a credential.
-
-  - `type: "tunnel_token"`
 
 #### Example
 
@@ -6814,11 +11173,19 @@ Registers a public CA certificate on a tunnel. Anthropic verifies the gateway's 
 
   Header param: Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `beta_tunnel_certificate: object`
 
   A CA certificate attached to a tunnel.
+
+  - `type: "tunnel_certificate"`
 
   - `id: string`
 
@@ -6849,8 +11216,6 @@ Registers a public CA certificate on a tunnel. Anthropic verifies the gateway's 
   - `tunnel_id: string`
 
     ID of the tunnel the certificate is registered against.
-
-  - `type: "tunnel_certificate"`
 
 #### Example
 
@@ -6899,11 +11264,19 @@ Fetches a tunnel certificate by ID.
 
   Header param: Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `beta_tunnel_certificate: object`
 
   A CA certificate attached to a tunnel.
+
+  - `type: "tunnel_certificate"`
 
   - `id: string`
 
@@ -6934,8 +11307,6 @@ Fetches a tunnel certificate by ID.
   - `tunnel_id: string`
 
     ID of the tunnel the certificate is registered against.
-
-  - `type: "tunnel_certificate"`
 
 #### Example
 
@@ -6994,6 +11365,12 @@ Lists the certificates registered on a tunnel. Archived certificates are exclude
 
   Header param: Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `BetaListTunnelCertificatesResponse: object`
@@ -7003,6 +11380,8 @@ Lists the certificates registered on a tunnel. Archived certificates are exclude
   - `data: array of BetaTunnelCertificate`
 
     List of certificates, ordered by created_at descending.
+
+    - `type: "tunnel_certificate"`
 
     - `id: string`
 
@@ -7033,8 +11412,6 @@ Lists the certificates registered on a tunnel. Archived certificates are exclude
     - `tunnel_id: string`
 
       ID of the tunnel the certificate is registered against.
-
-    - `type: "tunnel_certificate"`
 
   - `next_page: string`
 
@@ -7091,11 +11468,19 @@ Archives a tunnel certificate, removing it from the set Anthropic trusts for the
 
   Header param: Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `beta_tunnel_certificate: object`
 
   A CA certificate attached to a tunnel.
+
+  - `type: "tunnel_certificate"`
 
   - `id: string`
 
@@ -7126,8 +11511,6 @@ Archives a tunnel certificate, removing it from the set Anthropic trusts for the
   - `tunnel_id: string`
 
     ID of the tunnel the certificate is registered against.
-
-  - `type: "tunnel_certificate"`
 
 #### Example
 
@@ -7166,6 +11549,12 @@ Retrieve information about the organization associated with the authenticated AP
 
 - `beta_organization: object`
 
+  - `type: "organization"`
+
+    Object type.
+
+    For Organizations, this is always `"organization"`.
+
   - `id: string`
 
     ID of the Organization.
@@ -7175,12 +11564,6 @@ Retrieve information about the organization associated with the authenticated AP
   - `name: string`
 
     Name of the Organization.
-
-  - `type: "organization"`
-
-    Object type.
-
-    For Organizations, this is always `"organization"`.
 
 #### Example
 
@@ -7245,6 +11628,12 @@ List API Keys
 
   - `data: array of BetaAPIKey`
 
+    - `type: "api_key"`
+
+      Object type.
+
+      For API Keys, this is always `"api_key"`.
+
     - `id: string`
 
       ID of the API key.
@@ -7261,10 +11650,6 @@ List API Keys
       creator is not recorded (legacy, workload-identity-federated, or
       system-created keys).
 
-      - `id: string`
-
-        ID of the actor that created the object.
-
       - `type: "service_account" or "user"`
 
         Type of the actor that created the object.
@@ -7272,6 +11657,10 @@ List API Keys
         - `"service_account"`
 
         - `"user"`
+
+      - `id: string`
+
+        ID of the actor that created the object.
 
     - `expires_at: string`
 
@@ -7303,13 +11692,13 @@ List API Keys
 
       - `beta_api_key_service_account_actor: object`
 
-        - `service_account_id: string`
-
-          ID of the Service Account the API key acts as.
-
         - `type: "service_account_actor"`
 
           Principal type. Always `"service_account_actor"` for a Service Account.
+
+        - `service_account_id: string`
+
+          ID of the Service Account the API key acts as.
 
     - `scope: BetaAPIKeyOrganizationScope or BetaAPIKeyWorkspaceScope`
 
@@ -7342,12 +11731,6 @@ List API Keys
       - `"expired"`
 
       - `"inactive"`
-
-    - `type: "api_key"`
-
-      Object type.
-
-      For API Keys, this is always `"api_key"`.
 
     - `workspace_id: string`
 
@@ -7408,13 +11791,13 @@ ant beta:organization:api-keys list \
 }
 ```
 
-### Get API Key
+### Retrieve API Key (Admin API)
 
 `$ ant beta:organization:api-keys retrieve`
 
 **GET** `/v1/organizations/api_keys/{api_key_id}`
 
-Get API Key
+Retrieve information about a single API key in your organization, looked up by its ID. This Admin API endpoint requires an Admin API key, is intended for programmatic key management, and never returns the key's secret value. To view or create your own API keys, go to [API keys](https://platform.claude.com/settings/keys) in the Claude Console.
 
 #### Parameters
 
@@ -7425,6 +11808,12 @@ Get API Key
 #### Returns
 
 - `beta_api_key: object`
+
+  - `type: "api_key"`
+
+    Object type.
+
+    For API Keys, this is always `"api_key"`.
 
   - `id: string`
 
@@ -7442,10 +11831,6 @@ Get API Key
     creator is not recorded (legacy, workload-identity-federated, or
     system-created keys).
 
-    - `id: string`
-
-      ID of the actor that created the object.
-
     - `type: "service_account" or "user"`
 
       Type of the actor that created the object.
@@ -7453,6 +11838,10 @@ Get API Key
       - `"service_account"`
 
       - `"user"`
+
+    - `id: string`
+
+      ID of the actor that created the object.
 
   - `expires_at: string`
 
@@ -7484,13 +11873,13 @@ Get API Key
 
     - `beta_api_key_service_account_actor: object`
 
-      - `service_account_id: string`
-
-        ID of the Service Account the API key acts as.
-
       - `type: "service_account_actor"`
 
         Principal type. Always `"service_account_actor"` for a Service Account.
+
+      - `service_account_id: string`
+
+        ID of the Service Account the API key acts as.
 
   - `scope: BetaAPIKeyOrganizationScope or BetaAPIKeyWorkspaceScope`
 
@@ -7523,12 +11912,6 @@ Get API Key
     - `"expired"`
 
     - `"inactive"`
-
-  - `type: "api_key"`
-
-    Object type.
-
-    For API Keys, this is always `"api_key"`.
 
   - `workspace_id: string`
 
@@ -7599,6 +11982,12 @@ Update API Key
 
 - `beta_api_key: object`
 
+  - `type: "api_key"`
+
+    Object type.
+
+    For API Keys, this is always `"api_key"`.
+
   - `id: string`
 
     ID of the API key.
@@ -7615,10 +12004,6 @@ Update API Key
     creator is not recorded (legacy, workload-identity-federated, or
     system-created keys).
 
-    - `id: string`
-
-      ID of the actor that created the object.
-
     - `type: "service_account" or "user"`
 
       Type of the actor that created the object.
@@ -7626,6 +12011,10 @@ Update API Key
       - `"service_account"`
 
       - `"user"`
+
+    - `id: string`
+
+      ID of the actor that created the object.
 
   - `expires_at: string`
 
@@ -7657,13 +12046,13 @@ Update API Key
 
     - `beta_api_key_service_account_actor: object`
 
-      - `service_account_id: string`
-
-        ID of the Service Account the API key acts as.
-
       - `type: "service_account_actor"`
 
         Principal type. Always `"service_account_actor"` for a Service Account.
+
+      - `service_account_id: string`
+
+        ID of the Service Account the API key acts as.
 
   - `scope: BetaAPIKeyOrganizationScope or BetaAPIKeyWorkspaceScope`
 
@@ -7696,12 +12085,6 @@ Update API Key
     - `"expired"`
 
     - `"inactive"`
-
-  - `type: "api_key"`
-
-    Object type.
-
-    For API Keys, this is always `"api_key"`.
 
   - `workspace_id: string`
 
@@ -7780,6 +12163,8 @@ Create an external key config owned by the caller's organization.
   workspace references it, the provider fields become effectively immutable
   (existing encrypted data needs the config for decrypt).
 
+  - `type: "external_key"`
+
   - `id: string`
 
     Identifier of the external key config. A tagged ID prefixed `ekey_`, or — for organizations on the Claude Platform on AWS — the AWS KMS key ARN.
@@ -7814,13 +12199,13 @@ Create an external key config owned by the caller's organization.
 
     - `beta_aws_external_key_config: object`
 
+      - `type: "aws"`
+
       - `kms_arn: string`
 
         Full ARN of the AWS KMS key. On Claude Platform on AWS the key must be a single-Region key in your organization's own AWS account; cross-account keys, multi-Region keys, and alias ARNs are rejected.
 
         maxLength: 2048
-
-      - `type: "aws"`
 
       - `region: optional string`
 
@@ -7834,13 +12219,15 @@ Create an external key config owned by the caller's organization.
 
     - `beta_gcp_external_key_config: object`
 
+      - `type: "gcp"`
+
       - `key_name: string`
 
         Full resource name of the Cloud KMS key.
 
-      - `type: "gcp"`
-
     - `beta_azure_external_key_config: object`
+
+      - `type: "azure"`
 
       - `key_name: string`
 
@@ -7850,8 +12237,6 @@ Create an external key config owned by the caller's organization.
 
         Azure AD tenant ID.
 
-      - `type: "azure"`
-
       - `vault_uri: string`
 
         Key Vault data-plane URI — `https://{vault-name}.vault.azure.net` or `https://{hsm-name}.managedhsm.azure.net`.
@@ -7859,8 +12244,6 @@ Create an external key config owned by the caller's organization.
       - `client_id: optional string`
 
         Azure AD application (client) ID. Omit to use Anthropic's multitenant app. Provide only if using a single-tenant app registration in the customer's directory.
-
-  - `type: "external_key"`
 
   - `updated_at: string`
 
@@ -7927,6 +12310,8 @@ Results are ordered by creation time (newest first). Use the
 
   - `data: array of BetaExternalKey`
 
+    - `type: "external_key"`
+
     - `id: string`
 
       Identifier of the external key config. A tagged ID prefixed `ekey_`, or — for organizations on the Claude Platform on AWS — the AWS KMS key ARN.
@@ -7961,13 +12346,13 @@ Results are ordered by creation time (newest first). Use the
 
       - `beta_aws_external_key_config: object`
 
+        - `type: "aws"`
+
         - `kms_arn: string`
 
           Full ARN of the AWS KMS key. On Claude Platform on AWS the key must be a single-Region key in your organization's own AWS account; cross-account keys, multi-Region keys, and alias ARNs are rejected.
 
           maxLength: 2048
-
-        - `type: "aws"`
 
         - `region: optional string`
 
@@ -7981,13 +12366,15 @@ Results are ordered by creation time (newest first). Use the
 
       - `beta_gcp_external_key_config: object`
 
+        - `type: "gcp"`
+
         - `key_name: string`
 
           Full resource name of the Cloud KMS key.
 
-        - `type: "gcp"`
-
       - `beta_azure_external_key_config: object`
+
+        - `type: "azure"`
 
         - `key_name: string`
 
@@ -7997,8 +12384,6 @@ Results are ordered by creation time (newest first). Use the
 
           Azure AD tenant ID.
 
-        - `type: "azure"`
-
         - `vault_uri: string`
 
           Key Vault data-plane URI — `https://{vault-name}.vault.azure.net` or `https://{hsm-name}.managedhsm.azure.net`.
@@ -8006,8 +12391,6 @@ Results are ordered by creation time (newest first). Use the
         - `client_id: optional string`
 
           Azure AD application (client) ID. Omit to use Anthropic's multitenant app. Provide only if using a single-tenant app registration in the customer's directory.
-
-    - `type: "external_key"`
 
     - `updated_at: string`
 
@@ -8077,6 +12460,8 @@ Retrieve a single external key config in the caller's organization by ID.
   workspace references it, the provider fields become effectively immutable
   (existing encrypted data needs the config for decrypt).
 
+  - `type: "external_key"`
+
   - `id: string`
 
     Identifier of the external key config. A tagged ID prefixed `ekey_`, or — for organizations on the Claude Platform on AWS — the AWS KMS key ARN.
@@ -8111,13 +12496,13 @@ Retrieve a single external key config in the caller's organization by ID.
 
     - `beta_aws_external_key_config: object`
 
+      - `type: "aws"`
+
       - `kms_arn: string`
 
         Full ARN of the AWS KMS key. On Claude Platform on AWS the key must be a single-Region key in your organization's own AWS account; cross-account keys, multi-Region keys, and alias ARNs are rejected.
 
         maxLength: 2048
-
-      - `type: "aws"`
 
       - `region: optional string`
 
@@ -8131,13 +12516,15 @@ Retrieve a single external key config in the caller's organization by ID.
 
     - `beta_gcp_external_key_config: object`
 
+      - `type: "gcp"`
+
       - `key_name: string`
 
         Full resource name of the Cloud KMS key.
 
-      - `type: "gcp"`
-
     - `beta_azure_external_key_config: object`
+
+      - `type: "azure"`
 
       - `key_name: string`
 
@@ -8147,8 +12534,6 @@ Retrieve a single external key config in the caller's organization by ID.
 
         Azure AD tenant ID.
 
-      - `type: "azure"`
-
       - `vault_uri: string`
 
         Key Vault data-plane URI — `https://{vault-name}.vault.azure.net` or `https://{hsm-name}.managedhsm.azure.net`.
@@ -8156,8 +12541,6 @@ Retrieve a single external key config in the caller's organization by ID.
       - `client_id: optional string`
 
         Azure AD application (client) ID. Omit to use Anthropic's multitenant app. Provide only if using a single-tenant app registration in the customer's directory.
-
-  - `type: "external_key"`
 
   - `updated_at: string`
 
@@ -8237,6 +12620,8 @@ encrypted data requires the original key identity to decrypt.
   workspace references it, the provider fields become effectively immutable
   (existing encrypted data needs the config for decrypt).
 
+  - `type: "external_key"`
+
   - `id: string`
 
     Identifier of the external key config. A tagged ID prefixed `ekey_`, or — for organizations on the Claude Platform on AWS — the AWS KMS key ARN.
@@ -8271,13 +12656,13 @@ encrypted data requires the original key identity to decrypt.
 
     - `beta_aws_external_key_config: object`
 
+      - `type: "aws"`
+
       - `kms_arn: string`
 
         Full ARN of the AWS KMS key. On Claude Platform on AWS the key must be a single-Region key in your organization's own AWS account; cross-account keys, multi-Region keys, and alias ARNs are rejected.
 
         maxLength: 2048
-
-      - `type: "aws"`
 
       - `region: optional string`
 
@@ -8291,13 +12676,15 @@ encrypted data requires the original key identity to decrypt.
 
     - `beta_gcp_external_key_config: object`
 
+      - `type: "gcp"`
+
       - `key_name: string`
 
         Full resource name of the Cloud KMS key.
 
-      - `type: "gcp"`
-
     - `beta_azure_external_key_config: object`
+
+      - `type: "azure"`
 
       - `key_name: string`
 
@@ -8307,8 +12694,6 @@ encrypted data requires the original key identity to decrypt.
 
         Azure AD tenant ID.
 
-      - `type: "azure"`
-
       - `vault_uri: string`
 
         Key Vault data-plane URI — `https://{vault-name}.vault.azure.net` or `https://{hsm-name}.managedhsm.azure.net`.
@@ -8316,8 +12701,6 @@ encrypted data requires the original key identity to decrypt.
       - `client_id: optional string`
 
         Azure AD application (client) ID. Omit to use Anthropic's multitenant app. Provide only if using a single-tenant app registration in the customer's directory.
-
-  - `type: "external_key"`
 
   - `updated_at: string`
 
@@ -8375,11 +12758,11 @@ The request is rejected if any workspace still references this config.
 
 - `BetaOrganizationExternalKeyDeleteResponse: object`
 
+  - `type: "external_key_deleted"`
+
   - `id: string`
 
     ID of the deleted External Key.
-
-  - `type: "external_key_deleted"`
 
 #### Example
 
@@ -8428,6 +12811,8 @@ message if it failed or timed out.
   HTTP 200 for both outcomes — the operation completed; `status` says
   whether the key works.
 
+  - `type: "external_key_validation"`
+
   - `error: string`
 
     Error message when status is `failure`. Null otherwise.
@@ -8439,8 +12824,6 @@ message if it failed or timed out.
     - `"failure"`
 
     - `"success"`
-
-  - `type: "external_key_validation"`
 
 #### Example
 
@@ -8523,6 +12906,8 @@ matched as the JWT's `iss` claim and is not fetched.
   Records an external IdP the organization trusts for the RFC 7523
   jwt-bearer grant. The `issuer_url` must match the JWT `iss` claim exactly.
 
+  - `type: "federation_issuer"`
+
   - `id: string`
 
     Tagged ID of the federation issuer.
@@ -8597,13 +12982,13 @@ matched as the JWT's `iss` claim and is not fetched.
 
       JWKS supplied directly; no network fetch.
 
+      - `type: "inline"`
+
       - `keys: array of map[unknown]`
 
         Inline JWK objects.
 
         minItems: 1
-
-      - `type: "inline"`
 
   - `jwks_polling_disabled_at: string`
 
@@ -8642,8 +13027,6 @@ matched as the JWT's `iss` claim and is not fetched.
       When the next fetch is scheduled. Null if paused.
 
       format: date-time
-
-  - `type: "federation_issuer"`
 
   - `updated_at: string`
 
@@ -8732,6 +13115,8 @@ Archived issuers are excluded unless `include_archived=true`.
 
   - `data: array of BetaFederationIssuer`
 
+    - `type: "federation_issuer"`
+
     - `id: string`
 
       Tagged ID of the federation issuer.
@@ -8806,13 +13191,13 @@ Archived issuers are excluded unless `include_archived=true`.
 
         JWKS supplied directly; no network fetch.
 
+        - `type: "inline"`
+
         - `keys: array of map[unknown]`
 
           Inline JWK objects.
 
           minItems: 1
-
-        - `type: "inline"`
 
     - `jwks_polling_disabled_at: string`
 
@@ -8851,8 +13236,6 @@ Archived issuers are excluded unless `include_archived=true`.
         When the next fetch is scheduled. Null if paused.
 
         format: date-time
-
-    - `type: "federation_issuer"`
 
     - `updated_at: string`
 
@@ -8939,6 +13322,8 @@ Retrieve a federation issuer by its ID (`fdis_...`).
   Records an external IdP the organization trusts for the RFC 7523
   jwt-bearer grant. The `issuer_url` must match the JWT `iss` claim exactly.
 
+  - `type: "federation_issuer"`
+
   - `id: string`
 
     Tagged ID of the federation issuer.
@@ -9013,13 +13398,13 @@ Retrieve a federation issuer by its ID (`fdis_...`).
 
       JWKS supplied directly; no network fetch.
 
+      - `type: "inline"`
+
       - `keys: array of map[unknown]`
 
         Inline JWK objects.
 
         minItems: 1
-
-      - `type: "inline"`
 
   - `jwks_polling_disabled_at: string`
 
@@ -9058,8 +13443,6 @@ Retrieve a federation issuer by its ID (`fdis_...`).
       When the next fetch is scheduled. Null if paused.
 
       format: date-time
-
-  - `type: "federation_issuer"`
 
   - `updated_at: string`
 
@@ -9175,6 +13558,8 @@ session.
   Records an external IdP the organization trusts for the RFC 7523
   jwt-bearer grant. The `issuer_url` must match the JWT `iss` claim exactly.
 
+  - `type: "federation_issuer"`
+
   - `id: string`
 
     Tagged ID of the federation issuer.
@@ -9249,13 +13634,13 @@ session.
 
       JWKS supplied directly; no network fetch.
 
+      - `type: "inline"`
+
       - `keys: array of map[unknown]`
 
         Inline JWK objects.
 
         minItems: 1
-
-      - `type: "inline"`
 
   - `jwks_polling_disabled_at: string`
 
@@ -9294,8 +13679,6 @@ session.
       When the next fetch is scheduled. Null if paused.
 
       format: date-time
-
-  - `type: "federation_issuer"`
 
   - `updated_at: string`
 
@@ -9379,6 +13762,8 @@ issuer cannot be changed), or recreate them against another issuer.
   Records an external IdP the organization trusts for the RFC 7523
   jwt-bearer grant. The `issuer_url` must match the JWT `iss` claim exactly.
 
+  - `type: "federation_issuer"`
+
   - `id: string`
 
     Tagged ID of the federation issuer.
@@ -9453,13 +13838,13 @@ issuer cannot be changed), or recreate them against another issuer.
 
       JWKS supplied directly; no network fetch.
 
+      - `type: "inline"`
+
       - `keys: array of map[unknown]`
 
         Inline JWK objects.
 
         minItems: 1
-
-      - `type: "inline"`
 
   - `jwks_polling_disabled_at: string`
 
@@ -9498,8 +13883,6 @@ issuer cannot be changed), or recreate them against another issuer.
       When the next fetch is scheduled. Null if paused.
 
       format: date-time
-
-  - `type: "federation_issuer"`
 
   - `updated_at: string`
 
@@ -9644,6 +14027,8 @@ manage rules whose `oauth_scope` is `workspace:developer` or
   rules carrying only the legacy `workspace_id` binding do not enforce
   this.
 
+  - `type: "federation_rule"`
+
   - `id: string`
 
     Tagged ID of the federation rule.
@@ -9726,11 +14111,11 @@ manage rules whose `oauth_scope` is `workspace:developer` or
 
     Identity that tokens minted via this rule act as. Currently always a `service_account` target.
 
+    - `type: "service_account"`
+
     - `service_account_id: string`
 
       Tagged ID of the service account to mint tokens for.
-
-    - `type: "service_account"`
 
     - `service_account_name: optional string`
 
@@ -9739,8 +14124,6 @@ manage rules whose `oauth_scope` is `workspace:developer` or
   - `token_lifetime_seconds: number`
 
     Lifetime in seconds of access tokens minted via this rule. Minted tokens are capped at `max(60, min(this value, 2 × remaining assertion validity))` seconds.
-
-  - `type: "federation_rule"`
 
   - `updated_at: string`
 
@@ -9857,6 +14240,8 @@ unless `include_archived=true`.
 
   - `data: array of BetaFederationRule`
 
+    - `type: "federation_rule"`
+
     - `id: string`
 
       Tagged ID of the federation rule.
@@ -9939,11 +14324,11 @@ unless `include_archived=true`.
 
       Identity that tokens minted via this rule act as. Currently always a `service_account` target.
 
+      - `type: "service_account"`
+
       - `service_account_id: string`
 
         Tagged ID of the service account to mint tokens for.
-
-      - `type: "service_account"`
 
       - `service_account_name: optional string`
 
@@ -9952,8 +14337,6 @@ unless `include_archived=true`.
     - `token_lifetime_seconds: number`
 
       Lifetime in seconds of access tokens minted via this rule. Minted tokens are capped at `max(60, min(this value, 2 × remaining assertion validity))` seconds.
-
-    - `type: "federation_rule"`
 
     - `updated_at: string`
 
@@ -10066,6 +14449,8 @@ Retrieve a federation rule by its ID (`fdrl_...`).
   rules carrying only the legacy `workspace_id` binding do not enforce
   this.
 
+  - `type: "federation_rule"`
+
   - `id: string`
 
     Tagged ID of the federation rule.
@@ -10148,11 +14533,11 @@ Retrieve a federation rule by its ID (`fdrl_...`).
 
     Identity that tokens minted via this rule act as. Currently always a `service_account` target.
 
+    - `type: "service_account"`
+
     - `service_account_id: string`
 
       Tagged ID of the service account to mint tokens for.
-
-    - `type: "service_account"`
 
     - `service_account_name: optional string`
 
@@ -10161,8 +14546,6 @@ Retrieve a federation rule by its ID (`fdrl_...`).
   - `token_lifetime_seconds: number`
 
     Lifetime in seconds of access tokens minted via this rule. Minted tokens are capped at `max(60, min(this value, 2 × remaining assertion validity))` seconds.
-
-  - `type: "federation_rule"`
 
   - `updated_at: string`
 
@@ -10331,6 +14714,8 @@ Console session.
   rules carrying only the legacy `workspace_id` binding do not enforce
   this.
 
+  - `type: "federation_rule"`
+
   - `id: string`
 
     Tagged ID of the federation rule.
@@ -10413,11 +14798,11 @@ Console session.
 
     Identity that tokens minted via this rule act as. Currently always a `service_account` target.
 
+    - `type: "service_account"`
+
     - `service_account_id: string`
 
       Tagged ID of the service account to mint tokens for.
-
-    - `type: "service_account"`
 
     - `service_account_name: optional string`
 
@@ -10426,8 +14811,6 @@ Console session.
   - `token_lifetime_seconds: number`
 
     Lifetime in seconds of access tokens minted via this rule. Minted tokens are capped at `max(60, min(this value, 2 × remaining assertion validity))` seconds.
-
-  - `type: "federation_rule"`
 
   - `updated_at: string`
 
@@ -10540,6 +14923,8 @@ other scopes require a Console session.
   rules carrying only the legacy `workspace_id` binding do not enforce
   this.
 
+  - `type: "federation_rule"`
+
   - `id: string`
 
     Tagged ID of the federation rule.
@@ -10622,11 +15007,11 @@ other scopes require a Console session.
 
     Identity that tokens minted via this rule act as. Currently always a `service_account` target.
 
+    - `type: "service_account"`
+
     - `service_account_id: string`
 
       Tagged ID of the service account to mint tokens for.
-
-    - `type: "service_account"`
 
     - `service_account_name: optional string`
 
@@ -10635,8 +15020,6 @@ other scopes require a Console session.
   - `token_lifetime_seconds: number`
 
     Lifetime in seconds of access tokens minted via this rule. Minted tokens are capped at `max(60, min(this value, 2 × remaining assertion validity))` seconds.
-
-  - `type: "federation_rule"`
 
   - `updated_at: string`
 
@@ -10745,6 +15128,8 @@ other scopes require a Console session.
 
 - `beta_federation_rule_workspace: object`
 
+  - `type: "federation_rule_workspace"`
+
   - `created_at: string`
 
     When this workspace was enabled for the rule.
@@ -10758,8 +15143,6 @@ other scopes require a Console session.
   - `federation_rule_id: string`
 
     Tagged ID of the federation rule.
-
-  - `type: "federation_rule_workspace"`
 
   - `workspace_id: string`
 
@@ -10833,6 +15216,8 @@ rules with `applies_to_all_workspaces` or a legacy single
 
   - `data: array of BetaFederationRuleWorkspace`
 
+    - `type: "federation_rule_workspace"`
+
     - `created_at: string`
 
       When this workspace was enabled for the rule.
@@ -10846,8 +15231,6 @@ rules with `applies_to_all_workspaces` or a legacy single
     - `federation_rule_id: string`
 
       Tagged ID of the federation rule.
-
-    - `type: "federation_rule_workspace"`
 
     - `workspace_id: string`
 
@@ -10920,11 +15303,11 @@ Console session.
 
 - `BetaOrganizationFederationRuleWorkspaceRemoveResponse: object`
 
+  - `type: "federation_rule_workspace_deleted"`
+
   - `federation_rule_id: string`
 
     Tagged ID of the federation rule.
-
-  - `type: "federation_rule_workspace_deleted"`
 
   - `workspace_id: string`
 
@@ -10984,6 +15367,12 @@ On plans that draw members from a finite pool of purchased seats, the invite aut
 #### Returns
 
 - `beta_organization_invite: object`
+
+  - `type: "invite"`
+
+    Object type.
+
+    For Invites, this is always `"invite"`.
 
   - `id: string`
 
@@ -11048,12 +15437,6 @@ On plans that draw members from a finite pool of purchased seats, the invite aut
     - `"expired"`
 
     - `"pending"`
-
-  - `type: "invite"`
-
-    Object type.
-
-    For Invites, this is always `"invite"`.
 
 #### Example
 
@@ -11130,6 +15513,12 @@ List the organization's invites.
 
   - `data: array of BetaOrganizationInvite`
 
+    - `type: "invite"`
+
+      Object type.
+
+      For Invites, this is always `"invite"`.
+
     - `id: string`
 
       ID of the Invite.
@@ -11194,12 +15583,6 @@ List the organization's invites.
 
       - `"pending"`
 
-    - `type: "invite"`
-
-      Object type.
-
-      For Invites, this is always `"invite"`.
-
   - `first_id: string`
 
     First ID in the `data` list. Can be used as the `before_id` for the previous page.
@@ -11261,6 +15644,12 @@ Retrieve an invite by ID.
 #### Returns
 
 - `beta_organization_invite: object`
+
+  - `type: "invite"`
+
+    Object type.
+
+    For Invites, this is always `"invite"`.
 
   - `id: string`
 
@@ -11326,12 +15715,6 @@ Retrieve an invite by ID.
 
     - `"pending"`
 
-  - `type: "invite"`
-
-    Object type.
-
-    For Invites, this is always `"invite"`.
-
 #### Example
 
 ```bash
@@ -11376,15 +15759,15 @@ Delete a pending invite.
 
 - `BetaOrganizationInviteDeleteResponse: object`
 
-  - `id: string`
-
-    ID of the Invite.
-
   - `type: "invite_deleted"`
 
     Deleted object type.
 
     For Invites, this is always `"invite_deleted"`.
+
+  - `id: string`
+
+    ID of the Invite.
 
 #### Example
 
@@ -11454,6 +15837,8 @@ accounts.
   A service account is a pure identity: name + org. Authorization lives on
   whatever references it (federation rules).
 
+  - `type: "service_account"`
+
   - `id: string`
 
     Tagged ID of the service account.
@@ -11493,8 +15878,6 @@ accounts.
     - `"admin"`
 
     - `"developer"`
-
-  - `type: "service_account"`
 
   - `updated_at: string`
 
@@ -11572,6 +15955,8 @@ archived service accounts.
 
   - `data: array of BetaServiceAccount`
 
+    - `type: "service_account"`
+
     - `id: string`
 
       Tagged ID of the service account.
@@ -11611,8 +15996,6 @@ archived service accounts.
       - `"admin"`
 
       - `"developer"`
-
-    - `type: "service_account"`
 
     - `updated_at: string`
 
@@ -11687,6 +16070,8 @@ Retrieve a service account by its ID (`svac_...`).
   A service account is a pure identity: name + org. Authorization lives on
   whatever references it (federation rules).
 
+  - `type: "service_account"`
+
   - `id: string`
 
     Tagged ID of the service account.
@@ -11726,8 +16111,6 @@ Retrieve a service account by its ID (`svac_...`).
     - `"admin"`
 
     - `"developer"`
-
-  - `type: "service_account"`
 
   - `updated_at: string`
 
@@ -11809,6 +16192,8 @@ interactive credential (a user OAuth token or a Console session).
   A service account is a pure identity: name + org. Authorization lives on
   whatever references it (federation rules).
 
+  - `type: "service_account"`
+
   - `id: string`
 
     Tagged ID of the service account.
@@ -11848,8 +16233,6 @@ interactive credential (a user OAuth token or a Console session).
     - `"admin"`
 
     - `"developer"`
-
-  - `type: "service_account"`
 
   - `updated_at: string`
 
@@ -11921,6 +16304,8 @@ those rules first or change their target to another service account.
   A service account is a pure identity: name + org. Authorization lives on
   whatever references it (federation rules).
 
+  - `type: "service_account"`
+
   - `id: string`
 
     Tagged ID of the service account.
@@ -11960,8 +16345,6 @@ those rules first or change their target to another service account.
     - `"admin"`
 
     - `"developer"`
-
-  - `type: "service_account"`
 
   - `updated_at: string`
 
@@ -12040,6 +16423,8 @@ rejected.
 
 - `beta_service_account_workspace_member: object`
 
+  - `type: "service_account_workspace_member"`
+
   - `created_by_actor_id: string`
 
     Tagged ID (`user_...`/`svac_...`) of the actor who created this membership.
@@ -12051,8 +16436,6 @@ rejected.
   - `service_account_id: string`
 
     Tagged service account ID (`svac_...`).
-
-  - `type: "service_account_workspace_member"`
 
   - `workspace_id: string`
 
@@ -12145,6 +16528,8 @@ page to recover.
 
   - `data: array of BetaServiceAccountWorkspaceMember`
 
+    - `type: "service_account_workspace_member"`
+
     - `created_by_actor_id: string`
 
       Tagged ID (`user_...`/`svac_...`) of the actor who created this membership.
@@ -12156,8 +16541,6 @@ page to recover.
     - `service_account_id: string`
 
       Tagged service account ID (`svac_...`).
-
-    - `type: "service_account_workspace_member"`
 
     - `workspace_id: string`
 
@@ -12243,11 +16626,11 @@ to the implicit `workspace_user` membership. Archived workspaces return
 
 - `BetaOrganizationServiceAccountWorkspaceRemoveResponse: object`
 
+  - `type: "service_account_workspace_member_deleted"`
+
   - `service_account_id: string`
 
     Tagged service account ID (`svac_...`) named in the delete request. Removal is idempotent; see the endpoint description for the implicit-membership no-op.
-
-  - `type: "service_account_workspace_member_deleted"`
 
   - `workspace_id: string`
 
@@ -12318,6 +16701,12 @@ List the organization's members.
 
   - `data: array of BetaOrganizationUser`
 
+    - `type: "user"`
+
+      Object type.
+
+      For Users, this is always `"user"`.
+
     - `id: string`
 
       ID of the User.
@@ -12357,12 +16746,6 @@ List the organization's members.
       - `"primary_owner"`
 
       - `"user"`
-
-    - `type: "user"`
-
-      Object type.
-
-      For Users, this is always `"user"`.
 
   - `first_id: string`
 
@@ -12421,6 +16804,12 @@ Retrieve a member of the organization by user ID.
 
 - `beta_organization_user: object`
 
+  - `type: "user"`
+
+    Object type.
+
+    For Users, this is always `"user"`.
+
   - `id: string`
 
     ID of the User.
@@ -12460,12 +16849,6 @@ Retrieve a member of the organization by user ID.
     - `"primary_owner"`
 
     - `"user"`
-
-  - `type: "user"`
-
-    Object type.
-
-    For Users, this is always `"user"`.
 
 #### Example
 
@@ -12512,6 +16895,12 @@ Update a member's organization role.
 
 - `beta_organization_user: object`
 
+  - `type: "user"`
+
+    Object type.
+
+    For Users, this is always `"user"`.
+
   - `id: string`
 
     ID of the User.
@@ -12551,12 +16940,6 @@ Update a member's organization role.
     - `"primary_owner"`
 
     - `"user"`
-
-  - `type: "user"`
-
-    Object type.
-
-    For Users, this is always `"user"`.
 
 #### Example
 
@@ -12598,15 +16981,15 @@ Remove a member from the organization.
 
 - `BetaOrganizationUserRemoveResponse: object`
 
-  - `id: string`
-
-    ID of the User.
-
   - `type: "user_deleted"`
 
     Deleted object type.
 
     For Users, this is always `"user_deleted"`.
+
+  - `id: string`
+
+    ID of the User.
 
 #### Example
 
@@ -12662,6 +17045,12 @@ List Workspaces
 - `BetaListResponse_Workspace_: object`
 
   - `data: array of BetaWorkspace`
+
+    - `type: "workspace"`
+
+      Object type.
+
+      For Workspaces, this is always `"workspace"`.
 
     - `id: string`
 
@@ -12738,12 +17127,6 @@ List Workspaces
     - `tags: map[string]`
 
       User-defined tags as string key-value pairs. Keys may not begin with `anthropic`.
-
-    - `type: "workspace"`
-
-      Object type.
-
-      For Workspaces, this is always `"workspace"`.
 
   - `first_id: string`
 
@@ -12847,6 +17230,12 @@ Create Workspace
 
 - `beta_workspace: object`
 
+  - `type: "workspace"`
+
+    Object type.
+
+    For Workspaces, this is always `"workspace"`.
+
   - `id: string`
 
     ID of the Workspace.
@@ -12922,12 +17311,6 @@ Create Workspace
   - `tags: map[string]`
 
     User-defined tags as string key-value pairs. Keys may not begin with `anthropic`.
-
-  - `type: "workspace"`
-
-    Object type.
-
-    For Workspaces, this is always `"workspace"`.
 
 #### Example
 
@@ -12979,6 +17362,12 @@ Get Workspace
 
 - `beta_workspace: object`
 
+  - `type: "workspace"`
+
+    Object type.
+
+    For Workspaces, this is always `"workspace"`.
+
   - `id: string`
 
     ID of the Workspace.
@@ -13054,12 +17443,6 @@ Get Workspace
   - `tags: map[string]`
 
     User-defined tags as string key-value pairs. Keys may not begin with `anthropic`.
-
-  - `type: "workspace"`
-
-    Object type.
-
-    For Workspaces, this is always `"workspace"`.
 
 #### Example
 
@@ -13143,6 +17526,12 @@ Update Workspace
 
 - `beta_workspace: object`
 
+  - `type: "workspace"`
+
+    Object type.
+
+    For Workspaces, this is always `"workspace"`.
+
   - `id: string`
 
     ID of the Workspace.
@@ -13218,12 +17607,6 @@ Update Workspace
   - `tags: map[string]`
 
     User-defined tags as string key-value pairs. Keys may not begin with `anthropic`.
-
-  - `type: "workspace"`
-
-    Object type.
-
-    For Workspaces, this is always `"workspace"`.
 
 #### Example
 
@@ -13273,6 +17656,12 @@ Archive Workspace
 
 - `beta_workspace: object`
 
+  - `type: "workspace"`
+
+    Object type.
+
+    For Workspaces, this is always `"workspace"`.
+
   - `id: string`
 
     ID of the Workspace.
@@ -13348,12 +17737,6 @@ Archive Workspace
   - `tags: map[string]`
 
     User-defined tags as string key-value pairs. Keys may not begin with `anthropic`.
-
-  - `type: "workspace"`
-
-    Object type.
-
-    For Workspaces, this is always `"workspace"`.
 
 #### Example
 
@@ -13435,6 +17818,10 @@ the remaining entries.
 
     Rate-limit entries for the workspace, one per group that has at least one override.
 
+    - `type: "workspace_rate_limit"`
+
+      Object type. Always `workspace_rate_limit` for workspace rate-limit entries.
+
     - `group_type: "batch" or "files" or "model_group" or 3 more`
 
       The kind of rate-limit group this entry represents. `model_group` entries apply to a family of models (listed in `models`); other values apply to an API-surface category and have `models` set to `null`.
@@ -13455,13 +17842,13 @@ the remaining entries.
 
       The limiter values overridden for this group in this workspace. Limiter types without a workspace override are omitted and inherit the organization value.
 
-      - `org_limit: number`
-
-        The organization-level value for the same limiter type, for reference. `null` when the organization has no limit configured for this limiter type.
-
       - `type: string`
 
         The limiter type (for example, `requests_per_minute` or `input_tokens_per_minute`).
+
+      - `org_limit: number`
+
+        The organization-level value for the same limiter type, for reference. `null` when the organization has no limit configured for this limiter type.
 
       - `value: number`
 
@@ -13474,10 +17861,6 @@ the remaining entries.
     - `rate_limit_id: string`
 
       The `id` of the RateLimit group this override applies to.
-
-    - `type: "workspace_rate_limit"`
-
-      Object type. Always `workspace_rate_limit` for workspace rate-limit entries.
 
     - `workspace_id: string`
 
@@ -13945,6 +18328,8 @@ omitted from the results.
 
   - `data: array of BetaServiceAccountWorkspaceMember`
 
+    - `type: "service_account_workspace_member"`
+
     - `created_by_actor_id: string`
 
       Tagged ID (`user_...`/`svac_...`) of the actor who created this membership.
@@ -13956,8 +18341,6 @@ omitted from the results.
     - `service_account_id: string`
 
       Tagged service account ID (`svac_...`).
-
-    - `type: "service_account_workspace_member"`
 
     - `workspace_id: string`
 
@@ -14048,6 +18431,8 @@ accounts cannot be added and are rejected.
 
 - `beta_service_account_workspace_member: object`
 
+  - `type: "service_account_workspace_member"`
+
   - `created_by_actor_id: string`
 
     Tagged ID (`user_...`/`svac_...`) of the actor who created this membership.
@@ -14059,8 +18444,6 @@ accounts cannot be added and are rejected.
   - `service_account_id: string`
 
     Tagged service account ID (`svac_...`).
-
-  - `type: "service_account_workspace_member"`
 
   - `workspace_id: string`
 
@@ -14138,6 +18521,8 @@ account returns 404.
 
 - `beta_service_account_workspace_member: object`
 
+  - `type: "service_account_workspace_member"`
+
   - `created_by_actor_id: string`
 
     Tagged ID (`user_...`/`svac_...`) of the actor who created this membership.
@@ -14149,8 +18534,6 @@ account returns 404.
   - `service_account_id: string`
 
     Tagged service account ID (`svac_...`).
-
-  - `type: "service_account_workspace_member"`
 
   - `workspace_id: string`
 
@@ -14231,6 +18614,8 @@ rejected.
 
 - `beta_service_account_workspace_member: object`
 
+  - `type: "service_account_workspace_member"`
+
   - `created_by_actor_id: string`
 
     Tagged ID (`user_...`/`svac_...`) of the actor who created this membership.
@@ -14242,8 +18627,6 @@ rejected.
   - `service_account_id: string`
 
     Tagged service account ID (`svac_...`).
-
-  - `type: "service_account_workspace_member"`
 
   - `workspace_id: string`
 
@@ -14320,11 +18703,11 @@ membership. Archived workspaces return 400.
 
 - `BetaOrganizationWorkspaceServiceAccountRemoveResponse: object`
 
+  - `type: "service_account_workspace_member_deleted"`
+
   - `service_account_id: string`
 
     Tagged service account ID (`svac_...`) named in the delete request. Removal is idempotent; see the endpoint description for the implicit-membership no-op.
-
-  - `type: "service_account_workspace_member_deleted"`
 
   - `workspace_id: string`
 
@@ -14397,6 +18780,10 @@ the remaining entries.
 
     Rate-limit entries for the organization, one per group.
 
+    - `type: "rate_limit"`
+
+      Object type. Always `rate_limit` for organization rate-limit entries.
+
     - `id: string`
 
       Stable identifier for this rate-limit group within the organization.
@@ -14432,10 +18819,6 @@ the remaining entries.
     - `models: array of string`
 
       Model names this entry's limits apply to, including aliases. `null` when `group_type` is not `"model_group"`.
-
-    - `type: "rate_limit"`
-
-      Object type. Always `rate_limit` for organization rate-limit entries.
 
   - `next_page: string`
 
@@ -14491,6 +18874,8 @@ organization reads the state inherited from the parent's configuration.
 
 - `beta_compliance_settings: object`
 
+  - `type: "compliance_settings"`
+
   - `state: BetaComplianceSettingsStateEnabled or BetaComplianceSettingsStateDisabled`
 
     Whether the Compliance API is enabled for this organization.
@@ -14502,8 +18887,6 @@ organization reads the state inherited from the parent's configuration.
     - `beta_compliance_settings_state_disabled: object`
 
       - `type: "disabled"`
-
-  - `type: "compliance_settings"`
 
 #### Example
 
@@ -14554,6 +18937,8 @@ compliance settings.
 
 - `beta_compliance_settings: object`
 
+  - `type: "compliance_settings"`
+
   - `state: BetaComplianceSettingsStateEnabled or BetaComplianceSettingsStateDisabled`
 
     Whether the Compliance API is enabled for this organization.
@@ -14565,8 +18950,6 @@ compliance settings.
     - `beta_compliance_settings_state_disabled: object`
 
       - `type: "disabled"`
-
-  - `type: "compliance_settings"`
 
 #### Example
 

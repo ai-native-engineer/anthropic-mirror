@@ -192,6 +192,18 @@ No items found.
 
 Explore more product news and best practices for teams building with Claude.
 
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2222403b092e0358b0e_cd4fd51deacd067d4e30aee4f4b149f6cba1b97b-1000x1000.svg)
+
+Sep 10, 2026
+
+### What 1,000 small business owners taught us about AI
+
+Enterprise AI
+
+[What 1,000 small business owners taught us about AI](#)What 1,000 small business owners taught us about AI
+
+[What 1,000 small business owners taught us about AI](https://claude.com/blog/what-1-000-small-business-owners-taught-us-about-ai)What 1,000 small business owners taught us about AI
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a0112e18cdd7f0b92d19e40_Hand-BuildingBricks.svg)
 
 Sep 8, 2026
@@ -227,18 +239,6 @@ Product announcements
 [Building commerce agents with Claude](#)Building commerce agents with Claude
 
 [Building commerce agents with Claude](https://claude.com/blog/claude-for-commerce-agents)Building commerce agents with Claude
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d222061abf091318fb82_423062049d4676b41d52b16068cbb5e21603190e-1000x1000.svg)
-
-Sep 2, 2026
-
-### A guide to the anatomy of effective commerce agents
-
-Agents
-
-[A guide to the anatomy of effective commerce agents](#)A guide to the anatomy of effective commerce agents
-
-[A guide to the anatomy of effective commerce agents](https://claude.com/blog/the-anatomy-of-effective-commerce-agents)A guide to the anatomy of effective commerce agents
 
 ## Transform how your organization operates with Claude
 

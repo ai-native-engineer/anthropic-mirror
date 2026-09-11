@@ -1,10 +1,15 @@
 <!-- source: https://platform.claude.com/docs/en/api/php/beta/sessions/resources -->
 
+---
+title: Resources
+url: https://platform.claude.com/docs/en/api/php/beta/sessions/resources
+---
+
 # Resources
 
 ## Add Session Resource
 
-`$client->beta->sessions->resources->add(string sessionID, string fileID, Type type, ?string mountPath, ?list<AnthropicBeta> betas): ManagedAgentsFileResource`
+`$client->beta->sessions->resources->add(string sessionID, string fileID, Type type, ?string mountPath, ?list<AnthropicBeta> betas, ?string workspaceID): ManagedAgentsFileResource`
 
 **POST** `/v1/sessions/{session_id}/resources`
 
@@ -28,9 +33,13 @@ Add Session Resource
 
   Optional header to specify the beta version(s) you want to use.
 
+- `workspaceID?:optional string`
+
 ### Returns
 
 - `ManagedAgentsFileResource`
+
+  - `Type type`
 
   - `string id`
 
@@ -41,8 +50,6 @@ Add Session Resource
   - `string fileID`
 
   - `string mountPath`
-
-  - `Type type`
 
   - `\Datetime updatedAt`
 
@@ -63,6 +70,7 @@ $betaManagedAgentsFileResource = $client->beta->sessions->resources->add(
   type: 'file',
   mountPath: '/uploads/receipt.pdf',
   betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+  workspaceID: 'wrkspc_011CZkZaBF1tNoB5wlCeusgy',
 );
 
 var_dump($betaManagedAgentsFileResource);
@@ -83,7 +91,7 @@ var_dump($betaManagedAgentsFileResource);
 
 ## List Session Resources
 
-`$client->beta->sessions->resources->list(string sessionID, ?int limit, ?string page, ?list<AnthropicBeta> betas): PageCursor<ManagedAgentsSessionResource>`
+`$client->beta->sessions->resources->list(string sessionID, ?int limit, ?string page, ?list<AnthropicBeta> betas, ?string workspaceID): PageCursor<ManagedAgentsSessionResource>`
 
 **GET** `/v1/sessions/{session_id}/resources`
 
@@ -105,11 +113,15 @@ List Session Resources
 
   Optional header to specify the beta version(s) you want to use.
 
+- `workspaceID?:optional string`
+
 ### Returns
 
 - `ManagedAgentsSessionResource`
 
   - `ManagedAgentsGitHubRepositoryResource`
+
+    - `Type type`
 
     - `string id`
 
@@ -118,8 +130,6 @@ List Session Resources
       A timestamp in RFC 3339 format
 
     - `string mountPath`
-
-    - `Type type`
 
     - `\Datetime updatedAt`
 
@@ -131,6 +141,8 @@ List Session Resources
 
   - `ManagedAgentsFileResource`
 
+    - `Type type`
+
     - `string id`
 
     - `\Datetime createdAt`
@@ -141,19 +153,17 @@ List Session Resources
 
     - `string mountPath`
 
-    - `Type type`
-
     - `\Datetime updatedAt`
 
       A timestamp in RFC 3339 format
 
   - `ManagedAgentsMemoryStoreResource`
 
+    - `Type type`
+
     - `string memoryStoreID`
 
       The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
-
-    - `Type type`
 
     - `?Access access`
 
@@ -189,6 +199,7 @@ $page = $client->beta->sessions->resources->list(
   limit: 0,
   page: 'page',
   betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+  workspaceID: 'wrkspc_011CZkZaBF1tNoB5wlCeusgy',
 );
 
 var_dump($page);
@@ -226,7 +237,7 @@ var_dump($page);
 
 ## Get Session Resource
 
-`$client->beta->sessions->resources->retrieve(string resourceID, string sessionID, ?list<AnthropicBeta> betas): ResourceGetResponse`
+`$client->beta->sessions->resources->retrieve(string resourceID, string sessionID, ?list<AnthropicBeta> betas, ?string workspaceID): ResourceGetResponse`
 
 **GET** `/v1/sessions/{session_id}/resources/{resource_id}`
 
@@ -242,11 +253,15 @@ Get Session Resource
 
   Optional header to specify the beta version(s) you want to use.
 
+- `workspaceID?:optional string`
+
 ### Returns
 
 - `ResourceGetResponse`
 
   - `ManagedAgentsGitHubRepositoryResource`
+
+    - `Type type`
 
     - `string id`
 
@@ -255,8 +270,6 @@ Get Session Resource
       A timestamp in RFC 3339 format
 
     - `string mountPath`
-
-    - `Type type`
 
     - `\Datetime updatedAt`
 
@@ -268,6 +281,8 @@ Get Session Resource
 
   - `ManagedAgentsFileResource`
 
+    - `Type type`
+
     - `string id`
 
     - `\Datetime createdAt`
@@ -278,19 +293,17 @@ Get Session Resource
 
     - `string mountPath`
 
-    - `Type type`
-
     - `\Datetime updatedAt`
 
       A timestamp in RFC 3339 format
 
   - `ManagedAgentsMemoryStoreResource`
 
+    - `Type type`
+
     - `string memoryStoreID`
 
       The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
-
-    - `Type type`
 
     - `?Access access`
 
@@ -325,6 +338,7 @@ $resource = $client->beta->sessions->resources->retrieve(
   'sesrsc_011CZkZBJq5dWxk9fVLNcPht',
   sessionID: 'sesn_011CZkZAtmR3yMPDzynEDxu7',
   betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+  workspaceID: 'wrkspc_011CZkZaBF1tNoB5wlCeusgy',
 );
 
 var_dump($resource);
@@ -349,7 +363,7 @@ var_dump($resource);
 
 ## Update Session Resource
 
-`$client->beta->sessions->resources->update(string resourceID, string sessionID, string authorizationToken, ?list<AnthropicBeta> betas): ResourceUpdateResponse`
+`$client->beta->sessions->resources->update(string resourceID, string sessionID, string authorizationToken, ?list<AnthropicBeta> betas, ?string workspaceID): ResourceUpdateResponse`
 
 **POST** `/v1/sessions/{session_id}/resources/{resource_id}`
 
@@ -369,11 +383,15 @@ Update Session Resource
 
   Optional header to specify the beta version(s) you want to use.
 
+- `workspaceID?:optional string`
+
 ### Returns
 
 - `ResourceUpdateResponse`
 
   - `ManagedAgentsGitHubRepositoryResource`
+
+    - `Type type`
 
     - `string id`
 
@@ -382,8 +400,6 @@ Update Session Resource
       A timestamp in RFC 3339 format
 
     - `string mountPath`
-
-    - `Type type`
 
     - `\Datetime updatedAt`
 
@@ -395,6 +411,8 @@ Update Session Resource
 
   - `ManagedAgentsFileResource`
 
+    - `Type type`
+
     - `string id`
 
     - `\Datetime createdAt`
@@ -405,19 +423,17 @@ Update Session Resource
 
     - `string mountPath`
 
-    - `Type type`
-
     - `\Datetime updatedAt`
 
       A timestamp in RFC 3339 format
 
   - `ManagedAgentsMemoryStoreResource`
 
+    - `Type type`
+
     - `string memoryStoreID`
 
       The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
-
-    - `Type type`
 
     - `?Access access`
 
@@ -453,6 +469,7 @@ $resource = $client->beta->sessions->resources->update(
   sessionID: 'sesn_011CZkZAtmR3yMPDzynEDxu7',
   authorizationToken: 'ghp_exampletoken',
   betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+  workspaceID: 'wrkspc_011CZkZaBF1tNoB5wlCeusgy',
 );
 
 var_dump($resource);
@@ -477,7 +494,7 @@ var_dump($resource);
 
 ## Delete Session Resource
 
-`$client->beta->sessions->resources->delete(string resourceID, string sessionID, ?list<AnthropicBeta> betas): ManagedAgentsDeleteSessionResource`
+`$client->beta->sessions->resources->delete(string resourceID, string sessionID, ?list<AnthropicBeta> betas, ?string workspaceID): ManagedAgentsDeleteSessionResource`
 
 **DELETE** `/v1/sessions/{session_id}/resources/{resource_id}`
 
@@ -493,13 +510,15 @@ Delete Session Resource
 
   Optional header to specify the beta version(s) you want to use.
 
+- `workspaceID?:optional string`
+
 ### Returns
 
 - `ManagedAgentsDeleteSessionResource`
 
-  - `string id`
-
   - `Type type`
+
+  - `string id`
 
 ### Example
 
@@ -518,6 +537,7 @@ $betaManagedAgentsDeleteSessionResource = $client
   'sesrsc_011CZkZBJq5dWxk9fVLNcPht',
   sessionID: 'sesn_011CZkZAtmR3yMPDzynEDxu7',
   betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+  workspaceID: 'wrkspc_011CZkZaBF1tNoB5wlCeusgy',
 );
 
 var_dump($betaManagedAgentsDeleteSessionResource);
@@ -538,13 +558,15 @@ var_dump($betaManagedAgentsDeleteSessionResource);
 
 - `ManagedAgentsDeleteSessionResource`
 
-  - `string id`
-
   - `Type type`
+
+  - `string id`
 
 ### Beta Managed Agents File Resource
 
 - `ManagedAgentsFileResource`
+
+  - `Type type`
 
   - `string id`
 
@@ -556,8 +578,6 @@ var_dump($betaManagedAgentsDeleteSessionResource);
 
   - `string mountPath`
 
-  - `Type type`
-
   - `\Datetime updatedAt`
 
     A timestamp in RFC 3339 format
@@ -566,6 +586,8 @@ var_dump($betaManagedAgentsDeleteSessionResource);
 
 - `ManagedAgentsGitHubRepositoryResource`
 
+  - `Type type`
+
   - `string id`
 
   - `\Datetime createdAt`
@@ -573,8 +595,6 @@ var_dump($betaManagedAgentsDeleteSessionResource);
     A timestamp in RFC 3339 format
 
   - `string mountPath`
-
-  - `Type type`
 
   - `\Datetime updatedAt`
 
@@ -588,11 +608,11 @@ var_dump($betaManagedAgentsDeleteSessionResource);
 
 - `ManagedAgentsMemoryStoreResource`
 
+  - `Type type`
+
   - `string memoryStoreID`
 
     The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
-
-  - `Type type`
 
   - `?Access access`
 
@@ -620,6 +640,8 @@ var_dump($betaManagedAgentsDeleteSessionResource);
 
   - `ManagedAgentsGitHubRepositoryResource`
 
+    - `Type type`
+
     - `string id`
 
     - `\Datetime createdAt`
@@ -627,8 +649,6 @@ var_dump($betaManagedAgentsDeleteSessionResource);
       A timestamp in RFC 3339 format
 
     - `string mountPath`
-
-    - `Type type`
 
     - `\Datetime updatedAt`
 
@@ -640,6 +660,8 @@ var_dump($betaManagedAgentsDeleteSessionResource);
 
   - `ManagedAgentsFileResource`
 
+    - `Type type`
+
     - `string id`
 
     - `\Datetime createdAt`
@@ -650,19 +672,17 @@ var_dump($betaManagedAgentsDeleteSessionResource);
 
     - `string mountPath`
 
-    - `Type type`
-
     - `\Datetime updatedAt`
 
       A timestamp in RFC 3339 format
 
   - `ManagedAgentsMemoryStoreResource`
 
+    - `Type type`
+
     - `string memoryStoreID`
 
       The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
-
-    - `Type type`
 
     - `?Access access`
 

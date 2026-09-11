@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/messages/batches -->
 
+---
+title: Batches
+url: https://platform.claude.com/docs/en/api/messages/batches
+---
+
 # Batches
 
 ## Create a Message Batch
@@ -17,6 +22,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 - `"anthropic-user-profile-id": optional string`
 
   The user profile ID to attribute the requests in this batch to. Use when acting on behalf of a party other than your organization. Requires the `user-profiles` beta header. Applies to every request in the batch; an individual request whose `user_profile_id` body field conflicts with this header is errored.
+
+- `"anthropic-workspace-id": optional string`
 
 ### Body parameters
 
@@ -111,11 +118,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           - `TextBlockParam object`
 
+            - `type: "text"`
+
             - `text: string`
 
               minLength: 1
-
-            - `type: "text"`
 
             - `cache_control: optional CacheControlEphemeral or null`
 
@@ -142,6 +149,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `CitationCharLocationParam object`
 
+                - `type: "char_location"`
+
                 - `cited_text: string`
 
                 - `document_index: number`
@@ -158,9 +167,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   minimum: 0
 
-                - `type: "char_location"`
-
               - `CitationPageLocationParam object`
+
+                - `type: "page_location"`
 
                 - `cited_text: string`
 
@@ -178,9 +187,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   minimum: 1
 
-                - `type: "page_location"`
-
               - `CitationContentBlockLocationParam object`
+
+                - `type: "content_block_location"`
 
                 - `cited_text: string`
 
@@ -208,9 +217,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   minimum: 0
 
-                - `type: "content_block_location"`
-
               - `CitationWebSearchResultLocationParam object`
+
+                - `type: "web_search_result_location"`
 
                 - `cited_text: string`
 
@@ -220,13 +229,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   maxLength: 512, minLength: 1
 
-                - `type: "web_search_result_location"`
-
                 - `url: string`
 
                   minLength: 1
 
               - `CitationSearchResultLocationParam object`
+
+                - `type: "search_result_location"`
 
                 - `cited_text: string`
 
@@ -258,13 +267,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `title: string or null`
 
-                - `type: "search_result_location"`
-
           - `ImageBlockParam object`
+
+            - `type: "image"`
 
             - `source: Base64ImageSource or URLImageSource or FileImageSource`
 
               - `Base64ImageSource object`
+
+                - `type: "base64"`
 
                 - `data: string`
 
@@ -280,8 +291,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `"image/webp"`
 
-                - `type: "base64"`
-
               - `URLImageSource object`
 
                 - `type: "url"`
@@ -290,11 +299,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `FileImageSource object`
 
-                - `file_id: string`
-
                 - `type: "file"`
 
-            - `type: "image"`
+                - `file_id: string`
 
             - `cache_control: optional CacheControlEphemeral or null`
 
@@ -314,9 +321,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           - `DocumentBlockParam object`
 
+            - `type: "document"`
+
             - `source: Base64PDFSource or PlainTextSource or ContentBlockSource or 2 more`
 
               - `Base64PDFSource object`
+
+                - `type: "base64"`
 
                 - `data: string`
 
@@ -324,17 +335,17 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `media_type: "application/pdf"`
 
-                - `type: "base64"`
-
               - `PlainTextSource object`
+
+                - `type: "text"`
 
                 - `data: string`
 
                 - `media_type: "text/plain"`
 
-                - `type: "text"`
-
               - `ContentBlockSource object`
+
+                - `type: "content"`
 
                 - `content: string or array of ContentBlockSourceContent`
 
@@ -346,8 +357,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     - `ImageBlockParam object`
 
-                - `type: "content"`
-
               - `URLPDFSource object`
 
                 - `type: "url"`
@@ -356,11 +365,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `FileDocumentSource object`
 
-                - `file_id: string`
-
                 - `type: "file"`
 
-            - `type: "document"`
+                - `file_id: string`
 
             - `cache_control: optional CacheControlEphemeral or null`
 
@@ -380,13 +387,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           - `SearchResultBlockParam object`
 
+            - `type: "search_result"`
+
             - `content: array of TextBlockParam`
+
+              - `type: "text"`
 
               - `text: string`
 
                 minLength: 1
-
-              - `type: "text"`
 
               - `cache_control: optional CacheControlEphemeral or null`
 
@@ -398,8 +407,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `title: string`
 
-            - `type: "search_result"`
-
             - `cache_control: optional CacheControlEphemeral or null`
 
               Create a cache control breakpoint at this content block.
@@ -407,6 +414,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
             - `citations: optional CitationsConfigParam`
 
           - `ThinkingBlockParam object`
+
+            - `type: "thinking"`
 
             - `signature: string`
 
@@ -418,17 +427,17 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               The `thinking` text of this block as returned by the API.
 
-            - `type: "thinking"`
-
           - `RedactedThinkingBlockParam object`
+
+            - `type: "redacted_thinking"`
 
             - `data: string`
 
               The `data` value of this redacted thinking block, exactly as returned by the API in a previous response. Opaque and encrypted; pass it back unchanged.
 
-            - `type: "redacted_thinking"`
-
           - `ToolUseBlockParam object`
+
+            - `type: "tool_use"`
 
             - `id: string`
 
@@ -439,8 +448,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
             - `name: string`
 
               maxLength: 200, minLength: 1
-
-            - `type: "tool_use"`
 
             - `cache_control: optional CacheControlEphemeral or null`
 
@@ -460,19 +467,19 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 Tool invocation generated by a server-side tool.
 
+                - `type: "code_execution_20250825"`
+
                 - `tool_id: string`
 
                   pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-                - `type: "code_execution_20250825"`
 
               - `ServerToolCaller20260120 object`
 
+                - `type: "code_execution_20260120"`
+
                 - `tool_id: string`
 
                   pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-                - `type: "code_execution_20260120"`
 
             - `toolset_name: optional string or null`
 
@@ -482,11 +489,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           - `ToolResultBlockParam object`
 
+            - `type: "tool_result"`
+
             - `tool_use_id: string`
 
               pattern: ^[a-zA-Z0-9_-]+$
-
-            - `type: "tool_result"`
 
             - `cache_control: optional CacheControlEphemeral or null`
 
@@ -510,11 +517,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   Tool reference block that can be included in tool_result content.
 
+                  - `type: "tool_reference"`
+
                   - `tool_name: string`
 
                     maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
-
-                  - `type: "tool_reference"`
 
                   - `cache_control: optional CacheControlEphemeral or null`
 
@@ -529,6 +536,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
                   At most one per `tool_result`, only on a non-error result answering a
                   browser toolset member `tool_use`. The server renders the
                   model-visible text from it; the model never sees the raw fields.
+
+                  - `type: "browser_state"`
 
                   - `tabs: array of BrowserStateTabEntry`
 
@@ -558,8 +567,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                       Whether this tab is the active tab after this call. Whenever `tabs` is non-empty, exactly one entry is marked `active: true`.
 
-                  - `type: "browser_state"`
-
                   - `cache_control: optional CacheControlEphemeral or null`
 
                     Create a cache control breakpoint at this content block.
@@ -580,25 +587,25 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
                       during a failed call gets no deferred `tab_opened`; it simply appears
                       in the next result's `tabs` inventory.
 
+                      - `type: "tab_opened"`
+
                       - `tab_id: string`
 
                         The `tab_id` of the opened tab, present in `tabs`.
 
                         maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-                      - `type: "tab_opened"`
-
                     - `BrowserStateChangeDownloadStarted object`
 
                       A file download that started during this call.
+
+                      - `type: "download_started"`
 
                       - `download_id: string`
 
                         The caller-assigned identifier for this download, stable across the state changes reporting it.
 
                         maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
-
-                      - `type: "download_started"`
 
                       - `url: string`
 
@@ -613,13 +620,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
                       `download_started`, when the download finished during the call that
                       started it (at most one state change per `download_id` per result).
 
+                      - `type: "download_completed"`
+
                       - `download_id: string`
 
                         The caller-assigned identifier for this download, stable across the state changes reporting it.
 
                         maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
-
-                      - `type: "download_completed"`
 
                       - `url: string`
 
@@ -643,13 +650,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                       A file download that failed — or was cancelled — during this call.
 
+                      - `type: "download_failed"`
+
                       - `download_id: string`
 
                         The caller-assigned identifier for this download, stable across the state changes reporting it.
 
                         maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
-
-                      - `type: "download_failed"`
 
                       - `url: string`
 
@@ -673,6 +680,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           - `ServerToolUseBlockParam object`
 
+            - `type: "server_tool_use"`
+
             - `id: string`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
@@ -695,8 +704,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `"tool_search_tool_bm25"`
 
-            - `type: "server_tool_use"`
-
             - `cache_control: optional CacheControlEphemeral or null`
 
               Create a cache control breakpoint at this content block.
@@ -717,21 +724,25 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           - `WebSearchToolResultBlockParam object`
 
+            - `type: "web_search_tool_result"`
+
             - `content: WebSearchToolResultBlockParamContent`
 
               - `WebSearchToolResultBlockItem = array of WebSearchResultBlockParam`
 
+                - `type: "web_search_result"`
+
                 - `encrypted_content: string`
 
                 - `title: string`
-
-                - `type: "web_search_result"`
 
                 - `url: string`
 
                 - `page_age: optional string or null`
 
               - `WebSearchToolRequestError object`
+
+                - `type: "web_search_tool_result_error"`
 
                 - `error_code: WebSearchToolResultErrorCode`
 
@@ -747,13 +758,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `"request_too_large"`
 
-                - `type: "web_search_tool_result_error"`
-
             - `tool_use_id: string`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-            - `type: "web_search_tool_result"`
 
             - `cache_control: optional CacheControlEphemeral or null`
 
@@ -775,9 +782,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           - `WebFetchToolResultBlockParam object`
 
+            - `type: "web_fetch_tool_result"`
+
             - `content: WebFetchToolResultErrorBlockParam or WebFetchBlockParam`
 
               - `WebFetchToolResultErrorBlockParam object`
+
+                - `type: "web_fetch_tool_result_error"`
 
                 - `error_code: WebFetchToolResultErrorCode`
 
@@ -799,13 +810,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `"unavailable"`
 
-                - `type: "web_fetch_tool_result_error"`
+                  - `"content_too_large"`
 
               - `WebFetchBlockParam object`
 
-                - `content: DocumentBlockParam`
-
                 - `type: "web_fetch_result"`
+
+                - `content: DocumentBlockParam`
 
                 - `url: string`
 
@@ -818,8 +829,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
             - `tool_use_id: string`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-            - `type: "web_fetch_tool_result"`
 
             - `cache_control: optional CacheControlEphemeral or null`
 
@@ -841,11 +850,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           - `CodeExecutionToolResultBlockParam object`
 
+            - `type: "code_execution_tool_result"`
+
             - `content: CodeExecutionToolResultBlockParamContent`
 
               Code execution result with encrypted stdout for PFC + web_search results.
 
               - `CodeExecutionToolResultErrorParam object`
+
+                - `type: "code_execution_tool_result_error"`
 
                 - `error_code: CodeExecutionToolResultErrorCode`
 
@@ -857,15 +870,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `"execution_time_exceeded"`
 
-                - `type: "code_execution_tool_result_error"`
-
               - `CodeExecutionResultBlockParam object`
+
+                - `type: "code_execution_result"`
 
                 - `content: array of CodeExecutionOutputBlockParam`
 
-                  - `file_id: string`
-
                   - `type: "code_execution_output"`
+
+                  - `file_id: string`
 
                 - `return_code: number`
 
@@ -873,17 +886,17 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `stdout: string`
 
-                - `type: "code_execution_result"`
-
               - `EncryptedCodeExecutionResultBlockParam object`
 
                 Code execution result with encrypted stdout for PFC + web_search results.
 
+                - `type: "encrypted_code_execution_result"`
+
                 - `content: array of CodeExecutionOutputBlockParam`
 
-                  - `file_id: string`
-
                   - `type: "code_execution_output"`
+
+                  - `file_id: string`
 
                 - `encrypted_stdout: string`
 
@@ -891,13 +904,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `stderr: string`
 
-                - `type: "encrypted_code_execution_result"`
-
             - `tool_use_id: string`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-            - `type: "code_execution_tool_result"`
 
             - `cache_control: optional CacheControlEphemeral or null`
 
@@ -905,9 +914,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           - `BashCodeExecutionToolResultBlockParam object`
 
+            - `type: "bash_code_execution_tool_result"`
+
             - `content: BashCodeExecutionToolResultErrorParam or BashCodeExecutionResultBlockParam`
 
               - `BashCodeExecutionToolResultErrorParam object`
+
+                - `type: "bash_code_execution_tool_result_error"`
 
                 - `error_code: BashCodeExecutionToolResultErrorCode`
 
@@ -921,15 +934,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `"output_file_too_large"`
 
-                - `type: "bash_code_execution_tool_result_error"`
-
               - `BashCodeExecutionResultBlockParam object`
+
+                - `type: "bash_code_execution_result"`
 
                 - `content: array of BashCodeExecutionOutputBlockParam`
 
-                  - `file_id: string`
-
                   - `type: "bash_code_execution_output"`
+
+                  - `file_id: string`
 
                 - `return_code: number`
 
@@ -937,13 +950,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `stdout: string`
 
-                - `type: "bash_code_execution_result"`
-
             - `tool_use_id: string`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-            - `type: "bash_code_execution_tool_result"`
 
             - `cache_control: optional CacheControlEphemeral or null`
 
@@ -951,9 +960,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           - `TextEditorCodeExecutionToolResultBlockParam object`
 
+            - `type: "text_editor_code_execution_tool_result"`
+
             - `content: TextEditorCodeExecutionToolResultErrorParam or TextEditorCodeExecutionViewResultBlockParam or TextEditorCodeExecutionCreateResultBlockParam or TextEditorCodeExecutionStrReplaceResultBlockParam`
 
               - `TextEditorCodeExecutionToolResultErrorParam object`
+
+                - `type: "text_editor_code_execution_tool_result_error"`
 
                 - `error_code: TextEditorCodeExecutionToolResultErrorCode`
 
@@ -967,11 +980,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `"file_not_found"`
 
-                - `type: "text_editor_code_execution_tool_result_error"`
-
                 - `error_message: optional string or null`
 
               - `TextEditorCodeExecutionViewResultBlockParam object`
+
+                - `type: "text_editor_code_execution_view_result"`
 
                 - `content: string`
 
@@ -983,8 +996,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `"pdf"`
 
-                - `type: "text_editor_code_execution_view_result"`
-
                 - `num_lines: optional number or null`
 
                 - `start_line: optional number or null`
@@ -993,9 +1004,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `TextEditorCodeExecutionCreateResultBlockParam object`
 
-                - `is_file_update: boolean`
-
                 - `type: "text_editor_code_execution_create_result"`
+
+                - `is_file_update: boolean`
 
               - `TextEditorCodeExecutionStrReplaceResultBlockParam object`
 
@@ -1015,17 +1026,19 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-            - `type: "text_editor_code_execution_tool_result"`
-
             - `cache_control: optional CacheControlEphemeral or null`
 
               Create a cache control breakpoint at this content block.
 
           - `ToolSearchToolResultBlockParam object`
 
+            - `type: "tool_search_tool_result"`
+
             - `content: ToolSearchToolResultErrorParam or ToolSearchToolSearchResultBlockParam`
 
               - `ToolSearchToolResultErrorParam object`
+
+                - `type: "tool_search_tool_result_error"`
 
                 - `error_code: ToolSearchToolResultErrorCode`
 
@@ -1037,31 +1050,27 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `"execution_time_exceeded"`
 
-                - `type: "tool_search_tool_result_error"`
-
                 - `error_message: optional string or null`
 
               - `ToolSearchToolSearchResultBlockParam object`
 
+                - `type: "tool_search_tool_search_result"`
+
                 - `tool_references: array of ToolReferenceBlockParam`
+
+                  - `type: "tool_reference"`
 
                   - `tool_name: string`
 
                     maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
-                  - `type: "tool_reference"`
-
                   - `cache_control: optional CacheControlEphemeral or null`
 
                     Create a cache control breakpoint at this content block.
 
-                - `type: "tool_search_tool_search_result"`
-
             - `tool_use_id: string`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-            - `type: "tool_search_tool_result"`
 
             - `cache_control: optional CacheControlEphemeral or null`
 
@@ -1072,9 +1081,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
             A content block that represents a file to be uploaded to the container
             Files uploaded via this block will be available in the container's input directory.
 
-            - `file_id: string`
-
             - `type: "container_upload"`
+
+            - `file_id: string`
 
             - `cache_control: optional CacheControlEphemeral or null`
 
@@ -1192,12 +1201,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           maxItems: 20
 
-          - `skill_id: string`
-
-            Skill ID
-
-            maxLength: 64, minLength: 1
-
           - `type: "anthropic" or "custom"`
 
             Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
@@ -1205,6 +1208,12 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
             - `"anthropic"`
 
             - `"custom"`
+
+          - `skill_id: string`
+
+            Skill ID
+
+            maxLength: 64, minLength: 1
 
           - `version: optional string`
 
@@ -1252,11 +1261,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         A schema to specify Claude's output format in responses. See [structured outputs](https://platform.claude.com/docs/en/build-with-claude/structured-outputs)
 
+        - `type: "json_schema"`
+
         - `schema: map[unknown]`
 
           The JSON schema of the format
-
-        - `type: "json_schema"`
 
     - `service_tier: optional "auto" or "standard_only"`
 
@@ -1292,11 +1301,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `array of TextBlockParam`
 
+        - `type: "text"`
+
         - `text: string`
 
           minLength: 1
-
-        - `type: "text"`
 
         - `cache_control: optional CacheControlEphemeral or null`
 
@@ -1314,6 +1323,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `ThinkingConfigEnabled object`
 
+        - `type: "enabled"`
+
         - `budget_tokens: number`
 
           Determines how many tokens Claude can use for its internal reasoning process. Larger budgets can enable more thorough analysis for complex problems, improving response quality.
@@ -1323,8 +1334,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
           See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
 
           minimum: 1024
-
-        - `type: "enabled"`
 
         - `display: optional "summarized" or "omitted" or null`
 
@@ -1382,11 +1391,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         The model will use the specified tool with `tool_choice.name`.
 
+        - `type: "tool"`
+
         - `name: string`
 
           The name of the tool to use.
-
-        - `type: "tool"`
 
         - `disable_parallel_tool_use: optional boolean`
 
@@ -1466,6 +1475,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `Tool object`
 
+        - `type: optional "custom" or null`
+
         - `input_schema: object`
 
           [JSON schema](https://json-schema.org/draft/2020-12) for this tool's input.
@@ -1520,17 +1531,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           When true, guarantees schema validation on tool names and inputs
 
-        - `type: optional "custom" or null`
-
       - `ToolBash20250124 object`
+
+        - `type: "bash_20250124"`
 
         - `name: "bash"`
 
           Name of the tool.
 
           This is how the tool will be called by the model and in `tool_use` blocks.
-
-        - `type: "bash_20250124"`
 
         - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
 
@@ -1558,13 +1567,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `CodeExecutionTool20250522 object`
 
+        - `type: "code_execution_20250522"`
+
         - `name: "code_execution"`
 
           Name of the tool.
 
           This is how the tool will be called by the model and in `tool_use` blocks.
-
-        - `type: "code_execution_20250522"`
 
         - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
 
@@ -1590,13 +1599,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `CodeExecutionTool20250825 object`
 
+        - `type: "code_execution_20250825"`
+
         - `name: "code_execution"`
 
           Name of the tool.
 
           This is how the tool will be called by the model and in `tool_use` blocks.
-
-        - `type: "code_execution_20250825"`
 
         - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
 
@@ -1624,13 +1633,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         Code execution tool with REPL state persistence (daemon mode + gVisor checkpoint).
 
+        - `type: "code_execution_20260120"`
+
         - `name: "code_execution"`
 
           Name of the tool.
 
           This is how the tool will be called by the model and in `tool_use` blocks.
-
-        - `type: "code_execution_20260120"`
 
         - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
 
@@ -1658,13 +1667,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         Code execution tool with REPL state persistence.
 
+        - `type: "code_execution_20260521"`
+
         - `name: "code_execution"`
 
           Name of the tool.
 
           This is how the tool will be called by the model and in `tool_use` blocks.
-
-        - `type: "code_execution_20260521"`
 
         - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
 
@@ -1709,6 +1718,18 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
           accepted key, and a member's defaults apply wherever its key is
           absent. Unknown keys are rejected: the field set is this toolset
           version's complete member set.
+
+          - `type: optional BrowserTypeConfig or null`
+
+            `type`'s config overrides.
+
+            - `defer_loading: optional boolean or null`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: optional boolean or null`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
           - `close_tab: optional BrowserCloseTabConfig or null`
 
@@ -2046,18 +2067,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-          - `type: optional BrowserTypeConfig or null`
-
-            `type`'s config overrides.
-
-            - `defer_loading: optional boolean or null`
-
-              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-            - `enabled: optional boolean or null`
-
-              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
           - `wait: optional BrowserWaitConfig or null`
 
             `wait`'s config overrides.
@@ -2084,13 +2093,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `MemoryTool20250818 object`
 
+        - `type: "memory_20250818"`
+
         - `name: "memory"`
 
           Name of the tool.
 
           This is how the tool will be called by the model and in `tool_use` blocks.
-
-        - `type: "memory_20250818"`
 
         - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
 
@@ -2141,6 +2150,18 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
           accepted key, and a member's defaults apply wherever its key is
           absent. Unknown keys are rejected: the field set is this toolset
           version's complete member set.
+
+          - `type: optional ComputerTypeConfig or null`
+
+            `type`'s config overrides.
+
+            - `defer_loading: optional boolean or null`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: optional boolean or null`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
           - `cursor_position: optional ComputerCursorPositionConfig or null`
 
@@ -2310,18 +2331,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-          - `type: optional ComputerTypeConfig or null`
-
-            `type`'s config overrides.
-
-            - `defer_loading: optional boolean or null`
-
-              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-            - `enabled: optional boolean or null`
-
-              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
           - `wait: optional ComputerWaitConfig or null`
 
             `wait`'s config overrides.
@@ -2348,13 +2357,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `ToolTextEditor20250124 object`
 
+        - `type: "text_editor_20250124"`
+
         - `name: "str_replace_editor"`
 
           Name of the tool.
 
           This is how the tool will be called by the model and in `tool_use` blocks.
-
-        - `type: "text_editor_20250124"`
 
         - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
 
@@ -2382,13 +2391,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `ToolTextEditor20250429 object`
 
+        - `type: "text_editor_20250429"`
+
         - `name: "str_replace_based_edit_tool"`
 
           Name of the tool.
 
           This is how the tool will be called by the model and in `tool_use` blocks.
-
-        - `type: "text_editor_20250429"`
 
         - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
 
@@ -2416,13 +2425,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `ToolTextEditor20250728 object`
 
+        - `type: "text_editor_20250728"`
+
         - `name: "str_replace_based_edit_tool"`
 
           Name of the tool.
 
           This is how the tool will be called by the model and in `tool_use` blocks.
-
-        - `type: "text_editor_20250728"`
 
         - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
 
@@ -2456,13 +2465,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `WebSearchTool20250305 object`
 
+        - `type: "web_search_20250305"`
+
         - `name: "web_search"`
 
           Name of the tool.
 
           This is how the tool will be called by the model and in `tool_use` blocks.
-
-        - `type: "web_search_20250305"`
 
         - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
 
@@ -2532,13 +2541,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `WebFetchTool20250910 object`
 
+        - `type: "web_fetch_20250910"`
+
         - `name: "web_fetch"`
 
           Name of the tool.
 
           This is how the tool will be called by the model and in `tool_use` blocks.
-
-        - `type: "web_fetch_20250910"`
 
         - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
 
@@ -2588,13 +2597,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `WebSearchTool20260209 object`
 
+        - `type: "web_search_20260209"`
+
         - `name: "web_search"`
 
           Name of the tool.
 
           This is how the tool will be called by the model and in `tool_use` blocks.
-
-        - `type: "web_search_20260209"`
 
         - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
 
@@ -2638,13 +2647,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `WebFetchTool20260209 object`
 
+        - `type: "web_fetch_20260209"`
+
         - `name: "web_fetch"`
 
           Name of the tool.
 
           This is how the tool will be called by the model and in `tool_use` blocks.
-
-        - `type: "web_fetch_20260209"`
 
         - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
 
@@ -2696,13 +2705,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         Web fetch tool with use_cache parameter for bypassing cached content.
 
+        - `type: "web_fetch_20260309"`
+
         - `name: "web_fetch"`
 
           Name of the tool.
 
           This is how the tool will be called by the model and in `tool_use` blocks.
-
-        - `type: "web_fetch_20260309"`
 
         - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
 
@@ -2756,13 +2765,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `WebSearchTool20260318 object`
 
+        - `type: "web_search_20260318"`
+
         - `name: "web_search"`
 
           Name of the tool.
 
           This is how the tool will be called by the model and in `tool_use` blocks.
-
-        - `type: "web_search_20260318"`
 
         - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
 
@@ -2814,13 +2823,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `WebFetchTool20260318 object`
 
+        - `type: "web_fetch_20260318"`
+
         - `name: "web_fetch"`
 
           Name of the tool.
 
           This is how the tool will be called by the model and in `tool_use` blocks.
-
-        - `type: "web_fetch_20260318"`
 
         - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
 
@@ -2882,17 +2891,17 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `ToolSearchToolBm25_20251119 object`
 
-        - `name: "tool_search_tool_bm25"`
-
-          Name of the tool.
-
-          This is how the tool will be called by the model and in `tool_use` blocks.
-
         - `type: "tool_search_tool_bm25_20251119" or "tool_search_tool_bm25"`
 
           - `"tool_search_tool_bm25_20251119"`
 
           - `"tool_search_tool_bm25"`
+
+        - `name: "tool_search_tool_bm25"`
+
+          Name of the tool.
+
+          This is how the tool will be called by the model and in `tool_use` blocks.
 
         - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
 
@@ -2918,17 +2927,17 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `ToolSearchToolRegex20251119 object`
 
-        - `name: "tool_search_tool_regex"`
-
-          Name of the tool.
-
-          This is how the tool will be called by the model and in `tool_use` blocks.
-
         - `type: "tool_search_tool_regex_20251119" or "tool_search_tool_regex"`
 
           - `"tool_search_tool_regex_20251119"`
 
           - `"tool_search_tool_regex"`
+
+        - `name: "tool_search_tool_regex"`
+
+          Name of the tool.
+
+          This is how the tool will be called by the model and in `tool_use` blocks.
 
         - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
 
@@ -2991,6 +3000,14 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 ### Returns
 
 - `MessageBatch object`
+
+  - `type: "message_batch"`
+
+    Object type.
+
+    For Message Batches, this is always `"message_batch"`.
+
+    default: message_batch
 
   - `id: string`
 
@@ -3089,14 +3106,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
     URL to a `.jsonl` file containing the results of the Message Batch requests. Specified only once processing ends.
 
     Results in the file are not guaranteed to be in the same order as requests. Use the `custom_id` field to match results to requests.
-
-  - `type: "message_batch"`
-
-    Object type.
-
-    For Message Batches, this is always `"message_batch"`.
-
-    default: message_batch
 
 ### Example
 
@@ -3161,9 +3170,21 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   ID of the Message Batch.
 
+### Headers
+
+- `"anthropic-workspace-id": optional string`
+
 ### Returns
 
 - `MessageBatch object`
+
+  - `type: "message_batch"`
+
+    Object type.
+
+    For Message Batches, this is always `"message_batch"`.
+
+    default: message_batch
 
   - `id: string`
 
@@ -3262,14 +3283,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
     URL to a `.jsonl` file containing the results of the Message Batch requests. Specified only once processing ends.
 
     Results in the file are not guaranteed to be in the same order as requests. Use the `custom_id` field to match results to requests.
-
-  - `type: "message_batch"`
-
-    Object type.
-
-    For Message Batches, this is always `"message_batch"`.
-
-    default: message_batch
 
 ### Example
 
@@ -3328,9 +3341,21 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   default: 20, maximum: 1000, minimum: 1
 
+### Headers
+
+- `"anthropic-workspace-id": optional string`
+
 ### Returns
 
 - `data: array of MessageBatch`
+
+  - `type: "message_batch"`
+
+    Object type.
+
+    For Message Batches, this is always `"message_batch"`.
+
+    default: message_batch
 
   - `id: string`
 
@@ -3429,14 +3454,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
     URL to a `.jsonl` file containing the results of the Message Batch requests. Specified only once processing ends.
 
     Results in the file are not guaranteed to be in the same order as requests. Use the `custom_id` field to match results to requests.
-
-  - `type: "message_batch"`
-
-    Object type.
-
-    For Message Batches, this is always `"message_batch"`.
-
-    default: message_batch
 
 - `first_id: string or null`
 
@@ -3504,9 +3521,21 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   ID of the Message Batch.
 
+### Headers
+
+- `"anthropic-workspace-id": optional string`
+
 ### Returns
 
 - `MessageBatch object`
+
+  - `type: "message_batch"`
+
+    Object type.
+
+    For Message Batches, this is always `"message_batch"`.
+
+    default: message_batch
 
   - `id: string`
 
@@ -3605,14 +3634,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
     URL to a `.jsonl` file containing the results of the Message Batch requests. Specified only once processing ends.
 
     Results in the file are not guaranteed to be in the same order as requests. Use the `custom_id` field to match results to requests.
-
-  - `type: "message_batch"`
-
-    Object type.
-
-    For Message Batches, this is always `"message_batch"`.
-
-    default: message_batch
 
 ### Example
 
@@ -3662,13 +3683,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   ID of the Message Batch.
 
+### Headers
+
+- `"anthropic-workspace-id": optional string`
+
 ### Returns
 
 - `DeletedMessageBatch object`
-
-  - `id: string`
-
-    ID of the Message Batch.
 
   - `type: "message_batch_deleted"`
 
@@ -3677,6 +3698,10 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
     For Message Batches, this is always `"message_batch_deleted"`.
 
     default: message_batch_deleted
+
+  - `id: string`
+
+    ID of the Message Batch.
 
 ### Example
 
@@ -3712,6 +3737,10 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   ID of the Message Batch.
 
+### Headers
+
+- `"anthropic-workspace-id": optional string`
+
 ### Returns
 
 - `MessageBatchIndividualResponse object`
@@ -3732,7 +3761,19 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     - `MessageBatchSucceededResult object`
 
+      - `type: "succeeded"`
+
+        default: succeeded
+
       - `message: Message`
+
+        - `type: "message"`
+
+          Object type.
+
+          For Messages, this is always `"message"`.
+
+          default: message
 
         - `id: string`
 
@@ -3758,12 +3799,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             Skills loaded in the container
 
-            - `skill_id: string`
-
-              Skill ID
-
-              maxLength: 64, minLength: 1
-
             - `type: "anthropic" or "custom"`
 
               Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
@@ -3771,6 +3806,12 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
               - `"anthropic"`
 
               - `"custom"`
+
+            - `skill_id: string`
+
+              Skill ID
+
+              maxLength: 64, minLength: 1
 
             - `version: string`
 
@@ -3809,6 +3850,10 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           - `TextBlock object`
 
+            - `type: "text"`
+
+              default: text
+
             - `citations: array of TextCitation or null`
 
               Citations supporting the text block.
@@ -3816,6 +3861,10 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
               The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
 
               - `CitationCharLocation object`
+
+                - `type: "char_location"`
+
+                  default: char_location
 
                 - `cited_text: string`
 
@@ -3833,11 +3882,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   minimum: 0
 
-                - `type: "char_location"`
-
-                  default: char_location
-
               - `CitationPageLocation object`
+
+                - `type: "page_location"`
+
+                  default: page_location
 
                 - `cited_text: string`
 
@@ -3855,11 +3904,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   minimum: 1
 
-                - `type: "page_location"`
-
-                  default: page_location
-
               - `CitationContentBlockLocation object`
+
+                - `type: "content_block_location"`
+
+                  default: content_block_location
 
                 - `cited_text: string`
 
@@ -3887,11 +3936,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   minimum: 0
 
-                - `type: "content_block_location"`
-
-                  default: content_block_location
-
               - `CitationsWebSearchResultLocation object`
+
+                - `type: "web_search_result_location"`
+
+                  default: web_search_result_location
 
                 - `cited_text: string`
 
@@ -3901,13 +3950,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   maxLength: 512
 
-                - `type: "web_search_result_location"`
-
-                  default: web_search_result_location
-
                 - `url: string`
 
               - `CitationsSearchResultLocation object`
+
+                - `type: "search_result_location"`
+
+                  default: search_result_location
 
                 - `cited_text: string`
 
@@ -3939,19 +3988,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `title: string or null`
 
-                - `type: "search_result_location"`
-
-                  default: search_result_location
-
             - `text: string`
 
-              maxLength: 5000000, minLength: 0
-
-            - `type: "text"`
-
-              default: text
+              minLength: 0
 
           - `ThinkingBlock object`
+
+            - `type: "thinking"`
+
+              default: thinking
 
             - `signature: string`
 
@@ -3965,11 +4010,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               The text of Claude's thinking process for this block.
 
-            - `type: "thinking"`
-
-              default: thinking
-
           - `RedactedThinkingBlock object`
+
+            - `type: "redacted_thinking"`
+
+              default: redacted_thinking
 
             - `data: string`
 
@@ -3979,11 +4024,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking#redacted-thinking-blocks) for details.
 
-            - `type: "redacted_thinking"`
-
-              default: redacted_thinking
-
           - `ToolUseBlock object`
+
+            - `type: "tool_use"`
+
+              default: tool_use
 
             - `id: string`
 
@@ -4005,29 +4050,25 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 Tool invocation generated by a server-side tool.
 
+                - `type: "code_execution_20250825"`
+
                 - `tool_id: string`
 
                   pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-                - `type: "code_execution_20250825"`
 
               - `ServerToolCaller20260120 object`
 
+                - `type: "code_execution_20260120"`
+
                 - `tool_id: string`
 
                   pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-                - `type: "code_execution_20260120"`
 
             - `input: map[unknown]`
 
             - `name: string`
 
               minLength: 1
-
-            - `type: "tool_use"`
-
-              default: tool_use
 
             - `toolset_name: optional string or null`
 
@@ -4036,6 +4077,10 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
               maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
 
           - `ServerToolUseBlock object`
+
+            - `type: "server_tool_use"`
+
+              default: server_tool_use
 
             - `id: string`
 
@@ -4075,11 +4120,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `"tool_search_tool_bm25"`
 
-            - `type: "server_tool_use"`
-
-              default: server_tool_use
-
           - `WebSearchToolResultBlock object`
+
+            - `type: "web_search_tool_result"`
+
+              default: web_search_tool_result
 
             - `caller: DirectCaller or ServerToolCaller or ServerToolCaller20260120`
 
@@ -4101,6 +4146,10 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `WebSearchToolResultError object`
 
+                - `type: "web_search_tool_result_error"`
+
+                  default: web_search_tool_result_error
+
                 - `error_code: WebSearchToolResultErrorCode`
 
                   - `"invalid_tool_input"`
@@ -4115,11 +4164,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `"request_too_large"`
 
-                - `type: "web_search_tool_result_error"`
-
-                  default: web_search_tool_result_error
-
               - `array of WebSearchResultBlock`
+
+                - `type: "web_search_result"`
+
+                  default: web_search_result
 
                 - `encrypted_content: string`
 
@@ -4127,21 +4176,17 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `title: string`
 
-                - `type: "web_search_result"`
-
-                  default: web_search_result
-
                 - `url: string`
 
             - `tool_use_id: string`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-            - `type: "web_search_tool_result"`
-
-              default: web_search_tool_result
-
           - `WebFetchToolResultBlock object`
+
+            - `type: "web_fetch_tool_result"`
+
+              default: web_fetch_tool_result
 
             - `caller: DirectCaller or ServerToolCaller or ServerToolCaller20260120`
 
@@ -4163,6 +4208,10 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `WebFetchToolResultErrorBlock object`
 
+                - `type: "web_fetch_tool_result_error"`
+
+                  default: web_fetch_tool_result_error
+
                 - `error_code: WebFetchToolResultErrorCode`
 
                   - `"invalid_tool_input"`
@@ -4183,13 +4232,19 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `"unavailable"`
 
-                - `type: "web_fetch_tool_result_error"`
-
-                  default: web_fetch_tool_result_error
+                  - `"content_too_large"`
 
               - `WebFetchBlock object`
 
+                - `type: "web_fetch_result"`
+
+                  default: web_fetch_result
+
                 - `content: DocumentBlock`
+
+                  - `type: "document"`
+
+                    default: document
 
                   - `citations: CitationsConfig or null`
 
@@ -4203,37 +4258,29 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     - `Base64PDFSource object`
 
+                      - `type: "base64"`
+
                       - `data: string`
 
                         format: byte
 
                       - `media_type: "application/pdf"`
 
-                      - `type: "base64"`
-
                     - `PlainTextSource object`
+
+                      - `type: "text"`
 
                       - `data: string`
 
                       - `media_type: "text/plain"`
 
-                      - `type: "text"`
-
                   - `title: string or null`
 
                     The title of the document
 
-                  - `type: "document"`
-
-                    default: document
-
                 - `retrieved_at: string or null`
 
                   ISO 8601 timestamp when the content was retrieved
-
-                - `type: "web_fetch_result"`
-
-                  default: web_fetch_result
 
                 - `url: string`
 
@@ -4243,17 +4290,21 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-            - `type: "web_fetch_tool_result"`
-
-              default: web_fetch_tool_result
-
           - `CodeExecutionToolResultBlock object`
+
+            - `type: "code_execution_tool_result"`
+
+              default: code_execution_tool_result
 
             - `content: CodeExecutionToolResultBlockContent`
 
               Code execution result with encrypted stdout for PFC + web_search results.
 
               - `CodeExecutionToolResultError object`
+
+                - `type: "code_execution_tool_result_error"`
+
+                  default: code_execution_tool_result_error
 
                 - `error_code: CodeExecutionToolResultErrorCode`
 
@@ -4265,19 +4316,19 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `"execution_time_exceeded"`
 
-                - `type: "code_execution_tool_result_error"`
-
-                  default: code_execution_tool_result_error
-
               - `CodeExecutionResultBlock object`
 
-                - `content: array of CodeExecutionOutputBlock`
+                - `type: "code_execution_result"`
 
-                  - `file_id: string`
+                  default: code_execution_result
+
+                - `content: array of CodeExecutionOutputBlock`
 
                   - `type: "code_execution_output"`
 
                     default: code_execution_output
+
+                  - `file_id: string`
 
                 - `return_code: number`
 
@@ -4285,21 +4336,21 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `stdout: string`
 
-                - `type: "code_execution_result"`
-
-                  default: code_execution_result
-
               - `EncryptedCodeExecutionResultBlock object`
 
                 Code execution result with encrypted stdout for PFC + web_search results.
 
-                - `content: array of CodeExecutionOutputBlock`
+                - `type: "encrypted_code_execution_result"`
 
-                  - `file_id: string`
+                  default: encrypted_code_execution_result
+
+                - `content: array of CodeExecutionOutputBlock`
 
                   - `type: "code_execution_output"`
 
                     default: code_execution_output
+
+                  - `file_id: string`
 
                 - `encrypted_stdout: string`
 
@@ -4307,23 +4358,23 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `stderr: string`
 
-                - `type: "encrypted_code_execution_result"`
-
-                  default: encrypted_code_execution_result
-
             - `tool_use_id: string`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-            - `type: "code_execution_tool_result"`
-
-              default: code_execution_tool_result
-
           - `BashCodeExecutionToolResultBlock object`
+
+            - `type: "bash_code_execution_tool_result"`
+
+              default: bash_code_execution_tool_result
 
             - `content: BashCodeExecutionToolResultError or BashCodeExecutionResultBlock`
 
               - `BashCodeExecutionToolResultError object`
+
+                - `type: "bash_code_execution_tool_result_error"`
+
+                  default: bash_code_execution_tool_result_error
 
                 - `error_code: BashCodeExecutionToolResultErrorCode`
 
@@ -4337,19 +4388,19 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `"output_file_too_large"`
 
-                - `type: "bash_code_execution_tool_result_error"`
-
-                  default: bash_code_execution_tool_result_error
-
               - `BashCodeExecutionResultBlock object`
 
-                - `content: array of BashCodeExecutionOutputBlock`
+                - `type: "bash_code_execution_result"`
 
-                  - `file_id: string`
+                  default: bash_code_execution_result
+
+                - `content: array of BashCodeExecutionOutputBlock`
 
                   - `type: "bash_code_execution_output"`
 
                     default: bash_code_execution_output
+
+                  - `file_id: string`
 
                 - `return_code: number`
 
@@ -4357,23 +4408,23 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `stdout: string`
 
-                - `type: "bash_code_execution_result"`
-
-                  default: bash_code_execution_result
-
             - `tool_use_id: string`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-            - `type: "bash_code_execution_tool_result"`
-
-              default: bash_code_execution_tool_result
-
           - `TextEditorCodeExecutionToolResultBlock object`
+
+            - `type: "text_editor_code_execution_tool_result"`
+
+              default: text_editor_code_execution_tool_result
 
             - `content: TextEditorCodeExecutionToolResultError or TextEditorCodeExecutionViewResultBlock or TextEditorCodeExecutionCreateResultBlock or TextEditorCodeExecutionStrReplaceResultBlock`
 
               - `TextEditorCodeExecutionToolResultError object`
+
+                - `type: "text_editor_code_execution_tool_result_error"`
+
+                  default: text_editor_code_execution_tool_result_error
 
                 - `error_code: TextEditorCodeExecutionToolResultErrorCode`
 
@@ -4389,11 +4440,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `error_message: string or null`
 
-                - `type: "text_editor_code_execution_tool_result_error"`
-
-                  default: text_editor_code_execution_tool_result_error
-
               - `TextEditorCodeExecutionViewResultBlock object`
+
+                - `type: "text_editor_code_execution_view_result"`
+
+                  default: text_editor_code_execution_view_result
 
                 - `content: string`
 
@@ -4411,19 +4462,19 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `total_lines: number or null`
 
-                - `type: "text_editor_code_execution_view_result"`
-
-                  default: text_editor_code_execution_view_result
-
               - `TextEditorCodeExecutionCreateResultBlock object`
-
-                - `is_file_update: boolean`
 
                 - `type: "text_editor_code_execution_create_result"`
 
                   default: text_editor_code_execution_create_result
 
+                - `is_file_update: boolean`
+
               - `TextEditorCodeExecutionStrReplaceResultBlock object`
+
+                - `type: "text_editor_code_execution_str_replace_result"`
+
+                  default: text_editor_code_execution_str_replace_result
 
                 - `lines: array of string or null`
 
@@ -4435,23 +4486,23 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `old_start: number or null`
 
-                - `type: "text_editor_code_execution_str_replace_result"`
-
-                  default: text_editor_code_execution_str_replace_result
-
             - `tool_use_id: string`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-            - `type: "text_editor_code_execution_tool_result"`
-
-              default: text_editor_code_execution_tool_result
-
           - `ToolSearchToolResultBlock object`
+
+            - `type: "tool_search_tool_result"`
+
+              default: tool_search_tool_result
 
             - `content: ToolSearchToolResultError or ToolSearchToolSearchResultBlock`
 
               - `ToolSearchToolResultError object`
+
+                - `type: "tool_search_tool_result_error"`
+
+                  default: tool_search_tool_result_error
 
                 - `error_code: ToolSearchToolResultErrorCode`
 
@@ -4465,43 +4516,35 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `error_message: string or null`
 
-                - `type: "tool_search_tool_result_error"`
-
-                  default: tool_search_tool_result_error
-
               - `ToolSearchToolSearchResultBlock object`
-
-                - `tool_references: array of ToolReferenceBlock`
-
-                  - `tool_name: string`
-
-                    maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
-
-                  - `type: "tool_reference"`
-
-                    default: tool_reference
 
                 - `type: "tool_search_tool_search_result"`
 
                   default: tool_search_tool_search_result
 
+                - `tool_references: array of ToolReferenceBlock`
+
+                  - `type: "tool_reference"`
+
+                    default: tool_reference
+
+                  - `tool_name: string`
+
+                    maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+
             - `tool_use_id: string`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-            - `type: "tool_search_tool_result"`
-
-              default: tool_search_tool_result
 
           - `ContainerUploadBlock object`
 
             Response model for a file uploaded to the container.
 
-            - `file_id: string`
-
             - `type: "container_upload"`
 
               default: container_upload
+
+            - `file_id: string`
 
         - `model: Model`
 
@@ -4597,6 +4640,10 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           Structured information about a refusal.
 
+          - `type: "refusal"`
+
+            default: refusal
+
           - `category: "cyber" or "bio" or "frontier_llm" or 2 more or null`
 
             The policy category that triggered a refusal.
@@ -4626,10 +4673,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
             Human-readable explanation of the refusal.
 
             This text is not guaranteed to be stable. `null` when no explanation is available for the category.
-
-          - `type: "refusal"`
-
-            default: refusal
 
         - `stop_reason: StopReason or null`
 
@@ -4666,14 +4709,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
           Which custom stop sequence was generated, if any.
 
           This value will be a non-null string if one of your custom stop sequences was generated.
-
-        - `type: "message"`
-
-          Object type.
-
-          For Messages, this is always `"message"`.
-
-          default: message
 
         - `usage: Usage`
 
@@ -4779,115 +4814,111 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `"batch"`
 
-      - `type: "succeeded"`
-
-        default: succeeded
-
     - `MessageBatchErroredResult object`
 
+      - `type: "errored"`
+
+        default: errored
+
       - `error: ErrorResponse`
-
-        - `error: ErrorObject`
-
-          - `InvalidRequestError object`
-
-            - `message: string`
-
-              default: Invalid request
-
-            - `type: "invalid_request_error"`
-
-              default: invalid_request_error
-
-          - `AuthenticationError object`
-
-            - `message: string`
-
-              default: Authentication error
-
-            - `type: "authentication_error"`
-
-              default: authentication_error
-
-          - `BillingError object`
-
-            - `message: string`
-
-              default: Billing error
-
-            - `type: "billing_error"`
-
-              default: billing_error
-
-          - `PermissionError object`
-
-            - `message: string`
-
-              default: Permission denied
-
-            - `type: "permission_error"`
-
-              default: permission_error
-
-          - `NotFoundError object`
-
-            - `message: string`
-
-              default: Not found
-
-            - `type: "not_found_error"`
-
-              default: not_found_error
-
-          - `RateLimitError object`
-
-            - `message: string`
-
-              default: Rate limited
-
-            - `type: "rate_limit_error"`
-
-              default: rate_limit_error
-
-          - `GatewayTimeoutError object`
-
-            - `message: string`
-
-              default: Request timeout
-
-            - `type: "timeout_error"`
-
-              default: timeout_error
-
-          - `APIErrorObject object`
-
-            - `message: string`
-
-              default: Internal server error
-
-            - `type: "api_error"`
-
-              default: api_error
-
-          - `OverloadedError object`
-
-            - `message: string`
-
-              default: Overloaded
-
-            - `type: "overloaded_error"`
-
-              default: overloaded_error
-
-        - `request_id: string or null`
 
         - `type: "error"`
 
           default: error
 
-      - `type: "errored"`
+        - `error: ErrorObject`
 
-        default: errored
+          - `InvalidRequestError object`
+
+            - `type: "invalid_request_error"`
+
+              default: invalid_request_error
+
+            - `message: string`
+
+              default: Invalid request
+
+          - `AuthenticationError object`
+
+            - `type: "authentication_error"`
+
+              default: authentication_error
+
+            - `message: string`
+
+              default: Authentication error
+
+          - `BillingError object`
+
+            - `type: "billing_error"`
+
+              default: billing_error
+
+            - `message: string`
+
+              default: Billing error
+
+          - `PermissionError object`
+
+            - `type: "permission_error"`
+
+              default: permission_error
+
+            - `message: string`
+
+              default: Permission denied
+
+          - `NotFoundError object`
+
+            - `type: "not_found_error"`
+
+              default: not_found_error
+
+            - `message: string`
+
+              default: Not found
+
+          - `RateLimitError object`
+
+            - `type: "rate_limit_error"`
+
+              default: rate_limit_error
+
+            - `message: string`
+
+              default: Rate limited
+
+          - `GatewayTimeoutError object`
+
+            - `type: "timeout_error"`
+
+              default: timeout_error
+
+            - `message: string`
+
+              default: Request timeout
+
+          - `APIErrorObject object`
+
+            - `type: "api_error"`
+
+              default: api_error
+
+            - `message: string`
+
+              default: Internal server error
+
+          - `OverloadedError object`
+
+            - `type: "overloaded_error"`
+
+              default: overloaded_error
+
+            - `message: string`
+
+              default: Overloaded
+
+        - `request_id: string or null`
 
     - `MessageBatchCanceledResult object`
 
@@ -4915,10 +4946,6 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
 - `DeletedMessageBatch object`
 
-  - `id: string`
-
-    ID of the Message Batch.
-
   - `type: "message_batch_deleted"`
 
     Deleted object type.
@@ -4927,9 +4954,21 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
     default: message_batch_deleted
 
+  - `id: string`
+
+    ID of the Message Batch.
+
 ### Message Batch
 
 - `MessageBatch object`
+
+  - `type: "message_batch"`
+
+    Object type.
+
+    For Message Batches, this is always `"message_batch"`.
+
+    default: message_batch
 
   - `id: string`
 
@@ -5029,14 +5068,6 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
     Results in the file are not guaranteed to be in the same order as requests. Use the `custom_id` field to match results to requests.
 
-  - `type: "message_batch"`
-
-    Object type.
-
-    For Message Batches, this is always `"message_batch"`.
-
-    default: message_batch
-
 ### Message Batch Canceled Result
 
 - `MessageBatchCanceledResult object`
@@ -5049,109 +5080,109 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
 - `MessageBatchErroredResult object`
 
+  - `type: "errored"`
+
+    default: errored
+
   - `error: ErrorResponse`
-
-    - `error: ErrorObject`
-
-      - `InvalidRequestError object`
-
-        - `message: string`
-
-          default: Invalid request
-
-        - `type: "invalid_request_error"`
-
-          default: invalid_request_error
-
-      - `AuthenticationError object`
-
-        - `message: string`
-
-          default: Authentication error
-
-        - `type: "authentication_error"`
-
-          default: authentication_error
-
-      - `BillingError object`
-
-        - `message: string`
-
-          default: Billing error
-
-        - `type: "billing_error"`
-
-          default: billing_error
-
-      - `PermissionError object`
-
-        - `message: string`
-
-          default: Permission denied
-
-        - `type: "permission_error"`
-
-          default: permission_error
-
-      - `NotFoundError object`
-
-        - `message: string`
-
-          default: Not found
-
-        - `type: "not_found_error"`
-
-          default: not_found_error
-
-      - `RateLimitError object`
-
-        - `message: string`
-
-          default: Rate limited
-
-        - `type: "rate_limit_error"`
-
-          default: rate_limit_error
-
-      - `GatewayTimeoutError object`
-
-        - `message: string`
-
-          default: Request timeout
-
-        - `type: "timeout_error"`
-
-          default: timeout_error
-
-      - `APIErrorObject object`
-
-        - `message: string`
-
-          default: Internal server error
-
-        - `type: "api_error"`
-
-          default: api_error
-
-      - `OverloadedError object`
-
-        - `message: string`
-
-          default: Overloaded
-
-        - `type: "overloaded_error"`
-
-          default: overloaded_error
-
-    - `request_id: string or null`
 
     - `type: "error"`
 
       default: error
 
-  - `type: "errored"`
+    - `error: ErrorObject`
 
-    default: errored
+      - `InvalidRequestError object`
+
+        - `type: "invalid_request_error"`
+
+          default: invalid_request_error
+
+        - `message: string`
+
+          default: Invalid request
+
+      - `AuthenticationError object`
+
+        - `type: "authentication_error"`
+
+          default: authentication_error
+
+        - `message: string`
+
+          default: Authentication error
+
+      - `BillingError object`
+
+        - `type: "billing_error"`
+
+          default: billing_error
+
+        - `message: string`
+
+          default: Billing error
+
+      - `PermissionError object`
+
+        - `type: "permission_error"`
+
+          default: permission_error
+
+        - `message: string`
+
+          default: Permission denied
+
+      - `NotFoundError object`
+
+        - `type: "not_found_error"`
+
+          default: not_found_error
+
+        - `message: string`
+
+          default: Not found
+
+      - `RateLimitError object`
+
+        - `type: "rate_limit_error"`
+
+          default: rate_limit_error
+
+        - `message: string`
+
+          default: Rate limited
+
+      - `GatewayTimeoutError object`
+
+        - `type: "timeout_error"`
+
+          default: timeout_error
+
+        - `message: string`
+
+          default: Request timeout
+
+      - `APIErrorObject object`
+
+        - `type: "api_error"`
+
+          default: api_error
+
+        - `message: string`
+
+          default: Internal server error
+
+      - `OverloadedError object`
+
+        - `type: "overloaded_error"`
+
+          default: overloaded_error
+
+        - `message: string`
+
+          default: Overloaded
+
+    - `request_id: string or null`
 
 ### Message Batch Expired Result
 
@@ -5181,7 +5212,19 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
     - `MessageBatchSucceededResult object`
 
+      - `type: "succeeded"`
+
+        default: succeeded
+
       - `message: Message`
+
+        - `type: "message"`
+
+          Object type.
+
+          For Messages, this is always `"message"`.
+
+          default: message
 
         - `id: string`
 
@@ -5207,12 +5250,6 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
             Skills loaded in the container
 
-            - `skill_id: string`
-
-              Skill ID
-
-              maxLength: 64, minLength: 1
-
             - `type: "anthropic" or "custom"`
 
               Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
@@ -5220,6 +5257,12 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
               - `"anthropic"`
 
               - `"custom"`
+
+            - `skill_id: string`
+
+              Skill ID
+
+              maxLength: 64, minLength: 1
 
             - `version: string`
 
@@ -5258,6 +5301,10 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
           - `TextBlock object`
 
+            - `type: "text"`
+
+              default: text
+
             - `citations: array of TextCitation or null`
 
               Citations supporting the text block.
@@ -5265,6 +5312,10 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
               The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
 
               - `CitationCharLocation object`
+
+                - `type: "char_location"`
+
+                  default: char_location
 
                 - `cited_text: string`
 
@@ -5282,11 +5333,11 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
                   minimum: 0
 
-                - `type: "char_location"`
-
-                  default: char_location
-
               - `CitationPageLocation object`
+
+                - `type: "page_location"`
+
+                  default: page_location
 
                 - `cited_text: string`
 
@@ -5304,11 +5355,11 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
                   minimum: 1
 
-                - `type: "page_location"`
-
-                  default: page_location
-
               - `CitationContentBlockLocation object`
+
+                - `type: "content_block_location"`
+
+                  default: content_block_location
 
                 - `cited_text: string`
 
@@ -5336,11 +5387,11 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
                   minimum: 0
 
-                - `type: "content_block_location"`
-
-                  default: content_block_location
-
               - `CitationsWebSearchResultLocation object`
+
+                - `type: "web_search_result_location"`
+
+                  default: web_search_result_location
 
                 - `cited_text: string`
 
@@ -5350,13 +5401,13 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
                   maxLength: 512
 
-                - `type: "web_search_result_location"`
-
-                  default: web_search_result_location
-
                 - `url: string`
 
               - `CitationsSearchResultLocation object`
+
+                - `type: "search_result_location"`
+
+                  default: search_result_location
 
                 - `cited_text: string`
 
@@ -5388,19 +5439,15 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
                 - `title: string or null`
 
-                - `type: "search_result_location"`
-
-                  default: search_result_location
-
             - `text: string`
 
-              maxLength: 5000000, minLength: 0
-
-            - `type: "text"`
-
-              default: text
+              minLength: 0
 
           - `ThinkingBlock object`
+
+            - `type: "thinking"`
+
+              default: thinking
 
             - `signature: string`
 
@@ -5414,11 +5461,11 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
               The text of Claude's thinking process for this block.
 
-            - `type: "thinking"`
-
-              default: thinking
-
           - `RedactedThinkingBlock object`
+
+            - `type: "redacted_thinking"`
+
+              default: redacted_thinking
 
             - `data: string`
 
@@ -5428,11 +5475,11 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
               See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking#redacted-thinking-blocks) for details.
 
-            - `type: "redacted_thinking"`
-
-              default: redacted_thinking
-
           - `ToolUseBlock object`
+
+            - `type: "tool_use"`
+
+              default: tool_use
 
             - `id: string`
 
@@ -5454,29 +5501,25 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
                 Tool invocation generated by a server-side tool.
 
+                - `type: "code_execution_20250825"`
+
                 - `tool_id: string`
 
                   pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-                - `type: "code_execution_20250825"`
 
               - `ServerToolCaller20260120 object`
 
+                - `type: "code_execution_20260120"`
+
                 - `tool_id: string`
 
                   pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-                - `type: "code_execution_20260120"`
 
             - `input: map[unknown]`
 
             - `name: string`
 
               minLength: 1
-
-            - `type: "tool_use"`
-
-              default: tool_use
 
             - `toolset_name: optional string or null`
 
@@ -5485,6 +5528,10 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
               maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
 
           - `ServerToolUseBlock object`
+
+            - `type: "server_tool_use"`
+
+              default: server_tool_use
 
             - `id: string`
 
@@ -5524,11 +5571,11 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
               - `"tool_search_tool_bm25"`
 
-            - `type: "server_tool_use"`
-
-              default: server_tool_use
-
           - `WebSearchToolResultBlock object`
+
+            - `type: "web_search_tool_result"`
+
+              default: web_search_tool_result
 
             - `caller: DirectCaller or ServerToolCaller or ServerToolCaller20260120`
 
@@ -5550,6 +5597,10 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
               - `WebSearchToolResultError object`
 
+                - `type: "web_search_tool_result_error"`
+
+                  default: web_search_tool_result_error
+
                 - `error_code: WebSearchToolResultErrorCode`
 
                   - `"invalid_tool_input"`
@@ -5564,11 +5615,11 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
                   - `"request_too_large"`
 
-                - `type: "web_search_tool_result_error"`
-
-                  default: web_search_tool_result_error
-
               - `array of WebSearchResultBlock`
+
+                - `type: "web_search_result"`
+
+                  default: web_search_result
 
                 - `encrypted_content: string`
 
@@ -5576,21 +5627,17 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
                 - `title: string`
 
-                - `type: "web_search_result"`
-
-                  default: web_search_result
-
                 - `url: string`
 
             - `tool_use_id: string`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-            - `type: "web_search_tool_result"`
-
-              default: web_search_tool_result
-
           - `WebFetchToolResultBlock object`
+
+            - `type: "web_fetch_tool_result"`
+
+              default: web_fetch_tool_result
 
             - `caller: DirectCaller or ServerToolCaller or ServerToolCaller20260120`
 
@@ -5612,6 +5659,10 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
               - `WebFetchToolResultErrorBlock object`
 
+                - `type: "web_fetch_tool_result_error"`
+
+                  default: web_fetch_tool_result_error
+
                 - `error_code: WebFetchToolResultErrorCode`
 
                   - `"invalid_tool_input"`
@@ -5632,13 +5683,19 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
                   - `"unavailable"`
 
-                - `type: "web_fetch_tool_result_error"`
-
-                  default: web_fetch_tool_result_error
+                  - `"content_too_large"`
 
               - `WebFetchBlock object`
 
+                - `type: "web_fetch_result"`
+
+                  default: web_fetch_result
+
                 - `content: DocumentBlock`
+
+                  - `type: "document"`
+
+                    default: document
 
                   - `citations: CitationsConfig or null`
 
@@ -5652,37 +5709,29 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
                     - `Base64PDFSource object`
 
+                      - `type: "base64"`
+
                       - `data: string`
 
                         format: byte
 
                       - `media_type: "application/pdf"`
 
-                      - `type: "base64"`
-
                     - `PlainTextSource object`
+
+                      - `type: "text"`
 
                       - `data: string`
 
                       - `media_type: "text/plain"`
 
-                      - `type: "text"`
-
                   - `title: string or null`
 
                     The title of the document
 
-                  - `type: "document"`
-
-                    default: document
-
                 - `retrieved_at: string or null`
 
                   ISO 8601 timestamp when the content was retrieved
-
-                - `type: "web_fetch_result"`
-
-                  default: web_fetch_result
 
                 - `url: string`
 
@@ -5692,17 +5741,21 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-            - `type: "web_fetch_tool_result"`
-
-              default: web_fetch_tool_result
-
           - `CodeExecutionToolResultBlock object`
+
+            - `type: "code_execution_tool_result"`
+
+              default: code_execution_tool_result
 
             - `content: CodeExecutionToolResultBlockContent`
 
               Code execution result with encrypted stdout for PFC + web_search results.
 
               - `CodeExecutionToolResultError object`
+
+                - `type: "code_execution_tool_result_error"`
+
+                  default: code_execution_tool_result_error
 
                 - `error_code: CodeExecutionToolResultErrorCode`
 
@@ -5714,19 +5767,19 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
                   - `"execution_time_exceeded"`
 
-                - `type: "code_execution_tool_result_error"`
-
-                  default: code_execution_tool_result_error
-
               - `CodeExecutionResultBlock object`
 
-                - `content: array of CodeExecutionOutputBlock`
+                - `type: "code_execution_result"`
 
-                  - `file_id: string`
+                  default: code_execution_result
+
+                - `content: array of CodeExecutionOutputBlock`
 
                   - `type: "code_execution_output"`
 
                     default: code_execution_output
+
+                  - `file_id: string`
 
                 - `return_code: number`
 
@@ -5734,21 +5787,21 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
                 - `stdout: string`
 
-                - `type: "code_execution_result"`
-
-                  default: code_execution_result
-
               - `EncryptedCodeExecutionResultBlock object`
 
                 Code execution result with encrypted stdout for PFC + web_search results.
 
-                - `content: array of CodeExecutionOutputBlock`
+                - `type: "encrypted_code_execution_result"`
 
-                  - `file_id: string`
+                  default: encrypted_code_execution_result
+
+                - `content: array of CodeExecutionOutputBlock`
 
                   - `type: "code_execution_output"`
 
                     default: code_execution_output
+
+                  - `file_id: string`
 
                 - `encrypted_stdout: string`
 
@@ -5756,23 +5809,23 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
                 - `stderr: string`
 
-                - `type: "encrypted_code_execution_result"`
-
-                  default: encrypted_code_execution_result
-
             - `tool_use_id: string`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-            - `type: "code_execution_tool_result"`
-
-              default: code_execution_tool_result
-
           - `BashCodeExecutionToolResultBlock object`
+
+            - `type: "bash_code_execution_tool_result"`
+
+              default: bash_code_execution_tool_result
 
             - `content: BashCodeExecutionToolResultError or BashCodeExecutionResultBlock`
 
               - `BashCodeExecutionToolResultError object`
+
+                - `type: "bash_code_execution_tool_result_error"`
+
+                  default: bash_code_execution_tool_result_error
 
                 - `error_code: BashCodeExecutionToolResultErrorCode`
 
@@ -5786,19 +5839,19 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
                   - `"output_file_too_large"`
 
-                - `type: "bash_code_execution_tool_result_error"`
-
-                  default: bash_code_execution_tool_result_error
-
               - `BashCodeExecutionResultBlock object`
 
-                - `content: array of BashCodeExecutionOutputBlock`
+                - `type: "bash_code_execution_result"`
 
-                  - `file_id: string`
+                  default: bash_code_execution_result
+
+                - `content: array of BashCodeExecutionOutputBlock`
 
                   - `type: "bash_code_execution_output"`
 
                     default: bash_code_execution_output
+
+                  - `file_id: string`
 
                 - `return_code: number`
 
@@ -5806,23 +5859,23 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
                 - `stdout: string`
 
-                - `type: "bash_code_execution_result"`
-
-                  default: bash_code_execution_result
-
             - `tool_use_id: string`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-            - `type: "bash_code_execution_tool_result"`
-
-              default: bash_code_execution_tool_result
-
           - `TextEditorCodeExecutionToolResultBlock object`
+
+            - `type: "text_editor_code_execution_tool_result"`
+
+              default: text_editor_code_execution_tool_result
 
             - `content: TextEditorCodeExecutionToolResultError or TextEditorCodeExecutionViewResultBlock or TextEditorCodeExecutionCreateResultBlock or TextEditorCodeExecutionStrReplaceResultBlock`
 
               - `TextEditorCodeExecutionToolResultError object`
+
+                - `type: "text_editor_code_execution_tool_result_error"`
+
+                  default: text_editor_code_execution_tool_result_error
 
                 - `error_code: TextEditorCodeExecutionToolResultErrorCode`
 
@@ -5838,11 +5891,11 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
                 - `error_message: string or null`
 
-                - `type: "text_editor_code_execution_tool_result_error"`
-
-                  default: text_editor_code_execution_tool_result_error
-
               - `TextEditorCodeExecutionViewResultBlock object`
+
+                - `type: "text_editor_code_execution_view_result"`
+
+                  default: text_editor_code_execution_view_result
 
                 - `content: string`
 
@@ -5860,19 +5913,19 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
                 - `total_lines: number or null`
 
-                - `type: "text_editor_code_execution_view_result"`
-
-                  default: text_editor_code_execution_view_result
-
               - `TextEditorCodeExecutionCreateResultBlock object`
-
-                - `is_file_update: boolean`
 
                 - `type: "text_editor_code_execution_create_result"`
 
                   default: text_editor_code_execution_create_result
 
+                - `is_file_update: boolean`
+
               - `TextEditorCodeExecutionStrReplaceResultBlock object`
+
+                - `type: "text_editor_code_execution_str_replace_result"`
+
+                  default: text_editor_code_execution_str_replace_result
 
                 - `lines: array of string or null`
 
@@ -5884,23 +5937,23 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
                 - `old_start: number or null`
 
-                - `type: "text_editor_code_execution_str_replace_result"`
-
-                  default: text_editor_code_execution_str_replace_result
-
             - `tool_use_id: string`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-            - `type: "text_editor_code_execution_tool_result"`
-
-              default: text_editor_code_execution_tool_result
-
           - `ToolSearchToolResultBlock object`
+
+            - `type: "tool_search_tool_result"`
+
+              default: tool_search_tool_result
 
             - `content: ToolSearchToolResultError or ToolSearchToolSearchResultBlock`
 
               - `ToolSearchToolResultError object`
+
+                - `type: "tool_search_tool_result_error"`
+
+                  default: tool_search_tool_result_error
 
                 - `error_code: ToolSearchToolResultErrorCode`
 
@@ -5914,43 +5967,35 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
                 - `error_message: string or null`
 
-                - `type: "tool_search_tool_result_error"`
-
-                  default: tool_search_tool_result_error
-
               - `ToolSearchToolSearchResultBlock object`
-
-                - `tool_references: array of ToolReferenceBlock`
-
-                  - `tool_name: string`
-
-                    maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
-
-                  - `type: "tool_reference"`
-
-                    default: tool_reference
 
                 - `type: "tool_search_tool_search_result"`
 
                   default: tool_search_tool_search_result
 
+                - `tool_references: array of ToolReferenceBlock`
+
+                  - `type: "tool_reference"`
+
+                    default: tool_reference
+
+                  - `tool_name: string`
+
+                    maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+
             - `tool_use_id: string`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-            - `type: "tool_search_tool_result"`
-
-              default: tool_search_tool_result
 
           - `ContainerUploadBlock object`
 
             Response model for a file uploaded to the container.
 
-            - `file_id: string`
-
             - `type: "container_upload"`
 
               default: container_upload
+
+            - `file_id: string`
 
         - `model: Model`
 
@@ -6046,6 +6091,10 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
           Structured information about a refusal.
 
+          - `type: "refusal"`
+
+            default: refusal
+
           - `category: "cyber" or "bio" or "frontier_llm" or 2 more or null`
 
             The policy category that triggered a refusal.
@@ -6075,10 +6124,6 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
             Human-readable explanation of the refusal.
 
             This text is not guaranteed to be stable. `null` when no explanation is available for the category.
-
-          - `type: "refusal"`
-
-            default: refusal
 
         - `stop_reason: StopReason or null`
 
@@ -6115,14 +6160,6 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
           Which custom stop sequence was generated, if any.
 
           This value will be a non-null string if one of your custom stop sequences was generated.
-
-        - `type: "message"`
-
-          Object type.
-
-          For Messages, this is always `"message"`.
-
-          default: message
 
         - `usage: Usage`
 
@@ -6228,115 +6265,111 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
             - `"batch"`
 
-      - `type: "succeeded"`
-
-        default: succeeded
-
     - `MessageBatchErroredResult object`
 
+      - `type: "errored"`
+
+        default: errored
+
       - `error: ErrorResponse`
-
-        - `error: ErrorObject`
-
-          - `InvalidRequestError object`
-
-            - `message: string`
-
-              default: Invalid request
-
-            - `type: "invalid_request_error"`
-
-              default: invalid_request_error
-
-          - `AuthenticationError object`
-
-            - `message: string`
-
-              default: Authentication error
-
-            - `type: "authentication_error"`
-
-              default: authentication_error
-
-          - `BillingError object`
-
-            - `message: string`
-
-              default: Billing error
-
-            - `type: "billing_error"`
-
-              default: billing_error
-
-          - `PermissionError object`
-
-            - `message: string`
-
-              default: Permission denied
-
-            - `type: "permission_error"`
-
-              default: permission_error
-
-          - `NotFoundError object`
-
-            - `message: string`
-
-              default: Not found
-
-            - `type: "not_found_error"`
-
-              default: not_found_error
-
-          - `RateLimitError object`
-
-            - `message: string`
-
-              default: Rate limited
-
-            - `type: "rate_limit_error"`
-
-              default: rate_limit_error
-
-          - `GatewayTimeoutError object`
-
-            - `message: string`
-
-              default: Request timeout
-
-            - `type: "timeout_error"`
-
-              default: timeout_error
-
-          - `APIErrorObject object`
-
-            - `message: string`
-
-              default: Internal server error
-
-            - `type: "api_error"`
-
-              default: api_error
-
-          - `OverloadedError object`
-
-            - `message: string`
-
-              default: Overloaded
-
-            - `type: "overloaded_error"`
-
-              default: overloaded_error
-
-        - `request_id: string or null`
 
         - `type: "error"`
 
           default: error
 
-      - `type: "errored"`
+        - `error: ErrorObject`
 
-        default: errored
+          - `InvalidRequestError object`
+
+            - `type: "invalid_request_error"`
+
+              default: invalid_request_error
+
+            - `message: string`
+
+              default: Invalid request
+
+          - `AuthenticationError object`
+
+            - `type: "authentication_error"`
+
+              default: authentication_error
+
+            - `message: string`
+
+              default: Authentication error
+
+          - `BillingError object`
+
+            - `type: "billing_error"`
+
+              default: billing_error
+
+            - `message: string`
+
+              default: Billing error
+
+          - `PermissionError object`
+
+            - `type: "permission_error"`
+
+              default: permission_error
+
+            - `message: string`
+
+              default: Permission denied
+
+          - `NotFoundError object`
+
+            - `type: "not_found_error"`
+
+              default: not_found_error
+
+            - `message: string`
+
+              default: Not found
+
+          - `RateLimitError object`
+
+            - `type: "rate_limit_error"`
+
+              default: rate_limit_error
+
+            - `message: string`
+
+              default: Rate limited
+
+          - `GatewayTimeoutError object`
+
+            - `type: "timeout_error"`
+
+              default: timeout_error
+
+            - `message: string`
+
+              default: Request timeout
+
+          - `APIErrorObject object`
+
+            - `type: "api_error"`
+
+              default: api_error
+
+            - `message: string`
+
+              default: Internal server error
+
+          - `OverloadedError object`
+
+            - `type: "overloaded_error"`
+
+              default: overloaded_error
+
+            - `message: string`
+
+              default: Overloaded
+
+        - `request_id: string or null`
 
     - `MessageBatchCanceledResult object`
 
@@ -6402,7 +6435,19 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
   - `MessageBatchSucceededResult object`
 
+    - `type: "succeeded"`
+
+      default: succeeded
+
     - `message: Message`
+
+      - `type: "message"`
+
+        Object type.
+
+        For Messages, this is always `"message"`.
+
+        default: message
 
       - `id: string`
 
@@ -6428,12 +6473,6 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
           Skills loaded in the container
 
-          - `skill_id: string`
-
-            Skill ID
-
-            maxLength: 64, minLength: 1
-
           - `type: "anthropic" or "custom"`
 
             Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
@@ -6441,6 +6480,12 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
             - `"anthropic"`
 
             - `"custom"`
+
+          - `skill_id: string`
+
+            Skill ID
+
+            maxLength: 64, minLength: 1
 
           - `version: string`
 
@@ -6479,6 +6524,10 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
         - `TextBlock object`
 
+          - `type: "text"`
+
+            default: text
+
           - `citations: array of TextCitation or null`
 
             Citations supporting the text block.
@@ -6486,6 +6535,10 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
             The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
 
             - `CitationCharLocation object`
+
+              - `type: "char_location"`
+
+                default: char_location
 
               - `cited_text: string`
 
@@ -6503,11 +6556,11 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
                 minimum: 0
 
-              - `type: "char_location"`
-
-                default: char_location
-
             - `CitationPageLocation object`
+
+              - `type: "page_location"`
+
+                default: page_location
 
               - `cited_text: string`
 
@@ -6525,11 +6578,11 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
                 minimum: 1
 
-              - `type: "page_location"`
-
-                default: page_location
-
             - `CitationContentBlockLocation object`
+
+              - `type: "content_block_location"`
+
+                default: content_block_location
 
               - `cited_text: string`
 
@@ -6557,11 +6610,11 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
                 minimum: 0
 
-              - `type: "content_block_location"`
-
-                default: content_block_location
-
             - `CitationsWebSearchResultLocation object`
+
+              - `type: "web_search_result_location"`
+
+                default: web_search_result_location
 
               - `cited_text: string`
 
@@ -6571,13 +6624,13 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
                 maxLength: 512
 
-              - `type: "web_search_result_location"`
-
-                default: web_search_result_location
-
               - `url: string`
 
             - `CitationsSearchResultLocation object`
+
+              - `type: "search_result_location"`
+
+                default: search_result_location
 
               - `cited_text: string`
 
@@ -6609,19 +6662,15 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
               - `title: string or null`
 
-              - `type: "search_result_location"`
-
-                default: search_result_location
-
           - `text: string`
 
-            maxLength: 5000000, minLength: 0
-
-          - `type: "text"`
-
-            default: text
+            minLength: 0
 
         - `ThinkingBlock object`
+
+          - `type: "thinking"`
+
+            default: thinking
 
           - `signature: string`
 
@@ -6635,11 +6684,11 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
             The text of Claude's thinking process for this block.
 
-          - `type: "thinking"`
-
-            default: thinking
-
         - `RedactedThinkingBlock object`
+
+          - `type: "redacted_thinking"`
+
+            default: redacted_thinking
 
           - `data: string`
 
@@ -6649,11 +6698,11 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
             See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking#redacted-thinking-blocks) for details.
 
-          - `type: "redacted_thinking"`
-
-            default: redacted_thinking
-
         - `ToolUseBlock object`
+
+          - `type: "tool_use"`
+
+            default: tool_use
 
           - `id: string`
 
@@ -6675,29 +6724,25 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
               Tool invocation generated by a server-side tool.
 
+              - `type: "code_execution_20250825"`
+
               - `tool_id: string`
 
                 pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-              - `type: "code_execution_20250825"`
 
             - `ServerToolCaller20260120 object`
 
+              - `type: "code_execution_20260120"`
+
               - `tool_id: string`
 
                 pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-              - `type: "code_execution_20260120"`
 
           - `input: map[unknown]`
 
           - `name: string`
 
             minLength: 1
-
-          - `type: "tool_use"`
-
-            default: tool_use
 
           - `toolset_name: optional string or null`
 
@@ -6706,6 +6751,10 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
             maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
 
         - `ServerToolUseBlock object`
+
+          - `type: "server_tool_use"`
+
+            default: server_tool_use
 
           - `id: string`
 
@@ -6745,11 +6794,11 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
             - `"tool_search_tool_bm25"`
 
-          - `type: "server_tool_use"`
-
-            default: server_tool_use
-
         - `WebSearchToolResultBlock object`
+
+          - `type: "web_search_tool_result"`
+
+            default: web_search_tool_result
 
           - `caller: DirectCaller or ServerToolCaller or ServerToolCaller20260120`
 
@@ -6771,6 +6820,10 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
             - `WebSearchToolResultError object`
 
+              - `type: "web_search_tool_result_error"`
+
+                default: web_search_tool_result_error
+
               - `error_code: WebSearchToolResultErrorCode`
 
                 - `"invalid_tool_input"`
@@ -6785,11 +6838,11 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
                 - `"request_too_large"`
 
-              - `type: "web_search_tool_result_error"`
-
-                default: web_search_tool_result_error
-
             - `array of WebSearchResultBlock`
+
+              - `type: "web_search_result"`
+
+                default: web_search_result
 
               - `encrypted_content: string`
 
@@ -6797,21 +6850,17 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
               - `title: string`
 
-              - `type: "web_search_result"`
-
-                default: web_search_result
-
               - `url: string`
 
           - `tool_use_id: string`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `type: "web_search_tool_result"`
-
-            default: web_search_tool_result
-
         - `WebFetchToolResultBlock object`
+
+          - `type: "web_fetch_tool_result"`
+
+            default: web_fetch_tool_result
 
           - `caller: DirectCaller or ServerToolCaller or ServerToolCaller20260120`
 
@@ -6833,6 +6882,10 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
             - `WebFetchToolResultErrorBlock object`
 
+              - `type: "web_fetch_tool_result_error"`
+
+                default: web_fetch_tool_result_error
+
               - `error_code: WebFetchToolResultErrorCode`
 
                 - `"invalid_tool_input"`
@@ -6853,13 +6906,19 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
                 - `"unavailable"`
 
-              - `type: "web_fetch_tool_result_error"`
-
-                default: web_fetch_tool_result_error
+                - `"content_too_large"`
 
             - `WebFetchBlock object`
 
+              - `type: "web_fetch_result"`
+
+                default: web_fetch_result
+
               - `content: DocumentBlock`
+
+                - `type: "document"`
+
+                  default: document
 
                 - `citations: CitationsConfig or null`
 
@@ -6873,37 +6932,29 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
                   - `Base64PDFSource object`
 
+                    - `type: "base64"`
+
                     - `data: string`
 
                       format: byte
 
                     - `media_type: "application/pdf"`
 
-                    - `type: "base64"`
-
                   - `PlainTextSource object`
+
+                    - `type: "text"`
 
                     - `data: string`
 
                     - `media_type: "text/plain"`
 
-                    - `type: "text"`
-
                 - `title: string or null`
 
                   The title of the document
 
-                - `type: "document"`
-
-                  default: document
-
               - `retrieved_at: string or null`
 
                 ISO 8601 timestamp when the content was retrieved
-
-              - `type: "web_fetch_result"`
-
-                default: web_fetch_result
 
               - `url: string`
 
@@ -6913,17 +6964,21 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `type: "web_fetch_tool_result"`
-
-            default: web_fetch_tool_result
-
         - `CodeExecutionToolResultBlock object`
+
+          - `type: "code_execution_tool_result"`
+
+            default: code_execution_tool_result
 
           - `content: CodeExecutionToolResultBlockContent`
 
             Code execution result with encrypted stdout for PFC + web_search results.
 
             - `CodeExecutionToolResultError object`
+
+              - `type: "code_execution_tool_result_error"`
+
+                default: code_execution_tool_result_error
 
               - `error_code: CodeExecutionToolResultErrorCode`
 
@@ -6935,19 +6990,19 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
                 - `"execution_time_exceeded"`
 
-              - `type: "code_execution_tool_result_error"`
-
-                default: code_execution_tool_result_error
-
             - `CodeExecutionResultBlock object`
 
-              - `content: array of CodeExecutionOutputBlock`
+              - `type: "code_execution_result"`
 
-                - `file_id: string`
+                default: code_execution_result
+
+              - `content: array of CodeExecutionOutputBlock`
 
                 - `type: "code_execution_output"`
 
                   default: code_execution_output
+
+                - `file_id: string`
 
               - `return_code: number`
 
@@ -6955,21 +7010,21 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
               - `stdout: string`
 
-              - `type: "code_execution_result"`
-
-                default: code_execution_result
-
             - `EncryptedCodeExecutionResultBlock object`
 
               Code execution result with encrypted stdout for PFC + web_search results.
 
-              - `content: array of CodeExecutionOutputBlock`
+              - `type: "encrypted_code_execution_result"`
 
-                - `file_id: string`
+                default: encrypted_code_execution_result
+
+              - `content: array of CodeExecutionOutputBlock`
 
                 - `type: "code_execution_output"`
 
                   default: code_execution_output
+
+                - `file_id: string`
 
               - `encrypted_stdout: string`
 
@@ -6977,23 +7032,23 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
               - `stderr: string`
 
-              - `type: "encrypted_code_execution_result"`
-
-                default: encrypted_code_execution_result
-
           - `tool_use_id: string`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `type: "code_execution_tool_result"`
-
-            default: code_execution_tool_result
-
         - `BashCodeExecutionToolResultBlock object`
+
+          - `type: "bash_code_execution_tool_result"`
+
+            default: bash_code_execution_tool_result
 
           - `content: BashCodeExecutionToolResultError or BashCodeExecutionResultBlock`
 
             - `BashCodeExecutionToolResultError object`
+
+              - `type: "bash_code_execution_tool_result_error"`
+
+                default: bash_code_execution_tool_result_error
 
               - `error_code: BashCodeExecutionToolResultErrorCode`
 
@@ -7007,19 +7062,19 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
                 - `"output_file_too_large"`
 
-              - `type: "bash_code_execution_tool_result_error"`
-
-                default: bash_code_execution_tool_result_error
-
             - `BashCodeExecutionResultBlock object`
 
-              - `content: array of BashCodeExecutionOutputBlock`
+              - `type: "bash_code_execution_result"`
 
-                - `file_id: string`
+                default: bash_code_execution_result
+
+              - `content: array of BashCodeExecutionOutputBlock`
 
                 - `type: "bash_code_execution_output"`
 
                   default: bash_code_execution_output
+
+                - `file_id: string`
 
               - `return_code: number`
 
@@ -7027,23 +7082,23 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
               - `stdout: string`
 
-              - `type: "bash_code_execution_result"`
-
-                default: bash_code_execution_result
-
           - `tool_use_id: string`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `type: "bash_code_execution_tool_result"`
-
-            default: bash_code_execution_tool_result
-
         - `TextEditorCodeExecutionToolResultBlock object`
+
+          - `type: "text_editor_code_execution_tool_result"`
+
+            default: text_editor_code_execution_tool_result
 
           - `content: TextEditorCodeExecutionToolResultError or TextEditorCodeExecutionViewResultBlock or TextEditorCodeExecutionCreateResultBlock or TextEditorCodeExecutionStrReplaceResultBlock`
 
             - `TextEditorCodeExecutionToolResultError object`
+
+              - `type: "text_editor_code_execution_tool_result_error"`
+
+                default: text_editor_code_execution_tool_result_error
 
               - `error_code: TextEditorCodeExecutionToolResultErrorCode`
 
@@ -7059,11 +7114,11 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
               - `error_message: string or null`
 
-              - `type: "text_editor_code_execution_tool_result_error"`
-
-                default: text_editor_code_execution_tool_result_error
-
             - `TextEditorCodeExecutionViewResultBlock object`
+
+              - `type: "text_editor_code_execution_view_result"`
+
+                default: text_editor_code_execution_view_result
 
               - `content: string`
 
@@ -7081,19 +7136,19 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
               - `total_lines: number or null`
 
-              - `type: "text_editor_code_execution_view_result"`
-
-                default: text_editor_code_execution_view_result
-
             - `TextEditorCodeExecutionCreateResultBlock object`
-
-              - `is_file_update: boolean`
 
               - `type: "text_editor_code_execution_create_result"`
 
                 default: text_editor_code_execution_create_result
 
+              - `is_file_update: boolean`
+
             - `TextEditorCodeExecutionStrReplaceResultBlock object`
+
+              - `type: "text_editor_code_execution_str_replace_result"`
+
+                default: text_editor_code_execution_str_replace_result
 
               - `lines: array of string or null`
 
@@ -7105,23 +7160,23 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
               - `old_start: number or null`
 
-              - `type: "text_editor_code_execution_str_replace_result"`
-
-                default: text_editor_code_execution_str_replace_result
-
           - `tool_use_id: string`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `type: "text_editor_code_execution_tool_result"`
-
-            default: text_editor_code_execution_tool_result
-
         - `ToolSearchToolResultBlock object`
+
+          - `type: "tool_search_tool_result"`
+
+            default: tool_search_tool_result
 
           - `content: ToolSearchToolResultError or ToolSearchToolSearchResultBlock`
 
             - `ToolSearchToolResultError object`
+
+              - `type: "tool_search_tool_result_error"`
+
+                default: tool_search_tool_result_error
 
               - `error_code: ToolSearchToolResultErrorCode`
 
@@ -7135,43 +7190,35 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
               - `error_message: string or null`
 
-              - `type: "tool_search_tool_result_error"`
-
-                default: tool_search_tool_result_error
-
             - `ToolSearchToolSearchResultBlock object`
-
-              - `tool_references: array of ToolReferenceBlock`
-
-                - `tool_name: string`
-
-                  maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
-
-                - `type: "tool_reference"`
-
-                  default: tool_reference
 
               - `type: "tool_search_tool_search_result"`
 
                 default: tool_search_tool_search_result
 
+              - `tool_references: array of ToolReferenceBlock`
+
+                - `type: "tool_reference"`
+
+                  default: tool_reference
+
+                - `tool_name: string`
+
+                  maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+
           - `tool_use_id: string`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-          - `type: "tool_search_tool_result"`
-
-            default: tool_search_tool_result
 
         - `ContainerUploadBlock object`
 
           Response model for a file uploaded to the container.
 
-          - `file_id: string`
-
           - `type: "container_upload"`
 
             default: container_upload
+
+          - `file_id: string`
 
       - `model: Model`
 
@@ -7267,6 +7314,10 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
         Structured information about a refusal.
 
+        - `type: "refusal"`
+
+          default: refusal
+
         - `category: "cyber" or "bio" or "frontier_llm" or 2 more or null`
 
           The policy category that triggered a refusal.
@@ -7296,10 +7347,6 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
           Human-readable explanation of the refusal.
 
           This text is not guaranteed to be stable. `null` when no explanation is available for the category.
-
-        - `type: "refusal"`
-
-          default: refusal
 
       - `stop_reason: StopReason or null`
 
@@ -7336,14 +7383,6 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
         Which custom stop sequence was generated, if any.
 
         This value will be a non-null string if one of your custom stop sequences was generated.
-
-      - `type: "message"`
-
-        Object type.
-
-        For Messages, this is always `"message"`.
-
-        default: message
 
       - `usage: Usage`
 
@@ -7449,115 +7488,111 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
           - `"batch"`
 
-    - `type: "succeeded"`
-
-      default: succeeded
-
   - `MessageBatchErroredResult object`
 
+    - `type: "errored"`
+
+      default: errored
+
     - `error: ErrorResponse`
-
-      - `error: ErrorObject`
-
-        - `InvalidRequestError object`
-
-          - `message: string`
-
-            default: Invalid request
-
-          - `type: "invalid_request_error"`
-
-            default: invalid_request_error
-
-        - `AuthenticationError object`
-
-          - `message: string`
-
-            default: Authentication error
-
-          - `type: "authentication_error"`
-
-            default: authentication_error
-
-        - `BillingError object`
-
-          - `message: string`
-
-            default: Billing error
-
-          - `type: "billing_error"`
-
-            default: billing_error
-
-        - `PermissionError object`
-
-          - `message: string`
-
-            default: Permission denied
-
-          - `type: "permission_error"`
-
-            default: permission_error
-
-        - `NotFoundError object`
-
-          - `message: string`
-
-            default: Not found
-
-          - `type: "not_found_error"`
-
-            default: not_found_error
-
-        - `RateLimitError object`
-
-          - `message: string`
-
-            default: Rate limited
-
-          - `type: "rate_limit_error"`
-
-            default: rate_limit_error
-
-        - `GatewayTimeoutError object`
-
-          - `message: string`
-
-            default: Request timeout
-
-          - `type: "timeout_error"`
-
-            default: timeout_error
-
-        - `APIErrorObject object`
-
-          - `message: string`
-
-            default: Internal server error
-
-          - `type: "api_error"`
-
-            default: api_error
-
-        - `OverloadedError object`
-
-          - `message: string`
-
-            default: Overloaded
-
-          - `type: "overloaded_error"`
-
-            default: overloaded_error
-
-      - `request_id: string or null`
 
       - `type: "error"`
 
         default: error
 
-    - `type: "errored"`
+      - `error: ErrorObject`
 
-      default: errored
+        - `InvalidRequestError object`
+
+          - `type: "invalid_request_error"`
+
+            default: invalid_request_error
+
+          - `message: string`
+
+            default: Invalid request
+
+        - `AuthenticationError object`
+
+          - `type: "authentication_error"`
+
+            default: authentication_error
+
+          - `message: string`
+
+            default: Authentication error
+
+        - `BillingError object`
+
+          - `type: "billing_error"`
+
+            default: billing_error
+
+          - `message: string`
+
+            default: Billing error
+
+        - `PermissionError object`
+
+          - `type: "permission_error"`
+
+            default: permission_error
+
+          - `message: string`
+
+            default: Permission denied
+
+        - `NotFoundError object`
+
+          - `type: "not_found_error"`
+
+            default: not_found_error
+
+          - `message: string`
+
+            default: Not found
+
+        - `RateLimitError object`
+
+          - `type: "rate_limit_error"`
+
+            default: rate_limit_error
+
+          - `message: string`
+
+            default: Rate limited
+
+        - `GatewayTimeoutError object`
+
+          - `type: "timeout_error"`
+
+            default: timeout_error
+
+          - `message: string`
+
+            default: Request timeout
+
+        - `APIErrorObject object`
+
+          - `type: "api_error"`
+
+            default: api_error
+
+          - `message: string`
+
+            default: Internal server error
+
+        - `OverloadedError object`
+
+          - `type: "overloaded_error"`
+
+            default: overloaded_error
+
+          - `message: string`
+
+            default: Overloaded
+
+      - `request_id: string or null`
 
   - `MessageBatchCanceledResult object`
 
@@ -7575,7 +7610,19 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
 - `MessageBatchSucceededResult object`
 
+  - `type: "succeeded"`
+
+    default: succeeded
+
   - `message: Message`
+
+    - `type: "message"`
+
+      Object type.
+
+      For Messages, this is always `"message"`.
+
+      default: message
 
     - `id: string`
 
@@ -7601,12 +7648,6 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
         Skills loaded in the container
 
-        - `skill_id: string`
-
-          Skill ID
-
-          maxLength: 64, minLength: 1
-
         - `type: "anthropic" or "custom"`
 
           Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
@@ -7614,6 +7655,12 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
           - `"anthropic"`
 
           - `"custom"`
+
+        - `skill_id: string`
+
+          Skill ID
+
+          maxLength: 64, minLength: 1
 
         - `version: string`
 
@@ -7652,6 +7699,10 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
       - `TextBlock object`
 
+        - `type: "text"`
+
+          default: text
+
         - `citations: array of TextCitation or null`
 
           Citations supporting the text block.
@@ -7659,6 +7710,10 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
           The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
 
           - `CitationCharLocation object`
+
+            - `type: "char_location"`
+
+              default: char_location
 
             - `cited_text: string`
 
@@ -7676,11 +7731,11 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
               minimum: 0
 
-            - `type: "char_location"`
-
-              default: char_location
-
           - `CitationPageLocation object`
+
+            - `type: "page_location"`
+
+              default: page_location
 
             - `cited_text: string`
 
@@ -7698,11 +7753,11 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
               minimum: 1
 
-            - `type: "page_location"`
-
-              default: page_location
-
           - `CitationContentBlockLocation object`
+
+            - `type: "content_block_location"`
+
+              default: content_block_location
 
             - `cited_text: string`
 
@@ -7730,11 +7785,11 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
               minimum: 0
 
-            - `type: "content_block_location"`
-
-              default: content_block_location
-
           - `CitationsWebSearchResultLocation object`
+
+            - `type: "web_search_result_location"`
+
+              default: web_search_result_location
 
             - `cited_text: string`
 
@@ -7744,13 +7799,13 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
               maxLength: 512
 
-            - `type: "web_search_result_location"`
-
-              default: web_search_result_location
-
             - `url: string`
 
           - `CitationsSearchResultLocation object`
+
+            - `type: "search_result_location"`
+
+              default: search_result_location
 
             - `cited_text: string`
 
@@ -7782,19 +7837,15 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
             - `title: string or null`
 
-            - `type: "search_result_location"`
-
-              default: search_result_location
-
         - `text: string`
 
-          maxLength: 5000000, minLength: 0
-
-        - `type: "text"`
-
-          default: text
+          minLength: 0
 
       - `ThinkingBlock object`
+
+        - `type: "thinking"`
+
+          default: thinking
 
         - `signature: string`
 
@@ -7808,11 +7859,11 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
           The text of Claude's thinking process for this block.
 
-        - `type: "thinking"`
-
-          default: thinking
-
       - `RedactedThinkingBlock object`
+
+        - `type: "redacted_thinking"`
+
+          default: redacted_thinking
 
         - `data: string`
 
@@ -7822,11 +7873,11 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
           See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking#redacted-thinking-blocks) for details.
 
-        - `type: "redacted_thinking"`
-
-          default: redacted_thinking
-
       - `ToolUseBlock object`
+
+        - `type: "tool_use"`
+
+          default: tool_use
 
         - `id: string`
 
@@ -7848,29 +7899,25 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
             Tool invocation generated by a server-side tool.
 
+            - `type: "code_execution_20250825"`
+
             - `tool_id: string`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-            - `type: "code_execution_20250825"`
 
           - `ServerToolCaller20260120 object`
 
+            - `type: "code_execution_20260120"`
+
             - `tool_id: string`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-            - `type: "code_execution_20260120"`
 
         - `input: map[unknown]`
 
         - `name: string`
 
           minLength: 1
-
-        - `type: "tool_use"`
-
-          default: tool_use
 
         - `toolset_name: optional string or null`
 
@@ -7879,6 +7926,10 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
           maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
 
       - `ServerToolUseBlock object`
+
+        - `type: "server_tool_use"`
+
+          default: server_tool_use
 
         - `id: string`
 
@@ -7918,11 +7969,11 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
           - `"tool_search_tool_bm25"`
 
-        - `type: "server_tool_use"`
-
-          default: server_tool_use
-
       - `WebSearchToolResultBlock object`
+
+        - `type: "web_search_tool_result"`
+
+          default: web_search_tool_result
 
         - `caller: DirectCaller or ServerToolCaller or ServerToolCaller20260120`
 
@@ -7944,6 +7995,10 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
           - `WebSearchToolResultError object`
 
+            - `type: "web_search_tool_result_error"`
+
+              default: web_search_tool_result_error
+
             - `error_code: WebSearchToolResultErrorCode`
 
               - `"invalid_tool_input"`
@@ -7958,11 +8013,11 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
               - `"request_too_large"`
 
-            - `type: "web_search_tool_result_error"`
-
-              default: web_search_tool_result_error
-
           - `array of WebSearchResultBlock`
+
+            - `type: "web_search_result"`
+
+              default: web_search_result
 
             - `encrypted_content: string`
 
@@ -7970,21 +8025,17 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
             - `title: string`
 
-            - `type: "web_search_result"`
-
-              default: web_search_result
-
             - `url: string`
 
         - `tool_use_id: string`
 
           pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-        - `type: "web_search_tool_result"`
-
-          default: web_search_tool_result
-
       - `WebFetchToolResultBlock object`
+
+        - `type: "web_fetch_tool_result"`
+
+          default: web_fetch_tool_result
 
         - `caller: DirectCaller or ServerToolCaller or ServerToolCaller20260120`
 
@@ -8006,6 +8057,10 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
           - `WebFetchToolResultErrorBlock object`
 
+            - `type: "web_fetch_tool_result_error"`
+
+              default: web_fetch_tool_result_error
+
             - `error_code: WebFetchToolResultErrorCode`
 
               - `"invalid_tool_input"`
@@ -8026,13 +8081,19 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
               - `"unavailable"`
 
-            - `type: "web_fetch_tool_result_error"`
-
-              default: web_fetch_tool_result_error
+              - `"content_too_large"`
 
           - `WebFetchBlock object`
 
+            - `type: "web_fetch_result"`
+
+              default: web_fetch_result
+
             - `content: DocumentBlock`
+
+              - `type: "document"`
+
+                default: document
 
               - `citations: CitationsConfig or null`
 
@@ -8046,37 +8107,29 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
                 - `Base64PDFSource object`
 
+                  - `type: "base64"`
+
                   - `data: string`
 
                     format: byte
 
                   - `media_type: "application/pdf"`
 
-                  - `type: "base64"`
-
                 - `PlainTextSource object`
+
+                  - `type: "text"`
 
                   - `data: string`
 
                   - `media_type: "text/plain"`
 
-                  - `type: "text"`
-
               - `title: string or null`
 
                 The title of the document
 
-              - `type: "document"`
-
-                default: document
-
             - `retrieved_at: string or null`
 
               ISO 8601 timestamp when the content was retrieved
-
-            - `type: "web_fetch_result"`
-
-              default: web_fetch_result
 
             - `url: string`
 
@@ -8086,17 +8139,21 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
           pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-        - `type: "web_fetch_tool_result"`
-
-          default: web_fetch_tool_result
-
       - `CodeExecutionToolResultBlock object`
+
+        - `type: "code_execution_tool_result"`
+
+          default: code_execution_tool_result
 
         - `content: CodeExecutionToolResultBlockContent`
 
           Code execution result with encrypted stdout for PFC + web_search results.
 
           - `CodeExecutionToolResultError object`
+
+            - `type: "code_execution_tool_result_error"`
+
+              default: code_execution_tool_result_error
 
             - `error_code: CodeExecutionToolResultErrorCode`
 
@@ -8108,19 +8165,19 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
               - `"execution_time_exceeded"`
 
-            - `type: "code_execution_tool_result_error"`
-
-              default: code_execution_tool_result_error
-
           - `CodeExecutionResultBlock object`
 
-            - `content: array of CodeExecutionOutputBlock`
+            - `type: "code_execution_result"`
 
-              - `file_id: string`
+              default: code_execution_result
+
+            - `content: array of CodeExecutionOutputBlock`
 
               - `type: "code_execution_output"`
 
                 default: code_execution_output
+
+              - `file_id: string`
 
             - `return_code: number`
 
@@ -8128,21 +8185,21 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
             - `stdout: string`
 
-            - `type: "code_execution_result"`
-
-              default: code_execution_result
-
           - `EncryptedCodeExecutionResultBlock object`
 
             Code execution result with encrypted stdout for PFC + web_search results.
 
-            - `content: array of CodeExecutionOutputBlock`
+            - `type: "encrypted_code_execution_result"`
 
-              - `file_id: string`
+              default: encrypted_code_execution_result
+
+            - `content: array of CodeExecutionOutputBlock`
 
               - `type: "code_execution_output"`
 
                 default: code_execution_output
+
+              - `file_id: string`
 
             - `encrypted_stdout: string`
 
@@ -8150,23 +8207,23 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
             - `stderr: string`
 
-            - `type: "encrypted_code_execution_result"`
-
-              default: encrypted_code_execution_result
-
         - `tool_use_id: string`
 
           pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-        - `type: "code_execution_tool_result"`
-
-          default: code_execution_tool_result
-
       - `BashCodeExecutionToolResultBlock object`
+
+        - `type: "bash_code_execution_tool_result"`
+
+          default: bash_code_execution_tool_result
 
         - `content: BashCodeExecutionToolResultError or BashCodeExecutionResultBlock`
 
           - `BashCodeExecutionToolResultError object`
+
+            - `type: "bash_code_execution_tool_result_error"`
+
+              default: bash_code_execution_tool_result_error
 
             - `error_code: BashCodeExecutionToolResultErrorCode`
 
@@ -8180,19 +8237,19 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
               - `"output_file_too_large"`
 
-            - `type: "bash_code_execution_tool_result_error"`
-
-              default: bash_code_execution_tool_result_error
-
           - `BashCodeExecutionResultBlock object`
 
-            - `content: array of BashCodeExecutionOutputBlock`
+            - `type: "bash_code_execution_result"`
 
-              - `file_id: string`
+              default: bash_code_execution_result
+
+            - `content: array of BashCodeExecutionOutputBlock`
 
               - `type: "bash_code_execution_output"`
 
                 default: bash_code_execution_output
+
+              - `file_id: string`
 
             - `return_code: number`
 
@@ -8200,23 +8257,23 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
             - `stdout: string`
 
-            - `type: "bash_code_execution_result"`
-
-              default: bash_code_execution_result
-
         - `tool_use_id: string`
 
           pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-        - `type: "bash_code_execution_tool_result"`
-
-          default: bash_code_execution_tool_result
-
       - `TextEditorCodeExecutionToolResultBlock object`
+
+        - `type: "text_editor_code_execution_tool_result"`
+
+          default: text_editor_code_execution_tool_result
 
         - `content: TextEditorCodeExecutionToolResultError or TextEditorCodeExecutionViewResultBlock or TextEditorCodeExecutionCreateResultBlock or TextEditorCodeExecutionStrReplaceResultBlock`
 
           - `TextEditorCodeExecutionToolResultError object`
+
+            - `type: "text_editor_code_execution_tool_result_error"`
+
+              default: text_editor_code_execution_tool_result_error
 
             - `error_code: TextEditorCodeExecutionToolResultErrorCode`
 
@@ -8232,11 +8289,11 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
             - `error_message: string or null`
 
-            - `type: "text_editor_code_execution_tool_result_error"`
-
-              default: text_editor_code_execution_tool_result_error
-
           - `TextEditorCodeExecutionViewResultBlock object`
+
+            - `type: "text_editor_code_execution_view_result"`
+
+              default: text_editor_code_execution_view_result
 
             - `content: string`
 
@@ -8254,19 +8311,19 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
             - `total_lines: number or null`
 
-            - `type: "text_editor_code_execution_view_result"`
-
-              default: text_editor_code_execution_view_result
-
           - `TextEditorCodeExecutionCreateResultBlock object`
-
-            - `is_file_update: boolean`
 
             - `type: "text_editor_code_execution_create_result"`
 
               default: text_editor_code_execution_create_result
 
+            - `is_file_update: boolean`
+
           - `TextEditorCodeExecutionStrReplaceResultBlock object`
+
+            - `type: "text_editor_code_execution_str_replace_result"`
+
+              default: text_editor_code_execution_str_replace_result
 
             - `lines: array of string or null`
 
@@ -8278,23 +8335,23 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
             - `old_start: number or null`
 
-            - `type: "text_editor_code_execution_str_replace_result"`
-
-              default: text_editor_code_execution_str_replace_result
-
         - `tool_use_id: string`
 
           pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-        - `type: "text_editor_code_execution_tool_result"`
-
-          default: text_editor_code_execution_tool_result
-
       - `ToolSearchToolResultBlock object`
+
+        - `type: "tool_search_tool_result"`
+
+          default: tool_search_tool_result
 
         - `content: ToolSearchToolResultError or ToolSearchToolSearchResultBlock`
 
           - `ToolSearchToolResultError object`
+
+            - `type: "tool_search_tool_result_error"`
+
+              default: tool_search_tool_result_error
 
             - `error_code: ToolSearchToolResultErrorCode`
 
@@ -8308,43 +8365,35 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
             - `error_message: string or null`
 
-            - `type: "tool_search_tool_result_error"`
-
-              default: tool_search_tool_result_error
-
           - `ToolSearchToolSearchResultBlock object`
-
-            - `tool_references: array of ToolReferenceBlock`
-
-              - `tool_name: string`
-
-                maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
-
-              - `type: "tool_reference"`
-
-                default: tool_reference
 
             - `type: "tool_search_tool_search_result"`
 
               default: tool_search_tool_search_result
 
+            - `tool_references: array of ToolReferenceBlock`
+
+              - `type: "tool_reference"`
+
+                default: tool_reference
+
+              - `tool_name: string`
+
+                maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+
         - `tool_use_id: string`
 
           pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-        - `type: "tool_search_tool_result"`
-
-          default: tool_search_tool_result
 
       - `ContainerUploadBlock object`
 
         Response model for a file uploaded to the container.
 
-        - `file_id: string`
-
         - `type: "container_upload"`
 
           default: container_upload
+
+        - `file_id: string`
 
     - `model: Model`
 
@@ -8440,6 +8489,10 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
       Structured information about a refusal.
 
+      - `type: "refusal"`
+
+        default: refusal
+
       - `category: "cyber" or "bio" or "frontier_llm" or 2 more or null`
 
         The policy category that triggered a refusal.
@@ -8469,10 +8522,6 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
         Human-readable explanation of the refusal.
 
         This text is not guaranteed to be stable. `null` when no explanation is available for the category.
-
-      - `type: "refusal"`
-
-        default: refusal
 
     - `stop_reason: StopReason or null`
 
@@ -8509,14 +8558,6 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
       Which custom stop sequence was generated, if any.
 
       This value will be a non-null string if one of your custom stop sequences was generated.
-
-    - `type: "message"`
-
-      Object type.
-
-      For Messages, this is always `"message"`.
-
-      default: message
 
     - `usage: Usage`
 
@@ -8621,7 +8662,3 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
         - `"priority"`
 
         - `"batch"`
-
-  - `type: "succeeded"`
-
-    default: succeeded

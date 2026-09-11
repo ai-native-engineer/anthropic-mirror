@@ -1,8 +1,13 @@
 <!-- source: https://platform.claude.com/docs/en/api/php/beta/vaults/credentials/update -->
 
+---
+title: Update Credential
+url: https://platform.claude.com/docs/en/api/php/beta/vaults/credentials/update
+---
+
 # Update Credential
 
-`$client->beta->vaults->credentials->update(string credentialID, string vaultID, ?Auth auth, ?string displayName, ?array<string,string> metadata, ?list<AnthropicBeta> betas): ManagedAgentsCredential`
+`$client->beta->vaults->credentials->update(string credentialID, string vaultID, ?Auth auth, ?string displayName, ?array<string,string> metadata, ?list<AnthropicBeta> betas, ?string workspaceID): ManagedAgentsCredential`
 
 **POST** `/v1/vaults/{vault_id}/credentials/{credential_id}`
 
@@ -30,9 +35,13 @@ Update Credential
 
   Optional header to specify the beta version(s) you want to use.
 
+- `workspaceID?:optional string`
+
 ## Returns
 
 - `ManagedAgentsCredential`
+
+  - `Type type`
 
   - `string id`
 
@@ -53,8 +62,6 @@ Update Credential
   - `array<string,string> metadata`
 
     Arbitrary key-value metadata attached to the credential.
-
-  - `Type type`
 
   - `\Datetime updatedAt`
 
@@ -95,6 +102,7 @@ $betaManagedAgentsCredential = $client->beta->vaults->credentials->update(
   displayName: 'Example credential',
   metadata: ['environment' => 'production'],
   betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+  workspaceID: 'wrkspc_011CZkZaBF1tNoB5wlCeusgy',
 );
 
 var_dump($betaManagedAgentsCredential);

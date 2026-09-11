@@ -22,6 +22,9 @@ Search
 
 DateCategoryTitle
 
+* [Sep 10, 2026Frontier Red Team
+
+  Measuring tactical intelligence targeting and conventional weapons capabilities of AI models](https://www.anthropic.com/research/intelligence-targeting-conventional-weapons-capabilities)
 * [Aug 13, 2026Frontier Red Team
 
   Patterns and problems in emerging multiagent systems](https://www.anthropic.com/research/multiagent-systems)
@@ -49,8 +52,5 @@ DateCategoryTitle
 * [May 22, 2026Frontier Red Team
 
   Measuring LLMs’ ability to develop exploits](https://www.anthropic.com/research/exploit-evals)
-* [Apr 7, 2026Frontier Red Team
-
-  Assessing Claude Mythos Preview’s cybersecurity capabilities](https://www.anthropic.com/research/mythos-preview)
 
 [See more](#)

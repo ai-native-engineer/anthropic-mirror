@@ -46,8 +46,6 @@ Search, read, and upload files instantly
 
 ### [Website Generator by B12](https://claude.com/connectors/website-generator-by-b12)
 
-Trending
-
 Build a website or web app in minutes! Generate, design, write code, and create copy for your website. Powered by B12. Contact: hello@b12.io
 
 [Add Website Generator by B12 in Claude (opens in new tab)](https://claude.ai/directory/e25b319d-9c6a-4baa-90a3-0bb8eb5e25b0 "Add in Claude")
@@ -55,8 +53,6 @@ Build a website or web app in minutes! Generate, design, write code, and create 
 ![](https://raw.githubusercontent.com/Perspective-AI/mcp/main/icon.png)
 
 ### [Perspective AI](https://claude.com/connectors/perspective-ai)
-
-Trending
 
 An AI Concierge that turns forms into conversations
 

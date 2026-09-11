@@ -42,16 +42,6 @@ Search, create, autofill, and export Canva designs
 
 [Add Canva in Claude (opens in new tab)](https://claude.ai/directory/eb9240f2-e1c1-43c1-828f-0fda40c22e4c "Add in Claude")
 
-![](https://cdn.b12.io/branding/b12-logo-purple.png)
-
-### [Website Generator by B12](https://claude.com/connectors/website-generator-by-b12)
-
-Trending
-
-Build a website or web app in minutes! Generate, design, write code, and create copy for your website. Powered by B12. Contact: hello@b12.io
-
-[Add Website Generator by B12 in Claude (opens in new tab)](https://claude.ai/directory/e25b319d-9c6a-4baa-90a3-0bb8eb5e25b0 "Add in Claude")
-
 ![](https://www.google.com/s2/favicons?domain=figma.com&sz=96)
 
 ### [Figma](https://claude.com/connectors/figma)
@@ -60,11 +50,17 @@ Generate diagrams and better code from Figma context
 
 [Add Figma in Claude (opens in new tab)](https://claude.ai/directory/c758d038-d8eb-4421-b426-9dd68dc7f84a "Add in Claude")
 
+![](https://cdn.b12.io/branding/b12-logo-purple.png)
+
+### [Website Generator by B12](https://claude.com/connectors/website-generator-by-b12)
+
+Build a website or web app in minutes! Generate, design, write code, and create copy for your website. Powered by B12. Contact: hello@b12.io
+
+[Add Website Generator by B12 in Claude (opens in new tab)](https://claude.ai/directory/e25b319d-9c6a-4baa-90a3-0bb8eb5e25b0 "Add in Claude")
+
 ![](https://raw.githubusercontent.com/Perspective-AI/mcp/main/icon.png)
 
 ### [Perspective AI](https://claude.com/connectors/perspective-ai)
-
-Trending
 
 An AI Concierge that turns forms into conversations
 

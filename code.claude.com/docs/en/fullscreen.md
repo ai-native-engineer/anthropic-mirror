@@ -137,6 +137,8 @@ On keyboards without dedicated `PgUp`, `PgDn`, `Home`, or `End` keys, like MacBo
 
 These actions are rebindable. See [Scroll actions](/docs/en/keybindings#scroll-actions) for the full list of action names, including half-page and full-page variants that have no default binding.
 
+While you're scrolled up, a dim header row at the top of the conversation shows the most recent prompt that has scrolled above the view. Click the row to jump to that prompt.
+
 ### Auto-follow
 
 Scrolling up pauses auto-follow so new output doesn't pull you back to the bottom. A `Jump to bottom` button floats over the bottom edge of the transcript while you're scrolled up, and shows a count such as `3 new messages` when new output arrives. Click it, press `Ctrl+End`, or scroll to the bottom to resume following.
@@ -163,7 +165,7 @@ export CLAUDE_CODE_SCROLL_SPEED=3
 
 A value of `3` matches the default in `vim` and similar applications. The setting accepts any positive value up to 20, including fractional values below 1 such as `0.25` to slow accelerated trackpad and wheel scrolling in terminals that already amplify wheel events.
 
-To adjust scroll speed interactively, run `/scroll-speed`. The dialog shows a ruler you can scroll while it is open so you can feel the change immediately. Press `←` and `→` to adjust the speed, `r` to reset to the auto-detected default, and `Enter` to save. The dialog steps in whole numbers up to 10, and on terminals that support finer control it also offers quarter steps down to 0.25. Quarter steps require Claude Code v2.1.172 or later.
+To adjust scroll speed interactively, run `/scroll-speed`. The dialog shows a ruler you can scroll while it is open so you can feel the change immediately. Press `←` and `→` to adjust the speed, `r` to reset to the auto-detected default, and `Enter` to save. The dialog steps in whole numbers up to 10, and on terminals that support finer control it also offers quarter steps down to 0.25.
 
 The command writes the same value the `CLAUDE_CODE_SCROLL_SPEED` environment variable sets, persisted to `~/.claude/settings.json`. The dialog's maximum is 10: if you set a higher value through the environment variable, the dialog shows 10, and saving from the dialog persists 10. The command isn't available in the JetBrains IDE terminal.
 

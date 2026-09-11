@@ -30,11 +30,19 @@ Search, read, and upload files instantly
 
 [Add Google Drive in Claude (opens in new tab)](https://claude.ai/directory/b89f7865-a755-4f86-8062-c3bd651740ce "Add in Claude")
 
+![](https://agent.enrichlabs.ai/avatars/helena.png)
+
+### [Helena by Enrich Labs](https://claude.com/connectors/helena-by-enrich-labs)
+
+Trending
+
+Your AI marketer for paid ads, SEO, email, social, and analytics
+
+[Add Helena by Enrich Labs in Claude (opens in new tab)](https://claude.ai/directory/0da6abdc-62c3-4272-940b-898189371a48 "Add in Claude")
+
 ![](https://cdn.b12.io/branding/b12-logo-purple.png)
 
 ### [Website Generator by B12](https://claude.com/connectors/website-generator-by-b12)
-
-Trending
 
 Build a website or web app in minutes! Generate, design, write code, and create copy for your website. Powered by B12. Contact: hello@b12.io
 
@@ -43,8 +51,6 @@ Build a website or web app in minutes! Generate, design, write code, and create 
 ![](https://raw.githubusercontent.com/Perspective-AI/mcp/main/icon.png)
 
 ### [Perspective AI](https://claude.com/connectors/perspective-ai)
-
-Trending
 
 An AI Concierge that turns forms into conversations
 
@@ -65,11 +71,3 @@ CRM context for every answer, insight, and action
 Manage databases, authentication, and storage
 
 [Add Supabase in Claude (opens in new tab)](https://claude.ai/directory/11ca66fc-1e98-49d5-ab9b-7cb4672a8f10 "Add in Claude")
-
-![](https://www.google.com/s2/favicons?domain=monday.com&sz=96)
-
-### [monday.com](https://claude.com/connectors/monday)
-
-Manage projects, tasks, portfolios, boards, workflows, milestones, dependencies, forms and dashboards with monday.com project management & CRM.
-
-[Add monday.com in Claude (opens in new tab)](https://claude.ai/directory/49e0f9ba-7d45-4fb6-b098-55eec956fbc6 "Add in Claude")

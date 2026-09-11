@@ -16,6 +16,22 @@ Grid
 
 List
 
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2222403b092e0358b0e_cd4fd51deacd067d4e30aee4f4b149f6cba1b97b-1000x1000.svg)
+
+Sep 10, 2026
+
+What 1,000 small business owners taught us about AI
+
+Enterprise AI
+
+What 1,000 small business owners taught us about AI
+
+September 10, 2026
+
+[What 1,000 small business owners taught us about AI](https://claude.com/blog/what-1-000-small-business-owners-taught-us-about-ai)What 1,000 small business owners taught us about AI
+
+[What 1,000 small business owners taught us about AI](#)What 1,000 small business owners taught us about AI
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/692f783c784823d48ad84175_Object-CodeChatText.svg)
 
 Aug 28, 2026
@@ -240,22 +256,6 @@ August 6, 2026
 
 [Millennium and Anthropic are building a digital risk analyst with Claude](#) Millennium and Anthropic are building a digital risk analyst with Claude
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22753311132c8c37b39_d3dd09ad16c68461dc3fb01df5e84cf7ccafda6c-1000x1000.svg)
-
-Aug 5, 2026
-
-Inference hooks: inline data loss prevention for Claude Enterprise
-
-Enterprise AI
-
-Inference hooks: inline data loss prevention for Claude Enterprise
-
-August 5, 2026
-
-[Inference hooks: inline data loss prevention for Claude Enterprise](https://claude.com/blog/claude-enterprise-inference-hooks)Inference hooks: inline data loss prevention for Claude Enterprise
-
-[Inference hooks: inline data loss prevention for Claude Enterprise](#)Inference hooks: inline data loss prevention for Claude Enterprise
-
 [View more](https://claude.com/blog-category/enterprise-ai?1e959936_page=2)
 
 Category
@@ -263,6 +263,22 @@ Category
 Product
 
 Usecase
+
+### What 1,000 small business owners taught us about AI
+
+Category
+
+Enterprise AI
+
+Product
+
+Usecase
+
+September 10, 2026
+
+[What 1,000 small business owners taught us about AI](https://claude.com/blog/what-1-000-small-business-owners-taught-us-about-ai)What 1,000 small business owners taught us about AI
+
+[What 1,000 small business owners taught us about AI](#)What 1,000 small business owners taught us about AI
 
 ### How Anthropic employees use Claude Tag
 
@@ -487,22 +503,6 @@ August 6, 2026
 [Millennium and Anthropic are building a digital risk analyst with Claude](https://claude.com/blog/millennium-and-anthropic-are-building-a-digital-risk-analyst-with-claude) Millennium and Anthropic are building a digital risk analyst with Claude
 
 [Millennium and Anthropic are building a digital risk analyst with Claude](#) Millennium and Anthropic are building a digital risk analyst with Claude
-
-### Inference hooks: inline data loss prevention for Claude Enterprise
-
-Category
-
-Enterprise AI
-
-Product
-
-Usecase
-
-August 5, 2026
-
-[Inference hooks: inline data loss prevention for Claude Enterprise](https://claude.com/blog/claude-enterprise-inference-hooks)Inference hooks: inline data loss prevention for Claude Enterprise
-
-[Inference hooks: inline data loss prevention for Claude Enterprise](#)Inference hooks: inline data loss prevention for Claude Enterprise
 
 [View more](https://claude.com/blog-category/enterprise-ai?2f226f2c_page=2)
 

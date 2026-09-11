@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/java/beta/environments/create -->
 
+---
+title: Create Environment
+url: https://platform.claude.com/docs/en/api/java/beta/environments/create
+---
+
 # Create Environment
 
 `BetaEnvironment beta().environments().create(params, requestOptions = RequestOptions.none())`
@@ -62,6 +67,8 @@ Create a new environment with the specified configuration.
 
     - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
 
+    - `USER_PROFILES_2026_09_04("user-profiles-2026-09-04")`
+
     - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
@@ -103,6 +110,8 @@ Create a new environment with the specified configuration.
     - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
 
     - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
+  - `Optional<String> workspaceId`
 
   - `String name`
 
@@ -168,6 +177,10 @@ Create a new environment with the specified configuration.
 
         Under `limited` networking, requires `networking.allow_package_managers` to be `true`.
 
+        - `Optional<Type> type`
+
+          Package configuration type
+
         - `Optional<List<String>> apt`
 
           Ubuntu/Debian packages to install
@@ -192,10 +205,6 @@ Create a new environment with the specified configuration.
 
           Python packages to install
 
-        - `Optional<Type> type`
-
-          Package configuration type
-
     - `class BetaSelfHostedConfigParams:`
 
       Request params for `self_hosted` environment configuration.
@@ -216,7 +225,7 @@ Create a new environment with the specified configuration.
 
   - `Optional<Scope> scope`
 
-    The visibility scope for this environment. 'organization' makes the environment visible to all accounts. 'account' restricts visibility to the owning account only. Only applicable for self-hosted environments. If not specified, defaults based on organization type.
+    The visibility scope for this environment. 'organization' makes the environment visible to all accounts. 'account' restricts visibility to the owning account only. API organizations support only 'organization'; 'account' is rejected. If not specified, defaults based on organization type.
 
     - `ORGANIZATION("organization")`
 
@@ -227,6 +236,10 @@ Create a new environment with the specified configuration.
 - `class BetaEnvironment:`
 
   Unified Environment resource for both cloud and self-hosted environments.
+
+  - `JsonValue type = "environment"`
+
+    The type of object (always 'environment')
 
   - `String id`
 
@@ -244,6 +257,10 @@ Create a new environment with the specified configuration.
 
       `cloud` environment configuration.
 
+      - `JsonValue type = "cloud"`
+
+        Environment type
+
       - `Networking networking`
 
         Network configuration policy.
@@ -260,6 +277,10 @@ Create a new environment with the specified configuration.
 
           Limited network access.
 
+          - `JsonValue type = "limited"`
+
+            Network policy type
+
           - `boolean allowMcpServers`
 
             Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
@@ -272,13 +293,13 @@ Create a new environment with the specified configuration.
 
             Specifies domains the container can reach.
 
-          - `JsonValue type = "limited"`
-
-            Network policy type
-
       - `BetaPackages packages`
 
         Package manager configuration.
+
+        - `Optional<Type> type`
+
+          Package configuration type
 
         - `List<String> apt`
 
@@ -304,14 +325,6 @@ Create a new environment with the specified configuration.
 
           Python packages to install
 
-        - `Optional<Type> type`
-
-          Package configuration type
-
-      - `JsonValue type = "cloud"`
-
-        Environment type
-
     - `class BetaSelfHostedConfig:`
 
       Configuration for self-hosted environments.
@@ -335,10 +348,6 @@ Create a new environment with the specified configuration.
   - `String name`
 
     Human-readable name for the environment
-
-  - `JsonValue type = "environment"`
-
-    The type of object (always 'environment')
 
   - `String updatedAt`
 

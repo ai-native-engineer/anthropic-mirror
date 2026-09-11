@@ -1,10 +1,15 @@
 <!-- source: https://platform.claude.com/docs/en/api/php/messages -->
 
+---
+title: Messages
+url: https://platform.claude.com/docs/en/api/php/messages
+---
+
 # Messages
 
 ## Create a Message
 
-`$client->messages->create(int maxTokens, list<MessageParam> messages, Model model, ?CacheControlEphemeral cacheControl, ?MessageCreateParamsContainer container, ?string inferenceGeo, ?Metadata metadata, ?OutputConfig outputConfig, ?ServiceTier serviceTier, ?list<string> stopSequences, ?System system, ?float temperature, ?ThinkingConfigParam thinking, ?ToolChoice toolChoice, ?list<ToolUnion> tools, ?int topK, ?float topP, ?string userProfileID): Message`
+`$client->messages->create(int maxTokens, list<MessageParam> messages, Model model, ?CacheControlEphemeral cacheControl, ?MessageCreateParamsContainer container, ?string inferenceGeo, ?Metadata metadata, ?OutputConfig outputConfig, ?ServiceTier serviceTier, ?list<string> stopSequences, ?System system, ?float temperature, ?ThinkingConfigParam thinking, ?ToolChoice toolChoice, ?list<ToolUnion> tools, ?int topK, ?float topP, ?string userProfileID, ?string workspaceID): Message`
 
 **POST** `/v1/messages`
 
@@ -209,6 +214,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
   The user profile ID to attribute this request to. Use when acting on behalf of a party other than your organization. Requires the `user-profiles` beta header.
 
+- `workspaceID?:optional string`
+
 - `temperature?:optional float`
 
   **Deprecated**: Deprecated. Models released after Claude Opus 4.6 do not support setting temperature. A value of 1.0 of will be accepted for backwards compatibility, all other values will be rejected with a 400 error.
@@ -242,6 +249,12 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 ### Returns
 
 - `Message`
+
+  - `"message" type`
+
+    Object type.
+
+    For Messages, this is always `"message"`.
 
   - `string id`
 
@@ -320,12 +333,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     This value will be a non-null string if one of your custom stop sequences was generated.
 
-  - `"message" type`
-
-    Object type.
-
-    For Messages, this is always `"message"`.
-
   - `Usage usage`
 
     Billing and rate-limit usage.
@@ -342,15 +349,15 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
   - `RawMessageStartEvent`
 
-    - `Message message`
-
     - `"message_start" type`
+
+    - `Message message`
 
   - `RawMessageDeltaEvent`
 
-    - `Delta delta`
-
     - `"message_delta" type`
+
+    - `Delta delta`
 
     - `MessageDeltaUsage usage`
 
@@ -370,27 +377,27 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
   - `RawContentBlockStartEvent`
 
+    - `"content_block_start" type`
+
     - `ContentBlock contentBlock`
 
       Response model for a file uploaded to the container.
 
     - `int index`
 
-    - `"content_block_start" type`
-
   - `RawContentBlockDeltaEvent`
+
+    - `"content_block_delta" type`
 
     - `RawContentBlockDelta delta`
 
     - `int index`
 
-    - `"content_block_delta" type`
-
   - `RawContentBlockStopEvent`
 
-    - `int index`
-
     - `"content_block_stop" type`
+
+    - `int index`
 
 ### Example
 
@@ -461,6 +468,7 @@ $message = $client->messages->create(
   topK: 5,
   topP: 0.7,
   userProfileID: 'anthropic-user-profile-id',
+  workspaceID: 'wrkspc_011CZkZaBF1tNoB5wlCeusgy',
 );
 
 var_dump($message);
@@ -533,7 +541,7 @@ var_dump($message);
 
 ## Count tokens in a Message
 
-`$client->messages->countTokens(list<MessageParam> messages, Model model, ?CacheControlEphemeral cacheControl, ?OutputConfig outputConfig, ?System system, ?ThinkingConfigParam thinking, ?ToolChoice toolChoice, ?list<MessageCountTokensTool> tools, ?string userProfileID): MessageTokensCount`
+`$client->messages->countTokens(list<MessageParam> messages, Model model, ?CacheControlEphemeral cacheControl, ?OutputConfig outputConfig, ?System system, ?ThinkingConfigParam thinking, ?ToolChoice toolChoice, ?list<MessageCountTokensTool> tools, ?string userProfileID, ?string workspaceID): MessageTokensCount`
 
 **POST** `/v1/messages/count_tokens`
 
@@ -696,6 +704,8 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
   The user profile ID to attribute this request to. Use when acting on behalf of a party other than your organization. Requires the `user-profiles` beta header.
 
+- `workspaceID?:optional string`
+
 ### Returns
 
 - `MessageTokensCount`
@@ -759,6 +769,7 @@ $messageTokensCount = $client->messages->countTokens(
     ],
   ],
   userProfileID: 'anthropic-user-profile-id',
+  workspaceID: 'wrkspc_011CZkZaBF1tNoB5wlCeusgy',
 );
 
 var_dump($messageTokensCount);
@@ -778,41 +789,43 @@ var_dump($messageTokensCount);
 
 - `Base64ImageSource`
 
+  - `"base64" type`
+
   - `string data`
 
   - `MediaType mediaType`
-
-  - `"base64" type`
 
 ### Base64 PDF Source
 
 - `Base64PDFSource`
 
+  - `"base64" type`
+
   - `string data`
 
   - `"application/pdf" mediaType`
-
-  - `"base64" type`
 
 ### Bash Code Execution Output Block
 
 - `BashCodeExecutionOutputBlock`
 
-  - `string fileID`
-
   - `"bash_code_execution_output" type`
+
+  - `string fileID`
 
 ### Bash Code Execution Output Block Param
 
 - `BashCodeExecutionOutputBlockParam`
 
-  - `string fileID`
-
   - `"bash_code_execution_output" type`
+
+  - `string fileID`
 
 ### Bash Code Execution Result Block
 
 - `BashCodeExecutionResultBlock`
+
+  - `"bash_code_execution_result" type`
 
   - `list<BashCodeExecutionOutputBlock> content`
 
@@ -822,11 +835,11 @@ var_dump($messageTokensCount);
 
   - `string stdout`
 
-  - `"bash_code_execution_result" type`
-
 ### Bash Code Execution Result Block Param
 
 - `BashCodeExecutionResultBlockParam`
+
+  - `"bash_code_execution_result" type`
 
   - `list<BashCodeExecutionOutputBlockParam> content`
 
@@ -836,27 +849,25 @@ var_dump($messageTokensCount);
 
   - `string stdout`
 
-  - `"bash_code_execution_result" type`
-
 ### Bash Code Execution Tool Result Block
 
 - `BashCodeExecutionToolResultBlock`
 
+  - `"bash_code_execution_tool_result" type`
+
   - `Content content`
 
   - `string toolUseID`
-
-  - `"bash_code_execution_tool_result" type`
 
 ### Bash Code Execution Tool Result Block Param
 
 - `BashCodeExecutionToolResultBlockParam`
 
+  - `"bash_code_execution_tool_result" type`
+
   - `Content content`
 
   - `string toolUseID`
-
-  - `"bash_code_execution_tool_result" type`
 
   - `?CacheControlEphemeral cacheControl`
 
@@ -866,9 +877,9 @@ var_dump($messageTokensCount);
 
 - `BashCodeExecutionToolResultError`
 
-  - `BashCodeExecutionToolResultErrorCode errorCode`
-
   - `"bash_code_execution_tool_result_error" type`
+
+  - `BashCodeExecutionToolResultErrorCode errorCode`
 
 ### Bash Code Execution Tool Result Error Code
 
@@ -888,9 +899,9 @@ var_dump($messageTokensCount);
 
 - `BashCodeExecutionToolResultErrorParam`
 
-  - `BashCodeExecutionToolResultErrorCode errorCode`
-
   - `"bash_code_execution_tool_result_error" type`
+
+  - `BashCodeExecutionToolResultErrorCode errorCode`
 
 ### Browser Close Tab Config
 
@@ -1208,11 +1219,11 @@ var_dump($messageTokensCount);
 
 - `BrowserStateBlockParam`
 
+  - `"browser_state" type`
+
   - `list<BrowserStateTabEntry> tabs`
 
     All tabs open in the browser after this call — the full inventory, not a delta. May be empty. Whenever non-empty, exactly one entry carries `active: true`.
-
-  - `"browser_state" type`
 
   - `?CacheControlEphemeral cacheControl`
 
@@ -1228,19 +1239,19 @@ var_dump($messageTokensCount);
 
   - `BrowserStateChangeTabOpened`
 
+    - `"tab_opened" type`
+
     - `string tabID`
 
       The `tab_id` of the opened tab, present in `tabs`.
 
-    - `"tab_opened" type`
-
   - `BrowserStateChangeDownloadStarted`
+
+    - `"download_started" type`
 
     - `string downloadID`
 
       The caller-assigned identifier for this download, stable across the state changes reporting it.
-
-    - `"download_started" type`
 
     - `string url`
 
@@ -1248,11 +1259,11 @@ var_dump($messageTokensCount);
 
   - `BrowserStateChangeDownloadCompleted`
 
+    - `"download_completed" type`
+
     - `string downloadID`
 
       The caller-assigned identifier for this download, stable across the state changes reporting it.
-
-    - `"download_completed" type`
 
     - `string url`
 
@@ -1268,11 +1279,11 @@ var_dump($messageTokensCount);
 
   - `BrowserStateChangeDownloadFailed`
 
+    - `"download_failed" type`
+
     - `string downloadID`
 
       The caller-assigned identifier for this download, stable across the state changes reporting it.
-
-    - `"download_failed" type`
 
     - `string url`
 
@@ -1286,11 +1297,11 @@ var_dump($messageTokensCount);
 
 - `BrowserStateChangeDownloadCompleted`
 
+  - `"download_completed" type`
+
   - `string downloadID`
 
     The caller-assigned identifier for this download, stable across the state changes reporting it.
-
-  - `"download_completed" type`
 
   - `string url`
 
@@ -1308,11 +1319,11 @@ var_dump($messageTokensCount);
 
 - `BrowserStateChangeDownloadFailed`
 
+  - `"download_failed" type`
+
   - `string downloadID`
 
     The caller-assigned identifier for this download, stable across the state changes reporting it.
-
-  - `"download_failed" type`
 
   - `string url`
 
@@ -1326,11 +1337,11 @@ var_dump($messageTokensCount);
 
 - `BrowserStateChangeDownloadStarted`
 
+  - `"download_started" type`
+
   - `string downloadID`
 
     The caller-assigned identifier for this download, stable across the state changes reporting it.
-
-  - `"download_started" type`
 
   - `string url`
 
@@ -1340,11 +1351,11 @@ var_dump($messageTokensCount);
 
 - `BrowserStateChangeTabOpened`
 
+  - `"tab_opened" type`
+
   - `string tabID`
 
     The `tab_id` of the opened tab, present in `tabs`.
-
-  - `"tab_opened" type`
 
 ### Browser State Tab Entry
 
@@ -1400,6 +1411,10 @@ var_dump($messageTokensCount);
 ### Browser Toolset Configs
 
 - `BrowserToolsetConfigs`
+
+  - `?BrowserTypeConfig type`
+
+    `type`'s config overrides.
 
   - `?BrowserCloseTabConfig closeTab`
 
@@ -1513,10 +1528,6 @@ var_dump($messageTokensCount);
 
     `triple_click`'s config overrides.
 
-  - `?BrowserTypeConfig type`
-
-    `type`'s config overrides.
-
   - `?BrowserWaitConfig wait`
 
     `wait`'s config overrides.
@@ -1606,6 +1617,8 @@ var_dump($messageTokensCount);
 
 - `CitationCharLocation`
 
+  - `"char_location" type`
+
   - `string citedText`
 
   - `int documentIndex`
@@ -1617,13 +1630,13 @@ var_dump($messageTokensCount);
   - `?string fileID`
 
   - `int startCharIndex`
-
-  - `"char_location" type`
 
 ### Citation Char Location Param
 
 - `CitationCharLocationParam`
 
+  - `"char_location" type`
+
   - `string citedText`
 
   - `int documentIndex`
@@ -1634,11 +1647,11 @@ var_dump($messageTokensCount);
 
   - `int startCharIndex`
 
-  - `"char_location" type`
-
 ### Citation Content Block Location
 
 - `CitationContentBlockLocation`
+
+  - `"content_block_location" type`
 
   - `string citedText`
 
@@ -1661,13 +1674,13 @@ var_dump($messageTokensCount);
   - `int startBlockIndex`
 
     0-based index of the first cited block in the source's `content` array.
-
-  - `"content_block_location" type`
 
 ### Citation Content Block Location Param
 
 - `CitationContentBlockLocationParam`
 
+  - `"content_block_location" type`
+
   - `string citedText`
 
     The full text of the cited block range, concatenated.
@@ -1688,11 +1701,11 @@ var_dump($messageTokensCount);
 
     0-based index of the first cited block in the source's `content` array.
 
-  - `"content_block_location" type`
-
 ### Citation Page Location
 
 - `CitationPageLocation`
+
+  - `"page_location" type`
 
   - `string citedText`
 
@@ -1706,11 +1719,11 @@ var_dump($messageTokensCount);
 
   - `int startPageNumber`
 
-  - `"page_location" type`
-
 ### Citation Page Location Param
 
 - `CitationPageLocationParam`
+
+  - `"page_location" type`
 
   - `string citedText`
 
@@ -1722,11 +1735,11 @@ var_dump($messageTokensCount);
 
   - `int startPageNumber`
 
-  - `"page_location" type`
-
 ### Citation Search Result Location Param
 
 - `CitationSearchResultLocationParam`
+
+  - `"search_result_location" type`
 
   - `string citedText`
 
@@ -1754,19 +1767,17 @@ var_dump($messageTokensCount);
 
   - `?string title`
 
-  - `"search_result_location" type`
-
 ### Citation Web Search Result Location Param
 
 - `CitationWebSearchResultLocationParam`
+
+  - `"web_search_result_location" type`
 
   - `string citedText`
 
   - `string encryptedIndex`
 
   - `?string title`
-
-  - `"web_search_result_location" type`
 
   - `string url`
 
@@ -1786,13 +1797,15 @@ var_dump($messageTokensCount);
 
 - `CitationsDelta`
 
-  - `Citation citation`
-
   - `"citations_delta" type`
+
+  - `Citation citation`
 
 ### Citations Search Result Location
 
 - `CitationsSearchResultLocation`
+
+  - `"search_result_location" type`
 
   - `string citedText`
 
@@ -1820,11 +1833,11 @@ var_dump($messageTokensCount);
 
   - `?string title`
 
-  - `"search_result_location" type`
-
 ### Citations Web Search Result Location
 
 - `CitationsWebSearchResultLocation`
+
+  - `"web_search_result_location" type`
 
   - `string citedText`
 
@@ -1832,29 +1845,29 @@ var_dump($messageTokensCount);
 
   - `?string title`
 
-  - `"web_search_result_location" type`
-
   - `string url`
 
 ### Code Execution Output Block
 
 - `CodeExecutionOutputBlock`
 
-  - `string fileID`
-
   - `"code_execution_output" type`
+
+  - `string fileID`
 
 ### Code Execution Output Block Param
 
 - `CodeExecutionOutputBlockParam`
 
-  - `string fileID`
-
   - `"code_execution_output" type`
+
+  - `string fileID`
 
 ### Code Execution Result Block
 
 - `CodeExecutionResultBlock`
+
+  - `"code_execution_result" type`
 
   - `list<CodeExecutionOutputBlock> content`
 
@@ -1864,11 +1877,11 @@ var_dump($messageTokensCount);
 
   - `string stdout`
 
-  - `"code_execution_result" type`
-
 ### Code Execution Result Block Param
 
 - `CodeExecutionResultBlockParam`
+
+  - `"code_execution_result" type`
 
   - `list<CodeExecutionOutputBlockParam> content`
 
@@ -1878,19 +1891,17 @@ var_dump($messageTokensCount);
 
   - `string stdout`
 
-  - `"code_execution_result" type`
-
 ### Code Execution Tool 20250522
 
 - `CodeExecutionTool20250522`
+
+  - `"code_execution_20250522" type`
 
   - `"code_execution" name`
 
     Name of the tool.
 
     This is how the tool will be called by the model and in `tool_use` blocks.
-
-  - `"code_execution_20250522" type`
 
   - `?list<AllowedCaller> allowedCallers`
 
@@ -1910,13 +1921,13 @@ var_dump($messageTokensCount);
 
 - `CodeExecutionTool20250825`
 
+  - `"code_execution_20250825" type`
+
   - `"code_execution" name`
 
     Name of the tool.
 
     This is how the tool will be called by the model and in `tool_use` blocks.
-
-  - `"code_execution_20250825" type`
 
   - `?list<AllowedCaller> allowedCallers`
 
@@ -1936,13 +1947,13 @@ var_dump($messageTokensCount);
 
 - `CodeExecutionTool20260120`
 
+  - `"code_execution_20260120" type`
+
   - `"code_execution" name`
 
     Name of the tool.
 
     This is how the tool will be called by the model and in `tool_use` blocks.
-
-  - `"code_execution_20260120" type`
 
   - `?list<AllowedCaller> allowedCallers`
 
@@ -1962,13 +1973,13 @@ var_dump($messageTokensCount);
 
 - `CodeExecutionTool20260521`
 
+  - `"code_execution_20260521" type`
+
   - `"code_execution" name`
 
     Name of the tool.
 
     This is how the tool will be called by the model and in `tool_use` blocks.
-
-  - `"code_execution_20260521" type`
 
   - `?list<AllowedCaller> allowedCallers`
 
@@ -1988,13 +1999,13 @@ var_dump($messageTokensCount);
 
 - `CodeExecutionToolResultBlock`
 
+  - `"code_execution_tool_result" type`
+
   - `CodeExecutionToolResultBlockContent content`
 
     Code execution result with encrypted stdout for PFC + web_search results.
 
   - `string toolUseID`
-
-  - `"code_execution_tool_result" type`
 
 ### Code Execution Tool Result Block Content
 
@@ -2002,11 +2013,13 @@ var_dump($messageTokensCount);
 
   - `CodeExecutionToolResultError`
 
-    - `CodeExecutionToolResultErrorCode errorCode`
-
     - `"code_execution_tool_result_error" type`
 
+    - `CodeExecutionToolResultErrorCode errorCode`
+
   - `CodeExecutionResultBlock`
+
+    - `"code_execution_result" type`
 
     - `list<CodeExecutionOutputBlock> content`
 
@@ -2016,9 +2029,9 @@ var_dump($messageTokensCount);
 
     - `string stdout`
 
-    - `"code_execution_result" type`
-
   - `EncryptedCodeExecutionResultBlock`
+
+    - `"encrypted_code_execution_result" type`
 
     - `list<CodeExecutionOutputBlock> content`
 
@@ -2028,19 +2041,17 @@ var_dump($messageTokensCount);
 
     - `string stderr`
 
-    - `"encrypted_code_execution_result" type`
-
 ### Code Execution Tool Result Block Param
 
 - `CodeExecutionToolResultBlockParam`
+
+  - `"code_execution_tool_result" type`
 
   - `CodeExecutionToolResultBlockParamContent content`
 
     Code execution result with encrypted stdout for PFC + web_search results.
 
   - `string toolUseID`
-
-  - `"code_execution_tool_result" type`
 
   - `?CacheControlEphemeral cacheControl`
 
@@ -2052,11 +2063,13 @@ var_dump($messageTokensCount);
 
   - `CodeExecutionToolResultErrorParam`
 
-    - `CodeExecutionToolResultErrorCode errorCode`
-
     - `"code_execution_tool_result_error" type`
 
+    - `CodeExecutionToolResultErrorCode errorCode`
+
   - `CodeExecutionResultBlockParam`
+
+    - `"code_execution_result" type`
 
     - `list<CodeExecutionOutputBlockParam> content`
 
@@ -2066,9 +2079,9 @@ var_dump($messageTokensCount);
 
     - `string stdout`
 
-    - `"code_execution_result" type`
-
   - `EncryptedCodeExecutionResultBlockParam`
+
+    - `"encrypted_code_execution_result" type`
 
     - `list<CodeExecutionOutputBlockParam> content`
 
@@ -2078,15 +2091,13 @@ var_dump($messageTokensCount);
 
     - `string stderr`
 
-    - `"encrypted_code_execution_result" type`
-
 ### Code Execution Tool Result Error
 
 - `CodeExecutionToolResultError`
 
-  - `CodeExecutionToolResultErrorCode errorCode`
-
   - `"code_execution_tool_result_error" type`
+
+  - `CodeExecutionToolResultErrorCode errorCode`
 
 ### Code Execution Tool Result Error Code
 
@@ -2104,9 +2115,9 @@ var_dump($messageTokensCount);
 
 - `CodeExecutionToolResultErrorParam`
 
-  - `CodeExecutionToolResultErrorCode errorCode`
-
   - `"code_execution_tool_result_error" type`
+
+  - `CodeExecutionToolResultErrorCode errorCode`
 
 ### Computer Cursor Position Config
 
@@ -2287,6 +2298,10 @@ var_dump($messageTokensCount);
 
 - `ComputerToolsetConfigs`
 
+  - `?ComputerTypeConfig type`
+
+    `type`'s config overrides.
+
   - `?ComputerCursorPositionConfig cursorPosition`
 
     `cursor_position`'s config overrides.
@@ -2342,10 +2357,6 @@ var_dump($messageTokensCount);
   - `?ComputerTripleClickConfig tripleClick`
 
     `triple_click`'s config overrides.
-
-  - `?ComputerTypeConfig type`
-
-    `type`'s config overrides.
 
   - `?ComputerWaitConfig wait`
 
@@ -2435,13 +2446,13 @@ var_dump($messageTokensCount);
 
 - `ContainerSkill`
 
-  - `string skillID`
-
-    Skill ID
-
   - `Type type`
 
     Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
+
+  - `string skillID`
+
+    Skill ID
 
   - `string version`
 
@@ -2451,17 +2462,17 @@ var_dump($messageTokensCount);
 
 - `ContainerUploadBlock`
 
-  - `string fileID`
-
   - `"container_upload" type`
+
+  - `string fileID`
 
 ### Container Upload Block Param
 
 - `ContainerUploadBlockParam`
 
-  - `string fileID`
-
   - `"container_upload" type`
+
+  - `string fileID`
 
   - `?CacheControlEphemeral cacheControl`
 
@@ -2473,6 +2484,8 @@ var_dump($messageTokensCount);
 
   - `TextBlock`
 
+    - `"text" type`
+
     - `?list<TextCitation> citations`
 
       Citations supporting the text block.
@@ -2481,9 +2494,9 @@ var_dump($messageTokensCount);
 
     - `string text`
 
-    - `"text" type`
-
   - `ThinkingBlock`
+
+    - `"thinking" type`
 
     - `string signature`
 
@@ -2497,9 +2510,9 @@ var_dump($messageTokensCount);
 
       The text of Claude's thinking process for this block.
 
-    - `"thinking" type`
-
   - `RedactedThinkingBlock`
+
+    - `"redacted_thinking" type`
 
     - `string data`
 
@@ -2509,9 +2522,9 @@ var_dump($messageTokensCount);
 
       See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking#redacted-thinking-blocks) for details.
 
-    - `"redacted_thinking" type`
-
   - `ToolUseBlock`
+
+    - `"tool_use" type`
 
     - `string id`
 
@@ -2523,13 +2536,13 @@ var_dump($messageTokensCount);
 
     - `string name`
 
-    - `"tool_use" type`
-
     - `?string toolsetName`
 
       For a toolset member tool_use, the toolset family.
 
   - `ServerToolUseBlock`
+
+    - `"server_tool_use" type`
 
     - `string id`
 
@@ -2541,9 +2554,9 @@ var_dump($messageTokensCount);
 
     - `Name name`
 
-    - `"server_tool_use" type`
-
   - `WebSearchToolResultBlock`
+
+    - `"web_search_tool_result" type`
 
     - `Caller caller`
 
@@ -2553,9 +2566,9 @@ var_dump($messageTokensCount);
 
     - `string toolUseID`
 
-    - `"web_search_tool_result" type`
-
   - `WebFetchToolResultBlock`
+
+    - `"web_fetch_tool_result" type`
 
     - `Caller caller`
 
@@ -2565,9 +2578,9 @@ var_dump($messageTokensCount);
 
     - `string toolUseID`
 
-    - `"web_fetch_tool_result" type`
-
   - `CodeExecutionToolResultBlock`
+
+    - `"code_execution_tool_result" type`
 
     - `CodeExecutionToolResultBlockContent content`
 
@@ -2575,37 +2588,35 @@ var_dump($messageTokensCount);
 
     - `string toolUseID`
 
-    - `"code_execution_tool_result" type`
-
   - `BashCodeExecutionToolResultBlock`
-
-    - `Content content`
-
-    - `string toolUseID`
 
     - `"bash_code_execution_tool_result" type`
 
-  - `TextEditorCodeExecutionToolResultBlock`
-
     - `Content content`
 
     - `string toolUseID`
+
+  - `TextEditorCodeExecutionToolResultBlock`
 
     - `"text_editor_code_execution_tool_result" type`
 
+    - `Content content`
+
+    - `string toolUseID`
+
   - `ToolSearchToolResultBlock`
+
+    - `"tool_search_tool_result" type`
 
     - `Content content`
 
     - `string toolUseID`
 
-    - `"tool_search_tool_result" type`
-
   - `ContainerUploadBlock`
 
-    - `string fileID`
-
     - `"container_upload" type`
+
+    - `string fileID`
 
 ### Content Block Param
 
@@ -2613,9 +2624,9 @@ var_dump($messageTokensCount);
 
   - `TextBlockParam`
 
-    - `string text`
-
     - `"text" type`
+
+    - `string text`
 
     - `?CacheControlEphemeral cacheControl`
 
@@ -2625,9 +2636,9 @@ var_dump($messageTokensCount);
 
   - `ImageBlockParam`
 
-    - `Source source`
-
     - `"image" type`
+
+    - `Source source`
 
     - `?CacheControlEphemeral cacheControl`
 
@@ -2639,9 +2650,9 @@ var_dump($messageTokensCount);
 
   - `DocumentBlockParam`
 
-    - `Source source`
-
     - `"document" type`
+
+    - `Source source`
 
     - `?CacheControlEphemeral cacheControl`
 
@@ -2655,13 +2666,13 @@ var_dump($messageTokensCount);
 
   - `SearchResultBlockParam`
 
+    - `"search_result" type`
+
     - `list<TextBlockParam> content`
 
     - `string source`
 
     - `string title`
-
-    - `"search_result" type`
 
     - `?CacheControlEphemeral cacheControl`
 
@@ -2670,6 +2681,8 @@ var_dump($messageTokensCount);
     - `?CitationsConfigParam citations`
 
   - `ThinkingBlockParam`
+
+    - `"thinking" type`
 
     - `string signature`
 
@@ -2681,25 +2694,23 @@ var_dump($messageTokensCount);
 
       The `thinking` text of this block as returned by the API.
 
-    - `"thinking" type`
-
   - `RedactedThinkingBlockParam`
+
+    - `"redacted_thinking" type`
 
     - `string data`
 
       The `data` value of this redacted thinking block, exactly as returned by the API in a previous response. Opaque and encrypted; pass it back unchanged.
 
-    - `"redacted_thinking" type`
-
   - `ToolUseBlockParam`
+
+    - `"tool_use" type`
 
     - `string id`
 
     - `array<string,mixed> input`
 
     - `string name`
-
-    - `"tool_use" type`
 
     - `?CacheControlEphemeral cacheControl`
 
@@ -2715,9 +2726,9 @@ var_dump($messageTokensCount);
 
   - `ToolResultBlockParam`
 
-    - `string toolUseID`
-
     - `"tool_result" type`
+
+    - `string toolUseID`
 
     - `?CacheControlEphemeral cacheControl`
 
@@ -2733,13 +2744,13 @@ var_dump($messageTokensCount);
 
   - `ServerToolUseBlockParam`
 
+    - `"server_tool_use" type`
+
     - `string id`
 
     - `array<string,mixed> input`
 
     - `Name name`
-
-    - `"server_tool_use" type`
 
     - `?CacheControlEphemeral cacheControl`
 
@@ -2751,11 +2762,11 @@ var_dump($messageTokensCount);
 
   - `WebSearchToolResultBlockParam`
 
+    - `"web_search_tool_result" type`
+
     - `WebSearchToolResultBlockParamContent content`
 
     - `string toolUseID`
-
-    - `"web_search_tool_result" type`
 
     - `?CacheControlEphemeral cacheControl`
 
@@ -2767,11 +2778,11 @@ var_dump($messageTokensCount);
 
   - `WebFetchToolResultBlockParam`
 
+    - `"web_fetch_tool_result" type`
+
     - `Content content`
 
     - `string toolUseID`
-
-    - `"web_fetch_tool_result" type`
 
     - `?CacheControlEphemeral cacheControl`
 
@@ -2783,13 +2794,13 @@ var_dump($messageTokensCount);
 
   - `CodeExecutionToolResultBlockParam`
 
+    - `"code_execution_tool_result" type`
+
     - `CodeExecutionToolResultBlockParamContent content`
 
       Code execution result with encrypted stdout for PFC + web_search results.
 
     - `string toolUseID`
-
-    - `"code_execution_tool_result" type`
 
     - `?CacheControlEphemeral cacheControl`
 
@@ -2797,11 +2808,11 @@ var_dump($messageTokensCount);
 
   - `BashCodeExecutionToolResultBlockParam`
 
+    - `"bash_code_execution_tool_result" type`
+
     - `Content content`
 
     - `string toolUseID`
-
-    - `"bash_code_execution_tool_result" type`
 
     - `?CacheControlEphemeral cacheControl`
 
@@ -2809,11 +2820,11 @@ var_dump($messageTokensCount);
 
   - `TextEditorCodeExecutionToolResultBlockParam`
 
+    - `"text_editor_code_execution_tool_result" type`
+
     - `Content content`
 
     - `string toolUseID`
-
-    - `"text_editor_code_execution_tool_result" type`
 
     - `?CacheControlEphemeral cacheControl`
 
@@ -2821,11 +2832,11 @@ var_dump($messageTokensCount);
 
   - `ToolSearchToolResultBlockParam`
 
+    - `"tool_search_tool_result" type`
+
     - `Content content`
 
     - `string toolUseID`
-
-    - `"tool_search_tool_result" type`
 
     - `?CacheControlEphemeral cacheControl`
 
@@ -2833,9 +2844,9 @@ var_dump($messageTokensCount);
 
   - `ContainerUploadBlockParam`
 
-    - `string fileID`
-
     - `"container_upload" type`
+
+    - `string fileID`
 
     - `?CacheControlEphemeral cacheControl`
 
@@ -2845,9 +2856,9 @@ var_dump($messageTokensCount);
 
 - `ContentBlockSource`
 
-  - `Content content`
-
   - `"content" type`
+
+  - `Content content`
 
 ### Content Block Source Content
 
@@ -2855,9 +2866,9 @@ var_dump($messageTokensCount);
 
   - `TextBlockParam`
 
-    - `string text`
-
     - `"text" type`
+
+    - `string text`
 
     - `?CacheControlEphemeral cacheControl`
 
@@ -2867,9 +2878,9 @@ var_dump($messageTokensCount);
 
   - `ImageBlockParam`
 
-    - `Source source`
-
     - `"image" type`
+
+    - `Source source`
 
     - `?CacheControlEphemeral cacheControl`
 
@@ -2889,6 +2900,8 @@ var_dump($messageTokensCount);
 
 - `DocumentBlock`
 
+  - `"document" type`
+
   - `?CitationsConfig citations`
 
     Citation configuration for the document
@@ -2899,15 +2912,13 @@ var_dump($messageTokensCount);
 
     The title of the document
 
-  - `"document" type`
-
 ### Document Block Param
 
 - `DocumentBlockParam`
 
-  - `Source source`
-
   - `"document" type`
+
+  - `Source source`
 
   - `?CacheControlEphemeral cacheControl`
 
@@ -2923,6 +2934,8 @@ var_dump($messageTokensCount);
 
 - `EncryptedCodeExecutionResultBlock`
 
+  - `"encrypted_code_execution_result" type`
+
   - `list<CodeExecutionOutputBlock> content`
 
   - `string encryptedStdout`
@@ -2931,11 +2944,11 @@ var_dump($messageTokensCount);
 
   - `string stderr`
 
-  - `"encrypted_code_execution_result" type`
-
 ### Encrypted Code Execution Result Block Param
 
 - `EncryptedCodeExecutionResultBlockParam`
+
+  - `"encrypted_code_execution_result" type`
 
   - `list<CodeExecutionOutputBlockParam> content`
 
@@ -2945,31 +2958,29 @@ var_dump($messageTokensCount);
 
   - `string stderr`
 
-  - `"encrypted_code_execution_result" type`
-
 ### File Document Source
 
 - `FileDocumentSource`
 
-  - `string fileID`
-
   - `"file" type`
+
+  - `string fileID`
 
 ### File Image Source
 
 - `FileImageSource`
 
-  - `string fileID`
-
   - `"file" type`
+
+  - `string fileID`
 
 ### Image Block Param
 
 - `ImageBlockParam`
 
-  - `Source source`
-
   - `"image" type`
+
+  - `Source source`
 
   - `?CacheControlEphemeral cacheControl`
 
@@ -2991,31 +3002,31 @@ var_dump($messageTokensCount);
 
 - `InputJSONDelta`
 
-  - `string partialJSON`
-
   - `"input_json_delta" type`
+
+  - `string partialJSON`
 
 ### JSON Output Format
 
 - `JSONOutputFormat`
 
+  - `"json_schema" type`
+
   - `array<string,mixed> schema`
 
     The JSON schema of the format
 
-  - `"json_schema" type`
-
 ### Memory Tool 20250818
 
 - `MemoryTool20250818`
+
+  - `"memory_20250818" type`
 
   - `"memory" name`
 
     Name of the tool.
 
     This is how the tool will be called by the model and in `tool_use` blocks.
-
-  - `"memory_20250818" type`
 
   - `?list<AllowedCaller> allowedCallers`
 
@@ -3036,6 +3047,12 @@ var_dump($messageTokensCount);
 ### Message
 
 - `Message`
+
+  - `"message" type`
+
+    Object type.
+
+    For Messages, this is always `"message"`.
 
   - `string id`
 
@@ -3114,12 +3131,6 @@ var_dump($messageTokensCount);
 
     This value will be a non-null string if one of your custom stop sequences was generated.
 
-  - `"message" type`
-
-    Object type.
-
-    For Messages, this is always `"message"`.
-
   - `Usage usage`
 
     Billing and rate-limit usage.
@@ -3137,6 +3148,8 @@ var_dump($messageTokensCount);
 - `MessageCountTokensTool`
 
   - `Tool`
+
+    - `?Type type`
 
     - `InputSchema inputSchema`
 
@@ -3176,17 +3189,15 @@ var_dump($messageTokensCount);
 
       When true, guarantees schema validation on tool names and inputs
 
-    - `?Type type`
-
   - `ToolBash20250124`
+
+    - `"bash_20250124" type`
 
     - `"bash" name`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `"bash_20250124" type`
 
     - `?list<AllowedCaller> allowedCallers`
 
@@ -3206,13 +3217,13 @@ var_dump($messageTokensCount);
 
   - `CodeExecutionTool20250522`
 
+    - `"code_execution_20250522" type`
+
     - `"code_execution" name`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `"code_execution_20250522" type`
 
     - `?list<AllowedCaller> allowedCallers`
 
@@ -3230,13 +3241,13 @@ var_dump($messageTokensCount);
 
   - `CodeExecutionTool20250825`
 
+    - `"code_execution_20250825" type`
+
     - `"code_execution" name`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `"code_execution_20250825" type`
 
     - `?list<AllowedCaller> allowedCallers`
 
@@ -3254,13 +3265,13 @@ var_dump($messageTokensCount);
 
   - `CodeExecutionTool20260120`
 
+    - `"code_execution_20260120" type`
+
     - `"code_execution" name`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `"code_execution_20260120" type`
 
     - `?list<AllowedCaller> allowedCallers`
 
@@ -3278,13 +3289,13 @@ var_dump($messageTokensCount);
 
   - `CodeExecutionTool20260521`
 
+    - `"code_execution_20260521" type`
+
     - `"code_execution" name`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `"code_execution_20260521" type`
 
     - `?list<AllowedCaller> allowedCallers`
 
@@ -3319,13 +3330,13 @@ var_dump($messageTokensCount);
 
   - `MemoryTool20250818`
 
+    - `"memory_20250818" type`
+
     - `"memory" name`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `"memory_20250818" type`
 
     - `?list<AllowedCaller> allowedCallers`
 
@@ -3362,13 +3373,13 @@ var_dump($messageTokensCount);
 
   - `ToolTextEditor20250124`
 
+    - `"text_editor_20250124" type`
+
     - `"str_replace_editor" name`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `"text_editor_20250124" type`
 
     - `?list<AllowedCaller> allowedCallers`
 
@@ -3388,13 +3399,13 @@ var_dump($messageTokensCount);
 
   - `ToolTextEditor20250429`
 
+    - `"text_editor_20250429" type`
+
     - `"str_replace_based_edit_tool" name`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `"text_editor_20250429" type`
 
     - `?list<AllowedCaller> allowedCallers`
 
@@ -3414,13 +3425,13 @@ var_dump($messageTokensCount);
 
   - `ToolTextEditor20250728`
 
+    - `"text_editor_20250728" type`
+
     - `"str_replace_based_edit_tool" name`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `"text_editor_20250728" type`
 
     - `?list<AllowedCaller> allowedCallers`
 
@@ -3444,13 +3455,13 @@ var_dump($messageTokensCount);
 
   - `WebSearchTool20250305`
 
+    - `"web_search_20250305" type`
+
     - `"web_search" name`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `"web_search_20250305" type`
 
     - `?list<AllowedCaller> allowedCallers`
 
@@ -3484,13 +3495,13 @@ var_dump($messageTokensCount);
 
   - `WebFetchTool20250910`
 
+    - `"web_fetch_20250910" type`
+
     - `"web_fetch" name`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `"web_fetch_20250910" type`
 
     - `?list<AllowedCaller> allowedCallers`
 
@@ -3528,13 +3539,13 @@ var_dump($messageTokensCount);
 
   - `WebSearchTool20260209`
 
+    - `"web_search_20260209" type`
+
     - `"web_search" name`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `"web_search_20260209" type`
 
     - `?list<AllowedCaller> allowedCallers`
 
@@ -3568,13 +3579,13 @@ var_dump($messageTokensCount);
 
   - `WebFetchTool20260209`
 
+    - `"web_fetch_20260209" type`
+
     - `"web_fetch" name`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `"web_fetch_20260209" type`
 
     - `?list<AllowedCaller> allowedCallers`
 
@@ -3612,13 +3623,13 @@ var_dump($messageTokensCount);
 
   - `WebFetchTool20260309`
 
+    - `"web_fetch_20260309" type`
+
     - `"web_fetch" name`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `"web_fetch_20260309" type`
 
     - `?list<AllowedCaller> allowedCallers`
 
@@ -3660,13 +3671,13 @@ var_dump($messageTokensCount);
 
   - `WebSearchTool20260318`
 
+    - `"web_search_20260318" type`
+
     - `"web_search" name`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `"web_search_20260318" type`
 
     - `?list<AllowedCaller> allowedCallers`
 
@@ -3704,13 +3715,13 @@ var_dump($messageTokensCount);
 
   - `WebFetchTool20260318`
 
+    - `"web_fetch_20260318" type`
+
     - `"web_fetch" name`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `"web_fetch_20260318" type`
 
     - `?list<AllowedCaller> allowedCallers`
 
@@ -3756,13 +3767,13 @@ var_dump($messageTokensCount);
 
   - `ToolSearchToolBm25_20251119`
 
+    - `Type type`
+
     - `"tool_search_tool_bm25" name`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `Type type`
 
     - `?list<AllowedCaller> allowedCallers`
 
@@ -3780,13 +3791,13 @@ var_dump($messageTokensCount);
 
   - `ToolSearchToolRegex20251119`
 
+    - `Type type`
+
     - `"tool_search_tool_regex" name`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `Type type`
 
     - `?list<AllowedCaller> allowedCallers`
 
@@ -3980,11 +3991,11 @@ var_dump($messageTokensCount);
 
 - `PlainTextSource`
 
+  - `"text" type`
+
   - `string data`
 
   - `"text/plain" mediaType`
-
-  - `"text" type`
 
 ### Raw Content Block Delta
 
@@ -3992,51 +4003,53 @@ var_dump($messageTokensCount);
 
   - `TextDelta`
 
-    - `string text`
-
     - `"text_delta" type`
+
+    - `string text`
 
   - `InputJSONDelta`
 
-    - `string partialJSON`
-
     - `"input_json_delta" type`
+
+    - `string partialJSON`
 
   - `CitationsDelta`
 
-    - `Citation citation`
-
     - `"citations_delta" type`
 
+    - `Citation citation`
+
   - `ThinkingDelta`
+
+    - `"thinking_delta" type`
 
     - `string thinking`
 
       The incremental `thinking` text for this content block. Concatenate the `thinking` values of successive `thinking_delta` events to assemble the block's full `thinking` value.
 
-    - `"thinking_delta" type`
-
   - `SignatureDelta`
+
+    - `"signature_delta" type`
 
     - `string signature`
 
       The `signature` for this thinking block: an opaque value used to verify that the block was generated by Claude when it is passed back to the API. Delivered in a `signature_delta` event just before the block's `content_block_stop` event.
 
-    - `"signature_delta" type`
-
 ### Raw Content Block Delta Event
 
 - `RawContentBlockDeltaEvent`
+
+  - `"content_block_delta" type`
 
   - `RawContentBlockDelta delta`
 
   - `int index`
 
-  - `"content_block_delta" type`
-
 ### Raw Content Block Start Event
 
 - `RawContentBlockStartEvent`
+
+  - `"content_block_start" type`
 
   - `ContentBlock contentBlock`
 
@@ -4044,23 +4057,21 @@ var_dump($messageTokensCount);
 
   - `int index`
 
-  - `"content_block_start" type`
-
 ### Raw Content Block Stop Event
 
 - `RawContentBlockStopEvent`
 
-  - `int index`
-
   - `"content_block_stop" type`
+
+  - `int index`
 
 ### Raw Message Delta Event
 
 - `RawMessageDeltaEvent`
 
-  - `Delta delta`
-
   - `"message_delta" type`
+
+  - `Delta delta`
 
   - `MessageDeltaUsage usage`
 
@@ -4078,9 +4089,9 @@ var_dump($messageTokensCount);
 
 - `RawMessageStartEvent`
 
-  - `Message message`
-
   - `"message_start" type`
+
+  - `Message message`
 
 ### Raw Message Stop Event
 
@@ -4094,15 +4105,15 @@ var_dump($messageTokensCount);
 
   - `RawMessageStartEvent`
 
-    - `Message message`
-
     - `"message_start" type`
+
+    - `Message message`
 
   - `RawMessageDeltaEvent`
 
-    - `Delta delta`
-
     - `"message_delta" type`
+
+    - `Delta delta`
 
     - `MessageDeltaUsage usage`
 
@@ -4122,31 +4133,33 @@ var_dump($messageTokensCount);
 
   - `RawContentBlockStartEvent`
 
+    - `"content_block_start" type`
+
     - `ContentBlock contentBlock`
 
       Response model for a file uploaded to the container.
 
     - `int index`
 
-    - `"content_block_start" type`
-
   - `RawContentBlockDeltaEvent`
+
+    - `"content_block_delta" type`
 
     - `RawContentBlockDelta delta`
 
     - `int index`
 
-    - `"content_block_delta" type`
-
   - `RawContentBlockStopEvent`
 
-    - `int index`
-
     - `"content_block_stop" type`
+
+    - `int index`
 
 ### Redacted Thinking Block
 
 - `RedactedThinkingBlock`
+
+  - `"redacted_thinking" type`
 
   - `string data`
 
@@ -4156,21 +4169,21 @@ var_dump($messageTokensCount);
 
     See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking#redacted-thinking-blocks) for details.
 
-  - `"redacted_thinking" type`
-
 ### Redacted Thinking Block Param
 
 - `RedactedThinkingBlockParam`
+
+  - `"redacted_thinking" type`
 
   - `string data`
 
     The `data` value of this redacted thinking block, exactly as returned by the API in a previous response. Opaque and encrypted; pass it back unchanged.
 
-  - `"redacted_thinking" type`
-
 ### Refusal Stop Details
 
 - `RefusalStopDetails`
+
+  - `"refusal" type`
 
   - `?Category category`
 
@@ -4182,19 +4195,17 @@ var_dump($messageTokensCount);
 
     This text is not guaranteed to be stable. `null` when no explanation is available for the category.
 
-  - `"refusal" type`
-
 ### Search Result Block Param
 
 - `SearchResultBlockParam`
+
+  - `"search_result" type`
 
   - `list<TextBlockParam> content`
 
   - `string source`
 
   - `string title`
-
-  - `"search_result" type`
 
   - `?CacheControlEphemeral cacheControl`
 
@@ -4206,17 +4217,17 @@ var_dump($messageTokensCount);
 
 - `ServerToolCaller`
 
-  - `string toolID`
-
   - `"code_execution_20250825" type`
+
+  - `string toolID`
 
 ### Server Tool Caller 20260120
 
 - `ServerToolCaller20260120`
 
-  - `string toolID`
-
   - `"code_execution_20260120" type`
+
+  - `string toolID`
 
 ### Server Tool Usage
 
@@ -4234,6 +4245,8 @@ var_dump($messageTokensCount);
 
 - `ServerToolUseBlock`
 
+  - `"server_tool_use" type`
+
   - `string id`
 
   - `Caller caller`
@@ -4244,19 +4257,17 @@ var_dump($messageTokensCount);
 
   - `Name name`
 
-  - `"server_tool_use" type`
-
 ### Server Tool Use Block Param
 
 - `ServerToolUseBlockParam`
+
+  - `"server_tool_use" type`
 
   - `string id`
 
   - `array<string,mixed> input`
 
   - `Name name`
-
-  - `"server_tool_use" type`
 
   - `?CacheControlEphemeral cacheControl`
 
@@ -4270,23 +4281,23 @@ var_dump($messageTokensCount);
 
 - `SignatureDelta`
 
+  - `"signature_delta" type`
+
   - `string signature`
 
     The `signature` for this thinking block: an opaque value used to verify that the block was generated by Claude when it is passed back to the API. Delivered in a `signature_delta` event just before the block's `content_block_stop` event.
-
-  - `"signature_delta" type`
 
 ### Skill Params
 
 - `SkillParams`
 
-  - `string skillID`
-
-    Skill ID
-
   - `Type type`
 
     Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
+
+  - `string skillID`
+
+    Skill ID
 
   - `?string version`
 
@@ -4314,6 +4325,8 @@ var_dump($messageTokensCount);
 
 - `TextBlock`
 
+  - `"text" type`
+
   - `?list<TextCitation> citations`
 
     Citations supporting the text block.
@@ -4322,15 +4335,13 @@ var_dump($messageTokensCount);
 
   - `string text`
 
-  - `"text" type`
-
 ### Text Block Param
 
 - `TextBlockParam`
 
-  - `string text`
-
   - `"text" type`
+
+  - `string text`
 
   - `?CacheControlEphemeral cacheControl`
 
@@ -4344,6 +4355,8 @@ var_dump($messageTokensCount);
 
   - `CitationCharLocation`
 
+    - `"char_location" type`
+
     - `string citedText`
 
     - `int documentIndex`
@@ -4356,9 +4369,9 @@ var_dump($messageTokensCount);
 
     - `int startCharIndex`
 
-    - `"char_location" type`
-
   - `CitationPageLocation`
+
+    - `"page_location" type`
 
     - `string citedText`
 
@@ -4372,9 +4385,9 @@ var_dump($messageTokensCount);
 
     - `int startPageNumber`
 
-    - `"page_location" type`
-
   - `CitationContentBlockLocation`
+
+    - `"content_block_location" type`
 
     - `string citedText`
 
@@ -4398,9 +4411,9 @@ var_dump($messageTokensCount);
 
       0-based index of the first cited block in the source's `content` array.
 
-    - `"content_block_location" type`
-
   - `CitationsWebSearchResultLocation`
+
+    - `"web_search_result_location" type`
 
     - `string citedText`
 
@@ -4408,11 +4421,11 @@ var_dump($messageTokensCount);
 
     - `?string title`
 
-    - `"web_search_result_location" type`
-
     - `string url`
 
   - `CitationsSearchResultLocation`
+
+    - `"search_result_location" type`
 
     - `string citedText`
 
@@ -4439,8 +4452,6 @@ var_dump($messageTokensCount);
       0-based index of the first cited block in the source's `content` array.
 
     - `?string title`
-
-    - `"search_result_location" type`
 
 ### Text Citation Param
 
@@ -4448,6 +4459,8 @@ var_dump($messageTokensCount);
 
   - `CitationCharLocationParam`
 
+    - `"char_location" type`
+
     - `string citedText`
 
     - `int documentIndex`
@@ -4458,9 +4471,9 @@ var_dump($messageTokensCount);
 
     - `int startCharIndex`
 
-    - `"char_location" type`
-
   - `CitationPageLocationParam`
+
+    - `"page_location" type`
 
     - `string citedText`
 
@@ -4472,9 +4485,9 @@ var_dump($messageTokensCount);
 
     - `int startPageNumber`
 
-    - `"page_location" type`
-
   - `CitationContentBlockLocationParam`
+
+    - `"content_block_location" type`
 
     - `string citedText`
 
@@ -4496,9 +4509,9 @@ var_dump($messageTokensCount);
 
       0-based index of the first cited block in the source's `content` array.
 
-    - `"content_block_location" type`
-
   - `CitationWebSearchResultLocationParam`
+
+    - `"web_search_result_location" type`
 
     - `string citedText`
 
@@ -4506,11 +4519,11 @@ var_dump($messageTokensCount);
 
     - `?string title`
 
-    - `"web_search_result_location" type`
-
     - `string url`
 
   - `CitationSearchResultLocationParam`
+
+    - `"search_result_location" type`
 
     - `string citedText`
 
@@ -4538,35 +4551,35 @@ var_dump($messageTokensCount);
 
     - `?string title`
 
-    - `"search_result_location" type`
-
 ### Text Delta
 
 - `TextDelta`
 
-  - `string text`
-
   - `"text_delta" type`
+
+  - `string text`
 
 ### Text Editor Code Execution Create Result Block
 
 - `TextEditorCodeExecutionCreateResultBlock`
 
-  - `bool isFileUpdate`
-
   - `"text_editor_code_execution_create_result" type`
+
+  - `bool isFileUpdate`
 
 ### Text Editor Code Execution Create Result Block Param
 
 - `TextEditorCodeExecutionCreateResultBlockParam`
 
-  - `bool isFileUpdate`
-
   - `"text_editor_code_execution_create_result" type`
+
+  - `bool isFileUpdate`
 
 ### Text Editor Code Execution Str Replace Result Block
 
 - `TextEditorCodeExecutionStrReplaceResultBlock`
+
+  - `"text_editor_code_execution_str_replace_result" type`
 
   - `?list<string> lines`
 
@@ -4577,8 +4590,6 @@ var_dump($messageTokensCount);
   - `?int oldLines`
 
   - `?int oldStart`
-
-  - `"text_editor_code_execution_str_replace_result" type`
 
 ### Text Editor Code Execution Str Replace Result Block Param
 
@@ -4600,21 +4611,21 @@ var_dump($messageTokensCount);
 
 - `TextEditorCodeExecutionToolResultBlock`
 
+  - `"text_editor_code_execution_tool_result" type`
+
   - `Content content`
 
   - `string toolUseID`
-
-  - `"text_editor_code_execution_tool_result" type`
 
 ### Text Editor Code Execution Tool Result Block Param
 
 - `TextEditorCodeExecutionToolResultBlockParam`
 
+  - `"text_editor_code_execution_tool_result" type`
+
   - `Content content`
 
   - `string toolUseID`
-
-  - `"text_editor_code_execution_tool_result" type`
 
   - `?CacheControlEphemeral cacheControl`
 
@@ -4624,11 +4635,11 @@ var_dump($messageTokensCount);
 
 - `TextEditorCodeExecutionToolResultError`
 
+  - `"text_editor_code_execution_tool_result_error" type`
+
   - `TextEditorCodeExecutionToolResultErrorCode errorCode`
 
   - `?string errorMessage`
-
-  - `"text_editor_code_execution_tool_result_error" type`
 
 ### Text Editor Code Execution Tool Result Error Code
 
@@ -4648,15 +4659,17 @@ var_dump($messageTokensCount);
 
 - `TextEditorCodeExecutionToolResultErrorParam`
 
-  - `TextEditorCodeExecutionToolResultErrorCode errorCode`
-
   - `"text_editor_code_execution_tool_result_error" type`
+
+  - `TextEditorCodeExecutionToolResultErrorCode errorCode`
 
   - `?string errorMessage`
 
 ### Text Editor Code Execution View Result Block
 
 - `TextEditorCodeExecutionViewResultBlock`
+
+  - `"text_editor_code_execution_view_result" type`
 
   - `string content`
 
@@ -4668,17 +4681,15 @@ var_dump($messageTokensCount);
 
   - `?int totalLines`
 
-  - `"text_editor_code_execution_view_result" type`
-
 ### Text Editor Code Execution View Result Block Param
 
 - `TextEditorCodeExecutionViewResultBlockParam`
 
+  - `"text_editor_code_execution_view_result" type`
+
   - `string content`
 
   - `FileType fileType`
-
-  - `"text_editor_code_execution_view_result" type`
 
   - `?int numLines`
 
@@ -4689,6 +4700,8 @@ var_dump($messageTokensCount);
 ### Thinking Block
 
 - `ThinkingBlock`
+
+  - `"thinking" type`
 
   - `string signature`
 
@@ -4702,11 +4715,11 @@ var_dump($messageTokensCount);
 
     The text of Claude's thinking process for this block.
 
-  - `"thinking" type`
-
 ### Thinking Block Param
 
 - `ThinkingBlockParam`
+
+  - `"thinking" type`
 
   - `string signature`
 
@@ -4717,8 +4730,6 @@ var_dump($messageTokensCount);
   - `string thinking`
 
     The `thinking` text of this block as returned by the API.
-
-  - `"thinking" type`
 
 ### Thinking Config Adaptive
 
@@ -4740,6 +4751,8 @@ var_dump($messageTokensCount);
 
 - `ThinkingConfigEnabled`
 
+  - `"enabled" type`
+
   - `int budgetTokens`
 
     Determines how many tokens Claude can use for its internal reasoning process. Larger budgets can enable more thorough analysis for complex problems, improving response quality.
@@ -4747,8 +4760,6 @@ var_dump($messageTokensCount);
     Must be ≥1024 and less than `max_tokens`.
 
     See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
-
-  - `"enabled" type`
 
   - `?Display display`
 
@@ -4760,6 +4771,8 @@ var_dump($messageTokensCount);
 
   - `ThinkingConfigEnabled`
 
+    - `"enabled" type`
+
     - `int budgetTokens`
 
       Determines how many tokens Claude can use for its internal reasoning process. Larger budgets can enable more thorough analysis for complex problems, improving response quality.
@@ -4767,8 +4780,6 @@ var_dump($messageTokensCount);
       Must be ≥1024 and less than `max_tokens`.
 
       See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
-
-    - `"enabled" type`
 
     - `?Display display`
 
@@ -4790,15 +4801,17 @@ var_dump($messageTokensCount);
 
 - `ThinkingDelta`
 
+  - `"thinking_delta" type`
+
   - `string thinking`
 
     The incremental `thinking` text for this content block. Concatenate the `thinking` values of successive `thinking_delta` events to assemble the block's full `thinking` value.
 
-  - `"thinking_delta" type`
-
 ### Tool
 
 - `Tool`
+
+  - `?Type type`
 
   - `InputSchema inputSchema`
 
@@ -4838,19 +4851,17 @@ var_dump($messageTokensCount);
 
     When true, guarantees schema validation on tool names and inputs
 
-  - `?Type type`
-
 ### Tool Bash 20250124
 
 - `ToolBash20250124`
+
+  - `"bash_20250124" type`
 
   - `"bash" name`
 
     Name of the tool.
 
     This is how the tool will be called by the model and in `tool_use` blocks.
-
-  - `"bash_20250124" type`
 
   - `?list<AllowedCaller> allowedCallers`
 
@@ -4894,11 +4905,11 @@ var_dump($messageTokensCount);
 
   - `ToolChoiceTool`
 
+    - `"tool" type`
+
     - `string name`
 
       The name of the tool to use.
-
-    - `"tool" type`
 
     - `?bool disableParallelToolUse`
 
@@ -4944,11 +4955,11 @@ var_dump($messageTokensCount);
 
 - `ToolChoiceTool`
 
+  - `"tool" type`
+
   - `string name`
 
     The name of the tool to use.
-
-  - `"tool" type`
 
   - `?bool disableParallelToolUse`
 
@@ -4960,17 +4971,17 @@ var_dump($messageTokensCount);
 
 - `ToolReferenceBlock`
 
-  - `string toolName`
-
   - `"tool_reference" type`
+
+  - `string toolName`
 
 ### Tool Reference Block Param
 
 - `ToolReferenceBlockParam`
 
-  - `string toolName`
-
   - `"tool_reference" type`
+
+  - `string toolName`
 
   - `?CacheControlEphemeral cacheControl`
 
@@ -4980,9 +4991,9 @@ var_dump($messageTokensCount);
 
 - `ToolResultBlockParam`
 
-  - `string toolUseID`
-
   - `"tool_result" type`
+
+  - `string toolUseID`
 
   - `?CacheControlEphemeral cacheControl`
 
@@ -5000,13 +5011,13 @@ var_dump($messageTokensCount);
 
 - `ToolSearchToolBm25_20251119`
 
+  - `Type type`
+
   - `"tool_search_tool_bm25" name`
 
     Name of the tool.
 
     This is how the tool will be called by the model and in `tool_use` blocks.
-
-  - `Type type`
 
   - `?list<AllowedCaller> allowedCallers`
 
@@ -5026,13 +5037,13 @@ var_dump($messageTokensCount);
 
 - `ToolSearchToolRegex20251119`
 
+  - `Type type`
+
   - `"tool_search_tool_regex" name`
 
     Name of the tool.
 
     This is how the tool will be called by the model and in `tool_use` blocks.
-
-  - `Type type`
 
   - `?list<AllowedCaller> allowedCallers`
 
@@ -5052,21 +5063,21 @@ var_dump($messageTokensCount);
 
 - `ToolSearchToolResultBlock`
 
+  - `"tool_search_tool_result" type`
+
   - `Content content`
 
   - `string toolUseID`
-
-  - `"tool_search_tool_result" type`
 
 ### Tool Search Tool Result Block Param
 
 - `ToolSearchToolResultBlockParam`
 
+  - `"tool_search_tool_result" type`
+
   - `Content content`
 
   - `string toolUseID`
-
-  - `"tool_search_tool_result" type`
 
   - `?CacheControlEphemeral cacheControl`
 
@@ -5076,11 +5087,11 @@ var_dump($messageTokensCount);
 
 - `ToolSearchToolResultError`
 
+  - `"tool_search_tool_result_error" type`
+
   - `ToolSearchToolResultErrorCode errorCode`
 
   - `?string errorMessage`
-
-  - `"tool_search_tool_result_error" type`
 
 ### Tool Search Tool Result Error Code
 
@@ -5098,9 +5109,9 @@ var_dump($messageTokensCount);
 
 - `ToolSearchToolResultErrorParam`
 
-  - `ToolSearchToolResultErrorCode errorCode`
-
   - `"tool_search_tool_result_error" type`
+
+  - `ToolSearchToolResultErrorCode errorCode`
 
   - `?string errorMessage`
 
@@ -5108,29 +5119,29 @@ var_dump($messageTokensCount);
 
 - `ToolSearchToolSearchResultBlock`
 
-  - `list<ToolReferenceBlock> toolReferences`
-
   - `"tool_search_tool_search_result" type`
+
+  - `list<ToolReferenceBlock> toolReferences`
 
 ### Tool Search Tool Search Result Block Param
 
 - `ToolSearchToolSearchResultBlockParam`
 
-  - `list<ToolReferenceBlockParam> toolReferences`
-
   - `"tool_search_tool_search_result" type`
+
+  - `list<ToolReferenceBlockParam> toolReferences`
 
 ### Tool Text Editor 20250124
 
 - `ToolTextEditor20250124`
+
+  - `"text_editor_20250124" type`
 
   - `"str_replace_editor" name`
 
     Name of the tool.
 
     This is how the tool will be called by the model and in `tool_use` blocks.
-
-  - `"text_editor_20250124" type`
 
   - `?list<AllowedCaller> allowedCallers`
 
@@ -5152,13 +5163,13 @@ var_dump($messageTokensCount);
 
 - `ToolTextEditor20250429`
 
+  - `"text_editor_20250429" type`
+
   - `"str_replace_based_edit_tool" name`
 
     Name of the tool.
 
     This is how the tool will be called by the model and in `tool_use` blocks.
-
-  - `"text_editor_20250429" type`
 
   - `?list<AllowedCaller> allowedCallers`
 
@@ -5180,13 +5191,13 @@ var_dump($messageTokensCount);
 
 - `ToolTextEditor20250728`
 
+  - `"text_editor_20250728" type`
+
   - `"str_replace_based_edit_tool" name`
 
     Name of the tool.
 
     This is how the tool will be called by the model and in `tool_use` blocks.
-
-  - `"text_editor_20250728" type`
 
   - `?list<AllowedCaller> allowedCallers`
 
@@ -5213,6 +5224,8 @@ var_dump($messageTokensCount);
 - `ToolUnion`
 
   - `Tool`
+
+    - `?Type type`
 
     - `InputSchema inputSchema`
 
@@ -5252,17 +5265,15 @@ var_dump($messageTokensCount);
 
       When true, guarantees schema validation on tool names and inputs
 
-    - `?Type type`
-
   - `ToolBash20250124`
+
+    - `"bash_20250124" type`
 
     - `"bash" name`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `"bash_20250124" type`
 
     - `?list<AllowedCaller> allowedCallers`
 
@@ -5282,13 +5293,13 @@ var_dump($messageTokensCount);
 
   - `CodeExecutionTool20250522`
 
+    - `"code_execution_20250522" type`
+
     - `"code_execution" name`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `"code_execution_20250522" type`
 
     - `?list<AllowedCaller> allowedCallers`
 
@@ -5306,13 +5317,13 @@ var_dump($messageTokensCount);
 
   - `CodeExecutionTool20250825`
 
+    - `"code_execution_20250825" type`
+
     - `"code_execution" name`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `"code_execution_20250825" type`
 
     - `?list<AllowedCaller> allowedCallers`
 
@@ -5330,13 +5341,13 @@ var_dump($messageTokensCount);
 
   - `CodeExecutionTool20260120`
 
+    - `"code_execution_20260120" type`
+
     - `"code_execution" name`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `"code_execution_20260120" type`
 
     - `?list<AllowedCaller> allowedCallers`
 
@@ -5354,13 +5365,13 @@ var_dump($messageTokensCount);
 
   - `CodeExecutionTool20260521`
 
+    - `"code_execution_20260521" type`
+
     - `"code_execution" name`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `"code_execution_20260521" type`
 
     - `?list<AllowedCaller> allowedCallers`
 
@@ -5395,13 +5406,13 @@ var_dump($messageTokensCount);
 
   - `MemoryTool20250818`
 
+    - `"memory_20250818" type`
+
     - `"memory" name`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `"memory_20250818" type`
 
     - `?list<AllowedCaller> allowedCallers`
 
@@ -5438,13 +5449,13 @@ var_dump($messageTokensCount);
 
   - `ToolTextEditor20250124`
 
+    - `"text_editor_20250124" type`
+
     - `"str_replace_editor" name`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `"text_editor_20250124" type`
 
     - `?list<AllowedCaller> allowedCallers`
 
@@ -5464,13 +5475,13 @@ var_dump($messageTokensCount);
 
   - `ToolTextEditor20250429`
 
+    - `"text_editor_20250429" type`
+
     - `"str_replace_based_edit_tool" name`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `"text_editor_20250429" type`
 
     - `?list<AllowedCaller> allowedCallers`
 
@@ -5490,13 +5501,13 @@ var_dump($messageTokensCount);
 
   - `ToolTextEditor20250728`
 
+    - `"text_editor_20250728" type`
+
     - `"str_replace_based_edit_tool" name`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `"text_editor_20250728" type`
 
     - `?list<AllowedCaller> allowedCallers`
 
@@ -5520,13 +5531,13 @@ var_dump($messageTokensCount);
 
   - `WebSearchTool20250305`
 
+    - `"web_search_20250305" type`
+
     - `"web_search" name`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `"web_search_20250305" type`
 
     - `?list<AllowedCaller> allowedCallers`
 
@@ -5560,13 +5571,13 @@ var_dump($messageTokensCount);
 
   - `WebFetchTool20250910`
 
+    - `"web_fetch_20250910" type`
+
     - `"web_fetch" name`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `"web_fetch_20250910" type`
 
     - `?list<AllowedCaller> allowedCallers`
 
@@ -5604,13 +5615,13 @@ var_dump($messageTokensCount);
 
   - `WebSearchTool20260209`
 
+    - `"web_search_20260209" type`
+
     - `"web_search" name`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `"web_search_20260209" type`
 
     - `?list<AllowedCaller> allowedCallers`
 
@@ -5644,13 +5655,13 @@ var_dump($messageTokensCount);
 
   - `WebFetchTool20260209`
 
+    - `"web_fetch_20260209" type`
+
     - `"web_fetch" name`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `"web_fetch_20260209" type`
 
     - `?list<AllowedCaller> allowedCallers`
 
@@ -5688,13 +5699,13 @@ var_dump($messageTokensCount);
 
   - `WebFetchTool20260309`
 
+    - `"web_fetch_20260309" type`
+
     - `"web_fetch" name`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `"web_fetch_20260309" type`
 
     - `?list<AllowedCaller> allowedCallers`
 
@@ -5736,13 +5747,13 @@ var_dump($messageTokensCount);
 
   - `WebSearchTool20260318`
 
+    - `"web_search_20260318" type`
+
     - `"web_search" name`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `"web_search_20260318" type`
 
     - `?list<AllowedCaller> allowedCallers`
 
@@ -5780,13 +5791,13 @@ var_dump($messageTokensCount);
 
   - `WebFetchTool20260318`
 
+    - `"web_fetch_20260318" type`
+
     - `"web_fetch" name`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `"web_fetch_20260318" type`
 
     - `?list<AllowedCaller> allowedCallers`
 
@@ -5832,13 +5843,13 @@ var_dump($messageTokensCount);
 
   - `ToolSearchToolBm25_20251119`
 
+    - `Type type`
+
     - `"tool_search_tool_bm25" name`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `Type type`
 
     - `?list<AllowedCaller> allowedCallers`
 
@@ -5856,13 +5867,13 @@ var_dump($messageTokensCount);
 
   - `ToolSearchToolRegex20251119`
 
+    - `Type type`
+
     - `"tool_search_tool_regex" name`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `Type type`
 
     - `?list<AllowedCaller> allowedCallers`
 
@@ -5882,6 +5893,8 @@ var_dump($messageTokensCount);
 
 - `ToolUseBlock`
 
+  - `"tool_use" type`
+
   - `string id`
 
   - `Caller caller`
@@ -5892,8 +5905,6 @@ var_dump($messageTokensCount);
 
   - `string name`
 
-  - `"tool_use" type`
-
   - `?string toolsetName`
 
     For a toolset member tool_use, the toolset family.
@@ -5902,13 +5913,13 @@ var_dump($messageTokensCount);
 
 - `ToolUseBlockParam`
 
+  - `"tool_use" type`
+
   - `string id`
 
   - `array<string,mixed> input`
 
   - `string name`
-
-  - `"tool_use" type`
 
   - `?CacheControlEphemeral cacheControl`
 
@@ -6009,13 +6020,13 @@ var_dump($messageTokensCount);
 
 - `WebFetchBlock`
 
+  - `"web_fetch_result" type`
+
   - `DocumentBlock content`
 
   - `?string retrievedAt`
 
     ISO 8601 timestamp when the content was retrieved
-
-  - `"web_fetch_result" type`
 
   - `string url`
 
@@ -6025,9 +6036,9 @@ var_dump($messageTokensCount);
 
 - `WebFetchBlockParam`
 
-  - `DocumentBlockParam content`
-
   - `"web_fetch_result" type`
+
+  - `DocumentBlockParam content`
 
   - `string url`
 
@@ -6041,13 +6052,13 @@ var_dump($messageTokensCount);
 
 - `WebFetchTool20250910`
 
+  - `"web_fetch_20250910" type`
+
   - `"web_fetch" name`
 
     Name of the tool.
 
     This is how the tool will be called by the model and in `tool_use` blocks.
-
-  - `"web_fetch_20250910" type`
 
   - `?list<AllowedCaller> allowedCallers`
 
@@ -6087,13 +6098,13 @@ var_dump($messageTokensCount);
 
 - `WebFetchTool20260209`
 
+  - `"web_fetch_20260209" type`
+
   - `"web_fetch" name`
 
     Name of the tool.
 
     This is how the tool will be called by the model and in `tool_use` blocks.
-
-  - `"web_fetch_20260209" type`
 
   - `?list<AllowedCaller> allowedCallers`
 
@@ -6133,13 +6144,13 @@ var_dump($messageTokensCount);
 
 - `WebFetchTool20260309`
 
+  - `"web_fetch_20260309" type`
+
   - `"web_fetch" name`
 
     Name of the tool.
 
     This is how the tool will be called by the model and in `tool_use` blocks.
-
-  - `"web_fetch_20260309" type`
 
   - `?list<AllowedCaller> allowedCallers`
 
@@ -6183,13 +6194,13 @@ var_dump($messageTokensCount);
 
 - `WebFetchTool20260318`
 
+  - `"web_fetch_20260318" type`
+
   - `"web_fetch" name`
 
     Name of the tool.
 
     This is how the tool will be called by the model and in `tool_use` blocks.
-
-  - `"web_fetch_20260318" type`
 
   - `?list<AllowedCaller> allowedCallers`
 
@@ -6237,6 +6248,8 @@ var_dump($messageTokensCount);
 
 - `WebFetchToolResultBlock`
 
+  - `"web_fetch_tool_result" type`
+
   - `Caller caller`
 
     Tool invocation directly from the model.
@@ -6245,17 +6258,15 @@ var_dump($messageTokensCount);
 
   - `string toolUseID`
 
-  - `"web_fetch_tool_result" type`
-
 ### Web Fetch Tool Result Block Param
 
 - `WebFetchToolResultBlockParam`
 
+  - `"web_fetch_tool_result" type`
+
   - `Content content`
 
   - `string toolUseID`
-
-  - `"web_fetch_tool_result" type`
 
   - `?CacheControlEphemeral cacheControl`
 
@@ -6269,17 +6280,17 @@ var_dump($messageTokensCount);
 
 - `WebFetchToolResultErrorBlock`
 
-  - `WebFetchToolResultErrorCode errorCode`
-
   - `"web_fetch_tool_result_error" type`
+
+  - `WebFetchToolResultErrorCode errorCode`
 
 ### Web Fetch Tool Result Error Block Param
 
 - `WebFetchToolResultErrorBlockParam`
 
-  - `WebFetchToolResultErrorCode errorCode`
-
   - `"web_fetch_tool_result_error" type`
+
+  - `WebFetchToolResultErrorCode errorCode`
 
 ### Web Fetch Tool Result Error Code
 
@@ -6303,9 +6314,13 @@ var_dump($messageTokensCount);
 
   - `"unavailable"`
 
+  - `"content_too_large"`
+
 ### Web Search Result Block
 
 - `WebSearchResultBlock`
+
+  - `"web_search_result" type`
 
   - `string encryptedContent`
 
@@ -6313,19 +6328,17 @@ var_dump($messageTokensCount);
 
   - `string title`
 
-  - `"web_search_result" type`
-
   - `string url`
 
 ### Web Search Result Block Param
 
 - `WebSearchResultBlockParam`
 
+  - `"web_search_result" type`
+
   - `string encryptedContent`
 
   - `string title`
-
-  - `"web_search_result" type`
 
   - `string url`
 
@@ -6335,13 +6348,13 @@ var_dump($messageTokensCount);
 
 - `WebSearchTool20250305`
 
+  - `"web_search_20250305" type`
+
   - `"web_search" name`
 
     Name of the tool.
 
     This is how the tool will be called by the model and in `tool_use` blocks.
-
-  - `"web_search_20250305" type`
 
   - `?list<AllowedCaller> allowedCallers`
 
@@ -6377,13 +6390,13 @@ var_dump($messageTokensCount);
 
 - `WebSearchTool20260209`
 
+  - `"web_search_20260209" type`
+
   - `"web_search" name`
 
     Name of the tool.
 
     This is how the tool will be called by the model and in `tool_use` blocks.
-
-  - `"web_search_20260209" type`
 
   - `?list<AllowedCaller> allowedCallers`
 
@@ -6419,13 +6432,13 @@ var_dump($messageTokensCount);
 
 - `WebSearchTool20260318`
 
+  - `"web_search_20260318" type`
+
   - `"web_search" name`
 
     Name of the tool.
 
     This is how the tool will be called by the model and in `tool_use` blocks.
-
-  - `"web_search_20260318" type`
 
   - `?list<AllowedCaller> allowedCallers`
 
@@ -6465,13 +6478,15 @@ var_dump($messageTokensCount);
 
 - `WebSearchToolRequestError`
 
-  - `WebSearchToolResultErrorCode errorCode`
-
   - `"web_search_tool_result_error" type`
+
+  - `WebSearchToolResultErrorCode errorCode`
 
 ### Web Search Tool Result Block
 
 - `WebSearchToolResultBlock`
+
+  - `"web_search_tool_result" type`
 
   - `Caller caller`
 
@@ -6481,19 +6496,19 @@ var_dump($messageTokensCount);
 
   - `string toolUseID`
 
-  - `"web_search_tool_result" type`
-
 ### Web Search Tool Result Block Content
 
 - `WebSearchToolResultBlockContent`
 
   - `WebSearchToolResultError`
 
-    - `WebSearchToolResultErrorCode errorCode`
-
     - `"web_search_tool_result_error" type`
 
+    - `WebSearchToolResultErrorCode errorCode`
+
   - `list<WebSearchResultBlock>`
+
+    - `"web_search_result" type`
 
     - `string encryptedContent`
 
@@ -6501,19 +6516,17 @@ var_dump($messageTokensCount);
 
     - `string title`
 
-    - `"web_search_result" type`
-
     - `string url`
 
 ### Web Search Tool Result Block Param
 
 - `WebSearchToolResultBlockParam`
 
+  - `"web_search_tool_result" type`
+
   - `WebSearchToolResultBlockParamContent content`
 
   - `string toolUseID`
-
-  - `"web_search_tool_result" type`
 
   - `?CacheControlEphemeral cacheControl`
 
@@ -6529,11 +6542,11 @@ var_dump($messageTokensCount);
 
   - `list<WebSearchResultBlockParam>`
 
+    - `"web_search_result" type`
+
     - `string encryptedContent`
 
     - `string title`
-
-    - `"web_search_result" type`
 
     - `string url`
 
@@ -6541,17 +6554,17 @@ var_dump($messageTokensCount);
 
   - `WebSearchToolRequestError`
 
-    - `WebSearchToolResultErrorCode errorCode`
-
     - `"web_search_tool_result_error" type`
+
+    - `WebSearchToolResultErrorCode errorCode`
 
 ### Web Search Tool Result Error
 
 - `WebSearchToolResultError`
 
-  - `WebSearchToolResultErrorCode errorCode`
-
   - `"web_search_tool_result_error" type`
+
+  - `WebSearchToolResultErrorCode errorCode`
 
 ### Web Search Tool Result Error Code
 
@@ -6573,7 +6586,7 @@ var_dump($messageTokensCount);
 
 ### Create a Message Batch
 
-`$client->messages->batches->create(list<Request> requests, ?string userProfileID): MessageBatch`
+`$client->messages->batches->create(list<Request> requests, ?string userProfileID, ?string workspaceID): MessageBatch`
 
 **POST** `/v1/messages/batches`
 
@@ -6593,9 +6606,17 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   The user profile ID to attribute the requests in this batch to. Use when acting on behalf of a party other than your organization. Requires the `user-profiles` beta header. Applies to every request in the batch; an individual request whose `user_profile_id` body field conflicts with this header is errored.
 
+- `workspaceID?:optional string`
+
 #### Returns
 
 - `MessageBatch`
+
+  - `"message_batch" type`
+
+    Object type.
+
+    For Message Batches, this is always `"message_batch"`.
 
   - `string id`
 
@@ -6640,12 +6661,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
     URL to a `.jsonl` file containing the results of the Message Batch requests. Specified only once processing ends.
 
     Results in the file are not guaranteed to be in the same order as requests. Use the `custom_id` field to match results to requests.
-
-  - `"message_batch" type`
-
-    Object type.
-
-    For Message Batches, this is always `"message_batch"`.
 
 #### Example
 
@@ -6724,6 +6739,7 @@ $messageBatch = $client->messages->batches->create(
     ],
   ],
   userProfileID: 'anthropic-user-profile-id',
+  workspaceID: 'wrkspc_011CZkZaBF1tNoB5wlCeusgy',
 );
 
 var_dump($messageBatch);
@@ -6754,7 +6770,7 @@ var_dump($messageBatch);
 
 ### Retrieve a Message Batch
 
-`$client->messages->batches->retrieve(string messageBatchID): MessageBatch`
+`$client->messages->batches->retrieve(string messageBatchID, ?string workspaceID): MessageBatch`
 
 **GET** `/v1/messages/batches/{message_batch_id}`
 
@@ -6768,9 +6784,17 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   ID of the Message Batch.
 
+- `workspaceID?:optional string`
+
 #### Returns
 
 - `MessageBatch`
+
+  - `"message_batch" type`
+
+    Object type.
+
+    For Message Batches, this is always `"message_batch"`.
 
   - `string id`
 
@@ -6816,12 +6840,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     Results in the file are not guaranteed to be in the same order as requests. Use the `custom_id` field to match results to requests.
 
-  - `"message_batch" type`
-
-    Object type.
-
-    For Message Batches, this is always `"message_batch"`.
-
 #### Example
 
 ```php
@@ -6831,7 +6849,9 @@ require_once dirname(__DIR__) . '/vendor/autoload.php';
 
 $client = new Client(apiKey: 'my-anthropic-api-key');
 
-$messageBatch = $client->messages->batches->retrieve('message_batch_id');
+$messageBatch = $client->messages->batches->retrieve(
+  'message_batch_id', workspaceID: 'wrkspc_011CZkZaBF1tNoB5wlCeusgy'
+);
 
 var_dump($messageBatch);
 ```
@@ -6861,7 +6881,7 @@ var_dump($messageBatch);
 
 ### List Message Batches
 
-`$client->messages->batches->list(?string afterID, ?string beforeID, ?int limit): Page<MessageBatch>`
+`$client->messages->batches->list(?string afterID, ?string beforeID, ?int limit, ?string workspaceID): Page<MessageBatch>`
 
 **GET** `/v1/messages/batches`
 
@@ -6887,9 +6907,17 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   default: 20
 
+- `workspaceID?:optional string`
+
 #### Returns
 
 - `MessageBatch`
+
+  - `"message_batch" type`
+
+    Object type.
+
+    For Message Batches, this is always `"message_batch"`.
 
   - `string id`
 
@@ -6935,12 +6963,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     Results in the file are not guaranteed to be in the same order as requests. Use the `custom_id` field to match results to requests.
 
-  - `"message_batch" type`
-
-    Object type.
-
-    For Message Batches, this is always `"message_batch"`.
-
 #### Example
 
 ```php
@@ -6951,7 +6973,10 @@ require_once dirname(__DIR__) . '/vendor/autoload.php';
 $client = new Client(apiKey: 'my-anthropic-api-key');
 
 $page = $client->messages->batches->list(
-  afterID: 'after_id', beforeID: 'before_id', limit: 1
+  afterID: 'after_id',
+  beforeID: 'before_id',
+  limit: 1,
+  workspaceID: 'wrkspc_011CZkZaBF1tNoB5wlCeusgy',
 );
 
 var_dump($page);
@@ -6989,7 +7014,7 @@ var_dump($page);
 
 ### Cancel a Message Batch
 
-`$client->messages->batches->cancel(string messageBatchID): MessageBatch`
+`$client->messages->batches->cancel(string messageBatchID, ?string workspaceID): MessageBatch`
 
 **POST** `/v1/messages/batches/{message_batch_id}/cancel`
 
@@ -7005,9 +7030,17 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   ID of the Message Batch.
 
+- `workspaceID?:optional string`
+
 #### Returns
 
 - `MessageBatch`
+
+  - `"message_batch" type`
+
+    Object type.
+
+    For Message Batches, this is always `"message_batch"`.
 
   - `string id`
 
@@ -7053,12 +7086,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     Results in the file are not guaranteed to be in the same order as requests. Use the `custom_id` field to match results to requests.
 
-  - `"message_batch" type`
-
-    Object type.
-
-    For Message Batches, this is always `"message_batch"`.
-
 #### Example
 
 ```php
@@ -7068,7 +7095,9 @@ require_once dirname(__DIR__) . '/vendor/autoload.php';
 
 $client = new Client(apiKey: 'my-anthropic-api-key');
 
-$messageBatch = $client->messages->batches->cancel('message_batch_id');
+$messageBatch = $client->messages->batches->cancel(
+  'message_batch_id', workspaceID: 'wrkspc_011CZkZaBF1tNoB5wlCeusgy'
+);
 
 var_dump($messageBatch);
 ```
@@ -7098,7 +7127,7 @@ var_dump($messageBatch);
 
 ### Delete a Message Batch
 
-`$client->messages->batches->delete(string messageBatchID): DeletedMessageBatch`
+`$client->messages->batches->delete(string messageBatchID, ?string workspaceID): DeletedMessageBatch`
 
 **DELETE** `/v1/messages/batches/{message_batch_id}`
 
@@ -7114,19 +7143,21 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   ID of the Message Batch.
 
+- `workspaceID?:optional string`
+
 #### Returns
 
 - `DeletedMessageBatch`
-
-  - `string id`
-
-    ID of the Message Batch.
 
   - `"message_batch_deleted" type`
 
     Deleted object type.
 
     For Message Batches, this is always `"message_batch_deleted"`.
+
+  - `string id`
+
+    ID of the Message Batch.
 
 #### Example
 
@@ -7137,7 +7168,9 @@ require_once dirname(__DIR__) . '/vendor/autoload.php';
 
 $client = new Client(apiKey: 'my-anthropic-api-key');
 
-$deletedMessageBatch = $client->messages->batches->delete('message_batch_id');
+$deletedMessageBatch = $client->messages->batches->delete(
+  'message_batch_id', workspaceID: 'wrkspc_011CZkZaBF1tNoB5wlCeusgy'
+);
 
 var_dump($deletedMessageBatch);
 ```
@@ -7153,7 +7186,7 @@ var_dump($deletedMessageBatch);
 
 ### Retrieve Message Batch results
 
-`$client->messages->batches->results(string messageBatchID): MessageBatchIndividualResponse`
+`$client->messages->batches->results(string messageBatchID, ?string workspaceID): MessageBatchIndividualResponse`
 
 **GET** `/v1/messages/batches/{message_batch_id}/results`
 
@@ -7168,6 +7201,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 - `messageBatchID: string`
 
   ID of the Message Batch.
+
+- `workspaceID?:optional string`
 
 #### Returns
 
@@ -7195,7 +7230,7 @@ require_once dirname(__DIR__) . '/vendor/autoload.php';
 $client = new Client(apiKey: 'my-anthropic-api-key');
 
 $messageBatchIndividualResponse = $client->messages->batches->resultsStream(
-  'message_batch_id'
+  'message_batch_id', workspaceID: 'wrkspc_011CZkZaBF1tNoB5wlCeusgy'
 );
 
 var_dump($messageBatchIndividualResponse);

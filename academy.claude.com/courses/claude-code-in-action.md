@@ -8,7 +8,7 @@ Run long, hands-off Claude Code sessions you can trust: steer, configure, automa
 
 9 lessons1 hr1 quizCompletion badge
 
-[Start course](https://academy.claude.com/courses/claude-code-in-action/steering-long-sessions)[Sign in to save progress](https://academy.claude.com/login?returnTo=https%3A%2F%2Facademy.claude.com%2Fcourses%2Fclaude-code-in-action)
+[Start course](https://academy.claude.com/courses/claude-code-in-action/steering-long-sessions)[Sign in to save progress](https://academy.claude.com/login?returnTo=%2Fcourses%2Fclaude-code-in-action)
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-f1byetgm.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-cux4sb8w.png)
 

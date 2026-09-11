@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/typescript/beta/sessions/resources/list -->
 
+---
+title: List Session Resources
+url: https://platform.claude.com/docs/en/api/typescript/beta/sessions/resources/list
+---
+
 # List Session Resources
 
 `client.beta.sessions.resources.list(sessionID, params?, options?): PageCursor<BetaManagedAgentsSessionResource>`
@@ -30,7 +35,7 @@ List Session Resources
 
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 41 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 42 more`
 
       - `"message-batches-2024-09-24"`
 
@@ -78,6 +83,8 @@ List Session Resources
 
       - `"user-profiles-2026-08-18"`
 
+      - `"user-profiles-2026-09-04"`
+
       - `"advisor-tool-2026-03-01"`
 
       - `"managed-agents-2026-04-01"`
@@ -120,6 +127,12 @@ List Session Resources
 
       - `"mid-conversation-system-clear-at-2026-08-21"`
 
+  - `workspace_id?: string`
+
+    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ## Returns
 
 - `BetaManagedAgentsSessionResource = BetaManagedAgentsGitHubRepositoryResource | BetaManagedAgentsFileResource | BetaManagedAgentsMemoryStoreResource`
@@ -127,6 +140,8 @@ List Session Resources
   A memory store attached to an agent session.
 
   - `BetaManagedAgentsGitHubRepositoryResource`
+
+    - `type: "github_repository"`
 
     - `id: string`
 
@@ -137,8 +152,6 @@ List Session Resources
       format: date-time
 
     - `mount_path: string`
-
-    - `type: "github_repository"`
 
     - `updated_at: string`
 
@@ -152,15 +165,17 @@ List Session Resources
 
       - `BetaManagedAgentsBranchCheckout`
 
+        - `type: "branch"`
+
         - `name: string`
 
           Branch name to check out.
 
           minLength: 1, maxLength: 255
 
-        - `type: "branch"`
-
       - `BetaManagedAgentsCommitCheckout`
+
+        - `type: "commit"`
 
         - `sha: string`
 
@@ -168,9 +183,9 @@ List Session Resources
 
           minLength: 7, maxLength: 64
 
-        - `type: "commit"`
-
   - `BetaManagedAgentsFileResource`
+
+    - `type: "file"`
 
     - `id: string`
 
@@ -184,8 +199,6 @@ List Session Resources
 
     - `mount_path: string`
 
-    - `type: "file"`
-
     - `updated_at: string`
 
       A timestamp in RFC 3339 format
@@ -196,11 +209,11 @@ List Session Resources
 
     A memory store attached to an agent session.
 
+    - `type: "memory_store"`
+
     - `memory_store_id: string`
 
       The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
-
-    - `type: "memory_store"`
 
     - `access?: "read_write" | "read_only" | null`
 

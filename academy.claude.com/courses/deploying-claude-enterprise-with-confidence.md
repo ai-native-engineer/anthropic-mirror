@@ -8,7 +8,7 @@ Make the five decisions that shape how Claude works for your organization — St
 
 14 lessons2.5 hr1 quizCompletion badge
 
-[Start course](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence/five-decisions-and-the-frame)[Sign in to save progress](https://academy.claude.com/login?returnTo=https%3A%2F%2Facademy.claude.com%2Fcourses%2Fdeploying-claude-enterprise-with-confidence)
+[Start course](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence/five-decisions-and-the-frame)[Sign in to save progress](https://academy.claude.com/login?returnTo=%2Fcourses%2Fdeploying-claude-enterprise-with-confidence)
 
 14 lessons · 1 quizDeploying Claude Enterprise with Confidence: The five decisions that shape your rollout
 
@@ -66,6 +66,6 @@ Your rollout
 
 * [How the decisions connect](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence/how-the-decisions-connect)
 * [When a new product arrives](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence/when-a-new-product-arrives)
-* [Certificate quizQuiz](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence/certificate-quiz)
+* [Course quizQuiz](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence/certificate-quiz)
 
 * [Completion badge](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence/badge)

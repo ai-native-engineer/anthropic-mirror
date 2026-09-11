@@ -8,13 +8,24 @@ Sep 7, 2023
 
 ![](https://www-cdn.anthropic.com/images/4zrzovbb/website/2504af2b3cd3b1d254bb0fff79d8eefb0db037c7-2880x1620.jpg)
 
-Today, we’re introducing a paid plan for our [Claude.ai](https://claude.ai/redirect/website.v1.37108e1a-0efe-42e1-82e2-89a1e7b70605) chat experience, currently available in the US and UK.
+Today, we’re introducing a paid plan for our [Claude.ai](https://claude.ai/redirect/website.v1.2767b9d6-9ef4-481b-b6a5-04b8e21fd3e6) chat experience, currently available in the US and UK.
 
 Since launching in July, users tell us they’ve chosen Claude.ai as their day-to-day AI assistant for its longer context windows, faster outputs, complex reasoning capabilities, and more. Many also shared that they would value more file uploads and conversations over longer periods.
 
-With [Claude Pro](https://claude.ai/redirect/website.v1.37108e1a-0efe-42e1-82e2-89a1e7b70605/settings/billing?action=subscribe), subscribers can now gain **5x more usage** of our latest model, Claude 2, for a monthly price of $20 (US) or £18 (UK).
+With [Claude Pro](https://claude.ai/redirect/website.v1.2767b9d6-9ef4-481b-b6a5-04b8e21fd3e6/settings/billing?action=subscribe), subscribers can now gain **5x more usage** of our latest model, Claude 2, for a monthly price of $20 (US) or £18 (UK).
 
 This means you can level up your productivity across a range of tasks, including summarizing research papers, querying contracts, and iterating further on coding projects—like this recent [demo](https://www.youtube.com/watch?v=oVsHikXgK9Y) of building an interactive map.
+
+<!-- yt-inline:oVsHikXgK9Y -->
+[![YouTube oVsHikXgK9Y](https://img.youtube.com/vi/oVsHikXgK9Y/hqdefault.jpg)](https://www.youtube.com/watch?v=oVsHikXgK9Y)
+
+<details>
+<summary>자막: YouTube oVsHikXgK9Y</summary>
+
+_(자막 없음)_
+
+</details>
+
 
 Claude Pro offers:
 
@@ -25,3 +36,5 @@ Claude Pro offers:
 You can learn more about these benefits, including how to maximize your usage, [here](https://support.anthropic.com/en/articles/8324991-about-claude-pro-usage).
 
 We’re grateful for your support as we strive to build helpful, honest, and harmless systems that fuel productivity and inspire creativity.
+
+Introducing Claude Pro \ Anthropic

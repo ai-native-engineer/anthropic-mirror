@@ -8,7 +8,7 @@ Go beyond MCP basics: sampling, notifications, and roots, with interactive walkt
 
 11 lessons1.5 hr1 quizCompletion badge
 
-[Start course](https://academy.claude.com/courses/model-context-protocol-advanced-topics/sampling)[Sign in to save progress](https://academy.claude.com/login?returnTo=https%3A%2F%2Facademy.claude.com%2Fcourses%2Fmodel-context-protocol-advanced-topics)
+[Start course](https://academy.claude.com/courses/model-context-protocol-advanced-topics/sampling)[Sign in to save progress](https://academy.claude.com/login?returnTo=%2Fcourses%2Fmodel-context-protocol-advanced-topics)
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-oippap07.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-pe7rwjtj.png)
 

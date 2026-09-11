@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/csharp/beta/memory_stores/list -->
 
+---
+title: List memory stores
+url: https://platform.claude.com/docs/en/api/csharp/beta/memory_stores/list
+---
+
 # List memory stores
 
 `MemoryStoreListPage Beta.MemoryStores.List(parameters, cancellationToken = default)`
@@ -88,6 +93,8 @@ List memory stores
 
     - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
 
+    - `UserProfiles2026_09_04("user-profiles-2026-09-04")`
+
     - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
 
     - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
@@ -130,11 +137,19 @@ List memory stores
 
     - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
+  - `string workspaceID`
+
+    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ## Returns
 
 - `class BetaManagedAgentsMemoryStore:`
 
   A `memory_store`: a named container for agent memories, scoped to a workspace. Attach a store to a session via `resources[]` to mount it as a directory the agent can read and write.
+
+  - `required Type Type`
 
   - `required string ID`
 
@@ -149,8 +164,6 @@ List memory stores
   - `required string Name`
 
     Human-readable name for the store. 1–255 characters. The store's mount-path slug under `/mnt/memory/` is derived from this name.
-
-  - `required Type Type`
 
   - `required DateTimeOffset UpdatedAt`
 

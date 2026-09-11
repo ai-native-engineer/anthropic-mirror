@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/java/beta/environments/archive -->
 
+---
+title: Archive Environment
+url: https://platform.claude.com/docs/en/api/java/beta/environments/archive
+---
+
 # Archive Environment
 
 `BetaEnvironment beta().environments().archive(params = EnvironmentArchiveParams.none(), requestOptions = RequestOptions.none())`
@@ -64,6 +69,8 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
     - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
 
+    - `USER_PROFILES_2026_09_04("user-profiles-2026-09-04")`
+
     - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
@@ -106,11 +113,17 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
     - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
+  - `Optional<String> workspaceId`
+
 ## Returns
 
 - `class BetaEnvironment:`
 
   Unified Environment resource for both cloud and self-hosted environments.
+
+  - `JsonValue type = "environment"`
+
+    The type of object (always 'environment')
 
   - `String id`
 
@@ -128,6 +141,10 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
       `cloud` environment configuration.
 
+      - `JsonValue type = "cloud"`
+
+        Environment type
+
       - `Networking networking`
 
         Network configuration policy.
@@ -144,6 +161,10 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
           Limited network access.
 
+          - `JsonValue type = "limited"`
+
+            Network policy type
+
           - `boolean allowMcpServers`
 
             Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
@@ -156,13 +177,13 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
             Specifies domains the container can reach.
 
-          - `JsonValue type = "limited"`
-
-            Network policy type
-
       - `BetaPackages packages`
 
         Package manager configuration.
+
+        - `Optional<Type> type`
+
+          Package configuration type
 
         - `List<String> apt`
 
@@ -188,14 +209,6 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
           Python packages to install
 
-        - `Optional<Type> type`
-
-          Package configuration type
-
-      - `JsonValue type = "cloud"`
-
-        Environment type
-
     - `class BetaSelfHostedConfig:`
 
       Configuration for self-hosted environments.
@@ -219,10 +232,6 @@ Archive an environment by ID. Archived environments cannot be used to create new
   - `String name`
 
     Human-readable name for the environment
-
-  - `JsonValue type = "environment"`
-
-    The type of object (always 'environment')
 
   - `String updatedAt`
 

@@ -8,7 +8,7 @@ Helps small business owners and staff build practical AI collaboration skills us
 
 9 lessons4 hr1 quizCompletion badge
 
-[Start course](https://academy.claude.com/courses/ai-fluency-for-small-businesses/ai-fluency-for-small-businesses)[Sign in to save progress](https://academy.claude.com/login?returnTo=https%3A%2F%2Facademy.claude.com%2Fcourses%2Fai-fluency-for-small-businesses)
+[Start course](https://academy.claude.com/courses/ai-fluency-for-small-businesses/ai-fluency-for-small-businesses)[Sign in to save progress](https://academy.claude.com/login?returnTo=%2Fcourses%2Fai-fluency-for-small-businesses)
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-mpyjyp46.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-bw011lwh.png)
 

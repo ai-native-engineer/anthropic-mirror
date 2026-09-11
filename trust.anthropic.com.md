@@ -106,11 +106,11 @@ Global Code of Conduct
 Global Vendor Code of Conduct
 Best Practices and Whitepapers
 [Anthropic] CMEK - Cryptographic Design Whitepaper
+Claude Cowork Security Best Practices
 Claude Cowork Desktop Security Architecture Overview
 Claude Desktop Security Overview (Third-party platforms)
-Claude Code FISMA Best Practices
 
-View 7 more
+View 8 more
 
 Security Advisories
 CVE-2026-22561 - DLL Search Order Hijacking in Claude for Windows installer

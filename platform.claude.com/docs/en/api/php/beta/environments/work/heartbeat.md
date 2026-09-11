@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/php/beta/environments/work/heartbeat -->
 
+---
+title: Record Heartbeat
+url: https://platform.claude.com/docs/en/api/php/beta/environments/work/heartbeat
+---
+
 # Record Heartbeat
 
 `$client->beta->environments->work->heartbeat(string workID, string environmentID, ?int desiredTTLSeconds, ?string expectedLastHeartbeat, ?list<AnthropicBeta> betas): SelfHostedWorkHeartbeatResponse`
@@ -32,6 +37,10 @@ Record a heartbeat for a work item to maintain the lease.
 
 - `SelfHostedWorkHeartbeatResponse`
 
+  - `"work_heartbeat" type`
+
+    The type of response
+
   - `string lastHeartbeat`
 
     RFC 3339 timestamp of the actual heartbeat from DB
@@ -47,10 +56,6 @@ Record a heartbeat for a work item to maintain the lease.
   - `int ttlSeconds`
 
     Effective TTL applied to the lease
-
-  - `"work_heartbeat" type`
-
-    The type of response
 
 ## Example
 

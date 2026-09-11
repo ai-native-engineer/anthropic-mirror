@@ -4,7 +4,7 @@
 
 Work with Claude directly in your codebase. Build, debug, and ship from your terminal, IDE, Slack, web, and more.
 
-[Download for macOS](https://claude.ai/api/desktop/darwin/universal/dmg/latest/redirect)[Read documentation (opens in new tab)](https://code.claude.com/docs/en/quickstart#step-1-install-claude-code)
+[Download for macOS](https://claude.ai/api/desktop/darwin/universal/dmg/latest/redirect)[Read documentation (opens in new tab)](https://code.claude.com/docs/en/overview)
 
 Available for macOS, Linux, and Windows.
 
@@ -18,6 +18,52 @@ Other ways to use Claude Code:
 * [VS Code (opens in new tab)](https://marketplace.visualstudio.com/items?itemName=anthropic.claude-code)
 * [JetBrains (opens in new tab)](https://plugins.jetbrains.com/plugin/27310-claude-code-beta-)
 * [Slack (opens in new tab)](https://slack.com/oauth/v2/authorize?client_id=1601185624273.8899143856786&scope=app_mentions:read,assistant:write,channels:history,channels:read,chat:write,files:read,files:write,groups:history,groups:read,im:history,im:read,im:write,mpim:history,reactions:write,users:read,users:read.email,commands,search:read.public&user_scope=bookmarks:read,channels:history,channels:read,chat:write,emoji:read,files:read,groups:history,groups:read,groups:write,im:history,im:read,im:write,links:read,mpim:history,mpim:read,mpim:write,mpim:write.topic,pins:read,reactions:read,reactions:write,remote_files:read,team:read,users:read,users:read.email,search:read.public,search:read.private,search:read.im,search:read.mpim,search:read.files,search:read.users,canvases:read,canvases:write)
+
+HomeCode
+
+Pinned
+
+Add a dark mode toggle to settings
+
+Scheduled
+
+Weekly dependency audit
+
+Recents
+
+Fix the double-charge bug in checkout
+
+Write tests for the payments module
+
+Explain what this repo does
+
+Layout's broken on mobile
+
+Debug flaky CI tests
+
+Susan Sample
+
+acme-storefront/Fix the double-charge bug in checkout
+
+We're seeing duplicate charges when customers double-click the pay button. Can you find and fix it?
+
+I can reproduce it: the checkout form fires two `POST /charges` requests when the button is clicked twice before the first response lands. Tracing where the idempotency key should be.
+
+just now
+
+Read 3 files, searched the checkout flow
+
+Ran agent · Reproduce the double-submit against a test charge
+
+Root cause: `createCharge()` generates a new idempotency key per call instead of per checkout session, so the gateway treats the second click as a fresh charge. Fixing that and disabling the button while a charge is in flight.
+
+just now
+
+Edited **charges.ts** +9 -3
+
+Auto
+
+OpusExtra high
 
 HomeCode
 
@@ -452,5 +498,3 @@ Or read the [documentation](https://code.claude.com/docs/en/overview)
 Product updates, how-tos, community spotlights, and more. Delivered monthly to your inbox.
 
 Please provide your email address if you'd like to receive our monthly developer newsletter. You can unsubscribe at any time.
-
-Claude Code by Anthropic | AI Coding Agent, Terminal, IDE

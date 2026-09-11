@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/ruby/beta/environments/work/stats -->
 
+---
+title: Get Queue Statistics
+url: https://platform.claude.com/docs/en/api/ruby/beta/environments/work/stats
+---
+
 # Get Queue Statistics
 
 `beta.environments.work.stats(environment_id, **kwargs) -> BetaSelfHostedWorkQueueStats`
@@ -18,7 +23,7 @@ Get statistics about the work queue for an environment.
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 41 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 42 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -66,6 +71,8 @@ Get statistics about the work queue for an environment.
 
     - `:"user-profiles-2026-08-18"`
 
+    - `:"user-profiles-2026-09-04"`
+
     - `:"advisor-tool-2026-03-01"`
 
     - `:"managed-agents-2026-04-01"`
@@ -108,6 +115,8 @@ Get statistics about the work queue for an environment.
 
     - `:"mid-conversation-system-clear-at-2026-08-21"`
 
+- `workspace_id: String`
+
 ## Returns
 
 - `class BetaSelfHostedWorkQueueStats`
@@ -115,6 +124,10 @@ Get statistics about the work queue for an environment.
   Statistics about the work queue for an environment.
 
   Uses Redis Stream consumer group metrics for O(1) queries.
+
+  - `type: :work_queue_stats`
+
+    The type of object
 
   - `depth: Integer`
 
@@ -127,10 +140,6 @@ Get statistics about the work queue for an environment.
   - `pending: Integer`
 
     Number of work items being processed (polled but not acknowledged)
-
-  - `type: :work_queue_stats`
-
-    The type of object
 
   - `workers_polling: Integer`
 

@@ -15,8 +15,8 @@ Claude Tag’s settings live on claude.ai, split across a few pages that each ow
 | [Claude Tag admin page](https://claude.ai/admin-settings/claude-tag) | An Owner in your Claude organization | Access, behavior, and restrictions for channels, per [scope](https://claude.com/docs/claude-tag/concepts/glossary#scope) |
 | [Usage page](https://claude.ai/admin-settings/usage/claude-tag) | An admin | Spend limits and each channel’s spend against them |
 | [Analytics page](https://claude.ai/analytics/claude-tag) | Anyone who can view the Analytics dashboard | Spend trends, projections, and per-channel reports; read-only |
-| The **Configure** link in the footer of any Claude reply in a channel | Channel members (unless an admin restricts editing) and [channel managers](https://claude.com/docs/claude-tag/admins/restrict-access#delegate-channel-setup-to-channel-managers) for their assigned channels | One channel’s instructions and whether Claude replies there without an @-mention. Channel managers also set the channel’s default model, repositories, and connections |
-| [Customize > Connectors](https://claude.ai/customize/connectors) on your own claude.ai account | You | Which of your personal tools apply in [DMs](https://claude.com/docs/claude-tag/concepts/agent-identity#direct-message-channels) |
+| The **Configure** link in the footer of any Claude reply in a channel | Channel members (unless an admin restricts editing) and [channel managers](https://claude.com/docs/claude-tag/admins/restrict-access#delegate-channel-setup-to-channel-managers) for their assigned channels | One channel’s instructions and whether Claude replies there without an @-mention. Channel managers also set the channel’s default model, repositories, connections, and plugins |
+| [Customize > Connectors](https://claude.ai/customize/connectors) on your own claude.ai account | You | Which of your personal tools apply in [DMs](https://claude.com/docs/claude-tag/concepts/agent-identity#direct-message-channels) and, where available, for [your own tasks in a channel](https://claude.com/docs/claude-tag/concepts/personal-connectors) |
 
 Channel memory and routines aren’t in the table because you change them by talking to Claude in the channel; see [what anyone can change from the channel](https://claude.com/docs/claude-tag/admins/customize#change-behavior-from-the-channel). Owners can review both, as each scope’s memory files and scheduled work, from [the Audit page](https://claude.com/docs/claude-tag/admins/audit), labeled **Activity** in the console.
 
@@ -34,6 +34,7 @@ Everything an Owner configures for channels lives at [`claude.ai/admin-settings/
 ##  Spend limits and usage
 
 Spend limits live at [`claude.ai/admin-settings/usage/claude-tag`](https://claude.ai/admin-settings/usage/claude-tag), a different page than the Claude Tag admin page. It holds the organization-wide spend limit, the default spend limit for channels, per-channel limits, and each channel’s spend against its limit. If your organization bills through a reseller, this page is not available. See [Set a spend limit](https://claude.com/docs/claude-tag/admins/set-spend-limit) for funding the usage balance and what users see when a limit is reached.
+Usage covered by a promotional credit isn’t counted on the usage page and shows as $0.00 there. To see each channel’s list-price spend for the current month including covered usage, use the **List price** column of the **Spend by channel** table at [`claude.ai/analytics/claude-tag`](https://claude.ai/analytics/claude-tag).
 Spend trends live at [`claude.ai/analytics/claude-tag`](https://claude.ai/analytics/claude-tag), the Claude Tag section of the Analytics dashboard. It shows total and projected spend, spend by channel, and [spend by kind of work](https://claude.com/docs/claude-tag/admins/set-spend-limit#see-spend-by-kind-of-work) for the period you pick, and anyone with permission to view the Analytics dashboard can open it. It has no controls; see [Usage analytics](https://claude.com/docs/claude-tag/admins/restrict-access#usage-analytics).
 
 ##  The Configure page
@@ -46,7 +47,7 @@ On the Enterprise plan, an Owner can name [channel managers](https://claude.com/
 
 ##  Personal connectors on claude.ai
 
-Connectors you add to your own claude.ai account, under **Customize > Connectors**, apply only in DMs with Claude, because [a DM runs on your own account](https://claude.com/docs/claude-tag/concepts/agent-identity#direct-message-channels). A channel uses only the connections an admin attached to it, and personal connectors never apply there. Slack has no connector settings of its own.
+Connectors you add to your own claude.ai account, under **Customize > Connectors**, apply in DMs with Claude, because [a DM runs on your own account](https://claude.com/docs/claude-tag/concepts/agent-identity#direct-message-channels). A channel session uses the connections an admin attached to it. In organizations where [personal connectors in channels](https://claude.com/docs/claude-tag/concepts/personal-connectors) is available, Claude can also use your personal connectors there for your own tasks, after you allow it. Slack has no connector settings of its own.
 See [connectors on claude.ai](https://claude.com/docs/connectors/overview) for setting one up, and [the troubleshooting entry](https://claude.com/docs/claude-tag/users/troubleshooting#a-connector-works-on-claude-ai-but-not-in-slack) if a connector you use on claude.ai is missing in Slack.
 
 ##  Claude Tag versus Claude Managed Agents

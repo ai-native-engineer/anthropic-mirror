@@ -8,7 +8,7 @@ Helps students build AI fluency skills for learning, career planning, and academ
 
 5 lessons3 hr1 quizCompletion badge
 
-[Start course](https://academy.claude.com/courses/ai-fluency-for-students/welcome-to-ai-fluency-for-students)[Sign in to save progress](https://academy.claude.com/login?returnTo=https%3A%2F%2Facademy.claude.com%2Fcourses%2Fai-fluency-for-students)
+[Start course](https://academy.claude.com/courses/ai-fluency-for-students/welcome-to-ai-fluency-for-students)[Sign in to save progress](https://academy.claude.com/login?returnTo=%2Fcourses%2Fai-fluency-for-students)
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-j70m5k01.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-5r4pk711.png)
 

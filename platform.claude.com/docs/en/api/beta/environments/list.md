@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/beta/environments/list -->
 
+---
+title: List Environments
+url: https://platform.claude.com/docs/en/api/beta/environments/list
+---
+
 # List Environments
 
 **GET** `/v1/environments`
@@ -32,7 +37,7 @@ List environments with pagination support.
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 41 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 42 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -80,6 +85,8 @@ List environments with pagination support.
 
     - `"user-profiles-2026-08-18"`
 
+    - `"user-profiles-2026-09-04"`
+
     - `"advisor-tool-2026-03-01"`
 
     - `"managed-agents-2026-04-01"`
@@ -122,11 +129,19 @@ List environments with pagination support.
 
     - `"mid-conversation-system-clear-at-2026-08-21"`
 
+- `"anthropic-workspace-id": optional string`
+
 ## Returns
 
 - `data: array of BetaEnvironment`
 
   List of environments.
+
+  - `type: "environment"`
+
+    The type of object (always 'environment')
+
+    default: environment
 
   - `id: string`
 
@@ -144,6 +159,10 @@ List environments with pagination support.
 
       `cloud` environment configuration.
 
+      - `type: "cloud"`
+
+        Environment type
+
       - `networking: BetaUnrestrictedNetwork or BetaLimitedNetwork`
 
         Network configuration policy.
@@ -160,6 +179,10 @@ List environments with pagination support.
 
           Limited network access.
 
+          - `type: "limited"`
+
+            Network policy type
+
           - `allow_mcp_servers: boolean`
 
             Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
@@ -172,13 +195,15 @@ List environments with pagination support.
 
             Specifies domains the container can reach.
 
-          - `type: "limited"`
-
-            Network policy type
-
       - `packages: BetaPackages`
 
         Package manager configuration.
+
+        - `type: optional "packages"`
+
+          Package configuration type
+
+          default: packages
 
         - `apt: array of string`
 
@@ -204,16 +229,6 @@ List environments with pagination support.
 
           Python packages to install
 
-        - `type: optional "packages"`
-
-          Package configuration type
-
-          default: packages
-
-      - `type: "cloud"`
-
-        Environment type
-
     - `BetaSelfHostedConfig object`
 
       Configuration for self-hosted environments.
@@ -237,12 +252,6 @@ List environments with pagination support.
   - `name: string`
 
     Human-readable name for the environment
-
-  - `type: "environment"`
-
-    The type of object (always 'environment')
-
-    default: environment
 
   - `updated_at: string`
 

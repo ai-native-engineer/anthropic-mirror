@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/csharp/beta/sessions/events/send -->
 
+---
+title: Send Events
+url: https://platform.claude.com/docs/en/api/csharp/beta/sessions/events/send
+---
+
 # Send Events
 
 `BetaManagedAgentsSendSessionEvents Beta.Sessions.Events.Send(parameters, cancellationToken = default)`
@@ -24,6 +29,8 @@ Send Events
 
       Parameters for sending a user message to the session.
 
+      - `required Type Type`
+
       - `required IReadOnlyList<Content> Content`
 
         Array of content blocks for the user message.
@@ -32,17 +39,19 @@ Send Events
 
           Regular text content.
 
+          - `required Type Type`
+
           - `required string Text`
 
             The text content.
 
             minLength: 1
 
-          - `required Type Type`
-
         - `class BetaManagedAgentsImageBlock:`
 
           Image content specified directly as base64 data or as a reference via a URL.
+
+          - `required Type Type`
 
           - `required Source Source`
 
@@ -51,6 +60,8 @@ Send Events
             - `class BetaManagedAgentsBase64ImageSource:`
 
               Base64-encoded image data.
+
+              - `required Type Type`
 
               - `required string Data`
 
@@ -63,8 +74,6 @@ Send Events
                 MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
 
                 minLength: 1
-
-              - `required Type Type`
 
             - `class BetaManagedAgentsUrlImageSource:`
 
@@ -82,19 +91,19 @@ Send Events
 
               Image referenced by file ID.
 
+              - `required Type Type`
+
               - `required string FileID`
 
                 ID of a previously uploaded file.
 
                 minLength: 1
 
-              - `required Type Type`
-
-          - `required Type Type`
-
         - `class BetaManagedAgentsDocumentBlock:`
 
           Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+          - `required Type Type`
 
           - `required Source Source`
 
@@ -103,6 +112,8 @@ Send Events
             - `class BetaManagedAgentsBase64DocumentSource:`
 
               Base64-encoded document data.
+
+              - `required Type Type`
 
               - `required string Data`
 
@@ -116,11 +127,11 @@ Send Events
 
                 minLength: 1
 
-              - `required Type Type`
-
             - `class BetaManagedAgentsPlainTextDocumentSource:`
 
               Plain text document content.
+
+              - `required Type Type`
 
               - `required string Data`
 
@@ -131,8 +142,6 @@ Send Events
               - `required MediaType MediaType`
 
                 MIME type of the text content. Must be "text/plain".
-
-              - `required Type Type`
 
             - `class BetaManagedAgentsUrlDocumentSource:`
 
@@ -150,15 +159,13 @@ Send Events
 
               Document referenced by file ID.
 
+              - `required Type Type`
+
               - `required string FileID`
 
                 ID of a previously uploaded file.
 
                 minLength: 1
-
-              - `required Type Type`
-
-          - `required Type Type`
 
           - `string? Context`
 
@@ -174,8 +181,6 @@ Send Events
 
           - `required Type Type`
 
-      - `required Type Type`
-
     - `class BetaManagedAgentsUserInterruptEventParams:`
 
       Parameters for sending an interrupt to pause the agent.
@@ -189,6 +194,8 @@ Send Events
     - `class BetaManagedAgentsUserToolConfirmationEventParams:`
 
       Parameters for confirming or denying a tool execution request.
+
+      - `required Type Type`
 
       - `required Result Result`
 
@@ -204,8 +211,6 @@ Send Events
 
         minLength: 1, maxLength: 128
 
-      - `required Type Type`
-
       - `string? DenyMessage`
 
         Optional message providing context for a 'deny' decision. Only allowed when result is 'deny'.
@@ -216,13 +221,13 @@ Send Events
 
       Parameters for providing the result of a custom tool execution.
 
+      - `required Type Type`
+
       - `required string CustomToolUseID`
 
         The id of the `agent.custom_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
 
         minLength: 1, maxLength: 128
-
-      - `required Type Type`
 
       - `IReadOnlyList<Content> Content`
 
@@ -244,6 +249,8 @@ Send Events
 
           A block containing a web search result.
 
+          - `required Type Type`
+
           - `required BetaManagedAgentsSearchResultCitations Citations`
 
             Citation settings for a search result.
@@ -256,13 +263,13 @@ Send Events
 
             Array of text content blocks from the search result.
 
+            - `required Type Type`
+
             - `required string Text`
 
               The text content.
 
               minLength: 1
-
-            - `required Type Type`
 
           - `required string Source`
 
@@ -276,8 +283,6 @@ Send Events
 
             minLength: 1
 
-          - `required Type Type`
-
       - `bool? IsError`
 
         Whether the tool execution resulted in an error.
@@ -285,6 +290,8 @@ Send Events
     - `class BetaManagedAgentsUserDefineOutcomeEventParams:`
 
       Parameters for defining an outcome the agent should work toward. The agent begins work on receipt.
+
+      - `required Type Type`
 
       - `required string Description`
 
@@ -298,25 +305,23 @@ Send Events
 
           Rubric referenced by a file uploaded via the Files API.
 
+          - `required Type Type`
+
           - `required string FileID`
 
             ID of the rubric file.
 
-          - `required Type Type`
-
         - `class BetaManagedAgentsTextRubricParams:`
 
           Rubric content provided inline as text.
+
+          - `required Type Type`
 
           - `required string Content`
 
             Rubric content. Plain text or markdown — the grader treats it as freeform text. Maximum 262144 characters.
 
             maxLength: 262144
-
-          - `required Type Type`
-
-      - `required Type Type`
 
       - `int? MaxIterations`
 
@@ -328,13 +333,13 @@ Send Events
 
       Parameters for providing the result of an agent-toolset tool execution. Only valid on `self_hosted` environments, where sandbox-routed tools are executed by the client rather than the server.
 
+      - `required Type Type`
+
       - `required string ToolUseID`
 
         The id of the `agent.tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
 
         minLength: 1, maxLength: 128
-
-      - `required Type Type`
 
       - `IReadOnlyList<Content> Content`
 
@@ -364,19 +369,19 @@ Send Events
 
       Privileged context for the accompanying turn and all subsequent turns, appended to the session's system context as a `role: "system"` turn rather than replacing the top-level system prompt. At most one per request: it must be the final event and immediately follow the `user.message`, `user.tool_result`, or `user.custom_tool_result` it accompanies. Only supported on models that accept mid-conversation system messages.
 
+      - `required Type Type`
+
       - `required IReadOnlyList<BetaManagedAgentsSystemContentBlock> Content`
 
         System content blocks to append. Text-only.
+
+        - `required Type Type`
 
         - `required string Text`
 
           The text content.
 
           minLength: 1
-
-        - `required Type Type`
-
-      - `required Type Type`
 
   - `IReadOnlyList<AnthropicBeta> betas`
 
@@ -428,6 +433,8 @@ Send Events
 
     - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
 
+    - `UserProfiles2026_09_04("user-profiles-2026-09-04")`
+
     - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
 
     - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
@@ -470,6 +477,12 @@ Send Events
 
     - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
+  - `string workspaceID`
+
+    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ## Returns
 
 - `class BetaManagedAgentsSendSessionEvents:`
@@ -484,6 +497,8 @@ Send Events
 
       A user message event in the session conversation.
 
+      - `required Type Type`
+
       - `required string ID`
 
         Unique identifier for this event.
@@ -496,17 +511,19 @@ Send Events
 
           Regular text content.
 
+          - `required Type Type`
+
           - `required string Text`
 
             The text content.
 
             minLength: 1
 
-          - `required Type Type`
-
         - `class BetaManagedAgentsImageBlock:`
 
           Image content specified directly as base64 data or as a reference via a URL.
+
+          - `required Type Type`
 
           - `required Source Source`
 
@@ -515,6 +532,8 @@ Send Events
             - `class BetaManagedAgentsBase64ImageSource:`
 
               Base64-encoded image data.
+
+              - `required Type Type`
 
               - `required string Data`
 
@@ -527,8 +546,6 @@ Send Events
                 MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
 
                 minLength: 1
-
-              - `required Type Type`
 
             - `class BetaManagedAgentsUrlImageSource:`
 
@@ -546,19 +563,19 @@ Send Events
 
               Image referenced by file ID.
 
+              - `required Type Type`
+
               - `required string FileID`
 
                 ID of a previously uploaded file.
 
                 minLength: 1
 
-              - `required Type Type`
-
-          - `required Type Type`
-
         - `class BetaManagedAgentsDocumentBlock:`
 
           Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+          - `required Type Type`
 
           - `required Source Source`
 
@@ -567,6 +584,8 @@ Send Events
             - `class BetaManagedAgentsBase64DocumentSource:`
 
               Base64-encoded document data.
+
+              - `required Type Type`
 
               - `required string Data`
 
@@ -580,11 +599,11 @@ Send Events
 
                 minLength: 1
 
-              - `required Type Type`
-
             - `class BetaManagedAgentsPlainTextDocumentSource:`
 
               Plain text document content.
+
+              - `required Type Type`
 
               - `required string Data`
 
@@ -595,8 +614,6 @@ Send Events
               - `required MediaType MediaType`
 
                 MIME type of the text content. Must be "text/plain".
-
-              - `required Type Type`
 
             - `class BetaManagedAgentsUrlDocumentSource:`
 
@@ -614,15 +631,13 @@ Send Events
 
               Document referenced by file ID.
 
+              - `required Type Type`
+
               - `required string FileID`
 
                 ID of a previously uploaded file.
 
                 minLength: 1
-
-              - `required Type Type`
-
-          - `required Type Type`
 
           - `string? Context`
 
@@ -638,8 +653,6 @@ Send Events
 
           - `required Type Type`
 
-      - `required Type Type`
-
       - `DateTimeOffset? ProcessedAt`
 
         A timestamp in RFC 3339 format
@@ -650,11 +663,11 @@ Send Events
 
       An interrupt event that pauses agent execution and returns control to the user.
 
+      - `required Type Type`
+
       - `required string ID`
 
         Unique identifier for this event.
-
-      - `required Type Type`
 
       - `DateTimeOffset? ProcessedAt`
 
@@ -669,6 +682,8 @@ Send Events
     - `class BetaManagedAgentsUserToolConfirmationEvent:`
 
       A tool confirmation event that approves or denies a pending tool execution.
+
+      - `required Type Type`
 
       - `required string ID`
 
@@ -685,8 +700,6 @@ Send Events
       - `required string ToolUseID`
 
         The id of the `agent.tool_use` or `agent.mcp_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
-
-      - `required Type Type`
 
       - `string? DenyMessage`
 
@@ -708,6 +721,8 @@ Send Events
 
       Event sent by the client providing the result of a custom tool execution.
 
+      - `required Type Type`
+
       - `required string ID`
 
         Unique identifier for this event.
@@ -715,8 +730,6 @@ Send Events
       - `required string CustomToolUseID`
 
         The id of the `agent.custom_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
-
-      - `required Type Type`
 
       - `IReadOnlyList<Content> Content`
 
@@ -738,6 +751,8 @@ Send Events
 
           A block containing a web search result.
 
+          - `required Type Type`
+
           - `required BetaManagedAgentsSearchResultCitations Citations`
 
             Citation settings for a search result.
@@ -750,13 +765,13 @@ Send Events
 
             Array of text content blocks from the search result.
 
+            - `required Type Type`
+
             - `required string Text`
 
               The text content.
 
               minLength: 1
-
-            - `required Type Type`
 
           - `required string Source`
 
@@ -769,8 +784,6 @@ Send Events
             The title of the search result.
 
             minLength: 1
-
-          - `required Type Type`
 
       - `bool? IsError`
 
@@ -789,6 +802,8 @@ Send Events
     - `class BetaManagedAgentsUserDefineOutcomeEvent:`
 
       Echo of a `user.define_outcome` input event. Carries the server-generated `outcome_id` that subsequent `span.outcome_evaluation_*` events reference.
+
+      - `required Type Type`
 
       - `required string ID`
 
@@ -822,27 +837,27 @@ Send Events
 
           Rubric referenced by a file uploaded via the Files API.
 
+          - `required Type Type`
+
           - `required string FileID`
 
             ID of the rubric file.
-
-          - `required Type Type`
 
         - `class BetaManagedAgentsTextRubric:`
 
           Rubric content provided inline as text.
 
+          - `required Type Type`
+
           - `required string Content`
 
             Rubric content. Plain text or markdown — the grader treats it as freeform text.
 
-          - `required Type Type`
-
-      - `required Type Type`
-
     - `class BetaManagedAgentsUserToolResultEvent:`
 
       Event sent by the client providing the result of an agent-toolset tool execution. Only valid on `self_hosted` environments, where sandbox-routed tools are executed by the client rather than the server.
+
+      - `required Type Type`
 
       - `required string ID`
 
@@ -851,8 +866,6 @@ Send Events
       - `required string ToolUseID`
 
         The id of the `agent.tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
-
-      - `required Type Type`
 
       - `IReadOnlyList<Content> Content`
 
@@ -892,6 +905,8 @@ Send Events
 
       A mid-conversation system message event. Carries system-role content that is appended to the session as a `role: "system"` turn.
 
+      - `required Type Type`
+
       - `required string ID`
 
         Unique identifier for this event.
@@ -900,15 +915,13 @@ Send Events
 
         System content blocks. Text-only.
 
+        - `required Type Type`
+
         - `required string Text`
 
           The text content.
 
           minLength: 1
-
-        - `required Type Type`
-
-      - `required Type Type`
 
       - `DateTimeOffset? ProcessedAt`
 

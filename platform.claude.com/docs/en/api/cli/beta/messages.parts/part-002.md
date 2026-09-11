@@ -2,6 +2,78 @@
 <!-- part of: https://platform.claude.com/docs/en/api/cli/beta/messages -->
 
 <!-- chunk-start -->
+
+          - `"claude-opus-4-5-20251101"`
+
+            Powerful intelligence for long-running agents and coding
+
+          - `"claude-sonnet-4-5"`
+
+            High-performance model for agents and coding
+
+          - `"claude-sonnet-4-5-20250929"`
+
+            High-performance model for agents and coding
+
+        - `role: "assistant"`
+
+          Conversational role of the generated message.
+
+          This will always be `"assistant"`.
+
+        - `stop_details: object`
+
+          Structured information about a refusal.
+
+          - `type: "refusal"`
+
+          - `category: "cyber" or "bio" or "frontier_llm" or 2 more`
+
+            The policy category that triggered a refusal.
+
+            - `"cyber"`
+
+              The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
+
+            - `"bio"`
+
+              The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
+
+            - `"frontier_llm"`
+
+              The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
+
+            - `"reasoning_extraction"`
+
+              The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
+
+            - `"general_harms"`
+
+              The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
+
+          - `explanation: string`
+
+            Human-readable explanation of the refusal.
+
+            This text is not guaranteed to be stable. `null` when no explanation is available for the category.
+
+          - `fallback_credit_token: string`
+
+            Opaque code that refunds the cache-miss cost when retrying this refused
+            request on the fallback model. Pass it as `fallback_credit_token` on the
+            retry request. Expires 5 minutes after the refusal.
+
+            The retry is sent either with the same request body (`system`, `messages`,
+            `tools`, and other render-shaping fields), or with the same body plus one
+            appended `assistant` message whose content is the partial text (with any
+            trailing whitespace stripped from the final text block) and paired
+            server-tool blocks from this refusal — which also authorizes that
+            appended turn as an assistant-prefill continuation on models that otherwise
+            disallow prefill. A token minted mid-server-tool-loop whose partial content
+            was continuable may only be redeemed the second way — if a same-body retry
+            is rejected with a 400 saying the token must be redeemed by continuing the
+            partial response, retry the second way instead. Either way: same workspace,
+            same platform; a mismatch is a 400. Resending a token for an already-warm
             prefix is permitted but yields no additional credit.
 
             `null` when the refused model isn't eligible for a fallback credit.
@@ -33,8 +105,6 @@
           - `recommended_model: string`
 
             The server's suggested retry target for this refusal. Populated when a fallback attempt could not be made (the fallback model's rate limit was exhausted, or it was overloaded); names the fallback model the caller can retry directly. Null otherwise.
-
-          - `type: "refusal"`
 
         - `stop_reason: "end_turn" or "max_tokens" or "stop_sequence" or 5 more`
 
@@ -73,12 +143,6 @@
           Which custom stop sequence was generated, if any.
 
           This value will be a non-null string if one of your custom stop sequences was generated.
-
-        - `type: "message"`
-
-          Object type.
-
-          For Messages, this is always `"message"`.
 
         - `usage: object`
 
@@ -144,6 +208,8 @@
 
                 No reprice was applied; `reason` says why.
 
+                - `type: "not_applied"`
+
                 - `reason: "body_mismatch" or "continuation_excluded" or "continuation_only" or 9 more`
 
                   Why the reprice was not applied.
@@ -174,8 +240,6 @@
                   - `"wrong_platform"`
 
                   - `"wrong_workspace"`
-
-                - `type: "not_applied"`
 
                 - `remove_to_redeem: optional array of string`
 
@@ -214,6 +278,10 @@
 
               Token usage for a sampling iteration.
 
+              - `type: "message"`
+
+                Usage for a sampling iteration
+
               - `cache_creation: object`
 
                 Breakdown of cached tokens by TTL
@@ -327,15 +395,15 @@
                 The number of output tokens which were used.
 
                 minimum: 0
-
-              - `type: "message"`
-
-                Usage for a sampling iteration
 
             - `beta_compaction_iteration_usage: object`
 
               Token usage for a compaction iteration.
 
+              - `type: "compaction"`
+
+                Usage for a compaction iteration
+
               - `cache_creation: object`
 
                 Breakdown of cached tokens by TTL
@@ -376,13 +444,13 @@
 
                 minimum: 0
 
-              - `type: "compaction"`
-
-                Usage for a compaction iteration
-
             - `beta_advisor_message_iteration_usage: object`
 
               Token usage for an advisor sub-inference iteration.
+
+              - `type: "advisor_message"`
+
+                Usage for an advisor sub-inference iteration
 
               - `cache_creation: object`
 
@@ -497,10 +565,6 @@
                 The number of output tokens which were used.
 
                 minimum: 0
-
-              - `type: "advisor_message"`
-
-                Usage for an advisor sub-inference iteration
 
             - `beta_fallback_message_iteration_usage: object`
 
@@ -511,6 +575,10 @@
               a fallback model served the response is signalled by the presence of this
               entry in `usage.iterations`.
 
+              - `type: "fallback_message"`
+
+                Usage for the fallback-model attempt that served the response
+
               - `cache_creation: object`
 
                 Breakdown of cached tokens by TTL
@@ -624,10 +692,6 @@
                 The number of output tokens which were used.
 
                 minimum: 0
-
-              - `type: "fallback_message"`
-
-                Usage for the fallback-model attempt that served the response
 
           - `output_tokens: number`
 
@@ -709,6 +773,10 @@
           fallback happened mid-stream, in which case it holds the serving model's
           entries and replaces the one in `message_start`.
 
+          - `type: "thinking_dropped"`
+
+            Always `thinking_dropped` for this entry type.
+
           - `path: string`
 
             Where the removed block was in your request, as `messages.{i}.content.{j}`:
@@ -739,77 +807,71 @@
 
             - `"end_user_binding_mismatch"`
 
-          - `type: "thinking_dropped"`
-
-            Always `thinking_dropped` for this entry type.
-
-      - `type: "succeeded"`
-
     - `beta_message_batch_errored_result: object`
 
+      - `type: "errored"`
+
       - `error: object`
+
+        - `type: "error"`
 
         - `error: BetaInvalidRequestError or BetaAuthenticationError or BetaBillingError or 6 more`
 
           - `beta_invalid_request_error: object`
 
-            - `message: string`
-
             - `type: "invalid_request_error"`
+
+            - `message: string`
 
           - `beta_authentication_error: object`
 
-            - `message: string`
-
             - `type: "authentication_error"`
+
+            - `message: string`
 
           - `beta_billing_error: object`
 
-            - `message: string`
-
             - `type: "billing_error"`
+
+            - `message: string`
 
           - `beta_permission_error: object`
 
-            - `message: string`
-
             - `type: "permission_error"`
+
+            - `message: string`
 
           - `beta_not_found_error: object`
 
-            - `message: string`
-
             - `type: "not_found_error"`
+
+            - `message: string`
 
           - `beta_rate_limit_error: object`
 
-            - `message: string`
-
             - `type: "rate_limit_error"`
+
+            - `message: string`
 
           - `beta_gateway_timeout_error: object`
 
-            - `message: string`
-
             - `type: "timeout_error"`
+
+            - `message: string`
 
           - `beta_api_error: object`
 
-            - `message: string`
-
             - `type: "api_error"`
+
+            - `message: string`
 
           - `beta_overloaded_error: object`
 
-            - `message: string`
-
             - `type: "overloaded_error"`
 
+            - `message: string`
+
         - `request_id: string`
-
-        - `type: "error"`
-
-      - `type: "errored"`
 
     - `beta_message_batch_canceled_result: object`
 

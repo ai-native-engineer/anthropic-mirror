@@ -10,6 +10,38 @@
 
 Configuration keys by Claude Desktop release. Each section lists keys added in that release, with the MDM key name (for plist/registry deployment) and the equivalent JSON shape (for local-file or bootstrap remote configuration).
 
+v1.52386.0
+
+2026-09-10
+
+| MDM key | Type | Description |
+| --- | --- | --- |
+| [`sshTransport`](https://claude.com/docs/third-party/claude-desktop/configuration#sshtransport) · Beta | `enum` | SSH connection engine |
+| [`chatSessionRetentionDays`](https://claude.com/docs/third-party/claude-desktop/configuration#chatsessionretentiondays) | `integer` | Chat retention period |
+| [`coworkSessionRetentionDays`](https://claude.com/docs/third-party/claude-desktop/configuration#coworksessionretentiondays) | `integer` | Cowork retention period |
+| [`codeSessionRetentionDays`](https://claude.com/docs/third-party/claude-desktop/configuration#codesessionretentiondays) | `integer` | Code retention period |
+| [`sessionRetentionHold`](https://claude.com/docs/third-party/claude-desktop/configuration#sessionretentionhold) | `boolean` | Suspend session deletion |
+| [`coworkVmIpv6Enabled`](https://claude.com/docs/third-party/claude-desktop/configuration#coworkvmipv6enabled) | `boolean` | Enable IPv6 in the workspace VM |
+
+**JSON (e.g. for non-MDM users or Bootstrap):**
+
+```
+{
+  "codeSurface": {
+    "sshTransport": "<auto|system-openssh|builtin>"
+  },
+  "sessionRetention": {
+    "chatDays": "<integer>",
+    "coworkDays": "<integer>",
+    "codeDays": "<integer>",
+    "legalHold": "<boolean>"
+  },
+  "workspace": {
+    "vmIpv6Enabled": "<boolean>"
+  }
+}
+```
+
 v1.49585.0
 
 2026-09-08

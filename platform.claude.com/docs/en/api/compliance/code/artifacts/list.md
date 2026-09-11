@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/compliance/code/artifacts/list -->
 
+---
+title: List Code Artifacts
+url: https://platform.claude.com/docs/en/api/compliance/code/artifacts/list
+---
+
 # List Code Artifacts
 
 **GET** `/v1/compliance/apps/code/artifacts`
@@ -68,6 +73,12 @@ returned.
   maxItems: 200
 
 ## Headers
+
+- `"anthropic-version": optional string`
+
+  The version of the Claude API you want to use.
+
+  Read more about versioning and our version history [here](https://platform.claude.com/docs/en/api/versioning).
 
 - `"x-api-key": optional string`
 

@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/compliance/apps/projects/documents -->
 
+---
+title: Documents
+url: https://platform.claude.com/docs/en/api/compliance/apps/projects/documents
+---
+
 # Documents
 
 ## Get project document content
@@ -15,6 +20,12 @@ Get detailed information for a specific project document.
   The document ID (tagged ID, e.g., claude_proj_doc_abc123)
 
 ### Headers
+
+- `"anthropic-version": optional string`
+
+  The version of the Claude API you want to use.
+
+  Read more about versioning and our version history [here](https://platform.claude.com/docs/en/api/versioning).
 
 - `"x-api-key": optional string`
 
@@ -94,6 +105,12 @@ consumer can dedupe or match hashes without downloading every document.
   The document ID (tagged ID, e.g., claude_proj_doc_abc123)
 
 ### Headers
+
+- `"anthropic-version": optional string`
+
+  The version of the Claude API you want to use.
+
+  Read more about versioning and our version history [here](https://platform.claude.com/docs/en/api/versioning).
 
 - `"x-api-key": optional string`
 
@@ -188,19 +205,25 @@ Hard-deletes the project document permanently.
 
 ### Headers
 
+- `"anthropic-version": optional string`
+
+  The version of the Claude API you want to use.
+
+  Read more about versioning and our version history [here](https://platform.claude.com/docs/en/api/versioning).
+
 - `"x-api-key": optional string`
 
 ### Returns
-
-- `id: string`
-
-  The ID of the project document that was deleted
 
 - `type: "claude_project_document_deleted"`
 
   Constant string confirming deletion.
 
   default: claude_project_document_deleted
+
+- `id: string`
+
+  The ID of the project document that was deleted
 
 ### Example
 
@@ -267,15 +290,15 @@ curl https://api.anthropic.com/v1/compliance/apps/projects/documents/$DOCUMENT_I
 
   Response for deleting a project document.
 
-  - `id: string`
-
-    The ID of the project document that was deleted
-
   - `type: "claude_project_document_deleted"`
 
     Constant string confirming deletion.
 
     default: claude_project_document_deleted
+
+  - `id: string`
+
+    The ID of the project document that was deleted
 
 ### Document Metadata Response
 

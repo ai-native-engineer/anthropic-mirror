@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/typescript/beta/environments/archive -->
 
+---
+title: Archive Environment
+url: https://platform.claude.com/docs/en/api/typescript/beta/environments/archive
+---
+
 # Archive Environment
 
 `client.beta.environments.archive(environmentID, params?, options?): BetaEnvironment`
@@ -20,7 +25,7 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 41 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 42 more`
 
       - `"message-batches-2024-09-24"`
 
@@ -68,6 +73,8 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
       - `"user-profiles-2026-08-18"`
 
+      - `"user-profiles-2026-09-04"`
+
       - `"advisor-tool-2026-03-01"`
 
       - `"managed-agents-2026-04-01"`
@@ -110,11 +117,23 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
       - `"mid-conversation-system-clear-at-2026-08-21"`
 
+  - `workspace_id?: string`
+
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ## Returns
 
 - `BetaEnvironment`
 
   Unified Environment resource for both cloud and self-hosted environments.
+
+  - `type: "environment"`
+
+    The type of object (always 'environment')
+
+    default: environment
 
   - `id: string`
 
@@ -132,6 +151,10 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
       `cloud` environment configuration.
 
+      - `type: "cloud"`
+
+        Environment type
+
       - `networking: BetaUnrestrictedNetwork | BetaLimitedNetwork`
 
         Network configuration policy.
@@ -148,6 +171,10 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
           Limited network access.
 
+          - `type: "limited"`
+
+            Network policy type
+
           - `allow_mcp_servers: boolean`
 
             Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
@@ -160,13 +187,15 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
             Specifies domains the container can reach.
 
-          - `type: "limited"`
-
-            Network policy type
-
       - `packages: BetaPackages`
 
         Package manager configuration.
+
+        - `type?: "packages"`
+
+          Package configuration type
+
+          default: packages
 
         - `apt: Array<string>`
 
@@ -192,16 +221,6 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
           Python packages to install
 
-        - `type?: "packages"`
-
-          Package configuration type
-
-          default: packages
-
-      - `type: "cloud"`
-
-        Environment type
-
     - `BetaSelfHostedConfig`
 
       Configuration for self-hosted environments.
@@ -225,12 +244,6 @@ Archive an environment by ID. Archived environments cannot be used to create new
   - `name: string`
 
     Human-readable name for the environment
-
-  - `type: "environment"`
-
-    The type of object (always 'environment')
-
-    default: environment
 
   - `updated_at: string`
 

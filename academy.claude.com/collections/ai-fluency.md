@@ -90,7 +90,13 @@ Tutorial·15 min](https://academy.claude.com/tutorials/tokens-and-embeddings)[![
 
 Everything Claude knows about the world was either baked into the model during training, or is part of the current context. Learn where Claude's answers come from, where you might be using more tokens than expected, and how to be intentional about the tradeoff between cost and quality.
 
-Tutorial·20 min](https://academy.claude.com/tutorials/parametric-memory-and-context)
+Tutorial·20 min](https://academy.claude.com/tutorials/parametric-memory-and-context)[![](https://academy.claude.com/assets/v1/thumbnail.light-cu6wjiio.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-omuj02iu.png)
+
+## Anthropic Education Report: How people check Claude's work
+
+We asked 129 Claude Academy participants what discernment looks like when they work with Claude. Checking Claude's work usually means verifying it against something external, lack of domain expertise is the biggest barrier, and errors caught too late spur new discernment habits.
+
+Tutorial·10 min](https://academy.claude.com/tutorials/discernment-toolkit)
 
 ## Choose your edition
 

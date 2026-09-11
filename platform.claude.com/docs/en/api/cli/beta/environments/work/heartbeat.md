@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/cli/beta/environments/work/heartbeat -->
 
+---
+title: Record Heartbeat
+url: https://platform.claude.com/docs/en/api/cli/beta/environments/work/heartbeat
+---
+
 # Record Heartbeat
 
 `$ ant beta:environments:work heartbeat`
@@ -38,6 +43,10 @@ Record a heartbeat for a work item to maintain the lease.
 
   Response after recording a heartbeat for a work item.
 
+  - `type: "work_heartbeat"`
+
+    The type of response
+
   - `last_heartbeat: string`
 
     RFC 3339 timestamp of the actual heartbeat from DB
@@ -63,10 +72,6 @@ Record a heartbeat for a work item to maintain the lease.
   - `ttl_seconds: number`
 
     Effective TTL applied to the lease
-
-  - `type: "work_heartbeat"`
-
-    The type of response
 
 ## Example
 

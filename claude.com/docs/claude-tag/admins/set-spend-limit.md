@@ -8,7 +8,7 @@
 
 [Skip to main content](#content-area)
 
-Work Claude does in channels bills to your **organization’s usage balance**, not to individual seats. The **spend limit** is a cap you set on how much of that balance Claude Tag can use each billing period.
+Work Claude does in channels bills to your **organization’s usage balance**, not to individual seats. The **spend limit** is a cap you set on how much of that balance Claude Tag can use each month.
 
 | Work | Bills to | Capped by |
 | --- | --- | --- |
@@ -37,9 +37,9 @@ Go to [`claude.ai/admin-settings/usage/claude-tag`](https://claude.ai/admin-sett
 
 Enter an amount
 
-Enter an amount in your organization’s billing currency. The spend limit resets at the start of each billing period and applies across every paired workspace. You can change it any time.
+Enter an amount in your organization’s billing currency. The spend limit resets at the start of each month and applies across every paired workspace. You can change it any time.
 
-There’s no published per-task cost guidance. For a pilot, set a spend limit you’re comfortable with for the first billing period, then watch the per-channel usage breakdown on the same page and adjust.
+There’s no published per-task cost guidance. For a pilot, set a spend limit you’re comfortable with for the first month, then watch the per-channel usage breakdown on the same page and adjust. If a promotional credit covers the pilot’s usage, that breakdown shows $0.00. In that case, watch the **List price** column of the **Spend by channel** table at [`claude.ai/analytics/claude-tag`](https://claude.ai/analytics/claude-tag) instead.
 
 ##  What happens when the spend limit is reached
 
@@ -62,9 +62,10 @@ Per-channel limits and the per-channel spend breakdown are on the same usage pag
 
 ##  Attribute costs by channel
 
-Channel work can’t be attributed to individual users. It bills to your organization’s usage balance, not to any user’s seat, and often has no single requesting user (several people contribute to one thread, and scheduled jobs run without anyone asking). The channel is the unit you can attribute.
-The usage page at [`claude.ai/admin-settings/usage/claude-tag`](https://claude.ai/admin-settings/usage/claude-tag) shows spend broken down by channel.
+In claude.ai you see spend per channel, not per user. Channel work bills to your organization’s usage balance, not to any user’s seat.
+The usage page at [`claude.ai/admin-settings/usage/claude-tag`](https://claude.ai/admin-settings/usage/claude-tag) shows spend broken down by channel, at list price. Usage covered by a promotional credit isn’t counted there and shows as $0.00. To see each channel’s list-price spend for the current month including covered usage, use the **List price** column of the **Spend by channel** table at [`claude.ai/analytics/claude-tag`](https://claude.ai/analytics/claude-tag).
 To attribute spend to teams or departments for showback or chargeback reporting, structure channels so each maps to one team or department, and give those channels [their own scopes](https://claude.com/docs/claude-tag/admins/attach-to-scope). The per-channel breakdown then reads as your per-team report, and per-channel spend limits act as team-level budgets.
+Organizations on a Claude Enterprise plan can also pull channel spend per Slack user from the Analytics API, which attributes Claude’s channel work to individual Slack users. See [Attribute costs to users](https://claude.com/docs/claude-tag/admins/attribute-costs).
 DMs are separate. A DM bills to the sender’s own seat, not to the organization’s usage balance.
 
 ##  See spend by kind of work

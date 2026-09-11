@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/compliance/organizations/roles -->
 
+---
+title: Roles
+url: https://platform.claude.com/docs/en/api/compliance/organizations/roles
+---
+
 # Roles
 
 ## List Compliance Roles
@@ -28,6 +33,12 @@ List Compliance Roles
 
 ### Headers
 
+- `"anthropic-version": optional string`
+
+  The version of the Claude API you want to use.
+
+  Read more about versioning and our version history [here](https://platform.claude.com/docs/en/api/versioning).
+
 - `"x-api-key": optional string`
 
 ### Returns
@@ -42,7 +53,9 @@ List Compliance Roles
 
   - `created_at: string or null`
 
-    Role creation timestamp (ISO 8601)
+    Role creation timestamp (RFC 3339)
+
+    format: date-time
 
   - `description: string`
 
@@ -54,7 +67,9 @@ List Compliance Roles
 
   - `updated_at: string or null`
 
-    Role last-updated timestamp (ISO 8601)
+    Role last-updated timestamp (RFC 3339)
+
+    format: date-time
 
 - `has_more: boolean`
 
@@ -78,10 +93,10 @@ curl https://api.anthropic.com/v1/compliance/organizations/$ORG_UUID/roles \
   "data": [
     {
       "id": "rbac_role_01SGBg3kEnZrdsVR2QmyJbvD",
-      "created_at": "2025-03-12T18:22:41.123456",
+      "created_at": "2025-03-12T18:22:41.123456Z",
       "description": "Full administrative access to organization settings and members",
       "name": "Organization Admin",
-      "updated_at": "2025-03-14T09:05:17.456789"
+      "updated_at": "2025-03-14T09:05:17.456789Z"
     }
   ],
   "has_more": true,
@@ -107,6 +122,12 @@ Get Compliance Role
 
 ### Headers
 
+- `"anthropic-version": optional string`
+
+  The version of the Claude API you want to use.
+
+  Read more about versioning and our version history [here](https://platform.claude.com/docs/en/api/versioning).
+
 - `"x-api-key": optional string`
 
 ### Returns
@@ -117,7 +138,9 @@ Get Compliance Role
 
 - `created_at: string or null`
 
-  Role creation timestamp (ISO 8601)
+  Role creation timestamp (RFC 3339)
+
+  format: date-time
 
 - `description: string`
 
@@ -129,7 +152,9 @@ Get Compliance Role
 
 - `updated_at: string or null`
 
-  Role last-updated timestamp (ISO 8601)
+  Role last-updated timestamp (RFC 3339)
+
+  format: date-time
 
 ### Example
 
@@ -143,10 +168,10 @@ curl https://api.anthropic.com/v1/compliance/organizations/$ORG_UUID/roles/$ROLE
 ```json
 {
   "id": "rbac_role_01SGBg3kEnZrdsVR2QmyJbvD",
-  "created_at": "2025-03-12T18:22:41.123456",
+  "created_at": "2025-03-12T18:22:41.123456Z",
   "description": "Full administrative access to organization settings and members",
   "name": "Organization Admin",
-  "updated_at": "2025-03-14T09:05:17.456789"
+  "updated_at": "2025-03-14T09:05:17.456789Z"
 }
 ```
 
@@ -164,7 +189,9 @@ curl https://api.anthropic.com/v1/compliance/organizations/$ORG_UUID/roles/$ROLE
 
   - `created_at: string or null`
 
-    Role creation timestamp (ISO 8601)
+    Role creation timestamp (RFC 3339)
+
+    format: date-time
 
   - `description: string`
 
@@ -176,7 +203,9 @@ curl https://api.anthropic.com/v1/compliance/organizations/$ORG_UUID/roles/$ROLE
 
   - `updated_at: string or null`
 
-    Role last-updated timestamp (ISO 8601)
+    Role last-updated timestamp (RFC 3339)
+
+    format: date-time
 
 ### Role List Response
 
@@ -190,7 +219,9 @@ curl https://api.anthropic.com/v1/compliance/organizations/$ORG_UUID/roles/$ROLE
 
   - `created_at: string or null`
 
-    Role creation timestamp (ISO 8601)
+    Role creation timestamp (RFC 3339)
+
+    format: date-time
 
   - `description: string`
 
@@ -202,7 +233,9 @@ curl https://api.anthropic.com/v1/compliance/organizations/$ORG_UUID/roles/$ROLE
 
   - `updated_at: string or null`
 
-    Role last-updated timestamp (ISO 8601)
+    Role last-updated timestamp (RFC 3339)
+
+    format: date-time
 
 ## Roles › Permissions
 
@@ -235,6 +268,12 @@ List Compliance Role Permissions
   Opaque pagination token from a previous response's `next_page` field. Pass this to retrieve the next page of results. Clients should treat this value as an opaque string and not attempt to parse or interpret its contents, as the format may change without notice.
 
 #### Headers
+
+- `"anthropic-version": optional string`
+
+  The version of the Claude API you want to use.
+
+  Read more about versioning and our version history [here](https://platform.claude.com/docs/en/api/versioning).
 
 - `"x-api-key": optional string`
 

@@ -1,8 +1,13 @@
 <!-- source: https://platform.claude.com/docs/en/api/php/beta/models/list -->
 
+---
+title: List Models
+url: https://platform.claude.com/docs/en/api/php/beta/models/list
+---
+
 # List Models
 
-`$client->beta->models->list(?string afterID, ?string beforeID, ?int limit, ?list<AnthropicBeta> betas): Page<BetaModelInfo>`
+`$client->beta->models->list(?string afterID, ?string beforeID, ?int limit, ?list<AnthropicBeta> betas, ?string workspaceID): Page<BetaModelInfo>`
 
 **GET** `/v1/models`
 
@@ -32,9 +37,17 @@ The Models API response can be used to determine which models are available for 
 
   Optional header to specify the beta version(s) you want to use.
 
+- `workspaceID?:optional string`
+
 ## Returns
 
 - `BetaModelInfo`
+
+  - `"model" type`
+
+    Object type.
+
+    For Models, this is always `"model"`.
 
   - `string id`
 
@@ -64,12 +77,6 @@ The Models API response can be used to determine which models are available for 
 
     Maximum value for the `max_tokens` parameter when using this model.
 
-  - `"model" type`
-
-    Object type.
-
-    For Models, this is always `"model"`.
-
 ## Example
 
 ```php
@@ -84,6 +91,7 @@ $page = $client->beta->models->list(
   beforeID: 'before_id',
   limit: 1,
   betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+  workspaceID: 'wrkspc_011CZkZaBF1tNoB5wlCeusgy',
 );
 
 var_dump($page);

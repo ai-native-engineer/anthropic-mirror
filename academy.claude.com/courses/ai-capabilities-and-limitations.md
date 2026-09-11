@@ -8,7 +8,7 @@ Build an accurate mental model of what large language models can and cannot do: 
 
 13 lessons3.5 hr1 quizCompletion badge
 
-[Start course](https://academy.claude.com/courses/ai-capabilities-and-limitations/intro-to-ai-capabilities-and-limitations)[Sign in to save progress](https://academy.claude.com/login?returnTo=https%3A%2F%2Facademy.claude.com%2Fcourses%2Fai-capabilities-and-limitations)
+[Start course](https://academy.claude.com/courses/ai-capabilities-and-limitations/intro-to-ai-capabilities-and-limitations)[Sign in to save progress](https://academy.claude.com/login?returnTo=%2Fcourses%2Fai-capabilities-and-limitations)
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-mroir6wr.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-dzjj3djt.png)
 

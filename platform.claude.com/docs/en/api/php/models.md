@@ -1,10 +1,15 @@
 <!-- source: https://platform.claude.com/docs/en/api/php/models -->
 
+---
+title: Models
+url: https://platform.claude.com/docs/en/api/php/models
+---
+
 # Models
 
 ## List Models
 
-`$client->models->list(?string afterID, ?string beforeID, ?int limit, ?list<AnthropicBeta> betas): Page<ModelInfo>`
+`$client->models->list(?string afterID, ?string beforeID, ?int limit, ?list<AnthropicBeta> betas, ?string workspaceID): Page<ModelInfo>`
 
 **GET** `/v1/models`
 
@@ -34,9 +39,17 @@ The Models API response can be used to determine which models are available for 
 
   Optional header to specify the beta version(s) you want to use.
 
+- `workspaceID?:optional string`
+
 ### Returns
 
 - `ModelInfo`
+
+  - `"model" type`
+
+    Object type.
+
+    For Models, this is always `"model"`.
 
   - `string id`
 
@@ -62,12 +75,6 @@ The Models API response can be used to determine which models are available for 
 
     Maximum value for the `max_tokens` parameter when using this model.
 
-  - `"model" type`
-
-    Object type.
-
-    For Models, this is always `"model"`.
-
 ### Example
 
 ```php
@@ -82,6 +89,7 @@ $page = $client->models->list(
   beforeID: 'before_id',
   limit: 1,
   betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+  workspaceID: 'wrkspc_011CZkZaBF1tNoB5wlCeusgy',
 );
 
 var_dump($page);
@@ -170,7 +178,7 @@ var_dump($page);
 
 ## Get a Model
 
-`$client->models->retrieve(string modelID, ?list<AnthropicBeta> betas): ModelInfo`
+`$client->models->retrieve(string modelID, ?list<AnthropicBeta> betas, ?string workspaceID): ModelInfo`
 
 **GET** `/v1/models/{model_id}`
 
@@ -188,9 +196,17 @@ The Models API response can be used to determine information about a specific mo
 
   Optional header to specify the beta version(s) you want to use.
 
+- `workspaceID?:optional string`
+
 ### Returns
 
 - `ModelInfo`
+
+  - `"model" type`
+
+    Object type.
+
+    For Models, this is always `"model"`.
 
   - `string id`
 
@@ -216,12 +232,6 @@ The Models API response can be used to determine information about a specific mo
 
     Maximum value for the `max_tokens` parameter when using this model.
 
-  - `"model" type`
-
-    Object type.
-
-    For Models, this is always `"model"`.
-
 ### Example
 
 ```php
@@ -232,7 +242,9 @@ require_once dirname(__DIR__) . '/vendor/autoload.php';
 $client = new Client(apiKey: 'my-anthropic-api-key');
 
 $modelInfo = $client->models->retrieve(
-  'model_id', betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24]
+  'model_id',
+  betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+  workspaceID: 'wrkspc_011CZkZaBF1tNoB5wlCeusgy',
 );
 
 var_dump($modelInfo);
@@ -414,6 +426,12 @@ var_dump($modelInfo);
 
 - `ModelInfo`
 
+  - `"model" type`
+
+    Object type.
+
+    For Models, this is always `"model"`.
+
   - `string id`
 
     Unique model identifier.
@@ -437,12 +455,6 @@ var_dump($modelInfo);
   - `?int maxTokens`
 
     Maximum value for the `max_tokens` parameter when using this model.
-
-  - `"model" type`
-
-    Object type.
-
-    For Models, this is always `"model"`.
 
 ### Thinking Capability
 

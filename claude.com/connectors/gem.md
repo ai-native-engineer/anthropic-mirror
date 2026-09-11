@@ -12,8 +12,11 @@ Connect Gem with Claude to bring your recruiting data to where you work. With th
 
 * add\_note\_to\_person
 * archive\_project
+* archive\_sequence
 * delete\_widget
 * edit\_project\_enrollment
+* edit\_sequence\_enrollment
+* edit\_sequence\_stages
 * get\_application
 * get\_dashboard
 * get\_job
@@ -22,20 +25,17 @@ Connect Gem with Claude to bring your recruiting data to where you work. With th
 * get\_person
 * get\_project
 * get\_saved\_report
+* get\_sequence
+* get\_sequence\_tokens
 * get\_tasks
 * get\_widget
 * query\_metrics
 * save\_dashboard
 * save\_project
+* save\_sequence
 * save\_widget
-* search
-* search\_applications
-* search\_jobs
-* search\_people
-* search\_users
-* submit\_mcp\_feedback
 
-Show all 25 tools
+Show all 32 tools
 
 Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
@@ -57,14 +57,6 @@ Manage your schedule and coordinate meetings effortlessly
 
 [Add Google Calendar in Claude (opens in new tab)](https://claude.ai/directory/2a838eaa-f7b4-4bc2-bd47-c326f3c813c5 "Add in Claude")
 
-![](https://www.google.com/s2/favicons?domain=atlassian.com&sz=96)
-
-### [Atlassian Rovo](https://claude.com/connectors/atlassian)
-
-Access Jira & Confluence from Claude
-
-[Add Atlassian Rovo in Claude (opens in new tab)](https://claude.ai/directory/11ba10d9-477b-4988-bd1c-90a7fa680dc1 "Add in Claude")
-
 ![](https://www.google.com/s2/favicons?domain=microsoft.com&sz=96)
 
 ### [Microsoft 365](https://claude.com/connectors/microsoft-365)
@@ -72,6 +64,14 @@ Access Jira & Confluence from Claude
 Access your company's SharePoint, OneDrive, Outlook, and Teams directly in Claude
 
 [Add Microsoft 365 in Claude (opens in new tab)](https://claude.ai/directory/ce0c9cda-5ea5-44c5-9cf2-40810dfa6582 "Add in Claude")
+
+![](https://www.google.com/s2/favicons?domain=atlassian.com&sz=96)
+
+### [Atlassian Rovo](https://claude.com/connectors/atlassian)
+
+Access Jira & Confluence from Claude
+
+[Add Atlassian Rovo in Claude (opens in new tab)](https://claude.ai/directory/11ba10d9-477b-4988-bd1c-90a7fa680dc1 "Add in Claude")
 
 ![](https://www.notion.so/images/notion-logo-block-main.svg)
 

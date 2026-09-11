@@ -61,13 +61,13 @@ Payment processing and financial infrastructure tools
 
 [Add Stripe in Claude (opens in new tab)](https://claude.ai/directory/de127013-63f1-43d0-8dd2-b6cb5b4e5d1b "Add in Claude")
 
-![](https://ai.zacksdata.com/connector-icon-512.png)
+![](https://www.google.com/s2/favicons?domain=interactivebrokers.com&sz=96)
 
-### [Zacks Data](https://claude.com/connectors/zacks-data)
+### [Interactive Brokers (IBKR)](https://claude.com/connectors/interactive-brokers)
 
-Trusted Financial Data from Zacks Investment Research
+Trade, invest, analyze, and manage global markets
 
-[Add Zacks Data in Claude (opens in new tab)](https://claude.ai/directory/2823d140-e557-491a-a7fc-bc95b67c2ce2 "Add in Claude")
+[Add Interactive Brokers (IBKR) in Claude (opens in new tab)](https://claude.ai/directory/d445461d-2337-4e00-b285-b43d111d2912 "Add in Claude")
 
 ![](https://storage.googleapis.com/media-assets-299d7136-cb52-d546-ee02-34bc1307c35f/mcp-directory/icons/quickbooks.svg)
 
@@ -77,13 +77,13 @@ Business Finances made simple
 
 [Add Intuit QuickBooks in Claude (opens in new tab)](https://claude.ai/directory/a933e343-3389-4a82-beeb-7d5f5c2c4f25 "Add in Claude")
 
-![](https://www.google.com/s2/favicons?domain=interactivebrokers.com&sz=96)
+![](https://ai.zacksdata.com/connector-icon-512.png)
 
-### [Interactive Brokers (IBKR)](https://claude.com/connectors/interactive-brokers)
+### [Zacks Data](https://claude.com/connectors/zacks-data)
 
-Trade, invest, analyze, and manage global markets
+Trusted Financial Data from Zacks Investment Research
 
-[Add Interactive Brokers (IBKR) in Claude (opens in new tab)](https://claude.ai/directory/d445461d-2337-4e00-b285-b43d111d2912 "Add in Claude")
+[Add Zacks Data in Claude (opens in new tab)](https://claude.ai/directory/2823d140-e557-491a-a7fc-bc95b67c2ce2 "Add in Claude")
 
 ![](https://www.google.com/s2/favicons?domain=spglobal.com&sz=96)
 

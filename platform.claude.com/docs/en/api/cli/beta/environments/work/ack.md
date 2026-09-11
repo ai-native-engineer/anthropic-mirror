@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/cli/beta/environments/work/ack -->
 
+---
+title: Acknowledge Work
+url: https://platform.claude.com/docs/en/api/cli/beta/environments/work/ack
+---
+
 # Acknowledge Work
 
 `$ ant beta:environments:work ack`
@@ -34,6 +39,10 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
 
+  - `type: "work"`
+
+    The type of object (always 'work')
+
   - `id: string`
 
     Work identifier (e.g., 'work_...')
@@ -50,13 +59,13 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
 
     The actual work to be performed
 
-    - `id: string`
-
-      Session identifier (e.g., 'session_...')
-
     - `type: "session"`
 
       Type of work data
+
+    - `id: string`
+
+      Session identifier (e.g., 'session_...')
 
   - `environment_id: string`
 
@@ -99,10 +108,6 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
   - `stopped_at: string`
 
     RFC 3339 timestamp when work execution stopped
-
-  - `type: "work"`
-
-    The type of object (always 'work')
 
 ## Example
 

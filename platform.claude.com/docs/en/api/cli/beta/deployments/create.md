@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/cli/beta/deployments/create -->
 
+---
+title: Create Deployment
+url: https://platform.claude.com/docs/en/api/cli/beta/deployments/create
+---
+
 # Create Deployment
 
 `$ ant beta:deployments create`
@@ -60,11 +65,19 @@ Create Deployment
 
   Header param: Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ## Returns
 
 - `beta_managed_agents_deployment: object`
 
   A deployment is a configured instance of an agent — it binds the agent to everything needed to run it autonomously: an environment, credentials, initial events, and an optional schedule.
+
+  - `type: "deployment"`
 
   - `id: string`
 
@@ -74,9 +87,9 @@ Create Deployment
 
     A resolved agent reference with a concrete version.
 
-    - `id: string`
-
     - `type: "agent"`
+
+    - `id: string`
 
     - `version: number`
 
@@ -110,6 +123,8 @@ Create Deployment
 
       A user message sent to the session.
 
+      - `type: "user.message"`
+
       - `content: array of BetaManagedAgentsTextBlock or BetaManagedAgentsImageBlock or BetaManagedAgentsDocumentBlock or BetaManagedAgentsRedactedBlock`
 
         Array of content blocks for the user message.
@@ -118,17 +133,19 @@ Create Deployment
 
           Regular text content.
 
+          - `type: "text"`
+
           - `text: string`
 
             The text content.
 
             minLength: 1
 
-          - `type: "text"`
-
         - `beta_managed_agents_image_block: object`
 
           Image content specified directly as base64 data or as a reference via a URL.
+
+          - `type: "image"`
 
           - `source: BetaManagedAgentsBase64ImageSource or BetaManagedAgentsURLImageSource or BetaManagedAgentsFileImageSource`
 
@@ -137,6 +154,8 @@ Create Deployment
             - `beta_managed_agents_base64_image_source: object`
 
               Base64-encoded image data.
+
+              - `type: "base64"`
 
               - `data: string`
 
@@ -149,8 +168,6 @@ Create Deployment
                 MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
 
                 minLength: 1
-
-              - `type: "base64"`
 
             - `beta_managed_agents_url_image_source: object`
 
@@ -168,19 +185,19 @@ Create Deployment
 
               Image referenced by file ID.
 
+              - `type: "file"`
+
               - `file_id: string`
 
                 ID of a previously uploaded file.
 
                 minLength: 1
 
-              - `type: "file"`
-
-          - `type: "image"`
-
         - `beta_managed_agents_document_block: object`
 
           Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+          - `type: "document"`
 
           - `source: BetaManagedAgentsBase64DocumentSource or BetaManagedAgentsPlainTextDocumentSource or BetaManagedAgentsURLDocumentSource or BetaManagedAgentsFileDocumentSource`
 
@@ -189,6 +206,8 @@ Create Deployment
             - `beta_managed_agents_base64_document_source: object`
 
               Base64-encoded document data.
+
+              - `type: "base64"`
 
               - `data: string`
 
@@ -202,11 +221,11 @@ Create Deployment
 
                 minLength: 1
 
-              - `type: "base64"`
-
             - `beta_managed_agents_plain_text_document_source: object`
 
               Plain text document content.
+
+              - `type: "text"`
 
               - `data: string`
 
@@ -217,8 +236,6 @@ Create Deployment
               - `media_type: "text/plain"`
 
                 MIME type of the text content. Must be "text/plain".
-
-              - `type: "text"`
 
             - `beta_managed_agents_url_document_source: object`
 
@@ -236,15 +253,13 @@ Create Deployment
 
               Document referenced by file ID.
 
+              - `type: "file"`
+
               - `file_id: string`
 
                 ID of a previously uploaded file.
 
                 minLength: 1
-
-              - `type: "file"`
-
-          - `type: "document"`
 
           - `context: optional string`
 
@@ -260,11 +275,11 @@ Create Deployment
 
           - `type: "redacted"`
 
-      - `type: "user.message"`
-
     - `beta_managed_agents_deployment_user_define_outcome_event: object`
 
       An outcome the agent should work toward. The agent begins work on receipt.
+
+      - `type: "user.define_outcome"`
 
       - `description: string`
 
@@ -278,23 +293,21 @@ Create Deployment
 
           Rubric referenced by a file uploaded via the Files API.
 
+          - `type: "file"`
+
           - `file_id: string`
 
             ID of the rubric file.
-
-          - `type: "file"`
 
         - `beta_managed_agents_text_rubric: object`
 
           Rubric content provided inline as text.
 
+          - `type: "text"`
+
           - `content: string`
 
             Rubric content. Plain text or markdown — the grader treats it as freeform text.
-
-          - `type: "text"`
-
-      - `type: "user.define_outcome"`
 
       - `max_iterations: optional number`
 
@@ -306,19 +319,19 @@ Create Deployment
 
       Privileged context for the accompanying turn and all subsequent turns, appended to the session's system context as a `role: "system"` turn rather than replacing the top-level system prompt.
 
+      - `type: "system.message"`
+
       - `content: array of BetaManagedAgentsSystemContentBlock`
 
         System content blocks to append. Text-only.
+
+        - `type: "text"`
 
         - `text: string`
 
           The text content.
 
           minLength: 1
-
-        - `type: "text"`
-
-      - `type: "system.message"`
 
   - `metadata: map[string]`
 
@@ -341,6 +354,8 @@ Create Deployment
     - `beta_managed_agents_error_deployment_paused_reason: object`
 
       A scheduled fire recorded a failed run whose error auto-pauses the deployment.
+
+      - `type: "error"`
 
       - `error: BetaManagedAgentsEnvironmentArchivedDeploymentPausedReasonError or BetaManagedAgentsAgentArchivedDeploymentPausedReasonError or BetaManagedAgentsEnvironmentNotFoundDeploymentPausedReasonError or 11 more`
 
@@ -430,8 +445,6 @@ Create Deployment
 
           - `type: "mcp_egress_blocked_error"`
 
-      - `type: "error"`
-
   - `resources: array of BetaManagedAgentsSessionResourceConfig`
 
     Resources attached to sessions created from this deployment. Echoes the input minus write-only credentials.
@@ -452,23 +465,23 @@ Create Deployment
 
         - `beta_managed_agents_branch_checkout: object`
 
+          - `type: "branch"`
+
           - `name: string`
 
             Branch name to check out.
 
             minLength: 1, maxLength: 255
 
-          - `type: "branch"`
-
         - `beta_managed_agents_commit_checkout: object`
+
+          - `type: "commit"`
 
           - `sha: string`
 
             Full commit SHA to check out.
 
             minLength: 7, maxLength: 64
-
-          - `type: "commit"`
 
       - `mount_path: optional string`
 
@@ -478,11 +491,11 @@ Create Deployment
 
       A file mounted into each session's container.
 
+      - `type: "file"`
+
       - `file_id: string`
 
         ID of a previously uploaded file.
-
-      - `type: "file"`
 
       - `mount_path: optional string`
 
@@ -492,11 +505,11 @@ Create Deployment
 
       A memory store attached to each session created from this deployment.
 
+      - `type: "memory_store"`
+
       - `memory_store_id: string`
 
         The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
-
-      - `type: "memory_store"`
 
       - `access: optional "read_write" or "read_only"`
 
@@ -514,6 +527,8 @@ Create Deployment
 
     5-field POSIX cron schedule with computed runtime timestamps.
 
+    - `type: "cron"`
+
     - `expression: string`
 
       5-field POSIX cron expression: minute hour day-of-month month day-of-week (e.g., "0 9 * * 1-5" for weekdays at 9am). Day-of-week is 0-7 where 0 and 7 both mean Sunday. Extended cron syntax - seconds or year fields, and the special characters L, W, #, and ? - is not supported, nor are predefined shortcuts (@daily).
@@ -525,8 +540,6 @@ Create Deployment
       IANA timezone identifier (e.g., "America/Los_Angeles", "UTC").
 
       minLength: 1
-
-    - `type: "cron"`
 
     - `last_run_at: optional string`
 
@@ -546,8 +559,6 @@ Create Deployment
 
     - `"paused"`
 
-  - `type: "deployment"`
-
   - `updated_at: string`
 
     A timestamp in RFC 3339 format
@@ -562,6 +573,8 @@ Create Deployment
 
     A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
 
+    - `type: "limit"`
+
     - `max_list_cost: object`
 
       A monetary amount in a specific currency.
@@ -573,8 +586,6 @@ Create Deployment
       - `currency: "USD"`
 
         Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
-
-    - `type: "limit"`
 
 ## Example
 

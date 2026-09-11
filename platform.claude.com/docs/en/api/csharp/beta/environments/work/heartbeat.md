@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/csharp/beta/environments/work/heartbeat -->
 
+---
+title: Record Heartbeat
+url: https://platform.claude.com/docs/en/api/csharp/beta/environments/work/heartbeat
+---
+
 # Record Heartbeat
 
 `BetaSelfHostedWorkHeartbeatResponse Beta.Environments.Work.Heartbeat(parameters, cancellationToken = default)`
@@ -80,6 +85,8 @@ Record a heartbeat for a work item to maintain the lease.
 
     - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
 
+    - `UserProfiles2026_09_04("user-profiles-2026-09-04")`
+
     - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
 
     - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
@@ -128,6 +135,10 @@ Record a heartbeat for a work item to maintain the lease.
 
   Response after recording a heartbeat for a work item.
 
+  - `JsonElement Type = "work_heartbeat"`
+
+    The type of response
+
   - `required string LastHeartbeat`
 
     RFC 3339 timestamp of the actual heartbeat from DB
@@ -153,10 +164,6 @@ Record a heartbeat for a work item to maintain the lease.
   - `required long TtlSeconds`
 
     Effective TTL applied to the lease
-
-  - `JsonElement Type = "work_heartbeat"`
-
-    The type of response
 
 ## Example
 

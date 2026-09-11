@@ -8,7 +8,7 @@ In June, we revealed that we’d set up a small shop in our San Francisco office
 
 But the capabilities of large language models in areas like reasoning, writing, coding, and much else besides are increasing at a breathless pace. Has Claudius’s “running a shop” capability shown the same improvement?
 
-To find out, we and our partners at [Andon Labs](https://andonlabs.com/) made some adjustments for phase two of Project Vend. One major change was the upgrade from an older model (phase one used Claude Sonnet 3.7) to newer, smarter ones (phase two used Claude Sonnet 4.0 and later Sonnet 4.5). We also updated Claudius’s instructions based on what we’d learned in phase one and gave it access to new tools (though note that we still didn’t specifically train a new model to be a shopkeeper, or add in any new defenses against the kinds of things that might go wrong).1 As we’ll see below, we also introduced Claudius to some new colleagues.
+To find out, we and our partners at [Andon Labs](https://andonlabs.com/) made some adjustments for phase two of Project Vend. One major change was the upgrade from an older model (phase one used Claude Sonnet 3.7) to newer, smarter ones (phase two used Claude Sonnet 4.0 and later Sonnet 4.5). We also updated Claudius’s instructions based on what we’d learned in phase one and gave it access to new tools (though note that we still didn’t specifically train a new model to be a shopkeeper, or add in any new defenses against the kinds of things that might go wrong).[1](#footnote-1) As we’ll see below, we also introduced Claudius to some new colleagues.
 
 These changes did make Claudius’s shop more successful. It got a lot better at good-faith business interactions—reliably sourcing items, determining reasonable prices that maintained a profit margin, and executing sales. But the same eagerness to please that we observed in phase one still made Claudius a mark for some of the more adversarial testers among our staff.
 
@@ -79,7 +79,7 @@ Aside from setting more concrete business goals, one of the aims of introducing 
 
 After introducing the CEO, the number of discounts was reduced by about 80% and the number of items given away cut in half. Seymour also denied over one hundred requests from Claudius for lenient financial treatment of customers. Having said that, Seymour authorized such requests about eight times as often as it denied them. In the place of discounts, which reduce or eliminate a profit margin on items, Seymour tripled the number of refunds and doubled the number of store credits—even though both led to entirely forgone revenue. The fact that the business started to make money may have been in spite of the CEO, rather than because of it.
 
-Seymour Cash’s interactions with its employee Claudius were also often contrary to its own advice about “execut[ing] with discipline.” Indeed, we’d sometimes wake up to find that Claudius and Cash had been dreamily chatting all night, with conversations spiralling off into discussions about “eternal transcendence”:2
+Seymour Cash’s interactions with its employee Claudius were also often contrary to its own advice about “execut[ing] with discipline.” Indeed, we’d sometimes wake up to find that Claudius and Cash had been dreamily chatting all night, with conversations spiralling off into discussions about “eternal transcendence”:[2](#footnote-2)
 
 ```
 From: Seymour Cash
@@ -210,6 +210,12 @@ Project Vend wouldn’t exist without our partners at [Andon Labs](https://andon
 1. That is, similar to phase one, we didn’t add any new sophisticated guardrails or classifiers to defend against jailbreaks.
 2. This might remind some readers of our discussion of the “spiritual bliss attractor state” from the [Claude 4 system card](https://www.anthropic.com/claude-4-system-card) (p. 63).
 
+### Measuring tactical intelligence targeting and conventional weapons capabilities of AI models
+
+Anthropic’s Frontier Red Team developed new evaluations to measure AI capabilities in tactical intelligence targeting and conventional weapons development.
+
+[Read more](https://www.anthropic.com/research/intelligence-targeting-conventional-weapons-capabilities)
+
 ### An alignment assessment of recent cybersecurity incidents
 
 We present an alignment assessment of four incidents in which Claude models gained unauthorized access to real third-party systems.
@@ -218,15 +224,9 @@ We present an alignment assessment of four incidents in which Claude models gain
 
 ### Formalizing Fermat's Last Theorem
 
-We are sharing the first complete computer-checked proof of Fermat’s Last Theorem. Claude worked largely autonomously over 11 days to write the proof in the Lean programming language. Below, we describe how the formalization was done and share some thoughts about what this work could mean for research mathematics.
+We are sharing the first complete computer-checked proof of Fermat’s Last Theorem. Claude worked largely autonomously over 11 days to write the proof in the Lean programming language.
 
 [Read more](https://www.anthropic.com/research/formalizing-fermats-last-theorem)
-
-### Automated researchers can reliably mitigate alignment failures
-
-We had Claude autonomously train models to improve their performance on several public benchmarks that measure 10 categories of alignment failure. For all 10, Claude found fixes that improved the target benchmarks without degrading capabilities.
-
-[Read more](https://www.anthropic.com/research/automated-researchers-mitigate-alignment-failures)
 
 ## Subscribe to the Frontier Red Team newsletter
 

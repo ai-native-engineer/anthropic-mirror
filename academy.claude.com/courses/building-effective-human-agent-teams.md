@@ -8,7 +8,7 @@ Explore the benefits of moving from single-player to multiplayer AI and learn ho
 
 5 lessons45 min1 quizCompletion badge
 
-[Start course](https://academy.claude.com/courses/building-effective-human-agent-teams/why-multiplayer-ai-matters)[Sign in to save progress](https://academy.claude.com/login?returnTo=https%3A%2F%2Facademy.claude.com%2Fcourses%2Fbuilding-effective-human-agent-teams)
+[Start course](https://academy.claude.com/courses/building-effective-human-agent-teams/why-multiplayer-ai-matters)[Sign in to save progress](https://academy.claude.com/login?returnTo=%2Fcourses%2Fbuilding-effective-human-agent-teams)
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-n6mhsfmo.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-fp5skept.png)
 

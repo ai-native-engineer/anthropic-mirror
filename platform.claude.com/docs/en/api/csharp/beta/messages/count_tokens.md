@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/csharp/beta/messages/count_tokens -->
 
+---
+title: Count tokens in a Message
+url: https://platform.claude.com/docs/en/api/csharp/beta/messages/count_tokens
+---
+
 # Count tokens in a Message
 
 `BetaMessageTokensCount Beta.Messages.CountTokens(parameters, cancellationToken = default)`
@@ -75,11 +80,11 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `class BetaTextBlockParam:`
 
+          - `JsonElement Type = "text"`
+
           - `required string Text`
 
             minLength: 1
-
-          - `JsonElement Type = "text"`
 
           - `BetaCacheControlEphemeral? CacheControl`
 
@@ -106,6 +111,8 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             - `class BetaCitationCharLocationParam:`
 
+              - `JsonElement Type = "char_location"`
+
               - `required string CitedText`
 
               - `required long DocumentIndex`
@@ -122,9 +129,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 minimum: 0
 
-              - `JsonElement Type = "char_location"`
-
             - `class BetaCitationPageLocationParam:`
+
+              - `JsonElement Type = "page_location"`
 
               - `required string CitedText`
 
@@ -142,9 +149,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 minimum: 1
 
-              - `JsonElement Type = "page_location"`
-
             - `class BetaCitationContentBlockLocationParam:`
+
+              - `JsonElement Type = "content_block_location"`
 
               - `required string CitedText`
 
@@ -172,9 +179,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 minimum: 0
 
-              - `JsonElement Type = "content_block_location"`
-
             - `class BetaCitationWebSearchResultLocationParam:`
+
+              - `JsonElement Type = "web_search_result_location"`
 
               - `required string CitedText`
 
@@ -184,13 +191,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 maxLength: 512, minLength: 1
 
-              - `JsonElement Type = "web_search_result_location"`
-
               - `required string Url`
 
                 minLength: 1
 
             - `class BetaCitationSearchResultLocationParam:`
+
+              - `JsonElement Type = "search_result_location"`
 
               - `required string CitedText`
 
@@ -222,13 +229,15 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `required string? Title`
 
-              - `JsonElement Type = "search_result_location"`
-
         - `class BetaImageBlockParam:`
+
+          - `JsonElement Type = "image"`
 
           - `required Source Source`
 
             - `class BetaBase64ImageSource:`
+
+              - `JsonElement Type = "base64"`
 
               - `required string Data`
 
@@ -244,8 +253,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 - `ImageWebP("image/webp")`
 
-              - `JsonElement Type = "base64"`
-
             - `class BetaUrlImageSource:`
 
               - `JsonElement Type = "url"`
@@ -254,11 +261,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             - `class BetaFileImageSource:`
 
-              - `required string FileID`
-
               - `JsonElement Type = "file"`
 
-          - `JsonElement Type = "image"`
+              - `required string FileID`
 
           - `BetaCacheControlEphemeral? CacheControl`
 
@@ -278,9 +283,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `class BetaRequestDocumentBlock:`
 
+          - `JsonElement Type = "document"`
+
           - `required Source Source`
 
             - `class BetaBase64PdfSource:`
+
+              - `JsonElement Type = "base64"`
 
               - `required string Data`
 
@@ -288,17 +297,17 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `JsonElement MediaType = "application/pdf"`
 
-              - `JsonElement Type = "base64"`
-
             - `class BetaPlainTextSource:`
+
+              - `JsonElement Type = "text"`
 
               - `required string Data`
 
               - `JsonElement MediaType = "text/plain"`
 
-              - `JsonElement Type = "text"`
-
             - `class BetaContentBlockSource:`
+
+              - `JsonElement Type = "content"`
 
               - `required Content Content`
 
@@ -310,8 +319,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                   - `class BetaImageBlockParam:`
 
-              - `JsonElement Type = "content"`
-
             - `class BetaUrlPdfSource:`
 
               - `JsonElement Type = "url"`
@@ -320,11 +327,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             - `class BetaFileDocumentSource:`
 
-              - `required string FileID`
-
               - `JsonElement Type = "file"`
 
-          - `JsonElement Type = "document"`
+              - `required string FileID`
 
           - `BetaCacheControlEphemeral? CacheControl`
 
@@ -344,13 +349,15 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `class BetaSearchResultBlockParam:`
 
+          - `JsonElement Type = "search_result"`
+
           - `required IReadOnlyList<BetaTextBlockParam> Content`
+
+            - `JsonElement Type = "text"`
 
             - `required string Text`
 
               minLength: 1
-
-            - `JsonElement Type = "text"`
 
             - `BetaCacheControlEphemeral? CacheControl`
 
@@ -362,8 +369,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
           - `required string Title`
 
-          - `JsonElement Type = "search_result"`
-
           - `BetaCacheControlEphemeral? CacheControl`
 
             Create a cache control breakpoint at this content block.
@@ -371,6 +376,8 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
           - `BetaCitationsConfigParam Citations`
 
         - `class BetaThinkingBlockParam:`
+
+          - `JsonElement Type = "thinking"`
 
           - `required string Signature`
 
@@ -382,17 +389,17 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             The `thinking` text of this block as returned by the API.
 
-          - `JsonElement Type = "thinking"`
-
         - `class BetaRedactedThinkingBlockParam:`
+
+          - `JsonElement Type = "redacted_thinking"`
 
           - `required string Data`
 
             The `data` value of this redacted thinking block, exactly as returned by the API in a previous response. Opaque and encrypted; pass it back unchanged.
 
-          - `JsonElement Type = "redacted_thinking"`
-
         - `class BetaToolUseBlockParam:`
+
+          - `JsonElement Type = "tool_use"`
 
           - `required string ID`
 
@@ -403,8 +410,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
           - `required string Name`
 
             maxLength: 200, minLength: 1
-
-          - `JsonElement Type = "tool_use"`
 
           - `BetaCacheControlEphemeral? CacheControl`
 
@@ -424,19 +429,19 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               Tool invocation generated by a server-side tool.
 
+              - `JsonElement Type = "code_execution_20250825"`
+
               - `required string ToolID`
 
                 pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-              - `JsonElement Type = "code_execution_20250825"`
 
             - `class BetaServerToolCaller20260120:`
 
+              - `JsonElement Type = "code_execution_20260120"`
+
               - `required string ToolID`
 
                 pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-              - `JsonElement Type = "code_execution_20260120"`
 
           - `string? ToolsetName`
 
@@ -446,11 +451,11 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `class BetaToolResultBlockParam:`
 
+          - `JsonElement Type = "tool_result"`
+
           - `required string ToolUseID`
 
             pattern: ^[a-zA-Z0-9_-]+$
-
-          - `JsonElement Type = "tool_result"`
 
           - `BetaCacheControlEphemeral? CacheControl`
 
@@ -474,11 +479,11 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 Tool reference block that can be included in tool_result content.
 
+                - `JsonElement Type = "tool_reference"`
+
                 - `required string ToolName`
 
                   maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
-
-                - `JsonElement Type = "tool_reference"`
 
                 - `BetaCacheControlEphemeral? CacheControl`
 
@@ -493,6 +498,8 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
                 At most one per `tool_result`, only on a non-error result answering a
                 browser toolset member `tool_use`. The server renders the
                 model-visible text from it; the model never sees the raw fields.
+
+                - `JsonElement Type = "browser_state"`
 
                 - `required IReadOnlyList<BetaBrowserStateTabEntry> Tabs`
 
@@ -522,8 +529,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                     Whether this tab is the active tab after this call. Whenever `tabs` is non-empty, exactly one entry is marked `active: true`.
 
-                - `JsonElement Type = "browser_state"`
-
                 - `BetaCacheControlEphemeral? CacheControl`
 
                   Create a cache control breakpoint at this content block.
@@ -544,25 +549,25 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
                     during a failed call gets no deferred `tab_opened`; it simply appears
                     in the next result's `tabs` inventory.
 
+                    - `JsonElement Type = "tab_opened"`
+
                     - `required string TabID`
 
                       The `tab_id` of the opened tab, present in `tabs`.
 
                       maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-                    - `JsonElement Type = "tab_opened"`
-
                   - `class BetaBrowserStateChangeDownloadStarted:`
 
                     A file download that started during this call.
+
+                    - `JsonElement Type = "download_started"`
 
                     - `required string DownloadID`
 
                       The caller-assigned identifier for this download, stable across the state changes reporting it.
 
                       maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
-
-                    - `JsonElement Type = "download_started"`
 
                     - `required string Url`
 
@@ -577,13 +582,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
                     `download_started`, when the download finished during the call that
                     started it (at most one state change per `download_id` per result).
 
+                    - `JsonElement Type = "download_completed"`
+
                     - `required string DownloadID`
 
                       The caller-assigned identifier for this download, stable across the state changes reporting it.
 
                       maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
-
-                    - `JsonElement Type = "download_completed"`
 
                     - `required string Url`
 
@@ -607,13 +612,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                     A file download that failed — or was cancelled — during this call.
 
+                    - `JsonElement Type = "download_failed"`
+
                     - `required string DownloadID`
 
                       The caller-assigned identifier for this download, stable across the state changes reporting it.
 
                       maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
-
-                    - `JsonElement Type = "download_failed"`
 
                     - `required string Url`
 
@@ -636,6 +641,8 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
             maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
 
         - `class BetaServerToolUseBlockParam:`
+
+          - `JsonElement Type = "server_tool_use"`
 
           - `required string ID`
 
@@ -661,8 +668,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             - `ToolSearchToolBm25("tool_search_tool_bm25")`
 
-          - `JsonElement Type = "server_tool_use"`
-
           - `BetaCacheControlEphemeral? CacheControl`
 
             Create a cache control breakpoint at this content block.
@@ -683,21 +688,25 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `class BetaWebSearchToolResultBlockParam:`
 
+          - `JsonElement Type = "web_search_tool_result"`
+
           - `required BetaWebSearchToolResultBlockParamContent Content`
 
             - `IReadOnlyList<BetaWebSearchResultBlockParam>`
 
+              - `JsonElement Type = "web_search_result"`
+
               - `required string EncryptedContent`
 
               - `required string Title`
-
-              - `JsonElement Type = "web_search_result"`
 
               - `required string Url`
 
               - `string? PageAge`
 
             - `class BetaWebSearchToolRequestError:`
+
+              - `JsonElement Type = "web_search_tool_result_error"`
 
               - `required BetaWebSearchToolResultErrorCode ErrorCode`
 
@@ -713,13 +722,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 - `RequestTooLarge("request_too_large")`
 
-              - `JsonElement Type = "web_search_tool_result_error"`
-
           - `required string ToolUseID`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-          - `JsonElement Type = "web_search_tool_result"`
 
           - `BetaCacheControlEphemeral? CacheControl`
 
@@ -741,9 +746,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `class BetaWebFetchToolResultBlockParam:`
 
+          - `JsonElement Type = "web_fetch_tool_result"`
+
           - `required Content Content`
 
             - `class BetaWebFetchToolResultErrorBlockParam:`
+
+              - `JsonElement Type = "web_fetch_tool_result_error"`
 
               - `required BetaWebFetchToolResultErrorCode ErrorCode`
 
@@ -765,13 +774,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 - `Unavailable("unavailable")`
 
-              - `JsonElement Type = "web_fetch_tool_result_error"`
+                - `ContentTooLarge("content_too_large")`
 
             - `class BetaWebFetchBlockParam:`
 
-              - `required BetaRequestDocumentBlock Content`
-
               - `JsonElement Type = "web_fetch_result"`
+
+              - `required BetaRequestDocumentBlock Content`
 
               - `required string Url`
 
@@ -784,8 +793,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
           - `required string ToolUseID`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-          - `JsonElement Type = "web_fetch_tool_result"`
 
           - `BetaCacheControlEphemeral? CacheControl`
 
@@ -807,9 +814,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `class BetaAdvisorToolResultBlockParam:`
 
+          - `JsonElement Type = "advisor_tool_result"`
+
           - `required Content Content`
 
             - `class BetaAdvisorToolResultErrorParam:`
+
+              - `JsonElement Type = "advisor_tool_result_error"`
 
               - `required ErrorCode ErrorCode`
 
@@ -827,23 +838,21 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 - `ModelNotFound("model_not_found")`
 
-              - `JsonElement Type = "advisor_tool_result_error"`
-
             - `class BetaAdvisorResultBlockParam:`
 
-              - `required string Text`
-
               - `JsonElement Type = "advisor_result"`
+
+              - `required string Text`
 
               - `string? StopReason`
 
             - `class BetaAdvisorRedactedResultBlockParam:`
 
+              - `JsonElement Type = "advisor_redacted_result"`
+
               - `required string EncryptedContent`
 
                 Opaque blob produced by a prior response; must be round-tripped verbatim.
-
-              - `JsonElement Type = "advisor_redacted_result"`
 
               - `string? StopReason`
 
@@ -851,19 +860,21 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `JsonElement Type = "advisor_tool_result"`
-
           - `BetaCacheControlEphemeral? CacheControl`
 
             Create a cache control breakpoint at this content block.
 
         - `class BetaCodeExecutionToolResultBlockParam:`
 
+          - `JsonElement Type = "code_execution_tool_result"`
+
           - `required BetaCodeExecutionToolResultBlockParamContent Content`
 
             Code execution result with encrypted stdout for PFC + web_search results.
 
             - `class BetaCodeExecutionToolResultErrorParam:`
+
+              - `JsonElement Type = "code_execution_tool_result_error"`
 
               - `required BetaCodeExecutionToolResultErrorCode ErrorCode`
 
@@ -875,15 +886,15 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 - `ExecutionTimeExceeded("execution_time_exceeded")`
 
-              - `JsonElement Type = "code_execution_tool_result_error"`
-
             - `class BetaCodeExecutionResultBlockParam:`
+
+              - `JsonElement Type = "code_execution_result"`
 
               - `required IReadOnlyList<BetaCodeExecutionOutputBlockParam> Content`
 
-                - `required string FileID`
-
                 - `JsonElement Type = "code_execution_output"`
+
+                - `required string FileID`
 
               - `required long ReturnCode`
 
@@ -891,17 +902,17 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `required string Stdout`
 
-              - `JsonElement Type = "code_execution_result"`
-
             - `class BetaEncryptedCodeExecutionResultBlockParam:`
 
               Code execution result with encrypted stdout for PFC + web_search results.
 
+              - `JsonElement Type = "encrypted_code_execution_result"`
+
               - `required IReadOnlyList<BetaCodeExecutionOutputBlockParam> Content`
 
-                - `required string FileID`
-
                 - `JsonElement Type = "code_execution_output"`
+
+                - `required string FileID`
 
               - `required string EncryptedStdout`
 
@@ -909,13 +920,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `required string Stderr`
 
-              - `JsonElement Type = "encrypted_code_execution_result"`
-
           - `required string ToolUseID`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-          - `JsonElement Type = "code_execution_tool_result"`
 
           - `BetaCacheControlEphemeral? CacheControl`
 
@@ -923,9 +930,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `class BetaBashCodeExecutionToolResultBlockParam:`
 
+          - `JsonElement Type = "bash_code_execution_tool_result"`
+
           - `required Content Content`
 
             - `class BetaBashCodeExecutionToolResultErrorParam:`
+
+              - `JsonElement Type = "bash_code_execution_tool_result_error"`
 
               - `required ErrorCode ErrorCode`
 
@@ -939,15 +950,15 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 - `OutputFileTooLarge("output_file_too_large")`
 
-              - `JsonElement Type = "bash_code_execution_tool_result_error"`
-
             - `class BetaBashCodeExecutionResultBlockParam:`
+
+              - `JsonElement Type = "bash_code_execution_result"`
 
               - `required IReadOnlyList<BetaBashCodeExecutionOutputBlockParam> Content`
 
-                - `required string FileID`
-
                 - `JsonElement Type = "bash_code_execution_output"`
+
+                - `required string FileID`
 
               - `required long ReturnCode`
 
@@ -955,13 +966,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `required string Stdout`
 
-              - `JsonElement Type = "bash_code_execution_result"`
-
           - `required string ToolUseID`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-          - `JsonElement Type = "bash_code_execution_tool_result"`
 
           - `BetaCacheControlEphemeral? CacheControl`
 
@@ -969,9 +976,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `class BetaTextEditorCodeExecutionToolResultBlockParam:`
 
+          - `JsonElement Type = "text_editor_code_execution_tool_result"`
+
           - `required Content Content`
 
             - `class BetaTextEditorCodeExecutionToolResultErrorParam:`
+
+              - `JsonElement Type = "text_editor_code_execution_tool_result_error"`
 
               - `required ErrorCode ErrorCode`
 
@@ -985,11 +996,11 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 - `FileNotFound("file_not_found")`
 
-              - `JsonElement Type = "text_editor_code_execution_tool_result_error"`
-
               - `string? ErrorMessage`
 
             - `class BetaTextEditorCodeExecutionViewResultBlockParam:`
+
+              - `JsonElement Type = "text_editor_code_execution_view_result"`
 
               - `required string Content`
 
@@ -1001,8 +1012,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 - `Pdf("pdf")`
 
-              - `JsonElement Type = "text_editor_code_execution_view_result"`
-
               - `long? NumLines`
 
               - `long? StartLine`
@@ -1011,9 +1020,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             - `class BetaTextEditorCodeExecutionCreateResultBlockParam:`
 
-              - `required bool IsFileUpdate`
-
               - `JsonElement Type = "text_editor_code_execution_create_result"`
+
+              - `required bool IsFileUpdate`
 
             - `class BetaTextEditorCodeExecutionStrReplaceResultBlockParam:`
 
@@ -1033,17 +1042,19 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `JsonElement Type = "text_editor_code_execution_tool_result"`
-
           - `BetaCacheControlEphemeral? CacheControl`
 
             Create a cache control breakpoint at this content block.
 
         - `class BetaToolSearchToolResultBlockParam:`
 
+          - `JsonElement Type = "tool_search_tool_result"`
+
           - `required Content Content`
 
             - `class BetaToolSearchToolResultErrorParam:`
+
+              - `JsonElement Type = "tool_search_tool_result_error"`
 
               - `required ErrorCode ErrorCode`
 
@@ -1055,37 +1066,35 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 - `ExecutionTimeExceeded("execution_time_exceeded")`
 
-              - `JsonElement Type = "tool_search_tool_result_error"`
-
               - `string? ErrorMessage`
 
             - `class BetaToolSearchToolSearchResultBlockParam:`
 
+              - `JsonElement Type = "tool_search_tool_search_result"`
+
               - `required IReadOnlyList<BetaToolReferenceBlockParam> ToolReferences`
+
+                - `JsonElement Type = "tool_reference"`
 
                 - `required string ToolName`
 
                   maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
-                - `JsonElement Type = "tool_reference"`
-
                 - `BetaCacheControlEphemeral? CacheControl`
 
                   Create a cache control breakpoint at this content block.
 
-              - `JsonElement Type = "tool_search_tool_search_result"`
-
           - `required string ToolUseID`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-          - `JsonElement Type = "tool_search_tool_result"`
 
           - `BetaCacheControlEphemeral? CacheControl`
 
             Create a cache control breakpoint at this content block.
 
         - `class BetaMcpToolUseBlockParam:`
+
+          - `JsonElement Type = "mcp_tool_use"`
 
           - `required string ID`
 
@@ -1099,19 +1108,17 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             The name of the MCP server
 
-          - `JsonElement Type = "mcp_tool_use"`
-
           - `BetaCacheControlEphemeral? CacheControl`
 
             Create a cache control breakpoint at this content block.
 
         - `class BetaRequestMcpToolResultBlockParam:`
 
+          - `JsonElement Type = "mcp_tool_result"`
+
           - `required string ToolUseID`
 
             pattern: ^[a-zA-Z0-9_-]+$
-
-          - `JsonElement Type = "mcp_tool_result"`
 
           - `BetaCacheControlEphemeral? CacheControl`
 
@@ -1123,11 +1130,11 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             - `IReadOnlyList<BetaTextBlockParam>`
 
+              - `JsonElement Type = "text"`
+
               - `required string Text`
 
                 minLength: 1
-
-              - `JsonElement Type = "text"`
 
               - `BetaCacheControlEphemeral? CacheControl`
 
@@ -1142,9 +1149,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
           A content block that represents a file to be uploaded to the container
           Files uploaded via this block will be available in the container's input directory.
 
-          - `required string FileID`
-
           - `JsonElement Type = "container_upload"`
+
+          - `required string FileID`
 
           - `BetaCacheControlEphemeral? CacheControl`
 
@@ -1182,6 +1189,8 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
           `tools`; it is offered to the model from this point in the
           conversation onward.
 
+          - `JsonElement Type = "tool_addition"`
+
           - `required Tool Tool`
 
             Reference to a single tool the caller declared directly in
@@ -1196,32 +1205,30 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
               server assigns to MCP-resolved tools — use `mcp_tool_reference` or
               `mcp_toolset_reference` for those.
 
+              - `JsonElement Type = "tool_reference"`
+
               - `required string Name`
 
                 pattern: ^[a-zA-Z0-9_-]{1,128}$
-
-              - `JsonElement Type = "tool_reference"`
 
             - `class BetaToolChangeMcpToolReference:`
 
               Reference to a single MCP tool by its server and remote name — the
               same `server_name`/`name` pair `mcp_tool_use` carries.
 
+              - `JsonElement Type = "mcp_tool_reference"`
+
               - `required string Name`
 
               - `required string ServerName`
-
-              - `JsonElement Type = "mcp_tool_reference"`
 
             - `class BetaToolChangeMcpToolsetReference:`
 
               Reference to every tool in the named MCP server's toolset.
 
-              - `required string ServerName`
-
               - `JsonElement Type = "mcp_toolset_reference"`
 
-          - `JsonElement Type = "tool_addition"`
+              - `required string ServerName`
 
           - `BetaCacheControlEphemeral? CacheControl`
 
@@ -1235,6 +1242,8 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
           `tools`; it is no longer offered to the model from this point in the
           conversation onward.
 
+          - `JsonElement Type = "tool_removal"`
+
           - `required Tool Tool`
 
             Reference to a single tool the caller declared directly in
@@ -1257,8 +1266,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
             - `class BetaToolChangeMcpToolsetReference:`
 
               Reference to every tool in the named MCP server's toolset.
-
-          - `JsonElement Type = "tool_removal"`
 
           - `BetaCacheControlEphemeral? CacheControl`
 
@@ -1279,6 +1286,8 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
           request is rejected), and moving it into the middle of a single run is
           likewise rejected; between non-thinking blocks the block's placement has
           no validation effect.
+
+          - `JsonElement Type = "fallback"`
 
           - `required BetaFallbackInfoParam From`
 
@@ -1362,8 +1371,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             Identifies one hop of a fallback transition.
 
-          - `JsonElement Type = "fallback"`
-
           - `JsonElement Trigger`
 
             The response block's `trigger`, echoed verbatim. Accepted and ignored by the server; any object or `null` is allowed.
@@ -1428,9 +1435,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     maxItems: 20
 
-    - `required string Name`
-
     - `JsonElement Type = "url"`
+
+    - `required string Name`
 
     - `required string Url`
 
@@ -1464,11 +1471,11 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `IReadOnlyList<BetaTextBlockParam>`
 
+      - `JsonElement Type = "text"`
+
       - `required string Text`
 
         minLength: 1
-
-      - `JsonElement Type = "text"`
 
       - `BetaCacheControlEphemeral? CacheControl`
 
@@ -1554,6 +1561,8 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `class BetaTool:`
 
+      - `Type? Type`
+
       - `required InputSchema InputSchema`
 
         [JSON schema](https://json-schema.org/draft/2020-12) for this tool's input.
@@ -1608,17 +1617,15 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         When true, guarantees schema validation on tool names and inputs
 
-      - `Type? Type`
-
     - `class BetaToolBash20241022:`
+
+      - `JsonElement Type = "bash_20241022"`
 
       - `JsonElement Name = "bash"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonElement Type = "bash_20241022"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
@@ -1646,13 +1653,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `class BetaToolBash20250124:`
 
+      - `JsonElement Type = "bash_20250124"`
+
       - `JsonElement Name = "bash"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonElement Type = "bash_20250124"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
@@ -1680,13 +1687,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `class BetaCodeExecutionTool20250522:`
 
+      - `JsonElement Type = "code_execution_20250522"`
+
       - `JsonElement Name = "code_execution"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonElement Type = "code_execution_20250522"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
@@ -1712,13 +1719,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `class BetaCodeExecutionTool20250825:`
 
+      - `JsonElement Type = "code_execution_20250825"`
+
       - `JsonElement Name = "code_execution"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonElement Type = "code_execution_20250825"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
@@ -1746,13 +1753,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       Code execution tool with REPL state persistence (daemon mode + gVisor checkpoint).
 
+      - `JsonElement Type = "code_execution_20260120"`
+
       - `JsonElement Name = "code_execution"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonElement Type = "code_execution_20260120"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
@@ -1780,13 +1787,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       Code execution tool with REPL state persistence.
 
+      - `JsonElement Type = "code_execution_20260521"`
+
       - `JsonElement Name = "code_execution"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonElement Type = "code_execution_20260521"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
@@ -1831,6 +1838,18 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
         accepted key, and a member's defaults apply wherever its key is
         absent. Unknown keys are rejected: the field set is this toolset
         version's complete member set.
+
+        - `BetaBrowserTypeConfig? Type`
+
+          `type`'s config overrides.
+
+          - `bool? DeferLoading`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `bool? Enabled`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
         - `BetaBrowserCloseTabConfig? CloseTab`
 
@@ -2168,18 +2187,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-        - `BetaBrowserTypeConfig? Type`
-
-          `type`'s config overrides.
-
-          - `bool? DeferLoading`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `bool? Enabled`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
         - `BetaBrowserWaitConfig? Wait`
 
           `wait`'s config overrides.
@@ -2206,6 +2213,8 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `class BetaToolComputerUse20241022:`
 
+      - `JsonElement Type = "computer_20241022"`
+
       - `required long DisplayHeightPx`
 
         The height of the display in pixels.
@@ -2223,8 +2232,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonElement Type = "computer_20241022"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
@@ -2258,13 +2265,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `class BetaMemoryTool20250818:`
 
+      - `JsonElement Type = "memory_20250818"`
+
       - `JsonElement Name = "memory"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonElement Type = "memory_20250818"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
@@ -2292,6 +2299,8 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `class BetaToolComputerUse20250124:`
 
+      - `JsonElement Type = "computer_20250124"`
+
       - `required long DisplayHeightPx`
 
         The height of the display in pixels.
@@ -2309,8 +2318,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonElement Type = "computer_20250124"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
@@ -2344,13 +2351,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `class BetaToolTextEditor20241022:`
 
+      - `JsonElement Type = "text_editor_20241022"`
+
       - `JsonElement Name = "str_replace_editor"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonElement Type = "text_editor_20241022"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
@@ -2378,6 +2385,8 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `class BetaToolComputerUse20251124:`
 
+      - `JsonElement Type = "computer_20251124"`
+
       - `required long DisplayHeightPx`
 
         The height of the display in pixels.
@@ -2395,8 +2404,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonElement Type = "computer_20251124"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
@@ -2457,6 +2464,18 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
         accepted key, and a member's defaults apply wherever its key is
         absent. Unknown keys are rejected: the field set is this toolset
         version's complete member set.
+
+        - `BetaComputerTypeConfig? Type`
+
+          `type`'s config overrides.
+
+          - `bool? DeferLoading`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `bool? Enabled`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
         - `BetaComputerCursorPositionConfig? CursorPosition`
 
@@ -2626,18 +2645,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-        - `BetaComputerTypeConfig? Type`
-
-          `type`'s config overrides.
-
-          - `bool? DeferLoading`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `bool? Enabled`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
         - `BetaComputerWaitConfig? Wait`
 
           `wait`'s config overrides.
@@ -2664,13 +2671,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `class BetaToolTextEditor20250124:`
 
+      - `JsonElement Type = "text_editor_20250124"`
+
       - `JsonElement Name = "str_replace_editor"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonElement Type = "text_editor_20250124"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
@@ -2698,13 +2705,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `class BetaToolTextEditor20250429:`
 
+      - `JsonElement Type = "text_editor_20250429"`
+
       - `JsonElement Name = "str_replace_based_edit_tool"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonElement Type = "text_editor_20250429"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
@@ -2732,13 +2739,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `class BetaToolTextEditor20250728:`
 
+      - `JsonElement Type = "text_editor_20250728"`
+
       - `JsonElement Name = "str_replace_based_edit_tool"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonElement Type = "text_editor_20250728"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
@@ -2772,13 +2779,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `class BetaWebSearchTool20250305:`
 
+      - `JsonElement Type = "web_search_20250305"`
+
       - `JsonElement Name = "web_search"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonElement Type = "web_search_20250305"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
@@ -2848,13 +2855,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `class BetaWebFetchTool20250910:`
 
+      - `JsonElement Type = "web_fetch_20250910"`
+
       - `JsonElement Name = "web_fetch"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonElement Type = "web_fetch_20250910"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
@@ -2904,13 +2911,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `class BetaWebSearchTool20260209:`
 
+      - `JsonElement Type = "web_search_20260209"`
+
       - `JsonElement Name = "web_search"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonElement Type = "web_search_20260209"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
@@ -2954,13 +2961,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `class BetaWebFetchTool20260209:`
 
+      - `JsonElement Type = "web_fetch_20260209"`
+
       - `JsonElement Name = "web_fetch"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonElement Type = "web_fetch_20260209"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
@@ -3012,13 +3019,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       Web fetch tool with use_cache parameter for bypassing cached content.
 
+      - `JsonElement Type = "web_fetch_20260309"`
+
       - `JsonElement Name = "web_fetch"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonElement Type = "web_fetch_20260309"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
@@ -3072,13 +3079,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `class BetaWebSearchTool20260318:`
 
+      - `JsonElement Type = "web_search_20260318"`
+
       - `JsonElement Name = "web_search"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonElement Type = "web_search_20260318"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
@@ -3130,13 +3137,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `class BetaWebFetchTool20260318:`
 
+      - `JsonElement Type = "web_fetch_20260318"`
+
       - `JsonElement Name = "web_fetch"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonElement Type = "web_fetch_20260318"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
@@ -3198,6 +3205,8 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `class BetaAdvisorTool20260301:`
 
+      - `JsonElement Type = "advisor_20260301"`
+
       - `required Model Model`
 
         The model that will complete your prompt.
@@ -3209,8 +3218,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonElement Type = "advisor_20260301"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
@@ -3252,17 +3259,17 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `class BetaToolSearchToolBm25_20251119:`
 
-      - `JsonElement Name = "tool_search_tool_bm25"`
-
-        Name of the tool.
-
-        This is how the tool will be called by the model and in `tool_use` blocks.
-
       - `required Type Type`
 
         - `ToolSearchToolBm25_20251119("tool_search_tool_bm25_20251119")`
 
         - `ToolSearchToolBm25("tool_search_tool_bm25")`
+
+      - `JsonElement Name = "tool_search_tool_bm25"`
+
+        Name of the tool.
+
+        This is how the tool will be called by the model and in `tool_use` blocks.
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
@@ -3288,17 +3295,17 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `class BetaToolSearchToolRegex20251119:`
 
-      - `JsonElement Name = "tool_search_tool_regex"`
-
-        Name of the tool.
-
-        This is how the tool will be called by the model and in `tool_use` blocks.
-
       - `required Type Type`
 
         - `ToolSearchToolRegex20251119("tool_search_tool_regex_20251119")`
 
         - `ToolSearchToolRegex("tool_search_tool_regex")`
+
+      - `JsonElement Name = "tool_search_tool_regex"`
+
+        Name of the tool.
+
+        This is how the tool will be called by the model and in `tool_use` blocks.
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
@@ -3329,13 +3336,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
       Allows configuring enabled status and defer_loading for all tools
       from an MCP server, with optional per-tool overrides.
 
+      - `JsonElement Type = "mcp_toolset"`
+
       - `required string McpServerName`
 
         Name of the MCP server to configure tools for
 
         maxLength: 255, minLength: 1
-
-      - `JsonElement Type = "mcp_toolset"`
 
       - `BetaCacheControlEphemeral? CacheControl`
 
@@ -3407,6 +3414,8 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
 
+    - `UserProfiles2026_09_04("user-profiles-2026-09-04")`
+
     - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
 
     - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
@@ -3452,6 +3461,12 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
   - `string userProfileID`
 
     Header param: The user profile ID to attribute this request to. Use when acting on behalf of a party other than your organization. Requires the `user-profiles` beta header.
+
+  - `string workspaceID`
+
+    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
   - `BetaJsonOutputFormat? outputFormat`
 

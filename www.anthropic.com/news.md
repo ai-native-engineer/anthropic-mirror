@@ -14,23 +14,23 @@
 
 Our most advanced models for coding and knowledge work. Their research capabilities also offer an early glimpse of how AI models will contribute to scientific progress.](https://www.anthropic.com/claude-fable-and-mythos-5-1)](https://www.anthropic.com/claude-fable-and-mythos-5-1)
 
-[AnnouncementsAug 27, 2026
+[AnnouncementsSep 10, 2026
+
+#### Detecting and countering misuse of AI: September 2026
+
+Over the past eight months, our Threat Intelligence team identified and disrupted operations in which threat actors tried to use Claude for malicious activity. In this report, we share case studies from those operations and describe how malicious use of Claude has evolved since our previous threat reports in 2025.](https://www.anthropic.com/threat-intelligence-report-september-2026)[AnnouncementsAug 31, 2026
+
+#### Improving our alignment and security efforts
+
+On July 30, we reported three incidents in which Claude models gained unauthorized access to real computer systems. We are conducting an in-depth analysis of both incidents, and planning to work with METR for an independent review. In the meantime, we’re sharing some of the changes we’ve made over the past month.](https://www.anthropic.com/news/improving-alignment-security-efforts)[AnnouncementsAug 27, 2026
 
 #### Previewing the Model Hardware Standard
 
-We’re opening a research preview of the Model Hardware Standard (MHS), a shared specification for AI agents to safely operate physical devices, to a first group of scientific research labs and advanced manufacturers.](https://www.anthropic.com/news/model-hardware-standard-research-preview)[AnnouncementsAug 14, 2026
-
-#### How Claude’s text watermark works
-
-In this article, we share answers to some of the questions we’ve received about how our chosen watermarking method works, whether it affects Claude’s outputs, and why we’re making this change.](https://www.anthropic.com/news/claude-text-watermark)[ProductJul 24, 2026
+We’re opening a research preview of the Model Hardware Standard (MHS), a shared specification for AI agents to safely operate physical devices, to a first group of scientific research labs and advanced manufacturers.](https://www.anthropic.com/news/model-hardware-standard-research-preview)[ProductJul 24, 2026
 
 #### Introducing Claude Opus 5
 
-Opus 5 is a step change improvement for the Opus tier powering long-running agents while delivering improvements in coding and professional work.](https://www.anthropic.com/news/claude-opus-5)[FeaturesJul 6, 2026
-
-#### The Making of Claude Code
-
-The inside story of how Claude Code went from an internal CLI to Anthropic's coding agent, told by researchers, engineers and early users who built it.](https://www.anthropic.com/features/making-of-claude-code)
+Opus 5 is a step change improvement for the Opus tier powering long-running agents while delivering improvements in coding and professional work.](https://www.anthropic.com/news/claude-opus-5)
 
 ## News
 

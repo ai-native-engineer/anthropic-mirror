@@ -999,11 +999,12 @@ Have Claude respond in a language other than English by default. There is no fix
 
 ### `maxEffortLevel`
 
-Cap the [effort level](/docs/en/model-config#adjust-effort-level) a session can use, leaving lower levels available. Any higher level runs at the cap instead, including one from `/effort`, the `/model` picker, `--effort`, [`CLAUDE_CODE_EFFORT_LEVEL`](/docs/en/env-vars), or the model's own default. Claude Code applies the cap itself before each request, so it holds on every provider, including Amazon Bedrock, Google Cloud's Agent Platform, and Microsoft Foundry. Requires Claude Code v2.1.267 or later.
+Cap the [effort level](/docs/en/model-config#adjust-effort-level) a session can use, leaving lower levels available. Any higher level runs at the cap instead, including one from `/effort`, the `/model` picker, `--effort`, [`CLAUDE_CODE_EFFORT_LEVEL`](/docs/en/env-vars), a skill's or subagent's `effort` frontmatter, or the model's own default. Claude Code applies the cap itself before each request, so it holds on every provider, including Amazon Bedrock, Google Cloud's Agent Platform, and Microsoft Foundry. Requires Claude Code v2.1.267 or later.
 
 * **Scope**: [`Any file`](#scopes). Deploy it in managed settings to enforce it for an organization. When several scopes set a cap, the lowest applies, so a cap set in one scope can't be raised from another
 * **Type**: string, one of `"low"`, `"medium"`, `"high"`, `"xhigh"`, or `"max"`. A `"max"` value sets no cap
 * **Default**: unset, so no cap applies
+* **Effect on ultracode**: a cap below `xhigh` makes [ultracode](#ultracode) unavailable on the models the cap applies to
 * **Per-model caps**: add `maxEffortLevel` to a model's [`modelSettings`](#modelsettings) entry. That entry replaces this key for the model only within the settings source that sets both, such as your user settings or one [managed source](/docs/en/managed-settings#how-claude-code-combines-managed-sources). Set `"max"` there to exempt the model from that source's cap; Claude Code still applies caps from other sources
 
 This example caps every model at `medium` and exempts Sonnet 4.6:
@@ -2492,6 +2493,8 @@ Block domains for outbound traffic from sandboxed commands, using the same wildc
 ```
 
 Claude Code merges this list from every settings source the session loads even when `allowManagedDomainsOnly` is set, so a developer can always tighten the deny list. For IPv6 literals, see [IPv6 addresses in domain lists](/docs/en/sandboxing#ipv6-addresses-in-domain-lists).
+
+An entry written with the trailing dot that marks a fully qualified domain name, such as `example.com.`, blocks the same connections as `example.com`.
 
 ### `sandbox.network.strictAllowlist`
 
@@ -4082,7 +4085,7 @@ This example keeps a machine from downloading the account's skills, whatever a s
 Choose which [channel](/docs/en/channels) plugins can push messages into sessions in your organization. When you set it, Claude Code uses your list in place of the default Anthropic allowlist; each entry names a plugin and the marketplace it comes from.
 
 * **Scope**: [`Managed`](#scopes)
-* **Type**: array of objects, each with `marketplace` and `plugin` strings
+* **Type**: array of objects, each with `marketplace` and `plugin` strings. An entry can instead be a `"plugin@marketplace"` string such as `"telegram@claude-plugins-official"`, which Claude Code treats as the equivalent object. The string form requires Claude Code v2.1.267 or later; earlier versions reject the whole `allowedChannelPlugins` value when it contains one
 * **Default**: unset, so Claude Code uses the default Anthropic allowlist
 
 This example turns channels on and allows only the Telegram plugin from the official Anthropic marketplace:
@@ -4096,7 +4099,9 @@ This example turns channels on and allows only the Telegram plugin from the offi
 }
 ```
 
-An empty array blocks every channel plugin. This key takes effect once channels pass the [`channelsEnabled`](#channelsenabled) gate for the account: on Team and Enterprise plans, and on Console accounts with managed settings, that means `channelsEnabled: true`. See [Restrict which channel plugins can run](/docs/en/channels#restrict-which-channel-plugins-can-run).
+An empty array blocks every channel plugin.
+
+This key takes effect once channels pass the [`channelsEnabled`](#channelsenabled) gate for the account: on Team and Enterprise plans, and on Console accounts with managed settings, that means `channelsEnabled: true`. See [Restrict which channel plugins can run](/docs/en/channels#restrict-which-channel-plugins-can-run).
 
 ### `blockedMarketplaces`
 
@@ -5688,7 +5693,9 @@ Run an executable you deploy that computes managed settings at startup, so you c
 * **Type**: object with `path`, `timeoutMs`, and `refreshIntervalMs`
 * **Default**: unset, so no helper runs
 
-When server-managed settings deliver the policy at launch, they take precedence over the helper's source and the helper doesn't run. If a later settings fetch reports the server-managed settings removed, Claude Code runs the helper at that point rather than waiting for the next launch. Its output governs the rest of the session, and a run that fails ends the session with the same message as a [failed startup run](#helper-failures).
+When server-managed settings deliver the policy at launch, they take precedence over the helper's source and the helper doesn't run.
+
+If a later settings fetch reports the server-managed settings removed, Claude Code runs the helper at that point rather than waiting for the next launch. Its output governs the rest of the session, and a run that fails ends the session with the same message as a [failed startup run](#helper-failures).
 
 This example runs the helper with a 5-second timeout and re-runs it every five minutes:
 
@@ -5718,7 +5725,7 @@ Put the settings under a `managedSettings` key. A bare settings object with no `
 
 When the helper emits `managedSettings`, that object becomes the only managed settings source for the run: Claude Code ignores the MDM, file, and HKCU sources, reads the [cross-source keys](/docs/en/managed-settings#keys-read-from-every-admin-source) from the helper's output alone, and never merges [parent settings](/docs/en/managed-settings#parent-settings-from-embedding-hosts).
 
-The startup `forceRemoteSettingsRefresh` check runs before the helper and reads any admin source. A helper that exits 0 with an envelope that omits `managedSettings` contributes no managed settings, and the other sources apply as usual.
+The startup `forceRemoteSettingsRefresh` check runs before the helper and reads any admin source. A helper that exits `0` with an envelope that omits `managedSettings` contributes no managed settings, and the other sources apply as usual.
 
 #### Helper failures
 

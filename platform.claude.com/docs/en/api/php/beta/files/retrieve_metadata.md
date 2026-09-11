@@ -1,8 +1,13 @@
 <!-- source: https://platform.claude.com/docs/en/api/php/beta/files/retrieve_metadata -->
 
+---
+title: Get File Metadata
+url: https://platform.claude.com/docs/en/api/php/beta/files/retrieve_metadata
+---
+
 # Get File Metadata
 
-`$client->beta->files->retrieveMetadata(string fileID, ?list<AnthropicBeta> betas): BetaFileMetadata`
+`$client->beta->files->retrieveMetadata(string fileID, ?list<AnthropicBeta> betas, ?string workspaceID): BetaFileMetadata`
 
 **GET** `/v1/files/{file_id}`
 
@@ -18,9 +23,17 @@ Get File Metadata
 
   Optional header to specify the beta version(s) you want to use.
 
+- `workspaceID?:optional string`
+
 ## Returns
 
 - `BetaFileMetadata`
+
+  - `"file" type`
+
+    Object type.
+
+    For files, this is always `"file"`.
 
   - `string id`
 
@@ -44,12 +57,6 @@ Get File Metadata
 
     Size of the file in bytes.
 
-  - `"file" type`
-
-    Object type.
-
-    For files, this is always `"file"`.
-
   - `?bool downloadable`
 
     Whether the file can be downloaded.
@@ -72,7 +79,9 @@ require_once dirname(__DIR__) . '/vendor/autoload.php';
 $client = new Client(apiKey: 'my-anthropic-api-key');
 
 $betaFileMetadata = $client->beta->files->retrieveMetadata(
-  'file_id', betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24]
+  'file_id',
+  betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+  workspaceID: 'wrkspc_011CZkZaBF1tNoB5wlCeusgy',
 );
 
 var_dump($betaFileMetadata);

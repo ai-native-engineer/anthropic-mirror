@@ -24,7 +24,7 @@ Before you start: check that you have what setup needs
 | Prerequisite | Why you need it | If you don’t have it |
 | --- | --- | --- |
 | A **Team or Enterprise plan** on claude.ai | Claude Tag is available on Team and Enterprise plans, on Anthropic’s first-party service. It isn’t available on individual plans (Free, Pro, or Max), or for third-party deployments. | Start a Team or Enterprise plan at [claude.com/pricing](https://claude.com/pricing) |
-| A Claude organization **without Zero Data Retention (ZDR)** | Claude Tag stores channel memory and session transcripts, which ZDR doesn’t permit. | Claude Tag isn’t available to ZDR organizations |
+| A Claude organization **without Zero Data Retention (ZDR) or customer-managed encryption (CMEK)** | Claude Tag stores channel memory and session transcripts, which ZDR doesn’t permit. A CMEK policy doesn’t allow Claude Tag either. | Claude Tag isn’t available to organizations with a ZDR or CMEK policy |
 | **Routines** enabled for your Claude organization | Until it is, Claude answers every mention and DM with a reply that it’s unavailable and does no work. | An admin enables Routines at [`claude.ai/admin-settings/claude-code`](https://claude.ai/admin-settings/claude-code) |
 | **Owner** role in the Claude organization you’re setting up | Pairing a workspace and creating Access bundles are Owner-only writes. Roles are per organization, so being an Owner elsewhere doesn’t carry over. | Ask an Owner to run setup, or have one promote you at [`claude.ai/admin-settings/members`](https://claude.ai/admin-settings/members) |
 | A **Slack workspace admin** | Running `@Claude connect` requires a Slack workspace admin; installing the app usually does too. | If that’s someone else, [send them the install request](#if-you-re-not-the-slack-workspace-admin) early (app approval can take time), and plan to be online together when you pair; pairing codes expire 15 minutes after they’re issued |
@@ -100,10 +100,10 @@ See [Give Claude access](https://claude.com/docs/claude-tag/admins/add-connectio
 
 ##  Connect GitHub
 
-**Where:** the Claude Tag setup page at [`claude.ai/admin-settings/claude-tag`](https://claude.ai/admin-settings/claude-tag). If the app isn’t installed yet, the step sends you to github.com to install it.
+**Where:** the Claude Tag setup page at [`claude.ai/admin-settings/claude-tag`](https://claude.ai/admin-settings/claude-tag). If the app isn’t installed yet, select **Start setup** on the step to open your [Claude GitHub settings](https://claude.com/docs/claude-tag/admins/configure-github), where you sign in with GitHub, authorize your organization, and install the app.
 Claude reaches GitHub through the [Claude GitHub App](https://claude.com/docs/claude-tag/admins/configure-github) rather than an account and credential, so GitHub has its own step. The setup page shows one of three things, depending on where the Claude GitHub App is installed:
 
-* **Install the Claude GitHub App**, when the app isn’t linked to your Claude organization yet. Only an owner of your GitHub organization can install it. If that’s you, follow the steps shown. If not, send the message the step shows to a GitHub organization owner, skip this step, and continue with setup. After they install the app, [grant repositories](https://claude.com/docs/claude-tag/admins/configure-github#grant-repository-access) from the admin page.
+* **Connect GitHub**, when the app isn’t linked to your Claude organization yet. Only an owner of your GitHub organization can install the app. If that’s you, follow the steps shown. If not, send the message the step shows to a GitHub organization owner, skip this step, and continue with setup. After they install the app, [grant repositories](https://claude.com/docs/claude-tag/admins/configure-github#grant-repository-access) from the admin page.
 * **Choose your GitHub repos**, when the app is already linked. Grant every repository or pick specific ones.
 * **The Claude app is installed on [username], a personal account**, when the app was installed on someone’s personal GitHub account rather than an organization. Claude Tag connects to a GitHub organization only. A GitHub organization owner installs the app on the organization that owns your repositories (see [Link your GitHub organization](https://claude.com/docs/claude-tag/admins/configure-github#link-your-github-organization)). You can skip the step and continue with setup while that happens, then [grant repositories](https://claude.com/docs/claude-tag/admins/configure-github#grant-repository-access) from the admin page afterward.
 
@@ -144,7 +144,7 @@ To finish this step later, select **Skip** and confirm past the warning that Cla
 ##  Launch Claude Tag
 
 **Where:** the Claude Tag setup page at [`claude.ai/admin-settings/claude-tag`](https://claude.ai/admin-settings/claude-tag).
-Channel work draws from your organization’s usage balance, not from individual seats; the spend limit caps how much of that balance Claude Tag can use each billing period. DMs run on the user’s own claude.ai account and aren’t capped by this limit. If your organization has a [launch usage credit](https://support.claude.com/en/articles/15575654-claude-tag-launch-promo-for-claude-team-and-enterprise), the launch screen shows the amount and the date it runs through, and after launch the admin page shows it under **Included usage** with how much is used. You’re billed for usage beyond it, up to the spend limit.
+Channel work draws from your organization’s usage balance, not from individual seats; the spend limit caps how much of that balance Claude Tag can use each month. DMs run on the user’s own claude.ai account and aren’t capped by this limit. If your organization has a [launch usage credit](https://support.claude.com/en/articles/15575654-claude-tag-launch-promo-for-claude-team-and-enterprise), the launch screen shows the amount and the date it runs through, and after launch the admin page shows it under **Included usage** with how much is used. You’re billed for usage beyond it, up to the spend limit.
 If the setup page shows a **Buy usage credits** step before Launch, buy credits on that step to continue. The launch screen then doesn’t include **Set monthly spend limits**, so set a limit after launch at [`claude.ai/admin-settings/usage/claude-tag`](https://claude.ai/admin-settings/usage/claude-tag).
 
 1
@@ -157,7 +157,7 @@ Choose from `$500`, `$1,000`, `$2,500`, `$5,000`, **Unlimited**, or **Custom** (
 
 Let members know they can now tag Claude
 
-The toggle is on by default: after launch, Claude DMs each member of the workspace to help them get started. Those DMs don’t count toward your usage. Turn the toggle off to skip them. The same setting appears on the admin page afterward as **Let people know they can talk to Claude**, marked **Members notified** once the DMs have gone out.
+The toggle is on by default: after launch, Claude DMs each member of the workspace to help them get started. Those DMs don’t count toward your usage. Turn the toggle off to skip them.The admin page has a matching row, **Let people know they can talk to Claude**. To send the DMs from the admin page, select **Notify members now** on that row and confirm. The row reads **Members notified** once the DMs have gone out.
 
 3
 
@@ -237,7 +237,7 @@ Every entry has the same sections: **Connectors**, **Repositories**, **Plugins**
 | Grant more repositories | **Repositories** on the entry. | [Configure GitHub access](https://claude.com/docs/claude-tag/admins/configure-github) |
 | Give one channel more than the default | Select the channel and add to it. | [Configure per-channel access](https://claude.com/docs/claude-tag/admins/attach-to-scope) |
 | Limit where Claude works or who can use it |  | [Restrict where Claude operates](https://claude.com/docs/claude-tag/admins/restrict-access) |
-| Pair another workspace, or disconnect one | The Slack row’s **⋮** menu under **Where Claude Tag works**. | [Manage workspaces](https://claude.com/docs/claude-tag/admins/workspaces) |
+| Pair another workspace, or disconnect one | The Slack row’s **⋮** menu under **Where Claude Tag works**. Disconnecting permanently deletes the workspace’s Claude data. See [Data lifecycle and deletion](https://claude.com/docs/claude-tag/concepts/data-lifecycle). | [Manage workspaces](https://claude.com/docs/claude-tag/admins/workspaces) |
 | Change the spend limit | [`claude.ai/admin-settings/usage/claude-tag`](https://claude.ai/admin-settings/usage/claude-tag). | [Set a spend limit](https://claude.com/docs/claude-tag/admins/set-spend-limit) |
 | Turn Claude Tag off | The **Enable Claude Tag for your organization** toggle at the top of the admin page. |  |
 | Bring in the first users |  | [Getting started for users](https://claude.com/docs/claude-tag/users/getting-started) |

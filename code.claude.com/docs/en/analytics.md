@@ -22,7 +22,7 @@ The Team and Enterprise dashboard includes:
 * **Leaderboard**: top contributors ranked by Claude Code usage
 * **Data export**: download contribution data as CSV for custom reporting
 
-For per-user token counts and cost estimates, configure [OpenTelemetry export](/en/monitoring-usage).
+For per-user token counts and cost estimates, configure [OpenTelemetry export](/docs/en/monitoring-usage), or export the [spend report](https://support.claude.com/en/articles/12883420-view-usage-analytics-for-team-and-enterprise-plans) from your organization's analytics settings, which lists token usage and estimated usage-credit spend per user and per model.
 
 ### Enable contribution metrics
 
@@ -35,7 +35,7 @@ Usage and adoption data is available for all Claude for Teams and Claude for Ent
 You need the Owner role to configure analytics settings. A GitHub admin must install the GitHub app.
 
 <Warning>
-  Contribution metrics are not available for organizations with [Zero Data Retention](/en/zero-data-retention) enabled. The analytics dashboard will show usage metrics only.
+  Contribution metrics are not available for organizations with [Zero Data Retention](/docs/en/zero-data-retention) enabled. The analytics dashboard will show usage metrics only.
 </Warning>
 
 <Steps>
@@ -119,10 +119,6 @@ Click **Export all users** to download complete contribution data for all users 
 
 When contribution metrics are enabled, Claude Code analyzes merged pull requests to determine which code was written with Claude Code assistance. This is done by matching Claude Code session activity against the code in each PR.
 
-#### Tagging criteria
-
-PRs are tagged as "with Claude Code" if they contain at least one line of code written during a Claude Code session. The system uses conservative matching: only code where there is high confidence in Claude Code's involvement is counted as assisted.
-
 #### Attribution process
 
 When a pull request is merged:
@@ -188,11 +184,13 @@ The Leaderboard helps you find team members with high Claude Code adoption who c
 
 #### Access data programmatically
 
-To query this data through GitHub, search for PRs labeled with `claude-code-assisted`.
+On the Enterprise plan, the [Claude Enterprise Analytics API](https://platform.claude.com/docs/en/api/admin/analytics) returns per-user engagement, usage, and cost reports for your organization across Claude surfaces, including Claude Code. A Primary Owner creates a key with the `read:analytics` scope at [claude.ai/analytics/api-keys](https://claude.ai/analytics/api-keys). The API is not available on the Teams plan.
+
+To query contribution data through GitHub instead, search for PRs labeled with `claude-code-assisted`.
 
 ## Access analytics for API customers
 
-API customers using the Claude Console can access analytics at [platform.claude.com/claude-code](https://platform.claude.com/claude-code). You need the UsageView permission to access the dashboard, which is granted to Developer, Billing, Admin, Owner, and Primary Owner roles.
+API customers using the Claude Console can access analytics at [platform.claude.com/claude-code](https://platform.claude.com/claude-code). You need the UsageView permission to access the dashboard, which is granted to Developer, Billing, Admin, Owner, and Primary Owner roles. To pull the same daily per-user metrics programmatically, use the [Claude Code Analytics API](https://platform.claude.com/docs/en/build-with-claude/claude-code-analytics-api) with an Admin API key.
 
 <Note>
   Contribution metrics with GitHub integration are not currently available for API customers. The Console dashboard shows usage and spend metrics only.
@@ -219,6 +217,6 @@ The team insights table shows per-user metrics:
 
 ## Related resources
 
-* [Monitoring with OpenTelemetry](/en/monitoring-usage): export real-time metrics and events to your observability stack
-* [Manage costs effectively](/en/costs): set spend limits and optimize token usage
-* [Permissions](/en/permissions): configure roles and permissions
+* [Monitoring with OpenTelemetry](/docs/en/monitoring-usage): export real-time metrics and events to your observability stack
+* [Manage costs effectively](/docs/en/costs): set spend limits and optimize token usage
+* [Permissions](/docs/en/permissions): configure roles and permissions

@@ -121,3 +121,4 @@ The instruction saves to channel memory and applies to everyone’s threads. Pub
 * [Good habits](https://claude.com/docs/claude-tag/users/good-habits): how to write tasks that finish
 * [Set up routines](https://claude.com/docs/claude-tag/users/proactivity): once a task works, have Claude run it on its own schedule
 * [Commands](https://claude.com/docs/claude-tag/users/commands): exact words starting with `!` that run a fixed action, like `!restart` for a stuck session
+* [Personal connectors in channels](https://claude.com/docs/claude-tag/concepts/personal-connectors): how Claude can use your own claude.ai connectors for a task you hand it in a channel

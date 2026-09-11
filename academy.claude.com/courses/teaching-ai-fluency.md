@@ -8,7 +8,7 @@ Equips academic faculty and instructional designers to teach and assess AI fluen
 
 7 lessons4.5 hr1 quizCompletion badge
 
-[Start course](https://academy.claude.com/courses/teaching-ai-fluency/welcome-approaches-to-teaching-ai-fluency)[Sign in to save progress](https://academy.claude.com/login?returnTo=https%3A%2F%2Facademy.claude.com%2Fcourses%2Fteaching-ai-fluency)
+[Start course](https://academy.claude.com/courses/teaching-ai-fluency/welcome-approaches-to-teaching-ai-fluency)[Sign in to save progress](https://academy.claude.com/login?returnTo=%2Fcourses%2Fteaching-ai-fluency)
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-nc8419pr.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-lp5lxb5m.png)
 

@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/go/beta/sessions/resources/retrieve -->
 
+---
+title: Get Session Resource
+url: https://platform.claude.com/docs/en/api/go/beta/sessions/resources/retrieve
+---
+
 # Get Session Resource
 
 `client.Beta.Sessions.Resources.Get(ctx, resourceID, params) (*BetaSessionResourceGetResponseUnion, error)`
@@ -72,6 +77,8 @@ Get Session Resource
 
       - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
 
+      - `const AnthropicBetaUserProfiles2026_09_04 AnthropicBeta = "user-profiles-2026-09-04"`
+
       - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
 
       - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
@@ -114,6 +121,12 @@ Get Session Resource
 
       - `const AnthropicBetaMidConversationSystemClearAt2026_08_21 AnthropicBeta = "mid-conversation-system-clear-at-2026-08-21"`
 
+  - `WorkspaceID param.Field[string] Optional`
+
+    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ## Returns
 
 - `type BetaSessionResourceGetResponseUnion interface{…}`
@@ -121,6 +134,8 @@ Get Session Resource
   The requested session resource.
 
   - `type BetaManagedAgentsGitHubRepositoryResource struct{…}`
+
+    - `Type BetaManagedAgentsGitHubRepositoryResourceType`
 
     - `ID string`
 
@@ -131,8 +146,6 @@ Get Session Resource
       format: date-time
 
     - `MountPath string`
-
-    - `Type BetaManagedAgentsGitHubRepositoryResourceType`
 
     - `UpdatedAt Time`
 
@@ -146,15 +159,17 @@ Get Session Resource
 
       - `type BetaManagedAgentsBranchCheckout struct{…}`
 
+        - `Type BetaManagedAgentsBranchCheckoutType`
+
         - `Name string`
 
           Branch name to check out.
 
           minLength: 1, maxLength: 255
 
-        - `Type BetaManagedAgentsBranchCheckoutType`
-
       - `type BetaManagedAgentsCommitCheckout struct{…}`
+
+        - `Type BetaManagedAgentsCommitCheckoutType`
 
         - `Sha string`
 
@@ -162,9 +177,9 @@ Get Session Resource
 
           minLength: 7, maxLength: 64
 
-        - `Type BetaManagedAgentsCommitCheckoutType`
-
   - `type BetaManagedAgentsFileResource struct{…}`
+
+    - `Type BetaManagedAgentsFileResourceType`
 
     - `ID string`
 
@@ -178,8 +193,6 @@ Get Session Resource
 
     - `MountPath string`
 
-    - `Type BetaManagedAgentsFileResourceType`
-
     - `UpdatedAt Time`
 
       A timestamp in RFC 3339 format
@@ -190,11 +203,11 @@ Get Session Resource
 
     A memory store attached to an agent session.
 
+    - `Type BetaManagedAgentsMemoryStoreResourceType`
+
     - `MemoryStoreID string`
 
       The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
-
-    - `Type BetaManagedAgentsMemoryStoreResourceType`
 
     - `Access BetaManagedAgentsMemoryStoreResourceAccess Optional`
 

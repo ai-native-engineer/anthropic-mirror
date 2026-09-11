@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/java/completions -->
 
+---
+title: Completions
+url: https://platform.claude.com/docs/en/api/java/completions
+---
+
 # Completions
 
 ## Create a Text Completion
@@ -68,6 +73,8 @@ Future models and features will not be compatible with Text Completions. See our
 
     - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
 
+    - `USER_PROFILES_2026_09_04("user-profiles-2026-09-04")`
+
     - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
@@ -109,6 +116,8 @@ Future models and features will not be compatible with Text Completions. See our
     - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
 
     - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
+  - `Optional<String> workspaceId`
 
   - `long maxTokensToSample`
 
@@ -198,6 +207,12 @@ Future models and features will not be compatible with Text Completions. See our
 
 - `class Completion:`
 
+  - `JsonValue type = "completion"`
+
+    Object type.
+
+    For Text Completions, this is always `"completion"`.
+
   - `String id`
 
     Unique object identifier.
@@ -290,12 +305,6 @@ Future models and features will not be compatible with Text Completions. See our
 
     * `"stop_sequence"`: we reached a stop sequence — either provided by you via the `stop_sequences` parameter, or a stop sequence built into the model
     * `"max_tokens"`: we exceeded `max_tokens_to_sample` or the model's maximum
-
-  - `JsonValue type = "completion"`
-
-    Object type.
-
-    For Text Completions, this is always `"completion"`.
 
 ### Example
 
@@ -342,6 +351,12 @@ public final class Main {
 
 - `class Completion:`
 
+  - `JsonValue type = "completion"`
+
+    Object type.
+
+    For Text Completions, this is always `"completion"`.
+
   - `String id`
 
     Unique object identifier.
@@ -434,9 +449,3 @@ public final class Main {
 
     * `"stop_sequence"`: we reached a stop sequence — either provided by you via the `stop_sequences` parameter, or a stop sequence built into the model
     * `"max_tokens"`: we exceeded `max_tokens_to_sample` or the model's maximum
-
-  - `JsonValue type = "completion"`
-
-    Object type.
-
-    For Text Completions, this is always `"completion"`.

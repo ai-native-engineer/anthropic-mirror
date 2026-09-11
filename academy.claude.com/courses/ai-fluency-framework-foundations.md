@@ -8,7 +8,7 @@ Learn to collaborate with AI effectively, efficiently, ethically, and safely usi
 
 14 lessons4 hr1 quizCompletion badge
 
-[Start course](https://academy.claude.com/courses/ai-fluency-framework-foundations/introduction-to-ai-fluency)[Sign in to save progress](https://academy.claude.com/login?returnTo=https%3A%2F%2Facademy.claude.com%2Fcourses%2Fai-fluency-framework-foundations)
+[Start course](https://academy.claude.com/courses/ai-fluency-framework-foundations/introduction-to-ai-fluency)[Sign in to save progress](https://academy.claude.com/login?returnTo=%2Fcourses%2Fai-fluency-framework-foundations)
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-nnfpzhuh.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-myzw6s2f.png)
 

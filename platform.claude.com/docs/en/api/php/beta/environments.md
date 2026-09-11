@@ -1,10 +1,15 @@
 <!-- source: https://platform.claude.com/docs/en/api/php/beta/environments -->
 
+---
+title: Environments
+url: https://platform.claude.com/docs/en/api/php/beta/environments
+---
+
 # Environments
 
 ## Create Environment
 
-`$client->beta->environments->create(string name, ?Config config, ?string description, ?array<string,string> metadata, ?Scope scope, ?list<AnthropicBeta> betas): BetaEnvironment`
+`$client->beta->environments->create(string name, ?Config config, ?string description, ?array<string,string> metadata, ?Scope scope, ?list<AnthropicBeta> betas, ?string workspaceID): BetaEnvironment`
 
 **POST** `/v1/environments`
 
@@ -30,15 +35,21 @@ Create a new environment with the specified configuration.
 
 - `scope?:optional Scope`
 
-  The visibility scope for this environment. 'organization' makes the environment visible to all accounts. 'account' restricts visibility to the owning account only. Only applicable for self-hosted environments. If not specified, defaults based on organization type.
+  The visibility scope for this environment. 'organization' makes the environment visible to all accounts. 'account' restricts visibility to the owning account only. API organizations support only 'organization'; 'account' is rejected. If not specified, defaults based on organization type.
 
 - `betas?:optional list<AnthropicBeta>`
 
   Optional header to specify the beta version(s) you want to use.
 
+- `workspaceID?:optional string`
+
 ### Returns
 
 - `BetaEnvironment`
+
+  - `"environment" type`
+
+    The type of object (always 'environment')
 
   - `string id`
 
@@ -67,10 +78,6 @@ Create a new environment with the specified configuration.
   - `string name`
 
     Human-readable name for the environment
-
-  - `"environment" type`
-
-    The type of object (always 'environment')
 
   - `string updatedAt`
 
@@ -113,6 +120,7 @@ $betaEnvironment = $client->beta->environments->create(
   metadata: ['foo' => 'string'],
   scope: 'organization',
   betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+  workspaceID: 'wrkspc_011CZkZaBF1tNoB5wlCeusgy',
 );
 
 var_dump($betaEnvironment);
@@ -169,7 +177,7 @@ var_dump($betaEnvironment);
 
 ## List Environments
 
-`$client->beta->environments->list(?bool includeArchived, ?int limit, ?string page, ?list<AnthropicBeta> betas): PageCursor<BetaEnvironment>`
+`$client->beta->environments->list(?bool includeArchived, ?int limit, ?string page, ?list<AnthropicBeta> betas, ?string workspaceID): PageCursor<BetaEnvironment>`
 
 **GET** `/v1/environments`
 
@@ -197,9 +205,15 @@ List environments with pagination support.
 
   Optional header to specify the beta version(s) you want to use.
 
+- `workspaceID?:optional string`
+
 ### Returns
 
 - `BetaEnvironment`
+
+  - `"environment" type`
+
+    The type of object (always 'environment')
 
   - `string id`
 
@@ -229,10 +243,6 @@ List environments with pagination support.
 
     Human-readable name for the environment
 
-  - `"environment" type`
-
-    The type of object (always 'environment')
-
   - `string updatedAt`
 
     RFC 3339 timestamp when environment was last updated
@@ -255,6 +265,7 @@ $page = $client->beta->environments->list(
   limit: 1,
   page: 'page',
   betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+  workspaceID: 'wrkspc_011CZkZaBF1tNoB5wlCeusgy',
 );
 
 var_dump($page);
@@ -316,7 +327,7 @@ var_dump($page);
 
 ## Get Environment
 
-`$client->beta->environments->retrieve(string environmentID, ?list<AnthropicBeta> betas): BetaEnvironment`
+`$client->beta->environments->retrieve(string environmentID, ?list<AnthropicBeta> betas, ?string workspaceID): BetaEnvironment`
 
 **GET** `/v1/environments/{environment_id}`
 
@@ -330,9 +341,15 @@ Retrieve a specific environment by ID.
 
   Optional header to specify the beta version(s) you want to use.
 
+- `workspaceID?:optional string`
+
 ### Returns
 
 - `BetaEnvironment`
+
+  - `"environment" type`
+
+    The type of object (always 'environment')
 
   - `string id`
 
@@ -362,10 +379,6 @@ Retrieve a specific environment by ID.
 
     Human-readable name for the environment
 
-  - `"environment" type`
-
-    The type of object (always 'environment')
-
   - `string updatedAt`
 
     RFC 3339 timestamp when environment was last updated
@@ -386,6 +399,7 @@ $client = new Client(apiKey: 'my-anthropic-api-key');
 $betaEnvironment = $client->beta->environments->retrieve(
   'env_011CZkZ9X2dpNyB7HsEFoRfW',
   betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+  workspaceID: 'wrkspc_011CZkZaBF1tNoB5wlCeusgy',
 );
 
 var_dump($betaEnvironment);
@@ -442,7 +456,7 @@ var_dump($betaEnvironment);
 
 ## Update Environment
 
-`$client->beta->environments->update(string environmentID, ?Config config, ?string description, ?array<string,string> metadata, ?string name, ?Scope scope, ?list<AnthropicBeta> betas): BetaEnvironment`
+`$client->beta->environments->update(string environmentID, ?Config config, ?string description, ?array<string,string> metadata, ?string name, ?Scope scope, ?list<AnthropicBeta> betas, ?string workspaceID): BetaEnvironment`
 
 **POST** `/v1/environments/{environment_id}`
 
@@ -476,9 +490,15 @@ Update an existing environment's configuration.
 
   Optional header to specify the beta version(s) you want to use.
 
+- `workspaceID?:optional string`
+
 ### Returns
 
 - `BetaEnvironment`
+
+  - `"environment" type`
+
+    The type of object (always 'environment')
 
   - `string id`
 
@@ -507,10 +527,6 @@ Update an existing environment's configuration.
   - `string name`
 
     Human-readable name for the environment
-
-  - `"environment" type`
-
-    The type of object (always 'environment')
 
   - `string updatedAt`
 
@@ -554,6 +570,7 @@ $betaEnvironment = $client->beta->environments->update(
   name: 'x',
   scope: 'organization',
   betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+  workspaceID: 'wrkspc_011CZkZaBF1tNoB5wlCeusgy',
 );
 
 var_dump($betaEnvironment);
@@ -610,7 +627,7 @@ var_dump($betaEnvironment);
 
 ## Delete Environment
 
-`$client->beta->environments->delete(string environmentID, ?list<AnthropicBeta> betas): BetaEnvironmentDeleteResponse`
+`$client->beta->environments->delete(string environmentID, ?list<AnthropicBeta> betas, ?string workspaceID): BetaEnvironmentDeleteResponse`
 
 **DELETE** `/v1/environments/{environment_id}`
 
@@ -624,17 +641,19 @@ Delete an environment by ID. Returns a confirmation of the deletion.
 
   Optional header to specify the beta version(s) you want to use.
 
+- `workspaceID?:optional string`
+
 ### Returns
 
 - `BetaEnvironmentDeleteResponse`
 
-  - `string id`
-
-    Environment identifier
-
   - `Type type`
 
     The type of response
+
+  - `string id`
+
+    Environment identifier
 
 ### Example
 
@@ -648,6 +667,7 @@ $client = new Client(apiKey: 'my-anthropic-api-key');
 $betaEnvironmentDeleteResponse = $client->beta->environments->delete(
   'env_011CZkZ9X2dpNyB7HsEFoRfW',
   betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+  workspaceID: 'wrkspc_011CZkZaBF1tNoB5wlCeusgy',
 );
 
 var_dump($betaEnvironmentDeleteResponse);
@@ -664,7 +684,7 @@ var_dump($betaEnvironmentDeleteResponse);
 
 ## Archive Environment
 
-`$client->beta->environments->archive(string environmentID, ?list<AnthropicBeta> betas): BetaEnvironment`
+`$client->beta->environments->archive(string environmentID, ?list<AnthropicBeta> betas, ?string workspaceID): BetaEnvironment`
 
 **POST** `/v1/environments/{environment_id}/archive`
 
@@ -678,9 +698,15 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
   Optional header to specify the beta version(s) you want to use.
 
+- `workspaceID?:optional string`
+
 ### Returns
 
 - `BetaEnvironment`
+
+  - `"environment" type`
+
+    The type of object (always 'environment')
 
   - `string id`
 
@@ -710,10 +736,6 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
     Human-readable name for the environment
 
-  - `"environment" type`
-
-    The type of object (always 'environment')
-
   - `string updatedAt`
 
     RFC 3339 timestamp when environment was last updated
@@ -734,6 +756,7 @@ $client = new Client(apiKey: 'my-anthropic-api-key');
 $betaEnvironment = $client->beta->environments->archive(
   'env_011CZkZ9X2dpNyB7HsEFoRfW',
   betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+  workspaceID: 'wrkspc_011CZkZaBF1tNoB5wlCeusgy',
 );
 
 var_dump($betaEnvironment);
@@ -794,6 +817,10 @@ var_dump($betaEnvironment);
 
 - `BetaCloudConfig`
 
+  - `"cloud" type`
+
+    Environment type
+
   - `Networking networking`
 
     Network configuration policy.
@@ -801,10 +828,6 @@ var_dump($betaEnvironment);
   - `BetaPackages packages`
 
     Package manager configuration.
-
-  - `"cloud" type`
-
-    Environment type
 
 ### Beta Cloud Config Params
 
@@ -829,6 +852,10 @@ var_dump($betaEnvironment);
 ### Beta Environment
 
 - `BetaEnvironment`
+
+  - `"environment" type`
+
+    The type of object (always 'environment')
 
   - `string id`
 
@@ -858,10 +885,6 @@ var_dump($betaEnvironment);
 
     Human-readable name for the environment
 
-  - `"environment" type`
-
-    The type of object (always 'environment')
-
   - `string updatedAt`
 
     RFC 3339 timestamp when environment was last updated
@@ -874,17 +897,21 @@ var_dump($betaEnvironment);
 
 - `BetaEnvironmentDeleteResponse`
 
-  - `string id`
-
-    Environment identifier
-
   - `Type type`
 
     The type of response
 
+  - `string id`
+
+    Environment identifier
+
 ### Beta Limited Network
 
 - `BetaLimitedNetwork`
+
+  - `"limited" type`
+
+    Network policy type
 
   - `bool allowMCPServers`
 
@@ -897,10 +924,6 @@ var_dump($betaEnvironment);
   - `list<string> allowedHosts`
 
     Specifies domains the container can reach.
-
-  - `"limited" type`
-
-    Network policy type
 
 ### Beta Limited Network Params
 
@@ -926,6 +949,10 @@ var_dump($betaEnvironment);
 
 - `BetaPackages`
 
+  - `?Type type`
+
+    Package configuration type
+
   - `list<string> apt`
 
     Ubuntu/Debian packages to install
@@ -950,13 +977,13 @@ var_dump($betaEnvironment);
 
     Python packages to install
 
-  - `?Type type`
-
-    Package configuration type
-
 ### Beta Packages Params
 
 - `BetaPackagesParams`
+
+  - `?Type type`
+
+    Package configuration type
 
   - `?list<string> apt`
 
@@ -981,10 +1008,6 @@ var_dump($betaEnvironment);
   - `?list<string> pip`
 
     Python packages to install
-
-  - `?Type type`
-
-    Package configuration type
 
 ### Beta Self Hosted Config
 
@@ -1014,7 +1037,7 @@ var_dump($betaEnvironment);
 
 ### Get Work Item
 
-`$client->beta->environments->work->retrieve(string workID, string environmentID, ?list<AnthropicBeta> betas): SelfHostedWork`
+`$client->beta->environments->work->retrieve(string workID, string environmentID, ?list<AnthropicBeta> betas, ?string workspaceID): SelfHostedWork`
 
 **GET** `/v1/environments/{environment_id}/work/{work_id}`
 
@@ -1032,9 +1055,15 @@ Retrieve detailed information about a specific work item.
 
   Optional header to specify the beta version(s) you want to use.
 
+- `workspaceID?:optional string`
+
 #### Returns
 
 - `SelfHostedWork`
+
+  - `"work" type`
+
+    The type of object (always 'work')
 
   - `string id`
 
@@ -1084,10 +1113,6 @@ Retrieve detailed information about a specific work item.
 
     RFC 3339 timestamp when work execution stopped
 
-  - `"work" type`
-
-    The type of object (always 'work')
-
 #### Example
 
 ```php
@@ -1101,6 +1126,7 @@ $betaSelfHostedWork = $client->beta->environments->work->retrieve(
   'work_id',
   environmentID: 'env_011CZkZ9X2dpNyB7HsEFoRfW',
   betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+  workspaceID: 'wrkspc_011CZkZaBF1tNoB5wlCeusgy',
 );
 
 var_dump($betaSelfHostedWork);
@@ -1165,6 +1191,10 @@ Long poll for work items in the queue.
 
 - `SelfHostedWork`
 
+  - `"work" type`
+
+    The type of object (always 'work')
+
   - `string id`
 
     Work identifier (e.g., 'work_...')
@@ -1212,10 +1242,6 @@ Long poll for work items in the queue.
   - `?string stoppedAt`
 
     RFC 3339 timestamp when work execution stopped
-
-  - `"work" type`
-
-    The type of object (always 'work')
 
 #### Example
 
@@ -1286,6 +1312,10 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
 
 - `SelfHostedWork`
 
+  - `"work" type`
+
+    The type of object (always 'work')
+
   - `string id`
 
     Work identifier (e.g., 'work_...')
@@ -1333,10 +1363,6 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
   - `?string stoppedAt`
 
     RFC 3339 timestamp when work execution stopped
-
-  - `"work" type`
-
-    The type of object (always 'work')
 
 #### Example
 
@@ -1413,6 +1439,10 @@ Record a heartbeat for a work item to maintain the lease.
 
 - `SelfHostedWorkHeartbeatResponse`
 
+  - `"work_heartbeat" type`
+
+    The type of response
+
   - `string lastHeartbeat`
 
     RFC 3339 timestamp of the actual heartbeat from DB
@@ -1428,10 +1458,6 @@ Record a heartbeat for a work item to maintain the lease.
   - `int ttlSeconds`
 
     Effective TTL applied to the lease
-
-  - `"work_heartbeat" type`
-
-    The type of response
 
 #### Example
 
@@ -1471,7 +1497,7 @@ var_dump($betaSelfHostedWorkHeartbeatResponse);
 
 ### Stop Work
 
-`$client->beta->environments->work->stop(string workID, string environmentID, ?bool force, ?list<AnthropicBeta> betas): SelfHostedWork`
+`$client->beta->environments->work->stop(string workID, string environmentID, ?bool force, ?list<AnthropicBeta> betas, ?string workspaceID): SelfHostedWork`
 
 **POST** `/v1/environments/{environment_id}/work/{work_id}/stop`
 
@@ -1495,9 +1521,15 @@ Stop a work item, initiating graceful or forced shutdown.
 
   Optional header to specify the beta version(s) you want to use.
 
+- `workspaceID?:optional string`
+
 #### Returns
 
 - `SelfHostedWork`
+
+  - `"work" type`
+
+    The type of object (always 'work')
 
   - `string id`
 
@@ -1547,10 +1579,6 @@ Stop a work item, initiating graceful or forced shutdown.
 
     RFC 3339 timestamp when work execution stopped
 
-  - `"work" type`
-
-    The type of object (always 'work')
-
 #### Example
 
 ```php
@@ -1565,6 +1593,7 @@ $betaSelfHostedWork = $client->beta->environments->work->stop(
   environmentID: 'env_011CZkZ9X2dpNyB7HsEFoRfW',
   force: true,
   betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+  workspaceID: 'wrkspc_011CZkZaBF1tNoB5wlCeusgy',
 );
 
 var_dump($betaSelfHostedWork);
@@ -1627,6 +1656,10 @@ List work items in an environment.
 
 - `SelfHostedWork`
 
+  - `"work" type`
+
+    The type of object (always 'work')
+
   - `string id`
 
     Work identifier (e.g., 'work_...')
@@ -1674,10 +1707,6 @@ List work items in an environment.
   - `?string stoppedAt`
 
     RFC 3339 timestamp when work execution stopped
-
-  - `"work" type`
-
-    The type of object (always 'work')
 
 #### Example
 
@@ -1730,7 +1759,7 @@ var_dump($page);
 
 ### Update Work Item
 
-`$client->beta->environments->work->update(string workID, string environmentID, array<string,string> metadata, ?list<AnthropicBeta> betas): SelfHostedWork`
+`$client->beta->environments->work->update(string workID, string environmentID, array<string,string> metadata, ?list<AnthropicBeta> betas, ?string workspaceID): SelfHostedWork`
 
 **POST** `/v1/environments/{environment_id}/work/{work_id}`
 
@@ -1752,9 +1781,15 @@ Update work item metadata with merge semantics.
 
   Optional header to specify the beta version(s) you want to use.
 
+- `workspaceID?:optional string`
+
 #### Returns
 
 - `SelfHostedWork`
+
+  - `"work" type`
+
+    The type of object (always 'work')
 
   - `string id`
 
@@ -1804,10 +1839,6 @@ Update work item metadata with merge semantics.
 
     RFC 3339 timestamp when work execution stopped
 
-  - `"work" type`
-
-    The type of object (always 'work')
-
 #### Example
 
 ```php
@@ -1822,6 +1853,7 @@ $betaSelfHostedWork = $client->beta->environments->work->update(
   environmentID: 'env_011CZkZ9X2dpNyB7HsEFoRfW',
   metadata: ['foo' => 'string'],
   betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+  workspaceID: 'wrkspc_011CZkZaBF1tNoB5wlCeusgy',
 );
 
 var_dump($betaSelfHostedWork);
@@ -1854,7 +1886,7 @@ var_dump($betaSelfHostedWork);
 
 ### Get Queue Statistics
 
-`$client->beta->environments->work->stats(string environmentID, ?list<AnthropicBeta> betas): SelfHostedWorkQueueStats`
+`$client->beta->environments->work->stats(string environmentID, ?list<AnthropicBeta> betas, ?string workspaceID): SelfHostedWorkQueueStats`
 
 **GET** `/v1/environments/{environment_id}/work/stats`
 
@@ -1868,9 +1900,15 @@ Get statistics about the work queue for an environment.
 
   Optional header to specify the beta version(s) you want to use.
 
+- `workspaceID?:optional string`
+
 #### Returns
 
 - `SelfHostedWorkQueueStats`
+
+  - `"work_queue_stats" type`
+
+    The type of object
 
   - `int depth`
 
@@ -1883,10 +1921,6 @@ Get statistics about the work queue for an environment.
   - `int pending`
 
     Number of work items being processed (polled but not acknowledged)
-
-  - `"work_queue_stats" type`
-
-    The type of object
 
   - `?int workersPolling`
 
@@ -1904,6 +1938,7 @@ $client = new Client(apiKey: 'my-anthropic-api-key');
 $betaSelfHostedWorkQueueStats = $client->beta->environments->work->stats(
   'env_011CZkZ9X2dpNyB7HsEFoRfW',
   betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+  workspaceID: 'wrkspc_011CZkZaBF1tNoB5wlCeusgy',
 );
 
 var_dump($betaSelfHostedWorkQueueStats);

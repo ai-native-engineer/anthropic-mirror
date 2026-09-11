@@ -47,14 +47,6 @@ Search, create, autofill, and export Canva designs
 
 [Add Canva in Claude (opens in new tab)](https://claude.ai/directory/eb9240f2-e1c1-43c1-828f-0fda40c22e4c "Add in Claude")
 
-![](https://www.google.com/s2/favicons?domain=atlassian.com&sz=96)
-
-### [Atlassian Rovo](https://claude.com/connectors/atlassian)
-
-Access Jira & Confluence from Claude
-
-[Add Atlassian Rovo in Claude (opens in new tab)](https://claude.ai/directory/11ba10d9-477b-4988-bd1c-90a7fa680dc1 "Add in Claude")
-
 ![](https://www.google.com/s2/favicons?domain=microsoft.com&sz=96)
 
 ### [Microsoft 365](https://claude.com/connectors/microsoft-365)
@@ -62,6 +54,14 @@ Access Jira & Confluence from Claude
 Access your company's SharePoint, OneDrive, Outlook, and Teams directly in Claude
 
 [Add Microsoft 365 in Claude (opens in new tab)](https://claude.ai/directory/ce0c9cda-5ea5-44c5-9cf2-40810dfa6582 "Add in Claude")
+
+![](https://www.google.com/s2/favicons?domain=atlassian.com&sz=96)
+
+### [Atlassian Rovo](https://claude.com/connectors/atlassian)
+
+Access Jira & Confluence from Claude
+
+[Add Atlassian Rovo in Claude (opens in new tab)](https://claude.ai/directory/11ba10d9-477b-4988-bd1c-90a7fa680dc1 "Add in Claude")
 
 ![](https://www.notion.so/images/notion-logo-block-main.svg)
 

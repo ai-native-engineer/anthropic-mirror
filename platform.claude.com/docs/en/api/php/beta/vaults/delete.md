@@ -1,8 +1,13 @@
 <!-- source: https://platform.claude.com/docs/en/api/php/beta/vaults/delete -->
 
+---
+title: Delete Vault
+url: https://platform.claude.com/docs/en/api/php/beta/vaults/delete
+---
+
 # Delete Vault
 
-`$client->beta->vaults->delete(string vaultID, ?list<AnthropicBeta> betas): BetaManagedAgentsDeletedVault`
+`$client->beta->vaults->delete(string vaultID, ?list<AnthropicBeta> betas, ?string workspaceID): BetaManagedAgentsDeletedVault`
 
 **DELETE** `/v1/vaults/{vault_id}`
 
@@ -16,15 +21,17 @@ Delete Vault
 
   Optional header to specify the beta version(s) you want to use.
 
+- `workspaceID?:optional string`
+
 ## Returns
 
 - `BetaManagedAgentsDeletedVault`
 
+  - `Type type`
+
   - `string id`
 
     Unique identifier of the deleted vault.
-
-  - `Type type`
 
 ## Example
 
@@ -38,6 +45,7 @@ $client = new Client(apiKey: 'my-anthropic-api-key');
 $betaManagedAgentsDeletedVault = $client->beta->vaults->delete(
   'vlt_011CZkZDLs7fYzm1hXNPeRjv',
   betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+  workspaceID: 'wrkspc_011CZkZaBF1tNoB5wlCeusgy',
 );
 
 var_dump($betaManagedAgentsDeletedVault);

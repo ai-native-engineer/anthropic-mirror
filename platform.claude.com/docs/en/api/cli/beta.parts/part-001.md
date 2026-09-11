@@ -3,6 +3,11 @@
 
 <!-- chunk-start -->
 
+---
+title: Beta
+url: https://platform.claude.com/docs/en/api/cli/beta
+---
+
 # Beta
 
 ## Domain types
@@ -11,25 +16,25 @@
 
 - `beta_api_error: object`
 
-  - `message: string`
-
   - `type: "api_error"`
+
+  - `message: string`
 
 ### Beta Authentication Error
 
 - `beta_authentication_error: object`
 
-  - `message: string`
-
   - `type: "authentication_error"`
+
+  - `message: string`
 
 ### Beta Billing Error
 
 - `beta_billing_error: object`
 
-  - `message: string`
-
   - `type: "billing_error"`
+
+  - `message: string`
 
 ### Beta Currency
 
@@ -43,137 +48,137 @@
 
   - `beta_invalid_request_error: object`
 
-    - `message: string`
-
     - `type: "invalid_request_error"`
+
+    - `message: string`
 
   - `beta_authentication_error: object`
 
-    - `message: string`
-
     - `type: "authentication_error"`
+
+    - `message: string`
 
   - `beta_billing_error: object`
 
-    - `message: string`
-
     - `type: "billing_error"`
+
+    - `message: string`
 
   - `beta_permission_error: object`
 
-    - `message: string`
-
     - `type: "permission_error"`
+
+    - `message: string`
 
   - `beta_not_found_error: object`
 
-    - `message: string`
-
     - `type: "not_found_error"`
+
+    - `message: string`
 
   - `beta_rate_limit_error: object`
 
-    - `message: string`
-
     - `type: "rate_limit_error"`
+
+    - `message: string`
 
   - `beta_gateway_timeout_error: object`
 
-    - `message: string`
-
     - `type: "timeout_error"`
+
+    - `message: string`
 
   - `beta_api_error: object`
 
-    - `message: string`
-
     - `type: "api_error"`
+
+    - `message: string`
 
   - `beta_overloaded_error: object`
 
-    - `message: string`
-
     - `type: "overloaded_error"`
+
+    - `message: string`
 
 ### Beta Error Response
 
 - `beta_error_response: object`
 
+  - `type: "error"`
+
   - `error: BetaInvalidRequestError or BetaAuthenticationError or BetaBillingError or 6 more`
 
     - `beta_invalid_request_error: object`
 
-      - `message: string`
-
       - `type: "invalid_request_error"`
+
+      - `message: string`
 
     - `beta_authentication_error: object`
 
-      - `message: string`
-
       - `type: "authentication_error"`
+
+      - `message: string`
 
     - `beta_billing_error: object`
 
-      - `message: string`
-
       - `type: "billing_error"`
+
+      - `message: string`
 
     - `beta_permission_error: object`
 
-      - `message: string`
-
       - `type: "permission_error"`
+
+      - `message: string`
 
     - `beta_not_found_error: object`
 
-      - `message: string`
-
       - `type: "not_found_error"`
+
+      - `message: string`
 
     - `beta_rate_limit_error: object`
 
-      - `message: string`
-
       - `type: "rate_limit_error"`
+
+      - `message: string`
 
     - `beta_gateway_timeout_error: object`
 
-      - `message: string`
-
       - `type: "timeout_error"`
+
+      - `message: string`
 
     - `beta_api_error: object`
 
-      - `message: string`
-
       - `type: "api_error"`
+
+      - `message: string`
 
     - `beta_overloaded_error: object`
 
-      - `message: string`
-
       - `type: "overloaded_error"`
 
-  - `request_id: string`
+      - `message: string`
 
-  - `type: "error"`
+  - `request_id: string`
 
 ### Beta Gateway Timeout Error
 
 - `beta_gateway_timeout_error: object`
 
-  - `message: string`
-
   - `type: "timeout_error"`
+
+  - `message: string`
 
 ### Beta Invalid Request Error
 
 - `beta_invalid_request_error: object`
 
-  - `message: string`
-
   - `type: "invalid_request_error"`
+
+  - `message: string`
 
 ### Beta Monetary Amount
 
@@ -193,33 +198,33 @@
 
 - `beta_not_found_error: object`
 
-  - `message: string`
-
   - `type: "not_found_error"`
+
+  - `message: string`
 
 ### Beta Overloaded Error
 
 - `beta_overloaded_error: object`
 
-  - `message: string`
-
   - `type: "overloaded_error"`
+
+  - `message: string`
 
 ### Beta Permission Error
 
 - `beta_permission_error: object`
 
-  - `message: string`
-
   - `type: "permission_error"`
+
+  - `message: string`
 
 ### Beta Rate Limit Error
 
 - `beta_rate_limit_error: object`
 
-  - `message: string`
-
   - `type: "rate_limit_error"`
+
+  - `message: string`
 
 ## Beta › Models
 
@@ -255,11 +260,23 @@ The Models API response can be used to determine which models are available for 
 
   Header param: Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `BetaListResponse_ModelInfo_: object`
 
   - `data: array of BetaModelInfo`
+
+    - `type: "model"`
+
+      Object type.
+
+      For Models, this is always `"model"`.
 
     - `id: string`
 
@@ -447,12 +464,6 @@ The Models API response can be used to determine which models are available for 
 
       Maximum value for the `max_tokens` parameter when using this model.
 
-    - `type: "model"`
-
-      Object type.
-
-      For Models, this is always `"model"`.
-
   - `first_id: string`
 
     First ID in the `data` list. Can be used as the `before_id` for the previous page.
@@ -576,9 +587,21 @@ The Models API response can be used to determine information about a specific mo
 
   Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `beta_model_info: object`
+
+  - `type: "model"`
+
+    Object type.
+
+    For Models, this is always `"model"`.
 
   - `id: string`
 
@@ -765,12 +788,6 @@ The Models API response can be used to determine information about a specific mo
   - `max_tokens: number`
 
     Maximum value for the `max_tokens` parameter when using this model.
-
-  - `type: "model"`
-
-    Object type.
-
-    For Models, this is always `"model"`.
 
 #### Example
 
@@ -1120,6 +1137,12 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
   Header param: The user profile ID to attribute this request to. Use when acting on behalf of a party other than your organization. Requires the `user-profiles` beta header.
 
+- `--workspace-id: optional string`
+
+  Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 - `--temperature: optional number`
 
   **Deprecated**: Deprecated. Models released after Claude Opus 4.6 do not support setting temperature. A value of 1.0 of will be accepted for backwards compatibility, all other values will be rejected with a 400 error.
@@ -1160,6 +1183,12 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
 - `beta_message: object`
 
+  - `type: "message"`
+
+    Object type.
+
+    For Messages, this is always `"message"`.
+
   - `id: string`
 
     Unique object identifier.
@@ -1184,12 +1213,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       Skills loaded in the container
 
-      - `skill_id: string`
-
-        Skill ID
-
-        maxLength: 64, minLength: 1
-
       - `type: "anthropic" or "custom"`
 
         Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
@@ -1197,6 +1220,12 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         - `"anthropic"`
 
         - `"custom"`
+
+      - `skill_id: string`
+
+        Skill ID
+
+        maxLength: 64, minLength: 1
 
       - `version: string`
 
@@ -1235,6 +1264,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `beta_text_block: object`
 
+      - `type: "text"`
+
       - `citations: array of BetaTextCitation`
 
         Citations supporting the text block.
@@ -1242,6 +1273,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
 
         - `beta_citation_char_location: object`
+
+          - `type: "char_location"`
 
           - `cited_text: string`
 
@@ -1259,9 +1292,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             minimum: 0
 
-          - `type: "char_location"`
-
         - `beta_citation_page_location: object`
+
+          - `type: "page_location"`
 
           - `cited_text: string`
 
@@ -1279,9 +1312,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             minimum: 1
 
-          - `type: "page_location"`
-
         - `beta_citation_content_block_location: object`
+
+          - `type: "content_block_location"`
 
           - `cited_text: string`
 
@@ -1309,9 +1342,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             minimum: 0
 
-          - `type: "content_block_location"`
-
         - `beta_citations_web_search_result_location: object`
+
+          - `type: "web_search_result_location"`
 
           - `cited_text: string`
 
@@ -1321,11 +1354,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             maxLength: 512
 
-          - `type: "web_search_result_location"`
-
           - `url: string`
 
         - `beta_citation_search_result_location: object`
+
+          - `type: "search_result_location"`
 
           - `cited_text: string`
 
@@ -1357,15 +1390,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `title: string`
 
-          - `type: "search_result_location"`
-
       - `text: string`
 
-        maxLength: 5000000, minLength: 0
-
-      - `type: "text"`
+        minLength: 0
 
     - `beta_thinking_block: object`
+
+      - `type: "thinking"`
 
       - `signature: string`
 
@@ -1379,9 +1410,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         The text of Claude's thinking process for this block.
 
-      - `type: "thinking"`
-
     - `beta_redacted_thinking_block: object`
+
+      - `type: "redacted_thinking"`
 
       - `data: string`
 
@@ -1391,9 +1422,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking#redacted-thinking-blocks) for details.
 
-      - `type: "redacted_thinking"`
-
     - `beta_tool_use_block: object`
+
+      - `type: "tool_use"`
 
       - `id: string`
 
@@ -1404,8 +1435,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
       - `name: string`
 
         minLength: 1
-
-      - `type: "tool_use"`
 
       - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
 
@@ -1421,19 +1450,19 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           Tool invocation generated by a server-side tool.
 
+          - `type: "code_execution_20250825"`
+
           - `tool_id: string`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-          - `type: "code_execution_20250825"`
 
         - `beta_server_tool_caller_20260120: object`
 
+          - `type: "code_execution_20260120"`
+
           - `tool_id: string`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-          - `type: "code_execution_20260120"`
 
       - `toolset_name: optional string`
 
@@ -1442,6 +1471,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
 
     - `beta_server_tool_use_block: object`
+
+      - `type: "server_tool_use"`
 
       - `id: string`
 
@@ -1467,8 +1498,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `"tool_search_tool_bm25"`
 
-      - `type: "server_tool_use"`
-
       - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
 
         Tool invocation directly from the model.
@@ -1485,9 +1514,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `beta_web_search_tool_result_block: object`
 
+      - `type: "web_search_tool_result"`
+
       - `content: BetaWebSearchToolResultError or array of BetaWebSearchResultBlock`
 
         - `beta_web_search_tool_result_error: object`
+
+          - `type: "web_search_tool_result_error"`
 
           - `error_code: "invalid_tool_input" or "unavailable" or "max_uses_exceeded" or 3 more`
 
@@ -1503,9 +1536,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `"request_too_large"`
 
-          - `type: "web_search_tool_result_error"`
-
         - `union_member_1: array of BetaWebSearchResultBlock`
+
+          - `type: "web_search_result"`
 
           - `encrypted_content: string`
 
@@ -1513,15 +1546,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `title: string`
 
-          - `type: "web_search_result"`
-
           - `url: string`
 
       - `tool_use_id: string`
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-      - `type: "web_search_tool_result"`
 
       - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
 
@@ -1539,11 +1568,15 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `beta_web_fetch_tool_result_block: object`
 
+      - `type: "web_fetch_tool_result"`
+
       - `content: BetaWebFetchToolResultErrorBlock or BetaWebFetchBlock`
 
         - `beta_web_fetch_tool_result_error_block: object`
 
-          - `error_code: "invalid_tool_input" or "url_too_long" or "url_not_allowed" or 6 more`
+          - `type: "web_fetch_tool_result_error"`
+
+          - `error_code: "invalid_tool_input" or "url_too_long" or "url_not_allowed" or 7 more`
 
             - `"invalid_tool_input"`
 
@@ -1563,11 +1596,15 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `"unavailable"`
 
-          - `type: "web_fetch_tool_result_error"`
+            - `"content_too_large"`
 
         - `beta_web_fetch_block: object`
 
+          - `type: "web_fetch_result"`
+
           - `content: object`
+
+            - `type: "document"`
 
             - `citations: object`
 
@@ -1579,33 +1616,29 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `beta_base64_pdf_source: object`
 
+                - `type: "base64"`
+
                 - `data: string`
 
                   format: byte
 
                 - `media_type: "application/pdf"`
 
-                - `type: "base64"`
-
               - `beta_plain_text_source: object`
+
+                - `type: "text"`
 
                 - `data: string`
 
                 - `media_type: "text/plain"`
 
-                - `type: "text"`
-
             - `title: string`
 
               The title of the document
 
-            - `type: "document"`
-
           - `retrieved_at: string`
 
             ISO 8601 timestamp when the content was retrieved
-
-          - `type: "web_fetch_result"`
 
           - `url: string`
 
@@ -1614,8 +1647,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
       - `tool_use_id: string`
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-      - `type: "web_fetch_tool_result"`
 
       - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
 
@@ -1633,9 +1664,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `beta_advisor_tool_result_block: object`
 
+      - `type: "advisor_tool_result"`
+
       - `content: BetaAdvisorToolResultError or BetaAdvisorResultBlock or BetaAdvisorRedactedResultBlock`
 
         - `beta_advisor_tool_result_error: object`
+
+          - `type: "advisor_tool_result_error"`
 
           - `error_code: "max_uses_exceeded" or "prompt_too_long" or "too_many_requests" or 4 more`
 
@@ -1653,9 +1688,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `"model_not_found"`
 
-          - `type: "advisor_tool_result_error"`
-
         - `beta_advisor_result_block: object`
+
+          - `type: "advisor_result"`
 
           - `stop_reason: string`
 
@@ -1663,9 +1698,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `text: string`
 
-          - `type: "advisor_result"`
-
         - `beta_advisor_redacted_result_block: object`
+
+          - `type: "advisor_redacted_result"`
 
           - `encrypted_content: string`
 
@@ -1675,21 +1710,21 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             The advisor sub-inference's stop reason (same values as the top-level message `stop_reason`).
 
-          - `type: "advisor_redacted_result"`
-
       - `tool_use_id: string`
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-      - `type: "advisor_tool_result"`
-
     - `beta_code_execution_tool_result_block: object`
+
+      - `type: "code_execution_tool_result"`
 
       - `content: BetaCodeExecutionToolResultError or BetaCodeExecutionResultBlock or BetaEncryptedCodeExecutionResultBlock`
 
         Code execution result with encrypted stdout for PFC + web_search results.
 
         - `beta_code_execution_tool_result_error: object`
+
+          - `type: "code_execution_tool_result_error"`
 
           - `error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or "execution_time_exceeded"`
 
@@ -1701,15 +1736,15 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `"execution_time_exceeded"`
 
-          - `type: "code_execution_tool_result_error"`
-
         - `beta_code_execution_result_block: object`
+
+          - `type: "code_execution_result"`
 
           - `content: array of BetaCodeExecutionOutputBlock`
 
-            - `file_id: string`
-
             - `type: "code_execution_output"`
+
+            - `file_id: string`
 
           - `return_code: number`
 
@@ -1717,17 +1752,17 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `stdout: string`
 
-          - `type: "code_execution_result"`
-
         - `beta_encrypted_code_execution_result_block: object`
 
           Code execution result with encrypted stdout for PFC + web_search results.
 
+          - `type: "encrypted_code_execution_result"`
+
           - `content: array of BetaCodeExecutionOutputBlock`
 
-            - `file_id: string`
-
             - `type: "code_execution_output"`
+
+            - `file_id: string`
 
           - `encrypted_stdout: string`
 
@@ -1735,19 +1770,19 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `stderr: string`
 
-          - `type: "encrypted_code_execution_result"`
-
       - `tool_use_id: string`
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-      - `type: "code_execution_tool_result"`
-
     - `beta_bash_code_execution_tool_result_block: object`
+
+      - `type: "bash_code_execution_tool_result"`
 
       - `content: BetaBashCodeExecutionToolResultError or BetaBashCodeExecutionResultBlock`
 
         - `beta_bash_code_execution_tool_result_error: object`
+
+          - `type: "bash_code_execution_tool_result_error"`
 
           - `error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or 2 more`
 
@@ -1761,15 +1796,15 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `"output_file_too_large"`
 
-          - `type: "bash_code_execution_tool_result_error"`
-
         - `beta_bash_code_execution_result_block: object`
+
+          - `type: "bash_code_execution_result"`
 
           - `content: array of BetaBashCodeExecutionOutputBlock`
 
-            - `file_id: string`
-
             - `type: "bash_code_execution_output"`
+
+            - `file_id: string`
 
           - `return_code: number`
 
@@ -1777,19 +1812,19 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `stdout: string`
 
-          - `type: "bash_code_execution_result"`
-
       - `tool_use_id: string`
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-      - `type: "bash_code_execution_tool_result"`
-
     - `beta_text_editor_code_execution_tool_result_block: object`
+
+      - `type: "text_editor_code_execution_tool_result"`
 
       - `content: BetaTextEditorCodeExecutionToolResultError or BetaTextEditorCodeExecutionViewResultBlock or BetaTextEditorCodeExecutionCreateResultBlock or BetaTextEditorCodeExecutionStrReplaceResultBlock`
 
         - `beta_text_editor_code_execution_tool_result_error: object`
+
+          - `type: "text_editor_code_execution_tool_result_error"`
 
           - `error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or 2 more`
 
@@ -1805,9 +1840,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `error_message: string`
 
-          - `type: "text_editor_code_execution_tool_result_error"`
-
         - `beta_text_editor_code_execution_view_result_block: object`
+
+          - `type: "text_editor_code_execution_view_result"`
 
           - `content: string`
 
@@ -1825,15 +1860,15 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `total_lines: number`
 
-          - `type: "text_editor_code_execution_view_result"`
-
         - `beta_text_editor_code_execution_create_result_block: object`
-
-          - `is_file_update: boolean`
 
           - `type: "text_editor_code_execution_create_result"`
 
+          - `is_file_update: boolean`
+
         - `beta_text_editor_code_execution_str_replace_result_block: object`
+
+          - `type: "text_editor_code_execution_str_replace_result"`
 
           - `lines: array of string`
 
@@ -1845,19 +1880,19 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `old_start: number`
 
-          - `type: "text_editor_code_execution_str_replace_result"`
-
       - `tool_use_id: string`
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-      - `type: "text_editor_code_execution_tool_result"`
-
     - `beta_tool_search_tool_result_block: object`
+
+      - `type: "tool_search_tool_result"`
 
       - `content: BetaToolSearchToolResultError or BetaToolSearchToolSearchResultBlock`
 
         - `beta_tool_search_tool_result_error: object`
+
+          - `type: "tool_search_tool_result_error"`
 
           - `error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or "execution_time_exceeded"`
 
@@ -1871,27 +1906,25 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `error_message: string`
 
-          - `type: "tool_search_tool_result_error"`
-
         - `beta_tool_search_tool_search_result_block: object`
 
+          - `type: "tool_search_tool_search_result"`
+
           - `tool_references: array of BetaToolReferenceBlock`
+
+            - `type: "tool_reference"`
 
             - `tool_name: string`
 
               maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
-            - `type: "tool_reference"`
-
-          - `type: "tool_search_tool_search_result"`
-
       - `tool_use_id: string`
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-      - `type: "tool_search_tool_result"`
-
     - `beta_mcp_tool_use_block: object`
+
+      - `type: "mcp_tool_use"`
 
       - `id: string`
 
@@ -1907,15 +1940,17 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         The name of the MCP server
 
-      - `type: "mcp_tool_use"`
-
     - `beta_mcp_tool_result_block: object`
+
+      - `type: "mcp_tool_result"`
 
       - `content: string or array of BetaTextBlock`
 
         - `union_member_0: string`
 
         - `beta_mcp_tool_result_block_content: array of BetaTextBlock`
+
+          - `type: "text"`
 
           - `citations: array of BetaTextCitation`
 
@@ -1925,9 +1960,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `text: string`
 
-            maxLength: 5000000, minLength: 0
-
-          - `type: "text"`
+            minLength: 0
 
       - `is_error: boolean`
 
@@ -1935,15 +1968,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         pattern: ^[a-zA-Z0-9_-]+$
 
-      - `type: "mcp_tool_result"`
-
     - `beta_container_upload_block: object`
 
       Response model for a file uploaded to the container.
 
-      - `file_id: string`
-
       - `type: "container_upload"`
+
+      - `file_id: string`
 
     - `beta_compaction_block: object`
 
@@ -1953,6 +1984,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
       summary (e.g., malformed output from the model). Clients may round-trip
       compaction blocks with null content; the server treats them as no-ops.
 
+      - `type: "compaction"`
+
       - `content: string`
 
         Summary of compacted content, or null if compaction failed
@@ -1960,8 +1993,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
       - `encrypted_content: string`
 
         Opaque metadata from prior compaction, to be round-tripped verbatim
-
-      - `type: "compaction"`
 
     - `beta_fallback_block: object`
 
@@ -1976,6 +2007,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
       The block is treated like a server-tool content block for streaming: it
       arrives via the standard `content_block_start` / `content_block_stop`
       pair and carries no deltas.
+
+      - `type: "fallback"`
 
       - `from: object`
 
@@ -2069,6 +2102,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         What caused the `from` model to hand over at this hop.
 
+        - `type: "refusal"`
+
         - `category: "cyber" or "bio" or "frontier_llm" or 2 more`
 
           The policy category that triggered a refusal.
@@ -2093,10 +2128,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
 
-        - `type: "refusal"`
-
-      - `type: "fallback"`
-
   - `context_management: object`
 
     Context management response.
@@ -2108,6 +2139,10 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
       List of context management edits that were applied.
 
       - `beta_clear_tool_uses_20250919_edit_response: object`
+
+        - `type: "clear_tool_uses_20250919"`
+
+          The type of context management edit applied.
 
         - `cleared_input_tokens: number`
 
@@ -2121,11 +2156,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           minimum: 0
 
-        - `type: "clear_tool_uses_20250919"`
+      - `beta_clear_thinking_20251015_edit_response: object`
+
+        - `type: "clear_thinking_20251015"`
 
           The type of context management edit applied.
-
-      - `beta_clear_thinking_20251015_edit_response: object`
 
         - `cleared_input_tokens: number`
 
@@ -2139,10 +2174,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           minimum: 0
 
-        - `type: "clear_thinking_20251015"`
-
-          The type of context management edit applied.
-
   - `diagnostics: object`
 
     Response envelope for request-level diagnostics. Present (possibly
@@ -2154,35 +2185,35 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `beta_cache_miss_model_changed: object`
 
+        - `type: "model_changed"`
+
         - `cache_missed_input_tokens: number`
 
           Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
-
-        - `type: "model_changed"`
 
       - `beta_cache_miss_system_changed: object`
 
+        - `type: "system_changed"`
+
         - `cache_missed_input_tokens: number`
 
           Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
-
-        - `type: "system_changed"`
 
       - `beta_cache_miss_tools_changed: object`
 
+        - `type: "tools_changed"`
+
         - `cache_missed_input_tokens: number`
 
           Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
-
-        - `type: "tools_changed"`
 
       - `beta_cache_miss_messages_changed: object`
 
+        - `type: "messages_changed"`
+
         - `cache_missed_input_tokens: number`
 
           Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
-
-        - `type: "messages_changed"`
 
       - `beta_cache_miss_previous_message_not_found: object`
 
@@ -2276,6 +2307,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     Structured information about a refusal.
 
+    - `type: "refusal"`
+
     - `category: "cyber" or "bio" or "frontier_llm" or 2 more`
 
       The policy category that triggered a refusal.
@@ -2355,8 +2388,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       The server's suggested retry target for this refusal. Populated when a fallback attempt could not be made (the fallback model's rate limit was exhausted, or it was overloaded); names the fallback model the caller can retry directly. Null otherwise.
 
-    - `type: "refusal"`
-
   - `stop_reason: "end_turn" or "max_tokens" or "stop_sequence" or 5 more`
 
     The reason that we stopped.
@@ -2394,12 +2425,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
     Which custom stop sequence was generated, if any.
 
     This value will be a non-null string if one of your custom stop sequences was generated.
-
-  - `type: "message"`
-
-    Object type.
-
-    For Messages, this is always `"message"`.
 
   - `usage: object`
 
@@ -2465,6 +2490,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           No reprice was applied; `reason` says why.
 
+          - `type: "not_applied"`
+
           - `reason: "body_mismatch" or "continuation_excluded" or "continuation_only" or 9 more`
 
             Why the reprice was not applied.
@@ -2495,8 +2522,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
             - `"wrong_platform"`
 
             - `"wrong_workspace"`
-
-          - `type: "not_applied"`
 
           - `remove_to_redeem: optional array of string`
 
@@ -2535,6 +2560,10 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         Token usage for a sampling iteration.
 
+        - `type: "message"`
+
+          Usage for a sampling iteration
+
         - `cache_creation: object`
 
           Breakdown of cached tokens by TTL
@@ -2648,15 +2677,15 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
           The number of output tokens which were used.
 
           minimum: 0
-
-        - `type: "message"`
-
-          Usage for a sampling iteration
 
       - `beta_compaction_iteration_usage: object`
 
         Token usage for a compaction iteration.
 
+        - `type: "compaction"`
+
+          Usage for a compaction iteration
+
         - `cache_creation: object`
 
           Breakdown of cached tokens by TTL
@@ -2697,13 +2726,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           minimum: 0
 
-        - `type: "compaction"`
-
-          Usage for a compaction iteration
-
       - `beta_advisor_message_iteration_usage: object`
 
         Token usage for an advisor sub-inference iteration.
+
+        - `type: "advisor_message"`
+
+          Usage for an advisor sub-inference iteration
 
         - `cache_creation: object`
 
@@ -2818,10 +2847,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
           The number of output tokens which were used.
 
           minimum: 0
-
-        - `type: "advisor_message"`
-
-          Usage for an advisor sub-inference iteration
 
       - `beta_fallback_message_iteration_usage: object`
 
@@ -2832,6 +2857,10 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         a fallback model served the response is signalled by the presence of this
         entry in `usage.iterations`.
 
+        - `type: "fallback_message"`
+
+          Usage for the fallback-model attempt that served the response
+
         - `cache_creation: object`
 
           Breakdown of cached tokens by TTL
@@ -2945,10 +2974,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
           The number of output tokens which were used.
 
           minimum: 0
-
-        - `type: "fallback_message"`
-
-          Usage for the fallback-model attempt that served the response
 
     - `output_tokens: number`
 
@@ -3030,6 +3055,10 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
     fallback happened mid-stream, in which case it holds the serving model's
     entries and replaces the one in `message_start`.
 
+    - `type: "thinking_dropped"`
+
+      Always `thinking_dropped` for this entry type.
+
     - `path: string`
 
       Where the removed block was in your request, as `messages.{i}.content.{j}`:
@@ -3060,15 +3089,19 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `"end_user_binding_mismatch"`
 
-    - `type: "thinking_dropped"`
-
-      Always `thinking_dropped` for this entry type.
-
 - `beta_raw_message_stream_event: BetaRawMessageStartEvent or BetaRawMessageDeltaEvent or BetaRawMessageStopEvent or 3 more`
 
   - `beta_raw_message_start_event: object`
 
+    - `type: "message_start"`
+
     - `message: object`
+
+      - `type: "message"`
+
+        Object type.
+
+        For Messages, this is always `"message"`.
 
       - `id: string`
 
@@ -3158,12 +3191,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         This value will be a non-null string if one of your custom stop sequences was generated.
 
-      - `type: "message"`
-
-        Object type.
-
-        For Messages, this is always `"message"`.
-
       - `usage: object`
 
         Billing and rate-limit usage.
@@ -3194,9 +3221,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         fallback happened mid-stream, in which case it holds the serving model's
         entries and replaces the one in `message_start`.
 
-    - `type: "message_start"`
-
   - `beta_raw_message_delta_event: object`
+
+    - `type: "message_delta"`
 
     - `context_management: object`
 
@@ -3229,6 +3256,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
       - `stop_details: object`
 
         Structured information about a refusal.
+
+        - `type: "refusal"`
 
         - `category: "cyber" or "bio" or "frontier_llm" or 2 more`
 
@@ -3289,8 +3318,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           The server's suggested retry target for this refusal. Populated when a fallback attempt could not be made (the fallback model's rate limit was exhausted, or it was overloaded); names the fallback model the caller can retry directly. Null otherwise.
 
-        - `type: "refusal"`
-
       - `stop_reason: "end_turn" or "max_tokens" or "stop_sequence" or 5 more`
 
         - `"end_turn"`
@@ -3310,8 +3337,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         - `"model_context_window_exceeded"`
 
       - `stop_sequence: string`
-
-    - `type: "message_delta"`
 
     - `usage: object`
 
@@ -3449,6 +3474,10 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
       fallback happened mid-stream, in which case it holds the serving model's
       entries and replaces the one in `message_start`.
 
+      - `type: "thinking_dropped"`
+
+        Always `thinking_dropped` for this entry type.
+
       - `path: string`
 
         Where the removed block was in your request, as `messages.{i}.content.{j}`:
@@ -3471,21 +3500,21 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         `organization_binding_mismatch`, `end_user_binding_mismatch`,
         `model_binding_mismatch`, `prefix_binding_mismatch`.
 
-      - `type: "thinking_dropped"`
-
-        Always `thinking_dropped` for this entry type.
-
   - `beta_raw_message_stop_event: object`
 
     - `type: "message_stop"`
 
   - `beta_raw_content_block_start_event: object`
 
+    - `type: "content_block_start"`
+
     - `content_block: BetaTextBlock or BetaThinkingBlock or BetaRedactedThinkingBlock or 14 more`
 
       Response model for a file uploaded to the container.
 
       - `beta_text_block: object`
+
+        - `type: "text"`
 
         - `citations: array of BetaTextCitation`
 
@@ -3495,11 +3524,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `text: string`
 
-          maxLength: 5000000, minLength: 0
-
-        - `type: "text"`
+          minLength: 0
 
       - `beta_thinking_block: object`
+
+        - `type: "thinking"`
 
         - `signature: string`
 
@@ -3513,9 +3542,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           The text of Claude's thinking process for this block.
 
-        - `type: "thinking"`
-
       - `beta_redacted_thinking_block: object`
+
+        - `type: "redacted_thinking"`
 
         - `data: string`
 
@@ -3525,9 +3554,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking#redacted-thinking-blocks) for details.
 
-        - `type: "redacted_thinking"`
-
       - `beta_tool_use_block: object`
+
+        - `type: "tool_use"`
 
         - `id: string`
 
@@ -3538,8 +3567,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         - `name: string`
 
           minLength: 1
-
-        - `type: "tool_use"`
 
         - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
 
@@ -3553,6 +3580,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `beta_server_tool_use_block: object`
 
+        - `type: "server_tool_use"`
+
         - `id: string`
 
           pattern: ^srvtoolu_[a-zA-Z0-9_]+$
@@ -3561,13 +3590,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `name: "advisor" or "web_search" or "web_fetch" or 5 more`
 
-        - `type: "server_tool_use"`
-
         - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
 
           Tool invocation directly from the model.
 
       - `beta_web_search_tool_result_block: object`
+
+        - `type: "web_search_tool_result"`
 
         - `content: BetaWebSearchToolResultError or array of BetaWebSearchResultBlock`
 
@@ -3575,13 +3604,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-        - `type: "web_search_tool_result"`
-
         - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
 
           Tool invocation directly from the model.
 
       - `beta_web_fetch_tool_result_block: object`
+
+        - `type: "web_fetch_tool_result"`
 
         - `content: BetaWebFetchToolResultErrorBlock or BetaWebFetchBlock`
 
@@ -3589,13 +3618,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-        - `type: "web_fetch_tool_result"`
-
         - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
 
           Tool invocation directly from the model.
 
       - `beta_advisor_tool_result_block: object`
+
+        - `type: "advisor_tool_result"`
 
         - `content: BetaAdvisorToolResultError or BetaAdvisorResultBlock or BetaAdvisorRedactedResultBlock`
 
@@ -3603,9 +3632,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-        - `type: "advisor_tool_result"`
-
       - `beta_code_execution_tool_result_block: object`
+
+        - `type: "code_execution_tool_result"`
 
         - `content: BetaCodeExecutionToolResultError or BetaCodeExecutionResultBlock or BetaEncryptedCodeExecutionResultBlock`
 
@@ -3615,9 +3644,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-        - `type: "code_execution_tool_result"`
-
       - `beta_bash_code_execution_tool_result_block: object`
+
+        - `type: "bash_code_execution_tool_result"`
 
         - `content: BetaBashCodeExecutionToolResultError or BetaBashCodeExecutionResultBlock`
 
@@ -3625,9 +3654,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-        - `type: "bash_code_execution_tool_result"`
-
       - `beta_text_editor_code_execution_tool_result_block: object`
+
+        - `type: "text_editor_code_execution_tool_result"`
 
         - `content: BetaTextEditorCodeExecutionToolResultError or BetaTextEditorCodeExecutionViewResultBlock or BetaTextEditorCodeExecutionCreateResultBlock or BetaTextEditorCodeExecutionStrReplaceResultBlock`
 
@@ -3635,9 +3664,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-        - `type: "text_editor_code_execution_tool_result"`
-
       - `beta_tool_search_tool_result_block: object`
+
+        - `type: "tool_search_tool_result"`
 
         - `content: BetaToolSearchToolResultError or BetaToolSearchToolSearchResultBlock`
 
@@ -3645,9 +3674,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-        - `type: "tool_search_tool_result"`
-
       - `beta_mcp_tool_use_block: object`
+
+        - `type: "mcp_tool_use"`
 
         - `id: string`
 
@@ -3663,9 +3692,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           The name of the MCP server
 
-        - `type: "mcp_tool_use"`
-
       - `beta_mcp_tool_result_block: object`
+
+        - `type: "mcp_tool_result"`
 
         - `content: string or array of BetaTextBlock`
 
@@ -3675,15 +3704,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           pattern: ^[a-zA-Z0-9_-]+$
 
-        - `type: "mcp_tool_result"`
-
       - `beta_container_upload_block: object`
 
         Response model for a file uploaded to the container.
 
-        - `file_id: string`
-
         - `type: "container_upload"`
+
+        - `file_id: string`
 
       - `beta_compaction_block: object`
 
@@ -3693,6 +3720,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         summary (e.g., malformed output from the model). Clients may round-trip
         compaction blocks with null content; the server treats them as no-ops.
 
+        - `type: "compaction"`
+
         - `content: string`
 
           Summary of compacted content, or null if compaction failed
@@ -3700,8 +3729,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         - `encrypted_content: string`
 
           Opaque metadata from prior compaction, to be round-tripped verbatim
-
-        - `type: "compaction"`
 
       - `beta_fallback_block: object`
 
@@ -3717,6 +3744,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         arrives via the standard `content_block_start` / `content_block_stop`
         pair and carries no deltas.
 
+        - `type: "fallback"`
+
         - `from: object`
 
           The model whose output ends at this point — the model that declined at this hop. When the declining hop is the requested model, its `model` echoes the top-level `model` string the caller sent (alias or canonical); when the declining hop is a fallback model, its `model` is that model's canonical id.
@@ -3729,33 +3758,35 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           What caused the `from` model to hand over at this hop.
 
-        - `type: "fallback"`
-
     - `index: number`
 
-    - `type: "content_block_start"`
-
   - `beta_raw_content_block_delta_event: object`
+
+    - `type: "content_block_delta"`
 
     - `delta: BetaTextDelta or BetaInputJSONDelta or BetaCitationsDelta or 3 more`
 
       - `beta_text_delta: object`
 
-        - `text: string`
-
         - `type: "text_delta"`
+
+        - `text: string`
 
       - `beta_input_json_delta: object`
 
-        - `partial_json: string`
-
         - `type: "input_json_delta"`
 
+        - `partial_json: string`
+
       - `beta_citations_delta: object`
+
+        - `type: "citations_delta"`
 
         - `citation: BetaCitationCharLocation or BetaCitationPageLocation or BetaCitationContentBlockLocation or 2 more`
 
           - `beta_citation_char_location: object`
+
+            - `type: "char_location"`
 
             - `cited_text: string`
 
@@ -3773,9 +3804,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               minimum: 0
 
-            - `type: "char_location"`
-
           - `beta_citation_page_location: object`
+
+            - `type: "page_location"`
 
             - `cited_text: string`
 
@@ -3793,9 +3824,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               minimum: 1
 
-            - `type: "page_location"`
-
           - `beta_citation_content_block_location: object`
+
+            - `type: "content_block_location"`
 
             - `cited_text: string`
 
@@ -3823,9 +3854,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               minimum: 0
 
-            - `type: "content_block_location"`
-
           - `beta_citations_web_search_result_location: object`
+
+            - `type: "web_search_result_location"`
 
             - `cited_text: string`
 
@@ -3835,11 +3866,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               maxLength: 512
 
-            - `type: "web_search_result_location"`
-
             - `url: string`
 
           - `beta_citation_search_result_location: object`
+
+            - `type: "search_result_location"`
 
             - `cited_text: string`
 
@@ -3871,11 +3902,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `title: string`
 
-            - `type: "search_result_location"`
-
-        - `type: "citations_delta"`
-
       - `beta_thinking_delta: object`
+
+        - `type: "thinking_delta"`
 
         - `estimated_tokens: number`
 
@@ -3885,17 +3914,17 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           The incremental `thinking` text for this content block. Concatenate the `thinking` values of successive `thinking_delta` events to assemble the block's full `thinking` value.
 
-        - `type: "thinking_delta"`
-
       - `beta_signature_delta: object`
+
+        - `type: "signature_delta"`
 
         - `signature: string`
 
           The `signature` for this thinking block: an opaque value used to verify that the block was generated by Claude when it is passed back to the API. Delivered in a `signature_delta` event just before the block's `content_block_stop` event.
 
-        - `type: "signature_delta"`
-
       - `beta_compaction_content_block_delta: object`
+
+        - `type: "compaction_delta"`
 
         - `content: string`
 
@@ -3903,17 +3932,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           Opaque metadata from prior compaction, to be round-tripped verbatim
 
-        - `type: "compaction_delta"`
-
     - `index: number`
-
-    - `type: "content_block_delta"`
 
   - `beta_raw_content_block_stop_event: object`
 
-    - `index: number`
-
     - `type: "content_block_stop"`
+
+    - `index: number`
 
 #### Example
 
@@ -4226,6 +4251,12 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
   Header param: The user profile ID to attribute this request to. Use when acting on behalf of a party other than your organization. Requires the `user-profiles` beta header.
 
+- `--workspace-id: optional string`
+
+  Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `beta_message_tokens_count: object`
@@ -4292,9 +4323,21 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   Header param: The user profile ID to attribute the requests in this batch to. Use when acting on behalf of a party other than your organization. Requires the `user-profiles` beta header. Applies to every request in the batch; an individual request whose `user_profile_id` body field conflicts with this header is errored.
 
+- `--workspace-id: optional string`
+
+  Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `beta_message_batch: object`
+
+  - `type: "message_batch"`
+
+    Object type.
+
+    For Message Batches, this is always `"message_batch"`.
 
   - `id: string`
 
@@ -4383,12 +4426,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
     URL to a `.jsonl` file containing the results of the Message Batch requests. Specified only once processing ends.
 
     Results in the file are not guaranteed to be in the same order as requests. Use the `custom_id` field to match results to requests.
-
-  - `type: "message_batch"`
-
-    Object type.
-
-    For Message Batches, this is always `"message_batch"`.
 
 #### Example
 
@@ -4441,9 +4478,21 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `beta_message_batch: object`
+
+  - `type: "message_batch"`
+
+    Object type.
+
+    For Message Batches, this is always `"message_batch"`.
 
   - `id: string`
 
@@ -4532,12 +4581,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
     URL to a `.jsonl` file containing the results of the Message Batch requests. Specified only once processing ends.
 
     Results in the file are not guaranteed to be in the same order as requests. Use the `custom_id` field to match results to requests.
-
-  - `type: "message_batch"`
-
-    Object type.
-
-    For Message Batches, this is always `"message_batch"`.
 
 #### Example
 
@@ -4602,11 +4645,23 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   Header param: Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `BetaListResponse_MessageBatch_: object`
 
   - `data: array of BetaMessageBatch`
+
+    - `type: "message_batch"`
+
+      Object type.
+
+      For Message Batches, this is always `"message_batch"`.
 
     - `id: string`
 
@@ -4696,12 +4751,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       Results in the file are not guaranteed to be in the same order as requests. Use the `custom_id` field to match results to requests.
 
-    - `type: "message_batch"`
-
-      Object type.
-
-      For Message Batches, this is always `"message_batch"`.
-
   - `first_id: string`
 
     First ID in the `data` list. Can be used as the `before_id` for the previous page.
@@ -4773,9 +4822,21 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `beta_message_batch: object`
+
+  - `type: "message_batch"`
+
+    Object type.
+
+    For Message Batches, this is always `"message_batch"`.
 
   - `id: string`
 
@@ -4865,12 +4926,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     Results in the file are not guaranteed to be in the same order as requests. Use the `custom_id` field to match results to requests.
 
-  - `type: "message_batch"`
-
-    Object type.
-
-    For Message Batches, this is always `"message_batch"`.
-
 #### Example
 
 ```bash
@@ -4924,19 +4979,25 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `beta_deleted_message_batch: object`
-
-  - `id: string`
-
-    ID of the Message Batch.
 
   - `type: "message_batch_deleted"`
 
     Deleted object type.
 
     For Message Batches, this is always `"message_batch_deleted"`.
+
+  - `id: string`
+
+    ID of the Message Batch.
 
 #### Example
 
@@ -4977,6 +5038,12 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `beta_message_batch_individual_response: object`
@@ -4997,7 +5064,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     - `beta_message_batch_succeeded_result: object`
 
+      - `type: "succeeded"`
+
       - `message: object`
+
+        - `type: "message"`
+
+          Object type.
+
+          For Messages, this is always `"message"`.
 
         - `id: string`
 
@@ -5023,12 +5098,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             Skills loaded in the container
 
-            - `skill_id: string`
-
-              Skill ID
-
-              maxLength: 64, minLength: 1
-
             - `type: "anthropic" or "custom"`
 
               Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
@@ -5036,6 +5105,12 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
               - `"anthropic"`
 
               - `"custom"`
+
+            - `skill_id: string`
+
+              Skill ID
+
+              maxLength: 64, minLength: 1
 
             - `version: string`
 
@@ -5074,6 +5149,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           - `beta_text_block: object`
 
+            - `type: "text"`
+
             - `citations: array of BetaTextCitation`
 
               Citations supporting the text block.
@@ -5081,6 +5158,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
               The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
 
               - `beta_citation_char_location: object`
+
+                - `type: "char_location"`
 
                 - `cited_text: string`
 
@@ -5098,9 +5177,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   minimum: 0
 
-                - `type: "char_location"`
-
               - `beta_citation_page_location: object`
+
+                - `type: "page_location"`
 
                 - `cited_text: string`
 
@@ -5118,9 +5197,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   minimum: 1
 
-                - `type: "page_location"`
-
               - `beta_citation_content_block_location: object`
+
+                - `type: "content_block_location"`
 
                 - `cited_text: string`
 
@@ -5148,9 +5227,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   minimum: 0
 
-                - `type: "content_block_location"`
-
               - `beta_citations_web_search_result_location: object`
+
+                - `type: "web_search_result_location"`
 
                 - `cited_text: string`
 
@@ -5160,11 +5239,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   maxLength: 512
 
-                - `type: "web_search_result_location"`
-
                 - `url: string`
 
               - `beta_citation_search_result_location: object`
+
+                - `type: "search_result_location"`
 
                 - `cited_text: string`
 
@@ -5196,15 +5275,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `title: string`
 
-                - `type: "search_result_location"`
-
             - `text: string`
 
-              maxLength: 5000000, minLength: 0
-
-            - `type: "text"`
+              minLength: 0
 
           - `beta_thinking_block: object`
+
+            - `type: "thinking"`
 
             - `signature: string`
 
@@ -5218,9 +5295,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               The text of Claude's thinking process for this block.
 
-            - `type: "thinking"`
-
           - `beta_redacted_thinking_block: object`
+
+            - `type: "redacted_thinking"`
 
             - `data: string`
 
@@ -5230,9 +5307,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking#redacted-thinking-blocks) for details.
 
-            - `type: "redacted_thinking"`
-
           - `beta_tool_use_block: object`
+
+            - `type: "tool_use"`
 
             - `id: string`
 
@@ -5243,8 +5320,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
             - `name: string`
 
               minLength: 1
-
-            - `type: "tool_use"`
 
             - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
 
@@ -5260,19 +5335,19 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 Tool invocation generated by a server-side tool.
 
+                - `type: "code_execution_20250825"`
+
                 - `tool_id: string`
 
                   pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-                - `type: "code_execution_20250825"`
 
               - `beta_server_tool_caller_20260120: object`
 
+                - `type: "code_execution_20260120"`
+
                 - `tool_id: string`
 
                   pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-                - `type: "code_execution_20260120"`
 
             - `toolset_name: optional string`
 
@@ -5281,6 +5356,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
               maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
 
           - `beta_server_tool_use_block: object`
+
+            - `type: "server_tool_use"`
 
             - `id: string`
 
@@ -5306,8 +5383,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `"tool_search_tool_bm25"`
 
-            - `type: "server_tool_use"`
-
             - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
 
               Tool invocation directly from the model.
@@ -5324,9 +5399,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           - `beta_web_search_tool_result_block: object`
 
+            - `type: "web_search_tool_result"`
+
             - `content: BetaWebSearchToolResultError or array of BetaWebSearchResultBlock`
 
               - `beta_web_search_tool_result_error: object`
+
+                - `type: "web_search_tool_result_error"`
 
                 - `error_code: "invalid_tool_input" or "unavailable" or "max_uses_exceeded" or 3 more`
 
@@ -5342,9 +5421,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `"request_too_large"`
 
-                - `type: "web_search_tool_result_error"`
-
               - `union_member_1: array of BetaWebSearchResultBlock`
+
+                - `type: "web_search_result"`
 
                 - `encrypted_content: string`
 
@@ -5352,15 +5431,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `title: string`
 
-                - `type: "web_search_result"`
-
                 - `url: string`
 
             - `tool_use_id: string`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-            - `type: "web_search_tool_result"`
 
             - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
 
@@ -5378,11 +5453,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           - `beta_web_fetch_tool_result_block: object`
 
+            - `type: "web_fetch_tool_result"`
+
             - `content: BetaWebFetchToolResultErrorBlock or BetaWebFetchBlock`
 
               - `beta_web_fetch_tool_result_error_block: object`
 
-                - `error_code: "invalid_tool_input" or "url_too_long" or "url_not_allowed" or 6 more`
+                - `type: "web_fetch_tool_result_error"`
+
+                - `error_code: "invalid_tool_input" or "url_too_long" or "url_not_allowed" or 7 more`
 
                   - `"invalid_tool_input"`
 
@@ -5402,11 +5481,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `"unavailable"`
 
-                - `type: "web_fetch_tool_result_error"`
+                  - `"content_too_large"`
 
               - `beta_web_fetch_block: object`
 
+                - `type: "web_fetch_result"`
+
                 - `content: object`
+
+                  - `type: "document"`
 
                   - `citations: object`
 
@@ -5418,33 +5501,29 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     - `beta_base64_pdf_source: object`
 
+                      - `type: "base64"`
+
                       - `data: string`
 
                         format: byte
 
                       - `media_type: "application/pdf"`
 
-                      - `type: "base64"`
-
                     - `beta_plain_text_source: object`
+
+                      - `type: "text"`
 
                       - `data: string`
 
                       - `media_type: "text/plain"`
 
-                      - `type: "text"`
-
                   - `title: string`
 
                     The title of the document
 
-                  - `type: "document"`
-
                 - `retrieved_at: string`
 
                   ISO 8601 timestamp when the content was retrieved
-
-                - `type: "web_fetch_result"`
 
                 - `url: string`
 
@@ -5453,8 +5532,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
             - `tool_use_id: string`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-            - `type: "web_fetch_tool_result"`
 
             - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
 
@@ -5472,9 +5549,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           - `beta_advisor_tool_result_block: object`
 
+            - `type: "advisor_tool_result"`
+
             - `content: BetaAdvisorToolResultError or BetaAdvisorResultBlock or BetaAdvisorRedactedResultBlock`
 
               - `beta_advisor_tool_result_error: object`
+
+                - `type: "advisor_tool_result_error"`
 
                 - `error_code: "max_uses_exceeded" or "prompt_too_long" or "too_many_requests" or 4 more`
 
@@ -5492,9 +5573,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `"model_not_found"`
 
-                - `type: "advisor_tool_result_error"`
-
               - `beta_advisor_result_block: object`
+
+                - `type: "advisor_result"`
 
                 - `stop_reason: string`
 
@@ -5502,9 +5583,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `text: string`
 
-                - `type: "advisor_result"`
-
               - `beta_advisor_redacted_result_block: object`
+
+                - `type: "advisor_redacted_result"`
 
                 - `encrypted_content: string`
 
@@ -5514,21 +5595,21 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   The advisor sub-inference's stop reason (same values as the top-level message `stop_reason`).
 
-                - `type: "advisor_redacted_result"`
-
             - `tool_use_id: string`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-            - `type: "advisor_tool_result"`
-
           - `beta_code_execution_tool_result_block: object`
+
+            - `type: "code_execution_tool_result"`
 
             - `content: BetaCodeExecutionToolResultError or BetaCodeExecutionResultBlock or BetaEncryptedCodeExecutionResultBlock`
 
               Code execution result with encrypted stdout for PFC + web_search results.
 
               - `beta_code_execution_tool_result_error: object`
+
+                - `type: "code_execution_tool_result_error"`
 
                 - `error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or "execution_time_exceeded"`
 
@@ -5540,15 +5621,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `"execution_time_exceeded"`
 
-                - `type: "code_execution_tool_result_error"`
-
               - `beta_code_execution_result_block: object`
+
+                - `type: "code_execution_result"`
 
                 - `content: array of BetaCodeExecutionOutputBlock`
 
-                  - `file_id: string`
-
                   - `type: "code_execution_output"`
+
+                  - `file_id: string`
 
                 - `return_code: number`
 
@@ -5556,17 +5637,17 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `stdout: string`
 
-                - `type: "code_execution_result"`
-
               - `beta_encrypted_code_execution_result_block: object`
 
                 Code execution result with encrypted stdout for PFC + web_search results.
 
+                - `type: "encrypted_code_execution_result"`
+
                 - `content: array of BetaCodeExecutionOutputBlock`
 
-                  - `file_id: string`
-
                   - `type: "code_execution_output"`
+
+                  - `file_id: string`
 
                 - `encrypted_stdout: string`
 
@@ -5574,19 +5655,19 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `stderr: string`
 
-                - `type: "encrypted_code_execution_result"`
-
             - `tool_use_id: string`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-            - `type: "code_execution_tool_result"`
-
           - `beta_bash_code_execution_tool_result_block: object`
+
+            - `type: "bash_code_execution_tool_result"`
 
             - `content: BetaBashCodeExecutionToolResultError or BetaBashCodeExecutionResultBlock`
 
               - `beta_bash_code_execution_tool_result_error: object`
+
+                - `type: "bash_code_execution_tool_result_error"`
 
                 - `error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or 2 more`
 
@@ -5600,15 +5681,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `"output_file_too_large"`
 
-                - `type: "bash_code_execution_tool_result_error"`
-
               - `beta_bash_code_execution_result_block: object`
+
+                - `type: "bash_code_execution_result"`
 
                 - `content: array of BetaBashCodeExecutionOutputBlock`
 
-                  - `file_id: string`
-
                   - `type: "bash_code_execution_output"`
+
+                  - `file_id: string`
 
                 - `return_code: number`
 
@@ -5616,19 +5697,19 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `stdout: string`
 
-                - `type: "bash_code_execution_result"`
-
             - `tool_use_id: string`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-            - `type: "bash_code_execution_tool_result"`
-
           - `beta_text_editor_code_execution_tool_result_block: object`
+
+            - `type: "text_editor_code_execution_tool_result"`
 
             - `content: BetaTextEditorCodeExecutionToolResultError or BetaTextEditorCodeExecutionViewResultBlock or BetaTextEditorCodeExecutionCreateResultBlock or BetaTextEditorCodeExecutionStrReplaceResultBlock`
 
               - `beta_text_editor_code_execution_tool_result_error: object`
+
+                - `type: "text_editor_code_execution_tool_result_error"`
 
                 - `error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or 2 more`
 
@@ -5644,9 +5725,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `error_message: string`
 
-                - `type: "text_editor_code_execution_tool_result_error"`
-
               - `beta_text_editor_code_execution_view_result_block: object`
+
+                - `type: "text_editor_code_execution_view_result"`
 
                 - `content: string`
 
@@ -5664,15 +5745,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `total_lines: number`
 
-                - `type: "text_editor_code_execution_view_result"`
-
               - `beta_text_editor_code_execution_create_result_block: object`
-
-                - `is_file_update: boolean`
 
                 - `type: "text_editor_code_execution_create_result"`
 
+                - `is_file_update: boolean`
+
               - `beta_text_editor_code_execution_str_replace_result_block: object`
+
+                - `type: "text_editor_code_execution_str_replace_result"`
 
                 - `lines: array of string`
 
@@ -5684,19 +5765,19 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `old_start: number`
 
-                - `type: "text_editor_code_execution_str_replace_result"`
-
             - `tool_use_id: string`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-            - `type: "text_editor_code_execution_tool_result"`
-
           - `beta_tool_search_tool_result_block: object`
+
+            - `type: "tool_search_tool_result"`
 
             - `content: BetaToolSearchToolResultError or BetaToolSearchToolSearchResultBlock`
 
               - `beta_tool_search_tool_result_error: object`
+
+                - `type: "tool_search_tool_result_error"`
 
                 - `error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or "execution_time_exceeded"`
 
@@ -5710,27 +5791,25 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `error_message: string`
 
-                - `type: "tool_search_tool_result_error"`
-
               - `beta_tool_search_tool_search_result_block: object`
 
+                - `type: "tool_search_tool_search_result"`
+
                 - `tool_references: array of BetaToolReferenceBlock`
+
+                  - `type: "tool_reference"`
 
                   - `tool_name: string`
 
                     maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
-                  - `type: "tool_reference"`
-
-                - `type: "tool_search_tool_search_result"`
-
             - `tool_use_id: string`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-            - `type: "tool_search_tool_result"`
-
           - `beta_mcp_tool_use_block: object`
+
+            - `type: "mcp_tool_use"`
 
             - `id: string`
 
@@ -5746,15 +5825,17 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               The name of the MCP server
 
-            - `type: "mcp_tool_use"`
-
           - `beta_mcp_tool_result_block: object`
+
+            - `type: "mcp_tool_result"`
 
             - `content: string or array of BetaTextBlock`
 
               - `union_member_0: string`
 
               - `beta_mcp_tool_result_block_content: array of BetaTextBlock`
+
+                - `type: "text"`
 
                 - `citations: array of BetaTextCitation`
 
@@ -5764,9 +5845,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `text: string`
 
-                  maxLength: 5000000, minLength: 0
-
-                - `type: "text"`
+                  minLength: 0
 
             - `is_error: boolean`
 
@@ -5774,15 +5853,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               pattern: ^[a-zA-Z0-9_-]+$
 
-            - `type: "mcp_tool_result"`
-
           - `beta_container_upload_block: object`
 
             Response model for a file uploaded to the container.
 
-            - `file_id: string`
-
             - `type: "container_upload"`
+
+            - `file_id: string`
 
           - `beta_compaction_block: object`
 
@@ -5792,6 +5869,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
             summary (e.g., malformed output from the model). Clients may round-trip
             compaction blocks with null content; the server treats them as no-ops.
 
+            - `type: "compaction"`
+
             - `content: string`
 
               Summary of compacted content, or null if compaction failed
@@ -5799,8 +5878,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
             - `encrypted_content: string`
 
               Opaque metadata from prior compaction, to be round-tripped verbatim
-
-            - `type: "compaction"`
 
           - `beta_fallback_block: object`
 
@@ -5815,6 +5892,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
             The block is treated like a server-tool content block for streaming: it
             arrives via the standard `content_block_start` / `content_block_stop`
             pair and carries no deltas.
+
+            - `type: "fallback"`
 
             - `from: object`
 
@@ -5908,6 +5987,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               What caused the `from` model to hand over at this hop.
 
+              - `type: "refusal"`
+
               - `category: "cyber" or "bio" or "frontier_llm" or 2 more`
 
                 The policy category that triggered a refusal.
@@ -5932,10 +6013,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
 
-              - `type: "refusal"`
-
-            - `type: "fallback"`
-
         - `context_management: object`
 
           Context management response.
@@ -5947,6 +6024,10 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
             List of context management edits that were applied.
 
             - `beta_clear_tool_uses_20250919_edit_response: object`
+
+              - `type: "clear_tool_uses_20250919"`
+
+                The type of context management edit applied.
 
               - `cleared_input_tokens: number`
 
@@ -5960,11 +6041,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 minimum: 0
 
-              - `type: "clear_tool_uses_20250919"`
+            - `beta_clear_thinking_20251015_edit_response: object`
+
+              - `type: "clear_thinking_20251015"`
 
                 The type of context management edit applied.
-
-            - `beta_clear_thinking_20251015_edit_response: object`
 
               - `cleared_input_tokens: number`
 
@@ -5978,10 +6059,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 minimum: 0
 
-              - `type: "clear_thinking_20251015"`
-
-                The type of context management edit applied.
-
         - `diagnostics: object`
 
           Response envelope for request-level diagnostics. Present (possibly
@@ -5993,35 +6070,35 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `beta_cache_miss_model_changed: object`
 
+              - `type: "model_changed"`
+
               - `cache_missed_input_tokens: number`
 
                 Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
-
-              - `type: "model_changed"`
 
             - `beta_cache_miss_system_changed: object`
 
+              - `type: "system_changed"`
+
               - `cache_missed_input_tokens: number`
 
                 Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
-
-              - `type: "system_changed"`
 
             - `beta_cache_miss_tools_changed: object`
 
+              - `type: "tools_changed"`
+
               - `cache_missed_input_tokens: number`
 
                 Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
-
-              - `type: "tools_changed"`
 
             - `beta_cache_miss_messages_changed: object`
 
+              - `type: "messages_changed"`
+
               - `cache_missed_input_tokens: number`
 
                 Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
-
-              - `type: "messages_changed"`
 
             - `beta_cache_miss_previous_message_not_found: object`
 
@@ -6115,6 +6192,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           Structured information about a refusal.
 
+          - `type: "refusal"`
+
           - `category: "cyber" or "bio" or "frontier_llm" or 2 more`
 
             The policy category that triggered a refusal.
@@ -6194,8 +6273,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             The server's suggested retry target for this refusal. Populated when a fallback attempt could not be made (the fallback model's rate limit was exhausted, or it was overloaded); names the fallback model the caller can retry directly. Null otherwise.
 
-          - `type: "refusal"`
-
         - `stop_reason: "end_turn" or "max_tokens" or "stop_sequence" or 5 more`
 
           The reason that we stopped.
@@ -6233,12 +6310,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
           Which custom stop sequence was generated, if any.
 
           This value will be a non-null string if one of your custom stop sequences was generated.
-
-        - `type: "message"`
-
-          Object type.
-
-          For Messages, this is always `"message"`.
 
         - `usage: object`
 
@@ -6304,6 +6375,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 No reprice was applied; `reason` says why.
 
+                - `type: "not_applied"`
+
                 - `reason: "body_mismatch" or "continuation_excluded" or "continuation_only" or 9 more`
 
                   Why the reprice was not applied.
@@ -6334,8 +6407,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
                   - `"wrong_platform"`
 
                   - `"wrong_workspace"`
-
-                - `type: "not_applied"`
 
                 - `remove_to_redeem: optional array of string`
 
@@ -6374,6 +6445,10 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               Token usage for a sampling iteration.
 
+              - `type: "message"`
+
+                Usage for a sampling iteration
+
               - `cache_creation: object`
 
                 Breakdown of cached tokens by TTL
@@ -6487,15 +6562,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
                 The number of output tokens which were used.
 
                 minimum: 0
-
-              - `type: "message"`
-
-                Usage for a sampling iteration
 
             - `beta_compaction_iteration_usage: object`
 
               Token usage for a compaction iteration.
 
+              - `type: "compaction"`
+
+                Usage for a compaction iteration
+
               - `cache_creation: object`
 
                 Breakdown of cached tokens by TTL
@@ -6536,13 +6611,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 minimum: 0
 
-              - `type: "compaction"`
-
-                Usage for a compaction iteration
-
             - `beta_advisor_message_iteration_usage: object`
 
               Token usage for an advisor sub-inference iteration.
+
+              - `type: "advisor_message"`
+
+                Usage for an advisor sub-inference iteration
 
               - `cache_creation: object`
 
@@ -6657,10 +6732,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
                 The number of output tokens which were used.
 
                 minimum: 0
-
-              - `type: "advisor_message"`
-
-                Usage for an advisor sub-inference iteration
 
             - `beta_fallback_message_iteration_usage: object`
 
@@ -6671,6 +6742,10 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
               a fallback model served the response is signalled by the presence of this
               entry in `usage.iterations`.
 
+              - `type: "fallback_message"`
+
+                Usage for the fallback-model attempt that served the response
+
               - `cache_creation: object`
 
                 Breakdown of cached tokens by TTL
@@ -6784,10 +6859,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
                 The number of output tokens which were used.
 
                 minimum: 0
-
-              - `type: "fallback_message"`
-
-                Usage for the fallback-model attempt that served the response
 
           - `output_tokens: number`
 
@@ -6869,6 +6940,10 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
           fallback happened mid-stream, in which case it holds the serving model's
           entries and replaces the one in `message_start`.
 
+          - `type: "thinking_dropped"`
+
+            Always `thinking_dropped` for this entry type.
+
           - `path: string`
 
             Where the removed block was in your request, as `messages.{i}.content.{j}`:
@@ -6899,77 +6974,71 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `"end_user_binding_mismatch"`
 
-          - `type: "thinking_dropped"`
-
-            Always `thinking_dropped` for this entry type.
-
-      - `type: "succeeded"`
-
     - `beta_message_batch_errored_result: object`
 
+      - `type: "errored"`
+
       - `error: object`
+
+        - `type: "error"`
 
         - `error: BetaInvalidRequestError or BetaAuthenticationError or BetaBillingError or 6 more`
 
           - `beta_invalid_request_error: object`
 
-            - `message: string`
-
             - `type: "invalid_request_error"`
+
+            - `message: string`
 
           - `beta_authentication_error: object`
 
-            - `message: string`
-
             - `type: "authentication_error"`
+
+            - `message: string`
 
           - `beta_billing_error: object`
 
-            - `message: string`
-
             - `type: "billing_error"`
+
+            - `message: string`
 
           - `beta_permission_error: object`
 
-            - `message: string`
-
             - `type: "permission_error"`
+
+            - `message: string`
 
           - `beta_not_found_error: object`
 
-            - `message: string`
-
             - `type: "not_found_error"`
+
+            - `message: string`
 
           - `beta_rate_limit_error: object`
 
-            - `message: string`
-
             - `type: "rate_limit_error"`
+
+            - `message: string`
 
           - `beta_gateway_timeout_error: object`
 
-            - `message: string`
-
             - `type: "timeout_error"`
+
+            - `message: string`
 
           - `beta_api_error: object`
 
-            - `message: string`
-
             - `type: "api_error"`
+
+            - `message: string`
 
           - `beta_overloaded_error: object`
 
-            - `message: string`
-
             - `type: "overloaded_error"`
 
+            - `message: string`
+
         - `request_id: string`
-
-        - `type: "error"`
-
-      - `type: "errored"`
 
     - `beta_message_batch_canceled_result: object`
 
@@ -7045,11 +7114,19 @@ Create Agent
 
   Header param: Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `beta_managed_agents_agent: object`
 
   A Managed Agents `agent`.
+
+  - `type: "agent"`
 
   - `id: string`
 
@@ -7069,9 +7146,9 @@ Create Agent
 
   - `mcp_servers: array of BetaManagedAgentsMCPServerURLDefinition`
 
-    - `name: string`
-
     - `type: "url"`
+
+    - `name: string`
 
     - `url: string`
 
@@ -7193,6 +7270,8 @@ Create Agent
 
     Resolved coordinator topology with a concrete agent roster.
 
+    - `type: "coordinator"`
+
     - `agents: array of BetaManagedAgentsAgentReference or BetaManagedAgentsAdvisor`
 
       Agents the coordinator may spawn as session threads, each resolved to a specific version.
@@ -7201,9 +7280,9 @@ Create Agent
 
         A resolved agent reference with a concrete version.
 
-        - `id: string`
-
         - `type: "agent"`
+
+        - `id: string`
 
         - `version: number`
 
@@ -7213,13 +7292,11 @@ Create Agent
 
         Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
 
+        - `type: "advisor"`
+
         - `model: string`
 
           The advisor model id.
-
-        - `type: "advisor"`
-
-    - `type: "coordinator"`
 
   - `name: string`
 
@@ -7229,9 +7306,9 @@ Create Agent
 
       A resolved Anthropic-managed skill.
 
-      - `skill_id: string`
-
       - `type: "anthropic"`
+
+      - `skill_id: string`
 
       - `version: string`
 
@@ -7239,9 +7316,9 @@ Create Agent
 
       A resolved user-created custom skill.
 
-      - `skill_id: string`
-
       - `type: "custom"`
+
+      - `skill_id: string`
 
       - `version: string`
 
@@ -7251,17 +7328,21 @@ Create Agent
 
     - `beta_managed_agents_agent_toolset20260401: object`
 
+      - `type: "agent_toolset_20260401"`
+
       - `configs: array of BetaManagedAgentsAgentToolConfig`
 
         - `beta_managed_agents_bash_tool_config: object`
 
           Configuration for the bash tool.
 
+          - `type: "bash"`
+
           - `enabled: boolean`
 
           - `name: "bash"`
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -7277,17 +7358,23 @@ Create Agent
 
               - `type: "always_ask"`
 
-          - `type: "bash"`
+            - `beta_managed_agents_auto_policy: object`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+              - `type: "auto"`
 
         - `beta_managed_agents_edit_tool_config: object`
 
           Configuration for the edit tool.
 
+          - `type: "edit"`
+
           - `enabled: boolean`
 
           - `name: "edit"`
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -7299,17 +7386,21 @@ Create Agent
 
               Tool calls require user confirmation before execution.
 
-          - `type: "edit"`
+            - `beta_managed_agents_auto_policy: object`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `beta_managed_agents_read_tool_config: object`
 
           Configuration for the read tool.
 
+          - `type: "read"`
+
           - `enabled: boolean`
 
           - `name: "read"`
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -7321,17 +7412,21 @@ Create Agent
 
               Tool calls require user confirmation before execution.
 
-          - `type: "read"`
+            - `beta_managed_agents_auto_policy: object`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `beta_managed_agents_write_tool_config: object`
 
           Configuration for the write tool.
 
+          - `type: "write"`
+
           - `enabled: boolean`
 
           - `name: "write"`
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -7343,17 +7438,21 @@ Create Agent
 
               Tool calls require user confirmation before execution.
 
-          - `type: "write"`
+            - `beta_managed_agents_auto_policy: object`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `beta_managed_agents_glob_tool_config: object`
 
           Configuration for the glob tool.
 
+          - `type: "glob"`
+
           - `enabled: boolean`
 
           - `name: "glob"`
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -7365,17 +7464,21 @@ Create Agent
 
               Tool calls require user confirmation before execution.
 
-          - `type: "glob"`
+            - `beta_managed_agents_auto_policy: object`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `beta_managed_agents_grep_tool_config: object`
 
           Configuration for the grep tool.
 
+          - `type: "grep"`
+
           - `enabled: boolean`
 
           - `name: "grep"`
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -7387,17 +7490,21 @@ Create Agent
 
               Tool calls require user confirmation before execution.
 
-          - `type: "grep"`
+            - `beta_managed_agents_auto_policy: object`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `beta_managed_agents_web_fetch_tool_config: object`
 
           Configuration for the web_fetch tool.
 
+          - `type: "web_fetch"`
+
           - `enabled: boolean`
 
           - `name: "web_fetch"`
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -7409,7 +7516,9 @@ Create Agent
 
               Tool calls require user confirmation before execution.
 
-          - `type: "web_fetch"`
+            - `beta_managed_agents_auto_policy: object`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
           - `allowed_domains: optional array of string`
 
@@ -7423,11 +7532,13 @@ Create Agent
 
           Configuration for the web_search tool.
 
+          - `type: "web_search"`
+
           - `enabled: boolean`
 
           - `name: "web_search"`
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -7439,7 +7550,9 @@ Create Agent
 
               Tool calls require user confirmation before execution.
 
-          - `type: "web_search"`
+            - `beta_managed_agents_auto_policy: object`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
           - `allowed_domains: optional array of string`
 
@@ -7481,7 +7594,7 @@ Create Agent
 
         - `enabled: boolean`
 
-        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
           Permission policy for tool execution.
 
@@ -7493,9 +7606,13 @@ Create Agent
 
             Tool calls require user confirmation before execution.
 
-      - `type: "agent_toolset_20260401"`
+          - `beta_managed_agents_auto_policy: object`
+
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
     - `beta_managed_agents_mcp_toolset: object`
+
+      - `type: "mcp_toolset"`
 
       - `configs: array of BetaManagedAgentsMCPToolConfig`
 
@@ -7503,7 +7620,7 @@ Create Agent
 
         - `name: string`
 
-        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
           Permission policy for tool execution.
 
@@ -7514,6 +7631,10 @@ Create Agent
           - `beta_managed_agents_always_ask_policy: object`
 
             Tool calls require user confirmation before execution.
+
+          - `beta_managed_agents_auto_policy: object`
+
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
       - `default_config: object`
 
@@ -7521,7 +7642,7 @@ Create Agent
 
         - `enabled: boolean`
 
-        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
           Permission policy for tool execution.
 
@@ -7533,13 +7654,17 @@ Create Agent
 
             Tool calls require user confirmation before execution.
 
-      - `mcp_server_name: string`
+          - `beta_managed_agents_auto_policy: object`
 
-      - `type: "mcp_toolset"`
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+      - `mcp_server_name: string`
 
     - `beta_managed_agents_custom_tool: object`
 
       A custom tool as returned in API responses.
+
+      - `type: "custom"`
 
       - `description: string`
 
@@ -7554,10 +7679,6 @@ Create Agent
         - `required: optional array of string`
 
       - `name: string`
-
-      - `type: "custom"`
-
-  - `type: "agent"`
 
   - `updated_at: string`
 
@@ -7697,6 +7818,12 @@ List Agents
 
   Header param: Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `BetaManagedAgentsListAgents: object`
@@ -7706,6 +7833,8 @@ List Agents
   - `data: array of BetaManagedAgentsAgent`
 
     List of agents.
+
+    - `type: "agent"`
 
     - `id: string`
 
@@ -7725,9 +7854,9 @@ List Agents
 
     - `mcp_servers: array of BetaManagedAgentsMCPServerURLDefinition`
 
-      - `name: string`
-
       - `type: "url"`
+
+      - `name: string`
 
       - `url: string`
 
@@ -7849,6 +7978,8 @@ List Agents
 
       Resolved coordinator topology with a concrete agent roster.
 
+      - `type: "coordinator"`
+
       - `agents: array of BetaManagedAgentsAgentReference or BetaManagedAgentsAdvisor`
 
         Agents the coordinator may spawn as session threads, each resolved to a specific version.
@@ -7857,9 +7988,9 @@ List Agents
 
           A resolved agent reference with a concrete version.
 
-          - `id: string`
-
           - `type: "agent"`
+
+          - `id: string`
 
           - `version: number`
 
@@ -7869,13 +8000,11 @@ List Agents
 
           Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
 
+          - `type: "advisor"`
+
           - `model: string`
 
             The advisor model id.
-
-          - `type: "advisor"`
-
-      - `type: "coordinator"`
 
     - `name: string`
 
@@ -7885,9 +8014,9 @@ List Agents
 
         A resolved Anthropic-managed skill.
 
-        - `skill_id: string`
-
         - `type: "anthropic"`
+
+        - `skill_id: string`
 
         - `version: string`
 
@@ -7895,9 +8024,9 @@ List Agents
 
         A resolved user-created custom skill.
 
-        - `skill_id: string`
-
         - `type: "custom"`
+
+        - `skill_id: string`
 
         - `version: string`
 
@@ -7907,17 +8036,21 @@ List Agents
 
       - `beta_managed_agents_agent_toolset20260401: object`
 
+        - `type: "agent_toolset_20260401"`
+
         - `configs: array of BetaManagedAgentsAgentToolConfig`
 
           - `beta_managed_agents_bash_tool_config: object`
 
             Configuration for the bash tool.
 
+            - `type: "bash"`
+
             - `enabled: boolean`
 
             - `name: "bash"`
 
-            - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+            - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
               Permission policy for tool execution.
 
@@ -7933,17 +8066,23 @@ List Agents
 
                 - `type: "always_ask"`
 
-            - `type: "bash"`
+              - `beta_managed_agents_auto_policy: object`
+
+                The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+                - `type: "auto"`
 
           - `beta_managed_agents_edit_tool_config: object`
 
             Configuration for the edit tool.
 
+            - `type: "edit"`
+
             - `enabled: boolean`
 
             - `name: "edit"`
 
-            - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+            - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
               Permission policy for tool execution.
 
@@ -7955,17 +8094,21 @@ List Agents
 
                 Tool calls require user confirmation before execution.
 
-            - `type: "edit"`
+              - `beta_managed_agents_auto_policy: object`
+
+                The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
           - `beta_managed_agents_read_tool_config: object`
 
             Configuration for the read tool.
 
+            - `type: "read"`
+
             - `enabled: boolean`
 
             - `name: "read"`
 
-            - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+            - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
               Permission policy for tool execution.
 
@@ -7977,17 +8120,21 @@ List Agents
 
                 Tool calls require user confirmation before execution.
 
-            - `type: "read"`
+              - `beta_managed_agents_auto_policy: object`
+
+                The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
           - `beta_managed_agents_write_tool_config: object`
 
             Configuration for the write tool.
 
+            - `type: "write"`
+
             - `enabled: boolean`
 
             - `name: "write"`
 
-            - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+            - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
               Permission policy for tool execution.
 
@@ -7999,17 +8146,21 @@ List Agents
 
                 Tool calls require user confirmation before execution.
 
-            - `type: "write"`
+              - `beta_managed_agents_auto_policy: object`
+
+                The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
           - `beta_managed_agents_glob_tool_config: object`
 
             Configuration for the glob tool.
 
+            - `type: "glob"`
+
             - `enabled: boolean`
 
             - `name: "glob"`
 
-            - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+            - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
               Permission policy for tool execution.
 
@@ -8021,17 +8172,21 @@ List Agents
 
                 Tool calls require user confirmation before execution.
 
-            - `type: "glob"`
+              - `beta_managed_agents_auto_policy: object`
+
+                The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
           - `beta_managed_agents_grep_tool_config: object`
 
             Configuration for the grep tool.
 
+            - `type: "grep"`
+
             - `enabled: boolean`
 
             - `name: "grep"`
 
-            - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+            - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
               Permission policy for tool execution.
 
@@ -8043,17 +8198,21 @@ List Agents
 
                 Tool calls require user confirmation before execution.
 
-            - `type: "grep"`
+              - `beta_managed_agents_auto_policy: object`
+
+                The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
           - `beta_managed_agents_web_fetch_tool_config: object`
 
             Configuration for the web_fetch tool.
 
+            - `type: "web_fetch"`
+
             - `enabled: boolean`
 
             - `name: "web_fetch"`
 
-            - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+            - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
               Permission policy for tool execution.
 
@@ -8065,7 +8224,9 @@ List Agents
 
                 Tool calls require user confirmation before execution.
 
-            - `type: "web_fetch"`
+              - `beta_managed_agents_auto_policy: object`
+
+                The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
             - `allowed_domains: optional array of string`
 
@@ -8079,11 +8240,13 @@ List Agents
 
             Configuration for the web_search tool.
 
+            - `type: "web_search"`
+
             - `enabled: boolean`
 
             - `name: "web_search"`
 
-            - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+            - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
               Permission policy for tool execution.
 
@@ -8095,7 +8258,9 @@ List Agents
 
                 Tool calls require user confirmation before execution.
 
-            - `type: "web_search"`
+              - `beta_managed_agents_auto_policy: object`
+
+                The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
             - `allowed_domains: optional array of string`
 
@@ -8137,7 +8302,7 @@ List Agents
 
           - `enabled: boolean`
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -8149,9 +8314,13 @@ List Agents
 
               Tool calls require user confirmation before execution.
 
-        - `type: "agent_toolset_20260401"`
+            - `beta_managed_agents_auto_policy: object`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
       - `beta_managed_agents_mcp_toolset: object`
+
+        - `type: "mcp_toolset"`
 
         - `configs: array of BetaManagedAgentsMCPToolConfig`
 
@@ -8159,7 +8328,7 @@ List Agents
 
           - `name: string`
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -8170,6 +8339,10 @@ List Agents
             - `beta_managed_agents_always_ask_policy: object`
 
               Tool calls require user confirmation before execution.
+
+            - `beta_managed_agents_auto_policy: object`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `default_config: object`
 
@@ -8177,7 +8350,7 @@ List Agents
 
           - `enabled: boolean`
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -8189,13 +8362,17 @@ List Agents
 
               Tool calls require user confirmation before execution.
 
-        - `mcp_server_name: string`
+            - `beta_managed_agents_auto_policy: object`
 
-        - `type: "mcp_toolset"`
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+        - `mcp_server_name: string`
 
       - `beta_managed_agents_custom_tool: object`
 
         A custom tool as returned in API responses.
+
+        - `type: "custom"`
 
         - `description: string`
 
@@ -8210,10 +8387,6 @@ List Agents
           - `required: optional array of string`
 
         - `name: string`
-
-        - `type: "custom"`
-
-    - `type: "agent"`
 
     - `updated_at: string`
 
@@ -8344,11 +8517,19 @@ Get Agent
 
   Header param: Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `beta_managed_agents_agent: object`
 
   A Managed Agents `agent`.
+
+  - `type: "agent"`
 
   - `id: string`
 
@@ -8368,9 +8549,9 @@ Get Agent
 
   - `mcp_servers: array of BetaManagedAgentsMCPServerURLDefinition`
 
-    - `name: string`
-
     - `type: "url"`
+
+    - `name: string`
 
     - `url: string`
 
@@ -8492,6 +8673,8 @@ Get Agent
 
     Resolved coordinator topology with a concrete agent roster.
 
+    - `type: "coordinator"`
+
     - `agents: array of BetaManagedAgentsAgentReference or BetaManagedAgentsAdvisor`
 
       Agents the coordinator may spawn as session threads, each resolved to a specific version.
@@ -8500,9 +8683,9 @@ Get Agent
 
         A resolved agent reference with a concrete version.
 
-        - `id: string`
-
         - `type: "agent"`
+
+        - `id: string`
 
         - `version: number`
 
@@ -8512,13 +8695,11 @@ Get Agent
 
         Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
 
+        - `type: "advisor"`
+
         - `model: string`
 
           The advisor model id.
-
-        - `type: "advisor"`
-
-    - `type: "coordinator"`
 
   - `name: string`
 
@@ -8528,9 +8709,9 @@ Get Agent
 
       A resolved Anthropic-managed skill.
 
-      - `skill_id: string`
-
       - `type: "anthropic"`
+
+      - `skill_id: string`
 
       - `version: string`
 
@@ -8538,9 +8719,9 @@ Get Agent
 
       A resolved user-created custom skill.
 
-      - `skill_id: string`
-
       - `type: "custom"`
+
+      - `skill_id: string`
 
       - `version: string`
 
@@ -8550,17 +8731,21 @@ Get Agent
 
     - `beta_managed_agents_agent_toolset20260401: object`
 
+      - `type: "agent_toolset_20260401"`
+
       - `configs: array of BetaManagedAgentsAgentToolConfig`
 
         - `beta_managed_agents_bash_tool_config: object`
 
           Configuration for the bash tool.
 
+          - `type: "bash"`
+
           - `enabled: boolean`
 
           - `name: "bash"`
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -8576,17 +8761,23 @@ Get Agent
 
               - `type: "always_ask"`
 
-          - `type: "bash"`
+            - `beta_managed_agents_auto_policy: object`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+              - `type: "auto"`
 
         - `beta_managed_agents_edit_tool_config: object`
 
           Configuration for the edit tool.
 
+          - `type: "edit"`
+
           - `enabled: boolean`
 
           - `name: "edit"`
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -8598,17 +8789,21 @@ Get Agent
 
               Tool calls require user confirmation before execution.
 
-          - `type: "edit"`
+            - `beta_managed_agents_auto_policy: object`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `beta_managed_agents_read_tool_config: object`
 
           Configuration for the read tool.
 
+          - `type: "read"`
+
           - `enabled: boolean`
 
           - `name: "read"`
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -8620,17 +8815,21 @@ Get Agent
 
               Tool calls require user confirmation before execution.
 
-          - `type: "read"`
+            - `beta_managed_agents_auto_policy: object`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `beta_managed_agents_write_tool_config: object`
 
           Configuration for the write tool.
 
+          - `type: "write"`
+
           - `enabled: boolean`
 
           - `name: "write"`
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -8642,17 +8841,21 @@ Get Agent
 
               Tool calls require user confirmation before execution.
 
-          - `type: "write"`
+            - `beta_managed_agents_auto_policy: object`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `beta_managed_agents_glob_tool_config: object`
 
           Configuration for the glob tool.
 
+          - `type: "glob"`
+
           - `enabled: boolean`
 
           - `name: "glob"`
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -8664,17 +8867,21 @@ Get Agent
 
               Tool calls require user confirmation before execution.
 
-          - `type: "glob"`
+            - `beta_managed_agents_auto_policy: object`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `beta_managed_agents_grep_tool_config: object`
 
           Configuration for the grep tool.
 
+          - `type: "grep"`
+
           - `enabled: boolean`
 
           - `name: "grep"`
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -8686,17 +8893,21 @@ Get Agent
 
               Tool calls require user confirmation before execution.
 
-          - `type: "grep"`
+            - `beta_managed_agents_auto_policy: object`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `beta_managed_agents_web_fetch_tool_config: object`
 
           Configuration for the web_fetch tool.
 
+          - `type: "web_fetch"`
+
           - `enabled: boolean`
 
           - `name: "web_fetch"`
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -8708,7 +8919,9 @@ Get Agent
 
               Tool calls require user confirmation before execution.
 
-          - `type: "web_fetch"`
+            - `beta_managed_agents_auto_policy: object`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
           - `allowed_domains: optional array of string`
 
@@ -8722,11 +8935,13 @@ Get Agent
 
           Configuration for the web_search tool.
 
+          - `type: "web_search"`
+
           - `enabled: boolean`
 
           - `name: "web_search"`
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -8738,7 +8953,9 @@ Get Agent
 
               Tool calls require user confirmation before execution.
 
-          - `type: "web_search"`
+            - `beta_managed_agents_auto_policy: object`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
           - `allowed_domains: optional array of string`
 
@@ -8780,7 +8997,7 @@ Get Agent
 
         - `enabled: boolean`
 
-        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
           Permission policy for tool execution.
 
@@ -8792,9 +9009,13 @@ Get Agent
 
             Tool calls require user confirmation before execution.
 
-      - `type: "agent_toolset_20260401"`
+          - `beta_managed_agents_auto_policy: object`
+
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
     - `beta_managed_agents_mcp_toolset: object`
+
+      - `type: "mcp_toolset"`
 
       - `configs: array of BetaManagedAgentsMCPToolConfig`
 
@@ -8802,7 +9023,7 @@ Get Agent
 
         - `name: string`
 
-        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
           Permission policy for tool execution.
 
@@ -8813,6 +9034,10 @@ Get Agent
           - `beta_managed_agents_always_ask_policy: object`
 
             Tool calls require user confirmation before execution.
+
+          - `beta_managed_agents_auto_policy: object`
+
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
       - `default_config: object`
 
@@ -8820,7 +9045,7 @@ Get Agent
 
         - `enabled: boolean`
 
-        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
           Permission policy for tool execution.
 
@@ -8832,13 +9057,17 @@ Get Agent
 
             Tool calls require user confirmation before execution.
 
-      - `mcp_server_name: string`
+          - `beta_managed_agents_auto_policy: object`
 
-      - `type: "mcp_toolset"`
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+      - `mcp_server_name: string`
 
     - `beta_managed_agents_custom_tool: object`
 
       A custom tool as returned in API responses.
+
+      - `type: "custom"`
 
       - `description: string`
 
@@ -8853,10 +9082,6 @@ Get Agent
         - `required: optional array of string`
 
       - `name: string`
-
-      - `type: "custom"`
-
-  - `type: "agent"`
 
   - `updated_at: string`
 
@@ -9021,11 +9246,19 @@ Update Agent
 
   Header param: Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `beta_managed_agents_agent: object`
 
   A Managed Agents `agent`.
+
+  - `type: "agent"`
 
   - `id: string`
 
@@ -9045,9 +9278,9 @@ Update Agent
 
   - `mcp_servers: array of BetaManagedAgentsMCPServerURLDefinition`
 
-    - `name: string`
-
     - `type: "url"`
+
+    - `name: string`
 
     - `url: string`
 
@@ -9169,6 +9402,8 @@ Update Agent
 
     Resolved coordinator topology with a concrete agent roster.
 
+    - `type: "coordinator"`
+
     - `agents: array of BetaManagedAgentsAgentReference or BetaManagedAgentsAdvisor`
 
       Agents the coordinator may spawn as session threads, each resolved to a specific version.
@@ -9177,9 +9412,9 @@ Update Agent
 
         A resolved agent reference with a concrete version.
 
-        - `id: string`
-
         - `type: "agent"`
+
+        - `id: string`
 
         - `version: number`
 
@@ -9189,13 +9424,11 @@ Update Agent
 
         Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
 
+        - `type: "advisor"`
+
         - `model: string`
 
           The advisor model id.
-
-        - `type: "advisor"`
-
-    - `type: "coordinator"`
 
   - `name: string`
 
@@ -9205,9 +9438,9 @@ Update Agent
 
       A resolved Anthropic-managed skill.
 
-      - `skill_id: string`
-
       - `type: "anthropic"`
+
+      - `skill_id: string`
 
       - `version: string`
 
@@ -9215,9 +9448,9 @@ Update Agent
 
       A resolved user-created custom skill.
 
-      - `skill_id: string`
-
       - `type: "custom"`
+
+      - `skill_id: string`
 
       - `version: string`
 
@@ -9227,17 +9460,21 @@ Update Agent
 
     - `beta_managed_agents_agent_toolset20260401: object`
 
+      - `type: "agent_toolset_20260401"`
+
       - `configs: array of BetaManagedAgentsAgentToolConfig`
 
         - `beta_managed_agents_bash_tool_config: object`
 
           Configuration for the bash tool.
 
+          - `type: "bash"`
+
           - `enabled: boolean`
 
           - `name: "bash"`
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -9253,17 +9490,23 @@ Update Agent
 
               - `type: "always_ask"`
 
-          - `type: "bash"`
+            - `beta_managed_agents_auto_policy: object`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+              - `type: "auto"`
 
         - `beta_managed_agents_edit_tool_config: object`
 
           Configuration for the edit tool.
 
+          - `type: "edit"`
+
           - `enabled: boolean`
 
           - `name: "edit"`
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -9275,17 +9518,21 @@ Update Agent
 
               Tool calls require user confirmation before execution.
 
-          - `type: "edit"`
+            - `beta_managed_agents_auto_policy: object`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `beta_managed_agents_read_tool_config: object`
 
           Configuration for the read tool.
 
+          - `type: "read"`
+
           - `enabled: boolean`
 
           - `name: "read"`
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -9297,17 +9544,21 @@ Update Agent
 
               Tool calls require user confirmation before execution.
 
-          - `type: "read"`
+            - `beta_managed_agents_auto_policy: object`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `beta_managed_agents_write_tool_config: object`
 
           Configuration for the write tool.
 
+          - `type: "write"`
+
           - `enabled: boolean`
 
           - `name: "write"`
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -9319,17 +9570,21 @@ Update Agent
 
               Tool calls require user confirmation before execution.
 
-          - `type: "write"`
+            - `beta_managed_agents_auto_policy: object`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `beta_managed_agents_glob_tool_config: object`
 
           Configuration for the glob tool.
 
+          - `type: "glob"`
+
           - `enabled: boolean`
 
           - `name: "glob"`
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -9341,17 +9596,21 @@ Update Agent
 
               Tool calls require user confirmation before execution.
 
-          - `type: "glob"`
+            - `beta_managed_agents_auto_policy: object`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `beta_managed_agents_grep_tool_config: object`
 
           Configuration for the grep tool.
 
+          - `type: "grep"`
+
           - `enabled: boolean`
 
           - `name: "grep"`
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -9363,17 +9622,21 @@ Update Agent
 
               Tool calls require user confirmation before execution.
 
-          - `type: "grep"`
+            - `beta_managed_agents_auto_policy: object`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `beta_managed_agents_web_fetch_tool_config: object`
 
           Configuration for the web_fetch tool.
 
+          - `type: "web_fetch"`
+
           - `enabled: boolean`
 
           - `name: "web_fetch"`
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -9385,7 +9648,9 @@ Update Agent
 
               Tool calls require user confirmation before execution.
 
-          - `type: "web_fetch"`
+            - `beta_managed_agents_auto_policy: object`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
           - `allowed_domains: optional array of string`
 
@@ -9399,11 +9664,13 @@ Update Agent
 
           Configuration for the web_search tool.
 
+          - `type: "web_search"`
+
           - `enabled: boolean`
 
           - `name: "web_search"`
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -9415,7 +9682,9 @@ Update Agent
 
               Tool calls require user confirmation before execution.
 
-          - `type: "web_search"`
+            - `beta_managed_agents_auto_policy: object`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
           - `allowed_domains: optional array of string`
 
@@ -9457,7 +9726,7 @@ Update Agent
 
         - `enabled: boolean`
 
-        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
           Permission policy for tool execution.
 
@@ -9469,9 +9738,13 @@ Update Agent
 
             Tool calls require user confirmation before execution.
 
-      - `type: "agent_toolset_20260401"`
+          - `beta_managed_agents_auto_policy: object`
+
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
     - `beta_managed_agents_mcp_toolset: object`
+
+      - `type: "mcp_toolset"`
 
       - `configs: array of BetaManagedAgentsMCPToolConfig`
 
@@ -9479,7 +9752,7 @@ Update Agent
 
         - `name: string`
 
-        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
           Permission policy for tool execution.
 
@@ -9490,6 +9763,10 @@ Update Agent
           - `beta_managed_agents_always_ask_policy: object`
 
             Tool calls require user confirmation before execution.
+
+          - `beta_managed_agents_auto_policy: object`
+
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
       - `default_config: object`
 
@@ -9497,7 +9774,7 @@ Update Agent
 
         - `enabled: boolean`
 
-        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
           Permission policy for tool execution.
 
@@ -9509,13 +9786,17 @@ Update Agent
 
             Tool calls require user confirmation before execution.
 
-      - `mcp_server_name: string`
+          - `beta_managed_agents_auto_policy: object`
 
-      - `type: "mcp_toolset"`
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+      - `mcp_server_name: string`
 
     - `beta_managed_agents_custom_tool: object`
 
       A custom tool as returned in API responses.
+
+      - `type: "custom"`
 
       - `description: string`
 
@@ -9530,10 +9811,6 @@ Update Agent
         - `required: optional array of string`
 
       - `name: string`
-
-      - `type: "custom"`
-
-  - `type: "agent"`
 
   - `updated_at: string`
 
@@ -9650,11 +9927,19 @@ Archive Agent
 
   Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `beta_managed_agents_agent: object`
 
   A Managed Agents `agent`.
+
+  - `type: "agent"`
 
   - `id: string`
 
@@ -9674,9 +9959,9 @@ Archive Agent
 
   - `mcp_servers: array of BetaManagedAgentsMCPServerURLDefinition`
 
-    - `name: string`
-
     - `type: "url"`
+
+    - `name: string`
 
     - `url: string`
 
@@ -9798,6 +10083,8 @@ Archive Agent
 
     Resolved coordinator topology with a concrete agent roster.
 
+    - `type: "coordinator"`
+
     - `agents: array of BetaManagedAgentsAgentReference or BetaManagedAgentsAdvisor`
 
       Agents the coordinator may spawn as session threads, each resolved to a specific version.
@@ -9806,9 +10093,9 @@ Archive Agent
 
         A resolved agent reference with a concrete version.
 
-        - `id: string`
-
         - `type: "agent"`
+
+        - `id: string`
 
         - `version: number`
 
@@ -9818,13 +10105,11 @@ Archive Agent
 
         Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
 
+        - `type: "advisor"`
+
         - `model: string`
 
           The advisor model id.
-
-        - `type: "advisor"`
-
-    - `type: "coordinator"`
 
   - `name: string`
 
@@ -9834,9 +10119,9 @@ Archive Agent
 
       A resolved Anthropic-managed skill.
 
-      - `skill_id: string`
-
       - `type: "anthropic"`
+
+      - `skill_id: string`
 
       - `version: string`
 
@@ -9844,9 +10129,9 @@ Archive Agent
 
       A resolved user-created custom skill.
 
-      - `skill_id: string`
-
       - `type: "custom"`
+
+      - `skill_id: string`
 
       - `version: string`
 
@@ -9856,17 +10141,21 @@ Archive Agent
 
     - `beta_managed_agents_agent_toolset20260401: object`
 
+      - `type: "agent_toolset_20260401"`
+
       - `configs: array of BetaManagedAgentsAgentToolConfig`
 
         - `beta_managed_agents_bash_tool_config: object`
 
           Configuration for the bash tool.
 
+          - `type: "bash"`
+
           - `enabled: boolean`
 
           - `name: "bash"`
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -9882,17 +10171,23 @@ Archive Agent
 
               - `type: "always_ask"`
 
-          - `type: "bash"`
+            - `beta_managed_agents_auto_policy: object`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+              - `type: "auto"`
 
         - `beta_managed_agents_edit_tool_config: object`
 
           Configuration for the edit tool.
 
+          - `type: "edit"`
+
           - `enabled: boolean`
 
           - `name: "edit"`
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -9904,17 +10199,21 @@ Archive Agent
 
               Tool calls require user confirmation before execution.
 
-          - `type: "edit"`
+            - `beta_managed_agents_auto_policy: object`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `beta_managed_agents_read_tool_config: object`
 
           Configuration for the read tool.
 
+          - `type: "read"`
+
           - `enabled: boolean`
 
           - `name: "read"`
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -9926,17 +10225,21 @@ Archive Agent
 
               Tool calls require user confirmation before execution.
 
-          - `type: "read"`
+            - `beta_managed_agents_auto_policy: object`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `beta_managed_agents_write_tool_config: object`
 
           Configuration for the write tool.
 
+          - `type: "write"`
+
           - `enabled: boolean`
 
           - `name: "write"`
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -9948,17 +10251,21 @@ Archive Agent
 
               Tool calls require user confirmation before execution.
 
-          - `type: "write"`
+            - `beta_managed_agents_auto_policy: object`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `beta_managed_agents_glob_tool_config: object`
 
           Configuration for the glob tool.
 
+          - `type: "glob"`
+
           - `enabled: boolean`
 
           - `name: "glob"`
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -9970,17 +10277,21 @@ Archive Agent
 
               Tool calls require user confirmation before execution.
 
-          - `type: "glob"`
+            - `beta_managed_agents_auto_policy: object`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `beta_managed_agents_grep_tool_config: object`
 
           Configuration for the grep tool.
 
+          - `type: "grep"`
+
           - `enabled: boolean`
 
           - `name: "grep"`
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -9992,17 +10303,21 @@ Archive Agent
 
               Tool calls require user confirmation before execution.
 
-          - `type: "grep"`
+            - `beta_managed_agents_auto_policy: object`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `beta_managed_agents_web_fetch_tool_config: object`
 
           Configuration for the web_fetch tool.
 
+          - `type: "web_fetch"`
+
           - `enabled: boolean`
 
           - `name: "web_fetch"`
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -10014,7 +10329,9 @@ Archive Agent
 
               Tool calls require user confirmation before execution.
 
-          - `type: "web_fetch"`
+            - `beta_managed_agents_auto_policy: object`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
           - `allowed_domains: optional array of string`
 
@@ -10028,11 +10345,13 @@ Archive Agent
 
           Configuration for the web_search tool.
 
+          - `type: "web_search"`
+
           - `enabled: boolean`
 
           - `name: "web_search"`
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -10044,7 +10363,9 @@ Archive Agent
 
               Tool calls require user confirmation before execution.
 
-          - `type: "web_search"`
+            - `beta_managed_agents_auto_policy: object`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
           - `allowed_domains: optional array of string`
 
@@ -10086,7 +10407,7 @@ Archive Agent
 
         - `enabled: boolean`
 
-        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
           Permission policy for tool execution.
 
@@ -10098,9 +10419,13 @@ Archive Agent
 
             Tool calls require user confirmation before execution.
 
-      - `type: "agent_toolset_20260401"`
+          - `beta_managed_agents_auto_policy: object`
+
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
     - `beta_managed_agents_mcp_toolset: object`
+
+      - `type: "mcp_toolset"`
 
       - `configs: array of BetaManagedAgentsMCPToolConfig`
 
@@ -10108,7 +10433,7 @@ Archive Agent
 
         - `name: string`
 
-        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
           Permission policy for tool execution.
 
@@ -10119,6 +10444,10 @@ Archive Agent
           - `beta_managed_agents_always_ask_policy: object`
 
             Tool calls require user confirmation before execution.
+
+          - `beta_managed_agents_auto_policy: object`
+
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
       - `default_config: object`
 
@@ -10126,7 +10455,7 @@ Archive Agent
 
         - `enabled: boolean`
 
-        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
           Permission policy for tool execution.
 
@@ -10138,13 +10467,17 @@ Archive Agent
 
             Tool calls require user confirmation before execution.
 
-      - `mcp_server_name: string`
+          - `beta_managed_agents_auto_policy: object`
 
-      - `type: "mcp_toolset"`
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+      - `mcp_server_name: string`
 
     - `beta_managed_agents_custom_tool: object`
 
       A custom tool as returned in API responses.
+
+      - `type: "custom"`
 
       - `description: string`
 
@@ -10159,10 +10492,6 @@ Archive Agent
         - `required: optional array of string`
 
       - `name: string`
-
-      - `type: "custom"`
-
-  - `type: "agent"`
 
   - `updated_at: string`
 
@@ -10291,6 +10620,12 @@ List Agent Versions
 
   Header param: Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `BetaManagedAgentsListAgentVersions: object`
@@ -10300,6 +10635,8 @@ List Agent Versions
   - `data: array of BetaManagedAgentsAgent`
 
     Agent versions.
+
+    - `type: "agent"`
 
     - `id: string`
 
@@ -10319,9 +10656,9 @@ List Agent Versions
 
     - `mcp_servers: array of BetaManagedAgentsMCPServerURLDefinition`
 
-      - `name: string`
-
       - `type: "url"`
+
+      - `name: string`
 
       - `url: string`
 
@@ -10443,6 +10780,8 @@ List Agent Versions
 
       Resolved coordinator topology with a concrete agent roster.
 
+      - `type: "coordinator"`
+
       - `agents: array of BetaManagedAgentsAgentReference or BetaManagedAgentsAdvisor`
 
         Agents the coordinator may spawn as session threads, each resolved to a specific version.
@@ -10451,9 +10790,9 @@ List Agent Versions
 
           A resolved agent reference with a concrete version.
 
-          - `id: string`
-
           - `type: "agent"`
+
+          - `id: string`
 
           - `version: number`
 
@@ -10463,13 +10802,11 @@ List Agent Versions
 
           Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
 
+          - `type: "advisor"`
+
           - `model: string`
 
             The advisor model id.
-
-          - `type: "advisor"`
-
-      - `type: "coordinator"`
 
     - `name: string`
 
@@ -10479,9 +10816,9 @@ List Agent Versions
 
         A resolved Anthropic-managed skill.
 
-        - `skill_id: string`
-
         - `type: "anthropic"`
+
+        - `skill_id: string`
 
         - `version: string`
 
@@ -10489,9 +10826,9 @@ List Agent Versions
 
         A resolved user-created custom skill.
 
-        - `skill_id: string`
-
         - `type: "custom"`
+
+        - `skill_id: string`
 
         - `version: string`
 
@@ -10501,17 +10838,21 @@ List Agent Versions
 
       - `beta_managed_agents_agent_toolset20260401: object`
 
+        - `type: "agent_toolset_20260401"`
+
         - `configs: array of BetaManagedAgentsAgentToolConfig`
 
           - `beta_managed_agents_bash_tool_config: object`
 
             Configuration for the bash tool.
 
+            - `type: "bash"`
+
             - `enabled: boolean`
 
             - `name: "bash"`
 
-            - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+            - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
               Permission policy for tool execution.
 
@@ -10527,17 +10868,23 @@ List Agent Versions
 
                 - `type: "always_ask"`
 
-            - `type: "bash"`
+              - `beta_managed_agents_auto_policy: object`
+
+                The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+                - `type: "auto"`
 
           - `beta_managed_agents_edit_tool_config: object`
 
             Configuration for the edit tool.
 
+            - `type: "edit"`
+
             - `enabled: boolean`
 
             - `name: "edit"`
 
-            - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+            - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
               Permission policy for tool execution.
 
@@ -10549,17 +10896,21 @@ List Agent Versions
 
                 Tool calls require user confirmation before execution.
 
-            - `type: "edit"`
+              - `beta_managed_agents_auto_policy: object`
+
+                The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
           - `beta_managed_agents_read_tool_config: object`
 
             Configuration for the read tool.
 
+            - `type: "read"`
+
             - `enabled: boolean`
 
             - `name: "read"`
 
-            - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+            - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
               Permission policy for tool execution.
 
@@ -10571,17 +10922,21 @@ List Agent Versions
 
                 Tool calls require user confirmation before execution.
 
-            - `type: "read"`
+              - `beta_managed_agents_auto_policy: object`
+
+                The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
           - `beta_managed_agents_write_tool_config: object`
 
             Configuration for the write tool.
 
+            - `type: "write"`
+
             - `enabled: boolean`
 
             - `name: "write"`
 
-            - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+            - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
               Permission policy for tool execution.
 
@@ -10593,17 +10948,21 @@ List Agent Versions
 
                 Tool calls require user confirmation before execution.
 
-            - `type: "write"`
+              - `beta_managed_agents_auto_policy: object`
+
+                The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
           - `beta_managed_agents_glob_tool_config: object`
 
             Configuration for the glob tool.
 
+            - `type: "glob"`
+
             - `enabled: boolean`
 
             - `name: "glob"`
 
-            - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+            - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
               Permission policy for tool execution.
 
@@ -10615,17 +10974,21 @@ List Agent Versions
 
                 Tool calls require user confirmation before execution.
 
-            - `type: "glob"`
+              - `beta_managed_agents_auto_policy: object`
+
+                The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
           - `beta_managed_agents_grep_tool_config: object`
 
             Configuration for the grep tool.
 
+            - `type: "grep"`
+
             - `enabled: boolean`
 
             - `name: "grep"`
 
-            - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+            - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
               Permission policy for tool execution.
 
@@ -10637,17 +11000,21 @@ List Agent Versions
 
                 Tool calls require user confirmation before execution.
 
-            - `type: "grep"`
+              - `beta_managed_agents_auto_policy: object`
+
+                The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
           - `beta_managed_agents_web_fetch_tool_config: object`
 
             Configuration for the web_fetch tool.
 
+            - `type: "web_fetch"`
+
             - `enabled: boolean`
 
             - `name: "web_fetch"`
 
-            - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+            - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
               Permission policy for tool execution.
 
@@ -10659,7 +11026,9 @@ List Agent Versions
 
                 Tool calls require user confirmation before execution.
 
-            - `type: "web_fetch"`
+              - `beta_managed_agents_auto_policy: object`
+
+                The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
             - `allowed_domains: optional array of string`
 
@@ -10673,11 +11042,13 @@ List Agent Versions
 
             Configuration for the web_search tool.
 
+            - `type: "web_search"`
+
             - `enabled: boolean`
 
             - `name: "web_search"`
 
-            - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+            - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
               Permission policy for tool execution.
 
@@ -10689,7 +11060,9 @@ List Agent Versions
 
                 Tool calls require user confirmation before execution.
 
-            - `type: "web_search"`
+              - `beta_managed_agents_auto_policy: object`
+
+                The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
             - `allowed_domains: optional array of string`
 
@@ -10731,7 +11104,7 @@ List Agent Versions
 
           - `enabled: boolean`
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -10743,9 +11116,13 @@ List Agent Versions
 
               Tool calls require user confirmation before execution.
 
-        - `type: "agent_toolset_20260401"`
+            - `beta_managed_agents_auto_policy: object`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
       - `beta_managed_agents_mcp_toolset: object`
+
+        - `type: "mcp_toolset"`
 
         - `configs: array of BetaManagedAgentsMCPToolConfig`
 
@@ -10753,7 +11130,7 @@ List Agent Versions
 
           - `name: string`
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -10764,6 +11141,10 @@ List Agent Versions
             - `beta_managed_agents_always_ask_policy: object`
 
               Tool calls require user confirmation before execution.
+
+            - `beta_managed_agents_auto_policy: object`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `default_config: object`
 
@@ -10771,7 +11152,7 @@ List Agent Versions
 
           - `enabled: boolean`
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -10783,13 +11164,17 @@ List Agent Versions
 
               Tool calls require user confirmation before execution.
 
-        - `mcp_server_name: string`
+            - `beta_managed_agents_auto_policy: object`
 
-        - `type: "mcp_toolset"`
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+        - `mcp_server_name: string`
 
       - `beta_managed_agents_custom_tool: object`
 
         A custom tool as returned in API responses.
+
+        - `type: "custom"`
 
         - `description: string`
 
@@ -10804,10 +11189,6 @@ List Agent Versions
           - `required: optional array of string`
 
         - `name: string`
-
-        - `type: "custom"`
-
-    - `type: "agent"`
 
     - `updated_at: string`
 
@@ -10949,17 +11330,27 @@ Create a new environment with the specified configuration.
 
 - `--scope: optional "organization" or "account"`
 
-  Body param: The visibility scope for this environment. 'organization' makes the environment visible to all accounts. 'account' restricts visibility to the owning account only. Only applicable for self-hosted environments. If not specified, defaults based on organization type.
+  Body param: The visibility scope for this environment. 'organization' makes the environment visible to all accounts. 'account' restricts visibility to the owning account only. API organizations support only 'organization'; 'account' is rejected. If not specified, defaults based on organization type.
 
 - `--beta: optional array of AnthropicBeta`
 
   Header param: Optional header to specify the beta version(s) you want to use.
+
+- `--workspace-id: optional string`
+
+  Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
 #### Returns
 
 - `beta_environment: object`
 
   Unified Environment resource for both cloud and self-hosted environments.
+
+  - `type: "environment"`
+
+    The type of object (always 'environment')
 
   - `id: string`
 
@@ -10977,6 +11368,10 @@ Create a new environment with the specified configuration.
 
       `cloud` environment configuration.
 
+      - `type: "cloud"`
+
+        Environment type
+
       - `networking: BetaUnrestrictedNetwork or BetaLimitedNetwork`
 
         Network configuration policy.
@@ -10993,6 +11388,10 @@ Create a new environment with the specified configuration.
 
           Limited network access.
 
+          - `type: "limited"`
+
+            Network policy type
+
           - `allow_mcp_servers: boolean`
 
             Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
@@ -11005,13 +11404,13 @@ Create a new environment with the specified configuration.
 
             Specifies domains the container can reach.
 
-          - `type: "limited"`
-
-            Network policy type
-
       - `packages: object`
 
         Package manager configuration.
+
+        - `type: optional "packages"`
+
+          Package configuration type
 
         - `apt: array of string`
 
@@ -11037,14 +11436,6 @@ Create a new environment with the specified configuration.
 
           Python packages to install
 
-        - `type: optional "packages"`
-
-          Package configuration type
-
-      - `type: "cloud"`
-
-        Environment type
-
     - `beta_self_hosted_config: object`
 
       Configuration for self-hosted environments.
@@ -11068,10 +11459,6 @@ Create a new environment with the specified configuration.
   - `name: string`
 
     Human-readable name for the environment
-
-  - `type: "environment"`
-
-    The type of object (always 'environment')
 
   - `updated_at: string`
 
@@ -11170,6 +11557,12 @@ List environments with pagination support.
 
   Header param: Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `BetaEnvironmentListResponse: object`
@@ -11182,6 +11575,10 @@ List environments with pagination support.
   - `data: array of BetaEnvironment`
 
     List of environments.
+
+    - `type: "environment"`
+
+      The type of object (always 'environment')
 
     - `id: string`
 
@@ -11199,6 +11596,10 @@ List environments with pagination support.
 
         `cloud` environment configuration.
 
+        - `type: "cloud"`
+
+          Environment type
+
         - `networking: BetaUnrestrictedNetwork or BetaLimitedNetwork`
 
           Network configuration policy.
@@ -11215,6 +11616,10 @@ List environments with pagination support.
 
             Limited network access.
 
+            - `type: "limited"`
+
+              Network policy type
+
             - `allow_mcp_servers: boolean`
 
               Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
@@ -11227,13 +11632,13 @@ List environments with pagination support.
 
               Specifies domains the container can reach.
 
-            - `type: "limited"`
-
-              Network policy type
-
         - `packages: object`
 
           Package manager configuration.
+
+          - `type: optional "packages"`
+
+            Package configuration type
 
           - `apt: array of string`
 
@@ -11259,14 +11664,6 @@ List environments with pagination support.
 
             Python packages to install
 
-          - `type: optional "packages"`
-
-            Package configuration type
-
-        - `type: "cloud"`
-
-          Environment type
-
       - `beta_self_hosted_config: object`
 
         Configuration for self-hosted environments.
@@ -11290,10 +11687,6 @@ List environments with pagination support.
     - `name: string`
 
       Human-readable name for the environment
-
-    - `type: "environment"`
-
-      The type of object (always 'environment')
 
     - `updated_at: string`
 
@@ -11388,11 +11781,21 @@ Retrieve a specific environment by ID.
 
   Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `beta_environment: object`
 
   Unified Environment resource for both cloud and self-hosted environments.
+
+  - `type: "environment"`
+
+    The type of object (always 'environment')
 
   - `id: string`
 
@@ -11410,6 +11813,10 @@ Retrieve a specific environment by ID.
 
       `cloud` environment configuration.
 
+      - `type: "cloud"`
+
+        Environment type
+
       - `networking: BetaUnrestrictedNetwork or BetaLimitedNetwork`
 
         Network configuration policy.
@@ -11426,6 +11833,10 @@ Retrieve a specific environment by ID.
 
           Limited network access.
 
+          - `type: "limited"`
+
+            Network policy type
+
           - `allow_mcp_servers: boolean`
 
             Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
@@ -11438,13 +11849,13 @@ Retrieve a specific environment by ID.
 
             Specifies domains the container can reach.
 
-          - `type: "limited"`
-
-            Network policy type
-
       - `packages: object`
 
         Package manager configuration.
+
+        - `type: optional "packages"`
+
+          Package configuration type
 
         - `apt: array of string`
 
@@ -11470,14 +11881,6 @@ Retrieve a specific environment by ID.
 
           Python packages to install
 
-        - `type: optional "packages"`
-
-          Package configuration type
-
-      - `type: "cloud"`
-
-        Environment type
-
     - `beta_self_hosted_config: object`
 
       Configuration for self-hosted environments.
@@ -11501,10 +11904,6 @@ Retrieve a specific environment by ID.
   - `name: string`
 
     Human-readable name for the environment
-
-  - `type: "environment"`
-
-    The type of object (always 'environment')
 
   - `updated_at: string`
 
@@ -11617,11 +12016,21 @@ Update an existing environment's configuration.
 
   Header param: Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `beta_environment: object`
 
   Unified Environment resource for both cloud and self-hosted environments.
+
+  - `type: "environment"`
+
+    The type of object (always 'environment')
 
   - `id: string`
 
@@ -11639,6 +12048,10 @@ Update an existing environment's configuration.
 
       `cloud` environment configuration.
 
+      - `type: "cloud"`
+
+        Environment type
+
       - `networking: BetaUnrestrictedNetwork or BetaLimitedNetwork`
 
         Network configuration policy.
@@ -11655,6 +12068,10 @@ Update an existing environment's configuration.
 
           Limited network access.
 
+          - `type: "limited"`
+
+            Network policy type
+
           - `allow_mcp_servers: boolean`
 
             Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
@@ -11667,13 +12084,13 @@ Update an existing environment's configuration.
 
             Specifies domains the container can reach.
 
-          - `type: "limited"`
-
-            Network policy type
-
       - `packages: object`
 
         Package manager configuration.
+
+        - `type: optional "packages"`
+
+          Package configuration type
 
         - `apt: array of string`
 
@@ -11699,14 +12116,6 @@ Update an existing environment's configuration.
 
           Python packages to install
 
-        - `type: optional "packages"`
-
-          Package configuration type
-
-      - `type: "cloud"`
-
-        Environment type
-
     - `beta_self_hosted_config: object`
 
       Configuration for self-hosted environments.
@@ -11730,10 +12139,6 @@ Update an existing environment's configuration.
   - `name: string`
 
     Human-readable name for the environment
-
-  - `type: "environment"`
-
-    The type of object (always 'environment')
 
   - `updated_at: string`
 
@@ -11820,19 +12225,25 @@ Delete an environment by ID. Returns a confirmation of the deletion.
 
   Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `beta_environment_delete_response: object`
 
   Response after deleting an environment.
 
-  - `id: string`
-
-    Environment identifier
-
   - `type: "environment_deleted"`
 
     The type of response
+
+  - `id: string`
+
+    Environment identifier
 
 #### Example
 
@@ -11867,11 +12278,21 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
   Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `beta_environment: object`
 
   Unified Environment resource for both cloud and self-hosted environments.
+
+  - `type: "environment"`
+
+    The type of object (always 'environment')
 
   - `id: string`
 
@@ -11889,6 +12310,10 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
       `cloud` environment configuration.
 
+      - `type: "cloud"`
+
+        Environment type
+
       - `networking: BetaUnrestrictedNetwork or BetaLimitedNetwork`
 
         Network configuration policy.
@@ -11905,6 +12330,10 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
           Limited network access.
 
+          - `type: "limited"`
+
+            Network policy type
+
           - `allow_mcp_servers: boolean`
 
             Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
@@ -11917,13 +12346,13 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
             Specifies domains the container can reach.
 
-          - `type: "limited"`
-
-            Network policy type
-
       - `packages: object`
 
         Package manager configuration.
+
+        - `type: optional "packages"`
+
+          Package configuration type
 
         - `apt: array of string`
 
@@ -11949,14 +12378,6 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
           Python packages to install
 
-        - `type: optional "packages"`
-
-          Package configuration type
-
-      - `type: "cloud"`
-
-        Environment type
-
     - `beta_self_hosted_config: object`
 
       Configuration for self-hosted environments.
@@ -11980,10 +12401,6 @@ Archive an environment by ID. Archived environments cannot be used to create new
   - `name: string`
 
     Human-readable name for the environment
-
-  - `type: "environment"`
-
-    The type of object (always 'environment')
 
   - `updated_at: string`
 
@@ -12080,6 +12497,12 @@ Retrieve detailed information about a specific work item.
 
   Header param: Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `beta_self_hosted_work: object`
@@ -12089,6 +12512,10 @@ Retrieve detailed information about a specific work item.
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
+  - `type: "work"`
+
+    The type of object (always 'work')
 
   - `id: string`
 
@@ -12106,13 +12533,13 @@ Retrieve detailed information about a specific work item.
 
     The actual work to be performed
 
-    - `id: string`
-
-      Session identifier (e.g., 'session_...')
-
     - `type: "session"`
 
       Type of work data
+
+    - `id: string`
+
+      Session identifier (e.g., 'session_...')
 
   - `environment_id: string`
 
@@ -12155,10 +12582,6 @@ Retrieve detailed information about a specific work item.
   - `stopped_at: string`
 
     RFC 3339 timestamp when work execution stopped
-
-  - `type: "work"`
-
-    The type of object (always 'work')
 
 #### Example
 
@@ -12240,6 +12663,10 @@ Long poll for work items in the queue.
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
 
+  - `type: "work"`
+
+    The type of object (always 'work')
+
   - `id: string`
 
     Work identifier (e.g., 'work_...')
@@ -12256,13 +12683,13 @@ Long poll for work items in the queue.
 
     The actual work to be performed
 
-    - `id: string`
-
-      Session identifier (e.g., 'session_...')
-
     - `type: "session"`
 
       Type of work data
+
+    - `id: string`
+
+      Session identifier (e.g., 'session_...')
 
   - `environment_id: string`
 
@@ -12305,10 +12732,6 @@ Long poll for work items in the queue.
   - `stopped_at: string`
 
     RFC 3339 timestamp when work execution stopped
-
-  - `type: "work"`
-
-    The type of object (always 'work')
 
 #### Example
 
@@ -12377,6 +12800,10 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
 
+  - `type: "work"`
+
+    The type of object (always 'work')
+
   - `id: string`
 
     Work identifier (e.g., 'work_...')
@@ -12393,13 +12820,13 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
 
     The actual work to be performed
 
-    - `id: string`
-
-      Session identifier (e.g., 'session_...')
-
     - `type: "session"`
 
       Type of work data
+
+    - `id: string`
+
+      Session identifier (e.g., 'session_...')
 
   - `environment_id: string`
 
@@ -12442,10 +12869,6 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
   - `stopped_at: string`
 
     RFC 3339 timestamp when work execution stopped
-
-  - `type: "work"`
-
-    The type of object (always 'work')
 
 #### Example
 
@@ -12519,6 +12942,10 @@ Record a heartbeat for a work item to maintain the lease.
 
   Response after recording a heartbeat for a work item.
 
+  - `type: "work_heartbeat"`
+
+    The type of response
+
   - `last_heartbeat: string`
 
     RFC 3339 timestamp of the actual heartbeat from DB
@@ -12544,10 +12971,6 @@ Record a heartbeat for a work item to maintain the lease.
   - `ttl_seconds: number`
 
     Effective TTL applied to the lease
-
-  - `type: "work_heartbeat"`
-
-    The type of response
 
 #### Example
 
@@ -12598,6 +13021,12 @@ Stop a work item, initiating graceful or forced shutdown.
 
   Header param: Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `beta_self_hosted_work: object`
@@ -12607,6 +13036,10 @@ Stop a work item, initiating graceful or forced shutdown.
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
+  - `type: "work"`
+
+    The type of object (always 'work')
 
   - `id: string`
 
@@ -12624,13 +13057,13 @@ Stop a work item, initiating graceful or forced shutdown.
 
     The actual work to be performed
 
-    - `id: string`
-
-      Session identifier (e.g., 'session_...')
-
     - `type: "session"`
 
       Type of work data
+
+    - `id: string`
+
+      Session identifier (e.g., 'session_...')
 
   - `environment_id: string`
 
@@ -12673,10 +13106,6 @@ Stop a work item, initiating graceful or forced shutdown.
   - `stopped_at: string`
 
     RFC 3339 timestamp when work execution stopped
-
-  - `type: "work"`
-
-    The type of object (always 'work')
 
 #### Example
 
@@ -12752,6 +13181,10 @@ List work items in an environment.
 
     List of work items
 
+    - `type: "work"`
+
+      The type of object (always 'work')
+
     - `id: string`
 
       Work identifier (e.g., 'work_...')
@@ -12768,13 +13201,13 @@ List work items in an environment.
 
       The actual work to be performed
 
-      - `id: string`
-
-        Session identifier (e.g., 'session_...')
-
       - `type: "session"`
 
         Type of work data
+
+      - `id: string`
+
+        Session identifier (e.g., 'session_...')
 
     - `environment_id: string`
 
@@ -12817,10 +13250,6 @@ List work items in an environment.
     - `stopped_at: string`
 
       RFC 3339 timestamp when work execution stopped
-
-    - `type: "work"`
-
-      The type of object (always 'work')
 
   - `next_page: string`
 
@@ -12892,6 +13321,12 @@ Update work item metadata with merge semantics.
 
   Header param: Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `beta_self_hosted_work: object`
@@ -12901,6 +13336,10 @@ Update work item metadata with merge semantics.
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
+  - `type: "work"`
+
+    The type of object (always 'work')
 
   - `id: string`
 
@@ -12918,13 +13357,13 @@ Update work item metadata with merge semantics.
 
     The actual work to be performed
 
-    - `id: string`
-
-      Session identifier (e.g., 'session_...')
-
     - `type: "session"`
 
       Type of work data
+
+    - `id: string`
+
+      Session identifier (e.g., 'session_...')
 
   - `environment_id: string`
 
@@ -12967,10 +13406,6 @@ Update work item metadata with merge semantics.
   - `stopped_at: string`
 
     RFC 3339 timestamp when work execution stopped
-
-  - `type: "work"`
-
-    The type of object (always 'work')
 
 #### Example
 
@@ -13023,6 +13458,12 @@ Get statistics about the work queue for an environment.
 
   Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `beta_self_hosted_work_queue_stats: object`
@@ -13030,6 +13471,10 @@ Get statistics about the work queue for an environment.
   Statistics about the work queue for an environment.
 
   Uses Redis Stream consumer group metrics for O(1) queries.
+
+  - `type: "work_queue_stats"`
+
+    The type of object
 
   - `depth: number`
 
@@ -13042,10 +13487,6 @@ Get statistics about the work queue for an environment.
   - `pending: number`
 
     Number of work items being processed (polled but not acknowledged)
-
-  - `type: "work_queue_stats"`
-
-    The type of object
 
   - `workers_polling: number`
 
@@ -13123,11 +13564,19 @@ Create Session
 
   Header param: Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `beta_managed_agents_session: object`
 
   A Managed Agents `session`.
+
+  - `type: "session"`
 
   - `id: string`
 
@@ -13135,15 +13584,17 @@ Create Session
 
     Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
 
+    - `type: "agent"`
+
     - `id: string`
 
     - `description: string`
 
     - `mcp_servers: array of BetaManagedAgentsMCPServerURLDefinition`
 
-      - `name: string`
-
       - `type: "url"`
+
+      - `name: string`
 
       - `url: string`
 
@@ -13263,6 +13714,8 @@ Create Session
 
       Resolved coordinator topology with full agent definitions for each roster member.
 
+      - `type: "coordinator"`
+
       - `agents: array of BetaManagedAgentsSessionThreadAgent or BetaManagedAgentsAdvisor`
 
         Full `agent` definitions the coordinator may spawn as session threads.
@@ -13271,15 +13724,17 @@ Create Session
 
           Resolved `agent` definition for a single `session_thread`. Snapshot of the agent at thread creation time. The multiagent roster is not repeated here; read it from `Session.agent`.
 
+          - `type: "agent"`
+
           - `id: string`
 
           - `description: string`
 
           - `mcp_servers: array of BetaManagedAgentsMCPServerURLDefinition`
 
-            - `name: string`
-
             - `type: "url"`
+
+            - `name: string`
 
             - `url: string`
 
@@ -13313,9 +13768,9 @@ Create Session
 
               A resolved Anthropic-managed skill.
 
-              - `skill_id: string`
-
               - `type: "anthropic"`
+
+              - `skill_id: string`
 
               - `version: string`
 
@@ -13323,9 +13778,9 @@ Create Session
 
               A resolved user-created custom skill.
 
-              - `skill_id: string`
-
               - `type: "custom"`
+
+              - `skill_id: string`
 
               - `version: string`
 
@@ -13335,17 +13790,21 @@ Create Session
 
             - `beta_managed_agents_agent_toolset20260401: object`
 
+              - `type: "agent_toolset_20260401"`
+
               - `configs: array of BetaManagedAgentsAgentToolConfig`
 
                 - `beta_managed_agents_bash_tool_config: object`
 
                   Configuration for the bash tool.
 
+                  - `type: "bash"`
+
                   - `enabled: boolean`
 
                   - `name: "bash"`
 
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                     Permission policy for tool execution.
 
@@ -13361,17 +13820,23 @@ Create Session
 
                       - `type: "always_ask"`
 
-                  - `type: "bash"`
+                    - `beta_managed_agents_auto_policy: object`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+                      - `type: "auto"`
 
                 - `beta_managed_agents_edit_tool_config: object`
 
                   Configuration for the edit tool.
 
+                  - `type: "edit"`
+
                   - `enabled: boolean`
 
                   - `name: "edit"`
 
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                     Permission policy for tool execution.
 
@@ -13383,17 +13848,21 @@ Create Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `type: "edit"`
+                    - `beta_managed_agents_auto_policy: object`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                 - `beta_managed_agents_read_tool_config: object`
 
                   Configuration for the read tool.
 
+                  - `type: "read"`
+
                   - `enabled: boolean`
 
                   - `name: "read"`
 
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                     Permission policy for tool execution.
 
@@ -13405,17 +13874,21 @@ Create Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `type: "read"`
+                    - `beta_managed_agents_auto_policy: object`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                 - `beta_managed_agents_write_tool_config: object`
 
                   Configuration for the write tool.
 
+                  - `type: "write"`
+
                   - `enabled: boolean`
 
                   - `name: "write"`
 
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                     Permission policy for tool execution.
 
@@ -13427,17 +13900,21 @@ Create Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `type: "write"`
+                    - `beta_managed_agents_auto_policy: object`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                 - `beta_managed_agents_glob_tool_config: object`
 
                   Configuration for the glob tool.
 
+                  - `type: "glob"`
+
                   - `enabled: boolean`
 
                   - `name: "glob"`
 
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                     Permission policy for tool execution.
 
@@ -13449,17 +13926,21 @@ Create Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `type: "glob"`
+                    - `beta_managed_agents_auto_policy: object`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                 - `beta_managed_agents_grep_tool_config: object`
 
                   Configuration for the grep tool.
 
+                  - `type: "grep"`
+
                   - `enabled: boolean`
 
                   - `name: "grep"`
 
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                     Permission policy for tool execution.
 
@@ -13471,17 +13952,21 @@ Create Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `type: "grep"`
+                    - `beta_managed_agents_auto_policy: object`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                 - `beta_managed_agents_web_fetch_tool_config: object`
 
                   Configuration for the web_fetch tool.
 
+                  - `type: "web_fetch"`
+
                   - `enabled: boolean`
 
                   - `name: "web_fetch"`
 
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                     Permission policy for tool execution.
 
@@ -13493,7 +13978,9 @@ Create Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `type: "web_fetch"`
+                    - `beta_managed_agents_auto_policy: object`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                   - `allowed_domains: optional array of string`
 
@@ -13507,11 +13994,13 @@ Create Session
 
                   Configuration for the web_search tool.
 
+                  - `type: "web_search"`
+
                   - `enabled: boolean`
 
                   - `name: "web_search"`
 
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                     Permission policy for tool execution.
 
@@ -13523,7 +14012,9 @@ Create Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `type: "web_search"`
+                    - `beta_managed_agents_auto_policy: object`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                   - `allowed_domains: optional array of string`
 
@@ -13565,7 +14056,7 @@ Create Session
 
                 - `enabled: boolean`
 
-                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                   Permission policy for tool execution.
 
@@ -13577,9 +14068,13 @@ Create Session
 
                     Tool calls require user confirmation before execution.
 
-              - `type: "agent_toolset_20260401"`
+                  - `beta_managed_agents_auto_policy: object`
+
+                    The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
             - `beta_managed_agents_mcp_toolset: object`
+
+              - `type: "mcp_toolset"`
 
               - `configs: array of BetaManagedAgentsMCPToolConfig`
 
@@ -13587,7 +14082,7 @@ Create Session
 
                 - `name: string`
 
-                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                   Permission policy for tool execution.
 
@@ -13598,6 +14093,10 @@ Create Session
                   - `beta_managed_agents_always_ask_policy: object`
 
                     Tool calls require user confirmation before execution.
+
+                  - `beta_managed_agents_auto_policy: object`
+
+                    The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
               - `default_config: object`
 
@@ -13605,7 +14104,7 @@ Create Session
 
                 - `enabled: boolean`
 
-                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                   Permission policy for tool execution.
 
@@ -13617,13 +14116,17 @@ Create Session
 
                     Tool calls require user confirmation before execution.
 
-              - `mcp_server_name: string`
+                  - `beta_managed_agents_auto_policy: object`
 
-              - `type: "mcp_toolset"`
+                    The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+              - `mcp_server_name: string`
 
             - `beta_managed_agents_custom_tool: object`
 
               A custom tool as returned in API responses.
+
+              - `type: "custom"`
 
               - `description: string`
 
@@ -13639,10 +14142,6 @@ Create Session
 
               - `name: string`
 
-              - `type: "custom"`
-
-          - `type: "agent"`
-
           - `version: number`
 
             format: int32
@@ -13651,13 +14150,11 @@ Create Session
 
           Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
 
+          - `type: "advisor"`
+
           - `model: string`
 
             The advisor model id.
-
-          - `type: "advisor"`
-
-      - `type: "coordinator"`
 
     - `name: string`
 
@@ -13683,8 +14180,6 @@ Create Session
 
         A custom tool as returned in API responses.
 
-    - `type: "agent"`
-
     - `version: number`
 
       format: int32
@@ -13699,6 +14194,8 @@ Create Session
 
     A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
 
+    - `type: "limit"`
+
     - `max_list_cost: object`
 
       A monetary amount in a specific currency.
@@ -13710,8 +14207,6 @@ Create Session
       - `currency: "USD"`
 
         Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
-
-    - `type: "limit"`
 
   - `created_at: string`
 
@@ -13726,6 +14221,8 @@ Create Session
   - `outcome_evaluations: array of BetaManagedAgentsOutcomeEvaluationResource`
 
     Per-outcome evaluation state. One entry per `define_outcome` event sent to the session.
+
+    - `type: "outcome_evaluation"`
 
     - `completed_at: string`
 
@@ -13755,11 +14252,11 @@ Create Session
 
       Current evaluation state. `pending` before the agent begins work; `running` while producing or revising; `evaluating` while the grader scores; `satisfied`/`max_iterations_reached`/`failed`/`interrupted` are terminal.
 
-    - `type: "outcome_evaluation"`
-
   - `resources: array of BetaManagedAgentsSessionResource`
 
     - `beta_managed_agents_github_repository_resource: object`
+
+      - `type: "github_repository"`
 
       - `id: string`
 
@@ -13770,8 +14267,6 @@ Create Session
         format: date-time
 
       - `mount_path: string`
-
-      - `type: "github_repository"`
 
       - `updated_at: string`
 
@@ -13785,15 +14280,17 @@ Create Session
 
         - `beta_managed_agents_branch_checkout: object`
 
+          - `type: "branch"`
+
           - `name: string`
 
             Branch name to check out.
 
             minLength: 1, maxLength: 255
 
-          - `type: "branch"`
-
         - `beta_managed_agents_commit_checkout: object`
+
+          - `type: "commit"`
 
           - `sha: string`
 
@@ -13801,9 +14298,9 @@ Create Session
 
             minLength: 7, maxLength: 64
 
-          - `type: "commit"`
-
     - `beta_managed_agents_file_resource: object`
+
+      - `type: "file"`
 
       - `id: string`
 
@@ -13817,8 +14314,6 @@ Create Session
 
       - `mount_path: string`
 
-      - `type: "file"`
-
       - `updated_at: string`
 
         A timestamp in RFC 3339 format
@@ -13829,11 +14324,11 @@ Create Session
 
       A memory store attached to an agent session.
 
+      - `type: "memory_store"`
+
       - `memory_store_id: string`
 
         The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
-
-      - `type: "memory_store"`
 
       - `access: optional "read_write" or "read_only"`
 
@@ -13890,8 +14385,6 @@ Create Session
     - `"terminated"`
 
   - `title: string`
-
-  - `type: "session"`
 
   - `updated_at: string`
 
@@ -14260,6 +14753,12 @@ List Sessions
 
   Header param: Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `BetaManagedAgentsListSessions: object`
@@ -14270,11 +14769,15 @@ List Sessions
 
     List of sessions.
 
+    - `type: "session"`
+
     - `id: string`
 
     - `agent: object`
 
       Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
+
+      - `type: "agent"`
 
       - `id: string`
 
@@ -14282,9 +14785,9 @@ List Sessions
 
       - `mcp_servers: array of BetaManagedAgentsMCPServerURLDefinition`
 
-        - `name: string`
-
         - `type: "url"`
+
+        - `name: string`
 
         - `url: string`
 
@@ -14404,6 +14907,8 @@ List Sessions
 
         Resolved coordinator topology with full agent definitions for each roster member.
 
+        - `type: "coordinator"`
+
         - `agents: array of BetaManagedAgentsSessionThreadAgent or BetaManagedAgentsAdvisor`
 
           Full `agent` definitions the coordinator may spawn as session threads.
@@ -14412,15 +14917,17 @@ List Sessions
 
             Resolved `agent` definition for a single `session_thread`. Snapshot of the agent at thread creation time. The multiagent roster is not repeated here; read it from `Session.agent`.
 
+            - `type: "agent"`
+
             - `id: string`
 
             - `description: string`
 
             - `mcp_servers: array of BetaManagedAgentsMCPServerURLDefinition`
 
-              - `name: string`
-
               - `type: "url"`
+
+              - `name: string`
 
               - `url: string`
 
@@ -14454,9 +14961,9 @@ List Sessions
 
                 A resolved Anthropic-managed skill.
 
-                - `skill_id: string`
-
                 - `type: "anthropic"`
+
+                - `skill_id: string`
 
                 - `version: string`
 
@@ -14464,9 +14971,9 @@ List Sessions
 
                 A resolved user-created custom skill.
 
-                - `skill_id: string`
-
                 - `type: "custom"`
+
+                - `skill_id: string`
 
                 - `version: string`
 
@@ -14476,17 +14983,21 @@ List Sessions
 
               - `beta_managed_agents_agent_toolset20260401: object`
 
+                - `type: "agent_toolset_20260401"`
+
                 - `configs: array of BetaManagedAgentsAgentToolConfig`
 
                   - `beta_managed_agents_bash_tool_config: object`
 
                     Configuration for the bash tool.
 
+                    - `type: "bash"`
+
                     - `enabled: boolean`
 
                     - `name: "bash"`
 
-                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                       Permission policy for tool execution.
 
@@ -14502,17 +15013,23 @@ List Sessions
 
                         - `type: "always_ask"`
 
-                    - `type: "bash"`
+                      - `beta_managed_agents_auto_policy: object`
+
+                        The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+                        - `type: "auto"`
 
                   - `beta_managed_agents_edit_tool_config: object`
 
                     Configuration for the edit tool.
 
+                    - `type: "edit"`
+
                     - `enabled: boolean`
 
                     - `name: "edit"`
 
-                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                       Permission policy for tool execution.
 
@@ -14524,17 +15041,21 @@ List Sessions
 
                         Tool calls require user confirmation before execution.
 
-                    - `type: "edit"`
+                      - `beta_managed_agents_auto_policy: object`
+
+                        The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                   - `beta_managed_agents_read_tool_config: object`
 
                     Configuration for the read tool.
 
+                    - `type: "read"`
+
                     - `enabled: boolean`
 
                     - `name: "read"`
 
-                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                       Permission policy for tool execution.
 
@@ -14546,17 +15067,21 @@ List Sessions
 
                         Tool calls require user confirmation before execution.
 
-                    - `type: "read"`
+                      - `beta_managed_agents_auto_policy: object`
+
+                        The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                   - `beta_managed_agents_write_tool_config: object`
 
                     Configuration for the write tool.
 
+                    - `type: "write"`
+
                     - `enabled: boolean`
 
                     - `name: "write"`
 
-                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                       Permission policy for tool execution.
 
@@ -14568,17 +15093,21 @@ List Sessions
 
                         Tool calls require user confirmation before execution.
 
-                    - `type: "write"`
+                      - `beta_managed_agents_auto_policy: object`
+
+                        The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                   - `beta_managed_agents_glob_tool_config: object`
 
                     Configuration for the glob tool.
 
+                    - `type: "glob"`
+
                     - `enabled: boolean`
 
                     - `name: "glob"`
 
-                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                       Permission policy for tool execution.
 
@@ -14590,17 +15119,21 @@ List Sessions
 
                         Tool calls require user confirmation before execution.
 
-                    - `type: "glob"`
+                      - `beta_managed_agents_auto_policy: object`
+
+                        The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                   - `beta_managed_agents_grep_tool_config: object`
 
                     Configuration for the grep tool.
 
+                    - `type: "grep"`
+
                     - `enabled: boolean`
 
                     - `name: "grep"`
 
-                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                       Permission policy for tool execution.
 
@@ -14612,17 +15145,21 @@ List Sessions
 
                         Tool calls require user confirmation before execution.
 
-                    - `type: "grep"`
+                      - `beta_managed_agents_auto_policy: object`
+
+                        The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                   - `beta_managed_agents_web_fetch_tool_config: object`
 
                     Configuration for the web_fetch tool.
 
+                    - `type: "web_fetch"`
+
                     - `enabled: boolean`
 
                     - `name: "web_fetch"`
 
-                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                       Permission policy for tool execution.
 
@@ -14634,7 +15171,9 @@ List Sessions
 
                         Tool calls require user confirmation before execution.
 
-                    - `type: "web_fetch"`
+                      - `beta_managed_agents_auto_policy: object`
+
+                        The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                     - `allowed_domains: optional array of string`
 
@@ -14648,11 +15187,13 @@ List Sessions
 
                     Configuration for the web_search tool.
 
+                    - `type: "web_search"`
+
                     - `enabled: boolean`
 
                     - `name: "web_search"`
 
-                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                       Permission policy for tool execution.
 
@@ -14664,7 +15205,9 @@ List Sessions
 
                         Tool calls require user confirmation before execution.
 
-                    - `type: "web_search"`
+                      - `beta_managed_agents_auto_policy: object`
+
+                        The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                     - `allowed_domains: optional array of string`
 
@@ -14706,7 +15249,7 @@ List Sessions
 
                   - `enabled: boolean`
 
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                     Permission policy for tool execution.
 
@@ -14718,9 +15261,13 @@ List Sessions
 
                       Tool calls require user confirmation before execution.
 
-                - `type: "agent_toolset_20260401"`
+                    - `beta_managed_agents_auto_policy: object`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
               - `beta_managed_agents_mcp_toolset: object`
+
+                - `type: "mcp_toolset"`
 
                 - `configs: array of BetaManagedAgentsMCPToolConfig`
 
@@ -14728,7 +15275,7 @@ List Sessions
 
                   - `name: string`
 
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                     Permission policy for tool execution.
 
@@ -14739,6 +15286,10 @@ List Sessions
                     - `beta_managed_agents_always_ask_policy: object`
 
                       Tool calls require user confirmation before execution.
+
+                    - `beta_managed_agents_auto_policy: object`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                 - `default_config: object`
 
@@ -14746,7 +15297,7 @@ List Sessions
 
                   - `enabled: boolean`
 
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                     Permission policy for tool execution.
 
@@ -14758,13 +15309,17 @@ List Sessions
 
                       Tool calls require user confirmation before execution.
 
-                - `mcp_server_name: string`
+                    - `beta_managed_agents_auto_policy: object`
 
-                - `type: "mcp_toolset"`
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+                - `mcp_server_name: string`
 
               - `beta_managed_agents_custom_tool: object`
 
                 A custom tool as returned in API responses.
+
+                - `type: "custom"`
 
                 - `description: string`
 
@@ -14780,10 +15335,6 @@ List Sessions
 
                 - `name: string`
 
-                - `type: "custom"`
-
-            - `type: "agent"`
-
             - `version: number`
 
               format: int32
@@ -14792,13 +15343,11 @@ List Sessions
 
             Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
 
+            - `type: "advisor"`
+
             - `model: string`
 
               The advisor model id.
-
-            - `type: "advisor"`
-
-        - `type: "coordinator"`
 
       - `name: string`
 
@@ -14824,8 +15373,6 @@ List Sessions
 
           A custom tool as returned in API responses.
 
-      - `type: "agent"`
-
       - `version: number`
 
         format: int32
@@ -14840,6 +15387,8 @@ List Sessions
 
       A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
 
+      - `type: "limit"`
+
       - `max_list_cost: object`
 
         A monetary amount in a specific currency.
@@ -14851,8 +15400,6 @@ List Sessions
         - `currency: "USD"`
 
           Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
-
-      - `type: "limit"`
 
     - `created_at: string`
 
@@ -14867,6 +15414,8 @@ List Sessions
     - `outcome_evaluations: array of BetaManagedAgentsOutcomeEvaluationResource`
 
       Per-outcome evaluation state. One entry per `define_outcome` event sent to the session.
+
+      - `type: "outcome_evaluation"`
 
       - `completed_at: string`
 
@@ -14896,11 +15445,11 @@ List Sessions
 
         Current evaluation state. `pending` before the agent begins work; `running` while producing or revising; `evaluating` while the grader scores; `satisfied`/`max_iterations_reached`/`failed`/`interrupted` are terminal.
 
-      - `type: "outcome_evaluation"`
-
     - `resources: array of BetaManagedAgentsSessionResource`
 
       - `beta_managed_agents_github_repository_resource: object`
+
+        - `type: "github_repository"`
 
         - `id: string`
 
@@ -14911,8 +15460,6 @@ List Sessions
           format: date-time
 
         - `mount_path: string`
-
-        - `type: "github_repository"`
 
         - `updated_at: string`
 
@@ -14926,15 +15473,17 @@ List Sessions
 
           - `beta_managed_agents_branch_checkout: object`
 
+            - `type: "branch"`
+
             - `name: string`
 
               Branch name to check out.
 
               minLength: 1, maxLength: 255
 
-            - `type: "branch"`
-
           - `beta_managed_agents_commit_checkout: object`
+
+            - `type: "commit"`
 
             - `sha: string`
 
@@ -14942,9 +15491,9 @@ List Sessions
 
               minLength: 7, maxLength: 64
 
-            - `type: "commit"`
-
       - `beta_managed_agents_file_resource: object`
+
+        - `type: "file"`
 
         - `id: string`
 
@@ -14958,8 +15507,6 @@ List Sessions
 
         - `mount_path: string`
 
-        - `type: "file"`
-
         - `updated_at: string`
 
           A timestamp in RFC 3339 format
@@ -14970,11 +15517,11 @@ List Sessions
 
         A memory store attached to an agent session.
 
+        - `type: "memory_store"`
+
         - `memory_store_id: string`
 
           The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
-
-        - `type: "memory_store"`
 
         - `access: optional "read_write" or "read_only"`
 
@@ -15031,8 +15578,6 @@ List Sessions
       - `"terminated"`
 
     - `title: string`
-
-    - `type: "session"`
 
     - `updated_at: string`
 
@@ -15353,11 +15898,19 @@ Get Session
 
   Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `beta_managed_agents_session: object`
 
   A Managed Agents `session`.
+
+  - `type: "session"`
 
   - `id: string`
 
@@ -15365,15 +15918,17 @@ Get Session
 
     Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
 
+    - `type: "agent"`
+
     - `id: string`
 
     - `description: string`
 
     - `mcp_servers: array of BetaManagedAgentsMCPServerURLDefinition`
 
-      - `name: string`
-
       - `type: "url"`
+
+      - `name: string`
 
       - `url: string`
 
@@ -15493,6 +16048,8 @@ Get Session
 
       Resolved coordinator topology with full agent definitions for each roster member.
 
+      - `type: "coordinator"`
+
       - `agents: array of BetaManagedAgentsSessionThreadAgent or BetaManagedAgentsAdvisor`
 
         Full `agent` definitions the coordinator may spawn as session threads.
@@ -15501,15 +16058,17 @@ Get Session
 
           Resolved `agent` definition for a single `session_thread`. Snapshot of the agent at thread creation time. The multiagent roster is not repeated here; read it from `Session.agent`.
 
+          - `type: "agent"`
+
           - `id: string`
 
           - `description: string`
 
           - `mcp_servers: array of BetaManagedAgentsMCPServerURLDefinition`
 
-            - `name: string`
-
             - `type: "url"`
+
+            - `name: string`
 
             - `url: string`
 
@@ -15543,9 +16102,9 @@ Get Session
 
               A resolved Anthropic-managed skill.
 
-              - `skill_id: string`
-
               - `type: "anthropic"`
+
+              - `skill_id: string`
 
               - `version: string`
 
@@ -15553,9 +16112,9 @@ Get Session
 
               A resolved user-created custom skill.
 
-              - `skill_id: string`
-
               - `type: "custom"`
+
+              - `skill_id: string`
 
               - `version: string`
 
@@ -15565,17 +16124,21 @@ Get Session
 
             - `beta_managed_agents_agent_toolset20260401: object`
 
+              - `type: "agent_toolset_20260401"`
+
               - `configs: array of BetaManagedAgentsAgentToolConfig`
 
                 - `beta_managed_agents_bash_tool_config: object`
 
                   Configuration for the bash tool.
 
+                  - `type: "bash"`
+
                   - `enabled: boolean`
 
                   - `name: "bash"`
 
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                     Permission policy for tool execution.
 
@@ -15591,17 +16154,23 @@ Get Session
 
                       - `type: "always_ask"`
 
-                  - `type: "bash"`
+                    - `beta_managed_agents_auto_policy: object`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+                      - `type: "auto"`
 
                 - `beta_managed_agents_edit_tool_config: object`
 
                   Configuration for the edit tool.
 
+                  - `type: "edit"`
+
                   - `enabled: boolean`
 
                   - `name: "edit"`
 
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                     Permission policy for tool execution.
 
@@ -15613,17 +16182,21 @@ Get Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `type: "edit"`
+                    - `beta_managed_agents_auto_policy: object`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                 - `beta_managed_agents_read_tool_config: object`
 
                   Configuration for the read tool.
 
+                  - `type: "read"`
+
                   - `enabled: boolean`
 
                   - `name: "read"`
 
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                     Permission policy for tool execution.
 
@@ -15635,17 +16208,21 @@ Get Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `type: "read"`
+                    - `beta_managed_agents_auto_policy: object`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                 - `beta_managed_agents_write_tool_config: object`
 
                   Configuration for the write tool.
 
+                  - `type: "write"`
+
                   - `enabled: boolean`
 
                   - `name: "write"`
 
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                     Permission policy for tool execution.
 
@@ -15657,17 +16234,21 @@ Get Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `type: "write"`
+                    - `beta_managed_agents_auto_policy: object`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                 - `beta_managed_agents_glob_tool_config: object`
 
                   Configuration for the glob tool.
 
+                  - `type: "glob"`
+
                   - `enabled: boolean`
 
                   - `name: "glob"`
 
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                     Permission policy for tool execution.
 
@@ -15679,17 +16260,21 @@ Get Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `type: "glob"`
+                    - `beta_managed_agents_auto_policy: object`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                 - `beta_managed_agents_grep_tool_config: object`
 
                   Configuration for the grep tool.
 
+                  - `type: "grep"`
+
                   - `enabled: boolean`
 
                   - `name: "grep"`
 
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                     Permission policy for tool execution.
 
@@ -15701,17 +16286,21 @@ Get Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `type: "grep"`
+                    - `beta_managed_agents_auto_policy: object`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                 - `beta_managed_agents_web_fetch_tool_config: object`
 
                   Configuration for the web_fetch tool.
 
+                  - `type: "web_fetch"`
+
                   - `enabled: boolean`
 
                   - `name: "web_fetch"`
 
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                     Permission policy for tool execution.
 
@@ -15723,7 +16312,9 @@ Get Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `type: "web_fetch"`
+                    - `beta_managed_agents_auto_policy: object`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                   - `allowed_domains: optional array of string`
 
@@ -15737,11 +16328,13 @@ Get Session
 
                   Configuration for the web_search tool.
 
+                  - `type: "web_search"`
+
                   - `enabled: boolean`
 
                   - `name: "web_search"`
 
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                     Permission policy for tool execution.
 
@@ -15753,7 +16346,9 @@ Get Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `type: "web_search"`
+                    - `beta_managed_agents_auto_policy: object`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                   - `allowed_domains: optional array of string`
 
@@ -15795,7 +16390,7 @@ Get Session
 
                 - `enabled: boolean`
 
-                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                   Permission policy for tool execution.
 
@@ -15807,9 +16402,13 @@ Get Session
 
                     Tool calls require user confirmation before execution.
 
-              - `type: "agent_toolset_20260401"`
+                  - `beta_managed_agents_auto_policy: object`
+
+                    The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
             - `beta_managed_agents_mcp_toolset: object`
+
+              - `type: "mcp_toolset"`
 
               - `configs: array of BetaManagedAgentsMCPToolConfig`
 
@@ -15817,7 +16416,7 @@ Get Session
 
                 - `name: string`
 
-                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                   Permission policy for tool execution.
 
@@ -15828,6 +16427,10 @@ Get Session
                   - `beta_managed_agents_always_ask_policy: object`
 
                     Tool calls require user confirmation before execution.
+
+                  - `beta_managed_agents_auto_policy: object`
+
+                    The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
               - `default_config: object`
 
@@ -15835,7 +16438,7 @@ Get Session
 
                 - `enabled: boolean`
 
-                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                   Permission policy for tool execution.
 
@@ -15847,13 +16450,17 @@ Get Session
 
                     Tool calls require user confirmation before execution.
 
-              - `mcp_server_name: string`
+                  - `beta_managed_agents_auto_policy: object`
 
-              - `type: "mcp_toolset"`
+                    The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+              - `mcp_server_name: string`
 
             - `beta_managed_agents_custom_tool: object`
 
               A custom tool as returned in API responses.
+
+              - `type: "custom"`
 
               - `description: string`
 
@@ -15869,10 +16476,6 @@ Get Session
 
               - `name: string`
 
-              - `type: "custom"`
-
-          - `type: "agent"`
-
           - `version: number`
 
             format: int32
@@ -15881,13 +16484,11 @@ Get Session
 
           Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
 
+          - `type: "advisor"`
+
           - `model: string`
 
             The advisor model id.
-
-          - `type: "advisor"`
-
-      - `type: "coordinator"`
 
     - `name: string`
 
@@ -15913,8 +16514,6 @@ Get Session
 
         A custom tool as returned in API responses.
 
-    - `type: "agent"`
-
     - `version: number`
 
       format: int32
@@ -15929,6 +16528,8 @@ Get Session
 
     A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
 
+    - `type: "limit"`
+
     - `max_list_cost: object`
 
       A monetary amount in a specific currency.
@@ -15940,8 +16541,6 @@ Get Session
       - `currency: "USD"`
 
         Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
-
-    - `type: "limit"`
 
   - `created_at: string`
 
@@ -15956,6 +16555,8 @@ Get Session
   - `outcome_evaluations: array of BetaManagedAgentsOutcomeEvaluationResource`
 
     Per-outcome evaluation state. One entry per `define_outcome` event sent to the session.
+
+    - `type: "outcome_evaluation"`
 
     - `completed_at: string`
 
@@ -15985,11 +16586,11 @@ Get Session
 
       Current evaluation state. `pending` before the agent begins work; `running` while producing or revising; `evaluating` while the grader scores; `satisfied`/`max_iterations_reached`/`failed`/`interrupted` are terminal.
 
-    - `type: "outcome_evaluation"`
-
   - `resources: array of BetaManagedAgentsSessionResource`
 
     - `beta_managed_agents_github_repository_resource: object`
+
+      - `type: "github_repository"`
 
       - `id: string`
 
@@ -16000,8 +16601,6 @@ Get Session
         format: date-time
 
       - `mount_path: string`
-
-      - `type: "github_repository"`
 
       - `updated_at: string`
 
@@ -16015,15 +16614,17 @@ Get Session
 
         - `beta_managed_agents_branch_checkout: object`
 
+          - `type: "branch"`
+
           - `name: string`
 
             Branch name to check out.
 
             minLength: 1, maxLength: 255
 
-          - `type: "branch"`
-
         - `beta_managed_agents_commit_checkout: object`
+
+          - `type: "commit"`
 
           - `sha: string`
 
@@ -16031,9 +16632,9 @@ Get Session
 
             minLength: 7, maxLength: 64
 
-          - `type: "commit"`
-
     - `beta_managed_agents_file_resource: object`
+
+      - `type: "file"`
 
       - `id: string`
 
@@ -16047,8 +16648,6 @@ Get Session
 
       - `mount_path: string`
 
-      - `type: "file"`
-
       - `updated_at: string`
 
         A timestamp in RFC 3339 format
@@ -16059,11 +16658,11 @@ Get Session
 
       A memory store attached to an agent session.
 
+      - `type: "memory_store"`
+
       - `memory_store_id: string`
 
         The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
-
-      - `type: "memory_store"`
 
       - `access: optional "read_write" or "read_only"`
 
@@ -16120,8 +16719,6 @@ Get Session
     - `"terminated"`
 
   - `title: string`
-
-  - `type: "session"`
 
   - `updated_at: string`
 
@@ -16451,11 +17048,19 @@ Update Session
 
   Header param: Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `beta_managed_agents_session: object`
 
   A Managed Agents `session`.
+
+  - `type: "session"`
 
   - `id: string`
 
@@ -16463,15 +17068,17 @@ Update Session
 
     Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
 
+    - `type: "agent"`
+
     - `id: string`
 
     - `description: string`
 
     - `mcp_servers: array of BetaManagedAgentsMCPServerURLDefinition`
 
-      - `name: string`
-
       - `type: "url"`
+
+      - `name: string`
 
       - `url: string`
 
@@ -16591,6 +17198,8 @@ Update Session
 
       Resolved coordinator topology with full agent definitions for each roster member.
 
+      - `type: "coordinator"`
+
       - `agents: array of BetaManagedAgentsSessionThreadAgent or BetaManagedAgentsAdvisor`
 
         Full `agent` definitions the coordinator may spawn as session threads.
@@ -16599,15 +17208,17 @@ Update Session
 
           Resolved `agent` definition for a single `session_thread`. Snapshot of the agent at thread creation time. The multiagent roster is not repeated here; read it from `Session.agent`.
 
+          - `type: "agent"`
+
           - `id: string`
 
           - `description: string`
 
           - `mcp_servers: array of BetaManagedAgentsMCPServerURLDefinition`
 
-            - `name: string`
-
             - `type: "url"`
+
+            - `name: string`
 
             - `url: string`
 
@@ -16641,9 +17252,9 @@ Update Session
 
               A resolved Anthropic-managed skill.
 
-              - `skill_id: string`
-
               - `type: "anthropic"`
+
+              - `skill_id: string`
 
               - `version: string`
 
@@ -16651,9 +17262,9 @@ Update Session
 
               A resolved user-created custom skill.
 
-              - `skill_id: string`
-
               - `type: "custom"`
+
+              - `skill_id: string`
 
               - `version: string`
 
@@ -16663,17 +17274,21 @@ Update Session
 
             - `beta_managed_agents_agent_toolset20260401: object`
 
+              - `type: "agent_toolset_20260401"`
+
               - `configs: array of BetaManagedAgentsAgentToolConfig`
 
                 - `beta_managed_agents_bash_tool_config: object`
 
                   Configuration for the bash tool.
 
+                  - `type: "bash"`
+
                   - `enabled: boolean`
 
                   - `name: "bash"`
 
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                     Permission policy for tool execution.
 
@@ -16689,17 +17304,23 @@ Update Session
 
                       - `type: "always_ask"`
 
-                  - `type: "bash"`
+                    - `beta_managed_agents_auto_policy: object`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+                      - `type: "auto"`
 
                 - `beta_managed_agents_edit_tool_config: object`
 
                   Configuration for the edit tool.
 
+                  - `type: "edit"`
+
                   - `enabled: boolean`
 
                   - `name: "edit"`
 
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                     Permission policy for tool execution.
 
@@ -16711,17 +17332,21 @@ Update Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `type: "edit"`
+                    - `beta_managed_agents_auto_policy: object`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                 - `beta_managed_agents_read_tool_config: object`
 
                   Configuration for the read tool.
 
+                  - `type: "read"`
+
                   - `enabled: boolean`
 
                   - `name: "read"`
 
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                     Permission policy for tool execution.
 
@@ -16733,17 +17358,21 @@ Update Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `type: "read"`
+                    - `beta_managed_agents_auto_policy: object`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                 - `beta_managed_agents_write_tool_config: object`
 
                   Configuration for the write tool.
 
+                  - `type: "write"`
+
                   - `enabled: boolean`
 
                   - `name: "write"`
 
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                     Permission policy for tool execution.
 
@@ -16755,17 +17384,21 @@ Update Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `type: "write"`
+                    - `beta_managed_agents_auto_policy: object`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                 - `beta_managed_agents_glob_tool_config: object`
 
                   Configuration for the glob tool.
 
+                  - `type: "glob"`
+
                   - `enabled: boolean`
 
                   - `name: "glob"`
 
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                     Permission policy for tool execution.
 
@@ -16777,17 +17410,21 @@ Update Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `type: "glob"`
+                    - `beta_managed_agents_auto_policy: object`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                 - `beta_managed_agents_grep_tool_config: object`
 
                   Configuration for the grep tool.
 
+                  - `type: "grep"`
+
                   - `enabled: boolean`
 
                   - `name: "grep"`
 
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                     Permission policy for tool execution.
 
@@ -16799,17 +17436,21 @@ Update Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `type: "grep"`
+                    - `beta_managed_agents_auto_policy: object`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                 - `beta_managed_agents_web_fetch_tool_config: object`
 
                   Configuration for the web_fetch tool.
 
+                  - `type: "web_fetch"`
+
                   - `enabled: boolean`
 
                   - `name: "web_fetch"`
 
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                     Permission policy for tool execution.
 
@@ -16821,7 +17462,9 @@ Update Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `type: "web_fetch"`
+                    - `beta_managed_agents_auto_policy: object`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                   - `allowed_domains: optional array of string`
 
@@ -16835,11 +17478,13 @@ Update Session
 
                   Configuration for the web_search tool.
 
+                  - `type: "web_search"`
+
                   - `enabled: boolean`
 
                   - `name: "web_search"`
 
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                     Permission policy for tool execution.
 
@@ -16851,7 +17496,9 @@ Update Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `type: "web_search"`
+                    - `beta_managed_agents_auto_policy: object`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                   - `allowed_domains: optional array of string`
 
@@ -16893,7 +17540,7 @@ Update Session
 
                 - `enabled: boolean`
 
-                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                   Permission policy for tool execution.
 
@@ -16905,9 +17552,13 @@ Update Session
 
                     Tool calls require user confirmation before execution.
 
-              - `type: "agent_toolset_20260401"`
+                  - `beta_managed_agents_auto_policy: object`
+
+                    The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
             - `beta_managed_agents_mcp_toolset: object`
+
+              - `type: "mcp_toolset"`
 
               - `configs: array of BetaManagedAgentsMCPToolConfig`
 
@@ -16915,7 +17566,7 @@ Update Session
 
                 - `name: string`
 
-                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                   Permission policy for tool execution.
 
@@ -16926,6 +17577,10 @@ Update Session
                   - `beta_managed_agents_always_ask_policy: object`
 
                     Tool calls require user confirmation before execution.
+
+                  - `beta_managed_agents_auto_policy: object`
+
+                    The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
               - `default_config: object`
 
@@ -16933,7 +17588,7 @@ Update Session
 
                 - `enabled: boolean`
 
-                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                   Permission policy for tool execution.
 
@@ -16945,13 +17600,17 @@ Update Session
 
                     Tool calls require user confirmation before execution.
 
-              - `mcp_server_name: string`
+                  - `beta_managed_agents_auto_policy: object`
 
-              - `type: "mcp_toolset"`
+                    The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+              - `mcp_server_name: string`
 
             - `beta_managed_agents_custom_tool: object`
 
               A custom tool as returned in API responses.
+
+              - `type: "custom"`
 
               - `description: string`
 
@@ -16967,10 +17626,6 @@ Update Session
 
               - `name: string`
 
-              - `type: "custom"`
-
-          - `type: "agent"`
-
           - `version: number`
 
             format: int32
@@ -16979,13 +17634,11 @@ Update Session
 
           Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
 
+          - `type: "advisor"`
+
           - `model: string`
 
             The advisor model id.
-
-          - `type: "advisor"`
-
-      - `type: "coordinator"`
 
     - `name: string`
 
@@ -17011,8 +17664,6 @@ Update Session
 
         A custom tool as returned in API responses.
 
-    - `type: "agent"`
-
     - `version: number`
 
       format: int32
@@ -17027,6 +17678,8 @@ Update Session
 
     A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
 
+    - `type: "limit"`
+
     - `max_list_cost: object`
 
       A monetary amount in a specific currency.
@@ -17038,8 +17691,6 @@ Update Session
       - `currency: "USD"`
 
         Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
-
-    - `type: "limit"`
 
   - `created_at: string`
 
@@ -17054,6 +17705,8 @@ Update Session
   - `outcome_evaluations: array of BetaManagedAgentsOutcomeEvaluationResource`
 
     Per-outcome evaluation state. One entry per `define_outcome` event sent to the session.
+
+    - `type: "outcome_evaluation"`
 
     - `completed_at: string`
 
@@ -17083,11 +17736,11 @@ Update Session
 
       Current evaluation state. `pending` before the agent begins work; `running` while producing or revising; `evaluating` while the grader scores; `satisfied`/`max_iterations_reached`/`failed`/`interrupted` are terminal.
 
-    - `type: "outcome_evaluation"`
-
   - `resources: array of BetaManagedAgentsSessionResource`
 
     - `beta_managed_agents_github_repository_resource: object`
+
+      - `type: "github_repository"`
 
       - `id: string`
 
@@ -17098,8 +17751,6 @@ Update Session
         format: date-time
 
       - `mount_path: string`
-
-      - `type: "github_repository"`
 
       - `updated_at: string`
 
@@ -17113,15 +17764,17 @@ Update Session
 
         - `beta_managed_agents_branch_checkout: object`
 
+          - `type: "branch"`
+
           - `name: string`
 
             Branch name to check out.
 
             minLength: 1, maxLength: 255
 
-          - `type: "branch"`
-
         - `beta_managed_agents_commit_checkout: object`
+
+          - `type: "commit"`
 
           - `sha: string`
 
@@ -17129,9 +17782,9 @@ Update Session
 
             minLength: 7, maxLength: 64
 
-          - `type: "commit"`
-
     - `beta_managed_agents_file_resource: object`
+
+      - `type: "file"`
 
       - `id: string`
 
@@ -17145,8 +17798,6 @@ Update Session
 
       - `mount_path: string`
 
-      - `type: "file"`
-
       - `updated_at: string`
 
         A timestamp in RFC 3339 format
@@ -17157,11 +17808,11 @@ Update Session
 
       A memory store attached to an agent session.
 
+      - `type: "memory_store"`
+
       - `memory_store_id: string`
 
         The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
-
-      - `type: "memory_store"`
 
       - `access: optional "read_write" or "read_only"`
 
@@ -17218,8 +17869,6 @@ Update Session
     - `"terminated"`
 
   - `title: string`
-
-  - `type: "session"`
 
   - `updated_at: string`
 
@@ -17527,15 +18176,21 @@ Delete Session
 
   Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `beta_managed_agents_deleted_session: object`
 
   Confirmation that a `session` has been permanently deleted.
 
-  - `id: string`
-
   - `type: "session_deleted"`
+
+  - `id: string`
 
 #### Example
 
@@ -17572,11 +18227,19 @@ Archive Session
 
   Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `beta_managed_agents_session: object`
 
   A Managed Agents `session`.
+
+  - `type: "session"`
 
   - `id: string`
 
@@ -17584,15 +18247,17 @@ Archive Session
 
     Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
 
+    - `type: "agent"`
+
     - `id: string`
 
     - `description: string`
 
     - `mcp_servers: array of BetaManagedAgentsMCPServerURLDefinition`
 
-      - `name: string`
-
       - `type: "url"`
+
+      - `name: string`
 
       - `url: string`
 
@@ -17712,6 +18377,8 @@ Archive Session
 
       Resolved coordinator topology with full agent definitions for each roster member.
 
+      - `type: "coordinator"`
+
       - `agents: array of BetaManagedAgentsSessionThreadAgent or BetaManagedAgentsAdvisor`
 
         Full `agent` definitions the coordinator may spawn as session threads.
@@ -17720,15 +18387,17 @@ Archive Session
 
           Resolved `agent` definition for a single `session_thread`. Snapshot of the agent at thread creation time. The multiagent roster is not repeated here; read it from `Session.agent`.
 
+          - `type: "agent"`
+
           - `id: string`
 
           - `description: string`
 
           - `mcp_servers: array of BetaManagedAgentsMCPServerURLDefinition`
 
-            - `name: string`
-
             - `type: "url"`
+
+            - `name: string`
 
             - `url: string`
 
@@ -17762,9 +18431,9 @@ Archive Session
 
               A resolved Anthropic-managed skill.
 
-              - `skill_id: string`
-
               - `type: "anthropic"`
+
+              - `skill_id: string`
 
               - `version: string`
 
@@ -17772,9 +18441,9 @@ Archive Session
 
               A resolved user-created custom skill.
 
-              - `skill_id: string`
-
               - `type: "custom"`
+
+              - `skill_id: string`
 
               - `version: string`
 
@@ -17784,17 +18453,21 @@ Archive Session
 
             - `beta_managed_agents_agent_toolset20260401: object`
 
+              - `type: "agent_toolset_20260401"`
+
               - `configs: array of BetaManagedAgentsAgentToolConfig`
 
                 - `beta_managed_agents_bash_tool_config: object`
 
                   Configuration for the bash tool.
 
+                  - `type: "bash"`
+
                   - `enabled: boolean`
 
                   - `name: "bash"`
 
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                     Permission policy for tool execution.
 
@@ -17810,17 +18483,23 @@ Archive Session
 
                       - `type: "always_ask"`
 
-                  - `type: "bash"`
+                    - `beta_managed_agents_auto_policy: object`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+                      - `type: "auto"`
 
                 - `beta_managed_agents_edit_tool_config: object`
 
                   Configuration for the edit tool.
 
+                  - `type: "edit"`
+
                   - `enabled: boolean`
 
                   - `name: "edit"`
 
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                     Permission policy for tool execution.
 
@@ -17832,17 +18511,21 @@ Archive Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `type: "edit"`
+                    - `beta_managed_agents_auto_policy: object`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                 - `beta_managed_agents_read_tool_config: object`
 
                   Configuration for the read tool.
 
+                  - `type: "read"`
+
                   - `enabled: boolean`
 
                   - `name: "read"`
 
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                     Permission policy for tool execution.
 
@@ -17854,17 +18537,21 @@ Archive Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `type: "read"`
+                    - `beta_managed_agents_auto_policy: object`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                 - `beta_managed_agents_write_tool_config: object`
 
                   Configuration for the write tool.
 
+                  - `type: "write"`
+
                   - `enabled: boolean`
 
                   - `name: "write"`
 
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                     Permission policy for tool execution.
 
@@ -17876,17 +18563,21 @@ Archive Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `type: "write"`
+                    - `beta_managed_agents_auto_policy: object`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                 - `beta_managed_agents_glob_tool_config: object`
 
                   Configuration for the glob tool.
 
+                  - `type: "glob"`
+
                   - `enabled: boolean`
 
                   - `name: "glob"`
 
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                     Permission policy for tool execution.
 
@@ -17898,17 +18589,21 @@ Archive Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `type: "glob"`
+                    - `beta_managed_agents_auto_policy: object`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                 - `beta_managed_agents_grep_tool_config: object`
 
                   Configuration for the grep tool.
 
+                  - `type: "grep"`
+
                   - `enabled: boolean`
 
                   - `name: "grep"`
 
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                     Permission policy for tool execution.
 
@@ -17920,17 +18615,21 @@ Archive Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `type: "grep"`
+                    - `beta_managed_agents_auto_policy: object`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                 - `beta_managed_agents_web_fetch_tool_config: object`
 
                   Configuration for the web_fetch tool.
 
+                  - `type: "web_fetch"`
+
                   - `enabled: boolean`
 
                   - `name: "web_fetch"`
 
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                     Permission policy for tool execution.
 
@@ -17942,7 +18641,9 @@ Archive Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `type: "web_fetch"`
+                    - `beta_managed_agents_auto_policy: object`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                   - `allowed_domains: optional array of string`
 
@@ -17956,11 +18657,13 @@ Archive Session
 
                   Configuration for the web_search tool.
 
+                  - `type: "web_search"`
+
                   - `enabled: boolean`
 
                   - `name: "web_search"`
 
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                     Permission policy for tool execution.
 
@@ -17972,7 +18675,9 @@ Archive Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `type: "web_search"`
+                    - `beta_managed_agents_auto_policy: object`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                   - `allowed_domains: optional array of string`
 
@@ -18014,7 +18719,7 @@ Archive Session
 
                 - `enabled: boolean`
 
-                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                   Permission policy for tool execution.
 
@@ -18026,9 +18731,13 @@ Archive Session
 
                     Tool calls require user confirmation before execution.
 
-              - `type: "agent_toolset_20260401"`
+                  - `beta_managed_agents_auto_policy: object`
+
+                    The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
             - `beta_managed_agents_mcp_toolset: object`
+
+              - `type: "mcp_toolset"`
 
               - `configs: array of BetaManagedAgentsMCPToolConfig`
 
@@ -18036,7 +18745,7 @@ Archive Session
 
                 - `name: string`
 
-                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                   Permission policy for tool execution.
 
@@ -18047,6 +18756,10 @@ Archive Session
                   - `beta_managed_agents_always_ask_policy: object`
 
                     Tool calls require user confirmation before execution.
+
+                  - `beta_managed_agents_auto_policy: object`
+
+                    The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
               - `default_config: object`
 
@@ -18054,7 +18767,7 @@ Archive Session
 
                 - `enabled: boolean`
 
-                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                   Permission policy for tool execution.
 
@@ -18066,13 +18779,17 @@ Archive Session
 
                     Tool calls require user confirmation before execution.
 
-              - `mcp_server_name: string`
+                  - `beta_managed_agents_auto_policy: object`
 
-              - `type: "mcp_toolset"`
+                    The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+              - `mcp_server_name: string`
 
             - `beta_managed_agents_custom_tool: object`
 
               A custom tool as returned in API responses.
+
+              - `type: "custom"`
 
               - `description: string`
 
@@ -18088,10 +18805,6 @@ Archive Session
 
               - `name: string`
 
-              - `type: "custom"`
-
-          - `type: "agent"`
-
           - `version: number`
 
             format: int32
@@ -18100,13 +18813,11 @@ Archive Session
 
           Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
 
+          - `type: "advisor"`
+
           - `model: string`
 
             The advisor model id.
-
-          - `type: "advisor"`
-
-      - `type: "coordinator"`
 
     - `name: string`
 
@@ -18132,8 +18843,6 @@ Archive Session
 
         A custom tool as returned in API responses.
 
-    - `type: "agent"`
-
     - `version: number`
 
       format: int32
@@ -18148,6 +18857,8 @@ Archive Session
 
     A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
 
+    - `type: "limit"`
+
     - `max_list_cost: object`
 
       A monetary amount in a specific currency.
@@ -18159,8 +18870,6 @@ Archive Session
       - `currency: "USD"`
 
         Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
-
-    - `type: "limit"`
 
   - `created_at: string`
 
@@ -18175,6 +18884,8 @@ Archive Session
   - `outcome_evaluations: array of BetaManagedAgentsOutcomeEvaluationResource`
 
     Per-outcome evaluation state. One entry per `define_outcome` event sent to the session.
+
+    - `type: "outcome_evaluation"`
 
     - `completed_at: string`
 
@@ -18204,11 +18915,11 @@ Archive Session
 
       Current evaluation state. `pending` before the agent begins work; `running` while producing or revising; `evaluating` while the grader scores; `satisfied`/`max_iterations_reached`/`failed`/`interrupted` are terminal.
 
-    - `type: "outcome_evaluation"`
-
   - `resources: array of BetaManagedAgentsSessionResource`
 
     - `beta_managed_agents_github_repository_resource: object`
+
+      - `type: "github_repository"`
 
       - `id: string`
 
@@ -18219,8 +18930,6 @@ Archive Session
         format: date-time
 
       - `mount_path: string`
-
-      - `type: "github_repository"`
 
       - `updated_at: string`
 
@@ -18234,15 +18943,17 @@ Archive Session
 
         - `beta_managed_agents_branch_checkout: object`
 
+          - `type: "branch"`
+
           - `name: string`
 
             Branch name to check out.
 
             minLength: 1, maxLength: 255
 
-          - `type: "branch"`
-
         - `beta_managed_agents_commit_checkout: object`
+
+          - `type: "commit"`
 
           - `sha: string`
 
@@ -18250,9 +18961,9 @@ Archive Session
 
             minLength: 7, maxLength: 64
 
-          - `type: "commit"`
-
     - `beta_managed_agents_file_resource: object`
+
+      - `type: "file"`
 
       - `id: string`
 
@@ -18266,8 +18977,6 @@ Archive Session
 
       - `mount_path: string`
 
-      - `type: "file"`
-
       - `updated_at: string`
 
         A timestamp in RFC 3339 format
@@ -18278,11 +18987,11 @@ Archive Session
 
       A memory store attached to an agent session.
 
+      - `type: "memory_store"`
+
       - `memory_store_id: string`
 
         The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
-
-      - `type: "memory_store"`
 
       - `access: optional "read_write" or "read_only"`
 
@@ -18339,8 +19048,6 @@ Archive Session
     - `"terminated"`
 
   - `title: string`
-
-  - `type: "session"`
 
   - `updated_at: string`
 
@@ -18692,6 +19399,12 @@ List Events
 
   Header param: Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `BetaManagedAgentsListSessionEvents: object`
@@ -18706,6 +19419,8 @@ List Events
 
       A user message event in the session conversation.
 
+      - `type: "user.message"`
+
       - `id: string`
 
         Unique identifier for this event.
@@ -18718,17 +19433,19 @@ List Events
 
           Regular text content.
 
+          - `type: "text"`
+
           - `text: string`
 
             The text content.
 
             minLength: 1
 
-          - `type: "text"`
-
         - `beta_managed_agents_image_block: object`
 
           Image content specified directly as base64 data or as a reference via a URL.
+
+          - `type: "image"`
 
           - `source: BetaManagedAgentsBase64ImageSource or BetaManagedAgentsURLImageSource or BetaManagedAgentsFileImageSource`
 
@@ -18737,6 +19454,8 @@ List Events
             - `beta_managed_agents_base64_image_source: object`
 
               Base64-encoded image data.
+
+              - `type: "base64"`
 
               - `data: string`
 
@@ -18749,8 +19468,6 @@ List Events
                 MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
 
                 minLength: 1
-
-              - `type: "base64"`
 
             - `beta_managed_agents_url_image_source: object`
 
@@ -18768,19 +19485,19 @@ List Events
 
               Image referenced by file ID.
 
+              - `type: "file"`
+
               - `file_id: string`
 
                 ID of a previously uploaded file.
 
                 minLength: 1
 
-              - `type: "file"`
-
-          - `type: "image"`
-
         - `beta_managed_agents_document_block: object`
 
           Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+          - `type: "document"`
 
           - `source: BetaManagedAgentsBase64DocumentSource or BetaManagedAgentsPlainTextDocumentSource or BetaManagedAgentsURLDocumentSource or BetaManagedAgentsFileDocumentSource`
 
@@ -18789,6 +19506,8 @@ List Events
             - `beta_managed_agents_base64_document_source: object`
 
               Base64-encoded document data.
+
+              - `type: "base64"`
 
               - `data: string`
 
@@ -18802,11 +19521,11 @@ List Events
 
                 minLength: 1
 
-              - `type: "base64"`
-
             - `beta_managed_agents_plain_text_document_source: object`
 
               Plain text document content.
+
+              - `type: "text"`
 
               - `data: string`
 
@@ -18817,8 +19536,6 @@ List Events
               - `media_type: "text/plain"`
 
                 MIME type of the text content. Must be "text/plain".
-
-              - `type: "text"`
 
             - `beta_managed_agents_url_document_source: object`
 
@@ -18836,15 +19553,13 @@ List Events
 
               Document referenced by file ID.
 
+              - `type: "file"`
+
               - `file_id: string`
 
                 ID of a previously uploaded file.
 
                 minLength: 1
-
-              - `type: "file"`
-
-          - `type: "document"`
 
           - `context: optional string`
 
@@ -18860,8 +19575,6 @@ List Events
 
           - `type: "redacted"`
 
-      - `type: "user.message"`
-
       - `processed_at: optional string`
 
         A timestamp in RFC 3339 format
@@ -18872,11 +19585,11 @@ List Events
 
       An interrupt event that pauses agent execution and returns control to the user.
 
+      - `type: "user.interrupt"`
+
       - `id: string`
 
         Unique identifier for this event.
-
-      - `type: "user.interrupt"`
 
       - `processed_at: optional string`
 
@@ -18891,6 +19604,8 @@ List Events
     - `beta_managed_agents_user_tool_confirmation_event: object`
 
       A tool confirmation event that approves or denies a pending tool execution.
+
+      - `type: "user.tool_confirmation"`
 
       - `id: string`
 
@@ -18907,8 +19622,6 @@ List Events
       - `tool_use_id: string`
 
         The id of the `agent.tool_use` or `agent.mcp_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
-
-      - `type: "user.tool_confirmation"`
 
       - `deny_message: optional string`
 
@@ -18930,6 +19643,8 @@ List Events
 
       Event sent by the client providing the result of a custom tool execution.
 
+      - `type: "user.custom_tool_result"`
+
       - `id: string`
 
         Unique identifier for this event.
@@ -18937,8 +19652,6 @@ List Events
       - `custom_tool_use_id: string`
 
         The id of the `agent.custom_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
-
-      - `type: "user.custom_tool_result"`
 
       - `content: optional array of BetaManagedAgentsTextBlock or BetaManagedAgentsImageBlock or BetaManagedAgentsDocumentBlock or BetaManagedAgentsSearchResultBlock`
 
@@ -18960,6 +19673,8 @@ List Events
 
           A block containing a web search result.
 
+          - `type: "search_result"`
+
           - `citations: object`
 
             Citation settings for a search result.
@@ -18972,13 +19687,13 @@ List Events
 
             Array of text content blocks from the search result.
 
+            - `type: "text"`
+
             - `text: string`
 
               The text content.
 
               minLength: 1
-
-            - `type: "text"`
 
           - `source: string`
 
@@ -18991,8 +19706,6 @@ List Events
             The title of the search result.
 
             minLength: 1
-
-          - `type: "search_result"`
 
       - `is_error: optional boolean`
 
@@ -19012,6 +19725,8 @@ List Events
 
       Event emitted when the agent calls a custom tool. The session goes idle until the client sends a `user.custom_tool_result` event with the result.
 
+      - `type: "agent.custom_tool_use"`
+
       - `id: string`
 
         Unique identifier for this event.
@@ -19030,8 +19745,6 @@ List Events
 
         format: date-time
 
-      - `type: "agent.custom_tool_use"`
-
       - `session_thread_id: optional string`
 
         When set, this event was cross-posted from a subagent's thread to surface its custom tool use on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.custom_tool_result` event to route the result back.
@@ -19039,6 +19752,8 @@ List Events
     - `beta_managed_agents_agent_message_event: object`
 
       An agent response event in the session conversation.
+
+      - `type: "agent.message"`
 
       - `id: string`
 
@@ -19062,11 +19777,11 @@ List Events
 
         format: date-time
 
-      - `type: "agent.message"`
-
     - `beta_managed_agents_agent_thinking_event: object`
 
       Indicates the agent is making forward progress via extended thinking. A progress signal, not a content carrier.
+
+      - `type: "agent.thinking"`
 
       - `id: string`
 
@@ -19078,11 +19793,11 @@ List Events
 
         format: date-time
 
-      - `type: "agent.thinking"`
-
     - `beta_managed_agents_agent_mcp_tool_use_event: object`
 
       Event emitted when the agent invokes a tool provided by an MCP server.
+
+      - `type: "agent.mcp_tool_use"`
 
       - `id: string`
 
@@ -19106,8 +19821,6 @@ List Events
 
         format: date-time
 
-      - `type: "agent.mcp_tool_use"`
-
       - `evaluated_permission: optional "allow" or "ask" or "deny"`
 
         AgentEvaluatedPermission enum
@@ -19118,6 +19831,62 @@ List Events
 
         - `"deny"`
 
+      - `evaluation: optional BetaManagedAgentsAgentToolEvaluationAlwaysAllow or BetaManagedAgentsAgentToolEvaluationAlwaysAsk or BetaManagedAgentsAgentToolEvaluationAuto`
+
+        Names the resolved permission_policy that produced evaluated_permission, and under auto carries the judgement. Open union: clients must tolerate unknown variants.
+
+        - `beta_managed_agents_agent_tool_evaluation_always_allow: object`
+
+          The resolved permission_policy was always_allow; accompanies evaluated_permission "allow".
+
+          - `type: "always_allow"`
+
+        - `beta_managed_agents_agent_tool_evaluation_always_ask: object`
+
+          The resolved permission_policy was always_ask; accompanies evaluated_permission "ask".
+
+          - `type: "always_ask"`
+
+        - `beta_managed_agents_agent_tool_evaluation_auto: object`
+
+          The resolved permission_policy was auto: the server judged this invocation individually.
+
+          - `type: "auto"`
+
+          - `evaluated_permission: BetaManagedAgentsAgentAutoEvaluatedPermissionAllow or BetaManagedAgentsAgentAutoEvaluatedPermissionAsk or BetaManagedAgentsAgentAutoEvaluatedPermissionDeny`
+
+            The server's per-invocation judgement under the auto permission policy. Its type always equals the event's top-level evaluated_permission. Open union: clients must tolerate unknown variants.
+
+            - `beta_managed_agents_agent_auto_evaluated_permission_allow: object`
+
+              The server judged the invocation safe to execute without client approval.
+
+              - `type: "allow"`
+
+            - `beta_managed_agents_agent_auto_evaluated_permission_ask: object`
+
+              The server reached no judgement; the invocation is held for client approval.
+
+              - `type: "ask"`
+
+              - `reason_code: string`
+
+                The judgement's grounds in registry-bound terms, for client branching and audit rather than end-user display. Open registry; currently "indeterminate" (no judgement was reached). Clients must tolerate values outside this set.
+
+                maxLength: 64
+
+            - `beta_managed_agents_agent_auto_evaluated_permission_deny: object`
+
+              The server judged the invocation high-risk; it does not execute and a synthetic error tool result is appended.
+
+              - `type: "deny"`
+
+              - `reason_code: string`
+
+                The judgement's grounds in registry-bound terms. Open registry; currently "high_risk" (judged high-risk; the call does not run). Clients must tolerate values outside this set.
+
+                maxLength: 64
+
       - `session_thread_id: optional string`
 
         When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
@@ -19125,6 +19894,8 @@ List Events
     - `beta_managed_agents_agent_mcp_tool_result_event: object`
 
       Event representing the result of an MCP tool execution.
+
+      - `type: "agent.mcp_tool_result"`
 
       - `id: string`
 
@@ -19139,8 +19910,6 @@ List Events
         A timestamp in RFC 3339 format
 
         format: date-time
-
-      - `type: "agent.mcp_tool_result"`
 
       - `content: optional array of BetaManagedAgentsTextBlock or BetaManagedAgentsImageBlock or BetaManagedAgentsDocumentBlock or BetaManagedAgentsSearchResultBlock`
 
@@ -19170,6 +19939,8 @@ List Events
 
       Event emitted when the agent invokes a built-in agent tool.
 
+      - `type: "agent.tool_use"`
+
       - `id: string`
 
         Unique identifier for this event.
@@ -19188,8 +19959,6 @@ List Events
 
         format: date-time
 
-      - `type: "agent.tool_use"`
-
       - `evaluated_permission: optional "allow" or "ask" or "deny"`
 
         AgentEvaluatedPermission enum
@@ -19200,6 +19969,22 @@ List Events
 
         - `"deny"`
 
+      - `evaluation: optional BetaManagedAgentsAgentToolEvaluationAlwaysAllow or BetaManagedAgentsAgentToolEvaluationAlwaysAsk or BetaManagedAgentsAgentToolEvaluationAuto`
+
+        Names the resolved permission_policy that produced evaluated_permission, and under auto carries the judgement. Open union: clients must tolerate unknown variants.
+
+        - `beta_managed_agents_agent_tool_evaluation_always_allow: object`
+
+          The resolved permission_policy was always_allow; accompanies evaluated_permission "allow".
+
+        - `beta_managed_agents_agent_tool_evaluation_always_ask: object`
+
+          The resolved permission_policy was always_ask; accompanies evaluated_permission "ask".
+
+        - `beta_managed_agents_agent_tool_evaluation_auto: object`
+
+          The resolved permission_policy was auto: the server judged this invocation individually.
+
       - `session_thread_id: optional string`
 
         When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
@@ -19207,6 +19992,8 @@ List Events
     - `beta_managed_agents_agent_tool_result_event: object`
 
       Event representing the result of an agent tool execution.
+
+      - `type: "agent.tool_result"`
 
       - `id: string`
 
@@ -19221,8 +20008,6 @@ List Events
       - `tool_use_id: string`
 
         The id of the `agent.tool_use` event this result corresponds to.
-
-      - `type: "agent.tool_result"`
 
       - `content: optional array of BetaManagedAgentsTextBlock or BetaManagedAgentsImageBlock or BetaManagedAgentsDocumentBlock or BetaManagedAgentsSearchResultBlock`
 
@@ -19251,6 +20036,8 @@ List Events
     - `beta_managed_agents_agent_thread_message_received_event: object`
 
       Delivery event written to the target thread's input stream when an agent-to-agent message arrives.
+
+      - `type: "agent.thread_message_received"`
 
       - `id: string`
 
@@ -19286,8 +20073,6 @@ List Events
 
         format: date-time
 
-      - `type: "agent.thread_message_received"`
-
       - `from_agent_name: optional string`
 
         Name of the callable agent this message came from. Absent when received from the primary agent.
@@ -19295,6 +20080,8 @@ List Events
     - `beta_managed_agents_agent_thread_message_sent_event: object`
 
       Observability event emitted to the sender's output stream when an agent-to-agent message is sent.
+
+      - `type: "agent.thread_message_sent"`
 
       - `id: string`
 
@@ -19330,8 +20117,6 @@ List Events
 
         Public `sthr_` ID of the thread the message was sent to.
 
-      - `type: "agent.thread_message_sent"`
-
       - `to_agent_name: optional string`
 
         Name of the callable agent this message was sent to. Absent when sent to the primary agent.
@@ -19339,6 +20124,8 @@ List Events
     - `beta_managed_agents_agent_thread_context_compacted_event: object`
 
       Indicates that context compaction (summarization) occurred during the session.
+
+      - `type: "agent.thread_context_compacted"`
 
       - `id: string`
 
@@ -19350,11 +20137,11 @@ List Events
 
         format: date-time
 
-      - `type: "agent.thread_context_compacted"`
-
     - `beta_managed_agents_session_error_event: object`
 
       An error event indicating a problem occurred during session execution.
+
+      - `type: "session.error"`
 
       - `id: string`
 
@@ -19367,6 +20154,8 @@ List Events
         - `beta_managed_agents_unknown_error: object`
 
           An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
+
+          - `type: "unknown_error"`
 
           - `message: string`
 
@@ -19394,11 +20183,11 @@ List Events
 
               - `type: "terminal"`
 
-          - `type: "unknown_error"`
-
         - `beta_managed_agents_model_overloaded_error: object`
 
           The model is currently overloaded. Emitted after automatic retries are exhausted.
+
+          - `type: "model_overloaded_error"`
 
           - `message: string`
 
@@ -19419,13 +20208,13 @@ List Events
             - `beta_managed_agents_retry_status_terminal: object`
 
               The session encountered a terminal error and will transition to `terminated` state.
-
-          - `type: "model_overloaded_error"`
 
         - `beta_managed_agents_model_rate_limited_error: object`
 
           The model request was rate-limited.
 
+          - `type: "model_rate_limited_error"`
+
           - `message: string`
 
             Human-readable error description.
@@ -19445,13 +20234,13 @@ List Events
             - `beta_managed_agents_retry_status_terminal: object`
 
               The session encountered a terminal error and will transition to `terminated` state.
-
-          - `type: "model_rate_limited_error"`
 
         - `beta_managed_agents_model_request_failed_error: object`
 
           A model request failed for a reason other than overload or rate-limiting.
 
+          - `type: "model_request_failed_error"`
+
           - `message: string`
 
             Human-readable error description.
@@ -19472,11 +20261,11 @@ List Events
 
               The session encountered a terminal error and will transition to `terminated` state.
 
-          - `type: "model_request_failed_error"`
-
         - `beta_managed_agents_mcp_connection_failed_error: object`
 
           Failed to connect to an MCP server.
+
+          - `type: "mcp_connection_failed_error"`
 
           - `mcp_server_name: string`
 
@@ -19502,11 +20291,11 @@ List Events
 
               The session encountered a terminal error and will transition to `terminated` state.
 
-          - `type: "mcp_connection_failed_error"`
-
         - `beta_managed_agents_mcp_authentication_failed_error: object`
 
           Authentication to an MCP server failed.
+
+          - `type: "mcp_authentication_failed_error"`
 
           - `mcp_server_name: string`
 
@@ -19532,11 +20321,11 @@ List Events
 
               The session encountered a terminal error and will transition to `terminated` state.
 
-          - `type: "mcp_authentication_failed_error"`
-
         - `beta_managed_agents_billing_error: object`
 
           The caller's organization or workspace cannot make model requests — out of credits or spend limit reached. Retrying with the same credentials will not succeed; the caller must resolve the billing state.
+
+          - `type: "billing_error"`
 
           - `message: string`
 
@@ -19558,11 +20347,11 @@ List Events
 
               The session encountered a terminal error and will transition to `terminated` state.
 
-          - `type: "billing_error"`
-
         - `beta_managed_agents_credential_host_unreachable_error: object`
 
           An `environment_variable` credential's `auth.networking.allowed_hosts` includes a host the environment's network policy does not permit.
+
+          - `type: "credential_host_unreachable_error"`
 
           - `credential_id: string`
 
@@ -19588,8 +20377,6 @@ List Events
 
               The session encountered a terminal error and will transition to `terminated` state.
 
-          - `type: "credential_host_unreachable_error"`
-
           - `vault_id: string`
 
             ID of the vault containing the affected credential.
@@ -19600,11 +20387,11 @@ List Events
 
         format: date-time
 
-      - `type: "session.error"`
-
     - `beta_managed_agents_session_status_rescheduled_event: object`
 
       Indicates the session is recovering from an error state and is rescheduled for execution.
+
+      - `type: "session.status_rescheduled"`
 
       - `id: string`
 
@@ -19615,13 +20402,13 @@ List Events
         A timestamp in RFC 3339 format
 
         format: date-time
-
-      - `type: "session.status_rescheduled"`
 
     - `beta_managed_agents_session_status_running_event: object`
 
       Indicates the session is actively running and the agent is working.
 
+      - `type: "session.status_running"`
+
       - `id: string`
 
         Unique identifier for this event.
@@ -19632,11 +20419,11 @@ List Events
 
         format: date-time
 
-      - `type: "session.status_running"`
-
     - `beta_managed_agents_session_status_idle_event: object`
 
       Indicates the agent has paused and is awaiting user input.
+
+      - `type: "session.status_idle"`
 
       - `id: string`
 
@@ -19662,11 +20449,11 @@ List Events
 
           The agent is idle waiting on one or more blocking user-input events (tool confirmation, custom tool result, etc.). Resolving all of them transitions the session back to running.
 
+          - `type: "requires_action"`
+
           - `event_ids: array of string`
 
             The ids of events the agent is blocked on. Resolving fewer than all re-emits `session.status_idle` with the remainder.
-
-          - `type: "requires_action"`
 
         - `beta_managed_agents_session_retries_exhausted: object`
 
@@ -19680,11 +20467,11 @@ List Events
 
           - `type: "budget_reached"`
 
-      - `type: "session.status_idle"`
-
     - `beta_managed_agents_session_status_terminated_event: object`
 
       Indicates the session has terminated, either due to an error or completion.
+
+      - `type: "session.status_terminated"`
 
       - `id: string`
 
@@ -19696,11 +20483,11 @@ List Events
 
         format: date-time
 
-      - `type: "session.status_terminated"`
-
     - `beta_managed_agents_session_thread_created_event: object`
 
       Emitted when a subagent is spawned as a new thread. Written to the parent thread's output stream so clients observing the session see child creation.
+
+      - `type: "session.thread_created"`
 
       - `id: string`
 
@@ -19720,11 +20507,11 @@ List Events
 
         Public `sthr_` ID of the newly created thread.
 
-      - `type: "session.thread_created"`
-
     - `beta_managed_agents_span_outcome_evaluation_start_event: object`
 
       Emitted when an outcome evaluation cycle begins.
+
+      - `type: "span.outcome_evaluation_start"`
 
       - `id: string`
 
@@ -19746,11 +20533,11 @@ List Events
 
         format: date-time
 
-      - `type: "span.outcome_evaluation_start"`
-
     - `beta_managed_agents_span_outcome_evaluation_end_event: object`
 
       Emitted when an outcome evaluation cycle completes. Carries the verdict and aggregate token usage. A verdict of `needs_revision` means another evaluation cycle follows; `satisfied`, `max_iterations_reached`, `failed`, or `interrupted` are terminal — no further evaluation cycles follow.
+
+      - `type: "span.outcome_evaluation_end"`
 
       - `id: string`
 
@@ -19783,8 +20570,6 @@ List Events
       - `result: string`
 
         Evaluation verdict. 'satisfied': criteria met, session goes idle. 'needs_revision': criteria not met, another revision cycle follows. 'max_iterations_reached': evaluation budget exhausted with criteria still unmet — one final acknowledgment turn follows before the session goes idle, but no further evaluation runs. 'failed': grader determined the rubric does not apply to the deliverables. 'interrupted': user sent an interrupt while evaluation was in progress.
-
-      - `type: "span.outcome_evaluation_end"`
 
       - `usage: object`
 
@@ -19826,6 +20611,8 @@ List Events
 
       Emitted when a model request is initiated by the agent.
 
+      - `type: "span.model_request_start"`
+
       - `id: string`
 
         Unique identifier for this event.
@@ -19836,11 +20623,11 @@ List Events
 
         format: date-time
 
-      - `type: "span.model_request_start"`
-
     - `beta_managed_agents_span_model_request_end_event: object`
 
       Emitted when a model request completes.
+
+      - `type: "span.model_request_end"`
 
       - `id: string`
 
@@ -19892,11 +20679,11 @@ List Events
 
         format: date-time
 
-      - `type: "span.model_request_end"`
-
     - `beta_managed_agents_span_outcome_evaluation_ongoing_event: object`
 
       Periodic heartbeat emitted while an outcome evaluation cycle is in progress. Distinguishes 'evaluation is actively running' from 'evaluation is stuck' between the corresponding `span.outcome_evaluation_start` and `span.outcome_evaluation_end` events.
+
+      - `type: "span.outcome_evaluation_ongoing"`
 
       - `id: string`
 
@@ -19918,11 +20705,11 @@ List Events
 
         format: date-time
 
-      - `type: "span.outcome_evaluation_ongoing"`
-
     - `beta_managed_agents_user_define_outcome_event: object`
 
       Echo of a `user.define_outcome` input event. Carries the server-generated `outcome_id` that subsequent `span.outcome_evaluation_*` events reference.
+
+      - `type: "user.define_outcome"`
 
       - `id: string`
 
@@ -19956,27 +20743,27 @@ List Events
 
           Rubric referenced by a file uploaded via the Files API.
 
+          - `type: "file"`
+
           - `file_id: string`
 
             ID of the rubric file.
-
-          - `type: "file"`
 
         - `beta_managed_agents_text_rubric: object`
 
           Rubric content provided inline as text.
 
+          - `type: "text"`
+
           - `content: string`
 
             Rubric content. Plain text or markdown — the grader treats it as freeform text.
 
-          - `type: "text"`
-
-      - `type: "user.define_outcome"`
-
     - `beta_managed_agents_session_deleted_event: object`
 
       Emitted when a session has been deleted. Terminates any active event stream — no further events will be emitted for this session.
+
+      - `type: "session.deleted"`
 
       - `id: string`
 
@@ -19988,11 +20775,11 @@ List Events
 
         format: date-time
 
-      - `type: "session.deleted"`
-
     - `beta_managed_agents_session_thread_status_running_event: object`
 
       A session thread has begun executing. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
+
+      - `type: "session.thread_status_running"`
 
       - `id: string`
 
@@ -20012,11 +20799,11 @@ List Events
 
         Public sthr_ ID of the thread that started running.
 
-      - `type: "session.thread_status_running"`
-
     - `beta_managed_agents_session_thread_status_idle_event: object`
 
       A session thread has yielded and is awaiting input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
+
+      - `type: "session.thread_status_idle"`
 
       - `id: string`
 
@@ -20056,11 +20843,11 @@ List Events
 
           The agent stopped because the session's tracked list cost reached its budget, or because its usage includes a model with no list price (which the budget cannot measure). Raise the budget to continue — or, if raising is rejected because a model has no list price, remove the budget.
 
-      - `type: "session.thread_status_idle"`
-
     - `beta_managed_agents_session_thread_status_terminated_event: object`
 
       A session thread has terminated and will accept no further input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
+
+      - `type: "session.thread_status_terminated"`
 
       - `id: string`
 
@@ -20080,11 +20867,11 @@ List Events
 
         Public sthr_ ID of the thread that terminated.
 
-      - `type: "session.thread_status_terminated"`
-
     - `beta_managed_agents_user_tool_result_event: object`
 
       Event sent by the client providing the result of an agent-toolset tool execution. Only valid on `self_hosted` environments, where sandbox-routed tools are executed by the client rather than the server.
+
+      - `type: "user.tool_result"`
 
       - `id: string`
 
@@ -20093,8 +20880,6 @@ List Events
       - `tool_use_id: string`
 
         The id of the `agent.tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
-
-      - `type: "user.tool_result"`
 
       - `content: optional array of BetaManagedAgentsTextBlock or BetaManagedAgentsImageBlock or BetaManagedAgentsDocumentBlock or BetaManagedAgentsSearchResultBlock`
 
@@ -20134,6 +20919,8 @@ List Events
 
       A session thread hit a transient error and is retrying automatically. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
 
+      - `type: "session.thread_status_rescheduled"`
+
       - `id: string`
 
         Unique identifier for this event.
@@ -20152,11 +20939,11 @@ List Events
 
         Public sthr_ ID of the thread that is retrying.
 
-      - `type: "session.thread_status_rescheduled"`
-
     - `beta_managed_agents_session_updated_event: object`
 
       Emitted when an UpdateSession request changed at least one field. Carries only the fields that changed; absent fields were not part of the update. The new configuration applies from the next turn.
+
+      - `type: "session.updated"`
 
       - `id: string`
 
@@ -20168,11 +20955,11 @@ List Events
 
         format: date-time
 
-      - `type: "session.updated"`
-
       - `agent: optional object`
 
         Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
+
+        - `type: "agent"`
 
         - `id: string`
 
@@ -20180,9 +20967,9 @@ List Events
 
         - `mcp_servers: array of BetaManagedAgentsMCPServerURLDefinition`
 
-          - `name: string`
-
           - `type: "url"`
+
+          - `name: string`
 
           - `url: string`
 
@@ -20302,6 +21089,8 @@ List Events
 
           Resolved coordinator topology with full agent definitions for each roster member.
 
+          - `type: "coordinator"`
+
           - `agents: array of BetaManagedAgentsSessionThreadAgent or BetaManagedAgentsAdvisor`
 
             Full `agent` definitions the coordinator may spawn as session threads.
@@ -20310,15 +21099,17 @@ List Events
 
               Resolved `agent` definition for a single `session_thread`. Snapshot of the agent at thread creation time. The multiagent roster is not repeated here; read it from `Session.agent`.
 
+              - `type: "agent"`
+
               - `id: string`
 
               - `description: string`
 
               - `mcp_servers: array of BetaManagedAgentsMCPServerURLDefinition`
 
-                - `name: string`
-
                 - `type: "url"`
+
+                - `name: string`
 
                 - `url: string`
 
@@ -20352,9 +21143,9 @@ List Events
 
                   A resolved Anthropic-managed skill.
 
-                  - `skill_id: string`
-
                   - `type: "anthropic"`
+
+                  - `skill_id: string`
 
                   - `version: string`
 
@@ -20362,9 +21153,9 @@ List Events
 
                   A resolved user-created custom skill.
 
-                  - `skill_id: string`
-
                   - `type: "custom"`
+
+                  - `skill_id: string`
 
                   - `version: string`
 
@@ -20374,17 +21165,21 @@ List Events
 
                 - `beta_managed_agents_agent_toolset20260401: object`
 
+                  - `type: "agent_toolset_20260401"`
+
                   - `configs: array of BetaManagedAgentsAgentToolConfig`
 
                     - `beta_managed_agents_bash_tool_config: object`
 
                       Configuration for the bash tool.
 
+                      - `type: "bash"`
+
                       - `enabled: boolean`
 
                       - `name: "bash"`
 
-                      - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                      - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                         Permission policy for tool execution.
 
@@ -20400,17 +21195,23 @@ List Events
 
                           - `type: "always_ask"`
 
-                      - `type: "bash"`
+                        - `beta_managed_agents_auto_policy: object`
+
+                          The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+                          - `type: "auto"`
 
                     - `beta_managed_agents_edit_tool_config: object`
 
                       Configuration for the edit tool.
 
+                      - `type: "edit"`
+
                       - `enabled: boolean`
 
                       - `name: "edit"`
 
-                      - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                      - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                         Permission policy for tool execution.
 
@@ -20422,17 +21223,21 @@ List Events
 
                           Tool calls require user confirmation before execution.
 
-                      - `type: "edit"`
+                        - `beta_managed_agents_auto_policy: object`
+
+                          The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                     - `beta_managed_agents_read_tool_config: object`
 
                       Configuration for the read tool.
 
+                      - `type: "read"`
+
                       - `enabled: boolean`
 
                       - `name: "read"`
 
-                      - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                      - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                         Permission policy for tool execution.
 
@@ -20444,17 +21249,21 @@ List Events
 
                           Tool calls require user confirmation before execution.
 
-                      - `type: "read"`
+                        - `beta_managed_agents_auto_policy: object`
+
+                          The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                     - `beta_managed_agents_write_tool_config: object`
 
                       Configuration for the write tool.
 
+                      - `type: "write"`
+
                       - `enabled: boolean`
 
                       - `name: "write"`
 
-                      - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                      - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                         Permission policy for tool execution.
 
@@ -20466,17 +21275,21 @@ List Events
 
                           Tool calls require user confirmation before execution.
 
-                      - `type: "write"`
+                        - `beta_managed_agents_auto_policy: object`
+
+                          The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                     - `beta_managed_agents_glob_tool_config: object`
 
                       Configuration for the glob tool.
 
+                      - `type: "glob"`
+
                       - `enabled: boolean`
 
                       - `name: "glob"`
 
-                      - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                      - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                         Permission policy for tool execution.
 
@@ -20488,17 +21301,21 @@ List Events
 
                           Tool calls require user confirmation before execution.
 
-                      - `type: "glob"`
+                        - `beta_managed_agents_auto_policy: object`
+
+                          The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                     - `beta_managed_agents_grep_tool_config: object`
 
                       Configuration for the grep tool.
 
+                      - `type: "grep"`
+
                       - `enabled: boolean`
 
                       - `name: "grep"`
 
-                      - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                      - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                         Permission policy for tool execution.
 
@@ -20510,17 +21327,21 @@ List Events
 
                           Tool calls require user confirmation before execution.
 
-                      - `type: "grep"`
+                        - `beta_managed_agents_auto_policy: object`
+
+                          The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                     - `beta_managed_agents_web_fetch_tool_config: object`
 
                       Configuration for the web_fetch tool.
 
+                      - `type: "web_fetch"`
+
                       - `enabled: boolean`
 
                       - `name: "web_fetch"`
 
-                      - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                      - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                         Permission policy for tool execution.
 
@@ -20532,7 +21353,9 @@ List Events
 
                           Tool calls require user confirmation before execution.
 
-                      - `type: "web_fetch"`
+                        - `beta_managed_agents_auto_policy: object`
+
+                          The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                       - `allowed_domains: optional array of string`
 
@@ -20546,11 +21369,13 @@ List Events
 
                       Configuration for the web_search tool.
 
+                      - `type: "web_search"`
+
                       - `enabled: boolean`
 
                       - `name: "web_search"`
 
-                      - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                      - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                         Permission policy for tool execution.
 
@@ -20562,7 +21387,9 @@ List Events
 
                           Tool calls require user confirmation before execution.
 
-                      - `type: "web_search"`
+                        - `beta_managed_agents_auto_policy: object`
+
+                          The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                       - `allowed_domains: optional array of string`
 
@@ -20604,7 +21431,7 @@ List Events
 
                     - `enabled: boolean`
 
-                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                       Permission policy for tool execution.
 
@@ -20616,9 +21443,13 @@ List Events
 
                         Tool calls require user confirmation before execution.
 
-                  - `type: "agent_toolset_20260401"`
+                      - `beta_managed_agents_auto_policy: object`
+
+                        The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                 - `beta_managed_agents_mcp_toolset: object`
+
+                  - `type: "mcp_toolset"`
 
                   - `configs: array of BetaManagedAgentsMCPToolConfig`
 
@@ -20626,7 +21457,7 @@ List Events
 
                     - `name: string`
 
-                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                       Permission policy for tool execution.
 
@@ -20637,6 +21468,10 @@ List Events
                       - `beta_managed_agents_always_ask_policy: object`
 
                         Tool calls require user confirmation before execution.
+
+                      - `beta_managed_agents_auto_policy: object`
+
+                        The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                   - `default_config: object`
 
@@ -20644,7 +21479,7 @@ List Events
 
                     - `enabled: boolean`
 
-                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                       Permission policy for tool execution.
 
@@ -20656,13 +21491,17 @@ List Events
 
                         Tool calls require user confirmation before execution.
 
-                  - `mcp_server_name: string`
+                      - `beta_managed_agents_auto_policy: object`
 
-                  - `type: "mcp_toolset"`
+                        The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+                  - `mcp_server_name: string`
 
                 - `beta_managed_agents_custom_tool: object`
 
                   A custom tool as returned in API responses.
+
+                  - `type: "custom"`
 
                   - `description: string`
 
@@ -20678,10 +21517,6 @@ List Events
 
                   - `name: string`
 
-                  - `type: "custom"`
-
-              - `type: "agent"`
-
               - `version: number`
 
                 format: int32
@@ -20690,13 +21525,11 @@ List Events
 
               Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
 
+              - `type: "advisor"`
+
               - `model: string`
 
                 The advisor model id.
-
-              - `type: "advisor"`
-
-          - `type: "coordinator"`
 
         - `name: string`
 
@@ -20722,8 +21555,6 @@ List Events
 
             A custom tool as returned in API responses.
 
-        - `type: "agent"`
-
         - `version: number`
 
           format: int32
@@ -20731,6 +21562,8 @@ List Events
       - `budget: optional object`
 
         A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+
+        - `type: "limit"`
 
         - `max_list_cost: object`
 
@@ -20744,8 +21577,6 @@ List Events
 
             Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
 
-        - `type: "limit"`
-
       - `metadata: optional map[string]`
 
         The session's full metadata bag after the update. Present when the update set non-empty metadata; absent when metadata was unchanged or cleared to empty.
@@ -20758,6 +21589,8 @@ List Events
 
       A mid-conversation system message event. Carries system-role content that is appended to the session as a `role: "system"` turn.
 
+      - `type: "system.message"`
+
       - `id: string`
 
         Unique identifier for this event.
@@ -20766,15 +21599,13 @@ List Events
 
         System content blocks. Text-only.
 
+        - `type: "text"`
+
         - `text: string`
 
           The text content.
 
           minLength: 1
-
-        - `type: "text"`
-
-      - `type: "system.message"`
 
       - `processed_at: optional string`
 
@@ -20786,6 +21617,8 @@ List Events
 
       Periodic snapshot of the session's cumulative usage and tracked list cost.
 
+      - `type: "session.usage"`
+
       - `id: string`
 
         Unique identifier for this event.
@@ -20795,8 +21628,6 @@ List Events
         A timestamp in RFC 3339 format
 
         format: date-time
-
-      - `type: "session.usage"`
 
       - `usage: object`
 
@@ -20874,11 +21705,11 @@ List Events
 
         A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
 
+        - `type: "limit"`
+
         - `max_list_cost: object`
 
           A monetary amount in a specific currency.
-
-        - `type: "limit"`
 
   - `next_page: optional string`
 
@@ -20946,6 +21777,12 @@ Send Events
 
   Header param: Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `beta_managed_agents_send_session_events: object`
@@ -20960,6 +21797,8 @@ Send Events
 
       A user message event in the session conversation.
 
+      - `type: "user.message"`
+
       - `id: string`
 
         Unique identifier for this event.
@@ -20972,17 +21811,19 @@ Send Events
 
           Regular text content.
 
+          - `type: "text"`
+
           - `text: string`
 
             The text content.
 
             minLength: 1
 
-          - `type: "text"`
-
         - `beta_managed_agents_image_block: object`
 
           Image content specified directly as base64 data or as a reference via a URL.
+
+          - `type: "image"`
 
           - `source: BetaManagedAgentsBase64ImageSource or BetaManagedAgentsURLImageSource or BetaManagedAgentsFileImageSource`
 
@@ -20991,6 +21832,8 @@ Send Events
             - `beta_managed_agents_base64_image_source: object`
 
               Base64-encoded image data.
+
+              - `type: "base64"`
 
               - `data: string`
 
@@ -21003,8 +21846,6 @@ Send Events
                 MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
 
                 minLength: 1
-
-              - `type: "base64"`
 
             - `beta_managed_agents_url_image_source: object`
 
@@ -21022,19 +21863,19 @@ Send Events
 
               Image referenced by file ID.
 
+              - `type: "file"`
+
               - `file_id: string`
 
                 ID of a previously uploaded file.
 
                 minLength: 1
 
-              - `type: "file"`
-
-          - `type: "image"`
-
         - `beta_managed_agents_document_block: object`
 
           Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+          - `type: "document"`
 
           - `source: BetaManagedAgentsBase64DocumentSource or BetaManagedAgentsPlainTextDocumentSource or BetaManagedAgentsURLDocumentSource or BetaManagedAgentsFileDocumentSource`
 
@@ -21043,6 +21884,8 @@ Send Events
             - `beta_managed_agents_base64_document_source: object`
 
               Base64-encoded document data.
+
+              - `type: "base64"`
 
               - `data: string`
 
@@ -21056,11 +21899,11 @@ Send Events
 
                 minLength: 1
 
-              - `type: "base64"`
-
             - `beta_managed_agents_plain_text_document_source: object`
 
               Plain text document content.
+
+              - `type: "text"`
 
               - `data: string`
 
@@ -21071,8 +21914,6 @@ Send Events
               - `media_type: "text/plain"`
 
                 MIME type of the text content. Must be "text/plain".
-
-              - `type: "text"`
 
             - `beta_managed_agents_url_document_source: object`
 
@@ -21090,15 +21931,13 @@ Send Events
 
               Document referenced by file ID.
 
+              - `type: "file"`
+
               - `file_id: string`
 
                 ID of a previously uploaded file.
 
                 minLength: 1
-
-              - `type: "file"`
-
-          - `type: "document"`
 
           - `context: optional string`
 
@@ -21114,8 +21953,6 @@ Send Events
 
           - `type: "redacted"`
 
-      - `type: "user.message"`
-
       - `processed_at: optional string`
 
         A timestamp in RFC 3339 format
@@ -21126,11 +21963,11 @@ Send Events
 
       An interrupt event that pauses agent execution and returns control to the user.
 
+      - `type: "user.interrupt"`
+
       - `id: string`
 
         Unique identifier for this event.
-
-      - `type: "user.interrupt"`
 
       - `processed_at: optional string`
 
@@ -21145,6 +21982,8 @@ Send Events
     - `beta_managed_agents_user_tool_confirmation_event: object`
 
       A tool confirmation event that approves or denies a pending tool execution.
+
+      - `type: "user.tool_confirmation"`
 
       - `id: string`
 
@@ -21161,8 +22000,6 @@ Send Events
       - `tool_use_id: string`
 
         The id of the `agent.tool_use` or `agent.mcp_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
-
-      - `type: "user.tool_confirmation"`
 
       - `deny_message: optional string`
 
@@ -21184,6 +22021,8 @@ Send Events
 
       Event sent by the client providing the result of a custom tool execution.
 
+      - `type: "user.custom_tool_result"`
+
       - `id: string`
 
         Unique identifier for this event.
@@ -21191,8 +22030,6 @@ Send Events
       - `custom_tool_use_id: string`
 
         The id of the `agent.custom_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
-
-      - `type: "user.custom_tool_result"`
 
       - `content: optional array of BetaManagedAgentsTextBlock or BetaManagedAgentsImageBlock or BetaManagedAgentsDocumentBlock or BetaManagedAgentsSearchResultBlock`
 
@@ -21214,6 +22051,8 @@ Send Events
 
           A block containing a web search result.
 
+          - `type: "search_result"`
+
           - `citations: object`
 
             Citation settings for a search result.
@@ -21226,13 +22065,13 @@ Send Events
 
             Array of text content blocks from the search result.
 
+            - `type: "text"`
+
             - `text: string`
 
               The text content.
 
               minLength: 1
-
-            - `type: "text"`
 
           - `source: string`
 
@@ -21245,8 +22084,6 @@ Send Events
             The title of the search result.
 
             minLength: 1
-
-          - `type: "search_result"`
 
       - `is_error: optional boolean`
 
@@ -21265,6 +22102,8 @@ Send Events
     - `beta_managed_agents_user_define_outcome_event: object`
 
       Echo of a `user.define_outcome` input event. Carries the server-generated `outcome_id` that subsequent `span.outcome_evaluation_*` events reference.
+
+      - `type: "user.define_outcome"`
 
       - `id: string`
 
@@ -21298,27 +22137,27 @@ Send Events
 
           Rubric referenced by a file uploaded via the Files API.
 
+          - `type: "file"`
+
           - `file_id: string`
 
             ID of the rubric file.
-
-          - `type: "file"`
 
         - `beta_managed_agents_text_rubric: object`
 
           Rubric content provided inline as text.
 
+          - `type: "text"`
+
           - `content: string`
 
             Rubric content. Plain text or markdown — the grader treats it as freeform text.
 
-          - `type: "text"`
-
-      - `type: "user.define_outcome"`
-
     - `beta_managed_agents_user_tool_result_event: object`
 
       Event sent by the client providing the result of an agent-toolset tool execution. Only valid on `self_hosted` environments, where sandbox-routed tools are executed by the client rather than the server.
+
+      - `type: "user.tool_result"`
 
       - `id: string`
 
@@ -21327,8 +22166,6 @@ Send Events
       - `tool_use_id: string`
 
         The id of the `agent.tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
-
-      - `type: "user.tool_result"`
 
       - `content: optional array of BetaManagedAgentsTextBlock or BetaManagedAgentsImageBlock or BetaManagedAgentsDocumentBlock or BetaManagedAgentsSearchResultBlock`
 
@@ -21368,6 +22205,8 @@ Send Events
 
       A mid-conversation system message event. Carries system-role content that is appended to the session as a `role: "system"` turn.
 
+      - `type: "system.message"`
+
       - `id: string`
 
         Unique identifier for this event.
@@ -21376,15 +22215,13 @@ Send Events
 
         System content blocks. Text-only.
 
+        - `type: "text"`
+
         - `text: string`
 
           The text content.
 
           minLength: 1
-
-        - `type: "text"`
-
-      - `type: "system.message"`
 
       - `processed_at: optional string`
 
@@ -21443,6 +22280,12 @@ Stream Events
 
   Header param: Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `beta_managed_agents_stream_session_events: BetaManagedAgentsUserMessageEvent or BetaManagedAgentsUserInterruptEvent or BetaManagedAgentsUserToolConfirmationEvent or 34 more`
@@ -21452,6 +22295,8 @@ Stream Events
   - `beta_managed_agents_user_message_event: object`
 
     A user message event in the session conversation.
+
+    - `type: "user.message"`
 
     - `id: string`
 
@@ -21465,17 +22310,19 @@ Stream Events
 
         Regular text content.
 
+        - `type: "text"`
+
         - `text: string`
 
           The text content.
 
           minLength: 1
 
-        - `type: "text"`
-
       - `beta_managed_agents_image_block: object`
 
         Image content specified directly as base64 data or as a reference via a URL.
+
+        - `type: "image"`
 
         - `source: BetaManagedAgentsBase64ImageSource or BetaManagedAgentsURLImageSource or BetaManagedAgentsFileImageSource`
 
@@ -21484,6 +22331,8 @@ Stream Events
           - `beta_managed_agents_base64_image_source: object`
 
             Base64-encoded image data.
+
+            - `type: "base64"`
 
             - `data: string`
 
@@ -21496,8 +22345,6 @@ Stream Events
               MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
 
               minLength: 1
-
-            - `type: "base64"`
 
           - `beta_managed_agents_url_image_source: object`
 
@@ -21515,19 +22362,19 @@ Stream Events
 
             Image referenced by file ID.
 
+            - `type: "file"`
+
             - `file_id: string`
 
               ID of a previously uploaded file.
 
               minLength: 1
 
-            - `type: "file"`
-
-        - `type: "image"`
-
       - `beta_managed_agents_document_block: object`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+        - `type: "document"`
 
         - `source: BetaManagedAgentsBase64DocumentSource or BetaManagedAgentsPlainTextDocumentSource or BetaManagedAgentsURLDocumentSource or BetaManagedAgentsFileDocumentSource`
 
@@ -21536,6 +22383,8 @@ Stream Events
           - `beta_managed_agents_base64_document_source: object`
 
             Base64-encoded document data.
+
+            - `type: "base64"`
 
             - `data: string`
 
@@ -21549,11 +22398,11 @@ Stream Events
 
               minLength: 1
 
-            - `type: "base64"`
-
           - `beta_managed_agents_plain_text_document_source: object`
 
             Plain text document content.
+
+            - `type: "text"`
 
             - `data: string`
 
@@ -21564,8 +22413,6 @@ Stream Events
             - `media_type: "text/plain"`
 
               MIME type of the text content. Must be "text/plain".
-
-            - `type: "text"`
 
           - `beta_managed_agents_url_document_source: object`
 
@@ -21583,15 +22430,13 @@ Stream Events
 
             Document referenced by file ID.
 
+            - `type: "file"`
+
             - `file_id: string`
 
               ID of a previously uploaded file.
 
               minLength: 1
-
-            - `type: "file"`
-
-        - `type: "document"`
 
         - `context: optional string`
 
@@ -21607,8 +22452,6 @@ Stream Events
 
         - `type: "redacted"`
 
-    - `type: "user.message"`
-
     - `processed_at: optional string`
 
       A timestamp in RFC 3339 format
@@ -21619,11 +22462,11 @@ Stream Events
 
     An interrupt event that pauses agent execution and returns control to the user.
 
+    - `type: "user.interrupt"`
+
     - `id: string`
 
       Unique identifier for this event.
-
-    - `type: "user.interrupt"`
 
     - `processed_at: optional string`
 
@@ -21638,6 +22481,8 @@ Stream Events
   - `beta_managed_agents_user_tool_confirmation_event: object`
 
     A tool confirmation event that approves or denies a pending tool execution.
+
+    - `type: "user.tool_confirmation"`
 
     - `id: string`
 
@@ -21654,8 +22499,6 @@ Stream Events
     - `tool_use_id: string`
 
       The id of the `agent.tool_use` or `agent.mcp_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
-
-    - `type: "user.tool_confirmation"`
 
     - `deny_message: optional string`
 
@@ -21677,6 +22520,8 @@ Stream Events
 
     Event sent by the client providing the result of a custom tool execution.
 
+    - `type: "user.custom_tool_result"`
+
     - `id: string`
 
       Unique identifier for this event.
@@ -21684,8 +22529,6 @@ Stream Events
     - `custom_tool_use_id: string`
 
       The id of the `agent.custom_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
-
-    - `type: "user.custom_tool_result"`
 
     - `content: optional array of BetaManagedAgentsTextBlock or BetaManagedAgentsImageBlock or BetaManagedAgentsDocumentBlock or BetaManagedAgentsSearchResultBlock`
 
@@ -21707,6 +22550,8 @@ Stream Events
 
         A block containing a web search result.
 
+        - `type: "search_result"`
+
         - `citations: object`
 
           Citation settings for a search result.
@@ -21719,13 +22564,13 @@ Stream Events
 
           Array of text content blocks from the search result.
 
+          - `type: "text"`
+
           - `text: string`
 
             The text content.
 
             minLength: 1
-
-          - `type: "text"`
 
         - `source: string`
 
@@ -21738,8 +22583,6 @@ Stream Events
           The title of the search result.
 
           minLength: 1
-
-        - `type: "search_result"`
 
     - `is_error: optional boolean`
 
@@ -21759,6 +22602,8 @@ Stream Events
 
     Event emitted when the agent calls a custom tool. The session goes idle until the client sends a `user.custom_tool_result` event with the result.
 
+    - `type: "agent.custom_tool_use"`
+
     - `id: string`
 
       Unique identifier for this event.
@@ -21777,8 +22622,6 @@ Stream Events
 
       format: date-time
 
-    - `type: "agent.custom_tool_use"`
-
     - `session_thread_id: optional string`
 
       When set, this event was cross-posted from a subagent's thread to surface its custom tool use on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.custom_tool_result` event to route the result back.
@@ -21786,6 +22629,8 @@ Stream Events
   - `beta_managed_agents_agent_message_event: object`
 
     An agent response event in the session conversation.
+
+    - `type: "agent.message"`
 
     - `id: string`
 
@@ -21809,11 +22654,11 @@ Stream Events
 
       format: date-time
 
-    - `type: "agent.message"`
-
   - `beta_managed_agents_agent_thinking_event: object`
 
     Indicates the agent is making forward progress via extended thinking. A progress signal, not a content carrier.
+
+    - `type: "agent.thinking"`
 
     - `id: string`
 
@@ -21825,11 +22670,11 @@ Stream Events
 
       format: date-time
 
-    - `type: "agent.thinking"`
-
   - `beta_managed_agents_agent_mcp_tool_use_event: object`
 
     Event emitted when the agent invokes a tool provided by an MCP server.
+
+    - `type: "agent.mcp_tool_use"`
 
     - `id: string`
 
@@ -21853,8 +22698,6 @@ Stream Events
 
       format: date-time
 
-    - `type: "agent.mcp_tool_use"`
-
     - `evaluated_permission: optional "allow" or "ask" or "deny"`
 
       AgentEvaluatedPermission enum
@@ -21865,6 +22708,62 @@ Stream Events
 
       - `"deny"`
 
+    - `evaluation: optional BetaManagedAgentsAgentToolEvaluationAlwaysAllow or BetaManagedAgentsAgentToolEvaluationAlwaysAsk or BetaManagedAgentsAgentToolEvaluationAuto`
+
+      Names the resolved permission_policy that produced evaluated_permission, and under auto carries the judgement. Open union: clients must tolerate unknown variants.
+
+      - `beta_managed_agents_agent_tool_evaluation_always_allow: object`
+
+        The resolved permission_policy was always_allow; accompanies evaluated_permission "allow".
+
+        - `type: "always_allow"`
+
+      - `beta_managed_agents_agent_tool_evaluation_always_ask: object`
+
+        The resolved permission_policy was always_ask; accompanies evaluated_permission "ask".
+
+        - `type: "always_ask"`
+
+      - `beta_managed_agents_agent_tool_evaluation_auto: object`
+
+        The resolved permission_policy was auto: the server judged this invocation individually.
+
+        - `type: "auto"`
+
+        - `evaluated_permission: BetaManagedAgentsAgentAutoEvaluatedPermissionAllow or BetaManagedAgentsAgentAutoEvaluatedPermissionAsk or BetaManagedAgentsAgentAutoEvaluatedPermissionDeny`
+
+          The server's per-invocation judgement under the auto permission policy. Its type always equals the event's top-level evaluated_permission. Open union: clients must tolerate unknown variants.
+
+          - `beta_managed_agents_agent_auto_evaluated_permission_allow: object`
+
+            The server judged the invocation safe to execute without client approval.
+
+            - `type: "allow"`
+
+          - `beta_managed_agents_agent_auto_evaluated_permission_ask: object`
+
+            The server reached no judgement; the invocation is held for client approval.
+
+            - `type: "ask"`
+
+            - `reason_code: string`
+
+              The judgement's grounds in registry-bound terms, for client branching and audit rather than end-user display. Open registry; currently "indeterminate" (no judgement was reached). Clients must tolerate values outside this set.
+
+              maxLength: 64
+
+          - `beta_managed_agents_agent_auto_evaluated_permission_deny: object`
+
+            The server judged the invocation high-risk; it does not execute and a synthetic error tool result is appended.
+
+            - `type: "deny"`
+
+            - `reason_code: string`
+
+              The judgement's grounds in registry-bound terms. Open registry; currently "high_risk" (judged high-risk; the call does not run). Clients must tolerate values outside this set.
+
+              maxLength: 64
+
     - `session_thread_id: optional string`
 
       When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
@@ -21872,6 +22771,8 @@ Stream Events
   - `beta_managed_agents_agent_mcp_tool_result_event: object`
 
     Event representing the result of an MCP tool execution.
+
+    - `type: "agent.mcp_tool_result"`
 
     - `id: string`
 
@@ -21886,8 +22787,6 @@ Stream Events
       A timestamp in RFC 3339 format
 
       format: date-time
-
-    - `type: "agent.mcp_tool_result"`
 
     - `content: optional array of BetaManagedAgentsTextBlock or BetaManagedAgentsImageBlock or BetaManagedAgentsDocumentBlock or BetaManagedAgentsSearchResultBlock`
 
@@ -21917,6 +22816,8 @@ Stream Events
 
     Event emitted when the agent invokes a built-in agent tool.
 
+    - `type: "agent.tool_use"`
+
     - `id: string`
 
       Unique identifier for this event.
@@ -21935,8 +22836,6 @@ Stream Events
 
       format: date-time
 
-    - `type: "agent.tool_use"`
-
     - `evaluated_permission: optional "allow" or "ask" or "deny"`
 
       AgentEvaluatedPermission enum
@@ -21947,6 +22846,22 @@ Stream Events
 
       - `"deny"`
 
+    - `evaluation: optional BetaManagedAgentsAgentToolEvaluationAlwaysAllow or BetaManagedAgentsAgentToolEvaluationAlwaysAsk or BetaManagedAgentsAgentToolEvaluationAuto`
+
+      Names the resolved permission_policy that produced evaluated_permission, and under auto carries the judgement. Open union: clients must tolerate unknown variants.
+
+      - `beta_managed_agents_agent_tool_evaluation_always_allow: object`
+
+        The resolved permission_policy was always_allow; accompanies evaluated_permission "allow".
+
+      - `beta_managed_agents_agent_tool_evaluation_always_ask: object`
+
+        The resolved permission_policy was always_ask; accompanies evaluated_permission "ask".
+
+      - `beta_managed_agents_agent_tool_evaluation_auto: object`
+
+        The resolved permission_policy was auto: the server judged this invocation individually.
+
     - `session_thread_id: optional string`
 
       When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
@@ -21954,6 +22869,8 @@ Stream Events
   - `beta_managed_agents_agent_tool_result_event: object`
 
     Event representing the result of an agent tool execution.
+
+    - `type: "agent.tool_result"`
 
     - `id: string`
 
@@ -21968,8 +22885,6 @@ Stream Events
     - `tool_use_id: string`
 
       The id of the `agent.tool_use` event this result corresponds to.
-
-    - `type: "agent.tool_result"`
 
     - `content: optional array of BetaManagedAgentsTextBlock or BetaManagedAgentsImageBlock or BetaManagedAgentsDocumentBlock or BetaManagedAgentsSearchResultBlock`
 
@@ -21998,6 +22913,8 @@ Stream Events
   - `beta_managed_agents_agent_thread_message_received_event: object`
 
     Delivery event written to the target thread's input stream when an agent-to-agent message arrives.
+
+    - `type: "agent.thread_message_received"`
 
     - `id: string`
 
@@ -22033,8 +22950,6 @@ Stream Events
 
       format: date-time
 
-    - `type: "agent.thread_message_received"`
-
     - `from_agent_name: optional string`
 
       Name of the callable agent this message came from. Absent when received from the primary agent.
@@ -22042,6 +22957,8 @@ Stream Events
   - `beta_managed_agents_agent_thread_message_sent_event: object`
 
     Observability event emitted to the sender's output stream when an agent-to-agent message is sent.
+
+    - `type: "agent.thread_message_sent"`
 
     - `id: string`
 
@@ -22077,8 +22994,6 @@ Stream Events
 
       Public `sthr_` ID of the thread the message was sent to.
 
-    - `type: "agent.thread_message_sent"`
-
     - `to_agent_name: optional string`
 
       Name of the callable agent this message was sent to. Absent when sent to the primary agent.
@@ -22086,6 +23001,8 @@ Stream Events
   - `beta_managed_agents_agent_thread_context_compacted_event: object`
 
     Indicates that context compaction (summarization) occurred during the session.
+
+    - `type: "agent.thread_context_compacted"`
 
     - `id: string`
 
@@ -22097,11 +23014,11 @@ Stream Events
 
       format: date-time
 
-    - `type: "agent.thread_context_compacted"`
-
   - `beta_managed_agents_session_error_event: object`
 
     An error event indicating a problem occurred during session execution.
+
+    - `type: "session.error"`
 
     - `id: string`
 
@@ -22114,6 +23031,8 @@ Stream Events
       - `beta_managed_agents_unknown_error: object`
 
         An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
+
+        - `type: "unknown_error"`
 
         - `message: string`
 
@@ -22141,11 +23060,11 @@ Stream Events
 
             - `type: "terminal"`
 
-        - `type: "unknown_error"`
-
       - `beta_managed_agents_model_overloaded_error: object`
 
         The model is currently overloaded. Emitted after automatic retries are exhausted.
+
+        - `type: "model_overloaded_error"`
 
         - `message: string`
 
@@ -22166,13 +23085,13 @@ Stream Events
           - `beta_managed_agents_retry_status_terminal: object`
 
             The session encountered a terminal error and will transition to `terminated` state.
-
-        - `type: "model_overloaded_error"`
 
       - `beta_managed_agents_model_rate_limited_error: object`
 
         The model request was rate-limited.
 
+        - `type: "model_rate_limited_error"`
+
         - `message: string`
 
           Human-readable error description.
@@ -22192,13 +23111,13 @@ Stream Events
           - `beta_managed_agents_retry_status_terminal: object`
 
             The session encountered a terminal error and will transition to `terminated` state.
-
-        - `type: "model_rate_limited_error"`
 
       - `beta_managed_agents_model_request_failed_error: object`
 
         A model request failed for a reason other than overload or rate-limiting.
 
+        - `type: "model_request_failed_error"`
+
         - `message: string`
 
           Human-readable error description.
@@ -22219,11 +23138,11 @@ Stream Events
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-        - `type: "model_request_failed_error"`
-
       - `beta_managed_agents_mcp_connection_failed_error: object`
 
         Failed to connect to an MCP server.
+
+        - `type: "mcp_connection_failed_error"`
 
         - `mcp_server_name: string`
 
@@ -22249,11 +23168,11 @@ Stream Events
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-        - `type: "mcp_connection_failed_error"`
-
       - `beta_managed_agents_mcp_authentication_failed_error: object`
 
         Authentication to an MCP server failed.
+
+        - `type: "mcp_authentication_failed_error"`
 
         - `mcp_server_name: string`
 
@@ -22279,11 +23198,11 @@ Stream Events
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-        - `type: "mcp_authentication_failed_error"`
-
       - `beta_managed_agents_billing_error: object`
 
         The caller's organization or workspace cannot make model requests — out of credits or spend limit reached. Retrying with the same credentials will not succeed; the caller must resolve the billing state.
+
+        - `type: "billing_error"`
 
         - `message: string`
 
@@ -22305,11 +23224,11 @@ Stream Events
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-        - `type: "billing_error"`
-
       - `beta_managed_agents_credential_host_unreachable_error: object`
 
         An `environment_variable` credential's `auth.networking.allowed_hosts` includes a host the environment's network policy does not permit.
+
+        - `type: "credential_host_unreachable_error"`
 
         - `credential_id: string`
 
@@ -22335,8 +23254,6 @@ Stream Events
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-        - `type: "credential_host_unreachable_error"`
-
         - `vault_id: string`
 
           ID of the vault containing the affected credential.
@@ -22347,11 +23264,11 @@ Stream Events
 
       format: date-time
 
-    - `type: "session.error"`
-
   - `beta_managed_agents_session_status_rescheduled_event: object`
 
     Indicates the session is recovering from an error state and is rescheduled for execution.
+
+    - `type: "session.status_rescheduled"`
 
     - `id: string`
 
@@ -22362,13 +23279,13 @@ Stream Events
       A timestamp in RFC 3339 format
 
       format: date-time
-
-    - `type: "session.status_rescheduled"`
 
   - `beta_managed_agents_session_status_running_event: object`
 
     Indicates the session is actively running and the agent is working.
 
+    - `type: "session.status_running"`
+
     - `id: string`
 
       Unique identifier for this event.
@@ -22379,11 +23296,11 @@ Stream Events
 
       format: date-time
 
-    - `type: "session.status_running"`
-
   - `beta_managed_agents_session_status_idle_event: object`
 
     Indicates the agent has paused and is awaiting user input.
+
+    - `type: "session.status_idle"`
 
     - `id: string`
 
@@ -22409,11 +23326,11 @@ Stream Events
 
         The agent is idle waiting on one or more blocking user-input events (tool confirmation, custom tool result, etc.). Resolving all of them transitions the session back to running.
 
+        - `type: "requires_action"`
+
         - `event_ids: array of string`
 
           The ids of events the agent is blocked on. Resolving fewer than all re-emits `session.status_idle` with the remainder.
-
-        - `type: "requires_action"`
 
       - `beta_managed_agents_session_retries_exhausted: object`
 
@@ -22427,11 +23344,11 @@ Stream Events
 
         - `type: "budget_reached"`
 
-    - `type: "session.status_idle"`
-
   - `beta_managed_agents_session_status_terminated_event: object`
 
     Indicates the session has terminated, either due to an error or completion.
+
+    - `type: "session.status_terminated"`
 
     - `id: string`
 
@@ -22443,11 +23360,11 @@ Stream Events
 
       format: date-time
 
-    - `type: "session.status_terminated"`
-
   - `beta_managed_agents_session_thread_created_event: object`
 
     Emitted when a subagent is spawned as a new thread. Written to the parent thread's output stream so clients observing the session see child creation.
+
+    - `type: "session.thread_created"`
 
     - `id: string`
 
@@ -22467,11 +23384,11 @@ Stream Events
 
       Public `sthr_` ID of the newly created thread.
 
-    - `type: "session.thread_created"`
-
   - `beta_managed_agents_span_outcome_evaluation_start_event: object`
 
     Emitted when an outcome evaluation cycle begins.
+
+    - `type: "span.outcome_evaluation_start"`
 
     - `id: string`
 
@@ -22493,11 +23410,11 @@ Stream Events
 
       format: date-time
 
-    - `type: "span.outcome_evaluation_start"`
-
   - `beta_managed_agents_span_outcome_evaluation_end_event: object`
 
     Emitted when an outcome evaluation cycle completes. Carries the verdict and aggregate token usage. A verdict of `needs_revision` means another evaluation cycle follows; `satisfied`, `max_iterations_reached`, `failed`, or `interrupted` are terminal — no further evaluation cycles follow.
+
+    - `type: "span.outcome_evaluation_end"`
 
     - `id: string`
 
@@ -22530,8 +23447,6 @@ Stream Events
     - `result: string`
 
       Evaluation verdict. 'satisfied': criteria met, session goes idle. 'needs_revision': criteria not met, another revision cycle follows. 'max_iterations_reached': evaluation budget exhausted with criteria still unmet — one final acknowledgment turn follows before the session goes idle, but no further evaluation runs. 'failed': grader determined the rubric does not apply to the deliverables. 'interrupted': user sent an interrupt while evaluation was in progress.
-
-    - `type: "span.outcome_evaluation_end"`
 
     - `usage: object`
 
@@ -22573,6 +23488,8 @@ Stream Events
 
     Emitted when a model request is initiated by the agent.
 
+    - `type: "span.model_request_start"`
+
     - `id: string`
 
       Unique identifier for this event.
@@ -22583,11 +23500,11 @@ Stream Events
 
       format: date-time
 
-    - `type: "span.model_request_start"`
-
   - `beta_managed_agents_span_model_request_end_event: object`
 
     Emitted when a model request completes.
+
+    - `type: "span.model_request_end"`
 
     - `id: string`
 
@@ -22639,11 +23556,11 @@ Stream Events
 
       format: date-time
 
-    - `type: "span.model_request_end"`
-
   - `beta_managed_agents_span_outcome_evaluation_ongoing_event: object`
 
     Periodic heartbeat emitted while an outcome evaluation cycle is in progress. Distinguishes 'evaluation is actively running' from 'evaluation is stuck' between the corresponding `span.outcome_evaluation_start` and `span.outcome_evaluation_end` events.
+
+    - `type: "span.outcome_evaluation_ongoing"`
 
     - `id: string`
 
@@ -22665,11 +23582,11 @@ Stream Events
 
       format: date-time
 
-    - `type: "span.outcome_evaluation_ongoing"`
-
   - `beta_managed_agents_user_define_outcome_event: object`
 
     Echo of a `user.define_outcome` input event. Carries the server-generated `outcome_id` that subsequent `span.outcome_evaluation_*` events reference.
+
+    - `type: "user.define_outcome"`
 
     - `id: string`
 
@@ -22703,27 +23620,27 @@ Stream Events
 
         Rubric referenced by a file uploaded via the Files API.
 
+        - `type: "file"`
+
         - `file_id: string`
 
           ID of the rubric file.
-
-        - `type: "file"`
 
       - `beta_managed_agents_text_rubric: object`
 
         Rubric content provided inline as text.
 
+        - `type: "text"`
+
         - `content: string`
 
           Rubric content. Plain text or markdown — the grader treats it as freeform text.
 
-        - `type: "text"`
-
-    - `type: "user.define_outcome"`
-
   - `beta_managed_agents_session_deleted_event: object`
 
     Emitted when a session has been deleted. Terminates any active event stream — no further events will be emitted for this session.
+
+    - `type: "session.deleted"`
 
     - `id: string`
 
@@ -22735,11 +23652,11 @@ Stream Events
 
       format: date-time
 
-    - `type: "session.deleted"`
-
   - `beta_managed_agents_session_thread_status_running_event: object`
 
     A session thread has begun executing. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
+
+    - `type: "session.thread_status_running"`
 
     - `id: string`
 
@@ -22759,11 +23676,11 @@ Stream Events
 
       Public sthr_ ID of the thread that started running.
 
-    - `type: "session.thread_status_running"`
-
   - `beta_managed_agents_session_thread_status_idle_event: object`
 
     A session thread has yielded and is awaiting input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
+
+    - `type: "session.thread_status_idle"`
 
     - `id: string`
 
@@ -22803,11 +23720,11 @@ Stream Events
 
         The agent stopped because the session's tracked list cost reached its budget, or because its usage includes a model with no list price (which the budget cannot measure). Raise the budget to continue — or, if raising is rejected because a model has no list price, remove the budget.
 
-    - `type: "session.thread_status_idle"`
-
   - `beta_managed_agents_session_thread_status_terminated_event: object`
 
     A session thread has terminated and will accept no further input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
+
+    - `type: "session.thread_status_terminated"`
 
     - `id: string`
 
@@ -22827,11 +23744,11 @@ Stream Events
 
       Public sthr_ ID of the thread that terminated.
 
-    - `type: "session.thread_status_terminated"`
-
   - `beta_managed_agents_user_tool_result_event: object`
 
     Event sent by the client providing the result of an agent-toolset tool execution. Only valid on `self_hosted` environments, where sandbox-routed tools are executed by the client rather than the server.
+
+    - `type: "user.tool_result"`
 
     - `id: string`
 
@@ -22840,8 +23757,6 @@ Stream Events
     - `tool_use_id: string`
 
       The id of the `agent.tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
-
-    - `type: "user.tool_result"`
 
     - `content: optional array of BetaManagedAgentsTextBlock or BetaManagedAgentsImageBlock or BetaManagedAgentsDocumentBlock or BetaManagedAgentsSearchResultBlock`
 
@@ -22881,6 +23796,8 @@ Stream Events
 
     A session thread hit a transient error and is retrying automatically. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
 
+    - `type: "session.thread_status_rescheduled"`
+
     - `id: string`
 
       Unique identifier for this event.
@@ -22899,11 +23816,11 @@ Stream Events
 
       Public sthr_ ID of the thread that is retrying.
 
-    - `type: "session.thread_status_rescheduled"`
-
   - `beta_managed_agents_session_updated_event: object`
 
     Emitted when an UpdateSession request changed at least one field. Carries only the fields that changed; absent fields were not part of the update. The new configuration applies from the next turn.
+
+    - `type: "session.updated"`
 
     - `id: string`
 
@@ -22915,11 +23832,11 @@ Stream Events
 
       format: date-time
 
-    - `type: "session.updated"`
-
     - `agent: optional object`
 
       Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
+
+      - `type: "agent"`
 
       - `id: string`
 
@@ -22927,9 +23844,9 @@ Stream Events
 
       - `mcp_servers: array of BetaManagedAgentsMCPServerURLDefinition`
 
-        - `name: string`
-
         - `type: "url"`
+
+        - `name: string`
 
         - `url: string`
 
@@ -23049,6 +23966,8 @@ Stream Events
 
         Resolved coordinator topology with full agent definitions for each roster member.
 
+        - `type: "coordinator"`
+
         - `agents: array of BetaManagedAgentsSessionThreadAgent or BetaManagedAgentsAdvisor`
 
           Full `agent` definitions the coordinator may spawn as session threads.
@@ -23057,15 +23976,17 @@ Stream Events
 
             Resolved `agent` definition for a single `session_thread`. Snapshot of the agent at thread creation time. The multiagent roster is not repeated here; read it from `Session.agent`.
 
+            - `type: "agent"`
+
             - `id: string`
 
             - `description: string`
 
             - `mcp_servers: array of BetaManagedAgentsMCPServerURLDefinition`
 
-              - `name: string`
-
               - `type: "url"`
+
+              - `name: string`
 
               - `url: string`
 
@@ -23099,9 +24020,9 @@ Stream Events
 
                 A resolved Anthropic-managed skill.
 
-                - `skill_id: string`
-
                 - `type: "anthropic"`
+
+                - `skill_id: string`
 
                 - `version: string`
 
@@ -23109,9 +24030,9 @@ Stream Events
 
                 A resolved user-created custom skill.
 
-                - `skill_id: string`
-
                 - `type: "custom"`
+
+                - `skill_id: string`
 
                 - `version: string`
 
@@ -23121,17 +24042,21 @@ Stream Events
 
               - `beta_managed_agents_agent_toolset20260401: object`
 
+                - `type: "agent_toolset_20260401"`
+
                 - `configs: array of BetaManagedAgentsAgentToolConfig`
 
                   - `beta_managed_agents_bash_tool_config: object`
 
                     Configuration for the bash tool.
 
+                    - `type: "bash"`
+
                     - `enabled: boolean`
 
                     - `name: "bash"`
 
-                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                       Permission policy for tool execution.
 
@@ -23147,17 +24072,23 @@ Stream Events
 
                         - `type: "always_ask"`
 
-                    - `type: "bash"`
+                      - `beta_managed_agents_auto_policy: object`
+
+                        The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+                        - `type: "auto"`
 
                   - `beta_managed_agents_edit_tool_config: object`
 
                     Configuration for the edit tool.
 
+                    - `type: "edit"`
+
                     - `enabled: boolean`
 
                     - `name: "edit"`
 
-                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                       Permission policy for tool execution.
 
@@ -23169,17 +24100,21 @@ Stream Events
 
                         Tool calls require user confirmation before execution.
 
-                    - `type: "edit"`
+                      - `beta_managed_agents_auto_policy: object`
+
+                        The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                   - `beta_managed_agents_read_tool_config: object`
 
                     Configuration for the read tool.
 
+                    - `type: "read"`
+
                     - `enabled: boolean`
 
                     - `name: "read"`
 
-                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                       Permission policy for tool execution.
 
@@ -23191,17 +24126,21 @@ Stream Events
 
                         Tool calls require user confirmation before execution.
 
-                    - `type: "read"`
+                      - `beta_managed_agents_auto_policy: object`
+
+                        The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                   - `beta_managed_agents_write_tool_config: object`
 
                     Configuration for the write tool.
 
+                    - `type: "write"`
+
                     - `enabled: boolean`
 
                     - `name: "write"`
 
-                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                       Permission policy for tool execution.
 
@@ -23213,17 +24152,21 @@ Stream Events
 
                         Tool calls require user confirmation before execution.
 
-                    - `type: "write"`
+                      - `beta_managed_agents_auto_policy: object`
+
+                        The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                   - `beta_managed_agents_glob_tool_config: object`
 
                     Configuration for the glob tool.
 
+                    - `type: "glob"`
+
                     - `enabled: boolean`
 
                     - `name: "glob"`
 
-                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                       Permission policy for tool execution.
 
@@ -23235,17 +24178,21 @@ Stream Events
 
                         Tool calls require user confirmation before execution.
 
-                    - `type: "glob"`
+                      - `beta_managed_agents_auto_policy: object`
+
+                        The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                   - `beta_managed_agents_grep_tool_config: object`
 
                     Configuration for the grep tool.
 
+                    - `type: "grep"`
+
                     - `enabled: boolean`
 
                     - `name: "grep"`
 
-                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                       Permission policy for tool execution.
 
@@ -23257,17 +24204,21 @@ Stream Events
 
                         Tool calls require user confirmation before execution.
 
-                    - `type: "grep"`
+                      - `beta_managed_agents_auto_policy: object`
+
+                        The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                   - `beta_managed_agents_web_fetch_tool_config: object`
 
                     Configuration for the web_fetch tool.
 
+                    - `type: "web_fetch"`
+
                     - `enabled: boolean`
 
                     - `name: "web_fetch"`
 
-                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                       Permission policy for tool execution.
 
@@ -23279,7 +24230,9 @@ Stream Events
 
                         Tool calls require user confirmation before execution.
 
-                    - `type: "web_fetch"`
+                      - `beta_managed_agents_auto_policy: object`
+
+                        The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                     - `allowed_domains: optional array of string`
 
@@ -23293,11 +24246,13 @@ Stream Events
 
                     Configuration for the web_search tool.
 
+                    - `type: "web_search"`
+
                     - `enabled: boolean`
 
                     - `name: "web_search"`
 
-                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                       Permission policy for tool execution.
 
@@ -23309,7 +24264,9 @@ Stream Events
 
                         Tool calls require user confirmation before execution.
 
-                    - `type: "web_search"`
+                      - `beta_managed_agents_auto_policy: object`
+
+                        The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                     - `allowed_domains: optional array of string`
 
@@ -23351,7 +24308,7 @@ Stream Events
 
                   - `enabled: boolean`
 
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                     Permission policy for tool execution.
 
@@ -23363,9 +24320,13 @@ Stream Events
 
                       Tool calls require user confirmation before execution.
 
-                - `type: "agent_toolset_20260401"`
+                    - `beta_managed_agents_auto_policy: object`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
               - `beta_managed_agents_mcp_toolset: object`
+
+                - `type: "mcp_toolset"`
 
                 - `configs: array of BetaManagedAgentsMCPToolConfig`
 
@@ -23373,7 +24334,7 @@ Stream Events
 
                   - `name: string`
 
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                     Permission policy for tool execution.
 
@@ -23384,6 +24345,10 @@ Stream Events
                     - `beta_managed_agents_always_ask_policy: object`
 
                       Tool calls require user confirmation before execution.
+
+                    - `beta_managed_agents_auto_policy: object`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                 - `default_config: object`
 
@@ -23391,7 +24356,7 @@ Stream Events
 
                   - `enabled: boolean`
 
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                     Permission policy for tool execution.
 
@@ -23403,13 +24368,17 @@ Stream Events
 
                       Tool calls require user confirmation before execution.
 
-                - `mcp_server_name: string`
+                    - `beta_managed_agents_auto_policy: object`
 
-                - `type: "mcp_toolset"`
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+                - `mcp_server_name: string`
 
               - `beta_managed_agents_custom_tool: object`
 
                 A custom tool as returned in API responses.
+
+                - `type: "custom"`
 
                 - `description: string`
 
@@ -23425,10 +24394,6 @@ Stream Events
 
                 - `name: string`
 
-                - `type: "custom"`
-
-            - `type: "agent"`
-
             - `version: number`
 
               format: int32
@@ -23437,13 +24402,11 @@ Stream Events
 
             Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
 
+            - `type: "advisor"`
+
             - `model: string`
 
               The advisor model id.
-
-            - `type: "advisor"`
-
-        - `type: "coordinator"`
 
       - `name: string`
 
@@ -23469,8 +24432,6 @@ Stream Events
 
           A custom tool as returned in API responses.
 
-      - `type: "agent"`
-
       - `version: number`
 
         format: int32
@@ -23478,6 +24439,8 @@ Stream Events
     - `budget: optional object`
 
       A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+
+      - `type: "limit"`
 
       - `max_list_cost: object`
 
@@ -23491,8 +24454,6 @@ Stream Events
 
           Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
 
-      - `type: "limit"`
-
     - `metadata: optional map[string]`
 
       The session's full metadata bag after the update. Present when the update set non-empty metadata; absent when metadata was unchanged or cleared to empty.
@@ -23505,49 +24466,51 @@ Stream Events
 
     Opens a preview of a buffered event. Carries the previewed event's type and id only. Followed by zero or more event_delta events with the same event id, normally concluded by the buffered event carrying that id. If the producing model request ends without that event (an error or interrupt mid-stream), its terminal span.model_request_end closes the preview. Only sent on stream connections that opt in via event_deltas; never appears in event history.
 
+    - `type: "event_start"`
+
     - `event: BetaManagedAgentsAgentMessagePreview or BetaManagedAgentsAgentThinkingPreview`
 
       The previewed event's type and id. The event type determines which delta types the preview's event_delta events carry: agent.message events stream content_delta fragments; agent.thinking previews are start-only — no deltas follow, and the buffered agent.thinking with the same id concludes them.
 
       - `beta_managed_agents_agent_message_preview: object`
 
+        - `type: "agent.message"`
+
         - `id: string`
 
           The id the buffered agent.message will carry if it is emitted. Matches the event_id on this preview's event_delta events.
 
-        - `type: "agent.message"`
-
       - `beta_managed_agents_agent_thinking_preview: object`
+
+        - `type: "agent.thinking"`
 
         - `id: string`
 
           The id the buffered agent.thinking will carry if it is emitted. Start-only — no event_delta events follow.
 
-        - `type: "agent.thinking"`
-
-    - `type: "event_start"`
-
   - `beta_managed_agents_delta_event: object`
 
     An incremental update to an event that is still being streamed. Deltas are best-effort and may stop early; when the buffered event with id == event_id is produced it carries the complete content. A model request that ends early (an error or interrupt) produces no buffered event — its terminal span.model_request_end closes the preview. Only sent on stream connections that opt in via event_deltas; never appears in event history.
+
+    - `type: "event_delta"`
 
     - `delta: object`
 
       One fragment of the previewed event. The delta type is named for the previewed event's field it streams into: agent.message events stream content_delta fragments, each a partial element of the content array.
 
+      - `type: "content_delta"`
+
       - `content: object`
 
         Regular text content.
+
+        - `type: "text"`
 
         - `text: string`
 
           The text content.
 
           minLength: 1
-
-        - `type: "text"`
-
-      - `type: "content_delta"`
 
       - `index: optional number`
 
@@ -23559,11 +24522,11 @@ Stream Events
 
       The id of the event being previewed. Matches event.id on the corresponding event_start and the buffered event that reconciles the preview.
 
-    - `type: "event_delta"`
-
   - `beta_managed_agents_system_message_event: object`
 
     A mid-conversation system message event. Carries system-role content that is appended to the session as a `role: "system"` turn.
+
+    - `type: "system.message"`
 
     - `id: string`
 
@@ -23573,15 +24536,13 @@ Stream Events
 
       System content blocks. Text-only.
 
+      - `type: "text"`
+
       - `text: string`
 
         The text content.
 
         minLength: 1
-
-      - `type: "text"`
-
-    - `type: "system.message"`
 
     - `processed_at: optional string`
 
@@ -23593,6 +24554,8 @@ Stream Events
 
     Periodic snapshot of the session's cumulative usage and tracked list cost.
 
+    - `type: "session.usage"`
+
     - `id: string`
 
       Unique identifier for this event.
@@ -23602,8 +24565,6 @@ Stream Events
       A timestamp in RFC 3339 format
 
       format: date-time
-
-    - `type: "session.usage"`
 
     - `usage: object`
 
@@ -23681,163 +24642,11 @@ Stream Events
 
       A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
 
+      - `type: "limit"`
+
       - `max_list_cost: object`
 
         A monetary amount in a specific currency.
-
-      - `type: "limit"`
-
-- `beta_managed_agents_stream_session_events: BetaManagedAgentsUserMessageEvent or BetaManagedAgentsUserInterruptEvent or BetaManagedAgentsUserToolConfirmationEvent or 34 more`
-
-  Server-sent event in the session stream.
-
-  - `beta_managed_agents_user_message_event: object`
-
-    A user message event in the session conversation.
-
-  - `beta_managed_agents_user_interrupt_event: object`
-
-    An interrupt event that pauses agent execution and returns control to the user.
-
-  - `beta_managed_agents_user_tool_confirmation_event: object`
-
-    A tool confirmation event that approves or denies a pending tool execution.
-
-  - `beta_managed_agents_user_custom_tool_result_event: object`
-
-    Event sent by the client providing the result of a custom tool execution.
-
-  - `beta_managed_agents_agent_custom_tool_use_event: object`
-
-    Event emitted when the agent calls a custom tool. The session goes idle until the client sends a `user.custom_tool_result` event with the result.
-
-  - `beta_managed_agents_agent_message_event: object`
-
-    An agent response event in the session conversation.
-
-  - `beta_managed_agents_agent_thinking_event: object`
-
-    Indicates the agent is making forward progress via extended thinking. A progress signal, not a content carrier.
-
-  - `beta_managed_agents_agent_mcp_tool_use_event: object`
-
-    Event emitted when the agent invokes a tool provided by an MCP server.
-
-  - `beta_managed_agents_agent_mcp_tool_result_event: object`
-
-    Event representing the result of an MCP tool execution.
-
-  - `beta_managed_agents_agent_tool_use_event: object`
-
-    Event emitted when the agent invokes a built-in agent tool.
-
-  - `beta_managed_agents_agent_tool_result_event: object`
-
-    Event representing the result of an agent tool execution.
-
-  - `beta_managed_agents_agent_thread_message_received_event: object`
-
-    Delivery event written to the target thread's input stream when an agent-to-agent message arrives.
-
-  - `beta_managed_agents_agent_thread_message_sent_event: object`
-
-    Observability event emitted to the sender's output stream when an agent-to-agent message is sent.
-
-  - `beta_managed_agents_agent_thread_context_compacted_event: object`
-
-    Indicates that context compaction (summarization) occurred during the session.
-
-  - `beta_managed_agents_session_error_event: object`
-
-    An error event indicating a problem occurred during session execution.
-
-  - `beta_managed_agents_session_status_rescheduled_event: object`
-
-    Indicates the session is recovering from an error state and is rescheduled for execution.
-
-  - `beta_managed_agents_session_status_running_event: object`
-
-    Indicates the session is actively running and the agent is working.
-
-  - `beta_managed_agents_session_status_idle_event: object`
-
-    Indicates the agent has paused and is awaiting user input.
-
-  - `beta_managed_agents_session_status_terminated_event: object`
-
-    Indicates the session has terminated, either due to an error or completion.
-
-  - `beta_managed_agents_session_thread_created_event: object`
-
-    Emitted when a subagent is spawned as a new thread. Written to the parent thread's output stream so clients observing the session see child creation.
-
-  - `beta_managed_agents_span_outcome_evaluation_start_event: object`
-
-    Emitted when an outcome evaluation cycle begins.
-
-  - `beta_managed_agents_span_outcome_evaluation_end_event: object`
-
-    Emitted when an outcome evaluation cycle completes. Carries the verdict and aggregate token usage. A verdict of `needs_revision` means another evaluation cycle follows; `satisfied`, `max_iterations_reached`, `failed`, or `interrupted` are terminal — no further evaluation cycles follow.
-
-  - `beta_managed_agents_span_model_request_start_event: object`
-
-    Emitted when a model request is initiated by the agent.
-
-  - `beta_managed_agents_span_model_request_end_event: object`
-
-    Emitted when a model request completes.
-
-  - `beta_managed_agents_span_outcome_evaluation_ongoing_event: object`
-
-    Periodic heartbeat emitted while an outcome evaluation cycle is in progress. Distinguishes 'evaluation is actively running' from 'evaluation is stuck' between the corresponding `span.outcome_evaluation_start` and `span.outcome_evaluation_end` events.
-
-  - `beta_managed_agents_user_define_outcome_event: object`
-
-    Echo of a `user.define_outcome` input event. Carries the server-generated `outcome_id` that subsequent `span.outcome_evaluation_*` events reference.
-
-  - `beta_managed_agents_session_deleted_event: object`
-
-    Emitted when a session has been deleted. Terminates any active event stream — no further events will be emitted for this session.
-
-  - `beta_managed_agents_session_thread_status_running_event: object`
-
-    A session thread has begun executing. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
-
-  - `beta_managed_agents_session_thread_status_idle_event: object`
-
-    A session thread has yielded and is awaiting input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
-
-  - `beta_managed_agents_session_thread_status_terminated_event: object`
-
-    A session thread has terminated and will accept no further input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
-
-  - `beta_managed_agents_user_tool_result_event: object`
-
-    Event sent by the client providing the result of an agent-toolset tool execution. Only valid on `self_hosted` environments, where sandbox-routed tools are executed by the client rather than the server.
-
-  - `beta_managed_agents_session_thread_status_rescheduled_event: object`
-
-    A session thread hit a transient error and is retrying automatically. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
-
-  - `beta_managed_agents_session_updated_event: object`
-
-    Emitted when an UpdateSession request changed at least one field. Carries only the fields that changed; absent fields were not part of the update. The new configuration applies from the next turn.
-
-  - `beta_managed_agents_start_event: object`
-
-    Opens a preview of a buffered event. Carries the previewed event's type and id only. Followed by zero or more event_delta events with the same event id, normally concluded by the buffered event carrying that id. If the producing model request ends without that event (an error or interrupt mid-stream), its terminal span.model_request_end closes the preview. Only sent on stream connections that opt in via event_deltas; never appears in event history.
-
-  - `beta_managed_agents_delta_event: object`
-
-    An incremental update to an event that is still being streamed. Deltas are best-effort and may stop early; when the buffered event with id == event_id is produced it carries the complete content. A model request that ends early (an error or interrupt) produces no buffered event — its terminal span.model_request_end closes the preview. Only sent on stream connections that opt in via event_deltas; never appears in event history.
-
-  - `beta_managed_agents_system_message_event: object`
-
-    A mid-conversation system message event. Carries system-role content that is appended to the session as a `role: "system"` turn.
-
-  - `beta_managed_agents_session_usage_event: object`
-
-    Periodic snapshot of the session's cumulative usage and tracked list cost.
 
 #### Example
 
@@ -23899,9 +24708,17 @@ Add Session Resource
 
   Header param: Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `beta_managed_agents_file_resource: object`
+
+  - `type: "file"`
 
   - `id: string`
 
@@ -23914,8 +24731,6 @@ Add Session Resource
   - `file_id: string`
 
   - `mount_path: string`
-
-  - `type: "file"`
 
   - `updated_at: string`
 
@@ -23974,6 +24789,12 @@ List Session Resources
 
   Header param: Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `BetaManagedAgentsListSessionResources: object`
@@ -23986,6 +24807,8 @@ List Session Resources
 
     - `beta_managed_agents_github_repository_resource: object`
 
+      - `type: "github_repository"`
+
       - `id: string`
 
       - `created_at: string`
@@ -23995,8 +24818,6 @@ List Session Resources
         format: date-time
 
       - `mount_path: string`
-
-      - `type: "github_repository"`
 
       - `updated_at: string`
 
@@ -24010,15 +24831,17 @@ List Session Resources
 
         - `beta_managed_agents_branch_checkout: object`
 
+          - `type: "branch"`
+
           - `name: string`
 
             Branch name to check out.
 
             minLength: 1, maxLength: 255
 
-          - `type: "branch"`
-
         - `beta_managed_agents_commit_checkout: object`
+
+          - `type: "commit"`
 
           - `sha: string`
 
@@ -24026,9 +24849,9 @@ List Session Resources
 
             minLength: 7, maxLength: 64
 
-          - `type: "commit"`
-
     - `beta_managed_agents_file_resource: object`
+
+      - `type: "file"`
 
       - `id: string`
 
@@ -24042,8 +24865,6 @@ List Session Resources
 
       - `mount_path: string`
 
-      - `type: "file"`
-
       - `updated_at: string`
 
         A timestamp in RFC 3339 format
@@ -24054,11 +24875,11 @@ List Session Resources
 
       A memory store attached to an agent session.
 
+      - `type: "memory_store"`
+
       - `memory_store_id: string`
 
         The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
-
-      - `type: "memory_store"`
 
       - `access: optional "read_write" or "read_only"`
 
@@ -24150,6 +24971,12 @@ Get Session Resource
 
   Header param: Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `BetaSessionResourceGetResponse: BetaManagedAgentsGitHubRepositoryResource or BetaManagedAgentsFileResource or BetaManagedAgentsMemoryStoreResource`
@@ -24157,6 +24984,8 @@ Get Session Resource
   The requested session resource.
 
   - `beta_managed_agents_github_repository_resource: object`
+
+    - `type: "github_repository"`
 
     - `id: string`
 
@@ -24167,8 +24996,6 @@ Get Session Resource
       format: date-time
 
     - `mount_path: string`
-
-    - `type: "github_repository"`
 
     - `updated_at: string`
 
@@ -24182,15 +25009,17 @@ Get Session Resource
 
       - `beta_managed_agents_branch_checkout: object`
 
+        - `type: "branch"`
+
         - `name: string`
 
           Branch name to check out.
 
           minLength: 1, maxLength: 255
 
-        - `type: "branch"`
-
       - `beta_managed_agents_commit_checkout: object`
+
+        - `type: "commit"`
 
         - `sha: string`
 
@@ -24198,9 +25027,9 @@ Get Session Resource
 
           minLength: 7, maxLength: 64
 
-        - `type: "commit"`
-
   - `beta_managed_agents_file_resource: object`
+
+    - `type: "file"`
 
     - `id: string`
 
@@ -24214,8 +25043,6 @@ Get Session Resource
 
     - `mount_path: string`
 
-    - `type: "file"`
-
     - `updated_at: string`
 
       A timestamp in RFC 3339 format
@@ -24226,11 +25053,11 @@ Get Session Resource
 
     A memory store attached to an agent session.
 
+    - `type: "memory_store"`
+
     - `memory_store_id: string`
 
       The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
-
-    - `type: "memory_store"`
 
     - `access: optional "read_write" or "read_only"`
 
@@ -24312,6 +25139,12 @@ Update Session Resource
 
   Header param: Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `BetaSessionResourceUpdateResponse: BetaManagedAgentsGitHubRepositoryResource or BetaManagedAgentsFileResource or BetaManagedAgentsMemoryStoreResource`
@@ -24319,6 +25152,8 @@ Update Session Resource
   The updated session resource.
 
   - `beta_managed_agents_github_repository_resource: object`
+
+    - `type: "github_repository"`
 
     - `id: string`
 
@@ -24329,8 +25164,6 @@ Update Session Resource
       format: date-time
 
     - `mount_path: string`
-
-    - `type: "github_repository"`
 
     - `updated_at: string`
 
@@ -24344,15 +25177,17 @@ Update Session Resource
 
       - `beta_managed_agents_branch_checkout: object`
 
+        - `type: "branch"`
+
         - `name: string`
 
           Branch name to check out.
 
           minLength: 1, maxLength: 255
 
-        - `type: "branch"`
-
       - `beta_managed_agents_commit_checkout: object`
+
+        - `type: "commit"`
 
         - `sha: string`
 
@@ -24360,9 +25195,9 @@ Update Session Resource
 
           minLength: 7, maxLength: 64
 
-        - `type: "commit"`
-
   - `beta_managed_agents_file_resource: object`
+
+    - `type: "file"`
 
     - `id: string`
 
@@ -24376,8 +25211,6 @@ Update Session Resource
 
     - `mount_path: string`
 
-    - `type: "file"`
-
     - `updated_at: string`
 
       A timestamp in RFC 3339 format
@@ -24388,11 +25221,11 @@ Update Session Resource
 
     A memory store attached to an agent session.
 
+    - `type: "memory_store"`
+
     - `memory_store_id: string`
 
       The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
-
-    - `type: "memory_store"`
 
     - `access: optional "read_write" or "read_only"`
 
@@ -24469,15 +25302,21 @@ Delete Session Resource
 
   Header param: Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `beta_managed_agents_delete_session_resource: object`
 
   Confirmation of resource deletion.
 
-  - `id: string`
-
   - `type: "session_resource_deleted"`
+
+  - `id: string`
 
 #### Example
 
@@ -24527,6 +25366,12 @@ List Session Threads
 
   Header param: Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `BetaManagedAgentsListSessionThreads: object`
@@ -24536,6 +25381,8 @@ List Session Threads
   - `data: optional array of BetaManagedAgentsSessionThread`
 
     Threads in the session, primary first then children in spawn order.
+
+    - `type: "session_thread"`
 
     - `id: string`
 
@@ -24549,15 +25396,17 @@ List Session Threads
 
         Resolved `agent` definition for a single `session_thread`. Snapshot of the agent at thread creation time. The multiagent roster is not repeated here; read it from `Session.agent`.
 
+        - `type: "agent"`
+
         - `id: string`
 
         - `description: string`
 
         - `mcp_servers: array of BetaManagedAgentsMCPServerURLDefinition`
 
-          - `name: string`
-
           - `type: "url"`
+
+          - `name: string`
 
           - `url: string`
 
@@ -24681,9 +25530,9 @@ List Session Threads
 
             A resolved Anthropic-managed skill.
 
-            - `skill_id: string`
-
             - `type: "anthropic"`
+
+            - `skill_id: string`
 
             - `version: string`
 
@@ -24691,9 +25540,9 @@ List Session Threads
 
             A resolved user-created custom skill.
 
-            - `skill_id: string`
-
             - `type: "custom"`
+
+            - `skill_id: string`
 
             - `version: string`
 
@@ -24703,17 +25552,21 @@ List Session Threads
 
           - `beta_managed_agents_agent_toolset20260401: object`
 
+            - `type: "agent_toolset_20260401"`
+
             - `configs: array of BetaManagedAgentsAgentToolConfig`
 
               - `beta_managed_agents_bash_tool_config: object`
 
                 Configuration for the bash tool.
 
+                - `type: "bash"`
+
                 - `enabled: boolean`
 
                 - `name: "bash"`
 
-                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                   Permission policy for tool execution.
 
@@ -24729,17 +25582,23 @@ List Session Threads
 
                     - `type: "always_ask"`
 
-                - `type: "bash"`
+                  - `beta_managed_agents_auto_policy: object`
+
+                    The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+                    - `type: "auto"`
 
               - `beta_managed_agents_edit_tool_config: object`
 
                 Configuration for the edit tool.
 
+                - `type: "edit"`
+
                 - `enabled: boolean`
 
                 - `name: "edit"`
 
-                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                   Permission policy for tool execution.
 
@@ -24751,17 +25610,21 @@ List Session Threads
 
                     Tool calls require user confirmation before execution.
 
-                - `type: "edit"`
+                  - `beta_managed_agents_auto_policy: object`
+
+                    The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
               - `beta_managed_agents_read_tool_config: object`
 
                 Configuration for the read tool.
 
+                - `type: "read"`
+
                 - `enabled: boolean`
 
                 - `name: "read"`
 
-                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                   Permission policy for tool execution.
 
@@ -24773,17 +25636,21 @@ List Session Threads
 
                     Tool calls require user confirmation before execution.
 
-                - `type: "read"`
+                  - `beta_managed_agents_auto_policy: object`
+
+                    The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
               - `beta_managed_agents_write_tool_config: object`
 
                 Configuration for the write tool.
 
+                - `type: "write"`
+
                 - `enabled: boolean`
 
                 - `name: "write"`
 
-                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                   Permission policy for tool execution.
 
@@ -24795,17 +25662,21 @@ List Session Threads
 
                     Tool calls require user confirmation before execution.
 
-                - `type: "write"`
+                  - `beta_managed_agents_auto_policy: object`
+
+                    The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
               - `beta_managed_agents_glob_tool_config: object`
 
                 Configuration for the glob tool.
 
+                - `type: "glob"`
+
                 - `enabled: boolean`
 
                 - `name: "glob"`
 
-                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                   Permission policy for tool execution.
 
@@ -24817,17 +25688,21 @@ List Session Threads
 
                     Tool calls require user confirmation before execution.
 
-                - `type: "glob"`
+                  - `beta_managed_agents_auto_policy: object`
+
+                    The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
               - `beta_managed_agents_grep_tool_config: object`
 
                 Configuration for the grep tool.
 
+                - `type: "grep"`
+
                 - `enabled: boolean`
 
                 - `name: "grep"`
 
-                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                   Permission policy for tool execution.
 
@@ -24839,17 +25714,21 @@ List Session Threads
 
                     Tool calls require user confirmation before execution.
 
-                - `type: "grep"`
+                  - `beta_managed_agents_auto_policy: object`
+
+                    The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
               - `beta_managed_agents_web_fetch_tool_config: object`
 
                 Configuration for the web_fetch tool.
 
+                - `type: "web_fetch"`
+
                 - `enabled: boolean`
 
                 - `name: "web_fetch"`
 
-                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                   Permission policy for tool execution.
 
@@ -24861,7 +25740,9 @@ List Session Threads
 
                     Tool calls require user confirmation before execution.
 
-                - `type: "web_fetch"`
+                  - `beta_managed_agents_auto_policy: object`
+
+                    The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                 - `allowed_domains: optional array of string`
 
@@ -24875,11 +25756,13 @@ List Session Threads
 
                 Configuration for the web_search tool.
 
+                - `type: "web_search"`
+
                 - `enabled: boolean`
 
                 - `name: "web_search"`
 
-                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                   Permission policy for tool execution.
 
@@ -24891,7 +25774,9 @@ List Session Threads
 
                     Tool calls require user confirmation before execution.
 
-                - `type: "web_search"`
+                  - `beta_managed_agents_auto_policy: object`
+
+                    The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                 - `allowed_domains: optional array of string`
 
@@ -24933,7 +25818,7 @@ List Session Threads
 
               - `enabled: boolean`
 
-              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                 Permission policy for tool execution.
 
@@ -24945,9 +25830,13 @@ List Session Threads
 
                   Tool calls require user confirmation before execution.
 
-            - `type: "agent_toolset_20260401"`
+                - `beta_managed_agents_auto_policy: object`
+
+                  The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
           - `beta_managed_agents_mcp_toolset: object`
+
+            - `type: "mcp_toolset"`
 
             - `configs: array of BetaManagedAgentsMCPToolConfig`
 
@@ -24955,7 +25844,7 @@ List Session Threads
 
               - `name: string`
 
-              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                 Permission policy for tool execution.
 
@@ -24966,6 +25855,10 @@ List Session Threads
                 - `beta_managed_agents_always_ask_policy: object`
 
                   Tool calls require user confirmation before execution.
+
+                - `beta_managed_agents_auto_policy: object`
+
+                  The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
             - `default_config: object`
 
@@ -24973,7 +25866,7 @@ List Session Threads
 
               - `enabled: boolean`
 
-              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                 Permission policy for tool execution.
 
@@ -24985,13 +25878,17 @@ List Session Threads
 
                   Tool calls require user confirmation before execution.
 
-            - `mcp_server_name: string`
+                - `beta_managed_agents_auto_policy: object`
 
-            - `type: "mcp_toolset"`
+                  The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+            - `mcp_server_name: string`
 
           - `beta_managed_agents_custom_tool: object`
 
             A custom tool as returned in API responses.
+
+            - `type: "custom"`
 
             - `description: string`
 
@@ -25007,10 +25904,6 @@ List Session Threads
 
             - `name: string`
 
-            - `type: "custom"`
-
-        - `type: "agent"`
-
         - `version: number`
 
           format: int32
@@ -25019,11 +25912,11 @@ List Session Threads
 
         Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
 
+        - `type: "advisor"`
+
         - `model: string`
 
           The advisor model id.
-
-        - `type: "advisor"`
 
     - `archived_at: string`
 
@@ -25078,8 +25971,6 @@ List Session Threads
       - `"rescheduling"`
 
       - `"terminated"`
-
-    - `type: "session_thread"`
 
     - `updated_at: string`
 
@@ -25287,11 +26178,19 @@ Get Session Thread
 
   Header param: Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `beta_managed_agents_session_thread: object`
 
   An execution thread within a `session`. Each session has one primary thread plus zero or more child threads spawned by the coordinator.
+
+  - `type: "session_thread"`
 
   - `id: string`
 
@@ -25305,15 +26204,17 @@ Get Session Thread
 
       Resolved `agent` definition for a single `session_thread`. Snapshot of the agent at thread creation time. The multiagent roster is not repeated here; read it from `Session.agent`.
 
+      - `type: "agent"`
+
       - `id: string`
 
       - `description: string`
 
       - `mcp_servers: array of BetaManagedAgentsMCPServerURLDefinition`
 
-        - `name: string`
-
         - `type: "url"`
+
+        - `name: string`
 
         - `url: string`
 
@@ -25437,9 +26338,9 @@ Get Session Thread
 
           A resolved Anthropic-managed skill.
 
-          - `skill_id: string`
-
           - `type: "anthropic"`
+
+          - `skill_id: string`
 
           - `version: string`
 
@@ -25447,9 +26348,9 @@ Get Session Thread
 
           A resolved user-created custom skill.
 
-          - `skill_id: string`
-
           - `type: "custom"`
+
+          - `skill_id: string`
 
           - `version: string`
 
@@ -25459,17 +26360,21 @@ Get Session Thread
 
         - `beta_managed_agents_agent_toolset20260401: object`
 
+          - `type: "agent_toolset_20260401"`
+
           - `configs: array of BetaManagedAgentsAgentToolConfig`
 
             - `beta_managed_agents_bash_tool_config: object`
 
               Configuration for the bash tool.
 
+              - `type: "bash"`
+
               - `enabled: boolean`
 
               - `name: "bash"`
 
-              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                 Permission policy for tool execution.
 
@@ -25485,17 +26390,23 @@ Get Session Thread
 
                   - `type: "always_ask"`
 
-              - `type: "bash"`
+                - `beta_managed_agents_auto_policy: object`
+
+                  The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+                  - `type: "auto"`
 
             - `beta_managed_agents_edit_tool_config: object`
 
               Configuration for the edit tool.
 
+              - `type: "edit"`
+
               - `enabled: boolean`
 
               - `name: "edit"`
 
-              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                 Permission policy for tool execution.
 
@@ -25507,17 +26418,21 @@ Get Session Thread
 
                   Tool calls require user confirmation before execution.
 
-              - `type: "edit"`
+                - `beta_managed_agents_auto_policy: object`
+
+                  The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
             - `beta_managed_agents_read_tool_config: object`
 
               Configuration for the read tool.
 
+              - `type: "read"`
+
               - `enabled: boolean`
 
               - `name: "read"`
 
-              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                 Permission policy for tool execution.
 
@@ -25529,17 +26444,21 @@ Get Session Thread
 
                   Tool calls require user confirmation before execution.
 
-              - `type: "read"`
+                - `beta_managed_agents_auto_policy: object`
+
+                  The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
             - `beta_managed_agents_write_tool_config: object`
 
               Configuration for the write tool.
 
+              - `type: "write"`
+
               - `enabled: boolean`
 
               - `name: "write"`
 
-              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                 Permission policy for tool execution.
 
@@ -25551,17 +26470,21 @@ Get Session Thread
 
                   Tool calls require user confirmation before execution.
 
-              - `type: "write"`
+                - `beta_managed_agents_auto_policy: object`
+
+                  The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
             - `beta_managed_agents_glob_tool_config: object`
 
               Configuration for the glob tool.
 
+              - `type: "glob"`
+
               - `enabled: boolean`
 
               - `name: "glob"`
 
-              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                 Permission policy for tool execution.
 
@@ -25573,17 +26496,21 @@ Get Session Thread
 
                   Tool calls require user confirmation before execution.
 
-              - `type: "glob"`
+                - `beta_managed_agents_auto_policy: object`
+
+                  The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
             - `beta_managed_agents_grep_tool_config: object`
 
               Configuration for the grep tool.
 
+              - `type: "grep"`
+
               - `enabled: boolean`
 
               - `name: "grep"`
 
-              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                 Permission policy for tool execution.
 
@@ -25595,17 +26522,21 @@ Get Session Thread
 
                   Tool calls require user confirmation before execution.
 
-              - `type: "grep"`
+                - `beta_managed_agents_auto_policy: object`
+
+                  The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
             - `beta_managed_agents_web_fetch_tool_config: object`
 
               Configuration for the web_fetch tool.
 
+              - `type: "web_fetch"`
+
               - `enabled: boolean`
 
               - `name: "web_fetch"`
 
-              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                 Permission policy for tool execution.
 
@@ -25617,7 +26548,9 @@ Get Session Thread
 
                   Tool calls require user confirmation before execution.
 
-              - `type: "web_fetch"`
+                - `beta_managed_agents_auto_policy: object`
+
+                  The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
               - `allowed_domains: optional array of string`
 
@@ -25631,11 +26564,13 @@ Get Session Thread
 
               Configuration for the web_search tool.
 
+              - `type: "web_search"`
+
               - `enabled: boolean`
 
               - `name: "web_search"`
 
-              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                 Permission policy for tool execution.
 
@@ -25647,7 +26582,9 @@ Get Session Thread
 
                   Tool calls require user confirmation before execution.
 
-              - `type: "web_search"`
+                - `beta_managed_agents_auto_policy: object`
+
+                  The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
               - `allowed_domains: optional array of string`
 
@@ -25689,7 +26626,7 @@ Get Session Thread
 
             - `enabled: boolean`
 
-            - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+            - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
               Permission policy for tool execution.
 
@@ -25701,9 +26638,13 @@ Get Session Thread
 
                 Tool calls require user confirmation before execution.
 
-          - `type: "agent_toolset_20260401"`
+              - `beta_managed_agents_auto_policy: object`
+
+                The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `beta_managed_agents_mcp_toolset: object`
+
+          - `type: "mcp_toolset"`
 
           - `configs: array of BetaManagedAgentsMCPToolConfig`
 
@@ -25711,7 +26652,7 @@ Get Session Thread
 
             - `name: string`
 
-            - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+            - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
               Permission policy for tool execution.
 
@@ -25722,6 +26663,10 @@ Get Session Thread
               - `beta_managed_agents_always_ask_policy: object`
 
                 Tool calls require user confirmation before execution.
+
+              - `beta_managed_agents_auto_policy: object`
+
+                The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
           - `default_config: object`
 
@@ -25729,7 +26674,7 @@ Get Session Thread
 
             - `enabled: boolean`
 
-            - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+            - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
               Permission policy for tool execution.
 
@@ -25741,13 +26686,17 @@ Get Session Thread
 
                 Tool calls require user confirmation before execution.
 
-          - `mcp_server_name: string`
+              - `beta_managed_agents_auto_policy: object`
 
-          - `type: "mcp_toolset"`
+                The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+          - `mcp_server_name: string`
 
         - `beta_managed_agents_custom_tool: object`
 
           A custom tool as returned in API responses.
+
+          - `type: "custom"`
 
           - `description: string`
 
@@ -25763,10 +26712,6 @@ Get Session Thread
 
           - `name: string`
 
-          - `type: "custom"`
-
-      - `type: "agent"`
-
       - `version: number`
 
         format: int32
@@ -25775,11 +26720,11 @@ Get Session Thread
 
       Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
 
+      - `type: "advisor"`
+
       - `model: string`
 
         The advisor model id.
-
-      - `type: "advisor"`
 
   - `archived_at: string`
 
@@ -25834,8 +26779,6 @@ Get Session Thread
     - `"rescheduling"`
 
     - `"terminated"`
-
-  - `type: "session_thread"`
 
   - `updated_at: string`
 
@@ -26035,11 +26978,19 @@ Archive Session Thread
 
   Header param: Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `beta_managed_agents_session_thread: object`
 
   An execution thread within a `session`. Each session has one primary thread plus zero or more child threads spawned by the coordinator.
+
+  - `type: "session_thread"`
 
   - `id: string`
 
@@ -26053,15 +27004,17 @@ Archive Session Thread
 
       Resolved `agent` definition for a single `session_thread`. Snapshot of the agent at thread creation time. The multiagent roster is not repeated here; read it from `Session.agent`.
 
+      - `type: "agent"`
+
       - `id: string`
 
       - `description: string`
 
       - `mcp_servers: array of BetaManagedAgentsMCPServerURLDefinition`
 
-        - `name: string`
-
         - `type: "url"`
+
+        - `name: string`
 
         - `url: string`
 
@@ -26185,9 +27138,9 @@ Archive Session Thread
 
           A resolved Anthropic-managed skill.
 
-          - `skill_id: string`
-
           - `type: "anthropic"`
+
+          - `skill_id: string`
 
           - `version: string`
 
@@ -26195,9 +27148,9 @@ Archive Session Thread
 
           A resolved user-created custom skill.
 
-          - `skill_id: string`
-
           - `type: "custom"`
+
+          - `skill_id: string`
 
           - `version: string`
 
@@ -26207,17 +27160,21 @@ Archive Session Thread
 
         - `beta_managed_agents_agent_toolset20260401: object`
 
+          - `type: "agent_toolset_20260401"`
+
           - `configs: array of BetaManagedAgentsAgentToolConfig`
 
             - `beta_managed_agents_bash_tool_config: object`
 
               Configuration for the bash tool.
 
+              - `type: "bash"`
+
               - `enabled: boolean`
 
               - `name: "bash"`
 
-              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                 Permission policy for tool execution.
 
@@ -26233,17 +27190,23 @@ Archive Session Thread
 
                   - `type: "always_ask"`
 
-              - `type: "bash"`
+                - `beta_managed_agents_auto_policy: object`
+
+                  The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+                  - `type: "auto"`
 
             - `beta_managed_agents_edit_tool_config: object`
 
               Configuration for the edit tool.
 
+              - `type: "edit"`
+
               - `enabled: boolean`
 
               - `name: "edit"`
 
-              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                 Permission policy for tool execution.
 
@@ -26255,17 +27218,21 @@ Archive Session Thread
 
                   Tool calls require user confirmation before execution.
 
-              - `type: "edit"`
+                - `beta_managed_agents_auto_policy: object`
+
+                  The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
             - `beta_managed_agents_read_tool_config: object`
 
               Configuration for the read tool.
 
+              - `type: "read"`
+
               - `enabled: boolean`
 
               - `name: "read"`
 
-              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                 Permission policy for tool execution.
 
@@ -26277,17 +27244,21 @@ Archive Session Thread
 
                   Tool calls require user confirmation before execution.
 
-              - `type: "read"`
+                - `beta_managed_agents_auto_policy: object`
+
+                  The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
             - `beta_managed_agents_write_tool_config: object`
 
               Configuration for the write tool.
 
+              - `type: "write"`
+
               - `enabled: boolean`
 
               - `name: "write"`
 
-              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                 Permission policy for tool execution.
 
@@ -26299,17 +27270,21 @@ Archive Session Thread
 
                   Tool calls require user confirmation before execution.
 
-              - `type: "write"`
+                - `beta_managed_agents_auto_policy: object`
+
+                  The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
             - `beta_managed_agents_glob_tool_config: object`
 
               Configuration for the glob tool.
 
+              - `type: "glob"`
+
               - `enabled: boolean`
 
               - `name: "glob"`
 
-              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                 Permission policy for tool execution.
 
@@ -26321,17 +27296,21 @@ Archive Session Thread
 
                   Tool calls require user confirmation before execution.
 
-              - `type: "glob"`
+                - `beta_managed_agents_auto_policy: object`
+
+                  The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
             - `beta_managed_agents_grep_tool_config: object`
 
               Configuration for the grep tool.
 
+              - `type: "grep"`
+
               - `enabled: boolean`
 
               - `name: "grep"`
 
-              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                 Permission policy for tool execution.
 
@@ -26343,17 +27322,21 @@ Archive Session Thread
 
                   Tool calls require user confirmation before execution.
 
-              - `type: "grep"`
+                - `beta_managed_agents_auto_policy: object`
+
+                  The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
             - `beta_managed_agents_web_fetch_tool_config: object`
 
               Configuration for the web_fetch tool.
 
+              - `type: "web_fetch"`
+
               - `enabled: boolean`
 
               - `name: "web_fetch"`
 
-              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                 Permission policy for tool execution.
 
@@ -26365,7 +27348,9 @@ Archive Session Thread
 
                   Tool calls require user confirmation before execution.
 
-              - `type: "web_fetch"`
+                - `beta_managed_agents_auto_policy: object`
+
+                  The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
               - `allowed_domains: optional array of string`
 
@@ -26379,11 +27364,13 @@ Archive Session Thread
 
               Configuration for the web_search tool.
 
+              - `type: "web_search"`
+
               - `enabled: boolean`
 
               - `name: "web_search"`
 
-              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                 Permission policy for tool execution.
 
@@ -26395,7 +27382,9 @@ Archive Session Thread
 
                   Tool calls require user confirmation before execution.
 
-              - `type: "web_search"`
+                - `beta_managed_agents_auto_policy: object`
+
+                  The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
               - `allowed_domains: optional array of string`
 
@@ -26437,7 +27426,7 @@ Archive Session Thread
 
             - `enabled: boolean`
 
-            - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+            - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
               Permission policy for tool execution.
 
@@ -26449,9 +27438,13 @@ Archive Session Thread
 
                 Tool calls require user confirmation before execution.
 
-          - `type: "agent_toolset_20260401"`
+              - `beta_managed_agents_auto_policy: object`
+
+                The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `beta_managed_agents_mcp_toolset: object`
+
+          - `type: "mcp_toolset"`
 
           - `configs: array of BetaManagedAgentsMCPToolConfig`
 
@@ -26459,7 +27452,7 @@ Archive Session Thread
 
             - `name: string`
 
-            - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+            - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
               Permission policy for tool execution.
 
@@ -26470,6 +27463,10 @@ Archive Session Thread
               - `beta_managed_agents_always_ask_policy: object`
 
                 Tool calls require user confirmation before execution.
+
+              - `beta_managed_agents_auto_policy: object`
+
+                The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
           - `default_config: object`
 
@@ -26477,7 +27474,7 @@ Archive Session Thread
 
             - `enabled: boolean`
 
-            - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+            - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
               Permission policy for tool execution.
 
@@ -26489,13 +27486,17 @@ Archive Session Thread
 
                 Tool calls require user confirmation before execution.
 
-          - `mcp_server_name: string`
+              - `beta_managed_agents_auto_policy: object`
 
-          - `type: "mcp_toolset"`
+                The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+          - `mcp_server_name: string`
 
         - `beta_managed_agents_custom_tool: object`
 
           A custom tool as returned in API responses.
+
+          - `type: "custom"`
 
           - `description: string`
 
@@ -26511,10 +27512,6 @@ Archive Session Thread
 
           - `name: string`
 
-          - `type: "custom"`
-
-      - `type: "agent"`
-
       - `version: number`
 
         format: int32
@@ -26523,11 +27520,11 @@ Archive Session Thread
 
       Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
 
+      - `type: "advisor"`
+
       - `model: string`
 
         The advisor model id.
-
-      - `type: "advisor"`
 
   - `archived_at: string`
 
@@ -26582,8 +27579,6 @@ Archive Session Thread
     - `"rescheduling"`
 
     - `"terminated"`
-
-  - `type: "session_thread"`
 
   - `updated_at: string`
 
@@ -26795,6 +27790,12 @@ List Session Thread Events
 
   Header param: Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `BetaManagedAgentsListSessionThreadEvents: object`
@@ -26809,6 +27810,8 @@ List Session Thread Events
 
       A user message event in the session conversation.
 
+      - `type: "user.message"`
+
       - `id: string`
 
         Unique identifier for this event.
@@ -26821,17 +27824,19 @@ List Session Thread Events
 
           Regular text content.
 
+          - `type: "text"`
+
           - `text: string`
 
             The text content.
 
             minLength: 1
 
-          - `type: "text"`
-
         - `beta_managed_agents_image_block: object`
 
           Image content specified directly as base64 data or as a reference via a URL.
+
+          - `type: "image"`
 
           - `source: BetaManagedAgentsBase64ImageSource or BetaManagedAgentsURLImageSource or BetaManagedAgentsFileImageSource`
 
@@ -26840,6 +27845,8 @@ List Session Thread Events
             - `beta_managed_agents_base64_image_source: object`
 
               Base64-encoded image data.
+
+              - `type: "base64"`
 
               - `data: string`
 
@@ -26852,8 +27859,6 @@ List Session Thread Events
                 MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
 
                 minLength: 1
-
-              - `type: "base64"`
 
             - `beta_managed_agents_url_image_source: object`
 
@@ -26871,19 +27876,19 @@ List Session Thread Events
 
               Image referenced by file ID.
 
+              - `type: "file"`
+
               - `file_id: string`
 
                 ID of a previously uploaded file.
 
                 minLength: 1
 
-              - `type: "file"`
-
-          - `type: "image"`
-
         - `beta_managed_agents_document_block: object`
 
           Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+          - `type: "document"`
 
           - `source: BetaManagedAgentsBase64DocumentSource or BetaManagedAgentsPlainTextDocumentSource or BetaManagedAgentsURLDocumentSource or BetaManagedAgentsFileDocumentSource`
 
@@ -26892,6 +27897,8 @@ List Session Thread Events
             - `beta_managed_agents_base64_document_source: object`
 
               Base64-encoded document data.
+
+              - `type: "base64"`
 
               - `data: string`
 
@@ -26905,11 +27912,11 @@ List Session Thread Events
 
                 minLength: 1
 
-              - `type: "base64"`
-
             - `beta_managed_agents_plain_text_document_source: object`
 
               Plain text document content.
+
+              - `type: "text"`
 
               - `data: string`
 
@@ -26920,8 +27927,6 @@ List Session Thread Events
               - `media_type: "text/plain"`
 
                 MIME type of the text content. Must be "text/plain".
-
-              - `type: "text"`
 
             - `beta_managed_agents_url_document_source: object`
 
@@ -26939,15 +27944,13 @@ List Session Thread Events
 
               Document referenced by file ID.
 
+              - `type: "file"`
+
               - `file_id: string`
 
                 ID of a previously uploaded file.
 
                 minLength: 1
-
-              - `type: "file"`
-
-          - `type: "document"`
 
           - `context: optional string`
 
@@ -26963,8 +27966,6 @@ List Session Thread Events
 
           - `type: "redacted"`
 
-      - `type: "user.message"`
-
       - `processed_at: optional string`
 
         A timestamp in RFC 3339 format
@@ -26975,11 +27976,11 @@ List Session Thread Events
 
       An interrupt event that pauses agent execution and returns control to the user.
 
+      - `type: "user.interrupt"`
+
       - `id: string`
 
         Unique identifier for this event.
-
-      - `type: "user.interrupt"`
 
       - `processed_at: optional string`
 
@@ -26994,6 +27995,8 @@ List Session Thread Events
     - `beta_managed_agents_user_tool_confirmation_event: object`
 
       A tool confirmation event that approves or denies a pending tool execution.
+
+      - `type: "user.tool_confirmation"`
 
       - `id: string`
 
@@ -27010,8 +28013,6 @@ List Session Thread Events
       - `tool_use_id: string`
 
         The id of the `agent.tool_use` or `agent.mcp_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
-
-      - `type: "user.tool_confirmation"`
 
       - `deny_message: optional string`
 
@@ -27033,6 +28034,8 @@ List Session Thread Events
 
       Event sent by the client providing the result of a custom tool execution.
 
+      - `type: "user.custom_tool_result"`
+
       - `id: string`
 
         Unique identifier for this event.
@@ -27040,8 +28043,6 @@ List Session Thread Events
       - `custom_tool_use_id: string`
 
         The id of the `agent.custom_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
-
-      - `type: "user.custom_tool_result"`
 
       - `content: optional array of BetaManagedAgentsTextBlock or BetaManagedAgentsImageBlock or BetaManagedAgentsDocumentBlock or BetaManagedAgentsSearchResultBlock`
 
@@ -27063,6 +28064,8 @@ List Session Thread Events
 
           A block containing a web search result.
 
+          - `type: "search_result"`
+
           - `citations: object`
 
             Citation settings for a search result.
@@ -27075,13 +28078,13 @@ List Session Thread Events
 
             Array of text content blocks from the search result.
 
+            - `type: "text"`
+
             - `text: string`
 
               The text content.
 
               minLength: 1
-
-            - `type: "text"`
 
           - `source: string`
 
@@ -27094,8 +28097,6 @@ List Session Thread Events
             The title of the search result.
 
             minLength: 1
-
-          - `type: "search_result"`
 
       - `is_error: optional boolean`
 
@@ -27115,6 +28116,8 @@ List Session Thread Events
 
       Event emitted when the agent calls a custom tool. The session goes idle until the client sends a `user.custom_tool_result` event with the result.
 
+      - `type: "agent.custom_tool_use"`
+
       - `id: string`
 
         Unique identifier for this event.
@@ -27133,8 +28136,6 @@ List Session Thread Events
 
         format: date-time
 
-      - `type: "agent.custom_tool_use"`
-
       - `session_thread_id: optional string`
 
         When set, this event was cross-posted from a subagent's thread to surface its custom tool use on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.custom_tool_result` event to route the result back.
@@ -27142,6 +28143,8 @@ List Session Thread Events
     - `beta_managed_agents_agent_message_event: object`
 
       An agent response event in the session conversation.
+
+      - `type: "agent.message"`
 
       - `id: string`
 
@@ -27165,11 +28168,11 @@ List Session Thread Events
 
         format: date-time
 
-      - `type: "agent.message"`
-
     - `beta_managed_agents_agent_thinking_event: object`
 
       Indicates the agent is making forward progress via extended thinking. A progress signal, not a content carrier.
+
+      - `type: "agent.thinking"`
 
       - `id: string`
 
@@ -27181,11 +28184,11 @@ List Session Thread Events
 
         format: date-time
 
-      - `type: "agent.thinking"`
-
     - `beta_managed_agents_agent_mcp_tool_use_event: object`
 
       Event emitted when the agent invokes a tool provided by an MCP server.
+
+      - `type: "agent.mcp_tool_use"`
 
       - `id: string`
 
@@ -27209,8 +28212,6 @@ List Session Thread Events
 
         format: date-time
 
-      - `type: "agent.mcp_tool_use"`
-
       - `evaluated_permission: optional "allow" or "ask" or "deny"`
 
         AgentEvaluatedPermission enum
@@ -27221,6 +28222,62 @@ List Session Thread Events
 
         - `"deny"`
 
+      - `evaluation: optional BetaManagedAgentsAgentToolEvaluationAlwaysAllow or BetaManagedAgentsAgentToolEvaluationAlwaysAsk or BetaManagedAgentsAgentToolEvaluationAuto`
+
+        Names the resolved permission_policy that produced evaluated_permission, and under auto carries the judgement. Open union: clients must tolerate unknown variants.
+
+        - `beta_managed_agents_agent_tool_evaluation_always_allow: object`
+
+          The resolved permission_policy was always_allow; accompanies evaluated_permission "allow".
+
+          - `type: "always_allow"`
+
+        - `beta_managed_agents_agent_tool_evaluation_always_ask: object`
+
+          The resolved permission_policy was always_ask; accompanies evaluated_permission "ask".
+
+          - `type: "always_ask"`
+
+        - `beta_managed_agents_agent_tool_evaluation_auto: object`
+
+          The resolved permission_policy was auto: the server judged this invocation individually.
+
+          - `type: "auto"`
+
+          - `evaluated_permission: BetaManagedAgentsAgentAutoEvaluatedPermissionAllow or BetaManagedAgentsAgentAutoEvaluatedPermissionAsk or BetaManagedAgentsAgentAutoEvaluatedPermissionDeny`
+
+            The server's per-invocation judgement under the auto permission policy. Its type always equals the event's top-level evaluated_permission. Open union: clients must tolerate unknown variants.
+
+            - `beta_managed_agents_agent_auto_evaluated_permission_allow: object`
+
+              The server judged the invocation safe to execute without client approval.
+
+              - `type: "allow"`
+
+            - `beta_managed_agents_agent_auto_evaluated_permission_ask: object`
+
+              The server reached no judgement; the invocation is held for client approval.
+
+              - `type: "ask"`
+
+              - `reason_code: string`
+
+                The judgement's grounds in registry-bound terms, for client branching and audit rather than end-user display. Open registry; currently "indeterminate" (no judgement was reached). Clients must tolerate values outside this set.
+
+                maxLength: 64
+
+            - `beta_managed_agents_agent_auto_evaluated_permission_deny: object`
+
+              The server judged the invocation high-risk; it does not execute and a synthetic error tool result is appended.
+
+              - `type: "deny"`
+
+              - `reason_code: string`
+
+                The judgement's grounds in registry-bound terms. Open registry; currently "high_risk" (judged high-risk; the call does not run). Clients must tolerate values outside this set.
+
+                maxLength: 64
+
       - `session_thread_id: optional string`
 
         When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
@@ -27228,6 +28285,8 @@ List Session Thread Events
     - `beta_managed_agents_agent_mcp_tool_result_event: object`
 
       Event representing the result of an MCP tool execution.
+
+      - `type: "agent.mcp_tool_result"`
 
       - `id: string`
 
@@ -27242,8 +28301,6 @@ List Session Thread Events
         A timestamp in RFC 3339 format
 
         format: date-time
-
-      - `type: "agent.mcp_tool_result"`
 
       - `content: optional array of BetaManagedAgentsTextBlock or BetaManagedAgentsImageBlock or BetaManagedAgentsDocumentBlock or BetaManagedAgentsSearchResultBlock`
 
@@ -27273,6 +28330,8 @@ List Session Thread Events
 
       Event emitted when the agent invokes a built-in agent tool.
 
+      - `type: "agent.tool_use"`
+
       - `id: string`
 
         Unique identifier for this event.
@@ -27291,8 +28350,6 @@ List Session Thread Events
 
         format: date-time
 
-      - `type: "agent.tool_use"`
-
       - `evaluated_permission: optional "allow" or "ask" or "deny"`
 
         AgentEvaluatedPermission enum
@@ -27303,6 +28360,22 @@ List Session Thread Events
 
         - `"deny"`
 
+      - `evaluation: optional BetaManagedAgentsAgentToolEvaluationAlwaysAllow or BetaManagedAgentsAgentToolEvaluationAlwaysAsk or BetaManagedAgentsAgentToolEvaluationAuto`
+
+        Names the resolved permission_policy that produced evaluated_permission, and under auto carries the judgement. Open union: clients must tolerate unknown variants.
+
+        - `beta_managed_agents_agent_tool_evaluation_always_allow: object`
+
+          The resolved permission_policy was always_allow; accompanies evaluated_permission "allow".
+
+        - `beta_managed_agents_agent_tool_evaluation_always_ask: object`
+
+          The resolved permission_policy was always_ask; accompanies evaluated_permission "ask".
+
+        - `beta_managed_agents_agent_tool_evaluation_auto: object`
+
+          The resolved permission_policy was auto: the server judged this invocation individually.
+
       - `session_thread_id: optional string`
 
         When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
@@ -27310,6 +28383,8 @@ List Session Thread Events
     - `beta_managed_agents_agent_tool_result_event: object`
 
       Event representing the result of an agent tool execution.
+
+      - `type: "agent.tool_result"`
 
       - `id: string`
 
@@ -27324,8 +28399,6 @@ List Session Thread Events
       - `tool_use_id: string`
 
         The id of the `agent.tool_use` event this result corresponds to.
-
-      - `type: "agent.tool_result"`
 
       - `content: optional array of BetaManagedAgentsTextBlock or BetaManagedAgentsImageBlock or BetaManagedAgentsDocumentBlock or BetaManagedAgentsSearchResultBlock`
 
@@ -27354,6 +28427,8 @@ List Session Thread Events
     - `beta_managed_agents_agent_thread_message_received_event: object`
 
       Delivery event written to the target thread's input stream when an agent-to-agent message arrives.
+
+      - `type: "agent.thread_message_received"`
 
       - `id: string`
 
@@ -27389,8 +28464,6 @@ List Session Thread Events
 
         format: date-time
 
-      - `type: "agent.thread_message_received"`
-
       - `from_agent_name: optional string`
 
         Name of the callable agent this message came from. Absent when received from the primary agent.
@@ -27398,6 +28471,8 @@ List Session Thread Events
     - `beta_managed_agents_agent_thread_message_sent_event: object`
 
       Observability event emitted to the sender's output stream when an agent-to-agent message is sent.
+
+      - `type: "agent.thread_message_sent"`
 
       - `id: string`
 
@@ -27433,8 +28508,6 @@ List Session Thread Events
 
         Public `sthr_` ID of the thread the message was sent to.
 
-      - `type: "agent.thread_message_sent"`
-
       - `to_agent_name: optional string`
 
         Name of the callable agent this message was sent to. Absent when sent to the primary agent.
@@ -27442,6 +28515,8 @@ List Session Thread Events
     - `beta_managed_agents_agent_thread_context_compacted_event: object`
 
       Indicates that context compaction (summarization) occurred during the session.
+
+      - `type: "agent.thread_context_compacted"`
 
       - `id: string`
 
@@ -27453,11 +28528,11 @@ List Session Thread Events
 
         format: date-time
 
-      - `type: "agent.thread_context_compacted"`
-
     - `beta_managed_agents_session_error_event: object`
 
       An error event indicating a problem occurred during session execution.
+
+      - `type: "session.error"`
 
       - `id: string`
 
@@ -27470,6 +28545,8 @@ List Session Thread Events
         - `beta_managed_agents_unknown_error: object`
 
           An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
+
+          - `type: "unknown_error"`
 
           - `message: string`
 
@@ -27497,11 +28574,11 @@ List Session Thread Events
 
               - `type: "terminal"`
 
-          - `type: "unknown_error"`
-
         - `beta_managed_agents_model_overloaded_error: object`
 
           The model is currently overloaded. Emitted after automatic retries are exhausted.
+
+          - `type: "model_overloaded_error"`
 
           - `message: string`
 
@@ -27522,13 +28599,13 @@ List Session Thread Events
             - `beta_managed_agents_retry_status_terminal: object`
 
               The session encountered a terminal error and will transition to `terminated` state.
-
-          - `type: "model_overloaded_error"`
 
         - `beta_managed_agents_model_rate_limited_error: object`
 
           The model request was rate-limited.
 
+          - `type: "model_rate_limited_error"`
+
           - `message: string`
 
             Human-readable error description.
@@ -27548,13 +28625,13 @@ List Session Thread Events
             - `beta_managed_agents_retry_status_terminal: object`
 
               The session encountered a terminal error and will transition to `terminated` state.
-
-          - `type: "model_rate_limited_error"`
 
         - `beta_managed_agents_model_request_failed_error: object`
 
           A model request failed for a reason other than overload or rate-limiting.
 
+          - `type: "model_request_failed_error"`
+
           - `message: string`
 
             Human-readable error description.
@@ -27575,11 +28652,11 @@ List Session Thread Events
 
               The session encountered a terminal error and will transition to `terminated` state.
 
-          - `type: "model_request_failed_error"`
-
         - `beta_managed_agents_mcp_connection_failed_error: object`
 
           Failed to connect to an MCP server.
+
+          - `type: "mcp_connection_failed_error"`
 
           - `mcp_server_name: string`
 
@@ -27605,11 +28682,11 @@ List Session Thread Events
 
               The session encountered a terminal error and will transition to `terminated` state.
 
-          - `type: "mcp_connection_failed_error"`
-
         - `beta_managed_agents_mcp_authentication_failed_error: object`
 
           Authentication to an MCP server failed.
+
+          - `type: "mcp_authentication_failed_error"`
 
           - `mcp_server_name: string`
 
@@ -27635,11 +28712,11 @@ List Session Thread Events
 
               The session encountered a terminal error and will transition to `terminated` state.
 
-          - `type: "mcp_authentication_failed_error"`
-
         - `beta_managed_agents_billing_error: object`
 
           The caller's organization or workspace cannot make model requests — out of credits or spend limit reached. Retrying with the same credentials will not succeed; the caller must resolve the billing state.
+
+          - `type: "billing_error"`
 
           - `message: string`
 
@@ -27661,11 +28738,11 @@ List Session Thread Events
 
               The session encountered a terminal error and will transition to `terminated` state.
 
-          - `type: "billing_error"`
-
         - `beta_managed_agents_credential_host_unreachable_error: object`
 
           An `environment_variable` credential's `auth.networking.allowed_hosts` includes a host the environment's network policy does not permit.
+
+          - `type: "credential_host_unreachable_error"`
 
           - `credential_id: string`
 
@@ -27691,8 +28768,6 @@ List Session Thread Events
 
               The session encountered a terminal error and will transition to `terminated` state.
 
-          - `type: "credential_host_unreachable_error"`
-
           - `vault_id: string`
 
             ID of the vault containing the affected credential.
@@ -27703,11 +28778,11 @@ List Session Thread Events
 
         format: date-time
 
-      - `type: "session.error"`
-
     - `beta_managed_agents_session_status_rescheduled_event: object`
 
       Indicates the session is recovering from an error state and is rescheduled for execution.
+
+      - `type: "session.status_rescheduled"`
 
       - `id: string`
 
@@ -27718,13 +28793,13 @@ List Session Thread Events
         A timestamp in RFC 3339 format
 
         format: date-time
-
-      - `type: "session.status_rescheduled"`
 
     - `beta_managed_agents_session_status_running_event: object`
 
       Indicates the session is actively running and the agent is working.
 
+      - `type: "session.status_running"`
+
       - `id: string`
 
         Unique identifier for this event.
@@ -27735,11 +28810,11 @@ List Session Thread Events
 
         format: date-time
 
-      - `type: "session.status_running"`
-
     - `beta_managed_agents_session_status_idle_event: object`
 
       Indicates the agent has paused and is awaiting user input.
+
+      - `type: "session.status_idle"`
 
       - `id: string`
 
@@ -27765,11 +28840,11 @@ List Session Thread Events
 
           The agent is idle waiting on one or more blocking user-input events (tool confirmation, custom tool result, etc.). Resolving all of them transitions the session back to running.
 
+          - `type: "requires_action"`
+
           - `event_ids: array of string`
 
             The ids of events the agent is blocked on. Resolving fewer than all re-emits `session.status_idle` with the remainder.
-
-          - `type: "requires_action"`
 
         - `beta_managed_agents_session_retries_exhausted: object`
 
@@ -27783,11 +28858,11 @@ List Session Thread Events
 
           - `type: "budget_reached"`
 
-      - `type: "session.status_idle"`
-
     - `beta_managed_agents_session_status_terminated_event: object`
 
       Indicates the session has terminated, either due to an error or completion.
+
+      - `type: "session.status_terminated"`
 
       - `id: string`
 
@@ -27799,11 +28874,11 @@ List Session Thread Events
 
         format: date-time
 
-      - `type: "session.status_terminated"`
-
     - `beta_managed_agents_session_thread_created_event: object`
 
       Emitted when a subagent is spawned as a new thread. Written to the parent thread's output stream so clients observing the session see child creation.
+
+      - `type: "session.thread_created"`
 
       - `id: string`
 
@@ -27823,11 +28898,11 @@ List Session Thread Events
 
         Public `sthr_` ID of the newly created thread.
 
-      - `type: "session.thread_created"`
-
     - `beta_managed_agents_span_outcome_evaluation_start_event: object`
 
       Emitted when an outcome evaluation cycle begins.
+
+      - `type: "span.outcome_evaluation_start"`
 
       - `id: string`
 
@@ -27849,11 +28924,11 @@ List Session Thread Events
 
         format: date-time
 
-      - `type: "span.outcome_evaluation_start"`
-
     - `beta_managed_agents_span_outcome_evaluation_end_event: object`
 
       Emitted when an outcome evaluation cycle completes. Carries the verdict and aggregate token usage. A verdict of `needs_revision` means another evaluation cycle follows; `satisfied`, `max_iterations_reached`, `failed`, or `interrupted` are terminal — no further evaluation cycles follow.
+
+      - `type: "span.outcome_evaluation_end"`
 
       - `id: string`
 
@@ -27886,8 +28961,6 @@ List Session Thread Events
       - `result: string`
 
         Evaluation verdict. 'satisfied': criteria met, session goes idle. 'needs_revision': criteria not met, another revision cycle follows. 'max_iterations_reached': evaluation budget exhausted with criteria still unmet — one final acknowledgment turn follows before the session goes idle, but no further evaluation runs. 'failed': grader determined the rubric does not apply to the deliverables. 'interrupted': user sent an interrupt while evaluation was in progress.
-
-      - `type: "span.outcome_evaluation_end"`
 
       - `usage: object`
 
@@ -27929,6 +29002,8 @@ List Session Thread Events
 
       Emitted when a model request is initiated by the agent.
 
+      - `type: "span.model_request_start"`
+
       - `id: string`
 
         Unique identifier for this event.
@@ -27939,11 +29014,11 @@ List Session Thread Events
 
         format: date-time
 
-      - `type: "span.model_request_start"`
-
     - `beta_managed_agents_span_model_request_end_event: object`
 
       Emitted when a model request completes.
+
+      - `type: "span.model_request_end"`
 
       - `id: string`
 
@@ -27995,11 +29070,11 @@ List Session Thread Events
 
         format: date-time
 
-      - `type: "span.model_request_end"`
-
     - `beta_managed_agents_span_outcome_evaluation_ongoing_event: object`
 
       Periodic heartbeat emitted while an outcome evaluation cycle is in progress. Distinguishes 'evaluation is actively running' from 'evaluation is stuck' between the corresponding `span.outcome_evaluation_start` and `span.outcome_evaluation_end` events.
+
+      - `type: "span.outcome_evaluation_ongoing"`
 
       - `id: string`
 
@@ -28021,11 +29096,11 @@ List Session Thread Events
 
         format: date-time
 
-      - `type: "span.outcome_evaluation_ongoing"`
-
     - `beta_managed_agents_user_define_outcome_event: object`
 
       Echo of a `user.define_outcome` input event. Carries the server-generated `outcome_id` that subsequent `span.outcome_evaluation_*` events reference.
+
+      - `type: "user.define_outcome"`
 
       - `id: string`
 
@@ -28059,27 +29134,27 @@ List Session Thread Events
 
           Rubric referenced by a file uploaded via the Files API.
 
+          - `type: "file"`
+
           - `file_id: string`
 
             ID of the rubric file.
-
-          - `type: "file"`
 
         - `beta_managed_agents_text_rubric: object`
 
           Rubric content provided inline as text.
 
+          - `type: "text"`
+
           - `content: string`
 
             Rubric content. Plain text or markdown — the grader treats it as freeform text.
 
-          - `type: "text"`
-
-      - `type: "user.define_outcome"`
-
     - `beta_managed_agents_session_deleted_event: object`
 
       Emitted when a session has been deleted. Terminates any active event stream — no further events will be emitted for this session.
+
+      - `type: "session.deleted"`
 
       - `id: string`
 
@@ -28091,11 +29166,11 @@ List Session Thread Events
 
         format: date-time
 
-      - `type: "session.deleted"`
-
     - `beta_managed_agents_session_thread_status_running_event: object`
 
       A session thread has begun executing. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
+
+      - `type: "session.thread_status_running"`
 
       - `id: string`
 
@@ -28115,11 +29190,11 @@ List Session Thread Events
 
         Public sthr_ ID of the thread that started running.
 
-      - `type: "session.thread_status_running"`
-
     - `beta_managed_agents_session_thread_status_idle_event: object`
 
       A session thread has yielded and is awaiting input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
+
+      - `type: "session.thread_status_idle"`
 
       - `id: string`
 
@@ -28159,11 +29234,11 @@ List Session Thread Events
 
           The agent stopped because the session's tracked list cost reached its budget, or because its usage includes a model with no list price (which the budget cannot measure). Raise the budget to continue — or, if raising is rejected because a model has no list price, remove the budget.
 
-      - `type: "session.thread_status_idle"`
-
     - `beta_managed_agents_session_thread_status_terminated_event: object`
 
       A session thread has terminated and will accept no further input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
+
+      - `type: "session.thread_status_terminated"`
 
       - `id: string`
 
@@ -28183,11 +29258,11 @@ List Session Thread Events
 
         Public sthr_ ID of the thread that terminated.
 
-      - `type: "session.thread_status_terminated"`
-
     - `beta_managed_agents_user_tool_result_event: object`
 
       Event sent by the client providing the result of an agent-toolset tool execution. Only valid on `self_hosted` environments, where sandbox-routed tools are executed by the client rather than the server.
+
+      - `type: "user.tool_result"`
 
       - `id: string`
 
@@ -28196,8 +29271,6 @@ List Session Thread Events
       - `tool_use_id: string`
 
         The id of the `agent.tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
-
-      - `type: "user.tool_result"`
 
       - `content: optional array of BetaManagedAgentsTextBlock or BetaManagedAgentsImageBlock or BetaManagedAgentsDocumentBlock or BetaManagedAgentsSearchResultBlock`
 
@@ -28237,6 +29310,8 @@ List Session Thread Events
 
       A session thread hit a transient error and is retrying automatically. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
 
+      - `type: "session.thread_status_rescheduled"`
+
       - `id: string`
 
         Unique identifier for this event.
@@ -28255,11 +29330,11 @@ List Session Thread Events
 
         Public sthr_ ID of the thread that is retrying.
 
-      - `type: "session.thread_status_rescheduled"`
-
     - `beta_managed_agents_session_updated_event: object`
 
       Emitted when an UpdateSession request changed at least one field. Carries only the fields that changed; absent fields were not part of the update. The new configuration applies from the next turn.
+
+      - `type: "session.updated"`
 
       - `id: string`
 
@@ -28271,11 +29346,11 @@ List Session Thread Events
 
         format: date-time
 
-      - `type: "session.updated"`
-
       - `agent: optional object`
 
         Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
+
+        - `type: "agent"`
 
         - `id: string`
 
@@ -28283,9 +29358,9 @@ List Session Thread Events
 
         - `mcp_servers: array of BetaManagedAgentsMCPServerURLDefinition`
 
-          - `name: string`
-
           - `type: "url"`
+
+          - `name: string`
 
           - `url: string`
 
@@ -28405,6 +29480,8 @@ List Session Thread Events
 
           Resolved coordinator topology with full agent definitions for each roster member.
 
+          - `type: "coordinator"`
+
           - `agents: array of BetaManagedAgentsSessionThreadAgent or BetaManagedAgentsAdvisor`
 
             Full `agent` definitions the coordinator may spawn as session threads.
@@ -28413,15 +29490,17 @@ List Session Thread Events
 
               Resolved `agent` definition for a single `session_thread`. Snapshot of the agent at thread creation time. The multiagent roster is not repeated here; read it from `Session.agent`.
 
+              - `type: "agent"`
+
               - `id: string`
 
               - `description: string`
 
               - `mcp_servers: array of BetaManagedAgentsMCPServerURLDefinition`
 
-                - `name: string`
-
                 - `type: "url"`
+
+                - `name: string`
 
                 - `url: string`
 
@@ -28455,9 +29534,9 @@ List Session Thread Events
 
                   A resolved Anthropic-managed skill.
 
-                  - `skill_id: string`
-
                   - `type: "anthropic"`
+
+                  - `skill_id: string`
 
                   - `version: string`
 
@@ -28465,9 +29544,9 @@ List Session Thread Events
 
                   A resolved user-created custom skill.
 
-                  - `skill_id: string`
-
                   - `type: "custom"`
+
+                  - `skill_id: string`
 
                   - `version: string`
 
@@ -28477,17 +29556,21 @@ List Session Thread Events
 
                 - `beta_managed_agents_agent_toolset20260401: object`
 
+                  - `type: "agent_toolset_20260401"`
+
                   - `configs: array of BetaManagedAgentsAgentToolConfig`
 
                     - `beta_managed_agents_bash_tool_config: object`
 
                       Configuration for the bash tool.
 
+                      - `type: "bash"`
+
                       - `enabled: boolean`
 
                       - `name: "bash"`
 
-                      - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                      - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                         Permission policy for tool execution.
 
@@ -28503,17 +29586,23 @@ List Session Thread Events
 
                           - `type: "always_ask"`
 
-                      - `type: "bash"`
+                        - `beta_managed_agents_auto_policy: object`
+
+                          The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+                          - `type: "auto"`
 
                     - `beta_managed_agents_edit_tool_config: object`
 
                       Configuration for the edit tool.
 
+                      - `type: "edit"`
+
                       - `enabled: boolean`
 
                       - `name: "edit"`
 
-                      - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                      - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                         Permission policy for tool execution.
 
@@ -28525,17 +29614,21 @@ List Session Thread Events
 
                           Tool calls require user confirmation before execution.
 
-                      - `type: "edit"`
+                        - `beta_managed_agents_auto_policy: object`
+
+                          The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                     - `beta_managed_agents_read_tool_config: object`
 
                       Configuration for the read tool.
 
+                      - `type: "read"`
+
                       - `enabled: boolean`
 
                       - `name: "read"`
 
-                      - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                      - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                         Permission policy for tool execution.
 
@@ -28547,17 +29640,21 @@ List Session Thread Events
 
                           Tool calls require user confirmation before execution.
 
-                      - `type: "read"`
+                        - `beta_managed_agents_auto_policy: object`
+
+                          The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                     - `beta_managed_agents_write_tool_config: object`
 
                       Configuration for the write tool.
 
+                      - `type: "write"`
+
                       - `enabled: boolean`
 
                       - `name: "write"`
 
-                      - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                      - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                         Permission policy for tool execution.
 
@@ -28569,17 +29666,21 @@ List Session Thread Events
 
                           Tool calls require user confirmation before execution.
 
-                      - `type: "write"`
+                        - `beta_managed_agents_auto_policy: object`
+
+                          The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                     - `beta_managed_agents_glob_tool_config: object`
 
                       Configuration for the glob tool.
 
+                      - `type: "glob"`
+
                       - `enabled: boolean`
 
                       - `name: "glob"`
 
-                      - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                      - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                         Permission policy for tool execution.
 
@@ -28591,17 +29692,21 @@ List Session Thread Events
 
                           Tool calls require user confirmation before execution.
 
-                      - `type: "glob"`
+                        - `beta_managed_agents_auto_policy: object`
+
+                          The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                     - `beta_managed_agents_grep_tool_config: object`
 
                       Configuration for the grep tool.
 
+                      - `type: "grep"`
+
                       - `enabled: boolean`
 
                       - `name: "grep"`
 
-                      - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                      - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                         Permission policy for tool execution.
 
@@ -28613,17 +29718,21 @@ List Session Thread Events
 
                           Tool calls require user confirmation before execution.
 
-                      - `type: "grep"`
+                        - `beta_managed_agents_auto_policy: object`
+
+                          The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                     - `beta_managed_agents_web_fetch_tool_config: object`
 
                       Configuration for the web_fetch tool.
 
+                      - `type: "web_fetch"`
+
                       - `enabled: boolean`
 
                       - `name: "web_fetch"`
 
-                      - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                      - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                         Permission policy for tool execution.
 
@@ -28635,7 +29744,9 @@ List Session Thread Events
 
                           Tool calls require user confirmation before execution.
 
-                      - `type: "web_fetch"`
+                        - `beta_managed_agents_auto_policy: object`
+
+                          The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                       - `allowed_domains: optional array of string`
 
@@ -28649,11 +29760,13 @@ List Session Thread Events
 
                       Configuration for the web_search tool.
 
+                      - `type: "web_search"`
+
                       - `enabled: boolean`
 
                       - `name: "web_search"`
 
-                      - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                      - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                         Permission policy for tool execution.
 
@@ -28665,7 +29778,9 @@ List Session Thread Events
 
                           Tool calls require user confirmation before execution.
 
-                      - `type: "web_search"`
+                        - `beta_managed_agents_auto_policy: object`
+
+                          The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                       - `allowed_domains: optional array of string`
 
@@ -28707,7 +29822,7 @@ List Session Thread Events
 
                     - `enabled: boolean`
 
-                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                       Permission policy for tool execution.
 
@@ -28719,9 +29834,13 @@ List Session Thread Events
 
                         Tool calls require user confirmation before execution.
 
-                  - `type: "agent_toolset_20260401"`
+                      - `beta_managed_agents_auto_policy: object`
+
+                        The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                 - `beta_managed_agents_mcp_toolset: object`
+
+                  - `type: "mcp_toolset"`
 
                   - `configs: array of BetaManagedAgentsMCPToolConfig`
 
@@ -28729,7 +29848,7 @@ List Session Thread Events
 
                     - `name: string`
 
-                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                       Permission policy for tool execution.
 
@@ -28740,6 +29859,10 @@ List Session Thread Events
                       - `beta_managed_agents_always_ask_policy: object`
 
                         Tool calls require user confirmation before execution.
+
+                      - `beta_managed_agents_auto_policy: object`
+
+                        The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                   - `default_config: object`
 
@@ -28747,7 +29870,7 @@ List Session Thread Events
 
                     - `enabled: boolean`
 
-                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                       Permission policy for tool execution.
 
@@ -28759,13 +29882,17 @@ List Session Thread Events
 
                         Tool calls require user confirmation before execution.
 
-                  - `mcp_server_name: string`
+                      - `beta_managed_agents_auto_policy: object`
 
-                  - `type: "mcp_toolset"`
+                        The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+                  - `mcp_server_name: string`
 
                 - `beta_managed_agents_custom_tool: object`
 
                   A custom tool as returned in API responses.
+
+                  - `type: "custom"`
 
                   - `description: string`
 
@@ -28781,10 +29908,6 @@ List Session Thread Events
 
                   - `name: string`
 
-                  - `type: "custom"`
-
-              - `type: "agent"`
-
               - `version: number`
 
                 format: int32
@@ -28793,13 +29916,11 @@ List Session Thread Events
 
               Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
 
+              - `type: "advisor"`
+
               - `model: string`
 
                 The advisor model id.
-
-              - `type: "advisor"`
-
-          - `type: "coordinator"`
 
         - `name: string`
 
@@ -28825,8 +29946,6 @@ List Session Thread Events
 
             A custom tool as returned in API responses.
 
-        - `type: "agent"`
-
         - `version: number`
 
           format: int32
@@ -28834,6 +29953,8 @@ List Session Thread Events
       - `budget: optional object`
 
         A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+
+        - `type: "limit"`
 
         - `max_list_cost: object`
 
@@ -28847,8 +29968,6 @@ List Session Thread Events
 
             Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
 
-        - `type: "limit"`
-
       - `metadata: optional map[string]`
 
         The session's full metadata bag after the update. Present when the update set non-empty metadata; absent when metadata was unchanged or cleared to empty.
@@ -28861,6 +29980,8 @@ List Session Thread Events
 
       A mid-conversation system message event. Carries system-role content that is appended to the session as a `role: "system"` turn.
 
+      - `type: "system.message"`
+
       - `id: string`
 
         Unique identifier for this event.
@@ -28869,15 +29990,13 @@ List Session Thread Events
 
         System content blocks. Text-only.
 
+        - `type: "text"`
+
         - `text: string`
 
           The text content.
 
           minLength: 1
-
-        - `type: "text"`
-
-      - `type: "system.message"`
 
       - `processed_at: optional string`
 
@@ -28889,6 +30008,8 @@ List Session Thread Events
 
       Periodic snapshot of the session's cumulative usage and tracked list cost.
 
+      - `type: "session.usage"`
+
       - `id: string`
 
         Unique identifier for this event.
@@ -28898,8 +30019,6 @@ List Session Thread Events
         A timestamp in RFC 3339 format
 
         format: date-time
-
-      - `type: "session.usage"`
 
       - `usage: object`
 
@@ -28977,11 +30096,11 @@ List Session Thread Events
 
         A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
 
+        - `type: "limit"`
+
         - `max_list_cost: object`
 
           A monetary amount in a specific currency.
-
-        - `type: "limit"`
 
   - `next_page: optional string`
 
@@ -29043,6 +30162,12 @@ Stream Session Thread Events
 
   Header param: Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `beta_managed_agents_stream_session_thread_events: BetaManagedAgentsUserMessageEvent or BetaManagedAgentsUserInterruptEvent or BetaManagedAgentsUserToolConfirmationEvent or 34 more`
@@ -29052,6 +30177,8 @@ Stream Session Thread Events
   - `beta_managed_agents_user_message_event: object`
 
     A user message event in the session conversation.
+
+    - `type: "user.message"`
 
     - `id: string`
 
@@ -29065,17 +30192,19 @@ Stream Session Thread Events
 
         Regular text content.
 
+        - `type: "text"`
+
         - `text: string`
 
           The text content.
 
           minLength: 1
 
-        - `type: "text"`
-
       - `beta_managed_agents_image_block: object`
 
         Image content specified directly as base64 data or as a reference via a URL.
+
+        - `type: "image"`
 
         - `source: BetaManagedAgentsBase64ImageSource or BetaManagedAgentsURLImageSource or BetaManagedAgentsFileImageSource`
 
@@ -29084,6 +30213,8 @@ Stream Session Thread Events
           - `beta_managed_agents_base64_image_source: object`
 
             Base64-encoded image data.
+
+            - `type: "base64"`
 
             - `data: string`
 
@@ -29096,8 +30227,6 @@ Stream Session Thread Events
               MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
 
               minLength: 1
-
-            - `type: "base64"`
 
           - `beta_managed_agents_url_image_source: object`
 
@@ -29115,19 +30244,19 @@ Stream Session Thread Events
 
             Image referenced by file ID.
 
+            - `type: "file"`
+
             - `file_id: string`
 
               ID of a previously uploaded file.
 
               minLength: 1
 
-            - `type: "file"`
-
-        - `type: "image"`
-
       - `beta_managed_agents_document_block: object`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+        - `type: "document"`
 
         - `source: BetaManagedAgentsBase64DocumentSource or BetaManagedAgentsPlainTextDocumentSource or BetaManagedAgentsURLDocumentSource or BetaManagedAgentsFileDocumentSource`
 
@@ -29136,6 +30265,8 @@ Stream Session Thread Events
           - `beta_managed_agents_base64_document_source: object`
 
             Base64-encoded document data.
+
+            - `type: "base64"`
 
             - `data: string`
 
@@ -29149,11 +30280,11 @@ Stream Session Thread Events
 
               minLength: 1
 
-            - `type: "base64"`
-
           - `beta_managed_agents_plain_text_document_source: object`
 
             Plain text document content.
+
+            - `type: "text"`
 
             - `data: string`
 
@@ -29164,8 +30295,6 @@ Stream Session Thread Events
             - `media_type: "text/plain"`
 
               MIME type of the text content. Must be "text/plain".
-
-            - `type: "text"`
 
           - `beta_managed_agents_url_document_source: object`
 
@@ -29183,15 +30312,13 @@ Stream Session Thread Events
 
             Document referenced by file ID.
 
+            - `type: "file"`
+
             - `file_id: string`
 
               ID of a previously uploaded file.
 
               minLength: 1
-
-            - `type: "file"`
-
-        - `type: "document"`
 
         - `context: optional string`
 
@@ -29207,8 +30334,6 @@ Stream Session Thread Events
 
         - `type: "redacted"`
 
-    - `type: "user.message"`
-
     - `processed_at: optional string`
 
       A timestamp in RFC 3339 format
@@ -29219,11 +30344,11 @@ Stream Session Thread Events
 
     An interrupt event that pauses agent execution and returns control to the user.
 
+    - `type: "user.interrupt"`
+
     - `id: string`
 
       Unique identifier for this event.
-
-    - `type: "user.interrupt"`
 
     - `processed_at: optional string`
 
@@ -29238,6 +30363,8 @@ Stream Session Thread Events
   - `beta_managed_agents_user_tool_confirmation_event: object`
 
     A tool confirmation event that approves or denies a pending tool execution.
+
+    - `type: "user.tool_confirmation"`
 
     - `id: string`
 
@@ -29254,8 +30381,6 @@ Stream Session Thread Events
     - `tool_use_id: string`
 
       The id of the `agent.tool_use` or `agent.mcp_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
-
-    - `type: "user.tool_confirmation"`
 
     - `deny_message: optional string`
 
@@ -29277,6 +30402,8 @@ Stream Session Thread Events
 
     Event sent by the client providing the result of a custom tool execution.
 
+    - `type: "user.custom_tool_result"`
+
     - `id: string`
 
       Unique identifier for this event.
@@ -29284,8 +30411,6 @@ Stream Session Thread Events
     - `custom_tool_use_id: string`
 
       The id of the `agent.custom_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
-
-    - `type: "user.custom_tool_result"`
 
     - `content: optional array of BetaManagedAgentsTextBlock or BetaManagedAgentsImageBlock or BetaManagedAgentsDocumentBlock or BetaManagedAgentsSearchResultBlock`
 
@@ -29307,6 +30432,8 @@ Stream Session Thread Events
 
         A block containing a web search result.
 
+        - `type: "search_result"`
+
         - `citations: object`
 
           Citation settings for a search result.
@@ -29319,13 +30446,13 @@ Stream Session Thread Events
 
           Array of text content blocks from the search result.
 
+          - `type: "text"`
+
           - `text: string`
 
             The text content.
 
             minLength: 1
-
-          - `type: "text"`
 
         - `source: string`
 
@@ -29338,8 +30465,6 @@ Stream Session Thread Events
           The title of the search result.
 
           minLength: 1
-
-        - `type: "search_result"`
 
     - `is_error: optional boolean`
 
@@ -29359,6 +30484,8 @@ Stream Session Thread Events
 
     Event emitted when the agent calls a custom tool. The session goes idle until the client sends a `user.custom_tool_result` event with the result.
 
+    - `type: "agent.custom_tool_use"`
+
     - `id: string`
 
       Unique identifier for this event.
@@ -29377,8 +30504,6 @@ Stream Session Thread Events
 
       format: date-time
 
-    - `type: "agent.custom_tool_use"`
-
     - `session_thread_id: optional string`
 
       When set, this event was cross-posted from a subagent's thread to surface its custom tool use on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.custom_tool_result` event to route the result back.
@@ -29386,6 +30511,8 @@ Stream Session Thread Events
   - `beta_managed_agents_agent_message_event: object`
 
     An agent response event in the session conversation.
+
+    - `type: "agent.message"`
 
     - `id: string`
 
@@ -29409,11 +30536,11 @@ Stream Session Thread Events
 
       format: date-time
 
-    - `type: "agent.message"`
-
   - `beta_managed_agents_agent_thinking_event: object`
 
     Indicates the agent is making forward progress via extended thinking. A progress signal, not a content carrier.
+
+    - `type: "agent.thinking"`
 
     - `id: string`
 
@@ -29425,11 +30552,11 @@ Stream Session Thread Events
 
       format: date-time
 
-    - `type: "agent.thinking"`
-
   - `beta_managed_agents_agent_mcp_tool_use_event: object`
 
     Event emitted when the agent invokes a tool provided by an MCP server.
+
+    - `type: "agent.mcp_tool_use"`
 
     - `id: string`
 
@@ -29453,8 +30580,6 @@ Stream Session Thread Events
 
       format: date-time
 
-    - `type: "agent.mcp_tool_use"`
-
     - `evaluated_permission: optional "allow" or "ask" or "deny"`
 
       AgentEvaluatedPermission enum
@@ -29465,6 +30590,62 @@ Stream Session Thread Events
 
       - `"deny"`
 
+    - `evaluation: optional BetaManagedAgentsAgentToolEvaluationAlwaysAllow or BetaManagedAgentsAgentToolEvaluationAlwaysAsk or BetaManagedAgentsAgentToolEvaluationAuto`
+
+      Names the resolved permission_policy that produced evaluated_permission, and under auto carries the judgement. Open union: clients must tolerate unknown variants.
+
+      - `beta_managed_agents_agent_tool_evaluation_always_allow: object`
+
+        The resolved permission_policy was always_allow; accompanies evaluated_permission "allow".
+
+        - `type: "always_allow"`
+
+      - `beta_managed_agents_agent_tool_evaluation_always_ask: object`
+
+        The resolved permission_policy was always_ask; accompanies evaluated_permission "ask".
+
+        - `type: "always_ask"`
+
+      - `beta_managed_agents_agent_tool_evaluation_auto: object`
+
+        The resolved permission_policy was auto: the server judged this invocation individually.
+
+        - `type: "auto"`
+
+        - `evaluated_permission: BetaManagedAgentsAgentAutoEvaluatedPermissionAllow or BetaManagedAgentsAgentAutoEvaluatedPermissionAsk or BetaManagedAgentsAgentAutoEvaluatedPermissionDeny`
+
+          The server's per-invocation judgement under the auto permission policy. Its type always equals the event's top-level evaluated_permission. Open union: clients must tolerate unknown variants.
+
+          - `beta_managed_agents_agent_auto_evaluated_permission_allow: object`
+
+            The server judged the invocation safe to execute without client approval.
+
+            - `type: "allow"`
+
+          - `beta_managed_agents_agent_auto_evaluated_permission_ask: object`
+
+            The server reached no judgement; the invocation is held for client approval.
+
+            - `type: "ask"`
+
+            - `reason_code: string`
+
+              The judgement's grounds in registry-bound terms, for client branching and audit rather than end-user display. Open registry; currently "indeterminate" (no judgement was reached). Clients must tolerate values outside this set.
+
+              maxLength: 64
+
+          - `beta_managed_agents_agent_auto_evaluated_permission_deny: object`
+
+            The server judged the invocation high-risk; it does not execute and a synthetic error tool result is appended.
+
+            - `type: "deny"`
+
+            - `reason_code: string`
+
+              The judgement's grounds in registry-bound terms. Open registry; currently "high_risk" (judged high-risk; the call does not run). Clients must tolerate values outside this set.
+
+              maxLength: 64
+
     - `session_thread_id: optional string`
 
       When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
@@ -29472,6 +30653,8 @@ Stream Session Thread Events
   - `beta_managed_agents_agent_mcp_tool_result_event: object`
 
     Event representing the result of an MCP tool execution.
+
+    - `type: "agent.mcp_tool_result"`
 
     - `id: string`
 
@@ -29486,8 +30669,6 @@ Stream Session Thread Events
       A timestamp in RFC 3339 format
 
       format: date-time
-
-    - `type: "agent.mcp_tool_result"`
 
     - `content: optional array of BetaManagedAgentsTextBlock or BetaManagedAgentsImageBlock or BetaManagedAgentsDocumentBlock or BetaManagedAgentsSearchResultBlock`
 
@@ -29517,6 +30698,8 @@ Stream Session Thread Events
 
     Event emitted when the agent invokes a built-in agent tool.
 
+    - `type: "agent.tool_use"`
+
     - `id: string`
 
       Unique identifier for this event.
@@ -29535,8 +30718,6 @@ Stream Session Thread Events
 
       format: date-time
 
-    - `type: "agent.tool_use"`
-
     - `evaluated_permission: optional "allow" or "ask" or "deny"`
 
       AgentEvaluatedPermission enum
@@ -29547,6 +30728,22 @@ Stream Session Thread Events
 
       - `"deny"`
 
+    - `evaluation: optional BetaManagedAgentsAgentToolEvaluationAlwaysAllow or BetaManagedAgentsAgentToolEvaluationAlwaysAsk or BetaManagedAgentsAgentToolEvaluationAuto`
+
+      Names the resolved permission_policy that produced evaluated_permission, and under auto carries the judgement. Open union: clients must tolerate unknown variants.
+
+      - `beta_managed_agents_agent_tool_evaluation_always_allow: object`
+
+        The resolved permission_policy was always_allow; accompanies evaluated_permission "allow".
+
+      - `beta_managed_agents_agent_tool_evaluation_always_ask: object`
+
+        The resolved permission_policy was always_ask; accompanies evaluated_permission "ask".
+
+      - `beta_managed_agents_agent_tool_evaluation_auto: object`
+
+        The resolved permission_policy was auto: the server judged this invocation individually.
+
     - `session_thread_id: optional string`
 
       When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
@@ -29554,6 +30751,8 @@ Stream Session Thread Events
   - `beta_managed_agents_agent_tool_result_event: object`
 
     Event representing the result of an agent tool execution.
+
+    - `type: "agent.tool_result"`
 
     - `id: string`
 
@@ -29568,8 +30767,6 @@ Stream Session Thread Events
     - `tool_use_id: string`
 
       The id of the `agent.tool_use` event this result corresponds to.
-
-    - `type: "agent.tool_result"`
 
     - `content: optional array of BetaManagedAgentsTextBlock or BetaManagedAgentsImageBlock or BetaManagedAgentsDocumentBlock or BetaManagedAgentsSearchResultBlock`
 
@@ -29598,6 +30795,8 @@ Stream Session Thread Events
   - `beta_managed_agents_agent_thread_message_received_event: object`
 
     Delivery event written to the target thread's input stream when an agent-to-agent message arrives.
+
+    - `type: "agent.thread_message_received"`
 
     - `id: string`
 
@@ -29633,8 +30832,6 @@ Stream Session Thread Events
 
       format: date-time
 
-    - `type: "agent.thread_message_received"`
-
     - `from_agent_name: optional string`
 
       Name of the callable agent this message came from. Absent when received from the primary agent.
@@ -29642,6 +30839,8 @@ Stream Session Thread Events
   - `beta_managed_agents_agent_thread_message_sent_event: object`
 
     Observability event emitted to the sender's output stream when an agent-to-agent message is sent.
+
+    - `type: "agent.thread_message_sent"`
 
     - `id: string`
 
@@ -29677,8 +30876,6 @@ Stream Session Thread Events
 
       Public `sthr_` ID of the thread the message was sent to.
 
-    - `type: "agent.thread_message_sent"`
-
     - `to_agent_name: optional string`
 
       Name of the callable agent this message was sent to. Absent when sent to the primary agent.
@@ -29686,6 +30883,8 @@ Stream Session Thread Events
   - `beta_managed_agents_agent_thread_context_compacted_event: object`
 
     Indicates that context compaction (summarization) occurred during the session.
+
+    - `type: "agent.thread_context_compacted"`
 
     - `id: string`
 
@@ -29697,11 +30896,11 @@ Stream Session Thread Events
 
       format: date-time
 
-    - `type: "agent.thread_context_compacted"`
-
   - `beta_managed_agents_session_error_event: object`
 
     An error event indicating a problem occurred during session execution.
+
+    - `type: "session.error"`
 
     - `id: string`
 
@@ -29714,6 +30913,8 @@ Stream Session Thread Events
       - `beta_managed_agents_unknown_error: object`
 
         An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
+
+        - `type: "unknown_error"`
 
         - `message: string`
 
@@ -29741,11 +30942,11 @@ Stream Session Thread Events
 
             - `type: "terminal"`
 
-        - `type: "unknown_error"`
-
       - `beta_managed_agents_model_overloaded_error: object`
 
         The model is currently overloaded. Emitted after automatic retries are exhausted.
+
+        - `type: "model_overloaded_error"`
 
         - `message: string`
 
@@ -29766,13 +30967,13 @@ Stream Session Thread Events
           - `beta_managed_agents_retry_status_terminal: object`
 
             The session encountered a terminal error and will transition to `terminated` state.
-
-        - `type: "model_overloaded_error"`
 
       - `beta_managed_agents_model_rate_limited_error: object`
 
         The model request was rate-limited.
 
+        - `type: "model_rate_limited_error"`
+
         - `message: string`
 
           Human-readable error description.
@@ -29792,13 +30993,13 @@ Stream Session Thread Events
           - `beta_managed_agents_retry_status_terminal: object`
 
             The session encountered a terminal error and will transition to `terminated` state.
-
-        - `type: "model_rate_limited_error"`
 
       - `beta_managed_agents_model_request_failed_error: object`
 
         A model request failed for a reason other than overload or rate-limiting.
 
+        - `type: "model_request_failed_error"`
+
         - `message: string`
 
           Human-readable error description.
@@ -29819,11 +31020,11 @@ Stream Session Thread Events
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-        - `type: "model_request_failed_error"`
-
       - `beta_managed_agents_mcp_connection_failed_error: object`
 
         Failed to connect to an MCP server.
+
+        - `type: "mcp_connection_failed_error"`
 
         - `mcp_server_name: string`
 
@@ -29849,11 +31050,11 @@ Stream Session Thread Events
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-        - `type: "mcp_connection_failed_error"`
-
       - `beta_managed_agents_mcp_authentication_failed_error: object`
 
         Authentication to an MCP server failed.
+
+        - `type: "mcp_authentication_failed_error"`
 
         - `mcp_server_name: string`
 
@@ -29879,11 +31080,11 @@ Stream Session Thread Events
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-        - `type: "mcp_authentication_failed_error"`
-
       - `beta_managed_agents_billing_error: object`
 
         The caller's organization or workspace cannot make model requests — out of credits or spend limit reached. Retrying with the same credentials will not succeed; the caller must resolve the billing state.
+
+        - `type: "billing_error"`
 
         - `message: string`
 
@@ -29905,11 +31106,11 @@ Stream Session Thread Events
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-        - `type: "billing_error"`
-
       - `beta_managed_agents_credential_host_unreachable_error: object`
 
         An `environment_variable` credential's `auth.networking.allowed_hosts` includes a host the environment's network policy does not permit.
+
+        - `type: "credential_host_unreachable_error"`
 
         - `credential_id: string`
 
@@ -29935,8 +31136,6 @@ Stream Session Thread Events
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-        - `type: "credential_host_unreachable_error"`
-
         - `vault_id: string`
 
           ID of the vault containing the affected credential.
@@ -29947,11 +31146,11 @@ Stream Session Thread Events
 
       format: date-time
 
-    - `type: "session.error"`
-
   - `beta_managed_agents_session_status_rescheduled_event: object`
 
     Indicates the session is recovering from an error state and is rescheduled for execution.
+
+    - `type: "session.status_rescheduled"`
 
     - `id: string`
 
@@ -29962,13 +31161,13 @@ Stream Session Thread Events
       A timestamp in RFC 3339 format
 
       format: date-time
-
-    - `type: "session.status_rescheduled"`
 
   - `beta_managed_agents_session_status_running_event: object`
 
     Indicates the session is actively running and the agent is working.
 
+    - `type: "session.status_running"`
+
     - `id: string`
 
       Unique identifier for this event.
@@ -29979,11 +31178,11 @@ Stream Session Thread Events
 
       format: date-time
 
-    - `type: "session.status_running"`
-
   - `beta_managed_agents_session_status_idle_event: object`
 
     Indicates the agent has paused and is awaiting user input.
+
+    - `type: "session.status_idle"`
 
     - `id: string`
 
@@ -30009,11 +31208,11 @@ Stream Session Thread Events
 
         The agent is idle waiting on one or more blocking user-input events (tool confirmation, custom tool result, etc.). Resolving all of them transitions the session back to running.
 
+        - `type: "requires_action"`
+
         - `event_ids: array of string`
 
           The ids of events the agent is blocked on. Resolving fewer than all re-emits `session.status_idle` with the remainder.
-
-        - `type: "requires_action"`
 
       - `beta_managed_agents_session_retries_exhausted: object`
 
@@ -30027,11 +31226,11 @@ Stream Session Thread Events
 
         - `type: "budget_reached"`
 
-    - `type: "session.status_idle"`
-
   - `beta_managed_agents_session_status_terminated_event: object`
 
     Indicates the session has terminated, either due to an error or completion.
+
+    - `type: "session.status_terminated"`
 
     - `id: string`
 
@@ -30043,11 +31242,11 @@ Stream Session Thread Events
 
       format: date-time
 
-    - `type: "session.status_terminated"`
-
   - `beta_managed_agents_session_thread_created_event: object`
 
     Emitted when a subagent is spawned as a new thread. Written to the parent thread's output stream so clients observing the session see child creation.
+
+    - `type: "session.thread_created"`
 
     - `id: string`
 
@@ -30067,11 +31266,11 @@ Stream Session Thread Events
 
       Public `sthr_` ID of the newly created thread.
 
-    - `type: "session.thread_created"`
-
   - `beta_managed_agents_span_outcome_evaluation_start_event: object`
 
     Emitted when an outcome evaluation cycle begins.
+
+    - `type: "span.outcome_evaluation_start"`
 
     - `id: string`
 
@@ -30093,11 +31292,11 @@ Stream Session Thread Events
 
       format: date-time
 
-    - `type: "span.outcome_evaluation_start"`
-
   - `beta_managed_agents_span_outcome_evaluation_end_event: object`
 
     Emitted when an outcome evaluation cycle completes. Carries the verdict and aggregate token usage. A verdict of `needs_revision` means another evaluation cycle follows; `satisfied`, `max_iterations_reached`, `failed`, or `interrupted` are terminal — no further evaluation cycles follow.
+
+    - `type: "span.outcome_evaluation_end"`
 
     - `id: string`
 
@@ -30130,8 +31329,6 @@ Stream Session Thread Events
     - `result: string`
 
       Evaluation verdict. 'satisfied': criteria met, session goes idle. 'needs_revision': criteria not met, another revision cycle follows. 'max_iterations_reached': evaluation budget exhausted with criteria still unmet — one final acknowledgment turn follows before the session goes idle, but no further evaluation runs. 'failed': grader determined the rubric does not apply to the deliverables. 'interrupted': user sent an interrupt while evaluation was in progress.
-
-    - `type: "span.outcome_evaluation_end"`
 
     - `usage: object`
 
@@ -30173,6 +31370,8 @@ Stream Session Thread Events
 
     Emitted when a model request is initiated by the agent.
 
+    - `type: "span.model_request_start"`
+
     - `id: string`
 
       Unique identifier for this event.
@@ -30183,11 +31382,11 @@ Stream Session Thread Events
 
       format: date-time
 
-    - `type: "span.model_request_start"`
-
   - `beta_managed_agents_span_model_request_end_event: object`
 
     Emitted when a model request completes.
+
+    - `type: "span.model_request_end"`
 
     - `id: string`
 
@@ -30239,11 +31438,11 @@ Stream Session Thread Events
 
       format: date-time
 
-    - `type: "span.model_request_end"`
-
   - `beta_managed_agents_span_outcome_evaluation_ongoing_event: object`
 
     Periodic heartbeat emitted while an outcome evaluation cycle is in progress. Distinguishes 'evaluation is actively running' from 'evaluation is stuck' between the corresponding `span.outcome_evaluation_start` and `span.outcome_evaluation_end` events.
+
+    - `type: "span.outcome_evaluation_ongoing"`
 
     - `id: string`
 
@@ -30265,11 +31464,11 @@ Stream Session Thread Events
 
       format: date-time
 
-    - `type: "span.outcome_evaluation_ongoing"`
-
   - `beta_managed_agents_user_define_outcome_event: object`
 
     Echo of a `user.define_outcome` input event. Carries the server-generated `outcome_id` that subsequent `span.outcome_evaluation_*` events reference.
+
+    - `type: "user.define_outcome"`
 
     - `id: string`
 
@@ -30303,27 +31502,27 @@ Stream Session Thread Events
 
         Rubric referenced by a file uploaded via the Files API.
 
+        - `type: "file"`
+
         - `file_id: string`
 
           ID of the rubric file.
-
-        - `type: "file"`
 
       - `beta_managed_agents_text_rubric: object`
 
         Rubric content provided inline as text.
 
+        - `type: "text"`
+
         - `content: string`
 
           Rubric content. Plain text or markdown — the grader treats it as freeform text.
 
-        - `type: "text"`
-
-    - `type: "user.define_outcome"`
-
   - `beta_managed_agents_session_deleted_event: object`
 
     Emitted when a session has been deleted. Terminates any active event stream — no further events will be emitted for this session.
+
+    - `type: "session.deleted"`
 
     - `id: string`
 
@@ -30335,11 +31534,11 @@ Stream Session Thread Events
 
       format: date-time
 
-    - `type: "session.deleted"`
-
   - `beta_managed_agents_session_thread_status_running_event: object`
 
     A session thread has begun executing. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
+
+    - `type: "session.thread_status_running"`
 
     - `id: string`
 
@@ -30359,11 +31558,11 @@ Stream Session Thread Events
 
       Public sthr_ ID of the thread that started running.
 
-    - `type: "session.thread_status_running"`
-
   - `beta_managed_agents_session_thread_status_idle_event: object`
 
     A session thread has yielded and is awaiting input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
+
+    - `type: "session.thread_status_idle"`
 
     - `id: string`
 
@@ -30403,11 +31602,11 @@ Stream Session Thread Events
 
         The agent stopped because the session's tracked list cost reached its budget, or because its usage includes a model with no list price (which the budget cannot measure). Raise the budget to continue — or, if raising is rejected because a model has no list price, remove the budget.
 
-    - `type: "session.thread_status_idle"`
-
   - `beta_managed_agents_session_thread_status_terminated_event: object`
 
     A session thread has terminated and will accept no further input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
+
+    - `type: "session.thread_status_terminated"`
 
     - `id: string`
 
@@ -30427,11 +31626,11 @@ Stream Session Thread Events
 
       Public sthr_ ID of the thread that terminated.
 
-    - `type: "session.thread_status_terminated"`
-
   - `beta_managed_agents_user_tool_result_event: object`
 
     Event sent by the client providing the result of an agent-toolset tool execution. Only valid on `self_hosted` environments, where sandbox-routed tools are executed by the client rather than the server.
+
+    - `type: "user.tool_result"`
 
     - `id: string`
 
@@ -30440,8 +31639,6 @@ Stream Session Thread Events
     - `tool_use_id: string`
 
       The id of the `agent.tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
-
-    - `type: "user.tool_result"`
 
     - `content: optional array of BetaManagedAgentsTextBlock or BetaManagedAgentsImageBlock or BetaManagedAgentsDocumentBlock or BetaManagedAgentsSearchResultBlock`
 
@@ -30481,6 +31678,8 @@ Stream Session Thread Events
 
     A session thread hit a transient error and is retrying automatically. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
 
+    - `type: "session.thread_status_rescheduled"`
+
     - `id: string`
 
       Unique identifier for this event.
@@ -30499,11 +31698,11 @@ Stream Session Thread Events
 
       Public sthr_ ID of the thread that is retrying.
 
-    - `type: "session.thread_status_rescheduled"`
-
   - `beta_managed_agents_session_updated_event: object`
 
     Emitted when an UpdateSession request changed at least one field. Carries only the fields that changed; absent fields were not part of the update. The new configuration applies from the next turn.
+
+    - `type: "session.updated"`
 
     - `id: string`
 
@@ -30515,11 +31714,11 @@ Stream Session Thread Events
 
       format: date-time
 
-    - `type: "session.updated"`
-
     - `agent: optional object`
 
       Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
+
+      - `type: "agent"`
 
       - `id: string`
 
@@ -30527,9 +31726,9 @@ Stream Session Thread Events
 
       - `mcp_servers: array of BetaManagedAgentsMCPServerURLDefinition`
 
-        - `name: string`
-
         - `type: "url"`
+
+        - `name: string`
 
         - `url: string`
 
@@ -30649,6 +31848,8 @@ Stream Session Thread Events
 
         Resolved coordinator topology with full agent definitions for each roster member.
 
+        - `type: "coordinator"`
+
         - `agents: array of BetaManagedAgentsSessionThreadAgent or BetaManagedAgentsAdvisor`
 
           Full `agent` definitions the coordinator may spawn as session threads.
@@ -30657,15 +31858,17 @@ Stream Session Thread Events
 
             Resolved `agent` definition for a single `session_thread`. Snapshot of the agent at thread creation time. The multiagent roster is not repeated here; read it from `Session.agent`.
 
+            - `type: "agent"`
+
             - `id: string`
 
             - `description: string`
 
             - `mcp_servers: array of BetaManagedAgentsMCPServerURLDefinition`
 
-              - `name: string`
-
               - `type: "url"`
+
+              - `name: string`
 
               - `url: string`
 
@@ -30699,9 +31902,9 @@ Stream Session Thread Events
 
                 A resolved Anthropic-managed skill.
 
-                - `skill_id: string`
-
                 - `type: "anthropic"`
+
+                - `skill_id: string`
 
                 - `version: string`
 
@@ -30709,9 +31912,9 @@ Stream Session Thread Events
 
                 A resolved user-created custom skill.
 
-                - `skill_id: string`
-
                 - `type: "custom"`
+
+                - `skill_id: string`
 
                 - `version: string`
 
@@ -30721,17 +31924,21 @@ Stream Session Thread Events
 
               - `beta_managed_agents_agent_toolset20260401: object`
 
+                - `type: "agent_toolset_20260401"`
+
                 - `configs: array of BetaManagedAgentsAgentToolConfig`
 
                   - `beta_managed_agents_bash_tool_config: object`
 
                     Configuration for the bash tool.
 
+                    - `type: "bash"`
+
                     - `enabled: boolean`
 
                     - `name: "bash"`
 
-                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                       Permission policy for tool execution.
 
@@ -30747,17 +31954,23 @@ Stream Session Thread Events
 
                         - `type: "always_ask"`
 
-                    - `type: "bash"`
+                      - `beta_managed_agents_auto_policy: object`
+
+                        The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+                        - `type: "auto"`
 
                   - `beta_managed_agents_edit_tool_config: object`
 
                     Configuration for the edit tool.
 
+                    - `type: "edit"`
+
                     - `enabled: boolean`
 
                     - `name: "edit"`
 
-                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                       Permission policy for tool execution.
 
@@ -30769,17 +31982,21 @@ Stream Session Thread Events
 
                         Tool calls require user confirmation before execution.
 
-                    - `type: "edit"`
+                      - `beta_managed_agents_auto_policy: object`
+
+                        The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                   - `beta_managed_agents_read_tool_config: object`
 
                     Configuration for the read tool.
 
+                    - `type: "read"`
+
                     - `enabled: boolean`
 
                     - `name: "read"`
 
-                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                       Permission policy for tool execution.
 
@@ -30791,17 +32008,21 @@ Stream Session Thread Events
 
                         Tool calls require user confirmation before execution.
 
-                    - `type: "read"`
+                      - `beta_managed_agents_auto_policy: object`
+
+                        The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                   - `beta_managed_agents_write_tool_config: object`
 
                     Configuration for the write tool.
 
+                    - `type: "write"`
+
                     - `enabled: boolean`
 
                     - `name: "write"`
 
-                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                       Permission policy for tool execution.
 
@@ -30813,17 +32034,21 @@ Stream Session Thread Events
 
                         Tool calls require user confirmation before execution.
 
-                    - `type: "write"`
+                      - `beta_managed_agents_auto_policy: object`
+
+                        The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                   - `beta_managed_agents_glob_tool_config: object`
 
                     Configuration for the glob tool.
 
+                    - `type: "glob"`
+
                     - `enabled: boolean`
 
                     - `name: "glob"`
 
-                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                       Permission policy for tool execution.
 
@@ -30835,17 +32060,21 @@ Stream Session Thread Events
 
                         Tool calls require user confirmation before execution.
 
-                    - `type: "glob"`
+                      - `beta_managed_agents_auto_policy: object`
+
+                        The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                   - `beta_managed_agents_grep_tool_config: object`
 
                     Configuration for the grep tool.
 
+                    - `type: "grep"`
+
                     - `enabled: boolean`
 
                     - `name: "grep"`
 
-                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                       Permission policy for tool execution.
 
@@ -30857,17 +32086,21 @@ Stream Session Thread Events
 
                         Tool calls require user confirmation before execution.
 
-                    - `type: "grep"`
+                      - `beta_managed_agents_auto_policy: object`
+
+                        The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                   - `beta_managed_agents_web_fetch_tool_config: object`
 
                     Configuration for the web_fetch tool.
 
+                    - `type: "web_fetch"`
+
                     - `enabled: boolean`
 
                     - `name: "web_fetch"`
 
-                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                       Permission policy for tool execution.
 
@@ -30879,7 +32112,9 @@ Stream Session Thread Events
 
                         Tool calls require user confirmation before execution.
 
-                    - `type: "web_fetch"`
+                      - `beta_managed_agents_auto_policy: object`
+
+                        The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                     - `allowed_domains: optional array of string`
 
@@ -30893,11 +32128,13 @@ Stream Session Thread Events
 
                     Configuration for the web_search tool.
 
+                    - `type: "web_search"`
+
                     - `enabled: boolean`
 
                     - `name: "web_search"`
 
-                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                       Permission policy for tool execution.
 
@@ -30909,7 +32146,9 @@ Stream Session Thread Events
 
                         Tool calls require user confirmation before execution.
 
-                    - `type: "web_search"`
+                      - `beta_managed_agents_auto_policy: object`
+
+                        The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                     - `allowed_domains: optional array of string`
 
@@ -30951,7 +32190,7 @@ Stream Session Thread Events
 
                   - `enabled: boolean`
 
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                     Permission policy for tool execution.
 
@@ -30963,9 +32202,13 @@ Stream Session Thread Events
 
                       Tool calls require user confirmation before execution.
 
-                - `type: "agent_toolset_20260401"`
+                    - `beta_managed_agents_auto_policy: object`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
               - `beta_managed_agents_mcp_toolset: object`
+
+                - `type: "mcp_toolset"`
 
                 - `configs: array of BetaManagedAgentsMCPToolConfig`
 
@@ -30973,7 +32216,7 @@ Stream Session Thread Events
 
                   - `name: string`
 
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                     Permission policy for tool execution.
 
@@ -30984,6 +32227,10 @@ Stream Session Thread Events
                     - `beta_managed_agents_always_ask_policy: object`
 
                       Tool calls require user confirmation before execution.
+
+                    - `beta_managed_agents_auto_policy: object`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                 - `default_config: object`
 
@@ -30991,7 +32238,7 @@ Stream Session Thread Events
 
                   - `enabled: boolean`
 
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
 
                     Permission policy for tool execution.
 
@@ -31003,13 +32250,17 @@ Stream Session Thread Events
 
                       Tool calls require user confirmation before execution.
 
-                - `mcp_server_name: string`
+                    - `beta_managed_agents_auto_policy: object`
 
-                - `type: "mcp_toolset"`
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+                - `mcp_server_name: string`
 
               - `beta_managed_agents_custom_tool: object`
 
                 A custom tool as returned in API responses.
+
+                - `type: "custom"`
 
                 - `description: string`
 
@@ -31025,10 +32276,6 @@ Stream Session Thread Events
 
                 - `name: string`
 
-                - `type: "custom"`
-
-            - `type: "agent"`
-
             - `version: number`
 
               format: int32
@@ -31037,13 +32284,11 @@ Stream Session Thread Events
 
             Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
 
+            - `type: "advisor"`
+
             - `model: string`
 
               The advisor model id.
-
-            - `type: "advisor"`
-
-        - `type: "coordinator"`
 
       - `name: string`
 
@@ -31069,8 +32314,6 @@ Stream Session Thread Events
 
           A custom tool as returned in API responses.
 
-      - `type: "agent"`
-
       - `version: number`
 
         format: int32
@@ -31078,6 +32321,8 @@ Stream Session Thread Events
     - `budget: optional object`
 
       A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+
+      - `type: "limit"`
 
       - `max_list_cost: object`
 
@@ -31091,8 +32336,6 @@ Stream Session Thread Events
 
           Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
 
-      - `type: "limit"`
-
     - `metadata: optional map[string]`
 
       The session's full metadata bag after the update. Present when the update set non-empty metadata; absent when metadata was unchanged or cleared to empty.
@@ -31105,49 +32348,51 @@ Stream Session Thread Events
 
     Opens a preview of a buffered event. Carries the previewed event's type and id only. Followed by zero or more event_delta events with the same event id, normally concluded by the buffered event carrying that id. If the producing model request ends without that event (an error or interrupt mid-stream), its terminal span.model_request_end closes the preview. Only sent on stream connections that opt in via event_deltas; never appears in event history.
 
+    - `type: "event_start"`
+
     - `event: BetaManagedAgentsAgentMessagePreview or BetaManagedAgentsAgentThinkingPreview`
 
       The previewed event's type and id. The event type determines which delta types the preview's event_delta events carry: agent.message events stream content_delta fragments; agent.thinking previews are start-only — no deltas follow, and the buffered agent.thinking with the same id concludes them.
 
       - `beta_managed_agents_agent_message_preview: object`
 
+        - `type: "agent.message"`
+
         - `id: string`
 
           The id the buffered agent.message will carry if it is emitted. Matches the event_id on this preview's event_delta events.
 
-        - `type: "agent.message"`
-
       - `beta_managed_agents_agent_thinking_preview: object`
+
+        - `type: "agent.thinking"`
 
         - `id: string`
 
           The id the buffered agent.thinking will carry if it is emitted. Start-only — no event_delta events follow.
 
-        - `type: "agent.thinking"`
-
-    - `type: "event_start"`
-
   - `beta_managed_agents_delta_event: object`
 
     An incremental update to an event that is still being streamed. Deltas are best-effort and may stop early; when the buffered event with id == event_id is produced it carries the complete content. A model request that ends early (an error or interrupt) produces no buffered event — its terminal span.model_request_end closes the preview. Only sent on stream connections that opt in via event_deltas; never appears in event history.
+
+    - `type: "event_delta"`
 
     - `delta: object`
 
       One fragment of the previewed event. The delta type is named for the previewed event's field it streams into: agent.message events stream content_delta fragments, each a partial element of the content array.
 
+      - `type: "content_delta"`
+
       - `content: object`
 
         Regular text content.
+
+        - `type: "text"`
 
         - `text: string`
 
           The text content.
 
           minLength: 1
-
-        - `type: "text"`
-
-      - `type: "content_delta"`
 
       - `index: optional number`
 
@@ -31159,11 +32404,11 @@ Stream Session Thread Events
 
       The id of the event being previewed. Matches event.id on the corresponding event_start and the buffered event that reconciles the preview.
 
-    - `type: "event_delta"`
-
   - `beta_managed_agents_system_message_event: object`
 
     A mid-conversation system message event. Carries system-role content that is appended to the session as a `role: "system"` turn.
+
+    - `type: "system.message"`
 
     - `id: string`
 
@@ -31173,15 +32418,13 @@ Stream Session Thread Events
 
       System content blocks. Text-only.
 
+      - `type: "text"`
+
       - `text: string`
 
         The text content.
 
         minLength: 1
-
-      - `type: "text"`
-
-    - `type: "system.message"`
 
     - `processed_at: optional string`
 
@@ -31193,6 +32436,8 @@ Stream Session Thread Events
 
     Periodic snapshot of the session's cumulative usage and tracked list cost.
 
+    - `type: "session.usage"`
+
     - `id: string`
 
       Unique identifier for this event.
@@ -31202,8 +32447,6 @@ Stream Session Thread Events
       A timestamp in RFC 3339 format
 
       format: date-time
-
-    - `type: "session.usage"`
 
     - `usage: object`
 
@@ -31281,163 +32524,11 @@ Stream Session Thread Events
 
       A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
 
+      - `type: "limit"`
+
       - `max_list_cost: object`
 
         A monetary amount in a specific currency.
-
-      - `type: "limit"`
-
-- `beta_managed_agents_stream_session_thread_events: BetaManagedAgentsUserMessageEvent or BetaManagedAgentsUserInterruptEvent or BetaManagedAgentsUserToolConfirmationEvent or 34 more`
-
-  Server-sent event in a single thread's stream.
-
-  - `beta_managed_agents_user_message_event: object`
-
-    A user message event in the session conversation.
-
-  - `beta_managed_agents_user_interrupt_event: object`
-
-    An interrupt event that pauses agent execution and returns control to the user.
-
-  - `beta_managed_agents_user_tool_confirmation_event: object`
-
-    A tool confirmation event that approves or denies a pending tool execution.
-
-  - `beta_managed_agents_user_custom_tool_result_event: object`
-
-    Event sent by the client providing the result of a custom tool execution.
-
-  - `beta_managed_agents_agent_custom_tool_use_event: object`
-
-    Event emitted when the agent calls a custom tool. The session goes idle until the client sends a `user.custom_tool_result` event with the result.
-
-  - `beta_managed_agents_agent_message_event: object`
-
-    An agent response event in the session conversation.
-
-  - `beta_managed_agents_agent_thinking_event: object`
-
-    Indicates the agent is making forward progress via extended thinking. A progress signal, not a content carrier.
-
-  - `beta_managed_agents_agent_mcp_tool_use_event: object`
-
-    Event emitted when the agent invokes a tool provided by an MCP server.
-
-  - `beta_managed_agents_agent_mcp_tool_result_event: object`
-
-    Event representing the result of an MCP tool execution.
-
-  - `beta_managed_agents_agent_tool_use_event: object`
-
-    Event emitted when the agent invokes a built-in agent tool.
-
-  - `beta_managed_agents_agent_tool_result_event: object`
-
-    Event representing the result of an agent tool execution.
-
-  - `beta_managed_agents_agent_thread_message_received_event: object`
-
-    Delivery event written to the target thread's input stream when an agent-to-agent message arrives.
-
-  - `beta_managed_agents_agent_thread_message_sent_event: object`
-
-    Observability event emitted to the sender's output stream when an agent-to-agent message is sent.
-
-  - `beta_managed_agents_agent_thread_context_compacted_event: object`
-
-    Indicates that context compaction (summarization) occurred during the session.
-
-  - `beta_managed_agents_session_error_event: object`
-
-    An error event indicating a problem occurred during session execution.
-
-  - `beta_managed_agents_session_status_rescheduled_event: object`
-
-    Indicates the session is recovering from an error state and is rescheduled for execution.
-
-  - `beta_managed_agents_session_status_running_event: object`
-
-    Indicates the session is actively running and the agent is working.
-
-  - `beta_managed_agents_session_status_idle_event: object`
-
-    Indicates the agent has paused and is awaiting user input.
-
-  - `beta_managed_agents_session_status_terminated_event: object`
-
-    Indicates the session has terminated, either due to an error or completion.
-
-  - `beta_managed_agents_session_thread_created_event: object`
-
-    Emitted when a subagent is spawned as a new thread. Written to the parent thread's output stream so clients observing the session see child creation.
-
-  - `beta_managed_agents_span_outcome_evaluation_start_event: object`
-
-    Emitted when an outcome evaluation cycle begins.
-
-  - `beta_managed_agents_span_outcome_evaluation_end_event: object`
-
-    Emitted when an outcome evaluation cycle completes. Carries the verdict and aggregate token usage. A verdict of `needs_revision` means another evaluation cycle follows; `satisfied`, `max_iterations_reached`, `failed`, or `interrupted` are terminal — no further evaluation cycles follow.
-
-  - `beta_managed_agents_span_model_request_start_event: object`
-
-    Emitted when a model request is initiated by the agent.
-
-  - `beta_managed_agents_span_model_request_end_event: object`
-
-    Emitted when a model request completes.
-
-  - `beta_managed_agents_span_outcome_evaluation_ongoing_event: object`
-
-    Periodic heartbeat emitted while an outcome evaluation cycle is in progress. Distinguishes 'evaluation is actively running' from 'evaluation is stuck' between the corresponding `span.outcome_evaluation_start` and `span.outcome_evaluation_end` events.
-
-  - `beta_managed_agents_user_define_outcome_event: object`
-
-    Echo of a `user.define_outcome` input event. Carries the server-generated `outcome_id` that subsequent `span.outcome_evaluation_*` events reference.
-
-  - `beta_managed_agents_session_deleted_event: object`
-
-    Emitted when a session has been deleted. Terminates any active event stream — no further events will be emitted for this session.
-
-  - `beta_managed_agents_session_thread_status_running_event: object`
-
-    A session thread has begun executing. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
-
-  - `beta_managed_agents_session_thread_status_idle_event: object`
-
-    A session thread has yielded and is awaiting input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
-
-  - `beta_managed_agents_session_thread_status_terminated_event: object`
-
-    A session thread has terminated and will accept no further input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
-
-  - `beta_managed_agents_user_tool_result_event: object`
-
-    Event sent by the client providing the result of an agent-toolset tool execution. Only valid on `self_hosted` environments, where sandbox-routed tools are executed by the client rather than the server.
-
-  - `beta_managed_agents_session_thread_status_rescheduled_event: object`
-
-    A session thread hit a transient error and is retrying automatically. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
-
-  - `beta_managed_agents_session_updated_event: object`
-
-    Emitted when an UpdateSession request changed at least one field. Carries only the fields that changed; absent fields were not part of the update. The new configuration applies from the next turn.
-
-  - `beta_managed_agents_start_event: object`
-
-    Opens a preview of a buffered event. Carries the previewed event's type and id only. Followed by zero or more event_delta events with the same event id, normally concluded by the buffered event carrying that id. If the producing model request ends without that event (an error or interrupt mid-stream), its terminal span.model_request_end closes the preview. Only sent on stream connections that opt in via event_deltas; never appears in event history.
-
-  - `beta_managed_agents_delta_event: object`
-
-    An incremental update to an event that is still being streamed. Deltas are best-effort and may stop early; when the buffered event with id == event_id is produced it carries the complete content. A model request that ends early (an error or interrupt) produces no buffered event — its terminal span.model_request_end closes the preview. Only sent on stream connections that opt in via event_deltas; never appears in event history.
-
-  - `beta_managed_agents_system_message_event: object`
-
-    A mid-conversation system message event. Carries system-role content that is appended to the session as a `role: "system"` turn.
-
-  - `beta_managed_agents_session_usage_event: object`
-
-    Periodic snapshot of the session's cumulative usage and tracked list cost.
 
 #### Example
 
@@ -31526,11 +32617,19 @@ Create Deployment
 
   Header param: Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `beta_managed_agents_deployment: object`
 
   A deployment is a configured instance of an agent — it binds the agent to everything needed to run it autonomously: an environment, credentials, initial events, and an optional schedule.
+
+  - `type: "deployment"`
 
   - `id: string`
 
@@ -31540,9 +32639,9 @@ Create Deployment
 
     A resolved agent reference with a concrete version.
 
-    - `id: string`
-
     - `type: "agent"`
+
+    - `id: string`
 
     - `version: number`
 
@@ -31576,6 +32675,8 @@ Create Deployment
 
       A user message sent to the session.
 
+      - `type: "user.message"`
+
       - `content: array of BetaManagedAgentsTextBlock or BetaManagedAgentsImageBlock or BetaManagedAgentsDocumentBlock or BetaManagedAgentsRedactedBlock`
 
         Array of content blocks for the user message.
@@ -31584,17 +32685,19 @@ Create Deployment
 
           Regular text content.
 
+          - `type: "text"`
+
           - `text: string`
 
             The text content.
 
             minLength: 1
 
-          - `type: "text"`
-
         - `beta_managed_agents_image_block: object`
 
           Image content specified directly as base64 data or as a reference via a URL.
+
+          - `type: "image"`
 
           - `source: BetaManagedAgentsBase64ImageSource or BetaManagedAgentsURLImageSource or BetaManagedAgentsFileImageSource`
 
@@ -31603,6 +32706,8 @@ Create Deployment
             - `beta_managed_agents_base64_image_source: object`
 
               Base64-encoded image data.
+
+              - `type: "base64"`
 
               - `data: string`
 
@@ -31615,8 +32720,6 @@ Create Deployment
                 MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
 
                 minLength: 1
-
-              - `type: "base64"`
 
             - `beta_managed_agents_url_image_source: object`
 
@@ -31634,19 +32737,19 @@ Create Deployment
 
               Image referenced by file ID.
 
+              - `type: "file"`
+
               - `file_id: string`
 
                 ID of a previously uploaded file.
 
                 minLength: 1
 
-              - `type: "file"`
-
-          - `type: "image"`
-
         - `beta_managed_agents_document_block: object`
 
           Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+          - `type: "document"`
 
           - `source: BetaManagedAgentsBase64DocumentSource or BetaManagedAgentsPlainTextDocumentSource or BetaManagedAgentsURLDocumentSource or BetaManagedAgentsFileDocumentSource`
 
@@ -31655,6 +32758,8 @@ Create Deployment
             - `beta_managed_agents_base64_document_source: object`
 
               Base64-encoded document data.
+
+              - `type: "base64"`
 
               - `data: string`
 
@@ -31668,11 +32773,11 @@ Create Deployment
 
                 minLength: 1
 
-              - `type: "base64"`
-
             - `beta_managed_agents_plain_text_document_source: object`
 
               Plain text document content.
+
+              - `type: "text"`
 
               - `data: string`
 
@@ -31683,8 +32788,6 @@ Create Deployment
               - `media_type: "text/plain"`
 
                 MIME type of the text content. Must be "text/plain".
-
-              - `type: "text"`
 
             - `beta_managed_agents_url_document_source: object`
 
@@ -31702,15 +32805,13 @@ Create Deployment
 
               Document referenced by file ID.
 
+              - `type: "file"`
+
               - `file_id: string`
 
                 ID of a previously uploaded file.
 
                 minLength: 1
-
-              - `type: "file"`
-
-          - `type: "document"`
 
           - `context: optional string`
 
@@ -31726,11 +32827,11 @@ Create Deployment
 
           - `type: "redacted"`
 
-      - `type: "user.message"`
-
     - `beta_managed_agents_deployment_user_define_outcome_event: object`
 
       An outcome the agent should work toward. The agent begins work on receipt.
+
+      - `type: "user.define_outcome"`
 
       - `description: string`
 
@@ -31744,23 +32845,21 @@ Create Deployment
 
           Rubric referenced by a file uploaded via the Files API.
 
+          - `type: "file"`
+
           - `file_id: string`
 
             ID of the rubric file.
-
-          - `type: "file"`
 
         - `beta_managed_agents_text_rubric: object`
 
           Rubric content provided inline as text.
 
+          - `type: "text"`
+
           - `content: string`
 
             Rubric content. Plain text or markdown — the grader treats it as freeform text.
-
-          - `type: "text"`
-
-      - `type: "user.define_outcome"`
 
       - `max_iterations: optional number`
 
@@ -31772,19 +32871,19 @@ Create Deployment
 
       Privileged context for the accompanying turn and all subsequent turns, appended to the session's system context as a `role: "system"` turn rather than replacing the top-level system prompt.
 
+      - `type: "system.message"`
+
       - `content: array of BetaManagedAgentsSystemContentBlock`
 
         System content blocks to append. Text-only.
+
+        - `type: "text"`
 
         - `text: string`
 
           The text content.
 
           minLength: 1
-
-        - `type: "text"`
-
-      - `type: "system.message"`
 
   - `metadata: map[string]`
 
@@ -31807,6 +32906,8 @@ Create Deployment
     - `beta_managed_agents_error_deployment_paused_reason: object`
 
       A scheduled fire recorded a failed run whose error auto-pauses the deployment.
+
+      - `type: "error"`
 
       - `error: BetaManagedAgentsEnvironmentArchivedDeploymentPausedReasonError or BetaManagedAgentsAgentArchivedDeploymentPausedReasonError or BetaManagedAgentsEnvironmentNotFoundDeploymentPausedReasonError or 11 more`
 
@@ -31896,8 +32997,6 @@ Create Deployment
 
           - `type: "mcp_egress_blocked_error"`
 
-      - `type: "error"`
-
   - `resources: array of BetaManagedAgentsSessionResourceConfig`
 
     Resources attached to sessions created from this deployment. Echoes the input minus write-only credentials.
@@ -31918,23 +33017,23 @@ Create Deployment
 
         - `beta_managed_agents_branch_checkout: object`
 
+          - `type: "branch"`
+
           - `name: string`
 
             Branch name to check out.
 
             minLength: 1, maxLength: 255
 
-          - `type: "branch"`
-
         - `beta_managed_agents_commit_checkout: object`
+
+          - `type: "commit"`
 
           - `sha: string`
 
             Full commit SHA to check out.
 
             minLength: 7, maxLength: 64
-
-          - `type: "commit"`
 
       - `mount_path: optional string`
 
@@ -31944,11 +33043,11 @@ Create Deployment
 
       A file mounted into each session's container.
 
+      - `type: "file"`
+
       - `file_id: string`
 
         ID of a previously uploaded file.
-
-      - `type: "file"`
 
       - `mount_path: optional string`
 
@@ -31958,11 +33057,11 @@ Create Deployment
 
       A memory store attached to each session created from this deployment.
 
+      - `type: "memory_store"`
+
       - `memory_store_id: string`
 
         The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
-
-      - `type: "memory_store"`
 
       - `access: optional "read_write" or "read_only"`
 
@@ -31980,6 +33079,8 @@ Create Deployment
 
     5-field POSIX cron schedule with computed runtime timestamps.
 
+    - `type: "cron"`
+
     - `expression: string`
 
       5-field POSIX cron expression: minute hour day-of-month month day-of-week (e.g., "0 9 * * 1-5" for weekdays at 9am). Day-of-week is 0-7 where 0 and 7 both mean Sunday. Extended cron syntax - seconds or year fields, and the special characters L, W, #, and ? - is not supported, nor are predefined shortcuts (@daily).
@@ -31991,8 +33092,6 @@ Create Deployment
       IANA timezone identifier (e.g., "America/Los_Angeles", "UTC").
 
       minLength: 1
-
-    - `type: "cron"`
 
     - `last_run_at: optional string`
 
@@ -32012,8 +33111,6 @@ Create Deployment
 
     - `"paused"`
 
-  - `type: "deployment"`
-
   - `updated_at: string`
 
     A timestamp in RFC 3339 format
@@ -32028,6 +33125,8 @@ Create Deployment
 
     A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
 
+    - `type: "limit"`
+
     - `max_list_cost: object`
 
       A monetary amount in a specific currency.
@@ -32039,8 +33138,6 @@ Create Deployment
       - `currency: "USD"`
 
         Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
-
-    - `type: "limit"`
 
 #### Example
 
@@ -32168,6 +33265,12 @@ List Deployments
 
   Header param: Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `BetaManagedAgentsListDeploymentsData: object`
@@ -32178,6 +33281,8 @@ List Deployments
 
     List of deployments.
 
+    - `type: "deployment"`
+
     - `id: string`
 
       Unique identifier for this deployment.
@@ -32186,9 +33291,9 @@ List Deployments
 
       A resolved agent reference with a concrete version.
 
-      - `id: string`
-
       - `type: "agent"`
+
+      - `id: string`
 
       - `version: number`
 
@@ -32222,6 +33327,8 @@ List Deployments
 
         A user message sent to the session.
 
+        - `type: "user.message"`
+
         - `content: array of BetaManagedAgentsTextBlock or BetaManagedAgentsImageBlock or BetaManagedAgentsDocumentBlock or BetaManagedAgentsRedactedBlock`
 
           Array of content blocks for the user message.
@@ -32230,17 +33337,19 @@ List Deployments
 
             Regular text content.
 
+            - `type: "text"`
+
             - `text: string`
 
               The text content.
 
               minLength: 1
 
-            - `type: "text"`
-
           - `beta_managed_agents_image_block: object`
 
             Image content specified directly as base64 data or as a reference via a URL.
+
+            - `type: "image"`
 
             - `source: BetaManagedAgentsBase64ImageSource or BetaManagedAgentsURLImageSource or BetaManagedAgentsFileImageSource`
 
@@ -32249,6 +33358,8 @@ List Deployments
               - `beta_managed_agents_base64_image_source: object`
 
                 Base64-encoded image data.
+
+                - `type: "base64"`
 
                 - `data: string`
 
@@ -32261,8 +33372,6 @@ List Deployments
                   MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
 
                   minLength: 1
-
-                - `type: "base64"`
 
               - `beta_managed_agents_url_image_source: object`
 
@@ -32280,19 +33389,19 @@ List Deployments
 
                 Image referenced by file ID.
 
+                - `type: "file"`
+
                 - `file_id: string`
 
                   ID of a previously uploaded file.
 
                   minLength: 1
 
-                - `type: "file"`
-
-            - `type: "image"`
-
           - `beta_managed_agents_document_block: object`
 
             Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+            - `type: "document"`
 
             - `source: BetaManagedAgentsBase64DocumentSource or BetaManagedAgentsPlainTextDocumentSource or BetaManagedAgentsURLDocumentSource or BetaManagedAgentsFileDocumentSource`
 
@@ -32301,6 +33410,8 @@ List Deployments
               - `beta_managed_agents_base64_document_source: object`
 
                 Base64-encoded document data.
+
+                - `type: "base64"`
 
                 - `data: string`
 
@@ -32314,11 +33425,11 @@ List Deployments
 
                   minLength: 1
 
-                - `type: "base64"`
-
               - `beta_managed_agents_plain_text_document_source: object`
 
                 Plain text document content.
+
+                - `type: "text"`
 
                 - `data: string`
 
@@ -32329,8 +33440,6 @@ List Deployments
                 - `media_type: "text/plain"`
 
                   MIME type of the text content. Must be "text/plain".
-
-                - `type: "text"`
 
               - `beta_managed_agents_url_document_source: object`
 
@@ -32348,15 +33457,13 @@ List Deployments
 
                 Document referenced by file ID.
 
+                - `type: "file"`
+
                 - `file_id: string`
 
                   ID of a previously uploaded file.
 
                   minLength: 1
-
-                - `type: "file"`
-
-            - `type: "document"`
 
             - `context: optional string`
 
@@ -32372,11 +33479,11 @@ List Deployments
 
             - `type: "redacted"`
 
-        - `type: "user.message"`
-
       - `beta_managed_agents_deployment_user_define_outcome_event: object`
 
         An outcome the agent should work toward. The agent begins work on receipt.
+
+        - `type: "user.define_outcome"`
 
         - `description: string`
 
@@ -32390,23 +33497,21 @@ List Deployments
 
             Rubric referenced by a file uploaded via the Files API.
 
+            - `type: "file"`
+
             - `file_id: string`
 
               ID of the rubric file.
-
-            - `type: "file"`
 
           - `beta_managed_agents_text_rubric: object`
 
             Rubric content provided inline as text.
 
+            - `type: "text"`
+
             - `content: string`
 
               Rubric content. Plain text or markdown — the grader treats it as freeform text.
-
-            - `type: "text"`
-
-        - `type: "user.define_outcome"`
 
         - `max_iterations: optional number`
 
@@ -32418,19 +33523,19 @@ List Deployments
 
         Privileged context for the accompanying turn and all subsequent turns, appended to the session's system context as a `role: "system"` turn rather than replacing the top-level system prompt.
 
+        - `type: "system.message"`
+
         - `content: array of BetaManagedAgentsSystemContentBlock`
 
           System content blocks to append. Text-only.
+
+          - `type: "text"`
 
           - `text: string`
 
             The text content.
 
             minLength: 1
-
-          - `type: "text"`
-
-        - `type: "system.message"`
 
     - `metadata: map[string]`
 
@@ -32453,6 +33558,8 @@ List Deployments
       - `beta_managed_agents_error_deployment_paused_reason: object`
 
         A scheduled fire recorded a failed run whose error auto-pauses the deployment.
+
+        - `type: "error"`
 
         - `error: BetaManagedAgentsEnvironmentArchivedDeploymentPausedReasonError or BetaManagedAgentsAgentArchivedDeploymentPausedReasonError or BetaManagedAgentsEnvironmentNotFoundDeploymentPausedReasonError or 11 more`
 
@@ -32542,8 +33649,6 @@ List Deployments
 
             - `type: "mcp_egress_blocked_error"`
 
-        - `type: "error"`
-
     - `resources: array of BetaManagedAgentsSessionResourceConfig`
 
       Resources attached to sessions created from this deployment. Echoes the input minus write-only credentials.
@@ -32564,23 +33669,23 @@ List Deployments
 
           - `beta_managed_agents_branch_checkout: object`
 
+            - `type: "branch"`
+
             - `name: string`
 
               Branch name to check out.
 
               minLength: 1, maxLength: 255
 
-            - `type: "branch"`
-
           - `beta_managed_agents_commit_checkout: object`
+
+            - `type: "commit"`
 
             - `sha: string`
 
               Full commit SHA to check out.
 
               minLength: 7, maxLength: 64
-
-            - `type: "commit"`
 
         - `mount_path: optional string`
 
@@ -32590,11 +33695,11 @@ List Deployments
 
         A file mounted into each session's container.
 
+        - `type: "file"`
+
         - `file_id: string`
 
           ID of a previously uploaded file.
-
-        - `type: "file"`
 
         - `mount_path: optional string`
 
@@ -32604,11 +33709,11 @@ List Deployments
 
         A memory store attached to each session created from this deployment.
 
+        - `type: "memory_store"`
+
         - `memory_store_id: string`
 
           The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
-
-        - `type: "memory_store"`
 
         - `access: optional "read_write" or "read_only"`
 
@@ -32626,6 +33731,8 @@ List Deployments
 
       5-field POSIX cron schedule with computed runtime timestamps.
 
+      - `type: "cron"`
+
       - `expression: string`
 
         5-field POSIX cron expression: minute hour day-of-month month day-of-week (e.g., "0 9 * * 1-5" for weekdays at 9am). Day-of-week is 0-7 where 0 and 7 both mean Sunday. Extended cron syntax - seconds or year fields, and the special characters L, W, #, and ? - is not supported, nor are predefined shortcuts (@daily).
@@ -32637,8 +33744,6 @@ List Deployments
         IANA timezone identifier (e.g., "America/Los_Angeles", "UTC").
 
         minLength: 1
-
-      - `type: "cron"`
 
       - `last_run_at: optional string`
 
@@ -32658,8 +33763,6 @@ List Deployments
 
       - `"paused"`
 
-    - `type: "deployment"`
-
     - `updated_at: string`
 
       A timestamp in RFC 3339 format
@@ -32674,6 +33777,8 @@ List Deployments
 
       A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
 
+      - `type: "limit"`
+
       - `max_list_cost: object`
 
         A monetary amount in a specific currency.
@@ -32685,8 +33790,6 @@ List Deployments
         - `currency: "USD"`
 
           Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
-
-      - `type: "limit"`
 
   - `next_page: optional string`
 
@@ -32789,11 +33892,19 @@ Get Deployment
 
   Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `beta_managed_agents_deployment: object`
 
   A deployment is a configured instance of an agent — it binds the agent to everything needed to run it autonomously: an environment, credentials, initial events, and an optional schedule.
+
+  - `type: "deployment"`
 
   - `id: string`
 
@@ -32803,9 +33914,9 @@ Get Deployment
 
     A resolved agent reference with a concrete version.
 
-    - `id: string`
-
     - `type: "agent"`
+
+    - `id: string`
 
     - `version: number`
 
@@ -32839,6 +33950,8 @@ Get Deployment
 
       A user message sent to the session.
 
+      - `type: "user.message"`
+
       - `content: array of BetaManagedAgentsTextBlock or BetaManagedAgentsImageBlock or BetaManagedAgentsDocumentBlock or BetaManagedAgentsRedactedBlock`
 
         Array of content blocks for the user message.
@@ -32847,17 +33960,19 @@ Get Deployment
 
           Regular text content.
 
+          - `type: "text"`
+
           - `text: string`
 
             The text content.
 
             minLength: 1
 
-          - `type: "text"`
-
         - `beta_managed_agents_image_block: object`
 
           Image content specified directly as base64 data or as a reference via a URL.
+
+          - `type: "image"`
 
           - `source: BetaManagedAgentsBase64ImageSource or BetaManagedAgentsURLImageSource or BetaManagedAgentsFileImageSource`
 
@@ -32866,6 +33981,8 @@ Get Deployment
             - `beta_managed_agents_base64_image_source: object`
 
               Base64-encoded image data.
+
+              - `type: "base64"`
 
               - `data: string`
 
@@ -32878,8 +33995,6 @@ Get Deployment
                 MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
 
                 minLength: 1
-
-              - `type: "base64"`
 
             - `beta_managed_agents_url_image_source: object`
 
@@ -32897,19 +34012,19 @@ Get Deployment
 
               Image referenced by file ID.
 
+              - `type: "file"`
+
               - `file_id: string`
 
                 ID of a previously uploaded file.
 
                 minLength: 1
 
-              - `type: "file"`
-
-          - `type: "image"`
-
         - `beta_managed_agents_document_block: object`
 
           Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+          - `type: "document"`
 
           - `source: BetaManagedAgentsBase64DocumentSource or BetaManagedAgentsPlainTextDocumentSource or BetaManagedAgentsURLDocumentSource or BetaManagedAgentsFileDocumentSource`
 
@@ -32918,6 +34033,8 @@ Get Deployment
             - `beta_managed_agents_base64_document_source: object`
 
               Base64-encoded document data.
+
+              - `type: "base64"`
 
               - `data: string`
 
@@ -32931,11 +34048,11 @@ Get Deployment
 
                 minLength: 1
 
-              - `type: "base64"`
-
             - `beta_managed_agents_plain_text_document_source: object`
 
               Plain text document content.
+
+              - `type: "text"`
 
               - `data: string`
 
@@ -32946,8 +34063,6 @@ Get Deployment
               - `media_type: "text/plain"`
 
                 MIME type of the text content. Must be "text/plain".
-
-              - `type: "text"`
 
             - `beta_managed_agents_url_document_source: object`
 
@@ -32965,15 +34080,13 @@ Get Deployment
 
               Document referenced by file ID.
 
+              - `type: "file"`
+
               - `file_id: string`
 
                 ID of a previously uploaded file.
 
                 minLength: 1
-
-              - `type: "file"`
-
-          - `type: "document"`
 
           - `context: optional string`
 
@@ -32989,11 +34102,11 @@ Get Deployment
 
           - `type: "redacted"`
 
-      - `type: "user.message"`
-
     - `beta_managed_agents_deployment_user_define_outcome_event: object`
 
       An outcome the agent should work toward. The agent begins work on receipt.
+
+      - `type: "user.define_outcome"`
 
       - `description: string`
 
@@ -33007,23 +34120,21 @@ Get Deployment
 
           Rubric referenced by a file uploaded via the Files API.
 
+          - `type: "file"`
+
           - `file_id: string`
 
             ID of the rubric file.
-
-          - `type: "file"`
 
         - `beta_managed_agents_text_rubric: object`
 
           Rubric content provided inline as text.
 
+          - `type: "text"`
+
           - `content: string`
 
             Rubric content. Plain text or markdown — the grader treats it as freeform text.
-
-          - `type: "text"`
-
-      - `type: "user.define_outcome"`
 
       - `max_iterations: optional number`
 
@@ -33035,19 +34146,19 @@ Get Deployment
 
       Privileged context for the accompanying turn and all subsequent turns, appended to the session's system context as a `role: "system"` turn rather than replacing the top-level system prompt.
 
+      - `type: "system.message"`
+
       - `content: array of BetaManagedAgentsSystemContentBlock`
 
         System content blocks to append. Text-only.
+
+        - `type: "text"`
 
         - `text: string`
 
           The text content.
 
           minLength: 1
-
-        - `type: "text"`
-
-      - `type: "system.message"`
 
   - `metadata: map[string]`
 
@@ -33056,3774 +34167,3 @@ Get Deployment
   - `name: string`
 
     Human-readable name.
-
-  - `paused_reason: BetaManagedAgentsManualDeploymentPausedReason or BetaManagedAgentsErrorDeploymentPausedReason`
-
-    Why a deployment is paused. Non-null exactly when `status` is `paused`.
-
-    - `beta_managed_agents_manual_deployment_paused_reason: object`
-
-      The caller invoked the pause endpoint on the deployment.
-
-      - `type: "manual"`
-
-    - `beta_managed_agents_error_deployment_paused_reason: object`
-
-      A scheduled fire recorded a failed run whose error auto-pauses the deployment.
-
-      - `error: BetaManagedAgentsEnvironmentArchivedDeploymentPausedReasonError or BetaManagedAgentsAgentArchivedDeploymentPausedReasonError or BetaManagedAgentsEnvironmentNotFoundDeploymentPausedReasonError or 11 more`
-
-        The error that triggered an auto-pause. Matches the failed run's `error.type`.
-
-        - `beta_managed_agents_environment_archived_deployment_paused_reason_error: object`
-
-          The deployment's environment was archived.
-
-          - `type: "environment_archived_error"`
-
-        - `beta_managed_agents_agent_archived_deployment_paused_reason_error: object`
-
-          The deployment's agent was archived.
-
-          - `type: "agent_archived_error"`
-
-        - `beta_managed_agents_environment_not_found_deployment_paused_reason_error: object`
-
-          The deployment's environment no longer exists.
-
-          - `type: "environment_not_found_error"`
-
-        - `beta_managed_agents_vault_not_found_deployment_paused_reason_error: object`
-
-          A vault referenced by the deployment no longer exists.
-
-          - `type: "vault_not_found_error"`
-
-        - `beta_managed_agents_file_not_found_deployment_paused_reason_error: object`
-
-          A file resource referenced by the deployment no longer exists.
-
-          - `type: "file_not_found_error"`
-
-        - `beta_managed_agents_session_resource_not_found_deployment_paused_reason_error: object`
-
-          A referenced resource no longer exists and its kind was not reported.
-
-          - `type: "session_resource_not_found_error"`
-
-        - `beta_managed_agents_workspace_archived_deployment_paused_reason_error: object`
-
-          The deployment's workspace was archived.
-
-          - `type: "workspace_archived_error"`
-
-        - `beta_managed_agents_organization_disabled_deployment_paused_reason_error: object`
-
-          The deployment's organization is disabled.
-
-          - `type: "organization_disabled_error"`
-
-        - `beta_managed_agents_memory_store_archived_deployment_paused_reason_error: object`
-
-          A memory store referenced by the deployment is archived.
-
-          - `type: "memory_store_archived_error"`
-
-        - `beta_managed_agents_skill_not_found_deployment_paused_reason_error: object`
-
-          A skill referenced by the deployment's agent no longer exists.
-
-          - `type: "skill_not_found_error"`
-
-        - `beta_managed_agents_vault_archived_deployment_paused_reason_error: object`
-
-          A vault referenced by the deployment is archived.
-
-          - `type: "vault_archived_error"`
-
-        - `beta_managed_agents_unknown_deployment_paused_reason_error: object`
-
-          An unrecognized error auto-paused the deployment. A fallback variant; matches a run whose `error.type` is `unknown_error`.
-
-          - `type: "unknown_error"`
-
-        - `beta_managed_agents_self_hosted_resources_unsupported_deployment_paused_reason_error: object`
-
-          The deployment configures resources, but its environment is self-hosted and cannot mount them.
-
-          - `type: "self_hosted_resources_unsupported_error"`
-
-        - `beta_managed_agents_mcp_egress_blocked_deployment_paused_reason_error: object`
-
-          An MCP server host used by the deployment's agent is blocked by the environment's network policy.
-
-          - `type: "mcp_egress_blocked_error"`
-
-      - `type: "error"`
-
-  - `resources: array of BetaManagedAgentsSessionResourceConfig`
-
-    Resources attached to sessions created from this deployment. Echoes the input minus write-only credentials.
-
-    - `beta_managed_agents_github_repository_resource_config: object`
-
-      A GitHub repository mounted into each session's container. The authorization token is write-only and never returned.
-
-      - `type: "github_repository"`
-
-      - `url: string`
-
-        Github URL of the repository
-
-      - `checkout: optional BetaManagedAgentsBranchCheckout or BetaManagedAgentsCommitCheckout`
-
-        Branch or commit to check out. Defaults to the repository's default branch.
-
-        - `beta_managed_agents_branch_checkout: object`
-
-          - `name: string`
-
-            Branch name to check out.
-
-            minLength: 1, maxLength: 255
-
-          - `type: "branch"`
-
-        - `beta_managed_agents_commit_checkout: object`
-
-          - `sha: string`
-
-            Full commit SHA to check out.
-
-            minLength: 7, maxLength: 64
-
-          - `type: "commit"`
-
-      - `mount_path: optional string`
-
-        Mount path in the container. Defaults to `/workspace/<repo-name>`.
-
-    - `beta_managed_agents_file_resource_config: object`
-
-      A file mounted into each session's container.
-
-      - `file_id: string`
-
-        ID of a previously uploaded file.
-
-      - `type: "file"`
-
-      - `mount_path: optional string`
-
-        Mount path in the container. Defaults to `/mnt/session/uploads/<file_id>`.
-
-    - `beta_managed_agents_memory_store_resource_config: object`
-
-      A memory store attached to each session created from this deployment.
-
-      - `memory_store_id: string`
-
-        The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
-
-      - `type: "memory_store"`
-
-      - `access: optional "read_write" or "read_only"`
-
-        Access mode for an attached memory store.
-
-        - `"read_write"`
-
-        - `"read_only"`
-
-      - `instructions: optional string`
-
-        Per-attachment guidance for the agent on how to use this store. Rendered into the memory section of the system prompt. Max 4096 chars.
-
-  - `schedule: object`
-
-    5-field POSIX cron schedule with computed runtime timestamps.
-
-    - `expression: string`
-
-      5-field POSIX cron expression: minute hour day-of-month month day-of-week (e.g., "0 9 * * 1-5" for weekdays at 9am). Day-of-week is 0-7 where 0 and 7 both mean Sunday. Extended cron syntax - seconds or year fields, and the special characters L, W, #, and ? - is not supported, nor are predefined shortcuts (@daily).
-
-      minLength: 1, maxLength: 256
-
-    - `timezone: string`
-
-      IANA timezone identifier (e.g., "America/Los_Angeles", "UTC").
-
-      minLength: 1
-
-    - `type: "cron"`
-
-    - `last_run_at: optional string`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `upcoming_runs_at: optional array of string`
-
-      Up to 5 timestamps of upcoming cron occurrences. Non-empty for active and paused deployments (reflects what the schedule would do if unpaused); empty once the deployment is archived (`archived_at` set). Each fire is offset by a small per-schedule jitter, so a run will actually start at or shortly after its listed time.
-
-  - `status: "active" or "paused"`
-
-    Lifecycle status of a deployment.
-
-    - `"active"`
-
-    - `"paused"`
-
-  - `type: "deployment"`
-
-  - `updated_at: string`
-
-    A timestamp in RFC 3339 format
-
-    format: date-time
-
-  - `vault_ids: array of string`
-
-    Vault IDs supplying stored credentials for sessions created from this deployment.
-
-  - `budget: optional object`
-
-    A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
-
-    - `max_list_cost: object`
-
-      A monetary amount in a specific currency.
-
-      - `amount: string`
-
-        Amount in minor units of the currency, as an integer decimal string with no leading zeros: "2500" is $25.00 and "50" is fifty cents. A string rather than a number so no float rounding is ever applied.
-
-      - `currency: "USD"`
-
-        Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
-
-    - `type: "limit"`
-
-#### Example
-
-```bash
-ant beta:deployments retrieve \
-  --api-key my-anthropic-api-key \
-  --deployment-id depl_011CZkZcDH3vPqd7xnEfwTai
-```
-
-##### Response (200)
-
-```json
-{
-  "id": "depl_011CZkZcDH3vPqd7xnEfwTai",
-  "agent": {
-    "id": "agent_011CZkYpogX7uDKUyvBTophP",
-    "type": "agent",
-    "version": 1
-  },
-  "archived_at": null,
-  "created_at": "2026-03-15T10:00:00Z",
-  "description": "Compiles yesterday's orders into a report every weekday morning.",
-  "environment_id": "env_011CZkZ9X2dpNyB7HsEFoRfW",
-  "initial_events": [
-    {
-      "content": [
-        {
-          "text": "Compile yesterday's orders into report.md.",
-          "type": "text"
-        }
-      ],
-      "type": "user.message"
-    }
-  ],
-  "metadata": {},
-  "name": "Daily order report",
-  "paused_reason": {
-    "type": "manual"
-  },
-  "resources": [
-    {
-      "type": "github_repository",
-      "url": "url",
-      "checkout": {
-        "name": "main",
-        "type": "branch"
-      },
-      "mount_path": "mount_path"
-    }
-  ],
-  "schedule": {
-    "expression": "0 9 * * 1-5",
-    "timezone": "America/Los_Angeles",
-    "type": "cron",
-    "last_run_at": "2026-03-16T16:00:09Z",
-    "upcoming_runs_at": [
-      "2026-03-17T16:00:00Z",
-      "2026-03-18T16:00:00Z"
-    ]
-  },
-  "status": "active",
-  "type": "deployment",
-  "updated_at": "2026-03-15T10:00:00Z",
-  "vault_ids": [
-    "vlt_011CZkZDLs7fYzm1hXNPeRjv"
-  ],
-  "budget": {
-    "max_list_cost": {
-      "amount": "2500",
-      "currency": "USD"
-    },
-    "type": "limit"
-  }
-}
-```
-
-### Update Deployment
-
-`$ ant beta:deployments update`
-
-**POST** `/v1/deployments/{deployment_id}`
-
-Update Deployment
-
-#### Parameters
-
-- `--deployment-id: string`
-
-  Path param: Path parameter deployment_id
-
-- `--agent: optional string or BetaManagedAgentsAgentParams`
-
-  Body param: Agent to deploy. Accepts the `agent` ID string, which re-pins to the latest version, or an `agent` object with both id and version specified. Omit to preserve. Cannot be cleared.
-
-- `--budget: optional object`
-
-  Body param: A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
-
-- `--description: optional string`
-
-  Body param: Description. Omit to preserve; send empty string or null to clear.
-
-  maxLength: 2048
-
-- `--environment-id: optional string`
-
-  Body param: ID of the `environment` where sessions run. Omit to preserve. Cannot be cleared.
-
-  maxLength: 128
-
-- `--initial-event: optional array of BetaManagedAgentsDeploymentInitialEventParams`
-
-  Body param: Initial events. Full replacement. Omit to preserve. Cannot be cleared. At least 1, maximum 50.
-
-- `--metadata: optional map[string]`
-
-  Body param: Metadata patch. Set a key to a string to upsert it, or to null to delete it. Omit the field to preserve. The stored bag is limited to 16 keys (up to 64 chars each) with values up to 512 chars.
-
-- `--name: optional string`
-
-  Body param: Human-readable name. Must be non-empty. Omit to preserve. Cannot be cleared.
-
-  maxLength: 256
-
-- `--resource: optional array of BetaManagedAgentsGitHubRepositoryResourceParams or BetaManagedAgentsFileResourceParams or BetaManagedAgentsMemoryStoreResourceParam`
-
-  Body param: Session resources. Full replacement. Omit to preserve; send empty array or null to clear. Maximum 500.
-
-- `--schedule: optional object`
-
-  Body param: 5-field POSIX cron schedule. Literal wall-clock matching in the configured timezone.
-
-- `--vault-id: optional array of string`
-
-  Body param: Vault IDs. Full replacement. Omit to preserve; send empty array or null to clear. Maximum 50.
-
-- `--beta: optional array of AnthropicBeta`
-
-  Header param: Optional header to specify the beta version(s) you want to use.
-
-#### Returns
-
-- `beta_managed_agents_deployment: object`
-
-  A deployment is a configured instance of an agent — it binds the agent to everything needed to run it autonomously: an environment, credentials, initial events, and an optional schedule.
-
-  - `id: string`
-
-    Unique identifier for this deployment.
-
-  - `agent: object`
-
-    A resolved agent reference with a concrete version.
-
-    - `id: string`
-
-    - `type: "agent"`
-
-    - `version: number`
-
-      format: int32
-
-  - `archived_at: string`
-
-    A timestamp in RFC 3339 format
-
-    format: date-time
-
-  - `created_at: string`
-
-    A timestamp in RFC 3339 format
-
-    format: date-time
-
-  - `description: string`
-
-    Description of what the deployment does.
-
-  - `environment_id: string`
-
-    ID of the `environment` where sessions run.
-
-  - `initial_events: array of BetaManagedAgentsDeploymentInitialEvent`
-
-    Events sent to each session immediately after creation.
-
-    - `beta_managed_agents_deployment_user_message_event: object`
-
-      A user message sent to the session.
-
-      - `content: array of BetaManagedAgentsTextBlock or BetaManagedAgentsImageBlock or BetaManagedAgentsDocumentBlock or BetaManagedAgentsRedactedBlock`
-
-        Array of content blocks for the user message.
-
-        - `beta_managed_agents_text_block: object`
-
-          Regular text content.
-
-          - `text: string`
-
-            The text content.
-
-            minLength: 1
-
-          - `type: "text"`
-
-        - `beta_managed_agents_image_block: object`
-
-          Image content specified directly as base64 data or as a reference via a URL.
-
-          - `source: BetaManagedAgentsBase64ImageSource or BetaManagedAgentsURLImageSource or BetaManagedAgentsFileImageSource`
-
-            Union type for image source variants.
-
-            - `beta_managed_agents_base64_image_source: object`
-
-              Base64-encoded image data.
-
-              - `data: string`
-
-                Base64-encoded image data.
-
-                minLength: 1
-
-              - `media_type: string`
-
-                MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
-
-                minLength: 1
-
-              - `type: "base64"`
-
-            - `beta_managed_agents_url_image_source: object`
-
-              Image referenced by URL.
-
-              - `type: "url"`
-
-              - `url: string`
-
-                URL of the image to fetch.
-
-                minLength: 1
-
-            - `beta_managed_agents_file_image_source: object`
-
-              Image referenced by file ID.
-
-              - `file_id: string`
-
-                ID of a previously uploaded file.
-
-                minLength: 1
-
-              - `type: "file"`
-
-          - `type: "image"`
-
-        - `beta_managed_agents_document_block: object`
-
-          Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-          - `source: BetaManagedAgentsBase64DocumentSource or BetaManagedAgentsPlainTextDocumentSource or BetaManagedAgentsURLDocumentSource or BetaManagedAgentsFileDocumentSource`
-
-            Union type for document source variants.
-
-            - `beta_managed_agents_base64_document_source: object`
-
-              Base64-encoded document data.
-
-              - `data: string`
-
-                Base64-encoded document data.
-
-                minLength: 1
-
-              - `media_type: string`
-
-                MIME type of the document (e.g., "application/pdf").
-
-                minLength: 1
-
-              - `type: "base64"`
-
-            - `beta_managed_agents_plain_text_document_source: object`
-
-              Plain text document content.
-
-              - `data: string`
-
-                The plain text content.
-
-                minLength: 1
-
-              - `media_type: "text/plain"`
-
-                MIME type of the text content. Must be "text/plain".
-
-              - `type: "text"`
-
-            - `beta_managed_agents_url_document_source: object`
-
-              Document referenced by URL.
-
-              - `type: "url"`
-
-              - `url: string`
-
-                URL of the document to fetch.
-
-                minLength: 1
-
-            - `beta_managed_agents_file_document_source: object`
-
-              Document referenced by file ID.
-
-              - `file_id: string`
-
-                ID of a previously uploaded file.
-
-                minLength: 1
-
-              - `type: "file"`
-
-          - `type: "document"`
-
-          - `context: optional string`
-
-            Additional context about the document for the model.
-
-          - `title: optional string`
-
-            The title of the document.
-
-        - `beta_managed_agents_redacted_block: object`
-
-          Placeholder for content withheld by Anthropic model policy.
-
-          - `type: "redacted"`
-
-      - `type: "user.message"`
-
-    - `beta_managed_agents_deployment_user_define_outcome_event: object`
-
-      An outcome the agent should work toward. The agent begins work on receipt.
-
-      - `description: string`
-
-        What the agent should produce. This is the task specification.
-
-      - `rubric: BetaManagedAgentsFileRubric or BetaManagedAgentsTextRubric`
-
-        Rubric for grading the quality of an outcome.
-
-        - `beta_managed_agents_file_rubric: object`
-
-          Rubric referenced by a file uploaded via the Files API.
-
-          - `file_id: string`
-
-            ID of the rubric file.
-
-          - `type: "file"`
-
-        - `beta_managed_agents_text_rubric: object`
-
-          Rubric content provided inline as text.
-
-          - `content: string`
-
-            Rubric content. Plain text or markdown — the grader treats it as freeform text.
-
-          - `type: "text"`
-
-      - `type: "user.define_outcome"`
-
-      - `max_iterations: optional number`
-
-        Eval→revision cycles before giving up. Default 3, max 20.
-
-        format: int32
-
-    - `beta_managed_agents_deployment_system_message_event: object`
-
-      Privileged context for the accompanying turn and all subsequent turns, appended to the session's system context as a `role: "system"` turn rather than replacing the top-level system prompt.
-
-      - `content: array of BetaManagedAgentsSystemContentBlock`
-
-        System content blocks to append. Text-only.
-
-        - `text: string`
-
-          The text content.
-
-          minLength: 1
-
-        - `type: "text"`
-
-      - `type: "system.message"`
-
-  - `metadata: map[string]`
-
-    Arbitrary key-value metadata. Maximum 16 pairs.
-
-  - `name: string`
-
-    Human-readable name.
-
-  - `paused_reason: BetaManagedAgentsManualDeploymentPausedReason or BetaManagedAgentsErrorDeploymentPausedReason`
-
-    Why a deployment is paused. Non-null exactly when `status` is `paused`.
-
-    - `beta_managed_agents_manual_deployment_paused_reason: object`
-
-      The caller invoked the pause endpoint on the deployment.
-
-      - `type: "manual"`
-
-    - `beta_managed_agents_error_deployment_paused_reason: object`
-
-      A scheduled fire recorded a failed run whose error auto-pauses the deployment.
-
-      - `error: BetaManagedAgentsEnvironmentArchivedDeploymentPausedReasonError or BetaManagedAgentsAgentArchivedDeploymentPausedReasonError or BetaManagedAgentsEnvironmentNotFoundDeploymentPausedReasonError or 11 more`
-
-        The error that triggered an auto-pause. Matches the failed run's `error.type`.
-
-        - `beta_managed_agents_environment_archived_deployment_paused_reason_error: object`
-
-          The deployment's environment was archived.
-
-          - `type: "environment_archived_error"`
-
-        - `beta_managed_agents_agent_archived_deployment_paused_reason_error: object`
-
-          The deployment's agent was archived.
-
-          - `type: "agent_archived_error"`
-
-        - `beta_managed_agents_environment_not_found_deployment_paused_reason_error: object`
-
-          The deployment's environment no longer exists.
-
-          - `type: "environment_not_found_error"`
-
-        - `beta_managed_agents_vault_not_found_deployment_paused_reason_error: object`
-
-          A vault referenced by the deployment no longer exists.
-
-          - `type: "vault_not_found_error"`
-
-        - `beta_managed_agents_file_not_found_deployment_paused_reason_error: object`
-
-          A file resource referenced by the deployment no longer exists.
-
-          - `type: "file_not_found_error"`
-
-        - `beta_managed_agents_session_resource_not_found_deployment_paused_reason_error: object`
-
-          A referenced resource no longer exists and its kind was not reported.
-
-          - `type: "session_resource_not_found_error"`
-
-        - `beta_managed_agents_workspace_archived_deployment_paused_reason_error: object`
-
-          The deployment's workspace was archived.
-
-          - `type: "workspace_archived_error"`
-
-        - `beta_managed_agents_organization_disabled_deployment_paused_reason_error: object`
-
-          The deployment's organization is disabled.
-
-          - `type: "organization_disabled_error"`
-
-        - `beta_managed_agents_memory_store_archived_deployment_paused_reason_error: object`
-
-          A memory store referenced by the deployment is archived.
-
-          - `type: "memory_store_archived_error"`
-
-        - `beta_managed_agents_skill_not_found_deployment_paused_reason_error: object`
-
-          A skill referenced by the deployment's agent no longer exists.
-
-          - `type: "skill_not_found_error"`
-
-        - `beta_managed_agents_vault_archived_deployment_paused_reason_error: object`
-
-          A vault referenced by the deployment is archived.
-
-          - `type: "vault_archived_error"`
-
-        - `beta_managed_agents_unknown_deployment_paused_reason_error: object`
-
-          An unrecognized error auto-paused the deployment. A fallback variant; matches a run whose `error.type` is `unknown_error`.
-
-          - `type: "unknown_error"`
-
-        - `beta_managed_agents_self_hosted_resources_unsupported_deployment_paused_reason_error: object`
-
-          The deployment configures resources, but its environment is self-hosted and cannot mount them.
-
-          - `type: "self_hosted_resources_unsupported_error"`
-
-        - `beta_managed_agents_mcp_egress_blocked_deployment_paused_reason_error: object`
-
-          An MCP server host used by the deployment's agent is blocked by the environment's network policy.
-
-          - `type: "mcp_egress_blocked_error"`
-
-      - `type: "error"`
-
-  - `resources: array of BetaManagedAgentsSessionResourceConfig`
-
-    Resources attached to sessions created from this deployment. Echoes the input minus write-only credentials.
-
-    - `beta_managed_agents_github_repository_resource_config: object`
-
-      A GitHub repository mounted into each session's container. The authorization token is write-only and never returned.
-
-      - `type: "github_repository"`
-
-      - `url: string`
-
-        Github URL of the repository
-
-      - `checkout: optional BetaManagedAgentsBranchCheckout or BetaManagedAgentsCommitCheckout`
-
-        Branch or commit to check out. Defaults to the repository's default branch.
-
-        - `beta_managed_agents_branch_checkout: object`
-
-          - `name: string`
-
-            Branch name to check out.
-
-            minLength: 1, maxLength: 255
-
-          - `type: "branch"`
-
-        - `beta_managed_agents_commit_checkout: object`
-
-          - `sha: string`
-
-            Full commit SHA to check out.
-
-            minLength: 7, maxLength: 64
-
-          - `type: "commit"`
-
-      - `mount_path: optional string`
-
-        Mount path in the container. Defaults to `/workspace/<repo-name>`.
-
-    - `beta_managed_agents_file_resource_config: object`
-
-      A file mounted into each session's container.
-
-      - `file_id: string`
-
-        ID of a previously uploaded file.
-
-      - `type: "file"`
-
-      - `mount_path: optional string`
-
-        Mount path in the container. Defaults to `/mnt/session/uploads/<file_id>`.
-
-    - `beta_managed_agents_memory_store_resource_config: object`
-
-      A memory store attached to each session created from this deployment.
-
-      - `memory_store_id: string`
-
-        The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
-
-      - `type: "memory_store"`
-
-      - `access: optional "read_write" or "read_only"`
-
-        Access mode for an attached memory store.
-
-        - `"read_write"`
-
-        - `"read_only"`
-
-      - `instructions: optional string`
-
-        Per-attachment guidance for the agent on how to use this store. Rendered into the memory section of the system prompt. Max 4096 chars.
-
-  - `schedule: object`
-
-    5-field POSIX cron schedule with computed runtime timestamps.
-
-    - `expression: string`
-
-      5-field POSIX cron expression: minute hour day-of-month month day-of-week (e.g., "0 9 * * 1-5" for weekdays at 9am). Day-of-week is 0-7 where 0 and 7 both mean Sunday. Extended cron syntax - seconds or year fields, and the special characters L, W, #, and ? - is not supported, nor are predefined shortcuts (@daily).
-
-      minLength: 1, maxLength: 256
-
-    - `timezone: string`
-
-      IANA timezone identifier (e.g., "America/Los_Angeles", "UTC").
-
-      minLength: 1
-
-    - `type: "cron"`
-
-    - `last_run_at: optional string`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `upcoming_runs_at: optional array of string`
-
-      Up to 5 timestamps of upcoming cron occurrences. Non-empty for active and paused deployments (reflects what the schedule would do if unpaused); empty once the deployment is archived (`archived_at` set). Each fire is offset by a small per-schedule jitter, so a run will actually start at or shortly after its listed time.
-
-  - `status: "active" or "paused"`
-
-    Lifecycle status of a deployment.
-
-    - `"active"`
-
-    - `"paused"`
-
-  - `type: "deployment"`
-
-  - `updated_at: string`
-
-    A timestamp in RFC 3339 format
-
-    format: date-time
-
-  - `vault_ids: array of string`
-
-    Vault IDs supplying stored credentials for sessions created from this deployment.
-
-  - `budget: optional object`
-
-    A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
-
-    - `max_list_cost: object`
-
-      A monetary amount in a specific currency.
-
-      - `amount: string`
-
-        Amount in minor units of the currency, as an integer decimal string with no leading zeros: "2500" is $25.00 and "50" is fifty cents. A string rather than a number so no float rounding is ever applied.
-
-      - `currency: "USD"`
-
-        Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
-
-    - `type: "limit"`
-
-#### Example
-
-```bash
-ant beta:deployments update \
-  --api-key my-anthropic-api-key \
-  --deployment-id depl_011CZkZcDH3vPqd7xnEfwTai
-```
-
-##### Response (200)
-
-```json
-{
-  "id": "depl_011CZkZcDH3vPqd7xnEfwTai",
-  "agent": {
-    "id": "agent_011CZkYpogX7uDKUyvBTophP",
-    "type": "agent",
-    "version": 1
-  },
-  "archived_at": null,
-  "created_at": "2026-03-15T10:00:00Z",
-  "description": "Compiles yesterday's orders into a report every weekday morning.",
-  "environment_id": "env_011CZkZ9X2dpNyB7HsEFoRfW",
-  "initial_events": [
-    {
-      "content": [
-        {
-          "text": "Compile yesterday's orders into report.md.",
-          "type": "text"
-        }
-      ],
-      "type": "user.message"
-    }
-  ],
-  "metadata": {},
-  "name": "Daily order report",
-  "paused_reason": {
-    "type": "manual"
-  },
-  "resources": [
-    {
-      "type": "github_repository",
-      "url": "url",
-      "checkout": {
-        "name": "main",
-        "type": "branch"
-      },
-      "mount_path": "mount_path"
-    }
-  ],
-  "schedule": {
-    "expression": "0 9 * * 1-5",
-    "timezone": "America/Los_Angeles",
-    "type": "cron",
-    "last_run_at": "2026-03-16T16:00:09Z",
-    "upcoming_runs_at": [
-      "2026-03-17T16:00:00Z",
-      "2026-03-18T16:00:00Z"
-    ]
-  },
-  "status": "active",
-  "type": "deployment",
-  "updated_at": "2026-03-15T10:00:00Z",
-  "vault_ids": [
-    "vlt_011CZkZDLs7fYzm1hXNPeRjv"
-  ],
-  "budget": {
-    "max_list_cost": {
-      "amount": "2500",
-      "currency": "USD"
-    },
-    "type": "limit"
-  }
-}
-```
-
-### Archive Deployment
-
-`$ ant beta:deployments archive`
-
-**POST** `/v1/deployments/{deployment_id}/archive`
-
-Archive Deployment
-
-#### Parameters
-
-- `--deployment-id: string`
-
-  Path parameter deployment_id
-
-- `--beta: optional array of AnthropicBeta`
-
-  Optional header to specify the beta version(s) you want to use.
-
-#### Returns
-
-- `beta_managed_agents_deployment: object`
-
-  A deployment is a configured instance of an agent — it binds the agent to everything needed to run it autonomously: an environment, credentials, initial events, and an optional schedule.
-
-  - `id: string`
-
-    Unique identifier for this deployment.
-
-  - `agent: object`
-
-    A resolved agent reference with a concrete version.
-
-    - `id: string`
-
-    - `type: "agent"`
-
-    - `version: number`
-
-      format: int32
-
-  - `archived_at: string`
-
-    A timestamp in RFC 3339 format
-
-    format: date-time
-
-  - `created_at: string`
-
-    A timestamp in RFC 3339 format
-
-    format: date-time
-
-  - `description: string`
-
-    Description of what the deployment does.
-
-  - `environment_id: string`
-
-    ID of the `environment` where sessions run.
-
-  - `initial_events: array of BetaManagedAgentsDeploymentInitialEvent`
-
-    Events sent to each session immediately after creation.
-
-    - `beta_managed_agents_deployment_user_message_event: object`
-
-      A user message sent to the session.
-
-      - `content: array of BetaManagedAgentsTextBlock or BetaManagedAgentsImageBlock or BetaManagedAgentsDocumentBlock or BetaManagedAgentsRedactedBlock`
-
-        Array of content blocks for the user message.
-
-        - `beta_managed_agents_text_block: object`
-
-          Regular text content.
-
-          - `text: string`
-
-            The text content.
-
-            minLength: 1
-
-          - `type: "text"`
-
-        - `beta_managed_agents_image_block: object`
-
-          Image content specified directly as base64 data or as a reference via a URL.
-
-          - `source: BetaManagedAgentsBase64ImageSource or BetaManagedAgentsURLImageSource or BetaManagedAgentsFileImageSource`
-
-            Union type for image source variants.
-
-            - `beta_managed_agents_base64_image_source: object`
-
-              Base64-encoded image data.
-
-              - `data: string`
-
-                Base64-encoded image data.
-
-                minLength: 1
-
-              - `media_type: string`
-
-                MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
-
-                minLength: 1
-
-              - `type: "base64"`
-
-            - `beta_managed_agents_url_image_source: object`
-
-              Image referenced by URL.
-
-              - `type: "url"`
-
-              - `url: string`
-
-                URL of the image to fetch.
-
-                minLength: 1
-
-            - `beta_managed_agents_file_image_source: object`
-
-              Image referenced by file ID.
-
-              - `file_id: string`
-
-                ID of a previously uploaded file.
-
-                minLength: 1
-
-              - `type: "file"`
-
-          - `type: "image"`
-
-        - `beta_managed_agents_document_block: object`
-
-          Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-          - `source: BetaManagedAgentsBase64DocumentSource or BetaManagedAgentsPlainTextDocumentSource or BetaManagedAgentsURLDocumentSource or BetaManagedAgentsFileDocumentSource`
-
-            Union type for document source variants.
-
-            - `beta_managed_agents_base64_document_source: object`
-
-              Base64-encoded document data.
-
-              - `data: string`
-
-                Base64-encoded document data.
-
-                minLength: 1
-
-              - `media_type: string`
-
-                MIME type of the document (e.g., "application/pdf").
-
-                minLength: 1
-
-              - `type: "base64"`
-
-            - `beta_managed_agents_plain_text_document_source: object`
-
-              Plain text document content.
-
-              - `data: string`
-
-                The plain text content.
-
-                minLength: 1
-
-              - `media_type: "text/plain"`
-
-                MIME type of the text content. Must be "text/plain".
-
-              - `type: "text"`
-
-            - `beta_managed_agents_url_document_source: object`
-
-              Document referenced by URL.
-
-              - `type: "url"`
-
-              - `url: string`
-
-                URL of the document to fetch.
-
-                minLength: 1
-
-            - `beta_managed_agents_file_document_source: object`
-
-              Document referenced by file ID.
-
-              - `file_id: string`
-
-                ID of a previously uploaded file.
-
-                minLength: 1
-
-              - `type: "file"`
-
-          - `type: "document"`
-
-          - `context: optional string`
-
-            Additional context about the document for the model.
-
-          - `title: optional string`
-
-            The title of the document.
-
-        - `beta_managed_agents_redacted_block: object`
-
-          Placeholder for content withheld by Anthropic model policy.
-
-          - `type: "redacted"`
-
-      - `type: "user.message"`
-
-    - `beta_managed_agents_deployment_user_define_outcome_event: object`
-
-      An outcome the agent should work toward. The agent begins work on receipt.
-
-      - `description: string`
-
-        What the agent should produce. This is the task specification.
-
-      - `rubric: BetaManagedAgentsFileRubric or BetaManagedAgentsTextRubric`
-
-        Rubric for grading the quality of an outcome.
-
-        - `beta_managed_agents_file_rubric: object`
-
-          Rubric referenced by a file uploaded via the Files API.
-
-          - `file_id: string`
-
-            ID of the rubric file.
-
-          - `type: "file"`
-
-        - `beta_managed_agents_text_rubric: object`
-
-          Rubric content provided inline as text.
-
-          - `content: string`
-
-            Rubric content. Plain text or markdown — the grader treats it as freeform text.
-
-          - `type: "text"`
-
-      - `type: "user.define_outcome"`
-
-      - `max_iterations: optional number`
-
-        Eval→revision cycles before giving up. Default 3, max 20.
-
-        format: int32
-
-    - `beta_managed_agents_deployment_system_message_event: object`
-
-      Privileged context for the accompanying turn and all subsequent turns, appended to the session's system context as a `role: "system"` turn rather than replacing the top-level system prompt.
-
-      - `content: array of BetaManagedAgentsSystemContentBlock`
-
-        System content blocks to append. Text-only.
-
-        - `text: string`
-
-          The text content.
-
-          minLength: 1
-
-        - `type: "text"`
-
-      - `type: "system.message"`
-
-  - `metadata: map[string]`
-
-    Arbitrary key-value metadata. Maximum 16 pairs.
-
-  - `name: string`
-
-    Human-readable name.
-
-  - `paused_reason: BetaManagedAgentsManualDeploymentPausedReason or BetaManagedAgentsErrorDeploymentPausedReason`
-
-    Why a deployment is paused. Non-null exactly when `status` is `paused`.
-
-    - `beta_managed_agents_manual_deployment_paused_reason: object`
-
-      The caller invoked the pause endpoint on the deployment.
-
-      - `type: "manual"`
-
-    - `beta_managed_agents_error_deployment_paused_reason: object`
-
-      A scheduled fire recorded a failed run whose error auto-pauses the deployment.
-
-      - `error: BetaManagedAgentsEnvironmentArchivedDeploymentPausedReasonError or BetaManagedAgentsAgentArchivedDeploymentPausedReasonError or BetaManagedAgentsEnvironmentNotFoundDeploymentPausedReasonError or 11 more`
-
-        The error that triggered an auto-pause. Matches the failed run's `error.type`.
-
-        - `beta_managed_agents_environment_archived_deployment_paused_reason_error: object`
-
-          The deployment's environment was archived.
-
-          - `type: "environment_archived_error"`
-
-        - `beta_managed_agents_agent_archived_deployment_paused_reason_error: object`
-
-          The deployment's agent was archived.
-
-          - `type: "agent_archived_error"`
-
-        - `beta_managed_agents_environment_not_found_deployment_paused_reason_error: object`
-
-          The deployment's environment no longer exists.
-
-          - `type: "environment_not_found_error"`
-
-        - `beta_managed_agents_vault_not_found_deployment_paused_reason_error: object`
-
-          A vault referenced by the deployment no longer exists.
-
-          - `type: "vault_not_found_error"`
-
-        - `beta_managed_agents_file_not_found_deployment_paused_reason_error: object`
-
-          A file resource referenced by the deployment no longer exists.
-
-          - `type: "file_not_found_error"`
-
-        - `beta_managed_agents_session_resource_not_found_deployment_paused_reason_error: object`
-
-          A referenced resource no longer exists and its kind was not reported.
-
-          - `type: "session_resource_not_found_error"`
-
-        - `beta_managed_agents_workspace_archived_deployment_paused_reason_error: object`
-
-          The deployment's workspace was archived.
-
-          - `type: "workspace_archived_error"`
-
-        - `beta_managed_agents_organization_disabled_deployment_paused_reason_error: object`
-
-          The deployment's organization is disabled.
-
-          - `type: "organization_disabled_error"`
-
-        - `beta_managed_agents_memory_store_archived_deployment_paused_reason_error: object`
-
-          A memory store referenced by the deployment is archived.
-
-          - `type: "memory_store_archived_error"`
-
-        - `beta_managed_agents_skill_not_found_deployment_paused_reason_error: object`
-
-          A skill referenced by the deployment's agent no longer exists.
-
-          - `type: "skill_not_found_error"`
-
-        - `beta_managed_agents_vault_archived_deployment_paused_reason_error: object`
-
-          A vault referenced by the deployment is archived.
-
-          - `type: "vault_archived_error"`
-
-        - `beta_managed_agents_unknown_deployment_paused_reason_error: object`
-
-          An unrecognized error auto-paused the deployment. A fallback variant; matches a run whose `error.type` is `unknown_error`.
-
-          - `type: "unknown_error"`
-
-        - `beta_managed_agents_self_hosted_resources_unsupported_deployment_paused_reason_error: object`
-
-          The deployment configures resources, but its environment is self-hosted and cannot mount them.
-
-          - `type: "self_hosted_resources_unsupported_error"`
-
-        - `beta_managed_agents_mcp_egress_blocked_deployment_paused_reason_error: object`
-
-          An MCP server host used by the deployment's agent is blocked by the environment's network policy.
-
-          - `type: "mcp_egress_blocked_error"`
-
-      - `type: "error"`
-
-  - `resources: array of BetaManagedAgentsSessionResourceConfig`
-
-    Resources attached to sessions created from this deployment. Echoes the input minus write-only credentials.
-
-    - `beta_managed_agents_github_repository_resource_config: object`
-
-      A GitHub repository mounted into each session's container. The authorization token is write-only and never returned.
-
-      - `type: "github_repository"`
-
-      - `url: string`
-
-        Github URL of the repository
-
-      - `checkout: optional BetaManagedAgentsBranchCheckout or BetaManagedAgentsCommitCheckout`
-
-        Branch or commit to check out. Defaults to the repository's default branch.
-
-        - `beta_managed_agents_branch_checkout: object`
-
-          - `name: string`
-
-            Branch name to check out.
-
-            minLength: 1, maxLength: 255
-
-          - `type: "branch"`
-
-        - `beta_managed_agents_commit_checkout: object`
-
-          - `sha: string`
-
-            Full commit SHA to check out.
-
-            minLength: 7, maxLength: 64
-
-          - `type: "commit"`
-
-      - `mount_path: optional string`
-
-        Mount path in the container. Defaults to `/workspace/<repo-name>`.
-
-    - `beta_managed_agents_file_resource_config: object`
-
-      A file mounted into each session's container.
-
-      - `file_id: string`
-
-        ID of a previously uploaded file.
-
-      - `type: "file"`
-
-      - `mount_path: optional string`
-
-        Mount path in the container. Defaults to `/mnt/session/uploads/<file_id>`.
-
-    - `beta_managed_agents_memory_store_resource_config: object`
-
-      A memory store attached to each session created from this deployment.
-
-      - `memory_store_id: string`
-
-        The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
-
-      - `type: "memory_store"`
-
-      - `access: optional "read_write" or "read_only"`
-
-        Access mode for an attached memory store.
-
-        - `"read_write"`
-
-        - `"read_only"`
-
-      - `instructions: optional string`
-
-        Per-attachment guidance for the agent on how to use this store. Rendered into the memory section of the system prompt. Max 4096 chars.
-
-  - `schedule: object`
-
-    5-field POSIX cron schedule with computed runtime timestamps.
-
-    - `expression: string`
-
-      5-field POSIX cron expression: minute hour day-of-month month day-of-week (e.g., "0 9 * * 1-5" for weekdays at 9am). Day-of-week is 0-7 where 0 and 7 both mean Sunday. Extended cron syntax - seconds or year fields, and the special characters L, W, #, and ? - is not supported, nor are predefined shortcuts (@daily).
-
-      minLength: 1, maxLength: 256
-
-    - `timezone: string`
-
-      IANA timezone identifier (e.g., "America/Los_Angeles", "UTC").
-
-      minLength: 1
-
-    - `type: "cron"`
-
-    - `last_run_at: optional string`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `upcoming_runs_at: optional array of string`
-
-      Up to 5 timestamps of upcoming cron occurrences. Non-empty for active and paused deployments (reflects what the schedule would do if unpaused); empty once the deployment is archived (`archived_at` set). Each fire is offset by a small per-schedule jitter, so a run will actually start at or shortly after its listed time.
-
-  - `status: "active" or "paused"`
-
-    Lifecycle status of a deployment.
-
-    - `"active"`
-
-    - `"paused"`
-
-  - `type: "deployment"`
-
-  - `updated_at: string`
-
-    A timestamp in RFC 3339 format
-
-    format: date-time
-
-  - `vault_ids: array of string`
-
-    Vault IDs supplying stored credentials for sessions created from this deployment.
-
-  - `budget: optional object`
-
-    A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
-
-    - `max_list_cost: object`
-
-      A monetary amount in a specific currency.
-
-      - `amount: string`
-
-        Amount in minor units of the currency, as an integer decimal string with no leading zeros: "2500" is $25.00 and "50" is fifty cents. A string rather than a number so no float rounding is ever applied.
-
-      - `currency: "USD"`
-
-        Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
-
-    - `type: "limit"`
-
-#### Example
-
-```bash
-ant beta:deployments archive \
-  --api-key my-anthropic-api-key \
-  --deployment-id depl_011CZkZcDH3vPqd7xnEfwTai
-```
-
-##### Response (200)
-
-```json
-{
-  "id": "depl_011CZkZcDH3vPqd7xnEfwTai",
-  "agent": {
-    "id": "agent_011CZkYpogX7uDKUyvBTophP",
-    "type": "agent",
-    "version": 1
-  },
-  "archived_at": null,
-  "created_at": "2026-03-15T10:00:00Z",
-  "description": "Compiles yesterday's orders into a report every weekday morning.",
-  "environment_id": "env_011CZkZ9X2dpNyB7HsEFoRfW",
-  "initial_events": [
-    {
-      "content": [
-        {
-          "text": "Compile yesterday's orders into report.md.",
-          "type": "text"
-        }
-      ],
-      "type": "user.message"
-    }
-  ],
-  "metadata": {},
-  "name": "Daily order report",
-  "paused_reason": {
-    "type": "manual"
-  },
-  "resources": [
-    {
-      "type": "github_repository",
-      "url": "url",
-      "checkout": {
-        "name": "main",
-        "type": "branch"
-      },
-      "mount_path": "mount_path"
-    }
-  ],
-  "schedule": {
-    "expression": "0 9 * * 1-5",
-    "timezone": "America/Los_Angeles",
-    "type": "cron",
-    "last_run_at": "2026-03-16T16:00:09Z",
-    "upcoming_runs_at": [
-      "2026-03-17T16:00:00Z",
-      "2026-03-18T16:00:00Z"
-    ]
-  },
-  "status": "active",
-  "type": "deployment",
-  "updated_at": "2026-03-15T10:00:00Z",
-  "vault_ids": [
-    "vlt_011CZkZDLs7fYzm1hXNPeRjv"
-  ],
-  "budget": {
-    "max_list_cost": {
-      "amount": "2500",
-      "currency": "USD"
-    },
-    "type": "limit"
-  }
-}
-```
-
-### Run Deployment Now
-
-`$ ant beta:deployments run`
-
-**POST** `/v1/deployments/{deployment_id}/run`
-
-Run Deployment Now
-
-#### Parameters
-
-- `--deployment-id: string`
-
-  Path parameter deployment_id
-
-- `--beta: optional array of AnthropicBeta`
-
-  Optional header to specify the beta version(s) you want to use.
-
-#### Returns
-
-- `beta_managed_agents_deployment_run: object`
-
-  A persistent, append-only record of a single deployment execution. Records session creation success or failure — no session lifecycle tracking.
-
-  - `id: string`
-
-    Unique identifier for this run (`drun_...`).
-
-  - `agent: object`
-
-    A resolved agent reference with a concrete version.
-
-    - `id: string`
-
-    - `type: "agent"`
-
-    - `version: number`
-
-      format: int32
-
-  - `created_at: string`
-
-    A timestamp in RFC 3339 format
-
-    format: date-time
-
-  - `deployment_id: string`
-
-    ID of the deployment that produced this run.
-
-  - `error: BetaManagedAgentsEnvironmentArchivedRunError or BetaManagedAgentsAgentArchivedRunError or BetaManagedAgentsEnvironmentNotFoundRunError or 13 more`
-
-    Why the run failed to create a session. The type identifies the failure; message is human-readable detail.
-
-    - `beta_managed_agents_environment_archived_run_error: object`
-
-      The deployment's environment was archived.
-
-      - `message: string`
-
-        Human-readable error description.
-
-      - `type: "environment_archived_error"`
-
-    - `beta_managed_agents_agent_archived_run_error: object`
-
-      The deployment's agent was archived.
-
-      - `message: string`
-
-        Human-readable error description.
-
-      - `type: "agent_archived_error"`
-
-    - `beta_managed_agents_environment_not_found_run_error: object`
-
-      The deployment's environment no longer exists.
-
-      - `message: string`
-
-        Human-readable error description.
-
-      - `type: "environment_not_found_error"`
-
-    - `beta_managed_agents_vault_not_found_run_error: object`
-
-      A vault referenced by the deployment no longer exists.
-
-      - `message: string`
-
-        Human-readable error description.
-
-      - `type: "vault_not_found_error"`
-
-    - `beta_managed_agents_vault_archived_run_error: object`
-
-      A vault referenced by the deployment is archived.
-
-      - `message: string`
-
-        Human-readable error description.
-
-      - `type: "vault_archived_error"`
-
-    - `beta_managed_agents_file_not_found_run_error: object`
-
-      A file resource referenced by the deployment no longer exists.
-
-      - `message: string`
-
-        Human-readable error description.
-
-      - `type: "file_not_found_error"`
-
-    - `beta_managed_agents_memory_store_archived_run_error: object`
-
-      A memory store referenced by the deployment is archived.
-
-      - `message: string`
-
-        Human-readable error description.
-
-      - `type: "memory_store_archived_error"`
-
-    - `beta_managed_agents_skill_not_found_run_error: object`
-
-      A skill referenced by the deployment's agent no longer exists.
-
-      - `message: string`
-
-        Human-readable error description.
-
-      - `type: "skill_not_found_error"`
-
-    - `beta_managed_agents_session_resource_not_found_run_error: object`
-
-      A referenced resource no longer exists and its kind was not reported.
-
-      - `message: string`
-
-        Human-readable error description.
-
-      - `type: "session_resource_not_found_error"`
-
-    - `beta_managed_agents_workspace_archived_run_error: object`
-
-      The deployment's workspace was archived.
-
-      - `message: string`
-
-        Human-readable error description.
-
-      - `type: "workspace_archived_error"`
-
-    - `beta_managed_agents_organization_disabled_run_error: object`
-
-      The deployment's organization is disabled.
-
-      - `message: string`
-
-        Human-readable error description.
-
-      - `type: "organization_disabled_error"`
-
-    - `beta_managed_agents_session_rate_limited_run_error: object`
-
-      Session creation was rejected due to rate limiting. The schedule keeps firing; subsequent runs may succeed.
-
-      - `message: string`
-
-        Human-readable error description.
-
-      - `type: "session_rate_limited_error"`
-
-    - `beta_managed_agents_session_creation_rejected_run_error: object`
-
-      The session create request was rejected with a non-retryable validation error.
-
-      - `message: string`
-
-        Human-readable error description.
-
-      - `type: "session_creation_rejected_error"`
-
-    - `beta_managed_agents_unknown_run_error: object`
-
-      An unknown or unexpected error caused the run to fail. A fallback variant; clients that do not recognize a new error type can match on message alone.
-
-      - `message: string`
-
-        Human-readable error description.
-
-      - `type: "unknown_error"`
-
-    - `beta_managed_agents_self_hosted_resources_unsupported_run_error: object`
-
-      The deployment configures resources, but its environment is self-hosted and cannot mount them.
-
-      - `message: string`
-
-        Human-readable error description.
-
-      - `type: "self_hosted_resources_unsupported_error"`
-
-    - `beta_managed_agents_mcp_egress_blocked_run_error: object`
-
-      An MCP server host used by the deployment's agent is blocked by the environment's network policy.
-
-      - `message: string`
-
-        Human-readable error description.
-
-      - `type: "mcp_egress_blocked_error"`
-
-  - `session_id: string`
-
-    Populated on success. Null on creation failure. Exactly one of `session_id` or `error` is non-null.
-
-  - `trigger_context: BetaManagedAgentsScheduleTriggerContext or BetaManagedAgentsManualTriggerContext`
-
-    Describes what triggered a deployment run, with trigger-specific metadata.
-
-    - `beta_managed_agents_schedule_trigger_context: object`
-
-      The run was fired by the deployment's cron schedule.
-
-      - `scheduled_at: string`
-
-        A timestamp in RFC 3339 format
-
-        format: date-time
-
-      - `type: "schedule"`
-
-    - `beta_managed_agents_manual_trigger_context: object`
-
-      The run was started manually by creating a session directly against the deployment.
-
-      - `type: "manual"`
-
-  - `type: "deployment_run"`
-
-#### Example
-
-```bash
-ant beta:deployments run \
-  --api-key my-anthropic-api-key \
-  --deployment-id depl_011CZkZcDH3vPqd7xnEfwTai
-```
-
-##### Response (200)
-
-```json
-{
-  "id": "id",
-  "agent": {
-    "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
-    "type": "agent",
-    "version": 1
-  },
-  "created_at": "2019-12-27T18:11:19.117Z",
-  "deployment_id": "deployment_id",
-  "error": {
-    "message": "message",
-    "type": "environment_archived_error"
-  },
-  "session_id": "session_id",
-  "trigger_context": {
-    "scheduled_at": "2019-12-27T18:11:19.117Z",
-    "type": "schedule"
-  },
-  "type": "deployment_run"
-}
-```
-
-### Pause Deployment
-
-`$ ant beta:deployments pause`
-
-**POST** `/v1/deployments/{deployment_id}/pause`
-
-Pause Deployment
-
-#### Parameters
-
-- `--deployment-id: string`
-
-  Path parameter deployment_id
-
-- `--beta: optional array of AnthropicBeta`
-
-  Optional header to specify the beta version(s) you want to use.
-
-#### Returns
-
-- `beta_managed_agents_deployment: object`
-
-  A deployment is a configured instance of an agent — it binds the agent to everything needed to run it autonomously: an environment, credentials, initial events, and an optional schedule.
-
-  - `id: string`
-
-    Unique identifier for this deployment.
-
-  - `agent: object`
-
-    A resolved agent reference with a concrete version.
-
-    - `id: string`
-
-    - `type: "agent"`
-
-    - `version: number`
-
-      format: int32
-
-  - `archived_at: string`
-
-    A timestamp in RFC 3339 format
-
-    format: date-time
-
-  - `created_at: string`
-
-    A timestamp in RFC 3339 format
-
-    format: date-time
-
-  - `description: string`
-
-    Description of what the deployment does.
-
-  - `environment_id: string`
-
-    ID of the `environment` where sessions run.
-
-  - `initial_events: array of BetaManagedAgentsDeploymentInitialEvent`
-
-    Events sent to each session immediately after creation.
-
-    - `beta_managed_agents_deployment_user_message_event: object`
-
-      A user message sent to the session.
-
-      - `content: array of BetaManagedAgentsTextBlock or BetaManagedAgentsImageBlock or BetaManagedAgentsDocumentBlock or BetaManagedAgentsRedactedBlock`
-
-        Array of content blocks for the user message.
-
-        - `beta_managed_agents_text_block: object`
-
-          Regular text content.
-
-          - `text: string`
-
-            The text content.
-
-            minLength: 1
-
-          - `type: "text"`
-
-        - `beta_managed_agents_image_block: object`
-
-          Image content specified directly as base64 data or as a reference via a URL.
-
-          - `source: BetaManagedAgentsBase64ImageSource or BetaManagedAgentsURLImageSource or BetaManagedAgentsFileImageSource`
-
-            Union type for image source variants.
-
-            - `beta_managed_agents_base64_image_source: object`
-
-              Base64-encoded image data.
-
-              - `data: string`
-
-                Base64-encoded image data.
-
-                minLength: 1
-
-              - `media_type: string`
-
-                MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
-
-                minLength: 1
-
-              - `type: "base64"`
-
-            - `beta_managed_agents_url_image_source: object`
-
-              Image referenced by URL.
-
-              - `type: "url"`
-
-              - `url: string`
-
-                URL of the image to fetch.
-
-                minLength: 1
-
-            - `beta_managed_agents_file_image_source: object`
-
-              Image referenced by file ID.
-
-              - `file_id: string`
-
-                ID of a previously uploaded file.
-
-                minLength: 1
-
-              - `type: "file"`
-
-          - `type: "image"`
-
-        - `beta_managed_agents_document_block: object`
-
-          Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-          - `source: BetaManagedAgentsBase64DocumentSource or BetaManagedAgentsPlainTextDocumentSource or BetaManagedAgentsURLDocumentSource or BetaManagedAgentsFileDocumentSource`
-
-            Union type for document source variants.
-
-            - `beta_managed_agents_base64_document_source: object`
-
-              Base64-encoded document data.
-
-              - `data: string`
-
-                Base64-encoded document data.
-
-                minLength: 1
-
-              - `media_type: string`
-
-                MIME type of the document (e.g., "application/pdf").
-
-                minLength: 1
-
-              - `type: "base64"`
-
-            - `beta_managed_agents_plain_text_document_source: object`
-
-              Plain text document content.
-
-              - `data: string`
-
-                The plain text content.
-
-                minLength: 1
-
-              - `media_type: "text/plain"`
-
-                MIME type of the text content. Must be "text/plain".
-
-              - `type: "text"`
-
-            - `beta_managed_agents_url_document_source: object`
-
-              Document referenced by URL.
-
-              - `type: "url"`
-
-              - `url: string`
-
-                URL of the document to fetch.
-
-                minLength: 1
-
-            - `beta_managed_agents_file_document_source: object`
-
-              Document referenced by file ID.
-
-              - `file_id: string`
-
-                ID of a previously uploaded file.
-
-                minLength: 1
-
-              - `type: "file"`
-
-          - `type: "document"`
-
-          - `context: optional string`
-
-            Additional context about the document for the model.
-
-          - `title: optional string`
-
-            The title of the document.
-
-        - `beta_managed_agents_redacted_block: object`
-
-          Placeholder for content withheld by Anthropic model policy.
-
-          - `type: "redacted"`
-
-      - `type: "user.message"`
-
-    - `beta_managed_agents_deployment_user_define_outcome_event: object`
-
-      An outcome the agent should work toward. The agent begins work on receipt.
-
-      - `description: string`
-
-        What the agent should produce. This is the task specification.
-
-      - `rubric: BetaManagedAgentsFileRubric or BetaManagedAgentsTextRubric`
-
-        Rubric for grading the quality of an outcome.
-
-        - `beta_managed_agents_file_rubric: object`
-
-          Rubric referenced by a file uploaded via the Files API.
-
-          - `file_id: string`
-
-            ID of the rubric file.
-
-          - `type: "file"`
-
-        - `beta_managed_agents_text_rubric: object`
-
-          Rubric content provided inline as text.
-
-          - `content: string`
-
-            Rubric content. Plain text or markdown — the grader treats it as freeform text.
-
-          - `type: "text"`
-
-      - `type: "user.define_outcome"`
-
-      - `max_iterations: optional number`
-
-        Eval→revision cycles before giving up. Default 3, max 20.
-
-        format: int32
-
-    - `beta_managed_agents_deployment_system_message_event: object`
-
-      Privileged context for the accompanying turn and all subsequent turns, appended to the session's system context as a `role: "system"` turn rather than replacing the top-level system prompt.
-
-      - `content: array of BetaManagedAgentsSystemContentBlock`
-
-        System content blocks to append. Text-only.
-
-        - `text: string`
-
-          The text content.
-
-          minLength: 1
-
-        - `type: "text"`
-
-      - `type: "system.message"`
-
-  - `metadata: map[string]`
-
-    Arbitrary key-value metadata. Maximum 16 pairs.
-
-  - `name: string`
-
-    Human-readable name.
-
-  - `paused_reason: BetaManagedAgentsManualDeploymentPausedReason or BetaManagedAgentsErrorDeploymentPausedReason`
-
-    Why a deployment is paused. Non-null exactly when `status` is `paused`.
-
-    - `beta_managed_agents_manual_deployment_paused_reason: object`
-
-      The caller invoked the pause endpoint on the deployment.
-
-      - `type: "manual"`
-
-    - `beta_managed_agents_error_deployment_paused_reason: object`
-
-      A scheduled fire recorded a failed run whose error auto-pauses the deployment.
-
-      - `error: BetaManagedAgentsEnvironmentArchivedDeploymentPausedReasonError or BetaManagedAgentsAgentArchivedDeploymentPausedReasonError or BetaManagedAgentsEnvironmentNotFoundDeploymentPausedReasonError or 11 more`
-
-        The error that triggered an auto-pause. Matches the failed run's `error.type`.
-
-        - `beta_managed_agents_environment_archived_deployment_paused_reason_error: object`
-
-          The deployment's environment was archived.
-
-          - `type: "environment_archived_error"`
-
-        - `beta_managed_agents_agent_archived_deployment_paused_reason_error: object`
-
-          The deployment's agent was archived.
-
-          - `type: "agent_archived_error"`
-
-        - `beta_managed_agents_environment_not_found_deployment_paused_reason_error: object`
-
-          The deployment's environment no longer exists.
-
-          - `type: "environment_not_found_error"`
-
-        - `beta_managed_agents_vault_not_found_deployment_paused_reason_error: object`
-
-          A vault referenced by the deployment no longer exists.
-
-          - `type: "vault_not_found_error"`
-
-        - `beta_managed_agents_file_not_found_deployment_paused_reason_error: object`
-
-          A file resource referenced by the deployment no longer exists.
-
-          - `type: "file_not_found_error"`
-
-        - `beta_managed_agents_session_resource_not_found_deployment_paused_reason_error: object`
-
-          A referenced resource no longer exists and its kind was not reported.
-
-          - `type: "session_resource_not_found_error"`
-
-        - `beta_managed_agents_workspace_archived_deployment_paused_reason_error: object`
-
-          The deployment's workspace was archived.
-
-          - `type: "workspace_archived_error"`
-
-        - `beta_managed_agents_organization_disabled_deployment_paused_reason_error: object`
-
-          The deployment's organization is disabled.
-
-          - `type: "organization_disabled_error"`
-
-        - `beta_managed_agents_memory_store_archived_deployment_paused_reason_error: object`
-
-          A memory store referenced by the deployment is archived.
-
-          - `type: "memory_store_archived_error"`
-
-        - `beta_managed_agents_skill_not_found_deployment_paused_reason_error: object`
-
-          A skill referenced by the deployment's agent no longer exists.
-
-          - `type: "skill_not_found_error"`
-
-        - `beta_managed_agents_vault_archived_deployment_paused_reason_error: object`
-
-          A vault referenced by the deployment is archived.
-
-          - `type: "vault_archived_error"`
-
-        - `beta_managed_agents_unknown_deployment_paused_reason_error: object`
-
-          An unrecognized error auto-paused the deployment. A fallback variant; matches a run whose `error.type` is `unknown_error`.
-
-          - `type: "unknown_error"`
-
-        - `beta_managed_agents_self_hosted_resources_unsupported_deployment_paused_reason_error: object`
-
-          The deployment configures resources, but its environment is self-hosted and cannot mount them.
-
-          - `type: "self_hosted_resources_unsupported_error"`
-
-        - `beta_managed_agents_mcp_egress_blocked_deployment_paused_reason_error: object`
-
-          An MCP server host used by the deployment's agent is blocked by the environment's network policy.
-
-          - `type: "mcp_egress_blocked_error"`
-
-      - `type: "error"`
-
-  - `resources: array of BetaManagedAgentsSessionResourceConfig`
-
-    Resources attached to sessions created from this deployment. Echoes the input minus write-only credentials.
-
-    - `beta_managed_agents_github_repository_resource_config: object`
-
-      A GitHub repository mounted into each session's container. The authorization token is write-only and never returned.
-
-      - `type: "github_repository"`
-
-      - `url: string`
-
-        Github URL of the repository
-
-      - `checkout: optional BetaManagedAgentsBranchCheckout or BetaManagedAgentsCommitCheckout`
-
-        Branch or commit to check out. Defaults to the repository's default branch.
-
-        - `beta_managed_agents_branch_checkout: object`
-
-          - `name: string`
-
-            Branch name to check out.
-
-            minLength: 1, maxLength: 255
-
-          - `type: "branch"`
-
-        - `beta_managed_agents_commit_checkout: object`
-
-          - `sha: string`
-
-            Full commit SHA to check out.
-
-            minLength: 7, maxLength: 64
-
-          - `type: "commit"`
-
-      - `mount_path: optional string`
-
-        Mount path in the container. Defaults to `/workspace/<repo-name>`.
-
-    - `beta_managed_agents_file_resource_config: object`
-
-      A file mounted into each session's container.
-
-      - `file_id: string`
-
-        ID of a previously uploaded file.
-
-      - `type: "file"`
-
-      - `mount_path: optional string`
-
-        Mount path in the container. Defaults to `/mnt/session/uploads/<file_id>`.
-
-    - `beta_managed_agents_memory_store_resource_config: object`
-
-      A memory store attached to each session created from this deployment.
-
-      - `memory_store_id: string`
-
-        The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
-
-      - `type: "memory_store"`
-
-      - `access: optional "read_write" or "read_only"`
-
-        Access mode for an attached memory store.
-
-        - `"read_write"`
-
-        - `"read_only"`
-
-      - `instructions: optional string`
-
-        Per-attachment guidance for the agent on how to use this store. Rendered into the memory section of the system prompt. Max 4096 chars.
-
-  - `schedule: object`
-
-    5-field POSIX cron schedule with computed runtime timestamps.
-
-    - `expression: string`
-
-      5-field POSIX cron expression: minute hour day-of-month month day-of-week (e.g., "0 9 * * 1-5" for weekdays at 9am). Day-of-week is 0-7 where 0 and 7 both mean Sunday. Extended cron syntax - seconds or year fields, and the special characters L, W, #, and ? - is not supported, nor are predefined shortcuts (@daily).
-
-      minLength: 1, maxLength: 256
-
-    - `timezone: string`
-
-      IANA timezone identifier (e.g., "America/Los_Angeles", "UTC").
-
-      minLength: 1
-
-    - `type: "cron"`
-
-    - `last_run_at: optional string`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `upcoming_runs_at: optional array of string`
-
-      Up to 5 timestamps of upcoming cron occurrences. Non-empty for active and paused deployments (reflects what the schedule would do if unpaused); empty once the deployment is archived (`archived_at` set). Each fire is offset by a small per-schedule jitter, so a run will actually start at or shortly after its listed time.
-
-  - `status: "active" or "paused"`
-
-    Lifecycle status of a deployment.
-
-    - `"active"`
-
-    - `"paused"`
-
-  - `type: "deployment"`
-
-  - `updated_at: string`
-
-    A timestamp in RFC 3339 format
-
-    format: date-time
-
-  - `vault_ids: array of string`
-
-    Vault IDs supplying stored credentials for sessions created from this deployment.
-
-  - `budget: optional object`
-
-    A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
-
-    - `max_list_cost: object`
-
-      A monetary amount in a specific currency.
-
-      - `amount: string`
-
-        Amount in minor units of the currency, as an integer decimal string with no leading zeros: "2500" is $25.00 and "50" is fifty cents. A string rather than a number so no float rounding is ever applied.
-
-      - `currency: "USD"`
-
-        Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
-
-    - `type: "limit"`
-
-#### Example
-
-```bash
-ant beta:deployments pause \
-  --api-key my-anthropic-api-key \
-  --deployment-id depl_011CZkZcDH3vPqd7xnEfwTai
-```
-
-##### Response (200)
-
-```json
-{
-  "id": "depl_011CZkZcDH3vPqd7xnEfwTai",
-  "agent": {
-    "id": "agent_011CZkYpogX7uDKUyvBTophP",
-    "type": "agent",
-    "version": 1
-  },
-  "archived_at": null,
-  "created_at": "2026-03-15T10:00:00Z",
-  "description": "Compiles yesterday's orders into a report every weekday morning.",
-  "environment_id": "env_011CZkZ9X2dpNyB7HsEFoRfW",
-  "initial_events": [
-    {
-      "content": [
-        {
-          "text": "Compile yesterday's orders into report.md.",
-          "type": "text"
-        }
-      ],
-      "type": "user.message"
-    }
-  ],
-  "metadata": {},
-  "name": "Daily order report",
-  "paused_reason": {
-    "type": "manual"
-  },
-  "resources": [
-    {
-      "type": "github_repository",
-      "url": "url",
-      "checkout": {
-        "name": "main",
-        "type": "branch"
-      },
-      "mount_path": "mount_path"
-    }
-  ],
-  "schedule": {
-    "expression": "0 9 * * 1-5",
-    "timezone": "America/Los_Angeles",
-    "type": "cron",
-    "last_run_at": "2026-03-16T16:00:09Z",
-    "upcoming_runs_at": [
-      "2026-03-17T16:00:00Z",
-      "2026-03-18T16:00:00Z"
-    ]
-  },
-  "status": "active",
-  "type": "deployment",
-  "updated_at": "2026-03-15T10:00:00Z",
-  "vault_ids": [
-    "vlt_011CZkZDLs7fYzm1hXNPeRjv"
-  ],
-  "budget": {
-    "max_list_cost": {
-      "amount": "2500",
-      "currency": "USD"
-    },
-    "type": "limit"
-  }
-}
-```
-
-### Unpause Deployment
-
-`$ ant beta:deployments unpause`
-
-**POST** `/v1/deployments/{deployment_id}/unpause`
-
-Unpause Deployment
-
-#### Parameters
-
-- `--deployment-id: string`
-
-  Path parameter deployment_id
-
-- `--beta: optional array of AnthropicBeta`
-
-  Optional header to specify the beta version(s) you want to use.
-
-#### Returns
-
-- `beta_managed_agents_deployment: object`
-
-  A deployment is a configured instance of an agent — it binds the agent to everything needed to run it autonomously: an environment, credentials, initial events, and an optional schedule.
-
-  - `id: string`
-
-    Unique identifier for this deployment.
-
-  - `agent: object`
-
-    A resolved agent reference with a concrete version.
-
-    - `id: string`
-
-    - `type: "agent"`
-
-    - `version: number`
-
-      format: int32
-
-  - `archived_at: string`
-
-    A timestamp in RFC 3339 format
-
-    format: date-time
-
-  - `created_at: string`
-
-    A timestamp in RFC 3339 format
-
-    format: date-time
-
-  - `description: string`
-
-    Description of what the deployment does.
-
-  - `environment_id: string`
-
-    ID of the `environment` where sessions run.
-
-  - `initial_events: array of BetaManagedAgentsDeploymentInitialEvent`
-
-    Events sent to each session immediately after creation.
-
-    - `beta_managed_agents_deployment_user_message_event: object`
-
-      A user message sent to the session.
-
-      - `content: array of BetaManagedAgentsTextBlock or BetaManagedAgentsImageBlock or BetaManagedAgentsDocumentBlock or BetaManagedAgentsRedactedBlock`
-
-        Array of content blocks for the user message.
-
-        - `beta_managed_agents_text_block: object`
-
-          Regular text content.
-
-          - `text: string`
-
-            The text content.
-
-            minLength: 1
-
-          - `type: "text"`
-
-        - `beta_managed_agents_image_block: object`
-
-          Image content specified directly as base64 data or as a reference via a URL.
-
-          - `source: BetaManagedAgentsBase64ImageSource or BetaManagedAgentsURLImageSource or BetaManagedAgentsFileImageSource`
-
-            Union type for image source variants.
-
-            - `beta_managed_agents_base64_image_source: object`
-
-              Base64-encoded image data.
-
-              - `data: string`
-
-                Base64-encoded image data.
-
-                minLength: 1
-
-              - `media_type: string`
-
-                MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
-
-                minLength: 1
-
-              - `type: "base64"`
-
-            - `beta_managed_agents_url_image_source: object`
-
-              Image referenced by URL.
-
-              - `type: "url"`
-
-              - `url: string`
-
-                URL of the image to fetch.
-
-                minLength: 1
-
-            - `beta_managed_agents_file_image_source: object`
-
-              Image referenced by file ID.
-
-              - `file_id: string`
-
-                ID of a previously uploaded file.
-
-                minLength: 1
-
-              - `type: "file"`
-
-          - `type: "image"`
-
-        - `beta_managed_agents_document_block: object`
-
-          Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-          - `source: BetaManagedAgentsBase64DocumentSource or BetaManagedAgentsPlainTextDocumentSource or BetaManagedAgentsURLDocumentSource or BetaManagedAgentsFileDocumentSource`
-
-            Union type for document source variants.
-
-            - `beta_managed_agents_base64_document_source: object`
-
-              Base64-encoded document data.
-
-              - `data: string`
-
-                Base64-encoded document data.
-
-                minLength: 1
-
-              - `media_type: string`
-
-                MIME type of the document (e.g., "application/pdf").
-
-                minLength: 1
-
-              - `type: "base64"`
-
-            - `beta_managed_agents_plain_text_document_source: object`
-
-              Plain text document content.
-
-              - `data: string`
-
-                The plain text content.
-
-                minLength: 1
-
-              - `media_type: "text/plain"`
-
-                MIME type of the text content. Must be "text/plain".
-
-              - `type: "text"`
-
-            - `beta_managed_agents_url_document_source: object`
-
-              Document referenced by URL.
-
-              - `type: "url"`
-
-              - `url: string`
-
-                URL of the document to fetch.
-
-                minLength: 1
-
-            - `beta_managed_agents_file_document_source: object`
-
-              Document referenced by file ID.
-
-              - `file_id: string`
-
-                ID of a previously uploaded file.
-
-                minLength: 1
-
-              - `type: "file"`
-
-          - `type: "document"`
-
-          - `context: optional string`
-
-            Additional context about the document for the model.
-
-          - `title: optional string`
-
-            The title of the document.
-
-        - `beta_managed_agents_redacted_block: object`
-
-          Placeholder for content withheld by Anthropic model policy.
-
-          - `type: "redacted"`
-
-      - `type: "user.message"`
-
-    - `beta_managed_agents_deployment_user_define_outcome_event: object`
-
-      An outcome the agent should work toward. The agent begins work on receipt.
-
-      - `description: string`
-
-        What the agent should produce. This is the task specification.
-
-      - `rubric: BetaManagedAgentsFileRubric or BetaManagedAgentsTextRubric`
-
-        Rubric for grading the quality of an outcome.
-
-        - `beta_managed_agents_file_rubric: object`
-
-          Rubric referenced by a file uploaded via the Files API.
-
-          - `file_id: string`
-
-            ID of the rubric file.
-
-          - `type: "file"`
-
-        - `beta_managed_agents_text_rubric: object`
-
-          Rubric content provided inline as text.
-
-          - `content: string`
-
-            Rubric content. Plain text or markdown — the grader treats it as freeform text.
-
-          - `type: "text"`
-
-      - `type: "user.define_outcome"`
-
-      - `max_iterations: optional number`
-
-        Eval→revision cycles before giving up. Default 3, max 20.
-
-        format: int32
-
-    - `beta_managed_agents_deployment_system_message_event: object`
-
-      Privileged context for the accompanying turn and all subsequent turns, appended to the session's system context as a `role: "system"` turn rather than replacing the top-level system prompt.
-
-      - `content: array of BetaManagedAgentsSystemContentBlock`
-
-        System content blocks to append. Text-only.
-
-        - `text: string`
-
-          The text content.
-
-          minLength: 1
-
-        - `type: "text"`
-
-      - `type: "system.message"`
-
-  - `metadata: map[string]`
-
-    Arbitrary key-value metadata. Maximum 16 pairs.
-
-  - `name: string`
-
-    Human-readable name.
-
-  - `paused_reason: BetaManagedAgentsManualDeploymentPausedReason or BetaManagedAgentsErrorDeploymentPausedReason`
-
-    Why a deployment is paused. Non-null exactly when `status` is `paused`.
-
-    - `beta_managed_agents_manual_deployment_paused_reason: object`
-
-      The caller invoked the pause endpoint on the deployment.
-
-      - `type: "manual"`
-
-    - `beta_managed_agents_error_deployment_paused_reason: object`
-
-      A scheduled fire recorded a failed run whose error auto-pauses the deployment.
-
-      - `error: BetaManagedAgentsEnvironmentArchivedDeploymentPausedReasonError or BetaManagedAgentsAgentArchivedDeploymentPausedReasonError or BetaManagedAgentsEnvironmentNotFoundDeploymentPausedReasonError or 11 more`
-
-        The error that triggered an auto-pause. Matches the failed run's `error.type`.
-
-        - `beta_managed_agents_environment_archived_deployment_paused_reason_error: object`
-
-          The deployment's environment was archived.
-
-          - `type: "environment_archived_error"`
-
-        - `beta_managed_agents_agent_archived_deployment_paused_reason_error: object`
-
-          The deployment's agent was archived.
-
-          - `type: "agent_archived_error"`
-
-        - `beta_managed_agents_environment_not_found_deployment_paused_reason_error: object`
-
-          The deployment's environment no longer exists.
-
-          - `type: "environment_not_found_error"`
-
-        - `beta_managed_agents_vault_not_found_deployment_paused_reason_error: object`
-
-          A vault referenced by the deployment no longer exists.
-
-          - `type: "vault_not_found_error"`
-
-        - `beta_managed_agents_file_not_found_deployment_paused_reason_error: object`
-
-          A file resource referenced by the deployment no longer exists.
-
-          - `type: "file_not_found_error"`
-
-        - `beta_managed_agents_session_resource_not_found_deployment_paused_reason_error: object`
-
-          A referenced resource no longer exists and its kind was not reported.
-
-          - `type: "session_resource_not_found_error"`
-
-        - `beta_managed_agents_workspace_archived_deployment_paused_reason_error: object`
-
-          The deployment's workspace was archived.
-
-          - `type: "workspace_archived_error"`
-
-        - `beta_managed_agents_organization_disabled_deployment_paused_reason_error: object`
-
-          The deployment's organization is disabled.
-
-          - `type: "organization_disabled_error"`
-
-        - `beta_managed_agents_memory_store_archived_deployment_paused_reason_error: object`
-
-          A memory store referenced by the deployment is archived.
-
-          - `type: "memory_store_archived_error"`
-
-        - `beta_managed_agents_skill_not_found_deployment_paused_reason_error: object`
-
-          A skill referenced by the deployment's agent no longer exists.
-
-          - `type: "skill_not_found_error"`
-
-        - `beta_managed_agents_vault_archived_deployment_paused_reason_error: object`
-
-          A vault referenced by the deployment is archived.
-
-          - `type: "vault_archived_error"`
-
-        - `beta_managed_agents_unknown_deployment_paused_reason_error: object`
-
-          An unrecognized error auto-paused the deployment. A fallback variant; matches a run whose `error.type` is `unknown_error`.
-
-          - `type: "unknown_error"`
-
-        - `beta_managed_agents_self_hosted_resources_unsupported_deployment_paused_reason_error: object`
-
-          The deployment configures resources, but its environment is self-hosted and cannot mount them.
-
-          - `type: "self_hosted_resources_unsupported_error"`
-
-        - `beta_managed_agents_mcp_egress_blocked_deployment_paused_reason_error: object`
-
-          An MCP server host used by the deployment's agent is blocked by the environment's network policy.
-
-          - `type: "mcp_egress_blocked_error"`
-
-      - `type: "error"`
-
-  - `resources: array of BetaManagedAgentsSessionResourceConfig`
-
-    Resources attached to sessions created from this deployment. Echoes the input minus write-only credentials.
-
-    - `beta_managed_agents_github_repository_resource_config: object`
-
-      A GitHub repository mounted into each session's container. The authorization token is write-only and never returned.
-
-      - `type: "github_repository"`
-
-      - `url: string`
-
-        Github URL of the repository
-
-      - `checkout: optional BetaManagedAgentsBranchCheckout or BetaManagedAgentsCommitCheckout`
-
-        Branch or commit to check out. Defaults to the repository's default branch.
-
-        - `beta_managed_agents_branch_checkout: object`
-
-          - `name: string`
-
-            Branch name to check out.
-
-            minLength: 1, maxLength: 255
-
-          - `type: "branch"`
-
-        - `beta_managed_agents_commit_checkout: object`
-
-          - `sha: string`
-
-            Full commit SHA to check out.
-
-            minLength: 7, maxLength: 64
-
-          - `type: "commit"`
-
-      - `mount_path: optional string`
-
-        Mount path in the container. Defaults to `/workspace/<repo-name>`.
-
-    - `beta_managed_agents_file_resource_config: object`
-
-      A file mounted into each session's container.
-
-      - `file_id: string`
-
-        ID of a previously uploaded file.
-
-      - `type: "file"`
-
-      - `mount_path: optional string`
-
-        Mount path in the container. Defaults to `/mnt/session/uploads/<file_id>`.
-
-    - `beta_managed_agents_memory_store_resource_config: object`
-
-      A memory store attached to each session created from this deployment.
-
-      - `memory_store_id: string`
-
-        The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
-
-      - `type: "memory_store"`
-
-      - `access: optional "read_write" or "read_only"`
-
-        Access mode for an attached memory store.
-
-        - `"read_write"`
-
-        - `"read_only"`
-
-      - `instructions: optional string`
-
-        Per-attachment guidance for the agent on how to use this store. Rendered into the memory section of the system prompt. Max 4096 chars.
-
-  - `schedule: object`
-
-    5-field POSIX cron schedule with computed runtime timestamps.
-
-    - `expression: string`
-
-      5-field POSIX cron expression: minute hour day-of-month month day-of-week (e.g., "0 9 * * 1-5" for weekdays at 9am). Day-of-week is 0-7 where 0 and 7 both mean Sunday. Extended cron syntax - seconds or year fields, and the special characters L, W, #, and ? - is not supported, nor are predefined shortcuts (@daily).
-
-      minLength: 1, maxLength: 256
-
-    - `timezone: string`
-
-      IANA timezone identifier (e.g., "America/Los_Angeles", "UTC").
-
-      minLength: 1
-
-    - `type: "cron"`
-
-    - `last_run_at: optional string`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `upcoming_runs_at: optional array of string`
-
-      Up to 5 timestamps of upcoming cron occurrences. Non-empty for active and paused deployments (reflects what the schedule would do if unpaused); empty once the deployment is archived (`archived_at` set). Each fire is offset by a small per-schedule jitter, so a run will actually start at or shortly after its listed time.
-
-  - `status: "active" or "paused"`
-
-    Lifecycle status of a deployment.
-
-    - `"active"`
-
-    - `"paused"`
-
-  - `type: "deployment"`
-
-  - `updated_at: string`
-
-    A timestamp in RFC 3339 format
-
-    format: date-time
-
-  - `vault_ids: array of string`
-
-    Vault IDs supplying stored credentials for sessions created from this deployment.
-
-  - `budget: optional object`
-
-    A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
-
-    - `max_list_cost: object`
-
-      A monetary amount in a specific currency.
-
-      - `amount: string`
-
-        Amount in minor units of the currency, as an integer decimal string with no leading zeros: "2500" is $25.00 and "50" is fifty cents. A string rather than a number so no float rounding is ever applied.
-
-      - `currency: "USD"`
-
-        Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
-
-    - `type: "limit"`
-
-#### Example
-
-```bash
-ant beta:deployments unpause \
-  --api-key my-anthropic-api-key \
-  --deployment-id depl_011CZkZcDH3vPqd7xnEfwTai
-```
-
-##### Response (200)
-
-```json
-{
-  "id": "depl_011CZkZcDH3vPqd7xnEfwTai",
-  "agent": {
-    "id": "agent_011CZkYpogX7uDKUyvBTophP",
-    "type": "agent",
-    "version": 1
-  },
-  "archived_at": null,
-  "created_at": "2026-03-15T10:00:00Z",
-  "description": "Compiles yesterday's orders into a report every weekday morning.",
-  "environment_id": "env_011CZkZ9X2dpNyB7HsEFoRfW",
-  "initial_events": [
-    {
-      "content": [
-        {
-          "text": "Compile yesterday's orders into report.md.",
-          "type": "text"
-        }
-      ],
-      "type": "user.message"
-    }
-  ],
-  "metadata": {},
-  "name": "Daily order report",
-  "paused_reason": {
-    "type": "manual"
-  },
-  "resources": [
-    {
-      "type": "github_repository",
-      "url": "url",
-      "checkout": {
-        "name": "main",
-        "type": "branch"
-      },
-      "mount_path": "mount_path"
-    }
-  ],
-  "schedule": {
-    "expression": "0 9 * * 1-5",
-    "timezone": "America/Los_Angeles",
-    "type": "cron",
-    "last_run_at": "2026-03-16T16:00:09Z",
-    "upcoming_runs_at": [
-      "2026-03-17T16:00:00Z",
-      "2026-03-18T16:00:00Z"
-    ]
-  },
-  "status": "active",
-  "type": "deployment",
-  "updated_at": "2026-03-15T10:00:00Z",
-  "vault_ids": [
-    "vlt_011CZkZDLs7fYzm1hXNPeRjv"
-  ],
-  "budget": {
-    "max_list_cost": {
-      "amount": "2500",
-      "currency": "USD"
-    },
-    "type": "limit"
-  }
-}
-```
-
-## Beta › Deployment Runs
-
-### List Deployment Runs
-
-`$ ant beta:deployment-runs list`
-
-**GET** `/v1/deployment_runs`
-
-List Deployment Runs
-
-#### Parameters
-
-- `--created-at-gt: optional string`
-
-  Query param: Return runs created strictly after this time (exclusive).
-
-  format: date-time
-
-- `--created-at-gte: optional string`
-
-  Query param: Return runs created at or after this time (inclusive).
-
-  format: date-time
-
-- `--created-at-lt: optional string`
-
-  Query param: Return runs created strictly before this time (exclusive).
-
-  format: date-time
-
-- `--created-at-lte: optional string`
-
-  Query param: Return runs created at or before this time (inclusive).
-
-  format: date-time
-
-- `--deployment-id: optional string`
-
-  Query param: Filter to a specific deployment. Omit to list across all deployments in the workspace. Filtering by a non-existent `deployment_id` returns 200 with empty data.
-
-- `--has-error: optional boolean`
-
-  Query param: Filter: true for runs with non-null `error`, false for runs with non-null `session_id`. Omit for all.
-
-- `--limit: optional number`
-
-  Query param: Maximum results per page. Default 20, maximum 1000.
-
-  format: int32
-
-- `--page: optional string`
-
-  Query param: Opaque pagination cursor. Pass `next_page` from the previous response. Invalid or expired cursors return 400.
-
-- `--trigger-type: optional "schedule" or "manual"`
-
-  Query param: Filter runs by what triggered them. Omit to return all runs.
-
-- `--beta: optional array of AnthropicBeta`
-
-  Header param: Optional header to specify the beta version(s) you want to use.
-
-#### Returns
-
-- `BetaManagedAgentsListDeploymentRunsData: object`
-
-  Paginated list of deployment runs. Sorted by `created_at` descending (most recent first).
-
-  - `data: array of BetaManagedAgentsDeploymentRun`
-
-    List of deployment runs.
-
-    - `id: string`
-
-      Unique identifier for this run (`drun_...`).
-
-    - `agent: object`
-
-      A resolved agent reference with a concrete version.
-
-      - `id: string`
-
-      - `type: "agent"`
-
-      - `version: number`
-
-        format: int32
-
-    - `created_at: string`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `deployment_id: string`
-
-      ID of the deployment that produced this run.
-
-    - `error: BetaManagedAgentsEnvironmentArchivedRunError or BetaManagedAgentsAgentArchivedRunError or BetaManagedAgentsEnvironmentNotFoundRunError or 13 more`
-
-      Why the run failed to create a session. The type identifies the failure; message is human-readable detail.
-
-      - `beta_managed_agents_environment_archived_run_error: object`
-
-        The deployment's environment was archived.
-
-        - `message: string`
-
-          Human-readable error description.
-
-        - `type: "environment_archived_error"`
-
-      - `beta_managed_agents_agent_archived_run_error: object`
-
-        The deployment's agent was archived.
-
-        - `message: string`
-
-          Human-readable error description.
-
-        - `type: "agent_archived_error"`
-
-      - `beta_managed_agents_environment_not_found_run_error: object`
-
-        The deployment's environment no longer exists.
-
-        - `message: string`
-
-          Human-readable error description.
-
-        - `type: "environment_not_found_error"`
-
-      - `beta_managed_agents_vault_not_found_run_error: object`
-
-        A vault referenced by the deployment no longer exists.
-
-        - `message: string`
-
-          Human-readable error description.
-
-        - `type: "vault_not_found_error"`
-
-      - `beta_managed_agents_vault_archived_run_error: object`
-
-        A vault referenced by the deployment is archived.
-
-        - `message: string`
-
-          Human-readable error description.
-
-        - `type: "vault_archived_error"`
-
-      - `beta_managed_agents_file_not_found_run_error: object`
-
-        A file resource referenced by the deployment no longer exists.
-
-        - `message: string`
-
-          Human-readable error description.
-
-        - `type: "file_not_found_error"`
-
-      - `beta_managed_agents_memory_store_archived_run_error: object`
-
-        A memory store referenced by the deployment is archived.
-
-        - `message: string`
-
-          Human-readable error description.
-
-        - `type: "memory_store_archived_error"`
-
-      - `beta_managed_agents_skill_not_found_run_error: object`
-
-        A skill referenced by the deployment's agent no longer exists.
-
-        - `message: string`
-
-          Human-readable error description.
-
-        - `type: "skill_not_found_error"`
-
-      - `beta_managed_agents_session_resource_not_found_run_error: object`
-
-        A referenced resource no longer exists and its kind was not reported.
-
-        - `message: string`
-
-          Human-readable error description.
-
-        - `type: "session_resource_not_found_error"`
-
-      - `beta_managed_agents_workspace_archived_run_error: object`
-
-        The deployment's workspace was archived.
-
-        - `message: string`
-
-          Human-readable error description.
-
-        - `type: "workspace_archived_error"`
-
-      - `beta_managed_agents_organization_disabled_run_error: object`
-
-        The deployment's organization is disabled.
-
-        - `message: string`
-
-          Human-readable error description.
-
-        - `type: "organization_disabled_error"`
-
-      - `beta_managed_agents_session_rate_limited_run_error: object`
-
-        Session creation was rejected due to rate limiting. The schedule keeps firing; subsequent runs may succeed.
-
-        - `message: string`
-
-          Human-readable error description.
-
-        - `type: "session_rate_limited_error"`
-
-      - `beta_managed_agents_session_creation_rejected_run_error: object`
-
-        The session create request was rejected with a non-retryable validation error.
-
-        - `message: string`
-
-          Human-readable error description.
-
-        - `type: "session_creation_rejected_error"`
-
-      - `beta_managed_agents_unknown_run_error: object`
-
-        An unknown or unexpected error caused the run to fail. A fallback variant; clients that do not recognize a new error type can match on message alone.
-
-        - `message: string`
-
-          Human-readable error description.
-
-        - `type: "unknown_error"`
-
-      - `beta_managed_agents_self_hosted_resources_unsupported_run_error: object`
-
-        The deployment configures resources, but its environment is self-hosted and cannot mount them.
-
-        - `message: string`
-
-          Human-readable error description.
-
-        - `type: "self_hosted_resources_unsupported_error"`
-
-      - `beta_managed_agents_mcp_egress_blocked_run_error: object`
-
-        An MCP server host used by the deployment's agent is blocked by the environment's network policy.
-
-        - `message: string`
-
-          Human-readable error description.
-
-        - `type: "mcp_egress_blocked_error"`
-
-    - `session_id: string`
-
-      Populated on success. Null on creation failure. Exactly one of `session_id` or `error` is non-null.
-
-    - `trigger_context: BetaManagedAgentsScheduleTriggerContext or BetaManagedAgentsManualTriggerContext`
-
-      Describes what triggered a deployment run, with trigger-specific metadata.
-
-      - `beta_managed_agents_schedule_trigger_context: object`
-
-        The run was fired by the deployment's cron schedule.
-
-        - `scheduled_at: string`
-
-          A timestamp in RFC 3339 format
-
-          format: date-time
-
-        - `type: "schedule"`
-
-      - `beta_managed_agents_manual_trigger_context: object`
-
-        The run was started manually by creating a session directly against the deployment.
-
-        - `type: "manual"`
-
-    - `type: "deployment_run"`
-
-  - `next_page: optional string`
-
-    Opaque cursor for the next page. Null when no more results.
-
-#### Example
-
-```bash
-ant beta:deployment-runs list \
-  --api-key my-anthropic-api-key
-```
-
-##### Response (200)
-
-```json
-{
-  "data": [
-    {
-      "id": "id",
-      "agent": {
-        "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
-        "type": "agent",
-        "version": 1
-      },
-      "created_at": "2019-12-27T18:11:19.117Z",
-      "deployment_id": "deployment_id",
-      "error": {
-        "message": "message",
-        "type": "environment_archived_error"
-      },
-      "session_id": "session_id",
-      "trigger_context": {
-        "scheduled_at": "2019-12-27T18:11:19.117Z",
-        "type": "schedule"
-      },
-      "type": "deployment_run"
-    }
-  ],
-  "next_page": "next_page"
-}
-```
-
-### Get Deployment Run
-
-`$ ant beta:deployment-runs retrieve`
-
-**GET** `/v1/deployment_runs/{deployment_run_id}`
-
-Get Deployment Run
-
-#### Parameters
-
-- `--deployment-run-id: string`
-
-  Path parameter deployment_run_id
-
-- `--beta: optional array of AnthropicBeta`
-
-  Optional header to specify the beta version(s) you want to use.
-
-#### Returns
-
-- `beta_managed_agents_deployment_run: object`
-
-  A persistent, append-only record of a single deployment execution. Records session creation success or failure — no session lifecycle tracking.
-
-  - `id: string`
-
-    Unique identifier for this run (`drun_...`).
-
-  - `agent: object`
-
-    A resolved agent reference with a concrete version.
-
-    - `id: string`
-
-    - `type: "agent"`
-
-    - `version: number`
-
-      format: int32
-
-  - `created_at: string`
-
-    A timestamp in RFC 3339 format
-
-    format: date-time
-
-  - `deployment_id: string`
-
-    ID of the deployment that produced this run.
-
-  - `error: BetaManagedAgentsEnvironmentArchivedRunError or BetaManagedAgentsAgentArchivedRunError or BetaManagedAgentsEnvironmentNotFoundRunError or 13 more`
-
-    Why the run failed to create a session. The type identifies the failure; message is human-readable detail.
-
-    - `beta_managed_agents_environment_archived_run_error: object`
-
-      The deployment's environment was archived.
-
-      - `message: string`
-
-        Human-readable error description.
-
-      - `type: "environment_archived_error"`
-
-    - `beta_managed_agents_agent_archived_run_error: object`
-
-      The deployment's agent was archived.
-
-      - `message: string`
-
-        Human-readable error description.
-
-      - `type: "agent_archived_error"`
-
-    - `beta_managed_agents_environment_not_found_run_error: object`
-
-      The deployment's environment no longer exists.
-
-      - `message: string`
-
-        Human-readable error description.
-
-      - `type: "environment_not_found_error"`
-
-    - `beta_managed_agents_vault_not_found_run_error: object`
-
-      A vault referenced by the deployment no longer exists.
-
-      - `message: string`
-
-        Human-readable error description.
-
-      - `type: "vault_not_found_error"`
-
-    - `beta_managed_agents_vault_archived_run_error: object`
-
-      A vault referenced by the deployment is archived.
-
-      - `message: string`
-
-        Human-readable error description.
-
-      - `type: "vault_archived_error"`
-
-    - `beta_managed_agents_file_not_found_run_error: object`
-
-      A file resource referenced by the deployment no longer exists.
-
-      - `message: string`
-
-        Human-readable error description.
-
-      - `type: "file_not_found_error"`
-
-    - `beta_managed_agents_memory_store_archived_run_error: object`
-
-      A memory store referenced by the deployment is archived.
-
-      - `message: string`
-
-        Human-readable error description.
-
-      - `type: "memory_store_archived_error"`
-
-    - `beta_managed_agents_skill_not_found_run_error: object`
-
-      A skill referenced by the deployment's agent no longer exists.
-
-      - `message: string`
-
-        Human-readable error description.
-
-      - `type: "skill_not_found_error"`
-
-    - `beta_managed_agents_session_resource_not_found_run_error: object`
-
-      A referenced resource no longer exists and its kind was not reported.
-
-      - `message: string`
-
-        Human-readable error description.
-
-      - `type: "session_resource_not_found_error"`
-
-    - `beta_managed_agents_workspace_archived_run_error: object`
-
-      The deployment's workspace was archived.
-
-      - `message: string`
-
-        Human-readable error description.
-
-      - `type: "workspace_archived_error"`
-
-    - `beta_managed_agents_organization_disabled_run_error: object`
-
-      The deployment's organization is disabled.
-
-      - `message: string`
-
-        Human-readable error description.
-
-      - `type: "organization_disabled_error"`
-
-    - `beta_managed_agents_session_rate_limited_run_error: object`
-
-      Session creation was rejected due to rate limiting. The schedule keeps firing; subsequent runs may succeed.
-
-      - `message: string`
-
-        Human-readable error description.
-
-      - `type: "session_rate_limited_error"`
-
-    - `beta_managed_agents_session_creation_rejected_run_error: object`
-
-      The session create request was rejected with a non-retryable validation error.
-
-      - `message: string`
-
-        Human-readable error description.
-
-      - `type: "session_creation_rejected_error"`
-
-    - `beta_managed_agents_unknown_run_error: object`
-
-      An unknown or unexpected error caused the run to fail. A fallback variant; clients that do not recognize a new error type can match on message alone.
-
-      - `message: string`
-
-        Human-readable error description.
-
-      - `type: "unknown_error"`
-
-    - `beta_managed_agents_self_hosted_resources_unsupported_run_error: object`
-
-      The deployment configures resources, but its environment is self-hosted and cannot mount them.
-
-      - `message: string`
-
-        Human-readable error description.
-
-      - `type: "self_hosted_resources_unsupported_error"`
-
-    - `beta_managed_agents_mcp_egress_blocked_run_error: object`
-
-      An MCP server host used by the deployment's agent is blocked by the environment's network policy.
-
-      - `message: string`
-
-        Human-readable error description.
-
-      - `type: "mcp_egress_blocked_error"`
-
-  - `session_id: string`
-
-    Populated on success. Null on creation failure. Exactly one of `session_id` or `error` is non-null.
-
-  - `trigger_context: BetaManagedAgentsScheduleTriggerContext or BetaManagedAgentsManualTriggerContext`
-
-    Describes what triggered a deployment run, with trigger-specific metadata.
-
-    - `beta_managed_agents_schedule_trigger_context: object`
-
-      The run was fired by the deployment's cron schedule.
-
-      - `scheduled_at: string`
-
-        A timestamp in RFC 3339 format
-
-        format: date-time
-
-      - `type: "schedule"`
-
-    - `beta_managed_agents_manual_trigger_context: object`
-
-      The run was started manually by creating a session directly against the deployment.
-
-      - `type: "manual"`
-
-  - `type: "deployment_run"`
-
-#### Example
-
-```bash
-ant beta:deployment-runs retrieve \
-  --api-key my-anthropic-api-key \
-  --deployment-run-id deployment_run_id
-```
-
-##### Response (200)
-
-```json
-{
-  "id": "id",
-  "agent": {
-    "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
-    "type": "agent",
-    "version": 1
-  },
-  "created_at": "2019-12-27T18:11:19.117Z",
-  "deployment_id": "deployment_id",
-  "error": {
-    "message": "message",
-    "type": "environment_archived_error"
-  },
-  "session_id": "session_id",
-  "trigger_context": {
-    "scheduled_at": "2019-12-27T18:11:19.117Z",
-    "type": "schedule"
-  },
-  "type": "deployment_run"
-}
-```
-
-## Beta › Vaults
-
-### Create Vault
-
-`$ ant beta:vaults create`
-
-**POST** `/v1/vaults`
-
-Create Vault
-
-#### Parameters
-
-- `--display-name: string`
-
-  Body param: Human-readable name for the vault. 1-255 characters.
-
-  minLength: 1, maxLength: 255
-
-- `--metadata: optional map[string]`
-
-  Body param: Arbitrary key-value metadata to attach to the vault. Maximum 16 pairs, keys up to 64 chars, values up to 512 chars.
-
-- `--beta: optional array of AnthropicBeta`
-
-  Header param: Optional header to specify the beta version(s) you want to use.
-
-#### Returns
-
-- `beta_managed_agents_vault: object`
-
-  A vault that stores credentials for use by agents during sessions.
-
-  - `id: string`
-
-    Unique identifier for the vault.
-
-  - `archived_at: string`
-
-    A timestamp in RFC 3339 format
-
-    format: date-time
-
-  - `created_at: string`
-
-    A timestamp in RFC 3339 format
-
-    format: date-time
-
-  - `display_name: string`
-
-    Human-readable name for the vault.
-
-  - `metadata: map[string]`
-
-    Arbitrary key-value metadata attached to the vault.
-
-  - `type: "vault"`
-
-  - `updated_at: string`
-
-    A timestamp in RFC 3339 format
-
-    format: date-time
-
-#### Example
-
-```bash
-ant beta:vaults create \
-  --api-key my-anthropic-api-key \
-  --display-name 'Example vault'
-```
-
-##### Response (200)
-
-```json
-{
-  "id": "vlt_011CZkZDLs7fYzm1hXNPeRjv",
-  "archived_at": null,
-  "created_at": "2026-03-15T10:00:00Z",
-  "display_name": "Example vault",
-  "metadata": {
-    "environment": "production"
-  },
-  "type": "vault",

@@ -1,10 +1,15 @@
 <!-- source: https://platform.claude.com/docs/en/api/php/beta/memory_stores/memories -->
 
+---
+title: Memories
+url: https://platform.claude.com/docs/en/api/php/beta/memory_stores/memories
+---
+
 # Memories
 
 ## Create a memory
 
-`$client->beta->memoryStores->memories->create(string memoryStoreID, ?string content, string path, ?ManagedAgentsMemoryView view, ?list<AnthropicBeta> betas): ManagedAgentsMemory`
+`$client->beta->memoryStores->memories->create(string memoryStoreID, ?string content, string path, ?ManagedAgentsMemoryView view, ?list<AnthropicBeta> betas, ?string workspaceID): ManagedAgentsMemory`
 
 **POST** `/v1/memory_stores/{memory_store_id}/memories`
 
@@ -30,9 +35,13 @@ Create a memory
 
   Optional header to specify the beta version(s) you want to use.
 
+- `workspaceID?:optional string`
+
 ### Returns
 
 - `ManagedAgentsMemory`
+
+  - `Type type`
 
   - `string id`
 
@@ -62,8 +71,6 @@ Create a memory
 
     Hierarchical path of the memory within the store, e.g. `/projects/foo/notes.md`. Always starts with `/`. Paths are case-sensitive and unique within a store. Maximum 1,024 bytes.
 
-  - `Type type`
-
   - `\Datetime updatedAt`
 
     A timestamp in RFC 3339 format
@@ -87,6 +94,7 @@ $betaManagedAgentsMemory = $client->beta->memoryStores->memories->create(
   path: 'xx',
   view: ManagedAgentsMemoryView::BASIC,
   betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+  workspaceID: 'wrkspc_011CZkZaBF1tNoB5wlCeusgy',
 );
 
 var_dump($betaManagedAgentsMemory);
@@ -111,7 +119,7 @@ var_dump($betaManagedAgentsMemory);
 
 ## List memories
 
-`$client->beta->memoryStores->memories->list(string memoryStoreID, ?int depth, ?int limit, ?string page, ?string pathPrefix, ?ManagedAgentsMemoryView view, ?list<AnthropicBeta> betas): PageCursor<ManagedAgentsMemoryListItem>`
+`$client->beta->memoryStores->memories->list(string memoryStoreID, ?int depth, ?int limit, ?string page, ?string pathPrefix, ?ManagedAgentsMemoryView view, ?list<AnthropicBeta> betas, ?string workspaceID): PageCursor<ManagedAgentsMemoryListItem>`
 
 **GET** `/v1/memory_stores/{memory_store_id}/memories`
 
@@ -145,11 +153,15 @@ List memories
 
   Optional header to specify the beta version(s) you want to use.
 
+- `workspaceID?:optional string`
+
 ### Returns
 
 - `ManagedAgentsMemoryListItem`
 
   - `ManagedAgentsMemory`
+
+    - `Type type`
 
     - `string id`
 
@@ -179,8 +191,6 @@ List memories
 
       Hierarchical path of the memory within the store, e.g. `/projects/foo/notes.md`. Always starts with `/`. Paths are case-sensitive and unique within a store. Maximum 1,024 bytes.
 
-    - `Type type`
-
     - `\Datetime updatedAt`
 
       A timestamp in RFC 3339 format
@@ -191,11 +201,11 @@ List memories
 
   - `ManagedAgentsMemoryPrefix`
 
+    - `Type type`
+
     - `string path`
 
       The rolled-up path prefix, including a trailing `/` (e.g. `/projects/foo/`). Pass this value as `path_prefix` on a subsequent list call to drill into the directory.
-
-    - `Type type`
 
 ### Example
 
@@ -214,6 +224,7 @@ $page = $client->beta->memoryStores->memories->list(
   pathPrefix: 'path_prefix',
   view: ManagedAgentsMemoryView::BASIC,
   betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+  workspaceID: 'wrkspc_011CZkZaBF1tNoB5wlCeusgy',
 );
 
 var_dump($page);
@@ -243,7 +254,7 @@ var_dump($page);
 
 ## Retrieve a memory
 
-`$client->beta->memoryStores->memories->retrieve(string memoryID, string memoryStoreID, ?ManagedAgentsMemoryView view, ?list<AnthropicBeta> betas): ManagedAgentsMemory`
+`$client->beta->memoryStores->memories->retrieve(string memoryID, string memoryStoreID, ?ManagedAgentsMemoryView view, ?list<AnthropicBeta> betas, ?string workspaceID): ManagedAgentsMemory`
 
 **GET** `/v1/memory_stores/{memory_store_id}/memories/{memory_id}`
 
@@ -263,9 +274,13 @@ Retrieve a memory
 
   Optional header to specify the beta version(s) you want to use.
 
+- `workspaceID?:optional string`
+
 ### Returns
 
 - `ManagedAgentsMemory`
+
+  - `Type type`
 
   - `string id`
 
@@ -295,8 +310,6 @@ Retrieve a memory
 
     Hierarchical path of the memory within the store, e.g. `/projects/foo/notes.md`. Always starts with `/`. Paths are case-sensitive and unique within a store. Maximum 1,024 bytes.
 
-  - `Type type`
-
   - `\Datetime updatedAt`
 
     A timestamp in RFC 3339 format
@@ -319,6 +332,7 @@ $betaManagedAgentsMemory = $client->beta->memoryStores->memories->retrieve(
   memoryStoreID: 'memory_store_id',
   view: ManagedAgentsMemoryView::BASIC,
   betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+  workspaceID: 'wrkspc_011CZkZaBF1tNoB5wlCeusgy',
 );
 
 var_dump($betaManagedAgentsMemory);
@@ -343,7 +357,7 @@ var_dump($betaManagedAgentsMemory);
 
 ## Update a memory
 
-`$client->beta->memoryStores->memories->update(string memoryID, string memoryStoreID, ?ManagedAgentsMemoryView view, ?string content, ?string path, ?ManagedAgentsPrecondition precondition, ?list<AnthropicBeta> betas): ManagedAgentsMemory`
+`$client->beta->memoryStores->memories->update(string memoryID, string memoryStoreID, ?ManagedAgentsMemoryView view, ?string content, ?string path, ?ManagedAgentsPrecondition precondition, ?list<AnthropicBeta> betas, ?string workspaceID): ManagedAgentsMemory`
 
 **POST** `/v1/memory_stores/{memory_store_id}/memories/{memory_id}`
 
@@ -375,9 +389,13 @@ Update a memory
 
   Optional header to specify the beta version(s) you want to use.
 
+- `workspaceID?:optional string`
+
 ### Returns
 
 - `ManagedAgentsMemory`
+
+  - `Type type`
 
   - `string id`
 
@@ -407,8 +425,6 @@ Update a memory
 
     Hierarchical path of the memory within the store, e.g. `/projects/foo/notes.md`. Always starts with `/`. Paths are case-sensitive and unique within a store. Maximum 1,024 bytes.
 
-  - `Type type`
-
   - `\Datetime updatedAt`
 
     A timestamp in RFC 3339 format
@@ -436,6 +452,7 @@ $betaManagedAgentsMemory = $client->beta->memoryStores->memories->update(
     'type' => 'content_sha256', 'contentSha256' => 'content_sha256'
   ],
   betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+  workspaceID: 'wrkspc_011CZkZaBF1tNoB5wlCeusgy',
 );
 
 var_dump($betaManagedAgentsMemory);
@@ -460,7 +477,7 @@ var_dump($betaManagedAgentsMemory);
 
 ## Delete a memory
 
-`$client->beta->memoryStores->memories->delete(string memoryID, string memoryStoreID, ?string expectedContentSha256, ?list<AnthropicBeta> betas): ManagedAgentsDeletedMemory`
+`$client->beta->memoryStores->memories->delete(string memoryID, string memoryStoreID, ?string expectedContentSha256, ?list<AnthropicBeta> betas, ?string workspaceID): ManagedAgentsDeletedMemory`
 
 **DELETE** `/v1/memory_stores/{memory_store_id}/memories/{memory_id}`
 
@@ -480,15 +497,17 @@ Delete a memory
 
   Optional header to specify the beta version(s) you want to use.
 
+- `workspaceID?:optional string`
+
 ### Returns
 
 - `ManagedAgentsDeletedMemory`
 
+  - `Type type`
+
   - `string id`
 
     ID of the deleted memory (a `mem_...` value).
-
-  - `Type type`
 
 ### Example
 
@@ -504,6 +523,7 @@ $betaManagedAgentsDeletedMemory = $client->beta->memoryStores->memories->delete(
   memoryStoreID: 'memory_store_id',
   expectedContentSha256: 'expected_content_sha256',
   betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+  workspaceID: 'wrkspc_011CZkZaBF1tNoB5wlCeusgy',
 );
 
 var_dump($betaManagedAgentsDeletedMemory);
@@ -542,11 +562,11 @@ var_dump($betaManagedAgentsDeletedMemory);
 
 - `ManagedAgentsDeletedMemory`
 
+  - `Type type`
+
   - `string id`
 
     ID of the deleted memory (a `mem_...` value).
-
-  - `Type type`
 
 ### Beta Managed Agents Error
 
@@ -554,57 +574,57 @@ var_dump($betaManagedAgentsDeletedMemory);
 
   - `BetaInvalidRequestError`
 
-    - `string message`
-
     - `"invalid_request_error" type`
+
+    - `string message`
 
   - `BetaAuthenticationError`
 
-    - `string message`
-
     - `"authentication_error" type`
+
+    - `string message`
 
   - `BetaBillingError`
 
-    - `string message`
-
     - `"billing_error" type`
+
+    - `string message`
 
   - `BetaPermissionError`
 
-    - `string message`
-
     - `"permission_error" type`
+
+    - `string message`
 
   - `BetaNotFoundError`
 
-    - `string message`
-
     - `"not_found_error" type`
+
+    - `string message`
 
   - `BetaRateLimitError`
 
-    - `string message`
-
     - `"rate_limit_error" type`
+
+    - `string message`
 
   - `BetaGatewayTimeoutError`
 
-    - `string message`
-
     - `"timeout_error" type`
+
+    - `string message`
 
   - `BetaAPIError`
 
-    - `string message`
-
     - `"api_error" type`
+
+    - `string message`
 
   - `BetaOverloadedError`
 
-    - `string message`
-
     - `"overloaded_error" type`
+
+    - `string message`
 
   - `ManagedAgentsMemoryPreconditionFailedError`
 
@@ -631,6 +651,8 @@ var_dump($betaManagedAgentsDeletedMemory);
 ### Beta Managed Agents Memory
 
 - `ManagedAgentsMemory`
+
+  - `Type type`
 
   - `string id`
 
@@ -660,8 +682,6 @@ var_dump($betaManagedAgentsDeletedMemory);
 
     Hierarchical path of the memory within the store, e.g. `/projects/foo/notes.md`. Always starts with `/`. Paths are case-sensitive and unique within a store. Maximum 1,024 bytes.
 
-  - `Type type`
-
   - `\Datetime updatedAt`
 
     A timestamp in RFC 3339 format
@@ -675,6 +695,8 @@ var_dump($betaManagedAgentsDeletedMemory);
 - `ManagedAgentsMemoryListItem`
 
   - `ManagedAgentsMemory`
+
+    - `Type type`
 
     - `string id`
 
@@ -704,8 +726,6 @@ var_dump($betaManagedAgentsDeletedMemory);
 
       Hierarchical path of the memory within the store, e.g. `/projects/foo/notes.md`. Always starts with `/`. Paths are case-sensitive and unique within a store. Maximum 1,024 bytes.
 
-    - `Type type`
-
     - `\Datetime updatedAt`
 
       A timestamp in RFC 3339 format
@@ -716,11 +736,11 @@ var_dump($betaManagedAgentsDeletedMemory);
 
   - `ManagedAgentsMemoryPrefix`
 
+    - `Type type`
+
     - `string path`
 
       The rolled-up path prefix, including a trailing `/` (e.g. `/projects/foo/`). Pass this value as `path_prefix` on a subsequent list call to drill into the directory.
-
-    - `Type type`
 
 ### Beta Managed Agents Memory Path Conflict Error
 
@@ -746,11 +766,11 @@ var_dump($betaManagedAgentsDeletedMemory);
 
 - `ManagedAgentsMemoryPrefix`
 
+  - `Type type`
+
   - `string path`
 
     The rolled-up path prefix, including a trailing `/` (e.g. `/projects/foo/`). Pass this value as `path_prefix` on a subsequent list call to drill into the directory.
-
-  - `Type type`
 
 ### Beta Managed Agents Memory View
 

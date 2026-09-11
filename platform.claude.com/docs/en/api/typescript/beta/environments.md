@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/typescript/beta/environments -->
 
+---
+title: Environments
+url: https://platform.claude.com/docs/en/api/typescript/beta/environments
+---
+
 # Environments
 
 ## Create Environment
@@ -78,6 +83,12 @@ Create a new environment with the specified configuration.
 
         Under `limited` networking, requires `networking.allow_package_managers` to be `true`.
 
+        - `type?: "packages"`
+
+          Package configuration type
+
+          default: packages
+
         - `apt?: Array<string> | null`
 
           Ubuntu/Debian packages to install
@@ -102,12 +113,6 @@ Create a new environment with the specified configuration.
 
           Python packages to install
 
-        - `type?: "packages"`
-
-          Package configuration type
-
-          default: packages
-
     - `BetaSelfHostedConfigParams`
 
       Request params for `self_hosted` environment configuration.
@@ -128,7 +133,7 @@ Create a new environment with the specified configuration.
 
   - `scope?: "organization" | "account" | null`
 
-    Body param: The visibility scope for this environment. 'organization' makes the environment visible to all accounts. 'account' restricts visibility to the owning account only. Only applicable for self-hosted environments. If not specified, defaults based on organization type.
+    Body param: The visibility scope for this environment. 'organization' makes the environment visible to all accounts. 'account' restricts visibility to the owning account only. API organizations support only 'organization'; 'account' is rejected. If not specified, defaults based on organization type.
 
     - `"organization"`
 
@@ -140,7 +145,7 @@ Create a new environment with the specified configuration.
 
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 41 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 42 more`
 
       - `"message-batches-2024-09-24"`
 
@@ -188,6 +193,8 @@ Create a new environment with the specified configuration.
 
       - `"user-profiles-2026-08-18"`
 
+      - `"user-profiles-2026-09-04"`
+
       - `"advisor-tool-2026-03-01"`
 
       - `"managed-agents-2026-04-01"`
@@ -230,11 +237,23 @@ Create a new environment with the specified configuration.
 
       - `"mid-conversation-system-clear-at-2026-08-21"`
 
+  - `workspace_id?: string`
+
+    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ### Returns
 
 - `BetaEnvironment`
 
   Unified Environment resource for both cloud and self-hosted environments.
+
+  - `type: "environment"`
+
+    The type of object (always 'environment')
+
+    default: environment
 
   - `id: string`
 
@@ -252,6 +271,10 @@ Create a new environment with the specified configuration.
 
       `cloud` environment configuration.
 
+      - `type: "cloud"`
+
+        Environment type
+
       - `networking: BetaUnrestrictedNetwork | BetaLimitedNetwork`
 
         Network configuration policy.
@@ -268,6 +291,10 @@ Create a new environment with the specified configuration.
 
           Limited network access.
 
+          - `type: "limited"`
+
+            Network policy type
+
           - `allow_mcp_servers: boolean`
 
             Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
@@ -280,13 +307,15 @@ Create a new environment with the specified configuration.
 
             Specifies domains the container can reach.
 
-          - `type: "limited"`
-
-            Network policy type
-
       - `packages: BetaPackages`
 
         Package manager configuration.
+
+        - `type?: "packages"`
+
+          Package configuration type
+
+          default: packages
 
         - `apt: Array<string>`
 
@@ -312,16 +341,6 @@ Create a new environment with the specified configuration.
 
           Python packages to install
 
-        - `type?: "packages"`
-
-          Package configuration type
-
-          default: packages
-
-      - `type: "cloud"`
-
-        Environment type
-
     - `BetaSelfHostedConfig`
 
       Configuration for self-hosted environments.
@@ -345,12 +364,6 @@ Create a new environment with the specified configuration.
   - `name: string`
 
     Human-readable name for the environment
-
-  - `type: "environment"`
-
-    The type of object (always 'environment')
-
-    default: environment
 
   - `updated_at: string`
 
@@ -461,7 +474,7 @@ List environments with pagination support.
 
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 41 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 42 more`
 
       - `"message-batches-2024-09-24"`
 
@@ -509,6 +522,8 @@ List environments with pagination support.
 
       - `"user-profiles-2026-08-18"`
 
+      - `"user-profiles-2026-09-04"`
+
       - `"advisor-tool-2026-03-01"`
 
       - `"managed-agents-2026-04-01"`
@@ -551,11 +566,23 @@ List environments with pagination support.
 
       - `"mid-conversation-system-clear-at-2026-08-21"`
 
+  - `workspace_id?: string`
+
+    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ### Returns
 
 - `BetaEnvironment`
 
   Unified Environment resource for both cloud and self-hosted environments.
+
+  - `type: "environment"`
+
+    The type of object (always 'environment')
+
+    default: environment
 
   - `id: string`
 
@@ -573,6 +600,10 @@ List environments with pagination support.
 
       `cloud` environment configuration.
 
+      - `type: "cloud"`
+
+        Environment type
+
       - `networking: BetaUnrestrictedNetwork | BetaLimitedNetwork`
 
         Network configuration policy.
@@ -589,6 +620,10 @@ List environments with pagination support.
 
           Limited network access.
 
+          - `type: "limited"`
+
+            Network policy type
+
           - `allow_mcp_servers: boolean`
 
             Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
@@ -601,13 +636,15 @@ List environments with pagination support.
 
             Specifies domains the container can reach.
 
-          - `type: "limited"`
-
-            Network policy type
-
       - `packages: BetaPackages`
 
         Package manager configuration.
+
+        - `type?: "packages"`
+
+          Package configuration type
+
+          default: packages
 
         - `apt: Array<string>`
 
@@ -633,16 +670,6 @@ List environments with pagination support.
 
           Python packages to install
 
-        - `type?: "packages"`
-
-          Package configuration type
-
-          default: packages
-
-      - `type: "cloud"`
-
-        Environment type
-
     - `BetaSelfHostedConfig`
 
       Configuration for self-hosted environments.
@@ -666,12 +693,6 @@ List environments with pagination support.
   - `name: string`
 
     Human-readable name for the environment
-
-  - `type: "environment"`
-
-    The type of object (always 'environment')
-
-    default: environment
 
   - `updated_at: string`
 
@@ -774,7 +795,7 @@ Retrieve a specific environment by ID.
 
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 41 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 42 more`
 
       - `"message-batches-2024-09-24"`
 
@@ -822,6 +843,8 @@ Retrieve a specific environment by ID.
 
       - `"user-profiles-2026-08-18"`
 
+      - `"user-profiles-2026-09-04"`
+
       - `"advisor-tool-2026-03-01"`
 
       - `"managed-agents-2026-04-01"`
@@ -864,11 +887,23 @@ Retrieve a specific environment by ID.
 
       - `"mid-conversation-system-clear-at-2026-08-21"`
 
+  - `workspace_id?: string`
+
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ### Returns
 
 - `BetaEnvironment`
 
   Unified Environment resource for both cloud and self-hosted environments.
+
+  - `type: "environment"`
+
+    The type of object (always 'environment')
+
+    default: environment
 
   - `id: string`
 
@@ -886,6 +921,10 @@ Retrieve a specific environment by ID.
 
       `cloud` environment configuration.
 
+      - `type: "cloud"`
+
+        Environment type
+
       - `networking: BetaUnrestrictedNetwork | BetaLimitedNetwork`
 
         Network configuration policy.
@@ -902,6 +941,10 @@ Retrieve a specific environment by ID.
 
           Limited network access.
 
+          - `type: "limited"`
+
+            Network policy type
+
           - `allow_mcp_servers: boolean`
 
             Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
@@ -914,13 +957,15 @@ Retrieve a specific environment by ID.
 
             Specifies domains the container can reach.
 
-          - `type: "limited"`
-
-            Network policy type
-
       - `packages: BetaPackages`
 
         Package manager configuration.
+
+        - `type?: "packages"`
+
+          Package configuration type
+
+          default: packages
 
         - `apt: Array<string>`
 
@@ -946,16 +991,6 @@ Retrieve a specific environment by ID.
 
           Python packages to install
 
-        - `type?: "packages"`
-
-          Package configuration type
-
-          default: packages
-
-      - `type: "cloud"`
-
-        Environment type
-
     - `BetaSelfHostedConfig`
 
       Configuration for self-hosted environments.
@@ -979,12 +1014,6 @@ Retrieve a specific environment by ID.
   - `name: string`
 
     Human-readable name for the environment
-
-  - `type: "environment"`
-
-    The type of object (always 'environment')
-
-    default: environment
 
   - `updated_at: string`
 
@@ -1135,6 +1164,12 @@ Update an existing environment's configuration.
 
         Under `limited` networking, requires `networking.allow_package_managers` to be `true`.
 
+        - `type?: "packages"`
+
+          Package configuration type
+
+          default: packages
+
         - `apt?: Array<string> | null`
 
           Ubuntu/Debian packages to install
@@ -1158,12 +1193,6 @@ Update an existing environment's configuration.
         - `pip?: Array<string> | null`
 
           Python packages to install
-
-        - `type?: "packages"`
-
-          Package configuration type
-
-          default: packages
 
     - `BetaSelfHostedConfigParams`
 
@@ -1203,7 +1232,7 @@ Update an existing environment's configuration.
 
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 41 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 42 more`
 
       - `"message-batches-2024-09-24"`
 
@@ -1251,6 +1280,8 @@ Update an existing environment's configuration.
 
       - `"user-profiles-2026-08-18"`
 
+      - `"user-profiles-2026-09-04"`
+
       - `"advisor-tool-2026-03-01"`
 
       - `"managed-agents-2026-04-01"`
@@ -1293,11 +1324,23 @@ Update an existing environment's configuration.
 
       - `"mid-conversation-system-clear-at-2026-08-21"`
 
+  - `workspace_id?: string`
+
+    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ### Returns
 
 - `BetaEnvironment`
 
   Unified Environment resource for both cloud and self-hosted environments.
+
+  - `type: "environment"`
+
+    The type of object (always 'environment')
+
+    default: environment
 
   - `id: string`
 
@@ -1315,6 +1358,10 @@ Update an existing environment's configuration.
 
       `cloud` environment configuration.
 
+      - `type: "cloud"`
+
+        Environment type
+
       - `networking: BetaUnrestrictedNetwork | BetaLimitedNetwork`
 
         Network configuration policy.
@@ -1331,6 +1378,10 @@ Update an existing environment's configuration.
 
           Limited network access.
 
+          - `type: "limited"`
+
+            Network policy type
+
           - `allow_mcp_servers: boolean`
 
             Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
@@ -1343,13 +1394,15 @@ Update an existing environment's configuration.
 
             Specifies domains the container can reach.
 
-          - `type: "limited"`
-
-            Network policy type
-
       - `packages: BetaPackages`
 
         Package manager configuration.
+
+        - `type?: "packages"`
+
+          Package configuration type
+
+          default: packages
 
         - `apt: Array<string>`
 
@@ -1375,16 +1428,6 @@ Update an existing environment's configuration.
 
           Python packages to install
 
-        - `type?: "packages"`
-
-          Package configuration type
-
-          default: packages
-
-      - `type: "cloud"`
-
-        Environment type
-
     - `BetaSelfHostedConfig`
 
       Configuration for self-hosted environments.
@@ -1408,12 +1451,6 @@ Update an existing environment's configuration.
   - `name: string`
 
     Human-readable name for the environment
-
-  - `type: "environment"`
-
-    The type of object (always 'environment')
-
-    default: environment
 
   - `updated_at: string`
 
@@ -1510,7 +1547,7 @@ Delete an environment by ID. Returns a confirmation of the deletion.
 
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 41 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 42 more`
 
       - `"message-batches-2024-09-24"`
 
@@ -1558,6 +1595,8 @@ Delete an environment by ID. Returns a confirmation of the deletion.
 
       - `"user-profiles-2026-08-18"`
 
+      - `"user-profiles-2026-09-04"`
+
       - `"advisor-tool-2026-03-01"`
 
       - `"managed-agents-2026-04-01"`
@@ -1600,21 +1639,27 @@ Delete an environment by ID. Returns a confirmation of the deletion.
 
       - `"mid-conversation-system-clear-at-2026-08-21"`
 
+  - `workspace_id?: string`
+
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ### Returns
 
 - `BetaEnvironmentDeleteResponse`
 
   Response after deleting an environment.
 
-  - `id: string`
-
-    Environment identifier
-
   - `type: "environment_deleted"`
 
     The type of response
 
     default: environment_deleted
+
+  - `id: string`
+
+    Environment identifier
 
 ### Example
 
@@ -1661,7 +1706,7 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 41 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 42 more`
 
       - `"message-batches-2024-09-24"`
 
@@ -1709,6 +1754,8 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
       - `"user-profiles-2026-08-18"`
 
+      - `"user-profiles-2026-09-04"`
+
       - `"advisor-tool-2026-03-01"`
 
       - `"managed-agents-2026-04-01"`
@@ -1751,11 +1798,23 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
       - `"mid-conversation-system-clear-at-2026-08-21"`
 
+  - `workspace_id?: string`
+
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ### Returns
 
 - `BetaEnvironment`
 
   Unified Environment resource for both cloud and self-hosted environments.
+
+  - `type: "environment"`
+
+    The type of object (always 'environment')
+
+    default: environment
 
   - `id: string`
 
@@ -1773,6 +1832,10 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
       `cloud` environment configuration.
 
+      - `type: "cloud"`
+
+        Environment type
+
       - `networking: BetaUnrestrictedNetwork | BetaLimitedNetwork`
 
         Network configuration policy.
@@ -1789,6 +1852,10 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
           Limited network access.
 
+          - `type: "limited"`
+
+            Network policy type
+
           - `allow_mcp_servers: boolean`
 
             Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
@@ -1801,13 +1868,15 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
             Specifies domains the container can reach.
 
-          - `type: "limited"`
-
-            Network policy type
-
       - `packages: BetaPackages`
 
         Package manager configuration.
+
+        - `type?: "packages"`
+
+          Package configuration type
+
+          default: packages
 
         - `apt: Array<string>`
 
@@ -1833,16 +1902,6 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
           Python packages to install
 
-        - `type?: "packages"`
-
-          Package configuration type
-
-          default: packages
-
-      - `type: "cloud"`
-
-        Environment type
-
     - `BetaSelfHostedConfig`
 
       Configuration for self-hosted environments.
@@ -1866,12 +1925,6 @@ Archive an environment by ID. Archived environments cannot be used to create new
   - `name: string`
 
     Human-readable name for the environment
-
-  - `type: "environment"`
-
-    The type of object (always 'environment')
-
-    default: environment
 
   - `updated_at: string`
 
@@ -1956,6 +2009,10 @@ console.log(betaEnvironment.id);
 
   `cloud` environment configuration.
 
+  - `type: "cloud"`
+
+    Environment type
+
   - `networking: BetaUnrestrictedNetwork | BetaLimitedNetwork`
 
     Network configuration policy.
@@ -1972,6 +2029,10 @@ console.log(betaEnvironment.id);
 
       Limited network access.
 
+      - `type: "limited"`
+
+        Network policy type
+
       - `allow_mcp_servers: boolean`
 
         Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
@@ -1984,13 +2045,15 @@ console.log(betaEnvironment.id);
 
         Specifies domains the container can reach.
 
-      - `type: "limited"`
-
-        Network policy type
-
   - `packages: BetaPackages`
 
     Package manager configuration.
+
+    - `type?: "packages"`
+
+      Package configuration type
+
+      default: packages
 
     - `apt: Array<string>`
 
@@ -2015,16 +2078,6 @@ console.log(betaEnvironment.id);
     - `pip: Array<string>`
 
       Python packages to install
-
-    - `type?: "packages"`
-
-      Package configuration type
-
-      default: packages
-
-  - `type: "cloud"`
-
-    Environment type
 
 ### Beta Cloud Config Params
 
@@ -2082,6 +2135,12 @@ console.log(betaEnvironment.id);
 
     Under `limited` networking, requires `networking.allow_package_managers` to be `true`.
 
+    - `type?: "packages"`
+
+      Package configuration type
+
+      default: packages
+
     - `apt?: Array<string> | null`
 
       Ubuntu/Debian packages to install
@@ -2106,17 +2165,17 @@ console.log(betaEnvironment.id);
 
       Python packages to install
 
-    - `type?: "packages"`
-
-      Package configuration type
-
-      default: packages
-
 ### Beta Environment
 
 - `BetaEnvironment`
 
   Unified Environment resource for both cloud and self-hosted environments.
+
+  - `type: "environment"`
+
+    The type of object (always 'environment')
+
+    default: environment
 
   - `id: string`
 
@@ -2134,6 +2193,10 @@ console.log(betaEnvironment.id);
 
       `cloud` environment configuration.
 
+      - `type: "cloud"`
+
+        Environment type
+
       - `networking: BetaUnrestrictedNetwork | BetaLimitedNetwork`
 
         Network configuration policy.
@@ -2150,6 +2213,10 @@ console.log(betaEnvironment.id);
 
           Limited network access.
 
+          - `type: "limited"`
+
+            Network policy type
+
           - `allow_mcp_servers: boolean`
 
             Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
@@ -2162,13 +2229,15 @@ console.log(betaEnvironment.id);
 
             Specifies domains the container can reach.
 
-          - `type: "limited"`
-
-            Network policy type
-
       - `packages: BetaPackages`
 
         Package manager configuration.
+
+        - `type?: "packages"`
+
+          Package configuration type
+
+          default: packages
 
         - `apt: Array<string>`
 
@@ -2194,16 +2263,6 @@ console.log(betaEnvironment.id);
 
           Python packages to install
 
-        - `type?: "packages"`
-
-          Package configuration type
-
-          default: packages
-
-      - `type: "cloud"`
-
-        Environment type
-
     - `BetaSelfHostedConfig`
 
       Configuration for self-hosted environments.
@@ -2228,12 +2287,6 @@ console.log(betaEnvironment.id);
 
     Human-readable name for the environment
 
-  - `type: "environment"`
-
-    The type of object (always 'environment')
-
-    default: environment
-
   - `updated_at: string`
 
     RFC 3339 timestamp when environment was last updated
@@ -2252,21 +2305,25 @@ console.log(betaEnvironment.id);
 
   Response after deleting an environment.
 
-  - `id: string`
-
-    Environment identifier
-
   - `type: "environment_deleted"`
 
     The type of response
 
     default: environment_deleted
 
+  - `id: string`
+
+    Environment identifier
+
 ### Beta Limited Network
 
 - `BetaLimitedNetwork`
 
   Limited network access.
+
+  - `type: "limited"`
+
+    Network policy type
 
   - `allow_mcp_servers: boolean`
 
@@ -2279,10 +2336,6 @@ console.log(betaEnvironment.id);
   - `allowed_hosts: Array<string>`
 
     Specifies domains the container can reach.
-
-  - `type: "limited"`
-
-    Network policy type
 
 ### Beta Limited Network Params
 
@@ -2315,6 +2368,12 @@ console.log(betaEnvironment.id);
 
   Packages (and their versions) available in this environment.
 
+  - `type?: "packages"`
+
+    Package configuration type
+
+    default: packages
+
   - `apt: Array<string>`
 
     Ubuntu/Debian packages to install
@@ -2339,12 +2398,6 @@ console.log(betaEnvironment.id);
 
     Python packages to install
 
-  - `type?: "packages"`
-
-    Package configuration type
-
-    default: packages
-
 ### Beta Packages Params
 
 - `BetaPackagesParams`
@@ -2354,6 +2407,12 @@ console.log(betaEnvironment.id);
   When versioning, use the version semantics relevant for the package manager, e.g. for `pip` use `package==1.0.0`. You are responsible for validating the package and version exist. Unversioned installs the latest.
 
   Under `limited` networking, requires `networking.allow_package_managers` to be `true`.
+
+  - `type?: "packages"`
+
+    Package configuration type
+
+    default: packages
 
   - `apt?: Array<string> | null`
 
@@ -2378,12 +2437,6 @@ console.log(betaEnvironment.id);
   - `pip?: Array<string> | null`
 
     Python packages to install
-
-  - `type?: "packages"`
-
-    Package configuration type
-
-    default: packages
 
 ### Beta Self Hosted Config
 
@@ -2443,7 +2496,7 @@ Retrieve detailed information about a specific work item.
 
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 41 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 42 more`
 
       - `"message-batches-2024-09-24"`
 
@@ -2491,6 +2544,8 @@ Retrieve detailed information about a specific work item.
 
       - `"user-profiles-2026-08-18"`
 
+      - `"user-profiles-2026-09-04"`
+
       - `"advisor-tool-2026-03-01"`
 
       - `"managed-agents-2026-04-01"`
@@ -2533,6 +2588,12 @@ Retrieve detailed information about a specific work item.
 
       - `"mid-conversation-system-clear-at-2026-08-21"`
 
+  - `workspace_id?: string`
+
+    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `BetaSelfHostedWork`
@@ -2542,6 +2603,12 @@ Retrieve detailed information about a specific work item.
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
+  - `type: "work"`
+
+    The type of object (always 'work')
+
+    default: work
 
   - `id: string`
 
@@ -2559,13 +2626,13 @@ Retrieve detailed information about a specific work item.
 
     The actual work to be performed
 
-    - `id: string`
-
-      Session identifier (e.g., 'session_...')
-
     - `type: "session"`
 
       Type of work data
+
+    - `id: string`
+
+      Session identifier (e.g., 'session_...')
 
   - `environment_id: string`
 
@@ -2608,12 +2675,6 @@ Retrieve detailed information about a specific work item.
   - `stopped_at: string | null`
 
     RFC 3339 timestamp when work execution stopped
-
-  - `type: "work"`
-
-    The type of object (always 'work')
-
-    default: work
 
 #### Example
 
@@ -2690,7 +2751,7 @@ Long poll for work items in the queue.
 
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 41 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 42 more`
 
       - `"message-batches-2024-09-24"`
 
@@ -2737,6 +2798,8 @@ Long poll for work items in the queue.
       - `"user-profiles-2026-03-24"`
 
       - `"user-profiles-2026-08-18"`
+
+      - `"user-profiles-2026-09-04"`
 
       - `"advisor-tool-2026-03-01"`
 
@@ -2788,6 +2851,12 @@ Long poll for work items in the queue.
 
 - `BetaSelfHostedWork | null`
 
+  - `type: "work"`
+
+    The type of object (always 'work')
+
+    default: work
+
   - `id: string`
 
     Work identifier (e.g., 'work_...')
@@ -2804,13 +2873,13 @@ Long poll for work items in the queue.
 
     The actual work to be performed
 
-    - `id: string`
-
-      Session identifier (e.g., 'session_...')
-
     - `type: "session"`
 
       Type of work data
+
+    - `id: string`
+
+      Session identifier (e.g., 'session_...')
 
   - `environment_id: string`
 
@@ -2853,12 +2922,6 @@ Long poll for work items in the queue.
   - `stopped_at: string | null`
 
     RFC 3339 timestamp when work execution stopped
-
-  - `type: "work"`
-
-    The type of object (always 'work')
-
-    default: work
 
 #### Example
 
@@ -2927,7 +2990,7 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
 
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 41 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 42 more`
 
       - `"message-batches-2024-09-24"`
 
@@ -2974,6 +3037,8 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
       - `"user-profiles-2026-03-24"`
 
       - `"user-profiles-2026-08-18"`
+
+      - `"user-profiles-2026-09-04"`
 
       - `"advisor-tool-2026-03-01"`
 
@@ -3027,6 +3092,12 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
 
+  - `type: "work"`
+
+    The type of object (always 'work')
+
+    default: work
+
   - `id: string`
 
     Work identifier (e.g., 'work_...')
@@ -3043,13 +3114,13 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
 
     The actual work to be performed
 
-    - `id: string`
-
-      Session identifier (e.g., 'session_...')
-
     - `type: "session"`
 
       Type of work data
+
+    - `id: string`
+
+      Session identifier (e.g., 'session_...')
 
   - `environment_id: string`
 
@@ -3092,12 +3163,6 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
   - `stopped_at: string | null`
 
     RFC 3339 timestamp when work execution stopped
-
-  - `type: "work"`
-
-    The type of object (always 'work')
-
-    default: work
 
 #### Example
 
@@ -3174,7 +3239,7 @@ Record a heartbeat for a work item to maintain the lease.
 
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 41 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 42 more`
 
       - `"message-batches-2024-09-24"`
 
@@ -3221,6 +3286,8 @@ Record a heartbeat for a work item to maintain the lease.
       - `"user-profiles-2026-03-24"`
 
       - `"user-profiles-2026-08-18"`
+
+      - `"user-profiles-2026-09-04"`
 
       - `"advisor-tool-2026-03-01"`
 
@@ -3270,6 +3337,12 @@ Record a heartbeat for a work item to maintain the lease.
 
   Response after recording a heartbeat for a work item.
 
+  - `type: "work_heartbeat"`
+
+    The type of response
+
+    default: work_heartbeat
+
   - `last_heartbeat: string`
 
     RFC 3339 timestamp of the actual heartbeat from DB
@@ -3295,12 +3368,6 @@ Record a heartbeat for a work item to maintain the lease.
   - `ttl_seconds: number`
 
     Effective TTL applied to the lease
-
-  - `type: "work_heartbeat"`
-
-    The type of response
-
-    default: work_heartbeat
 
 #### Example
 
@@ -3361,7 +3428,7 @@ Stop a work item, initiating graceful or forced shutdown.
 
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 41 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 42 more`
 
       - `"message-batches-2024-09-24"`
 
@@ -3409,6 +3476,8 @@ Stop a work item, initiating graceful or forced shutdown.
 
       - `"user-profiles-2026-08-18"`
 
+      - `"user-profiles-2026-09-04"`
+
       - `"advisor-tool-2026-03-01"`
 
       - `"managed-agents-2026-04-01"`
@@ -3451,6 +3520,12 @@ Stop a work item, initiating graceful or forced shutdown.
 
       - `"mid-conversation-system-clear-at-2026-08-21"`
 
+  - `workspace_id?: string`
+
+    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `BetaSelfHostedWork`
@@ -3460,6 +3535,12 @@ Stop a work item, initiating graceful or forced shutdown.
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
+  - `type: "work"`
+
+    The type of object (always 'work')
+
+    default: work
 
   - `id: string`
 
@@ -3477,13 +3558,13 @@ Stop a work item, initiating graceful or forced shutdown.
 
     The actual work to be performed
 
-    - `id: string`
-
-      Session identifier (e.g., 'session_...')
-
     - `type: "session"`
 
       Type of work data
+
+    - `id: string`
+
+      Session identifier (e.g., 'session_...')
 
   - `environment_id: string`
 
@@ -3526,12 +3607,6 @@ Stop a work item, initiating graceful or forced shutdown.
   - `stopped_at: string | null`
 
     RFC 3339 timestamp when work execution stopped
-
-  - `type: "work"`
-
-    The type of object (always 'work')
-
-    default: work
 
 #### Example
 
@@ -3606,7 +3681,7 @@ List work items in an environment.
 
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 41 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 42 more`
 
       - `"message-batches-2024-09-24"`
 
@@ -3653,6 +3728,8 @@ List work items in an environment.
       - `"user-profiles-2026-03-24"`
 
       - `"user-profiles-2026-08-18"`
+
+      - `"user-profiles-2026-09-04"`
 
       - `"advisor-tool-2026-03-01"`
 
@@ -3706,6 +3783,12 @@ List work items in an environment.
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
 
+  - `type: "work"`
+
+    The type of object (always 'work')
+
+    default: work
+
   - `id: string`
 
     Work identifier (e.g., 'work_...')
@@ -3722,13 +3805,13 @@ List work items in an environment.
 
     The actual work to be performed
 
-    - `id: string`
-
-      Session identifier (e.g., 'session_...')
-
     - `type: "session"`
 
       Type of work data
+
+    - `id: string`
+
+      Session identifier (e.g., 'session_...')
 
   - `environment_id: string`
 
@@ -3771,12 +3854,6 @@ List work items in an environment.
   - `stopped_at: string | null`
 
     RFC 3339 timestamp when work execution stopped
-
-  - `type: "work"`
-
-    The type of object (always 'work')
-
-    default: work
 
 #### Example
 
@@ -3855,7 +3932,7 @@ Update work item metadata with merge semantics.
 
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 41 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 42 more`
 
       - `"message-batches-2024-09-24"`
 
@@ -3903,6 +3980,8 @@ Update work item metadata with merge semantics.
 
       - `"user-profiles-2026-08-18"`
 
+      - `"user-profiles-2026-09-04"`
+
       - `"advisor-tool-2026-03-01"`
 
       - `"managed-agents-2026-04-01"`
@@ -3945,6 +4024,12 @@ Update work item metadata with merge semantics.
 
       - `"mid-conversation-system-clear-at-2026-08-21"`
 
+  - `workspace_id?: string`
+
+    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `BetaSelfHostedWork`
@@ -3954,6 +4039,12 @@ Update work item metadata with merge semantics.
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
+  - `type: "work"`
+
+    The type of object (always 'work')
+
+    default: work
 
   - `id: string`
 
@@ -3971,13 +4062,13 @@ Update work item metadata with merge semantics.
 
     The actual work to be performed
 
-    - `id: string`
-
-      Session identifier (e.g., 'session_...')
-
     - `type: "session"`
 
       Type of work data
+
+    - `id: string`
+
+      Session identifier (e.g., 'session_...')
 
   - `environment_id: string`
 
@@ -4020,12 +4111,6 @@ Update work item metadata with merge semantics.
   - `stopped_at: string | null`
 
     RFC 3339 timestamp when work execution stopped
-
-  - `type: "work"`
-
-    The type of object (always 'work')
-
-    default: work
 
 #### Example
 
@@ -4089,7 +4174,7 @@ Get statistics about the work queue for an environment.
 
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 41 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 42 more`
 
       - `"message-batches-2024-09-24"`
 
@@ -4137,6 +4222,8 @@ Get statistics about the work queue for an environment.
 
       - `"user-profiles-2026-08-18"`
 
+      - `"user-profiles-2026-09-04"`
+
       - `"advisor-tool-2026-03-01"`
 
       - `"managed-agents-2026-04-01"`
@@ -4179,6 +4266,12 @@ Get statistics about the work queue for an environment.
 
       - `"mid-conversation-system-clear-at-2026-08-21"`
 
+  - `workspace_id?: string`
+
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `BetaSelfHostedWorkQueueStats`
@@ -4186,6 +4279,12 @@ Get statistics about the work queue for an environment.
   Statistics about the work queue for an environment.
 
   Uses Redis Stream consumer group metrics for O(1) queries.
+
+  - `type: "work_queue_stats"`
+
+    The type of object
+
+    default: work_queue_stats
 
   - `depth: number`
 
@@ -4200,12 +4299,6 @@ Get statistics about the work queue for an environment.
     Number of work items being processed (polled but not acknowledged)
 
     default: 0
-
-  - `type: "work_queue_stats"`
-
-    The type of object
-
-    default: work_queue_stats
 
   - `workers_polling: number | null`
 

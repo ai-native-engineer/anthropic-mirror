@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/cli/beta/files -->
 
+---
+title: Files
+url: https://platform.claude.com/docs/en/api/cli/beta/files
+---
+
 # Files
 
 ## Upload File
@@ -14,7 +19,7 @@ Upload File
 
 - `--file: string`
 
-  Body param: The file to upload
+  Body param: The file to upload. Only the final path component of the part's `filename` is kept; an absent or empty `filename` is replaced with `unnamed` plus the extension for the file's stored `mime_type`, when known.
 
   format: binary
 
@@ -28,9 +33,21 @@ Upload File
 
   Header param: Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ### Returns
 
 - `beta_file_metadata: object`
+
+  - `type: "file"`
+
+    Object type.
+
+    For files, this is always `"file"`.
 
   - `id: string`
 
@@ -62,12 +79,6 @@ Upload File
 
     minimum: 0
 
-  - `type: "file"`
-
-    Object type.
-
-    For files, this is always `"file"`.
-
   - `downloadable: optional boolean`
 
     Whether the file can be downloaded.
@@ -82,13 +93,13 @@ Upload File
 
     The scope of this file, indicating the context in which it was created (e.g., a session).
 
-    - `id: string`
-
-      The ID of the scoping resource (e.g., the session ID).
-
     - `type: "session"`
 
       The type of scope (e.g., `"session"`).
+
+    - `id: string`
+
+      The ID of the scoping resource (e.g., the session ID).
 
 ### Example
 
@@ -151,6 +162,12 @@ List Files
 
   Header param: Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ### Returns
 
 - `BetaFileListResponse: object`
@@ -158,6 +175,12 @@ List Files
   - `data: array of BetaFileMetadata`
 
     List of file metadata objects.
+
+    - `type: "file"`
+
+      Object type.
+
+      For files, this is always `"file"`.
 
     - `id: string`
 
@@ -189,12 +212,6 @@ List Files
 
       minimum: 0
 
-    - `type: "file"`
-
-      Object type.
-
-      For files, this is always `"file"`.
-
     - `downloadable: optional boolean`
 
       Whether the file can be downloaded.
@@ -209,13 +226,13 @@ List Files
 
       The scope of this file, indicating the context in which it was created (e.g., a session).
 
-      - `id: string`
-
-        The ID of the scoping resource (e.g., the session ID).
-
       - `type: "session"`
 
         The type of scope (e.g., `"session"`).
+
+      - `id: string`
+
+        The ID of the scoping resource (e.g., the session ID).
 
   - `next_page: optional string`
 
@@ -270,6 +287,12 @@ Download File
 
   Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ### Returns
 
 - `unnamed_schema_1: file path`
@@ -300,9 +323,21 @@ Get File Metadata
 
   Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ### Returns
 
 - `beta_file_metadata: object`
+
+  - `type: "file"`
+
+    Object type.
+
+    For files, this is always `"file"`.
 
   - `id: string`
 
@@ -334,12 +369,6 @@ Get File Metadata
 
     minimum: 0
 
-  - `type: "file"`
-
-    Object type.
-
-    For files, this is always `"file"`.
-
   - `downloadable: optional boolean`
 
     Whether the file can be downloaded.
@@ -354,13 +383,13 @@ Get File Metadata
 
     The scope of this file, indicating the context in which it was created (e.g., a session).
 
-    - `id: string`
-
-      The ID of the scoping resource (e.g., the session ID).
-
     - `type: "session"`
 
       The type of scope (e.g., `"session"`).
+
+    - `id: string`
+
+      The ID of the scoping resource (e.g., the session ID).
 
 ### Example
 
@@ -407,19 +436,25 @@ Delete File
 
   Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ### Returns
 
 - `beta_deleted_file: object`
-
-  - `id: string`
-
-    ID of the deleted file.
 
   - `type: optional "file_deleted"`
 
     Deleted object type.
 
     For file deletion, this is always `"file_deleted"`.
+
+  - `id: string`
+
+    ID of the deleted file.
 
 ### Example
 
@@ -444,19 +479,25 @@ ant beta:files delete \
 
 - `beta_deleted_file: object`
 
-  - `id: string`
-
-    ID of the deleted file.
-
   - `type: optional "file_deleted"`
 
     Deleted object type.
 
     For file deletion, this is always `"file_deleted"`.
 
+  - `id: string`
+
+    ID of the deleted file.
+
 ### Beta File Metadata
 
 - `beta_file_metadata: object`
+
+  - `type: "file"`
+
+    Object type.
+
+    For files, this is always `"file"`.
 
   - `id: string`
 
@@ -488,12 +529,6 @@ ant beta:files delete \
 
     minimum: 0
 
-  - `type: "file"`
-
-    Object type.
-
-    For files, this is always `"file"`.
-
   - `downloadable: optional boolean`
 
     Whether the file can be downloaded.
@@ -508,22 +543,22 @@ ant beta:files delete \
 
     The scope of this file, indicating the context in which it was created (e.g., a session).
 
-    - `id: string`
-
-      The ID of the scoping resource (e.g., the session ID).
-
     - `type: "session"`
 
       The type of scope (e.g., `"session"`).
+
+    - `id: string`
+
+      The ID of the scoping resource (e.g., the session ID).
 
 ### Beta File Scope
 
 - `beta_file_scope: object`
 
-  - `id: string`
-
-    The ID of the scoping resource (e.g., the session ID).
-
   - `type: "session"`
 
     The type of scope (e.g., `"session"`).
+
+  - `id: string`
+
+    The ID of the scoping resource (e.g., the session ID).

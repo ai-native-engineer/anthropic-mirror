@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/python/beta/sessions/resources/retrieve -->
 
+---
+title: Get Session Resource
+url: https://platform.claude.com/docs/en/api/python/beta/sessions/resources/retrieve
+---
+
 # Get Session Resource
 
 `beta.sessions.resources.retrieve(resource_id, **kwargs)  -> ResourceRetrieveResponse`
@@ -20,7 +25,7 @@ Get Session Resource
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 41 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 42 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -68,6 +73,8 @@ Get Session Resource
 
     - `"user-profiles-2026-08-18"`
 
+    - `"user-profiles-2026-09-04"`
+
     - `"advisor-tool-2026-03-01"`
 
     - `"managed-agents-2026-04-01"`
@@ -110,6 +117,8 @@ Get Session Resource
 
     - `"mid-conversation-system-clear-at-2026-08-21"`
 
+- `workspace_id: Optional[str]`
+
 ## Returns
 
 - `ResourceRetrieveResponse`
@@ -117,6 +126,8 @@ Get Session Resource
   The requested session resource.
 
   - `class BetaManagedAgentsGitHubRepositoryResource: …`
+
+    - `type: Literal["github_repository"]`
 
     - `id: str`
 
@@ -127,8 +138,6 @@ Get Session Resource
       format: date-time
 
     - `mount_path: str`
-
-    - `type: Literal["github_repository"]`
 
     - `updated_at: datetime`
 
@@ -142,15 +151,17 @@ Get Session Resource
 
       - `class BetaManagedAgentsBranchCheckout: …`
 
+        - `type: Literal["branch"]`
+
         - `name: str`
 
           Branch name to check out.
 
           minLength: 1, maxLength: 255
 
-        - `type: Literal["branch"]`
-
       - `class BetaManagedAgentsCommitCheckout: …`
+
+        - `type: Literal["commit"]`
 
         - `sha: str`
 
@@ -158,9 +169,9 @@ Get Session Resource
 
           minLength: 7, maxLength: 64
 
-        - `type: Literal["commit"]`
-
   - `class BetaManagedAgentsFileResource: …`
+
+    - `type: Literal["file"]`
 
     - `id: str`
 
@@ -174,8 +185,6 @@ Get Session Resource
 
     - `mount_path: str`
 
-    - `type: Literal["file"]`
-
     - `updated_at: datetime`
 
       A timestamp in RFC 3339 format
@@ -186,11 +195,11 @@ Get Session Resource
 
     A memory store attached to an agent session.
 
+    - `type: Literal["memory_store"]`
+
     - `memory_store_id: str`
 
       The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
-
-    - `type: Literal["memory_store"]`
 
     - `access: Optional[Literal["read_write", "read_only"]]`
 

@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/csharp/beta/webhooks -->
 
+---
+title: Webhooks
+url: https://platform.claude.com/docs/en/api/csharp/beta/webhooks
+---
+
 # Webhooks
 
 ## Domain types
@@ -8,13 +13,13 @@
 
 - `class BetaWebhookAgentArchivedEventData:`
 
+  - `JsonElement Type = "agent.archived"`
+
   - `required string ID`
 
     ID of the agent that triggered the event.
 
   - `required string OrganizationID`
-
-  - `JsonElement Type = "agent.archived"`
 
   - `required string WorkspaceID`
 
@@ -22,13 +27,13 @@
 
 - `class BetaWebhookAgentCreatedEventData:`
 
+  - `JsonElement Type = "agent.created"`
+
   - `required string ID`
 
     ID of the agent that triggered the event.
 
   - `required string OrganizationID`
-
-  - `JsonElement Type = "agent.created"`
 
   - `required string WorkspaceID`
 
@@ -36,13 +41,13 @@
 
 - `class BetaWebhookAgentDeletedEventData:`
 
+  - `JsonElement Type = "agent.deleted"`
+
   - `required string ID`
 
     ID of the agent that triggered the event.
 
   - `required string OrganizationID`
-
-  - `JsonElement Type = "agent.deleted"`
 
   - `required string WorkspaceID`
 
@@ -50,13 +55,13 @@
 
 - `class BetaWebhookAgentUpdatedEventData:`
 
+  - `JsonElement Type = "agent.updated"`
+
   - `required string ID`
 
     ID of the agent that triggered the event.
 
   - `required string OrganizationID`
-
-  - `JsonElement Type = "agent.updated"`
 
   - `required string WorkspaceID`
 
@@ -64,13 +69,13 @@
 
 - `class BetaWebhookDeploymentArchivedEventData:`
 
+  - `JsonElement Type = "deployment.archived"`
+
   - `required string ID`
 
     ID of the deployment that triggered the event.
 
   - `required string OrganizationID`
-
-  - `JsonElement Type = "deployment.archived"`
 
   - `required string WorkspaceID`
 
@@ -78,13 +83,13 @@
 
 - `class BetaWebhookDeploymentCreatedEventData:`
 
+  - `JsonElement Type = "deployment.created"`
+
   - `required string ID`
 
     ID of the deployment that triggered the event.
 
   - `required string OrganizationID`
-
-  - `JsonElement Type = "deployment.created"`
 
   - `required string WorkspaceID`
 
@@ -92,13 +97,13 @@
 
 - `class BetaWebhookDeploymentDeletedEventData:`
 
+  - `JsonElement Type = "deployment.deleted"`
+
   - `required string ID`
 
     ID of the deployment that triggered the event.
 
   - `required string OrganizationID`
-
-  - `JsonElement Type = "deployment.deleted"`
 
   - `required string WorkspaceID`
 
@@ -106,13 +111,13 @@
 
 - `class BetaWebhookDeploymentPausedEventData:`
 
+  - `JsonElement Type = "deployment.paused"`
+
   - `required string ID`
 
     ID of the deployment that triggered the event.
 
   - `required string OrganizationID`
-
-  - `JsonElement Type = "deployment.paused"`
 
   - `required string WorkspaceID`
 
@@ -120,13 +125,13 @@
 
 - `class BetaWebhookDeploymentRunFailedEventData:`
 
+  - `JsonElement Type = "deployment_run.failed"`
+
   - `required string ID`
 
     ID of the deployment run that triggered the event.
 
   - `required string OrganizationID`
-
-  - `JsonElement Type = "deployment_run.failed"`
 
   - `required string WorkspaceID`
 
@@ -134,13 +139,13 @@
 
 - `class BetaWebhookDeploymentRunStartedEventData:`
 
+  - `JsonElement Type = "deployment_run.started"`
+
   - `required string ID`
 
     ID of the deployment run that triggered the event.
 
   - `required string OrganizationID`
-
-  - `JsonElement Type = "deployment_run.started"`
 
   - `required string WorkspaceID`
 
@@ -148,13 +153,13 @@
 
 - `class BetaWebhookDeploymentRunSucceededEventData:`
 
+  - `JsonElement Type = "deployment_run.succeeded"`
+
   - `required string ID`
 
     ID of the deployment run that triggered the event.
 
   - `required string OrganizationID`
-
-  - `JsonElement Type = "deployment_run.succeeded"`
 
   - `required string WorkspaceID`
 
@@ -162,13 +167,13 @@
 
 - `class BetaWebhookDeploymentUnpausedEventData:`
 
+  - `JsonElement Type = "deployment.unpaused"`
+
   - `required string ID`
 
     ID of the deployment that triggered the event.
 
   - `required string OrganizationID`
-
-  - `JsonElement Type = "deployment.unpaused"`
 
   - `required string WorkspaceID`
 
@@ -176,13 +181,13 @@
 
 - `class BetaWebhookDeploymentUpdatedEventData:`
 
+  - `JsonElement Type = "deployment.updated"`
+
   - `required string ID`
 
     ID of the deployment that triggered the event.
 
   - `required string OrganizationID`
-
-  - `JsonElement Type = "deployment.updated"`
 
   - `required string WorkspaceID`
 
@@ -190,13 +195,13 @@
 
 - `class BetaWebhookEnvironmentArchivedEventData:`
 
+  - `JsonElement Type = "environment.archived"`
+
   - `required string ID`
 
     ID of the environment that triggered the event.
 
   - `required string OrganizationID`
-
-  - `JsonElement Type = "environment.archived"`
 
   - `required string WorkspaceID`
 
@@ -204,13 +209,13 @@
 
 - `class BetaWebhookEnvironmentCreatedEventData:`
 
+  - `JsonElement Type = "environment.created"`
+
   - `required string ID`
 
     ID of the environment that triggered the event.
 
   - `required string OrganizationID`
-
-  - `JsonElement Type = "environment.created"`
 
   - `required string WorkspaceID`
 
@@ -218,13 +223,13 @@
 
 - `class BetaWebhookEnvironmentDeletedEventData:`
 
+  - `JsonElement Type = "environment.deleted"`
+
   - `required string ID`
 
     ID of the environment that triggered the event.
 
   - `required string OrganizationID`
-
-  - `JsonElement Type = "environment.deleted"`
 
   - `required string WorkspaceID`
 
@@ -232,19 +237,23 @@
 
 - `class BetaWebhookEnvironmentUpdatedEventData:`
 
+  - `JsonElement Type = "environment.updated"`
+
   - `required string ID`
 
     ID of the environment that triggered the event.
 
   - `required string OrganizationID`
 
-  - `JsonElement Type = "environment.updated"`
-
   - `required string WorkspaceID`
 
 ### Beta Webhook Event
 
 - `class UnwrapWebhookEvent:`
+
+  - `JsonElement Type = "event"`
+
+    Object type. Always `event` for webhook payloads.
 
   - `required string ID`
 
@@ -260,138 +269,140 @@
 
     - `class BetaWebhookSessionCreatedEventData:`
 
+      - `JsonElement Type = "session.created"`
+
       - `required string ID`
 
         ID of the session that triggered the event.
 
       - `required string OrganizationID`
-
-      - `JsonElement Type = "session.created"`
 
       - `required string WorkspaceID`
 
     - `class BetaWebhookSessionPendingEventData:`
 
+      - `JsonElement Type = "session.pending"`
+
       - `required string ID`
 
         ID of the session that triggered the event.
 
       - `required string OrganizationID`
-
-      - `JsonElement Type = "session.pending"`
 
       - `required string WorkspaceID`
 
     - `class BetaWebhookSessionRunningEventData:`
 
+      - `JsonElement Type = "session.running"`
+
       - `required string ID`
 
         ID of the session that triggered the event.
 
       - `required string OrganizationID`
-
-      - `JsonElement Type = "session.running"`
 
       - `required string WorkspaceID`
 
     - `class BetaWebhookSessionIdledEventData:`
 
+      - `JsonElement Type = "session.idled"`
+
       - `required string ID`
 
         ID of the session that triggered the event.
 
       - `required string OrganizationID`
-
-      - `JsonElement Type = "session.idled"`
 
       - `required string WorkspaceID`
 
     - `class BetaWebhookSessionRequiresActionEventData:`
 
+      - `JsonElement Type = "session.requires_action"`
+
       - `required string ID`
 
         ID of the session that triggered the event.
 
       - `required string OrganizationID`
-
-      - `JsonElement Type = "session.requires_action"`
 
       - `required string WorkspaceID`
 
     - `class BetaWebhookSessionArchivedEventData:`
 
+      - `JsonElement Type = "session.archived"`
+
       - `required string ID`
 
         ID of the session that triggered the event.
 
       - `required string OrganizationID`
-
-      - `JsonElement Type = "session.archived"`
 
       - `required string WorkspaceID`
 
     - `class BetaWebhookSessionDeletedEventData:`
 
+      - `JsonElement Type = "session.deleted"`
+
       - `required string ID`
 
         ID of the session that triggered the event.
 
       - `required string OrganizationID`
-
-      - `JsonElement Type = "session.deleted"`
 
       - `required string WorkspaceID`
 
     - `class BetaWebhookSessionStatusRescheduledEventData:`
 
+      - `JsonElement Type = "session.status_rescheduled"`
+
       - `required string ID`
 
         ID of the session that triggered the event.
 
       - `required string OrganizationID`
-
-      - `JsonElement Type = "session.status_rescheduled"`
 
       - `required string WorkspaceID`
 
     - `class BetaWebhookSessionStatusRunStartedEventData:`
 
+      - `JsonElement Type = "session.status_run_started"`
+
       - `required string ID`
 
         ID of the session that triggered the event.
 
       - `required string OrganizationID`
-
-      - `JsonElement Type = "session.status_run_started"`
 
       - `required string WorkspaceID`
 
     - `class BetaWebhookSessionStatusIdledEventData:`
 
+      - `JsonElement Type = "session.status_idled"`
+
       - `required string ID`
 
         ID of the session that triggered the event.
 
       - `required string OrganizationID`
-
-      - `JsonElement Type = "session.status_idled"`
 
       - `required string WorkspaceID`
 
     - `class BetaWebhookSessionStatusTerminatedEventData:`
 
+      - `JsonElement Type = "session.status_terminated"`
+
       - `required string ID`
 
         ID of the session that triggered the event.
 
       - `required string OrganizationID`
-
-      - `JsonElement Type = "session.status_terminated"`
 
       - `required string WorkspaceID`
 
     - `class BetaWebhookSessionThreadCreatedEventData:`
 
+      - `JsonElement Type = "session.thread_created"`
+
       - `required string ID`
 
         ID of the session that triggered the event.
@@ -401,13 +412,13 @@
       - `required string SessionThreadID`
 
         ID of the session thread this event refers to.
-
-      - `JsonElement Type = "session.thread_created"`
 
       - `required string WorkspaceID`
 
     - `class BetaWebhookSessionThreadIdledEventData:`
 
+      - `JsonElement Type = "session.thread_idled"`
+
       - `required string ID`
 
         ID of the session that triggered the event.
@@ -417,13 +428,13 @@
       - `required string SessionThreadID`
 
         ID of the session thread this event refers to.
-
-      - `JsonElement Type = "session.thread_idled"`
 
       - `required string WorkspaceID`
 
     - `class BetaWebhookSessionThreadTerminatedEventData:`
 
+      - `JsonElement Type = "session.thread_terminated"`
+
       - `required string ID`
 
         ID of the session that triggered the event.
@@ -434,11 +445,11 @@
 
         ID of the session thread this event refers to.
 
-      - `JsonElement Type = "session.thread_terminated"`
-
       - `required string WorkspaceID`
 
     - `class BetaWebhookSessionOutcomeEvaluationEndedEventData:`
+
+      - `JsonElement Type = "session.outcome_evaluation_ended"`
 
       - `required string ID`
 
@@ -446,55 +457,53 @@
 
       - `required string OrganizationID`
 
-      - `JsonElement Type = "session.outcome_evaluation_ended"`
-
       - `required string WorkspaceID`
 
     - `class BetaWebhookVaultCreatedEventData:`
+
+      - `JsonElement Type = "vault.created"`
 
       - `required string ID`
 
         ID of the vault that triggered the event.
 
       - `required string OrganizationID`
-
-      - `JsonElement Type = "vault.created"`
 
       - `required string WorkspaceID`
 
     - `class BetaWebhookVaultArchivedEventData:`
 
+      - `JsonElement Type = "vault.archived"`
+
       - `required string ID`
 
         ID of the vault that triggered the event.
 
       - `required string OrganizationID`
-
-      - `JsonElement Type = "vault.archived"`
 
       - `required string WorkspaceID`
 
     - `class BetaWebhookVaultDeletedEventData:`
 
+      - `JsonElement Type = "vault.deleted"`
+
       - `required string ID`
 
         ID of the vault that triggered the event.
 
       - `required string OrganizationID`
 
-      - `JsonElement Type = "vault.deleted"`
-
       - `required string WorkspaceID`
 
     - `class BetaWebhookVaultCredentialCreatedEventData:`
+
+      - `JsonElement Type = "vault_credential.created"`
 
       - `required string ID`
 
         ID of the vault credential that triggered the event.
 
       - `required string OrganizationID`
-
-      - `JsonElement Type = "vault_credential.created"`
 
       - `required string VaultID`
 
@@ -504,13 +513,13 @@
 
     - `class BetaWebhookVaultCredentialArchivedEventData:`
 
+      - `JsonElement Type = "vault_credential.archived"`
+
       - `required string ID`
 
         ID of the vault credential that triggered the event.
 
       - `required string OrganizationID`
-
-      - `JsonElement Type = "vault_credential.archived"`
 
       - `required string VaultID`
 
@@ -520,13 +529,13 @@
 
     - `class BetaWebhookVaultCredentialDeletedEventData:`
 
+      - `JsonElement Type = "vault_credential.deleted"`
+
       - `required string ID`
 
         ID of the vault credential that triggered the event.
 
       - `required string OrganizationID`
-
-      - `JsonElement Type = "vault_credential.deleted"`
 
       - `required string VaultID`
 
@@ -536,13 +545,13 @@
 
     - `class BetaWebhookVaultCredentialRefreshFailedEventData:`
 
+      - `JsonElement Type = "vault_credential.refresh_failed"`
+
       - `required string ID`
 
         ID of the vault credential that triggered the event.
 
       - `required string OrganizationID`
-
-      - `JsonElement Type = "vault_credential.refresh_failed"`
 
       - `required string VaultID`
 
@@ -552,65 +561,67 @@
 
     - `class BetaWebhookSessionUpdatedEventData:`
 
+      - `JsonElement Type = "session.updated"`
+
       - `required string ID`
 
         ID of the session that triggered the event.
 
       - `required string OrganizationID`
-
-      - `JsonElement Type = "session.updated"`
 
       - `required string WorkspaceID`
 
     - `class BetaWebhookAgentCreatedEventData:`
 
+      - `JsonElement Type = "agent.created"`
+
       - `required string ID`
 
         ID of the agent that triggered the event.
 
       - `required string OrganizationID`
-
-      - `JsonElement Type = "agent.created"`
 
       - `required string WorkspaceID`
 
     - `class BetaWebhookAgentArchivedEventData:`
 
+      - `JsonElement Type = "agent.archived"`
+
       - `required string ID`
 
         ID of the agent that triggered the event.
 
       - `required string OrganizationID`
-
-      - `JsonElement Type = "agent.archived"`
 
       - `required string WorkspaceID`
 
     - `class BetaWebhookAgentDeletedEventData:`
 
+      - `JsonElement Type = "agent.deleted"`
+
       - `required string ID`
 
         ID of the agent that triggered the event.
 
       - `required string OrganizationID`
-
-      - `JsonElement Type = "agent.deleted"`
 
       - `required string WorkspaceID`
 
     - `class BetaWebhookDeploymentPausedEventData:`
 
+      - `JsonElement Type = "deployment.paused"`
+
       - `required string ID`
 
         ID of the deployment that triggered the event.
 
       - `required string OrganizationID`
 
-      - `JsonElement Type = "deployment.paused"`
-
       - `required string WorkspaceID`
 
     - `class BetaWebhookDeploymentRunFailedEventData:`
+
+      - `JsonElement Type = "deployment_run.failed"`
 
       - `required string ID`
 
@@ -618,47 +629,47 @@
 
       - `required string OrganizationID`
 
-      - `JsonElement Type = "deployment_run.failed"`
-
       - `required string WorkspaceID`
 
     - `class BetaWebhookDeploymentCreatedEventData:`
+
+      - `JsonElement Type = "deployment.created"`
 
       - `required string ID`
 
         ID of the deployment that triggered the event.
 
       - `required string OrganizationID`
-
-      - `JsonElement Type = "deployment.created"`
 
       - `required string WorkspaceID`
 
     - `class BetaWebhookDeploymentUpdatedEventData:`
 
+      - `JsonElement Type = "deployment.updated"`
+
       - `required string ID`
 
         ID of the deployment that triggered the event.
 
       - `required string OrganizationID`
-
-      - `JsonElement Type = "deployment.updated"`
 
       - `required string WorkspaceID`
 
     - `class BetaWebhookDeploymentUnpausedEventData:`
 
+      - `JsonElement Type = "deployment.unpaused"`
+
       - `required string ID`
 
         ID of the deployment that triggered the event.
 
       - `required string OrganizationID`
 
-      - `JsonElement Type = "deployment.unpaused"`
-
       - `required string WorkspaceID`
 
     - `class BetaWebhookAgentUpdatedEventData:`
+
+      - `JsonElement Type = "agent.updated"`
 
       - `required string ID`
 
@@ -666,35 +677,35 @@
 
       - `required string OrganizationID`
 
-      - `JsonElement Type = "agent.updated"`
-
       - `required string WorkspaceID`
 
     - `class BetaWebhookDeploymentArchivedEventData:`
+
+      - `JsonElement Type = "deployment.archived"`
 
       - `required string ID`
 
         ID of the deployment that triggered the event.
 
       - `required string OrganizationID`
-
-      - `JsonElement Type = "deployment.archived"`
 
       - `required string WorkspaceID`
 
     - `class BetaWebhookDeploymentRunStartedEventData:`
 
+      - `JsonElement Type = "deployment_run.started"`
+
       - `required string ID`
 
         ID of the deployment run that triggered the event.
 
       - `required string OrganizationID`
 
-      - `JsonElement Type = "deployment_run.started"`
-
       - `required string WorkspaceID`
 
     - `class BetaWebhookDeploymentDeletedEventData:`
+
+      - `JsonElement Type = "deployment.deleted"`
 
       - `required string ID`
 
@@ -702,11 +713,11 @@
 
       - `required string OrganizationID`
 
-      - `JsonElement Type = "deployment.deleted"`
-
       - `required string WorkspaceID`
 
     - `class BetaWebhookDeploymentRunSucceededEventData:`
+
+      - `JsonElement Type = "deployment_run.succeeded"`
 
       - `required string ID`
 
@@ -714,95 +725,95 @@
 
       - `required string OrganizationID`
 
-      - `JsonElement Type = "deployment_run.succeeded"`
-
       - `required string WorkspaceID`
 
     - `class BetaWebhookEnvironmentCreatedEventData:`
+
+      - `JsonElement Type = "environment.created"`
 
       - `required string ID`
 
         ID of the environment that triggered the event.
 
       - `required string OrganizationID`
-
-      - `JsonElement Type = "environment.created"`
 
       - `required string WorkspaceID`
 
     - `class BetaWebhookEnvironmentUpdatedEventData:`
 
+      - `JsonElement Type = "environment.updated"`
+
       - `required string ID`
 
         ID of the environment that triggered the event.
 
       - `required string OrganizationID`
-
-      - `JsonElement Type = "environment.updated"`
 
       - `required string WorkspaceID`
 
     - `class BetaWebhookEnvironmentArchivedEventData:`
 
+      - `JsonElement Type = "environment.archived"`
+
       - `required string ID`
 
         ID of the environment that triggered the event.
 
       - `required string OrganizationID`
-
-      - `JsonElement Type = "environment.archived"`
 
       - `required string WorkspaceID`
 
     - `class BetaWebhookEnvironmentDeletedEventData:`
 
+      - `JsonElement Type = "environment.deleted"`
+
       - `required string ID`
 
         ID of the environment that triggered the event.
 
       - `required string OrganizationID`
 
-      - `JsonElement Type = "environment.deleted"`
-
       - `required string WorkspaceID`
 
     - `class BetaWebhookMemoryStoreCreatedEventData:`
+
+      - `JsonElement Type = "memory_store.created"`
 
       - `required string ID`
 
         ID of the memory store that triggered the event.
 
       - `required string OrganizationID`
-
-      - `JsonElement Type = "memory_store.created"`
 
       - `required string WorkspaceID`
 
     - `class BetaWebhookMemoryStoreArchivedEventData:`
 
+      - `JsonElement Type = "memory_store.archived"`
+
       - `required string ID`
 
         ID of the memory store that triggered the event.
 
       - `required string OrganizationID`
-
-      - `JsonElement Type = "memory_store.archived"`
 
       - `required string WorkspaceID`
 
     - `class BetaWebhookMemoryStoreDeletedEventData:`
 
+      - `JsonElement Type = "memory_store.deleted"`
+
       - `required string ID`
 
         ID of the memory store that triggered the event.
 
       - `required string OrganizationID`
 
-      - `JsonElement Type = "memory_store.deleted"`
-
       - `required string WorkspaceID`
 
     - `class BetaWebhookSessionBudgetReachedEventData:`
+
+      - `JsonElement Type = "session.budget_reached"`
 
       - `required string ID`
 
@@ -810,13 +821,7 @@
 
       - `required string OrganizationID`
 
-      - `JsonElement Type = "session.budget_reached"`
-
       - `required string WorkspaceID`
-
-  - `JsonElement Type = "event"`
-
-    Object type. Always `event` for webhook payloads.
 
 ### Beta Webhook Event Data
 
@@ -824,138 +829,140 @@
 
   - `class BetaWebhookSessionCreatedEventData:`
 
+    - `JsonElement Type = "session.created"`
+
     - `required string ID`
 
       ID of the session that triggered the event.
 
     - `required string OrganizationID`
-
-    - `JsonElement Type = "session.created"`
 
     - `required string WorkspaceID`
 
   - `class BetaWebhookSessionPendingEventData:`
 
+    - `JsonElement Type = "session.pending"`
+
     - `required string ID`
 
       ID of the session that triggered the event.
 
     - `required string OrganizationID`
-
-    - `JsonElement Type = "session.pending"`
 
     - `required string WorkspaceID`
 
   - `class BetaWebhookSessionRunningEventData:`
 
+    - `JsonElement Type = "session.running"`
+
     - `required string ID`
 
       ID of the session that triggered the event.
 
     - `required string OrganizationID`
-
-    - `JsonElement Type = "session.running"`
 
     - `required string WorkspaceID`
 
   - `class BetaWebhookSessionIdledEventData:`
 
+    - `JsonElement Type = "session.idled"`
+
     - `required string ID`
 
       ID of the session that triggered the event.
 
     - `required string OrganizationID`
-
-    - `JsonElement Type = "session.idled"`
 
     - `required string WorkspaceID`
 
   - `class BetaWebhookSessionRequiresActionEventData:`
 
+    - `JsonElement Type = "session.requires_action"`
+
     - `required string ID`
 
       ID of the session that triggered the event.
 
     - `required string OrganizationID`
-
-    - `JsonElement Type = "session.requires_action"`
 
     - `required string WorkspaceID`
 
   - `class BetaWebhookSessionArchivedEventData:`
 
+    - `JsonElement Type = "session.archived"`
+
     - `required string ID`
 
       ID of the session that triggered the event.
 
     - `required string OrganizationID`
-
-    - `JsonElement Type = "session.archived"`
 
     - `required string WorkspaceID`
 
   - `class BetaWebhookSessionDeletedEventData:`
 
+    - `JsonElement Type = "session.deleted"`
+
     - `required string ID`
 
       ID of the session that triggered the event.
 
     - `required string OrganizationID`
-
-    - `JsonElement Type = "session.deleted"`
 
     - `required string WorkspaceID`
 
   - `class BetaWebhookSessionStatusRescheduledEventData:`
 
+    - `JsonElement Type = "session.status_rescheduled"`
+
     - `required string ID`
 
       ID of the session that triggered the event.
 
     - `required string OrganizationID`
-
-    - `JsonElement Type = "session.status_rescheduled"`
 
     - `required string WorkspaceID`
 
   - `class BetaWebhookSessionStatusRunStartedEventData:`
 
+    - `JsonElement Type = "session.status_run_started"`
+
     - `required string ID`
 
       ID of the session that triggered the event.
 
     - `required string OrganizationID`
-
-    - `JsonElement Type = "session.status_run_started"`
 
     - `required string WorkspaceID`
 
   - `class BetaWebhookSessionStatusIdledEventData:`
 
+    - `JsonElement Type = "session.status_idled"`
+
     - `required string ID`
 
       ID of the session that triggered the event.
 
     - `required string OrganizationID`
-
-    - `JsonElement Type = "session.status_idled"`
 
     - `required string WorkspaceID`
 
   - `class BetaWebhookSessionStatusTerminatedEventData:`
 
+    - `JsonElement Type = "session.status_terminated"`
+
     - `required string ID`
 
       ID of the session that triggered the event.
 
     - `required string OrganizationID`
-
-    - `JsonElement Type = "session.status_terminated"`
 
     - `required string WorkspaceID`
 
   - `class BetaWebhookSessionThreadCreatedEventData:`
 
+    - `JsonElement Type = "session.thread_created"`
+
     - `required string ID`
 
       ID of the session that triggered the event.
@@ -965,13 +972,13 @@
     - `required string SessionThreadID`
 
       ID of the session thread this event refers to.
-
-    - `JsonElement Type = "session.thread_created"`
 
     - `required string WorkspaceID`
 
   - `class BetaWebhookSessionThreadIdledEventData:`
 
+    - `JsonElement Type = "session.thread_idled"`
+
     - `required string ID`
 
       ID of the session that triggered the event.
@@ -981,13 +988,13 @@
     - `required string SessionThreadID`
 
       ID of the session thread this event refers to.
-
-    - `JsonElement Type = "session.thread_idled"`
 
     - `required string WorkspaceID`
 
   - `class BetaWebhookSessionThreadTerminatedEventData:`
 
+    - `JsonElement Type = "session.thread_terminated"`
+
     - `required string ID`
 
       ID of the session that triggered the event.
@@ -998,11 +1005,11 @@
 
       ID of the session thread this event refers to.
 
-    - `JsonElement Type = "session.thread_terminated"`
-
     - `required string WorkspaceID`
 
   - `class BetaWebhookSessionOutcomeEvaluationEndedEventData:`
+
+    - `JsonElement Type = "session.outcome_evaluation_ended"`
 
     - `required string ID`
 
@@ -1010,55 +1017,53 @@
 
     - `required string OrganizationID`
 
-    - `JsonElement Type = "session.outcome_evaluation_ended"`
-
     - `required string WorkspaceID`
 
   - `class BetaWebhookVaultCreatedEventData:`
+
+    - `JsonElement Type = "vault.created"`
 
     - `required string ID`
 
       ID of the vault that triggered the event.
 
     - `required string OrganizationID`
-
-    - `JsonElement Type = "vault.created"`
 
     - `required string WorkspaceID`
 
   - `class BetaWebhookVaultArchivedEventData:`
 
+    - `JsonElement Type = "vault.archived"`
+
     - `required string ID`
 
       ID of the vault that triggered the event.
 
     - `required string OrganizationID`
-
-    - `JsonElement Type = "vault.archived"`
 
     - `required string WorkspaceID`
 
   - `class BetaWebhookVaultDeletedEventData:`
 
+    - `JsonElement Type = "vault.deleted"`
+
     - `required string ID`
 
       ID of the vault that triggered the event.
 
     - `required string OrganizationID`
 
-    - `JsonElement Type = "vault.deleted"`
-
     - `required string WorkspaceID`
 
   - `class BetaWebhookVaultCredentialCreatedEventData:`
+
+    - `JsonElement Type = "vault_credential.created"`
 
     - `required string ID`
 
       ID of the vault credential that triggered the event.
 
     - `required string OrganizationID`
-
-    - `JsonElement Type = "vault_credential.created"`
 
     - `required string VaultID`
 
@@ -1068,13 +1073,13 @@
 
   - `class BetaWebhookVaultCredentialArchivedEventData:`
 
+    - `JsonElement Type = "vault_credential.archived"`
+
     - `required string ID`
 
       ID of the vault credential that triggered the event.
 
     - `required string OrganizationID`
-
-    - `JsonElement Type = "vault_credential.archived"`
 
     - `required string VaultID`
 
@@ -1084,13 +1089,13 @@
 
   - `class BetaWebhookVaultCredentialDeletedEventData:`
 
+    - `JsonElement Type = "vault_credential.deleted"`
+
     - `required string ID`
 
       ID of the vault credential that triggered the event.
 
     - `required string OrganizationID`
-
-    - `JsonElement Type = "vault_credential.deleted"`
 
     - `required string VaultID`
 
@@ -1100,13 +1105,13 @@
 
   - `class BetaWebhookVaultCredentialRefreshFailedEventData:`
 
+    - `JsonElement Type = "vault_credential.refresh_failed"`
+
     - `required string ID`
 
       ID of the vault credential that triggered the event.
 
     - `required string OrganizationID`
-
-    - `JsonElement Type = "vault_credential.refresh_failed"`
 
     - `required string VaultID`
 
@@ -1116,65 +1121,67 @@
 
   - `class BetaWebhookSessionUpdatedEventData:`
 
+    - `JsonElement Type = "session.updated"`
+
     - `required string ID`
 
       ID of the session that triggered the event.
 
     - `required string OrganizationID`
-
-    - `JsonElement Type = "session.updated"`
 
     - `required string WorkspaceID`
 
   - `class BetaWebhookAgentCreatedEventData:`
 
+    - `JsonElement Type = "agent.created"`
+
     - `required string ID`
 
       ID of the agent that triggered the event.
 
     - `required string OrganizationID`
-
-    - `JsonElement Type = "agent.created"`
 
     - `required string WorkspaceID`
 
   - `class BetaWebhookAgentArchivedEventData:`
 
+    - `JsonElement Type = "agent.archived"`
+
     - `required string ID`
 
       ID of the agent that triggered the event.
 
     - `required string OrganizationID`
-
-    - `JsonElement Type = "agent.archived"`
 
     - `required string WorkspaceID`
 
   - `class BetaWebhookAgentDeletedEventData:`
 
+    - `JsonElement Type = "agent.deleted"`
+
     - `required string ID`
 
       ID of the agent that triggered the event.
 
     - `required string OrganizationID`
-
-    - `JsonElement Type = "agent.deleted"`
 
     - `required string WorkspaceID`
 
   - `class BetaWebhookDeploymentPausedEventData:`
 
+    - `JsonElement Type = "deployment.paused"`
+
     - `required string ID`
 
       ID of the deployment that triggered the event.
 
     - `required string OrganizationID`
 
-    - `JsonElement Type = "deployment.paused"`
-
     - `required string WorkspaceID`
 
   - `class BetaWebhookDeploymentRunFailedEventData:`
+
+    - `JsonElement Type = "deployment_run.failed"`
 
     - `required string ID`
 
@@ -1182,47 +1189,47 @@
 
     - `required string OrganizationID`
 
-    - `JsonElement Type = "deployment_run.failed"`
-
     - `required string WorkspaceID`
 
   - `class BetaWebhookDeploymentCreatedEventData:`
+
+    - `JsonElement Type = "deployment.created"`
 
     - `required string ID`
 
       ID of the deployment that triggered the event.
 
     - `required string OrganizationID`
-
-    - `JsonElement Type = "deployment.created"`
 
     - `required string WorkspaceID`
 
   - `class BetaWebhookDeploymentUpdatedEventData:`
 
+    - `JsonElement Type = "deployment.updated"`
+
     - `required string ID`
 
       ID of the deployment that triggered the event.
 
     - `required string OrganizationID`
-
-    - `JsonElement Type = "deployment.updated"`
 
     - `required string WorkspaceID`
 
   - `class BetaWebhookDeploymentUnpausedEventData:`
 
+    - `JsonElement Type = "deployment.unpaused"`
+
     - `required string ID`
 
       ID of the deployment that triggered the event.
 
     - `required string OrganizationID`
 
-    - `JsonElement Type = "deployment.unpaused"`
-
     - `required string WorkspaceID`
 
   - `class BetaWebhookAgentUpdatedEventData:`
+
+    - `JsonElement Type = "agent.updated"`
 
     - `required string ID`
 
@@ -1230,35 +1237,35 @@
 
     - `required string OrganizationID`
 
-    - `JsonElement Type = "agent.updated"`
-
     - `required string WorkspaceID`
 
   - `class BetaWebhookDeploymentArchivedEventData:`
+
+    - `JsonElement Type = "deployment.archived"`
 
     - `required string ID`
 
       ID of the deployment that triggered the event.
 
     - `required string OrganizationID`
-
-    - `JsonElement Type = "deployment.archived"`
 
     - `required string WorkspaceID`
 
   - `class BetaWebhookDeploymentRunStartedEventData:`
 
+    - `JsonElement Type = "deployment_run.started"`
+
     - `required string ID`
 
       ID of the deployment run that triggered the event.
 
     - `required string OrganizationID`
 
-    - `JsonElement Type = "deployment_run.started"`
-
     - `required string WorkspaceID`
 
   - `class BetaWebhookDeploymentDeletedEventData:`
+
+    - `JsonElement Type = "deployment.deleted"`
 
     - `required string ID`
 
@@ -1266,11 +1273,11 @@
 
     - `required string OrganizationID`
 
-    - `JsonElement Type = "deployment.deleted"`
-
     - `required string WorkspaceID`
 
   - `class BetaWebhookDeploymentRunSucceededEventData:`
+
+    - `JsonElement Type = "deployment_run.succeeded"`
 
     - `required string ID`
 
@@ -1278,103 +1285,101 @@
 
     - `required string OrganizationID`
 
-    - `JsonElement Type = "deployment_run.succeeded"`
-
     - `required string WorkspaceID`
 
   - `class BetaWebhookEnvironmentCreatedEventData:`
+
+    - `JsonElement Type = "environment.created"`
 
     - `required string ID`
 
       ID of the environment that triggered the event.
 
     - `required string OrganizationID`
-
-    - `JsonElement Type = "environment.created"`
 
     - `required string WorkspaceID`
 
   - `class BetaWebhookEnvironmentUpdatedEventData:`
 
+    - `JsonElement Type = "environment.updated"`
+
     - `required string ID`
 
       ID of the environment that triggered the event.
 
     - `required string OrganizationID`
-
-    - `JsonElement Type = "environment.updated"`
 
     - `required string WorkspaceID`
 
   - `class BetaWebhookEnvironmentArchivedEventData:`
 
+    - `JsonElement Type = "environment.archived"`
+
     - `required string ID`
 
       ID of the environment that triggered the event.
 
     - `required string OrganizationID`
-
-    - `JsonElement Type = "environment.archived"`
 
     - `required string WorkspaceID`
 
   - `class BetaWebhookEnvironmentDeletedEventData:`
 
+    - `JsonElement Type = "environment.deleted"`
+
     - `required string ID`
 
       ID of the environment that triggered the event.
 
     - `required string OrganizationID`
 
-    - `JsonElement Type = "environment.deleted"`
-
     - `required string WorkspaceID`
 
   - `class BetaWebhookMemoryStoreCreatedEventData:`
+
+    - `JsonElement Type = "memory_store.created"`
 
     - `required string ID`
 
       ID of the memory store that triggered the event.
 
     - `required string OrganizationID`
-
-    - `JsonElement Type = "memory_store.created"`
 
     - `required string WorkspaceID`
 
   - `class BetaWebhookMemoryStoreArchivedEventData:`
 
+    - `JsonElement Type = "memory_store.archived"`
+
     - `required string ID`
 
       ID of the memory store that triggered the event.
 
     - `required string OrganizationID`
-
-    - `JsonElement Type = "memory_store.archived"`
 
     - `required string WorkspaceID`
 
   - `class BetaWebhookMemoryStoreDeletedEventData:`
 
+    - `JsonElement Type = "memory_store.deleted"`
+
     - `required string ID`
 
       ID of the memory store that triggered the event.
 
     - `required string OrganizationID`
 
-    - `JsonElement Type = "memory_store.deleted"`
-
     - `required string WorkspaceID`
 
   - `class BetaWebhookSessionBudgetReachedEventData:`
+
+    - `JsonElement Type = "session.budget_reached"`
 
     - `required string ID`
 
       ID of the session that triggered the event.
 
     - `required string OrganizationID`
-
-    - `JsonElement Type = "session.budget_reached"`
 
     - `required string WorkspaceID`
 
@@ -1382,13 +1387,13 @@
 
 - `class BetaWebhookMemoryStoreArchivedEventData:`
 
+  - `JsonElement Type = "memory_store.archived"`
+
   - `required string ID`
 
     ID of the memory store that triggered the event.
 
   - `required string OrganizationID`
-
-  - `JsonElement Type = "memory_store.archived"`
 
   - `required string WorkspaceID`
 
@@ -1396,13 +1401,13 @@
 
 - `class BetaWebhookMemoryStoreCreatedEventData:`
 
+  - `JsonElement Type = "memory_store.created"`
+
   - `required string ID`
 
     ID of the memory store that triggered the event.
 
   - `required string OrganizationID`
-
-  - `JsonElement Type = "memory_store.created"`
 
   - `required string WorkspaceID`
 
@@ -1410,13 +1415,13 @@
 
 - `class BetaWebhookMemoryStoreDeletedEventData:`
 
+  - `JsonElement Type = "memory_store.deleted"`
+
   - `required string ID`
 
     ID of the memory store that triggered the event.
 
   - `required string OrganizationID`
-
-  - `JsonElement Type = "memory_store.deleted"`
 
   - `required string WorkspaceID`
 
@@ -1424,13 +1429,13 @@
 
 - `class BetaWebhookSessionArchivedEventData:`
 
+  - `JsonElement Type = "session.archived"`
+
   - `required string ID`
 
     ID of the session that triggered the event.
 
   - `required string OrganizationID`
-
-  - `JsonElement Type = "session.archived"`
 
   - `required string WorkspaceID`
 
@@ -1438,13 +1443,13 @@
 
 - `class BetaWebhookSessionBudgetReachedEventData:`
 
+  - `JsonElement Type = "session.budget_reached"`
+
   - `required string ID`
 
     ID of the session that triggered the event.
 
   - `required string OrganizationID`
-
-  - `JsonElement Type = "session.budget_reached"`
 
   - `required string WorkspaceID`
 
@@ -1452,13 +1457,13 @@
 
 - `class BetaWebhookSessionCreatedEventData:`
 
+  - `JsonElement Type = "session.created"`
+
   - `required string ID`
 
     ID of the session that triggered the event.
 
   - `required string OrganizationID`
-
-  - `JsonElement Type = "session.created"`
 
   - `required string WorkspaceID`
 
@@ -1466,13 +1471,13 @@
 
 - `class BetaWebhookSessionDeletedEventData:`
 
+  - `JsonElement Type = "session.deleted"`
+
   - `required string ID`
 
     ID of the session that triggered the event.
 
   - `required string OrganizationID`
-
-  - `JsonElement Type = "session.deleted"`
 
   - `required string WorkspaceID`
 
@@ -1480,13 +1485,13 @@
 
 - `class BetaWebhookSessionIdledEventData:`
 
+  - `JsonElement Type = "session.idled"`
+
   - `required string ID`
 
     ID of the session that triggered the event.
 
   - `required string OrganizationID`
-
-  - `JsonElement Type = "session.idled"`
 
   - `required string WorkspaceID`
 
@@ -1494,13 +1499,13 @@
 
 - `class BetaWebhookSessionOutcomeEvaluationEndedEventData:`
 
+  - `JsonElement Type = "session.outcome_evaluation_ended"`
+
   - `required string ID`
 
     ID of the session that triggered the event.
 
   - `required string OrganizationID`
-
-  - `JsonElement Type = "session.outcome_evaluation_ended"`
 
   - `required string WorkspaceID`
 
@@ -1508,13 +1513,13 @@
 
 - `class BetaWebhookSessionPendingEventData:`
 
+  - `JsonElement Type = "session.pending"`
+
   - `required string ID`
 
     ID of the session that triggered the event.
 
   - `required string OrganizationID`
-
-  - `JsonElement Type = "session.pending"`
 
   - `required string WorkspaceID`
 
@@ -1522,13 +1527,13 @@
 
 - `class BetaWebhookSessionRequiresActionEventData:`
 
+  - `JsonElement Type = "session.requires_action"`
+
   - `required string ID`
 
     ID of the session that triggered the event.
 
   - `required string OrganizationID`
-
-  - `JsonElement Type = "session.requires_action"`
 
   - `required string WorkspaceID`
 
@@ -1536,13 +1541,13 @@
 
 - `class BetaWebhookSessionRunningEventData:`
 
+  - `JsonElement Type = "session.running"`
+
   - `required string ID`
 
     ID of the session that triggered the event.
 
   - `required string OrganizationID`
-
-  - `JsonElement Type = "session.running"`
 
   - `required string WorkspaceID`
 
@@ -1550,13 +1555,13 @@
 
 - `class BetaWebhookSessionStatusIdledEventData:`
 
+  - `JsonElement Type = "session.status_idled"`
+
   - `required string ID`
 
     ID of the session that triggered the event.
 
   - `required string OrganizationID`
-
-  - `JsonElement Type = "session.status_idled"`
 
   - `required string WorkspaceID`
 
@@ -1564,13 +1569,13 @@
 
 - `class BetaWebhookSessionStatusRescheduledEventData:`
 
+  - `JsonElement Type = "session.status_rescheduled"`
+
   - `required string ID`
 
     ID of the session that triggered the event.
 
   - `required string OrganizationID`
-
-  - `JsonElement Type = "session.status_rescheduled"`
 
   - `required string WorkspaceID`
 
@@ -1578,13 +1583,13 @@
 
 - `class BetaWebhookSessionStatusRunStartedEventData:`
 
+  - `JsonElement Type = "session.status_run_started"`
+
   - `required string ID`
 
     ID of the session that triggered the event.
 
   - `required string OrganizationID`
-
-  - `JsonElement Type = "session.status_run_started"`
 
   - `required string WorkspaceID`
 
@@ -1592,13 +1597,13 @@
 
 - `class BetaWebhookSessionStatusTerminatedEventData:`
 
+  - `JsonElement Type = "session.status_terminated"`
+
   - `required string ID`
 
     ID of the session that triggered the event.
 
   - `required string OrganizationID`
-
-  - `JsonElement Type = "session.status_terminated"`
 
   - `required string WorkspaceID`
 
@@ -1606,6 +1611,8 @@
 
 - `class BetaWebhookSessionThreadCreatedEventData:`
 
+  - `JsonElement Type = "session.thread_created"`
+
   - `required string ID`
 
     ID of the session that triggered the event.
@@ -1615,8 +1622,6 @@
   - `required string SessionThreadID`
 
     ID of the session thread this event refers to.
-
-  - `JsonElement Type = "session.thread_created"`
 
   - `required string WorkspaceID`
 
@@ -1624,6 +1629,8 @@
 
 - `class BetaWebhookSessionThreadIdledEventData:`
 
+  - `JsonElement Type = "session.thread_idled"`
+
   - `required string ID`
 
     ID of the session that triggered the event.
@@ -1633,8 +1640,6 @@
   - `required string SessionThreadID`
 
     ID of the session thread this event refers to.
-
-  - `JsonElement Type = "session.thread_idled"`
 
   - `required string WorkspaceID`
 
@@ -1642,6 +1647,8 @@
 
 - `class BetaWebhookSessionThreadTerminatedEventData:`
 
+  - `JsonElement Type = "session.thread_terminated"`
+
   - `required string ID`
 
     ID of the session that triggered the event.
@@ -1652,13 +1659,13 @@
 
     ID of the session thread this event refers to.
 
-  - `JsonElement Type = "session.thread_terminated"`
-
   - `required string WorkspaceID`
 
 ### Beta Webhook Session Updated Event Data
 
 - `class BetaWebhookSessionUpdatedEventData:`
+
+  - `JsonElement Type = "session.updated"`
 
   - `required string ID`
 
@@ -1666,21 +1673,19 @@
 
   - `required string OrganizationID`
 
-  - `JsonElement Type = "session.updated"`
-
   - `required string WorkspaceID`
 
 ### Beta Webhook Vault Archived Event Data
 
 - `class BetaWebhookVaultArchivedEventData:`
 
+  - `JsonElement Type = "vault.archived"`
+
   - `required string ID`
 
     ID of the vault that triggered the event.
 
   - `required string OrganizationID`
-
-  - `JsonElement Type = "vault.archived"`
 
   - `required string WorkspaceID`
 
@@ -1688,13 +1693,13 @@
 
 - `class BetaWebhookVaultCreatedEventData:`
 
+  - `JsonElement Type = "vault.created"`
+
   - `required string ID`
 
     ID of the vault that triggered the event.
 
   - `required string OrganizationID`
-
-  - `JsonElement Type = "vault.created"`
 
   - `required string WorkspaceID`
 
@@ -1702,13 +1707,13 @@
 
 - `class BetaWebhookVaultCredentialArchivedEventData:`
 
+  - `JsonElement Type = "vault_credential.archived"`
+
   - `required string ID`
 
     ID of the vault credential that triggered the event.
 
   - `required string OrganizationID`
-
-  - `JsonElement Type = "vault_credential.archived"`
 
   - `required string VaultID`
 
@@ -1720,13 +1725,13 @@
 
 - `class BetaWebhookVaultCredentialCreatedEventData:`
 
+  - `JsonElement Type = "vault_credential.created"`
+
   - `required string ID`
 
     ID of the vault credential that triggered the event.
 
   - `required string OrganizationID`
-
-  - `JsonElement Type = "vault_credential.created"`
 
   - `required string VaultID`
 
@@ -1738,13 +1743,13 @@
 
 - `class BetaWebhookVaultCredentialDeletedEventData:`
 
+  - `JsonElement Type = "vault_credential.deleted"`
+
   - `required string ID`
 
     ID of the vault credential that triggered the event.
 
   - `required string OrganizationID`
-
-  - `JsonElement Type = "vault_credential.deleted"`
 
   - `required string VaultID`
 
@@ -1756,13 +1761,13 @@
 
 - `class BetaWebhookVaultCredentialRefreshFailedEventData:`
 
+  - `JsonElement Type = "vault_credential.refresh_failed"`
+
   - `required string ID`
 
     ID of the vault credential that triggered the event.
 
   - `required string OrganizationID`
-
-  - `JsonElement Type = "vault_credential.refresh_failed"`
 
   - `required string VaultID`
 
@@ -1774,12 +1779,12 @@
 
 - `class BetaWebhookVaultDeletedEventData:`
 
+  - `JsonElement Type = "vault.deleted"`
+
   - `required string ID`
 
     ID of the vault that triggered the event.
 
   - `required string OrganizationID`
-
-  - `JsonElement Type = "vault.deleted"`
 
   - `required string WorkspaceID`

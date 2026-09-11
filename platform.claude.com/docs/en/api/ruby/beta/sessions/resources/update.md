@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/ruby/beta/sessions/resources/update -->
 
+---
+title: Update Session Resource
+url: https://platform.claude.com/docs/en/api/ruby/beta/sessions/resources/update
+---
+
 # Update Session Resource
 
 `beta.sessions.resources.update(resource_id, **kwargs) -> ResourceUpdateResponse`
@@ -26,7 +31,7 @@ Update Session Resource
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 41 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 42 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -74,6 +79,8 @@ Update Session Resource
 
     - `:"user-profiles-2026-08-18"`
 
+    - `:"user-profiles-2026-09-04"`
+
     - `:"advisor-tool-2026-03-01"`
 
     - `:"managed-agents-2026-04-01"`
@@ -116,6 +123,8 @@ Update Session Resource
 
     - `:"mid-conversation-system-clear-at-2026-08-21"`
 
+- `workspace_id: String`
+
 ## Returns
 
 - `ResourceUpdateResponse = BetaManagedAgentsGitHubRepositoryResource | BetaManagedAgentsFileResource | BetaManagedAgentsMemoryStoreResource`
@@ -123,6 +132,8 @@ Update Session Resource
   The updated session resource.
 
   - `class BetaManagedAgentsGitHubRepositoryResource`
+
+    - `type: :github_repository`
 
     - `id: String`
 
@@ -133,8 +144,6 @@ Update Session Resource
       format: date-time
 
     - `mount_path: String`
-
-    - `type: :github_repository`
 
     - `updated_at: Time`
 
@@ -148,15 +157,17 @@ Update Session Resource
 
       - `class BetaManagedAgentsBranchCheckout`
 
+        - `type: :branch`
+
         - `name: String`
 
           Branch name to check out.
 
           minLength: 1, maxLength: 255
 
-        - `type: :branch`
-
       - `class BetaManagedAgentsCommitCheckout`
+
+        - `type: :commit`
 
         - `sha: String`
 
@@ -164,9 +175,9 @@ Update Session Resource
 
           minLength: 7, maxLength: 64
 
-        - `type: :commit`
-
   - `class BetaManagedAgentsFileResource`
+
+    - `type: :file`
 
     - `id: String`
 
@@ -180,8 +191,6 @@ Update Session Resource
 
     - `mount_path: String`
 
-    - `type: :file`
-
     - `updated_at: Time`
 
       A timestamp in RFC 3339 format
@@ -192,11 +201,11 @@ Update Session Resource
 
     A memory store attached to an agent session.
 
+    - `type: :memory_store`
+
     - `memory_store_id: String`
 
       The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
-
-    - `type: :memory_store`
 
     - `access: :read_write | :read_only`
 

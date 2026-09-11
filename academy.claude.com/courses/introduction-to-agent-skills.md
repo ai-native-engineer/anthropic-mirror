@@ -8,7 +8,7 @@ Build, configure, and share skills in Claude Code — reusable markdown instruct
 
 6 lessons1 hr
 
-[Start course](https://academy.claude.com/courses/introduction-to-agent-skills/what-are-skills)[Sign in to save progress](https://academy.claude.com/login?returnTo=https%3A%2F%2Facademy.claude.com%2Fcourses%2Fintroduction-to-agent-skills)
+[Start course](https://academy.claude.com/courses/introduction-to-agent-skills/what-are-skills)[Sign in to save progress](https://academy.claude.com/login?returnTo=%2Fcourses%2Fintroduction-to-agent-skills)
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-its00vqj.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-i48xo8f1.png)
 

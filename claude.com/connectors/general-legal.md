@@ -43,14 +43,6 @@ Thomson Reuters CoCounsel Legal, in Claude
 
 [Add CoCounsel Legal in Claude (opens in new tab)](https://claude.ai/directory/084ce5af-6b81-471a-a754-d1a50d3f61a1 "Add in Claude")
 
-![](https://raw.githubusercontent.com/dropbox/dropbox-ai-plugins/refs/heads/main/codex/assets/logo-light.png)
-
-### [Dropbox](https://claude.com/connectors/dropbox)
-
-Search, organize, and take action on your Dropbox content
-
-[Add Dropbox in Claude (opens in new tab)](https://claude.ai/directory/1e4280cc-037c-47f0-9873-56bea1871bdb "Add in Claude")
-
 ![](https://www.docusign.com/favicon.ico)
 
 ### [Docusign](https://claude.com/connectors/docusign)
@@ -58,6 +50,14 @@ Search, organize, and take action on your Dropbox content
 Intelligent, secure contract management by Docusign
 
 [Add Docusign in Claude (opens in new tab)](https://claude.ai/directory/a876b642-2b05-4808-a565-deeb271802fd "Add in Claude")
+
+![](https://raw.githubusercontent.com/dropbox/dropbox-ai-plugins/refs/heads/main/codex/assets/logo-light.png)
+
+### [Dropbox](https://claude.com/connectors/dropbox)
+
+Search, organize, and take action on your Dropbox content
+
+[Add Dropbox in Claude (opens in new tab)](https://claude.ai/directory/1e4280cc-037c-47f0-9873-56bea1871bdb "Add in Claude")
 
 ![](https://assets.bbhub.io/bna/sites/18/2026/07/Bloomberg-Law-Favicon-Connector.png)
 

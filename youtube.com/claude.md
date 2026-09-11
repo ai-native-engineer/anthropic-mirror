@@ -1,6 +1,6 @@
 # claude (YouTube)
 
-영상 189개. 썸네일 + 자막(있으면 접이식, 없으면 '자막없음').
+영상 190개. 썸네일 + 자막(있으면 접이식, 없으면 '자막없음').
 
 - [How founders build on Claude Managed Agents](claude/260908-how-founders-build-on-claude-managed-agents.md) — 2026-09-08
 - [How the Claude Code team uses Claude Code](claude/260902-how-the-claude-code-team-uses-claude-code.md) — 2026-09-02
@@ -161,6 +161,7 @@
 - [A.A.Murakami's The Moon Underwater](claude/260202-a-a-murakami-s-the-moon-underwater.md) — 2026-02-02
 - [Getting started with Claude in Excel](claude/260130-getting-started-with-claude-in-excel.md) — 2026-01-30
 - [How Anthropic uses Claude in Marketing](claude/260127-how-anthropic-uses-claude-in-marketing.md) — 2026-01-27
+- [Why Claude works better inside Slack](claude/260909-why-claude-works-better-inside-slack.md) — 2026-09-09
 - [Anthropic engineers on what Claude changed for them](claude/260908-anthropic-engineers-on-what-claude-changed-for-them.md) — 2026-09-08
 - [Fable 5.1 is here](claude/260902-fable-5-1-is-here.md) — 2026-09-02 (자막없음)
 - [How to choose the right Claude model for any task](claude/260819-how-to-choose-the-right-claude-model-for-any-task.md) — 2026-08-19 (자막없음)

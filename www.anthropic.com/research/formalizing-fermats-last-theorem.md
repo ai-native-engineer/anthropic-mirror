@@ -8,9 +8,64 @@ Sep 4, 2026
 
 *We are sharing the first complete computer-checked proof of Fermat’s Last Theorem. Claude worked largely autonomously over 11 days to write the proof in the Lean programming language. Below, we describe how the formalization was done and share some thoughts about what this work could mean for research mathematics.*Around 1637, Pierre de Fermat jotted down a claim in the margin of his copy of Diophantus’s Arithmeticathat would become one of the most famous mathematical conjectures of all time: no positive integers a, b, c satisfy aⁿ + bⁿ = cⁿ for any n > 2. [Fermat’s Last Theorem](https://www.youtube.com/watch?v=1BSFyEIY2BY) (FLT), as the conjecture became known, turned out to be incredibly difficult to prove. The first proof, from Sir Andrew Wiles in1995, ran to 129 pages and required months of painstaking work to verify.
 
+<!-- yt-inline:1BSFyEIY2BY -->
+[![What is Fermat's Last Theorem?](https://img.youtube.com/vi/1BSFyEIY2BY/hqdefault.jpg)](https://www.youtube.com/watch?v=1BSFyEIY2BY)
+
+<details>
+<summary>자막: What is Fermat's Last Theorem? (1:43)</summary>
+
+[00:00]
+x^2 + y^2 = z^2 which um gives us the
+relationship between the sides of a
+right angle triangle for example 3^2 +
+4^2 = 5^ s but what if I change the
+squares to cubes for example or fourth
+powers or fifth powers are there any
+solutions to these equations and firmat
+believed there weren't any solutions
+that you can't find numbers x y and Zed
+such that X the n + y the N is equal to
+Z the N when n is bigger than two now
+trying to prove that you can't find
+Solutions is somehow much more difficult
+than actually finding three numbers
+which solve that equation and that's why
+it really was one of the biggest
+challenges for mathematicians for 350
+years we just couldn't find a reason to
+show why these equations couldn't be
+solved until that is Andrew WS came up
+with his great solution um actually a
+lot of people thought well Fat's last
+theem perhaps that's the Last Theorem
+perhaps we finished mathematics um but
+actually this work that Andrew WS has
+
+[00:01]
+done has really opened up a a whole new
+area of mathematics and is allowing us
+to understand a a whole whole slew of
+new equations a lot of people say well
+what was that useful for uh the world of
+cryptography depends on the mathematics
+that we've discovered on our journey to
+solve fermat Last Theorem but I would
+say actually uh that's not what
+motivates a mathematician like Andrew WS
+being able to have your name on
+something like Fermat's Last the which
+mathematicians have been trying to to to
+prove for for 350 years you that that's
+the Ultimate
+[Music]
+Prize
+
+</details>
+
+
 A decade later, Dutch computer scientist Jan Bergstra proposed “formalizing” Wiles’s proof: converting the mathematical reasoning into a form computers can check automatically. Since then, mathematicians have been developing the methods needed to encode such a complex proof, including a multi-year community effort kicked off in 2024 by Kevin Buzzard at Imperial College London [to complete the formalization](https://lean-lang.org/use-cases/flt/) using the [Lean proof assistant](https://en.wikipedia.org/wiki/Lean_(proof_assistant)).
 
-Recently, Tianyi Peng, an Anthropic researcher whose group at Columbia University builds tools for AI formalization, set out to test whether Claude could make progress on formalizing FLT.1 The result went further than he expected. In 11 days, working largely autonomously, Claude produced the first end-to-end, computer-checked proof of FLT. Along the way, it wrote 13 million lines of Lean and proved 29,500 intermediate theorems.
+Recently, Tianyi Peng, an Anthropic researcher whose group at Columbia University builds tools for AI formalization, set out to test whether Claude could make progress on formalizing FLT.[1](#footnote-1) The result went further than he expected. In 11 days, working largely autonomously, Claude produced the first end-to-end, computer-checked proof of FLT. Along the way, it wrote 13 million lines of Lean and proved 29,500 intermediate theorems.
 
 We shared the [resulting proof](https://github.com/anthropics/fermats-last-theorem) with Kevin Buzzard, who said:
 
@@ -22,7 +77,7 @@ Automatically formalizing a proof as complex as FLT is a significant step toward
 
 Unlike [recent AI-driven](https://www.anthropic.com/research/riemann-zeta) work on the Riemann hypothesis, which produced novel *mathematics*, what’s novel here is the *verification*—checking a mathematical proof as one would check a mathematical computation with a calculator. Proving math theorems requires assembling complex logical chains, and if a single link is broken, everything that follows it might turn out to be false. Understanding a novel result deeply enough to be confident in its correctness can take months, or even years, of work.
 
-Fermat’s Last Theorem is an illustrative example.2 Fermat wrote down the theorem’s statement in the margin of a book, alongside a tantalizing note:
+Fermat’s Last Theorem is an illustrative example.[2](#footnote-2) Fermat wrote down the theorem’s statement in the margin of a book, alongside a tantalizing note:
 
 > I have discovered a truly marvelous proof of this, which this margin is too narrow to contain.
 
@@ -38,7 +93,7 @@ One way to check a proof’s correctness is to ask a computer to do it. Proof as
 
 For FLT, the formalization process was expected to take years. Just the [blueprint](https://imperialcollegelondon.github.io/FLT/blueprint.pdf) the mathematical community has been using to describe the initial phase of the project runs to 86 pages.
 
-Claude completed the proof in 11 days, producing computer-verifiable proofs of 30,300 theorems along the way (using 29,500 in the final proof). Dozens of Claude agents collaborated to define concepts, prove intermediate theorems, and use those theorems to prove ever harder statements. At 13 million lines of Lean code, Claude’s proof is over 5x the size of Mathlib, the principal community library of mathematical proofs this theorem builds on.3
+Claude completed the proof in 11 days, producing computer-verifiable proofs of 30,300 theorems along the way (using 29,500 in the final proof). Dozens of Claude agents collaborated to define concepts, prove intermediate theorems, and use those theorems to prove ever harder statements. At 13 million lines of Lean code, Claude’s proof is over 5x the size of Mathlib, the principal community library of mathematical proofs this theorem builds on.[3](#footnote-3)
 
 [](https://cdn.sanity.io/files/4zrzovbb/website/6d5e1a90507ea4171510b907134139bf716b7d15.mp4)
 
@@ -110,6 +165,12 @@ The full proof is available on [GitHub](https://github.com/anthropics/fermats-la
 2. There are numerous other stories of the mathematical community struggling with verification. Among the most famous is Thomas Hales’s 1998 proof of the [Kepler conjecture](https://en.wikipedia.org/wiki/Kepler_conjecture), which spent four years in review before a 12-referee panel settled for “99% certain” (Hales eventually led a 20-person project, [Flyspeck](https://github.com/flyspeck/flyspeck), that formalized the proof). Grigori Perelman’s 2002 proof of the [Poincaré conjecture](https://en.wikipedia.org/wiki/Poincar%C3%A9_conjecture) took the community roughly four years and three 300-page expositions to accept. Harald Helfgott’s 2013 proof of the [weak Goldbach conjecture](https://en.wikipedia.org/wiki/Goldbach%27s_weak_conjecture) is still under review. Sometimes results that turn out to be wrong are [accepted for years](https://www.ias.edu/ideas/2014/voevodsky-origins), and other mathematicians build their theories on these faulty foundations.
 3. This is partly because Mathlib is concise and well-reviewed, while our proof is likely much longer than it needs to be.
 
+### Measuring tactical intelligence targeting and conventional weapons capabilities of AI models
+
+Anthropic’s Frontier Red Team developed new evaluations to measure AI capabilities in tactical intelligence targeting and conventional weapons development.
+
+[Read more](https://www.anthropic.com/research/intelligence-targeting-conventional-weapons-capabilities)
+
 ### An alignment assessment of recent cybersecurity incidents
 
 We present an alignment assessment of four incidents in which Claude models gained unauthorized access to real third-party systems.
@@ -121,12 +182,6 @@ We present an alignment assessment of four incidents in which Claude models gain
 We had Claude autonomously train models to improve their performance on several public benchmarks that measure 10 categories of alignment failure. For all 10, Claude found fixes that improved the target benchmarks without degrading capabilities.
 
 [Read more](https://www.anthropic.com/research/automated-researchers-mitigate-alignment-failures)
-
-### Enabling independent research on how people use Claude
-
-Earlier this year, we ran a pilot giving external researchers access to aggregate, real-world Claude usage data. Three research groups designed their own studies for Anthropic Insights, our privacy-preserving analysis tool. In this post, we share high-level results from those studies and what we learned running this pilot.
-
-[Read more](https://www.anthropic.com/research/enabling-independent-research)
 
 ## Subscribe to Anthropic Science
 

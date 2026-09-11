@@ -1,8 +1,13 @@
 <!-- source: https://platform.claude.com/docs/en/api/php/beta/sessions/retrieve -->
 
+---
+title: Get Session
+url: https://platform.claude.com/docs/en/api/php/beta/sessions/retrieve
+---
+
 # Get Session
 
-`$client->beta->sessions->retrieve(string sessionID, ?list<AnthropicBeta> betas): BetaManagedAgentsSession`
+`$client->beta->sessions->retrieve(string sessionID, ?list<AnthropicBeta> betas, ?string workspaceID): BetaManagedAgentsSession`
 
 **GET** `/v1/sessions/{session_id}`
 
@@ -16,9 +21,13 @@ Get Session
 
   Optional header to specify the beta version(s) you want to use.
 
+- `workspaceID?:optional string`
+
 ## Returns
 
 - `BetaManagedAgentsSession`
+
+  - `Type type`
 
   - `string id`
 
@@ -58,8 +67,6 @@ Get Session
 
   - `?string title`
 
-  - `Type type`
-
   - `\Datetime updatedAt`
 
     A timestamp in RFC 3339 format
@@ -88,6 +95,7 @@ $client = new Client(apiKey: 'my-anthropic-api-key');
 $betaManagedAgentsSession = $client->beta->sessions->retrieve(
   'sesn_011CZkZAtmR3yMPDzynEDxu7',
   betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+  workspaceID: 'wrkspc_011CZkZaBF1tNoB5wlCeusgy',
 );
 
 var_dump($betaManagedAgentsSession);

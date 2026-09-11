@@ -8,6 +8,13 @@
 
 [Skip to main content](#content-area)
 
+0.1.47
+
+September 10, 2026
+
+* Claude Science is now available for Windows: download it from [claude.com/product/claude-science](https://claude.com/product/claude-science), and see [Run on Windows](https://claude.com/docs/claude-science/run-on-windows) for requirements and setup
+* Various bug fixes and improvements
+
 0.1.43
 
 August 31, 2026

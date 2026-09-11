@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/typescript/beta/environments/work/heartbeat -->
 
+---
+title: Record Heartbeat
+url: https://platform.claude.com/docs/en/api/typescript/beta/environments/work/heartbeat
+---
+
 # Record Heartbeat
 
 `client.beta.environments.work.heartbeat(workID, params, options?): BetaSelfHostedWorkHeartbeatResponse`
@@ -34,7 +39,7 @@ Record a heartbeat for a work item to maintain the lease.
 
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 41 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 42 more`
 
       - `"message-batches-2024-09-24"`
 
@@ -81,6 +86,8 @@ Record a heartbeat for a work item to maintain the lease.
       - `"user-profiles-2026-03-24"`
 
       - `"user-profiles-2026-08-18"`
+
+      - `"user-profiles-2026-09-04"`
 
       - `"advisor-tool-2026-03-01"`
 
@@ -130,6 +137,12 @@ Record a heartbeat for a work item to maintain the lease.
 
   Response after recording a heartbeat for a work item.
 
+  - `type: "work_heartbeat"`
+
+    The type of response
+
+    default: work_heartbeat
+
   - `last_heartbeat: string`
 
     RFC 3339 timestamp of the actual heartbeat from DB
@@ -155,12 +168,6 @@ Record a heartbeat for a work item to maintain the lease.
   - `ttl_seconds: number`
 
     Effective TTL applied to the lease
-
-  - `type: "work_heartbeat"`
-
-    The type of response
-
-    default: work_heartbeat
 
 ## Example
 

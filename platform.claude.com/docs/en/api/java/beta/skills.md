@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/java/beta/skills -->
 
+---
+title: Skills
+url: https://platform.claude.com/docs/en/api/java/beta/skills
+---
+
 # Skills
 
 ## Create Skill
@@ -64,6 +69,8 @@ Create Skill
 
     - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
 
+    - `USER_PROFILES_2026_09_04("user-profiles-2026-09-04")`
+
     - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
@@ -106,6 +113,8 @@ Create Skill
 
     - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
+  - `Optional<String> workspaceId`
+
   - `List<String> files`
 
     Files to upload for the skill.
@@ -121,6 +130,12 @@ Create Skill
 ### Returns
 
 - `class BetaSkill:`
+
+  - `JsonValue type = "skill"`
+
+    Object type.
+
+    For Skills, this is always `"skill"`.
 
   - `String id`
 
@@ -173,12 +188,6 @@ Create Skill
       - `ANTHROPIC_EXAMPLE("anthropic_example")`
 
       - `PLUGIN("plugin")`
-
-  - `JsonValue type = "skill"`
-
-    Object type.
-
-    For Skills, this is always `"skill"`.
 
   - `LocalDateTime updatedAt`
 
@@ -312,6 +321,8 @@ List Skills
 
     - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
 
+    - `USER_PROFILES_2026_09_04("user-profiles-2026-09-04")`
+
     - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
@@ -354,9 +365,17 @@ List Skills
 
     - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
+  - `Optional<String> workspaceId`
+
 ### Returns
 
 - `class BetaSkill:`
+
+  - `JsonValue type = "skill"`
+
+    Object type.
+
+    For Skills, this is always `"skill"`.
 
   - `String id`
 
@@ -409,12 +428,6 @@ List Skills
       - `ANTHROPIC_EXAMPLE("anthropic_example")`
 
       - `PLUGIN("plugin")`
-
-  - `JsonValue type = "skill"`
-
-    Object type.
-
-    For Skills, this is always `"skill"`.
 
   - `LocalDateTime updatedAt`
 
@@ -532,6 +545,8 @@ Get Skill
 
     - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
 
+    - `USER_PROFILES_2026_09_04("user-profiles-2026-09-04")`
+
     - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
@@ -574,9 +589,17 @@ Get Skill
 
     - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
+  - `Optional<String> workspaceId`
+
 ### Returns
 
 - `class BetaSkill:`
+
+  - `JsonValue type = "skill"`
+
+    Object type.
+
+    For Skills, this is always `"skill"`.
 
   - `String id`
 
@@ -629,12 +652,6 @@ Get Skill
       - `ANTHROPIC_EXAMPLE("anthropic_example")`
 
       - `PLUGIN("plugin")`
-
-  - `JsonValue type = "skill"`
-
-    Object type.
-
-    For Skills, this is always `"skill"`.
 
   - `LocalDateTime updatedAt`
 
@@ -747,6 +764,8 @@ Delete Skill
 
     - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
 
+    - `USER_PROFILES_2026_09_04("user-profiles-2026-09-04")`
+
     - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
@@ -789,21 +808,23 @@ Delete Skill
 
     - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
+  - `Optional<String> workspaceId`
+
 ### Returns
 
 - `class BetaDeletedSkill:`
-
-  - `String id`
-
-    Unique identifier for the skill.
-
-    The format and length of IDs may change over time.
 
   - `JsonValue type = "skill_deleted"`
 
     Deleted object type.
 
     For Skills, this is always `"skill_deleted"`.
+
+  - `String id`
+
+    Unique identifier for the skill.
+
+    The format and length of IDs may change over time.
 
 ### Example
 
@@ -841,21 +862,27 @@ public final class Main {
 
 - `class BetaDeletedSkill:`
 
-  - `String id`
-
-    Unique identifier for the skill.
-
-    The format and length of IDs may change over time.
-
   - `JsonValue type = "skill_deleted"`
 
     Deleted object type.
 
     For Skills, this is always `"skill_deleted"`.
 
+  - `String id`
+
+    Unique identifier for the skill.
+
+    The format and length of IDs may change over time.
+
 ### Beta Skill
 
 - `class BetaSkill:`
+
+  - `JsonValue type = "skill"`
+
+    Object type.
+
+    For Skills, this is always `"skill"`.
 
   - `String id`
 
@@ -908,12 +935,6 @@ public final class Main {
       - `ANTHROPIC_EXAMPLE("anthropic_example")`
 
       - `PLUGIN("plugin")`
-
-  - `JsonValue type = "skill"`
-
-    Object type.
-
-    For Skills, this is always `"skill"`.
 
   - `LocalDateTime updatedAt`
 
@@ -1014,6 +1035,8 @@ Create Skill Version
 
     - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
 
+    - `USER_PROFILES_2026_09_04("user-profiles-2026-09-04")`
+
     - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
@@ -1056,6 +1079,8 @@ Create Skill Version
 
     - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
+  - `Optional<String> workspaceId`
+
   - `List<String> files`
 
     Files to upload for the skill.
@@ -1065,6 +1090,12 @@ Create Skill Version
 #### Returns
 
 - `class BetaSkillVersion:`
+
+  - `JsonValue type = "skill_version"`
+
+    Object type.
+
+    For Skill Versions, this is always `"skill_version"`.
 
   - `String id`
 
@@ -1095,12 +1126,6 @@ Create Skill Version
     Unique identifier for the skill.
 
     The format and length of IDs may change over time.
-
-  - `JsonValue type = "skill_version"`
-
-    Object type.
-
-    For Skill Versions, this is always `"skill_version"`.
 
 #### Example
 
@@ -1221,6 +1246,8 @@ List Skill Versions
 
     - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
 
+    - `USER_PROFILES_2026_09_04("user-profiles-2026-09-04")`
+
     - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
@@ -1263,9 +1290,17 @@ List Skill Versions
 
     - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
+  - `Optional<String> workspaceId`
+
 #### Returns
 
 - `class BetaSkillVersion:`
+
+  - `JsonValue type = "skill_version"`
+
+    Object type.
+
+    For Skill Versions, this is always `"skill_version"`.
 
   - `String id`
 
@@ -1296,12 +1331,6 @@ List Skill Versions
     Unique identifier for the skill.
 
     The format and length of IDs may change over time.
-
-  - `JsonValue type = "skill_version"`
-
-    Object type.
-
-    For Skill Versions, this is always `"skill_version"`.
 
 #### Example
 
@@ -1416,6 +1445,8 @@ Download a skill version's content as a zip archive.
 
     - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
 
+    - `USER_PROFILES_2026_09_04("user-profiles-2026-09-04")`
+
     - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
@@ -1457,6 +1488,8 @@ Download a skill version's content as a zip archive.
     - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
 
     - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
+  - `Optional<String> workspaceId`
 
 #### Example
 
@@ -1557,6 +1590,8 @@ Get Skill Version
 
     - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
 
+    - `USER_PROFILES_2026_09_04("user-profiles-2026-09-04")`
+
     - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
@@ -1599,9 +1634,17 @@ Get Skill Version
 
     - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
+  - `Optional<String> workspaceId`
+
 #### Returns
 
 - `class BetaSkillVersion:`
+
+  - `JsonValue type = "skill_version"`
+
+    Object type.
+
+    For Skill Versions, this is always `"skill_version"`.
 
   - `String id`
 
@@ -1632,12 +1675,6 @@ Get Skill Version
     Unique identifier for the skill.
 
     The format and length of IDs may change over time.
-
-  - `JsonValue type = "skill_version"`
-
-    Object type.
-
-    For Skill Versions, this is always `"skill_version"`.
 
 #### Example
 
@@ -1751,6 +1788,8 @@ Delete Skill Version
 
     - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
 
+    - `USER_PROFILES_2026_09_04("user-profiles-2026-09-04")`
+
     - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
@@ -1793,20 +1832,22 @@ Delete Skill Version
 
     - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
+  - `Optional<String> workspaceId`
+
 #### Returns
 
 - `class BetaDeletedSkillVersion:`
-
-  - `String id`
-
-    Unique identifier for this Skill Version. The id addresses the version in
-    paths and pins it in references.
 
   - `JsonValue type = "skill_version_deleted"`
 
     Deleted object type.
 
     For Skill Versions, this is always `"skill_version_deleted"`.
+
+  - `String id`
+
+    Unique identifier for this Skill Version. The id addresses the version in
+    paths and pins it in references.
 
 #### Example
 

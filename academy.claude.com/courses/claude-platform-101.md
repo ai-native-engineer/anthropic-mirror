@@ -8,7 +8,7 @@ This course teaches developers to build on the Claude Platform from the ground u
 
 13 lessons1.5 hr1 quizCompletion badge
 
-[Start course](https://academy.claude.com/courses/claude-platform-101/what-is-the-claude-platform)[Sign in to save progress](https://academy.claude.com/login?returnTo=https%3A%2F%2Facademy.claude.com%2Fcourses%2Fclaude-platform-101)
+[Start course](https://academy.claude.com/courses/claude-platform-101/what-is-the-claude-platform)[Sign in to save progress](https://academy.claude.com/login?returnTo=%2Fcourses%2Fclaude-platform-101)
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-l85piyo4.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-itkqw1mx.png)
 

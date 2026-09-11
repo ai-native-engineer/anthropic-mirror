@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/java/beta/skills/list -->
 
+---
+title: List Skills
+url: https://platform.claude.com/docs/en/api/java/beta/skills/list
+---
+
 # List Skills
 
 `SkillListPage beta().skills().list(params = SkillListParams.none(), requestOptions = RequestOptions.none())`
@@ -85,6 +90,8 @@ List Skills
 
     - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
 
+    - `USER_PROFILES_2026_09_04("user-profiles-2026-09-04")`
+
     - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
@@ -127,9 +134,17 @@ List Skills
 
     - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
+  - `Optional<String> workspaceId`
+
 ## Returns
 
 - `class BetaSkill:`
+
+  - `JsonValue type = "skill"`
+
+    Object type.
+
+    For Skills, this is always `"skill"`.
 
   - `String id`
 
@@ -182,12 +197,6 @@ List Skills
       - `ANTHROPIC_EXAMPLE("anthropic_example")`
 
       - `PLUGIN("plugin")`
-
-  - `JsonValue type = "skill"`
-
-    Object type.
-
-    For Skills, this is always `"skill"`.
 
   - `LocalDateTime updatedAt`
 

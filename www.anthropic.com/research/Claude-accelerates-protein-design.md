@@ -22,9 +22,9 @@ When we [announced Claude Mythos 5](https://www.anthropic.com/news/claude-fable-
 
 In recent years, machine-learning models that can design proteins and rank which are most likely to bind have greatly expedited the protein design process. But these models still generally require days (and often weeks) of laborious orchestration by computational experts. And although general reasoning models like Claude can help both experts and non-experts more efficiently design proteins computationally, validating that data in a wet lab (where scientists physically test chemicals, drugs, and other biological substances) still takes weeks.
 
-We have now received wet lab data back for the first of these experiments, a multi-arm protein design campaign against 15 targets using Claude Opus 4.8 and Mythos Preview. Our external evaluators, [Adaptyv Bio](https://www.adaptyvbio.com/) and [Twist Bioscience](https://www.twistbioscience.com/), independently produced and tested Claude’s designs in the lab, finding that of the 15 targets we designed against, Claude successfully designed binders against 14 of them. These include high-affinity binders1 against at least six targets, and binders matching or exceeding the best reported affinity against at least four targets. Affinity is a measure of how strongly a protein binds to its target; high-affinity binders are generally needed to achieve a therapeutic effect because they make the drug effective at lower doses, reducing the risk of side effects and the cost to manufacture them.
+We have now received wet lab data back for the first of these experiments, a multi-arm protein design campaign against 15 targets using Claude Opus 4.8 and Mythos Preview. Our external evaluators, [Adaptyv Bio](https://www.adaptyvbio.com/) and [Twist Bioscience](https://www.twistbioscience.com/), independently produced and tested Claude’s designs in the lab, finding that of the 15 targets we designed against, Claude successfully designed binders against 14 of them. These include high-affinity binders[1](#footnote-1) against at least six targets, and binders matching or exceeding the best reported affinity against at least four targets. Affinity is a measure of how strongly a protein binds to its target; high-affinity binders are generally needed to achieve a therapeutic effect because they make the drug effective at lower doses, reducing the risk of side effects and the cost to manufacture them.
 
-Mythos Preview and Opus 4.8 achieve overall hit rates—how many of the designs are, in fact, binders—of 26.7% and 22.6%, respectively, when designing against all targets simultaneously in a 48-hour session. 10 to 15% is typical in protein design campaigns today.2
+Mythos Preview and Opus 4.8 achieve overall hit rates—how many of the designs are, in fact, binders—of 26.7% and 22.6%, respectively, when designing against all targets simultaneously in a 48-hour session. 10 to 15% is typical in protein design campaigns today.[2](#footnote-2)
 
 After assessing Claude’s ability to design against multiple targets, we wanted to understand whether having it focus on a single target at a time would improve its performance, especially given that this better represents the approach typically taken by a protein engineer. Indeed, we found that Mythos Preview achieves an overall hit rate of 35.1% when designing against each target separately using multiple 24-hour sessions.
 
@@ -32,19 +32,19 @@ After assessing Claude’s ability to design against multiple targets, we wanted
 
 Mythos Preview and Opus 4.8 achieve hit rates over 20% across a set of 15 targets, with target-level hit rates ranging from as high as 90% to as low as 0%.
 
-This campaign was carried out with minimal human involvement3 beyond the information we provided Claude in our initial prompt ([link](https://huggingface.co/datasets/Anthropic/claude-protein-binder-design/tree/main)). We expect that in the hands of expert protein designers this approach would yield even stronger results, especially if they give Claude active guidance and feedback on intermediate results.
+This campaign was carried out with minimal human involvement[3](#footnote-3) beyond the information we provided Claude in our initial prompt ([link](https://huggingface.co/datasets/Anthropic/claude-protein-binder-design/tree/main)). We expect that in the hands of expert protein designers this approach would yield even stronger results, especially if they give Claude active guidance and feedback on intermediate results.
 
 #### **The campaign**
 
-We began our protein design campaign by selecting multiple targets4 that are commonly used in protein design benchmarks, including all of Adaptyv Bio’s [BenchBB](https://www.adaptyvbio.com/blog/benchbb). Because these targets have been studied extensively, we can compare our results against published hit rates and affinities. We also chose two novel targets, [15-PGDH](https://proteinbase.com/collections/berlin-bio-x-adaptyv-15-pgdh-binder-design-competition) and [GDF-8](https://proteinbase.com/collections/gdf-8-challenge-results), from Adaptyv Bio’s most recent competitions to ensure Claude was able to design against targets without drawing upon pre-recorded successes in its training data or from online search (for all targets, we required Claude to check for and ensure that its designs were original).
+We began our protein design campaign by selecting multiple targets[4](#footnote-4) that are commonly used in protein design benchmarks, including all of Adaptyv Bio’s [BenchBB](https://www.adaptyvbio.com/blog/benchbb). Because these targets have been studied extensively, we can compare our results against published hit rates and affinities. We also chose two novel targets, [15-PGDH](https://proteinbase.com/collections/berlin-bio-x-adaptyv-15-pgdh-binder-design-competition) and [GDF-8](https://proteinbase.com/collections/gdf-8-challenge-results), from Adaptyv Bio’s most recent competitions to ensure Claude was able to design against targets without drawing upon pre-recorded successes in its training data or from online search (for all targets, we required Claude to check for and ensure that its designs were original).
 
 We then prompted Claude to design protein binders against these targets in [Claude Science](https://www.anthropic.com/news/claude-science-ai-workbench). For this, we took two approaches. The first was a multi-target mode, where Claude designed against all targets simultaneously in a single Claude Science session. The second was a single-target mode, in which each session addressed one target and sessions for all targets ran in parallel.
 
-We ran Opus 4.8 and Mythos Preview in multi-target mode with 48 hours of wall time and up to 12,500 NVIDIA H100 hours of compute for running specialized protein design and folding models. We also ran Mythos Preview in single-target mode with 24 hours of wall time and up to 2,500 NVIDIA H100 hours of compute for each target.5
+We ran Opus 4.8 and Mythos Preview in multi-target mode with 48 hours of wall time and up to 12,500 NVIDIA H100 hours of compute for running specialized protein design and folding models. We also ran Mythos Preview in single-target mode with 24 hours of wall time and up to 2,500 NVIDIA H100 hours of compute for each target.[5](#footnote-5)
 
 To emulate the resources available during a typical protein design campaign, we gave Claude the following:
 
-1. An extensive protein design prompt6 that was also included in the agent context;
+1. An extensive protein design prompt[6](#footnote-6) that was also included in the agent context;
 2. Access to the internet and a corpus of resources, such as papers, on protein design;
 3. Connectors for Google Drive, Slack, Gmail, and BioRxiv;
 4. Access to GPUs for running specialized protein design and folding models;
@@ -96,7 +96,7 @@ Certain targets remained a challenge for Claude, including BBF-14 and maltose-bi
 
 Claude had limited success in designing protein binders against BBF-14, a de novo designed beta barrel, and maltose binding protein (MBP).
 
-To better understand how well Claude performed across these design campaigns, we intend to follow our experiments with more extensive characterization to confirm our hit rates and affinity measurements. In the meantime, we are sharing the prompts we used for these campaigns, as well as all *in vitro* and *in silico* data we generated.7
+To better understand how well Claude performed across these design campaigns, we intend to follow our experiments with more extensive characterization to confirm our hit rates and affinity measurements. In the meantime, we are sharing the prompts we used for these campaigns, as well as all *in vitro* and *in silico* data we generated.[7](#footnote-7)
 
 #### **Agentic biological discovery is dual-use**
 
@@ -106,9 +106,9 @@ The uplift provided by the increasingly autonomous research capabilities of AI m
 
 Where the protein binder campaign tested Claude’s ability to design new molecules, the second experiment tested its ability to interpret measurements of molecules already made. Characterizing a compound is cumbersome work; much like protein design, it requires chemists to perform many rounds of measurement, analysis, and iteration. For example, every time a chemist creates a molecule, they must establish whether it is what they intended to produce and how pure it is. This is typically done with nuclear magnetic resonance (NMR) spectroscopy. An NMR spectrum is a series of peaks, each corresponding to a hydrogen atom, or a group of equivalent hydrogens, somewhere in the molecule. The location of the peaks shows chemists what each hydrogen atom is attached to, and the size of the peak shows how many hydrogens it represents. Confirming a structure is one of the most time-consuming steps in synthetic chemistry; for every compound, a chemist has to match each peak in the spectrum to an atom in the proposed structure by hand.
 
-The other technique, used mainly to assess purity, is liquid chromatography–mass spectrometry (LC-MS), which first separates the sample into its individual components as they flow through a column, then records how much of each is present based on its ultraviolet absorbance, before measuring the molecular mass of each one. For both techniques, the instrument run itself takes only a few minutes (two to three for a routine proton NMR spectrum; about 10 for an LC-MS run). The tedious part is analyzing the output. After NMR and LC-MS are run, each instrument produces a raw file in the manufacturer’s own format that is meant to be opened in that manufacturer’s (or other specialist) software.8
+The other technique, used mainly to assess purity, is liquid chromatography–mass spectrometry (LC-MS), which first separates the sample into its individual components as they flow through a column, then records how much of each is present based on its ultraviolet absorbance, before measuring the molecular mass of each one. For both techniques, the instrument run itself takes only a few minutes (two to three for a routine proton NMR spectrum; about 10 for an LC-MS run). The tedious part is analyzing the output. After NMR and LC-MS are run, each instrument produces a raw file in the manufacturer’s own format that is meant to be opened in that manufacturer’s (or other specialist) software.[8](#footnote-8)
 
-Given how painstaking it is to process and interpret these files, we wanted to see how a generally available model such as Claude Opus 5 would perform at this task.9 Supplied with only a contract lab’s raw files for a routine quality-control sample and a short plain-language prompt,10 with no vendor software and no operator, Claude, working within Claude Science, returned processed NMR and LC-MS results in 23 and 19 minutes, respectively, working in parallel. Its results matched the lab’s own processing—hydrogen counts per peak were within 0.08 ¹H of the lab’s, and its purity was measured at 96.4% versus the 96.33% of the lab.
+Given how painstaking it is to process and interpret these files, we wanted to see how a generally available model such as Claude Opus 5 would perform at this task.[9](#footnote-9) Supplied with only a contract lab’s raw files for a routine quality-control sample and a short plain-language prompt,[10](#footnote-10) with no vendor software and no operator, Claude, working within Claude Science, returned processed NMR and LC-MS results in 23 and 19 minutes, respectively, working in parallel. Its results matched the lab’s own processing—hydrogen counts per peak were within 0.08 ¹H of the lab’s, and its purity was measured at 96.4% versus the 96.33% of the lab.
 
 ![Image showing what Claude sent and got back](https://www-cdn.anthropic.com/images/4zrzovbb/website/9325c2d545f43be4b1b37a360afb7f9738d45f28-1880x792.jpg)
 
@@ -155,6 +155,12 @@ Below is a list of documents that provide further technical depth and more detai
 9. We have [previously shared](https://www.anthropic.com/research/making-claude-a-chemist) work on Claude’s performance analyzing NMR data against standard software.
 10. The NMR prompt, in full: “i have a raw 1H FID: process it: FT, phase, baseline-correct. show me the spectrum. then pick peaks and integrate: give me a table with δ (ppm), multiplicity, J (Hz), and integral.” The LC-MS prompt: “Process the raw LCMS file: extract chromatograms and mass spectra, and summarize with figures.”
 
+### Measuring tactical intelligence targeting and conventional weapons capabilities of AI models
+
+Anthropic’s Frontier Red Team developed new evaluations to measure AI capabilities in tactical intelligence targeting and conventional weapons development.
+
+[Read more](https://www.anthropic.com/research/intelligence-targeting-conventional-weapons-capabilities)
+
 ### An alignment assessment of recent cybersecurity incidents
 
 We present an alignment assessment of four incidents in which Claude models gained unauthorized access to real third-party systems.
@@ -163,15 +169,9 @@ We present an alignment assessment of four incidents in which Claude models gain
 
 ### Formalizing Fermat's Last Theorem
 
-We are sharing the first complete computer-checked proof of Fermat’s Last Theorem. Claude worked largely autonomously over 11 days to write the proof in the Lean programming language. Below, we describe how the formalization was done and share some thoughts about what this work could mean for research mathematics.
+We are sharing the first complete computer-checked proof of Fermat’s Last Theorem. Claude worked largely autonomously over 11 days to write the proof in the Lean programming language.
 
 [Read more](https://www.anthropic.com/research/formalizing-fermats-last-theorem)
-
-### Automated researchers can reliably mitigate alignment failures
-
-We had Claude autonomously train models to improve their performance on several public benchmarks that measure 10 categories of alignment failure. For all 10, Claude found fixes that improved the target benchmarks without degrading capabilities.
-
-[Read more](https://www.anthropic.com/research/automated-researchers-mitigate-alignment-failures)
 
 ## Subscribe to Anthropic Science
 

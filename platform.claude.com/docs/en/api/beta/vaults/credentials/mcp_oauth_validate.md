@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/beta/vaults/credentials/mcp_oauth_validate -->
 
+---
+title: Validate Credential
+url: https://platform.claude.com/docs/en/api/beta/vaults/credentials/mcp_oauth_validate
+---
+
 # Validate Credential
 
 **POST** `/v1/vaults/{vault_id}/credentials/{credential_id}/mcp_oauth_validate`
@@ -20,7 +25,7 @@ Validate Credential
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 41 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 42 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -68,6 +73,8 @@ Validate Credential
 
     - `"user-profiles-2026-08-18"`
 
+    - `"user-profiles-2026-09-04"`
+
     - `"advisor-tool-2026-03-01"`
 
     - `"managed-agents-2026-04-01"`
@@ -110,11 +117,15 @@ Validate Credential
 
     - `"mid-conversation-system-clear-at-2026-08-21"`
 
+- `"anthropic-workspace-id": optional string`
+
 ## Returns
 
 - `BetaManagedAgentsCredentialValidation object`
 
   Result of live-probing a credential against its configured MCP server.
+
+  - `type: "vault_credential_validation"`
 
   - `credential_id: string`
 
@@ -183,8 +194,6 @@ Validate Credential
     - `"invalid"`
 
     - `"unknown"`
-
-  - `type: "vault_credential_validation"`
 
   - `validated_at: string`
 

@@ -8,7 +8,7 @@ Decompose complex tasks across parallel Claude subagents and orchestrate them de
 
 4 lessons45 min
 
-[Start course](https://academy.claude.com/courses/introduction-to-subagents/what-are-subagents)[Sign in to save progress](https://academy.claude.com/login?returnTo=https%3A%2F%2Facademy.claude.com%2Fcourses%2Fintroduction-to-subagents)
+[Start course](https://academy.claude.com/courses/introduction-to-subagents/what-are-subagents)[Sign in to save progress](https://academy.claude.com/login?returnTo=%2Fcourses%2Fintroduction-to-subagents)
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-l5wi601c.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-feblj9px.png)
 

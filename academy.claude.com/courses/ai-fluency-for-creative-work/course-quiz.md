@@ -40,7 +40,7 @@ Putting it all together
 * [AI roles as Delegation outcomes](https://academy.claude.com/courses/ai-fluency-for-creative-work/ai-roles-as-delegation-outcomes)
 * [Putting it all together](https://academy.claude.com/courses/ai-fluency-for-creative-work/putting-it-all-together)
 
-Conclusion and certificate
+Conclusion and badge
 
 * [Course quizQuiz](https://academy.claude.com/courses/ai-fluency-for-creative-work/course-quiz)
 

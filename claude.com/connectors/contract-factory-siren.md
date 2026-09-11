@@ -34,8 +34,6 @@ Search, read, and upload files instantly
 
 ### [Perspective AI](https://claude.com/connectors/perspective-ai)
 
-Trending
-
 An AI Concierge that turns forms into conversations
 
 [Add Perspective AI in Claude (opens in new tab)](https://claude.ai/directory/ac16a66e-c876-4447-a723-cfa55a3bce1b "Add in Claude")
@@ -64,12 +62,10 @@ Thomson Reuters CoCounsel Legal, in Claude
 
 [Add CoCounsel Legal in Claude (opens in new tab)](https://claude.ai/directory/084ce5af-6b81-471a-a754-d1a50d3f61a1 "Add in Claude")
 
-![](https://ask.cna.com.tw/ask/fav_icon_256x256.png)
+![](https://www.google.com/s2/favicons?domain=zapier.com&sz=96)
 
-### [中央社 CNA](https://claude.com/connectors/cna-mcp)
+### [Zapier](https://claude.com/connectors/zapier)
 
-Trending
+Automate workflows across thousands of apps via conversation
 
-把中央社可信新聞接進你的 AI｜Taiwan CNA news, sourced answers
-
-[Add 中央社 CNA in Claude (opens in new tab)](https://claude.ai/directory/3e388e4c-9cd4-427d-a200-c533d39f92f8 "Add in Claude")
+[Add Zapier in Claude (opens in new tab)](https://claude.ai/directory/1f6f271e-3d29-4241-b35e-8abe6def4891 "Add in Claude")

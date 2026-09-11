@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/python/beta/sessions/events -->
 
+---
+title: Events
+url: https://platform.claude.com/docs/en/api/python/beta/sessions/events
+---
+
 # Events
 
 ## List Events
@@ -66,7 +71,7 @@ List Events
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 41 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 42 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -114,6 +119,8 @@ List Events
 
     - `"user-profiles-2026-08-18"`
 
+    - `"user-profiles-2026-09-04"`
+
     - `"advisor-tool-2026-03-01"`
 
     - `"managed-agents-2026-04-01"`
@@ -156,6 +163,8 @@ List Events
 
     - `"mid-conversation-system-clear-at-2026-08-21"`
 
+- `workspace_id: Optional[str]`
+
 ### Returns
 
 - `BetaManagedAgentsSessionEvent`
@@ -165,6 +174,8 @@ List Events
   - `class BetaManagedAgentsUserMessageEvent: …`
 
     A user message event in the session conversation.
+
+    - `type: Literal["user.message"]`
 
     - `id: str`
 
@@ -178,17 +189,19 @@ List Events
 
         Regular text content.
 
+        - `type: Literal["text"]`
+
         - `text: str`
 
           The text content.
 
           minLength: 1
 
-        - `type: Literal["text"]`
-
       - `class BetaManagedAgentsImageBlock: …`
 
         Image content specified directly as base64 data or as a reference via a URL.
+
+        - `type: Literal["image"]`
 
         - `source: Source`
 
@@ -197,6 +210,8 @@ List Events
           - `class BetaManagedAgentsBase64ImageSource: …`
 
             Base64-encoded image data.
+
+            - `type: Literal["base64"]`
 
             - `data: str`
 
@@ -209,8 +224,6 @@ List Events
               MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
 
               minLength: 1
-
-            - `type: Literal["base64"]`
 
           - `class BetaManagedAgentsURLImageSource: …`
 
@@ -228,19 +241,19 @@ List Events
 
             Image referenced by file ID.
 
+            - `type: Literal["file"]`
+
             - `file_id: str`
 
               ID of a previously uploaded file.
 
               minLength: 1
 
-            - `type: Literal["file"]`
-
-        - `type: Literal["image"]`
-
       - `class BetaManagedAgentsDocumentBlock: …`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+        - `type: Literal["document"]`
 
         - `source: Source`
 
@@ -249,6 +262,8 @@ List Events
           - `class BetaManagedAgentsBase64DocumentSource: …`
 
             Base64-encoded document data.
+
+            - `type: Literal["base64"]`
 
             - `data: str`
 
@@ -262,11 +277,11 @@ List Events
 
               minLength: 1
 
-            - `type: Literal["base64"]`
-
           - `class BetaManagedAgentsPlainTextDocumentSource: …`
 
             Plain text document content.
+
+            - `type: Literal["text"]`
 
             - `data: str`
 
@@ -277,8 +292,6 @@ List Events
             - `media_type: Literal["text/plain"]`
 
               MIME type of the text content. Must be "text/plain".
-
-            - `type: Literal["text"]`
 
           - `class BetaManagedAgentsURLDocumentSource: …`
 
@@ -296,15 +309,13 @@ List Events
 
             Document referenced by file ID.
 
+            - `type: Literal["file"]`
+
             - `file_id: str`
 
               ID of a previously uploaded file.
 
               minLength: 1
-
-            - `type: Literal["file"]`
-
-        - `type: Literal["document"]`
 
         - `context: Optional[str]`
 
@@ -320,8 +331,6 @@ List Events
 
         - `type: Literal["redacted"]`
 
-    - `type: Literal["user.message"]`
-
     - `processed_at: Optional[datetime]`
 
       A timestamp in RFC 3339 format
@@ -332,11 +341,11 @@ List Events
 
     An interrupt event that pauses agent execution and returns control to the user.
 
+    - `type: Literal["user.interrupt"]`
+
     - `id: str`
 
       Unique identifier for this event.
-
-    - `type: Literal["user.interrupt"]`
 
     - `processed_at: Optional[datetime]`
 
@@ -351,6 +360,8 @@ List Events
   - `class BetaManagedAgentsUserToolConfirmationEvent: …`
 
     A tool confirmation event that approves or denies a pending tool execution.
+
+    - `type: Literal["user.tool_confirmation"]`
 
     - `id: str`
 
@@ -367,8 +378,6 @@ List Events
     - `tool_use_id: str`
 
       The id of the `agent.tool_use` or `agent.mcp_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
-
-    - `type: Literal["user.tool_confirmation"]`
 
     - `deny_message: Optional[str]`
 
@@ -390,6 +399,8 @@ List Events
 
     Event sent by the client providing the result of a custom tool execution.
 
+    - `type: Literal["user.custom_tool_result"]`
+
     - `id: str`
 
       Unique identifier for this event.
@@ -397,8 +408,6 @@ List Events
     - `custom_tool_use_id: str`
 
       The id of the `agent.custom_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
-
-    - `type: Literal["user.custom_tool_result"]`
 
     - `content: Optional[List[Content]]`
 
@@ -420,6 +429,8 @@ List Events
 
         A block containing a web search result.
 
+        - `type: Literal["search_result"]`
+
         - `citations: BetaManagedAgentsSearchResultCitations`
 
           Citation settings for a search result.
@@ -432,13 +443,13 @@ List Events
 
           Array of text content blocks from the search result.
 
+          - `type: Literal["text"]`
+
           - `text: str`
 
             The text content.
 
             minLength: 1
-
-          - `type: Literal["text"]`
 
         - `source: str`
 
@@ -451,8 +462,6 @@ List Events
           The title of the search result.
 
           minLength: 1
-
-        - `type: Literal["search_result"]`
 
     - `is_error: Optional[bool]`
 
@@ -472,6 +481,8 @@ List Events
 
     Event emitted when the agent calls a custom tool. The session goes idle until the client sends a `user.custom_tool_result` event with the result.
 
+    - `type: Literal["agent.custom_tool_use"]`
+
     - `id: str`
 
       Unique identifier for this event.
@@ -490,8 +501,6 @@ List Events
 
       format: date-time
 
-    - `type: Literal["agent.custom_tool_use"]`
-
     - `session_thread_id: Optional[str]`
 
       When set, this event was cross-posted from a subagent's thread to surface its custom tool use on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.custom_tool_result` event to route the result back.
@@ -499,6 +508,8 @@ List Events
   - `class BetaManagedAgentsAgentMessageEvent: …`
 
     An agent response event in the session conversation.
+
+    - `type: Literal["agent.message"]`
 
     - `id: str`
 
@@ -522,11 +533,11 @@ List Events
 
       format: date-time
 
-    - `type: Literal["agent.message"]`
-
   - `class BetaManagedAgentsAgentThinkingEvent: …`
 
     Indicates the agent is making forward progress via extended thinking. A progress signal, not a content carrier.
+
+    - `type: Literal["agent.thinking"]`
 
     - `id: str`
 
@@ -538,11 +549,11 @@ List Events
 
       format: date-time
 
-    - `type: Literal["agent.thinking"]`
-
   - `class BetaManagedAgentsAgentMCPToolUseEvent: …`
 
     Event emitted when the agent invokes a tool provided by an MCP server.
+
+    - `type: Literal["agent.mcp_tool_use"]`
 
     - `id: str`
 
@@ -566,8 +577,6 @@ List Events
 
       format: date-time
 
-    - `type: Literal["agent.mcp_tool_use"]`
-
     - `evaluated_permission: Optional[Literal["allow", "ask", "deny"]]`
 
       AgentEvaluatedPermission enum
@@ -578,6 +587,62 @@ List Events
 
       - `"deny"`
 
+    - `evaluation: Optional[BetaManagedAgentsAgentToolEvaluation]`
+
+      Names the resolved permission_policy that produced evaluated_permission, and under auto carries the judgement. Open union: clients must tolerate unknown variants.
+
+      - `class BetaManagedAgentsAgentToolEvaluationAlwaysAllow: …`
+
+        The resolved permission_policy was always_allow; accompanies evaluated_permission "allow".
+
+        - `type: Literal["always_allow"]`
+
+      - `class BetaManagedAgentsAgentToolEvaluationAlwaysAsk: …`
+
+        The resolved permission_policy was always_ask; accompanies evaluated_permission "ask".
+
+        - `type: Literal["always_ask"]`
+
+      - `class BetaManagedAgentsAgentToolEvaluationAuto: …`
+
+        The resolved permission_policy was auto: the server judged this invocation individually.
+
+        - `type: Literal["auto"]`
+
+        - `evaluated_permission: BetaManagedAgentsAgentAutoEvaluatedPermission`
+
+          The server's per-invocation judgement under the auto permission policy. Its type always equals the event's top-level evaluated_permission. Open union: clients must tolerate unknown variants.
+
+          - `class BetaManagedAgentsAgentAutoEvaluatedPermissionAllow: …`
+
+            The server judged the invocation safe to execute without client approval.
+
+            - `type: Literal["allow"]`
+
+          - `class BetaManagedAgentsAgentAutoEvaluatedPermissionAsk: …`
+
+            The server reached no judgement; the invocation is held for client approval.
+
+            - `type: Literal["ask"]`
+
+            - `reason_code: str`
+
+              The judgement's grounds in registry-bound terms, for client branching and audit rather than end-user display. Open registry; currently "indeterminate" (no judgement was reached). Clients must tolerate values outside this set.
+
+              maxLength: 64
+
+          - `class BetaManagedAgentsAgentAutoEvaluatedPermissionDeny: …`
+
+            The server judged the invocation high-risk; it does not execute and a synthetic error tool result is appended.
+
+            - `type: Literal["deny"]`
+
+            - `reason_code: str`
+
+              The judgement's grounds in registry-bound terms. Open registry; currently "high_risk" (judged high-risk; the call does not run). Clients must tolerate values outside this set.
+
+              maxLength: 64
+
     - `session_thread_id: Optional[str]`
 
       When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
@@ -585,6 +650,8 @@ List Events
   - `class BetaManagedAgentsAgentMCPToolResultEvent: …`
 
     Event representing the result of an MCP tool execution.
+
+    - `type: Literal["agent.mcp_tool_result"]`
 
     - `id: str`
 
@@ -599,8 +666,6 @@ List Events
       A timestamp in RFC 3339 format
 
       format: date-time
-
-    - `type: Literal["agent.mcp_tool_result"]`
 
     - `content: Optional[List[Content]]`
 
@@ -630,6 +695,8 @@ List Events
 
     Event emitted when the agent invokes a built-in agent tool.
 
+    - `type: Literal["agent.tool_use"]`
+
     - `id: str`
 
       Unique identifier for this event.
@@ -648,8 +715,6 @@ List Events
 
       format: date-time
 
-    - `type: Literal["agent.tool_use"]`
-
     - `evaluated_permission: Optional[Literal["allow", "ask", "deny"]]`
 
       AgentEvaluatedPermission enum
@@ -660,6 +725,10 @@ List Events
 
       - `"deny"`
 
+    - `evaluation: Optional[BetaManagedAgentsAgentToolEvaluation]`
+
+      Names the resolved permission_policy that produced evaluated_permission, and under auto carries the judgement. Open union: clients must tolerate unknown variants.
+
     - `session_thread_id: Optional[str]`
 
       When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
@@ -667,6 +736,8 @@ List Events
   - `class BetaManagedAgentsAgentToolResultEvent: …`
 
     Event representing the result of an agent tool execution.
+
+    - `type: Literal["agent.tool_result"]`
 
     - `id: str`
 
@@ -681,8 +752,6 @@ List Events
     - `tool_use_id: str`
 
       The id of the `agent.tool_use` event this result corresponds to.
-
-    - `type: Literal["agent.tool_result"]`
 
     - `content: Optional[List[Content]]`
 
@@ -711,6 +780,8 @@ List Events
   - `class BetaManagedAgentsAgentThreadMessageReceivedEvent: …`
 
     Delivery event written to the target thread's input stream when an agent-to-agent message arrives.
+
+    - `type: Literal["agent.thread_message_received"]`
 
     - `id: str`
 
@@ -746,8 +817,6 @@ List Events
 
       format: date-time
 
-    - `type: Literal["agent.thread_message_received"]`
-
     - `from_agent_name: Optional[str]`
 
       Name of the callable agent this message came from. Absent when received from the primary agent.
@@ -755,6 +824,8 @@ List Events
   - `class BetaManagedAgentsAgentThreadMessageSentEvent: …`
 
     Observability event emitted to the sender's output stream when an agent-to-agent message is sent.
+
+    - `type: Literal["agent.thread_message_sent"]`
 
     - `id: str`
 
@@ -790,8 +861,6 @@ List Events
 
       Public `sthr_` ID of the thread the message was sent to.
 
-    - `type: Literal["agent.thread_message_sent"]`
-
     - `to_agent_name: Optional[str]`
 
       Name of the callable agent this message was sent to. Absent when sent to the primary agent.
@@ -799,6 +868,8 @@ List Events
   - `class BetaManagedAgentsAgentThreadContextCompactedEvent: …`
 
     Indicates that context compaction (summarization) occurred during the session.
+
+    - `type: Literal["agent.thread_context_compacted"]`
 
     - `id: str`
 
@@ -810,11 +881,11 @@ List Events
 
       format: date-time
 
-    - `type: Literal["agent.thread_context_compacted"]`
-
   - `class BetaManagedAgentsSessionErrorEvent: …`
 
     An error event indicating a problem occurred during session execution.
+
+    - `type: Literal["session.error"]`
 
     - `id: str`
 
@@ -827,6 +898,8 @@ List Events
       - `class BetaManagedAgentsUnknownError: …`
 
         An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
+
+        - `type: Literal["unknown_error"]`
 
         - `message: str`
 
@@ -854,11 +927,11 @@ List Events
 
             - `type: Literal["terminal"]`
 
-        - `type: Literal["unknown_error"]`
-
       - `class BetaManagedAgentsModelOverloadedError: …`
 
         The model is currently overloaded. Emitted after automatic retries are exhausted.
+
+        - `type: Literal["model_overloaded_error"]`
 
         - `message: str`
 
@@ -879,13 +952,13 @@ List Events
           - `class BetaManagedAgentsRetryStatusTerminal: …`
 
             The session encountered a terminal error and will transition to `terminated` state.
-
-        - `type: Literal["model_overloaded_error"]`
 
       - `class BetaManagedAgentsModelRateLimitedError: …`
 
         The model request was rate-limited.
 
+        - `type: Literal["model_rate_limited_error"]`
+
         - `message: str`
 
           Human-readable error description.
@@ -905,13 +978,13 @@ List Events
           - `class BetaManagedAgentsRetryStatusTerminal: …`
 
             The session encountered a terminal error and will transition to `terminated` state.
-
-        - `type: Literal["model_rate_limited_error"]`
 
       - `class BetaManagedAgentsModelRequestFailedError: …`
 
         A model request failed for a reason other than overload or rate-limiting.
 
+        - `type: Literal["model_request_failed_error"]`
+
         - `message: str`
 
           Human-readable error description.
@@ -932,11 +1005,11 @@ List Events
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-        - `type: Literal["model_request_failed_error"]`
-
       - `class BetaManagedAgentsMCPConnectionFailedError: …`
 
         Failed to connect to an MCP server.
+
+        - `type: Literal["mcp_connection_failed_error"]`
 
         - `mcp_server_name: str`
 
@@ -962,11 +1035,11 @@ List Events
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-        - `type: Literal["mcp_connection_failed_error"]`
-
       - `class BetaManagedAgentsMCPAuthenticationFailedError: …`
 
         Authentication to an MCP server failed.
+
+        - `type: Literal["mcp_authentication_failed_error"]`
 
         - `mcp_server_name: str`
 
@@ -992,11 +1065,11 @@ List Events
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-        - `type: Literal["mcp_authentication_failed_error"]`
-
       - `class BetaManagedAgentsBillingError: …`
 
         The caller's organization or workspace cannot make model requests — out of credits or spend limit reached. Retrying with the same credentials will not succeed; the caller must resolve the billing state.
+
+        - `type: Literal["billing_error"]`
 
         - `message: str`
 
@@ -1018,11 +1091,11 @@ List Events
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-        - `type: Literal["billing_error"]`
-
       - `class BetaManagedAgentsCredentialHostUnreachableError: …`
 
         An `environment_variable` credential's `auth.networking.allowed_hosts` includes a host the environment's network policy does not permit.
+
+        - `type: Literal["credential_host_unreachable_error"]`
 
         - `credential_id: str`
 
@@ -1048,8 +1121,6 @@ List Events
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-        - `type: Literal["credential_host_unreachable_error"]`
-
         - `vault_id: str`
 
           ID of the vault containing the affected credential.
@@ -1060,11 +1131,11 @@ List Events
 
       format: date-time
 
-    - `type: Literal["session.error"]`
-
   - `class BetaManagedAgentsSessionStatusRescheduledEvent: …`
 
     Indicates the session is recovering from an error state and is rescheduled for execution.
+
+    - `type: Literal["session.status_rescheduled"]`
 
     - `id: str`
 
@@ -1075,13 +1146,13 @@ List Events
       A timestamp in RFC 3339 format
 
       format: date-time
-
-    - `type: Literal["session.status_rescheduled"]`
 
   - `class BetaManagedAgentsSessionStatusRunningEvent: …`
 
     Indicates the session is actively running and the agent is working.
 
+    - `type: Literal["session.status_running"]`
+
     - `id: str`
 
       Unique identifier for this event.
@@ -1092,11 +1163,11 @@ List Events
 
       format: date-time
 
-    - `type: Literal["session.status_running"]`
-
   - `class BetaManagedAgentsSessionStatusIdleEvent: …`
 
     Indicates the agent has paused and is awaiting user input.
+
+    - `type: Literal["session.status_idle"]`
 
     - `id: str`
 
@@ -1122,11 +1193,11 @@ List Events
 
         The agent is idle waiting on one or more blocking user-input events (tool confirmation, custom tool result, etc.). Resolving all of them transitions the session back to running.
 
+        - `type: Literal["requires_action"]`
+
         - `event_ids: List[str]`
 
           The ids of events the agent is blocked on. Resolving fewer than all re-emits `session.status_idle` with the remainder.
-
-        - `type: Literal["requires_action"]`
 
       - `class BetaManagedAgentsSessionRetriesExhausted: …`
 
@@ -1140,11 +1211,11 @@ List Events
 
         - `type: Literal["budget_reached"]`
 
-    - `type: Literal["session.status_idle"]`
-
   - `class BetaManagedAgentsSessionStatusTerminatedEvent: …`
 
     Indicates the session has terminated, either due to an error or completion.
+
+    - `type: Literal["session.status_terminated"]`
 
     - `id: str`
 
@@ -1156,11 +1227,11 @@ List Events
 
       format: date-time
 
-    - `type: Literal["session.status_terminated"]`
-
   - `class BetaManagedAgentsSessionThreadCreatedEvent: …`
 
     Emitted when a subagent is spawned as a new thread. Written to the parent thread's output stream so clients observing the session see child creation.
+
+    - `type: Literal["session.thread_created"]`
 
     - `id: str`
 
@@ -1180,11 +1251,11 @@ List Events
 
       Public `sthr_` ID of the newly created thread.
 
-    - `type: Literal["session.thread_created"]`
-
   - `class BetaManagedAgentsSpanOutcomeEvaluationStartEvent: …`
 
     Emitted when an outcome evaluation cycle begins.
+
+    - `type: Literal["span.outcome_evaluation_start"]`
 
     - `id: str`
 
@@ -1206,11 +1277,11 @@ List Events
 
       format: date-time
 
-    - `type: Literal["span.outcome_evaluation_start"]`
-
   - `class BetaManagedAgentsSpanOutcomeEvaluationEndEvent: …`
 
     Emitted when an outcome evaluation cycle completes. Carries the verdict and aggregate token usage. A verdict of `needs_revision` means another evaluation cycle follows; `satisfied`, `max_iterations_reached`, `failed`, or `interrupted` are terminal — no further evaluation cycles follow.
+
+    - `type: Literal["span.outcome_evaluation_end"]`
 
     - `id: str`
 
@@ -1243,8 +1314,6 @@ List Events
     - `result: str`
 
       Evaluation verdict. 'satisfied': criteria met, session goes idle. 'needs_revision': criteria not met, another revision cycle follows. 'max_iterations_reached': evaluation budget exhausted with criteria still unmet — one final acknowledgment turn follows before the session goes idle, but no further evaluation runs. 'failed': grader determined the rubric does not apply to the deliverables. 'interrupted': user sent an interrupt while evaluation was in progress.
-
-    - `type: Literal["span.outcome_evaluation_end"]`
 
     - `usage: BetaManagedAgentsSpanModelUsage`
 
@@ -1286,6 +1355,8 @@ List Events
 
     Emitted when a model request is initiated by the agent.
 
+    - `type: Literal["span.model_request_start"]`
+
     - `id: str`
 
       Unique identifier for this event.
@@ -1296,11 +1367,11 @@ List Events
 
       format: date-time
 
-    - `type: Literal["span.model_request_start"]`
-
   - `class BetaManagedAgentsSpanModelRequestEndEvent: …`
 
     Emitted when a model request completes.
+
+    - `type: Literal["span.model_request_end"]`
 
     - `id: str`
 
@@ -1324,11 +1395,11 @@ List Events
 
       format: date-time
 
-    - `type: Literal["span.model_request_end"]`
-
   - `class BetaManagedAgentsSpanOutcomeEvaluationOngoingEvent: …`
 
     Periodic heartbeat emitted while an outcome evaluation cycle is in progress. Distinguishes 'evaluation is actively running' from 'evaluation is stuck' between the corresponding `span.outcome_evaluation_start` and `span.outcome_evaluation_end` events.
+
+    - `type: Literal["span.outcome_evaluation_ongoing"]`
 
     - `id: str`
 
@@ -1350,11 +1421,11 @@ List Events
 
       format: date-time
 
-    - `type: Literal["span.outcome_evaluation_ongoing"]`
-
   - `class BetaManagedAgentsUserDefineOutcomeEvent: …`
 
     Echo of a `user.define_outcome` input event. Carries the server-generated `outcome_id` that subsequent `span.outcome_evaluation_*` events reference.
+
+    - `type: Literal["user.define_outcome"]`
 
     - `id: str`
 
@@ -1388,27 +1459,27 @@ List Events
 
         Rubric referenced by a file uploaded via the Files API.
 
+        - `type: Literal["file"]`
+
         - `file_id: str`
 
           ID of the rubric file.
-
-        - `type: Literal["file"]`
 
       - `class BetaManagedAgentsTextRubric: …`
 
         Rubric content provided inline as text.
 
+        - `type: Literal["text"]`
+
         - `content: str`
 
           Rubric content. Plain text or markdown — the grader treats it as freeform text.
 
-        - `type: Literal["text"]`
-
-    - `type: Literal["user.define_outcome"]`
-
   - `class BetaManagedAgentsSessionDeletedEvent: …`
 
     Emitted when a session has been deleted. Terminates any active event stream — no further events will be emitted for this session.
+
+    - `type: Literal["session.deleted"]`
 
     - `id: str`
 
@@ -1420,11 +1491,11 @@ List Events
 
       format: date-time
 
-    - `type: Literal["session.deleted"]`
-
   - `class BetaManagedAgentsSessionThreadStatusRunningEvent: …`
 
     A session thread has begun executing. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
+
+    - `type: Literal["session.thread_status_running"]`
 
     - `id: str`
 
@@ -1444,11 +1515,11 @@ List Events
 
       Public sthr_ ID of the thread that started running.
 
-    - `type: Literal["session.thread_status_running"]`
-
   - `class BetaManagedAgentsSessionThreadStatusIdleEvent: …`
 
     A session thread has yielded and is awaiting input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
+
+    - `type: Literal["session.thread_status_idle"]`
 
     - `id: str`
 
@@ -1488,11 +1559,11 @@ List Events
 
         The agent stopped because the session's tracked list cost reached its budget, or because its usage includes a model with no list price (which the budget cannot measure). Raise the budget to continue — or, if raising is rejected because a model has no list price, remove the budget.
 
-    - `type: Literal["session.thread_status_idle"]`
-
   - `class BetaManagedAgentsSessionThreadStatusTerminatedEvent: …`
 
     A session thread has terminated and will accept no further input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
+
+    - `type: Literal["session.thread_status_terminated"]`
 
     - `id: str`
 
@@ -1512,11 +1583,11 @@ List Events
 
       Public sthr_ ID of the thread that terminated.
 
-    - `type: Literal["session.thread_status_terminated"]`
-
   - `class BetaManagedAgentsUserToolResultEvent: …`
 
     Event sent by the client providing the result of an agent-toolset tool execution. Only valid on `self_hosted` environments, where sandbox-routed tools are executed by the client rather than the server.
+
+    - `type: Literal["user.tool_result"]`
 
     - `id: str`
 
@@ -1525,8 +1596,6 @@ List Events
     - `tool_use_id: str`
 
       The id of the `agent.tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
-
-    - `type: Literal["user.tool_result"]`
 
     - `content: Optional[List[Content]]`
 
@@ -1566,6 +1635,8 @@ List Events
 
     A session thread hit a transient error and is retrying automatically. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
 
+    - `type: Literal["session.thread_status_rescheduled"]`
+
     - `id: str`
 
       Unique identifier for this event.
@@ -1584,11 +1655,11 @@ List Events
 
       Public sthr_ ID of the thread that is retrying.
 
-    - `type: Literal["session.thread_status_rescheduled"]`
-
   - `class BetaManagedAgentsSessionUpdatedEvent: …`
 
     Emitted when an UpdateSession request changed at least one field. Carries only the fields that changed; absent fields were not part of the update. The new configuration applies from the next turn.
+
+    - `type: Literal["session.updated"]`
 
     - `id: str`
 
@@ -1600,11 +1671,11 @@ List Events
 
       format: date-time
 
-    - `type: Literal["session.updated"]`
-
     - `agent: Optional[BetaManagedAgentsSessionAgent]`
 
       Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
+
+      - `type: Literal["agent"]`
 
       - `id: str`
 
@@ -1612,9 +1683,9 @@ List Events
 
       - `mcp_servers: List[BetaManagedAgentsMCPServerURLDefinition]`
 
-        - `name: str`
-
         - `type: Literal["url"]`
+
+        - `name: str`
 
         - `url: str`
 
@@ -1757,6 +1828,8 @@ List Events
 
         Resolved coordinator topology with full agent definitions for each roster member.
 
+        - `type: Literal["coordinator"]`
+
         - `agents: List[Agent]`
 
           Full `agent` definitions the coordinator may spawn as session threads.
@@ -1765,15 +1838,17 @@ List Events
 
             Resolved `agent` definition for a single `session_thread`. Snapshot of the agent at thread creation time. The multiagent roster is not repeated here; read it from `Session.agent`.
 
+            - `type: Literal["agent"]`
+
             - `id: str`
 
             - `description: Optional[str]`
 
             - `mcp_servers: List[BetaManagedAgentsMCPServerURLDefinition]`
 
-              - `name: str`
-
               - `type: Literal["url"]`
+
+              - `name: str`
 
               - `url: str`
 
@@ -1789,9 +1864,9 @@ List Events
 
                 A resolved Anthropic-managed skill.
 
-                - `skill_id: str`
-
                 - `type: Literal["anthropic"]`
+
+                - `skill_id: str`
 
                 - `version: str`
 
@@ -1799,9 +1874,9 @@ List Events
 
                 A resolved user-created custom skill.
 
-                - `skill_id: str`
-
                 - `type: Literal["custom"]`
+
+                - `skill_id: str`
 
                 - `version: str`
 
@@ -1811,11 +1886,15 @@ List Events
 
               - `class BetaManagedAgentsAgentToolset20260401: …`
 
+                - `type: Literal["agent_toolset_20260401"]`
+
                 - `configs: List[BetaManagedAgentsAgentToolConfig]`
 
                   - `class BetaManagedAgentsBashToolConfig: …`
 
                     Configuration for the bash tool.
+
+                    - `type: Literal["bash"]`
 
                     - `enabled: bool`
 
@@ -1837,11 +1916,17 @@ List Events
 
                         - `type: Literal["always_ask"]`
 
-                    - `type: Literal["bash"]`
+                      - `class BetaManagedAgentsAutoPolicy: …`
+
+                        The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+                        - `type: Literal["auto"]`
 
                   - `class BetaManagedAgentsEditToolConfig: …`
 
                     Configuration for the edit tool.
+
+                    - `type: Literal["edit"]`
 
                     - `enabled: bool`
 
@@ -1859,11 +1944,15 @@ List Events
 
                         Tool calls require user confirmation before execution.
 
-                    - `type: Literal["edit"]`
+                      - `class BetaManagedAgentsAutoPolicy: …`
+
+                        The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                   - `class BetaManagedAgentsReadToolConfig: …`
 
                     Configuration for the read tool.
+
+                    - `type: Literal["read"]`
 
                     - `enabled: bool`
 
@@ -1881,11 +1970,15 @@ List Events
 
                         Tool calls require user confirmation before execution.
 
-                    - `type: Literal["read"]`
+                      - `class BetaManagedAgentsAutoPolicy: …`
+
+                        The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                   - `class BetaManagedAgentsWriteToolConfig: …`
 
                     Configuration for the write tool.
+
+                    - `type: Literal["write"]`
 
                     - `enabled: bool`
 
@@ -1903,11 +1996,15 @@ List Events
 
                         Tool calls require user confirmation before execution.
 
-                    - `type: Literal["write"]`
+                      - `class BetaManagedAgentsAutoPolicy: …`
+
+                        The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                   - `class BetaManagedAgentsGlobToolConfig: …`
 
                     Configuration for the glob tool.
+
+                    - `type: Literal["glob"]`
 
                     - `enabled: bool`
 
@@ -1925,11 +2022,15 @@ List Events
 
                         Tool calls require user confirmation before execution.
 
-                    - `type: Literal["glob"]`
+                      - `class BetaManagedAgentsAutoPolicy: …`
+
+                        The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                   - `class BetaManagedAgentsGrepToolConfig: …`
 
                     Configuration for the grep tool.
+
+                    - `type: Literal["grep"]`
 
                     - `enabled: bool`
 
@@ -1947,11 +2048,15 @@ List Events
 
                         Tool calls require user confirmation before execution.
 
-                    - `type: Literal["grep"]`
+                      - `class BetaManagedAgentsAutoPolicy: …`
+
+                        The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                   - `class BetaManagedAgentsWebFetchToolConfig: …`
 
                     Configuration for the web_fetch tool.
+
+                    - `type: Literal["web_fetch"]`
 
                     - `enabled: bool`
 
@@ -1969,7 +2074,9 @@ List Events
 
                         Tool calls require user confirmation before execution.
 
-                    - `type: Literal["web_fetch"]`
+                      - `class BetaManagedAgentsAutoPolicy: …`
+
+                        The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                     - `allowed_domains: Optional[List[str]]`
 
@@ -1982,6 +2089,8 @@ List Events
                   - `class BetaManagedAgentsWebSearchToolConfig: …`
 
                     Configuration for the web_search tool.
+
+                    - `type: Literal["web_search"]`
 
                     - `enabled: bool`
 
@@ -1999,7 +2108,9 @@ List Events
 
                         Tool calls require user confirmation before execution.
 
-                    - `type: Literal["web_search"]`
+                      - `class BetaManagedAgentsAutoPolicy: …`
+
+                        The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                     - `allowed_domains: Optional[List[str]]`
 
@@ -2053,9 +2164,13 @@ List Events
 
                       Tool calls require user confirmation before execution.
 
-                - `type: Literal["agent_toolset_20260401"]`
+                    - `class BetaManagedAgentsAutoPolicy: …`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
               - `class BetaManagedAgentsMCPToolset: …`
+
+                - `type: Literal["mcp_toolset"]`
 
                 - `configs: List[BetaManagedAgentsMCPToolConfig]`
 
@@ -2075,6 +2190,10 @@ List Events
 
                       Tool calls require user confirmation before execution.
 
+                    - `class BetaManagedAgentsAutoPolicy: …`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
                 - `default_config: BetaManagedAgentsMCPToolsetDefaultConfig`
 
                   Resolved default configuration for all tools from an MCP server.
@@ -2093,13 +2212,17 @@ List Events
 
                       Tool calls require user confirmation before execution.
 
-                - `mcp_server_name: str`
+                    - `class BetaManagedAgentsAutoPolicy: …`
 
-                - `type: Literal["mcp_toolset"]`
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+                - `mcp_server_name: str`
 
               - `class BetaManagedAgentsCustomTool: …`
 
                 A custom tool as returned in API responses.
+
+                - `type: Literal["custom"]`
 
                 - `description: str`
 
@@ -2115,10 +2238,6 @@ List Events
 
                 - `name: str`
 
-                - `type: Literal["custom"]`
-
-            - `type: Literal["agent"]`
-
             - `version: int`
 
               format: int32
@@ -2127,13 +2246,11 @@ List Events
 
             Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
 
+            - `type: Literal["advisor"]`
+
             - `model: str`
 
               The advisor model id.
-
-            - `type: Literal["advisor"]`
-
-        - `type: Literal["coordinator"]`
 
       - `name: str`
 
@@ -2159,8 +2276,6 @@ List Events
 
           A custom tool as returned in API responses.
 
-      - `type: Literal["agent"]`
-
       - `version: int`
 
         format: int32
@@ -2168,6 +2283,8 @@ List Events
     - `budget: Optional[BetaManagedAgentsBudgetLimit]`
 
       A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+
+      - `type: Literal["limit"]`
 
       - `max_list_cost: BetaMonetaryAmount`
 
@@ -2181,8 +2298,6 @@ List Events
 
           Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
 
-      - `type: Literal["limit"]`
-
     - `metadata: Optional[Dict[str, str]]`
 
       The session's full metadata bag after the update. Present when the update set non-empty metadata; absent when metadata was unchanged or cleared to empty.
@@ -2195,6 +2310,8 @@ List Events
 
     A mid-conversation system message event. Carries system-role content that is appended to the session as a `role: "system"` turn.
 
+    - `type: Literal["system.message"]`
+
     - `id: str`
 
       Unique identifier for this event.
@@ -2203,15 +2320,13 @@ List Events
 
       System content blocks. Text-only.
 
+      - `type: Literal["text"]`
+
       - `text: str`
 
         The text content.
 
         minLength: 1
-
-      - `type: Literal["text"]`
-
-    - `type: Literal["system.message"]`
 
     - `processed_at: Optional[datetime]`
 
@@ -2223,6 +2338,8 @@ List Events
 
     Periodic snapshot of the session's cumulative usage and tracked list cost.
 
+    - `type: Literal["session.usage"]`
+
     - `id: str`
 
       Unique identifier for this event.
@@ -2232,8 +2349,6 @@ List Events
       A timestamp in RFC 3339 format
 
       format: date-time
-
-    - `type: Literal["session.usage"]`
 
     - `usage: BetaManagedAgentsSessionUsageSnapshot`
 
@@ -2373,6 +2488,8 @@ Send Events
 
     Parameters for sending a user message to the session.
 
+    - `type: Literal["user.message"]`
+
     - `content: Iterable[Content]`
 
       Array of content blocks for the user message.
@@ -2381,17 +2498,19 @@ Send Events
 
         Regular text content.
 
+        - `type: Literal["text"]`
+
         - `text: str`
 
           The text content.
 
           minLength: 1
 
-        - `type: Literal["text"]`
-
       - `class BetaManagedAgentsImageBlock: …`
 
         Image content specified directly as base64 data or as a reference via a URL.
+
+        - `type: Literal["image"]`
 
         - `source: Source`
 
@@ -2400,6 +2519,8 @@ Send Events
           - `class BetaManagedAgentsBase64ImageSource: …`
 
             Base64-encoded image data.
+
+            - `type: Literal["base64"]`
 
             - `data: str`
 
@@ -2412,8 +2533,6 @@ Send Events
               MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
 
               minLength: 1
-
-            - `type: Literal["base64"]`
 
           - `class BetaManagedAgentsURLImageSource: …`
 
@@ -2431,19 +2550,19 @@ Send Events
 
             Image referenced by file ID.
 
+            - `type: Literal["file"]`
+
             - `file_id: str`
 
               ID of a previously uploaded file.
 
               minLength: 1
 
-            - `type: Literal["file"]`
-
-        - `type: Literal["image"]`
-
       - `class BetaManagedAgentsDocumentBlock: …`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+        - `type: Literal["document"]`
 
         - `source: Source`
 
@@ -2452,6 +2571,8 @@ Send Events
           - `class BetaManagedAgentsBase64DocumentSource: …`
 
             Base64-encoded document data.
+
+            - `type: Literal["base64"]`
 
             - `data: str`
 
@@ -2465,11 +2586,11 @@ Send Events
 
               minLength: 1
 
-            - `type: Literal["base64"]`
-
           - `class BetaManagedAgentsPlainTextDocumentSource: …`
 
             Plain text document content.
+
+            - `type: Literal["text"]`
 
             - `data: str`
 
@@ -2480,8 +2601,6 @@ Send Events
             - `media_type: Literal["text/plain"]`
 
               MIME type of the text content. Must be "text/plain".
-
-            - `type: Literal["text"]`
 
           - `class BetaManagedAgentsURLDocumentSource: …`
 
@@ -2499,15 +2618,13 @@ Send Events
 
             Document referenced by file ID.
 
+            - `type: Literal["file"]`
+
             - `file_id: str`
 
               ID of a previously uploaded file.
 
               minLength: 1
-
-            - `type: Literal["file"]`
-
-        - `type: Literal["document"]`
 
         - `context: Optional[str]`
 
@@ -2523,8 +2640,6 @@ Send Events
 
         - `type: Literal["redacted"]`
 
-    - `type: Literal["user.message"]`
-
   - `class BetaManagedAgentsUserInterruptEventParams: …`
 
     Parameters for sending an interrupt to pause the agent.
@@ -2538,6 +2653,8 @@ Send Events
   - `class BetaManagedAgentsUserToolConfirmationEventParams: …`
 
     Parameters for confirming or denying a tool execution request.
+
+    - `type: Literal["user.tool_confirmation"]`
 
     - `result: Literal["allow", "deny"]`
 
@@ -2553,8 +2670,6 @@ Send Events
 
       minLength: 1, maxLength: 128
 
-    - `type: Literal["user.tool_confirmation"]`
-
     - `deny_message: Optional[str]`
 
       Optional message providing context for a 'deny' decision. Only allowed when result is 'deny'.
@@ -2565,13 +2680,13 @@ Send Events
 
     Parameters for providing the result of a custom tool execution.
 
+    - `type: Literal["user.custom_tool_result"]`
+
     - `custom_tool_use_id: str`
 
       The id of the `agent.custom_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
 
       minLength: 1, maxLength: 128
-
-    - `type: Literal["user.custom_tool_result"]`
 
     - `content: Optional[List[Content]]`
 
@@ -2593,6 +2708,8 @@ Send Events
 
         A block containing a web search result.
 
+        - `type: Literal["search_result"]`
+
         - `citations: BetaManagedAgentsSearchResultCitations`
 
           Citation settings for a search result.
@@ -2605,13 +2722,13 @@ Send Events
 
           Array of text content blocks from the search result.
 
+          - `type: Literal["text"]`
+
           - `text: str`
 
             The text content.
 
             minLength: 1
-
-          - `type: Literal["text"]`
 
         - `source: str`
 
@@ -2625,8 +2742,6 @@ Send Events
 
           minLength: 1
 
-        - `type: Literal["search_result"]`
-
     - `is_error: Optional[bool]`
 
       Whether the tool execution resulted in an error.
@@ -2634,6 +2749,8 @@ Send Events
   - `class BetaManagedAgentsUserDefineOutcomeEventParams: …`
 
     Parameters for defining an outcome the agent should work toward. The agent begins work on receipt.
+
+    - `type: Literal["user.define_outcome"]`
 
     - `description: str`
 
@@ -2647,25 +2764,23 @@ Send Events
 
         Rubric referenced by a file uploaded via the Files API.
 
+        - `type: Literal["file"]`
+
         - `file_id: str`
 
           ID of the rubric file.
 
-        - `type: Literal["file"]`
-
       - `class BetaManagedAgentsTextRubricParams: …`
 
         Rubric content provided inline as text.
+
+        - `type: Literal["text"]`
 
         - `content: str`
 
           Rubric content. Plain text or markdown — the grader treats it as freeform text. Maximum 262144 characters.
 
           maxLength: 262144
-
-        - `type: Literal["text"]`
-
-    - `type: Literal["user.define_outcome"]`
 
     - `max_iterations: Optional[int]`
 
@@ -2677,13 +2792,13 @@ Send Events
 
     Parameters for providing the result of an agent-toolset tool execution. Only valid on `self_hosted` environments, where sandbox-routed tools are executed by the client rather than the server.
 
+    - `type: Literal["user.tool_result"]`
+
     - `tool_use_id: str`
 
       The id of the `agent.tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
 
       minLength: 1, maxLength: 128
-
-    - `type: Literal["user.tool_result"]`
 
     - `content: Optional[List[Content]]`
 
@@ -2713,9 +2828,13 @@ Send Events
 
     Privileged context for the accompanying turn and all subsequent turns, appended to the session's system context as a `role: "system"` turn rather than replacing the top-level system prompt. At most one per request: it must be the final event and immediately follow the `user.message`, `user.tool_result`, or `user.custom_tool_result` it accompanies. Only supported on models that accept mid-conversation system messages.
 
+    - `type: Literal["system.message"]`
+
     - `content: List[BetaManagedAgentsSystemContentBlock]`
 
       System content blocks to append. Text-only.
+
+      - `type: Literal["text"]`
 
       - `text: str`
 
@@ -2723,17 +2842,13 @@ Send Events
 
         minLength: 1
 
-      - `type: Literal["text"]`
-
-    - `type: Literal["system.message"]`
-
 - `betas: Optional[List[AnthropicBetaParam]]`
 
   Optional header to specify the beta version(s) you want to use.
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 41 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 42 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -2781,6 +2896,8 @@ Send Events
 
     - `"user-profiles-2026-08-18"`
 
+    - `"user-profiles-2026-09-04"`
+
     - `"advisor-tool-2026-03-01"`
 
     - `"managed-agents-2026-04-01"`
@@ -2823,6 +2940,8 @@ Send Events
 
     - `"mid-conversation-system-clear-at-2026-08-21"`
 
+- `workspace_id: Optional[str]`
+
 ### Returns
 
 - `class BetaManagedAgentsSendSessionEvents: …`
@@ -2837,6 +2956,8 @@ Send Events
 
       A user message event in the session conversation.
 
+      - `type: Literal["user.message"]`
+
       - `id: str`
 
         Unique identifier for this event.
@@ -2849,17 +2970,19 @@ Send Events
 
           Regular text content.
 
+          - `type: Literal["text"]`
+
           - `text: str`
 
             The text content.
 
             minLength: 1
 
-          - `type: Literal["text"]`
-
         - `class BetaManagedAgentsImageBlock: …`
 
           Image content specified directly as base64 data or as a reference via a URL.
+
+          - `type: Literal["image"]`
 
           - `source: Source`
 
@@ -2868,6 +2991,8 @@ Send Events
             - `class BetaManagedAgentsBase64ImageSource: …`
 
               Base64-encoded image data.
+
+              - `type: Literal["base64"]`
 
               - `data: str`
 
@@ -2880,8 +3005,6 @@ Send Events
                 MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
 
                 minLength: 1
-
-              - `type: Literal["base64"]`
 
             - `class BetaManagedAgentsURLImageSource: …`
 
@@ -2899,19 +3022,19 @@ Send Events
 
               Image referenced by file ID.
 
+              - `type: Literal["file"]`
+
               - `file_id: str`
 
                 ID of a previously uploaded file.
 
                 minLength: 1
 
-              - `type: Literal["file"]`
-
-          - `type: Literal["image"]`
-
         - `class BetaManagedAgentsDocumentBlock: …`
 
           Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+          - `type: Literal["document"]`
 
           - `source: Source`
 
@@ -2920,6 +3043,8 @@ Send Events
             - `class BetaManagedAgentsBase64DocumentSource: …`
 
               Base64-encoded document data.
+
+              - `type: Literal["base64"]`
 
               - `data: str`
 
@@ -2933,11 +3058,11 @@ Send Events
 
                 minLength: 1
 
-              - `type: Literal["base64"]`
-
             - `class BetaManagedAgentsPlainTextDocumentSource: …`
 
               Plain text document content.
+
+              - `type: Literal["text"]`
 
               - `data: str`
 
@@ -2948,8 +3073,6 @@ Send Events
               - `media_type: Literal["text/plain"]`
 
                 MIME type of the text content. Must be "text/plain".
-
-              - `type: Literal["text"]`
 
             - `class BetaManagedAgentsURLDocumentSource: …`
 
@@ -2967,15 +3090,13 @@ Send Events
 
               Document referenced by file ID.
 
+              - `type: Literal["file"]`
+
               - `file_id: str`
 
                 ID of a previously uploaded file.
 
                 minLength: 1
-
-              - `type: Literal["file"]`
-
-          - `type: Literal["document"]`
 
           - `context: Optional[str]`
 
@@ -2991,8 +3112,6 @@ Send Events
 
           - `type: Literal["redacted"]`
 
-      - `type: Literal["user.message"]`
-
       - `processed_at: Optional[datetime]`
 
         A timestamp in RFC 3339 format
@@ -3003,11 +3122,11 @@ Send Events
 
       An interrupt event that pauses agent execution and returns control to the user.
 
+      - `type: Literal["user.interrupt"]`
+
       - `id: str`
 
         Unique identifier for this event.
-
-      - `type: Literal["user.interrupt"]`
 
       - `processed_at: Optional[datetime]`
 
@@ -3022,6 +3141,8 @@ Send Events
     - `class BetaManagedAgentsUserToolConfirmationEvent: …`
 
       A tool confirmation event that approves or denies a pending tool execution.
+
+      - `type: Literal["user.tool_confirmation"]`
 
       - `id: str`
 
@@ -3038,8 +3159,6 @@ Send Events
       - `tool_use_id: str`
 
         The id of the `agent.tool_use` or `agent.mcp_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
-
-      - `type: Literal["user.tool_confirmation"]`
 
       - `deny_message: Optional[str]`
 
@@ -3061,6 +3180,8 @@ Send Events
 
       Event sent by the client providing the result of a custom tool execution.
 
+      - `type: Literal["user.custom_tool_result"]`
+
       - `id: str`
 
         Unique identifier for this event.
@@ -3068,8 +3189,6 @@ Send Events
       - `custom_tool_use_id: str`
 
         The id of the `agent.custom_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
-
-      - `type: Literal["user.custom_tool_result"]`
 
       - `content: Optional[List[Content]]`
 
@@ -3091,6 +3210,8 @@ Send Events
 
           A block containing a web search result.
 
+          - `type: Literal["search_result"]`
+
           - `citations: BetaManagedAgentsSearchResultCitations`
 
             Citation settings for a search result.
@@ -3103,13 +3224,13 @@ Send Events
 
             Array of text content blocks from the search result.
 
+            - `type: Literal["text"]`
+
             - `text: str`
 
               The text content.
 
               minLength: 1
-
-            - `type: Literal["text"]`
 
           - `source: str`
 
@@ -3122,8 +3243,6 @@ Send Events
             The title of the search result.
 
             minLength: 1
-
-          - `type: Literal["search_result"]`
 
       - `is_error: Optional[bool]`
 
@@ -3142,6 +3261,8 @@ Send Events
     - `class BetaManagedAgentsUserDefineOutcomeEvent: …`
 
       Echo of a `user.define_outcome` input event. Carries the server-generated `outcome_id` that subsequent `span.outcome_evaluation_*` events reference.
+
+      - `type: Literal["user.define_outcome"]`
 
       - `id: str`
 
@@ -3175,27 +3296,27 @@ Send Events
 
           Rubric referenced by a file uploaded via the Files API.
 
+          - `type: Literal["file"]`
+
           - `file_id: str`
 
             ID of the rubric file.
-
-          - `type: Literal["file"]`
 
         - `class BetaManagedAgentsTextRubric: …`
 
           Rubric content provided inline as text.
 
+          - `type: Literal["text"]`
+
           - `content: str`
 
             Rubric content. Plain text or markdown — the grader treats it as freeform text.
 
-          - `type: Literal["text"]`
-
-      - `type: Literal["user.define_outcome"]`
-
     - `class BetaManagedAgentsUserToolResultEvent: …`
 
       Event sent by the client providing the result of an agent-toolset tool execution. Only valid on `self_hosted` environments, where sandbox-routed tools are executed by the client rather than the server.
+
+      - `type: Literal["user.tool_result"]`
 
       - `id: str`
 
@@ -3204,8 +3325,6 @@ Send Events
       - `tool_use_id: str`
 
         The id of the `agent.tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
-
-      - `type: Literal["user.tool_result"]`
 
       - `content: Optional[List[Content]]`
 
@@ -3245,6 +3364,8 @@ Send Events
 
       A mid-conversation system message event. Carries system-role content that is appended to the session as a `role: "system"` turn.
 
+      - `type: Literal["system.message"]`
+
       - `id: str`
 
         Unique identifier for this event.
@@ -3253,15 +3374,13 @@ Send Events
 
         System content blocks. Text-only.
 
+        - `type: Literal["text"]`
+
         - `text: str`
 
           The text content.
 
           minLength: 1
-
-        - `type: Literal["text"]`
-
-      - `type: Literal["system.message"]`
 
       - `processed_at: Optional[datetime]`
 
@@ -3343,7 +3462,7 @@ Stream Events
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 41 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 42 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -3391,6 +3510,8 @@ Stream Events
 
     - `"user-profiles-2026-08-18"`
 
+    - `"user-profiles-2026-09-04"`
+
     - `"advisor-tool-2026-03-01"`
 
     - `"managed-agents-2026-04-01"`
@@ -3433,6 +3554,8 @@ Stream Events
 
     - `"mid-conversation-system-clear-at-2026-08-21"`
 
+- `workspace_id: Optional[str]`
+
 ### Returns
 
 - `BetaManagedAgentsStreamSessionEvents`
@@ -3442,6 +3565,8 @@ Stream Events
   - `class BetaManagedAgentsUserMessageEvent: …`
 
     A user message event in the session conversation.
+
+    - `type: Literal["user.message"]`
 
     - `id: str`
 
@@ -3455,17 +3580,19 @@ Stream Events
 
         Regular text content.
 
+        - `type: Literal["text"]`
+
         - `text: str`
 
           The text content.
 
           minLength: 1
 
-        - `type: Literal["text"]`
-
       - `class BetaManagedAgentsImageBlock: …`
 
         Image content specified directly as base64 data or as a reference via a URL.
+
+        - `type: Literal["image"]`
 
         - `source: Source`
 
@@ -3474,6 +3601,8 @@ Stream Events
           - `class BetaManagedAgentsBase64ImageSource: …`
 
             Base64-encoded image data.
+
+            - `type: Literal["base64"]`
 
             - `data: str`
 
@@ -3486,8 +3615,6 @@ Stream Events
               MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
 
               minLength: 1
-
-            - `type: Literal["base64"]`
 
           - `class BetaManagedAgentsURLImageSource: …`
 
@@ -3505,19 +3632,19 @@ Stream Events
 
             Image referenced by file ID.
 
+            - `type: Literal["file"]`
+
             - `file_id: str`
 
               ID of a previously uploaded file.
 
               minLength: 1
 
-            - `type: Literal["file"]`
-
-        - `type: Literal["image"]`
-
       - `class BetaManagedAgentsDocumentBlock: …`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+        - `type: Literal["document"]`
 
         - `source: Source`
 
@@ -3526,6 +3653,8 @@ Stream Events
           - `class BetaManagedAgentsBase64DocumentSource: …`
 
             Base64-encoded document data.
+
+            - `type: Literal["base64"]`
 
             - `data: str`
 
@@ -3539,11 +3668,11 @@ Stream Events
 
               minLength: 1
 
-            - `type: Literal["base64"]`
-
           - `class BetaManagedAgentsPlainTextDocumentSource: …`
 
             Plain text document content.
+
+            - `type: Literal["text"]`
 
             - `data: str`
 
@@ -3554,8 +3683,6 @@ Stream Events
             - `media_type: Literal["text/plain"]`
 
               MIME type of the text content. Must be "text/plain".
-
-            - `type: Literal["text"]`
 
           - `class BetaManagedAgentsURLDocumentSource: …`
 
@@ -3573,15 +3700,13 @@ Stream Events
 
             Document referenced by file ID.
 
+            - `type: Literal["file"]`
+
             - `file_id: str`
 
               ID of a previously uploaded file.
 
               minLength: 1
-
-            - `type: Literal["file"]`
-
-        - `type: Literal["document"]`
 
         - `context: Optional[str]`
 
@@ -3597,8 +3722,6 @@ Stream Events
 
         - `type: Literal["redacted"]`
 
-    - `type: Literal["user.message"]`
-
     - `processed_at: Optional[datetime]`
 
       A timestamp in RFC 3339 format
@@ -3609,11 +3732,11 @@ Stream Events
 
     An interrupt event that pauses agent execution and returns control to the user.
 
+    - `type: Literal["user.interrupt"]`
+
     - `id: str`
 
       Unique identifier for this event.
-
-    - `type: Literal["user.interrupt"]`
 
     - `processed_at: Optional[datetime]`
 
@@ -3628,6 +3751,8 @@ Stream Events
   - `class BetaManagedAgentsUserToolConfirmationEvent: …`
 
     A tool confirmation event that approves or denies a pending tool execution.
+
+    - `type: Literal["user.tool_confirmation"]`
 
     - `id: str`
 
@@ -3644,8 +3769,6 @@ Stream Events
     - `tool_use_id: str`
 
       The id of the `agent.tool_use` or `agent.mcp_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
-
-    - `type: Literal["user.tool_confirmation"]`
 
     - `deny_message: Optional[str]`
 
@@ -3667,6 +3790,8 @@ Stream Events
 
     Event sent by the client providing the result of a custom tool execution.
 
+    - `type: Literal["user.custom_tool_result"]`
+
     - `id: str`
 
       Unique identifier for this event.
@@ -3674,8 +3799,6 @@ Stream Events
     - `custom_tool_use_id: str`
 
       The id of the `agent.custom_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
-
-    - `type: Literal["user.custom_tool_result"]`
 
     - `content: Optional[List[Content]]`
 
@@ -3697,6 +3820,8 @@ Stream Events
 
         A block containing a web search result.
 
+        - `type: Literal["search_result"]`
+
         - `citations: BetaManagedAgentsSearchResultCitations`
 
           Citation settings for a search result.
@@ -3709,13 +3834,13 @@ Stream Events
 
           Array of text content blocks from the search result.
 
+          - `type: Literal["text"]`
+
           - `text: str`
 
             The text content.
 
             minLength: 1
-
-          - `type: Literal["text"]`
 
         - `source: str`
 
@@ -3728,8 +3853,6 @@ Stream Events
           The title of the search result.
 
           minLength: 1
-
-        - `type: Literal["search_result"]`
 
     - `is_error: Optional[bool]`
 
@@ -3749,6 +3872,8 @@ Stream Events
 
     Event emitted when the agent calls a custom tool. The session goes idle until the client sends a `user.custom_tool_result` event with the result.
 
+    - `type: Literal["agent.custom_tool_use"]`
+
     - `id: str`
 
       Unique identifier for this event.
@@ -3767,8 +3892,6 @@ Stream Events
 
       format: date-time
 
-    - `type: Literal["agent.custom_tool_use"]`
-
     - `session_thread_id: Optional[str]`
 
       When set, this event was cross-posted from a subagent's thread to surface its custom tool use on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.custom_tool_result` event to route the result back.
@@ -3776,6 +3899,8 @@ Stream Events
   - `class BetaManagedAgentsAgentMessageEvent: …`
 
     An agent response event in the session conversation.
+
+    - `type: Literal["agent.message"]`
 
     - `id: str`
 
@@ -3799,11 +3924,11 @@ Stream Events
 
       format: date-time
 
-    - `type: Literal["agent.message"]`
-
   - `class BetaManagedAgentsAgentThinkingEvent: …`
 
     Indicates the agent is making forward progress via extended thinking. A progress signal, not a content carrier.
+
+    - `type: Literal["agent.thinking"]`
 
     - `id: str`
 
@@ -3815,11 +3940,11 @@ Stream Events
 
       format: date-time
 
-    - `type: Literal["agent.thinking"]`
-
   - `class BetaManagedAgentsAgentMCPToolUseEvent: …`
 
     Event emitted when the agent invokes a tool provided by an MCP server.
+
+    - `type: Literal["agent.mcp_tool_use"]`
 
     - `id: str`
 
@@ -3843,8 +3968,6 @@ Stream Events
 
       format: date-time
 
-    - `type: Literal["agent.mcp_tool_use"]`
-
     - `evaluated_permission: Optional[Literal["allow", "ask", "deny"]]`
 
       AgentEvaluatedPermission enum
@@ -3855,6 +3978,62 @@ Stream Events
 
       - `"deny"`
 
+    - `evaluation: Optional[BetaManagedAgentsAgentToolEvaluation]`
+
+      Names the resolved permission_policy that produced evaluated_permission, and under auto carries the judgement. Open union: clients must tolerate unknown variants.
+
+      - `class BetaManagedAgentsAgentToolEvaluationAlwaysAllow: …`
+
+        The resolved permission_policy was always_allow; accompanies evaluated_permission "allow".
+
+        - `type: Literal["always_allow"]`
+
+      - `class BetaManagedAgentsAgentToolEvaluationAlwaysAsk: …`
+
+        The resolved permission_policy was always_ask; accompanies evaluated_permission "ask".
+
+        - `type: Literal["always_ask"]`
+
+      - `class BetaManagedAgentsAgentToolEvaluationAuto: …`
+
+        The resolved permission_policy was auto: the server judged this invocation individually.
+
+        - `type: Literal["auto"]`
+
+        - `evaluated_permission: BetaManagedAgentsAgentAutoEvaluatedPermission`
+
+          The server's per-invocation judgement under the auto permission policy. Its type always equals the event's top-level evaluated_permission. Open union: clients must tolerate unknown variants.
+
+          - `class BetaManagedAgentsAgentAutoEvaluatedPermissionAllow: …`
+
+            The server judged the invocation safe to execute without client approval.
+
+            - `type: Literal["allow"]`
+
+          - `class BetaManagedAgentsAgentAutoEvaluatedPermissionAsk: …`
+
+            The server reached no judgement; the invocation is held for client approval.
+
+            - `type: Literal["ask"]`
+
+            - `reason_code: str`
+
+              The judgement's grounds in registry-bound terms, for client branching and audit rather than end-user display. Open registry; currently "indeterminate" (no judgement was reached). Clients must tolerate values outside this set.
+
+              maxLength: 64
+
+          - `class BetaManagedAgentsAgentAutoEvaluatedPermissionDeny: …`
+
+            The server judged the invocation high-risk; it does not execute and a synthetic error tool result is appended.
+
+            - `type: Literal["deny"]`
+
+            - `reason_code: str`
+
+              The judgement's grounds in registry-bound terms. Open registry; currently "high_risk" (judged high-risk; the call does not run). Clients must tolerate values outside this set.
+
+              maxLength: 64
+
     - `session_thread_id: Optional[str]`
 
       When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
@@ -3862,6 +4041,8 @@ Stream Events
   - `class BetaManagedAgentsAgentMCPToolResultEvent: …`
 
     Event representing the result of an MCP tool execution.
+
+    - `type: Literal["agent.mcp_tool_result"]`
 
     - `id: str`
 
@@ -3876,8 +4057,6 @@ Stream Events
       A timestamp in RFC 3339 format
 
       format: date-time
-
-    - `type: Literal["agent.mcp_tool_result"]`
 
     - `content: Optional[List[Content]]`
 
@@ -3907,6 +4086,8 @@ Stream Events
 
     Event emitted when the agent invokes a built-in agent tool.
 
+    - `type: Literal["agent.tool_use"]`
+
     - `id: str`
 
       Unique identifier for this event.
@@ -3925,8 +4106,6 @@ Stream Events
 
       format: date-time
 
-    - `type: Literal["agent.tool_use"]`
-
     - `evaluated_permission: Optional[Literal["allow", "ask", "deny"]]`
 
       AgentEvaluatedPermission enum
@@ -3937,6 +4116,10 @@ Stream Events
 
       - `"deny"`
 
+    - `evaluation: Optional[BetaManagedAgentsAgentToolEvaluation]`
+
+      Names the resolved permission_policy that produced evaluated_permission, and under auto carries the judgement. Open union: clients must tolerate unknown variants.
+
     - `session_thread_id: Optional[str]`
 
       When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
@@ -3944,6 +4127,8 @@ Stream Events
   - `class BetaManagedAgentsAgentToolResultEvent: …`
 
     Event representing the result of an agent tool execution.
+
+    - `type: Literal["agent.tool_result"]`
 
     - `id: str`
 
@@ -3958,8 +4143,6 @@ Stream Events
     - `tool_use_id: str`
 
       The id of the `agent.tool_use` event this result corresponds to.
-
-    - `type: Literal["agent.tool_result"]`
 
     - `content: Optional[List[Content]]`
 
@@ -3988,6 +4171,8 @@ Stream Events
   - `class BetaManagedAgentsAgentThreadMessageReceivedEvent: …`
 
     Delivery event written to the target thread's input stream when an agent-to-agent message arrives.
+
+    - `type: Literal["agent.thread_message_received"]`
 
     - `id: str`
 
@@ -4023,8 +4208,6 @@ Stream Events
 
       format: date-time
 
-    - `type: Literal["agent.thread_message_received"]`
-
     - `from_agent_name: Optional[str]`
 
       Name of the callable agent this message came from. Absent when received from the primary agent.
@@ -4032,6 +4215,8 @@ Stream Events
   - `class BetaManagedAgentsAgentThreadMessageSentEvent: …`
 
     Observability event emitted to the sender's output stream when an agent-to-agent message is sent.
+
+    - `type: Literal["agent.thread_message_sent"]`
 
     - `id: str`
 
@@ -4067,8 +4252,6 @@ Stream Events
 
       Public `sthr_` ID of the thread the message was sent to.
 
-    - `type: Literal["agent.thread_message_sent"]`
-
     - `to_agent_name: Optional[str]`
 
       Name of the callable agent this message was sent to. Absent when sent to the primary agent.
@@ -4076,6 +4259,8 @@ Stream Events
   - `class BetaManagedAgentsAgentThreadContextCompactedEvent: …`
 
     Indicates that context compaction (summarization) occurred during the session.
+
+    - `type: Literal["agent.thread_context_compacted"]`
 
     - `id: str`
 
@@ -4087,11 +4272,11 @@ Stream Events
 
       format: date-time
 
-    - `type: Literal["agent.thread_context_compacted"]`
-
   - `class BetaManagedAgentsSessionErrorEvent: …`
 
     An error event indicating a problem occurred during session execution.
+
+    - `type: Literal["session.error"]`
 
     - `id: str`
 
@@ -4104,6 +4289,8 @@ Stream Events
       - `class BetaManagedAgentsUnknownError: …`
 
         An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
+
+        - `type: Literal["unknown_error"]`
 
         - `message: str`
 
@@ -4131,11 +4318,11 @@ Stream Events
 
             - `type: Literal["terminal"]`
 
-        - `type: Literal["unknown_error"]`
-
       - `class BetaManagedAgentsModelOverloadedError: …`
 
         The model is currently overloaded. Emitted after automatic retries are exhausted.
+
+        - `type: Literal["model_overloaded_error"]`
 
         - `message: str`
 
@@ -4156,13 +4343,13 @@ Stream Events
           - `class BetaManagedAgentsRetryStatusTerminal: …`
 
             The session encountered a terminal error and will transition to `terminated` state.
-
-        - `type: Literal["model_overloaded_error"]`
 
       - `class BetaManagedAgentsModelRateLimitedError: …`
 
         The model request was rate-limited.
 
+        - `type: Literal["model_rate_limited_error"]`
+
         - `message: str`
 
           Human-readable error description.
@@ -4182,13 +4369,13 @@ Stream Events
           - `class BetaManagedAgentsRetryStatusTerminal: …`
 
             The session encountered a terminal error and will transition to `terminated` state.
-
-        - `type: Literal["model_rate_limited_error"]`
 
       - `class BetaManagedAgentsModelRequestFailedError: …`
 
         A model request failed for a reason other than overload or rate-limiting.
 
+        - `type: Literal["model_request_failed_error"]`
+
         - `message: str`
 
           Human-readable error description.
@@ -4209,11 +4396,11 @@ Stream Events
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-        - `type: Literal["model_request_failed_error"]`
-
       - `class BetaManagedAgentsMCPConnectionFailedError: …`
 
         Failed to connect to an MCP server.
+
+        - `type: Literal["mcp_connection_failed_error"]`
 
         - `mcp_server_name: str`
 
@@ -4239,11 +4426,11 @@ Stream Events
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-        - `type: Literal["mcp_connection_failed_error"]`
-
       - `class BetaManagedAgentsMCPAuthenticationFailedError: …`
 
         Authentication to an MCP server failed.
+
+        - `type: Literal["mcp_authentication_failed_error"]`
 
         - `mcp_server_name: str`
 
@@ -4269,11 +4456,11 @@ Stream Events
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-        - `type: Literal["mcp_authentication_failed_error"]`
-
       - `class BetaManagedAgentsBillingError: …`
 
         The caller's organization or workspace cannot make model requests — out of credits or spend limit reached. Retrying with the same credentials will not succeed; the caller must resolve the billing state.
+
+        - `type: Literal["billing_error"]`
 
         - `message: str`
 
@@ -4295,11 +4482,11 @@ Stream Events
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-        - `type: Literal["billing_error"]`
-
       - `class BetaManagedAgentsCredentialHostUnreachableError: …`
 
         An `environment_variable` credential's `auth.networking.allowed_hosts` includes a host the environment's network policy does not permit.
+
+        - `type: Literal["credential_host_unreachable_error"]`
 
         - `credential_id: str`
 
@@ -4325,8 +4512,6 @@ Stream Events
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-        - `type: Literal["credential_host_unreachable_error"]`
-
         - `vault_id: str`
 
           ID of the vault containing the affected credential.
@@ -4337,11 +4522,11 @@ Stream Events
 
       format: date-time
 
-    - `type: Literal["session.error"]`
-
   - `class BetaManagedAgentsSessionStatusRescheduledEvent: …`
 
     Indicates the session is recovering from an error state and is rescheduled for execution.
+
+    - `type: Literal["session.status_rescheduled"]`
 
     - `id: str`
 
@@ -4352,13 +4537,13 @@ Stream Events
       A timestamp in RFC 3339 format
 
       format: date-time
-
-    - `type: Literal["session.status_rescheduled"]`
 
   - `class BetaManagedAgentsSessionStatusRunningEvent: …`
 
     Indicates the session is actively running and the agent is working.
 
+    - `type: Literal["session.status_running"]`
+
     - `id: str`
 
       Unique identifier for this event.
@@ -4369,11 +4554,11 @@ Stream Events
 
       format: date-time
 
-    - `type: Literal["session.status_running"]`
-
   - `class BetaManagedAgentsSessionStatusIdleEvent: …`
 
     Indicates the agent has paused and is awaiting user input.
+
+    - `type: Literal["session.status_idle"]`
 
     - `id: str`
 
@@ -4399,11 +4584,11 @@ Stream Events
 
         The agent is idle waiting on one or more blocking user-input events (tool confirmation, custom tool result, etc.). Resolving all of them transitions the session back to running.
 
+        - `type: Literal["requires_action"]`
+
         - `event_ids: List[str]`
 
           The ids of events the agent is blocked on. Resolving fewer than all re-emits `session.status_idle` with the remainder.
-
-        - `type: Literal["requires_action"]`
 
       - `class BetaManagedAgentsSessionRetriesExhausted: …`
 
@@ -4417,11 +4602,11 @@ Stream Events
 
         - `type: Literal["budget_reached"]`
 
-    - `type: Literal["session.status_idle"]`
-
   - `class BetaManagedAgentsSessionStatusTerminatedEvent: …`
 
     Indicates the session has terminated, either due to an error or completion.
+
+    - `type: Literal["session.status_terminated"]`
 
     - `id: str`
 
@@ -4433,11 +4618,11 @@ Stream Events
 
       format: date-time
 
-    - `type: Literal["session.status_terminated"]`
-
   - `class BetaManagedAgentsSessionThreadCreatedEvent: …`
 
     Emitted when a subagent is spawned as a new thread. Written to the parent thread's output stream so clients observing the session see child creation.
+
+    - `type: Literal["session.thread_created"]`
 
     - `id: str`
 
@@ -4457,11 +4642,11 @@ Stream Events
 
       Public `sthr_` ID of the newly created thread.
 
-    - `type: Literal["session.thread_created"]`
-
   - `class BetaManagedAgentsSpanOutcomeEvaluationStartEvent: …`
 
     Emitted when an outcome evaluation cycle begins.
+
+    - `type: Literal["span.outcome_evaluation_start"]`
 
     - `id: str`
 
@@ -4483,11 +4668,11 @@ Stream Events
 
       format: date-time
 
-    - `type: Literal["span.outcome_evaluation_start"]`
-
   - `class BetaManagedAgentsSpanOutcomeEvaluationEndEvent: …`
 
     Emitted when an outcome evaluation cycle completes. Carries the verdict and aggregate token usage. A verdict of `needs_revision` means another evaluation cycle follows; `satisfied`, `max_iterations_reached`, `failed`, or `interrupted` are terminal — no further evaluation cycles follow.
+
+    - `type: Literal["span.outcome_evaluation_end"]`
 
     - `id: str`
 
@@ -4520,8 +4705,6 @@ Stream Events
     - `result: str`
 
       Evaluation verdict. 'satisfied': criteria met, session goes idle. 'needs_revision': criteria not met, another revision cycle follows. 'max_iterations_reached': evaluation budget exhausted with criteria still unmet — one final acknowledgment turn follows before the session goes idle, but no further evaluation runs. 'failed': grader determined the rubric does not apply to the deliverables. 'interrupted': user sent an interrupt while evaluation was in progress.
-
-    - `type: Literal["span.outcome_evaluation_end"]`
 
     - `usage: BetaManagedAgentsSpanModelUsage`
 
@@ -4563,6 +4746,8 @@ Stream Events
 
     Emitted when a model request is initiated by the agent.
 
+    - `type: Literal["span.model_request_start"]`
+
     - `id: str`
 
       Unique identifier for this event.
@@ -4573,11 +4758,11 @@ Stream Events
 
       format: date-time
 
-    - `type: Literal["span.model_request_start"]`
-
   - `class BetaManagedAgentsSpanModelRequestEndEvent: …`
 
     Emitted when a model request completes.
+
+    - `type: Literal["span.model_request_end"]`
 
     - `id: str`
 
@@ -4601,11 +4786,11 @@ Stream Events
 
       format: date-time
 
-    - `type: Literal["span.model_request_end"]`
-
   - `class BetaManagedAgentsSpanOutcomeEvaluationOngoingEvent: …`
 
     Periodic heartbeat emitted while an outcome evaluation cycle is in progress. Distinguishes 'evaluation is actively running' from 'evaluation is stuck' between the corresponding `span.outcome_evaluation_start` and `span.outcome_evaluation_end` events.
+
+    - `type: Literal["span.outcome_evaluation_ongoing"]`
 
     - `id: str`
 
@@ -4627,11 +4812,11 @@ Stream Events
 
       format: date-time
 
-    - `type: Literal["span.outcome_evaluation_ongoing"]`
-
   - `class BetaManagedAgentsUserDefineOutcomeEvent: …`
 
     Echo of a `user.define_outcome` input event. Carries the server-generated `outcome_id` that subsequent `span.outcome_evaluation_*` events reference.
+
+    - `type: Literal["user.define_outcome"]`
 
     - `id: str`
 
@@ -4665,27 +4850,27 @@ Stream Events
 
         Rubric referenced by a file uploaded via the Files API.
 
+        - `type: Literal["file"]`
+
         - `file_id: str`
 
           ID of the rubric file.
-
-        - `type: Literal["file"]`
 
       - `class BetaManagedAgentsTextRubric: …`
 
         Rubric content provided inline as text.
 
+        - `type: Literal["text"]`
+
         - `content: str`
 
           Rubric content. Plain text or markdown — the grader treats it as freeform text.
 
-        - `type: Literal["text"]`
-
-    - `type: Literal["user.define_outcome"]`
-
   - `class BetaManagedAgentsSessionDeletedEvent: …`
 
     Emitted when a session has been deleted. Terminates any active event stream — no further events will be emitted for this session.
+
+    - `type: Literal["session.deleted"]`
 
     - `id: str`
 
@@ -4697,11 +4882,11 @@ Stream Events
 
       format: date-time
 
-    - `type: Literal["session.deleted"]`
-
   - `class BetaManagedAgentsSessionThreadStatusRunningEvent: …`
 
     A session thread has begun executing. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
+
+    - `type: Literal["session.thread_status_running"]`
 
     - `id: str`
 
@@ -4721,11 +4906,11 @@ Stream Events
 
       Public sthr_ ID of the thread that started running.
 
-    - `type: Literal["session.thread_status_running"]`
-
   - `class BetaManagedAgentsSessionThreadStatusIdleEvent: …`
 
     A session thread has yielded and is awaiting input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
+
+    - `type: Literal["session.thread_status_idle"]`
 
     - `id: str`
 
@@ -4765,11 +4950,11 @@ Stream Events
 
         The agent stopped because the session's tracked list cost reached its budget, or because its usage includes a model with no list price (which the budget cannot measure). Raise the budget to continue — or, if raising is rejected because a model has no list price, remove the budget.
 
-    - `type: Literal["session.thread_status_idle"]`
-
   - `class BetaManagedAgentsSessionThreadStatusTerminatedEvent: …`
 
     A session thread has terminated and will accept no further input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
+
+    - `type: Literal["session.thread_status_terminated"]`
 
     - `id: str`
 
@@ -4789,11 +4974,11 @@ Stream Events
 
       Public sthr_ ID of the thread that terminated.
 
-    - `type: Literal["session.thread_status_terminated"]`
-
   - `class BetaManagedAgentsUserToolResultEvent: …`
 
     Event sent by the client providing the result of an agent-toolset tool execution. Only valid on `self_hosted` environments, where sandbox-routed tools are executed by the client rather than the server.
+
+    - `type: Literal["user.tool_result"]`
 
     - `id: str`
 
@@ -4802,8 +4987,6 @@ Stream Events
     - `tool_use_id: str`
 
       The id of the `agent.tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
-
-    - `type: Literal["user.tool_result"]`
 
     - `content: Optional[List[Content]]`
 
@@ -4843,6 +5026,8 @@ Stream Events
 
     A session thread hit a transient error and is retrying automatically. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
 
+    - `type: Literal["session.thread_status_rescheduled"]`
+
     - `id: str`
 
       Unique identifier for this event.
@@ -4861,11 +5046,11 @@ Stream Events
 
       Public sthr_ ID of the thread that is retrying.
 
-    - `type: Literal["session.thread_status_rescheduled"]`
-
   - `class BetaManagedAgentsSessionUpdatedEvent: …`
 
     Emitted when an UpdateSession request changed at least one field. Carries only the fields that changed; absent fields were not part of the update. The new configuration applies from the next turn.
+
+    - `type: Literal["session.updated"]`
 
     - `id: str`
 
@@ -4877,11 +5062,11 @@ Stream Events
 
       format: date-time
 
-    - `type: Literal["session.updated"]`
-
     - `agent: Optional[BetaManagedAgentsSessionAgent]`
 
       Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
+
+      - `type: Literal["agent"]`
 
       - `id: str`
 
@@ -4889,9 +5074,9 @@ Stream Events
 
       - `mcp_servers: List[BetaManagedAgentsMCPServerURLDefinition]`
 
-        - `name: str`
-
         - `type: Literal["url"]`
+
+        - `name: str`
 
         - `url: str`
 
@@ -5034,6 +5219,8 @@ Stream Events
 
         Resolved coordinator topology with full agent definitions for each roster member.
 
+        - `type: Literal["coordinator"]`
+
         - `agents: List[Agent]`
 
           Full `agent` definitions the coordinator may spawn as session threads.
@@ -5042,15 +5229,17 @@ Stream Events
 
             Resolved `agent` definition for a single `session_thread`. Snapshot of the agent at thread creation time. The multiagent roster is not repeated here; read it from `Session.agent`.
 
+            - `type: Literal["agent"]`
+
             - `id: str`
 
             - `description: Optional[str]`
 
             - `mcp_servers: List[BetaManagedAgentsMCPServerURLDefinition]`
 
-              - `name: str`
-
               - `type: Literal["url"]`
+
+              - `name: str`
 
               - `url: str`
 
@@ -5066,9 +5255,9 @@ Stream Events
 
                 A resolved Anthropic-managed skill.
 
-                - `skill_id: str`
-
                 - `type: Literal["anthropic"]`
+
+                - `skill_id: str`
 
                 - `version: str`
 
@@ -5076,9 +5265,9 @@ Stream Events
 
                 A resolved user-created custom skill.
 
-                - `skill_id: str`
-
                 - `type: Literal["custom"]`
+
+                - `skill_id: str`
 
                 - `version: str`
 
@@ -5088,11 +5277,15 @@ Stream Events
 
               - `class BetaManagedAgentsAgentToolset20260401: …`
 
+                - `type: Literal["agent_toolset_20260401"]`
+
                 - `configs: List[BetaManagedAgentsAgentToolConfig]`
 
                   - `class BetaManagedAgentsBashToolConfig: …`
 
                     Configuration for the bash tool.
+
+                    - `type: Literal["bash"]`
 
                     - `enabled: bool`
 
@@ -5114,11 +5307,17 @@ Stream Events
 
                         - `type: Literal["always_ask"]`
 
-                    - `type: Literal["bash"]`
+                      - `class BetaManagedAgentsAutoPolicy: …`
+
+                        The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+                        - `type: Literal["auto"]`
 
                   - `class BetaManagedAgentsEditToolConfig: …`
 
                     Configuration for the edit tool.
+
+                    - `type: Literal["edit"]`
 
                     - `enabled: bool`
 
@@ -5136,11 +5335,15 @@ Stream Events
 
                         Tool calls require user confirmation before execution.
 
-                    - `type: Literal["edit"]`
+                      - `class BetaManagedAgentsAutoPolicy: …`
+
+                        The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                   - `class BetaManagedAgentsReadToolConfig: …`
 
                     Configuration for the read tool.
+
+                    - `type: Literal["read"]`
 
                     - `enabled: bool`
 
@@ -5158,11 +5361,15 @@ Stream Events
 
                         Tool calls require user confirmation before execution.
 
-                    - `type: Literal["read"]`
+                      - `class BetaManagedAgentsAutoPolicy: …`
+
+                        The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                   - `class BetaManagedAgentsWriteToolConfig: …`
 
                     Configuration for the write tool.
+
+                    - `type: Literal["write"]`
 
                     - `enabled: bool`
 
@@ -5180,11 +5387,15 @@ Stream Events
 
                         Tool calls require user confirmation before execution.
 
-                    - `type: Literal["write"]`
+                      - `class BetaManagedAgentsAutoPolicy: …`
+
+                        The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                   - `class BetaManagedAgentsGlobToolConfig: …`
 
                     Configuration for the glob tool.
+
+                    - `type: Literal["glob"]`
 
                     - `enabled: bool`
 
@@ -5202,11 +5413,15 @@ Stream Events
 
                         Tool calls require user confirmation before execution.
 
-                    - `type: Literal["glob"]`
+                      - `class BetaManagedAgentsAutoPolicy: …`
+
+                        The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                   - `class BetaManagedAgentsGrepToolConfig: …`
 
                     Configuration for the grep tool.
+
+                    - `type: Literal["grep"]`
 
                     - `enabled: bool`
 
@@ -5224,11 +5439,15 @@ Stream Events
 
                         Tool calls require user confirmation before execution.
 
-                    - `type: Literal["grep"]`
+                      - `class BetaManagedAgentsAutoPolicy: …`
+
+                        The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                   - `class BetaManagedAgentsWebFetchToolConfig: …`
 
                     Configuration for the web_fetch tool.
+
+                    - `type: Literal["web_fetch"]`
 
                     - `enabled: bool`
 
@@ -5246,7 +5465,9 @@ Stream Events
 
                         Tool calls require user confirmation before execution.
 
-                    - `type: Literal["web_fetch"]`
+                      - `class BetaManagedAgentsAutoPolicy: …`
+
+                        The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                     - `allowed_domains: Optional[List[str]]`
 
@@ -5259,6 +5480,8 @@ Stream Events
                   - `class BetaManagedAgentsWebSearchToolConfig: …`
 
                     Configuration for the web_search tool.
+
+                    - `type: Literal["web_search"]`
 
                     - `enabled: bool`
 
@@ -5276,7 +5499,9 @@ Stream Events
 
                         Tool calls require user confirmation before execution.
 
-                    - `type: Literal["web_search"]`
+                      - `class BetaManagedAgentsAutoPolicy: …`
+
+                        The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                     - `allowed_domains: Optional[List[str]]`
 
@@ -5330,9 +5555,13 @@ Stream Events
 
                       Tool calls require user confirmation before execution.
 
-                - `type: Literal["agent_toolset_20260401"]`
+                    - `class BetaManagedAgentsAutoPolicy: …`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
               - `class BetaManagedAgentsMCPToolset: …`
+
+                - `type: Literal["mcp_toolset"]`
 
                 - `configs: List[BetaManagedAgentsMCPToolConfig]`
 
@@ -5352,6 +5581,10 @@ Stream Events
 
                       Tool calls require user confirmation before execution.
 
+                    - `class BetaManagedAgentsAutoPolicy: …`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
                 - `default_config: BetaManagedAgentsMCPToolsetDefaultConfig`
 
                   Resolved default configuration for all tools from an MCP server.
@@ -5370,13 +5603,17 @@ Stream Events
 
                       Tool calls require user confirmation before execution.
 
-                - `mcp_server_name: str`
+                    - `class BetaManagedAgentsAutoPolicy: …`
 
-                - `type: Literal["mcp_toolset"]`
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+                - `mcp_server_name: str`
 
               - `class BetaManagedAgentsCustomTool: …`
 
                 A custom tool as returned in API responses.
+
+                - `type: Literal["custom"]`
 
                 - `description: str`
 
@@ -5392,10 +5629,6 @@ Stream Events
 
                 - `name: str`
 
-                - `type: Literal["custom"]`
-
-            - `type: Literal["agent"]`
-
             - `version: int`
 
               format: int32
@@ -5404,13 +5637,11 @@ Stream Events
 
             Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
 
+            - `type: Literal["advisor"]`
+
             - `model: str`
 
               The advisor model id.
-
-            - `type: Literal["advisor"]`
-
-        - `type: Literal["coordinator"]`
 
       - `name: str`
 
@@ -5436,8 +5667,6 @@ Stream Events
 
           A custom tool as returned in API responses.
 
-      - `type: Literal["agent"]`
-
       - `version: int`
 
         format: int32
@@ -5445,6 +5674,8 @@ Stream Events
     - `budget: Optional[BetaManagedAgentsBudgetLimit]`
 
       A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+
+      - `type: Literal["limit"]`
 
       - `max_list_cost: BetaMonetaryAmount`
 
@@ -5458,8 +5689,6 @@ Stream Events
 
           Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
 
-      - `type: Literal["limit"]`
-
     - `metadata: Optional[Dict[str, str]]`
 
       The session's full metadata bag after the update. Present when the update set non-empty metadata; absent when metadata was unchanged or cleared to empty.
@@ -5472,41 +5701,43 @@ Stream Events
 
     Opens a preview of a buffered event. Carries the previewed event's type and id only. Followed by zero or more event_delta events with the same event id, normally concluded by the buffered event carrying that id. If the producing model request ends without that event (an error or interrupt mid-stream), its terminal span.model_request_end closes the preview. Only sent on stream connections that opt in via event_deltas; never appears in event history.
 
+    - `type: Literal["event_start"]`
+
     - `event: BetaManagedAgentsStartEventPreview`
 
       The previewed event's type and id. The event type determines which delta types the preview's event_delta events carry: agent.message events stream content_delta fragments; agent.thinking previews are start-only — no deltas follow, and the buffered agent.thinking with the same id concludes them.
 
       - `class BetaManagedAgentsAgentMessagePreview: …`
 
+        - `type: Literal["agent.message"]`
+
         - `id: str`
 
           The id the buffered agent.message will carry if it is emitted. Matches the event_id on this preview's event_delta events.
 
-        - `type: Literal["agent.message"]`
-
       - `class BetaManagedAgentsAgentThinkingPreview: …`
+
+        - `type: Literal["agent.thinking"]`
 
         - `id: str`
 
           The id the buffered agent.thinking will carry if it is emitted. Start-only — no event_delta events follow.
 
-        - `type: Literal["agent.thinking"]`
-
-    - `type: Literal["event_start"]`
-
   - `class BetaManagedAgentsDeltaEvent: …`
 
     An incremental update to an event that is still being streamed. Deltas are best-effort and may stop early; when the buffered event with id == event_id is produced it carries the complete content. A model request that ends early (an error or interrupt) produces no buffered event — its terminal span.model_request_end closes the preview. Only sent on stream connections that opt in via event_deltas; never appears in event history.
+
+    - `type: Literal["event_delta"]`
 
     - `delta: BetaManagedAgentsDeltaContent`
 
       One fragment of the previewed event. The delta type is named for the previewed event's field it streams into: agent.message events stream content_delta fragments, each a partial element of the content array.
 
+      - `type: Literal["content_delta"]`
+
       - `content: BetaManagedAgentsTextBlock`
 
         Regular text content.
-
-      - `type: Literal["content_delta"]`
 
       - `index: Optional[int]`
 
@@ -5518,11 +5749,11 @@ Stream Events
 
       The id of the event being previewed. Matches event.id on the corresponding event_start and the buffered event that reconciles the preview.
 
-    - `type: Literal["event_delta"]`
-
   - `class BetaManagedAgentsSystemMessageEvent: …`
 
     A mid-conversation system message event. Carries system-role content that is appended to the session as a `role: "system"` turn.
+
+    - `type: Literal["system.message"]`
 
     - `id: str`
 
@@ -5532,15 +5763,13 @@ Stream Events
 
       System content blocks. Text-only.
 
+      - `type: Literal["text"]`
+
       - `text: str`
 
         The text content.
 
         minLength: 1
-
-      - `type: Literal["text"]`
-
-    - `type: Literal["system.message"]`
 
     - `processed_at: Optional[datetime]`
 
@@ -5552,6 +5781,8 @@ Stream Events
 
     Periodic snapshot of the session's cumulative usage and tracked list cost.
 
+    - `type: Literal["session.usage"]`
+
     - `id: str`
 
       Unique identifier for this event.
@@ -5561,8 +5792,6 @@ Stream Events
       A timestamp in RFC 3339 format
 
       format: date-time
-
-    - `type: Literal["session.usage"]`
 
     - `usage: BetaManagedAgentsSessionUsageSnapshot`
 
@@ -5667,11 +5896,85 @@ for event in client.beta.sessions.events.stream(
 
 ## Domain types
 
+### Beta Managed Agents Agent Auto Evaluated Permission
+
+- `BetaManagedAgentsAgentAutoEvaluatedPermission`
+
+  The server's per-invocation judgement under the auto permission policy. Its type always equals the event's top-level evaluated_permission. Open union: clients must tolerate unknown variants.
+
+  - `class BetaManagedAgentsAgentAutoEvaluatedPermissionAllow: …`
+
+    The server judged the invocation safe to execute without client approval.
+
+    - `type: Literal["allow"]`
+
+  - `class BetaManagedAgentsAgentAutoEvaluatedPermissionAsk: …`
+
+    The server reached no judgement; the invocation is held for client approval.
+
+    - `type: Literal["ask"]`
+
+    - `reason_code: str`
+
+      The judgement's grounds in registry-bound terms, for client branching and audit rather than end-user display. Open registry; currently "indeterminate" (no judgement was reached). Clients must tolerate values outside this set.
+
+      maxLength: 64
+
+  - `class BetaManagedAgentsAgentAutoEvaluatedPermissionDeny: …`
+
+    The server judged the invocation high-risk; it does not execute and a synthetic error tool result is appended.
+
+    - `type: Literal["deny"]`
+
+    - `reason_code: str`
+
+      The judgement's grounds in registry-bound terms. Open registry; currently "high_risk" (judged high-risk; the call does not run). Clients must tolerate values outside this set.
+
+      maxLength: 64
+
+### Beta Managed Agents Agent Auto Evaluated Permission Allow
+
+- `class BetaManagedAgentsAgentAutoEvaluatedPermissionAllow: …`
+
+  The server judged the invocation safe to execute without client approval.
+
+  - `type: Literal["allow"]`
+
+### Beta Managed Agents Agent Auto Evaluated Permission Ask
+
+- `class BetaManagedAgentsAgentAutoEvaluatedPermissionAsk: …`
+
+  The server reached no judgement; the invocation is held for client approval.
+
+  - `type: Literal["ask"]`
+
+  - `reason_code: str`
+
+    The judgement's grounds in registry-bound terms, for client branching and audit rather than end-user display. Open registry; currently "indeterminate" (no judgement was reached). Clients must tolerate values outside this set.
+
+    maxLength: 64
+
+### Beta Managed Agents Agent Auto Evaluated Permission Deny
+
+- `class BetaManagedAgentsAgentAutoEvaluatedPermissionDeny: …`
+
+  The server judged the invocation high-risk; it does not execute and a synthetic error tool result is appended.
+
+  - `type: Literal["deny"]`
+
+  - `reason_code: str`
+
+    The judgement's grounds in registry-bound terms. Open registry; currently "high_risk" (judged high-risk; the call does not run). Clients must tolerate values outside this set.
+
+    maxLength: 64
+
 ### Beta Managed Agents Agent Custom Tool Use Event
 
 - `class BetaManagedAgentsAgentCustomToolUseEvent: …`
 
   Event emitted when the agent calls a custom tool. The session goes idle until the client sends a `user.custom_tool_result` event with the result.
+
+  - `type: Literal["agent.custom_tool_use"]`
 
   - `id: str`
 
@@ -5691,8 +5994,6 @@ for event in client.beta.sessions.events.stream(
 
     format: date-time
 
-  - `type: Literal["agent.custom_tool_use"]`
-
   - `session_thread_id: Optional[str]`
 
     When set, this event was cross-posted from a subagent's thread to surface its custom tool use on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.custom_tool_result` event to route the result back.
@@ -5702,6 +6003,8 @@ for event in client.beta.sessions.events.stream(
 - `class BetaManagedAgentsAgentMCPToolResultEvent: …`
 
   Event representing the result of an MCP tool execution.
+
+  - `type: Literal["agent.mcp_tool_result"]`
 
   - `id: str`
 
@@ -5717,8 +6020,6 @@ for event in client.beta.sessions.events.stream(
 
     format: date-time
 
-  - `type: Literal["agent.mcp_tool_result"]`
-
   - `content: Optional[List[Content]]`
 
     The result content returned by the tool.
@@ -5727,17 +6028,19 @@ for event in client.beta.sessions.events.stream(
 
       Regular text content.
 
+      - `type: Literal["text"]`
+
       - `text: str`
 
         The text content.
 
         minLength: 1
 
-      - `type: Literal["text"]`
-
     - `class BetaManagedAgentsImageBlock: …`
 
       Image content specified directly as base64 data or as a reference via a URL.
+
+      - `type: Literal["image"]`
 
       - `source: Source`
 
@@ -5746,6 +6049,8 @@ for event in client.beta.sessions.events.stream(
         - `class BetaManagedAgentsBase64ImageSource: …`
 
           Base64-encoded image data.
+
+          - `type: Literal["base64"]`
 
           - `data: str`
 
@@ -5758,8 +6063,6 @@ for event in client.beta.sessions.events.stream(
             MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
 
             minLength: 1
-
-          - `type: Literal["base64"]`
 
         - `class BetaManagedAgentsURLImageSource: …`
 
@@ -5777,19 +6080,19 @@ for event in client.beta.sessions.events.stream(
 
           Image referenced by file ID.
 
+          - `type: Literal["file"]`
+
           - `file_id: str`
 
             ID of a previously uploaded file.
 
             minLength: 1
 
-          - `type: Literal["file"]`
-
-      - `type: Literal["image"]`
-
     - `class BetaManagedAgentsDocumentBlock: …`
 
       Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+      - `type: Literal["document"]`
 
       - `source: Source`
 
@@ -5798,6 +6101,8 @@ for event in client.beta.sessions.events.stream(
         - `class BetaManagedAgentsBase64DocumentSource: …`
 
           Base64-encoded document data.
+
+          - `type: Literal["base64"]`
 
           - `data: str`
 
@@ -5811,11 +6116,11 @@ for event in client.beta.sessions.events.stream(
 
             minLength: 1
 
-          - `type: Literal["base64"]`
-
         - `class BetaManagedAgentsPlainTextDocumentSource: …`
 
           Plain text document content.
+
+          - `type: Literal["text"]`
 
           - `data: str`
 
@@ -5826,8 +6131,6 @@ for event in client.beta.sessions.events.stream(
           - `media_type: Literal["text/plain"]`
 
             MIME type of the text content. Must be "text/plain".
-
-          - `type: Literal["text"]`
 
         - `class BetaManagedAgentsURLDocumentSource: …`
 
@@ -5845,15 +6148,13 @@ for event in client.beta.sessions.events.stream(
 
           Document referenced by file ID.
 
+          - `type: Literal["file"]`
+
           - `file_id: str`
 
             ID of a previously uploaded file.
 
             minLength: 1
-
-          - `type: Literal["file"]`
-
-      - `type: Literal["document"]`
 
       - `context: Optional[str]`
 
@@ -5867,6 +6168,8 @@ for event in client.beta.sessions.events.stream(
 
       A block containing a web search result.
 
+      - `type: Literal["search_result"]`
+
       - `citations: BetaManagedAgentsSearchResultCitations`
 
         Citation settings for a search result.
@@ -5879,13 +6182,13 @@ for event in client.beta.sessions.events.stream(
 
         Array of text content blocks from the search result.
 
+        - `type: Literal["text"]`
+
         - `text: str`
 
           The text content.
 
           minLength: 1
-
-        - `type: Literal["text"]`
 
       - `source: str`
 
@@ -5899,8 +6202,6 @@ for event in client.beta.sessions.events.stream(
 
         minLength: 1
 
-      - `type: Literal["search_result"]`
-
   - `is_error: Optional[bool]`
 
     Whether the tool execution resulted in an error.
@@ -5910,6 +6211,8 @@ for event in client.beta.sessions.events.stream(
 - `class BetaManagedAgentsAgentMCPToolUseEvent: …`
 
   Event emitted when the agent invokes a tool provided by an MCP server.
+
+  - `type: Literal["agent.mcp_tool_use"]`
 
   - `id: str`
 
@@ -5933,8 +6236,6 @@ for event in client.beta.sessions.events.stream(
 
     format: date-time
 
-  - `type: Literal["agent.mcp_tool_use"]`
-
   - `evaluated_permission: Optional[Literal["allow", "ask", "deny"]]`
 
     AgentEvaluatedPermission enum
@@ -5945,6 +6246,62 @@ for event in client.beta.sessions.events.stream(
 
     - `"deny"`
 
+  - `evaluation: Optional[BetaManagedAgentsAgentToolEvaluation]`
+
+    Names the resolved permission_policy that produced evaluated_permission, and under auto carries the judgement. Open union: clients must tolerate unknown variants.
+
+    - `class BetaManagedAgentsAgentToolEvaluationAlwaysAllow: …`
+
+      The resolved permission_policy was always_allow; accompanies evaluated_permission "allow".
+
+      - `type: Literal["always_allow"]`
+
+    - `class BetaManagedAgentsAgentToolEvaluationAlwaysAsk: …`
+
+      The resolved permission_policy was always_ask; accompanies evaluated_permission "ask".
+
+      - `type: Literal["always_ask"]`
+
+    - `class BetaManagedAgentsAgentToolEvaluationAuto: …`
+
+      The resolved permission_policy was auto: the server judged this invocation individually.
+
+      - `type: Literal["auto"]`
+
+      - `evaluated_permission: BetaManagedAgentsAgentAutoEvaluatedPermission`
+
+        The server's per-invocation judgement under the auto permission policy. Its type always equals the event's top-level evaluated_permission. Open union: clients must tolerate unknown variants.
+
+        - `class BetaManagedAgentsAgentAutoEvaluatedPermissionAllow: …`
+
+          The server judged the invocation safe to execute without client approval.
+
+          - `type: Literal["allow"]`
+
+        - `class BetaManagedAgentsAgentAutoEvaluatedPermissionAsk: …`
+
+          The server reached no judgement; the invocation is held for client approval.
+
+          - `type: Literal["ask"]`
+
+          - `reason_code: str`
+
+            The judgement's grounds in registry-bound terms, for client branching and audit rather than end-user display. Open registry; currently "indeterminate" (no judgement was reached). Clients must tolerate values outside this set.
+
+            maxLength: 64
+
+        - `class BetaManagedAgentsAgentAutoEvaluatedPermissionDeny: …`
+
+          The server judged the invocation high-risk; it does not execute and a synthetic error tool result is appended.
+
+          - `type: Literal["deny"]`
+
+          - `reason_code: str`
+
+            The judgement's grounds in registry-bound terms. Open registry; currently "high_risk" (judged high-risk; the call does not run). Clients must tolerate values outside this set.
+
+            maxLength: 64
+
   - `session_thread_id: Optional[str]`
 
     When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
@@ -5954,6 +6311,8 @@ for event in client.beta.sessions.events.stream(
 - `class BetaManagedAgentsAgentMessageEvent: …`
 
   An agent response event in the session conversation.
+
+  - `type: Literal["agent.message"]`
 
   - `id: str`
 
@@ -5967,13 +6326,13 @@ for event in client.beta.sessions.events.stream(
 
       Regular text content.
 
+      - `type: Literal["text"]`
+
       - `text: str`
 
         The text content.
 
         minLength: 1
-
-      - `type: Literal["text"]`
 
     - `class BetaManagedAgentsRedactedBlock: …`
 
@@ -5987,13 +6346,13 @@ for event in client.beta.sessions.events.stream(
 
     format: date-time
 
-  - `type: Literal["agent.message"]`
-
 ### Beta Managed Agents Agent Thinking Event
 
 - `class BetaManagedAgentsAgentThinkingEvent: …`
 
   Indicates the agent is making forward progress via extended thinking. A progress signal, not a content carrier.
+
+  - `type: Literal["agent.thinking"]`
 
   - `id: str`
 
@@ -6004,8 +6363,6 @@ for event in client.beta.sessions.events.stream(
     A timestamp in RFC 3339 format
 
     format: date-time
-
-  - `type: Literal["agent.thinking"]`
 
 ### Beta Managed Agents Agent Thread Context Compacted Event
 
@@ -6013,6 +6370,8 @@ for event in client.beta.sessions.events.stream(
 
   Indicates that context compaction (summarization) occurred during the session.
 
+  - `type: Literal["agent.thread_context_compacted"]`
+
   - `id: str`
 
     Unique identifier for this event.
@@ -6023,13 +6382,13 @@ for event in client.beta.sessions.events.stream(
 
     format: date-time
 
-  - `type: Literal["agent.thread_context_compacted"]`
-
 ### Beta Managed Agents Agent Thread Message Received Event
 
 - `class BetaManagedAgentsAgentThreadMessageReceivedEvent: …`
 
   Delivery event written to the target thread's input stream when an agent-to-agent message arrives.
+
+  - `type: Literal["agent.thread_message_received"]`
 
   - `id: str`
 
@@ -6043,17 +6402,19 @@ for event in client.beta.sessions.events.stream(
 
       Regular text content.
 
+      - `type: Literal["text"]`
+
       - `text: str`
 
         The text content.
 
         minLength: 1
 
-      - `type: Literal["text"]`
-
     - `class BetaManagedAgentsImageBlock: …`
 
       Image content specified directly as base64 data or as a reference via a URL.
+
+      - `type: Literal["image"]`
 
       - `source: Source`
 
@@ -6062,6 +6423,8 @@ for event in client.beta.sessions.events.stream(
         - `class BetaManagedAgentsBase64ImageSource: …`
 
           Base64-encoded image data.
+
+          - `type: Literal["base64"]`
 
           - `data: str`
 
@@ -6074,8 +6437,6 @@ for event in client.beta.sessions.events.stream(
             MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
 
             minLength: 1
-
-          - `type: Literal["base64"]`
 
         - `class BetaManagedAgentsURLImageSource: …`
 
@@ -6093,19 +6454,19 @@ for event in client.beta.sessions.events.stream(
 
           Image referenced by file ID.
 
+          - `type: Literal["file"]`
+
           - `file_id: str`
 
             ID of a previously uploaded file.
 
             minLength: 1
 
-          - `type: Literal["file"]`
-
-      - `type: Literal["image"]`
-
     - `class BetaManagedAgentsDocumentBlock: …`
 
       Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+      - `type: Literal["document"]`
 
       - `source: Source`
 
@@ -6114,6 +6475,8 @@ for event in client.beta.sessions.events.stream(
         - `class BetaManagedAgentsBase64DocumentSource: …`
 
           Base64-encoded document data.
+
+          - `type: Literal["base64"]`
 
           - `data: str`
 
@@ -6127,11 +6490,11 @@ for event in client.beta.sessions.events.stream(
 
             minLength: 1
 
-          - `type: Literal["base64"]`
-
         - `class BetaManagedAgentsPlainTextDocumentSource: …`
 
           Plain text document content.
+
+          - `type: Literal["text"]`
 
           - `data: str`
 
@@ -6142,8 +6505,6 @@ for event in client.beta.sessions.events.stream(
           - `media_type: Literal["text/plain"]`
 
             MIME type of the text content. Must be "text/plain".
-
-          - `type: Literal["text"]`
 
         - `class BetaManagedAgentsURLDocumentSource: …`
 
@@ -6161,15 +6522,13 @@ for event in client.beta.sessions.events.stream(
 
           Document referenced by file ID.
 
+          - `type: Literal["file"]`
+
           - `file_id: str`
 
             ID of a previously uploaded file.
 
             minLength: 1
-
-          - `type: Literal["file"]`
-
-      - `type: Literal["document"]`
 
       - `context: Optional[str]`
 
@@ -6195,8 +6554,6 @@ for event in client.beta.sessions.events.stream(
 
     format: date-time
 
-  - `type: Literal["agent.thread_message_received"]`
-
   - `from_agent_name: Optional[str]`
 
     Name of the callable agent this message came from. Absent when received from the primary agent.
@@ -6206,6 +6563,8 @@ for event in client.beta.sessions.events.stream(
 - `class BetaManagedAgentsAgentThreadMessageSentEvent: …`
 
   Observability event emitted to the sender's output stream when an agent-to-agent message is sent.
+
+  - `type: Literal["agent.thread_message_sent"]`
 
   - `id: str`
 
@@ -6219,17 +6578,19 @@ for event in client.beta.sessions.events.stream(
 
       Regular text content.
 
+      - `type: Literal["text"]`
+
       - `text: str`
 
         The text content.
 
         minLength: 1
 
-      - `type: Literal["text"]`
-
     - `class BetaManagedAgentsImageBlock: …`
 
       Image content specified directly as base64 data or as a reference via a URL.
+
+      - `type: Literal["image"]`
 
       - `source: Source`
 
@@ -6238,6 +6599,8 @@ for event in client.beta.sessions.events.stream(
         - `class BetaManagedAgentsBase64ImageSource: …`
 
           Base64-encoded image data.
+
+          - `type: Literal["base64"]`
 
           - `data: str`
 
@@ -6250,8 +6613,6 @@ for event in client.beta.sessions.events.stream(
             MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
 
             minLength: 1
-
-          - `type: Literal["base64"]`
 
         - `class BetaManagedAgentsURLImageSource: …`
 
@@ -6269,19 +6630,19 @@ for event in client.beta.sessions.events.stream(
 
           Image referenced by file ID.
 
+          - `type: Literal["file"]`
+
           - `file_id: str`
 
             ID of a previously uploaded file.
 
             minLength: 1
 
-          - `type: Literal["file"]`
-
-      - `type: Literal["image"]`
-
     - `class BetaManagedAgentsDocumentBlock: …`
 
       Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+      - `type: Literal["document"]`
 
       - `source: Source`
 
@@ -6290,6 +6651,8 @@ for event in client.beta.sessions.events.stream(
         - `class BetaManagedAgentsBase64DocumentSource: …`
 
           Base64-encoded document data.
+
+          - `type: Literal["base64"]`
 
           - `data: str`
 
@@ -6303,11 +6666,11 @@ for event in client.beta.sessions.events.stream(
 
             minLength: 1
 
-          - `type: Literal["base64"]`
-
         - `class BetaManagedAgentsPlainTextDocumentSource: …`
 
           Plain text document content.
+
+          - `type: Literal["text"]`
 
           - `data: str`
 
@@ -6318,8 +6681,6 @@ for event in client.beta.sessions.events.stream(
           - `media_type: Literal["text/plain"]`
 
             MIME type of the text content. Must be "text/plain".
-
-          - `type: Literal["text"]`
 
         - `class BetaManagedAgentsURLDocumentSource: …`
 
@@ -6337,15 +6698,13 @@ for event in client.beta.sessions.events.stream(
 
           Document referenced by file ID.
 
+          - `type: Literal["file"]`
+
           - `file_id: str`
 
             ID of a previously uploaded file.
 
             minLength: 1
-
-          - `type: Literal["file"]`
-
-      - `type: Literal["document"]`
 
       - `context: Optional[str]`
 
@@ -6371,17 +6730,133 @@ for event in client.beta.sessions.events.stream(
 
     Public `sthr_` ID of the thread the message was sent to.
 
-  - `type: Literal["agent.thread_message_sent"]`
-
   - `to_agent_name: Optional[str]`
 
     Name of the callable agent this message was sent to. Absent when sent to the primary agent.
+
+### Beta Managed Agents Agent Tool Evaluation
+
+- `BetaManagedAgentsAgentToolEvaluation`
+
+  Names the resolved permission_policy that produced evaluated_permission, and under auto carries the judgement. Open union: clients must tolerate unknown variants.
+
+  - `class BetaManagedAgentsAgentToolEvaluationAlwaysAllow: …`
+
+    The resolved permission_policy was always_allow; accompanies evaluated_permission "allow".
+
+    - `type: Literal["always_allow"]`
+
+  - `class BetaManagedAgentsAgentToolEvaluationAlwaysAsk: …`
+
+    The resolved permission_policy was always_ask; accompanies evaluated_permission "ask".
+
+    - `type: Literal["always_ask"]`
+
+  - `class BetaManagedAgentsAgentToolEvaluationAuto: …`
+
+    The resolved permission_policy was auto: the server judged this invocation individually.
+
+    - `type: Literal["auto"]`
+
+    - `evaluated_permission: BetaManagedAgentsAgentAutoEvaluatedPermission`
+
+      The server's per-invocation judgement under the auto permission policy. Its type always equals the event's top-level evaluated_permission. Open union: clients must tolerate unknown variants.
+
+      - `class BetaManagedAgentsAgentAutoEvaluatedPermissionAllow: …`
+
+        The server judged the invocation safe to execute without client approval.
+
+        - `type: Literal["allow"]`
+
+      - `class BetaManagedAgentsAgentAutoEvaluatedPermissionAsk: …`
+
+        The server reached no judgement; the invocation is held for client approval.
+
+        - `type: Literal["ask"]`
+
+        - `reason_code: str`
+
+          The judgement's grounds in registry-bound terms, for client branching and audit rather than end-user display. Open registry; currently "indeterminate" (no judgement was reached). Clients must tolerate values outside this set.
+
+          maxLength: 64
+
+      - `class BetaManagedAgentsAgentAutoEvaluatedPermissionDeny: …`
+
+        The server judged the invocation high-risk; it does not execute and a synthetic error tool result is appended.
+
+        - `type: Literal["deny"]`
+
+        - `reason_code: str`
+
+          The judgement's grounds in registry-bound terms. Open registry; currently "high_risk" (judged high-risk; the call does not run). Clients must tolerate values outside this set.
+
+          maxLength: 64
+
+### Beta Managed Agents Agent Tool Evaluation Always Allow
+
+- `class BetaManagedAgentsAgentToolEvaluationAlwaysAllow: …`
+
+  The resolved permission_policy was always_allow; accompanies evaluated_permission "allow".
+
+  - `type: Literal["always_allow"]`
+
+### Beta Managed Agents Agent Tool Evaluation Always Ask
+
+- `class BetaManagedAgentsAgentToolEvaluationAlwaysAsk: …`
+
+  The resolved permission_policy was always_ask; accompanies evaluated_permission "ask".
+
+  - `type: Literal["always_ask"]`
+
+### Beta Managed Agents Agent Tool Evaluation Auto
+
+- `class BetaManagedAgentsAgentToolEvaluationAuto: …`
+
+  The resolved permission_policy was auto: the server judged this invocation individually.
+
+  - `type: Literal["auto"]`
+
+  - `evaluated_permission: BetaManagedAgentsAgentAutoEvaluatedPermission`
+
+    The server's per-invocation judgement under the auto permission policy. Its type always equals the event's top-level evaluated_permission. Open union: clients must tolerate unknown variants.
+
+    - `class BetaManagedAgentsAgentAutoEvaluatedPermissionAllow: …`
+
+      The server judged the invocation safe to execute without client approval.
+
+      - `type: Literal["allow"]`
+
+    - `class BetaManagedAgentsAgentAutoEvaluatedPermissionAsk: …`
+
+      The server reached no judgement; the invocation is held for client approval.
+
+      - `type: Literal["ask"]`
+
+      - `reason_code: str`
+
+        The judgement's grounds in registry-bound terms, for client branching and audit rather than end-user display. Open registry; currently "indeterminate" (no judgement was reached). Clients must tolerate values outside this set.
+
+        maxLength: 64
+
+    - `class BetaManagedAgentsAgentAutoEvaluatedPermissionDeny: …`
+
+      The server judged the invocation high-risk; it does not execute and a synthetic error tool result is appended.
+
+      - `type: Literal["deny"]`
+
+      - `reason_code: str`
+
+        The judgement's grounds in registry-bound terms. Open registry; currently "high_risk" (judged high-risk; the call does not run). Clients must tolerate values outside this set.
+
+        maxLength: 64
 
 ### Beta Managed Agents Agent Tool Result Event
 
 - `class BetaManagedAgentsAgentToolResultEvent: …`
 
   Event representing the result of an agent tool execution.
+
+  - `type: Literal["agent.tool_result"]`
 
   - `id: str`
 
@@ -6397,8 +6872,6 @@ for event in client.beta.sessions.events.stream(
 
     The id of the `agent.tool_use` event this result corresponds to.
 
-  - `type: Literal["agent.tool_result"]`
-
   - `content: Optional[List[Content]]`
 
     The result content returned by the tool.
@@ -6407,17 +6880,19 @@ for event in client.beta.sessions.events.stream(
 
       Regular text content.
 
+      - `type: Literal["text"]`
+
       - `text: str`
 
         The text content.
 
         minLength: 1
 
-      - `type: Literal["text"]`
-
     - `class BetaManagedAgentsImageBlock: …`
 
       Image content specified directly as base64 data or as a reference via a URL.
+
+      - `type: Literal["image"]`
 
       - `source: Source`
 
@@ -6426,6 +6901,8 @@ for event in client.beta.sessions.events.stream(
         - `class BetaManagedAgentsBase64ImageSource: …`
 
           Base64-encoded image data.
+
+          - `type: Literal["base64"]`
 
           - `data: str`
 
@@ -6438,8 +6915,6 @@ for event in client.beta.sessions.events.stream(
             MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
 
             minLength: 1
-
-          - `type: Literal["base64"]`
 
         - `class BetaManagedAgentsURLImageSource: …`
 
@@ -6457,19 +6932,19 @@ for event in client.beta.sessions.events.stream(
 
           Image referenced by file ID.
 
+          - `type: Literal["file"]`
+
           - `file_id: str`
 
             ID of a previously uploaded file.
 
             minLength: 1
 
-          - `type: Literal["file"]`
-
-      - `type: Literal["image"]`
-
     - `class BetaManagedAgentsDocumentBlock: …`
 
       Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+      - `type: Literal["document"]`
 
       - `source: Source`
 
@@ -6478,6 +6953,8 @@ for event in client.beta.sessions.events.stream(
         - `class BetaManagedAgentsBase64DocumentSource: …`
 
           Base64-encoded document data.
+
+          - `type: Literal["base64"]`
 
           - `data: str`
 
@@ -6491,11 +6968,11 @@ for event in client.beta.sessions.events.stream(
 
             minLength: 1
 
-          - `type: Literal["base64"]`
-
         - `class BetaManagedAgentsPlainTextDocumentSource: …`
 
           Plain text document content.
+
+          - `type: Literal["text"]`
 
           - `data: str`
 
@@ -6506,8 +6983,6 @@ for event in client.beta.sessions.events.stream(
           - `media_type: Literal["text/plain"]`
 
             MIME type of the text content. Must be "text/plain".
-
-          - `type: Literal["text"]`
 
         - `class BetaManagedAgentsURLDocumentSource: …`
 
@@ -6525,15 +7000,13 @@ for event in client.beta.sessions.events.stream(
 
           Document referenced by file ID.
 
+          - `type: Literal["file"]`
+
           - `file_id: str`
 
             ID of a previously uploaded file.
 
             minLength: 1
-
-          - `type: Literal["file"]`
-
-      - `type: Literal["document"]`
 
       - `context: Optional[str]`
 
@@ -6547,6 +7020,8 @@ for event in client.beta.sessions.events.stream(
 
       A block containing a web search result.
 
+      - `type: Literal["search_result"]`
+
       - `citations: BetaManagedAgentsSearchResultCitations`
 
         Citation settings for a search result.
@@ -6559,13 +7034,13 @@ for event in client.beta.sessions.events.stream(
 
         Array of text content blocks from the search result.
 
+        - `type: Literal["text"]`
+
         - `text: str`
 
           The text content.
 
           minLength: 1
-
-        - `type: Literal["text"]`
 
       - `source: str`
 
@@ -6579,8 +7054,6 @@ for event in client.beta.sessions.events.stream(
 
         minLength: 1
 
-      - `type: Literal["search_result"]`
-
   - `is_error: Optional[bool]`
 
     Whether the tool execution resulted in an error.
@@ -6590,6 +7063,8 @@ for event in client.beta.sessions.events.stream(
 - `class BetaManagedAgentsAgentToolUseEvent: …`
 
   Event emitted when the agent invokes a built-in agent tool.
+
+  - `type: Literal["agent.tool_use"]`
 
   - `id: str`
 
@@ -6609,8 +7084,6 @@ for event in client.beta.sessions.events.stream(
 
     format: date-time
 
-  - `type: Literal["agent.tool_use"]`
-
   - `evaluated_permission: Optional[Literal["allow", "ask", "deny"]]`
 
     AgentEvaluatedPermission enum
@@ -6621,6 +7094,62 @@ for event in client.beta.sessions.events.stream(
 
     - `"deny"`
 
+  - `evaluation: Optional[BetaManagedAgentsAgentToolEvaluation]`
+
+    Names the resolved permission_policy that produced evaluated_permission, and under auto carries the judgement. Open union: clients must tolerate unknown variants.
+
+    - `class BetaManagedAgentsAgentToolEvaluationAlwaysAllow: …`
+
+      The resolved permission_policy was always_allow; accompanies evaluated_permission "allow".
+
+      - `type: Literal["always_allow"]`
+
+    - `class BetaManagedAgentsAgentToolEvaluationAlwaysAsk: …`
+
+      The resolved permission_policy was always_ask; accompanies evaluated_permission "ask".
+
+      - `type: Literal["always_ask"]`
+
+    - `class BetaManagedAgentsAgentToolEvaluationAuto: …`
+
+      The resolved permission_policy was auto: the server judged this invocation individually.
+
+      - `type: Literal["auto"]`
+
+      - `evaluated_permission: BetaManagedAgentsAgentAutoEvaluatedPermission`
+
+        The server's per-invocation judgement under the auto permission policy. Its type always equals the event's top-level evaluated_permission. Open union: clients must tolerate unknown variants.
+
+        - `class BetaManagedAgentsAgentAutoEvaluatedPermissionAllow: …`
+
+          The server judged the invocation safe to execute without client approval.
+
+          - `type: Literal["allow"]`
+
+        - `class BetaManagedAgentsAgentAutoEvaluatedPermissionAsk: …`
+
+          The server reached no judgement; the invocation is held for client approval.
+
+          - `type: Literal["ask"]`
+
+          - `reason_code: str`
+
+            The judgement's grounds in registry-bound terms, for client branching and audit rather than end-user display. Open registry; currently "indeterminate" (no judgement was reached). Clients must tolerate values outside this set.
+
+            maxLength: 64
+
+        - `class BetaManagedAgentsAgentAutoEvaluatedPermissionDeny: …`
+
+          The server judged the invocation high-risk; it does not execute and a synthetic error tool result is appended.
+
+          - `type: Literal["deny"]`
+
+          - `reason_code: str`
+
+            The judgement's grounds in registry-bound terms. Open registry; currently "high_risk" (judged high-risk; the call does not run). Clients must tolerate values outside this set.
+
+            maxLength: 64
+
   - `session_thread_id: Optional[str]`
 
     When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
@@ -6630,6 +7159,8 @@ for event in client.beta.sessions.events.stream(
 - `class BetaManagedAgentsBase64DocumentSource: …`
 
   Base64-encoded document data.
+
+  - `type: Literal["base64"]`
 
   - `data: str`
 
@@ -6643,13 +7174,13 @@ for event in client.beta.sessions.events.stream(
 
     minLength: 1
 
-  - `type: Literal["base64"]`
-
 ### Beta Managed Agents Base64 Image Source
 
 - `class BetaManagedAgentsBase64ImageSource: …`
 
   Base64-encoded image data.
+
+  - `type: Literal["base64"]`
 
   - `data: str`
 
@@ -6663,13 +7194,13 @@ for event in client.beta.sessions.events.stream(
 
     minLength: 1
 
-  - `type: Literal["base64"]`
-
 ### Beta Managed Agents Billing Error
 
 - `class BetaManagedAgentsBillingError: …`
 
   The caller's organization or workspace cannot make model requests — out of credits or spend limit reached. Retrying with the same credentials will not succeed; the caller must resolve the billing state.
+
+  - `type: Literal["billing_error"]`
 
   - `message: str`
 
@@ -6697,13 +7228,13 @@ for event in client.beta.sessions.events.stream(
 
       - `type: Literal["terminal"]`
 
-  - `type: Literal["billing_error"]`
-
 ### Beta Managed Agents Credential Host Unreachable Error
 
 - `class BetaManagedAgentsCredentialHostUnreachableError: …`
 
   An `environment_variable` credential's `auth.networking.allowed_hosts` includes a host the environment's network policy does not permit.
+
+  - `type: Literal["credential_host_unreachable_error"]`
 
   - `credential_id: str`
 
@@ -6735,8 +7266,6 @@ for event in client.beta.sessions.events.stream(
 
       - `type: Literal["terminal"]`
 
-  - `type: Literal["credential_host_unreachable_error"]`
-
   - `vault_id: str`
 
     ID of the vault containing the affected credential.
@@ -6747,6 +7276,8 @@ for event in client.beta.sessions.events.stream(
 
   Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
+  - `type: Literal["document"]`
+
   - `source: Source`
 
     Union type for document source variants.
@@ -6754,6 +7285,8 @@ for event in client.beta.sessions.events.stream(
     - `class BetaManagedAgentsBase64DocumentSource: …`
 
       Base64-encoded document data.
+
+      - `type: Literal["base64"]`
 
       - `data: str`
 
@@ -6767,11 +7300,11 @@ for event in client.beta.sessions.events.stream(
 
         minLength: 1
 
-      - `type: Literal["base64"]`
-
     - `class BetaManagedAgentsPlainTextDocumentSource: …`
 
       Plain text document content.
+
+      - `type: Literal["text"]`
 
       - `data: str`
 
@@ -6782,8 +7315,6 @@ for event in client.beta.sessions.events.stream(
       - `media_type: Literal["text/plain"]`
 
         MIME type of the text content. Must be "text/plain".
-
-      - `type: Literal["text"]`
 
     - `class BetaManagedAgentsURLDocumentSource: …`
 
@@ -6801,15 +7332,13 @@ for event in client.beta.sessions.events.stream(
 
       Document referenced by file ID.
 
+      - `type: Literal["file"]`
+
       - `file_id: str`
 
         ID of a previously uploaded file.
 
         minLength: 1
-
-      - `type: Literal["file"]`
-
-  - `type: Literal["document"]`
 
   - `context: Optional[str]`
 
@@ -6829,6 +7358,8 @@ for event in client.beta.sessions.events.stream(
 
     Parameters for sending a user message to the session.
 
+    - `type: Literal["user.message"]`
+
     - `content: Iterable[Content]`
 
       Array of content blocks for the user message.
@@ -6837,17 +7368,19 @@ for event in client.beta.sessions.events.stream(
 
         Regular text content.
 
+        - `type: Literal["text"]`
+
         - `text: str`
 
           The text content.
 
           minLength: 1
 
-        - `type: Literal["text"]`
-
       - `class BetaManagedAgentsImageBlock: …`
 
         Image content specified directly as base64 data or as a reference via a URL.
+
+        - `type: Literal["image"]`
 
         - `source: Source`
 
@@ -6856,6 +7389,8 @@ for event in client.beta.sessions.events.stream(
           - `class BetaManagedAgentsBase64ImageSource: …`
 
             Base64-encoded image data.
+
+            - `type: Literal["base64"]`
 
             - `data: str`
 
@@ -6868,8 +7403,6 @@ for event in client.beta.sessions.events.stream(
               MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
 
               minLength: 1
-
-            - `type: Literal["base64"]`
 
           - `class BetaManagedAgentsURLImageSource: …`
 
@@ -6887,19 +7420,19 @@ for event in client.beta.sessions.events.stream(
 
             Image referenced by file ID.
 
+            - `type: Literal["file"]`
+
             - `file_id: str`
 
               ID of a previously uploaded file.
 
               minLength: 1
 
-            - `type: Literal["file"]`
-
-        - `type: Literal["image"]`
-
       - `class BetaManagedAgentsDocumentBlock: …`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+        - `type: Literal["document"]`
 
         - `source: Source`
 
@@ -6908,6 +7441,8 @@ for event in client.beta.sessions.events.stream(
           - `class BetaManagedAgentsBase64DocumentSource: …`
 
             Base64-encoded document data.
+
+            - `type: Literal["base64"]`
 
             - `data: str`
 
@@ -6921,11 +7456,11 @@ for event in client.beta.sessions.events.stream(
 
               minLength: 1
 
-            - `type: Literal["base64"]`
-
           - `class BetaManagedAgentsPlainTextDocumentSource: …`
 
             Plain text document content.
+
+            - `type: Literal["text"]`
 
             - `data: str`
 
@@ -6936,8 +7471,6 @@ for event in client.beta.sessions.events.stream(
             - `media_type: Literal["text/plain"]`
 
               MIME type of the text content. Must be "text/plain".
-
-            - `type: Literal["text"]`
 
           - `class BetaManagedAgentsURLDocumentSource: …`
 
@@ -6955,15 +7488,13 @@ for event in client.beta.sessions.events.stream(
 
             Document referenced by file ID.
 
+            - `type: Literal["file"]`
+
             - `file_id: str`
 
               ID of a previously uploaded file.
 
               minLength: 1
-
-            - `type: Literal["file"]`
-
-        - `type: Literal["document"]`
 
         - `context: Optional[str]`
 
@@ -6979,8 +7510,6 @@ for event in client.beta.sessions.events.stream(
 
         - `type: Literal["redacted"]`
 
-    - `type: Literal["user.message"]`
-
   - `class BetaManagedAgentsUserInterruptEventParams: …`
 
     Parameters for sending an interrupt to pause the agent.
@@ -6994,6 +7523,8 @@ for event in client.beta.sessions.events.stream(
   - `class BetaManagedAgentsUserToolConfirmationEventParams: …`
 
     Parameters for confirming or denying a tool execution request.
+
+    - `type: Literal["user.tool_confirmation"]`
 
     - `result: Literal["allow", "deny"]`
 
@@ -7009,8 +7540,6 @@ for event in client.beta.sessions.events.stream(
 
       minLength: 1, maxLength: 128
 
-    - `type: Literal["user.tool_confirmation"]`
-
     - `deny_message: Optional[str]`
 
       Optional message providing context for a 'deny' decision. Only allowed when result is 'deny'.
@@ -7021,13 +7550,13 @@ for event in client.beta.sessions.events.stream(
 
     Parameters for providing the result of a custom tool execution.
 
+    - `type: Literal["user.custom_tool_result"]`
+
     - `custom_tool_use_id: str`
 
       The id of the `agent.custom_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
 
       minLength: 1, maxLength: 128
-
-    - `type: Literal["user.custom_tool_result"]`
 
     - `content: Optional[List[Content]]`
 
@@ -7049,6 +7578,8 @@ for event in client.beta.sessions.events.stream(
 
         A block containing a web search result.
 
+        - `type: Literal["search_result"]`
+
         - `citations: BetaManagedAgentsSearchResultCitations`
 
           Citation settings for a search result.
@@ -7061,13 +7592,13 @@ for event in client.beta.sessions.events.stream(
 
           Array of text content blocks from the search result.
 
+          - `type: Literal["text"]`
+
           - `text: str`
 
             The text content.
 
             minLength: 1
-
-          - `type: Literal["text"]`
 
         - `source: str`
 
@@ -7081,8 +7612,6 @@ for event in client.beta.sessions.events.stream(
 
           minLength: 1
 
-        - `type: Literal["search_result"]`
-
     - `is_error: Optional[bool]`
 
       Whether the tool execution resulted in an error.
@@ -7090,6 +7619,8 @@ for event in client.beta.sessions.events.stream(
   - `class BetaManagedAgentsUserDefineOutcomeEventParams: …`
 
     Parameters for defining an outcome the agent should work toward. The agent begins work on receipt.
+
+    - `type: Literal["user.define_outcome"]`
 
     - `description: str`
 
@@ -7103,25 +7634,23 @@ for event in client.beta.sessions.events.stream(
 
         Rubric referenced by a file uploaded via the Files API.
 
+        - `type: Literal["file"]`
+
         - `file_id: str`
 
           ID of the rubric file.
 
-        - `type: Literal["file"]`
-
       - `class BetaManagedAgentsTextRubricParams: …`
 
         Rubric content provided inline as text.
+
+        - `type: Literal["text"]`
 
         - `content: str`
 
           Rubric content. Plain text or markdown — the grader treats it as freeform text. Maximum 262144 characters.
 
           maxLength: 262144
-
-        - `type: Literal["text"]`
-
-    - `type: Literal["user.define_outcome"]`
 
     - `max_iterations: Optional[int]`
 
@@ -7133,13 +7662,13 @@ for event in client.beta.sessions.events.stream(
 
     Parameters for providing the result of an agent-toolset tool execution. Only valid on `self_hosted` environments, where sandbox-routed tools are executed by the client rather than the server.
 
+    - `type: Literal["user.tool_result"]`
+
     - `tool_use_id: str`
 
       The id of the `agent.tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
 
       minLength: 1, maxLength: 128
-
-    - `type: Literal["user.tool_result"]`
 
     - `content: Optional[List[Content]]`
 
@@ -7169,9 +7698,13 @@ for event in client.beta.sessions.events.stream(
 
     Privileged context for the accompanying turn and all subsequent turns, appended to the session's system context as a `role: "system"` turn rather than replacing the top-level system prompt. At most one per request: it must be the final event and immediately follow the `user.message`, `user.tool_result`, or `user.custom_tool_result` it accompanies. Only supported on models that accept mid-conversation system messages.
 
+    - `type: Literal["system.message"]`
+
     - `content: List[BetaManagedAgentsSystemContentBlock]`
 
       System content blocks to append. Text-only.
+
+      - `type: Literal["text"]`
 
       - `text: str`
 
@@ -7179,23 +7712,19 @@ for event in client.beta.sessions.events.stream(
 
         minLength: 1
 
-      - `type: Literal["text"]`
-
-    - `type: Literal["system.message"]`
-
 ### Beta Managed Agents File Document Source
 
 - `class BetaManagedAgentsFileDocumentSource: …`
 
   Document referenced by file ID.
 
+  - `type: Literal["file"]`
+
   - `file_id: str`
 
     ID of a previously uploaded file.
 
     minLength: 1
-
-  - `type: Literal["file"]`
 
 ### Beta Managed Agents File Image Source
 
@@ -7203,13 +7732,13 @@ for event in client.beta.sessions.events.stream(
 
   Image referenced by file ID.
 
+  - `type: Literal["file"]`
+
   - `file_id: str`
 
     ID of a previously uploaded file.
 
     minLength: 1
-
-  - `type: Literal["file"]`
 
 ### Beta Managed Agents File Rubric
 
@@ -7217,11 +7746,11 @@ for event in client.beta.sessions.events.stream(
 
   Rubric referenced by a file uploaded via the Files API.
 
+  - `type: Literal["file"]`
+
   - `file_id: str`
 
     ID of the rubric file.
-
-  - `type: Literal["file"]`
 
 ### Beta Managed Agents File Rubric Params
 
@@ -7229,17 +7758,19 @@ for event in client.beta.sessions.events.stream(
 
   Rubric referenced by a file uploaded via the Files API.
 
+  - `type: Literal["file"]`
+
   - `file_id: str`
 
     ID of the rubric file.
-
-  - `type: Literal["file"]`
 
 ### Beta Managed Agents Image Block
 
 - `class BetaManagedAgentsImageBlock: …`
 
   Image content specified directly as base64 data or as a reference via a URL.
+
+  - `type: Literal["image"]`
 
   - `source: Source`
 
@@ -7248,6 +7779,8 @@ for event in client.beta.sessions.events.stream(
     - `class BetaManagedAgentsBase64ImageSource: …`
 
       Base64-encoded image data.
+
+      - `type: Literal["base64"]`
 
       - `data: str`
 
@@ -7260,8 +7793,6 @@ for event in client.beta.sessions.events.stream(
         MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
 
         minLength: 1
-
-      - `type: Literal["base64"]`
 
     - `class BetaManagedAgentsURLImageSource: …`
 
@@ -7279,21 +7810,21 @@ for event in client.beta.sessions.events.stream(
 
       Image referenced by file ID.
 
+      - `type: Literal["file"]`
+
       - `file_id: str`
 
         ID of a previously uploaded file.
 
         minLength: 1
 
-      - `type: Literal["file"]`
-
-  - `type: Literal["image"]`
-
 ### Beta Managed Agents MCP Authentication Failed Error
 
 - `class BetaManagedAgentsMCPAuthenticationFailedError: …`
 
   Authentication to an MCP server failed.
+
+  - `type: Literal["mcp_authentication_failed_error"]`
 
   - `mcp_server_name: str`
 
@@ -7325,13 +7856,13 @@ for event in client.beta.sessions.events.stream(
 
       - `type: Literal["terminal"]`
 
-  - `type: Literal["mcp_authentication_failed_error"]`
-
 ### Beta Managed Agents MCP Connection Failed Error
 
 - `class BetaManagedAgentsMCPConnectionFailedError: …`
 
   Failed to connect to an MCP server.
+
+  - `type: Literal["mcp_connection_failed_error"]`
 
   - `mcp_server_name: str`
 
@@ -7363,13 +7894,13 @@ for event in client.beta.sessions.events.stream(
 
       - `type: Literal["terminal"]`
 
-  - `type: Literal["mcp_connection_failed_error"]`
-
 ### Beta Managed Agents Model Overloaded Error
 
 - `class BetaManagedAgentsModelOverloadedError: …`
 
   The model is currently overloaded. Emitted after automatic retries are exhausted.
+
+  - `type: Literal["model_overloaded_error"]`
 
   - `message: str`
 
@@ -7396,8 +7927,6 @@ for event in client.beta.sessions.events.stream(
       The session encountered a terminal error and will transition to `terminated` state.
 
       - `type: Literal["terminal"]`
-
-  - `type: Literal["model_overloaded_error"]`
 
 ### Beta Managed Agents Model Rate Limited Error
 
@@ -7405,6 +7934,8 @@ for event in client.beta.sessions.events.stream(
 
   The model request was rate-limited.
 
+  - `type: Literal["model_rate_limited_error"]`
+
   - `message: str`
 
     Human-readable error description.
@@ -7430,8 +7961,6 @@ for event in client.beta.sessions.events.stream(
       The session encountered a terminal error and will transition to `terminated` state.
 
       - `type: Literal["terminal"]`
-
-  - `type: Literal["model_rate_limited_error"]`
 
 ### Beta Managed Agents Model Request Failed Error
 
@@ -7439,6 +7968,8 @@ for event in client.beta.sessions.events.stream(
 
   A model request failed for a reason other than overload or rate-limiting.
 
+  - `type: Literal["model_request_failed_error"]`
+
   - `message: str`
 
     Human-readable error description.
@@ -7465,13 +7996,13 @@ for event in client.beta.sessions.events.stream(
 
       - `type: Literal["terminal"]`
 
-  - `type: Literal["model_request_failed_error"]`
-
 ### Beta Managed Agents Plain Text Document Source
 
 - `class BetaManagedAgentsPlainTextDocumentSource: …`
 
   Plain text document content.
+
+  - `type: Literal["text"]`
 
   - `data: str`
 
@@ -7482,8 +8013,6 @@ for event in client.beta.sessions.events.stream(
   - `media_type: Literal["text/plain"]`
 
     MIME type of the text content. Must be "text/plain".
-
-  - `type: Literal["text"]`
 
 ### Beta Managed Agents Redacted Block
 
@@ -7523,6 +8052,8 @@ for event in client.beta.sessions.events.stream(
 
   A block containing a web search result.
 
+  - `type: Literal["search_result"]`
+
   - `citations: BetaManagedAgentsSearchResultCitations`
 
     Citation settings for a search result.
@@ -7535,13 +8066,13 @@ for event in client.beta.sessions.events.stream(
 
     Array of text content blocks from the search result.
 
+    - `type: Literal["text"]`
+
     - `text: str`
 
       The text content.
 
       minLength: 1
-
-    - `type: Literal["text"]`
 
   - `source: str`
 
@@ -7554,8 +8085,6 @@ for event in client.beta.sessions.events.stream(
     The title of the search result.
 
     minLength: 1
-
-  - `type: Literal["search_result"]`
 
 ### Beta Managed Agents Search Result Citations
 
@@ -7573,13 +8102,13 @@ for event in client.beta.sessions.events.stream(
 
   Text content within a search result.
 
+  - `type: Literal["text"]`
+
   - `text: str`
 
     The text content.
 
     minLength: 1
-
-  - `type: Literal["text"]`
 
 ### Beta Managed Agents Send Session Events
 
@@ -7595,6 +8124,8 @@ for event in client.beta.sessions.events.stream(
 
       A user message event in the session conversation.
 
+      - `type: Literal["user.message"]`
+
       - `id: str`
 
         Unique identifier for this event.
@@ -7607,17 +8138,19 @@ for event in client.beta.sessions.events.stream(
 
           Regular text content.
 
+          - `type: Literal["text"]`
+
           - `text: str`
 
             The text content.
 
             minLength: 1
 
-          - `type: Literal["text"]`
-
         - `class BetaManagedAgentsImageBlock: …`
 
           Image content specified directly as base64 data or as a reference via a URL.
+
+          - `type: Literal["image"]`
 
           - `source: Source`
 
@@ -7626,6 +8159,8 @@ for event in client.beta.sessions.events.stream(
             - `class BetaManagedAgentsBase64ImageSource: …`
 
               Base64-encoded image data.
+
+              - `type: Literal["base64"]`
 
               - `data: str`
 
@@ -7638,8 +8173,6 @@ for event in client.beta.sessions.events.stream(
                 MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
 
                 minLength: 1
-
-              - `type: Literal["base64"]`
 
             - `class BetaManagedAgentsURLImageSource: …`
 
@@ -7657,19 +8190,19 @@ for event in client.beta.sessions.events.stream(
 
               Image referenced by file ID.
 
+              - `type: Literal["file"]`
+
               - `file_id: str`
 
                 ID of a previously uploaded file.
 
                 minLength: 1
 
-              - `type: Literal["file"]`
-
-          - `type: Literal["image"]`
-
         - `class BetaManagedAgentsDocumentBlock: …`
 
           Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+          - `type: Literal["document"]`
 
           - `source: Source`
 
@@ -7678,6 +8211,8 @@ for event in client.beta.sessions.events.stream(
             - `class BetaManagedAgentsBase64DocumentSource: …`
 
               Base64-encoded document data.
+
+              - `type: Literal["base64"]`
 
               - `data: str`
 
@@ -7691,11 +8226,11 @@ for event in client.beta.sessions.events.stream(
 
                 minLength: 1
 
-              - `type: Literal["base64"]`
-
             - `class BetaManagedAgentsPlainTextDocumentSource: …`
 
               Plain text document content.
+
+              - `type: Literal["text"]`
 
               - `data: str`
 
@@ -7706,8 +8241,6 @@ for event in client.beta.sessions.events.stream(
               - `media_type: Literal["text/plain"]`
 
                 MIME type of the text content. Must be "text/plain".
-
-              - `type: Literal["text"]`
 
             - `class BetaManagedAgentsURLDocumentSource: …`
 
@@ -7725,15 +8258,13 @@ for event in client.beta.sessions.events.stream(
 
               Document referenced by file ID.
 
+              - `type: Literal["file"]`
+
               - `file_id: str`
 
                 ID of a previously uploaded file.
 
                 minLength: 1
-
-              - `type: Literal["file"]`
-
-          - `type: Literal["document"]`
 
           - `context: Optional[str]`
 
@@ -7749,8 +8280,6 @@ for event in client.beta.sessions.events.stream(
 
           - `type: Literal["redacted"]`
 
-      - `type: Literal["user.message"]`
-
       - `processed_at: Optional[datetime]`
 
         A timestamp in RFC 3339 format
@@ -7761,11 +8290,11 @@ for event in client.beta.sessions.events.stream(
 
       An interrupt event that pauses agent execution and returns control to the user.
 
+      - `type: Literal["user.interrupt"]`
+
       - `id: str`
 
         Unique identifier for this event.
-
-      - `type: Literal["user.interrupt"]`
 
       - `processed_at: Optional[datetime]`
 
@@ -7780,6 +8309,8 @@ for event in client.beta.sessions.events.stream(
     - `class BetaManagedAgentsUserToolConfirmationEvent: …`
 
       A tool confirmation event that approves or denies a pending tool execution.
+
+      - `type: Literal["user.tool_confirmation"]`
 
       - `id: str`
 
@@ -7796,8 +8327,6 @@ for event in client.beta.sessions.events.stream(
       - `tool_use_id: str`
 
         The id of the `agent.tool_use` or `agent.mcp_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
-
-      - `type: Literal["user.tool_confirmation"]`
 
       - `deny_message: Optional[str]`
 
@@ -7819,6 +8348,8 @@ for event in client.beta.sessions.events.stream(
 
       Event sent by the client providing the result of a custom tool execution.
 
+      - `type: Literal["user.custom_tool_result"]`
+
       - `id: str`
 
         Unique identifier for this event.
@@ -7826,8 +8357,6 @@ for event in client.beta.sessions.events.stream(
       - `custom_tool_use_id: str`
 
         The id of the `agent.custom_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
-
-      - `type: Literal["user.custom_tool_result"]`
 
       - `content: Optional[List[Content]]`
 
@@ -7849,6 +8378,8 @@ for event in client.beta.sessions.events.stream(
 
           A block containing a web search result.
 
+          - `type: Literal["search_result"]`
+
           - `citations: BetaManagedAgentsSearchResultCitations`
 
             Citation settings for a search result.
@@ -7861,13 +8392,13 @@ for event in client.beta.sessions.events.stream(
 
             Array of text content blocks from the search result.
 
+            - `type: Literal["text"]`
+
             - `text: str`
 
               The text content.
 
               minLength: 1
-
-            - `type: Literal["text"]`
 
           - `source: str`
 
@@ -7880,8 +8411,6 @@ for event in client.beta.sessions.events.stream(
             The title of the search result.
 
             minLength: 1
-
-          - `type: Literal["search_result"]`
 
       - `is_error: Optional[bool]`
 
@@ -7900,6 +8429,8 @@ for event in client.beta.sessions.events.stream(
     - `class BetaManagedAgentsUserDefineOutcomeEvent: …`
 
       Echo of a `user.define_outcome` input event. Carries the server-generated `outcome_id` that subsequent `span.outcome_evaluation_*` events reference.
+
+      - `type: Literal["user.define_outcome"]`
 
       - `id: str`
 
@@ -7933,27 +8464,27 @@ for event in client.beta.sessions.events.stream(
 
           Rubric referenced by a file uploaded via the Files API.
 
+          - `type: Literal["file"]`
+
           - `file_id: str`
 
             ID of the rubric file.
-
-          - `type: Literal["file"]`
 
         - `class BetaManagedAgentsTextRubric: …`
 
           Rubric content provided inline as text.
 
+          - `type: Literal["text"]`
+
           - `content: str`
 
             Rubric content. Plain text or markdown — the grader treats it as freeform text.
 
-          - `type: Literal["text"]`
-
-      - `type: Literal["user.define_outcome"]`
-
     - `class BetaManagedAgentsUserToolResultEvent: …`
 
       Event sent by the client providing the result of an agent-toolset tool execution. Only valid on `self_hosted` environments, where sandbox-routed tools are executed by the client rather than the server.
+
+      - `type: Literal["user.tool_result"]`
 
       - `id: str`
 
@@ -7962,8 +8493,6 @@ for event in client.beta.sessions.events.stream(
       - `tool_use_id: str`
 
         The id of the `agent.tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
-
-      - `type: Literal["user.tool_result"]`
 
       - `content: Optional[List[Content]]`
 
@@ -8003,6 +8532,8 @@ for event in client.beta.sessions.events.stream(
 
       A mid-conversation system message event. Carries system-role content that is appended to the session as a `role: "system"` turn.
 
+      - `type: Literal["system.message"]`
+
       - `id: str`
 
         Unique identifier for this event.
@@ -8011,15 +8542,13 @@ for event in client.beta.sessions.events.stream(
 
         System content blocks. Text-only.
 
+        - `type: Literal["text"]`
+
         - `text: str`
 
           The text content.
 
           minLength: 1
-
-        - `type: Literal["text"]`
-
-      - `type: Literal["system.message"]`
 
       - `processed_at: Optional[datetime]`
 
@@ -8041,6 +8570,8 @@ for event in client.beta.sessions.events.stream(
 
   Emitted when a session has been deleted. Terminates any active event stream — no further events will be emitted for this session.
 
+  - `type: Literal["session.deleted"]`
+
   - `id: str`
 
     Unique identifier for this event.
@@ -8050,8 +8581,6 @@ for event in client.beta.sessions.events.stream(
     A timestamp in RFC 3339 format
 
     format: date-time
-
-  - `type: Literal["session.deleted"]`
 
 ### Beta Managed Agents Session End Turn
 
@@ -8067,6 +8596,8 @@ for event in client.beta.sessions.events.stream(
 
   An error event indicating a problem occurred during session execution.
 
+  - `type: Literal["session.error"]`
+
   - `id: str`
 
     Unique identifier for this event.
@@ -8078,6 +8609,8 @@ for event in client.beta.sessions.events.stream(
     - `class BetaManagedAgentsUnknownError: …`
 
       An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
+
+      - `type: Literal["unknown_error"]`
 
       - `message: str`
 
@@ -8105,11 +8638,11 @@ for event in client.beta.sessions.events.stream(
 
           - `type: Literal["terminal"]`
 
-      - `type: Literal["unknown_error"]`
-
     - `class BetaManagedAgentsModelOverloadedError: …`
 
       The model is currently overloaded. Emitted after automatic retries are exhausted.
+
+      - `type: Literal["model_overloaded_error"]`
 
       - `message: str`
 
@@ -8130,13 +8663,13 @@ for event in client.beta.sessions.events.stream(
         - `class BetaManagedAgentsRetryStatusTerminal: …`
 
           The session encountered a terminal error and will transition to `terminated` state.
-
-      - `type: Literal["model_overloaded_error"]`
 
     - `class BetaManagedAgentsModelRateLimitedError: …`
 
       The model request was rate-limited.
 
+      - `type: Literal["model_rate_limited_error"]`
+
       - `message: str`
 
         Human-readable error description.
@@ -8156,13 +8689,13 @@ for event in client.beta.sessions.events.stream(
         - `class BetaManagedAgentsRetryStatusTerminal: …`
 
           The session encountered a terminal error and will transition to `terminated` state.
-
-      - `type: Literal["model_rate_limited_error"]`
 
     - `class BetaManagedAgentsModelRequestFailedError: …`
 
       A model request failed for a reason other than overload or rate-limiting.
 
+      - `type: Literal["model_request_failed_error"]`
+
       - `message: str`
 
         Human-readable error description.
@@ -8183,11 +8716,11 @@ for event in client.beta.sessions.events.stream(
 
           The session encountered a terminal error and will transition to `terminated` state.
 
-      - `type: Literal["model_request_failed_error"]`
-
     - `class BetaManagedAgentsMCPConnectionFailedError: …`
 
       Failed to connect to an MCP server.
+
+      - `type: Literal["mcp_connection_failed_error"]`
 
       - `mcp_server_name: str`
 
@@ -8213,11 +8746,11 @@ for event in client.beta.sessions.events.stream(
 
           The session encountered a terminal error and will transition to `terminated` state.
 
-      - `type: Literal["mcp_connection_failed_error"]`
-
     - `class BetaManagedAgentsMCPAuthenticationFailedError: …`
 
       Authentication to an MCP server failed.
+
+      - `type: Literal["mcp_authentication_failed_error"]`
 
       - `mcp_server_name: str`
 
@@ -8243,11 +8776,11 @@ for event in client.beta.sessions.events.stream(
 
           The session encountered a terminal error and will transition to `terminated` state.
 
-      - `type: Literal["mcp_authentication_failed_error"]`
-
     - `class BetaManagedAgentsBillingError: …`
 
       The caller's organization or workspace cannot make model requests — out of credits or spend limit reached. Retrying with the same credentials will not succeed; the caller must resolve the billing state.
+
+      - `type: Literal["billing_error"]`
 
       - `message: str`
 
@@ -8269,11 +8802,11 @@ for event in client.beta.sessions.events.stream(
 
           The session encountered a terminal error and will transition to `terminated` state.
 
-      - `type: Literal["billing_error"]`
-
     - `class BetaManagedAgentsCredentialHostUnreachableError: …`
 
       An `environment_variable` credential's `auth.networking.allowed_hosts` includes a host the environment's network policy does not permit.
+
+      - `type: Literal["credential_host_unreachable_error"]`
 
       - `credential_id: str`
 
@@ -8299,8 +8832,6 @@ for event in client.beta.sessions.events.stream(
 
           The session encountered a terminal error and will transition to `terminated` state.
 
-      - `type: Literal["credential_host_unreachable_error"]`
-
       - `vault_id: str`
 
         ID of the vault containing the affected credential.
@@ -8311,8 +8842,6 @@ for event in client.beta.sessions.events.stream(
 
     format: date-time
 
-  - `type: Literal["session.error"]`
-
 ### Beta Managed Agents Session Event
 
 - `BetaManagedAgentsSessionEvent`
@@ -8322,6 +8851,8 @@ for event in client.beta.sessions.events.stream(
   - `class BetaManagedAgentsUserMessageEvent: …`
 
     A user message event in the session conversation.
+
+    - `type: Literal["user.message"]`
 
     - `id: str`
 
@@ -8335,17 +8866,19 @@ for event in client.beta.sessions.events.stream(
 
         Regular text content.
 
+        - `type: Literal["text"]`
+
         - `text: str`
 
           The text content.
 
           minLength: 1
 
-        - `type: Literal["text"]`
-
       - `class BetaManagedAgentsImageBlock: …`
 
         Image content specified directly as base64 data or as a reference via a URL.
+
+        - `type: Literal["image"]`
 
         - `source: Source`
 
@@ -8354,6 +8887,8 @@ for event in client.beta.sessions.events.stream(
           - `class BetaManagedAgentsBase64ImageSource: …`
 
             Base64-encoded image data.
+
+            - `type: Literal["base64"]`
 
             - `data: str`
 
@@ -8366,8 +8901,6 @@ for event in client.beta.sessions.events.stream(
               MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
 
               minLength: 1
-
-            - `type: Literal["base64"]`
 
           - `class BetaManagedAgentsURLImageSource: …`
 
@@ -8385,19 +8918,19 @@ for event in client.beta.sessions.events.stream(
 
             Image referenced by file ID.
 
+            - `type: Literal["file"]`
+
             - `file_id: str`
 
               ID of a previously uploaded file.
 
               minLength: 1
 
-            - `type: Literal["file"]`
-
-        - `type: Literal["image"]`
-
       - `class BetaManagedAgentsDocumentBlock: …`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+        - `type: Literal["document"]`
 
         - `source: Source`
 
@@ -8406,6 +8939,8 @@ for event in client.beta.sessions.events.stream(
           - `class BetaManagedAgentsBase64DocumentSource: …`
 
             Base64-encoded document data.
+
+            - `type: Literal["base64"]`
 
             - `data: str`
 
@@ -8419,11 +8954,11 @@ for event in client.beta.sessions.events.stream(
 
               minLength: 1
 
-            - `type: Literal["base64"]`
-
           - `class BetaManagedAgentsPlainTextDocumentSource: …`
 
             Plain text document content.
+
+            - `type: Literal["text"]`
 
             - `data: str`
 
@@ -8434,8 +8969,6 @@ for event in client.beta.sessions.events.stream(
             - `media_type: Literal["text/plain"]`
 
               MIME type of the text content. Must be "text/plain".
-
-            - `type: Literal["text"]`
 
           - `class BetaManagedAgentsURLDocumentSource: …`
 
@@ -8453,15 +8986,13 @@ for event in client.beta.sessions.events.stream(
 
             Document referenced by file ID.
 
+            - `type: Literal["file"]`
+
             - `file_id: str`
 
               ID of a previously uploaded file.
 
               minLength: 1
-
-            - `type: Literal["file"]`
-
-        - `type: Literal["document"]`
 
         - `context: Optional[str]`
 
@@ -8477,8 +9008,6 @@ for event in client.beta.sessions.events.stream(
 
         - `type: Literal["redacted"]`
 
-    - `type: Literal["user.message"]`
-
     - `processed_at: Optional[datetime]`
 
       A timestamp in RFC 3339 format
@@ -8489,11 +9018,11 @@ for event in client.beta.sessions.events.stream(
 
     An interrupt event that pauses agent execution and returns control to the user.
 
+    - `type: Literal["user.interrupt"]`
+
     - `id: str`
 
       Unique identifier for this event.
-
-    - `type: Literal["user.interrupt"]`
 
     - `processed_at: Optional[datetime]`
 
@@ -8508,6 +9037,8 @@ for event in client.beta.sessions.events.stream(
   - `class BetaManagedAgentsUserToolConfirmationEvent: …`
 
     A tool confirmation event that approves or denies a pending tool execution.
+
+    - `type: Literal["user.tool_confirmation"]`
 
     - `id: str`
 
@@ -8524,8 +9055,6 @@ for event in client.beta.sessions.events.stream(
     - `tool_use_id: str`
 
       The id of the `agent.tool_use` or `agent.mcp_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
-
-    - `type: Literal["user.tool_confirmation"]`
 
     - `deny_message: Optional[str]`
 
@@ -8547,6 +9076,8 @@ for event in client.beta.sessions.events.stream(
 
     Event sent by the client providing the result of a custom tool execution.
 
+    - `type: Literal["user.custom_tool_result"]`
+
     - `id: str`
 
       Unique identifier for this event.
@@ -8554,8 +9085,6 @@ for event in client.beta.sessions.events.stream(
     - `custom_tool_use_id: str`
 
       The id of the `agent.custom_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
-
-    - `type: Literal["user.custom_tool_result"]`
 
     - `content: Optional[List[Content]]`
 
@@ -8577,6 +9106,8 @@ for event in client.beta.sessions.events.stream(
 
         A block containing a web search result.
 
+        - `type: Literal["search_result"]`
+
         - `citations: BetaManagedAgentsSearchResultCitations`
 
           Citation settings for a search result.
@@ -8589,13 +9120,13 @@ for event in client.beta.sessions.events.stream(
 
           Array of text content blocks from the search result.
 
+          - `type: Literal["text"]`
+
           - `text: str`
 
             The text content.
 
             minLength: 1
-
-          - `type: Literal["text"]`
 
         - `source: str`
 
@@ -8608,8 +9139,6 @@ for event in client.beta.sessions.events.stream(
           The title of the search result.
 
           minLength: 1
-
-        - `type: Literal["search_result"]`
 
     - `is_error: Optional[bool]`
 
@@ -8629,6 +9158,8 @@ for event in client.beta.sessions.events.stream(
 
     Event emitted when the agent calls a custom tool. The session goes idle until the client sends a `user.custom_tool_result` event with the result.
 
+    - `type: Literal["agent.custom_tool_use"]`
+
     - `id: str`
 
       Unique identifier for this event.
@@ -8647,8 +9178,6 @@ for event in client.beta.sessions.events.stream(
 
       format: date-time
 
-    - `type: Literal["agent.custom_tool_use"]`
-
     - `session_thread_id: Optional[str]`
 
       When set, this event was cross-posted from a subagent's thread to surface its custom tool use on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.custom_tool_result` event to route the result back.
@@ -8656,6 +9185,8 @@ for event in client.beta.sessions.events.stream(
   - `class BetaManagedAgentsAgentMessageEvent: …`
 
     An agent response event in the session conversation.
+
+    - `type: Literal["agent.message"]`
 
     - `id: str`
 
@@ -8679,11 +9210,11 @@ for event in client.beta.sessions.events.stream(
 
       format: date-time
 
-    - `type: Literal["agent.message"]`
-
   - `class BetaManagedAgentsAgentThinkingEvent: …`
 
     Indicates the agent is making forward progress via extended thinking. A progress signal, not a content carrier.
+
+    - `type: Literal["agent.thinking"]`
 
     - `id: str`
 
@@ -8695,11 +9226,11 @@ for event in client.beta.sessions.events.stream(
 
       format: date-time
 
-    - `type: Literal["agent.thinking"]`
-
   - `class BetaManagedAgentsAgentMCPToolUseEvent: …`
 
     Event emitted when the agent invokes a tool provided by an MCP server.
+
+    - `type: Literal["agent.mcp_tool_use"]`
 
     - `id: str`
 
@@ -8723,8 +9254,6 @@ for event in client.beta.sessions.events.stream(
 
       format: date-time
 
-    - `type: Literal["agent.mcp_tool_use"]`
-
     - `evaluated_permission: Optional[Literal["allow", "ask", "deny"]]`
 
       AgentEvaluatedPermission enum
@@ -8735,6 +9264,62 @@ for event in client.beta.sessions.events.stream(
 
       - `"deny"`
 
+    - `evaluation: Optional[BetaManagedAgentsAgentToolEvaluation]`
+
+      Names the resolved permission_policy that produced evaluated_permission, and under auto carries the judgement. Open union: clients must tolerate unknown variants.
+
+      - `class BetaManagedAgentsAgentToolEvaluationAlwaysAllow: …`
+
+        The resolved permission_policy was always_allow; accompanies evaluated_permission "allow".
+
+        - `type: Literal["always_allow"]`
+
+      - `class BetaManagedAgentsAgentToolEvaluationAlwaysAsk: …`
+
+        The resolved permission_policy was always_ask; accompanies evaluated_permission "ask".
+
+        - `type: Literal["always_ask"]`
+
+      - `class BetaManagedAgentsAgentToolEvaluationAuto: …`
+
+        The resolved permission_policy was auto: the server judged this invocation individually.
+
+        - `type: Literal["auto"]`
+
+        - `evaluated_permission: BetaManagedAgentsAgentAutoEvaluatedPermission`
+
+          The server's per-invocation judgement under the auto permission policy. Its type always equals the event's top-level evaluated_permission. Open union: clients must tolerate unknown variants.
+
+          - `class BetaManagedAgentsAgentAutoEvaluatedPermissionAllow: …`
+
+            The server judged the invocation safe to execute without client approval.
+
+            - `type: Literal["allow"]`
+
+          - `class BetaManagedAgentsAgentAutoEvaluatedPermissionAsk: …`
+
+            The server reached no judgement; the invocation is held for client approval.
+
+            - `type: Literal["ask"]`
+
+            - `reason_code: str`
+
+              The judgement's grounds in registry-bound terms, for client branching and audit rather than end-user display. Open registry; currently "indeterminate" (no judgement was reached). Clients must tolerate values outside this set.
+
+              maxLength: 64
+
+          - `class BetaManagedAgentsAgentAutoEvaluatedPermissionDeny: …`
+
+            The server judged the invocation high-risk; it does not execute and a synthetic error tool result is appended.
+
+            - `type: Literal["deny"]`
+
+            - `reason_code: str`
+
+              The judgement's grounds in registry-bound terms. Open registry; currently "high_risk" (judged high-risk; the call does not run). Clients must tolerate values outside this set.
+
+              maxLength: 64
+
     - `session_thread_id: Optional[str]`
 
       When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
@@ -8742,6 +9327,8 @@ for event in client.beta.sessions.events.stream(
   - `class BetaManagedAgentsAgentMCPToolResultEvent: …`
 
     Event representing the result of an MCP tool execution.
+
+    - `type: Literal["agent.mcp_tool_result"]`
 
     - `id: str`
 
@@ -8756,8 +9343,6 @@ for event in client.beta.sessions.events.stream(
       A timestamp in RFC 3339 format
 
       format: date-time
-
-    - `type: Literal["agent.mcp_tool_result"]`
 
     - `content: Optional[List[Content]]`
 
@@ -8787,6 +9372,8 @@ for event in client.beta.sessions.events.stream(
 
     Event emitted when the agent invokes a built-in agent tool.
 
+    - `type: Literal["agent.tool_use"]`
+
     - `id: str`
 
       Unique identifier for this event.
@@ -8805,8 +9392,6 @@ for event in client.beta.sessions.events.stream(
 
       format: date-time
 
-    - `type: Literal["agent.tool_use"]`
-
     - `evaluated_permission: Optional[Literal["allow", "ask", "deny"]]`
 
       AgentEvaluatedPermission enum
@@ -8817,6 +9402,10 @@ for event in client.beta.sessions.events.stream(
 
       - `"deny"`
 
+    - `evaluation: Optional[BetaManagedAgentsAgentToolEvaluation]`
+
+      Names the resolved permission_policy that produced evaluated_permission, and under auto carries the judgement. Open union: clients must tolerate unknown variants.
+
     - `session_thread_id: Optional[str]`
 
       When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
@@ -8824,6 +9413,8 @@ for event in client.beta.sessions.events.stream(
   - `class BetaManagedAgentsAgentToolResultEvent: …`
 
     Event representing the result of an agent tool execution.
+
+    - `type: Literal["agent.tool_result"]`
 
     - `id: str`
 
@@ -8838,8 +9429,6 @@ for event in client.beta.sessions.events.stream(
     - `tool_use_id: str`
 
       The id of the `agent.tool_use` event this result corresponds to.
-
-    - `type: Literal["agent.tool_result"]`
 
     - `content: Optional[List[Content]]`
 
@@ -8868,6 +9457,8 @@ for event in client.beta.sessions.events.stream(
   - `class BetaManagedAgentsAgentThreadMessageReceivedEvent: …`
 
     Delivery event written to the target thread's input stream when an agent-to-agent message arrives.
+
+    - `type: Literal["agent.thread_message_received"]`
 
     - `id: str`
 
@@ -8903,8 +9494,6 @@ for event in client.beta.sessions.events.stream(
 
       format: date-time
 
-    - `type: Literal["agent.thread_message_received"]`
-
     - `from_agent_name: Optional[str]`
 
       Name of the callable agent this message came from. Absent when received from the primary agent.
@@ -8912,6 +9501,8 @@ for event in client.beta.sessions.events.stream(
   - `class BetaManagedAgentsAgentThreadMessageSentEvent: …`
 
     Observability event emitted to the sender's output stream when an agent-to-agent message is sent.
+
+    - `type: Literal["agent.thread_message_sent"]`
 
     - `id: str`
 
@@ -8947,8 +9538,6 @@ for event in client.beta.sessions.events.stream(
 
       Public `sthr_` ID of the thread the message was sent to.
 
-    - `type: Literal["agent.thread_message_sent"]`
-
     - `to_agent_name: Optional[str]`
 
       Name of the callable agent this message was sent to. Absent when sent to the primary agent.
@@ -8956,6 +9545,8 @@ for event in client.beta.sessions.events.stream(
   - `class BetaManagedAgentsAgentThreadContextCompactedEvent: …`
 
     Indicates that context compaction (summarization) occurred during the session.
+
+    - `type: Literal["agent.thread_context_compacted"]`
 
     - `id: str`
 
@@ -8967,11 +9558,11 @@ for event in client.beta.sessions.events.stream(
 
       format: date-time
 
-    - `type: Literal["agent.thread_context_compacted"]`
-
   - `class BetaManagedAgentsSessionErrorEvent: …`
 
     An error event indicating a problem occurred during session execution.
+
+    - `type: Literal["session.error"]`
 
     - `id: str`
 
@@ -8984,6 +9575,8 @@ for event in client.beta.sessions.events.stream(
       - `class BetaManagedAgentsUnknownError: …`
 
         An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
+
+        - `type: Literal["unknown_error"]`
 
         - `message: str`
 
@@ -9011,11 +9604,11 @@ for event in client.beta.sessions.events.stream(
 
             - `type: Literal["terminal"]`
 
-        - `type: Literal["unknown_error"]`
-
       - `class BetaManagedAgentsModelOverloadedError: …`
 
         The model is currently overloaded. Emitted after automatic retries are exhausted.
+
+        - `type: Literal["model_overloaded_error"]`
 
         - `message: str`
 
@@ -9036,13 +9629,13 @@ for event in client.beta.sessions.events.stream(
           - `class BetaManagedAgentsRetryStatusTerminal: …`
 
             The session encountered a terminal error and will transition to `terminated` state.
-
-        - `type: Literal["model_overloaded_error"]`
 
       - `class BetaManagedAgentsModelRateLimitedError: …`
 
         The model request was rate-limited.
 
+        - `type: Literal["model_rate_limited_error"]`
+
         - `message: str`
 
           Human-readable error description.
@@ -9062,13 +9655,13 @@ for event in client.beta.sessions.events.stream(
           - `class BetaManagedAgentsRetryStatusTerminal: …`
 
             The session encountered a terminal error and will transition to `terminated` state.
-
-        - `type: Literal["model_rate_limited_error"]`
 
       - `class BetaManagedAgentsModelRequestFailedError: …`
 
         A model request failed for a reason other than overload or rate-limiting.
 
+        - `type: Literal["model_request_failed_error"]`
+
         - `message: str`
 
           Human-readable error description.
@@ -9089,11 +9682,11 @@ for event in client.beta.sessions.events.stream(
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-        - `type: Literal["model_request_failed_error"]`
-
       - `class BetaManagedAgentsMCPConnectionFailedError: …`
 
         Failed to connect to an MCP server.
+
+        - `type: Literal["mcp_connection_failed_error"]`
 
         - `mcp_server_name: str`
 
@@ -9119,11 +9712,11 @@ for event in client.beta.sessions.events.stream(
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-        - `type: Literal["mcp_connection_failed_error"]`
-
       - `class BetaManagedAgentsMCPAuthenticationFailedError: …`
 
         Authentication to an MCP server failed.
+
+        - `type: Literal["mcp_authentication_failed_error"]`
 
         - `mcp_server_name: str`
 
@@ -9149,11 +9742,11 @@ for event in client.beta.sessions.events.stream(
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-        - `type: Literal["mcp_authentication_failed_error"]`
-
       - `class BetaManagedAgentsBillingError: …`
 
         The caller's organization or workspace cannot make model requests — out of credits or spend limit reached. Retrying with the same credentials will not succeed; the caller must resolve the billing state.
+
+        - `type: Literal["billing_error"]`
 
         - `message: str`
 
@@ -9175,11 +9768,11 @@ for event in client.beta.sessions.events.stream(
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-        - `type: Literal["billing_error"]`
-
       - `class BetaManagedAgentsCredentialHostUnreachableError: …`
 
         An `environment_variable` credential's `auth.networking.allowed_hosts` includes a host the environment's network policy does not permit.
+
+        - `type: Literal["credential_host_unreachable_error"]`
 
         - `credential_id: str`
 
@@ -9205,8 +9798,6 @@ for event in client.beta.sessions.events.stream(
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-        - `type: Literal["credential_host_unreachable_error"]`
-
         - `vault_id: str`
 
           ID of the vault containing the affected credential.
@@ -9217,11 +9808,11 @@ for event in client.beta.sessions.events.stream(
 
       format: date-time
 
-    - `type: Literal["session.error"]`
-
   - `class BetaManagedAgentsSessionStatusRescheduledEvent: …`
 
     Indicates the session is recovering from an error state and is rescheduled for execution.
+
+    - `type: Literal["session.status_rescheduled"]`
 
     - `id: str`
 
@@ -9232,13 +9823,13 @@ for event in client.beta.sessions.events.stream(
       A timestamp in RFC 3339 format
 
       format: date-time
-
-    - `type: Literal["session.status_rescheduled"]`
 
   - `class BetaManagedAgentsSessionStatusRunningEvent: …`
 
     Indicates the session is actively running and the agent is working.
 
+    - `type: Literal["session.status_running"]`
+
     - `id: str`
 
       Unique identifier for this event.
@@ -9249,11 +9840,11 @@ for event in client.beta.sessions.events.stream(
 
       format: date-time
 
-    - `type: Literal["session.status_running"]`
-
   - `class BetaManagedAgentsSessionStatusIdleEvent: …`
 
     Indicates the agent has paused and is awaiting user input.
+
+    - `type: Literal["session.status_idle"]`
 
     - `id: str`
 
@@ -9279,11 +9870,11 @@ for event in client.beta.sessions.events.stream(
 
         The agent is idle waiting on one or more blocking user-input events (tool confirmation, custom tool result, etc.). Resolving all of them transitions the session back to running.
 
+        - `type: Literal["requires_action"]`
+
         - `event_ids: List[str]`
 
           The ids of events the agent is blocked on. Resolving fewer than all re-emits `session.status_idle` with the remainder.
-
-        - `type: Literal["requires_action"]`
 
       - `class BetaManagedAgentsSessionRetriesExhausted: …`
 
@@ -9297,11 +9888,11 @@ for event in client.beta.sessions.events.stream(
 
         - `type: Literal["budget_reached"]`
 
-    - `type: Literal["session.status_idle"]`
-
   - `class BetaManagedAgentsSessionStatusTerminatedEvent: …`
 
     Indicates the session has terminated, either due to an error or completion.
+
+    - `type: Literal["session.status_terminated"]`
 
     - `id: str`
 
@@ -9313,11 +9904,11 @@ for event in client.beta.sessions.events.stream(
 
       format: date-time
 
-    - `type: Literal["session.status_terminated"]`
-
   - `class BetaManagedAgentsSessionThreadCreatedEvent: …`
 
     Emitted when a subagent is spawned as a new thread. Written to the parent thread's output stream so clients observing the session see child creation.
+
+    - `type: Literal["session.thread_created"]`
 
     - `id: str`
 
@@ -9337,11 +9928,11 @@ for event in client.beta.sessions.events.stream(
 
       Public `sthr_` ID of the newly created thread.
 
-    - `type: Literal["session.thread_created"]`
-
   - `class BetaManagedAgentsSpanOutcomeEvaluationStartEvent: …`
 
     Emitted when an outcome evaluation cycle begins.
+
+    - `type: Literal["span.outcome_evaluation_start"]`
 
     - `id: str`
 
@@ -9363,11 +9954,11 @@ for event in client.beta.sessions.events.stream(
 
       format: date-time
 
-    - `type: Literal["span.outcome_evaluation_start"]`
-
   - `class BetaManagedAgentsSpanOutcomeEvaluationEndEvent: …`
 
     Emitted when an outcome evaluation cycle completes. Carries the verdict and aggregate token usage. A verdict of `needs_revision` means another evaluation cycle follows; `satisfied`, `max_iterations_reached`, `failed`, or `interrupted` are terminal — no further evaluation cycles follow.
+
+    - `type: Literal["span.outcome_evaluation_end"]`
 
     - `id: str`
 
@@ -9400,8 +9991,6 @@ for event in client.beta.sessions.events.stream(
     - `result: str`
 
       Evaluation verdict. 'satisfied': criteria met, session goes idle. 'needs_revision': criteria not met, another revision cycle follows. 'max_iterations_reached': evaluation budget exhausted with criteria still unmet — one final acknowledgment turn follows before the session goes idle, but no further evaluation runs. 'failed': grader determined the rubric does not apply to the deliverables. 'interrupted': user sent an interrupt while evaluation was in progress.
-
-    - `type: Literal["span.outcome_evaluation_end"]`
 
     - `usage: BetaManagedAgentsSpanModelUsage`
 
@@ -9443,6 +10032,8 @@ for event in client.beta.sessions.events.stream(
 
     Emitted when a model request is initiated by the agent.
 
+    - `type: Literal["span.model_request_start"]`
+
     - `id: str`
 
       Unique identifier for this event.
@@ -9453,11 +10044,11 @@ for event in client.beta.sessions.events.stream(
 
       format: date-time
 
-    - `type: Literal["span.model_request_start"]`
-
   - `class BetaManagedAgentsSpanModelRequestEndEvent: …`
 
     Emitted when a model request completes.
+
+    - `type: Literal["span.model_request_end"]`
 
     - `id: str`
 
@@ -9481,11 +10072,11 @@ for event in client.beta.sessions.events.stream(
 
       format: date-time
 
-    - `type: Literal["span.model_request_end"]`
-
   - `class BetaManagedAgentsSpanOutcomeEvaluationOngoingEvent: …`
 
     Periodic heartbeat emitted while an outcome evaluation cycle is in progress. Distinguishes 'evaluation is actively running' from 'evaluation is stuck' between the corresponding `span.outcome_evaluation_start` and `span.outcome_evaluation_end` events.
+
+    - `type: Literal["span.outcome_evaluation_ongoing"]`
 
     - `id: str`
 
@@ -9507,11 +10098,11 @@ for event in client.beta.sessions.events.stream(
 
       format: date-time
 
-    - `type: Literal["span.outcome_evaluation_ongoing"]`
-
   - `class BetaManagedAgentsUserDefineOutcomeEvent: …`
 
     Echo of a `user.define_outcome` input event. Carries the server-generated `outcome_id` that subsequent `span.outcome_evaluation_*` events reference.
+
+    - `type: Literal["user.define_outcome"]`
 
     - `id: str`
 
@@ -9545,27 +10136,27 @@ for event in client.beta.sessions.events.stream(
 
         Rubric referenced by a file uploaded via the Files API.
 
+        - `type: Literal["file"]`
+
         - `file_id: str`
 
           ID of the rubric file.
-
-        - `type: Literal["file"]`
 
       - `class BetaManagedAgentsTextRubric: …`
 
         Rubric content provided inline as text.
 
+        - `type: Literal["text"]`
+
         - `content: str`
 
           Rubric content. Plain text or markdown — the grader treats it as freeform text.
 
-        - `type: Literal["text"]`
-
-    - `type: Literal["user.define_outcome"]`
-
   - `class BetaManagedAgentsSessionDeletedEvent: …`
 
     Emitted when a session has been deleted. Terminates any active event stream — no further events will be emitted for this session.
+
+    - `type: Literal["session.deleted"]`
 
     - `id: str`
 
@@ -9577,11 +10168,11 @@ for event in client.beta.sessions.events.stream(
 
       format: date-time
 
-    - `type: Literal["session.deleted"]`
-
   - `class BetaManagedAgentsSessionThreadStatusRunningEvent: …`
 
     A session thread has begun executing. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
+
+    - `type: Literal["session.thread_status_running"]`
 
     - `id: str`
 
@@ -9601,11 +10192,11 @@ for event in client.beta.sessions.events.stream(
 
       Public sthr_ ID of the thread that started running.
 
-    - `type: Literal["session.thread_status_running"]`
-
   - `class BetaManagedAgentsSessionThreadStatusIdleEvent: …`
 
     A session thread has yielded and is awaiting input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
+
+    - `type: Literal["session.thread_status_idle"]`
 
     - `id: str`
 
@@ -9645,11 +10236,11 @@ for event in client.beta.sessions.events.stream(
 
         The agent stopped because the session's tracked list cost reached its budget, or because its usage includes a model with no list price (which the budget cannot measure). Raise the budget to continue — or, if raising is rejected because a model has no list price, remove the budget.
 
-    - `type: Literal["session.thread_status_idle"]`
-
   - `class BetaManagedAgentsSessionThreadStatusTerminatedEvent: …`
 
     A session thread has terminated and will accept no further input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
+
+    - `type: Literal["session.thread_status_terminated"]`
 
     - `id: str`
 
@@ -9669,11 +10260,11 @@ for event in client.beta.sessions.events.stream(
 
       Public sthr_ ID of the thread that terminated.
 
-    - `type: Literal["session.thread_status_terminated"]`
-
   - `class BetaManagedAgentsUserToolResultEvent: …`
 
     Event sent by the client providing the result of an agent-toolset tool execution. Only valid on `self_hosted` environments, where sandbox-routed tools are executed by the client rather than the server.
+
+    - `type: Literal["user.tool_result"]`
 
     - `id: str`
 
@@ -9682,8 +10273,6 @@ for event in client.beta.sessions.events.stream(
     - `tool_use_id: str`
 
       The id of the `agent.tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
-
-    - `type: Literal["user.tool_result"]`
 
     - `content: Optional[List[Content]]`
 
@@ -9723,6 +10312,8 @@ for event in client.beta.sessions.events.stream(
 
     A session thread hit a transient error and is retrying automatically. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
 
+    - `type: Literal["session.thread_status_rescheduled"]`
+
     - `id: str`
 
       Unique identifier for this event.
@@ -9741,11 +10332,11 @@ for event in client.beta.sessions.events.stream(
 
       Public sthr_ ID of the thread that is retrying.
 
-    - `type: Literal["session.thread_status_rescheduled"]`
-
   - `class BetaManagedAgentsSessionUpdatedEvent: …`
 
     Emitted when an UpdateSession request changed at least one field. Carries only the fields that changed; absent fields were not part of the update. The new configuration applies from the next turn.
+
+    - `type: Literal["session.updated"]`
 
     - `id: str`
 
@@ -9757,11 +10348,11 @@ for event in client.beta.sessions.events.stream(
 
       format: date-time
 
-    - `type: Literal["session.updated"]`
-
     - `agent: Optional[BetaManagedAgentsSessionAgent]`
 
       Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
+
+      - `type: Literal["agent"]`
 
       - `id: str`
 
@@ -9769,9 +10360,9 @@ for event in client.beta.sessions.events.stream(
 
       - `mcp_servers: List[BetaManagedAgentsMCPServerURLDefinition]`
 
-        - `name: str`
-
         - `type: Literal["url"]`
+
+        - `name: str`
 
         - `url: str`
 
@@ -9914,6 +10505,8 @@ for event in client.beta.sessions.events.stream(
 
         Resolved coordinator topology with full agent definitions for each roster member.
 
+        - `type: Literal["coordinator"]`
+
         - `agents: List[Agent]`
 
           Full `agent` definitions the coordinator may spawn as session threads.
@@ -9922,15 +10515,17 @@ for event in client.beta.sessions.events.stream(
 
             Resolved `agent` definition for a single `session_thread`. Snapshot of the agent at thread creation time. The multiagent roster is not repeated here; read it from `Session.agent`.
 
+            - `type: Literal["agent"]`
+
             - `id: str`
 
             - `description: Optional[str]`
 
             - `mcp_servers: List[BetaManagedAgentsMCPServerURLDefinition]`
 
-              - `name: str`
-
               - `type: Literal["url"]`
+
+              - `name: str`
 
               - `url: str`
 
@@ -9946,9 +10541,9 @@ for event in client.beta.sessions.events.stream(
 
                 A resolved Anthropic-managed skill.
 
-                - `skill_id: str`
-
                 - `type: Literal["anthropic"]`
+
+                - `skill_id: str`
 
                 - `version: str`
 
@@ -9956,9 +10551,9 @@ for event in client.beta.sessions.events.stream(
 
                 A resolved user-created custom skill.
 
-                - `skill_id: str`
-
                 - `type: Literal["custom"]`
+
+                - `skill_id: str`
 
                 - `version: str`
 
@@ -9968,11 +10563,15 @@ for event in client.beta.sessions.events.stream(
 
               - `class BetaManagedAgentsAgentToolset20260401: …`
 
+                - `type: Literal["agent_toolset_20260401"]`
+
                 - `configs: List[BetaManagedAgentsAgentToolConfig]`
 
                   - `class BetaManagedAgentsBashToolConfig: …`
 
                     Configuration for the bash tool.
+
+                    - `type: Literal["bash"]`
 
                     - `enabled: bool`
 
@@ -9994,11 +10593,17 @@ for event in client.beta.sessions.events.stream(
 
                         - `type: Literal["always_ask"]`
 
-                    - `type: Literal["bash"]`
+                      - `class BetaManagedAgentsAutoPolicy: …`
+
+                        The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+                        - `type: Literal["auto"]`
 
                   - `class BetaManagedAgentsEditToolConfig: …`
 
                     Configuration for the edit tool.
+
+                    - `type: Literal["edit"]`
 
                     - `enabled: bool`
 
@@ -10016,11 +10621,15 @@ for event in client.beta.sessions.events.stream(
 
                         Tool calls require user confirmation before execution.
 
-                    - `type: Literal["edit"]`
+                      - `class BetaManagedAgentsAutoPolicy: …`
+
+                        The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                   - `class BetaManagedAgentsReadToolConfig: …`
 
                     Configuration for the read tool.
+
+                    - `type: Literal["read"]`
 
                     - `enabled: bool`
 
@@ -10038,11 +10647,15 @@ for event in client.beta.sessions.events.stream(
 
                         Tool calls require user confirmation before execution.
 
-                    - `type: Literal["read"]`
+                      - `class BetaManagedAgentsAutoPolicy: …`
+
+                        The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                   - `class BetaManagedAgentsWriteToolConfig: …`
 
                     Configuration for the write tool.
+
+                    - `type: Literal["write"]`
 
                     - `enabled: bool`
 
@@ -10060,11 +10673,15 @@ for event in client.beta.sessions.events.stream(
 
                         Tool calls require user confirmation before execution.
 
-                    - `type: Literal["write"]`
+                      - `class BetaManagedAgentsAutoPolicy: …`
+
+                        The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                   - `class BetaManagedAgentsGlobToolConfig: …`
 
                     Configuration for the glob tool.
+
+                    - `type: Literal["glob"]`
 
                     - `enabled: bool`
 
@@ -10082,11 +10699,15 @@ for event in client.beta.sessions.events.stream(
 
                         Tool calls require user confirmation before execution.
 
-                    - `type: Literal["glob"]`
+                      - `class BetaManagedAgentsAutoPolicy: …`
+
+                        The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                   - `class BetaManagedAgentsGrepToolConfig: …`
 
                     Configuration for the grep tool.
+
+                    - `type: Literal["grep"]`
 
                     - `enabled: bool`
 
@@ -10104,11 +10725,15 @@ for event in client.beta.sessions.events.stream(
 
                         Tool calls require user confirmation before execution.
 
-                    - `type: Literal["grep"]`
+                      - `class BetaManagedAgentsAutoPolicy: …`
+
+                        The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                   - `class BetaManagedAgentsWebFetchToolConfig: …`
 
                     Configuration for the web_fetch tool.
+
+                    - `type: Literal["web_fetch"]`
 
                     - `enabled: bool`
 
@@ -10126,7 +10751,9 @@ for event in client.beta.sessions.events.stream(
 
                         Tool calls require user confirmation before execution.
 
-                    - `type: Literal["web_fetch"]`
+                      - `class BetaManagedAgentsAutoPolicy: …`
+
+                        The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                     - `allowed_domains: Optional[List[str]]`
 
@@ -10139,6 +10766,8 @@ for event in client.beta.sessions.events.stream(
                   - `class BetaManagedAgentsWebSearchToolConfig: …`
 
                     Configuration for the web_search tool.
+
+                    - `type: Literal["web_search"]`
 
                     - `enabled: bool`
 
@@ -10156,7 +10785,9 @@ for event in client.beta.sessions.events.stream(
 
                         Tool calls require user confirmation before execution.
 
-                    - `type: Literal["web_search"]`
+                      - `class BetaManagedAgentsAutoPolicy: …`
+
+                        The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                     - `allowed_domains: Optional[List[str]]`
 
@@ -10210,9 +10841,13 @@ for event in client.beta.sessions.events.stream(
 
                       Tool calls require user confirmation before execution.
 
-                - `type: Literal["agent_toolset_20260401"]`
+                    - `class BetaManagedAgentsAutoPolicy: …`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
               - `class BetaManagedAgentsMCPToolset: …`
+
+                - `type: Literal["mcp_toolset"]`
 
                 - `configs: List[BetaManagedAgentsMCPToolConfig]`
 
@@ -10232,6 +10867,10 @@ for event in client.beta.sessions.events.stream(
 
                       Tool calls require user confirmation before execution.
 
+                    - `class BetaManagedAgentsAutoPolicy: …`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
                 - `default_config: BetaManagedAgentsMCPToolsetDefaultConfig`
 
                   Resolved default configuration for all tools from an MCP server.
@@ -10250,13 +10889,17 @@ for event in client.beta.sessions.events.stream(
 
                       Tool calls require user confirmation before execution.
 
-                - `mcp_server_name: str`
+                    - `class BetaManagedAgentsAutoPolicy: …`
 
-                - `type: Literal["mcp_toolset"]`
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+                - `mcp_server_name: str`
 
               - `class BetaManagedAgentsCustomTool: …`
 
                 A custom tool as returned in API responses.
+
+                - `type: Literal["custom"]`
 
                 - `description: str`
 
@@ -10272,10 +10915,6 @@ for event in client.beta.sessions.events.stream(
 
                 - `name: str`
 
-                - `type: Literal["custom"]`
-
-            - `type: Literal["agent"]`
-
             - `version: int`
 
               format: int32
@@ -10284,13 +10923,11 @@ for event in client.beta.sessions.events.stream(
 
             Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
 
+            - `type: Literal["advisor"]`
+
             - `model: str`
 
               The advisor model id.
-
-            - `type: Literal["advisor"]`
-
-        - `type: Literal["coordinator"]`
 
       - `name: str`
 
@@ -10316,8 +10953,6 @@ for event in client.beta.sessions.events.stream(
 
           A custom tool as returned in API responses.
 
-      - `type: Literal["agent"]`
-
       - `version: int`
 
         format: int32
@@ -10325,6 +10960,8 @@ for event in client.beta.sessions.events.stream(
     - `budget: Optional[BetaManagedAgentsBudgetLimit]`
 
       A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+
+      - `type: Literal["limit"]`
 
       - `max_list_cost: BetaMonetaryAmount`
 
@@ -10338,8 +10975,6 @@ for event in client.beta.sessions.events.stream(
 
           Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
 
-      - `type: Literal["limit"]`
-
     - `metadata: Optional[Dict[str, str]]`
 
       The session's full metadata bag after the update. Present when the update set non-empty metadata; absent when metadata was unchanged or cleared to empty.
@@ -10352,6 +10987,8 @@ for event in client.beta.sessions.events.stream(
 
     A mid-conversation system message event. Carries system-role content that is appended to the session as a `role: "system"` turn.
 
+    - `type: Literal["system.message"]`
+
     - `id: str`
 
       Unique identifier for this event.
@@ -10360,15 +10997,13 @@ for event in client.beta.sessions.events.stream(
 
       System content blocks. Text-only.
 
+      - `type: Literal["text"]`
+
       - `text: str`
 
         The text content.
 
         minLength: 1
-
-      - `type: Literal["text"]`
-
-    - `type: Literal["system.message"]`
 
     - `processed_at: Optional[datetime]`
 
@@ -10380,6 +11015,8 @@ for event in client.beta.sessions.events.stream(
 
     Periodic snapshot of the session's cumulative usage and tracked list cost.
 
+    - `type: Literal["session.usage"]`
+
     - `id: str`
 
       Unique identifier for this event.
@@ -10389,8 +11026,6 @@ for event in client.beta.sessions.events.stream(
       A timestamp in RFC 3339 format
 
       format: date-time
-
-    - `type: Literal["session.usage"]`
 
     - `usage: BetaManagedAgentsSessionUsageSnapshot`
 
@@ -10466,11 +11101,11 @@ for event in client.beta.sessions.events.stream(
 
   The agent is idle waiting on one or more blocking user-input events (tool confirmation, custom tool result, etc.). Resolving all of them transitions the session back to running.
 
+  - `type: Literal["requires_action"]`
+
   - `event_ids: List[str]`
 
     The ids of events the agent is blocked on. Resolving fewer than all re-emits `session.status_idle` with the remainder.
-
-  - `type: Literal["requires_action"]`
 
 ### Beta Managed Agents Session Retries Exhausted
 
@@ -10485,6 +11120,8 @@ for event in client.beta.sessions.events.stream(
 - `class BetaManagedAgentsSessionStatusIdleEvent: …`
 
   Indicates the agent has paused and is awaiting user input.
+
+  - `type: Literal["session.status_idle"]`
 
   - `id: str`
 
@@ -10510,11 +11147,11 @@ for event in client.beta.sessions.events.stream(
 
       The agent is idle waiting on one or more blocking user-input events (tool confirmation, custom tool result, etc.). Resolving all of them transitions the session back to running.
 
+      - `type: Literal["requires_action"]`
+
       - `event_ids: List[str]`
 
         The ids of events the agent is blocked on. Resolving fewer than all re-emits `session.status_idle` with the remainder.
-
-      - `type: Literal["requires_action"]`
 
     - `class BetaManagedAgentsSessionRetriesExhausted: …`
 
@@ -10528,13 +11165,13 @@ for event in client.beta.sessions.events.stream(
 
       - `type: Literal["budget_reached"]`
 
-  - `type: Literal["session.status_idle"]`
-
 ### Beta Managed Agents Session Status Rescheduled Event
 
 - `class BetaManagedAgentsSessionStatusRescheduledEvent: …`
 
   Indicates the session is recovering from an error state and is rescheduled for execution.
+
+  - `type: Literal["session.status_rescheduled"]`
 
   - `id: str`
 
@@ -10545,8 +11182,6 @@ for event in client.beta.sessions.events.stream(
     A timestamp in RFC 3339 format
 
     format: date-time
-
-  - `type: Literal["session.status_rescheduled"]`
 
 ### Beta Managed Agents Session Status Running Event
 
@@ -10554,6 +11189,8 @@ for event in client.beta.sessions.events.stream(
 
   Indicates the session is actively running and the agent is working.
 
+  - `type: Literal["session.status_running"]`
+
   - `id: str`
 
     Unique identifier for this event.
@@ -10563,8 +11200,6 @@ for event in client.beta.sessions.events.stream(
     A timestamp in RFC 3339 format
 
     format: date-time
-
-  - `type: Literal["session.status_running"]`
 
 ### Beta Managed Agents Session Status Terminated Event
 
@@ -10572,6 +11207,8 @@ for event in client.beta.sessions.events.stream(
 
   Indicates the session has terminated, either due to an error or completion.
 
+  - `type: Literal["session.status_terminated"]`
+
   - `id: str`
 
     Unique identifier for this event.
@@ -10582,13 +11219,13 @@ for event in client.beta.sessions.events.stream(
 
     format: date-time
 
-  - `type: Literal["session.status_terminated"]`
-
 ### Beta Managed Agents Session Thread Created Event
 
 - `class BetaManagedAgentsSessionThreadCreatedEvent: …`
 
   Emitted when a subagent is spawned as a new thread. Written to the parent thread's output stream so clients observing the session see child creation.
+
+  - `type: Literal["session.thread_created"]`
 
   - `id: str`
 
@@ -10608,13 +11245,13 @@ for event in client.beta.sessions.events.stream(
 
     Public `sthr_` ID of the newly created thread.
 
-  - `type: Literal["session.thread_created"]`
-
 ### Beta Managed Agents Session Thread Status Idle Event
 
 - `class BetaManagedAgentsSessionThreadStatusIdleEvent: …`
 
   A session thread has yielded and is awaiting input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
+
+  - `type: Literal["session.thread_status_idle"]`
 
   - `id: str`
 
@@ -10648,11 +11285,11 @@ for event in client.beta.sessions.events.stream(
 
       The agent is idle waiting on one or more blocking user-input events (tool confirmation, custom tool result, etc.). Resolving all of them transitions the session back to running.
 
+      - `type: Literal["requires_action"]`
+
       - `event_ids: List[str]`
 
         The ids of events the agent is blocked on. Resolving fewer than all re-emits `session.status_idle` with the remainder.
-
-      - `type: Literal["requires_action"]`
 
     - `class BetaManagedAgentsSessionRetriesExhausted: …`
 
@@ -10666,13 +11303,13 @@ for event in client.beta.sessions.events.stream(
 
       - `type: Literal["budget_reached"]`
 
-  - `type: Literal["session.thread_status_idle"]`
-
 ### Beta Managed Agents Session Thread Status Rescheduled Event
 
 - `class BetaManagedAgentsSessionThreadStatusRescheduledEvent: …`
 
   A session thread hit a transient error and is retrying automatically. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
+
+  - `type: Literal["session.thread_status_rescheduled"]`
 
   - `id: str`
 
@@ -10692,13 +11329,13 @@ for event in client.beta.sessions.events.stream(
 
     Public sthr_ ID of the thread that is retrying.
 
-  - `type: Literal["session.thread_status_rescheduled"]`
-
 ### Beta Managed Agents Session Thread Status Running Event
 
 - `class BetaManagedAgentsSessionThreadStatusRunningEvent: …`
 
   A session thread has begun executing. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
+
+  - `type: Literal["session.thread_status_running"]`
 
   - `id: str`
 
@@ -10718,13 +11355,13 @@ for event in client.beta.sessions.events.stream(
 
     Public sthr_ ID of the thread that started running.
 
-  - `type: Literal["session.thread_status_running"]`
-
 ### Beta Managed Agents Session Thread Status Terminated Event
 
 - `class BetaManagedAgentsSessionThreadStatusTerminatedEvent: …`
 
   A session thread has terminated and will accept no further input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
+
+  - `type: Literal["session.thread_status_terminated"]`
 
   - `id: str`
 
@@ -10743,8 +11380,6 @@ for event in client.beta.sessions.events.stream(
   - `session_thread_id: str`
 
     Public sthr_ ID of the thread that terminated.
-
-  - `type: Literal["session.thread_status_terminated"]`
 
 ### Beta Managed Agents Session Usage Snapshot
 
@@ -10826,6 +11461,8 @@ for event in client.beta.sessions.events.stream(
 
   Emitted when a model request completes.
 
+  - `type: Literal["span.model_request_end"]`
+
   - `id: str`
 
     Unique identifier for this event.
@@ -10880,13 +11517,13 @@ for event in client.beta.sessions.events.stream(
 
     format: date-time
 
-  - `type: Literal["span.model_request_end"]`
-
 ### Beta Managed Agents Span Model Request Start Event
 
 - `class BetaManagedAgentsSpanModelRequestStartEvent: …`
 
   Emitted when a model request is initiated by the agent.
+
+  - `type: Literal["span.model_request_start"]`
 
   - `id: str`
 
@@ -10897,8 +11534,6 @@ for event in client.beta.sessions.events.stream(
     A timestamp in RFC 3339 format
 
     format: date-time
-
-  - `type: Literal["span.model_request_start"]`
 
 ### Beta Managed Agents Span Model Usage
 
@@ -10944,6 +11579,8 @@ for event in client.beta.sessions.events.stream(
 
   Emitted when an outcome evaluation cycle completes. Carries the verdict and aggregate token usage. A verdict of `needs_revision` means another evaluation cycle follows; `satisfied`, `max_iterations_reached`, `failed`, or `interrupted` are terminal — no further evaluation cycles follow.
 
+  - `type: Literal["span.outcome_evaluation_end"]`
+
   - `id: str`
 
     Unique identifier for this event.
@@ -10975,8 +11612,6 @@ for event in client.beta.sessions.events.stream(
   - `result: str`
 
     Evaluation verdict. 'satisfied': criteria met, session goes idle. 'needs_revision': criteria not met, another revision cycle follows. 'max_iterations_reached': evaluation budget exhausted with criteria still unmet — one final acknowledgment turn follows before the session goes idle, but no further evaluation runs. 'failed': grader determined the rubric does not apply to the deliverables. 'interrupted': user sent an interrupt while evaluation was in progress.
-
-  - `type: Literal["span.outcome_evaluation_end"]`
 
   - `usage: BetaManagedAgentsSpanModelUsage`
 
@@ -11020,6 +11655,8 @@ for event in client.beta.sessions.events.stream(
 
   Periodic heartbeat emitted while an outcome evaluation cycle is in progress. Distinguishes 'evaluation is actively running' from 'evaluation is stuck' between the corresponding `span.outcome_evaluation_start` and `span.outcome_evaluation_end` events.
 
+  - `type: Literal["span.outcome_evaluation_ongoing"]`
+
   - `id: str`
 
     Unique identifier for this event.
@@ -11040,13 +11677,13 @@ for event in client.beta.sessions.events.stream(
 
     format: date-time
 
-  - `type: Literal["span.outcome_evaluation_ongoing"]`
-
 ### Beta Managed Agents Span Outcome Evaluation Start Event
 
 - `class BetaManagedAgentsSpanOutcomeEvaluationStartEvent: …`
 
   Emitted when an outcome evaluation cycle begins.
+
+  - `type: Literal["span.outcome_evaluation_start"]`
 
   - `id: str`
 
@@ -11068,8 +11705,6 @@ for event in client.beta.sessions.events.stream(
 
     format: date-time
 
-  - `type: Literal["span.outcome_evaluation_start"]`
-
 ### Beta Managed Agents Stream Session Events
 
 - `BetaManagedAgentsStreamSessionEvents`
@@ -11079,6 +11714,8 @@ for event in client.beta.sessions.events.stream(
   - `class BetaManagedAgentsUserMessageEvent: …`
 
     A user message event in the session conversation.
+
+    - `type: Literal["user.message"]`
 
     - `id: str`
 
@@ -11092,17 +11729,19 @@ for event in client.beta.sessions.events.stream(
 
         Regular text content.
 
+        - `type: Literal["text"]`
+
         - `text: str`
 
           The text content.
 
           minLength: 1
 
-        - `type: Literal["text"]`
-
       - `class BetaManagedAgentsImageBlock: …`
 
         Image content specified directly as base64 data or as a reference via a URL.
+
+        - `type: Literal["image"]`
 
         - `source: Source`
 
@@ -11111,6 +11750,8 @@ for event in client.beta.sessions.events.stream(
           - `class BetaManagedAgentsBase64ImageSource: …`
 
             Base64-encoded image data.
+
+            - `type: Literal["base64"]`
 
             - `data: str`
 
@@ -11123,8 +11764,6 @@ for event in client.beta.sessions.events.stream(
               MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
 
               minLength: 1
-
-            - `type: Literal["base64"]`
 
           - `class BetaManagedAgentsURLImageSource: …`
 
@@ -11142,19 +11781,19 @@ for event in client.beta.sessions.events.stream(
 
             Image referenced by file ID.
 
+            - `type: Literal["file"]`
+
             - `file_id: str`
 
               ID of a previously uploaded file.
 
               minLength: 1
 
-            - `type: Literal["file"]`
-
-        - `type: Literal["image"]`
-
       - `class BetaManagedAgentsDocumentBlock: …`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+        - `type: Literal["document"]`
 
         - `source: Source`
 
@@ -11163,6 +11802,8 @@ for event in client.beta.sessions.events.stream(
           - `class BetaManagedAgentsBase64DocumentSource: …`
 
             Base64-encoded document data.
+
+            - `type: Literal["base64"]`
 
             - `data: str`
 
@@ -11176,11 +11817,11 @@ for event in client.beta.sessions.events.stream(
 
               minLength: 1
 
-            - `type: Literal["base64"]`
-
           - `class BetaManagedAgentsPlainTextDocumentSource: …`
 
             Plain text document content.
+
+            - `type: Literal["text"]`
 
             - `data: str`
 
@@ -11191,8 +11832,6 @@ for event in client.beta.sessions.events.stream(
             - `media_type: Literal["text/plain"]`
 
               MIME type of the text content. Must be "text/plain".
-
-            - `type: Literal["text"]`
 
           - `class BetaManagedAgentsURLDocumentSource: …`
 
@@ -11210,15 +11849,13 @@ for event in client.beta.sessions.events.stream(
 
             Document referenced by file ID.
 
+            - `type: Literal["file"]`
+
             - `file_id: str`
 
               ID of a previously uploaded file.
 
               minLength: 1
-
-            - `type: Literal["file"]`
-
-        - `type: Literal["document"]`
 
         - `context: Optional[str]`
 
@@ -11234,8 +11871,6 @@ for event in client.beta.sessions.events.stream(
 
         - `type: Literal["redacted"]`
 
-    - `type: Literal["user.message"]`
-
     - `processed_at: Optional[datetime]`
 
       A timestamp in RFC 3339 format
@@ -11246,11 +11881,11 @@ for event in client.beta.sessions.events.stream(
 
     An interrupt event that pauses agent execution and returns control to the user.
 
+    - `type: Literal["user.interrupt"]`
+
     - `id: str`
 
       Unique identifier for this event.
-
-    - `type: Literal["user.interrupt"]`
 
     - `processed_at: Optional[datetime]`
 
@@ -11265,6 +11900,8 @@ for event in client.beta.sessions.events.stream(
   - `class BetaManagedAgentsUserToolConfirmationEvent: …`
 
     A tool confirmation event that approves or denies a pending tool execution.
+
+    - `type: Literal["user.tool_confirmation"]`
 
     - `id: str`
 
@@ -11281,8 +11918,6 @@ for event in client.beta.sessions.events.stream(
     - `tool_use_id: str`
 
       The id of the `agent.tool_use` or `agent.mcp_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
-
-    - `type: Literal["user.tool_confirmation"]`
 
     - `deny_message: Optional[str]`
 
@@ -11304,6 +11939,8 @@ for event in client.beta.sessions.events.stream(
 
     Event sent by the client providing the result of a custom tool execution.
 
+    - `type: Literal["user.custom_tool_result"]`
+
     - `id: str`
 
       Unique identifier for this event.
@@ -11311,8 +11948,6 @@ for event in client.beta.sessions.events.stream(
     - `custom_tool_use_id: str`
 
       The id of the `agent.custom_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
-
-    - `type: Literal["user.custom_tool_result"]`
 
     - `content: Optional[List[Content]]`
 
@@ -11334,6 +11969,8 @@ for event in client.beta.sessions.events.stream(
 
         A block containing a web search result.
 
+        - `type: Literal["search_result"]`
+
         - `citations: BetaManagedAgentsSearchResultCitations`
 
           Citation settings for a search result.
@@ -11346,13 +11983,13 @@ for event in client.beta.sessions.events.stream(
 
           Array of text content blocks from the search result.
 
+          - `type: Literal["text"]`
+
           - `text: str`
 
             The text content.
 
             minLength: 1
-
-          - `type: Literal["text"]`
 
         - `source: str`
 
@@ -11365,8 +12002,6 @@ for event in client.beta.sessions.events.stream(
           The title of the search result.
 
           minLength: 1
-
-        - `type: Literal["search_result"]`
 
     - `is_error: Optional[bool]`
 
@@ -11386,6 +12021,8 @@ for event in client.beta.sessions.events.stream(
 
     Event emitted when the agent calls a custom tool. The session goes idle until the client sends a `user.custom_tool_result` event with the result.
 
+    - `type: Literal["agent.custom_tool_use"]`
+
     - `id: str`
 
       Unique identifier for this event.
@@ -11404,8 +12041,6 @@ for event in client.beta.sessions.events.stream(
 
       format: date-time
 
-    - `type: Literal["agent.custom_tool_use"]`
-
     - `session_thread_id: Optional[str]`
 
       When set, this event was cross-posted from a subagent's thread to surface its custom tool use on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.custom_tool_result` event to route the result back.
@@ -11413,6 +12048,8 @@ for event in client.beta.sessions.events.stream(
   - `class BetaManagedAgentsAgentMessageEvent: …`
 
     An agent response event in the session conversation.
+
+    - `type: Literal["agent.message"]`
 
     - `id: str`
 
@@ -11436,11 +12073,11 @@ for event in client.beta.sessions.events.stream(
 
       format: date-time
 
-    - `type: Literal["agent.message"]`
-
   - `class BetaManagedAgentsAgentThinkingEvent: …`
 
     Indicates the agent is making forward progress via extended thinking. A progress signal, not a content carrier.
+
+    - `type: Literal["agent.thinking"]`
 
     - `id: str`
 
@@ -11452,11 +12089,11 @@ for event in client.beta.sessions.events.stream(
 
       format: date-time
 
-    - `type: Literal["agent.thinking"]`
-
   - `class BetaManagedAgentsAgentMCPToolUseEvent: …`
 
     Event emitted when the agent invokes a tool provided by an MCP server.
+
+    - `type: Literal["agent.mcp_tool_use"]`
 
     - `id: str`
 
@@ -11480,8 +12117,6 @@ for event in client.beta.sessions.events.stream(
 
       format: date-time
 
-    - `type: Literal["agent.mcp_tool_use"]`
-
     - `evaluated_permission: Optional[Literal["allow", "ask", "deny"]]`
 
       AgentEvaluatedPermission enum
@@ -11492,6 +12127,62 @@ for event in client.beta.sessions.events.stream(
 
       - `"deny"`
 
+    - `evaluation: Optional[BetaManagedAgentsAgentToolEvaluation]`
+
+      Names the resolved permission_policy that produced evaluated_permission, and under auto carries the judgement. Open union: clients must tolerate unknown variants.
+
+      - `class BetaManagedAgentsAgentToolEvaluationAlwaysAllow: …`
+
+        The resolved permission_policy was always_allow; accompanies evaluated_permission "allow".
+
+        - `type: Literal["always_allow"]`
+
+      - `class BetaManagedAgentsAgentToolEvaluationAlwaysAsk: …`
+
+        The resolved permission_policy was always_ask; accompanies evaluated_permission "ask".
+
+        - `type: Literal["always_ask"]`
+
+      - `class BetaManagedAgentsAgentToolEvaluationAuto: …`
+
+        The resolved permission_policy was auto: the server judged this invocation individually.
+
+        - `type: Literal["auto"]`
+
+        - `evaluated_permission: BetaManagedAgentsAgentAutoEvaluatedPermission`
+
+          The server's per-invocation judgement under the auto permission policy. Its type always equals the event's top-level evaluated_permission. Open union: clients must tolerate unknown variants.
+
+          - `class BetaManagedAgentsAgentAutoEvaluatedPermissionAllow: …`
+
+            The server judged the invocation safe to execute without client approval.
+
+            - `type: Literal["allow"]`
+
+          - `class BetaManagedAgentsAgentAutoEvaluatedPermissionAsk: …`
+
+            The server reached no judgement; the invocation is held for client approval.
+
+            - `type: Literal["ask"]`
+
+            - `reason_code: str`
+
+              The judgement's grounds in registry-bound terms, for client branching and audit rather than end-user display. Open registry; currently "indeterminate" (no judgement was reached). Clients must tolerate values outside this set.
+
+              maxLength: 64
+
+          - `class BetaManagedAgentsAgentAutoEvaluatedPermissionDeny: …`
+
+            The server judged the invocation high-risk; it does not execute and a synthetic error tool result is appended.
+
+            - `type: Literal["deny"]`
+
+            - `reason_code: str`
+
+              The judgement's grounds in registry-bound terms. Open registry; currently "high_risk" (judged high-risk; the call does not run). Clients must tolerate values outside this set.
+
+              maxLength: 64
+
     - `session_thread_id: Optional[str]`
 
       When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
@@ -11499,6 +12190,8 @@ for event in client.beta.sessions.events.stream(
   - `class BetaManagedAgentsAgentMCPToolResultEvent: …`
 
     Event representing the result of an MCP tool execution.
+
+    - `type: Literal["agent.mcp_tool_result"]`
 
     - `id: str`
 
@@ -11513,8 +12206,6 @@ for event in client.beta.sessions.events.stream(
       A timestamp in RFC 3339 format
 
       format: date-time
-
-    - `type: Literal["agent.mcp_tool_result"]`
 
     - `content: Optional[List[Content]]`
 
@@ -11544,6 +12235,8 @@ for event in client.beta.sessions.events.stream(
 
     Event emitted when the agent invokes a built-in agent tool.
 
+    - `type: Literal["agent.tool_use"]`
+
     - `id: str`
 
       Unique identifier for this event.
@@ -11562,8 +12255,6 @@ for event in client.beta.sessions.events.stream(
 
       format: date-time
 
-    - `type: Literal["agent.tool_use"]`
-
     - `evaluated_permission: Optional[Literal["allow", "ask", "deny"]]`
 
       AgentEvaluatedPermission enum
@@ -11574,6 +12265,10 @@ for event in client.beta.sessions.events.stream(
 
       - `"deny"`
 
+    - `evaluation: Optional[BetaManagedAgentsAgentToolEvaluation]`
+
+      Names the resolved permission_policy that produced evaluated_permission, and under auto carries the judgement. Open union: clients must tolerate unknown variants.
+
     - `session_thread_id: Optional[str]`
 
       When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
@@ -11581,6 +12276,8 @@ for event in client.beta.sessions.events.stream(
   - `class BetaManagedAgentsAgentToolResultEvent: …`
 
     Event representing the result of an agent tool execution.
+
+    - `type: Literal["agent.tool_result"]`
 
     - `id: str`
 
@@ -11595,8 +12292,6 @@ for event in client.beta.sessions.events.stream(
     - `tool_use_id: str`
 
       The id of the `agent.tool_use` event this result corresponds to.
-
-    - `type: Literal["agent.tool_result"]`
 
     - `content: Optional[List[Content]]`
 
@@ -11625,6 +12320,8 @@ for event in client.beta.sessions.events.stream(
   - `class BetaManagedAgentsAgentThreadMessageReceivedEvent: …`
 
     Delivery event written to the target thread's input stream when an agent-to-agent message arrives.
+
+    - `type: Literal["agent.thread_message_received"]`
 
     - `id: str`
 
@@ -11660,8 +12357,6 @@ for event in client.beta.sessions.events.stream(
 
       format: date-time
 
-    - `type: Literal["agent.thread_message_received"]`
-
     - `from_agent_name: Optional[str]`
 
       Name of the callable agent this message came from. Absent when received from the primary agent.
@@ -11669,6 +12364,8 @@ for event in client.beta.sessions.events.stream(
   - `class BetaManagedAgentsAgentThreadMessageSentEvent: …`
 
     Observability event emitted to the sender's output stream when an agent-to-agent message is sent.
+
+    - `type: Literal["agent.thread_message_sent"]`
 
     - `id: str`
 
@@ -11704,8 +12401,6 @@ for event in client.beta.sessions.events.stream(
 
       Public `sthr_` ID of the thread the message was sent to.
 
-    - `type: Literal["agent.thread_message_sent"]`
-
     - `to_agent_name: Optional[str]`
 
       Name of the callable agent this message was sent to. Absent when sent to the primary agent.
@@ -11713,6 +12408,8 @@ for event in client.beta.sessions.events.stream(
   - `class BetaManagedAgentsAgentThreadContextCompactedEvent: …`
 
     Indicates that context compaction (summarization) occurred during the session.
+
+    - `type: Literal["agent.thread_context_compacted"]`
 
     - `id: str`
 
@@ -11724,11 +12421,11 @@ for event in client.beta.sessions.events.stream(
 
       format: date-time
 
-    - `type: Literal["agent.thread_context_compacted"]`
-
   - `class BetaManagedAgentsSessionErrorEvent: …`
 
     An error event indicating a problem occurred during session execution.
+
+    - `type: Literal["session.error"]`
 
     - `id: str`
 
@@ -11741,6 +12438,8 @@ for event in client.beta.sessions.events.stream(
       - `class BetaManagedAgentsUnknownError: …`
 
         An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
+
+        - `type: Literal["unknown_error"]`
 
         - `message: str`
 
@@ -11768,11 +12467,11 @@ for event in client.beta.sessions.events.stream(
 
             - `type: Literal["terminal"]`
 
-        - `type: Literal["unknown_error"]`
-
       - `class BetaManagedAgentsModelOverloadedError: …`
 
         The model is currently overloaded. Emitted after automatic retries are exhausted.
+
+        - `type: Literal["model_overloaded_error"]`
 
         - `message: str`
 
@@ -11793,13 +12492,13 @@ for event in client.beta.sessions.events.stream(
           - `class BetaManagedAgentsRetryStatusTerminal: …`
 
             The session encountered a terminal error and will transition to `terminated` state.
-
-        - `type: Literal["model_overloaded_error"]`
 
       - `class BetaManagedAgentsModelRateLimitedError: …`
 
         The model request was rate-limited.
 
+        - `type: Literal["model_rate_limited_error"]`
+
         - `message: str`
 
           Human-readable error description.
@@ -11819,13 +12518,13 @@ for event in client.beta.sessions.events.stream(
           - `class BetaManagedAgentsRetryStatusTerminal: …`
 
             The session encountered a terminal error and will transition to `terminated` state.
-
-        - `type: Literal["model_rate_limited_error"]`
 
       - `class BetaManagedAgentsModelRequestFailedError: …`
 
         A model request failed for a reason other than overload or rate-limiting.
 
+        - `type: Literal["model_request_failed_error"]`
+
         - `message: str`
 
           Human-readable error description.
@@ -11846,11 +12545,11 @@ for event in client.beta.sessions.events.stream(
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-        - `type: Literal["model_request_failed_error"]`
-
       - `class BetaManagedAgentsMCPConnectionFailedError: …`
 
         Failed to connect to an MCP server.
+
+        - `type: Literal["mcp_connection_failed_error"]`
 
         - `mcp_server_name: str`
 
@@ -11876,11 +12575,11 @@ for event in client.beta.sessions.events.stream(
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-        - `type: Literal["mcp_connection_failed_error"]`
-
       - `class BetaManagedAgentsMCPAuthenticationFailedError: …`
 
         Authentication to an MCP server failed.
+
+        - `type: Literal["mcp_authentication_failed_error"]`
 
         - `mcp_server_name: str`
 
@@ -11906,11 +12605,11 @@ for event in client.beta.sessions.events.stream(
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-        - `type: Literal["mcp_authentication_failed_error"]`
-
       - `class BetaManagedAgentsBillingError: …`
 
         The caller's organization or workspace cannot make model requests — out of credits or spend limit reached. Retrying with the same credentials will not succeed; the caller must resolve the billing state.
+
+        - `type: Literal["billing_error"]`
 
         - `message: str`
 
@@ -11932,11 +12631,11 @@ for event in client.beta.sessions.events.stream(
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-        - `type: Literal["billing_error"]`
-
       - `class BetaManagedAgentsCredentialHostUnreachableError: …`
 
         An `environment_variable` credential's `auth.networking.allowed_hosts` includes a host the environment's network policy does not permit.
+
+        - `type: Literal["credential_host_unreachable_error"]`
 
         - `credential_id: str`
 
@@ -11962,8 +12661,6 @@ for event in client.beta.sessions.events.stream(
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-        - `type: Literal["credential_host_unreachable_error"]`
-
         - `vault_id: str`
 
           ID of the vault containing the affected credential.
@@ -11974,11 +12671,11 @@ for event in client.beta.sessions.events.stream(
 
       format: date-time
 
-    - `type: Literal["session.error"]`
-
   - `class BetaManagedAgentsSessionStatusRescheduledEvent: …`
 
     Indicates the session is recovering from an error state and is rescheduled for execution.
+
+    - `type: Literal["session.status_rescheduled"]`
 
     - `id: str`
 
@@ -11989,13 +12686,13 @@ for event in client.beta.sessions.events.stream(
       A timestamp in RFC 3339 format
 
       format: date-time
-
-    - `type: Literal["session.status_rescheduled"]`
 
   - `class BetaManagedAgentsSessionStatusRunningEvent: …`
 
     Indicates the session is actively running and the agent is working.
 
+    - `type: Literal["session.status_running"]`
+
     - `id: str`
 
       Unique identifier for this event.
@@ -12006,11 +12703,11 @@ for event in client.beta.sessions.events.stream(
 
       format: date-time
 
-    - `type: Literal["session.status_running"]`
-
   - `class BetaManagedAgentsSessionStatusIdleEvent: …`
 
     Indicates the agent has paused and is awaiting user input.
+
+    - `type: Literal["session.status_idle"]`
 
     - `id: str`
 
@@ -12036,11 +12733,11 @@ for event in client.beta.sessions.events.stream(
 
         The agent is idle waiting on one or more blocking user-input events (tool confirmation, custom tool result, etc.). Resolving all of them transitions the session back to running.
 
+        - `type: Literal["requires_action"]`
+
         - `event_ids: List[str]`
 
           The ids of events the agent is blocked on. Resolving fewer than all re-emits `session.status_idle` with the remainder.
-
-        - `type: Literal["requires_action"]`
 
       - `class BetaManagedAgentsSessionRetriesExhausted: …`
 
@@ -12054,11 +12751,11 @@ for event in client.beta.sessions.events.stream(
 
         - `type: Literal["budget_reached"]`
 
-    - `type: Literal["session.status_idle"]`
-
   - `class BetaManagedAgentsSessionStatusTerminatedEvent: …`
 
     Indicates the session has terminated, either due to an error or completion.
+
+    - `type: Literal["session.status_terminated"]`
 
     - `id: str`
 
@@ -12070,11 +12767,11 @@ for event in client.beta.sessions.events.stream(
 
       format: date-time
 
-    - `type: Literal["session.status_terminated"]`
-
   - `class BetaManagedAgentsSessionThreadCreatedEvent: …`
 
     Emitted when a subagent is spawned as a new thread. Written to the parent thread's output stream so clients observing the session see child creation.
+
+    - `type: Literal["session.thread_created"]`
 
     - `id: str`
 
@@ -12094,11 +12791,11 @@ for event in client.beta.sessions.events.stream(
 
       Public `sthr_` ID of the newly created thread.
 
-    - `type: Literal["session.thread_created"]`
-
   - `class BetaManagedAgentsSpanOutcomeEvaluationStartEvent: …`
 
     Emitted when an outcome evaluation cycle begins.
+
+    - `type: Literal["span.outcome_evaluation_start"]`
 
     - `id: str`
 
@@ -12120,11 +12817,11 @@ for event in client.beta.sessions.events.stream(
 
       format: date-time
 
-    - `type: Literal["span.outcome_evaluation_start"]`
-
   - `class BetaManagedAgentsSpanOutcomeEvaluationEndEvent: …`
 
     Emitted when an outcome evaluation cycle completes. Carries the verdict and aggregate token usage. A verdict of `needs_revision` means another evaluation cycle follows; `satisfied`, `max_iterations_reached`, `failed`, or `interrupted` are terminal — no further evaluation cycles follow.
+
+    - `type: Literal["span.outcome_evaluation_end"]`
 
     - `id: str`
 
@@ -12157,8 +12854,6 @@ for event in client.beta.sessions.events.stream(
     - `result: str`
 
       Evaluation verdict. 'satisfied': criteria met, session goes idle. 'needs_revision': criteria not met, another revision cycle follows. 'max_iterations_reached': evaluation budget exhausted with criteria still unmet — one final acknowledgment turn follows before the session goes idle, but no further evaluation runs. 'failed': grader determined the rubric does not apply to the deliverables. 'interrupted': user sent an interrupt while evaluation was in progress.
-
-    - `type: Literal["span.outcome_evaluation_end"]`
 
     - `usage: BetaManagedAgentsSpanModelUsage`
 
@@ -12200,6 +12895,8 @@ for event in client.beta.sessions.events.stream(
 
     Emitted when a model request is initiated by the agent.
 
+    - `type: Literal["span.model_request_start"]`
+
     - `id: str`
 
       Unique identifier for this event.
@@ -12210,11 +12907,11 @@ for event in client.beta.sessions.events.stream(
 
       format: date-time
 
-    - `type: Literal["span.model_request_start"]`
-
   - `class BetaManagedAgentsSpanModelRequestEndEvent: …`
 
     Emitted when a model request completes.
+
+    - `type: Literal["span.model_request_end"]`
 
     - `id: str`
 
@@ -12238,11 +12935,11 @@ for event in client.beta.sessions.events.stream(
 
       format: date-time
 
-    - `type: Literal["span.model_request_end"]`
-
   - `class BetaManagedAgentsSpanOutcomeEvaluationOngoingEvent: …`
 
     Periodic heartbeat emitted while an outcome evaluation cycle is in progress. Distinguishes 'evaluation is actively running' from 'evaluation is stuck' between the corresponding `span.outcome_evaluation_start` and `span.outcome_evaluation_end` events.
+
+    - `type: Literal["span.outcome_evaluation_ongoing"]`
 
     - `id: str`
 
@@ -12264,11 +12961,11 @@ for event in client.beta.sessions.events.stream(
 
       format: date-time
 
-    - `type: Literal["span.outcome_evaluation_ongoing"]`
-
   - `class BetaManagedAgentsUserDefineOutcomeEvent: …`
 
     Echo of a `user.define_outcome` input event. Carries the server-generated `outcome_id` that subsequent `span.outcome_evaluation_*` events reference.
+
+    - `type: Literal["user.define_outcome"]`
 
     - `id: str`
 
@@ -12302,27 +12999,27 @@ for event in client.beta.sessions.events.stream(
 
         Rubric referenced by a file uploaded via the Files API.
 
+        - `type: Literal["file"]`
+
         - `file_id: str`
 
           ID of the rubric file.
-
-        - `type: Literal["file"]`
 
       - `class BetaManagedAgentsTextRubric: …`
 
         Rubric content provided inline as text.
 
+        - `type: Literal["text"]`
+
         - `content: str`
 
           Rubric content. Plain text or markdown — the grader treats it as freeform text.
 
-        - `type: Literal["text"]`
-
-    - `type: Literal["user.define_outcome"]`
-
   - `class BetaManagedAgentsSessionDeletedEvent: …`
 
     Emitted when a session has been deleted. Terminates any active event stream — no further events will be emitted for this session.
+
+    - `type: Literal["session.deleted"]`
 
     - `id: str`
 
@@ -12334,11 +13031,11 @@ for event in client.beta.sessions.events.stream(
 
       format: date-time
 
-    - `type: Literal["session.deleted"]`
-
   - `class BetaManagedAgentsSessionThreadStatusRunningEvent: …`
 
     A session thread has begun executing. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
+
+    - `type: Literal["session.thread_status_running"]`
 
     - `id: str`
 
@@ -12358,11 +13055,11 @@ for event in client.beta.sessions.events.stream(
 
       Public sthr_ ID of the thread that started running.
 
-    - `type: Literal["session.thread_status_running"]`
-
   - `class BetaManagedAgentsSessionThreadStatusIdleEvent: …`
 
     A session thread has yielded and is awaiting input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
+
+    - `type: Literal["session.thread_status_idle"]`
 
     - `id: str`
 
@@ -12402,11 +13099,11 @@ for event in client.beta.sessions.events.stream(
 
         The agent stopped because the session's tracked list cost reached its budget, or because its usage includes a model with no list price (which the budget cannot measure). Raise the budget to continue — or, if raising is rejected because a model has no list price, remove the budget.
 
-    - `type: Literal["session.thread_status_idle"]`
-
   - `class BetaManagedAgentsSessionThreadStatusTerminatedEvent: …`
 
     A session thread has terminated and will accept no further input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
+
+    - `type: Literal["session.thread_status_terminated"]`
 
     - `id: str`
 
@@ -12426,11 +13123,11 @@ for event in client.beta.sessions.events.stream(
 
       Public sthr_ ID of the thread that terminated.
 
-    - `type: Literal["session.thread_status_terminated"]`
-
   - `class BetaManagedAgentsUserToolResultEvent: …`
 
     Event sent by the client providing the result of an agent-toolset tool execution. Only valid on `self_hosted` environments, where sandbox-routed tools are executed by the client rather than the server.
+
+    - `type: Literal["user.tool_result"]`
 
     - `id: str`
 
@@ -12439,8 +13136,6 @@ for event in client.beta.sessions.events.stream(
     - `tool_use_id: str`
 
       The id of the `agent.tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
-
-    - `type: Literal["user.tool_result"]`
 
     - `content: Optional[List[Content]]`
 
@@ -12480,6 +13175,8 @@ for event in client.beta.sessions.events.stream(
 
     A session thread hit a transient error and is retrying automatically. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
 
+    - `type: Literal["session.thread_status_rescheduled"]`
+
     - `id: str`
 
       Unique identifier for this event.
@@ -12498,11 +13195,11 @@ for event in client.beta.sessions.events.stream(
 
       Public sthr_ ID of the thread that is retrying.
 
-    - `type: Literal["session.thread_status_rescheduled"]`
-
   - `class BetaManagedAgentsSessionUpdatedEvent: …`
 
     Emitted when an UpdateSession request changed at least one field. Carries only the fields that changed; absent fields were not part of the update. The new configuration applies from the next turn.
+
+    - `type: Literal["session.updated"]`
 
     - `id: str`
 
@@ -12514,11 +13211,11 @@ for event in client.beta.sessions.events.stream(
 
       format: date-time
 
-    - `type: Literal["session.updated"]`
-
     - `agent: Optional[BetaManagedAgentsSessionAgent]`
 
       Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
+
+      - `type: Literal["agent"]`
 
       - `id: str`
 
@@ -12526,9 +13223,9 @@ for event in client.beta.sessions.events.stream(
 
       - `mcp_servers: List[BetaManagedAgentsMCPServerURLDefinition]`
 
-        - `name: str`
-
         - `type: Literal["url"]`
+
+        - `name: str`
 
         - `url: str`
 
@@ -12671,6 +13368,8 @@ for event in client.beta.sessions.events.stream(
 
         Resolved coordinator topology with full agent definitions for each roster member.
 
+        - `type: Literal["coordinator"]`
+
         - `agents: List[Agent]`
 
           Full `agent` definitions the coordinator may spawn as session threads.
@@ -12679,15 +13378,17 @@ for event in client.beta.sessions.events.stream(
 
             Resolved `agent` definition for a single `session_thread`. Snapshot of the agent at thread creation time. The multiagent roster is not repeated here; read it from `Session.agent`.
 
+            - `type: Literal["agent"]`
+
             - `id: str`
 
             - `description: Optional[str]`
 
             - `mcp_servers: List[BetaManagedAgentsMCPServerURLDefinition]`
 
-              - `name: str`
-
               - `type: Literal["url"]`
+
+              - `name: str`
 
               - `url: str`
 
@@ -12703,9 +13404,9 @@ for event in client.beta.sessions.events.stream(
 
                 A resolved Anthropic-managed skill.
 
-                - `skill_id: str`
-
                 - `type: Literal["anthropic"]`
+
+                - `skill_id: str`
 
                 - `version: str`
 
@@ -12713,9 +13414,9 @@ for event in client.beta.sessions.events.stream(
 
                 A resolved user-created custom skill.
 
-                - `skill_id: str`
-
                 - `type: Literal["custom"]`
+
+                - `skill_id: str`
 
                 - `version: str`
 
@@ -12725,11 +13426,15 @@ for event in client.beta.sessions.events.stream(
 
               - `class BetaManagedAgentsAgentToolset20260401: …`
 
+                - `type: Literal["agent_toolset_20260401"]`
+
                 - `configs: List[BetaManagedAgentsAgentToolConfig]`
 
                   - `class BetaManagedAgentsBashToolConfig: …`
 
                     Configuration for the bash tool.
+
+                    - `type: Literal["bash"]`
 
                     - `enabled: bool`
 
@@ -12751,11 +13456,17 @@ for event in client.beta.sessions.events.stream(
 
                         - `type: Literal["always_ask"]`
 
-                    - `type: Literal["bash"]`
+                      - `class BetaManagedAgentsAutoPolicy: …`
+
+                        The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+                        - `type: Literal["auto"]`
 
                   - `class BetaManagedAgentsEditToolConfig: …`
 
                     Configuration for the edit tool.
+
+                    - `type: Literal["edit"]`
 
                     - `enabled: bool`
 
@@ -12773,11 +13484,15 @@ for event in client.beta.sessions.events.stream(
 
                         Tool calls require user confirmation before execution.
 
-                    - `type: Literal["edit"]`
+                      - `class BetaManagedAgentsAutoPolicy: …`
+
+                        The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                   - `class BetaManagedAgentsReadToolConfig: …`
 
                     Configuration for the read tool.
+
+                    - `type: Literal["read"]`
 
                     - `enabled: bool`
 
@@ -12795,11 +13510,15 @@ for event in client.beta.sessions.events.stream(
 
                         Tool calls require user confirmation before execution.
 
-                    - `type: Literal["read"]`
+                      - `class BetaManagedAgentsAutoPolicy: …`
+
+                        The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                   - `class BetaManagedAgentsWriteToolConfig: …`
 
                     Configuration for the write tool.
+
+                    - `type: Literal["write"]`
 
                     - `enabled: bool`
 
@@ -12817,11 +13536,15 @@ for event in client.beta.sessions.events.stream(
 
                         Tool calls require user confirmation before execution.
 
-                    - `type: Literal["write"]`
+                      - `class BetaManagedAgentsAutoPolicy: …`
+
+                        The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                   - `class BetaManagedAgentsGlobToolConfig: …`
 
                     Configuration for the glob tool.
+
+                    - `type: Literal["glob"]`
 
                     - `enabled: bool`
 
@@ -12839,11 +13562,15 @@ for event in client.beta.sessions.events.stream(
 
                         Tool calls require user confirmation before execution.
 
-                    - `type: Literal["glob"]`
+                      - `class BetaManagedAgentsAutoPolicy: …`
+
+                        The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                   - `class BetaManagedAgentsGrepToolConfig: …`
 
                     Configuration for the grep tool.
+
+                    - `type: Literal["grep"]`
 
                     - `enabled: bool`
 
@@ -12861,11 +13588,15 @@ for event in client.beta.sessions.events.stream(
 
                         Tool calls require user confirmation before execution.
 
-                    - `type: Literal["grep"]`
+                      - `class BetaManagedAgentsAutoPolicy: …`
+
+                        The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                   - `class BetaManagedAgentsWebFetchToolConfig: …`
 
                     Configuration for the web_fetch tool.
+
+                    - `type: Literal["web_fetch"]`
 
                     - `enabled: bool`
 
@@ -12883,7 +13614,9 @@ for event in client.beta.sessions.events.stream(
 
                         Tool calls require user confirmation before execution.
 
-                    - `type: Literal["web_fetch"]`
+                      - `class BetaManagedAgentsAutoPolicy: …`
+
+                        The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                     - `allowed_domains: Optional[List[str]]`
 
@@ -12896,6 +13629,8 @@ for event in client.beta.sessions.events.stream(
                   - `class BetaManagedAgentsWebSearchToolConfig: …`
 
                     Configuration for the web_search tool.
+
+                    - `type: Literal["web_search"]`
 
                     - `enabled: bool`
 
@@ -12913,7 +13648,9 @@ for event in client.beta.sessions.events.stream(
 
                         Tool calls require user confirmation before execution.
 
-                    - `type: Literal["web_search"]`
+                      - `class BetaManagedAgentsAutoPolicy: …`
+
+                        The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                     - `allowed_domains: Optional[List[str]]`
 
@@ -12967,9 +13704,13 @@ for event in client.beta.sessions.events.stream(
 
                       Tool calls require user confirmation before execution.
 
-                - `type: Literal["agent_toolset_20260401"]`
+                    - `class BetaManagedAgentsAutoPolicy: …`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
               - `class BetaManagedAgentsMCPToolset: …`
+
+                - `type: Literal["mcp_toolset"]`
 
                 - `configs: List[BetaManagedAgentsMCPToolConfig]`
 
@@ -12989,6 +13730,10 @@ for event in client.beta.sessions.events.stream(
 
                       Tool calls require user confirmation before execution.
 
+                    - `class BetaManagedAgentsAutoPolicy: …`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
                 - `default_config: BetaManagedAgentsMCPToolsetDefaultConfig`
 
                   Resolved default configuration for all tools from an MCP server.
@@ -13007,13 +13752,17 @@ for event in client.beta.sessions.events.stream(
 
                       Tool calls require user confirmation before execution.
 
-                - `mcp_server_name: str`
+                    - `class BetaManagedAgentsAutoPolicy: …`
 
-                - `type: Literal["mcp_toolset"]`
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+                - `mcp_server_name: str`
 
               - `class BetaManagedAgentsCustomTool: …`
 
                 A custom tool as returned in API responses.
+
+                - `type: Literal["custom"]`
 
                 - `description: str`
 
@@ -13029,10 +13778,6 @@ for event in client.beta.sessions.events.stream(
 
                 - `name: str`
 
-                - `type: Literal["custom"]`
-
-            - `type: Literal["agent"]`
-
             - `version: int`
 
               format: int32
@@ -13041,13 +13786,11 @@ for event in client.beta.sessions.events.stream(
 
             Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
 
+            - `type: Literal["advisor"]`
+
             - `model: str`
 
               The advisor model id.
-
-            - `type: Literal["advisor"]`
-
-        - `type: Literal["coordinator"]`
 
       - `name: str`
 
@@ -13073,8 +13816,6 @@ for event in client.beta.sessions.events.stream(
 
           A custom tool as returned in API responses.
 
-      - `type: Literal["agent"]`
-
       - `version: int`
 
         format: int32
@@ -13082,6 +13823,8 @@ for event in client.beta.sessions.events.stream(
     - `budget: Optional[BetaManagedAgentsBudgetLimit]`
 
       A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+
+      - `type: Literal["limit"]`
 
       - `max_list_cost: BetaMonetaryAmount`
 
@@ -13095,8 +13838,6 @@ for event in client.beta.sessions.events.stream(
 
           Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
 
-      - `type: Literal["limit"]`
-
     - `metadata: Optional[Dict[str, str]]`
 
       The session's full metadata bag after the update. Present when the update set non-empty metadata; absent when metadata was unchanged or cleared to empty.
@@ -13109,41 +13850,43 @@ for event in client.beta.sessions.events.stream(
 
     Opens a preview of a buffered event. Carries the previewed event's type and id only. Followed by zero or more event_delta events with the same event id, normally concluded by the buffered event carrying that id. If the producing model request ends without that event (an error or interrupt mid-stream), its terminal span.model_request_end closes the preview. Only sent on stream connections that opt in via event_deltas; never appears in event history.
 
+    - `type: Literal["event_start"]`
+
     - `event: BetaManagedAgentsStartEventPreview`
 
       The previewed event's type and id. The event type determines which delta types the preview's event_delta events carry: agent.message events stream content_delta fragments; agent.thinking previews are start-only — no deltas follow, and the buffered agent.thinking with the same id concludes them.
 
       - `class BetaManagedAgentsAgentMessagePreview: …`
 
+        - `type: Literal["agent.message"]`
+
         - `id: str`
 
           The id the buffered agent.message will carry if it is emitted. Matches the event_id on this preview's event_delta events.
 
-        - `type: Literal["agent.message"]`
-
       - `class BetaManagedAgentsAgentThinkingPreview: …`
+
+        - `type: Literal["agent.thinking"]`
 
         - `id: str`
 
           The id the buffered agent.thinking will carry if it is emitted. Start-only — no event_delta events follow.
 
-        - `type: Literal["agent.thinking"]`
-
-    - `type: Literal["event_start"]`
-
   - `class BetaManagedAgentsDeltaEvent: …`
 
     An incremental update to an event that is still being streamed. Deltas are best-effort and may stop early; when the buffered event with id == event_id is produced it carries the complete content. A model request that ends early (an error or interrupt) produces no buffered event — its terminal span.model_request_end closes the preview. Only sent on stream connections that opt in via event_deltas; never appears in event history.
+
+    - `type: Literal["event_delta"]`
 
     - `delta: BetaManagedAgentsDeltaContent`
 
       One fragment of the previewed event. The delta type is named for the previewed event's field it streams into: agent.message events stream content_delta fragments, each a partial element of the content array.
 
+      - `type: Literal["content_delta"]`
+
       - `content: BetaManagedAgentsTextBlock`
 
         Regular text content.
-
-      - `type: Literal["content_delta"]`
 
       - `index: Optional[int]`
 
@@ -13155,11 +13898,11 @@ for event in client.beta.sessions.events.stream(
 
       The id of the event being previewed. Matches event.id on the corresponding event_start and the buffered event that reconciles the preview.
 
-    - `type: Literal["event_delta"]`
-
   - `class BetaManagedAgentsSystemMessageEvent: …`
 
     A mid-conversation system message event. Carries system-role content that is appended to the session as a `role: "system"` turn.
+
+    - `type: Literal["system.message"]`
 
     - `id: str`
 
@@ -13169,15 +13912,13 @@ for event in client.beta.sessions.events.stream(
 
       System content blocks. Text-only.
 
+      - `type: Literal["text"]`
+
       - `text: str`
 
         The text content.
 
         minLength: 1
-
-      - `type: Literal["text"]`
-
-    - `type: Literal["system.message"]`
 
     - `processed_at: Optional[datetime]`
 
@@ -13189,6 +13930,8 @@ for event in client.beta.sessions.events.stream(
 
     Periodic snapshot of the session's cumulative usage and tracked list cost.
 
+    - `type: Literal["session.usage"]`
+
     - `id: str`
 
       Unique identifier for this event.
@@ -13198,8 +13941,6 @@ for event in client.beta.sessions.events.stream(
       A timestamp in RFC 3339 format
 
       format: date-time
-
-    - `type: Literal["session.usage"]`
 
     - `usage: BetaManagedAgentsSessionUsageSnapshot`
 
@@ -13275,9 +14016,13 @@ for event in client.beta.sessions.events.stream(
 
   Privileged context for the accompanying turn and all subsequent turns, appended to the session's system context as a `role: "system"` turn rather than replacing the top-level system prompt. At most one per request: it must be the final event and immediately follow the `user.message`, `user.tool_result`, or `user.custom_tool_result` it accompanies. Only supported on models that accept mid-conversation system messages.
 
+  - `type: Literal["system.message"]`
+
   - `content: List[BetaManagedAgentsSystemContentBlock]`
 
     System content blocks to append. Text-only.
+
+    - `type: Literal["text"]`
 
     - `text: str`
 
@@ -13285,15 +14030,13 @@ for event in client.beta.sessions.events.stream(
 
       minLength: 1
 
-    - `type: Literal["text"]`
-
-  - `type: Literal["system.message"]`
-
 ### Beta Managed Agents Text Block
 
 - `class BetaManagedAgentsTextBlock: …`
 
   Regular text content.
+
+  - `type: Literal["text"]`
 
   - `text: str`
 
@@ -13301,19 +14044,17 @@ for event in client.beta.sessions.events.stream(
 
     minLength: 1
 
-  - `type: Literal["text"]`
-
 ### Beta Managed Agents Text Rubric
 
 - `class BetaManagedAgentsTextRubric: …`
 
   Rubric content provided inline as text.
 
+  - `type: Literal["text"]`
+
   - `content: str`
 
     Rubric content. Plain text or markdown — the grader treats it as freeform text.
-
-  - `type: Literal["text"]`
 
 ### Beta Managed Agents Text Rubric Params
 
@@ -13321,19 +14062,21 @@ for event in client.beta.sessions.events.stream(
 
   Rubric content provided inline as text.
 
+  - `type: Literal["text"]`
+
   - `content: str`
 
     Rubric content. Plain text or markdown — the grader treats it as freeform text. Maximum 262144 characters.
 
     maxLength: 262144
 
-  - `type: Literal["text"]`
-
 ### Beta Managed Agents Unknown Error
 
 - `class BetaManagedAgentsUnknownError: …`
 
   An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
+
+  - `type: Literal["unknown_error"]`
 
   - `message: str`
 
@@ -13360,8 +14103,6 @@ for event in client.beta.sessions.events.stream(
       The session encountered a terminal error and will transition to `terminated` state.
 
       - `type: Literal["terminal"]`
-
-  - `type: Literal["unknown_error"]`
 
 ### Beta Managed Agents URL Document Source
 
@@ -13397,6 +14138,8 @@ for event in client.beta.sessions.events.stream(
 
   Event sent by the client providing the result of a custom tool execution.
 
+  - `type: Literal["user.custom_tool_result"]`
+
   - `id: str`
 
     Unique identifier for this event.
@@ -13404,8 +14147,6 @@ for event in client.beta.sessions.events.stream(
   - `custom_tool_use_id: str`
 
     The id of the `agent.custom_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
-
-  - `type: Literal["user.custom_tool_result"]`
 
   - `content: Optional[List[Content]]`
 
@@ -13415,17 +14156,19 @@ for event in client.beta.sessions.events.stream(
 
       Regular text content.
 
+      - `type: Literal["text"]`
+
       - `text: str`
 
         The text content.
 
         minLength: 1
 
-      - `type: Literal["text"]`
-
     - `class BetaManagedAgentsImageBlock: …`
 
       Image content specified directly as base64 data or as a reference via a URL.
+
+      - `type: Literal["image"]`
 
       - `source: Source`
 
@@ -13434,6 +14177,8 @@ for event in client.beta.sessions.events.stream(
         - `class BetaManagedAgentsBase64ImageSource: …`
 
           Base64-encoded image data.
+
+          - `type: Literal["base64"]`
 
           - `data: str`
 
@@ -13446,8 +14191,6 @@ for event in client.beta.sessions.events.stream(
             MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
 
             minLength: 1
-
-          - `type: Literal["base64"]`
 
         - `class BetaManagedAgentsURLImageSource: …`
 
@@ -13465,19 +14208,19 @@ for event in client.beta.sessions.events.stream(
 
           Image referenced by file ID.
 
+          - `type: Literal["file"]`
+
           - `file_id: str`
 
             ID of a previously uploaded file.
 
             minLength: 1
 
-          - `type: Literal["file"]`
-
-      - `type: Literal["image"]`
-
     - `class BetaManagedAgentsDocumentBlock: …`
 
       Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+      - `type: Literal["document"]`
 
       - `source: Source`
 
@@ -13486,6 +14229,8 @@ for event in client.beta.sessions.events.stream(
         - `class BetaManagedAgentsBase64DocumentSource: …`
 
           Base64-encoded document data.
+
+          - `type: Literal["base64"]`
 
           - `data: str`
 
@@ -13499,11 +14244,11 @@ for event in client.beta.sessions.events.stream(
 
             minLength: 1
 
-          - `type: Literal["base64"]`
-
         - `class BetaManagedAgentsPlainTextDocumentSource: …`
 
           Plain text document content.
+
+          - `type: Literal["text"]`
 
           - `data: str`
 
@@ -13514,8 +14259,6 @@ for event in client.beta.sessions.events.stream(
           - `media_type: Literal["text/plain"]`
 
             MIME type of the text content. Must be "text/plain".
-
-          - `type: Literal["text"]`
 
         - `class BetaManagedAgentsURLDocumentSource: …`
 
@@ -13533,15 +14276,13 @@ for event in client.beta.sessions.events.stream(
 
           Document referenced by file ID.
 
+          - `type: Literal["file"]`
+
           - `file_id: str`
 
             ID of a previously uploaded file.
 
             minLength: 1
-
-          - `type: Literal["file"]`
-
-      - `type: Literal["document"]`
 
       - `context: Optional[str]`
 
@@ -13555,6 +14296,8 @@ for event in client.beta.sessions.events.stream(
 
       A block containing a web search result.
 
+      - `type: Literal["search_result"]`
+
       - `citations: BetaManagedAgentsSearchResultCitations`
 
         Citation settings for a search result.
@@ -13567,13 +14310,13 @@ for event in client.beta.sessions.events.stream(
 
         Array of text content blocks from the search result.
 
+        - `type: Literal["text"]`
+
         - `text: str`
 
           The text content.
 
           minLength: 1
-
-        - `type: Literal["text"]`
 
       - `source: str`
 
@@ -13586,8 +14329,6 @@ for event in client.beta.sessions.events.stream(
         The title of the search result.
 
         minLength: 1
-
-      - `type: Literal["search_result"]`
 
   - `is_error: Optional[bool]`
 
@@ -13609,13 +14350,13 @@ for event in client.beta.sessions.events.stream(
 
   Parameters for providing the result of a custom tool execution.
 
+  - `type: Literal["user.custom_tool_result"]`
+
   - `custom_tool_use_id: str`
 
     The id of the `agent.custom_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
 
     minLength: 1, maxLength: 128
-
-  - `type: Literal["user.custom_tool_result"]`
 
   - `content: Optional[List[Content]]`
 
@@ -13625,17 +14366,19 @@ for event in client.beta.sessions.events.stream(
 
       Regular text content.
 
+      - `type: Literal["text"]`
+
       - `text: str`
 
         The text content.
 
         minLength: 1
 
-      - `type: Literal["text"]`
-
     - `class BetaManagedAgentsImageBlock: …`
 
       Image content specified directly as base64 data or as a reference via a URL.
+
+      - `type: Literal["image"]`
 
       - `source: Source`
 
@@ -13644,6 +14387,8 @@ for event in client.beta.sessions.events.stream(
         - `class BetaManagedAgentsBase64ImageSource: …`
 
           Base64-encoded image data.
+
+          - `type: Literal["base64"]`
 
           - `data: str`
 
@@ -13656,8 +14401,6 @@ for event in client.beta.sessions.events.stream(
             MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
 
             minLength: 1
-
-          - `type: Literal["base64"]`
 
         - `class BetaManagedAgentsURLImageSource: …`
 
@@ -13675,19 +14418,19 @@ for event in client.beta.sessions.events.stream(
 
           Image referenced by file ID.
 
+          - `type: Literal["file"]`
+
           - `file_id: str`
 
             ID of a previously uploaded file.
 
             minLength: 1
 
-          - `type: Literal["file"]`
-
-      - `type: Literal["image"]`
-
     - `class BetaManagedAgentsDocumentBlock: …`
 
       Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+      - `type: Literal["document"]`
 
       - `source: Source`
 
@@ -13696,6 +14439,8 @@ for event in client.beta.sessions.events.stream(
         - `class BetaManagedAgentsBase64DocumentSource: …`
 
           Base64-encoded document data.
+
+          - `type: Literal["base64"]`
 
           - `data: str`
 
@@ -13709,11 +14454,11 @@ for event in client.beta.sessions.events.stream(
 
             minLength: 1
 
-          - `type: Literal["base64"]`
-
         - `class BetaManagedAgentsPlainTextDocumentSource: …`
 
           Plain text document content.
+
+          - `type: Literal["text"]`
 
           - `data: str`
 
@@ -13724,8 +14469,6 @@ for event in client.beta.sessions.events.stream(
           - `media_type: Literal["text/plain"]`
 
             MIME type of the text content. Must be "text/plain".
-
-          - `type: Literal["text"]`
 
         - `class BetaManagedAgentsURLDocumentSource: …`
 
@@ -13743,15 +14486,13 @@ for event in client.beta.sessions.events.stream(
 
           Document referenced by file ID.
 
+          - `type: Literal["file"]`
+
           - `file_id: str`
 
             ID of a previously uploaded file.
 
             minLength: 1
-
-          - `type: Literal["file"]`
-
-      - `type: Literal["document"]`
 
       - `context: Optional[str]`
 
@@ -13765,6 +14506,8 @@ for event in client.beta.sessions.events.stream(
 
       A block containing a web search result.
 
+      - `type: Literal["search_result"]`
+
       - `citations: BetaManagedAgentsSearchResultCitations`
 
         Citation settings for a search result.
@@ -13777,13 +14520,13 @@ for event in client.beta.sessions.events.stream(
 
         Array of text content blocks from the search result.
 
+        - `type: Literal["text"]`
+
         - `text: str`
 
           The text content.
 
           minLength: 1
-
-        - `type: Literal["text"]`
 
       - `source: str`
 
@@ -13797,8 +14540,6 @@ for event in client.beta.sessions.events.stream(
 
         minLength: 1
 
-      - `type: Literal["search_result"]`
-
   - `is_error: Optional[bool]`
 
     Whether the tool execution resulted in an error.
@@ -13808,6 +14549,8 @@ for event in client.beta.sessions.events.stream(
 - `class BetaManagedAgentsUserDefineOutcomeEvent: …`
 
   Echo of a `user.define_outcome` input event. Carries the server-generated `outcome_id` that subsequent `span.outcome_evaluation_*` events reference.
+
+  - `type: Literal["user.define_outcome"]`
 
   - `id: str`
 
@@ -13841,29 +14584,29 @@ for event in client.beta.sessions.events.stream(
 
       Rubric referenced by a file uploaded via the Files API.
 
+      - `type: Literal["file"]`
+
       - `file_id: str`
 
         ID of the rubric file.
-
-      - `type: Literal["file"]`
 
     - `class BetaManagedAgentsTextRubric: …`
 
       Rubric content provided inline as text.
 
+      - `type: Literal["text"]`
+
       - `content: str`
 
         Rubric content. Plain text or markdown — the grader treats it as freeform text.
-
-      - `type: Literal["text"]`
-
-  - `type: Literal["user.define_outcome"]`
 
 ### Beta Managed Agents User Define Outcome Event Params
 
 - `class BetaManagedAgentsUserDefineOutcomeEventParams: …`
 
   Parameters for defining an outcome the agent should work toward. The agent begins work on receipt.
+
+  - `type: Literal["user.define_outcome"]`
 
   - `description: str`
 
@@ -13877,25 +14620,23 @@ for event in client.beta.sessions.events.stream(
 
       Rubric referenced by a file uploaded via the Files API.
 
+      - `type: Literal["file"]`
+
       - `file_id: str`
 
         ID of the rubric file.
 
-      - `type: Literal["file"]`
-
     - `class BetaManagedAgentsTextRubricParams: …`
 
       Rubric content provided inline as text.
+
+      - `type: Literal["text"]`
 
       - `content: str`
 
         Rubric content. Plain text or markdown — the grader treats it as freeform text. Maximum 262144 characters.
 
         maxLength: 262144
-
-      - `type: Literal["text"]`
-
-  - `type: Literal["user.define_outcome"]`
 
   - `max_iterations: Optional[int]`
 
@@ -13909,11 +14650,11 @@ for event in client.beta.sessions.events.stream(
 
   An interrupt event that pauses agent execution and returns control to the user.
 
+  - `type: Literal["user.interrupt"]`
+
   - `id: str`
 
     Unique identifier for this event.
-
-  - `type: Literal["user.interrupt"]`
 
   - `processed_at: Optional[datetime]`
 
@@ -13943,6 +14684,8 @@ for event in client.beta.sessions.events.stream(
 
   A user message event in the session conversation.
 
+  - `type: Literal["user.message"]`
+
   - `id: str`
 
     Unique identifier for this event.
@@ -13955,17 +14698,19 @@ for event in client.beta.sessions.events.stream(
 
       Regular text content.
 
+      - `type: Literal["text"]`
+
       - `text: str`
 
         The text content.
 
         minLength: 1
 
-      - `type: Literal["text"]`
-
     - `class BetaManagedAgentsImageBlock: …`
 
       Image content specified directly as base64 data or as a reference via a URL.
+
+      - `type: Literal["image"]`
 
       - `source: Source`
 
@@ -13974,6 +14719,8 @@ for event in client.beta.sessions.events.stream(
         - `class BetaManagedAgentsBase64ImageSource: …`
 
           Base64-encoded image data.
+
+          - `type: Literal["base64"]`
 
           - `data: str`
 
@@ -13986,8 +14733,6 @@ for event in client.beta.sessions.events.stream(
             MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
 
             minLength: 1
-
-          - `type: Literal["base64"]`
 
         - `class BetaManagedAgentsURLImageSource: …`
 
@@ -14005,19 +14750,19 @@ for event in client.beta.sessions.events.stream(
 
           Image referenced by file ID.
 
+          - `type: Literal["file"]`
+
           - `file_id: str`
 
             ID of a previously uploaded file.
 
             minLength: 1
 
-          - `type: Literal["file"]`
-
-      - `type: Literal["image"]`
-
     - `class BetaManagedAgentsDocumentBlock: …`
 
       Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+      - `type: Literal["document"]`
 
       - `source: Source`
 
@@ -14026,6 +14771,8 @@ for event in client.beta.sessions.events.stream(
         - `class BetaManagedAgentsBase64DocumentSource: …`
 
           Base64-encoded document data.
+
+          - `type: Literal["base64"]`
 
           - `data: str`
 
@@ -14039,11 +14786,11 @@ for event in client.beta.sessions.events.stream(
 
             minLength: 1
 
-          - `type: Literal["base64"]`
-
         - `class BetaManagedAgentsPlainTextDocumentSource: …`
 
           Plain text document content.
+
+          - `type: Literal["text"]`
 
           - `data: str`
 
@@ -14054,8 +14801,6 @@ for event in client.beta.sessions.events.stream(
           - `media_type: Literal["text/plain"]`
 
             MIME type of the text content. Must be "text/plain".
-
-          - `type: Literal["text"]`
 
         - `class BetaManagedAgentsURLDocumentSource: …`
 
@@ -14073,15 +14818,13 @@ for event in client.beta.sessions.events.stream(
 
           Document referenced by file ID.
 
+          - `type: Literal["file"]`
+
           - `file_id: str`
 
             ID of a previously uploaded file.
 
             minLength: 1
-
-          - `type: Literal["file"]`
-
-      - `type: Literal["document"]`
 
       - `context: Optional[str]`
 
@@ -14096,8 +14839,6 @@ for event in client.beta.sessions.events.stream(
       Placeholder for content withheld by Anthropic model policy.
 
       - `type: Literal["redacted"]`
-
-  - `type: Literal["user.message"]`
 
   - `processed_at: Optional[datetime]`
 
@@ -14111,6 +14852,8 @@ for event in client.beta.sessions.events.stream(
 
   Parameters for sending a user message to the session.
 
+  - `type: Literal["user.message"]`
+
   - `content: Iterable[Content]`
 
     Array of content blocks for the user message.
@@ -14119,17 +14862,19 @@ for event in client.beta.sessions.events.stream(
 
       Regular text content.
 
+      - `type: Literal["text"]`
+
       - `text: str`
 
         The text content.
 
         minLength: 1
 
-      - `type: Literal["text"]`
-
     - `class BetaManagedAgentsImageBlock: …`
 
       Image content specified directly as base64 data or as a reference via a URL.
+
+      - `type: Literal["image"]`
 
       - `source: Source`
 
@@ -14138,6 +14883,8 @@ for event in client.beta.sessions.events.stream(
         - `class BetaManagedAgentsBase64ImageSource: …`
 
           Base64-encoded image data.
+
+          - `type: Literal["base64"]`
 
           - `data: str`
 
@@ -14150,8 +14897,6 @@ for event in client.beta.sessions.events.stream(
             MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
 
             minLength: 1
-
-          - `type: Literal["base64"]`
 
         - `class BetaManagedAgentsURLImageSource: …`
 
@@ -14169,19 +14914,19 @@ for event in client.beta.sessions.events.stream(
 
           Image referenced by file ID.
 
+          - `type: Literal["file"]`
+
           - `file_id: str`
 
             ID of a previously uploaded file.
 
             minLength: 1
 
-          - `type: Literal["file"]`
-
-      - `type: Literal["image"]`
-
     - `class BetaManagedAgentsDocumentBlock: …`
 
       Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+      - `type: Literal["document"]`
 
       - `source: Source`
 
@@ -14190,6 +14935,8 @@ for event in client.beta.sessions.events.stream(
         - `class BetaManagedAgentsBase64DocumentSource: …`
 
           Base64-encoded document data.
+
+          - `type: Literal["base64"]`
 
           - `data: str`
 
@@ -14203,11 +14950,11 @@ for event in client.beta.sessions.events.stream(
 
             minLength: 1
 
-          - `type: Literal["base64"]`
-
         - `class BetaManagedAgentsPlainTextDocumentSource: …`
 
           Plain text document content.
+
+          - `type: Literal["text"]`
 
           - `data: str`
 
@@ -14218,8 +14965,6 @@ for event in client.beta.sessions.events.stream(
           - `media_type: Literal["text/plain"]`
 
             MIME type of the text content. Must be "text/plain".
-
-          - `type: Literal["text"]`
 
         - `class BetaManagedAgentsURLDocumentSource: …`
 
@@ -14237,15 +14982,13 @@ for event in client.beta.sessions.events.stream(
 
           Document referenced by file ID.
 
+          - `type: Literal["file"]`
+
           - `file_id: str`
 
             ID of a previously uploaded file.
 
             minLength: 1
-
-          - `type: Literal["file"]`
-
-      - `type: Literal["document"]`
 
       - `context: Optional[str]`
 
@@ -14261,13 +15004,13 @@ for event in client.beta.sessions.events.stream(
 
       - `type: Literal["redacted"]`
 
-  - `type: Literal["user.message"]`
-
 ### Beta Managed Agents User Tool Confirmation Event
 
 - `class BetaManagedAgentsUserToolConfirmationEvent: …`
 
   A tool confirmation event that approves or denies a pending tool execution.
+
+  - `type: Literal["user.tool_confirmation"]`
 
   - `id: str`
 
@@ -14284,8 +15027,6 @@ for event in client.beta.sessions.events.stream(
   - `tool_use_id: str`
 
     The id of the `agent.tool_use` or `agent.mcp_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
-
-  - `type: Literal["user.tool_confirmation"]`
 
   - `deny_message: Optional[str]`
 
@@ -14309,6 +15050,8 @@ for event in client.beta.sessions.events.stream(
 
   Parameters for confirming or denying a tool execution request.
 
+  - `type: Literal["user.tool_confirmation"]`
+
   - `result: Literal["allow", "deny"]`
 
     UserToolConfirmationResult enum
@@ -14323,8 +15066,6 @@ for event in client.beta.sessions.events.stream(
 
     minLength: 1, maxLength: 128
 
-  - `type: Literal["user.tool_confirmation"]`
-
   - `deny_message: Optional[str]`
 
     Optional message providing context for a 'deny' decision. Only allowed when result is 'deny'.
@@ -14337,13 +15078,13 @@ for event in client.beta.sessions.events.stream(
 
   Parameters for providing the result of an agent-toolset tool execution. Only valid on `self_hosted` environments, where sandbox-routed tools are executed by the client rather than the server.
 
+  - `type: Literal["user.tool_result"]`
+
   - `tool_use_id: str`
 
     The id of the `agent.tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
 
     minLength: 1, maxLength: 128
-
-  - `type: Literal["user.tool_result"]`
 
   - `content: Optional[List[Content]]`
 
@@ -14353,17 +15094,19 @@ for event in client.beta.sessions.events.stream(
 
       Regular text content.
 
+      - `type: Literal["text"]`
+
       - `text: str`
 
         The text content.
 
         minLength: 1
 
-      - `type: Literal["text"]`
-
     - `class BetaManagedAgentsImageBlock: …`
 
       Image content specified directly as base64 data or as a reference via a URL.
+
+      - `type: Literal["image"]`
 
       - `source: Source`
 
@@ -14372,6 +15115,8 @@ for event in client.beta.sessions.events.stream(
         - `class BetaManagedAgentsBase64ImageSource: …`
 
           Base64-encoded image data.
+
+          - `type: Literal["base64"]`
 
           - `data: str`
 
@@ -14384,8 +15129,6 @@ for event in client.beta.sessions.events.stream(
             MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
 
             minLength: 1
-
-          - `type: Literal["base64"]`
 
         - `class BetaManagedAgentsURLImageSource: …`
 
@@ -14403,19 +15146,19 @@ for event in client.beta.sessions.events.stream(
 
           Image referenced by file ID.
 
+          - `type: Literal["file"]`
+
           - `file_id: str`
 
             ID of a previously uploaded file.
 
             minLength: 1
 
-          - `type: Literal["file"]`
-
-      - `type: Literal["image"]`
-
     - `class BetaManagedAgentsDocumentBlock: …`
 
       Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+      - `type: Literal["document"]`
 
       - `source: Source`
 
@@ -14424,6 +15167,8 @@ for event in client.beta.sessions.events.stream(
         - `class BetaManagedAgentsBase64DocumentSource: …`
 
           Base64-encoded document data.
+
+          - `type: Literal["base64"]`
 
           - `data: str`
 
@@ -14437,11 +15182,11 @@ for event in client.beta.sessions.events.stream(
 
             minLength: 1
 
-          - `type: Literal["base64"]`
-
         - `class BetaManagedAgentsPlainTextDocumentSource: …`
 
           Plain text document content.
+
+          - `type: Literal["text"]`
 
           - `data: str`
 
@@ -14452,8 +15197,6 @@ for event in client.beta.sessions.events.stream(
           - `media_type: Literal["text/plain"]`
 
             MIME type of the text content. Must be "text/plain".
-
-          - `type: Literal["text"]`
 
         - `class BetaManagedAgentsURLDocumentSource: …`
 
@@ -14471,15 +15214,13 @@ for event in client.beta.sessions.events.stream(
 
           Document referenced by file ID.
 
+          - `type: Literal["file"]`
+
           - `file_id: str`
 
             ID of a previously uploaded file.
 
             minLength: 1
-
-          - `type: Literal["file"]`
-
-      - `type: Literal["document"]`
 
       - `context: Optional[str]`
 
@@ -14493,6 +15234,8 @@ for event in client.beta.sessions.events.stream(
 
       A block containing a web search result.
 
+      - `type: Literal["search_result"]`
+
       - `citations: BetaManagedAgentsSearchResultCitations`
 
         Citation settings for a search result.
@@ -14505,13 +15248,13 @@ for event in client.beta.sessions.events.stream(
 
         Array of text content blocks from the search result.
 
+        - `type: Literal["text"]`
+
         - `text: str`
 
           The text content.
 
           minLength: 1
-
-        - `type: Literal["text"]`
 
       - `source: str`
 
@@ -14524,8 +15267,6 @@ for event in client.beta.sessions.events.stream(
         The title of the search result.
 
         minLength: 1
-
-      - `type: Literal["search_result"]`
 
   - `is_error: Optional[bool]`
 

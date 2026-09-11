@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/beta/organization/workspaces/members/update -->
 
+---
+title: Update Workspace Member
+url: https://platform.claude.com/docs/en/api/beta/organization/workspaces/members/update
+---
+
 # Update Workspace Member
 
 **POST** `/v1/organizations/workspaces/{workspace_id}/members/{user_id}`

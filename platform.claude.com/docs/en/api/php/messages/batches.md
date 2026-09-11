@@ -1,10 +1,15 @@
 <!-- source: https://platform.claude.com/docs/en/api/php/messages/batches -->
 
+---
+title: Batches
+url: https://platform.claude.com/docs/en/api/php/messages/batches
+---
+
 # Batches
 
 ## Create a Message Batch
 
-`$client->messages->batches->create(list<Request> requests, ?string userProfileID): MessageBatch`
+`$client->messages->batches->create(list<Request> requests, ?string userProfileID, ?string workspaceID): MessageBatch`
 
 **POST** `/v1/messages/batches`
 
@@ -24,9 +29,17 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   The user profile ID to attribute the requests in this batch to. Use when acting on behalf of a party other than your organization. Requires the `user-profiles` beta header. Applies to every request in the batch; an individual request whose `user_profile_id` body field conflicts with this header is errored.
 
+- `workspaceID?:optional string`
+
 ### Returns
 
 - `MessageBatch`
+
+  - `"message_batch" type`
+
+    Object type.
+
+    For Message Batches, this is always `"message_batch"`.
 
   - `string id`
 
@@ -71,12 +84,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
     URL to a `.jsonl` file containing the results of the Message Batch requests. Specified only once processing ends.
 
     Results in the file are not guaranteed to be in the same order as requests. Use the `custom_id` field to match results to requests.
-
-  - `"message_batch" type`
-
-    Object type.
-
-    For Message Batches, this is always `"message_batch"`.
 
 ### Example
 
@@ -155,6 +162,7 @@ $messageBatch = $client->messages->batches->create(
     ],
   ],
   userProfileID: 'anthropic-user-profile-id',
+  workspaceID: 'wrkspc_011CZkZaBF1tNoB5wlCeusgy',
 );
 
 var_dump($messageBatch);
@@ -185,7 +193,7 @@ var_dump($messageBatch);
 
 ## Retrieve a Message Batch
 
-`$client->messages->batches->retrieve(string messageBatchID): MessageBatch`
+`$client->messages->batches->retrieve(string messageBatchID, ?string workspaceID): MessageBatch`
 
 **GET** `/v1/messages/batches/{message_batch_id}`
 
@@ -199,9 +207,17 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   ID of the Message Batch.
 
+- `workspaceID?:optional string`
+
 ### Returns
 
 - `MessageBatch`
+
+  - `"message_batch" type`
+
+    Object type.
+
+    For Message Batches, this is always `"message_batch"`.
 
   - `string id`
 
@@ -247,12 +263,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     Results in the file are not guaranteed to be in the same order as requests. Use the `custom_id` field to match results to requests.
 
-  - `"message_batch" type`
-
-    Object type.
-
-    For Message Batches, this is always `"message_batch"`.
-
 ### Example
 
 ```php
@@ -262,7 +272,9 @@ require_once dirname(__DIR__) . '/vendor/autoload.php';
 
 $client = new Client(apiKey: 'my-anthropic-api-key');
 
-$messageBatch = $client->messages->batches->retrieve('message_batch_id');
+$messageBatch = $client->messages->batches->retrieve(
+  'message_batch_id', workspaceID: 'wrkspc_011CZkZaBF1tNoB5wlCeusgy'
+);
 
 var_dump($messageBatch);
 ```
@@ -292,7 +304,7 @@ var_dump($messageBatch);
 
 ## List Message Batches
 
-`$client->messages->batches->list(?string afterID, ?string beforeID, ?int limit): Page<MessageBatch>`
+`$client->messages->batches->list(?string afterID, ?string beforeID, ?int limit, ?string workspaceID): Page<MessageBatch>`
 
 **GET** `/v1/messages/batches`
 
@@ -318,9 +330,17 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   default: 20
 
+- `workspaceID?:optional string`
+
 ### Returns
 
 - `MessageBatch`
+
+  - `"message_batch" type`
+
+    Object type.
+
+    For Message Batches, this is always `"message_batch"`.
 
   - `string id`
 
@@ -366,12 +386,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     Results in the file are not guaranteed to be in the same order as requests. Use the `custom_id` field to match results to requests.
 
-  - `"message_batch" type`
-
-    Object type.
-
-    For Message Batches, this is always `"message_batch"`.
-
 ### Example
 
 ```php
@@ -382,7 +396,10 @@ require_once dirname(__DIR__) . '/vendor/autoload.php';
 $client = new Client(apiKey: 'my-anthropic-api-key');
 
 $page = $client->messages->batches->list(
-  afterID: 'after_id', beforeID: 'before_id', limit: 1
+  afterID: 'after_id',
+  beforeID: 'before_id',
+  limit: 1,
+  workspaceID: 'wrkspc_011CZkZaBF1tNoB5wlCeusgy',
 );
 
 var_dump($page);
@@ -420,7 +437,7 @@ var_dump($page);
 
 ## Cancel a Message Batch
 
-`$client->messages->batches->cancel(string messageBatchID): MessageBatch`
+`$client->messages->batches->cancel(string messageBatchID, ?string workspaceID): MessageBatch`
 
 **POST** `/v1/messages/batches/{message_batch_id}/cancel`
 
@@ -436,9 +453,17 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   ID of the Message Batch.
 
+- `workspaceID?:optional string`
+
 ### Returns
 
 - `MessageBatch`
+
+  - `"message_batch" type`
+
+    Object type.
+
+    For Message Batches, this is always `"message_batch"`.
 
   - `string id`
 
@@ -484,12 +509,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     Results in the file are not guaranteed to be in the same order as requests. Use the `custom_id` field to match results to requests.
 
-  - `"message_batch" type`
-
-    Object type.
-
-    For Message Batches, this is always `"message_batch"`.
-
 ### Example
 
 ```php
@@ -499,7 +518,9 @@ require_once dirname(__DIR__) . '/vendor/autoload.php';
 
 $client = new Client(apiKey: 'my-anthropic-api-key');
 
-$messageBatch = $client->messages->batches->cancel('message_batch_id');
+$messageBatch = $client->messages->batches->cancel(
+  'message_batch_id', workspaceID: 'wrkspc_011CZkZaBF1tNoB5wlCeusgy'
+);
 
 var_dump($messageBatch);
 ```
@@ -529,7 +550,7 @@ var_dump($messageBatch);
 
 ## Delete a Message Batch
 
-`$client->messages->batches->delete(string messageBatchID): DeletedMessageBatch`
+`$client->messages->batches->delete(string messageBatchID, ?string workspaceID): DeletedMessageBatch`
 
 **DELETE** `/v1/messages/batches/{message_batch_id}`
 
@@ -545,19 +566,21 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   ID of the Message Batch.
 
+- `workspaceID?:optional string`
+
 ### Returns
 
 - `DeletedMessageBatch`
-
-  - `string id`
-
-    ID of the Message Batch.
 
   - `"message_batch_deleted" type`
 
     Deleted object type.
 
     For Message Batches, this is always `"message_batch_deleted"`.
+
+  - `string id`
+
+    ID of the Message Batch.
 
 ### Example
 
@@ -568,7 +591,9 @@ require_once dirname(__DIR__) . '/vendor/autoload.php';
 
 $client = new Client(apiKey: 'my-anthropic-api-key');
 
-$deletedMessageBatch = $client->messages->batches->delete('message_batch_id');
+$deletedMessageBatch = $client->messages->batches->delete(
+  'message_batch_id', workspaceID: 'wrkspc_011CZkZaBF1tNoB5wlCeusgy'
+);
 
 var_dump($deletedMessageBatch);
 ```
@@ -584,7 +609,7 @@ var_dump($deletedMessageBatch);
 
 ## Retrieve Message Batch results
 
-`$client->messages->batches->results(string messageBatchID): MessageBatchIndividualResponse`
+`$client->messages->batches->results(string messageBatchID, ?string workspaceID): MessageBatchIndividualResponse`
 
 **GET** `/v1/messages/batches/{message_batch_id}/results`
 
@@ -599,6 +624,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 - `messageBatchID: string`
 
   ID of the Message Batch.
+
+- `workspaceID?:optional string`
 
 ### Returns
 
@@ -626,7 +653,7 @@ require_once dirname(__DIR__) . '/vendor/autoload.php';
 $client = new Client(apiKey: 'my-anthropic-api-key');
 
 $messageBatchIndividualResponse = $client->messages->batches->resultsStream(
-  'message_batch_id'
+  'message_batch_id', workspaceID: 'wrkspc_011CZkZaBF1tNoB5wlCeusgy'
 );
 
 var_dump($messageBatchIndividualResponse);
@@ -638,19 +665,25 @@ var_dump($messageBatchIndividualResponse);
 
 - `DeletedMessageBatch`
 
-  - `string id`
-
-    ID of the Message Batch.
-
   - `"message_batch_deleted" type`
 
     Deleted object type.
 
     For Message Batches, this is always `"message_batch_deleted"`.
 
+  - `string id`
+
+    ID of the Message Batch.
+
 ### Message Batch
 
 - `MessageBatch`
+
+  - `"message_batch" type`
+
+    Object type.
+
+    For Message Batches, this is always `"message_batch"`.
 
   - `string id`
 
@@ -696,12 +729,6 @@ var_dump($messageBatchIndividualResponse);
 
     Results in the file are not guaranteed to be in the same order as requests. Use the `custom_id` field to match results to requests.
 
-  - `"message_batch" type`
-
-    Object type.
-
-    For Message Batches, this is always `"message_batch"`.
-
 ### Message Batch Canceled Result
 
 - `MessageBatchCanceledResult`
@@ -712,9 +739,9 @@ var_dump($messageBatchIndividualResponse);
 
 - `MessageBatchErroredResult`
 
-  - `ErrorResponse error`
-
   - `"errored" type`
+
+  - `ErrorResponse error`
 
 ### Message Batch Expired Result
 
@@ -776,15 +803,15 @@ var_dump($messageBatchIndividualResponse);
 
   - `MessageBatchSucceededResult`
 
-    - `Message message`
-
     - `"succeeded" type`
+
+    - `Message message`
 
   - `MessageBatchErroredResult`
 
-    - `ErrorResponse error`
-
     - `"errored" type`
+
+    - `ErrorResponse error`
 
   - `MessageBatchCanceledResult`
 
@@ -798,6 +825,6 @@ var_dump($messageBatchIndividualResponse);
 
 - `MessageBatchSucceededResult`
 
-  - `Message message`
-
   - `"succeeded" type`
+
+  - `Message message`

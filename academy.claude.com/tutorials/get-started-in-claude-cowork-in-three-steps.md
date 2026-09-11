@@ -24,9 +24,9 @@ From the home page, select ***Cowork*** in the mode picker.
 
 ![](https://academy.claude.com/assets/media/6b130760316f10078d23e877c42fc8a6b619754601264ce0d73ccbd260a1c940.png)
 
-## 2. Run **/setup-cowork** for a guided setup[](#2-run-setup-cowork-for-a-guided-setup)
+## 2. Run **/setup-claude** for a guided setup[](#2-run-setup-claude-for-a-guided-setup)
 
-*In your first Cowork session, type* [*`/setup-cowork`*](claude://cowork/new?q=%2Fsetup-cowork) *and press enter.*
+*In your first Cowork session, type* [*`/setup-claude`*](claude://cowork/new?q=%2Fsetup-claude) *and press enter.*
 
 Claude walks you through setup in the conversation: pick your role, install a plugin matched to it, and connect the tools that plugin uses — Slack, Google Workspace or Microsoft 365, and whichever systems your role lives in. New users will see a **Set up Cowork** banner that starts the same flow; the skill works anytime you want to revisit it.
 
@@ -58,7 +58,7 @@ Type `/` for the starting prompts your plugin installed, or browse [Cowork use c
 * [**Use Cowork safely**(opens in new tab)](https://support.claude.com/en/articles/13364135-use-cowork-safely) — what Cowork can access and how approvals work.
 
 * [1. Open Claude Cowork in the desktop app](#1-open-claude-cowork-in-the-desktop-app)
-* [2. Run /setup-cowork for a guided setup](#2-run-setup-cowork-for-a-guided-setup)
+* [2. Run /setup-claude for a guided setup](#2-run-setup-claude-for-a-guided-setup)
 * [3. Give Claude Cowork a place to work](#3-give-claude-cowork-a-place-to-work)
 * [4. Try your first task](#4-try-your-first-task)
 * [Learn more](#learn-more)

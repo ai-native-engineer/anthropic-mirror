@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/ruby/beta/environments/work/update -->
 
+---
+title: Update Work Item
+url: https://platform.claude.com/docs/en/api/ruby/beta/environments/work/update
+---
+
 # Update Work Item
 
 `beta.environments.work.update(work_id, **kwargs) -> BetaSelfHostedWork`
@@ -26,7 +31,7 @@ Update work item metadata with merge semantics.
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 41 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 42 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -74,6 +79,8 @@ Update work item metadata with merge semantics.
 
     - `:"user-profiles-2026-08-18"`
 
+    - `:"user-profiles-2026-09-04"`
+
     - `:"advisor-tool-2026-03-01"`
 
     - `:"managed-agents-2026-04-01"`
@@ -116,6 +123,8 @@ Update work item metadata with merge semantics.
 
     - `:"mid-conversation-system-clear-at-2026-08-21"`
 
+- `workspace_id: String`
+
 ## Returns
 
 - `class BetaSelfHostedWork`
@@ -125,6 +134,10 @@ Update work item metadata with merge semantics.
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
+  - `type: :work`
+
+    The type of object (always 'work')
 
   - `id: String`
 
@@ -142,13 +155,13 @@ Update work item metadata with merge semantics.
 
     The actual work to be performed
 
-    - `id: String`
-
-      Session identifier (e.g., 'session_...')
-
     - `type: :session`
 
       Type of work data
+
+    - `id: String`
+
+      Session identifier (e.g., 'session_...')
 
   - `environment_id: String`
 
@@ -191,10 +204,6 @@ Update work item metadata with merge semantics.
   - `stopped_at: String`
 
     RFC 3339 timestamp when work execution stopped
-
-  - `type: :work`
-
-    The type of object (always 'work')
 
 ## Example
 

@@ -24,7 +24,7 @@ The survey’s results provide initial evidence that [observed exposure](https:/
 
 ## Who worries about job displacement?
 
-*“Well like anyone who has a white collar job these days I'm 100% concerned, pretty much 24/7 concerned about losing my job eventually to A.I.”—Software engineer.1*
+*“Well like anyone who has a white collar job these days I'm 100% concerned, pretty much 24/7 concerned about losing my job eventually to A.I.”—Software engineer.[1](#footnote-1)*
 
 One fifth of the respondents in our survey voiced concern about economic displacement. Some worried about this in the abstract: one software developer cautioned about “the possibility of AI in its current state being used to replace junior positions.” Others lamented that their jobs, or aspects of their jobs, were being automated away. One market researcher said, “In terms of improving my capability, it's no doubt. [B]ut in the future AI may replace my work.” In some jobs, people felt it made their work harder. One software developer observed that “when AI arrived, the project managers started giving harder and harder tickets and bugs to solve.”
 
@@ -38,7 +38,7 @@ We show this in Figure 1 below. The y-axis is the percentage of respondents in a
 
 **Figure 1: Perceived job threat from AI and Observed Exposure.** Percentage of respondents indicating some job threat from AI vs. the Observed Exposure measure from [Massenkoff and McCrory (2026)](https://www.anthropic.com/research/labor-market-impacts). A respondent was coded as indicating job threat if they said their role was already being replaced or substantially reduced, or that such changes were likely in the near term (coded using Claude). The green line shows a simple linear fit.
 
-Another important worker characteristic is career stage. In previous research, we reported [tentative signs](https://cdn.sanity.io/files/4zrzovbb/website/a42bc3fc08283562f08fd8bdee8f6f9a3d506e87.pdf) of a slowdown in the hiring of recent graduates and early-career workers in the United States. For about half of respondents in this survey, we were able to infer career stage from their answers.2 We found that early-career respondents were much more likely to express concern about job displacement than senior workers.
+Another important worker characteristic is career stage. In previous research, we reported [tentative signs](https://cdn.sanity.io/files/4zrzovbb/website/a42bc3fc08283562f08fd8bdee8f6f9a3d506e87.pdf) of a slowdown in the hiring of recent graduates and early-career workers in the United States. For about half of respondents in this survey, we were able to infer career stage from their answers.[2](#footnote-2) We found that early-career respondents were much more likely to express concern about job displacement than senior workers.
 
 ![](https://www-cdn.anthropic.com/images/4zrzovbb/website/e734cb6470a143e7fafa0ec0e0b1070ea63118db-1920x1080.png)
 
@@ -46,7 +46,7 @@ Another important worker characteristic is career stage. In previous research, w
 
 ## Who benefits from AI?
 
-Using Claude to assess the survey responses, we rated the extent of people’s self-reported productivity gains from AI on a 1–7 scale, where 1 is “less productive,” 2 is “no change,” and each subsequent level denotes a larger gain. Responses that scored 7 included testimonials like, “It used to take months to make the website I [made] in 4-5 days”; Claude gave a 5 to statements like, “What might have taken four hours was accomplished in half the time,” and a 2 to ones like, “Personally, I had AI help me fix code on a website. But it took multiple passes to get the result I was after.”3
+Using Claude to assess the survey responses, we rated the extent of people’s self-reported productivity gains from AI on a 1–7 scale, where 1 is “less productive,” 2 is “no change,” and each subsequent level denotes a larger gain. Responses that scored 7 included testimonials like, “It used to take months to make the website I [made] in 4-5 days”; Claude gave a 5 to statements like, “What might have taken four hours was accomplished in half the time,” and a 2 to ones like, “Personally, I had AI help me fix code on a website. But it took multiple passes to get the result I was after.”[3](#footnote-3)
 
 Overall, people reported meaningful productivity gains on average. The mean productivity rating was 5.1, corresponding to “substantially more productive.” Our respondents were, of course, active Claude users who were willing to take a survey. This could make them more likely to report productivity benefits than the average user. Some 3% reported negative or neutral impacts, and 42% did not give a clear indication on productivity.
 
@@ -58,9 +58,9 @@ Some of the lowest-paid workers describe high productivity gains as well. This i
 
 **Figure 3: Inferred productivity gain by occupation.** The left panel shows the mean inferred productivity benefit from AI (inferred using a Claude-powered classifier) by quartile of occupational median wage from the BLS. The right panel shows the same outcome, split by major occupational group. Error bars show 95% confidence intervals.
 
-We look at this in more detail in the right panel of Figure 3, showing the inferred productivity gain by major occupational group. At the top are management occupations. These respondents are mostly entrepreneurs using Claude to build a business.4 The next highest category is computer and math, which includes software developers. The two groups exhibiting the mildest productivity improvements were workers in scientific and legal professions. Some lawyers worried about AI’s ability to follow precise instructions. For example: “I have given very specific rules about what is where, how to read a legal document, what I want it to do… but it diverges every time.”
+We look at this in more detail in the right panel of Figure 3, showing the inferred productivity gain by major occupational group. At the top are management occupations. These respondents are mostly entrepreneurs using Claude to build a business.[4](#footnote-4) The next highest category is computer and math, which includes software developers. The two groups exhibiting the mildest productivity improvements were workers in scientific and legal professions. Some lawyers worried about AI’s ability to follow precise instructions. For example: “I have given very specific rules about what is where, how to read a legal document, what I want it to do… but it diverges every time.”
 
-A key question as AI diffuses through the economy is where the benefits will accrue—to workers, their managers, consumers, or corporations. Respondents indicated the recipient of these gains in about a quarter of interviews. Overall, most of these people cited benefits to themselves, through faster tasks, expanded scope, and freed-up time.5 But 10% of respondents who named a recipient said that employers or clients were asking for and getting more work. A smaller share mentioned benefits to AI companies, and an even smaller share said that AI would be a net negative. This depended on career stage: only 60% of early-career workers indicated that they personally benefited from AI, compared to 80% of senior professionals.
+A key question as AI diffuses through the economy is where the benefits will accrue—to workers, their managers, consumers, or corporations. Respondents indicated the recipient of these gains in about a quarter of interviews. Overall, most of these people cited benefits to themselves, through faster tasks, expanded scope, and freed-up time.[5](#footnote-5) But 10% of respondents who named a recipient said that employers or clients were asking for and getting more work. A smaller share mentioned benefits to AI companies, and an even smaller share said that AI would be a net negative. This depended on career stage: only 60% of early-career workers indicated that they personally benefited from AI, compared to 80% of senior professionals.
 
 ![](https://www-cdn.anthropic.com/images/4zrzovbb/website/4c1138907fd70ea69195da8100056a9e4801b030-1920x1080.png)
 
@@ -130,6 +130,12 @@ Additionally, we thank Miriam Chaum, Ankur Rathi, Santi Ruiz, and David Saunders
 4. Removing these “solopreneurs” still leaves management tied with computer and math occupations for showing the highest productivity benefit.
 5. A major caveat, however, is that this survey went out to people with personal Claude accounts. A more representative picture would also include enterprise users, who may be more likely to say the value accrues to their employers.
 
+### Measuring tactical intelligence targeting and conventional weapons capabilities of AI models
+
+Anthropic’s Frontier Red Team developed new evaluations to measure AI capabilities in tactical intelligence targeting and conventional weapons development.
+
+[Read more](https://www.anthropic.com/research/intelligence-targeting-conventional-weapons-capabilities)
+
 ### An alignment assessment of recent cybersecurity incidents
 
 We present an alignment assessment of four incidents in which Claude models gained unauthorized access to real third-party systems.
@@ -138,12 +144,6 @@ We present an alignment assessment of four incidents in which Claude models gain
 
 ### Formalizing Fermat's Last Theorem
 
-We are sharing the first complete computer-checked proof of Fermat’s Last Theorem. Claude worked largely autonomously over 11 days to write the proof in the Lean programming language. Below, we describe how the formalization was done and share some thoughts about what this work could mean for research mathematics.
+We are sharing the first complete computer-checked proof of Fermat’s Last Theorem. Claude worked largely autonomously over 11 days to write the proof in the Lean programming language.
 
 [Read more](https://www.anthropic.com/research/formalizing-fermats-last-theorem)
-
-### Automated researchers can reliably mitigate alignment failures
-
-We had Claude autonomously train models to improve their performance on several public benchmarks that measure 10 categories of alignment failure. For all 10, Claude found fixes that improved the target benchmarks without degrading capabilities.
-
-[Read more](https://www.anthropic.com/research/automated-researchers-mitigate-alignment-failures)

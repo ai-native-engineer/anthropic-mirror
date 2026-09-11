@@ -93,7 +93,7 @@ Pick one Claude surface your organization does not use today, and run the three 
 
 The course closes with a short quiz that checks the concepts have landed. Your completed companion, not a score, is the evidence you’re ready.
 
-[Previous lessonHow the decisions connect](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence/how-the-decisions-connect)[Next lessonCertificate quiz](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence/certificate-quiz)
+[Previous lessonHow the decisions connect](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence/how-the-decisions-connect)[Next lessonCourse quiz](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence/certificate-quiz)
 
 Lesson 14 of 14 · Deploying Claude Enterprise with Confidence: The five decisions that shape your rolloutWhen a new product arrives
 
@@ -131,7 +131,7 @@ Your rollout
 
 * [How the decisions connect](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence/how-the-decisions-connect)
 * [When a new product arrives](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence/when-a-new-product-arrives)
-* [Certificate quizQuiz](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence/certificate-quiz)
+* [Course quizQuiz](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence/certificate-quiz)
 
 * [Completion badge](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence/badge)
 

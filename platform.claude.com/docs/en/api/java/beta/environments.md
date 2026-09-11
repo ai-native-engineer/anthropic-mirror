@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/java/beta/environments -->
 
+---
+title: Environments
+url: https://platform.claude.com/docs/en/api/java/beta/environments
+---
+
 # Environments
 
 ## Create Environment
@@ -64,6 +69,8 @@ Create a new environment with the specified configuration.
 
     - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
 
+    - `USER_PROFILES_2026_09_04("user-profiles-2026-09-04")`
+
     - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
@@ -105,6 +112,8 @@ Create a new environment with the specified configuration.
     - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
 
     - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
+  - `Optional<String> workspaceId`
 
   - `String name`
 
@@ -170,6 +179,10 @@ Create a new environment with the specified configuration.
 
         Under `limited` networking, requires `networking.allow_package_managers` to be `true`.
 
+        - `Optional<Type> type`
+
+          Package configuration type
+
         - `Optional<List<String>> apt`
 
           Ubuntu/Debian packages to install
@@ -194,10 +207,6 @@ Create a new environment with the specified configuration.
 
           Python packages to install
 
-        - `Optional<Type> type`
-
-          Package configuration type
-
     - `class BetaSelfHostedConfigParams:`
 
       Request params for `self_hosted` environment configuration.
@@ -218,7 +227,7 @@ Create a new environment with the specified configuration.
 
   - `Optional<Scope> scope`
 
-    The visibility scope for this environment. 'organization' makes the environment visible to all accounts. 'account' restricts visibility to the owning account only. Only applicable for self-hosted environments. If not specified, defaults based on organization type.
+    The visibility scope for this environment. 'organization' makes the environment visible to all accounts. 'account' restricts visibility to the owning account only. API organizations support only 'organization'; 'account' is rejected. If not specified, defaults based on organization type.
 
     - `ORGANIZATION("organization")`
 
@@ -229,6 +238,10 @@ Create a new environment with the specified configuration.
 - `class BetaEnvironment:`
 
   Unified Environment resource for both cloud and self-hosted environments.
+
+  - `JsonValue type = "environment"`
+
+    The type of object (always 'environment')
 
   - `String id`
 
@@ -246,6 +259,10 @@ Create a new environment with the specified configuration.
 
       `cloud` environment configuration.
 
+      - `JsonValue type = "cloud"`
+
+        Environment type
+
       - `Networking networking`
 
         Network configuration policy.
@@ -262,6 +279,10 @@ Create a new environment with the specified configuration.
 
           Limited network access.
 
+          - `JsonValue type = "limited"`
+
+            Network policy type
+
           - `boolean allowMcpServers`
 
             Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
@@ -274,13 +295,13 @@ Create a new environment with the specified configuration.
 
             Specifies domains the container can reach.
 
-          - `JsonValue type = "limited"`
-
-            Network policy type
-
       - `BetaPackages packages`
 
         Package manager configuration.
+
+        - `Optional<Type> type`
+
+          Package configuration type
 
         - `List<String> apt`
 
@@ -306,14 +327,6 @@ Create a new environment with the specified configuration.
 
           Python packages to install
 
-        - `Optional<Type> type`
-
-          Package configuration type
-
-      - `JsonValue type = "cloud"`
-
-        Environment type
-
     - `class BetaSelfHostedConfig:`
 
       Configuration for self-hosted environments.
@@ -337,10 +350,6 @@ Create a new environment with the specified configuration.
   - `String name`
 
     Human-readable name for the environment
-
-  - `JsonValue type = "environment"`
-
-    The type of object (always 'environment')
 
   - `String updatedAt`
 
@@ -503,6 +512,8 @@ List environments with pagination support.
 
     - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
 
+    - `USER_PROFILES_2026_09_04("user-profiles-2026-09-04")`
+
     - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
@@ -545,11 +556,17 @@ List environments with pagination support.
 
     - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
+  - `Optional<String> workspaceId`
+
 ### Returns
 
 - `class BetaEnvironment:`
 
   Unified Environment resource for both cloud and self-hosted environments.
+
+  - `JsonValue type = "environment"`
+
+    The type of object (always 'environment')
 
   - `String id`
 
@@ -567,6 +584,10 @@ List environments with pagination support.
 
       `cloud` environment configuration.
 
+      - `JsonValue type = "cloud"`
+
+        Environment type
+
       - `Networking networking`
 
         Network configuration policy.
@@ -583,6 +604,10 @@ List environments with pagination support.
 
           Limited network access.
 
+          - `JsonValue type = "limited"`
+
+            Network policy type
+
           - `boolean allowMcpServers`
 
             Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
@@ -595,13 +620,13 @@ List environments with pagination support.
 
             Specifies domains the container can reach.
 
-          - `JsonValue type = "limited"`
-
-            Network policy type
-
       - `BetaPackages packages`
 
         Package manager configuration.
+
+        - `Optional<Type> type`
+
+          Package configuration type
 
         - `List<String> apt`
 
@@ -627,14 +652,6 @@ List environments with pagination support.
 
           Python packages to install
 
-        - `Optional<Type> type`
-
-          Package configuration type
-
-      - `JsonValue type = "cloud"`
-
-        Environment type
-
     - `class BetaSelfHostedConfig:`
 
       Configuration for self-hosted environments.
@@ -658,10 +675,6 @@ List environments with pagination support.
   - `String name`
 
     Human-readable name for the environment
-
-  - `JsonValue type = "environment"`
-
-    The type of object (always 'environment')
 
   - `String updatedAt`
 
@@ -814,6 +827,8 @@ Retrieve a specific environment by ID.
 
     - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
 
+    - `USER_PROFILES_2026_09_04("user-profiles-2026-09-04")`
+
     - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
@@ -856,11 +871,17 @@ Retrieve a specific environment by ID.
 
     - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
+  - `Optional<String> workspaceId`
+
 ### Returns
 
 - `class BetaEnvironment:`
 
   Unified Environment resource for both cloud and self-hosted environments.
+
+  - `JsonValue type = "environment"`
+
+    The type of object (always 'environment')
 
   - `String id`
 
@@ -878,6 +899,10 @@ Retrieve a specific environment by ID.
 
       `cloud` environment configuration.
 
+      - `JsonValue type = "cloud"`
+
+        Environment type
+
       - `Networking networking`
 
         Network configuration policy.
@@ -894,6 +919,10 @@ Retrieve a specific environment by ID.
 
           Limited network access.
 
+          - `JsonValue type = "limited"`
+
+            Network policy type
+
           - `boolean allowMcpServers`
 
             Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
@@ -906,13 +935,13 @@ Retrieve a specific environment by ID.
 
             Specifies domains the container can reach.
 
-          - `JsonValue type = "limited"`
-
-            Network policy type
-
       - `BetaPackages packages`
 
         Package manager configuration.
+
+        - `Optional<Type> type`
+
+          Package configuration type
 
         - `List<String> apt`
 
@@ -938,14 +967,6 @@ Retrieve a specific environment by ID.
 
           Python packages to install
 
-        - `Optional<Type> type`
-
-          Package configuration type
-
-      - `JsonValue type = "cloud"`
-
-        Environment type
-
     - `class BetaSelfHostedConfig:`
 
       Configuration for self-hosted environments.
@@ -969,10 +990,6 @@ Retrieve a specific environment by ID.
   - `String name`
 
     Human-readable name for the environment
-
-  - `JsonValue type = "environment"`
-
-    The type of object (always 'environment')
 
   - `String updatedAt`
 
@@ -1120,6 +1137,8 @@ Update an existing environment's configuration.
 
     - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
 
+    - `USER_PROFILES_2026_09_04("user-profiles-2026-09-04")`
+
     - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
@@ -1161,6 +1180,8 @@ Update an existing environment's configuration.
     - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
 
     - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
+  - `Optional<String> workspaceId`
 
   - `Optional<Config> config`
 
@@ -1220,6 +1241,10 @@ Update an existing environment's configuration.
 
         Under `limited` networking, requires `networking.allow_package_managers` to be `true`.
 
+        - `Optional<Type> type`
+
+          Package configuration type
+
         - `Optional<List<String>> apt`
 
           Ubuntu/Debian packages to install
@@ -1243,10 +1268,6 @@ Update an existing environment's configuration.
         - `Optional<List<String>> pip`
 
           Python packages to install
-
-        - `Optional<Type> type`
-
-          Package configuration type
 
     - `class BetaSelfHostedConfigParams:`
 
@@ -1286,6 +1307,10 @@ Update an existing environment's configuration.
 
   Unified Environment resource for both cloud and self-hosted environments.
 
+  - `JsonValue type = "environment"`
+
+    The type of object (always 'environment')
+
   - `String id`
 
     Environment identifier (e.g., 'env_...')
@@ -1301,6 +1326,10 @@ Update an existing environment's configuration.
     - `class BetaCloudConfig:`
 
       `cloud` environment configuration.
+
+      - `JsonValue type = "cloud"`
+
+        Environment type
 
       - `Networking networking`
 
@@ -1318,6 +1347,10 @@ Update an existing environment's configuration.
 
           Limited network access.
 
+          - `JsonValue type = "limited"`
+
+            Network policy type
+
           - `boolean allowMcpServers`
 
             Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
@@ -1330,13 +1363,13 @@ Update an existing environment's configuration.
 
             Specifies domains the container can reach.
 
-          - `JsonValue type = "limited"`
-
-            Network policy type
-
       - `BetaPackages packages`
 
         Package manager configuration.
+
+        - `Optional<Type> type`
+
+          Package configuration type
 
         - `List<String> apt`
 
@@ -1362,14 +1395,6 @@ Update an existing environment's configuration.
 
           Python packages to install
 
-        - `Optional<Type> type`
-
-          Package configuration type
-
-      - `JsonValue type = "cloud"`
-
-        Environment type
-
     - `class BetaSelfHostedConfig:`
 
       Configuration for self-hosted environments.
@@ -1393,10 +1418,6 @@ Update an existing environment's configuration.
   - `String name`
 
     Human-readable name for the environment
-
-  - `JsonValue type = "environment"`
-
-    The type of object (always 'environment')
 
   - `String updatedAt`
 
@@ -1544,6 +1565,8 @@ Delete an environment by ID. Returns a confirmation of the deletion.
 
     - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
 
+    - `USER_PROFILES_2026_09_04("user-profiles-2026-09-04")`
+
     - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
@@ -1586,19 +1609,21 @@ Delete an environment by ID. Returns a confirmation of the deletion.
 
     - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
+  - `Optional<String> workspaceId`
+
 ### Returns
 
 - `class BetaEnvironmentDeleteResponse:`
 
   Response after deleting an environment.
 
-  - `String id`
-
-    Environment identifier
-
   - `Type type`
 
     The type of response
+
+  - `String id`
+
+    Environment identifier
 
 ### Example
 
@@ -1694,6 +1719,8 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
     - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
 
+    - `USER_PROFILES_2026_09_04("user-profiles-2026-09-04")`
+
     - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
@@ -1736,11 +1763,17 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
     - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
+  - `Optional<String> workspaceId`
+
 ### Returns
 
 - `class BetaEnvironment:`
 
   Unified Environment resource for both cloud and self-hosted environments.
+
+  - `JsonValue type = "environment"`
+
+    The type of object (always 'environment')
 
   - `String id`
 
@@ -1758,6 +1791,10 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
       `cloud` environment configuration.
 
+      - `JsonValue type = "cloud"`
+
+        Environment type
+
       - `Networking networking`
 
         Network configuration policy.
@@ -1774,6 +1811,10 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
           Limited network access.
 
+          - `JsonValue type = "limited"`
+
+            Network policy type
+
           - `boolean allowMcpServers`
 
             Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
@@ -1786,13 +1827,13 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
             Specifies domains the container can reach.
 
-          - `JsonValue type = "limited"`
-
-            Network policy type
-
       - `BetaPackages packages`
 
         Package manager configuration.
+
+        - `Optional<Type> type`
+
+          Package configuration type
 
         - `List<String> apt`
 
@@ -1818,14 +1859,6 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
           Python packages to install
 
-        - `Optional<Type> type`
-
-          Package configuration type
-
-      - `JsonValue type = "cloud"`
-
-        Environment type
-
     - `class BetaSelfHostedConfig:`
 
       Configuration for self-hosted environments.
@@ -1849,10 +1882,6 @@ Archive an environment by ID. Archived environments cannot be used to create new
   - `String name`
 
     Human-readable name for the environment
-
-  - `JsonValue type = "environment"`
-
-    The type of object (always 'environment')
 
   - `String updatedAt`
 
@@ -1944,6 +1973,10 @@ public final class Main {
 
   `cloud` environment configuration.
 
+  - `JsonValue type = "cloud"`
+
+    Environment type
+
   - `Networking networking`
 
     Network configuration policy.
@@ -1960,6 +1993,10 @@ public final class Main {
 
       Limited network access.
 
+      - `JsonValue type = "limited"`
+
+        Network policy type
+
       - `boolean allowMcpServers`
 
         Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
@@ -1972,13 +2009,13 @@ public final class Main {
 
         Specifies domains the container can reach.
 
-      - `JsonValue type = "limited"`
-
-        Network policy type
-
   - `BetaPackages packages`
 
     Package manager configuration.
+
+    - `Optional<Type> type`
+
+      Package configuration type
 
     - `List<String> apt`
 
@@ -2003,14 +2040,6 @@ public final class Main {
     - `List<String> pip`
 
       Python packages to install
-
-    - `Optional<Type> type`
-
-      Package configuration type
-
-  - `JsonValue type = "cloud"`
-
-    Environment type
 
 ### Beta Cloud Config Params
 
@@ -2068,6 +2097,10 @@ public final class Main {
 
     Under `limited` networking, requires `networking.allow_package_managers` to be `true`.
 
+    - `Optional<Type> type`
+
+      Package configuration type
+
     - `Optional<List<String>> apt`
 
       Ubuntu/Debian packages to install
@@ -2092,15 +2125,15 @@ public final class Main {
 
       Python packages to install
 
-    - `Optional<Type> type`
-
-      Package configuration type
-
 ### Beta Environment
 
 - `class BetaEnvironment:`
 
   Unified Environment resource for both cloud and self-hosted environments.
+
+  - `JsonValue type = "environment"`
+
+    The type of object (always 'environment')
 
   - `String id`
 
@@ -2118,6 +2151,10 @@ public final class Main {
 
       `cloud` environment configuration.
 
+      - `JsonValue type = "cloud"`
+
+        Environment type
+
       - `Networking networking`
 
         Network configuration policy.
@@ -2134,6 +2171,10 @@ public final class Main {
 
           Limited network access.
 
+          - `JsonValue type = "limited"`
+
+            Network policy type
+
           - `boolean allowMcpServers`
 
             Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
@@ -2146,13 +2187,13 @@ public final class Main {
 
             Specifies domains the container can reach.
 
-          - `JsonValue type = "limited"`
-
-            Network policy type
-
       - `BetaPackages packages`
 
         Package manager configuration.
+
+        - `Optional<Type> type`
+
+          Package configuration type
 
         - `List<String> apt`
 
@@ -2178,14 +2219,6 @@ public final class Main {
 
           Python packages to install
 
-        - `Optional<Type> type`
-
-          Package configuration type
-
-      - `JsonValue type = "cloud"`
-
-        Environment type
-
     - `class BetaSelfHostedConfig:`
 
       Configuration for self-hosted environments.
@@ -2210,10 +2243,6 @@ public final class Main {
 
     Human-readable name for the environment
 
-  - `JsonValue type = "environment"`
-
-    The type of object (always 'environment')
-
   - `String updatedAt`
 
     RFC 3339 timestamp when environment was last updated
@@ -2232,19 +2261,23 @@ public final class Main {
 
   Response after deleting an environment.
 
-  - `String id`
-
-    Environment identifier
-
   - `Type type`
 
     The type of response
+
+  - `String id`
+
+    Environment identifier
 
 ### Beta Limited Network
 
 - `class BetaLimitedNetwork:`
 
   Limited network access.
+
+  - `JsonValue type = "limited"`
+
+    Network policy type
 
   - `boolean allowMcpServers`
 
@@ -2257,10 +2290,6 @@ public final class Main {
   - `List<String> allowedHosts`
 
     Specifies domains the container can reach.
-
-  - `JsonValue type = "limited"`
-
-    Network policy type
 
 ### Beta Limited Network Params
 
@@ -2293,6 +2322,10 @@ public final class Main {
 
   Packages (and their versions) available in this environment.
 
+  - `Optional<Type> type`
+
+    Package configuration type
+
   - `List<String> apt`
 
     Ubuntu/Debian packages to install
@@ -2317,10 +2350,6 @@ public final class Main {
 
     Python packages to install
 
-  - `Optional<Type> type`
-
-    Package configuration type
-
 ### Beta Packages Params
 
 - `class BetaPackagesParams:`
@@ -2330,6 +2359,10 @@ public final class Main {
   When versioning, use the version semantics relevant for the package manager, e.g. for `pip` use `package==1.0.0`. You are responsible for validating the package and version exist. Unversioned installs the latest.
 
   Under `limited` networking, requires `networking.allow_package_managers` to be `true`.
+
+  - `Optional<Type> type`
+
+    Package configuration type
 
   - `Optional<List<String>> apt`
 
@@ -2354,10 +2387,6 @@ public final class Main {
   - `Optional<List<String>> pip`
 
     Python packages to install
-
-  - `Optional<Type> type`
-
-    Package configuration type
 
 ### Beta Self Hosted Config
 
@@ -2459,6 +2488,8 @@ Retrieve detailed information about a specific work item.
 
     - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
 
+    - `USER_PROFILES_2026_09_04("user-profiles-2026-09-04")`
+
     - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
@@ -2501,6 +2532,8 @@ Retrieve detailed information about a specific work item.
 
     - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
+  - `Optional<String> workspaceId`
+
 #### Returns
 
 - `class BetaSelfHostedWork:`
@@ -2510,6 +2543,10 @@ Retrieve detailed information about a specific work item.
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
+  - `JsonValue type = "work"`
+
+    The type of object (always 'work')
 
   - `String id`
 
@@ -2527,13 +2564,13 @@ Retrieve detailed information about a specific work item.
 
     The actual work to be performed
 
-    - `String id`
-
-      Session identifier (e.g., 'session_...')
-
     - `JsonValue type = "session"`
 
       Type of work data
+
+    - `String id`
+
+      Session identifier (e.g., 'session_...')
 
   - `String environmentId`
 
@@ -2576,10 +2613,6 @@ Retrieve detailed information about a specific work item.
   - `Optional<String> stoppedAt`
 
     RFC 3339 timestamp when work execution stopped
-
-  - `JsonValue type = "work"`
-
-    The type of object (always 'work')
 
 #### Example
 
@@ -2709,6 +2742,8 @@ Long poll for work items in the queue.
 
     - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
 
+    - `USER_PROFILES_2026_09_04("user-profiles-2026-09-04")`
+
     - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
@@ -2765,6 +2800,10 @@ Long poll for work items in the queue.
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
 
+  - `JsonValue type = "work"`
+
+    The type of object (always 'work')
+
   - `String id`
 
     Work identifier (e.g., 'work_...')
@@ -2781,13 +2820,13 @@ Long poll for work items in the queue.
 
     The actual work to be performed
 
-    - `String id`
-
-      Session identifier (e.g., 'session_...')
-
     - `JsonValue type = "session"`
 
       Type of work data
+
+    - `String id`
+
+      Session identifier (e.g., 'session_...')
 
   - `String environmentId`
 
@@ -2830,10 +2869,6 @@ Long poll for work items in the queue.
   - `Optional<String> stoppedAt`
 
     RFC 3339 timestamp when work execution stopped
-
-  - `JsonValue type = "work"`
-
-    The type of object (always 'work')
 
 #### Example
 
@@ -2950,6 +2985,8 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
 
     - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
 
+    - `USER_PROFILES_2026_09_04("user-profiles-2026-09-04")`
+
     - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
@@ -3002,6 +3039,10 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
 
+  - `JsonValue type = "work"`
+
+    The type of object (always 'work')
+
   - `String id`
 
     Work identifier (e.g., 'work_...')
@@ -3018,13 +3059,13 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
 
     The actual work to be performed
 
-    - `String id`
-
-      Session identifier (e.g., 'session_...')
-
     - `JsonValue type = "session"`
 
       Type of work data
+
+    - `String id`
+
+      Session identifier (e.g., 'session_...')
 
   - `String environmentId`
 
@@ -3067,10 +3108,6 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
   - `Optional<String> stoppedAt`
 
     RFC 3339 timestamp when work execution stopped
-
-  - `JsonValue type = "work"`
-
-    The type of object (always 'work')
 
 #### Example
 
@@ -3198,6 +3235,8 @@ Record a heartbeat for a work item to maintain the lease.
 
     - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
 
+    - `USER_PROFILES_2026_09_04("user-profiles-2026-09-04")`
+
     - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
@@ -3246,6 +3285,10 @@ Record a heartbeat for a work item to maintain the lease.
 
   Response after recording a heartbeat for a work item.
 
+  - `JsonValue type = "work_heartbeat"`
+
+    The type of response
+
   - `String lastHeartbeat`
 
     RFC 3339 timestamp of the actual heartbeat from DB
@@ -3271,10 +3314,6 @@ Record a heartbeat for a work item to maintain the lease.
   - `long ttlSeconds`
 
     Effective TTL applied to the lease
-
-  - `JsonValue type = "work_heartbeat"`
-
-    The type of response
 
 #### Example
 
@@ -3381,6 +3420,8 @@ Stop a work item, initiating graceful or forced shutdown.
 
     - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
 
+    - `USER_PROFILES_2026_09_04("user-profiles-2026-09-04")`
+
     - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
@@ -3423,6 +3464,8 @@ Stop a work item, initiating graceful or forced shutdown.
 
     - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
+  - `Optional<String> workspaceId`
+
   - `BetaSelfHostedWorkStopRequest betaSelfHostedWorkStopRequest`
 
     Request to stop a work item.
@@ -3436,6 +3479,10 @@ Stop a work item, initiating graceful or forced shutdown.
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
+  - `JsonValue type = "work"`
+
+    The type of object (always 'work')
 
   - `String id`
 
@@ -3453,13 +3500,13 @@ Stop a work item, initiating graceful or forced shutdown.
 
     The actual work to be performed
 
-    - `String id`
-
-      Session identifier (e.g., 'session_...')
-
     - `JsonValue type = "session"`
 
       Type of work data
+
+    - `String id`
+
+      Session identifier (e.g., 'session_...')
 
   - `String environmentId`
 
@@ -3502,10 +3549,6 @@ Stop a work item, initiating graceful or forced shutdown.
   - `Optional<String> stoppedAt`
 
     RFC 3339 timestamp when work execution stopped
-
-  - `JsonValue type = "work"`
-
-    The type of object (always 'work')
 
 #### Example
 
@@ -3635,6 +3678,8 @@ List work items in an environment.
 
     - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
 
+    - `USER_PROFILES_2026_09_04("user-profiles-2026-09-04")`
+
     - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
@@ -3687,6 +3732,10 @@ List work items in an environment.
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
 
+  - `JsonValue type = "work"`
+
+    The type of object (always 'work')
+
   - `String id`
 
     Work identifier (e.g., 'work_...')
@@ -3703,13 +3752,13 @@ List work items in an environment.
 
     The actual work to be performed
 
-    - `String id`
-
-      Session identifier (e.g., 'session_...')
-
     - `JsonValue type = "session"`
 
       Type of work data
+
+    - `String id`
+
+      Session identifier (e.g., 'session_...')
 
   - `String environmentId`
 
@@ -3752,10 +3801,6 @@ List work items in an environment.
   - `Optional<String> stoppedAt`
 
     RFC 3339 timestamp when work execution stopped
-
-  - `JsonValue type = "work"`
-
-    The type of object (always 'work')
 
 #### Example
 
@@ -3876,6 +3921,8 @@ Update work item metadata with merge semantics.
 
     - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
 
+    - `USER_PROFILES_2026_09_04("user-profiles-2026-09-04")`
+
     - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
@@ -3918,6 +3965,8 @@ Update work item metadata with merge semantics.
 
     - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
+  - `Optional<String> workspaceId`
+
   - `BetaSelfHostedWorkUpdateRequest betaSelfHostedWorkUpdateRequest`
 
     Request to update work item metadata.
@@ -3931,6 +3980,10 @@ Update work item metadata with merge semantics.
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
+  - `JsonValue type = "work"`
+
+    The type of object (always 'work')
 
   - `String id`
 
@@ -3948,13 +4001,13 @@ Update work item metadata with merge semantics.
 
     The actual work to be performed
 
-    - `String id`
-
-      Session identifier (e.g., 'session_...')
-
     - `JsonValue type = "session"`
 
       Type of work data
+
+    - `String id`
+
+      Session identifier (e.g., 'session_...')
 
   - `String environmentId`
 
@@ -3997,10 +4050,6 @@ Update work item metadata with merge semantics.
   - `Optional<String> stoppedAt`
 
     RFC 3339 timestamp when work execution stopped
-
-  - `JsonValue type = "work"`
-
-    The type of object (always 'work')
 
 #### Example
 
@@ -4121,6 +4170,8 @@ Get statistics about the work queue for an environment.
 
     - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
 
+    - `USER_PROFILES_2026_09_04("user-profiles-2026-09-04")`
+
     - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
@@ -4163,6 +4214,8 @@ Get statistics about the work queue for an environment.
 
     - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
+  - `Optional<String> workspaceId`
+
 #### Returns
 
 - `class BetaSelfHostedWorkQueueStats:`
@@ -4170,6 +4223,10 @@ Get statistics about the work queue for an environment.
   Statistics about the work queue for an environment.
 
   Uses Redis Stream consumer group metrics for O(1) queries.
+
+  - `JsonValue type = "work_queue_stats"`
+
+    The type of object
 
   - `long depth`
 
@@ -4182,10 +4239,6 @@ Get statistics about the work queue for an environment.
   - `long pending`
 
     Number of work items being processed (polled but not acknowledged)
-
-  - `JsonValue type = "work_queue_stats"`
-
-    The type of object
 
   - `Optional<Long> workersPolling`
 

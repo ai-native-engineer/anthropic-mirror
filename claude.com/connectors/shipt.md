@@ -17,6 +17,16 @@ Only use connectors from developers you trust. Anthropic does not control which 
 
 ## Related connectors
 
+![](https://agent.enrichlabs.ai/avatars/helena.png)
+
+### [Helena by Enrich Labs](https://claude.com/connectors/helena-by-enrich-labs)
+
+Trending
+
+Your AI marketer for paid ads, SEO, email, social, and analytics
+
+[Add Helena by Enrich Labs in Claude (opens in new tab)](https://claude.ai/directory/0da6abdc-62c3-4272-940b-898189371a48 "Add in Claude")
+
 ![](https://www.google.com/s2/favicons?domain=shopify.com&sz=96)
 
 ### [Shopify](https://claude.com/connectors/shopify)
@@ -25,13 +35,13 @@ Build, manage, and analyze your Shopify store
 
 [Add Shopify in Claude (opens in new tab)](https://claude.ai/directory/80917cb7-3071-4fca-b053-a4262d356c60 "Add in Claude")
 
-![](https://agent.enrichlabs.ai/avatars/helena.png)
+![](https://metricool.com/wp-content/uploads/cropped-web-app-manifest-512x512-1-180x180.png)
 
-### [Helena by Enrich Labs](https://claude.com/connectors/helena-by-enrich-labs)
+### [Metricool Social Media Management](https://claude.com/connectors/metricool-social-media-management)
 
-Your AI marketer for paid ads, SEO, email, social, and analytics
+Schedule post, analyze & manage social media with AI
 
-[Add Helena by Enrich Labs in Claude (opens in new tab)](https://claude.ai/directory/0da6abdc-62c3-4272-940b-898189371a48 "Add in Claude")
+[Add Metricool Social Media Management in Claude (opens in new tab)](https://claude.ai/directory/70ba6d62-7e98-4ef4-9073-d161d900a95f "Add in Claude")
 
 ![](https://www.google.com/s2/favicons?domain=salesforce.com&sz=96)
 
@@ -40,14 +50,6 @@ Your AI marketer for paid ads, SEO, email, social, and analytics
 Sell, serve, and operate at scale with Salesforce.
 
 [Add Salesforce - Beta in Claude (opens in new tab)](https://claude.ai/directory/a352dbf6-c732-43d4-84c1-0bbb389d3921 "Add in Claude")
-
-![](https://metricool.com/wp-content/uploads/cropped-web-app-manifest-512x512-1-180x180.png)
-
-### [Metricool Social Media Management](https://claude.com/connectors/metricool-social-media-management)
-
-Schedule post, analyze & manage social media with AI
-
-[Add Metricool Social Media Management in Claude (opens in new tab)](https://claude.ai/directory/70ba6d62-7e98-4ef4-9073-d161d900a95f "Add in Claude")
 
 ![](https://www.google.com/s2/favicons?domain=openrush.com&sz=96)
 

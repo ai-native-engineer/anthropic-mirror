@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/python/messages/batches -->
 
+---
+title: Batches
+url: https://platform.claude.com/docs/en/api/python/messages/batches
+---
+
 # Batches
 
 ## Create a Message Batch
@@ -107,11 +112,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           - `class TextBlockParam: …`
 
+            - `type: Literal["text"]`
+
             - `text: str`
 
               minLength: 1
-
-            - `type: Literal["text"]`
 
             - `cache_control: Optional[CacheControlEphemeral]`
 
@@ -138,6 +143,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `class CitationCharLocationParam: …`
 
+                - `type: Literal["char_location"]`
+
                 - `cited_text: str`
 
                 - `document_index: int`
@@ -154,9 +161,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   minimum: 0
 
-                - `type: Literal["char_location"]`
-
               - `class CitationPageLocationParam: …`
+
+                - `type: Literal["page_location"]`
 
                 - `cited_text: str`
 
@@ -174,9 +181,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   minimum: 1
 
-                - `type: Literal["page_location"]`
-
               - `class CitationContentBlockLocationParam: …`
+
+                - `type: Literal["content_block_location"]`
 
                 - `cited_text: str`
 
@@ -204,9 +211,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   minimum: 0
 
-                - `type: Literal["content_block_location"]`
-
               - `class CitationWebSearchResultLocationParam: …`
+
+                - `type: Literal["web_search_result_location"]`
 
                 - `cited_text: str`
 
@@ -216,13 +223,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   maxLength: 512, minLength: 1
 
-                - `type: Literal["web_search_result_location"]`
-
                 - `url: str`
 
                   minLength: 1
 
               - `class CitationSearchResultLocationParam: …`
+
+                - `type: Literal["search_result_location"]`
 
                 - `cited_text: str`
 
@@ -254,13 +261,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `title: Optional[str]`
 
-                - `type: Literal["search_result_location"]`
-
           - `class ImageBlockParam: …`
+
+            - `type: Literal["image"]`
 
             - `source: Source`
 
               - `class Base64ImageSource: …`
+
+                - `type: Literal["base64"]`
 
                 - `data: str`
 
@@ -276,8 +285,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `"image/webp"`
 
-                - `type: Literal["base64"]`
-
               - `class URLImageSource: …`
 
                 - `type: Literal["url"]`
@@ -286,11 +293,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `class FileImageSource: …`
 
-                - `file_id: str`
-
                 - `type: Literal["file"]`
 
-            - `type: Literal["image"]`
+                - `file_id: str`
 
             - `cache_control: Optional[CacheControlEphemeral]`
 
@@ -310,9 +315,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           - `class DocumentBlockParam: …`
 
+            - `type: Literal["document"]`
+
             - `source: Source`
 
               - `class Base64PDFSource: …`
+
+                - `type: Literal["base64"]`
 
                 - `data: str`
 
@@ -320,17 +329,17 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `media_type: Literal["application/pdf"]`
 
-                - `type: Literal["base64"]`
-
               - `class PlainTextSource: …`
+
+                - `type: Literal["text"]`
 
                 - `data: str`
 
                 - `media_type: Literal["text/plain"]`
 
-                - `type: Literal["text"]`
-
               - `class ContentBlockSource: …`
+
+                - `type: Literal["content"]`
 
                 - `content: Union[str, List[ContentBlockSourceContent]]`
 
@@ -342,8 +351,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     - `class ImageBlockParam: …`
 
-                - `type: Literal["content"]`
-
               - `class URLPDFSource: …`
 
                 - `type: Literal["url"]`
@@ -352,11 +359,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `class FileDocumentSource: …`
 
-                - `file_id: str`
-
                 - `type: Literal["file"]`
 
-            - `type: Literal["document"]`
+                - `file_id: str`
 
             - `cache_control: Optional[CacheControlEphemeral]`
 
@@ -376,13 +381,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           - `class SearchResultBlockParam: …`
 
+            - `type: Literal["search_result"]`
+
             - `content: List[TextBlockParam]`
+
+              - `type: Literal["text"]`
 
               - `text: str`
 
                 minLength: 1
-
-              - `type: Literal["text"]`
 
               - `cache_control: Optional[CacheControlEphemeral]`
 
@@ -394,8 +401,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `title: str`
 
-            - `type: Literal["search_result"]`
-
             - `cache_control: Optional[CacheControlEphemeral]`
 
               Create a cache control breakpoint at this content block.
@@ -403,6 +408,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
             - `citations: Optional[CitationsConfigParam]`
 
           - `class ThinkingBlockParam: …`
+
+            - `type: Literal["thinking"]`
 
             - `signature: str`
 
@@ -414,17 +421,17 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               The `thinking` text of this block as returned by the API.
 
-            - `type: Literal["thinking"]`
-
           - `class RedactedThinkingBlockParam: …`
+
+            - `type: Literal["redacted_thinking"]`
 
             - `data: str`
 
               The `data` value of this redacted thinking block, exactly as returned by the API in a previous response. Opaque and encrypted; pass it back unchanged.
 
-            - `type: Literal["redacted_thinking"]`
-
           - `class ToolUseBlockParam: …`
+
+            - `type: Literal["tool_use"]`
 
             - `id: str`
 
@@ -435,8 +442,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
             - `name: str`
 
               maxLength: 200, minLength: 1
-
-            - `type: Literal["tool_use"]`
 
             - `cache_control: Optional[CacheControlEphemeral]`
 
@@ -456,19 +461,19 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 Tool invocation generated by a server-side tool.
 
+                - `type: Literal["code_execution_20250825"]`
+
                 - `tool_id: str`
 
                   pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-                - `type: Literal["code_execution_20250825"]`
 
               - `class ServerToolCaller20260120: …`
 
+                - `type: Literal["code_execution_20260120"]`
+
                 - `tool_id: str`
 
                   pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-                - `type: Literal["code_execution_20260120"]`
 
             - `toolset_name: Optional[str]`
 
@@ -478,11 +483,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           - `class ToolResultBlockParam: …`
 
+            - `type: Literal["tool_result"]`
+
             - `tool_use_id: str`
 
               pattern: ^[a-zA-Z0-9_-]+$
-
-            - `type: Literal["tool_result"]`
 
             - `cache_control: Optional[CacheControlEphemeral]`
 
@@ -506,11 +511,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   Tool reference block that can be included in tool_result content.
 
+                  - `type: Literal["tool_reference"]`
+
                   - `tool_name: str`
 
                     maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
-
-                  - `type: Literal["tool_reference"]`
 
                   - `cache_control: Optional[CacheControlEphemeral]`
 
@@ -525,6 +530,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
                   At most one per `tool_result`, only on a non-error result answering a
                   browser toolset member `tool_use`. The server renders the
                   model-visible text from it; the model never sees the raw fields.
+
+                  - `type: Literal["browser_state"]`
 
                   - `tabs: List[BrowserStateTabEntry]`
 
@@ -554,8 +561,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                       Whether this tab is the active tab after this call. Whenever `tabs` is non-empty, exactly one entry is marked `active: true`.
 
-                  - `type: Literal["browser_state"]`
-
                   - `cache_control: Optional[CacheControlEphemeral]`
 
                     Create a cache control breakpoint at this content block.
@@ -576,25 +581,25 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
                       during a failed call gets no deferred `tab_opened`; it simply appears
                       in the next result's `tabs` inventory.
 
+                      - `type: Literal["tab_opened"]`
+
                       - `tab_id: str`
 
                         The `tab_id` of the opened tab, present in `tabs`.
 
                         maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-                      - `type: Literal["tab_opened"]`
-
                     - `class BrowserStateChangeDownloadStarted: …`
 
                       A file download that started during this call.
+
+                      - `type: Literal["download_started"]`
 
                       - `download_id: str`
 
                         The caller-assigned identifier for this download, stable across the state changes reporting it.
 
                         maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
-
-                      - `type: Literal["download_started"]`
 
                       - `url: str`
 
@@ -609,13 +614,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
                       `download_started`, when the download finished during the call that
                       started it (at most one state change per `download_id` per result).
 
+                      - `type: Literal["download_completed"]`
+
                       - `download_id: str`
 
                         The caller-assigned identifier for this download, stable across the state changes reporting it.
 
                         maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
-
-                      - `type: Literal["download_completed"]`
 
                       - `url: str`
 
@@ -639,13 +644,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                       A file download that failed — or was cancelled — during this call.
 
+                      - `type: Literal["download_failed"]`
+
                       - `download_id: str`
 
                         The caller-assigned identifier for this download, stable across the state changes reporting it.
 
                         maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
-
-                      - `type: Literal["download_failed"]`
 
                       - `url: str`
 
@@ -669,6 +674,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           - `class ServerToolUseBlockParam: …`
 
+            - `type: Literal["server_tool_use"]`
+
             - `id: str`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
@@ -691,8 +698,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `"tool_search_tool_bm25"`
 
-            - `type: Literal["server_tool_use"]`
-
             - `cache_control: Optional[CacheControlEphemeral]`
 
               Create a cache control breakpoint at this content block.
@@ -713,21 +718,25 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           - `class WebSearchToolResultBlockParam: …`
 
+            - `type: Literal["web_search_tool_result"]`
+
             - `content: WebSearchToolResultBlockParamContent`
 
               - `List[WebSearchResultBlockParam]`
 
+                - `type: Literal["web_search_result"]`
+
                 - `encrypted_content: str`
 
                 - `title: str`
-
-                - `type: Literal["web_search_result"]`
 
                 - `url: str`
 
                 - `page_age: Optional[str]`
 
               - `class WebSearchToolRequestError: …`
+
+                - `type: Literal["web_search_tool_result_error"]`
 
                 - `error_code: WebSearchToolResultErrorCode`
 
@@ -743,13 +752,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `"request_too_large"`
 
-                - `type: Literal["web_search_tool_result_error"]`
-
             - `tool_use_id: str`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-            - `type: Literal["web_search_tool_result"]`
 
             - `cache_control: Optional[CacheControlEphemeral]`
 
@@ -771,9 +776,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           - `class WebFetchToolResultBlockParam: …`
 
+            - `type: Literal["web_fetch_tool_result"]`
+
             - `content: Content`
 
               - `class WebFetchToolResultErrorBlockParam: …`
+
+                - `type: Literal["web_fetch_tool_result_error"]`
 
                 - `error_code: WebFetchToolResultErrorCode`
 
@@ -795,13 +804,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `"unavailable"`
 
-                - `type: Literal["web_fetch_tool_result_error"]`
+                  - `"content_too_large"`
 
               - `class WebFetchBlockParam: …`
 
-                - `content: DocumentBlockParam`
-
                 - `type: Literal["web_fetch_result"]`
+
+                - `content: DocumentBlockParam`
 
                 - `url: str`
 
@@ -814,8 +823,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
             - `tool_use_id: str`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-            - `type: Literal["web_fetch_tool_result"]`
 
             - `cache_control: Optional[CacheControlEphemeral]`
 
@@ -837,11 +844,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           - `class CodeExecutionToolResultBlockParam: …`
 
+            - `type: Literal["code_execution_tool_result"]`
+
             - `content: CodeExecutionToolResultBlockParamContent`
 
               Code execution result with encrypted stdout for PFC + web_search results.
 
               - `class CodeExecutionToolResultErrorParam: …`
+
+                - `type: Literal["code_execution_tool_result_error"]`
 
                 - `error_code: CodeExecutionToolResultErrorCode`
 
@@ -853,15 +864,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `"execution_time_exceeded"`
 
-                - `type: Literal["code_execution_tool_result_error"]`
-
               - `class CodeExecutionResultBlockParam: …`
+
+                - `type: Literal["code_execution_result"]`
 
                 - `content: List[CodeExecutionOutputBlockParam]`
 
-                  - `file_id: str`
-
                   - `type: Literal["code_execution_output"]`
+
+                  - `file_id: str`
 
                 - `return_code: int`
 
@@ -869,17 +880,17 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `stdout: str`
 
-                - `type: Literal["code_execution_result"]`
-
               - `class EncryptedCodeExecutionResultBlockParam: …`
 
                 Code execution result with encrypted stdout for PFC + web_search results.
 
+                - `type: Literal["encrypted_code_execution_result"]`
+
                 - `content: List[CodeExecutionOutputBlockParam]`
 
-                  - `file_id: str`
-
                   - `type: Literal["code_execution_output"]`
+
+                  - `file_id: str`
 
                 - `encrypted_stdout: str`
 
@@ -887,13 +898,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `stderr: str`
 
-                - `type: Literal["encrypted_code_execution_result"]`
-
             - `tool_use_id: str`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-            - `type: Literal["code_execution_tool_result"]`
 
             - `cache_control: Optional[CacheControlEphemeral]`
 
@@ -901,9 +908,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           - `class BashCodeExecutionToolResultBlockParam: …`
 
+            - `type: Literal["bash_code_execution_tool_result"]`
+
             - `content: Content`
 
               - `class BashCodeExecutionToolResultErrorParam: …`
+
+                - `type: Literal["bash_code_execution_tool_result_error"]`
 
                 - `error_code: BashCodeExecutionToolResultErrorCode`
 
@@ -917,15 +928,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `"output_file_too_large"`
 
-                - `type: Literal["bash_code_execution_tool_result_error"]`
-
               - `class BashCodeExecutionResultBlockParam: …`
+
+                - `type: Literal["bash_code_execution_result"]`
 
                 - `content: List[BashCodeExecutionOutputBlockParam]`
 
-                  - `file_id: str`
-
                   - `type: Literal["bash_code_execution_output"]`
+
+                  - `file_id: str`
 
                 - `return_code: int`
 
@@ -933,13 +944,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `stdout: str`
 
-                - `type: Literal["bash_code_execution_result"]`
-
             - `tool_use_id: str`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-            - `type: Literal["bash_code_execution_tool_result"]`
 
             - `cache_control: Optional[CacheControlEphemeral]`
 
@@ -947,9 +954,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           - `class TextEditorCodeExecutionToolResultBlockParam: …`
 
+            - `type: Literal["text_editor_code_execution_tool_result"]`
+
             - `content: Content`
 
               - `class TextEditorCodeExecutionToolResultErrorParam: …`
+
+                - `type: Literal["text_editor_code_execution_tool_result_error"]`
 
                 - `error_code: TextEditorCodeExecutionToolResultErrorCode`
 
@@ -963,11 +974,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `"file_not_found"`
 
-                - `type: Literal["text_editor_code_execution_tool_result_error"]`
-
                 - `error_message: Optional[str]`
 
               - `class TextEditorCodeExecutionViewResultBlockParam: …`
+
+                - `type: Literal["text_editor_code_execution_view_result"]`
 
                 - `content: str`
 
@@ -979,8 +990,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `"pdf"`
 
-                - `type: Literal["text_editor_code_execution_view_result"]`
-
                 - `num_lines: Optional[int]`
 
                 - `start_line: Optional[int]`
@@ -989,9 +998,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `class TextEditorCodeExecutionCreateResultBlockParam: …`
 
-                - `is_file_update: bool`
-
                 - `type: Literal["text_editor_code_execution_create_result"]`
+
+                - `is_file_update: bool`
 
               - `class TextEditorCodeExecutionStrReplaceResultBlockParam: …`
 
@@ -1011,17 +1020,19 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-            - `type: Literal["text_editor_code_execution_tool_result"]`
-
             - `cache_control: Optional[CacheControlEphemeral]`
 
               Create a cache control breakpoint at this content block.
 
           - `class ToolSearchToolResultBlockParam: …`
 
+            - `type: Literal["tool_search_tool_result"]`
+
             - `content: Content`
 
               - `class ToolSearchToolResultErrorParam: …`
+
+                - `type: Literal["tool_search_tool_result_error"]`
 
                 - `error_code: ToolSearchToolResultErrorCode`
 
@@ -1033,31 +1044,27 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `"execution_time_exceeded"`
 
-                - `type: Literal["tool_search_tool_result_error"]`
-
                 - `error_message: Optional[str]`
 
               - `class ToolSearchToolSearchResultBlockParam: …`
 
+                - `type: Literal["tool_search_tool_search_result"]`
+
                 - `tool_references: List[ToolReferenceBlockParam]`
+
+                  - `type: Literal["tool_reference"]`
 
                   - `tool_name: str`
 
                     maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
-                  - `type: Literal["tool_reference"]`
-
                   - `cache_control: Optional[CacheControlEphemeral]`
 
                     Create a cache control breakpoint at this content block.
 
-                - `type: Literal["tool_search_tool_search_result"]`
-
             - `tool_use_id: str`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-            - `type: Literal["tool_search_tool_result"]`
 
             - `cache_control: Optional[CacheControlEphemeral]`
 
@@ -1068,9 +1075,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
             A content block that represents a file to be uploaded to the container
             Files uploaded via this block will be available in the container's input directory.
 
-            - `file_id: str`
-
             - `type: Literal["container_upload"]`
+
+            - `file_id: str`
 
             - `cache_control: Optional[CacheControlEphemeral]`
 
@@ -1206,12 +1213,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           maxItems: 20
 
-          - `skill_id: str`
-
-            Skill ID
-
-            maxLength: 64, minLength: 1
-
           - `type: Literal["anthropic", "custom"]`
 
             Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
@@ -1219,6 +1220,12 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
             - `"anthropic"`
 
             - `"custom"`
+
+          - `skill_id: str`
+
+            Skill ID
+
+            maxLength: 64, minLength: 1
 
           - `version: Optional[str]`
 
@@ -1266,11 +1273,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         A schema to specify Claude's output format in responses. See [structured outputs](https://platform.claude.com/docs/en/build-with-claude/structured-outputs)
 
+        - `type: Literal["json_schema"]`
+
         - `schema: Dict[str, object]`
 
           The JSON schema of the format
-
-        - `type: Literal["json_schema"]`
 
     - `service_tier: Optional[Literal["auto", "standard_only"]]`
 
@@ -1306,11 +1313,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `Iterable[TextBlockParam]`
 
+        - `type: Literal["text"]`
+
         - `text: str`
 
           minLength: 1
-
-        - `type: Literal["text"]`
 
         - `cache_control: Optional[CacheControlEphemeral]`
 
@@ -1328,6 +1335,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `class ThinkingConfigEnabled: …`
 
+        - `type: Literal["enabled"]`
+
         - `budget_tokens: int`
 
           Determines how many tokens Claude can use for its internal reasoning process. Larger budgets can enable more thorough analysis for complex problems, improving response quality.
@@ -1337,8 +1346,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
           See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
 
           minimum: 1024
-
-        - `type: Literal["enabled"]`
 
         - `display: Optional[Literal["summarized", "omitted"]]`
 
@@ -1396,11 +1403,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         The model will use the specified tool with `tool_choice.name`.
 
+        - `type: Literal["tool"]`
+
         - `name: str`
 
           The name of the tool to use.
-
-        - `type: Literal["tool"]`
 
         - `disable_parallel_tool_use: Optional[bool]`
 
@@ -1480,6 +1487,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `class Tool: …`
 
+        - `type: Optional[Literal["custom"]]`
+
         - `input_schema: InputSchema`
 
           [JSON schema](https://json-schema.org/draft/2020-12) for this tool's input.
@@ -1534,17 +1543,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           When true, guarantees schema validation on tool names and inputs
 
-        - `type: Optional[Literal["custom"]]`
-
       - `class ToolBash20250124: …`
+
+        - `type: Literal["bash_20250124"]`
 
         - `name: Literal["bash"]`
 
           Name of the tool.
 
           This is how the tool will be called by the model and in `tool_use` blocks.
-
-        - `type: Literal["bash_20250124"]`
 
         - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -1572,13 +1579,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `class CodeExecutionTool20250522: …`
 
+        - `type: Literal["code_execution_20250522"]`
+
         - `name: Literal["code_execution"]`
 
           Name of the tool.
 
           This is how the tool will be called by the model and in `tool_use` blocks.
-
-        - `type: Literal["code_execution_20250522"]`
 
         - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -1604,13 +1611,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `class CodeExecutionTool20250825: …`
 
+        - `type: Literal["code_execution_20250825"]`
+
         - `name: Literal["code_execution"]`
 
           Name of the tool.
 
           This is how the tool will be called by the model and in `tool_use` blocks.
-
-        - `type: Literal["code_execution_20250825"]`
 
         - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -1638,13 +1645,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         Code execution tool with REPL state persistence (daemon mode + gVisor checkpoint).
 
+        - `type: Literal["code_execution_20260120"]`
+
         - `name: Literal["code_execution"]`
 
           Name of the tool.
 
           This is how the tool will be called by the model and in `tool_use` blocks.
-
-        - `type: Literal["code_execution_20260120"]`
 
         - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -1672,13 +1679,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         Code execution tool with REPL state persistence.
 
+        - `type: Literal["code_execution_20260521"]`
+
         - `name: Literal["code_execution"]`
 
           Name of the tool.
 
           This is how the tool will be called by the model and in `tool_use` blocks.
-
-        - `type: Literal["code_execution_20260521"]`
 
         - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -1723,6 +1730,18 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
           accepted key, and a member's defaults apply wherever its key is
           absent. Unknown keys are rejected: the field set is this toolset
           version's complete member set.
+
+          - `type: Optional[BrowserTypeConfig]`
+
+            `type`'s config overrides.
+
+            - `defer_loading: Optional[bool]`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: Optional[bool]`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
           - `close_tab: Optional[BrowserCloseTabConfig]`
 
@@ -2060,18 +2079,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-          - `type: Optional[BrowserTypeConfig]`
-
-            `type`'s config overrides.
-
-            - `defer_loading: Optional[bool]`
-
-              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-            - `enabled: Optional[bool]`
-
-              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
           - `wait: Optional[BrowserWaitConfig]`
 
             `wait`'s config overrides.
@@ -2098,13 +2105,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `class MemoryTool20250818: …`
 
+        - `type: Literal["memory_20250818"]`
+
         - `name: Literal["memory"]`
 
           Name of the tool.
 
           This is how the tool will be called by the model and in `tool_use` blocks.
-
-        - `type: Literal["memory_20250818"]`
 
         - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -2155,6 +2162,18 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
           accepted key, and a member's defaults apply wherever its key is
           absent. Unknown keys are rejected: the field set is this toolset
           version's complete member set.
+
+          - `type: Optional[ComputerTypeConfig]`
+
+            `type`'s config overrides.
+
+            - `defer_loading: Optional[bool]`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: Optional[bool]`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
           - `cursor_position: Optional[ComputerCursorPositionConfig]`
 
@@ -2324,18 +2343,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-          - `type: Optional[ComputerTypeConfig]`
-
-            `type`'s config overrides.
-
-            - `defer_loading: Optional[bool]`
-
-              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-            - `enabled: Optional[bool]`
-
-              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
           - `wait: Optional[ComputerWaitConfig]`
 
             `wait`'s config overrides.
@@ -2362,13 +2369,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `class ToolTextEditor20250124: …`
 
+        - `type: Literal["text_editor_20250124"]`
+
         - `name: Literal["str_replace_editor"]`
 
           Name of the tool.
 
           This is how the tool will be called by the model and in `tool_use` blocks.
-
-        - `type: Literal["text_editor_20250124"]`
 
         - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -2396,13 +2403,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `class ToolTextEditor20250429: …`
 
+        - `type: Literal["text_editor_20250429"]`
+
         - `name: Literal["str_replace_based_edit_tool"]`
 
           Name of the tool.
 
           This is how the tool will be called by the model and in `tool_use` blocks.
-
-        - `type: Literal["text_editor_20250429"]`
 
         - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -2430,13 +2437,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `class ToolTextEditor20250728: …`
 
+        - `type: Literal["text_editor_20250728"]`
+
         - `name: Literal["str_replace_based_edit_tool"]`
 
           Name of the tool.
 
           This is how the tool will be called by the model and in `tool_use` blocks.
-
-        - `type: Literal["text_editor_20250728"]`
 
         - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -2470,13 +2477,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `class WebSearchTool20250305: …`
 
+        - `type: Literal["web_search_20250305"]`
+
         - `name: Literal["web_search"]`
 
           Name of the tool.
 
           This is how the tool will be called by the model and in `tool_use` blocks.
-
-        - `type: Literal["web_search_20250305"]`
 
         - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -2546,13 +2553,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `class WebFetchTool20250910: …`
 
+        - `type: Literal["web_fetch_20250910"]`
+
         - `name: Literal["web_fetch"]`
 
           Name of the tool.
 
           This is how the tool will be called by the model and in `tool_use` blocks.
-
-        - `type: Literal["web_fetch_20250910"]`
 
         - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -2602,13 +2609,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `class WebSearchTool20260209: …`
 
+        - `type: Literal["web_search_20260209"]`
+
         - `name: Literal["web_search"]`
 
           Name of the tool.
 
           This is how the tool will be called by the model and in `tool_use` blocks.
-
-        - `type: Literal["web_search_20260209"]`
 
         - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -2652,13 +2659,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `class WebFetchTool20260209: …`
 
+        - `type: Literal["web_fetch_20260209"]`
+
         - `name: Literal["web_fetch"]`
 
           Name of the tool.
 
           This is how the tool will be called by the model and in `tool_use` blocks.
-
-        - `type: Literal["web_fetch_20260209"]`
 
         - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -2710,13 +2717,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         Web fetch tool with use_cache parameter for bypassing cached content.
 
+        - `type: Literal["web_fetch_20260309"]`
+
         - `name: Literal["web_fetch"]`
 
           Name of the tool.
 
           This is how the tool will be called by the model and in `tool_use` blocks.
-
-        - `type: Literal["web_fetch_20260309"]`
 
         - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -2770,13 +2777,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `class WebSearchTool20260318: …`
 
+        - `type: Literal["web_search_20260318"]`
+
         - `name: Literal["web_search"]`
 
           Name of the tool.
 
           This is how the tool will be called by the model and in `tool_use` blocks.
-
-        - `type: Literal["web_search_20260318"]`
 
         - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -2828,13 +2835,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `class WebFetchTool20260318: …`
 
+        - `type: Literal["web_fetch_20260318"]`
+
         - `name: Literal["web_fetch"]`
 
           Name of the tool.
 
           This is how the tool will be called by the model and in `tool_use` blocks.
-
-        - `type: Literal["web_fetch_20260318"]`
 
         - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -2896,17 +2903,17 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `class ToolSearchToolBm25_20251119: …`
 
-        - `name: Literal["tool_search_tool_bm25"]`
-
-          Name of the tool.
-
-          This is how the tool will be called by the model and in `tool_use` blocks.
-
         - `type: Literal["tool_search_tool_bm25_20251119", "tool_search_tool_bm25"]`
 
           - `"tool_search_tool_bm25_20251119"`
 
           - `"tool_search_tool_bm25"`
+
+        - `name: Literal["tool_search_tool_bm25"]`
+
+          Name of the tool.
+
+          This is how the tool will be called by the model and in `tool_use` blocks.
 
         - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -2932,17 +2939,17 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `class ToolSearchToolRegex20251119: …`
 
-        - `name: Literal["tool_search_tool_regex"]`
-
-          Name of the tool.
-
-          This is how the tool will be called by the model and in `tool_use` blocks.
-
         - `type: Literal["tool_search_tool_regex_20251119", "tool_search_tool_regex"]`
 
           - `"tool_search_tool_regex_20251119"`
 
           - `"tool_search_tool_regex"`
+
+        - `name: Literal["tool_search_tool_regex"]`
+
+          Name of the tool.
+
+          This is how the tool will be called by the model and in `tool_use` blocks.
 
         - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -2970,9 +2977,19 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   The user profile ID to attribute the requests in this batch to. Use when acting on behalf of a party other than your organization. Requires the `user-profiles` beta header. Applies to every request in the batch; an individual request whose `user_profile_id` body field conflicts with this header is errored.
 
+- `workspace_id: Optional[str]`
+
 ### Returns
 
 - `class MessageBatch: …`
+
+  - `type: Literal["message_batch"]`
+
+    Object type.
+
+    For Message Batches, this is always `"message_batch"`.
+
+    default: message_batch
 
   - `id: str`
 
@@ -3071,14 +3088,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
     URL to a `.jsonl` file containing the results of the Message Batch requests. Specified only once processing ends.
 
     Results in the file are not guaranteed to be in the same order as requests. Use the `custom_id` field to match results to requests.
-
-  - `type: Literal["message_batch"]`
-
-    Object type.
-
-    For Message Batches, this is always `"message_batch"`.
-
-    default: message_batch
 
 ### Example
 
@@ -3136,7 +3145,7 @@ print(message_batch.id)
 
 ## Retrieve a Message Batch
 
-`messages.batches.retrieve(message_batch_id)  -> MessageBatch`
+`messages.batches.retrieve(message_batch_id, **kwargs)  -> MessageBatch`
 
 **GET** `/v1/messages/batches/{message_batch_id}`
 
@@ -3150,9 +3159,19 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   ID of the Message Batch.
 
+- `workspace_id: Optional[str]`
+
 ### Returns
 
 - `class MessageBatch: …`
+
+  - `type: Literal["message_batch"]`
+
+    Object type.
+
+    For Message Batches, this is always `"message_batch"`.
+
+    default: message_batch
 
   - `id: str`
 
@@ -3252,14 +3271,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     Results in the file are not guaranteed to be in the same order as requests. Use the `custom_id` field to match results to requests.
 
-  - `type: Literal["message_batch"]`
-
-    Object type.
-
-    For Message Batches, this is always `"message_batch"`.
-
-    default: message_batch
-
 ### Example
 
 ```python
@@ -3272,7 +3283,7 @@ client = Anthropic(
     ),  # This is the default and can be omitted
 )
 message_batch = client.messages.batches.retrieve(
-    "message_batch_id",
+    message_batch_id="message_batch_id",
 )
 print(message_batch.id)
 ```
@@ -3328,9 +3339,19 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   default: 20, maximum: 1000, minimum: 1
 
+- `workspace_id: Optional[str]`
+
 ### Returns
 
 - `class MessageBatch: …`
+
+  - `type: Literal["message_batch"]`
+
+    Object type.
+
+    For Message Batches, this is always `"message_batch"`.
+
+    default: message_batch
 
   - `id: str`
 
@@ -3429,14 +3450,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
     URL to a `.jsonl` file containing the results of the Message Batch requests. Specified only once processing ends.
 
     Results in the file are not guaranteed to be in the same order as requests. Use the `custom_id` field to match results to requests.
-
-  - `type: Literal["message_batch"]`
-
-    Object type.
-
-    For Message Batches, this is always `"message_batch"`.
-
-    default: message_batch
 
 ### Example
 
@@ -3486,7 +3499,7 @@ print(page.id)
 
 ## Cancel a Message Batch
 
-`messages.batches.cancel(message_batch_id)  -> MessageBatch`
+`messages.batches.cancel(message_batch_id, **kwargs)  -> MessageBatch`
 
 **POST** `/v1/messages/batches/{message_batch_id}/cancel`
 
@@ -3502,9 +3515,19 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   ID of the Message Batch.
 
+- `workspace_id: Optional[str]`
+
 ### Returns
 
 - `class MessageBatch: …`
+
+  - `type: Literal["message_batch"]`
+
+    Object type.
+
+    For Message Batches, this is always `"message_batch"`.
+
+    default: message_batch
 
   - `id: str`
 
@@ -3604,14 +3627,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     Results in the file are not guaranteed to be in the same order as requests. Use the `custom_id` field to match results to requests.
 
-  - `type: Literal["message_batch"]`
-
-    Object type.
-
-    For Message Batches, this is always `"message_batch"`.
-
-    default: message_batch
-
 ### Example
 
 ```python
@@ -3624,7 +3639,7 @@ client = Anthropic(
     ),  # This is the default and can be omitted
 )
 message_batch = client.messages.batches.cancel(
-    "message_batch_id",
+    message_batch_id="message_batch_id",
 )
 print(message_batch.id)
 ```
@@ -3654,7 +3669,7 @@ print(message_batch.id)
 
 ## Delete a Message Batch
 
-`messages.batches.delete(message_batch_id)  -> DeletedMessageBatch`
+`messages.batches.delete(message_batch_id, **kwargs)  -> DeletedMessageBatch`
 
 **DELETE** `/v1/messages/batches/{message_batch_id}`
 
@@ -3670,13 +3685,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   ID of the Message Batch.
 
+- `workspace_id: Optional[str]`
+
 ### Returns
 
 - `class DeletedMessageBatch: …`
-
-  - `id: str`
-
-    ID of the Message Batch.
 
   - `type: Literal["message_batch_deleted"]`
 
@@ -3685,6 +3698,10 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
     For Message Batches, this is always `"message_batch_deleted"`.
 
     default: message_batch_deleted
+
+  - `id: str`
+
+    ID of the Message Batch.
 
 ### Example
 
@@ -3698,7 +3715,7 @@ client = Anthropic(
     ),  # This is the default and can be omitted
 )
 deleted_message_batch = client.messages.batches.delete(
-    "message_batch_id",
+    message_batch_id="message_batch_id",
 )
 print(deleted_message_batch.id)
 ```
@@ -3714,7 +3731,7 @@ print(deleted_message_batch.id)
 
 ## Retrieve Message Batch results
 
-`messages.batches.results(message_batch_id)  -> MessageBatchIndividualResponse`
+`messages.batches.results(message_batch_id, **kwargs)  -> MessageBatchIndividualResponse`
 
 **GET** `/v1/messages/batches/{message_batch_id}/results`
 
@@ -3729,6 +3746,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 - `message_batch_id: str`
 
   ID of the Message Batch.
+
+- `workspace_id: Optional[str]`
 
 ### Returns
 
@@ -3750,7 +3769,19 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     - `class MessageBatchSucceededResult: …`
 
+      - `type: Literal["succeeded"]`
+
+        default: succeeded
+
       - `message: Message`
+
+        - `type: Literal["message"]`
+
+          Object type.
+
+          For Messages, this is always `"message"`.
+
+          default: message
 
         - `id: str`
 
@@ -3776,12 +3807,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             Skills loaded in the container
 
-            - `skill_id: str`
-
-              Skill ID
-
-              maxLength: 64, minLength: 1
-
             - `type: Literal["anthropic", "custom"]`
 
               Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
@@ -3789,6 +3814,12 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
               - `"anthropic"`
 
               - `"custom"`
+
+            - `skill_id: str`
+
+              Skill ID
+
+              maxLength: 64, minLength: 1
 
             - `version: str`
 
@@ -3827,6 +3858,10 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           - `class TextBlock: …`
 
+            - `type: Literal["text"]`
+
+              default: text
+
             - `citations: Optional[List[TextCitation]]`
 
               Citations supporting the text block.
@@ -3834,6 +3869,10 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
               The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
 
               - `class CitationCharLocation: …`
+
+                - `type: Literal["char_location"]`
+
+                  default: char_location
 
                 - `cited_text: str`
 
@@ -3851,11 +3890,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   minimum: 0
 
-                - `type: Literal["char_location"]`
-
-                  default: char_location
-
               - `class CitationPageLocation: …`
+
+                - `type: Literal["page_location"]`
+
+                  default: page_location
 
                 - `cited_text: str`
 
@@ -3873,11 +3912,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   minimum: 1
 
-                - `type: Literal["page_location"]`
-
-                  default: page_location
-
               - `class CitationContentBlockLocation: …`
+
+                - `type: Literal["content_block_location"]`
+
+                  default: content_block_location
 
                 - `cited_text: str`
 
@@ -3905,11 +3944,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   minimum: 0
 
-                - `type: Literal["content_block_location"]`
-
-                  default: content_block_location
-
               - `class CitationsWebSearchResultLocation: …`
+
+                - `type: Literal["web_search_result_location"]`
+
+                  default: web_search_result_location
 
                 - `cited_text: str`
 
@@ -3919,13 +3958,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   maxLength: 512
 
-                - `type: Literal["web_search_result_location"]`
-
-                  default: web_search_result_location
-
                 - `url: str`
 
               - `class CitationsSearchResultLocation: …`
+
+                - `type: Literal["search_result_location"]`
+
+                  default: search_result_location
 
                 - `cited_text: str`
 
@@ -3957,19 +3996,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `title: Optional[str]`
 
-                - `type: Literal["search_result_location"]`
-
-                  default: search_result_location
-
             - `text: str`
 
-              maxLength: 5000000, minLength: 0
-
-            - `type: Literal["text"]`
-
-              default: text
+              minLength: 0
 
           - `class ThinkingBlock: …`
+
+            - `type: Literal["thinking"]`
+
+              default: thinking
 
             - `signature: str`
 
@@ -3983,11 +4018,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               The text of Claude's thinking process for this block.
 
-            - `type: Literal["thinking"]`
-
-              default: thinking
-
           - `class RedactedThinkingBlock: …`
+
+            - `type: Literal["redacted_thinking"]`
+
+              default: redacted_thinking
 
             - `data: str`
 
@@ -3997,11 +4032,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking#redacted-thinking-blocks) for details.
 
-            - `type: Literal["redacted_thinking"]`
-
-              default: redacted_thinking
-
           - `class ToolUseBlock: …`
+
+            - `type: Literal["tool_use"]`
+
+              default: tool_use
 
             - `id: str`
 
@@ -4023,29 +4058,25 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 Tool invocation generated by a server-side tool.
 
+                - `type: Literal["code_execution_20250825"]`
+
                 - `tool_id: str`
 
                   pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-                - `type: Literal["code_execution_20250825"]`
 
               - `class ServerToolCaller20260120: …`
 
+                - `type: Literal["code_execution_20260120"]`
+
                 - `tool_id: str`
 
                   pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-                - `type: Literal["code_execution_20260120"]`
 
             - `input: Dict[str, object]`
 
             - `name: str`
 
               minLength: 1
-
-            - `type: Literal["tool_use"]`
-
-              default: tool_use
 
             - `toolset_name: Optional[str]`
 
@@ -4054,6 +4085,10 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
               maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
 
           - `class ServerToolUseBlock: …`
+
+            - `type: Literal["server_tool_use"]`
+
+              default: server_tool_use
 
             - `id: str`
 
@@ -4093,11 +4128,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `"tool_search_tool_bm25"`
 
-            - `type: Literal["server_tool_use"]`
-
-              default: server_tool_use
-
           - `class WebSearchToolResultBlock: …`
+
+            - `type: Literal["web_search_tool_result"]`
+
+              default: web_search_tool_result
 
             - `caller: Caller`
 
@@ -4119,6 +4154,10 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `class WebSearchToolResultError: …`
 
+                - `type: Literal["web_search_tool_result_error"]`
+
+                  default: web_search_tool_result_error
+
                 - `error_code: WebSearchToolResultErrorCode`
 
                   - `"invalid_tool_input"`
@@ -4133,11 +4172,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `"request_too_large"`
 
-                - `type: Literal["web_search_tool_result_error"]`
-
-                  default: web_search_tool_result_error
-
               - `List[WebSearchResultBlock]`
+
+                - `type: Literal["web_search_result"]`
+
+                  default: web_search_result
 
                 - `encrypted_content: str`
 
@@ -4145,21 +4184,17 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `title: str`
 
-                - `type: Literal["web_search_result"]`
-
-                  default: web_search_result
-
                 - `url: str`
 
             - `tool_use_id: str`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-            - `type: Literal["web_search_tool_result"]`
-
-              default: web_search_tool_result
-
           - `class WebFetchToolResultBlock: …`
+
+            - `type: Literal["web_fetch_tool_result"]`
+
+              default: web_fetch_tool_result
 
             - `caller: Caller`
 
@@ -4181,6 +4216,10 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `class WebFetchToolResultErrorBlock: …`
 
+                - `type: Literal["web_fetch_tool_result_error"]`
+
+                  default: web_fetch_tool_result_error
+
                 - `error_code: WebFetchToolResultErrorCode`
 
                   - `"invalid_tool_input"`
@@ -4201,13 +4240,19 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `"unavailable"`
 
-                - `type: Literal["web_fetch_tool_result_error"]`
-
-                  default: web_fetch_tool_result_error
+                  - `"content_too_large"`
 
               - `class WebFetchBlock: …`
 
+                - `type: Literal["web_fetch_result"]`
+
+                  default: web_fetch_result
+
                 - `content: DocumentBlock`
+
+                  - `type: Literal["document"]`
+
+                    default: document
 
                   - `citations: Optional[CitationsConfig]`
 
@@ -4221,37 +4266,29 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     - `class Base64PDFSource: …`
 
+                      - `type: Literal["base64"]`
+
                       - `data: str`
 
                         format: byte
 
                       - `media_type: Literal["application/pdf"]`
 
-                      - `type: Literal["base64"]`
-
                     - `class PlainTextSource: …`
+
+                      - `type: Literal["text"]`
 
                       - `data: str`
 
                       - `media_type: Literal["text/plain"]`
 
-                      - `type: Literal["text"]`
-
                   - `title: Optional[str]`
 
                     The title of the document
 
-                  - `type: Literal["document"]`
-
-                    default: document
-
                 - `retrieved_at: Optional[str]`
 
                   ISO 8601 timestamp when the content was retrieved
-
-                - `type: Literal["web_fetch_result"]`
-
-                  default: web_fetch_result
 
                 - `url: str`
 
@@ -4261,17 +4298,21 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-            - `type: Literal["web_fetch_tool_result"]`
-
-              default: web_fetch_tool_result
-
           - `class CodeExecutionToolResultBlock: …`
+
+            - `type: Literal["code_execution_tool_result"]`
+
+              default: code_execution_tool_result
 
             - `content: CodeExecutionToolResultBlockContent`
 
               Code execution result with encrypted stdout for PFC + web_search results.
 
               - `class CodeExecutionToolResultError: …`
+
+                - `type: Literal["code_execution_tool_result_error"]`
+
+                  default: code_execution_tool_result_error
 
                 - `error_code: CodeExecutionToolResultErrorCode`
 
@@ -4283,19 +4324,19 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `"execution_time_exceeded"`
 
-                - `type: Literal["code_execution_tool_result_error"]`
-
-                  default: code_execution_tool_result_error
-
               - `class CodeExecutionResultBlock: …`
 
-                - `content: List[CodeExecutionOutputBlock]`
+                - `type: Literal["code_execution_result"]`
 
-                  - `file_id: str`
+                  default: code_execution_result
+
+                - `content: List[CodeExecutionOutputBlock]`
 
                   - `type: Literal["code_execution_output"]`
 
                     default: code_execution_output
+
+                  - `file_id: str`
 
                 - `return_code: int`
 
@@ -4303,21 +4344,21 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `stdout: str`
 
-                - `type: Literal["code_execution_result"]`
-
-                  default: code_execution_result
-
               - `class EncryptedCodeExecutionResultBlock: …`
 
                 Code execution result with encrypted stdout for PFC + web_search results.
 
-                - `content: List[CodeExecutionOutputBlock]`
+                - `type: Literal["encrypted_code_execution_result"]`
 
-                  - `file_id: str`
+                  default: encrypted_code_execution_result
+
+                - `content: List[CodeExecutionOutputBlock]`
 
                   - `type: Literal["code_execution_output"]`
 
                     default: code_execution_output
+
+                  - `file_id: str`
 
                 - `encrypted_stdout: str`
 
@@ -4325,23 +4366,23 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `stderr: str`
 
-                - `type: Literal["encrypted_code_execution_result"]`
-
-                  default: encrypted_code_execution_result
-
             - `tool_use_id: str`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-            - `type: Literal["code_execution_tool_result"]`
-
-              default: code_execution_tool_result
-
           - `class BashCodeExecutionToolResultBlock: …`
+
+            - `type: Literal["bash_code_execution_tool_result"]`
+
+              default: bash_code_execution_tool_result
 
             - `content: Content`
 
               - `class BashCodeExecutionToolResultError: …`
+
+                - `type: Literal["bash_code_execution_tool_result_error"]`
+
+                  default: bash_code_execution_tool_result_error
 
                 - `error_code: BashCodeExecutionToolResultErrorCode`
 
@@ -4355,19 +4396,19 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `"output_file_too_large"`
 
-                - `type: Literal["bash_code_execution_tool_result_error"]`
-
-                  default: bash_code_execution_tool_result_error
-
               - `class BashCodeExecutionResultBlock: …`
 
-                - `content: List[BashCodeExecutionOutputBlock]`
+                - `type: Literal["bash_code_execution_result"]`
 
-                  - `file_id: str`
+                  default: bash_code_execution_result
+
+                - `content: List[BashCodeExecutionOutputBlock]`
 
                   - `type: Literal["bash_code_execution_output"]`
 
                     default: bash_code_execution_output
+
+                  - `file_id: str`
 
                 - `return_code: int`
 
@@ -4375,23 +4416,23 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `stdout: str`
 
-                - `type: Literal["bash_code_execution_result"]`
-
-                  default: bash_code_execution_result
-
             - `tool_use_id: str`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-            - `type: Literal["bash_code_execution_tool_result"]`
-
-              default: bash_code_execution_tool_result
-
           - `class TextEditorCodeExecutionToolResultBlock: …`
+
+            - `type: Literal["text_editor_code_execution_tool_result"]`
+
+              default: text_editor_code_execution_tool_result
 
             - `content: Content`
 
               - `class TextEditorCodeExecutionToolResultError: …`
+
+                - `type: Literal["text_editor_code_execution_tool_result_error"]`
+
+                  default: text_editor_code_execution_tool_result_error
 
                 - `error_code: TextEditorCodeExecutionToolResultErrorCode`
 
@@ -4407,11 +4448,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `error_message: Optional[str]`
 
-                - `type: Literal["text_editor_code_execution_tool_result_error"]`
-
-                  default: text_editor_code_execution_tool_result_error
-
               - `class TextEditorCodeExecutionViewResultBlock: …`
+
+                - `type: Literal["text_editor_code_execution_view_result"]`
+
+                  default: text_editor_code_execution_view_result
 
                 - `content: str`
 
@@ -4429,19 +4470,19 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `total_lines: Optional[int]`
 
-                - `type: Literal["text_editor_code_execution_view_result"]`
-
-                  default: text_editor_code_execution_view_result
-
               - `class TextEditorCodeExecutionCreateResultBlock: …`
-
-                - `is_file_update: bool`
 
                 - `type: Literal["text_editor_code_execution_create_result"]`
 
                   default: text_editor_code_execution_create_result
 
+                - `is_file_update: bool`
+
               - `class TextEditorCodeExecutionStrReplaceResultBlock: …`
+
+                - `type: Literal["text_editor_code_execution_str_replace_result"]`
+
+                  default: text_editor_code_execution_str_replace_result
 
                 - `lines: Optional[List[str]]`
 
@@ -4453,23 +4494,23 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `old_start: Optional[int]`
 
-                - `type: Literal["text_editor_code_execution_str_replace_result"]`
-
-                  default: text_editor_code_execution_str_replace_result
-
             - `tool_use_id: str`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-            - `type: Literal["text_editor_code_execution_tool_result"]`
-
-              default: text_editor_code_execution_tool_result
-
           - `class ToolSearchToolResultBlock: …`
+
+            - `type: Literal["tool_search_tool_result"]`
+
+              default: tool_search_tool_result
 
             - `content: Content`
 
               - `class ToolSearchToolResultError: …`
+
+                - `type: Literal["tool_search_tool_result_error"]`
+
+                  default: tool_search_tool_result_error
 
                 - `error_code: ToolSearchToolResultErrorCode`
 
@@ -4483,43 +4524,35 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `error_message: Optional[str]`
 
-                - `type: Literal["tool_search_tool_result_error"]`
-
-                  default: tool_search_tool_result_error
-
               - `class ToolSearchToolSearchResultBlock: …`
-
-                - `tool_references: List[ToolReferenceBlock]`
-
-                  - `tool_name: str`
-
-                    maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
-
-                  - `type: Literal["tool_reference"]`
-
-                    default: tool_reference
 
                 - `type: Literal["tool_search_tool_search_result"]`
 
                   default: tool_search_tool_search_result
 
+                - `tool_references: List[ToolReferenceBlock]`
+
+                  - `type: Literal["tool_reference"]`
+
+                    default: tool_reference
+
+                  - `tool_name: str`
+
+                    maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+
             - `tool_use_id: str`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-            - `type: Literal["tool_search_tool_result"]`
-
-              default: tool_search_tool_result
 
           - `class ContainerUploadBlock: …`
 
             Response model for a file uploaded to the container.
 
-            - `file_id: str`
-
             - `type: Literal["container_upload"]`
 
               default: container_upload
+
+            - `file_id: str`
 
         - `model: Model`
 
@@ -4633,6 +4666,10 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           Structured information about a refusal.
 
+          - `type: Literal["refusal"]`
+
+            default: refusal
+
           - `category: Optional[Literal["cyber", "bio", "frontier_llm", 2 more]]`
 
             The policy category that triggered a refusal.
@@ -4669,10 +4706,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             This text is not guaranteed to be stable. `null` when no explanation is available for the category.
 
-          - `type: Literal["refusal"]`
-
-            default: refusal
-
         - `stop_reason: Optional[StopReason]`
 
           The reason that we stopped.
@@ -4708,14 +4741,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
           Which custom stop sequence was generated, if any.
 
           This value will be a non-null string if one of your custom stop sequences was generated.
-
-        - `type: Literal["message"]`
-
-          Object type.
-
-          For Messages, this is always `"message"`.
-
-          default: message
 
         - `usage: Usage`
 
@@ -4821,115 +4846,111 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `"batch"`
 
-      - `type: Literal["succeeded"]`
-
-        default: succeeded
-
     - `class MessageBatchErroredResult: …`
 
+      - `type: Literal["errored"]`
+
+        default: errored
+
       - `error: ErrorResponse`
-
-        - `error: ErrorObject`
-
-          - `class InvalidRequestError: …`
-
-            - `message: str`
-
-              default: Invalid request
-
-            - `type: Literal["invalid_request_error"]`
-
-              default: invalid_request_error
-
-          - `class AuthenticationError: …`
-
-            - `message: str`
-
-              default: Authentication error
-
-            - `type: Literal["authentication_error"]`
-
-              default: authentication_error
-
-          - `class BillingError: …`
-
-            - `message: str`
-
-              default: Billing error
-
-            - `type: Literal["billing_error"]`
-
-              default: billing_error
-
-          - `class PermissionError: …`
-
-            - `message: str`
-
-              default: Permission denied
-
-            - `type: Literal["permission_error"]`
-
-              default: permission_error
-
-          - `class NotFoundError: …`
-
-            - `message: str`
-
-              default: Not found
-
-            - `type: Literal["not_found_error"]`
-
-              default: not_found_error
-
-          - `class RateLimitError: …`
-
-            - `message: str`
-
-              default: Rate limited
-
-            - `type: Literal["rate_limit_error"]`
-
-              default: rate_limit_error
-
-          - `class GatewayTimeoutError: …`
-
-            - `message: str`
-
-              default: Request timeout
-
-            - `type: Literal["timeout_error"]`
-
-              default: timeout_error
-
-          - `class APIErrorObject: …`
-
-            - `message: str`
-
-              default: Internal server error
-
-            - `type: Literal["api_error"]`
-
-              default: api_error
-
-          - `class OverloadedError: …`
-
-            - `message: str`
-
-              default: Overloaded
-
-            - `type: Literal["overloaded_error"]`
-
-              default: overloaded_error
-
-        - `request_id: Optional[str]`
 
         - `type: Literal["error"]`
 
           default: error
 
-      - `type: Literal["errored"]`
+        - `error: ErrorObject`
 
-        default: errored
+          - `class InvalidRequestError: …`
+
+            - `type: Literal["invalid_request_error"]`
+
+              default: invalid_request_error
+
+            - `message: str`
+
+              default: Invalid request
+
+          - `class AuthenticationError: …`
+
+            - `type: Literal["authentication_error"]`
+
+              default: authentication_error
+
+            - `message: str`
+
+              default: Authentication error
+
+          - `class BillingError: …`
+
+            - `type: Literal["billing_error"]`
+
+              default: billing_error
+
+            - `message: str`
+
+              default: Billing error
+
+          - `class PermissionError: …`
+
+            - `type: Literal["permission_error"]`
+
+              default: permission_error
+
+            - `message: str`
+
+              default: Permission denied
+
+          - `class NotFoundError: …`
+
+            - `type: Literal["not_found_error"]`
+
+              default: not_found_error
+
+            - `message: str`
+
+              default: Not found
+
+          - `class RateLimitError: …`
+
+            - `type: Literal["rate_limit_error"]`
+
+              default: rate_limit_error
+
+            - `message: str`
+
+              default: Rate limited
+
+          - `class GatewayTimeoutError: …`
+
+            - `type: Literal["timeout_error"]`
+
+              default: timeout_error
+
+            - `message: str`
+
+              default: Request timeout
+
+          - `class APIErrorObject: …`
+
+            - `type: Literal["api_error"]`
+
+              default: api_error
+
+            - `message: str`
+
+              default: Internal server error
+
+          - `class OverloadedError: …`
+
+            - `type: Literal["overloaded_error"]`
+
+              default: overloaded_error
+
+            - `message: str`
+
+              default: Overloaded
+
+        - `request_id: Optional[str]`
 
     - `class MessageBatchCanceledResult: …`
 
@@ -4955,7 +4976,7 @@ client = Anthropic(
     ),  # This is the default and can be omitted
 )
 for batch in client.messages.batches.results(
-    "message_batch_id",
+    message_batch_id="message_batch_id",
 ):
     print(batch)
 ```
@@ -4966,10 +4987,6 @@ for batch in client.messages.batches.results(
 
 - `class DeletedMessageBatch: …`
 
-  - `id: str`
-
-    ID of the Message Batch.
-
   - `type: Literal["message_batch_deleted"]`
 
     Deleted object type.
@@ -4978,9 +4995,21 @@ for batch in client.messages.batches.results(
 
     default: message_batch_deleted
 
+  - `id: str`
+
+    ID of the Message Batch.
+
 ### Message Batch
 
 - `class MessageBatch: …`
+
+  - `type: Literal["message_batch"]`
+
+    Object type.
+
+    For Message Batches, this is always `"message_batch"`.
+
+    default: message_batch
 
   - `id: str`
 
@@ -5080,14 +5109,6 @@ for batch in client.messages.batches.results(
 
     Results in the file are not guaranteed to be in the same order as requests. Use the `custom_id` field to match results to requests.
 
-  - `type: Literal["message_batch"]`
-
-    Object type.
-
-    For Message Batches, this is always `"message_batch"`.
-
-    default: message_batch
-
 ### Message Batch Canceled Result
 
 - `class MessageBatchCanceledResult: …`
@@ -5100,109 +5121,109 @@ for batch in client.messages.batches.results(
 
 - `class MessageBatchErroredResult: …`
 
+  - `type: Literal["errored"]`
+
+    default: errored
+
   - `error: ErrorResponse`
-
-    - `error: ErrorObject`
-
-      - `class InvalidRequestError: …`
-
-        - `message: str`
-
-          default: Invalid request
-
-        - `type: Literal["invalid_request_error"]`
-
-          default: invalid_request_error
-
-      - `class AuthenticationError: …`
-
-        - `message: str`
-
-          default: Authentication error
-
-        - `type: Literal["authentication_error"]`
-
-          default: authentication_error
-
-      - `class BillingError: …`
-
-        - `message: str`
-
-          default: Billing error
-
-        - `type: Literal["billing_error"]`
-
-          default: billing_error
-
-      - `class PermissionError: …`
-
-        - `message: str`
-
-          default: Permission denied
-
-        - `type: Literal["permission_error"]`
-
-          default: permission_error
-
-      - `class NotFoundError: …`
-
-        - `message: str`
-
-          default: Not found
-
-        - `type: Literal["not_found_error"]`
-
-          default: not_found_error
-
-      - `class RateLimitError: …`
-
-        - `message: str`
-
-          default: Rate limited
-
-        - `type: Literal["rate_limit_error"]`
-
-          default: rate_limit_error
-
-      - `class GatewayTimeoutError: …`
-
-        - `message: str`
-
-          default: Request timeout
-
-        - `type: Literal["timeout_error"]`
-
-          default: timeout_error
-
-      - `class APIErrorObject: …`
-
-        - `message: str`
-
-          default: Internal server error
-
-        - `type: Literal["api_error"]`
-
-          default: api_error
-
-      - `class OverloadedError: …`
-
-        - `message: str`
-
-          default: Overloaded
-
-        - `type: Literal["overloaded_error"]`
-
-          default: overloaded_error
-
-    - `request_id: Optional[str]`
 
     - `type: Literal["error"]`
 
       default: error
 
-  - `type: Literal["errored"]`
+    - `error: ErrorObject`
 
-    default: errored
+      - `class InvalidRequestError: …`
+
+        - `type: Literal["invalid_request_error"]`
+
+          default: invalid_request_error
+
+        - `message: str`
+
+          default: Invalid request
+
+      - `class AuthenticationError: …`
+
+        - `type: Literal["authentication_error"]`
+
+          default: authentication_error
+
+        - `message: str`
+
+          default: Authentication error
+
+      - `class BillingError: …`
+
+        - `type: Literal["billing_error"]`
+
+          default: billing_error
+
+        - `message: str`
+
+          default: Billing error
+
+      - `class PermissionError: …`
+
+        - `type: Literal["permission_error"]`
+
+          default: permission_error
+
+        - `message: str`
+
+          default: Permission denied
+
+      - `class NotFoundError: …`
+
+        - `type: Literal["not_found_error"]`
+
+          default: not_found_error
+
+        - `message: str`
+
+          default: Not found
+
+      - `class RateLimitError: …`
+
+        - `type: Literal["rate_limit_error"]`
+
+          default: rate_limit_error
+
+        - `message: str`
+
+          default: Rate limited
+
+      - `class GatewayTimeoutError: …`
+
+        - `type: Literal["timeout_error"]`
+
+          default: timeout_error
+
+        - `message: str`
+
+          default: Request timeout
+
+      - `class APIErrorObject: …`
+
+        - `type: Literal["api_error"]`
+
+          default: api_error
+
+        - `message: str`
+
+          default: Internal server error
+
+      - `class OverloadedError: …`
+
+        - `type: Literal["overloaded_error"]`
+
+          default: overloaded_error
+
+        - `message: str`
+
+          default: Overloaded
+
+    - `request_id: Optional[str]`
 
 ### Message Batch Expired Result
 
@@ -5232,7 +5253,19 @@ for batch in client.messages.batches.results(
 
     - `class MessageBatchSucceededResult: …`
 
+      - `type: Literal["succeeded"]`
+
+        default: succeeded
+
       - `message: Message`
+
+        - `type: Literal["message"]`
+
+          Object type.
+
+          For Messages, this is always `"message"`.
+
+          default: message
 
         - `id: str`
 
@@ -5258,12 +5291,6 @@ for batch in client.messages.batches.results(
 
             Skills loaded in the container
 
-            - `skill_id: str`
-
-              Skill ID
-
-              maxLength: 64, minLength: 1
-
             - `type: Literal["anthropic", "custom"]`
 
               Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
@@ -5271,6 +5298,12 @@ for batch in client.messages.batches.results(
               - `"anthropic"`
 
               - `"custom"`
+
+            - `skill_id: str`
+
+              Skill ID
+
+              maxLength: 64, minLength: 1
 
             - `version: str`
 
@@ -5309,6 +5342,10 @@ for batch in client.messages.batches.results(
 
           - `class TextBlock: …`
 
+            - `type: Literal["text"]`
+
+              default: text
+
             - `citations: Optional[List[TextCitation]]`
 
               Citations supporting the text block.
@@ -5316,6 +5353,10 @@ for batch in client.messages.batches.results(
               The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
 
               - `class CitationCharLocation: …`
+
+                - `type: Literal["char_location"]`
+
+                  default: char_location
 
                 - `cited_text: str`
 
@@ -5333,11 +5374,11 @@ for batch in client.messages.batches.results(
 
                   minimum: 0
 
-                - `type: Literal["char_location"]`
-
-                  default: char_location
-
               - `class CitationPageLocation: …`
+
+                - `type: Literal["page_location"]`
+
+                  default: page_location
 
                 - `cited_text: str`
 
@@ -5355,11 +5396,11 @@ for batch in client.messages.batches.results(
 
                   minimum: 1
 
-                - `type: Literal["page_location"]`
-
-                  default: page_location
-
               - `class CitationContentBlockLocation: …`
+
+                - `type: Literal["content_block_location"]`
+
+                  default: content_block_location
 
                 - `cited_text: str`
 
@@ -5387,11 +5428,11 @@ for batch in client.messages.batches.results(
 
                   minimum: 0
 
-                - `type: Literal["content_block_location"]`
-
-                  default: content_block_location
-
               - `class CitationsWebSearchResultLocation: …`
+
+                - `type: Literal["web_search_result_location"]`
+
+                  default: web_search_result_location
 
                 - `cited_text: str`
 
@@ -5401,13 +5442,13 @@ for batch in client.messages.batches.results(
 
                   maxLength: 512
 
-                - `type: Literal["web_search_result_location"]`
-
-                  default: web_search_result_location
-
                 - `url: str`
 
               - `class CitationsSearchResultLocation: …`
+
+                - `type: Literal["search_result_location"]`
+
+                  default: search_result_location
 
                 - `cited_text: str`
 
@@ -5439,19 +5480,15 @@ for batch in client.messages.batches.results(
 
                 - `title: Optional[str]`
 
-                - `type: Literal["search_result_location"]`
-
-                  default: search_result_location
-
             - `text: str`
 
-              maxLength: 5000000, minLength: 0
-
-            - `type: Literal["text"]`
-
-              default: text
+              minLength: 0
 
           - `class ThinkingBlock: …`
+
+            - `type: Literal["thinking"]`
+
+              default: thinking
 
             - `signature: str`
 
@@ -5465,11 +5502,11 @@ for batch in client.messages.batches.results(
 
               The text of Claude's thinking process for this block.
 
-            - `type: Literal["thinking"]`
-
-              default: thinking
-
           - `class RedactedThinkingBlock: …`
+
+            - `type: Literal["redacted_thinking"]`
+
+              default: redacted_thinking
 
             - `data: str`
 
@@ -5479,11 +5516,11 @@ for batch in client.messages.batches.results(
 
               See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking#redacted-thinking-blocks) for details.
 
-            - `type: Literal["redacted_thinking"]`
-
-              default: redacted_thinking
-
           - `class ToolUseBlock: …`
+
+            - `type: Literal["tool_use"]`
+
+              default: tool_use
 
             - `id: str`
 
@@ -5505,29 +5542,25 @@ for batch in client.messages.batches.results(
 
                 Tool invocation generated by a server-side tool.
 
+                - `type: Literal["code_execution_20250825"]`
+
                 - `tool_id: str`
 
                   pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-                - `type: Literal["code_execution_20250825"]`
 
               - `class ServerToolCaller20260120: …`
 
+                - `type: Literal["code_execution_20260120"]`
+
                 - `tool_id: str`
 
                   pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-                - `type: Literal["code_execution_20260120"]`
 
             - `input: Dict[str, object]`
 
             - `name: str`
 
               minLength: 1
-
-            - `type: Literal["tool_use"]`
-
-              default: tool_use
 
             - `toolset_name: Optional[str]`
 
@@ -5536,6 +5569,10 @@ for batch in client.messages.batches.results(
               maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
 
           - `class ServerToolUseBlock: …`
+
+            - `type: Literal["server_tool_use"]`
+
+              default: server_tool_use
 
             - `id: str`
 
@@ -5575,11 +5612,11 @@ for batch in client.messages.batches.results(
 
               - `"tool_search_tool_bm25"`
 
-            - `type: Literal["server_tool_use"]`
-
-              default: server_tool_use
-
           - `class WebSearchToolResultBlock: …`
+
+            - `type: Literal["web_search_tool_result"]`
+
+              default: web_search_tool_result
 
             - `caller: Caller`
 
@@ -5601,6 +5638,10 @@ for batch in client.messages.batches.results(
 
               - `class WebSearchToolResultError: …`
 
+                - `type: Literal["web_search_tool_result_error"]`
+
+                  default: web_search_tool_result_error
+
                 - `error_code: WebSearchToolResultErrorCode`
 
                   - `"invalid_tool_input"`
@@ -5615,11 +5656,11 @@ for batch in client.messages.batches.results(
 
                   - `"request_too_large"`
 
-                - `type: Literal["web_search_tool_result_error"]`
-
-                  default: web_search_tool_result_error
-
               - `List[WebSearchResultBlock]`
+
+                - `type: Literal["web_search_result"]`
+
+                  default: web_search_result
 
                 - `encrypted_content: str`
 
@@ -5627,21 +5668,17 @@ for batch in client.messages.batches.results(
 
                 - `title: str`
 
-                - `type: Literal["web_search_result"]`
-
-                  default: web_search_result
-
                 - `url: str`
 
             - `tool_use_id: str`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-            - `type: Literal["web_search_tool_result"]`
-
-              default: web_search_tool_result
-
           - `class WebFetchToolResultBlock: …`
+
+            - `type: Literal["web_fetch_tool_result"]`
+
+              default: web_fetch_tool_result
 
             - `caller: Caller`
 
@@ -5663,6 +5700,10 @@ for batch in client.messages.batches.results(
 
               - `class WebFetchToolResultErrorBlock: …`
 
+                - `type: Literal["web_fetch_tool_result_error"]`
+
+                  default: web_fetch_tool_result_error
+
                 - `error_code: WebFetchToolResultErrorCode`
 
                   - `"invalid_tool_input"`
@@ -5683,13 +5724,19 @@ for batch in client.messages.batches.results(
 
                   - `"unavailable"`
 
-                - `type: Literal["web_fetch_tool_result_error"]`
-
-                  default: web_fetch_tool_result_error
+                  - `"content_too_large"`
 
               - `class WebFetchBlock: …`
 
+                - `type: Literal["web_fetch_result"]`
+
+                  default: web_fetch_result
+
                 - `content: DocumentBlock`
+
+                  - `type: Literal["document"]`
+
+                    default: document
 
                   - `citations: Optional[CitationsConfig]`
 
@@ -5703,37 +5750,29 @@ for batch in client.messages.batches.results(
 
                     - `class Base64PDFSource: …`
 
+                      - `type: Literal["base64"]`
+
                       - `data: str`
 
                         format: byte
 
                       - `media_type: Literal["application/pdf"]`
 
-                      - `type: Literal["base64"]`
-
                     - `class PlainTextSource: …`
+
+                      - `type: Literal["text"]`
 
                       - `data: str`
 
                       - `media_type: Literal["text/plain"]`
 
-                      - `type: Literal["text"]`
-
                   - `title: Optional[str]`
 
                     The title of the document
 
-                  - `type: Literal["document"]`
-
-                    default: document
-
                 - `retrieved_at: Optional[str]`
 
                   ISO 8601 timestamp when the content was retrieved
-
-                - `type: Literal["web_fetch_result"]`
-
-                  default: web_fetch_result
 
                 - `url: str`
 
@@ -5743,17 +5782,21 @@ for batch in client.messages.batches.results(
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-            - `type: Literal["web_fetch_tool_result"]`
-
-              default: web_fetch_tool_result
-
           - `class CodeExecutionToolResultBlock: …`
+
+            - `type: Literal["code_execution_tool_result"]`
+
+              default: code_execution_tool_result
 
             - `content: CodeExecutionToolResultBlockContent`
 
               Code execution result with encrypted stdout for PFC + web_search results.
 
               - `class CodeExecutionToolResultError: …`
+
+                - `type: Literal["code_execution_tool_result_error"]`
+
+                  default: code_execution_tool_result_error
 
                 - `error_code: CodeExecutionToolResultErrorCode`
 
@@ -5765,19 +5808,19 @@ for batch in client.messages.batches.results(
 
                   - `"execution_time_exceeded"`
 
-                - `type: Literal["code_execution_tool_result_error"]`
-
-                  default: code_execution_tool_result_error
-
               - `class CodeExecutionResultBlock: …`
 
-                - `content: List[CodeExecutionOutputBlock]`
+                - `type: Literal["code_execution_result"]`
 
-                  - `file_id: str`
+                  default: code_execution_result
+
+                - `content: List[CodeExecutionOutputBlock]`
 
                   - `type: Literal["code_execution_output"]`
 
                     default: code_execution_output
+
+                  - `file_id: str`
 
                 - `return_code: int`
 
@@ -5785,21 +5828,21 @@ for batch in client.messages.batches.results(
 
                 - `stdout: str`
 
-                - `type: Literal["code_execution_result"]`
-
-                  default: code_execution_result
-
               - `class EncryptedCodeExecutionResultBlock: …`
 
                 Code execution result with encrypted stdout for PFC + web_search results.
 
-                - `content: List[CodeExecutionOutputBlock]`
+                - `type: Literal["encrypted_code_execution_result"]`
 
-                  - `file_id: str`
+                  default: encrypted_code_execution_result
+
+                - `content: List[CodeExecutionOutputBlock]`
 
                   - `type: Literal["code_execution_output"]`
 
                     default: code_execution_output
+
+                  - `file_id: str`
 
                 - `encrypted_stdout: str`
 
@@ -5807,23 +5850,23 @@ for batch in client.messages.batches.results(
 
                 - `stderr: str`
 
-                - `type: Literal["encrypted_code_execution_result"]`
-
-                  default: encrypted_code_execution_result
-
             - `tool_use_id: str`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-            - `type: Literal["code_execution_tool_result"]`
-
-              default: code_execution_tool_result
-
           - `class BashCodeExecutionToolResultBlock: …`
+
+            - `type: Literal["bash_code_execution_tool_result"]`
+
+              default: bash_code_execution_tool_result
 
             - `content: Content`
 
               - `class BashCodeExecutionToolResultError: …`
+
+                - `type: Literal["bash_code_execution_tool_result_error"]`
+
+                  default: bash_code_execution_tool_result_error
 
                 - `error_code: BashCodeExecutionToolResultErrorCode`
 
@@ -5837,19 +5880,19 @@ for batch in client.messages.batches.results(
 
                   - `"output_file_too_large"`
 
-                - `type: Literal["bash_code_execution_tool_result_error"]`
-
-                  default: bash_code_execution_tool_result_error
-
               - `class BashCodeExecutionResultBlock: …`
 
-                - `content: List[BashCodeExecutionOutputBlock]`
+                - `type: Literal["bash_code_execution_result"]`
 
-                  - `file_id: str`
+                  default: bash_code_execution_result
+
+                - `content: List[BashCodeExecutionOutputBlock]`
 
                   - `type: Literal["bash_code_execution_output"]`
 
                     default: bash_code_execution_output
+
+                  - `file_id: str`
 
                 - `return_code: int`
 
@@ -5857,23 +5900,23 @@ for batch in client.messages.batches.results(
 
                 - `stdout: str`
 
-                - `type: Literal["bash_code_execution_result"]`
-
-                  default: bash_code_execution_result
-
             - `tool_use_id: str`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-            - `type: Literal["bash_code_execution_tool_result"]`
-
-              default: bash_code_execution_tool_result
-
           - `class TextEditorCodeExecutionToolResultBlock: …`
+
+            - `type: Literal["text_editor_code_execution_tool_result"]`
+
+              default: text_editor_code_execution_tool_result
 
             - `content: Content`
 
               - `class TextEditorCodeExecutionToolResultError: …`
+
+                - `type: Literal["text_editor_code_execution_tool_result_error"]`
+
+                  default: text_editor_code_execution_tool_result_error
 
                 - `error_code: TextEditorCodeExecutionToolResultErrorCode`
 
@@ -5889,11 +5932,11 @@ for batch in client.messages.batches.results(
 
                 - `error_message: Optional[str]`
 
-                - `type: Literal["text_editor_code_execution_tool_result_error"]`
-
-                  default: text_editor_code_execution_tool_result_error
-
               - `class TextEditorCodeExecutionViewResultBlock: …`
+
+                - `type: Literal["text_editor_code_execution_view_result"]`
+
+                  default: text_editor_code_execution_view_result
 
                 - `content: str`
 
@@ -5911,19 +5954,19 @@ for batch in client.messages.batches.results(
 
                 - `total_lines: Optional[int]`
 
-                - `type: Literal["text_editor_code_execution_view_result"]`
-
-                  default: text_editor_code_execution_view_result
-
               - `class TextEditorCodeExecutionCreateResultBlock: …`
-
-                - `is_file_update: bool`
 
                 - `type: Literal["text_editor_code_execution_create_result"]`
 
                   default: text_editor_code_execution_create_result
 
+                - `is_file_update: bool`
+
               - `class TextEditorCodeExecutionStrReplaceResultBlock: …`
+
+                - `type: Literal["text_editor_code_execution_str_replace_result"]`
+
+                  default: text_editor_code_execution_str_replace_result
 
                 - `lines: Optional[List[str]]`
 
@@ -5935,23 +5978,23 @@ for batch in client.messages.batches.results(
 
                 - `old_start: Optional[int]`
 
-                - `type: Literal["text_editor_code_execution_str_replace_result"]`
-
-                  default: text_editor_code_execution_str_replace_result
-
             - `tool_use_id: str`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-            - `type: Literal["text_editor_code_execution_tool_result"]`
-
-              default: text_editor_code_execution_tool_result
-
           - `class ToolSearchToolResultBlock: …`
+
+            - `type: Literal["tool_search_tool_result"]`
+
+              default: tool_search_tool_result
 
             - `content: Content`
 
               - `class ToolSearchToolResultError: …`
+
+                - `type: Literal["tool_search_tool_result_error"]`
+
+                  default: tool_search_tool_result_error
 
                 - `error_code: ToolSearchToolResultErrorCode`
 
@@ -5965,43 +6008,35 @@ for batch in client.messages.batches.results(
 
                 - `error_message: Optional[str]`
 
-                - `type: Literal["tool_search_tool_result_error"]`
-
-                  default: tool_search_tool_result_error
-
               - `class ToolSearchToolSearchResultBlock: …`
-
-                - `tool_references: List[ToolReferenceBlock]`
-
-                  - `tool_name: str`
-
-                    maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
-
-                  - `type: Literal["tool_reference"]`
-
-                    default: tool_reference
 
                 - `type: Literal["tool_search_tool_search_result"]`
 
                   default: tool_search_tool_search_result
 
+                - `tool_references: List[ToolReferenceBlock]`
+
+                  - `type: Literal["tool_reference"]`
+
+                    default: tool_reference
+
+                  - `tool_name: str`
+
+                    maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+
             - `tool_use_id: str`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-            - `type: Literal["tool_search_tool_result"]`
-
-              default: tool_search_tool_result
 
           - `class ContainerUploadBlock: …`
 
             Response model for a file uploaded to the container.
 
-            - `file_id: str`
-
             - `type: Literal["container_upload"]`
 
               default: container_upload
+
+            - `file_id: str`
 
         - `model: Model`
 
@@ -6115,6 +6150,10 @@ for batch in client.messages.batches.results(
 
           Structured information about a refusal.
 
+          - `type: Literal["refusal"]`
+
+            default: refusal
+
           - `category: Optional[Literal["cyber", "bio", "frontier_llm", 2 more]]`
 
             The policy category that triggered a refusal.
@@ -6151,10 +6190,6 @@ for batch in client.messages.batches.results(
 
             This text is not guaranteed to be stable. `null` when no explanation is available for the category.
 
-          - `type: Literal["refusal"]`
-
-            default: refusal
-
         - `stop_reason: Optional[StopReason]`
 
           The reason that we stopped.
@@ -6190,14 +6225,6 @@ for batch in client.messages.batches.results(
           Which custom stop sequence was generated, if any.
 
           This value will be a non-null string if one of your custom stop sequences was generated.
-
-        - `type: Literal["message"]`
-
-          Object type.
-
-          For Messages, this is always `"message"`.
-
-          default: message
 
         - `usage: Usage`
 
@@ -6303,115 +6330,111 @@ for batch in client.messages.batches.results(
 
             - `"batch"`
 
-      - `type: Literal["succeeded"]`
-
-        default: succeeded
-
     - `class MessageBatchErroredResult: …`
 
+      - `type: Literal["errored"]`
+
+        default: errored
+
       - `error: ErrorResponse`
-
-        - `error: ErrorObject`
-
-          - `class InvalidRequestError: …`
-
-            - `message: str`
-
-              default: Invalid request
-
-            - `type: Literal["invalid_request_error"]`
-
-              default: invalid_request_error
-
-          - `class AuthenticationError: …`
-
-            - `message: str`
-
-              default: Authentication error
-
-            - `type: Literal["authentication_error"]`
-
-              default: authentication_error
-
-          - `class BillingError: …`
-
-            - `message: str`
-
-              default: Billing error
-
-            - `type: Literal["billing_error"]`
-
-              default: billing_error
-
-          - `class PermissionError: …`
-
-            - `message: str`
-
-              default: Permission denied
-
-            - `type: Literal["permission_error"]`
-
-              default: permission_error
-
-          - `class NotFoundError: …`
-
-            - `message: str`
-
-              default: Not found
-
-            - `type: Literal["not_found_error"]`
-
-              default: not_found_error
-
-          - `class RateLimitError: …`
-
-            - `message: str`
-
-              default: Rate limited
-
-            - `type: Literal["rate_limit_error"]`
-
-              default: rate_limit_error
-
-          - `class GatewayTimeoutError: …`
-
-            - `message: str`
-
-              default: Request timeout
-
-            - `type: Literal["timeout_error"]`
-
-              default: timeout_error
-
-          - `class APIErrorObject: …`
-
-            - `message: str`
-
-              default: Internal server error
-
-            - `type: Literal["api_error"]`
-
-              default: api_error
-
-          - `class OverloadedError: …`
-
-            - `message: str`
-
-              default: Overloaded
-
-            - `type: Literal["overloaded_error"]`
-
-              default: overloaded_error
-
-        - `request_id: Optional[str]`
 
         - `type: Literal["error"]`
 
           default: error
 
-      - `type: Literal["errored"]`
+        - `error: ErrorObject`
 
-        default: errored
+          - `class InvalidRequestError: …`
+
+            - `type: Literal["invalid_request_error"]`
+
+              default: invalid_request_error
+
+            - `message: str`
+
+              default: Invalid request
+
+          - `class AuthenticationError: …`
+
+            - `type: Literal["authentication_error"]`
+
+              default: authentication_error
+
+            - `message: str`
+
+              default: Authentication error
+
+          - `class BillingError: …`
+
+            - `type: Literal["billing_error"]`
+
+              default: billing_error
+
+            - `message: str`
+
+              default: Billing error
+
+          - `class PermissionError: …`
+
+            - `type: Literal["permission_error"]`
+
+              default: permission_error
+
+            - `message: str`
+
+              default: Permission denied
+
+          - `class NotFoundError: …`
+
+            - `type: Literal["not_found_error"]`
+
+              default: not_found_error
+
+            - `message: str`
+
+              default: Not found
+
+          - `class RateLimitError: …`
+
+            - `type: Literal["rate_limit_error"]`
+
+              default: rate_limit_error
+
+            - `message: str`
+
+              default: Rate limited
+
+          - `class GatewayTimeoutError: …`
+
+            - `type: Literal["timeout_error"]`
+
+              default: timeout_error
+
+            - `message: str`
+
+              default: Request timeout
+
+          - `class APIErrorObject: …`
+
+            - `type: Literal["api_error"]`
+
+              default: api_error
+
+            - `message: str`
+
+              default: Internal server error
+
+          - `class OverloadedError: …`
+
+            - `type: Literal["overloaded_error"]`
+
+              default: overloaded_error
+
+            - `message: str`
+
+              default: Overloaded
+
+        - `request_id: Optional[str]`
 
     - `class MessageBatchCanceledResult: …`
 
@@ -6477,7 +6500,19 @@ for batch in client.messages.batches.results(
 
   - `class MessageBatchSucceededResult: …`
 
+    - `type: Literal["succeeded"]`
+
+      default: succeeded
+
     - `message: Message`
+
+      - `type: Literal["message"]`
+
+        Object type.
+
+        For Messages, this is always `"message"`.
+
+        default: message
 
       - `id: str`
 
@@ -6503,12 +6538,6 @@ for batch in client.messages.batches.results(
 
           Skills loaded in the container
 
-          - `skill_id: str`
-
-            Skill ID
-
-            maxLength: 64, minLength: 1
-
           - `type: Literal["anthropic", "custom"]`
 
             Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
@@ -6516,6 +6545,12 @@ for batch in client.messages.batches.results(
             - `"anthropic"`
 
             - `"custom"`
+
+          - `skill_id: str`
+
+            Skill ID
+
+            maxLength: 64, minLength: 1
 
           - `version: str`
 
@@ -6554,6 +6589,10 @@ for batch in client.messages.batches.results(
 
         - `class TextBlock: …`
 
+          - `type: Literal["text"]`
+
+            default: text
+
           - `citations: Optional[List[TextCitation]]`
 
             Citations supporting the text block.
@@ -6561,6 +6600,10 @@ for batch in client.messages.batches.results(
             The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
 
             - `class CitationCharLocation: …`
+
+              - `type: Literal["char_location"]`
+
+                default: char_location
 
               - `cited_text: str`
 
@@ -6578,11 +6621,11 @@ for batch in client.messages.batches.results(
 
                 minimum: 0
 
-              - `type: Literal["char_location"]`
-
-                default: char_location
-
             - `class CitationPageLocation: …`
+
+              - `type: Literal["page_location"]`
+
+                default: page_location
 
               - `cited_text: str`
 
@@ -6600,11 +6643,11 @@ for batch in client.messages.batches.results(
 
                 minimum: 1
 
-              - `type: Literal["page_location"]`
-
-                default: page_location
-
             - `class CitationContentBlockLocation: …`
+
+              - `type: Literal["content_block_location"]`
+
+                default: content_block_location
 
               - `cited_text: str`
 
@@ -6632,11 +6675,11 @@ for batch in client.messages.batches.results(
 
                 minimum: 0
 
-              - `type: Literal["content_block_location"]`
-
-                default: content_block_location
-
             - `class CitationsWebSearchResultLocation: …`
+
+              - `type: Literal["web_search_result_location"]`
+
+                default: web_search_result_location
 
               - `cited_text: str`
 
@@ -6646,13 +6689,13 @@ for batch in client.messages.batches.results(
 
                 maxLength: 512
 
-              - `type: Literal["web_search_result_location"]`
-
-                default: web_search_result_location
-
               - `url: str`
 
             - `class CitationsSearchResultLocation: …`
+
+              - `type: Literal["search_result_location"]`
+
+                default: search_result_location
 
               - `cited_text: str`
 
@@ -6684,19 +6727,15 @@ for batch in client.messages.batches.results(
 
               - `title: Optional[str]`
 
-              - `type: Literal["search_result_location"]`
-
-                default: search_result_location
-
           - `text: str`
 
-            maxLength: 5000000, minLength: 0
-
-          - `type: Literal["text"]`
-
-            default: text
+            minLength: 0
 
         - `class ThinkingBlock: …`
+
+          - `type: Literal["thinking"]`
+
+            default: thinking
 
           - `signature: str`
 
@@ -6710,11 +6749,11 @@ for batch in client.messages.batches.results(
 
             The text of Claude's thinking process for this block.
 
-          - `type: Literal["thinking"]`
-
-            default: thinking
-
         - `class RedactedThinkingBlock: …`
+
+          - `type: Literal["redacted_thinking"]`
+
+            default: redacted_thinking
 
           - `data: str`
 
@@ -6724,11 +6763,11 @@ for batch in client.messages.batches.results(
 
             See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking#redacted-thinking-blocks) for details.
 
-          - `type: Literal["redacted_thinking"]`
-
-            default: redacted_thinking
-
         - `class ToolUseBlock: …`
+
+          - `type: Literal["tool_use"]`
+
+            default: tool_use
 
           - `id: str`
 
@@ -6750,29 +6789,25 @@ for batch in client.messages.batches.results(
 
               Tool invocation generated by a server-side tool.
 
+              - `type: Literal["code_execution_20250825"]`
+
               - `tool_id: str`
 
                 pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-              - `type: Literal["code_execution_20250825"]`
 
             - `class ServerToolCaller20260120: …`
 
+              - `type: Literal["code_execution_20260120"]`
+
               - `tool_id: str`
 
                 pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-              - `type: Literal["code_execution_20260120"]`
 
           - `input: Dict[str, object]`
 
           - `name: str`
 
             minLength: 1
-
-          - `type: Literal["tool_use"]`
-
-            default: tool_use
 
           - `toolset_name: Optional[str]`
 
@@ -6781,6 +6816,10 @@ for batch in client.messages.batches.results(
             maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
 
         - `class ServerToolUseBlock: …`
+
+          - `type: Literal["server_tool_use"]`
+
+            default: server_tool_use
 
           - `id: str`
 
@@ -6820,11 +6859,11 @@ for batch in client.messages.batches.results(
 
             - `"tool_search_tool_bm25"`
 
-          - `type: Literal["server_tool_use"]`
-
-            default: server_tool_use
-
         - `class WebSearchToolResultBlock: …`
+
+          - `type: Literal["web_search_tool_result"]`
+
+            default: web_search_tool_result
 
           - `caller: Caller`
 
@@ -6846,6 +6885,10 @@ for batch in client.messages.batches.results(
 
             - `class WebSearchToolResultError: …`
 
+              - `type: Literal["web_search_tool_result_error"]`
+
+                default: web_search_tool_result_error
+
               - `error_code: WebSearchToolResultErrorCode`
 
                 - `"invalid_tool_input"`
@@ -6860,11 +6903,11 @@ for batch in client.messages.batches.results(
 
                 - `"request_too_large"`
 
-              - `type: Literal["web_search_tool_result_error"]`
-
-                default: web_search_tool_result_error
-
             - `List[WebSearchResultBlock]`
+
+              - `type: Literal["web_search_result"]`
+
+                default: web_search_result
 
               - `encrypted_content: str`
 
@@ -6872,21 +6915,17 @@ for batch in client.messages.batches.results(
 
               - `title: str`
 
-              - `type: Literal["web_search_result"]`
-
-                default: web_search_result
-
               - `url: str`
 
           - `tool_use_id: str`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `type: Literal["web_search_tool_result"]`
-
-            default: web_search_tool_result
-
         - `class WebFetchToolResultBlock: …`
+
+          - `type: Literal["web_fetch_tool_result"]`
+
+            default: web_fetch_tool_result
 
           - `caller: Caller`
 
@@ -6908,6 +6947,10 @@ for batch in client.messages.batches.results(
 
             - `class WebFetchToolResultErrorBlock: …`
 
+              - `type: Literal["web_fetch_tool_result_error"]`
+
+                default: web_fetch_tool_result_error
+
               - `error_code: WebFetchToolResultErrorCode`
 
                 - `"invalid_tool_input"`
@@ -6928,13 +6971,19 @@ for batch in client.messages.batches.results(
 
                 - `"unavailable"`
 
-              - `type: Literal["web_fetch_tool_result_error"]`
-
-                default: web_fetch_tool_result_error
+                - `"content_too_large"`
 
             - `class WebFetchBlock: …`
 
+              - `type: Literal["web_fetch_result"]`
+
+                default: web_fetch_result
+
               - `content: DocumentBlock`
+
+                - `type: Literal["document"]`
+
+                  default: document
 
                 - `citations: Optional[CitationsConfig]`
 
@@ -6948,37 +6997,29 @@ for batch in client.messages.batches.results(
 
                   - `class Base64PDFSource: …`
 
+                    - `type: Literal["base64"]`
+
                     - `data: str`
 
                       format: byte
 
                     - `media_type: Literal["application/pdf"]`
 
-                    - `type: Literal["base64"]`
-
                   - `class PlainTextSource: …`
+
+                    - `type: Literal["text"]`
 
                     - `data: str`
 
                     - `media_type: Literal["text/plain"]`
 
-                    - `type: Literal["text"]`
-
                 - `title: Optional[str]`
 
                   The title of the document
 
-                - `type: Literal["document"]`
-
-                  default: document
-
               - `retrieved_at: Optional[str]`
 
                 ISO 8601 timestamp when the content was retrieved
-
-              - `type: Literal["web_fetch_result"]`
-
-                default: web_fetch_result
 
               - `url: str`
 
@@ -6988,17 +7029,21 @@ for batch in client.messages.batches.results(
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `type: Literal["web_fetch_tool_result"]`
-
-            default: web_fetch_tool_result
-
         - `class CodeExecutionToolResultBlock: …`
+
+          - `type: Literal["code_execution_tool_result"]`
+
+            default: code_execution_tool_result
 
           - `content: CodeExecutionToolResultBlockContent`
 
             Code execution result with encrypted stdout for PFC + web_search results.
 
             - `class CodeExecutionToolResultError: …`
+
+              - `type: Literal["code_execution_tool_result_error"]`
+
+                default: code_execution_tool_result_error
 
               - `error_code: CodeExecutionToolResultErrorCode`
 
@@ -7010,19 +7055,19 @@ for batch in client.messages.batches.results(
 
                 - `"execution_time_exceeded"`
 
-              - `type: Literal["code_execution_tool_result_error"]`
-
-                default: code_execution_tool_result_error
-
             - `class CodeExecutionResultBlock: …`
 
-              - `content: List[CodeExecutionOutputBlock]`
+              - `type: Literal["code_execution_result"]`
 
-                - `file_id: str`
+                default: code_execution_result
+
+              - `content: List[CodeExecutionOutputBlock]`
 
                 - `type: Literal["code_execution_output"]`
 
                   default: code_execution_output
+
+                - `file_id: str`
 
               - `return_code: int`
 
@@ -7030,21 +7075,21 @@ for batch in client.messages.batches.results(
 
               - `stdout: str`
 
-              - `type: Literal["code_execution_result"]`
-
-                default: code_execution_result
-
             - `class EncryptedCodeExecutionResultBlock: …`
 
               Code execution result with encrypted stdout for PFC + web_search results.
 
-              - `content: List[CodeExecutionOutputBlock]`
+              - `type: Literal["encrypted_code_execution_result"]`
 
-                - `file_id: str`
+                default: encrypted_code_execution_result
+
+              - `content: List[CodeExecutionOutputBlock]`
 
                 - `type: Literal["code_execution_output"]`
 
                   default: code_execution_output
+
+                - `file_id: str`
 
               - `encrypted_stdout: str`
 
@@ -7052,23 +7097,23 @@ for batch in client.messages.batches.results(
 
               - `stderr: str`
 
-              - `type: Literal["encrypted_code_execution_result"]`
-
-                default: encrypted_code_execution_result
-
           - `tool_use_id: str`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `type: Literal["code_execution_tool_result"]`
-
-            default: code_execution_tool_result
-
         - `class BashCodeExecutionToolResultBlock: …`
+
+          - `type: Literal["bash_code_execution_tool_result"]`
+
+            default: bash_code_execution_tool_result
 
           - `content: Content`
 
             - `class BashCodeExecutionToolResultError: …`
+
+              - `type: Literal["bash_code_execution_tool_result_error"]`
+
+                default: bash_code_execution_tool_result_error
 
               - `error_code: BashCodeExecutionToolResultErrorCode`
 
@@ -7082,19 +7127,19 @@ for batch in client.messages.batches.results(
 
                 - `"output_file_too_large"`
 
-              - `type: Literal["bash_code_execution_tool_result_error"]`
-
-                default: bash_code_execution_tool_result_error
-
             - `class BashCodeExecutionResultBlock: …`
 
-              - `content: List[BashCodeExecutionOutputBlock]`
+              - `type: Literal["bash_code_execution_result"]`
 
-                - `file_id: str`
+                default: bash_code_execution_result
+
+              - `content: List[BashCodeExecutionOutputBlock]`
 
                 - `type: Literal["bash_code_execution_output"]`
 
                   default: bash_code_execution_output
+
+                - `file_id: str`
 
               - `return_code: int`
 
@@ -7102,23 +7147,23 @@ for batch in client.messages.batches.results(
 
               - `stdout: str`
 
-              - `type: Literal["bash_code_execution_result"]`
-
-                default: bash_code_execution_result
-
           - `tool_use_id: str`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `type: Literal["bash_code_execution_tool_result"]`
-
-            default: bash_code_execution_tool_result
-
         - `class TextEditorCodeExecutionToolResultBlock: …`
+
+          - `type: Literal["text_editor_code_execution_tool_result"]`
+
+            default: text_editor_code_execution_tool_result
 
           - `content: Content`
 
             - `class TextEditorCodeExecutionToolResultError: …`
+
+              - `type: Literal["text_editor_code_execution_tool_result_error"]`
+
+                default: text_editor_code_execution_tool_result_error
 
               - `error_code: TextEditorCodeExecutionToolResultErrorCode`
 
@@ -7134,11 +7179,11 @@ for batch in client.messages.batches.results(
 
               - `error_message: Optional[str]`
 
-              - `type: Literal["text_editor_code_execution_tool_result_error"]`
-
-                default: text_editor_code_execution_tool_result_error
-
             - `class TextEditorCodeExecutionViewResultBlock: …`
+
+              - `type: Literal["text_editor_code_execution_view_result"]`
+
+                default: text_editor_code_execution_view_result
 
               - `content: str`
 
@@ -7156,19 +7201,19 @@ for batch in client.messages.batches.results(
 
               - `total_lines: Optional[int]`
 
-              - `type: Literal["text_editor_code_execution_view_result"]`
-
-                default: text_editor_code_execution_view_result
-
             - `class TextEditorCodeExecutionCreateResultBlock: …`
-
-              - `is_file_update: bool`
 
               - `type: Literal["text_editor_code_execution_create_result"]`
 
                 default: text_editor_code_execution_create_result
 
+              - `is_file_update: bool`
+
             - `class TextEditorCodeExecutionStrReplaceResultBlock: …`
+
+              - `type: Literal["text_editor_code_execution_str_replace_result"]`
+
+                default: text_editor_code_execution_str_replace_result
 
               - `lines: Optional[List[str]]`
 
@@ -7180,23 +7225,23 @@ for batch in client.messages.batches.results(
 
               - `old_start: Optional[int]`
 
-              - `type: Literal["text_editor_code_execution_str_replace_result"]`
-
-                default: text_editor_code_execution_str_replace_result
-
           - `tool_use_id: str`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `type: Literal["text_editor_code_execution_tool_result"]`
-
-            default: text_editor_code_execution_tool_result
-
         - `class ToolSearchToolResultBlock: …`
+
+          - `type: Literal["tool_search_tool_result"]`
+
+            default: tool_search_tool_result
 
           - `content: Content`
 
             - `class ToolSearchToolResultError: …`
+
+              - `type: Literal["tool_search_tool_result_error"]`
+
+                default: tool_search_tool_result_error
 
               - `error_code: ToolSearchToolResultErrorCode`
 
@@ -7210,43 +7255,35 @@ for batch in client.messages.batches.results(
 
               - `error_message: Optional[str]`
 
-              - `type: Literal["tool_search_tool_result_error"]`
-
-                default: tool_search_tool_result_error
-
             - `class ToolSearchToolSearchResultBlock: …`
-
-              - `tool_references: List[ToolReferenceBlock]`
-
-                - `tool_name: str`
-
-                  maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
-
-                - `type: Literal["tool_reference"]`
-
-                  default: tool_reference
 
               - `type: Literal["tool_search_tool_search_result"]`
 
                 default: tool_search_tool_search_result
 
+              - `tool_references: List[ToolReferenceBlock]`
+
+                - `type: Literal["tool_reference"]`
+
+                  default: tool_reference
+
+                - `tool_name: str`
+
+                  maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+
           - `tool_use_id: str`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-          - `type: Literal["tool_search_tool_result"]`
-
-            default: tool_search_tool_result
 
         - `class ContainerUploadBlock: …`
 
           Response model for a file uploaded to the container.
 
-          - `file_id: str`
-
           - `type: Literal["container_upload"]`
 
             default: container_upload
+
+          - `file_id: str`
 
       - `model: Model`
 
@@ -7360,6 +7397,10 @@ for batch in client.messages.batches.results(
 
         Structured information about a refusal.
 
+        - `type: Literal["refusal"]`
+
+          default: refusal
+
         - `category: Optional[Literal["cyber", "bio", "frontier_llm", 2 more]]`
 
           The policy category that triggered a refusal.
@@ -7396,10 +7437,6 @@ for batch in client.messages.batches.results(
 
           This text is not guaranteed to be stable. `null` when no explanation is available for the category.
 
-        - `type: Literal["refusal"]`
-
-          default: refusal
-
       - `stop_reason: Optional[StopReason]`
 
         The reason that we stopped.
@@ -7435,14 +7472,6 @@ for batch in client.messages.batches.results(
         Which custom stop sequence was generated, if any.
 
         This value will be a non-null string if one of your custom stop sequences was generated.
-
-      - `type: Literal["message"]`
-
-        Object type.
-
-        For Messages, this is always `"message"`.
-
-        default: message
 
       - `usage: Usage`
 
@@ -7548,115 +7577,111 @@ for batch in client.messages.batches.results(
 
           - `"batch"`
 
-    - `type: Literal["succeeded"]`
-
-      default: succeeded
-
   - `class MessageBatchErroredResult: …`
 
+    - `type: Literal["errored"]`
+
+      default: errored
+
     - `error: ErrorResponse`
-
-      - `error: ErrorObject`
-
-        - `class InvalidRequestError: …`
-
-          - `message: str`
-
-            default: Invalid request
-
-          - `type: Literal["invalid_request_error"]`
-
-            default: invalid_request_error
-
-        - `class AuthenticationError: …`
-
-          - `message: str`
-
-            default: Authentication error
-
-          - `type: Literal["authentication_error"]`
-
-            default: authentication_error
-
-        - `class BillingError: …`
-
-          - `message: str`
-
-            default: Billing error
-
-          - `type: Literal["billing_error"]`
-
-            default: billing_error
-
-        - `class PermissionError: …`
-
-          - `message: str`
-
-            default: Permission denied
-
-          - `type: Literal["permission_error"]`
-
-            default: permission_error
-
-        - `class NotFoundError: …`
-
-          - `message: str`
-
-            default: Not found
-
-          - `type: Literal["not_found_error"]`
-
-            default: not_found_error
-
-        - `class RateLimitError: …`
-
-          - `message: str`
-
-            default: Rate limited
-
-          - `type: Literal["rate_limit_error"]`
-
-            default: rate_limit_error
-
-        - `class GatewayTimeoutError: …`
-
-          - `message: str`
-
-            default: Request timeout
-
-          - `type: Literal["timeout_error"]`
-
-            default: timeout_error
-
-        - `class APIErrorObject: …`
-
-          - `message: str`
-
-            default: Internal server error
-
-          - `type: Literal["api_error"]`
-
-            default: api_error
-
-        - `class OverloadedError: …`
-
-          - `message: str`
-
-            default: Overloaded
-
-          - `type: Literal["overloaded_error"]`
-
-            default: overloaded_error
-
-      - `request_id: Optional[str]`
 
       - `type: Literal["error"]`
 
         default: error
 
-    - `type: Literal["errored"]`
+      - `error: ErrorObject`
 
-      default: errored
+        - `class InvalidRequestError: …`
+
+          - `type: Literal["invalid_request_error"]`
+
+            default: invalid_request_error
+
+          - `message: str`
+
+            default: Invalid request
+
+        - `class AuthenticationError: …`
+
+          - `type: Literal["authentication_error"]`
+
+            default: authentication_error
+
+          - `message: str`
+
+            default: Authentication error
+
+        - `class BillingError: …`
+
+          - `type: Literal["billing_error"]`
+
+            default: billing_error
+
+          - `message: str`
+
+            default: Billing error
+
+        - `class PermissionError: …`
+
+          - `type: Literal["permission_error"]`
+
+            default: permission_error
+
+          - `message: str`
+
+            default: Permission denied
+
+        - `class NotFoundError: …`
+
+          - `type: Literal["not_found_error"]`
+
+            default: not_found_error
+
+          - `message: str`
+
+            default: Not found
+
+        - `class RateLimitError: …`
+
+          - `type: Literal["rate_limit_error"]`
+
+            default: rate_limit_error
+
+          - `message: str`
+
+            default: Rate limited
+
+        - `class GatewayTimeoutError: …`
+
+          - `type: Literal["timeout_error"]`
+
+            default: timeout_error
+
+          - `message: str`
+
+            default: Request timeout
+
+        - `class APIErrorObject: …`
+
+          - `type: Literal["api_error"]`
+
+            default: api_error
+
+          - `message: str`
+
+            default: Internal server error
+
+        - `class OverloadedError: …`
+
+          - `type: Literal["overloaded_error"]`
+
+            default: overloaded_error
+
+          - `message: str`
+
+            default: Overloaded
+
+      - `request_id: Optional[str]`
 
   - `class MessageBatchCanceledResult: …`
 
@@ -7674,7 +7699,19 @@ for batch in client.messages.batches.results(
 
 - `class MessageBatchSucceededResult: …`
 
+  - `type: Literal["succeeded"]`
+
+    default: succeeded
+
   - `message: Message`
+
+    - `type: Literal["message"]`
+
+      Object type.
+
+      For Messages, this is always `"message"`.
+
+      default: message
 
     - `id: str`
 
@@ -7700,12 +7737,6 @@ for batch in client.messages.batches.results(
 
         Skills loaded in the container
 
-        - `skill_id: str`
-
-          Skill ID
-
-          maxLength: 64, minLength: 1
-
         - `type: Literal["anthropic", "custom"]`
 
           Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
@@ -7713,6 +7744,12 @@ for batch in client.messages.batches.results(
           - `"anthropic"`
 
           - `"custom"`
+
+        - `skill_id: str`
+
+          Skill ID
+
+          maxLength: 64, minLength: 1
 
         - `version: str`
 
@@ -7751,6 +7788,10 @@ for batch in client.messages.batches.results(
 
       - `class TextBlock: …`
 
+        - `type: Literal["text"]`
+
+          default: text
+
         - `citations: Optional[List[TextCitation]]`
 
           Citations supporting the text block.
@@ -7758,6 +7799,10 @@ for batch in client.messages.batches.results(
           The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
 
           - `class CitationCharLocation: …`
+
+            - `type: Literal["char_location"]`
+
+              default: char_location
 
             - `cited_text: str`
 
@@ -7775,11 +7820,11 @@ for batch in client.messages.batches.results(
 
               minimum: 0
 
-            - `type: Literal["char_location"]`
-
-              default: char_location
-
           - `class CitationPageLocation: …`
+
+            - `type: Literal["page_location"]`
+
+              default: page_location
 
             - `cited_text: str`
 
@@ -7797,11 +7842,11 @@ for batch in client.messages.batches.results(
 
               minimum: 1
 
-            - `type: Literal["page_location"]`
-
-              default: page_location
-
           - `class CitationContentBlockLocation: …`
+
+            - `type: Literal["content_block_location"]`
+
+              default: content_block_location
 
             - `cited_text: str`
 
@@ -7829,11 +7874,11 @@ for batch in client.messages.batches.results(
 
               minimum: 0
 
-            - `type: Literal["content_block_location"]`
-
-              default: content_block_location
-
           - `class CitationsWebSearchResultLocation: …`
+
+            - `type: Literal["web_search_result_location"]`
+
+              default: web_search_result_location
 
             - `cited_text: str`
 
@@ -7843,13 +7888,13 @@ for batch in client.messages.batches.results(
 
               maxLength: 512
 
-            - `type: Literal["web_search_result_location"]`
-
-              default: web_search_result_location
-
             - `url: str`
 
           - `class CitationsSearchResultLocation: …`
+
+            - `type: Literal["search_result_location"]`
+
+              default: search_result_location
 
             - `cited_text: str`
 
@@ -7881,19 +7926,15 @@ for batch in client.messages.batches.results(
 
             - `title: Optional[str]`
 
-            - `type: Literal["search_result_location"]`
-
-              default: search_result_location
-
         - `text: str`
 
-          maxLength: 5000000, minLength: 0
-
-        - `type: Literal["text"]`
-
-          default: text
+          minLength: 0
 
       - `class ThinkingBlock: …`
+
+        - `type: Literal["thinking"]`
+
+          default: thinking
 
         - `signature: str`
 
@@ -7907,11 +7948,11 @@ for batch in client.messages.batches.results(
 
           The text of Claude's thinking process for this block.
 
-        - `type: Literal["thinking"]`
-
-          default: thinking
-
       - `class RedactedThinkingBlock: …`
+
+        - `type: Literal["redacted_thinking"]`
+
+          default: redacted_thinking
 
         - `data: str`
 
@@ -7921,11 +7962,11 @@ for batch in client.messages.batches.results(
 
           See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking#redacted-thinking-blocks) for details.
 
-        - `type: Literal["redacted_thinking"]`
-
-          default: redacted_thinking
-
       - `class ToolUseBlock: …`
+
+        - `type: Literal["tool_use"]`
+
+          default: tool_use
 
         - `id: str`
 
@@ -7947,29 +7988,25 @@ for batch in client.messages.batches.results(
 
             Tool invocation generated by a server-side tool.
 
+            - `type: Literal["code_execution_20250825"]`
+
             - `tool_id: str`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-            - `type: Literal["code_execution_20250825"]`
 
           - `class ServerToolCaller20260120: …`
 
+            - `type: Literal["code_execution_20260120"]`
+
             - `tool_id: str`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-            - `type: Literal["code_execution_20260120"]`
 
         - `input: Dict[str, object]`
 
         - `name: str`
 
           minLength: 1
-
-        - `type: Literal["tool_use"]`
-
-          default: tool_use
 
         - `toolset_name: Optional[str]`
 
@@ -7978,6 +8015,10 @@ for batch in client.messages.batches.results(
           maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
 
       - `class ServerToolUseBlock: …`
+
+        - `type: Literal["server_tool_use"]`
+
+          default: server_tool_use
 
         - `id: str`
 
@@ -8017,11 +8058,11 @@ for batch in client.messages.batches.results(
 
           - `"tool_search_tool_bm25"`
 
-        - `type: Literal["server_tool_use"]`
-
-          default: server_tool_use
-
       - `class WebSearchToolResultBlock: …`
+
+        - `type: Literal["web_search_tool_result"]`
+
+          default: web_search_tool_result
 
         - `caller: Caller`
 
@@ -8043,6 +8084,10 @@ for batch in client.messages.batches.results(
 
           - `class WebSearchToolResultError: …`
 
+            - `type: Literal["web_search_tool_result_error"]`
+
+              default: web_search_tool_result_error
+
             - `error_code: WebSearchToolResultErrorCode`
 
               - `"invalid_tool_input"`
@@ -8057,11 +8102,11 @@ for batch in client.messages.batches.results(
 
               - `"request_too_large"`
 
-            - `type: Literal["web_search_tool_result_error"]`
-
-              default: web_search_tool_result_error
-
           - `List[WebSearchResultBlock]`
+
+            - `type: Literal["web_search_result"]`
+
+              default: web_search_result
 
             - `encrypted_content: str`
 
@@ -8069,21 +8114,17 @@ for batch in client.messages.batches.results(
 
             - `title: str`
 
-            - `type: Literal["web_search_result"]`
-
-              default: web_search_result
-
             - `url: str`
 
         - `tool_use_id: str`
 
           pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-        - `type: Literal["web_search_tool_result"]`
-
-          default: web_search_tool_result
-
       - `class WebFetchToolResultBlock: …`
+
+        - `type: Literal["web_fetch_tool_result"]`
+
+          default: web_fetch_tool_result
 
         - `caller: Caller`
 
@@ -8105,6 +8146,10 @@ for batch in client.messages.batches.results(
 
           - `class WebFetchToolResultErrorBlock: …`
 
+            - `type: Literal["web_fetch_tool_result_error"]`
+
+              default: web_fetch_tool_result_error
+
             - `error_code: WebFetchToolResultErrorCode`
 
               - `"invalid_tool_input"`
@@ -8125,13 +8170,19 @@ for batch in client.messages.batches.results(
 
               - `"unavailable"`
 
-            - `type: Literal["web_fetch_tool_result_error"]`
-
-              default: web_fetch_tool_result_error
+              - `"content_too_large"`
 
           - `class WebFetchBlock: …`
 
+            - `type: Literal["web_fetch_result"]`
+
+              default: web_fetch_result
+
             - `content: DocumentBlock`
+
+              - `type: Literal["document"]`
+
+                default: document
 
               - `citations: Optional[CitationsConfig]`
 
@@ -8145,37 +8196,29 @@ for batch in client.messages.batches.results(
 
                 - `class Base64PDFSource: …`
 
+                  - `type: Literal["base64"]`
+
                   - `data: str`
 
                     format: byte
 
                   - `media_type: Literal["application/pdf"]`
 
-                  - `type: Literal["base64"]`
-
                 - `class PlainTextSource: …`
+
+                  - `type: Literal["text"]`
 
                   - `data: str`
 
                   - `media_type: Literal["text/plain"]`
 
-                  - `type: Literal["text"]`
-
               - `title: Optional[str]`
 
                 The title of the document
 
-              - `type: Literal["document"]`
-
-                default: document
-
             - `retrieved_at: Optional[str]`
 
               ISO 8601 timestamp when the content was retrieved
-
-            - `type: Literal["web_fetch_result"]`
-
-              default: web_fetch_result
 
             - `url: str`
 
@@ -8185,17 +8228,21 @@ for batch in client.messages.batches.results(
 
           pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-        - `type: Literal["web_fetch_tool_result"]`
-
-          default: web_fetch_tool_result
-
       - `class CodeExecutionToolResultBlock: …`
+
+        - `type: Literal["code_execution_tool_result"]`
+
+          default: code_execution_tool_result
 
         - `content: CodeExecutionToolResultBlockContent`
 
           Code execution result with encrypted stdout for PFC + web_search results.
 
           - `class CodeExecutionToolResultError: …`
+
+            - `type: Literal["code_execution_tool_result_error"]`
+
+              default: code_execution_tool_result_error
 
             - `error_code: CodeExecutionToolResultErrorCode`
 
@@ -8207,19 +8254,19 @@ for batch in client.messages.batches.results(
 
               - `"execution_time_exceeded"`
 
-            - `type: Literal["code_execution_tool_result_error"]`
-
-              default: code_execution_tool_result_error
-
           - `class CodeExecutionResultBlock: …`
 
-            - `content: List[CodeExecutionOutputBlock]`
+            - `type: Literal["code_execution_result"]`
 
-              - `file_id: str`
+              default: code_execution_result
+
+            - `content: List[CodeExecutionOutputBlock]`
 
               - `type: Literal["code_execution_output"]`
 
                 default: code_execution_output
+
+              - `file_id: str`
 
             - `return_code: int`
 
@@ -8227,21 +8274,21 @@ for batch in client.messages.batches.results(
 
             - `stdout: str`
 
-            - `type: Literal["code_execution_result"]`
-
-              default: code_execution_result
-
           - `class EncryptedCodeExecutionResultBlock: …`
 
             Code execution result with encrypted stdout for PFC + web_search results.
 
-            - `content: List[CodeExecutionOutputBlock]`
+            - `type: Literal["encrypted_code_execution_result"]`
 
-              - `file_id: str`
+              default: encrypted_code_execution_result
+
+            - `content: List[CodeExecutionOutputBlock]`
 
               - `type: Literal["code_execution_output"]`
 
                 default: code_execution_output
+
+              - `file_id: str`
 
             - `encrypted_stdout: str`
 
@@ -8249,23 +8296,23 @@ for batch in client.messages.batches.results(
 
             - `stderr: str`
 
-            - `type: Literal["encrypted_code_execution_result"]`
-
-              default: encrypted_code_execution_result
-
         - `tool_use_id: str`
 
           pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-        - `type: Literal["code_execution_tool_result"]`
-
-          default: code_execution_tool_result
-
       - `class BashCodeExecutionToolResultBlock: …`
+
+        - `type: Literal["bash_code_execution_tool_result"]`
+
+          default: bash_code_execution_tool_result
 
         - `content: Content`
 
           - `class BashCodeExecutionToolResultError: …`
+
+            - `type: Literal["bash_code_execution_tool_result_error"]`
+
+              default: bash_code_execution_tool_result_error
 
             - `error_code: BashCodeExecutionToolResultErrorCode`
 
@@ -8279,19 +8326,19 @@ for batch in client.messages.batches.results(
 
               - `"output_file_too_large"`
 
-            - `type: Literal["bash_code_execution_tool_result_error"]`
-
-              default: bash_code_execution_tool_result_error
-
           - `class BashCodeExecutionResultBlock: …`
 
-            - `content: List[BashCodeExecutionOutputBlock]`
+            - `type: Literal["bash_code_execution_result"]`
 
-              - `file_id: str`
+              default: bash_code_execution_result
+
+            - `content: List[BashCodeExecutionOutputBlock]`
 
               - `type: Literal["bash_code_execution_output"]`
 
                 default: bash_code_execution_output
+
+              - `file_id: str`
 
             - `return_code: int`
 
@@ -8299,23 +8346,23 @@ for batch in client.messages.batches.results(
 
             - `stdout: str`
 
-            - `type: Literal["bash_code_execution_result"]`
-
-              default: bash_code_execution_result
-
         - `tool_use_id: str`
 
           pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-        - `type: Literal["bash_code_execution_tool_result"]`
-
-          default: bash_code_execution_tool_result
-
       - `class TextEditorCodeExecutionToolResultBlock: …`
+
+        - `type: Literal["text_editor_code_execution_tool_result"]`
+
+          default: text_editor_code_execution_tool_result
 
         - `content: Content`
 
           - `class TextEditorCodeExecutionToolResultError: …`
+
+            - `type: Literal["text_editor_code_execution_tool_result_error"]`
+
+              default: text_editor_code_execution_tool_result_error
 
             - `error_code: TextEditorCodeExecutionToolResultErrorCode`
 
@@ -8331,11 +8378,11 @@ for batch in client.messages.batches.results(
 
             - `error_message: Optional[str]`
 
-            - `type: Literal["text_editor_code_execution_tool_result_error"]`
-
-              default: text_editor_code_execution_tool_result_error
-
           - `class TextEditorCodeExecutionViewResultBlock: …`
+
+            - `type: Literal["text_editor_code_execution_view_result"]`
+
+              default: text_editor_code_execution_view_result
 
             - `content: str`
 
@@ -8353,19 +8400,19 @@ for batch in client.messages.batches.results(
 
             - `total_lines: Optional[int]`
 
-            - `type: Literal["text_editor_code_execution_view_result"]`
-
-              default: text_editor_code_execution_view_result
-
           - `class TextEditorCodeExecutionCreateResultBlock: …`
-
-            - `is_file_update: bool`
 
             - `type: Literal["text_editor_code_execution_create_result"]`
 
               default: text_editor_code_execution_create_result
 
+            - `is_file_update: bool`
+
           - `class TextEditorCodeExecutionStrReplaceResultBlock: …`
+
+            - `type: Literal["text_editor_code_execution_str_replace_result"]`
+
+              default: text_editor_code_execution_str_replace_result
 
             - `lines: Optional[List[str]]`
 
@@ -8377,23 +8424,23 @@ for batch in client.messages.batches.results(
 
             - `old_start: Optional[int]`
 
-            - `type: Literal["text_editor_code_execution_str_replace_result"]`
-
-              default: text_editor_code_execution_str_replace_result
-
         - `tool_use_id: str`
 
           pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-        - `type: Literal["text_editor_code_execution_tool_result"]`
-
-          default: text_editor_code_execution_tool_result
-
       - `class ToolSearchToolResultBlock: …`
+
+        - `type: Literal["tool_search_tool_result"]`
+
+          default: tool_search_tool_result
 
         - `content: Content`
 
           - `class ToolSearchToolResultError: …`
+
+            - `type: Literal["tool_search_tool_result_error"]`
+
+              default: tool_search_tool_result_error
 
             - `error_code: ToolSearchToolResultErrorCode`
 
@@ -8407,43 +8454,35 @@ for batch in client.messages.batches.results(
 
             - `error_message: Optional[str]`
 
-            - `type: Literal["tool_search_tool_result_error"]`
-
-              default: tool_search_tool_result_error
-
           - `class ToolSearchToolSearchResultBlock: …`
-
-            - `tool_references: List[ToolReferenceBlock]`
-
-              - `tool_name: str`
-
-                maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
-
-              - `type: Literal["tool_reference"]`
-
-                default: tool_reference
 
             - `type: Literal["tool_search_tool_search_result"]`
 
               default: tool_search_tool_search_result
 
+            - `tool_references: List[ToolReferenceBlock]`
+
+              - `type: Literal["tool_reference"]`
+
+                default: tool_reference
+
+              - `tool_name: str`
+
+                maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+
         - `tool_use_id: str`
 
           pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-        - `type: Literal["tool_search_tool_result"]`
-
-          default: tool_search_tool_result
 
       - `class ContainerUploadBlock: …`
 
         Response model for a file uploaded to the container.
 
-        - `file_id: str`
-
         - `type: Literal["container_upload"]`
 
           default: container_upload
+
+        - `file_id: str`
 
     - `model: Model`
 
@@ -8557,6 +8596,10 @@ for batch in client.messages.batches.results(
 
       Structured information about a refusal.
 
+      - `type: Literal["refusal"]`
+
+        default: refusal
+
       - `category: Optional[Literal["cyber", "bio", "frontier_llm", 2 more]]`
 
         The policy category that triggered a refusal.
@@ -8593,10 +8636,6 @@ for batch in client.messages.batches.results(
 
         This text is not guaranteed to be stable. `null` when no explanation is available for the category.
 
-      - `type: Literal["refusal"]`
-
-        default: refusal
-
     - `stop_reason: Optional[StopReason]`
 
       The reason that we stopped.
@@ -8632,14 +8671,6 @@ for batch in client.messages.batches.results(
       Which custom stop sequence was generated, if any.
 
       This value will be a non-null string if one of your custom stop sequences was generated.
-
-    - `type: Literal["message"]`
-
-      Object type.
-
-      For Messages, this is always `"message"`.
-
-      default: message
 
     - `usage: Usage`
 
@@ -8744,7 +8775,3 @@ for batch in client.messages.batches.results(
         - `"priority"`
 
         - `"batch"`
-
-  - `type: Literal["succeeded"]`
-
-    default: succeeded

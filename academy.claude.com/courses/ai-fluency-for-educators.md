@@ -8,7 +8,7 @@ Helps faculty, instructional designers, and education leaders apply the 4D AI Fl
 
 4 lessons1.5 hr1 quizCompletion badge
 
-[Start course](https://academy.claude.com/courses/ai-fluency-for-educators/introduction-to-ai-fluency-for-educators)[Sign in to save progress](https://academy.claude.com/login?returnTo=https%3A%2F%2Facademy.claude.com%2Fcourses%2Fai-fluency-for-educators)
+[Start course](https://academy.claude.com/courses/ai-fluency-for-educators/introduction-to-ai-fluency-for-educators)[Sign in to save progress](https://academy.claude.com/login?returnTo=%2Fcourses%2Fai-fluency-for-educators)
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-jz02ndah.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-gzpg2ube.png)
 

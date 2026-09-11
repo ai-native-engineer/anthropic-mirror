@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/python/beta/vaults/credentials/mcp_oauth_validate -->
 
+---
+title: Validate Credential
+url: https://platform.claude.com/docs/en/api/python/beta/vaults/credentials/mcp_oauth_validate
+---
+
 # Validate Credential
 
 `beta.vaults.credentials.mcp_oauth_validate(credential_id, **kwargs)  -> BetaManagedAgentsCredentialValidation`
@@ -20,7 +25,7 @@ Validate Credential
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 41 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 42 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -68,6 +73,8 @@ Validate Credential
 
     - `"user-profiles-2026-08-18"`
 
+    - `"user-profiles-2026-09-04"`
+
     - `"advisor-tool-2026-03-01"`
 
     - `"managed-agents-2026-04-01"`
@@ -110,11 +117,15 @@ Validate Credential
 
     - `"mid-conversation-system-clear-at-2026-08-21"`
 
+- `workspace_id: Optional[str]`
+
 ## Returns
 
 - `class BetaManagedAgentsCredentialValidation: …`
 
   Result of live-probing a credential against its configured MCP server.
+
+  - `type: Literal["vault_credential_validation"]`
 
   - `credential_id: str`
 
@@ -183,8 +194,6 @@ Validate Credential
     - `"invalid"`
 
     - `"unknown"`
-
-  - `type: Literal["vault_credential_validation"]`
 
   - `validated_at: datetime`
 

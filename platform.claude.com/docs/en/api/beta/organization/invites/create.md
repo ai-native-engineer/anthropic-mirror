@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/beta/organization/invites/create -->
 
+---
+title: Create Invite
+url: https://platform.claude.com/docs/en/api/beta/organization/invites/create
+---
+
 # Create Invite
 
 **POST** `/v1/organizations/invites`
@@ -41,6 +46,14 @@ On plans that draw members from a finite pool of purchased seats, the invite aut
 ## Returns
 
 - `BetaOrganizationInvite object`
+
+  - `type: "invite"`
+
+    Object type.
+
+    For Invites, this is always `"invite"`.
+
+    default: invite
 
   - `id: string`
 
@@ -105,14 +118,6 @@ On plans that draw members from a finite pool of purchased seats, the invite aut
     - `"expired"`
 
     - `"pending"`
-
-  - `type: "invite"`
-
-    Object type.
-
-    For Invites, this is always `"invite"`.
-
-    default: invite
 
 ## Example
 

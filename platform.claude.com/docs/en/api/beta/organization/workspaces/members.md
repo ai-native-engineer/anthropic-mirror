@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/beta/organization/workspaces/members -->
 
+---
+title: Members
+url: https://platform.claude.com/docs/en/api/beta/organization/workspaces/members
+---
+
 # Members
 
 ## List Workspace Members

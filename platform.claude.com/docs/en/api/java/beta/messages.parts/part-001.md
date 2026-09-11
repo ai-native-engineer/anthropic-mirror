@@ -3,6 +3,11 @@
 
 <!-- chunk-start -->
 
+---
+title: Messages
+url: https://platform.claude.com/docs/en/api/java/beta/messages
+---
+
 # Messages
 
 ## Create a Message
@@ -71,6 +76,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
 
+    - `USER_PROFILES_2026_09_04("user-profiles-2026-09-04")`
+
     - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
@@ -116,6 +123,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
   - `Optional<String> userProfileId`
 
     The user profile ID to attribute this request to. Use when acting on behalf of a party other than your organization. Requires the `user-profiles` beta header.
+
+  - `Optional<String> workspaceId`
 
   - `long maxTokens`
 
@@ -188,11 +197,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `class BetaTextBlockParam:`
 
+          - `JsonValue type = "text"`
+
           - `String text`
 
             minLength: 1
-
-          - `JsonValue type = "text"`
 
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -219,6 +228,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `class BetaCitationCharLocationParam:`
 
+              - `JsonValue type = "char_location"`
+
               - `String citedText`
 
               - `long documentIndex`
@@ -235,9 +246,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 minimum: 0
 
-              - `JsonValue type = "char_location"`
-
             - `class BetaCitationPageLocationParam:`
+
+              - `JsonValue type = "page_location"`
 
               - `String citedText`
 
@@ -255,9 +266,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 minimum: 1
 
-              - `JsonValue type = "page_location"`
-
             - `class BetaCitationContentBlockLocationParam:`
+
+              - `JsonValue type = "content_block_location"`
 
               - `String citedText`
 
@@ -285,9 +296,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 minimum: 0
 
-              - `JsonValue type = "content_block_location"`
-
             - `class BetaCitationWebSearchResultLocationParam:`
+
+              - `JsonValue type = "web_search_result_location"`
 
               - `String citedText`
 
@@ -297,13 +308,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 maxLength: 512, minLength: 1
 
-              - `JsonValue type = "web_search_result_location"`
-
               - `String url`
 
                 minLength: 1
 
             - `class BetaCitationSearchResultLocationParam:`
+
+              - `JsonValue type = "search_result_location"`
 
               - `String citedText`
 
@@ -335,13 +346,15 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `Optional<String> title`
 
-              - `JsonValue type = "search_result_location"`
-
         - `class BetaImageBlockParam:`
+
+          - `JsonValue type = "image"`
 
           - `Source source`
 
             - `class BetaBase64ImageSource:`
+
+              - `JsonValue type = "base64"`
 
               - `String data`
 
@@ -357,8 +370,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 - `IMAGE_WEBP("image/webp")`
 
-              - `JsonValue type = "base64"`
-
             - `class BetaUrlImageSource:`
 
               - `JsonValue type = "url"`
@@ -367,11 +378,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `class BetaFileImageSource:`
 
-              - `String fileId`
-
               - `JsonValue type = "file"`
 
-          - `JsonValue type = "image"`
+              - `String fileId`
 
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -391,9 +400,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `class BetaRequestDocumentBlock:`
 
+          - `JsonValue type = "document"`
+
           - `Source source`
 
             - `class BetaBase64PdfSource:`
+
+              - `JsonValue type = "base64"`
 
               - `String data`
 
@@ -401,17 +414,17 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `JsonValue mediaType = "application/pdf"`
 
-              - `JsonValue type = "base64"`
-
             - `class BetaPlainTextSource:`
+
+              - `JsonValue type = "text"`
 
               - `String data`
 
               - `JsonValue mediaType = "text/plain"`
 
-              - `JsonValue type = "text"`
-
             - `class BetaContentBlockSource:`
+
+              - `JsonValue type = "content"`
 
               - `Content content`
 
@@ -423,8 +436,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                   - `class BetaImageBlockParam:`
 
-              - `JsonValue type = "content"`
-
             - `class BetaUrlPdfSource:`
 
               - `JsonValue type = "url"`
@@ -433,11 +444,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `class BetaFileDocumentSource:`
 
-              - `String fileId`
-
               - `JsonValue type = "file"`
 
-          - `JsonValue type = "document"`
+              - `String fileId`
 
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -457,13 +466,15 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `class BetaSearchResultBlockParam:`
 
+          - `JsonValue type = "search_result"`
+
           - `List<BetaTextBlockParam> content`
+
+            - `JsonValue type = "text"`
 
             - `String text`
 
               minLength: 1
-
-            - `JsonValue type = "text"`
 
             - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -475,8 +486,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `String title`
 
-          - `JsonValue type = "search_result"`
-
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
             Create a cache control breakpoint at this content block.
@@ -484,6 +493,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
           - `Optional<BetaCitationsConfigParam> citations`
 
         - `class BetaThinkingBlockParam:`
+
+          - `JsonValue type = "thinking"`
 
           - `String signature`
 
@@ -495,17 +506,17 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             The `thinking` text of this block as returned by the API.
 
-          - `JsonValue type = "thinking"`
-
         - `class BetaRedactedThinkingBlockParam:`
+
+          - `JsonValue type = "redacted_thinking"`
 
           - `String data`
 
             The `data` value of this redacted thinking block, exactly as returned by the API in a previous response. Opaque and encrypted; pass it back unchanged.
 
-          - `JsonValue type = "redacted_thinking"`
-
         - `class BetaToolUseBlockParam:`
+
+          - `JsonValue type = "tool_use"`
 
           - `String id`
 
@@ -516,8 +527,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
           - `String name`
 
             maxLength: 200, minLength: 1
-
-          - `JsonValue type = "tool_use"`
 
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -537,19 +546,19 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               Tool invocation generated by a server-side tool.
 
+              - `JsonValue type = "code_execution_20250825"`
+
               - `String toolId`
 
                 pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-              - `JsonValue type = "code_execution_20250825"`
 
             - `class BetaServerToolCaller20260120:`
 
+              - `JsonValue type = "code_execution_20260120"`
+
               - `String toolId`
 
                 pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-              - `JsonValue type = "code_execution_20260120"`
 
           - `Optional<String> toolsetName`
 
@@ -559,11 +568,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `class BetaToolResultBlockParam:`
 
+          - `JsonValue type = "tool_result"`
+
           - `String toolUseId`
 
             pattern: ^[a-zA-Z0-9_-]+$
-
-          - `JsonValue type = "tool_result"`
 
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -587,11 +596,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 Tool reference block that can be included in tool_result content.
 
+                - `JsonValue type = "tool_reference"`
+
                 - `String toolName`
 
                   maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
-
-                - `JsonValue type = "tool_reference"`
 
                 - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -606,6 +615,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
                 At most one per `tool_result`, only on a non-error result answering a
                 browser toolset member `tool_use`. The server renders the
                 model-visible text from it; the model never sees the raw fields.
+
+                - `JsonValue type = "browser_state"`
 
                 - `List<BetaBrowserStateTabEntry> tabs`
 
@@ -635,8 +646,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                     Whether this tab is the active tab after this call. Whenever `tabs` is non-empty, exactly one entry is marked `active: true`.
 
-                - `JsonValue type = "browser_state"`
-
                 - `Optional<BetaCacheControlEphemeral> cacheControl`
 
                   Create a cache control breakpoint at this content block.
@@ -657,25 +666,25 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
                     during a failed call gets no deferred `tab_opened`; it simply appears
                     in the next result's `tabs` inventory.
 
+                    - `JsonValue type = "tab_opened"`
+
                     - `String tabId`
 
                       The `tab_id` of the opened tab, present in `tabs`.
 
                       maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-                    - `JsonValue type = "tab_opened"`
-
                   - `class BetaBrowserStateChangeDownloadStarted:`
 
                     A file download that started during this call.
+
+                    - `JsonValue type = "download_started"`
 
                     - `String downloadId`
 
                       The caller-assigned identifier for this download, stable across the state changes reporting it.
 
                       maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
-
-                    - `JsonValue type = "download_started"`
 
                     - `String url`
 
@@ -690,13 +699,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
                     `download_started`, when the download finished during the call that
                     started it (at most one state change per `download_id` per result).
 
+                    - `JsonValue type = "download_completed"`
+
                     - `String downloadId`
 
                       The caller-assigned identifier for this download, stable across the state changes reporting it.
 
                       maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
-
-                    - `JsonValue type = "download_completed"`
 
                     - `String url`
 
@@ -720,13 +729,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                     A file download that failed — or was cancelled — during this call.
 
+                    - `JsonValue type = "download_failed"`
+
                     - `String downloadId`
 
                       The caller-assigned identifier for this download, stable across the state changes reporting it.
 
                       maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
-
-                    - `JsonValue type = "download_failed"`
 
                     - `String url`
 
@@ -749,6 +758,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
             maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
 
         - `class BetaServerToolUseBlockParam:`
+
+          - `JsonValue type = "server_tool_use"`
 
           - `String id`
 
@@ -774,8 +785,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `TOOL_SEARCH_TOOL_BM25("tool_search_tool_bm25")`
 
-          - `JsonValue type = "server_tool_use"`
-
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
             Create a cache control breakpoint at this content block.
@@ -796,21 +805,25 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `class BetaWebSearchToolResultBlockParam:`
 
+          - `JsonValue type = "web_search_tool_result"`
+
           - `BetaWebSearchToolResultBlockParamContent content`
 
             - `List<BetaWebSearchResultBlockParam>`
 
+              - `JsonValue type = "web_search_result"`
+
               - `String encryptedContent`
 
               - `String title`
-
-              - `JsonValue type = "web_search_result"`
 
               - `String url`
 
               - `Optional<String> pageAge`
 
             - `class BetaWebSearchToolRequestError:`
+
+              - `JsonValue type = "web_search_tool_result_error"`
 
               - `BetaWebSearchToolResultErrorCode errorCode`
 
@@ -826,13 +839,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 - `REQUEST_TOO_LARGE("request_too_large")`
 
-              - `JsonValue type = "web_search_tool_result_error"`
-
           - `String toolUseId`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-          - `JsonValue type = "web_search_tool_result"`
 
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -854,9 +863,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `class BetaWebFetchToolResultBlockParam:`
 
+          - `JsonValue type = "web_fetch_tool_result"`
+
           - `Content content`
 
             - `class BetaWebFetchToolResultErrorBlockParam:`
+
+              - `JsonValue type = "web_fetch_tool_result_error"`
 
               - `BetaWebFetchToolResultErrorCode errorCode`
 
@@ -878,13 +891,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 - `UNAVAILABLE("unavailable")`
 
-              - `JsonValue type = "web_fetch_tool_result_error"`
+                - `CONTENT_TOO_LARGE("content_too_large")`
 
             - `class BetaWebFetchBlockParam:`
 
-              - `BetaRequestDocumentBlock content`
-
               - `JsonValue type = "web_fetch_result"`
+
+              - `BetaRequestDocumentBlock content`
 
               - `String url`
 
@@ -897,8 +910,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
           - `String toolUseId`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-          - `JsonValue type = "web_fetch_tool_result"`
 
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -920,9 +931,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `class BetaAdvisorToolResultBlockParam:`
 
+          - `JsonValue type = "advisor_tool_result"`
+
           - `Content content`
 
             - `class BetaAdvisorToolResultErrorParam:`
+
+              - `JsonValue type = "advisor_tool_result_error"`
 
               - `ErrorCode errorCode`
 
@@ -940,23 +955,21 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 - `MODEL_NOT_FOUND("model_not_found")`
 
-              - `JsonValue type = "advisor_tool_result_error"`
-
             - `class BetaAdvisorResultBlockParam:`
 
-              - `String text`
-
               - `JsonValue type = "advisor_result"`
+
+              - `String text`
 
               - `Optional<String> stopReason`
 
             - `class BetaAdvisorRedactedResultBlockParam:`
 
+              - `JsonValue type = "advisor_redacted_result"`
+
               - `String encryptedContent`
 
                 Opaque blob produced by a prior response; must be round-tripped verbatim.
-
-              - `JsonValue type = "advisor_redacted_result"`
 
               - `Optional<String> stopReason`
 
@@ -964,19 +977,21 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `JsonValue type = "advisor_tool_result"`
-
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
             Create a cache control breakpoint at this content block.
 
         - `class BetaCodeExecutionToolResultBlockParam:`
 
+          - `JsonValue type = "code_execution_tool_result"`
+
           - `BetaCodeExecutionToolResultBlockParamContent content`
 
             Code execution result with encrypted stdout for PFC + web_search results.
 
             - `class BetaCodeExecutionToolResultErrorParam:`
+
+              - `JsonValue type = "code_execution_tool_result_error"`
 
               - `BetaCodeExecutionToolResultErrorCode errorCode`
 
@@ -988,15 +1003,15 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 - `EXECUTION_TIME_EXCEEDED("execution_time_exceeded")`
 
-              - `JsonValue type = "code_execution_tool_result_error"`
-
             - `class BetaCodeExecutionResultBlockParam:`
+
+              - `JsonValue type = "code_execution_result"`
 
               - `List<BetaCodeExecutionOutputBlockParam> content`
 
-                - `String fileId`
-
                 - `JsonValue type = "code_execution_output"`
+
+                - `String fileId`
 
               - `long returnCode`
 
@@ -1004,17 +1019,17 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `String stdout`
 
-              - `JsonValue type = "code_execution_result"`
-
             - `class BetaEncryptedCodeExecutionResultBlockParam:`
 
               Code execution result with encrypted stdout for PFC + web_search results.
 
+              - `JsonValue type = "encrypted_code_execution_result"`
+
               - `List<BetaCodeExecutionOutputBlockParam> content`
 
-                - `String fileId`
-
                 - `JsonValue type = "code_execution_output"`
+
+                - `String fileId`
 
               - `String encryptedStdout`
 
@@ -1022,13 +1037,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `String stderr`
 
-              - `JsonValue type = "encrypted_code_execution_result"`
-
           - `String toolUseId`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-          - `JsonValue type = "code_execution_tool_result"`
 
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -1036,9 +1047,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `class BetaBashCodeExecutionToolResultBlockParam:`
 
+          - `JsonValue type = "bash_code_execution_tool_result"`
+
           - `Content content`
 
             - `class BetaBashCodeExecutionToolResultErrorParam:`
+
+              - `JsonValue type = "bash_code_execution_tool_result_error"`
 
               - `ErrorCode errorCode`
 
@@ -1052,15 +1067,15 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 - `OUTPUT_FILE_TOO_LARGE("output_file_too_large")`
 
-              - `JsonValue type = "bash_code_execution_tool_result_error"`
-
             - `class BetaBashCodeExecutionResultBlockParam:`
+
+              - `JsonValue type = "bash_code_execution_result"`
 
               - `List<BetaBashCodeExecutionOutputBlockParam> content`
 
-                - `String fileId`
-
                 - `JsonValue type = "bash_code_execution_output"`
+
+                - `String fileId`
 
               - `long returnCode`
 
@@ -1068,13 +1083,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `String stdout`
 
-              - `JsonValue type = "bash_code_execution_result"`
-
           - `String toolUseId`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-          - `JsonValue type = "bash_code_execution_tool_result"`
 
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -1082,9 +1093,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `class BetaTextEditorCodeExecutionToolResultBlockParam:`
 
+          - `JsonValue type = "text_editor_code_execution_tool_result"`
+
           - `Content content`
 
             - `class BetaTextEditorCodeExecutionToolResultErrorParam:`
+
+              - `JsonValue type = "text_editor_code_execution_tool_result_error"`
 
               - `ErrorCode errorCode`
 
@@ -1098,11 +1113,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 - `FILE_NOT_FOUND("file_not_found")`
 
-              - `JsonValue type = "text_editor_code_execution_tool_result_error"`
-
               - `Optional<String> errorMessage`
 
             - `class BetaTextEditorCodeExecutionViewResultBlockParam:`
+
+              - `JsonValue type = "text_editor_code_execution_view_result"`
 
               - `String content`
 
@@ -1114,8 +1129,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 - `PDF("pdf")`
 
-              - `JsonValue type = "text_editor_code_execution_view_result"`
-
               - `Optional<Long> numLines`
 
               - `Optional<Long> startLine`
@@ -1124,9 +1137,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `class BetaTextEditorCodeExecutionCreateResultBlockParam:`
 
-              - `boolean isFileUpdate`
-
               - `JsonValue type = "text_editor_code_execution_create_result"`
+
+              - `boolean isFileUpdate`
 
             - `class BetaTextEditorCodeExecutionStrReplaceResultBlockParam:`
 
@@ -1146,17 +1159,19 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `JsonValue type = "text_editor_code_execution_tool_result"`
-
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
             Create a cache control breakpoint at this content block.
 
         - `class BetaToolSearchToolResultBlockParam:`
 
+          - `JsonValue type = "tool_search_tool_result"`
+
           - `Content content`
 
             - `class BetaToolSearchToolResultErrorParam:`
+
+              - `JsonValue type = "tool_search_tool_result_error"`
 
               - `ErrorCode errorCode`
 
@@ -1168,37 +1183,35 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 - `EXECUTION_TIME_EXCEEDED("execution_time_exceeded")`
 
-              - `JsonValue type = "tool_search_tool_result_error"`
-
               - `Optional<String> errorMessage`
 
             - `class BetaToolSearchToolSearchResultBlockParam:`
 
+              - `JsonValue type = "tool_search_tool_search_result"`
+
               - `List<BetaToolReferenceBlockParam> toolReferences`
+
+                - `JsonValue type = "tool_reference"`
 
                 - `String toolName`
 
                   maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
-                - `JsonValue type = "tool_reference"`
-
                 - `Optional<BetaCacheControlEphemeral> cacheControl`
 
                   Create a cache control breakpoint at this content block.
 
-              - `JsonValue type = "tool_search_tool_search_result"`
-
           - `String toolUseId`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-          - `JsonValue type = "tool_search_tool_result"`
 
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
             Create a cache control breakpoint at this content block.
 
         - `class BetaMcpToolUseBlockParam:`
+
+          - `JsonValue type = "mcp_tool_use"`
 
           - `String id`
 
@@ -1212,19 +1225,17 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             The name of the MCP server
 
-          - `JsonValue type = "mcp_tool_use"`
-
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
             Create a cache control breakpoint at this content block.
 
         - `class BetaRequestMcpToolResultBlockParam:`
 
+          - `JsonValue type = "mcp_tool_result"`
+
           - `String toolUseId`
 
             pattern: ^[a-zA-Z0-9_-]+$
-
-          - `JsonValue type = "mcp_tool_result"`
 
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -1236,11 +1247,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `List<BetaTextBlockParam>`
 
+              - `JsonValue type = "text"`
+
               - `String text`
 
                 minLength: 1
-
-              - `JsonValue type = "text"`
 
               - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -1255,9 +1266,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
           A content block that represents a file to be uploaded to the container
           Files uploaded via this block will be available in the container's input directory.
 
-          - `String fileId`
-
           - `JsonValue type = "container_upload"`
+
+          - `String fileId`
 
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -1295,6 +1306,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
           `tools`; it is offered to the model from this point in the
           conversation onward.
 
+          - `JsonValue type = "tool_addition"`
+
           - `Tool tool`
 
             Reference to a single tool the caller declared directly in
@@ -1309,32 +1322,30 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
               server assigns to MCP-resolved tools — use `mcp_tool_reference` or
               `mcp_toolset_reference` for those.
 
+              - `JsonValue type = "tool_reference"`
+
               - `String name`
 
                 pattern: ^[a-zA-Z0-9_-]{1,128}$
-
-              - `JsonValue type = "tool_reference"`
 
             - `class BetaToolChangeMcpToolReference:`
 
               Reference to a single MCP tool by its server and remote name — the
               same `server_name`/`name` pair `mcp_tool_use` carries.
 
+              - `JsonValue type = "mcp_tool_reference"`
+
               - `String name`
 
               - `String serverName`
-
-              - `JsonValue type = "mcp_tool_reference"`
 
             - `class BetaToolChangeMcpToolsetReference:`
 
               Reference to every tool in the named MCP server's toolset.
 
-              - `String serverName`
-
               - `JsonValue type = "mcp_toolset_reference"`
 
-          - `JsonValue type = "tool_addition"`
+              - `String serverName`
 
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -1348,6 +1359,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
           `tools`; it is no longer offered to the model from this point in the
           conversation onward.
 
+          - `JsonValue type = "tool_removal"`
+
           - `Tool tool`
 
             Reference to a single tool the caller declared directly in
@@ -1370,8 +1383,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
             - `class BetaToolChangeMcpToolsetReference:`
 
               Reference to every tool in the named MCP server's toolset.
-
-          - `JsonValue type = "tool_removal"`
 
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -1392,6 +1403,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
           request is rejected), and moving it into the middle of a single run is
           likewise rejected; between non-thinking blocks the block's placement has
           no validation effect.
+
+          - `JsonValue type = "fallback"`
 
           - `BetaFallbackInfoParam from`
 
@@ -1475,8 +1488,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             Identifies one hop of a fallback transition.
 
-          - `JsonValue type = "fallback"`
-
           - `Optional<JsonValue> trigger`
 
             The response block's `trigger`, echoed verbatim. Accepted and ignored by the server; any object or `null` is allowed.
@@ -1547,12 +1558,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         maxItems: 20
 
-        - `String skillId`
-
-          Skill ID
-
-          maxLength: 64, minLength: 1
-
         - `Type type`
 
           Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
@@ -1560,6 +1565,12 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
           - `ANTHROPIC("anthropic")`
 
           - `CUSTOM("custom")`
+
+        - `String skillId`
+
+          Skill ID
+
+          maxLength: 64, minLength: 1
 
         - `Optional<String> version`
 
@@ -1643,9 +1654,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     maxItems: 20
 
-    - `String name`
-
     - `JsonValue type = "url"`
+
+    - `String name`
 
     - `String url`
 
@@ -1701,11 +1712,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `List<BetaTextBlockParam>`
 
+      - `JsonValue type = "text"`
+
       - `String text`
 
         minLength: 1
-
-      - `JsonValue type = "text"`
 
       - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -1791,6 +1802,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class BetaTool:`
 
+      - `Optional<Type> type`
+
       - `InputSchema inputSchema`
 
         [JSON schema](https://json-schema.org/draft/2020-12) for this tool's input.
@@ -1845,17 +1858,15 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         When true, guarantees schema validation on tool names and inputs
 
-      - `Optional<Type> type`
-
     - `class BetaToolBash20241022:`
+
+      - `JsonValue type = "bash_20241022"`
 
       - `JsonValue name = "bash"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonValue type = "bash_20241022"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -1883,13 +1894,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class BetaToolBash20250124:`
 
+      - `JsonValue type = "bash_20250124"`
+
       - `JsonValue name = "bash"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonValue type = "bash_20250124"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -1917,13 +1928,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class BetaCodeExecutionTool20250522:`
 
+      - `JsonValue type = "code_execution_20250522"`
+
       - `JsonValue name = "code_execution"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonValue type = "code_execution_20250522"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -1949,13 +1960,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class BetaCodeExecutionTool20250825:`
 
+      - `JsonValue type = "code_execution_20250825"`
+
       - `JsonValue name = "code_execution"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonValue type = "code_execution_20250825"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -1983,13 +1994,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       Code execution tool with REPL state persistence (daemon mode + gVisor checkpoint).
 
+      - `JsonValue type = "code_execution_20260120"`
+
       - `JsonValue name = "code_execution"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonValue type = "code_execution_20260120"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -2017,13 +2028,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       Code execution tool with REPL state persistence.
 
+      - `JsonValue type = "code_execution_20260521"`
+
       - `JsonValue name = "code_execution"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonValue type = "code_execution_20260521"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -2068,6 +2079,18 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         accepted key, and a member's defaults apply wherever its key is
         absent. Unknown keys are rejected: the field set is this toolset
         version's complete member set.
+
+        - `Optional<BetaBrowserTypeConfig> type`
+
+          `type`'s config overrides.
+
+          - `Optional<Boolean> deferLoading`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `Optional<Boolean> enabled`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
         - `Optional<BetaBrowserCloseTabConfig> closeTab`
 
@@ -2405,18 +2428,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-        - `Optional<BetaBrowserTypeConfig> type`
-
-          `type`'s config overrides.
-
-          - `Optional<Boolean> deferLoading`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `Optional<Boolean> enabled`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
         - `Optional<BetaBrowserWaitConfig> wait`
 
           `wait`'s config overrides.
@@ -2443,6 +2454,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class BetaToolComputerUse20241022:`
 
+      - `JsonValue type = "computer_20241022"`
+
       - `long displayHeightPx`
 
         The height of the display in pixels.
@@ -2460,8 +2473,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonValue type = "computer_20241022"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -2495,13 +2506,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class BetaMemoryTool20250818:`
 
+      - `JsonValue type = "memory_20250818"`
+
       - `JsonValue name = "memory"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonValue type = "memory_20250818"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -2529,6 +2540,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class BetaToolComputerUse20250124:`
 
+      - `JsonValue type = "computer_20250124"`
+
       - `long displayHeightPx`
 
         The height of the display in pixels.
@@ -2546,8 +2559,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonValue type = "computer_20250124"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -2581,13 +2592,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class BetaToolTextEditor20241022:`
 
+      - `JsonValue type = "text_editor_20241022"`
+
       - `JsonValue name = "str_replace_editor"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonValue type = "text_editor_20241022"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -2615,6 +2626,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class BetaToolComputerUse20251124:`
 
+      - `JsonValue type = "computer_20251124"`
+
       - `long displayHeightPx`
 
         The height of the display in pixels.
@@ -2632,8 +2645,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonValue type = "computer_20251124"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -2694,6 +2705,18 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         accepted key, and a member's defaults apply wherever its key is
         absent. Unknown keys are rejected: the field set is this toolset
         version's complete member set.
+
+        - `Optional<BetaComputerTypeConfig> type`
+
+          `type`'s config overrides.
+
+          - `Optional<Boolean> deferLoading`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `Optional<Boolean> enabled`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
         - `Optional<BetaComputerCursorPositionConfig> cursorPosition`
 
@@ -2863,18 +2886,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-        - `Optional<BetaComputerTypeConfig> type`
-
-          `type`'s config overrides.
-
-          - `Optional<Boolean> deferLoading`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `Optional<Boolean> enabled`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
         - `Optional<BetaComputerWaitConfig> wait`
 
           `wait`'s config overrides.
@@ -2901,13 +2912,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class BetaToolTextEditor20250124:`
 
+      - `JsonValue type = "text_editor_20250124"`
+
       - `JsonValue name = "str_replace_editor"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonValue type = "text_editor_20250124"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -2935,13 +2946,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class BetaToolTextEditor20250429:`
 
+      - `JsonValue type = "text_editor_20250429"`
+
       - `JsonValue name = "str_replace_based_edit_tool"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonValue type = "text_editor_20250429"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -2969,13 +2980,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class BetaToolTextEditor20250728:`
 
+      - `JsonValue type = "text_editor_20250728"`
+
       - `JsonValue name = "str_replace_based_edit_tool"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonValue type = "text_editor_20250728"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -3009,13 +3020,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class BetaWebSearchTool20250305:`
 
+      - `JsonValue type = "web_search_20250305"`
+
       - `JsonValue name = "web_search"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonValue type = "web_search_20250305"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -3085,13 +3096,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class BetaWebFetchTool20250910:`
 
+      - `JsonValue type = "web_fetch_20250910"`
+
       - `JsonValue name = "web_fetch"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonValue type = "web_fetch_20250910"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -3141,13 +3152,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class BetaWebSearchTool20260209:`
 
+      - `JsonValue type = "web_search_20260209"`
+
       - `JsonValue name = "web_search"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonValue type = "web_search_20260209"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -3191,13 +3202,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class BetaWebFetchTool20260209:`
 
+      - `JsonValue type = "web_fetch_20260209"`
+
       - `JsonValue name = "web_fetch"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonValue type = "web_fetch_20260209"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -3249,13 +3260,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       Web fetch tool with use_cache parameter for bypassing cached content.
 
+      - `JsonValue type = "web_fetch_20260309"`
+
       - `JsonValue name = "web_fetch"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonValue type = "web_fetch_20260309"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -3309,13 +3320,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class BetaWebSearchTool20260318:`
 
+      - `JsonValue type = "web_search_20260318"`
+
       - `JsonValue name = "web_search"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonValue type = "web_search_20260318"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -3367,13 +3378,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class BetaWebFetchTool20260318:`
 
+      - `JsonValue type = "web_fetch_20260318"`
+
       - `JsonValue name = "web_fetch"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonValue type = "web_fetch_20260318"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -3435,6 +3446,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class BetaAdvisorTool20260301:`
 
+      - `JsonValue type = "advisor_20260301"`
+
       - `Model model`
 
         The model that will complete your prompt.
@@ -3446,8 +3459,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonValue type = "advisor_20260301"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -3489,17 +3500,17 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class BetaToolSearchToolBm25_20251119:`
 
-      - `JsonValue name = "tool_search_tool_bm25"`
-
-        Name of the tool.
-
-        This is how the tool will be called by the model and in `tool_use` blocks.
-
       - `Type type`
 
         - `TOOL_SEARCH_TOOL_BM25_20251119("tool_search_tool_bm25_20251119")`
 
         - `TOOL_SEARCH_TOOL_BM25("tool_search_tool_bm25")`
+
+      - `JsonValue name = "tool_search_tool_bm25"`
+
+        Name of the tool.
+
+        This is how the tool will be called by the model and in `tool_use` blocks.
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -3525,17 +3536,17 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class BetaToolSearchToolRegex20251119:`
 
-      - `JsonValue name = "tool_search_tool_regex"`
-
-        Name of the tool.
-
-        This is how the tool will be called by the model and in `tool_use` blocks.
-
       - `Type type`
 
         - `TOOL_SEARCH_TOOL_REGEX_20251119("tool_search_tool_regex_20251119")`
 
         - `TOOL_SEARCH_TOOL_REGEX("tool_search_tool_regex")`
+
+      - `JsonValue name = "tool_search_tool_regex"`
+
+        Name of the tool.
+
+        This is how the tool will be called by the model and in `tool_use` blocks.
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -3566,13 +3577,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
       Allows configuring enabled status and defer_loading for all tools
       from an MCP server, with optional per-tool overrides.
 
+      - `JsonValue type = "mcp_toolset"`
+
       - `String mcpServerName`
 
         Name of the MCP server to configure tools for
 
         maxLength: 255, minLength: 1
-
-      - `JsonValue type = "mcp_toolset"`
 
       - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -3642,6 +3653,12 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
 - `class BetaMessage:`
 
+  - `JsonValue type = "message"`
+
+    Object type.
+
+    For Messages, this is always `"message"`.
+
   - `String id`
 
     Unique object identifier.
@@ -3666,12 +3683,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       Skills loaded in the container
 
-      - `String skillId`
-
-        Skill ID
-
-        maxLength: 64, minLength: 1
-
       - `Type type`
 
         Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
@@ -3679,6 +3690,12 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         - `ANTHROPIC("anthropic")`
 
         - `CUSTOM("custom")`
+
+      - `String skillId`
+
+        Skill ID
+
+        maxLength: 64, minLength: 1
 
       - `String version`
 
@@ -3717,6 +3734,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class BetaTextBlock:`
 
+      - `JsonValue type = "text"`
+
       - `Optional<List<BetaTextCitation>> citations`
 
         Citations supporting the text block.
@@ -3724,6 +3743,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
 
         - `class BetaCitationCharLocation:`
+
+          - `JsonValue type = "char_location"`
 
           - `String citedText`
 
@@ -3741,9 +3762,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             minimum: 0
 
-          - `JsonValue type = "char_location"`
-
         - `class BetaCitationPageLocation:`
+
+          - `JsonValue type = "page_location"`
 
           - `String citedText`
 
@@ -3761,9 +3782,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             minimum: 1
 
-          - `JsonValue type = "page_location"`
-
         - `class BetaCitationContentBlockLocation:`
+
+          - `JsonValue type = "content_block_location"`
 
           - `String citedText`
 
@@ -3791,9 +3812,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             minimum: 0
 
-          - `JsonValue type = "content_block_location"`
-
         - `class BetaCitationsWebSearchResultLocation:`
+
+          - `JsonValue type = "web_search_result_location"`
 
           - `String citedText`
 
@@ -3803,11 +3824,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             maxLength: 512
 
-          - `JsonValue type = "web_search_result_location"`
-
           - `String url`
 
         - `class BetaCitationSearchResultLocation:`
+
+          - `JsonValue type = "search_result_location"`
 
           - `String citedText`
 
@@ -3839,15 +3860,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `Optional<String> title`
 
-          - `JsonValue type = "search_result_location"`
-
       - `String text`
 
-        maxLength: 5000000, minLength: 0
-
-      - `JsonValue type = "text"`
+        minLength: 0
 
     - `class BetaThinkingBlock:`
+
+      - `JsonValue type = "thinking"`
 
       - `String signature`
 
@@ -3861,9 +3880,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         The text of Claude's thinking process for this block.
 
-      - `JsonValue type = "thinking"`
-
     - `class BetaRedactedThinkingBlock:`
+
+      - `JsonValue type = "redacted_thinking"`
 
       - `String data`
 
@@ -3873,9 +3892,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking#redacted-thinking-blocks) for details.
 
-      - `JsonValue type = "redacted_thinking"`
-
     - `class BetaToolUseBlock:`
+
+      - `JsonValue type = "tool_use"`
 
       - `String id`
 
@@ -3886,8 +3905,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
       - `String name`
 
         minLength: 1
-
-      - `JsonValue type = "tool_use"`
 
       - `Optional<Caller> caller`
 
@@ -3903,19 +3920,19 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           Tool invocation generated by a server-side tool.
 
+          - `JsonValue type = "code_execution_20250825"`
+
           - `String toolId`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-          - `JsonValue type = "code_execution_20250825"`
 
         - `class BetaServerToolCaller20260120:`
 
+          - `JsonValue type = "code_execution_20260120"`
+
           - `String toolId`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-          - `JsonValue type = "code_execution_20260120"`
 
       - `Optional<String> toolsetName`
 
@@ -3924,6 +3941,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
 
     - `class BetaServerToolUseBlock:`
+
+      - `JsonValue type = "server_tool_use"`
 
       - `String id`
 
@@ -3949,8 +3968,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `TOOL_SEARCH_TOOL_BM25("tool_search_tool_bm25")`
 
-      - `JsonValue type = "server_tool_use"`
-
       - `Optional<Caller> caller`
 
         Tool invocation directly from the model.
@@ -3967,9 +3984,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class BetaWebSearchToolResultBlock:`
 
+      - `JsonValue type = "web_search_tool_result"`
+
       - `BetaWebSearchToolResultBlockContent content`
 
         - `class BetaWebSearchToolResultError:`
+
+          - `JsonValue type = "web_search_tool_result_error"`
 
           - `BetaWebSearchToolResultErrorCode errorCode`
 
@@ -3985,9 +4006,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `REQUEST_TOO_LARGE("request_too_large")`
 
-          - `JsonValue type = "web_search_tool_result_error"`
-
         - `List<BetaWebSearchResultBlock>`
+
+          - `JsonValue type = "web_search_result"`
 
           - `String encryptedContent`
 
@@ -3995,15 +4016,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `String title`
 
-          - `JsonValue type = "web_search_result"`
-
           - `String url`
 
       - `String toolUseId`
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-      - `JsonValue type = "web_search_tool_result"`
 
       - `Optional<Caller> caller`
 
@@ -4021,9 +4038,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class BetaWebFetchToolResultBlock:`
 
+      - `JsonValue type = "web_fetch_tool_result"`
+
       - `Content content`
 
         - `class BetaWebFetchToolResultErrorBlock:`
+
+          - `JsonValue type = "web_fetch_tool_result_error"`
 
           - `BetaWebFetchToolResultErrorCode errorCode`
 
@@ -4045,11 +4066,15 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `UNAVAILABLE("unavailable")`
 
-          - `JsonValue type = "web_fetch_tool_result_error"`
+            - `CONTENT_TOO_LARGE("content_too_large")`
 
         - `class BetaWebFetchBlock:`
 
+          - `JsonValue type = "web_fetch_result"`
+
           - `BetaDocumentBlock content`
+
+            - `JsonValue type = "document"`
 
             - `Optional<BetaCitationConfig> citations`
 
@@ -4061,33 +4086,29 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `class BetaBase64PdfSource:`
 
+                - `JsonValue type = "base64"`
+
                 - `String data`
 
                   format: byte
 
                 - `JsonValue mediaType = "application/pdf"`
 
-                - `JsonValue type = "base64"`
-
               - `class BetaPlainTextSource:`
+
+                - `JsonValue type = "text"`
 
                 - `String data`
 
                 - `JsonValue mediaType = "text/plain"`
 
-                - `JsonValue type = "text"`
-
             - `Optional<String> title`
 
               The title of the document
 
-            - `JsonValue type = "document"`
-
           - `Optional<String> retrievedAt`
 
             ISO 8601 timestamp when the content was retrieved
-
-          - `JsonValue type = "web_fetch_result"`
 
           - `String url`
 
@@ -4096,8 +4117,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
       - `String toolUseId`
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-      - `JsonValue type = "web_fetch_tool_result"`
 
       - `Optional<Caller> caller`
 
@@ -4115,9 +4134,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class BetaAdvisorToolResultBlock:`
 
+      - `JsonValue type = "advisor_tool_result"`
+
       - `Content content`
 
         - `class BetaAdvisorToolResultError:`
+
+          - `JsonValue type = "advisor_tool_result_error"`
 
           - `ErrorCode errorCode`
 
@@ -4135,9 +4158,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `MODEL_NOT_FOUND("model_not_found")`
 
-          - `JsonValue type = "advisor_tool_result_error"`
-
         - `class BetaAdvisorResultBlock:`
+
+          - `JsonValue type = "advisor_result"`
 
           - `Optional<String> stopReason`
 
@@ -4145,9 +4168,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `String text`
 
-          - `JsonValue type = "advisor_result"`
-
         - `class BetaAdvisorRedactedResultBlock:`
+
+          - `JsonValue type = "advisor_redacted_result"`
 
           - `String encryptedContent`
 
@@ -4157,21 +4180,21 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             The advisor sub-inference's stop reason (same values as the top-level message `stop_reason`).
 
-          - `JsonValue type = "advisor_redacted_result"`
-
       - `String toolUseId`
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-      - `JsonValue type = "advisor_tool_result"`
-
     - `class BetaCodeExecutionToolResultBlock:`
+
+      - `JsonValue type = "code_execution_tool_result"`
 
       - `BetaCodeExecutionToolResultBlockContent content`
 
         Code execution result with encrypted stdout for PFC + web_search results.
 
         - `class BetaCodeExecutionToolResultError:`
+
+          - `JsonValue type = "code_execution_tool_result_error"`
 
           - `BetaCodeExecutionToolResultErrorCode errorCode`
 
@@ -4183,15 +4206,15 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `EXECUTION_TIME_EXCEEDED("execution_time_exceeded")`
 
-          - `JsonValue type = "code_execution_tool_result_error"`
-
         - `class BetaCodeExecutionResultBlock:`
+
+          - `JsonValue type = "code_execution_result"`
 
           - `List<BetaCodeExecutionOutputBlock> content`
 
-            - `String fileId`
-
             - `JsonValue type = "code_execution_output"`
+
+            - `String fileId`
 
           - `long returnCode`
 
@@ -4199,17 +4222,17 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `String stdout`
 
-          - `JsonValue type = "code_execution_result"`
-
         - `class BetaEncryptedCodeExecutionResultBlock:`
 
           Code execution result with encrypted stdout for PFC + web_search results.
 
+          - `JsonValue type = "encrypted_code_execution_result"`
+
           - `List<BetaCodeExecutionOutputBlock> content`
 
-            - `String fileId`
-
             - `JsonValue type = "code_execution_output"`
+
+            - `String fileId`
 
           - `String encryptedStdout`
 
@@ -4217,19 +4240,19 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `String stderr`
 
-          - `JsonValue type = "encrypted_code_execution_result"`
-
       - `String toolUseId`
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-      - `JsonValue type = "code_execution_tool_result"`
-
     - `class BetaBashCodeExecutionToolResultBlock:`
+
+      - `JsonValue type = "bash_code_execution_tool_result"`
 
       - `Content content`
 
         - `class BetaBashCodeExecutionToolResultError:`
+
+          - `JsonValue type = "bash_code_execution_tool_result_error"`
 
           - `ErrorCode errorCode`
 
@@ -4243,15 +4266,15 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `OUTPUT_FILE_TOO_LARGE("output_file_too_large")`
 
-          - `JsonValue type = "bash_code_execution_tool_result_error"`
-
         - `class BetaBashCodeExecutionResultBlock:`
+
+          - `JsonValue type = "bash_code_execution_result"`
 
           - `List<BetaBashCodeExecutionOutputBlock> content`
 
-            - `String fileId`
-
             - `JsonValue type = "bash_code_execution_output"`
+
+            - `String fileId`
 
           - `long returnCode`
 
@@ -4259,19 +4282,19 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `String stdout`
 
-          - `JsonValue type = "bash_code_execution_result"`
-
       - `String toolUseId`
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-      - `JsonValue type = "bash_code_execution_tool_result"`
-
     - `class BetaTextEditorCodeExecutionToolResultBlock:`
+
+      - `JsonValue type = "text_editor_code_execution_tool_result"`
 
       - `Content content`
 
         - `class BetaTextEditorCodeExecutionToolResultError:`
+
+          - `JsonValue type = "text_editor_code_execution_tool_result_error"`
 
           - `ErrorCode errorCode`
 
@@ -4287,9 +4310,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `Optional<String> errorMessage`
 
-          - `JsonValue type = "text_editor_code_execution_tool_result_error"`
-
         - `class BetaTextEditorCodeExecutionViewResultBlock:`
+
+          - `JsonValue type = "text_editor_code_execution_view_result"`
 
           - `String content`
 
@@ -4307,15 +4330,15 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `Optional<Long> totalLines`
 
-          - `JsonValue type = "text_editor_code_execution_view_result"`
-
         - `class BetaTextEditorCodeExecutionCreateResultBlock:`
-
-          - `boolean isFileUpdate`
 
           - `JsonValue type = "text_editor_code_execution_create_result"`
 
+          - `boolean isFileUpdate`
+
         - `class BetaTextEditorCodeExecutionStrReplaceResultBlock:`
+
+          - `JsonValue type = "text_editor_code_execution_str_replace_result"`
 
           - `Optional<List<String>> lines`
 
@@ -4327,19 +4350,19 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `Optional<Long> oldStart`
 
-          - `JsonValue type = "text_editor_code_execution_str_replace_result"`
-
       - `String toolUseId`
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-      - `JsonValue type = "text_editor_code_execution_tool_result"`
-
     - `class BetaToolSearchToolResultBlock:`
+
+      - `JsonValue type = "tool_search_tool_result"`
 
       - `Content content`
 
         - `class BetaToolSearchToolResultError:`
+
+          - `JsonValue type = "tool_search_tool_result_error"`
 
           - `ErrorCode errorCode`
 
@@ -4353,27 +4376,25 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `Optional<String> errorMessage`
 
-          - `JsonValue type = "tool_search_tool_result_error"`
-
         - `class BetaToolSearchToolSearchResultBlock:`
 
+          - `JsonValue type = "tool_search_tool_search_result"`
+
           - `List<BetaToolReferenceBlock> toolReferences`
+
+            - `JsonValue type = "tool_reference"`
 
             - `String toolName`
 
               maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
-            - `JsonValue type = "tool_reference"`
-
-          - `JsonValue type = "tool_search_tool_search_result"`
-
       - `String toolUseId`
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-      - `JsonValue type = "tool_search_tool_result"`
-
     - `class BetaMcpToolUseBlock:`
+
+      - `JsonValue type = "mcp_tool_use"`
 
       - `String id`
 
@@ -4389,15 +4410,17 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         The name of the MCP server
 
-      - `JsonValue type = "mcp_tool_use"`
-
     - `class BetaMcpToolResultBlock:`
+
+      - `JsonValue type = "mcp_tool_result"`
 
       - `Content content`
 
         - `String`
 
         - `List<BetaTextBlock>`
+
+          - `JsonValue type = "text"`
 
           - `Optional<List<BetaTextCitation>> citations`
 
@@ -4407,9 +4430,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `String text`
 
-            maxLength: 5000000, minLength: 0
-
-          - `JsonValue type = "text"`
+            minLength: 0
 
       - `boolean isError`
 
@@ -4417,15 +4438,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         pattern: ^[a-zA-Z0-9_-]+$
 
-      - `JsonValue type = "mcp_tool_result"`
-
     - `class BetaContainerUploadBlock:`
 
       Response model for a file uploaded to the container.
 
-      - `String fileId`
-
       - `JsonValue type = "container_upload"`
+
+      - `String fileId`
 
     - `class BetaCompactionBlock:`
 
@@ -4435,6 +4454,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
       summary (e.g., malformed output from the model). Clients may round-trip
       compaction blocks with null content; the server treats them as no-ops.
 
+      - `JsonValue type = "compaction"`
+
       - `Optional<String> content`
 
         Summary of compacted content, or null if compaction failed
@@ -4442,8 +4463,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
       - `Optional<String> encryptedContent`
 
         Opaque metadata from prior compaction, to be round-tripped verbatim
-
-      - `JsonValue type = "compaction"`
 
     - `class BetaFallbackBlock:`
 
@@ -4458,6 +4477,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
       The block is treated like a server-tool content block for streaming: it
       arrives via the standard `content_block_start` / `content_block_stop`
       pair and carries no deltas.
+
+      - `JsonValue type = "fallback"`
 
       - `BetaFallbackInfo from`
 
@@ -4545,6 +4566,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         What caused the `from` model to hand over at this hop.
 
+        - `JsonValue type = "refusal"`
+
         - `Optional<Category> category`
 
           The policy category that triggered a refusal.
@@ -4569,10 +4592,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
 
-        - `JsonValue type = "refusal"`
-
-      - `JsonValue type = "fallback"`
-
   - `Optional<BetaContextManagementResponse> contextManagement`
 
     Context management response.
@@ -4584,6 +4603,10 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
       List of context management edits that were applied.
 
       - `class BetaClearToolUses20250919EditResponse:`
+
+        - `JsonValue type = "clear_tool_uses_20250919"`
+
+          The type of context management edit applied.
 
         - `long clearedInputTokens`
 
@@ -4597,11 +4620,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           minimum: 0
 
-        - `JsonValue type = "clear_tool_uses_20250919"`
+      - `class BetaClearThinking20251015EditResponse:`
+
+        - `JsonValue type = "clear_thinking_20251015"`
 
           The type of context management edit applied.
-
-      - `class BetaClearThinking20251015EditResponse:`
 
         - `long clearedInputTokens`
 
@@ -4615,10 +4638,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           minimum: 0
 
-        - `JsonValue type = "clear_thinking_20251015"`
-
-          The type of context management edit applied.
-
   - `Optional<BetaDiagnostics> diagnostics`
 
     Response envelope for request-level diagnostics. Present (possibly
@@ -4630,35 +4649,35 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `class BetaCacheMissModelChanged:`
 
+        - `JsonValue type = "model_changed"`
+
         - `long cacheMissedInputTokens`
 
           Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
-
-        - `JsonValue type = "model_changed"`
 
       - `class BetaCacheMissSystemChanged:`
 
+        - `JsonValue type = "system_changed"`
+
         - `long cacheMissedInputTokens`
 
           Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
-
-        - `JsonValue type = "system_changed"`
 
       - `class BetaCacheMissToolsChanged:`
 
+        - `JsonValue type = "tools_changed"`
+
         - `long cacheMissedInputTokens`
 
           Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
-
-        - `JsonValue type = "tools_changed"`
 
       - `class BetaCacheMissMessagesChanged:`
 
+        - `JsonValue type = "messages_changed"`
+
         - `long cacheMissedInputTokens`
 
           Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
-
-        - `JsonValue type = "messages_changed"`
 
       - `class BetaCacheMissPreviousMessageNotFound:`
 
@@ -4683,6 +4702,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
   - `Optional<BetaRefusalStopDetails> stopDetails`
 
     Structured information about a refusal.
+
+    - `JsonValue type = "refusal"`
 
     - `Optional<Category> category`
 
@@ -4763,8 +4784,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       The server's suggested retry target for this refusal. Populated when a fallback attempt could not be made (the fallback model's rate limit was exhausted, or it was overloaded); names the fallback model the caller can retry directly. Null otherwise.
 
-    - `JsonValue type = "refusal"`
-
   - `Optional<BetaStopReason> stopReason`
 
     The reason that we stopped.
@@ -4802,12 +4821,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
     Which custom stop sequence was generated, if any.
 
     This value will be a non-null string if one of your custom stop sequences was generated.
-
-  - `JsonValue type = "message"`
-
-    Object type.
-
-    For Messages, this is always `"message"`.
 
   - `BetaUsage usage`
 
@@ -4873,6 +4886,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           No reprice was applied; `reason` says why.
 
+          - `JsonValue type = "not_applied"`
+
           - `Reason reason`
 
             Why the reprice was not applied.
@@ -4903,8 +4918,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
             - `WRONG_PLATFORM("wrong_platform")`
 
             - `WRONG_WORKSPACE("wrong_workspace")`
-
-          - `JsonValue type = "not_applied"`
 
           - `Optional<List<String>> removeToRedeem`
 
@@ -4943,6 +4956,10 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         Token usage for a sampling iteration.
 
+        - `JsonValue type = "message"`
+
+          Usage for a sampling iteration
+
         - `Optional<BetaCacheCreation> cacheCreation`
 
           Breakdown of cached tokens by TTL
@@ -4976,15 +4993,15 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
           The number of output tokens which were used.
 
           minimum: 0
-
-        - `JsonValue type = "message"`
-
-          Usage for a sampling iteration
 
       - `class BetaCompactionIterationUsage:`
 
         Token usage for a compaction iteration.
 
+        - `JsonValue type = "compaction"`
+
+          Usage for a compaction iteration
+
         - `Optional<BetaCacheCreation> cacheCreation`
 
           Breakdown of cached tokens by TTL
@@ -5013,13 +5030,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           minimum: 0
 
-        - `JsonValue type = "compaction"`
-
-          Usage for a compaction iteration
-
       - `class BetaAdvisorMessageIterationUsage:`
 
         Token usage for an advisor sub-inference iteration.
+
+        - `JsonValue type = "advisor_message"`
+
+          Usage for an advisor sub-inference iteration
 
         - `Optional<BetaCacheCreation> cacheCreation`
 
@@ -5054,10 +5071,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
           The number of output tokens which were used.
 
           minimum: 0
-
-        - `JsonValue type = "advisor_message"`
-
-          Usage for an advisor sub-inference iteration
 
       - `class BetaFallbackMessageIterationUsage:`
 
@@ -5068,6 +5081,10 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         a fallback model served the response is signalled by the presence of this
         entry in `usage.iterations`.
 
+        - `JsonValue type = "fallback_message"`
+
+          Usage for the fallback-model attempt that served the response
+
         - `Optional<BetaCacheCreation> cacheCreation`
 
           Breakdown of cached tokens by TTL
@@ -5101,10 +5118,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
           The number of output tokens which were used.
 
           minimum: 0
-
-        - `JsonValue type = "fallback_message"`
-
-          Usage for the fallback-model attempt that served the response
 
     - `long outputTokens`
 
@@ -5186,6 +5199,10 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
     fallback happened mid-stream, in which case it holds the serving model's
     entries and replaces the one in `message_start`.
 
+    - `JsonValue type = "thinking_dropped"`
+
+      Always `thinking_dropped` for this entry type.
+
     - `String path`
 
       Where the removed block was in your request, as `messages.{i}.content.{j}`:
@@ -5216,19 +5233,17 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `END_USER_BINDING_MISMATCH("end_user_binding_mismatch")`
 
-    - `JsonValue type = "thinking_dropped"`
-
-      Always `thinking_dropped` for this entry type.
-
 - `class BetaRawMessageStreamEvent: union`
 
   - `class BetaRawMessageStartEvent:`
 
-    - `BetaMessage message`
-
     - `JsonValue type = "message_start"`
 
+    - `BetaMessage message`
+
   - `class BetaRawMessageDeltaEvent:`
+
+    - `JsonValue type = "message_delta"`
 
     - `Optional<BetaContextManagementResponse> contextManagement`
 
@@ -5247,8 +5262,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
       - `Optional<BetaStopReason> stopReason`
 
       - `Optional<String> stopSequence`
-
-    - `JsonValue type = "message_delta"`
 
     - `BetaMessageDeltaUsage usage`
 
@@ -5352,6 +5365,10 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
       fallback happened mid-stream, in which case it holds the serving model's
       entries and replaces the one in `message_start`.
 
+      - `JsonValue type = "thinking_dropped"`
+
+        Always `thinking_dropped` for this entry type.
+
       - `String path`
 
         Where the removed block was in your request, as `messages.{i}.content.{j}`:
@@ -5374,15 +5391,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         `organization_binding_mismatch`, `end_user_binding_mismatch`,
         `model_binding_mismatch`, `prefix_binding_mismatch`.
 
-      - `JsonValue type = "thinking_dropped"`
-
-        Always `thinking_dropped` for this entry type.
-
   - `class BetaRawMessageStopEvent:`
 
     - `JsonValue type = "message_stop"`
 
   - `class BetaRawContentBlockStartEvent:`
+
+    - `JsonValue type = "content_block_start"`
 
     - `ContentBlock contentBlock`
 
@@ -5444,25 +5459,27 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `long index`
 
-    - `JsonValue type = "content_block_start"`
-
   - `class BetaRawContentBlockDeltaEvent:`
+
+    - `JsonValue type = "content_block_delta"`
 
     - `BetaRawContentBlockDelta delta`
 
       - `class BetaTextDelta:`
 
-        - `String text`
-
         - `JsonValue type = "text_delta"`
+
+        - `String text`
 
       - `class BetaInputJsonDelta:`
 
-        - `String partialJson`
-
         - `JsonValue type = "input_json_delta"`
 
+        - `String partialJson`
+
       - `class BetaCitationsDelta:`
+
+        - `JsonValue type = "citations_delta"`
 
         - `Citation citation`
 
@@ -5476,9 +5493,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `class BetaCitationSearchResultLocation:`
 
-        - `JsonValue type = "citations_delta"`
-
       - `class BetaThinkingDelta:`
+
+        - `JsonValue type = "thinking_delta"`
 
         - `Optional<Long> estimatedTokens`
 
@@ -5488,17 +5505,17 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           The incremental `thinking` text for this content block. Concatenate the `thinking` values of successive `thinking_delta` events to assemble the block's full `thinking` value.
 
-        - `JsonValue type = "thinking_delta"`
-
       - `class BetaSignatureDelta:`
+
+        - `JsonValue type = "signature_delta"`
 
         - `String signature`
 
           The `signature` for this thinking block: an opaque value used to verify that the block was generated by Claude when it is passed back to the API. Delivered in a `signature_delta` event just before the block's `content_block_stop` event.
 
-        - `JsonValue type = "signature_delta"`
-
       - `class BetaCompactionContentBlockDelta:`
+
+        - `JsonValue type = "compaction_delta"`
 
         - `Optional<String> content`
 
@@ -5506,17 +5523,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           Opaque metadata from prior compaction, to be round-tripped verbatim
 
-        - `JsonValue type = "compaction_delta"`
-
     - `long index`
-
-    - `JsonValue type = "content_block_delta"`
 
   - `class BetaRawContentBlockStopEvent:`
 
-    - `long index`
-
     - `JsonValue type = "content_block_stop"`
+
+    - `long index`
 
 ### Example
 
@@ -5721,6 +5734,8 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
 
+    - `USER_PROFILES_2026_09_04("user-profiles-2026-09-04")`
+
     - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
@@ -5766,6 +5781,8 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
   - `Optional<String> userProfileId`
 
     The user profile ID to attribute this request to. Use when acting on behalf of a party other than your organization. Requires the `user-profiles` beta header.
+
+  - `Optional<String> workspaceId`
 
   - `List<BetaMessageParam> messages`
 
@@ -5826,11 +5843,11 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `class BetaTextBlockParam:`
 
+          - `JsonValue type = "text"`
+
           - `String text`
 
             minLength: 1
-
-          - `JsonValue type = "text"`
 
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -5857,6 +5874,8 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             - `class BetaCitationCharLocationParam:`
 
+              - `JsonValue type = "char_location"`
+
               - `String citedText`
 
               - `long documentIndex`
@@ -5873,9 +5892,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 minimum: 0
 
-              - `JsonValue type = "char_location"`
-
             - `class BetaCitationPageLocationParam:`
+
+              - `JsonValue type = "page_location"`
 
               - `String citedText`
 
@@ -5893,9 +5912,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 minimum: 1
 
-              - `JsonValue type = "page_location"`
-
             - `class BetaCitationContentBlockLocationParam:`
+
+              - `JsonValue type = "content_block_location"`
 
               - `String citedText`
 
@@ -5923,9 +5942,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 minimum: 0
 
-              - `JsonValue type = "content_block_location"`
-
             - `class BetaCitationWebSearchResultLocationParam:`
+
+              - `JsonValue type = "web_search_result_location"`
 
               - `String citedText`
 
@@ -5935,13 +5954,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 maxLength: 512, minLength: 1
 
-              - `JsonValue type = "web_search_result_location"`
-
               - `String url`
 
                 minLength: 1
 
             - `class BetaCitationSearchResultLocationParam:`
+
+              - `JsonValue type = "search_result_location"`
 
               - `String citedText`
 
@@ -5973,13 +5992,15 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `Optional<String> title`
 
-              - `JsonValue type = "search_result_location"`
-
         - `class BetaImageBlockParam:`
+
+          - `JsonValue type = "image"`
 
           - `Source source`
 
             - `class BetaBase64ImageSource:`
+
+              - `JsonValue type = "base64"`
 
               - `String data`
 
@@ -5995,8 +6016,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 - `IMAGE_WEBP("image/webp")`
 
-              - `JsonValue type = "base64"`
-
             - `class BetaUrlImageSource:`
 
               - `JsonValue type = "url"`
@@ -6005,11 +6024,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             - `class BetaFileImageSource:`
 
-              - `String fileId`
-
               - `JsonValue type = "file"`
 
-          - `JsonValue type = "image"`
+              - `String fileId`
 
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -6029,9 +6046,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `class BetaRequestDocumentBlock:`
 
+          - `JsonValue type = "document"`
+
           - `Source source`
 
             - `class BetaBase64PdfSource:`
+
+              - `JsonValue type = "base64"`
 
               - `String data`
 
@@ -6039,17 +6060,17 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `JsonValue mediaType = "application/pdf"`
 
-              - `JsonValue type = "base64"`
-
             - `class BetaPlainTextSource:`
+
+              - `JsonValue type = "text"`
 
               - `String data`
 
               - `JsonValue mediaType = "text/plain"`
 
-              - `JsonValue type = "text"`
-
             - `class BetaContentBlockSource:`
+
+              - `JsonValue type = "content"`
 
               - `Content content`
 
@@ -6061,8 +6082,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                   - `class BetaImageBlockParam:`
 
-              - `JsonValue type = "content"`
-
             - `class BetaUrlPdfSource:`
 
               - `JsonValue type = "url"`
@@ -6071,11 +6090,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             - `class BetaFileDocumentSource:`
 
-              - `String fileId`
-
               - `JsonValue type = "file"`
 
-          - `JsonValue type = "document"`
+              - `String fileId`
 
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -6095,13 +6112,15 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `class BetaSearchResultBlockParam:`
 
+          - `JsonValue type = "search_result"`
+
           - `List<BetaTextBlockParam> content`
+
+            - `JsonValue type = "text"`
 
             - `String text`
 
               minLength: 1
-
-            - `JsonValue type = "text"`
 
             - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -6113,8 +6132,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
           - `String title`
 
-          - `JsonValue type = "search_result"`
-
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
             Create a cache control breakpoint at this content block.
@@ -6122,6 +6139,8 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
           - `Optional<BetaCitationsConfigParam> citations`
 
         - `class BetaThinkingBlockParam:`
+
+          - `JsonValue type = "thinking"`
 
           - `String signature`
 
@@ -6133,17 +6152,17 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             The `thinking` text of this block as returned by the API.
 
-          - `JsonValue type = "thinking"`
-
         - `class BetaRedactedThinkingBlockParam:`
+
+          - `JsonValue type = "redacted_thinking"`
 
           - `String data`
 
             The `data` value of this redacted thinking block, exactly as returned by the API in a previous response. Opaque and encrypted; pass it back unchanged.
 
-          - `JsonValue type = "redacted_thinking"`
-
         - `class BetaToolUseBlockParam:`
+
+          - `JsonValue type = "tool_use"`
 
           - `String id`
 
@@ -6154,8 +6173,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
           - `String name`
 
             maxLength: 200, minLength: 1
-
-          - `JsonValue type = "tool_use"`
 
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -6175,19 +6192,19 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               Tool invocation generated by a server-side tool.
 
+              - `JsonValue type = "code_execution_20250825"`
+
               - `String toolId`
 
                 pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-              - `JsonValue type = "code_execution_20250825"`
 
             - `class BetaServerToolCaller20260120:`
 
+              - `JsonValue type = "code_execution_20260120"`
+
               - `String toolId`
 
                 pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-              - `JsonValue type = "code_execution_20260120"`
 
           - `Optional<String> toolsetName`
 
@@ -6197,11 +6214,11 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `class BetaToolResultBlockParam:`
 
+          - `JsonValue type = "tool_result"`
+
           - `String toolUseId`
 
             pattern: ^[a-zA-Z0-9_-]+$
-
-          - `JsonValue type = "tool_result"`
 
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -6225,11 +6242,11 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 Tool reference block that can be included in tool_result content.
 
+                - `JsonValue type = "tool_reference"`
+
                 - `String toolName`
 
                   maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
-
-                - `JsonValue type = "tool_reference"`
 
                 - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -6244,6 +6261,8 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
                 At most one per `tool_result`, only on a non-error result answering a
                 browser toolset member `tool_use`. The server renders the
                 model-visible text from it; the model never sees the raw fields.
+
+                - `JsonValue type = "browser_state"`
 
                 - `List<BetaBrowserStateTabEntry> tabs`
 
@@ -6273,8 +6292,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                     Whether this tab is the active tab after this call. Whenever `tabs` is non-empty, exactly one entry is marked `active: true`.
 
-                - `JsonValue type = "browser_state"`
-
                 - `Optional<BetaCacheControlEphemeral> cacheControl`
 
                   Create a cache control breakpoint at this content block.
@@ -6295,25 +6312,25 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
                     during a failed call gets no deferred `tab_opened`; it simply appears
                     in the next result's `tabs` inventory.
 
+                    - `JsonValue type = "tab_opened"`
+
                     - `String tabId`
 
                       The `tab_id` of the opened tab, present in `tabs`.
 
                       maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-                    - `JsonValue type = "tab_opened"`
-
                   - `class BetaBrowserStateChangeDownloadStarted:`
 
                     A file download that started during this call.
+
+                    - `JsonValue type = "download_started"`
 
                     - `String downloadId`
 
                       The caller-assigned identifier for this download, stable across the state changes reporting it.
 
                       maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
-
-                    - `JsonValue type = "download_started"`
 
                     - `String url`
 
@@ -6328,13 +6345,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
                     `download_started`, when the download finished during the call that
                     started it (at most one state change per `download_id` per result).
 
+                    - `JsonValue type = "download_completed"`
+
                     - `String downloadId`
 
                       The caller-assigned identifier for this download, stable across the state changes reporting it.
 
                       maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
-
-                    - `JsonValue type = "download_completed"`
 
                     - `String url`
 
@@ -6358,13 +6375,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                     A file download that failed — or was cancelled — during this call.
 
+                    - `JsonValue type = "download_failed"`
+
                     - `String downloadId`
 
                       The caller-assigned identifier for this download, stable across the state changes reporting it.
 
                       maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
-
-                    - `JsonValue type = "download_failed"`
 
                     - `String url`
 
@@ -6387,6 +6404,8 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
             maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
 
         - `class BetaServerToolUseBlockParam:`
+
+          - `JsonValue type = "server_tool_use"`
 
           - `String id`
 
@@ -6412,8 +6431,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             - `TOOL_SEARCH_TOOL_BM25("tool_search_tool_bm25")`
 
-          - `JsonValue type = "server_tool_use"`
-
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
             Create a cache control breakpoint at this content block.
@@ -6434,21 +6451,25 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `class BetaWebSearchToolResultBlockParam:`
 
+          - `JsonValue type = "web_search_tool_result"`
+
           - `BetaWebSearchToolResultBlockParamContent content`
 
             - `List<BetaWebSearchResultBlockParam>`
 
+              - `JsonValue type = "web_search_result"`
+
               - `String encryptedContent`
 
               - `String title`
-
-              - `JsonValue type = "web_search_result"`
 
               - `String url`
 
               - `Optional<String> pageAge`
 
             - `class BetaWebSearchToolRequestError:`
+
+              - `JsonValue type = "web_search_tool_result_error"`
 
               - `BetaWebSearchToolResultErrorCode errorCode`
 
@@ -6464,13 +6485,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 - `REQUEST_TOO_LARGE("request_too_large")`
 
-              - `JsonValue type = "web_search_tool_result_error"`
-
           - `String toolUseId`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-          - `JsonValue type = "web_search_tool_result"`
 
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -6492,9 +6509,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `class BetaWebFetchToolResultBlockParam:`
 
+          - `JsonValue type = "web_fetch_tool_result"`
+
           - `Content content`
 
             - `class BetaWebFetchToolResultErrorBlockParam:`
+
+              - `JsonValue type = "web_fetch_tool_result_error"`
 
               - `BetaWebFetchToolResultErrorCode errorCode`
 
@@ -6516,13 +6537,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 - `UNAVAILABLE("unavailable")`
 
-              - `JsonValue type = "web_fetch_tool_result_error"`
+                - `CONTENT_TOO_LARGE("content_too_large")`
 
             - `class BetaWebFetchBlockParam:`
 
-              - `BetaRequestDocumentBlock content`
-
               - `JsonValue type = "web_fetch_result"`
+
+              - `BetaRequestDocumentBlock content`
 
               - `String url`
 
@@ -6535,8 +6556,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
           - `String toolUseId`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-          - `JsonValue type = "web_fetch_tool_result"`
 
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -6558,9 +6577,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `class BetaAdvisorToolResultBlockParam:`
 
+          - `JsonValue type = "advisor_tool_result"`
+
           - `Content content`
 
             - `class BetaAdvisorToolResultErrorParam:`
+
+              - `JsonValue type = "advisor_tool_result_error"`
 
               - `ErrorCode errorCode`
 
@@ -6578,23 +6601,21 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 - `MODEL_NOT_FOUND("model_not_found")`
 
-              - `JsonValue type = "advisor_tool_result_error"`
-
             - `class BetaAdvisorResultBlockParam:`
 
-              - `String text`
-
               - `JsonValue type = "advisor_result"`
+
+              - `String text`
 
               - `Optional<String> stopReason`
 
             - `class BetaAdvisorRedactedResultBlockParam:`
 
+              - `JsonValue type = "advisor_redacted_result"`
+
               - `String encryptedContent`
 
                 Opaque blob produced by a prior response; must be round-tripped verbatim.
-
-              - `JsonValue type = "advisor_redacted_result"`
 
               - `Optional<String> stopReason`
 
@@ -6602,19 +6623,21 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `JsonValue type = "advisor_tool_result"`
-
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
             Create a cache control breakpoint at this content block.
 
         - `class BetaCodeExecutionToolResultBlockParam:`
 
+          - `JsonValue type = "code_execution_tool_result"`
+
           - `BetaCodeExecutionToolResultBlockParamContent content`
 
             Code execution result with encrypted stdout for PFC + web_search results.
 
             - `class BetaCodeExecutionToolResultErrorParam:`
+
+              - `JsonValue type = "code_execution_tool_result_error"`
 
               - `BetaCodeExecutionToolResultErrorCode errorCode`
 
@@ -6626,15 +6649,15 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 - `EXECUTION_TIME_EXCEEDED("execution_time_exceeded")`
 
-              - `JsonValue type = "code_execution_tool_result_error"`
-
             - `class BetaCodeExecutionResultBlockParam:`
+
+              - `JsonValue type = "code_execution_result"`
 
               - `List<BetaCodeExecutionOutputBlockParam> content`
 
-                - `String fileId`
-
                 - `JsonValue type = "code_execution_output"`
+
+                - `String fileId`
 
               - `long returnCode`
 
@@ -6642,17 +6665,17 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `String stdout`
 
-              - `JsonValue type = "code_execution_result"`
-
             - `class BetaEncryptedCodeExecutionResultBlockParam:`
 
               Code execution result with encrypted stdout for PFC + web_search results.
 
+              - `JsonValue type = "encrypted_code_execution_result"`
+
               - `List<BetaCodeExecutionOutputBlockParam> content`
 
-                - `String fileId`
-
                 - `JsonValue type = "code_execution_output"`
+
+                - `String fileId`
 
               - `String encryptedStdout`
 
@@ -6660,13 +6683,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `String stderr`
 
-              - `JsonValue type = "encrypted_code_execution_result"`
-
           - `String toolUseId`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-          - `JsonValue type = "code_execution_tool_result"`
 
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -6674,9 +6693,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `class BetaBashCodeExecutionToolResultBlockParam:`
 
+          - `JsonValue type = "bash_code_execution_tool_result"`
+
           - `Content content`
 
             - `class BetaBashCodeExecutionToolResultErrorParam:`
+
+              - `JsonValue type = "bash_code_execution_tool_result_error"`
 
               - `ErrorCode errorCode`
 
@@ -6690,15 +6713,15 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 - `OUTPUT_FILE_TOO_LARGE("output_file_too_large")`
 
-              - `JsonValue type = "bash_code_execution_tool_result_error"`
-
             - `class BetaBashCodeExecutionResultBlockParam:`
+
+              - `JsonValue type = "bash_code_execution_result"`
 
               - `List<BetaBashCodeExecutionOutputBlockParam> content`
 
-                - `String fileId`
-
                 - `JsonValue type = "bash_code_execution_output"`
+
+                - `String fileId`
 
               - `long returnCode`
 
@@ -6706,13 +6729,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `String stdout`
 
-              - `JsonValue type = "bash_code_execution_result"`
-
           - `String toolUseId`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-          - `JsonValue type = "bash_code_execution_tool_result"`
 
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -6720,9 +6739,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `class BetaTextEditorCodeExecutionToolResultBlockParam:`
 
+          - `JsonValue type = "text_editor_code_execution_tool_result"`
+
           - `Content content`
 
             - `class BetaTextEditorCodeExecutionToolResultErrorParam:`
+
+              - `JsonValue type = "text_editor_code_execution_tool_result_error"`
 
               - `ErrorCode errorCode`
 
@@ -6736,11 +6759,11 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 - `FILE_NOT_FOUND("file_not_found")`
 
-              - `JsonValue type = "text_editor_code_execution_tool_result_error"`
-
               - `Optional<String> errorMessage`
 
             - `class BetaTextEditorCodeExecutionViewResultBlockParam:`
+
+              - `JsonValue type = "text_editor_code_execution_view_result"`
 
               - `String content`
 
@@ -6752,8 +6775,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 - `PDF("pdf")`
 
-              - `JsonValue type = "text_editor_code_execution_view_result"`
-
               - `Optional<Long> numLines`
 
               - `Optional<Long> startLine`
@@ -6762,9 +6783,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             - `class BetaTextEditorCodeExecutionCreateResultBlockParam:`
 
-              - `boolean isFileUpdate`
-
               - `JsonValue type = "text_editor_code_execution_create_result"`
+
+              - `boolean isFileUpdate`
 
             - `class BetaTextEditorCodeExecutionStrReplaceResultBlockParam:`
 
@@ -6784,17 +6805,19 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `JsonValue type = "text_editor_code_execution_tool_result"`
-
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
             Create a cache control breakpoint at this content block.
 
         - `class BetaToolSearchToolResultBlockParam:`
 
+          - `JsonValue type = "tool_search_tool_result"`
+
           - `Content content`
 
             - `class BetaToolSearchToolResultErrorParam:`
+
+              - `JsonValue type = "tool_search_tool_result_error"`
 
               - `ErrorCode errorCode`
 
@@ -6806,37 +6829,35 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 - `EXECUTION_TIME_EXCEEDED("execution_time_exceeded")`
 
-              - `JsonValue type = "tool_search_tool_result_error"`
-
               - `Optional<String> errorMessage`
 
             - `class BetaToolSearchToolSearchResultBlockParam:`
 
+              - `JsonValue type = "tool_search_tool_search_result"`
+
               - `List<BetaToolReferenceBlockParam> toolReferences`
+
+                - `JsonValue type = "tool_reference"`
 
                 - `String toolName`
 
                   maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
-                - `JsonValue type = "tool_reference"`
-
                 - `Optional<BetaCacheControlEphemeral> cacheControl`
 
                   Create a cache control breakpoint at this content block.
 
-              - `JsonValue type = "tool_search_tool_search_result"`
-
           - `String toolUseId`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-          - `JsonValue type = "tool_search_tool_result"`
 
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
             Create a cache control breakpoint at this content block.
 
         - `class BetaMcpToolUseBlockParam:`
+
+          - `JsonValue type = "mcp_tool_use"`
 
           - `String id`
 
@@ -6850,19 +6871,17 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             The name of the MCP server
 
-          - `JsonValue type = "mcp_tool_use"`
-
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
             Create a cache control breakpoint at this content block.
 
         - `class BetaRequestMcpToolResultBlockParam:`
 
+          - `JsonValue type = "mcp_tool_result"`
+
           - `String toolUseId`
 
             pattern: ^[a-zA-Z0-9_-]+$
-
-          - `JsonValue type = "mcp_tool_result"`
 
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -6874,11 +6893,11 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             - `List<BetaTextBlockParam>`
 
+              - `JsonValue type = "text"`
+
               - `String text`
 
                 minLength: 1
-
-              - `JsonValue type = "text"`
 
               - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -6893,9 +6912,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
           A content block that represents a file to be uploaded to the container
           Files uploaded via this block will be available in the container's input directory.
 
-          - `String fileId`
-
           - `JsonValue type = "container_upload"`
+
+          - `String fileId`
 
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -6933,6 +6952,8 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
           `tools`; it is offered to the model from this point in the
           conversation onward.
 
+          - `JsonValue type = "tool_addition"`
+
           - `Tool tool`
 
             Reference to a single tool the caller declared directly in
@@ -6947,32 +6968,30 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
               server assigns to MCP-resolved tools — use `mcp_tool_reference` or
               `mcp_toolset_reference` for those.
 
+              - `JsonValue type = "tool_reference"`
+
               - `String name`
 
                 pattern: ^[a-zA-Z0-9_-]{1,128}$
-
-              - `JsonValue type = "tool_reference"`
 
             - `class BetaToolChangeMcpToolReference:`
 
               Reference to a single MCP tool by its server and remote name — the
               same `server_name`/`name` pair `mcp_tool_use` carries.
 
+              - `JsonValue type = "mcp_tool_reference"`
+
               - `String name`
 
               - `String serverName`
-
-              - `JsonValue type = "mcp_tool_reference"`
 
             - `class BetaToolChangeMcpToolsetReference:`
 
               Reference to every tool in the named MCP server's toolset.
 
-              - `String serverName`
-
               - `JsonValue type = "mcp_toolset_reference"`
 
-          - `JsonValue type = "tool_addition"`
+              - `String serverName`
 
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -6986,6 +7005,8 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
           `tools`; it is no longer offered to the model from this point in the
           conversation onward.
 
+          - `JsonValue type = "tool_removal"`
+
           - `Tool tool`
 
             Reference to a single tool the caller declared directly in
@@ -7008,8 +7029,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
             - `class BetaToolChangeMcpToolsetReference:`
 
               Reference to every tool in the named MCP server's toolset.
-
-          - `JsonValue type = "tool_removal"`
 
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -7030,6 +7049,8 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
           request is rejected), and moving it into the middle of a single run is
           likewise rejected; between non-thinking blocks the block's placement has
           no validation effect.
+
+          - `JsonValue type = "fallback"`
 
           - `BetaFallbackInfoParam from`
 
@@ -7113,8 +7134,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             Identifies one hop of a fallback transition.
 
-          - `JsonValue type = "fallback"`
-
           - `Optional<JsonValue> trigger`
 
             The response block's `trigger`, echoed verbatim. Accepted and ignored by the server; any object or `null` is allowed.
@@ -7179,9 +7198,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     maxItems: 20
 
-    - `String name`
-
     - `JsonValue type = "url"`
+
+    - `String name`
 
     - `String url`
 
@@ -7215,11 +7234,11 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `List<BetaTextBlockParam>`
 
+      - `JsonValue type = "text"`
+
       - `String text`
 
         minLength: 1
-
-      - `JsonValue type = "text"`
 
       - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -7305,6 +7324,8 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `class BetaTool:`
 
+      - `Optional<Type> type`
+
       - `InputSchema inputSchema`
 
         [JSON schema](https://json-schema.org/draft/2020-12) for this tool's input.
@@ -7359,17 +7380,15 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         When true, guarantees schema validation on tool names and inputs
 
-      - `Optional<Type> type`
-
     - `class BetaToolBash20241022:`
+
+      - `JsonValue type = "bash_20241022"`
 
       - `JsonValue name = "bash"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonValue type = "bash_20241022"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -7397,13 +7416,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `class BetaToolBash20250124:`
 
+      - `JsonValue type = "bash_20250124"`
+
       - `JsonValue name = "bash"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonValue type = "bash_20250124"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -7431,13 +7450,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `class BetaCodeExecutionTool20250522:`
 
+      - `JsonValue type = "code_execution_20250522"`
+
       - `JsonValue name = "code_execution"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonValue type = "code_execution_20250522"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -7463,13 +7482,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `class BetaCodeExecutionTool20250825:`
 
+      - `JsonValue type = "code_execution_20250825"`
+
       - `JsonValue name = "code_execution"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonValue type = "code_execution_20250825"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -7497,13 +7516,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       Code execution tool with REPL state persistence (daemon mode + gVisor checkpoint).
 
+      - `JsonValue type = "code_execution_20260120"`
+
       - `JsonValue name = "code_execution"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonValue type = "code_execution_20260120"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -7531,13 +7550,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       Code execution tool with REPL state persistence.
 
+      - `JsonValue type = "code_execution_20260521"`
+
       - `JsonValue name = "code_execution"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonValue type = "code_execution_20260521"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -7582,6 +7601,18 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
         accepted key, and a member's defaults apply wherever its key is
         absent. Unknown keys are rejected: the field set is this toolset
         version's complete member set.
+
+        - `Optional<BetaBrowserTypeConfig> type`
+
+          `type`'s config overrides.
+
+          - `Optional<Boolean> deferLoading`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `Optional<Boolean> enabled`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
         - `Optional<BetaBrowserCloseTabConfig> closeTab`
 
@@ -7919,18 +7950,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-        - `Optional<BetaBrowserTypeConfig> type`
-
-          `type`'s config overrides.
-
-          - `Optional<Boolean> deferLoading`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `Optional<Boolean> enabled`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
         - `Optional<BetaBrowserWaitConfig> wait`
 
           `wait`'s config overrides.
@@ -7957,6 +7976,8 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `class BetaToolComputerUse20241022:`
 
+      - `JsonValue type = "computer_20241022"`
+
       - `long displayHeightPx`
 
         The height of the display in pixels.
@@ -7974,8 +7995,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonValue type = "computer_20241022"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -8009,13 +8028,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `class BetaMemoryTool20250818:`
 
+      - `JsonValue type = "memory_20250818"`
+
       - `JsonValue name = "memory"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonValue type = "memory_20250818"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -8043,6 +8062,8 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `class BetaToolComputerUse20250124:`
 
+      - `JsonValue type = "computer_20250124"`
+
       - `long displayHeightPx`
 
         The height of the display in pixels.
@@ -8060,8 +8081,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonValue type = "computer_20250124"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -8095,13 +8114,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `class BetaToolTextEditor20241022:`
 
+      - `JsonValue type = "text_editor_20241022"`
+
       - `JsonValue name = "str_replace_editor"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonValue type = "text_editor_20241022"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -8129,6 +8148,8 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `class BetaToolComputerUse20251124:`
 
+      - `JsonValue type = "computer_20251124"`
+
       - `long displayHeightPx`
 
         The height of the display in pixels.
@@ -8146,8 +8167,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonValue type = "computer_20251124"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -8208,6 +8227,18 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
         accepted key, and a member's defaults apply wherever its key is
         absent. Unknown keys are rejected: the field set is this toolset
         version's complete member set.
+
+        - `Optional<BetaComputerTypeConfig> type`
+
+          `type`'s config overrides.
+
+          - `Optional<Boolean> deferLoading`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `Optional<Boolean> enabled`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
         - `Optional<BetaComputerCursorPositionConfig> cursorPosition`
 
@@ -8377,18 +8408,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-        - `Optional<BetaComputerTypeConfig> type`
-
-          `type`'s config overrides.
-
-          - `Optional<Boolean> deferLoading`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `Optional<Boolean> enabled`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
         - `Optional<BetaComputerWaitConfig> wait`
 
           `wait`'s config overrides.
@@ -8415,13 +8434,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `class BetaToolTextEditor20250124:`
 
+      - `JsonValue type = "text_editor_20250124"`
+
       - `JsonValue name = "str_replace_editor"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonValue type = "text_editor_20250124"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -8449,13 +8468,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `class BetaToolTextEditor20250429:`
 
+      - `JsonValue type = "text_editor_20250429"`
+
       - `JsonValue name = "str_replace_based_edit_tool"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonValue type = "text_editor_20250429"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -8483,13 +8502,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `class BetaToolTextEditor20250728:`
 
+      - `JsonValue type = "text_editor_20250728"`
+
       - `JsonValue name = "str_replace_based_edit_tool"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonValue type = "text_editor_20250728"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -8523,13 +8542,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `class BetaWebSearchTool20250305:`
 
+      - `JsonValue type = "web_search_20250305"`
+
       - `JsonValue name = "web_search"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonValue type = "web_search_20250305"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -8599,13 +8618,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `class BetaWebFetchTool20250910:`
 
+      - `JsonValue type = "web_fetch_20250910"`
+
       - `JsonValue name = "web_fetch"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonValue type = "web_fetch_20250910"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -8655,13 +8674,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `class BetaWebSearchTool20260209:`
 
+      - `JsonValue type = "web_search_20260209"`
+
       - `JsonValue name = "web_search"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonValue type = "web_search_20260209"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -8705,13 +8724,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `class BetaWebFetchTool20260209:`
 
+      - `JsonValue type = "web_fetch_20260209"`
+
       - `JsonValue name = "web_fetch"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonValue type = "web_fetch_20260209"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -8763,13 +8782,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       Web fetch tool with use_cache parameter for bypassing cached content.
 
+      - `JsonValue type = "web_fetch_20260309"`
+
       - `JsonValue name = "web_fetch"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonValue type = "web_fetch_20260309"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -8823,13 +8842,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `class BetaWebSearchTool20260318:`
 
+      - `JsonValue type = "web_search_20260318"`
+
       - `JsonValue name = "web_search"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonValue type = "web_search_20260318"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -8881,13 +8900,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `class BetaWebFetchTool20260318:`
 
+      - `JsonValue type = "web_fetch_20260318"`
+
       - `JsonValue name = "web_fetch"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonValue type = "web_fetch_20260318"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -8949,6 +8968,8 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `class BetaAdvisorTool20260301:`
 
+      - `JsonValue type = "advisor_20260301"`
+
       - `Model model`
 
         The model that will complete your prompt.
@@ -8960,8 +8981,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonValue type = "advisor_20260301"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -9003,17 +9022,17 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `class BetaToolSearchToolBm25_20251119:`
 
-      - `JsonValue name = "tool_search_tool_bm25"`
-
-        Name of the tool.
-
-        This is how the tool will be called by the model and in `tool_use` blocks.
-
       - `Type type`
 
         - `TOOL_SEARCH_TOOL_BM25_20251119("tool_search_tool_bm25_20251119")`
 
         - `TOOL_SEARCH_TOOL_BM25("tool_search_tool_bm25")`
+
+      - `JsonValue name = "tool_search_tool_bm25"`
+
+        Name of the tool.
+
+        This is how the tool will be called by the model and in `tool_use` blocks.
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -9039,17 +9058,17 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `class BetaToolSearchToolRegex20251119:`
 
-      - `JsonValue name = "tool_search_tool_regex"`
-
-        Name of the tool.
-
-        This is how the tool will be called by the model and in `tool_use` blocks.
-
       - `Type type`
 
         - `TOOL_SEARCH_TOOL_REGEX_20251119("tool_search_tool_regex_20251119")`
 
         - `TOOL_SEARCH_TOOL_REGEX("tool_search_tool_regex")`
+
+      - `JsonValue name = "tool_search_tool_regex"`
+
+        Name of the tool.
+
+        This is how the tool will be called by the model and in `tool_use` blocks.
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -9080,13 +9099,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
       Allows configuring enabled status and defer_loading for all tools
       from an MCP server, with optional per-tool overrides.
 
+      - `JsonValue type = "mcp_toolset"`
+
       - `String mcpServerName`
 
         Name of the MCP server to configure tools for
 
         maxLength: 255, minLength: 1
-
-      - `JsonValue type = "mcp_toolset"`
 
       - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -9176,6 +9195,10 @@ public final class Main {
 - `class BetaAdvisorMessageIterationUsage:`
 
   Token usage for an advisor sub-inference iteration.
+
+  - `JsonValue type = "advisor_message"`
+
+    Usage for an advisor sub-inference iteration
 
   - `Optional<BetaCacheCreation> cacheCreation`
 
@@ -9291,13 +9314,11 @@ public final class Main {
 
     minimum: 0
 
-  - `JsonValue type = "advisor_message"`
-
-    Usage for an advisor sub-inference iteration
-
 ### Beta Advisor Redacted Result Block
 
 - `class BetaAdvisorRedactedResultBlock:`
+
+  - `JsonValue type = "advisor_redacted_result"`
 
   - `String encryptedContent`
 
@@ -9307,17 +9328,15 @@ public final class Main {
 
     The advisor sub-inference's stop reason (same values as the top-level message `stop_reason`).
 
-  - `JsonValue type = "advisor_redacted_result"`
-
 ### Beta Advisor Redacted Result Block Param
 
 - `class BetaAdvisorRedactedResultBlockParam:`
 
+  - `JsonValue type = "advisor_redacted_result"`
+
   - `String encryptedContent`
 
     Opaque blob produced by a prior response; must be round-tripped verbatim.
-
-  - `JsonValue type = "advisor_redacted_result"`
 
   - `Optional<String> stopReason`
 
@@ -9325,27 +9344,29 @@ public final class Main {
 
 - `class BetaAdvisorResultBlock:`
 
+  - `JsonValue type = "advisor_result"`
+
   - `Optional<String> stopReason`
 
     The advisor sub-inference's stop reason (same values as the top-level message `stop_reason`). `max_tokens` indicates the advisor's output was truncated at the tool's `max_tokens` value or the advisor model's policy cap.
 
   - `String text`
 
-  - `JsonValue type = "advisor_result"`
-
 ### Beta Advisor Result Block Param
 
 - `class BetaAdvisorResultBlockParam:`
 
-  - `String text`
-
   - `JsonValue type = "advisor_result"`
+
+  - `String text`
 
   - `Optional<String> stopReason`
 
 ### Beta Advisor Tool 20260301
 
 - `class BetaAdvisorTool20260301:`
+
+  - `JsonValue type = "advisor_20260301"`
 
   - `Model model`
 
@@ -9427,8 +9448,6 @@ public final class Main {
 
     This is how the tool will be called by the model and in `tool_use` blocks.
 
-  - `JsonValue type = "advisor_20260301"`
-
   - `Optional<List<AllowedCaller>> allowedCallers`
 
     - `DIRECT("direct")`
@@ -9488,9 +9507,13 @@ public final class Main {
 
 - `class BetaAdvisorToolResultBlock:`
 
+  - `JsonValue type = "advisor_tool_result"`
+
   - `Content content`
 
     - `class BetaAdvisorToolResultError:`
+
+      - `JsonValue type = "advisor_tool_result_error"`
 
       - `ErrorCode errorCode`
 
@@ -9508,9 +9531,9 @@ public final class Main {
 
         - `MODEL_NOT_FOUND("model_not_found")`
 
-      - `JsonValue type = "advisor_tool_result_error"`
-
     - `class BetaAdvisorResultBlock:`
+
+      - `JsonValue type = "advisor_result"`
 
       - `Optional<String> stopReason`
 
@@ -9518,9 +9541,9 @@ public final class Main {
 
       - `String text`
 
-      - `JsonValue type = "advisor_result"`
-
     - `class BetaAdvisorRedactedResultBlock:`
+
+      - `JsonValue type = "advisor_redacted_result"`
 
       - `String encryptedContent`
 
@@ -9530,21 +9553,21 @@ public final class Main {
 
         The advisor sub-inference's stop reason (same values as the top-level message `stop_reason`).
 
-      - `JsonValue type = "advisor_redacted_result"`
-
   - `String toolUseId`
 
     pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-  - `JsonValue type = "advisor_tool_result"`
 
 ### Beta Advisor Tool Result Block Param
 
 - `class BetaAdvisorToolResultBlockParam:`
 
+  - `JsonValue type = "advisor_tool_result"`
+
   - `Content content`
 
     - `class BetaAdvisorToolResultErrorParam:`
+
+      - `JsonValue type = "advisor_tool_result_error"`
 
       - `ErrorCode errorCode`
 
@@ -9562,31 +9585,27 @@ public final class Main {
 
         - `MODEL_NOT_FOUND("model_not_found")`
 
-      - `JsonValue type = "advisor_tool_result_error"`
-
     - `class BetaAdvisorResultBlockParam:`
 
-      - `String text`
-
       - `JsonValue type = "advisor_result"`
+
+      - `String text`
 
       - `Optional<String> stopReason`
 
     - `class BetaAdvisorRedactedResultBlockParam:`
 
+      - `JsonValue type = "advisor_redacted_result"`
+
       - `String encryptedContent`
 
         Opaque blob produced by a prior response; must be round-tripped verbatim.
-
-      - `JsonValue type = "advisor_redacted_result"`
 
       - `Optional<String> stopReason`
 
   - `String toolUseId`
 
     pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-  - `JsonValue type = "advisor_tool_result"`
 
   - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -9613,6 +9632,8 @@ public final class Main {
 
 - `class BetaAdvisorToolResultError:`
 
+  - `JsonValue type = "advisor_tool_result_error"`
+
   - `ErrorCode errorCode`
 
     - `MAX_USES_EXCEEDED("max_uses_exceeded")`
@@ -9628,13 +9649,13 @@ public final class Main {
     - `EXECUTION_TIME_EXCEEDED("execution_time_exceeded")`
 
     - `MODEL_NOT_FOUND("model_not_found")`
-
-  - `JsonValue type = "advisor_tool_result_error"`
 
 ### Beta Advisor Tool Result Error Param
 
 - `class BetaAdvisorToolResultErrorParam:`
 
+  - `JsonValue type = "advisor_tool_result_error"`
+
   - `ErrorCode errorCode`
 
     - `MAX_USES_EXCEEDED("max_uses_exceeded")`
@@ -9650,8 +9671,6 @@ public final class Main {
     - `EXECUTION_TIME_EXCEEDED("execution_time_exceeded")`
 
     - `MODEL_NOT_FOUND("model_not_found")`
-
-  - `JsonValue type = "advisor_tool_result_error"`
 
 ### Beta All Thinking Turns
 
@@ -9662,6 +9681,8 @@ public final class Main {
 ### Beta Base64 Image Source
 
 - `class BetaBase64ImageSource:`
+
+  - `JsonValue type = "base64"`
 
   - `String data`
 
@@ -9677,11 +9698,11 @@ public final class Main {
 
     - `IMAGE_WEBP("image/webp")`
 
-  - `JsonValue type = "base64"`
-
 ### Beta Base64 PDF Source
 
 - `class BetaBase64PdfSource:`
+
+  - `JsonValue type = "base64"`
 
   - `String data`
 
@@ -9689,51 +9710,51 @@ public final class Main {
 
   - `JsonValue mediaType = "application/pdf"`
 
-  - `JsonValue type = "base64"`
-
 ### Beta Bash Code Execution Output Block
 
 - `class BetaBashCodeExecutionOutputBlock:`
 
-  - `String fileId`
-
   - `JsonValue type = "bash_code_execution_output"`
+
+  - `String fileId`
 
 ### Beta Bash Code Execution Output Block Param
 
 - `class BetaBashCodeExecutionOutputBlockParam:`
 
-  - `String fileId`
-
   - `JsonValue type = "bash_code_execution_output"`
+
+  - `String fileId`
 
 ### Beta Bash Code Execution Result Block
 
 - `class BetaBashCodeExecutionResultBlock:`
 
+  - `JsonValue type = "bash_code_execution_result"`
+
   - `List<BetaBashCodeExecutionOutputBlock> content`
 
-    - `String fileId`
-
     - `JsonValue type = "bash_code_execution_output"`
+
+    - `String fileId`
 
   - `long returnCode`
 
   - `String stderr`
 
   - `String stdout`
-
-  - `JsonValue type = "bash_code_execution_result"`
 
 ### Beta Bash Code Execution Result Block Param
 
 - `class BetaBashCodeExecutionResultBlockParam:`
 
+  - `JsonValue type = "bash_code_execution_result"`
+
   - `List<BetaBashCodeExecutionOutputBlockParam> content`
 
-    - `String fileId`
-
     - `JsonValue type = "bash_code_execution_output"`
+
+    - `String fileId`
 
   - `long returnCode`
 
@@ -9741,16 +9762,18 @@ public final class Main {
 
   - `String stdout`
 
-  - `JsonValue type = "bash_code_execution_result"`
-
 ### Beta Bash Code Execution Tool Result Block
 
 - `class BetaBashCodeExecutionToolResultBlock:`
+
+  - `JsonValue type = "bash_code_execution_tool_result"`
 
   - `Content content`
 
     - `class BetaBashCodeExecutionToolResultError:`
 
+      - `JsonValue type = "bash_code_execution_tool_result_error"`
+
       - `ErrorCode errorCode`
 
         - `INVALID_TOOL_INPUT("invalid_tool_input")`
@@ -9763,15 +9786,15 @@ public final class Main {
 
         - `OUTPUT_FILE_TOO_LARGE("output_file_too_large")`
 
-      - `JsonValue type = "bash_code_execution_tool_result_error"`
-
     - `class BetaBashCodeExecutionResultBlock:`
+
+      - `JsonValue type = "bash_code_execution_result"`
 
       - `List<BetaBashCodeExecutionOutputBlock> content`
 
-        - `String fileId`
-
         - `JsonValue type = "bash_code_execution_output"`
+
+        - `String fileId`
 
       - `long returnCode`
 
@@ -9779,21 +9802,21 @@ public final class Main {
 
       - `String stdout`
 
-      - `JsonValue type = "bash_code_execution_result"`
-
   - `String toolUseId`
 
     pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-  - `JsonValue type = "bash_code_execution_tool_result"`
 
 ### Beta Bash Code Execution Tool Result Block Param
 
 - `class BetaBashCodeExecutionToolResultBlockParam:`
 
+  - `JsonValue type = "bash_code_execution_tool_result"`
+
   - `Content content`
 
     - `class BetaBashCodeExecutionToolResultErrorParam:`
+
+      - `JsonValue type = "bash_code_execution_tool_result_error"`
 
       - `ErrorCode errorCode`
 
@@ -9807,15 +9830,15 @@ public final class Main {
 
         - `OUTPUT_FILE_TOO_LARGE("output_file_too_large")`
 
-      - `JsonValue type = "bash_code_execution_tool_result_error"`
-
     - `class BetaBashCodeExecutionResultBlockParam:`
+
+      - `JsonValue type = "bash_code_execution_result"`
 
       - `List<BetaBashCodeExecutionOutputBlockParam> content`
 
-        - `String fileId`
-
         - `JsonValue type = "bash_code_execution_output"`
+
+        - `String fileId`
 
       - `long returnCode`
 
@@ -9823,13 +9846,9 @@ public final class Main {
 
       - `String stdout`
 
-      - `JsonValue type = "bash_code_execution_result"`
-
   - `String toolUseId`
 
     pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-  - `JsonValue type = "bash_code_execution_tool_result"`
 
   - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -9856,6 +9875,8 @@ public final class Main {
 
 - `class BetaBashCodeExecutionToolResultError:`
 
+  - `JsonValue type = "bash_code_execution_tool_result_error"`
+
   - `ErrorCode errorCode`
 
     - `INVALID_TOOL_INPUT("invalid_tool_input")`
@@ -9867,13 +9888,13 @@ public final class Main {
     - `EXECUTION_TIME_EXCEEDED("execution_time_exceeded")`
 
     - `OUTPUT_FILE_TOO_LARGE("output_file_too_large")`
-
-  - `JsonValue type = "bash_code_execution_tool_result_error"`
 
 ### Beta Bash Code Execution Tool Result Error Param
 
 - `class BetaBashCodeExecutionToolResultErrorParam:`
 
+  - `JsonValue type = "bash_code_execution_tool_result_error"`
+
   - `ErrorCode errorCode`
 
     - `INVALID_TOOL_INPUT("invalid_tool_input")`
@@ -9885,8 +9906,6 @@ public final class Main {
     - `EXECUTION_TIME_EXCEEDED("execution_time_exceeded")`
 
     - `OUTPUT_FILE_TOO_LARGE("output_file_too_large")`
-
-  - `JsonValue type = "bash_code_execution_tool_result_error"`
 
 ### Beta Browser Close Tab Config
 
@@ -10264,6 +10283,8 @@ public final class Main {
   browser toolset member `tool_use`. The server renders the
   model-visible text from it; the model never sees the raw fields.
 
+  - `JsonValue type = "browser_state"`
+
   - `List<BetaBrowserStateTabEntry> tabs`
 
     All tabs open in the browser after this call — the full inventory, not a delta. May be empty. Whenever non-empty, exactly one entry carries `active: true`.
@@ -10291,8 +10312,6 @@ public final class Main {
     - `Optional<Boolean> active`
 
       Whether this tab is the active tab after this call. Whenever `tabs` is non-empty, exactly one entry is marked `active: true`.
-
-  - `JsonValue type = "browser_state"`
 
   - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -10331,25 +10350,25 @@ public final class Main {
       during a failed call gets no deferred `tab_opened`; it simply appears
       in the next result's `tabs` inventory.
 
+      - `JsonValue type = "tab_opened"`
+
       - `String tabId`
 
         The `tab_id` of the opened tab, present in `tabs`.
 
         maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-      - `JsonValue type = "tab_opened"`
-
     - `class BetaBrowserStateChangeDownloadStarted:`
 
       A file download that started during this call.
+
+      - `JsonValue type = "download_started"`
 
       - `String downloadId`
 
         The caller-assigned identifier for this download, stable across the state changes reporting it.
 
         maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
-
-      - `JsonValue type = "download_started"`
 
       - `String url`
 
@@ -10364,13 +10383,13 @@ public final class Main {
       `download_started`, when the download finished during the call that
       started it (at most one state change per `download_id` per result).
 
+      - `JsonValue type = "download_completed"`
+
       - `String downloadId`
 
         The caller-assigned identifier for this download, stable across the state changes reporting it.
 
         maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
-
-      - `JsonValue type = "download_completed"`
 
       - `String url`
 
@@ -10394,13 +10413,13 @@ public final class Main {
 
       A file download that failed — or was cancelled — during this call.
 
+      - `JsonValue type = "download_failed"`
+
       - `String downloadId`
 
         The caller-assigned identifier for this download, stable across the state changes reporting it.
 
         maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
-
-      - `JsonValue type = "download_failed"`
 
       - `String url`
 
@@ -10436,25 +10455,25 @@ public final class Main {
     during a failed call gets no deferred `tab_opened`; it simply appears
     in the next result's `tabs` inventory.
 
+    - `JsonValue type = "tab_opened"`
+
     - `String tabId`
 
       The `tab_id` of the opened tab, present in `tabs`.
 
       maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-    - `JsonValue type = "tab_opened"`
-
   - `class BetaBrowserStateChangeDownloadStarted:`
 
     A file download that started during this call.
+
+    - `JsonValue type = "download_started"`
 
     - `String downloadId`
 
       The caller-assigned identifier for this download, stable across the state changes reporting it.
 
       maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
-
-    - `JsonValue type = "download_started"`
 
     - `String url`
 
@@ -10469,13 +10488,13 @@ public final class Main {
     `download_started`, when the download finished during the call that
     started it (at most one state change per `download_id` per result).
 
+    - `JsonValue type = "download_completed"`
+
     - `String downloadId`
 
       The caller-assigned identifier for this download, stable across the state changes reporting it.
 
       maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
-
-    - `JsonValue type = "download_completed"`
 
     - `String url`
 
@@ -10499,13 +10518,13 @@ public final class Main {
 
     A file download that failed — or was cancelled — during this call.
 
+    - `JsonValue type = "download_failed"`
+
     - `String downloadId`
 
       The caller-assigned identifier for this download, stable across the state changes reporting it.
 
       maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
-
-    - `JsonValue type = "download_failed"`
 
     - `String url`
 
@@ -10528,13 +10547,13 @@ public final class Main {
   `download_started`, when the download finished during the call that
   started it (at most one state change per `download_id` per result).
 
+  - `JsonValue type = "download_completed"`
+
   - `String downloadId`
 
     The caller-assigned identifier for this download, stable across the state changes reporting it.
 
     maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
-
-  - `JsonValue type = "download_completed"`
 
   - `String url`
 
@@ -10560,13 +10579,13 @@ public final class Main {
 
   A file download that failed — or was cancelled — during this call.
 
+  - `JsonValue type = "download_failed"`
+
   - `String downloadId`
 
     The caller-assigned identifier for this download, stable across the state changes reporting it.
 
     maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
-
-  - `JsonValue type = "download_failed"`
 
   - `String url`
 
@@ -10586,13 +10605,13 @@ public final class Main {
 
   A file download that started during this call.
 
+  - `JsonValue type = "download_started"`
+
   - `String downloadId`
 
     The caller-assigned identifier for this download, stable across the state changes reporting it.
 
     maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
-
-  - `JsonValue type = "download_started"`
 
   - `String url`
 
@@ -10612,13 +10631,13 @@ public final class Main {
   during a failed call gets no deferred `tab_opened`; it simply appears
   in the next result's `tabs` inventory.
 
+  - `JsonValue type = "tab_opened"`
+
   - `String tabId`
 
     The `tab_id` of the opened tab, present in `tabs`.
 
     maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
-
-  - `JsonValue type = "tab_opened"`
 
 ### Beta Browser State Tab Entry
 
@@ -10709,6 +10728,18 @@ public final class Main {
     accepted key, and a member's defaults apply wherever its key is
     absent. Unknown keys are rejected: the field set is this toolset
     version's complete member set.
+
+    - `Optional<BetaBrowserTypeConfig> type`
+
+      `type`'s config overrides.
+
+      - `Optional<Boolean> deferLoading`
+
+        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+      - `Optional<Boolean> enabled`
+
+        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
     - `Optional<BetaBrowserCloseTabConfig> closeTab`
 
@@ -11046,18 +11077,6 @@ public final class Main {
 
         Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-    - `Optional<BetaBrowserTypeConfig> type`
-
-      `type`'s config overrides.
-
-      - `Optional<Boolean> deferLoading`
-
-        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-      - `Optional<Boolean> enabled`
-
-        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
     - `Optional<BetaBrowserWaitConfig> wait`
 
       `wait`'s config overrides.
@@ -11092,6 +11111,18 @@ public final class Main {
   accepted key, and a member's defaults apply wherever its key is
   absent. Unknown keys are rejected: the field set is this toolset
   version's complete member set.
+
+  - `Optional<BetaBrowserTypeConfig> type`
+
+    `type`'s config overrides.
+
+    - `Optional<Boolean> deferLoading`
+
+      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+    - `Optional<Boolean> enabled`
+
+      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
   - `Optional<BetaBrowserCloseTabConfig> closeTab`
 
@@ -11429,18 +11460,6 @@ public final class Main {
 
       Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-  - `Optional<BetaBrowserTypeConfig> type`
-
-    `type`'s config overrides.
-
-    - `Optional<Boolean> deferLoading`
-
-      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-    - `Optional<Boolean> enabled`
-
-      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
   - `Optional<BetaBrowserWaitConfig> wait`
 
     `wait`'s config overrides.
@@ -11562,21 +11581,21 @@ public final class Main {
 
 - `class BetaCacheMissMessagesChanged:`
 
+  - `JsonValue type = "messages_changed"`
+
   - `long cacheMissedInputTokens`
 
     Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
-
-  - `JsonValue type = "messages_changed"`
 
 ### Beta Cache Miss Model Changed
 
 - `class BetaCacheMissModelChanged:`
 
+  - `JsonValue type = "model_changed"`
+
   - `long cacheMissedInputTokens`
 
     Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
-
-  - `JsonValue type = "model_changed"`
 
 ### Beta Cache Miss Previous Message Not Found
 
@@ -11588,21 +11607,21 @@ public final class Main {
 
 - `class BetaCacheMissSystemChanged:`
 
+  - `JsonValue type = "system_changed"`
+
   - `long cacheMissedInputTokens`
 
     Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
-
-  - `JsonValue type = "system_changed"`
 
 ### Beta Cache Miss Tools Changed
 
 - `class BetaCacheMissToolsChanged:`
 
+  - `JsonValue type = "tools_changed"`
+
   - `long cacheMissedInputTokens`
 
     Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
-
-  - `JsonValue type = "tools_changed"`
 
 ### Beta Cache Miss Unavailable
 
@@ -11614,6 +11633,8 @@ public final class Main {
 
 - `class BetaCitationCharLocation:`
 
+  - `JsonValue type = "char_location"`
+
   - `String citedText`
 
   - `long documentIndex`
@@ -11630,11 +11651,11 @@ public final class Main {
 
     minimum: 0
 
-  - `JsonValue type = "char_location"`
-
 ### Beta Citation Char Location Param
 
 - `class BetaCitationCharLocationParam:`
+
+  - `JsonValue type = "char_location"`
 
   - `String citedText`
 
@@ -11651,8 +11672,6 @@ public final class Main {
   - `long startCharIndex`
 
     minimum: 0
-
-  - `JsonValue type = "char_location"`
 
 ### Beta Citation Config
 
@@ -11664,6 +11683,8 @@ public final class Main {
 
 - `class BetaCitationContentBlockLocation:`
 
+  - `JsonValue type = "content_block_location"`
+
   - `String citedText`
 
     The full text of the cited block range, concatenated.
@@ -11689,13 +11710,13 @@ public final class Main {
     0-based index of the first cited block in the source's `content` array.
 
     minimum: 0
-
-  - `JsonValue type = "content_block_location"`
 
 ### Beta Citation Content Block Location Param
 
 - `class BetaCitationContentBlockLocationParam:`
 
+  - `JsonValue type = "content_block_location"`
+
   - `String citedText`
 
     The full text of the cited block range, concatenated.
@@ -11722,11 +11743,11 @@ public final class Main {
 
     minimum: 0
 
-  - `JsonValue type = "content_block_location"`
-
 ### Beta Citation Page Location
 
 - `class BetaCitationPageLocation:`
+
+  - `JsonValue type = "page_location"`
 
   - `String citedText`
 
@@ -11744,11 +11765,11 @@ public final class Main {
 
     minimum: 1
 
-  - `JsonValue type = "page_location"`
-
 ### Beta Citation Page Location Param
 
 - `class BetaCitationPageLocationParam:`
+
+  - `JsonValue type = "page_location"`
 
   - `String citedText`
 
@@ -11766,11 +11787,11 @@ public final class Main {
 
     minimum: 1
 
-  - `JsonValue type = "page_location"`
-
 ### Beta Citation Search Result Location
 
 - `class BetaCitationSearchResultLocation:`
+
+  - `JsonValue type = "search_result_location"`
 
   - `String citedText`
 
@@ -11801,13 +11822,13 @@ public final class Main {
     minimum: 0
 
   - `Optional<String> title`
-
-  - `JsonValue type = "search_result_location"`
 
 ### Beta Citation Search Result Location Param
 
 - `class BetaCitationSearchResultLocationParam:`
 
+  - `JsonValue type = "search_result_location"`
+
   - `String citedText`
 
     The full text of the cited block range, concatenated.
@@ -11838,11 +11859,11 @@ public final class Main {
 
   - `Optional<String> title`
 
-  - `JsonValue type = "search_result_location"`
-
 ### Beta Citation Web Search Result Location Param
 
 - `class BetaCitationWebSearchResultLocationParam:`
+
+  - `JsonValue type = "web_search_result_location"`
 
   - `String citedText`
 
@@ -11851,8 +11872,6 @@ public final class Main {
   - `Optional<String> title`
 
     maxLength: 512, minLength: 1
-
-  - `JsonValue type = "web_search_result_location"`
 
   - `String url`
 
@@ -11868,9 +11887,13 @@ public final class Main {
 
 - `class BetaCitationsDelta:`
 
+  - `JsonValue type = "citations_delta"`
+
   - `Citation citation`
 
     - `class BetaCitationCharLocation:`
+
+      - `JsonValue type = "char_location"`
 
       - `String citedText`
 
@@ -11888,9 +11911,9 @@ public final class Main {
 
         minimum: 0
 
-      - `JsonValue type = "char_location"`
-
     - `class BetaCitationPageLocation:`
+
+      - `JsonValue type = "page_location"`
 
       - `String citedText`
 
@@ -11908,9 +11931,9 @@ public final class Main {
 
         minimum: 1
 
-      - `JsonValue type = "page_location"`
-
     - `class BetaCitationContentBlockLocation:`
+
+      - `JsonValue type = "content_block_location"`
 
       - `String citedText`
 
@@ -11938,9 +11961,9 @@ public final class Main {
 
         minimum: 0
 
-      - `JsonValue type = "content_block_location"`
-
     - `class BetaCitationsWebSearchResultLocation:`
+
+      - `JsonValue type = "web_search_result_location"`
 
       - `String citedText`
 
@@ -11950,11 +11973,11 @@ public final class Main {
 
         maxLength: 512
 
-      - `JsonValue type = "web_search_result_location"`
-
       - `String url`
 
     - `class BetaCitationSearchResultLocation:`
+
+      - `JsonValue type = "search_result_location"`
 
       - `String citedText`
 
@@ -11986,13 +12009,11 @@ public final class Main {
 
       - `Optional<String> title`
 
-      - `JsonValue type = "search_result_location"`
-
-  - `JsonValue type = "citations_delta"`
-
 ### Beta Citations Web Search Result Location
 
 - `class BetaCitationsWebSearchResultLocation:`
+
+  - `JsonValue type = "web_search_result_location"`
 
   - `String citedText`
 
@@ -12001,8 +12022,6 @@ public final class Main {
   - `Optional<String> title`
 
     maxLength: 512
-
-  - `JsonValue type = "web_search_result_location"`
 
   - `String url`
 
@@ -12034,6 +12053,10 @@ public final class Main {
 
 - `class BetaClearThinking20251015EditResponse:`
 
+  - `JsonValue type = "clear_thinking_20251015"`
+
+    The type of context management edit applied.
+
   - `long clearedInputTokens`
 
     Number of input tokens cleared by this edit.
@@ -12045,10 +12068,6 @@ public final class Main {
     Number of thinking turns that were cleared.
 
     minimum: 0
-
-  - `JsonValue type = "clear_thinking_20251015"`
-
-    The type of context management edit applied.
 
 ### Beta Clear Tool Uses 20250919 Edit
 
@@ -12112,6 +12131,10 @@ public final class Main {
 
 - `class BetaClearToolUses20250919EditResponse:`
 
+  - `JsonValue type = "clear_tool_uses_20250919"`
+
+    The type of context management edit applied.
+
   - `long clearedInputTokens`
 
     Number of input tokens cleared by this edit.
@@ -12124,53 +12147,51 @@ public final class Main {
 
     minimum: 0
 
-  - `JsonValue type = "clear_tool_uses_20250919"`
-
-    The type of context management edit applied.
-
 ### Beta Code Execution Output Block
 
 - `class BetaCodeExecutionOutputBlock:`
 
-  - `String fileId`
-
   - `JsonValue type = "code_execution_output"`
+
+  - `String fileId`
 
 ### Beta Code Execution Output Block Param
 
 - `class BetaCodeExecutionOutputBlockParam:`
 
-  - `String fileId`
-
   - `JsonValue type = "code_execution_output"`
+
+  - `String fileId`
 
 ### Beta Code Execution Result Block
 
 - `class BetaCodeExecutionResultBlock:`
 
+  - `JsonValue type = "code_execution_result"`
+
   - `List<BetaCodeExecutionOutputBlock> content`
 
-    - `String fileId`
-
     - `JsonValue type = "code_execution_output"`
+
+    - `String fileId`
 
   - `long returnCode`
 
   - `String stderr`
 
   - `String stdout`
-
-  - `JsonValue type = "code_execution_result"`
 
 ### Beta Code Execution Result Block Param
 
 - `class BetaCodeExecutionResultBlockParam:`
 
+  - `JsonValue type = "code_execution_result"`
+
   - `List<BetaCodeExecutionOutputBlockParam> content`
 
-    - `String fileId`
-
     - `JsonValue type = "code_execution_output"`
+
+    - `String fileId`
 
   - `long returnCode`
 
@@ -12178,19 +12199,17 @@ public final class Main {
 
   - `String stdout`
 
-  - `JsonValue type = "code_execution_result"`
-
 ### Beta Code Execution Tool 20250522
 
 - `class BetaCodeExecutionTool20250522:`
+
+  - `JsonValue type = "code_execution_20250522"`
 
   - `JsonValue name = "code_execution"`
 
     Name of the tool.
 
     This is how the tool will be called by the model and in `tool_use` blocks.
-
-  - `JsonValue type = "code_execution_20250522"`
 
   - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -12235,13 +12254,13 @@ public final class Main {
 
 - `class BetaCodeExecutionTool20250825:`
 
+  - `JsonValue type = "code_execution_20250825"`
+
   - `JsonValue name = "code_execution"`
 
     Name of the tool.
 
     This is how the tool will be called by the model and in `tool_use` blocks.
-
-  - `JsonValue type = "code_execution_20250825"`
 
   - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -12288,13 +12307,13 @@ public final class Main {
 
   Code execution tool with REPL state persistence (daemon mode + gVisor checkpoint).
 
+  - `JsonValue type = "code_execution_20260120"`
+
   - `JsonValue name = "code_execution"`
 
     Name of the tool.
 
     This is how the tool will be called by the model and in `tool_use` blocks.
-
-  - `JsonValue type = "code_execution_20260120"`
 
   - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -12341,13 +12360,13 @@ public final class Main {
 
   Code execution tool with REPL state persistence.
 
+  - `JsonValue type = "code_execution_20260521"`
+
   - `JsonValue name = "code_execution"`
 
     Name of the tool.
 
     This is how the tool will be called by the model and in `tool_use` blocks.
-
-  - `JsonValue type = "code_execution_20260521"`
 
   - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -12392,11 +12411,15 @@ public final class Main {
 
 - `class BetaCodeExecutionToolResultBlock:`
 
+  - `JsonValue type = "code_execution_tool_result"`
+
   - `BetaCodeExecutionToolResultBlockContent content`
 
     Code execution result with encrypted stdout for PFC + web_search results.
 
     - `class BetaCodeExecutionToolResultError:`
+
+      - `JsonValue type = "code_execution_tool_result_error"`
 
       - `BetaCodeExecutionToolResultErrorCode errorCode`
 
@@ -12408,15 +12431,15 @@ public final class Main {
 
         - `EXECUTION_TIME_EXCEEDED("execution_time_exceeded")`
 
-      - `JsonValue type = "code_execution_tool_result_error"`
-
     - `class BetaCodeExecutionResultBlock:`
+
+      - `JsonValue type = "code_execution_result"`
 
       - `List<BetaCodeExecutionOutputBlock> content`
 
-        - `String fileId`
-
         - `JsonValue type = "code_execution_output"`
+
+        - `String fileId`
 
       - `long returnCode`
 
@@ -12424,17 +12447,17 @@ public final class Main {
 
       - `String stdout`
 
-      - `JsonValue type = "code_execution_result"`
-
     - `class BetaEncryptedCodeExecutionResultBlock:`
 
       Code execution result with encrypted stdout for PFC + web_search results.
 
+      - `JsonValue type = "encrypted_code_execution_result"`
+
       - `List<BetaCodeExecutionOutputBlock> content`
 
-        - `String fileId`
-
         - `JsonValue type = "code_execution_output"`
+
+        - `String fileId`
 
       - `String encryptedStdout`
 
@@ -12442,13 +12465,9 @@ public final class Main {
 
       - `String stderr`
 
-      - `JsonValue type = "encrypted_code_execution_result"`
-
   - `String toolUseId`
 
     pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-  - `JsonValue type = "code_execution_tool_result"`
 
 ### Beta Code Execution Tool Result Block Content
 
@@ -12457,6 +12476,8 @@ public final class Main {
   Code execution result with encrypted stdout for PFC + web_search results.
 
   - `class BetaCodeExecutionToolResultError:`
+
+    - `JsonValue type = "code_execution_tool_result_error"`
 
     - `BetaCodeExecutionToolResultErrorCode errorCode`
 
@@ -12468,15 +12489,15 @@ public final class Main {
 
       - `EXECUTION_TIME_EXCEEDED("execution_time_exceeded")`
 
-    - `JsonValue type = "code_execution_tool_result_error"`
-
   - `class BetaCodeExecutionResultBlock:`
+
+    - `JsonValue type = "code_execution_result"`
 
     - `List<BetaCodeExecutionOutputBlock> content`
 
-      - `String fileId`
-
       - `JsonValue type = "code_execution_output"`
+
+      - `String fileId`
 
     - `long returnCode`
 
@@ -12484,17 +12505,17 @@ public final class Main {
 
     - `String stdout`
 
-    - `JsonValue type = "code_execution_result"`
-
   - `class BetaEncryptedCodeExecutionResultBlock:`
 
     Code execution result with encrypted stdout for PFC + web_search results.
 
+    - `JsonValue type = "encrypted_code_execution_result"`
+
     - `List<BetaCodeExecutionOutputBlock> content`
 
-      - `String fileId`
-
       - `JsonValue type = "code_execution_output"`
+
+      - `String fileId`
 
     - `String encryptedStdout`
 
@@ -12502,17 +12523,19 @@ public final class Main {
 
     - `String stderr`
 
-    - `JsonValue type = "encrypted_code_execution_result"`
-
 ### Beta Code Execution Tool Result Block Param
 
 - `class BetaCodeExecutionToolResultBlockParam:`
+
+  - `JsonValue type = "code_execution_tool_result"`
 
   - `BetaCodeExecutionToolResultBlockParamContent content`
 
     Code execution result with encrypted stdout for PFC + web_search results.
 
     - `class BetaCodeExecutionToolResultErrorParam:`
+
+      - `JsonValue type = "code_execution_tool_result_error"`
 
       - `BetaCodeExecutionToolResultErrorCode errorCode`
 
@@ -12524,15 +12547,15 @@ public final class Main {
 
         - `EXECUTION_TIME_EXCEEDED("execution_time_exceeded")`
 
-      - `JsonValue type = "code_execution_tool_result_error"`
-
     - `class BetaCodeExecutionResultBlockParam:`
+
+      - `JsonValue type = "code_execution_result"`
 
       - `List<BetaCodeExecutionOutputBlockParam> content`
 
-        - `String fileId`
-
         - `JsonValue type = "code_execution_output"`
+
+        - `String fileId`
 
       - `long returnCode`
 
@@ -12540,17 +12563,17 @@ public final class Main {
 
       - `String stdout`
 
-      - `JsonValue type = "code_execution_result"`
-
     - `class BetaEncryptedCodeExecutionResultBlockParam:`
 
       Code execution result with encrypted stdout for PFC + web_search results.
 
+      - `JsonValue type = "encrypted_code_execution_result"`
+
       - `List<BetaCodeExecutionOutputBlockParam> content`
 
-        - `String fileId`
-
         - `JsonValue type = "code_execution_output"`
+
+        - `String fileId`
 
       - `String encryptedStdout`
 
@@ -12558,13 +12581,9 @@ public final class Main {
 
       - `String stderr`
 
-      - `JsonValue type = "encrypted_code_execution_result"`
-
   - `String toolUseId`
 
     pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-  - `JsonValue type = "code_execution_tool_result"`
 
   - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -12595,6 +12614,8 @@ public final class Main {
 
   - `class BetaCodeExecutionToolResultErrorParam:`
 
+    - `JsonValue type = "code_execution_tool_result_error"`
+
     - `BetaCodeExecutionToolResultErrorCode errorCode`
 
       - `INVALID_TOOL_INPUT("invalid_tool_input")`
@@ -12605,15 +12626,15 @@ public final class Main {
 
       - `EXECUTION_TIME_EXCEEDED("execution_time_exceeded")`
 
-    - `JsonValue type = "code_execution_tool_result_error"`
-
   - `class BetaCodeExecutionResultBlockParam:`
+
+    - `JsonValue type = "code_execution_result"`
 
     - `List<BetaCodeExecutionOutputBlockParam> content`
 
-      - `String fileId`
-
       - `JsonValue type = "code_execution_output"`
+
+      - `String fileId`
 
     - `long returnCode`
 
@@ -12621,17 +12642,17 @@ public final class Main {
 
     - `String stdout`
 
-    - `JsonValue type = "code_execution_result"`
-
   - `class BetaEncryptedCodeExecutionResultBlockParam:`
 
     Code execution result with encrypted stdout for PFC + web_search results.
 
+    - `JsonValue type = "encrypted_code_execution_result"`
+
     - `List<BetaCodeExecutionOutputBlockParam> content`
 
-      - `String fileId`
-
       - `JsonValue type = "code_execution_output"`
+
+      - `String fileId`
 
     - `String encryptedStdout`
 
@@ -12639,11 +12660,11 @@ public final class Main {
 
     - `String stderr`
 
-    - `JsonValue type = "encrypted_code_execution_result"`
-
 ### Beta Code Execution Tool Result Error
 
 - `class BetaCodeExecutionToolResultError:`
+
+  - `JsonValue type = "code_execution_tool_result_error"`
 
   - `BetaCodeExecutionToolResultErrorCode errorCode`
 
@@ -12654,8 +12675,6 @@ public final class Main {
     - `TOO_MANY_REQUESTS("too_many_requests")`
 
     - `EXECUTION_TIME_EXCEEDED("execution_time_exceeded")`
-
-  - `JsonValue type = "code_execution_tool_result_error"`
 
 ### Beta Code Execution Tool Result Error Code
 
@@ -12673,6 +12692,8 @@ public final class Main {
 
 - `class BetaCodeExecutionToolResultErrorParam:`
 
+  - `JsonValue type = "code_execution_tool_result_error"`
+
   - `BetaCodeExecutionToolResultErrorCode errorCode`
 
     - `INVALID_TOOL_INPUT("invalid_tool_input")`
@@ -12682,8 +12703,6 @@ public final class Main {
     - `TOO_MANY_REQUESTS("too_many_requests")`
 
     - `EXECUTION_TIME_EXCEEDED("execution_time_exceeded")`
-
-  - `JsonValue type = "code_execution_tool_result_error"`
 
 ### Beta Compact 20260112 Edit
 
@@ -12721,6 +12740,8 @@ public final class Main {
   summary (e.g., malformed output from the model). Clients may round-trip
   compaction blocks with null content; the server treats them as no-ops.
 
+  - `JsonValue type = "compaction"`
+
   - `Optional<String> content`
 
     Summary of compacted content, or null if compaction failed
@@ -12728,8 +12749,6 @@ public final class Main {
   - `Optional<String> encryptedContent`
 
     Opaque metadata from prior compaction, to be round-tripped verbatim
-
-  - `JsonValue type = "compaction"`
 
 ### Beta Compaction Block Param
 
@@ -12778,19 +12797,23 @@ public final class Main {
 
 - `class BetaCompactionContentBlockDelta:`
 
+  - `JsonValue type = "compaction_delta"`
+
   - `Optional<String> content`
 
   - `Optional<String> encryptedContent`
 
     Opaque metadata from prior compaction, to be round-tripped verbatim
 
-  - `JsonValue type = "compaction_delta"`
-
 ### Beta Compaction Iteration Usage
 
 - `class BetaCompactionIterationUsage:`
 
   Token usage for a compaction iteration.
+
+  - `JsonValue type = "compaction"`
+
+    Usage for a compaction iteration
 
   - `Optional<BetaCacheCreation> cacheCreation`
 
@@ -12831,10 +12854,6 @@ public final class Main {
     The number of output tokens which were used.
 
     minimum: 0
-
-  - `JsonValue type = "compaction"`
-
-    Usage for a compaction iteration
 
 ### Beta Computer Cursor Position Config
 
@@ -13063,6 +13082,18 @@ public final class Main {
     absent. Unknown keys are rejected: the field set is this toolset
     version's complete member set.
 
+    - `Optional<BetaComputerTypeConfig> type`
+
+      `type`'s config overrides.
+
+      - `Optional<Boolean> deferLoading`
+
+        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+      - `Optional<Boolean> enabled`
+
+        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
     - `Optional<BetaComputerCursorPositionConfig> cursorPosition`
 
       `cursor_position`'s config overrides.
@@ -13231,18 +13262,6 @@ public final class Main {
 
         Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-    - `Optional<BetaComputerTypeConfig> type`
-
-      `type`'s config overrides.
-
-      - `Optional<Boolean> deferLoading`
-
-        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-      - `Optional<Boolean> enabled`
-
-        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
     - `Optional<BetaComputerWaitConfig> wait`
 
       `wait`'s config overrides.
@@ -13277,6 +13296,18 @@ public final class Main {
   accepted key, and a member's defaults apply wherever its key is
   absent. Unknown keys are rejected: the field set is this toolset
   version's complete member set.
+
+  - `Optional<BetaComputerTypeConfig> type`
+
+    `type`'s config overrides.
+
+    - `Optional<Boolean> deferLoading`
+
+      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+    - `Optional<Boolean> enabled`
+
+      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
   - `Optional<BetaComputerCursorPositionConfig> cursorPosition`
 
@@ -13446,18 +13477,6 @@ public final class Main {
 
       Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-  - `Optional<BetaComputerTypeConfig> type`
-
-    `type`'s config overrides.
-
-    - `Optional<Boolean> deferLoading`
-
-      Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-    - `Optional<Boolean> enabled`
-
-      Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
   - `Optional<BetaComputerWaitConfig> wait`
 
     `wait`'s config overrides.
@@ -13558,12 +13577,6 @@ public final class Main {
 
     Skills loaded in the container
 
-    - `String skillId`
-
-      Skill ID
-
-      maxLength: 64, minLength: 1
-
     - `Type type`
 
       Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
@@ -13571,6 +13584,12 @@ public final class Main {
       - `ANTHROPIC("anthropic")`
 
       - `CUSTOM("custom")`
+
+    - `String skillId`
+
+      Skill ID
+
+      maxLength: 64, minLength: 1
 
     - `String version`
 
@@ -13594,12 +13613,6 @@ public final class Main {
 
     maxItems: 20
 
-    - `String skillId`
-
-      Skill ID
-
-      maxLength: 64, minLength: 1
-
     - `Type type`
 
       Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
@@ -13607,6 +13620,12 @@ public final class Main {
       - `ANTHROPIC("anthropic")`
 
       - `CUSTOM("custom")`
+
+    - `String skillId`
+
+      Skill ID
+
+      maxLength: 64, minLength: 1
 
     - `Optional<String> version`
 
@@ -13620,12 +13639,6 @@ public final class Main {
 
   A skill that was loaded in a container (response model).
 
-  - `String skillId`
-
-    Skill ID
-
-    maxLength: 64, minLength: 1
-
   - `Type type`
 
     Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
@@ -13633,6 +13646,12 @@ public final class Main {
     - `ANTHROPIC("anthropic")`
 
     - `CUSTOM("custom")`
+
+  - `String skillId`
+
+    Skill ID
+
+    maxLength: 64, minLength: 1
 
   - `String version`
 
@@ -13646,9 +13665,9 @@ public final class Main {
 
   Response model for a file uploaded to the container.
 
-  - `String fileId`
-
   - `JsonValue type = "container_upload"`
+
+  - `String fileId`
 
 ### Beta Container Upload Block Param
 
@@ -13657,9 +13676,9 @@ public final class Main {
   A content block that represents a file to be uploaded to the container
   Files uploaded via this block will be available in the container's input directory.
 
-  - `String fileId`
-
   - `JsonValue type = "container_upload"`
+
+  - `String fileId`
 
   - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -13690,6 +13709,8 @@ public final class Main {
 
   - `class BetaTextBlock:`
 
+    - `JsonValue type = "text"`
+
     - `Optional<List<BetaTextCitation>> citations`
 
       Citations supporting the text block.
@@ -13697,6 +13718,8 @@ public final class Main {
       The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
 
       - `class BetaCitationCharLocation:`
+
+        - `JsonValue type = "char_location"`
 
         - `String citedText`
 
@@ -13714,9 +13737,9 @@ public final class Main {
 
           minimum: 0
 
-        - `JsonValue type = "char_location"`
-
       - `class BetaCitationPageLocation:`
+
+        - `JsonValue type = "page_location"`
 
         - `String citedText`
 
@@ -13734,9 +13757,9 @@ public final class Main {
 
           minimum: 1
 
-        - `JsonValue type = "page_location"`
-
       - `class BetaCitationContentBlockLocation:`
+
+        - `JsonValue type = "content_block_location"`
 
         - `String citedText`
 
@@ -13764,9 +13787,9 @@ public final class Main {
 
           minimum: 0
 
-        - `JsonValue type = "content_block_location"`
-
       - `class BetaCitationsWebSearchResultLocation:`
+
+        - `JsonValue type = "web_search_result_location"`
 
         - `String citedText`
 
@@ -13776,11 +13799,11 @@ public final class Main {
 
           maxLength: 512
 
-        - `JsonValue type = "web_search_result_location"`
-
         - `String url`
 
       - `class BetaCitationSearchResultLocation:`
+
+        - `JsonValue type = "search_result_location"`
 
         - `String citedText`
 
@@ -13812,15 +13835,13 @@ public final class Main {
 
         - `Optional<String> title`
 
-        - `JsonValue type = "search_result_location"`
-
     - `String text`
 
-      maxLength: 5000000, minLength: 0
-
-    - `JsonValue type = "text"`
+      minLength: 0
 
   - `class BetaThinkingBlock:`
+
+    - `JsonValue type = "thinking"`
 
     - `String signature`
 
@@ -13834,9 +13855,9 @@ public final class Main {
 
       The text of Claude's thinking process for this block.
 
-    - `JsonValue type = "thinking"`
-
   - `class BetaRedactedThinkingBlock:`
+
+    - `JsonValue type = "redacted_thinking"`
 
     - `String data`
 
@@ -13846,9 +13867,9 @@ public final class Main {
 
       See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking#redacted-thinking-blocks) for details.
 
-    - `JsonValue type = "redacted_thinking"`
-
   - `class BetaToolUseBlock:`
+
+    - `JsonValue type = "tool_use"`
 
     - `String id`
 
@@ -13859,8 +13880,6 @@ public final class Main {
     - `String name`
 
       minLength: 1
-
-    - `JsonValue type = "tool_use"`
 
     - `Optional<Caller> caller`
 
@@ -13876,19 +13895,19 @@ public final class Main {
 
         Tool invocation generated by a server-side tool.
 
+        - `JsonValue type = "code_execution_20250825"`
+
         - `String toolId`
 
           pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-        - `JsonValue type = "code_execution_20250825"`
 
       - `class BetaServerToolCaller20260120:`
 
+        - `JsonValue type = "code_execution_20260120"`
+
         - `String toolId`
 
           pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-        - `JsonValue type = "code_execution_20260120"`
 
     - `Optional<String> toolsetName`
 
@@ -13897,6 +13916,8 @@ public final class Main {
       maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
 
   - `class BetaServerToolUseBlock:`
+
+    - `JsonValue type = "server_tool_use"`
 
     - `String id`
 
@@ -13922,8 +13943,6 @@ public final class Main {
 
       - `TOOL_SEARCH_TOOL_BM25("tool_search_tool_bm25")`
 
-    - `JsonValue type = "server_tool_use"`
-
     - `Optional<Caller> caller`
 
       Tool invocation directly from the model.
@@ -13940,9 +13959,13 @@ public final class Main {
 
   - `class BetaWebSearchToolResultBlock:`
 
+    - `JsonValue type = "web_search_tool_result"`
+
     - `BetaWebSearchToolResultBlockContent content`
 
       - `class BetaWebSearchToolResultError:`
+
+        - `JsonValue type = "web_search_tool_result_error"`
 
         - `BetaWebSearchToolResultErrorCode errorCode`
 
@@ -13958,9 +13981,9 @@ public final class Main {
 
           - `REQUEST_TOO_LARGE("request_too_large")`
 
-        - `JsonValue type = "web_search_tool_result_error"`
-
       - `List<BetaWebSearchResultBlock>`
+
+        - `JsonValue type = "web_search_result"`
 
         - `String encryptedContent`
 
@@ -13968,15 +13991,11 @@ public final class Main {
 
         - `String title`
 
-        - `JsonValue type = "web_search_result"`
-
         - `String url`
 
     - `String toolUseId`
 
       pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-    - `JsonValue type = "web_search_tool_result"`
 
     - `Optional<Caller> caller`
 
@@ -13994,9 +14013,13 @@ public final class Main {
 
   - `class BetaWebFetchToolResultBlock:`
 
+    - `JsonValue type = "web_fetch_tool_result"`
+
     - `Content content`
 
       - `class BetaWebFetchToolResultErrorBlock:`
+
+        - `JsonValue type = "web_fetch_tool_result_error"`
 
         - `BetaWebFetchToolResultErrorCode errorCode`
 
@@ -14018,11 +14041,15 @@ public final class Main {
 
           - `UNAVAILABLE("unavailable")`
 
-        - `JsonValue type = "web_fetch_tool_result_error"`
+          - `CONTENT_TOO_LARGE("content_too_large")`
 
       - `class BetaWebFetchBlock:`
 
+        - `JsonValue type = "web_fetch_result"`
+
         - `BetaDocumentBlock content`
+
+          - `JsonValue type = "document"`
 
           - `Optional<BetaCitationConfig> citations`
 
@@ -14034,33 +14061,29 @@ public final class Main {
 
             - `class BetaBase64PdfSource:`
 
+              - `JsonValue type = "base64"`
+
               - `String data`
 
                 format: byte
 
               - `JsonValue mediaType = "application/pdf"`
 
-              - `JsonValue type = "base64"`
-
             - `class BetaPlainTextSource:`
+
+              - `JsonValue type = "text"`
 
               - `String data`
 
               - `JsonValue mediaType = "text/plain"`
 
-              - `JsonValue type = "text"`
-
           - `Optional<String> title`
 
             The title of the document
 
-          - `JsonValue type = "document"`
-
         - `Optional<String> retrievedAt`
 
           ISO 8601 timestamp when the content was retrieved
-
-        - `JsonValue type = "web_fetch_result"`
 
         - `String url`
 
@@ -14069,8 +14092,6 @@ public final class Main {
     - `String toolUseId`
 
       pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-    - `JsonValue type = "web_fetch_tool_result"`
 
     - `Optional<Caller> caller`
 
@@ -14088,9 +14109,13 @@ public final class Main {
 
   - `class BetaAdvisorToolResultBlock:`
 
+    - `JsonValue type = "advisor_tool_result"`
+
     - `Content content`
 
       - `class BetaAdvisorToolResultError:`
+
+        - `JsonValue type = "advisor_tool_result_error"`
 
         - `ErrorCode errorCode`
 
@@ -14108,9 +14133,9 @@ public final class Main {
 
           - `MODEL_NOT_FOUND("model_not_found")`
 
-        - `JsonValue type = "advisor_tool_result_error"`
-
       - `class BetaAdvisorResultBlock:`
+
+        - `JsonValue type = "advisor_result"`
 
         - `Optional<String> stopReason`
 
@@ -14118,9 +14143,9 @@ public final class Main {
 
         - `String text`
 
-        - `JsonValue type = "advisor_result"`
-
       - `class BetaAdvisorRedactedResultBlock:`
+
+        - `JsonValue type = "advisor_redacted_result"`
 
         - `String encryptedContent`
 
@@ -14130,21 +14155,21 @@ public final class Main {
 
           The advisor sub-inference's stop reason (same values as the top-level message `stop_reason`).
 
-        - `JsonValue type = "advisor_redacted_result"`
-
     - `String toolUseId`
 
       pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-    - `JsonValue type = "advisor_tool_result"`
-
   - `class BetaCodeExecutionToolResultBlock:`
+
+    - `JsonValue type = "code_execution_tool_result"`
 
     - `BetaCodeExecutionToolResultBlockContent content`
 
       Code execution result with encrypted stdout for PFC + web_search results.
 
       - `class BetaCodeExecutionToolResultError:`
+
+        - `JsonValue type = "code_execution_tool_result_error"`
 
         - `BetaCodeExecutionToolResultErrorCode errorCode`
 
@@ -14156,15 +14181,15 @@ public final class Main {
 
           - `EXECUTION_TIME_EXCEEDED("execution_time_exceeded")`
 
-        - `JsonValue type = "code_execution_tool_result_error"`
-
       - `class BetaCodeExecutionResultBlock:`
+
+        - `JsonValue type = "code_execution_result"`
 
         - `List<BetaCodeExecutionOutputBlock> content`
 
-          - `String fileId`
-
           - `JsonValue type = "code_execution_output"`
+
+          - `String fileId`
 
         - `long returnCode`
 
@@ -14172,17 +14197,17 @@ public final class Main {
 
         - `String stdout`
 
-        - `JsonValue type = "code_execution_result"`
-
       - `class BetaEncryptedCodeExecutionResultBlock:`
 
         Code execution result with encrypted stdout for PFC + web_search results.
 
+        - `JsonValue type = "encrypted_code_execution_result"`
+
         - `List<BetaCodeExecutionOutputBlock> content`
 
-          - `String fileId`
-
           - `JsonValue type = "code_execution_output"`
+
+          - `String fileId`
 
         - `String encryptedStdout`
 
@@ -14190,19 +14215,19 @@ public final class Main {
 
         - `String stderr`
 
-        - `JsonValue type = "encrypted_code_execution_result"`
-
     - `String toolUseId`
 
       pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-    - `JsonValue type = "code_execution_tool_result"`
-
   - `class BetaBashCodeExecutionToolResultBlock:`
+
+    - `JsonValue type = "bash_code_execution_tool_result"`
 
     - `Content content`
 
       - `class BetaBashCodeExecutionToolResultError:`
+
+        - `JsonValue type = "bash_code_execution_tool_result_error"`
 
         - `ErrorCode errorCode`
 
@@ -14216,15 +14241,15 @@ public final class Main {
 
           - `OUTPUT_FILE_TOO_LARGE("output_file_too_large")`
 
-        - `JsonValue type = "bash_code_execution_tool_result_error"`
-
       - `class BetaBashCodeExecutionResultBlock:`
+
+        - `JsonValue type = "bash_code_execution_result"`
 
         - `List<BetaBashCodeExecutionOutputBlock> content`
 
-          - `String fileId`
-
           - `JsonValue type = "bash_code_execution_output"`
+
+          - `String fileId`
 
         - `long returnCode`
 
@@ -14232,19 +14257,19 @@ public final class Main {
 
         - `String stdout`
 
-        - `JsonValue type = "bash_code_execution_result"`
-
     - `String toolUseId`
 
       pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-    - `JsonValue type = "bash_code_execution_tool_result"`
-
   - `class BetaTextEditorCodeExecutionToolResultBlock:`
+
+    - `JsonValue type = "text_editor_code_execution_tool_result"`
 
     - `Content content`
 
       - `class BetaTextEditorCodeExecutionToolResultError:`
+
+        - `JsonValue type = "text_editor_code_execution_tool_result_error"`
 
         - `ErrorCode errorCode`
 
@@ -14260,9 +14285,9 @@ public final class Main {
 
         - `Optional<String> errorMessage`
 
-        - `JsonValue type = "text_editor_code_execution_tool_result_error"`
-
       - `class BetaTextEditorCodeExecutionViewResultBlock:`
+
+        - `JsonValue type = "text_editor_code_execution_view_result"`
 
         - `String content`
 
@@ -14280,15 +14305,15 @@ public final class Main {
 
         - `Optional<Long> totalLines`
 
-        - `JsonValue type = "text_editor_code_execution_view_result"`
-
       - `class BetaTextEditorCodeExecutionCreateResultBlock:`
-
-        - `boolean isFileUpdate`
 
         - `JsonValue type = "text_editor_code_execution_create_result"`
 
+        - `boolean isFileUpdate`
+
       - `class BetaTextEditorCodeExecutionStrReplaceResultBlock:`
+
+        - `JsonValue type = "text_editor_code_execution_str_replace_result"`
 
         - `Optional<List<String>> lines`
 
@@ -14300,19 +14325,19 @@ public final class Main {
 
         - `Optional<Long> oldStart`
 
-        - `JsonValue type = "text_editor_code_execution_str_replace_result"`
-
     - `String toolUseId`
 
       pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-    - `JsonValue type = "text_editor_code_execution_tool_result"`
-
   - `class BetaToolSearchToolResultBlock:`
+
+    - `JsonValue type = "tool_search_tool_result"`
 
     - `Content content`
 
       - `class BetaToolSearchToolResultError:`
+
+        - `JsonValue type = "tool_search_tool_result_error"`
 
         - `ErrorCode errorCode`
 
@@ -14326,27 +14351,25 @@ public final class Main {
 
         - `Optional<String> errorMessage`
 
-        - `JsonValue type = "tool_search_tool_result_error"`
-
       - `class BetaToolSearchToolSearchResultBlock:`
 
+        - `JsonValue type = "tool_search_tool_search_result"`
+
         - `List<BetaToolReferenceBlock> toolReferences`
+
+          - `JsonValue type = "tool_reference"`
 
           - `String toolName`
 
             maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
-          - `JsonValue type = "tool_reference"`
-
-        - `JsonValue type = "tool_search_tool_search_result"`
-
     - `String toolUseId`
 
       pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-    - `JsonValue type = "tool_search_tool_result"`
-
   - `class BetaMcpToolUseBlock:`
+
+    - `JsonValue type = "mcp_tool_use"`
 
     - `String id`
 
@@ -14362,15 +14385,17 @@ public final class Main {
 
       The name of the MCP server
 
-    - `JsonValue type = "mcp_tool_use"`
-
   - `class BetaMcpToolResultBlock:`
+
+    - `JsonValue type = "mcp_tool_result"`
 
     - `Content content`
 
       - `String`
 
       - `List<BetaTextBlock>`
+
+        - `JsonValue type = "text"`
 
         - `Optional<List<BetaTextCitation>> citations`
 
@@ -14380,9 +14405,7 @@ public final class Main {
 
         - `String text`
 
-          maxLength: 5000000, minLength: 0
-
-        - `JsonValue type = "text"`
+          minLength: 0
 
     - `boolean isError`
 
@@ -14390,15 +14413,13 @@ public final class Main {
 
       pattern: ^[a-zA-Z0-9_-]+$
 
-    - `JsonValue type = "mcp_tool_result"`
-
   - `class BetaContainerUploadBlock:`
 
     Response model for a file uploaded to the container.
 
-    - `String fileId`
-
     - `JsonValue type = "container_upload"`
+
+    - `String fileId`
 
   - `class BetaCompactionBlock:`
 
@@ -14408,6 +14429,8 @@ public final class Main {
     summary (e.g., malformed output from the model). Clients may round-trip
     compaction blocks with null content; the server treats them as no-ops.
 
+    - `JsonValue type = "compaction"`
+
     - `Optional<String> content`
 
       Summary of compacted content, or null if compaction failed
@@ -14415,8 +14438,6 @@ public final class Main {
     - `Optional<String> encryptedContent`
 
       Opaque metadata from prior compaction, to be round-tripped verbatim
-
-    - `JsonValue type = "compaction"`
 
   - `class BetaFallbackBlock:`
 
@@ -14431,6 +14452,8 @@ public final class Main {
     The block is treated like a server-tool content block for streaming: it
     arrives via the standard `content_block_start` / `content_block_stop`
     pair and carries no deltas.
+
+    - `JsonValue type = "fallback"`
 
     - `BetaFallbackInfo from`
 
@@ -14518,6 +14541,8 @@ public final class Main {
 
       What caused the `from` model to hand over at this hop.
 
+      - `JsonValue type = "refusal"`
+
       - `Optional<Category> category`
 
         The policy category that triggered a refusal.
@@ -14542,10 +14567,6 @@ public final class Main {
 
           The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
 
-      - `JsonValue type = "refusal"`
-
-    - `JsonValue type = "fallback"`
-
 ### Beta Content Block Param
 
 - `class BetaContentBlockParam: union`
@@ -14554,11 +14575,11 @@ public final class Main {
 
   - `class BetaTextBlockParam:`
 
+    - `JsonValue type = "text"`
+
     - `String text`
 
       minLength: 1
-
-    - `JsonValue type = "text"`
 
     - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -14585,6 +14606,8 @@ public final class Main {
 
       - `class BetaCitationCharLocationParam:`
 
+        - `JsonValue type = "char_location"`
+
         - `String citedText`
 
         - `long documentIndex`
@@ -14601,9 +14624,9 @@ public final class Main {
 
           minimum: 0
 
-        - `JsonValue type = "char_location"`
-
       - `class BetaCitationPageLocationParam:`
+
+        - `JsonValue type = "page_location"`
 
         - `String citedText`
 
@@ -14621,9 +14644,9 @@ public final class Main {
 
           minimum: 1
 
-        - `JsonValue type = "page_location"`
-
       - `class BetaCitationContentBlockLocationParam:`
+
+        - `JsonValue type = "content_block_location"`
 
         - `String citedText`
 
@@ -14651,9 +14674,9 @@ public final class Main {
 
           minimum: 0
 
-        - `JsonValue type = "content_block_location"`
-
       - `class BetaCitationWebSearchResultLocationParam:`
+
+        - `JsonValue type = "web_search_result_location"`
 
         - `String citedText`
 
@@ -14663,13 +14686,13 @@ public final class Main {
 
           maxLength: 512, minLength: 1
 
-        - `JsonValue type = "web_search_result_location"`
-
         - `String url`
 
           minLength: 1
 
       - `class BetaCitationSearchResultLocationParam:`
+
+        - `JsonValue type = "search_result_location"`
 
         - `String citedText`
 
@@ -14701,13 +14724,15 @@ public final class Main {
 
         - `Optional<String> title`
 
-        - `JsonValue type = "search_result_location"`
-
   - `class BetaImageBlockParam:`
+
+    - `JsonValue type = "image"`
 
     - `Source source`
 
       - `class BetaBase64ImageSource:`
+
+        - `JsonValue type = "base64"`
 
         - `String data`
 
@@ -14723,8 +14748,6 @@ public final class Main {
 
           - `IMAGE_WEBP("image/webp")`
 
-        - `JsonValue type = "base64"`
-
       - `class BetaUrlImageSource:`
 
         - `JsonValue type = "url"`
@@ -14733,11 +14756,9 @@ public final class Main {
 
       - `class BetaFileImageSource:`
 
-        - `String fileId`
-
         - `JsonValue type = "file"`
 
-    - `JsonValue type = "image"`
+        - `String fileId`
 
     - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -14757,9 +14778,13 @@ public final class Main {
 
   - `class BetaRequestDocumentBlock:`
 
+    - `JsonValue type = "document"`
+
     - `Source source`
 
       - `class BetaBase64PdfSource:`
+
+        - `JsonValue type = "base64"`
 
         - `String data`
 
@@ -14767,17 +14792,17 @@ public final class Main {
 
         - `JsonValue mediaType = "application/pdf"`
 
-        - `JsonValue type = "base64"`
-
       - `class BetaPlainTextSource:`
+
+        - `JsonValue type = "text"`
 
         - `String data`
 
         - `JsonValue mediaType = "text/plain"`
 
-        - `JsonValue type = "text"`
-
       - `class BetaContentBlockSource:`
+
+        - `JsonValue type = "content"`
 
         - `Content content`
 
@@ -14789,8 +14814,6 @@ public final class Main {
 
             - `class BetaImageBlockParam:`
 
-        - `JsonValue type = "content"`
-
       - `class BetaUrlPdfSource:`
 
         - `JsonValue type = "url"`
@@ -14799,11 +14822,9 @@ public final class Main {
 
       - `class BetaFileDocumentSource:`
 
-        - `String fileId`
-
         - `JsonValue type = "file"`
 
-    - `JsonValue type = "document"`
+        - `String fileId`
 
     - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -14823,13 +14844,15 @@ public final class Main {
 
   - `class BetaSearchResultBlockParam:`
 
+    - `JsonValue type = "search_result"`
+
     - `List<BetaTextBlockParam> content`
+
+      - `JsonValue type = "text"`
 
       - `String text`
 
         minLength: 1
-
-      - `JsonValue type = "text"`
 
       - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -14841,8 +14864,6 @@ public final class Main {
 
     - `String title`
 
-    - `JsonValue type = "search_result"`
-
     - `Optional<BetaCacheControlEphemeral> cacheControl`
 
       Create a cache control breakpoint at this content block.
@@ -14850,6 +14871,8 @@ public final class Main {
     - `Optional<BetaCitationsConfigParam> citations`
 
   - `class BetaThinkingBlockParam:`
+
+    - `JsonValue type = "thinking"`
 
     - `String signature`
 
@@ -14861,17 +14884,17 @@ public final class Main {
 
       The `thinking` text of this block as returned by the API.
 
-    - `JsonValue type = "thinking"`
-
   - `class BetaRedactedThinkingBlockParam:`
+
+    - `JsonValue type = "redacted_thinking"`
 
     - `String data`
 
       The `data` value of this redacted thinking block, exactly as returned by the API in a previous response. Opaque and encrypted; pass it back unchanged.
 
-    - `JsonValue type = "redacted_thinking"`
-
   - `class BetaToolUseBlockParam:`
+
+    - `JsonValue type = "tool_use"`
 
     - `String id`
 
@@ -14882,8 +14905,6 @@ public final class Main {
     - `String name`
 
       maxLength: 200, minLength: 1
-
-    - `JsonValue type = "tool_use"`
 
     - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -14903,19 +14924,19 @@ public final class Main {
 
         Tool invocation generated by a server-side tool.
 
+        - `JsonValue type = "code_execution_20250825"`
+
         - `String toolId`
 
           pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-        - `JsonValue type = "code_execution_20250825"`
 
       - `class BetaServerToolCaller20260120:`
 
+        - `JsonValue type = "code_execution_20260120"`
+
         - `String toolId`
 
           pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-        - `JsonValue type = "code_execution_20260120"`
 
     - `Optional<String> toolsetName`
 
@@ -14925,11 +14946,11 @@ public final class Main {
 
   - `class BetaToolResultBlockParam:`
 
+    - `JsonValue type = "tool_result"`
+
     - `String toolUseId`
 
       pattern: ^[a-zA-Z0-9_-]+$
-
-    - `JsonValue type = "tool_result"`
 
     - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -14953,11 +14974,11 @@ public final class Main {
 
           Tool reference block that can be included in tool_result content.
 
+          - `JsonValue type = "tool_reference"`
+
           - `String toolName`
 
             maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
-
-          - `JsonValue type = "tool_reference"`
 
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -14972,6 +14993,8 @@ public final class Main {
           At most one per `tool_result`, only on a non-error result answering a
           browser toolset member `tool_use`. The server renders the
           model-visible text from it; the model never sees the raw fields.
+
+          - `JsonValue type = "browser_state"`
 
           - `List<BetaBrowserStateTabEntry> tabs`
 
@@ -15001,8 +15024,6 @@ public final class Main {
 
               Whether this tab is the active tab after this call. Whenever `tabs` is non-empty, exactly one entry is marked `active: true`.
 
-          - `JsonValue type = "browser_state"`
-
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
             Create a cache control breakpoint at this content block.
@@ -15023,25 +15044,25 @@ public final class Main {
               during a failed call gets no deferred `tab_opened`; it simply appears
               in the next result's `tabs` inventory.
 
+              - `JsonValue type = "tab_opened"`
+
               - `String tabId`
 
                 The `tab_id` of the opened tab, present in `tabs`.
 
                 maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-              - `JsonValue type = "tab_opened"`
-
             - `class BetaBrowserStateChangeDownloadStarted:`
 
               A file download that started during this call.
+
+              - `JsonValue type = "download_started"`
 
               - `String downloadId`
 
                 The caller-assigned identifier for this download, stable across the state changes reporting it.
 
                 maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
-
-              - `JsonValue type = "download_started"`
 
               - `String url`
 
@@ -15056,13 +15077,13 @@ public final class Main {
               `download_started`, when the download finished during the call that
               started it (at most one state change per `download_id` per result).
 
+              - `JsonValue type = "download_completed"`
+
               - `String downloadId`
 
                 The caller-assigned identifier for this download, stable across the state changes reporting it.
 
                 maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
-
-              - `JsonValue type = "download_completed"`
 
               - `String url`
 
@@ -15086,13 +15107,13 @@ public final class Main {
 
               A file download that failed — or was cancelled — during this call.
 
+              - `JsonValue type = "download_failed"`
+
               - `String downloadId`
 
                 The caller-assigned identifier for this download, stable across the state changes reporting it.
 
                 maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
-
-              - `JsonValue type = "download_failed"`
 
               - `String url`
 
@@ -15115,6 +15136,8 @@ public final class Main {
       maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
 
   - `class BetaServerToolUseBlockParam:`
+
+    - `JsonValue type = "server_tool_use"`
 
     - `String id`
 
@@ -15140,8 +15163,6 @@ public final class Main {
 
       - `TOOL_SEARCH_TOOL_BM25("tool_search_tool_bm25")`
 
-    - `JsonValue type = "server_tool_use"`
-
     - `Optional<BetaCacheControlEphemeral> cacheControl`
 
       Create a cache control breakpoint at this content block.
@@ -15162,21 +15183,25 @@ public final class Main {
 
   - `class BetaWebSearchToolResultBlockParam:`
 
+    - `JsonValue type = "web_search_tool_result"`
+
     - `BetaWebSearchToolResultBlockParamContent content`
 
       - `List<BetaWebSearchResultBlockParam>`
 
+        - `JsonValue type = "web_search_result"`
+
         - `String encryptedContent`
 
         - `String title`
-
-        - `JsonValue type = "web_search_result"`
 
         - `String url`
 
         - `Optional<String> pageAge`
 
       - `class BetaWebSearchToolRequestError:`
+
+        - `JsonValue type = "web_search_tool_result_error"`
 
         - `BetaWebSearchToolResultErrorCode errorCode`
 
@@ -15192,13 +15217,9 @@ public final class Main {
 
           - `REQUEST_TOO_LARGE("request_too_large")`
 
-        - `JsonValue type = "web_search_tool_result_error"`
-
     - `String toolUseId`
 
       pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-    - `JsonValue type = "web_search_tool_result"`
 
     - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -15220,9 +15241,13 @@ public final class Main {
 
   - `class BetaWebFetchToolResultBlockParam:`
 
+    - `JsonValue type = "web_fetch_tool_result"`
+
     - `Content content`
 
       - `class BetaWebFetchToolResultErrorBlockParam:`
+
+        - `JsonValue type = "web_fetch_tool_result_error"`
 
         - `BetaWebFetchToolResultErrorCode errorCode`
 
@@ -15244,13 +15269,13 @@ public final class Main {
 
           - `UNAVAILABLE("unavailable")`
 
-        - `JsonValue type = "web_fetch_tool_result_error"`
+          - `CONTENT_TOO_LARGE("content_too_large")`
 
       - `class BetaWebFetchBlockParam:`
 
-        - `BetaRequestDocumentBlock content`
-
         - `JsonValue type = "web_fetch_result"`
+
+        - `BetaRequestDocumentBlock content`
 
         - `String url`
 
@@ -15263,8 +15288,6 @@ public final class Main {
     - `String toolUseId`
 
       pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-    - `JsonValue type = "web_fetch_tool_result"`
 
     - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -15286,9 +15309,13 @@ public final class Main {
 
   - `class BetaAdvisorToolResultBlockParam:`
 
+    - `JsonValue type = "advisor_tool_result"`
+
     - `Content content`
 
       - `class BetaAdvisorToolResultErrorParam:`
+
+        - `JsonValue type = "advisor_tool_result_error"`
 
         - `ErrorCode errorCode`
 
@@ -15306,23 +15333,21 @@ public final class Main {
 
           - `MODEL_NOT_FOUND("model_not_found")`
 
-        - `JsonValue type = "advisor_tool_result_error"`
-
       - `class BetaAdvisorResultBlockParam:`
 
-        - `String text`
-
         - `JsonValue type = "advisor_result"`
+
+        - `String text`
 
         - `Optional<String> stopReason`
 
       - `class BetaAdvisorRedactedResultBlockParam:`
 
+        - `JsonValue type = "advisor_redacted_result"`
+
         - `String encryptedContent`
 
           Opaque blob produced by a prior response; must be round-tripped verbatim.
-
-        - `JsonValue type = "advisor_redacted_result"`
 
         - `Optional<String> stopReason`
 
@@ -15330,19 +15355,21 @@ public final class Main {
 
       pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-    - `JsonValue type = "advisor_tool_result"`
-
     - `Optional<BetaCacheControlEphemeral> cacheControl`
 
       Create a cache control breakpoint at this content block.
 
   - `class BetaCodeExecutionToolResultBlockParam:`
 
+    - `JsonValue type = "code_execution_tool_result"`
+
     - `BetaCodeExecutionToolResultBlockParamContent content`
 
       Code execution result with encrypted stdout for PFC + web_search results.
 
       - `class BetaCodeExecutionToolResultErrorParam:`
+
+        - `JsonValue type = "code_execution_tool_result_error"`
 
         - `BetaCodeExecutionToolResultErrorCode errorCode`
 
@@ -15354,15 +15381,15 @@ public final class Main {
 
           - `EXECUTION_TIME_EXCEEDED("execution_time_exceeded")`
 
-        - `JsonValue type = "code_execution_tool_result_error"`
-
       - `class BetaCodeExecutionResultBlockParam:`
+
+        - `JsonValue type = "code_execution_result"`
 
         - `List<BetaCodeExecutionOutputBlockParam> content`
 
-          - `String fileId`
-
           - `JsonValue type = "code_execution_output"`
+
+          - `String fileId`
 
         - `long returnCode`
 
@@ -15370,17 +15397,17 @@ public final class Main {
 
         - `String stdout`
 
-        - `JsonValue type = "code_execution_result"`
-
       - `class BetaEncryptedCodeExecutionResultBlockParam:`
 
         Code execution result with encrypted stdout for PFC + web_search results.
 
+        - `JsonValue type = "encrypted_code_execution_result"`
+
         - `List<BetaCodeExecutionOutputBlockParam> content`
 
-          - `String fileId`
-
           - `JsonValue type = "code_execution_output"`
+
+          - `String fileId`
 
         - `String encryptedStdout`
 
@@ -15388,13 +15415,9 @@ public final class Main {
 
         - `String stderr`
 
-        - `JsonValue type = "encrypted_code_execution_result"`
-
     - `String toolUseId`
 
       pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-    - `JsonValue type = "code_execution_tool_result"`
 
     - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -15402,9 +15425,13 @@ public final class Main {
 
   - `class BetaBashCodeExecutionToolResultBlockParam:`
 
+    - `JsonValue type = "bash_code_execution_tool_result"`
+
     - `Content content`
 
       - `class BetaBashCodeExecutionToolResultErrorParam:`
+
+        - `JsonValue type = "bash_code_execution_tool_result_error"`
 
         - `ErrorCode errorCode`
 
@@ -15418,15 +15445,15 @@ public final class Main {
 
           - `OUTPUT_FILE_TOO_LARGE("output_file_too_large")`
 
-        - `JsonValue type = "bash_code_execution_tool_result_error"`
-
       - `class BetaBashCodeExecutionResultBlockParam:`
+
+        - `JsonValue type = "bash_code_execution_result"`
 
         - `List<BetaBashCodeExecutionOutputBlockParam> content`
 
-          - `String fileId`
-
           - `JsonValue type = "bash_code_execution_output"`
+
+          - `String fileId`
 
         - `long returnCode`
 
@@ -15434,13 +15461,9 @@ public final class Main {
 
         - `String stdout`
 
-        - `JsonValue type = "bash_code_execution_result"`
-
     - `String toolUseId`
 
       pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-    - `JsonValue type = "bash_code_execution_tool_result"`
 
     - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -15448,9 +15471,13 @@ public final class Main {
 
   - `class BetaTextEditorCodeExecutionToolResultBlockParam:`
 
+    - `JsonValue type = "text_editor_code_execution_tool_result"`
+
     - `Content content`
 
       - `class BetaTextEditorCodeExecutionToolResultErrorParam:`
+
+        - `JsonValue type = "text_editor_code_execution_tool_result_error"`
 
         - `ErrorCode errorCode`
 
@@ -15464,11 +15491,11 @@ public final class Main {
 
           - `FILE_NOT_FOUND("file_not_found")`
 
-        - `JsonValue type = "text_editor_code_execution_tool_result_error"`
-
         - `Optional<String> errorMessage`
 
       - `class BetaTextEditorCodeExecutionViewResultBlockParam:`
+
+        - `JsonValue type = "text_editor_code_execution_view_result"`
 
         - `String content`
 
@@ -15480,8 +15507,6 @@ public final class Main {
 
           - `PDF("pdf")`
 
-        - `JsonValue type = "text_editor_code_execution_view_result"`
-
         - `Optional<Long> numLines`
 
         - `Optional<Long> startLine`
@@ -15490,9 +15515,9 @@ public final class Main {
 
       - `class BetaTextEditorCodeExecutionCreateResultBlockParam:`
 
-        - `boolean isFileUpdate`
-
         - `JsonValue type = "text_editor_code_execution_create_result"`
+
+        - `boolean isFileUpdate`
 
       - `class BetaTextEditorCodeExecutionStrReplaceResultBlockParam:`
 
@@ -15512,17 +15537,19 @@ public final class Main {
 
       pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-    - `JsonValue type = "text_editor_code_execution_tool_result"`
-
     - `Optional<BetaCacheControlEphemeral> cacheControl`
 
       Create a cache control breakpoint at this content block.
 
   - `class BetaToolSearchToolResultBlockParam:`
 
+    - `JsonValue type = "tool_search_tool_result"`
+
     - `Content content`
 
       - `class BetaToolSearchToolResultErrorParam:`
+
+        - `JsonValue type = "tool_search_tool_result_error"`
 
         - `ErrorCode errorCode`
 
@@ -15534,37 +15561,35 @@ public final class Main {
 
           - `EXECUTION_TIME_EXCEEDED("execution_time_exceeded")`
 
-        - `JsonValue type = "tool_search_tool_result_error"`
-
         - `Optional<String> errorMessage`
 
       - `class BetaToolSearchToolSearchResultBlockParam:`
 
+        - `JsonValue type = "tool_search_tool_search_result"`
+
         - `List<BetaToolReferenceBlockParam> toolReferences`
+
+          - `JsonValue type = "tool_reference"`
 
           - `String toolName`
 
             maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
-          - `JsonValue type = "tool_reference"`
-
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
             Create a cache control breakpoint at this content block.
 
-        - `JsonValue type = "tool_search_tool_search_result"`
-
     - `String toolUseId`
 
       pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-    - `JsonValue type = "tool_search_tool_result"`
 
     - `Optional<BetaCacheControlEphemeral> cacheControl`
 
       Create a cache control breakpoint at this content block.
 
   - `class BetaMcpToolUseBlockParam:`
+
+    - `JsonValue type = "mcp_tool_use"`
 
     - `String id`
 
@@ -15578,19 +15603,17 @@ public final class Main {
 
       The name of the MCP server
 
-    - `JsonValue type = "mcp_tool_use"`
-
     - `Optional<BetaCacheControlEphemeral> cacheControl`
 
       Create a cache control breakpoint at this content block.
 
   - `class BetaRequestMcpToolResultBlockParam:`
 
+    - `JsonValue type = "mcp_tool_result"`
+
     - `String toolUseId`
 
       pattern: ^[a-zA-Z0-9_-]+$
-
-    - `JsonValue type = "mcp_tool_result"`
 
     - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -15602,11 +15625,11 @@ public final class Main {
 
       - `List<BetaTextBlockParam>`
 
+        - `JsonValue type = "text"`
+
         - `String text`
 
           minLength: 1
-
-        - `JsonValue type = "text"`
 
         - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -15621,9 +15644,9 @@ public final class Main {
     A content block that represents a file to be uploaded to the container
     Files uploaded via this block will be available in the container's input directory.
 
-    - `String fileId`
-
     - `JsonValue type = "container_upload"`
+
+    - `String fileId`
 
     - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -15661,6 +15684,8 @@ public final class Main {
     `tools`; it is offered to the model from this point in the
     conversation onward.
 
+    - `JsonValue type = "tool_addition"`
+
     - `Tool tool`
 
       Reference to a single tool the caller declared directly in
@@ -15675,32 +15700,30 @@ public final class Main {
         server assigns to MCP-resolved tools — use `mcp_tool_reference` or
         `mcp_toolset_reference` for those.
 
+        - `JsonValue type = "tool_reference"`
+
         - `String name`
 
           pattern: ^[a-zA-Z0-9_-]{1,128}$
-
-        - `JsonValue type = "tool_reference"`
 
       - `class BetaToolChangeMcpToolReference:`
 
         Reference to a single MCP tool by its server and remote name — the
         same `server_name`/`name` pair `mcp_tool_use` carries.
 
+        - `JsonValue type = "mcp_tool_reference"`
+
         - `String name`
 
         - `String serverName`
-
-        - `JsonValue type = "mcp_tool_reference"`
 
       - `class BetaToolChangeMcpToolsetReference:`
 
         Reference to every tool in the named MCP server's toolset.
 
-        - `String serverName`
-
         - `JsonValue type = "mcp_toolset_reference"`
 
-    - `JsonValue type = "tool_addition"`
+        - `String serverName`
 
     - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -15714,6 +15737,8 @@ public final class Main {
     `tools`; it is no longer offered to the model from this point in the
     conversation onward.
 
+    - `JsonValue type = "tool_removal"`
+
     - `Tool tool`
 
       Reference to a single tool the caller declared directly in
@@ -15736,8 +15761,6 @@ public final class Main {
       - `class BetaToolChangeMcpToolsetReference:`
 
         Reference to every tool in the named MCP server's toolset.
-
-    - `JsonValue type = "tool_removal"`
 
     - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -15758,6 +15781,8 @@ public final class Main {
     request is rejected), and moving it into the middle of a single run is
     likewise rejected; between non-thinking blocks the block's placement has
     no validation effect.
+
+    - `JsonValue type = "fallback"`
 
     - `BetaFallbackInfoParam from`
 
@@ -15841,8 +15866,6 @@ public final class Main {
 
       Identifies one hop of a fallback transition.
 
-    - `JsonValue type = "fallback"`
-
     - `Optional<JsonValue> trigger`
 
       The response block's `trigger`, echoed verbatim. Accepted and ignored by the server; any object or `null` is allowed.
@@ -15850,6 +15873,8 @@ public final class Main {
 ### Beta Content Block Source
 
 - `class BetaContentBlockSource:`
+
+  - `JsonValue type = "content"`
 
   - `Content content`
 
@@ -15859,11 +15884,11 @@ public final class Main {
 
       - `class BetaTextBlockParam:`
 
+        - `JsonValue type = "text"`
+
         - `String text`
 
           minLength: 1
-
-        - `JsonValue type = "text"`
 
         - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -15890,6 +15915,8 @@ public final class Main {
 
           - `class BetaCitationCharLocationParam:`
 
+            - `JsonValue type = "char_location"`
+
             - `String citedText`
 
             - `long documentIndex`
@@ -15906,9 +15933,9 @@ public final class Main {
 
               minimum: 0
 
-            - `JsonValue type = "char_location"`
-
           - `class BetaCitationPageLocationParam:`
+
+            - `JsonValue type = "page_location"`
 
             - `String citedText`
 
@@ -15926,9 +15953,9 @@ public final class Main {
 
               minimum: 1
 
-            - `JsonValue type = "page_location"`
-
           - `class BetaCitationContentBlockLocationParam:`
+
+            - `JsonValue type = "content_block_location"`
 
             - `String citedText`
 
@@ -15956,9 +15983,9 @@ public final class Main {
 
               minimum: 0
 
-            - `JsonValue type = "content_block_location"`
-
           - `class BetaCitationWebSearchResultLocationParam:`
+
+            - `JsonValue type = "web_search_result_location"`
 
             - `String citedText`
 
@@ -15968,13 +15995,13 @@ public final class Main {
 
               maxLength: 512, minLength: 1
 
-            - `JsonValue type = "web_search_result_location"`
-
             - `String url`
 
               minLength: 1
 
           - `class BetaCitationSearchResultLocationParam:`
+
+            - `JsonValue type = "search_result_location"`
 
             - `String citedText`
 
@@ -16006,13 +16033,15 @@ public final class Main {
 
             - `Optional<String> title`
 
-            - `JsonValue type = "search_result_location"`
-
       - `class BetaImageBlockParam:`
+
+        - `JsonValue type = "image"`
 
         - `Source source`
 
           - `class BetaBase64ImageSource:`
+
+            - `JsonValue type = "base64"`
 
             - `String data`
 
@@ -16028,8 +16057,6 @@ public final class Main {
 
               - `IMAGE_WEBP("image/webp")`
 
-            - `JsonValue type = "base64"`
-
           - `class BetaUrlImageSource:`
 
             - `JsonValue type = "url"`
@@ -16038,11 +16065,9 @@ public final class Main {
 
           - `class BetaFileImageSource:`
 
-            - `String fileId`
-
             - `JsonValue type = "file"`
 
-        - `JsonValue type = "image"`
+            - `String fileId`
 
         - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -16060,19 +16085,17 @@ public final class Main {
 
             - `ERROR("error")`
 
-  - `JsonValue type = "content"`
-
 ### Beta Content Block Source Content
 
 - `class BetaContentBlockSourceContent: union`
 
   - `class BetaTextBlockParam:`
 
+    - `JsonValue type = "text"`
+
     - `String text`
 
       minLength: 1
-
-    - `JsonValue type = "text"`
 
     - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -16099,6 +16122,8 @@ public final class Main {
 
       - `class BetaCitationCharLocationParam:`
 
+        - `JsonValue type = "char_location"`
+
         - `String citedText`
 
         - `long documentIndex`
@@ -16115,9 +16140,9 @@ public final class Main {
 
           minimum: 0
 
-        - `JsonValue type = "char_location"`
-
       - `class BetaCitationPageLocationParam:`
+
+        - `JsonValue type = "page_location"`
 
         - `String citedText`
 
@@ -16135,9 +16160,9 @@ public final class Main {
 
           minimum: 1
 
-        - `JsonValue type = "page_location"`
-
       - `class BetaCitationContentBlockLocationParam:`
+
+        - `JsonValue type = "content_block_location"`
 
         - `String citedText`
 
@@ -16165,9 +16190,9 @@ public final class Main {
 
           minimum: 0
 
-        - `JsonValue type = "content_block_location"`
-
       - `class BetaCitationWebSearchResultLocationParam:`
+
+        - `JsonValue type = "web_search_result_location"`
 
         - `String citedText`
 
@@ -16177,13 +16202,13 @@ public final class Main {
 
           maxLength: 512, minLength: 1
 
-        - `JsonValue type = "web_search_result_location"`
-
         - `String url`
 
           minLength: 1
 
       - `class BetaCitationSearchResultLocationParam:`
+
+        - `JsonValue type = "search_result_location"`
 
         - `String citedText`
 
@@ -16215,13 +16240,15 @@ public final class Main {
 
         - `Optional<String> title`
 
-        - `JsonValue type = "search_result_location"`
-
   - `class BetaImageBlockParam:`
+
+    - `JsonValue type = "image"`
 
     - `Source source`
 
       - `class BetaBase64ImageSource:`
+
+        - `JsonValue type = "base64"`
 
         - `String data`
 
@@ -16237,8 +16264,6 @@ public final class Main {
 
           - `IMAGE_WEBP("image/webp")`
 
-        - `JsonValue type = "base64"`
-
       - `class BetaUrlImageSource:`
 
         - `JsonValue type = "url"`
@@ -16247,11 +16272,9 @@ public final class Main {
 
       - `class BetaFileImageSource:`
 
-        - `String fileId`
-
         - `JsonValue type = "file"`
 
-    - `JsonValue type = "image"`
+        - `String fileId`
 
     - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -16385,6 +16408,10 @@ public final class Main {
 
     - `class BetaClearToolUses20250919EditResponse:`
 
+      - `JsonValue type = "clear_tool_uses_20250919"`
+
+        The type of context management edit applied.
+
       - `long clearedInputTokens`
 
         Number of input tokens cleared by this edit.
@@ -16397,11 +16424,11 @@ public final class Main {
 
         minimum: 0
 
-      - `JsonValue type = "clear_tool_uses_20250919"`
+    - `class BetaClearThinking20251015EditResponse:`
+
+      - `JsonValue type = "clear_thinking_20251015"`
 
         The type of context management edit applied.
-
-    - `class BetaClearThinking20251015EditResponse:`
 
       - `long clearedInputTokens`
 
@@ -16414,10 +16441,6 @@ public final class Main {
         Number of thinking turns that were cleared.
 
         minimum: 0
-
-      - `JsonValue type = "clear_thinking_20251015"`
-
-        The type of context management edit applied.
 
 ### Beta Count Tokens Context Management Response
 
@@ -16440,35 +16463,35 @@ public final class Main {
 
     - `class BetaCacheMissModelChanged:`
 
+      - `JsonValue type = "model_changed"`
+
       - `long cacheMissedInputTokens`
 
         Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
-
-      - `JsonValue type = "model_changed"`
 
     - `class BetaCacheMissSystemChanged:`
 
+      - `JsonValue type = "system_changed"`
+
       - `long cacheMissedInputTokens`
 
         Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
-
-      - `JsonValue type = "system_changed"`
 
     - `class BetaCacheMissToolsChanged:`
 
+      - `JsonValue type = "tools_changed"`
+
       - `long cacheMissedInputTokens`
 
         Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
-
-      - `JsonValue type = "tools_changed"`
 
     - `class BetaCacheMissMessagesChanged:`
 
+      - `JsonValue type = "messages_changed"`
+
       - `long cacheMissedInputTokens`
 
         Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
-
-      - `JsonValue type = "messages_changed"`
 
     - `class BetaCacheMissPreviousMessageNotFound:`
 
@@ -16503,6 +16526,8 @@ public final class Main {
 
 - `class BetaDocumentBlock:`
 
+  - `JsonValue type = "document"`
+
   - `Optional<BetaCitationConfig> citations`
 
     Citation configuration for the document
@@ -16513,27 +16538,25 @@ public final class Main {
 
     - `class BetaBase64PdfSource:`
 
+      - `JsonValue type = "base64"`
+
       - `String data`
 
         format: byte
 
       - `JsonValue mediaType = "application/pdf"`
 
-      - `JsonValue type = "base64"`
-
     - `class BetaPlainTextSource:`
+
+      - `JsonValue type = "text"`
 
       - `String data`
 
       - `JsonValue mediaType = "text/plain"`
 
-      - `JsonValue type = "text"`
-
   - `Optional<String> title`
 
     The title of the document
-
-  - `JsonValue type = "document"`
 
 ### Beta Encrypted Code Execution Result Block
 
@@ -16541,19 +16564,19 @@ public final class Main {
 
   Code execution result with encrypted stdout for PFC + web_search results.
 
+  - `JsonValue type = "encrypted_code_execution_result"`
+
   - `List<BetaCodeExecutionOutputBlock> content`
 
-    - `String fileId`
-
     - `JsonValue type = "code_execution_output"`
+
+    - `String fileId`
 
   - `String encryptedStdout`
 
   - `long returnCode`
 
   - `String stderr`
-
-  - `JsonValue type = "encrypted_code_execution_result"`
 
 ### Beta Encrypted Code Execution Result Block Param
 
@@ -16561,19 +16584,19 @@ public final class Main {
 
   Code execution result with encrypted stdout for PFC + web_search results.
 
+  - `JsonValue type = "encrypted_code_execution_result"`
+
   - `List<BetaCodeExecutionOutputBlockParam> content`
 
-    - `String fileId`
-
     - `JsonValue type = "code_execution_output"`
+
+    - `String fileId`
 
   - `String encryptedStdout`
 
   - `long returnCode`
 
   - `String stderr`
-
-  - `JsonValue type = "encrypted_code_execution_result"`
 
 ### Beta Fallback Block
 
@@ -16590,6 +16613,8 @@ public final class Main {
   The block is treated like a server-tool content block for streaming: it
   arrives via the standard `content_block_start` / `content_block_stop`
   pair and carries no deltas.
+
+  - `JsonValue type = "fallback"`
 
   - `BetaFallbackInfo from`
 
@@ -16677,6 +16702,8 @@ public final class Main {
 
     What caused the `from` model to hand over at this hop.
 
+    - `JsonValue type = "refusal"`
+
     - `Optional<Category> category`
 
       The policy category that triggered a refusal.
@@ -16701,10 +16728,6 @@ public final class Main {
 
         The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
 
-    - `JsonValue type = "refusal"`
-
-  - `JsonValue type = "fallback"`
-
 ### Beta Fallback Block Param
 
 - `class BetaFallbackBlockParam:`
@@ -16722,6 +16745,8 @@ public final class Main {
   request is rejected), and moving it into the middle of a single run is
   likewise rejected; between non-thinking blocks the block's placement has
   no validation effect.
+
+  - `JsonValue type = "fallback"`
 
   - `BetaFallbackInfoParam from`
 
@@ -16805,8 +16830,6 @@ public final class Main {
 
     Identifies one hop of a fallback transition.
 
-  - `JsonValue type = "fallback"`
-
   - `Optional<JsonValue> trigger`
 
     The response block's `trigger`, echoed verbatim. Accepted and ignored by the server; any object or `null` is allowed.
@@ -16816,6 +16839,8 @@ public final class Main {
 - `class BetaFallbackCreditNotApplied:`
 
   No reprice was applied; `reason` says why.
+
+  - `JsonValue type = "not_applied"`
 
   - `Reason reason`
 
@@ -16847,8 +16872,6 @@ public final class Main {
     - `WRONG_PLATFORM("wrong_platform")`
 
     - `WRONG_WORKSPACE("wrong_workspace")`
-
-  - `JsonValue type = "not_applied"`
 
   - `Optional<List<String>> removeToRedeem`
 
@@ -16922,6 +16945,8 @@ public final class Main {
 
       No reprice was applied; `reason` says why.
 
+      - `JsonValue type = "not_applied"`
+
       - `Reason reason`
 
         Why the reprice was not applied.
@@ -16952,8 +16977,6 @@ public final class Main {
         - `WRONG_PLATFORM("wrong_platform")`
 
         - `WRONG_WORKSPACE("wrong_workspace")`
-
-      - `JsonValue type = "not_applied"`
 
       - `Optional<List<String>> removeToRedeem`
 
@@ -17137,6 +17160,10 @@ public final class Main {
   a fallback model served the response is signalled by the presence of this
   entry in `usage.iterations`.
 
+  - `JsonValue type = "fallback_message"`
+
+    Usage for the fallback-model attempt that served the response
+
   - `Optional<BetaCacheCreation> cacheCreation`
 
     Breakdown of cached tokens by TTL
@@ -17251,10 +17278,6 @@ public final class Main {
 
     minimum: 0
 
-  - `JsonValue type = "fallback_message"`
-
-    Usage for the fallback-model attempt that served the response
-
 ### Beta Fallback Param
 
 - `class BetaFallbackParam:`
@@ -17362,25 +17385,25 @@ public final class Main {
 
       A schema to specify Claude's output format in responses. See [structured outputs](https://platform.claude.com/docs/en/build-with-claude/structured-outputs)
 
+      - `JsonValue type = "json_schema"`
+
       - `Schema schema`
 
         The JSON schema of the format
 
-      - `JsonValue type = "json_schema"`
-
     - `Optional<BetaTokenTaskBudget> taskBudget`
 
       User-configurable total token budget across contexts.
+
+      - `JsonValue type = "tokens"`
+
+        The budget type. Currently only 'tokens' is supported.
 
       - `long total`
 
         Total token budget across all contexts in the session.
 
         minimum: 1024
-
-      - `JsonValue type = "tokens"`
-
-        The budget type. Currently only 'tokens' is supported.
 
       - `Optional<Long> remaining`
 
@@ -17400,6 +17423,8 @@ public final class Main {
 
     - `class BetaThinkingConfigEnabled:`
 
+      - `JsonValue type = "enabled"`
+
       - `long budgetTokens`
 
         Determines how many tokens Claude can use for its internal reasoning process. Larger budgets can enable more thorough analysis for complex problems, improving response quality.
@@ -17409,8 +17434,6 @@ public final class Main {
         See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
 
         minimum: 1024
-
-      - `JsonValue type = "enabled"`
 
       - `Optional<BetaThinkingBlockBinding> blockBinding`
 
@@ -17470,6 +17493,8 @@ public final class Main {
 
   The `from` model declined for policy reasons.
 
+  - `JsonValue type = "refusal"`
+
   - `Optional<Category> category`
 
     The policy category that triggered a refusal.
@@ -17493,8 +17518,6 @@ public final class Main {
     - `GENERAL_HARMS("general_harms")`
 
       The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
-
-  - `JsonValue type = "refusal"`
 
 ### Beta Fallbacks Param
 
@@ -17600,25 +17623,25 @@ public final class Main {
 
         A schema to specify Claude's output format in responses. See [structured outputs](https://platform.claude.com/docs/en/build-with-claude/structured-outputs)
 
+        - `JsonValue type = "json_schema"`
+
         - `Schema schema`
 
           The JSON schema of the format
 
-        - `JsonValue type = "json_schema"`
-
       - `Optional<BetaTokenTaskBudget> taskBudget`
 
         User-configurable total token budget across contexts.
+
+        - `JsonValue type = "tokens"`
+
+          The budget type. Currently only 'tokens' is supported.
 
         - `long total`
 
           Total token budget across all contexts in the session.
 
           minimum: 1024
-
-        - `JsonValue type = "tokens"`
-
-          The budget type. Currently only 'tokens' is supported.
 
         - `Optional<Long> remaining`
 
@@ -17638,6 +17661,8 @@ public final class Main {
 
       - `class BetaThinkingConfigEnabled:`
 
+        - `JsonValue type = "enabled"`
+
         - `long budgetTokens`
 
           Determines how many tokens Claude can use for its internal reasoning process. Larger budgets can enable more thorough analysis for complex problems, improving response quality.
@@ -17647,8 +17672,6 @@ public final class Main {
           See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
 
           minimum: 1024
-
-        - `JsonValue type = "enabled"`
 
         - `Optional<BetaThinkingBlockBinding> blockBinding`
 
@@ -17708,25 +17731,29 @@ public final class Main {
 
 - `class BetaFileDocumentSource:`
 
-  - `String fileId`
-
   - `JsonValue type = "file"`
+
+  - `String fileId`
 
 ### Beta File Image Source
 
 - `class BetaFileImageSource:`
 
-  - `String fileId`
-
   - `JsonValue type = "file"`
+
+  - `String fileId`
 
 ### Beta Image Block Param
 
 - `class BetaImageBlockParam:`
 
+  - `JsonValue type = "image"`
+
   - `Source source`
 
     - `class BetaBase64ImageSource:`
+
+      - `JsonValue type = "base64"`
 
       - `String data`
 
@@ -17742,8 +17769,6 @@ public final class Main {
 
         - `IMAGE_WEBP("image/webp")`
 
-      - `JsonValue type = "base64"`
-
     - `class BetaUrlImageSource:`
 
       - `JsonValue type = "url"`
@@ -17752,11 +17777,9 @@ public final class Main {
 
     - `class BetaFileImageSource:`
 
-      - `String fileId`
-
       - `JsonValue type = "file"`
 
-  - `JsonValue type = "image"`
+      - `String fileId`
 
   - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -17809,9 +17832,9 @@ public final class Main {
 
 - `class BetaInputJsonDelta:`
 
-  - `String partialJson`
-
   - `JsonValue type = "input_json_delta"`
+
+  - `String partialJson`
 
 ### Beta Input Tokens Clear At Least
 
@@ -17837,11 +17860,11 @@ public final class Main {
 
 - `class BetaJsonOutputFormat:`
 
+  - `JsonValue type = "json_schema"`
+
   - `Schema schema`
 
     The JSON schema of the format
-
-  - `JsonValue type = "json_schema"`
 
 ### Beta MCP Tool Config
 
@@ -17867,11 +17890,15 @@ public final class Main {
 
 - `class BetaMcpToolResultBlock:`
 
+  - `JsonValue type = "mcp_tool_result"`
+
   - `Content content`
 
     - `String`
 
     - `List<BetaTextBlock>`
+
+      - `JsonValue type = "text"`
 
       - `Optional<List<BetaTextCitation>> citations`
 
@@ -17880,6 +17907,8 @@ public final class Main {
         The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
 
         - `class BetaCitationCharLocation:`
+
+          - `JsonValue type = "char_location"`
 
           - `String citedText`
 
@@ -17897,9 +17926,9 @@ public final class Main {
 
             minimum: 0
 
-          - `JsonValue type = "char_location"`
-
         - `class BetaCitationPageLocation:`
+
+          - `JsonValue type = "page_location"`
 
           - `String citedText`
 
@@ -17917,9 +17946,9 @@ public final class Main {
 
             minimum: 1
 
-          - `JsonValue type = "page_location"`
-
         - `class BetaCitationContentBlockLocation:`
+
+          - `JsonValue type = "content_block_location"`
 
           - `String citedText`
 
@@ -17947,9 +17976,9 @@ public final class Main {
 
             minimum: 0
 
-          - `JsonValue type = "content_block_location"`
-
         - `class BetaCitationsWebSearchResultLocation:`
+
+          - `JsonValue type = "web_search_result_location"`
 
           - `String citedText`
 
@@ -17959,11 +17988,11 @@ public final class Main {
 
             maxLength: 512
 
-          - `JsonValue type = "web_search_result_location"`
-
           - `String url`
 
         - `class BetaCitationSearchResultLocation:`
+
+          - `JsonValue type = "search_result_location"`
 
           - `String citedText`
 
@@ -17995,13 +18024,9 @@ public final class Main {
 
           - `Optional<String> title`
 
-          - `JsonValue type = "search_result_location"`
-
       - `String text`
 
-        maxLength: 5000000, minLength: 0
-
-      - `JsonValue type = "text"`
+        minLength: 0
 
   - `boolean isError`
 
@@ -18009,11 +18034,11 @@ public final class Main {
 
     pattern: ^[a-zA-Z0-9_-]+$
 
-  - `JsonValue type = "mcp_tool_result"`
-
 ### Beta MCP Tool Use Block
 
 - `class BetaMcpToolUseBlock:`
+
+  - `JsonValue type = "mcp_tool_use"`
 
   - `String id`
 
@@ -18029,11 +18054,11 @@ public final class Main {
 
     The name of the MCP server
 
-  - `JsonValue type = "mcp_tool_use"`
-
 ### Beta MCP Tool Use Block Param
 
 - `class BetaMcpToolUseBlockParam:`
+
+  - `JsonValue type = "mcp_tool_use"`
 
   - `String id`
 
@@ -18046,8 +18071,6 @@ public final class Main {
   - `String serverName`
 
     The name of the MCP server
-
-  - `JsonValue type = "mcp_tool_use"`
 
   - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -18079,13 +18102,13 @@ public final class Main {
   Allows configuring enabled status and defer_loading for all tools
   from an MCP server, with optional per-tool overrides.
 
+  - `JsonValue type = "mcp_toolset"`
+
   - `String mcpServerName`
 
     Name of the MCP server to configure tools for
 
     maxLength: 255, minLength: 1
-
-  - `JsonValue type = "mcp_toolset"`
 
   - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -18128,13 +18151,13 @@ public final class Main {
 
 - `class BetaMemoryTool20250818:`
 
+  - `JsonValue type = "memory_20250818"`
+
   - `JsonValue name = "memory"`
 
     Name of the tool.
 
     This is how the tool will be called by the model and in `tool_use` blocks.
-
-  - `JsonValue type = "memory_20250818"`
 
   - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -18381,6 +18404,12 @@ public final class Main {
 
 - `class BetaMessage:`
 
+  - `JsonValue type = "message"`
+
+    Object type.
+
+    For Messages, this is always `"message"`.
+
   - `String id`
 
     Unique object identifier.
@@ -18405,12 +18434,6 @@ public final class Main {
 
       Skills loaded in the container
 
-      - `String skillId`
-
-        Skill ID
-
-        maxLength: 64, minLength: 1
-
       - `Type type`
 
         Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
@@ -18418,6 +18441,12 @@ public final class Main {
         - `ANTHROPIC("anthropic")`
 
         - `CUSTOM("custom")`
+
+      - `String skillId`
+
+        Skill ID
+
+        maxLength: 64, minLength: 1
 
       - `String version`
 
@@ -18456,6 +18485,8 @@ public final class Main {
 
     - `class BetaTextBlock:`
 
+      - `JsonValue type = "text"`
+
       - `Optional<List<BetaTextCitation>> citations`
 
         Citations supporting the text block.
@@ -18463,6 +18494,8 @@ public final class Main {
         The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
 
         - `class BetaCitationCharLocation:`
+
+          - `JsonValue type = "char_location"`
 
           - `String citedText`
 
@@ -18480,9 +18513,9 @@ public final class Main {
 
             minimum: 0
 
-          - `JsonValue type = "char_location"`
-
         - `class BetaCitationPageLocation:`
+
+          - `JsonValue type = "page_location"`
 
           - `String citedText`
 
@@ -18500,9 +18533,9 @@ public final class Main {
 
             minimum: 1
 
-          - `JsonValue type = "page_location"`
-
         - `class BetaCitationContentBlockLocation:`
+
+          - `JsonValue type = "content_block_location"`
 
           - `String citedText`
 
@@ -18530,9 +18563,9 @@ public final class Main {
 
             minimum: 0
 
-          - `JsonValue type = "content_block_location"`
-
         - `class BetaCitationsWebSearchResultLocation:`
+
+          - `JsonValue type = "web_search_result_location"`
 
           - `String citedText`
 
@@ -18542,11 +18575,11 @@ public final class Main {
 
             maxLength: 512
 
-          - `JsonValue type = "web_search_result_location"`
-
           - `String url`
 
         - `class BetaCitationSearchResultLocation:`
+
+          - `JsonValue type = "search_result_location"`
 
           - `String citedText`
 
@@ -18578,15 +18611,13 @@ public final class Main {
 
           - `Optional<String> title`
 
-          - `JsonValue type = "search_result_location"`
-
       - `String text`
 
-        maxLength: 5000000, minLength: 0
-
-      - `JsonValue type = "text"`
+        minLength: 0
 
     - `class BetaThinkingBlock:`
+
+      - `JsonValue type = "thinking"`
 
       - `String signature`
 
@@ -18600,9 +18631,9 @@ public final class Main {
 
         The text of Claude's thinking process for this block.
 
-      - `JsonValue type = "thinking"`
-
     - `class BetaRedactedThinkingBlock:`
+
+      - `JsonValue type = "redacted_thinking"`
 
       - `String data`
 
@@ -18612,9 +18643,9 @@ public final class Main {
 
         See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking#redacted-thinking-blocks) for details.
 
-      - `JsonValue type = "redacted_thinking"`
-
     - `class BetaToolUseBlock:`
+
+      - `JsonValue type = "tool_use"`
 
       - `String id`
 
@@ -18625,8 +18656,6 @@ public final class Main {
       - `String name`
 
         minLength: 1
-
-      - `JsonValue type = "tool_use"`
 
       - `Optional<Caller> caller`
 
@@ -18642,19 +18671,19 @@ public final class Main {
 
           Tool invocation generated by a server-side tool.
 
+          - `JsonValue type = "code_execution_20250825"`
+
           - `String toolId`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-          - `JsonValue type = "code_execution_20250825"`
 
         - `class BetaServerToolCaller20260120:`
 
+          - `JsonValue type = "code_execution_20260120"`
+
           - `String toolId`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-          - `JsonValue type = "code_execution_20260120"`
 
       - `Optional<String> toolsetName`
 
@@ -18663,6 +18692,8 @@ public final class Main {
         maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
 
     - `class BetaServerToolUseBlock:`
+
+      - `JsonValue type = "server_tool_use"`
 
       - `String id`
 
@@ -18688,8 +18719,6 @@ public final class Main {
 
         - `TOOL_SEARCH_TOOL_BM25("tool_search_tool_bm25")`
 
-      - `JsonValue type = "server_tool_use"`
-
       - `Optional<Caller> caller`
 
         Tool invocation directly from the model.
@@ -18706,9 +18735,13 @@ public final class Main {
 
     - `class BetaWebSearchToolResultBlock:`
 
+      - `JsonValue type = "web_search_tool_result"`
+
       - `BetaWebSearchToolResultBlockContent content`
 
         - `class BetaWebSearchToolResultError:`
+
+          - `JsonValue type = "web_search_tool_result_error"`
 
           - `BetaWebSearchToolResultErrorCode errorCode`
 
@@ -18724,9 +18757,9 @@ public final class Main {
 
             - `REQUEST_TOO_LARGE("request_too_large")`
 
-          - `JsonValue type = "web_search_tool_result_error"`
-
         - `List<BetaWebSearchResultBlock>`
+
+          - `JsonValue type = "web_search_result"`
 
           - `String encryptedContent`
 
@@ -18734,15 +18767,11 @@ public final class Main {
 
           - `String title`
 
-          - `JsonValue type = "web_search_result"`
-
           - `String url`
 
       - `String toolUseId`
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-      - `JsonValue type = "web_search_tool_result"`
 
       - `Optional<Caller> caller`
 
@@ -18760,9 +18789,13 @@ public final class Main {
 
     - `class BetaWebFetchToolResultBlock:`
 
+      - `JsonValue type = "web_fetch_tool_result"`
+
       - `Content content`
 
         - `class BetaWebFetchToolResultErrorBlock:`
+
+          - `JsonValue type = "web_fetch_tool_result_error"`
 
           - `BetaWebFetchToolResultErrorCode errorCode`
 
@@ -18784,11 +18817,15 @@ public final class Main {
 
             - `UNAVAILABLE("unavailable")`
 
-          - `JsonValue type = "web_fetch_tool_result_error"`
+            - `CONTENT_TOO_LARGE("content_too_large")`
 
         - `class BetaWebFetchBlock:`
 
+          - `JsonValue type = "web_fetch_result"`
+
           - `BetaDocumentBlock content`
+
+            - `JsonValue type = "document"`
 
             - `Optional<BetaCitationConfig> citations`
 
@@ -18800,33 +18837,29 @@ public final class Main {
 
               - `class BetaBase64PdfSource:`
 
+                - `JsonValue type = "base64"`
+
                 - `String data`
 
                   format: byte
 
                 - `JsonValue mediaType = "application/pdf"`
 
-                - `JsonValue type = "base64"`
-
               - `class BetaPlainTextSource:`
+
+                - `JsonValue type = "text"`
 
                 - `String data`
 
                 - `JsonValue mediaType = "text/plain"`
 
-                - `JsonValue type = "text"`
-
             - `Optional<String> title`
 
               The title of the document
 
-            - `JsonValue type = "document"`
-
           - `Optional<String> retrievedAt`
 
             ISO 8601 timestamp when the content was retrieved
-
-          - `JsonValue type = "web_fetch_result"`
 
           - `String url`
 
@@ -18835,8 +18868,6 @@ public final class Main {
       - `String toolUseId`
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-      - `JsonValue type = "web_fetch_tool_result"`
 
       - `Optional<Caller> caller`
 
@@ -18854,9 +18885,13 @@ public final class Main {
 
     - `class BetaAdvisorToolResultBlock:`
 
+      - `JsonValue type = "advisor_tool_result"`
+
       - `Content content`
 
         - `class BetaAdvisorToolResultError:`
+
+          - `JsonValue type = "advisor_tool_result_error"`
 
           - `ErrorCode errorCode`
 
@@ -18874,9 +18909,9 @@ public final class Main {
 
             - `MODEL_NOT_FOUND("model_not_found")`
 
-          - `JsonValue type = "advisor_tool_result_error"`
-
         - `class BetaAdvisorResultBlock:`
+
+          - `JsonValue type = "advisor_result"`
 
           - `Optional<String> stopReason`
 
@@ -18884,9 +18919,9 @@ public final class Main {
 
           - `String text`
 
-          - `JsonValue type = "advisor_result"`
-
         - `class BetaAdvisorRedactedResultBlock:`
+
+          - `JsonValue type = "advisor_redacted_result"`
 
           - `String encryptedContent`
 
@@ -18896,21 +18931,21 @@ public final class Main {
 
             The advisor sub-inference's stop reason (same values as the top-level message `stop_reason`).
 
-          - `JsonValue type = "advisor_redacted_result"`
-
       - `String toolUseId`
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-      - `JsonValue type = "advisor_tool_result"`
-
     - `class BetaCodeExecutionToolResultBlock:`
+
+      - `JsonValue type = "code_execution_tool_result"`
 
       - `BetaCodeExecutionToolResultBlockContent content`
 
         Code execution result with encrypted stdout for PFC + web_search results.
 
         - `class BetaCodeExecutionToolResultError:`
+
+          - `JsonValue type = "code_execution_tool_result_error"`
 
           - `BetaCodeExecutionToolResultErrorCode errorCode`
 
@@ -18922,15 +18957,15 @@ public final class Main {
 
             - `EXECUTION_TIME_EXCEEDED("execution_time_exceeded")`
 
-          - `JsonValue type = "code_execution_tool_result_error"`
-
         - `class BetaCodeExecutionResultBlock:`
+
+          - `JsonValue type = "code_execution_result"`
 
           - `List<BetaCodeExecutionOutputBlock> content`
 
-            - `String fileId`
-
             - `JsonValue type = "code_execution_output"`
+
+            - `String fileId`
 
           - `long returnCode`
 
@@ -18938,17 +18973,17 @@ public final class Main {
 
           - `String stdout`
 
-          - `JsonValue type = "code_execution_result"`
-
         - `class BetaEncryptedCodeExecutionResultBlock:`
 
           Code execution result with encrypted stdout for PFC + web_search results.
 
+          - `JsonValue type = "encrypted_code_execution_result"`
+
           - `List<BetaCodeExecutionOutputBlock> content`
 
-            - `String fileId`
-
             - `JsonValue type = "code_execution_output"`
+
+            - `String fileId`
 
           - `String encryptedStdout`
 
@@ -18956,19 +18991,19 @@ public final class Main {
 
           - `String stderr`
 
-          - `JsonValue type = "encrypted_code_execution_result"`
-
       - `String toolUseId`
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-      - `JsonValue type = "code_execution_tool_result"`
-
     - `class BetaBashCodeExecutionToolResultBlock:`
+
+      - `JsonValue type = "bash_code_execution_tool_result"`
 
       - `Content content`
 
         - `class BetaBashCodeExecutionToolResultError:`
+
+          - `JsonValue type = "bash_code_execution_tool_result_error"`
 
           - `ErrorCode errorCode`
 
@@ -18982,15 +19017,15 @@ public final class Main {
 
             - `OUTPUT_FILE_TOO_LARGE("output_file_too_large")`
 
-          - `JsonValue type = "bash_code_execution_tool_result_error"`
-
         - `class BetaBashCodeExecutionResultBlock:`
+
+          - `JsonValue type = "bash_code_execution_result"`
 
           - `List<BetaBashCodeExecutionOutputBlock> content`
 
-            - `String fileId`
-
             - `JsonValue type = "bash_code_execution_output"`
+
+            - `String fileId`
 
           - `long returnCode`
 
@@ -18998,19 +19033,19 @@ public final class Main {
 
           - `String stdout`
 
-          - `JsonValue type = "bash_code_execution_result"`
-
       - `String toolUseId`
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-      - `JsonValue type = "bash_code_execution_tool_result"`
-
     - `class BetaTextEditorCodeExecutionToolResultBlock:`
+
+      - `JsonValue type = "text_editor_code_execution_tool_result"`
 
       - `Content content`
 
         - `class BetaTextEditorCodeExecutionToolResultError:`
+
+          - `JsonValue type = "text_editor_code_execution_tool_result_error"`
 
           - `ErrorCode errorCode`
 
@@ -19026,9 +19061,9 @@ public final class Main {
 
           - `Optional<String> errorMessage`
 
-          - `JsonValue type = "text_editor_code_execution_tool_result_error"`
-
         - `class BetaTextEditorCodeExecutionViewResultBlock:`
+
+          - `JsonValue type = "text_editor_code_execution_view_result"`
 
           - `String content`
 
@@ -19046,15 +19081,15 @@ public final class Main {
 
           - `Optional<Long> totalLines`
 
-          - `JsonValue type = "text_editor_code_execution_view_result"`
-
         - `class BetaTextEditorCodeExecutionCreateResultBlock:`
-
-          - `boolean isFileUpdate`
 
           - `JsonValue type = "text_editor_code_execution_create_result"`
 
+          - `boolean isFileUpdate`
+
         - `class BetaTextEditorCodeExecutionStrReplaceResultBlock:`
+
+          - `JsonValue type = "text_editor_code_execution_str_replace_result"`
 
           - `Optional<List<String>> lines`
 
@@ -19066,19 +19101,19 @@ public final class Main {
 
           - `Optional<Long> oldStart`
 
-          - `JsonValue type = "text_editor_code_execution_str_replace_result"`
-
       - `String toolUseId`
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-      - `JsonValue type = "text_editor_code_execution_tool_result"`
-
     - `class BetaToolSearchToolResultBlock:`
+
+      - `JsonValue type = "tool_search_tool_result"`
 
       - `Content content`
 
         - `class BetaToolSearchToolResultError:`
+
+          - `JsonValue type = "tool_search_tool_result_error"`
 
           - `ErrorCode errorCode`
 
@@ -19092,27 +19127,25 @@ public final class Main {
 
           - `Optional<String> errorMessage`
 
-          - `JsonValue type = "tool_search_tool_result_error"`
-
         - `class BetaToolSearchToolSearchResultBlock:`
 
+          - `JsonValue type = "tool_search_tool_search_result"`
+
           - `List<BetaToolReferenceBlock> toolReferences`
+
+            - `JsonValue type = "tool_reference"`
 
             - `String toolName`
 
               maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
-            - `JsonValue type = "tool_reference"`
-
-          - `JsonValue type = "tool_search_tool_search_result"`
-
       - `String toolUseId`
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-      - `JsonValue type = "tool_search_tool_result"`
-
     - `class BetaMcpToolUseBlock:`
+
+      - `JsonValue type = "mcp_tool_use"`
 
       - `String id`
 
@@ -19128,15 +19161,17 @@ public final class Main {
 
         The name of the MCP server
 
-      - `JsonValue type = "mcp_tool_use"`
-
     - `class BetaMcpToolResultBlock:`
+
+      - `JsonValue type = "mcp_tool_result"`
 
       - `Content content`
 
         - `String`
 
         - `List<BetaTextBlock>`
+
+          - `JsonValue type = "text"`
 
           - `Optional<List<BetaTextCitation>> citations`
 
@@ -19146,9 +19181,7 @@ public final class Main {
 
           - `String text`
 
-            maxLength: 5000000, minLength: 0
-
-          - `JsonValue type = "text"`
+            minLength: 0
 
       - `boolean isError`
 
@@ -19156,15 +19189,13 @@ public final class Main {
 
         pattern: ^[a-zA-Z0-9_-]+$
 
-      - `JsonValue type = "mcp_tool_result"`
-
     - `class BetaContainerUploadBlock:`
 
       Response model for a file uploaded to the container.
 
-      - `String fileId`
-
       - `JsonValue type = "container_upload"`
+
+      - `String fileId`
 
     - `class BetaCompactionBlock:`
 
@@ -19174,6 +19205,8 @@ public final class Main {
       summary (e.g., malformed output from the model). Clients may round-trip
       compaction blocks with null content; the server treats them as no-ops.
 
+      - `JsonValue type = "compaction"`
+
       - `Optional<String> content`
 
         Summary of compacted content, or null if compaction failed
@@ -19181,8 +19214,6 @@ public final class Main {
       - `Optional<String> encryptedContent`
 
         Opaque metadata from prior compaction, to be round-tripped verbatim
-
-      - `JsonValue type = "compaction"`
 
     - `class BetaFallbackBlock:`
 
@@ -19197,6 +19228,8 @@ public final class Main {
       The block is treated like a server-tool content block for streaming: it
       arrives via the standard `content_block_start` / `content_block_stop`
       pair and carries no deltas.
+
+      - `JsonValue type = "fallback"`
 
       - `BetaFallbackInfo from`
 
@@ -19284,6 +19317,8 @@ public final class Main {
 
         What caused the `from` model to hand over at this hop.
 
+        - `JsonValue type = "refusal"`
+
         - `Optional<Category> category`
 
           The policy category that triggered a refusal.
@@ -19308,10 +19343,6 @@ public final class Main {
 
             The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
 
-        - `JsonValue type = "refusal"`
-
-      - `JsonValue type = "fallback"`
-
   - `Optional<BetaContextManagementResponse> contextManagement`
 
     Context management response.
@@ -19323,6 +19354,10 @@ public final class Main {
       List of context management edits that were applied.
 
       - `class BetaClearToolUses20250919EditResponse:`
+
+        - `JsonValue type = "clear_tool_uses_20250919"`
+
+          The type of context management edit applied.
 
         - `long clearedInputTokens`
 
@@ -19336,11 +19371,11 @@ public final class Main {
 
           minimum: 0
 
-        - `JsonValue type = "clear_tool_uses_20250919"`
+      - `class BetaClearThinking20251015EditResponse:`
+
+        - `JsonValue type = "clear_thinking_20251015"`
 
           The type of context management edit applied.
-
-      - `class BetaClearThinking20251015EditResponse:`
 
         - `long clearedInputTokens`
 
@@ -19354,10 +19389,6 @@ public final class Main {
 
           minimum: 0
 
-        - `JsonValue type = "clear_thinking_20251015"`
-
-          The type of context management edit applied.
-
   - `Optional<BetaDiagnostics> diagnostics`
 
     Response envelope for request-level diagnostics. Present (possibly
@@ -19369,35 +19400,35 @@ public final class Main {
 
       - `class BetaCacheMissModelChanged:`
 
+        - `JsonValue type = "model_changed"`
+
         - `long cacheMissedInputTokens`
 
           Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
-
-        - `JsonValue type = "model_changed"`
 
       - `class BetaCacheMissSystemChanged:`
 
+        - `JsonValue type = "system_changed"`
+
         - `long cacheMissedInputTokens`
 
           Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
-
-        - `JsonValue type = "system_changed"`
 
       - `class BetaCacheMissToolsChanged:`
 
+        - `JsonValue type = "tools_changed"`
+
         - `long cacheMissedInputTokens`
 
           Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
-
-        - `JsonValue type = "tools_changed"`
 
       - `class BetaCacheMissMessagesChanged:`
 
+        - `JsonValue type = "messages_changed"`
+
         - `long cacheMissedInputTokens`
 
           Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
-
-        - `JsonValue type = "messages_changed"`
 
       - `class BetaCacheMissPreviousMessageNotFound:`
 
@@ -19422,6 +19453,8 @@ public final class Main {
   - `Optional<BetaRefusalStopDetails> stopDetails`
 
     Structured information about a refusal.
+
+    - `JsonValue type = "refusal"`
 
     - `Optional<Category> category`
 
@@ -19502,8 +19535,6 @@ public final class Main {
 
       The server's suggested retry target for this refusal. Populated when a fallback attempt could not be made (the fallback model's rate limit was exhausted, or it was overloaded); names the fallback model the caller can retry directly. Null otherwise.
 
-    - `JsonValue type = "refusal"`
-
   - `Optional<BetaStopReason> stopReason`
 
     The reason that we stopped.
@@ -19541,12 +19572,6 @@ public final class Main {
     Which custom stop sequence was generated, if any.
 
     This value will be a non-null string if one of your custom stop sequences was generated.
-
-  - `JsonValue type = "message"`
-
-    Object type.
-
-    For Messages, this is always `"message"`.
 
   - `BetaUsage usage`
 
@@ -19612,6 +19637,8 @@ public final class Main {
 
           No reprice was applied; `reason` says why.
 
+          - `JsonValue type = "not_applied"`
+
           - `Reason reason`
 
             Why the reprice was not applied.
@@ -19642,8 +19669,6 @@ public final class Main {
             - `WRONG_PLATFORM("wrong_platform")`
 
             - `WRONG_WORKSPACE("wrong_workspace")`
-
-          - `JsonValue type = "not_applied"`
 
           - `Optional<List<String>> removeToRedeem`
 
@@ -19682,6 +19707,10 @@ public final class Main {
 
         Token usage for a sampling iteration.
 
+        - `JsonValue type = "message"`
+
+          Usage for a sampling iteration
+
         - `Optional<BetaCacheCreation> cacheCreation`
 
           Breakdown of cached tokens by TTL
@@ -19715,15 +19744,15 @@ public final class Main {
           The number of output tokens which were used.
 
           minimum: 0
-
-        - `JsonValue type = "message"`
-
-          Usage for a sampling iteration
 
       - `class BetaCompactionIterationUsage:`
 
         Token usage for a compaction iteration.
 
+        - `JsonValue type = "compaction"`
+
+          Usage for a compaction iteration
+
         - `Optional<BetaCacheCreation> cacheCreation`
 
           Breakdown of cached tokens by TTL
@@ -19752,13 +19781,13 @@ public final class Main {
 
           minimum: 0
 
-        - `JsonValue type = "compaction"`
-
-          Usage for a compaction iteration
-
       - `class BetaAdvisorMessageIterationUsage:`
 
         Token usage for an advisor sub-inference iteration.
+
+        - `JsonValue type = "advisor_message"`
+
+          Usage for an advisor sub-inference iteration
 
         - `Optional<BetaCacheCreation> cacheCreation`
 
@@ -19793,10 +19822,6 @@ public final class Main {
           The number of output tokens which were used.
 
           minimum: 0
-
-        - `JsonValue type = "advisor_message"`
-
-          Usage for an advisor sub-inference iteration
 
       - `class BetaFallbackMessageIterationUsage:`
 
@@ -19807,6 +19832,10 @@ public final class Main {
         a fallback model served the response is signalled by the presence of this
         entry in `usage.iterations`.
 
+        - `JsonValue type = "fallback_message"`
+
+          Usage for the fallback-model attempt that served the response
+
         - `Optional<BetaCacheCreation> cacheCreation`
 
           Breakdown of cached tokens by TTL
@@ -19840,10 +19869,6 @@ public final class Main {
           The number of output tokens which were used.
 
           minimum: 0
-
-        - `JsonValue type = "fallback_message"`
-
-          Usage for the fallback-model attempt that served the response
 
     - `long outputTokens`
 
@@ -19925,6 +19950,10 @@ public final class Main {
     fallback happened mid-stream, in which case it holds the serving model's
     entries and replaces the one in `message_start`.
 
+    - `JsonValue type = "thinking_dropped"`
+
+      Always `thinking_dropped` for this entry type.
+
     - `String path`
 
       Where the removed block was in your request, as `messages.{i}.content.{j}`:
@@ -19954,10 +19983,6 @@ public final class Main {
       - `ORGANIZATION_BINDING_MISMATCH("organization_binding_mismatch")`
 
       - `END_USER_BINDING_MISMATCH("end_user_binding_mismatch")`
-
-    - `JsonValue type = "thinking_dropped"`
-
-      Always `thinking_dropped` for this entry type.
 
 ### Beta Message Delta Usage
 
@@ -19999,6 +20024,8 @@ public final class Main {
 
         No reprice was applied; `reason` says why.
 
+        - `JsonValue type = "not_applied"`
+
         - `Reason reason`
 
           Why the reprice was not applied.
@@ -20029,8 +20056,6 @@ public final class Main {
           - `WRONG_PLATFORM("wrong_platform")`
 
           - `WRONG_WORKSPACE("wrong_workspace")`
-
-        - `JsonValue type = "not_applied"`
 
         - `Optional<List<String>> removeToRedeem`
 
@@ -20064,6 +20089,10 @@ public final class Main {
     - `class BetaMessageIterationUsage:`
 
       Token usage for a sampling iteration.
+
+      - `JsonValue type = "message"`
+
+        Usage for a sampling iteration
 
       - `Optional<BetaCacheCreation> cacheCreation`
 
@@ -20179,13 +20208,13 @@ public final class Main {
 
         minimum: 0
 
-      - `JsonValue type = "message"`
-
-        Usage for a sampling iteration
-
     - `class BetaCompactionIterationUsage:`
 
       Token usage for a compaction iteration.
+
+      - `JsonValue type = "compaction"`
+
+        Usage for a compaction iteration
 
       - `Optional<BetaCacheCreation> cacheCreation`
 
@@ -20215,13 +20244,13 @@ public final class Main {
 
         minimum: 0
 
-      - `JsonValue type = "compaction"`
-
-        Usage for a compaction iteration
-
     - `class BetaAdvisorMessageIterationUsage:`
 
       Token usage for an advisor sub-inference iteration.
+
+      - `JsonValue type = "advisor_message"`
+
+        Usage for an advisor sub-inference iteration
 
       - `Optional<BetaCacheCreation> cacheCreation`
 
@@ -20256,10 +20285,6 @@ public final class Main {
         The number of output tokens which were used.
 
         minimum: 0
-
-      - `JsonValue type = "advisor_message"`
-
-        Usage for an advisor sub-inference iteration
 
     - `class BetaFallbackMessageIterationUsage:`
 
@@ -20270,6 +20295,10 @@ public final class Main {
       a fallback model served the response is signalled by the presence of this
       entry in `usage.iterations`.
 
+      - `JsonValue type = "fallback_message"`
+
+        Usage for the fallback-model attempt that served the response
+
       - `Optional<BetaCacheCreation> cacheCreation`
 
         Breakdown of cached tokens by TTL
@@ -20303,10 +20332,6 @@ public final class Main {
         The number of output tokens which were used.
 
         minimum: 0
-
-      - `JsonValue type = "fallback_message"`
-
-        Usage for the fallback-model attempt that served the response
 
   - `long outputTokens`
 
@@ -20355,6 +20380,10 @@ public final class Main {
 - `class BetaMessageIterationUsage:`
 
   Token usage for a sampling iteration.
+
+  - `JsonValue type = "message"`
+
+    Usage for a sampling iteration
 
   - `Optional<BetaCacheCreation> cacheCreation`
 
@@ -20470,10 +20499,6 @@ public final class Main {
 
     minimum: 0
 
-  - `JsonValue type = "message"`
-
-    Usage for a sampling iteration
-
 ### Beta Message Param
 
 - `class BetaMessageParam:`
@@ -20486,11 +20511,11 @@ public final class Main {
 
       - `class BetaTextBlockParam:`
 
+        - `JsonValue type = "text"`
+
         - `String text`
 
           minLength: 1
-
-        - `JsonValue type = "text"`
 
         - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -20517,6 +20542,8 @@ public final class Main {
 
           - `class BetaCitationCharLocationParam:`
 
+            - `JsonValue type = "char_location"`
+
             - `String citedText`
 
             - `long documentIndex`
@@ -20533,9 +20560,9 @@ public final class Main {
 
               minimum: 0
 
-            - `JsonValue type = "char_location"`
-
           - `class BetaCitationPageLocationParam:`
+
+            - `JsonValue type = "page_location"`
 
             - `String citedText`
 
@@ -20553,9 +20580,9 @@ public final class Main {
 
               minimum: 1
 
-            - `JsonValue type = "page_location"`
-
           - `class BetaCitationContentBlockLocationParam:`
+
+            - `JsonValue type = "content_block_location"`
 
             - `String citedText`
 
@@ -20583,9 +20610,9 @@ public final class Main {
 
               minimum: 0
 
-            - `JsonValue type = "content_block_location"`
-
           - `class BetaCitationWebSearchResultLocationParam:`
+
+            - `JsonValue type = "web_search_result_location"`
 
             - `String citedText`
 
@@ -20595,13 +20622,13 @@ public final class Main {
 
               maxLength: 512, minLength: 1
 
-            - `JsonValue type = "web_search_result_location"`
-
             - `String url`
 
               minLength: 1
 
           - `class BetaCitationSearchResultLocationParam:`
+
+            - `JsonValue type = "search_result_location"`
 
             - `String citedText`
 
@@ -20633,13 +20660,15 @@ public final class Main {
 
             - `Optional<String> title`
 
-            - `JsonValue type = "search_result_location"`
-
       - `class BetaImageBlockParam:`
+
+        - `JsonValue type = "image"`
 
         - `Source source`
 
           - `class BetaBase64ImageSource:`
+
+            - `JsonValue type = "base64"`
 
             - `String data`
 
@@ -20655,8 +20684,6 @@ public final class Main {
 
               - `IMAGE_WEBP("image/webp")`
 
-            - `JsonValue type = "base64"`
-
           - `class BetaUrlImageSource:`
 
             - `JsonValue type = "url"`
@@ -20665,11 +20692,9 @@ public final class Main {
 
           - `class BetaFileImageSource:`
 
-            - `String fileId`
-
             - `JsonValue type = "file"`
 
-        - `JsonValue type = "image"`
+            - `String fileId`
 
         - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -20689,9 +20714,13 @@ public final class Main {
 
       - `class BetaRequestDocumentBlock:`
 
+        - `JsonValue type = "document"`
+
         - `Source source`
 
           - `class BetaBase64PdfSource:`
+
+            - `JsonValue type = "base64"`
 
             - `String data`
 
@@ -20699,17 +20728,17 @@ public final class Main {
 
             - `JsonValue mediaType = "application/pdf"`
 
-            - `JsonValue type = "base64"`
-
           - `class BetaPlainTextSource:`
+
+            - `JsonValue type = "text"`
 
             - `String data`
 
             - `JsonValue mediaType = "text/plain"`
 
-            - `JsonValue type = "text"`
-
           - `class BetaContentBlockSource:`
+
+            - `JsonValue type = "content"`
 
             - `Content content`
 
@@ -20721,8 +20750,6 @@ public final class Main {
 
                 - `class BetaImageBlockParam:`
 
-            - `JsonValue type = "content"`
-
           - `class BetaUrlPdfSource:`
 
             - `JsonValue type = "url"`
@@ -20731,11 +20758,9 @@ public final class Main {
 
           - `class BetaFileDocumentSource:`
 
-            - `String fileId`
-
             - `JsonValue type = "file"`
 
-        - `JsonValue type = "document"`
+            - `String fileId`
 
         - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -20755,13 +20780,15 @@ public final class Main {
 
       - `class BetaSearchResultBlockParam:`
 
+        - `JsonValue type = "search_result"`
+
         - `List<BetaTextBlockParam> content`
+
+          - `JsonValue type = "text"`
 
           - `String text`
 
             minLength: 1
-
-          - `JsonValue type = "text"`
 
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -20773,8 +20800,6 @@ public final class Main {
 
         - `String title`
 
-        - `JsonValue type = "search_result"`
-
         - `Optional<BetaCacheControlEphemeral> cacheControl`
 
           Create a cache control breakpoint at this content block.
@@ -20782,6 +20807,8 @@ public final class Main {
         - `Optional<BetaCitationsConfigParam> citations`
 
       - `class BetaThinkingBlockParam:`
+
+        - `JsonValue type = "thinking"`
 
         - `String signature`
 
@@ -20793,17 +20820,17 @@ public final class Main {
 
           The `thinking` text of this block as returned by the API.
 
-        - `JsonValue type = "thinking"`
-
       - `class BetaRedactedThinkingBlockParam:`
+
+        - `JsonValue type = "redacted_thinking"`
 
         - `String data`
 
           The `data` value of this redacted thinking block, exactly as returned by the API in a previous response. Opaque and encrypted; pass it back unchanged.
 
-        - `JsonValue type = "redacted_thinking"`
-
       - `class BetaToolUseBlockParam:`
+
+        - `JsonValue type = "tool_use"`
 
         - `String id`
 
@@ -20814,8 +20841,6 @@ public final class Main {
         - `String name`
 
           maxLength: 200, minLength: 1
-
-        - `JsonValue type = "tool_use"`
 
         - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -20835,19 +20860,19 @@ public final class Main {
 
             Tool invocation generated by a server-side tool.
 
+            - `JsonValue type = "code_execution_20250825"`
+
             - `String toolId`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-            - `JsonValue type = "code_execution_20250825"`
 
           - `class BetaServerToolCaller20260120:`
 
+            - `JsonValue type = "code_execution_20260120"`
+
             - `String toolId`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-            - `JsonValue type = "code_execution_20260120"`
 
         - `Optional<String> toolsetName`
 
@@ -20857,11 +20882,11 @@ public final class Main {
 
       - `class BetaToolResultBlockParam:`
 
+        - `JsonValue type = "tool_result"`
+
         - `String toolUseId`
 
           pattern: ^[a-zA-Z0-9_-]+$
-
-        - `JsonValue type = "tool_result"`
 
         - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -20885,11 +20910,11 @@ public final class Main {
 
               Tool reference block that can be included in tool_result content.
 
+              - `JsonValue type = "tool_reference"`
+
               - `String toolName`
 
                 maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
-
-              - `JsonValue type = "tool_reference"`
 
               - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -20904,6 +20929,8 @@ public final class Main {
               At most one per `tool_result`, only on a non-error result answering a
               browser toolset member `tool_use`. The server renders the
               model-visible text from it; the model never sees the raw fields.
+
+              - `JsonValue type = "browser_state"`
 
               - `List<BetaBrowserStateTabEntry> tabs`
 
@@ -20933,8 +20960,6 @@ public final class Main {
 
                   Whether this tab is the active tab after this call. Whenever `tabs` is non-empty, exactly one entry is marked `active: true`.
 
-              - `JsonValue type = "browser_state"`
-
               - `Optional<BetaCacheControlEphemeral> cacheControl`
 
                 Create a cache control breakpoint at this content block.
@@ -20955,25 +20980,25 @@ public final class Main {
                   during a failed call gets no deferred `tab_opened`; it simply appears
                   in the next result's `tabs` inventory.
 
+                  - `JsonValue type = "tab_opened"`
+
                   - `String tabId`
 
                     The `tab_id` of the opened tab, present in `tabs`.
 
                     maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-                  - `JsonValue type = "tab_opened"`
-
                 - `class BetaBrowserStateChangeDownloadStarted:`
 
                   A file download that started during this call.
+
+                  - `JsonValue type = "download_started"`
 
                   - `String downloadId`
 
                     The caller-assigned identifier for this download, stable across the state changes reporting it.
 
                     maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
-
-                  - `JsonValue type = "download_started"`
 
                   - `String url`
 
@@ -20988,13 +21013,13 @@ public final class Main {
                   `download_started`, when the download finished during the call that
                   started it (at most one state change per `download_id` per result).
 
+                  - `JsonValue type = "download_completed"`
+
                   - `String downloadId`
 
                     The caller-assigned identifier for this download, stable across the state changes reporting it.
 
                     maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
-
-                  - `JsonValue type = "download_completed"`
 
                   - `String url`
 
@@ -21018,13 +21043,13 @@ public final class Main {
 
                   A file download that failed — or was cancelled — during this call.
 
+                  - `JsonValue type = "download_failed"`
+
                   - `String downloadId`
 
                     The caller-assigned identifier for this download, stable across the state changes reporting it.
 
                     maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
-
-                  - `JsonValue type = "download_failed"`
 
                   - `String url`
 
@@ -21047,6 +21072,8 @@ public final class Main {
           maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
 
       - `class BetaServerToolUseBlockParam:`
+
+        - `JsonValue type = "server_tool_use"`
 
         - `String id`
 
@@ -21072,8 +21099,6 @@ public final class Main {
 
           - `TOOL_SEARCH_TOOL_BM25("tool_search_tool_bm25")`
 
-        - `JsonValue type = "server_tool_use"`
-
         - `Optional<BetaCacheControlEphemeral> cacheControl`
 
           Create a cache control breakpoint at this content block.
@@ -21094,21 +21119,25 @@ public final class Main {
 
       - `class BetaWebSearchToolResultBlockParam:`
 
+        - `JsonValue type = "web_search_tool_result"`
+
         - `BetaWebSearchToolResultBlockParamContent content`
 
           - `List<BetaWebSearchResultBlockParam>`
 
+            - `JsonValue type = "web_search_result"`
+
             - `String encryptedContent`
 
             - `String title`
-
-            - `JsonValue type = "web_search_result"`
 
             - `String url`
 
             - `Optional<String> pageAge`
 
           - `class BetaWebSearchToolRequestError:`
+
+            - `JsonValue type = "web_search_tool_result_error"`
 
             - `BetaWebSearchToolResultErrorCode errorCode`
 
@@ -21124,13 +21153,9 @@ public final class Main {
 
               - `REQUEST_TOO_LARGE("request_too_large")`
 
-            - `JsonValue type = "web_search_tool_result_error"`
-
         - `String toolUseId`
 
           pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-        - `JsonValue type = "web_search_tool_result"`
 
         - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -21152,9 +21177,13 @@ public final class Main {
 
       - `class BetaWebFetchToolResultBlockParam:`
 
+        - `JsonValue type = "web_fetch_tool_result"`
+
         - `Content content`
 
           - `class BetaWebFetchToolResultErrorBlockParam:`
+
+            - `JsonValue type = "web_fetch_tool_result_error"`
 
             - `BetaWebFetchToolResultErrorCode errorCode`
 
@@ -21176,13 +21205,13 @@ public final class Main {
 
               - `UNAVAILABLE("unavailable")`
 
-            - `JsonValue type = "web_fetch_tool_result_error"`
+              - `CONTENT_TOO_LARGE("content_too_large")`
 
           - `class BetaWebFetchBlockParam:`
 
-            - `BetaRequestDocumentBlock content`
-
             - `JsonValue type = "web_fetch_result"`
+
+            - `BetaRequestDocumentBlock content`
 
             - `String url`
 
@@ -21195,8 +21224,6 @@ public final class Main {
         - `String toolUseId`
 
           pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-        - `JsonValue type = "web_fetch_tool_result"`
 
         - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -21218,9 +21245,13 @@ public final class Main {
 
       - `class BetaAdvisorToolResultBlockParam:`
 
+        - `JsonValue type = "advisor_tool_result"`
+
         - `Content content`
 
           - `class BetaAdvisorToolResultErrorParam:`
+
+            - `JsonValue type = "advisor_tool_result_error"`
 
             - `ErrorCode errorCode`
 
@@ -21238,23 +21269,21 @@ public final class Main {
 
               - `MODEL_NOT_FOUND("model_not_found")`
 
-            - `JsonValue type = "advisor_tool_result_error"`
-
           - `class BetaAdvisorResultBlockParam:`
 
-            - `String text`
-
             - `JsonValue type = "advisor_result"`
+
+            - `String text`
 
             - `Optional<String> stopReason`
 
           - `class BetaAdvisorRedactedResultBlockParam:`
 
+            - `JsonValue type = "advisor_redacted_result"`
+
             - `String encryptedContent`
 
               Opaque blob produced by a prior response; must be round-tripped verbatim.
-
-            - `JsonValue type = "advisor_redacted_result"`
 
             - `Optional<String> stopReason`
 
@@ -21262,19 +21291,21 @@ public final class Main {
 
           pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-        - `JsonValue type = "advisor_tool_result"`
-
         - `Optional<BetaCacheControlEphemeral> cacheControl`
 
           Create a cache control breakpoint at this content block.
 
       - `class BetaCodeExecutionToolResultBlockParam:`
 
+        - `JsonValue type = "code_execution_tool_result"`
+
         - `BetaCodeExecutionToolResultBlockParamContent content`
 
           Code execution result with encrypted stdout for PFC + web_search results.
 
           - `class BetaCodeExecutionToolResultErrorParam:`
+
+            - `JsonValue type = "code_execution_tool_result_error"`
 
             - `BetaCodeExecutionToolResultErrorCode errorCode`
 
@@ -21286,15 +21317,15 @@ public final class Main {
 
               - `EXECUTION_TIME_EXCEEDED("execution_time_exceeded")`
 
-            - `JsonValue type = "code_execution_tool_result_error"`
-
           - `class BetaCodeExecutionResultBlockParam:`
+
+            - `JsonValue type = "code_execution_result"`
 
             - `List<BetaCodeExecutionOutputBlockParam> content`
 
-              - `String fileId`
-
               - `JsonValue type = "code_execution_output"`
+
+              - `String fileId`
 
             - `long returnCode`
 
@@ -21302,17 +21333,17 @@ public final class Main {
 
             - `String stdout`
 
-            - `JsonValue type = "code_execution_result"`
-
           - `class BetaEncryptedCodeExecutionResultBlockParam:`
 
             Code execution result with encrypted stdout for PFC + web_search results.
 
+            - `JsonValue type = "encrypted_code_execution_result"`
+
             - `List<BetaCodeExecutionOutputBlockParam> content`
 
-              - `String fileId`
-
               - `JsonValue type = "code_execution_output"`
+
+              - `String fileId`
 
             - `String encryptedStdout`
 
@@ -21320,13 +21351,9 @@ public final class Main {
 
             - `String stderr`
 
-            - `JsonValue type = "encrypted_code_execution_result"`
-
         - `String toolUseId`
 
           pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-        - `JsonValue type = "code_execution_tool_result"`
 
         - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -21334,9 +21361,13 @@ public final class Main {
 
       - `class BetaBashCodeExecutionToolResultBlockParam:`
 
+        - `JsonValue type = "bash_code_execution_tool_result"`
+
         - `Content content`
 
           - `class BetaBashCodeExecutionToolResultErrorParam:`
+
+            - `JsonValue type = "bash_code_execution_tool_result_error"`
 
             - `ErrorCode errorCode`
 
@@ -21350,15 +21381,15 @@ public final class Main {
 
               - `OUTPUT_FILE_TOO_LARGE("output_file_too_large")`
 
-            - `JsonValue type = "bash_code_execution_tool_result_error"`
-
           - `class BetaBashCodeExecutionResultBlockParam:`
+
+            - `JsonValue type = "bash_code_execution_result"`
 
             - `List<BetaBashCodeExecutionOutputBlockParam> content`
 
-              - `String fileId`
-
               - `JsonValue type = "bash_code_execution_output"`
+
+              - `String fileId`
 
             - `long returnCode`
 
@@ -21366,13 +21397,9 @@ public final class Main {
 
             - `String stdout`
 
-            - `JsonValue type = "bash_code_execution_result"`
-
         - `String toolUseId`
 
           pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-        - `JsonValue type = "bash_code_execution_tool_result"`
 
         - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -21380,9 +21407,13 @@ public final class Main {
 
       - `class BetaTextEditorCodeExecutionToolResultBlockParam:`
 
+        - `JsonValue type = "text_editor_code_execution_tool_result"`
+
         - `Content content`
 
           - `class BetaTextEditorCodeExecutionToolResultErrorParam:`
+
+            - `JsonValue type = "text_editor_code_execution_tool_result_error"`
 
             - `ErrorCode errorCode`
 
@@ -21396,11 +21427,11 @@ public final class Main {
 
               - `FILE_NOT_FOUND("file_not_found")`
 
-            - `JsonValue type = "text_editor_code_execution_tool_result_error"`
-
             - `Optional<String> errorMessage`
 
           - `class BetaTextEditorCodeExecutionViewResultBlockParam:`
+
+            - `JsonValue type = "text_editor_code_execution_view_result"`
 
             - `String content`
 
@@ -21412,8 +21443,6 @@ public final class Main {
 
               - `PDF("pdf")`
 
-            - `JsonValue type = "text_editor_code_execution_view_result"`
-
             - `Optional<Long> numLines`
 
             - `Optional<Long> startLine`
@@ -21422,9 +21451,9 @@ public final class Main {
 
           - `class BetaTextEditorCodeExecutionCreateResultBlockParam:`
 
-            - `boolean isFileUpdate`
-
             - `JsonValue type = "text_editor_code_execution_create_result"`
+
+            - `boolean isFileUpdate`
 
           - `class BetaTextEditorCodeExecutionStrReplaceResultBlockParam:`
 
@@ -21444,17 +21473,19 @@ public final class Main {
 
           pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-        - `JsonValue type = "text_editor_code_execution_tool_result"`
-
         - `Optional<BetaCacheControlEphemeral> cacheControl`
 
           Create a cache control breakpoint at this content block.
 
       - `class BetaToolSearchToolResultBlockParam:`
 
+        - `JsonValue type = "tool_search_tool_result"`
+
         - `Content content`
 
           - `class BetaToolSearchToolResultErrorParam:`
+
+            - `JsonValue type = "tool_search_tool_result_error"`
 
             - `ErrorCode errorCode`
 
@@ -21466,37 +21497,35 @@ public final class Main {
 
               - `EXECUTION_TIME_EXCEEDED("execution_time_exceeded")`
 
-            - `JsonValue type = "tool_search_tool_result_error"`
-
             - `Optional<String> errorMessage`
 
           - `class BetaToolSearchToolSearchResultBlockParam:`
 
+            - `JsonValue type = "tool_search_tool_search_result"`
+
             - `List<BetaToolReferenceBlockParam> toolReferences`
+
+              - `JsonValue type = "tool_reference"`
 
               - `String toolName`
 
                 maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
-              - `JsonValue type = "tool_reference"`
-
               - `Optional<BetaCacheControlEphemeral> cacheControl`
 
                 Create a cache control breakpoint at this content block.
 
-            - `JsonValue type = "tool_search_tool_search_result"`
-
         - `String toolUseId`
 
           pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-        - `JsonValue type = "tool_search_tool_result"`
 
         - `Optional<BetaCacheControlEphemeral> cacheControl`
 
           Create a cache control breakpoint at this content block.
 
       - `class BetaMcpToolUseBlockParam:`
+
+        - `JsonValue type = "mcp_tool_use"`
 
         - `String id`
 
@@ -21510,19 +21539,17 @@ public final class Main {
 
           The name of the MCP server
 
-        - `JsonValue type = "mcp_tool_use"`
-
         - `Optional<BetaCacheControlEphemeral> cacheControl`
 
           Create a cache control breakpoint at this content block.
 
       - `class BetaRequestMcpToolResultBlockParam:`
 
+        - `JsonValue type = "mcp_tool_result"`
+
         - `String toolUseId`
 
           pattern: ^[a-zA-Z0-9_-]+$
-
-        - `JsonValue type = "mcp_tool_result"`
 
         - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -21534,11 +21561,11 @@ public final class Main {
 
           - `List<BetaTextBlockParam>`
 
+            - `JsonValue type = "text"`
+
             - `String text`
 
               minLength: 1
-
-            - `JsonValue type = "text"`
 
             - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -21553,9 +21580,9 @@ public final class Main {
         A content block that represents a file to be uploaded to the container
         Files uploaded via this block will be available in the container's input directory.
 
-        - `String fileId`
-
         - `JsonValue type = "container_upload"`
+
+        - `String fileId`
 
         - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -21593,6 +21620,8 @@ public final class Main {
         `tools`; it is offered to the model from this point in the
         conversation onward.
 
+        - `JsonValue type = "tool_addition"`
+
         - `Tool tool`
 
           Reference to a single tool the caller declared directly in
@@ -21607,32 +21636,30 @@ public final class Main {
             server assigns to MCP-resolved tools — use `mcp_tool_reference` or
             `mcp_toolset_reference` for those.
 
+            - `JsonValue type = "tool_reference"`
+
             - `String name`
 
               pattern: ^[a-zA-Z0-9_-]{1,128}$
-
-            - `JsonValue type = "tool_reference"`
 
           - `class BetaToolChangeMcpToolReference:`
 
             Reference to a single MCP tool by its server and remote name — the
             same `server_name`/`name` pair `mcp_tool_use` carries.
 
+            - `JsonValue type = "mcp_tool_reference"`
+
             - `String name`
 
             - `String serverName`
-
-            - `JsonValue type = "mcp_tool_reference"`
 
           - `class BetaToolChangeMcpToolsetReference:`
 
             Reference to every tool in the named MCP server's toolset.
 
-            - `String serverName`
-
             - `JsonValue type = "mcp_toolset_reference"`
 
-        - `JsonValue type = "tool_addition"`
+            - `String serverName`
 
         - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -21646,6 +21673,8 @@ public final class Main {
         `tools`; it is no longer offered to the model from this point in the
         conversation onward.
 
+        - `JsonValue type = "tool_removal"`
+
         - `Tool tool`
 
           Reference to a single tool the caller declared directly in
@@ -21668,8 +21697,6 @@ public final class Main {
           - `class BetaToolChangeMcpToolsetReference:`
 
             Reference to every tool in the named MCP server's toolset.
-
-        - `JsonValue type = "tool_removal"`
 
         - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -21690,6 +21717,8 @@ public final class Main {
         request is rejected), and moving it into the middle of a single run is
         likewise rejected; between non-thinking blocks the block's placement has
         no validation effect.
+
+        - `JsonValue type = "fallback"`
 
         - `BetaFallbackInfoParam from`
 
@@ -21772,8 +21801,6 @@ public final class Main {
         - `BetaFallbackInfoParam to`
 
           Identifies one hop of a fallback transition.
-
-        - `JsonValue type = "fallback"`
 
         - `Optional<JsonValue> trigger`
 
@@ -21867,25 +21894,25 @@ public final class Main {
 
     A schema to specify Claude's output format in responses. See [structured outputs](https://platform.claude.com/docs/en/build-with-claude/structured-outputs)
 
+    - `JsonValue type = "json_schema"`
+
     - `Schema schema`
 
       The JSON schema of the format
 
-    - `JsonValue type = "json_schema"`
-
   - `Optional<BetaTokenTaskBudget> taskBudget`
 
     User-configurable total token budget across contexts.
+
+    - `JsonValue type = "tokens"`
+
+      The budget type. Currently only 'tokens' is supported.
 
     - `long total`
 
       Total token budget across all contexts in the session.
 
       minimum: 1024
-
-    - `JsonValue type = "tokens"`
-
-      The budget type. Currently only 'tokens' is supported.
 
     - `Optional<Long> remaining`
 
@@ -21914,11 +21941,11 @@ public final class Main {
 
 - `class BetaPlainTextSource:`
 
+  - `JsonValue type = "text"`
+
   - `String data`
 
   - `JsonValue mediaType = "text/plain"`
-
-  - `JsonValue type = "text"`
 
 ### Beta Raw Content Block Delta
 
@@ -21926,21 +21953,25 @@ public final class Main {
 
   - `class BetaTextDelta:`
 
-    - `String text`
-
     - `JsonValue type = "text_delta"`
+
+    - `String text`
 
   - `class BetaInputJsonDelta:`
 
-    - `String partialJson`
-
     - `JsonValue type = "input_json_delta"`
 
+    - `String partialJson`
+
   - `class BetaCitationsDelta:`
+
+    - `JsonValue type = "citations_delta"`
 
     - `Citation citation`
 
       - `class BetaCitationCharLocation:`
+
+        - `JsonValue type = "char_location"`
 
         - `String citedText`
 
@@ -21958,9 +21989,9 @@ public final class Main {
 
           minimum: 0
 
-        - `JsonValue type = "char_location"`
-
       - `class BetaCitationPageLocation:`
+
+        - `JsonValue type = "page_location"`
 
         - `String citedText`
 
@@ -21978,9 +22009,9 @@ public final class Main {
 
           minimum: 1
 
-        - `JsonValue type = "page_location"`
-
       - `class BetaCitationContentBlockLocation:`
+
+        - `JsonValue type = "content_block_location"`
 
         - `String citedText`
 
@@ -22008,9 +22039,9 @@ public final class Main {
 
           minimum: 0
 
-        - `JsonValue type = "content_block_location"`
-
       - `class BetaCitationsWebSearchResultLocation:`
+
+        - `JsonValue type = "web_search_result_location"`
 
         - `String citedText`
 
@@ -22020,11 +22051,11 @@ public final class Main {
 
           maxLength: 512
 
-        - `JsonValue type = "web_search_result_location"`
-
         - `String url`
 
       - `class BetaCitationSearchResultLocation:`
+
+        - `JsonValue type = "search_result_location"`
 
         - `String citedText`
 
@@ -22056,11 +22087,9 @@ public final class Main {
 
         - `Optional<String> title`
 
-        - `JsonValue type = "search_result_location"`
-
-    - `JsonValue type = "citations_delta"`
-
   - `class BetaThinkingDelta:`
+
+    - `JsonValue type = "thinking_delta"`
 
     - `Optional<Long> estimatedTokens`
 
@@ -22070,17 +22099,17 @@ public final class Main {
 
       The incremental `thinking` text for this content block. Concatenate the `thinking` values of successive `thinking_delta` events to assemble the block's full `thinking` value.
 
-    - `JsonValue type = "thinking_delta"`
-
   - `class BetaSignatureDelta:`
+
+    - `JsonValue type = "signature_delta"`
 
     - `String signature`
 
       The `signature` for this thinking block: an opaque value used to verify that the block was generated by Claude when it is passed back to the API. Delivered in a `signature_delta` event just before the block's `content_block_stop` event.
 
-    - `JsonValue type = "signature_delta"`
-
   - `class BetaCompactionContentBlockDelta:`
+
+    - `JsonValue type = "compaction_delta"`
 
     - `Optional<String> content`
 
@@ -22088,31 +22117,35 @@ public final class Main {
 
       Opaque metadata from prior compaction, to be round-tripped verbatim
 
-    - `JsonValue type = "compaction_delta"`
-
 ### Beta Raw Content Block Delta Event
 
 - `class BetaRawContentBlockDeltaEvent:`
+
+  - `JsonValue type = "content_block_delta"`
 
   - `BetaRawContentBlockDelta delta`
 
     - `class BetaTextDelta:`
 
-      - `String text`
-
       - `JsonValue type = "text_delta"`
+
+      - `String text`
 
     - `class BetaInputJsonDelta:`
 
-      - `String partialJson`
-
       - `JsonValue type = "input_json_delta"`
 
+      - `String partialJson`
+
     - `class BetaCitationsDelta:`
+
+      - `JsonValue type = "citations_delta"`
 
       - `Citation citation`
 
         - `class BetaCitationCharLocation:`
+
+          - `JsonValue type = "char_location"`
 
           - `String citedText`
 
@@ -22130,9 +22163,9 @@ public final class Main {
 
             minimum: 0
 
-          - `JsonValue type = "char_location"`
-
         - `class BetaCitationPageLocation:`
+
+          - `JsonValue type = "page_location"`
 
           - `String citedText`
 
@@ -22150,9 +22183,9 @@ public final class Main {
 
             minimum: 1
 
-          - `JsonValue type = "page_location"`
-
         - `class BetaCitationContentBlockLocation:`
+
+          - `JsonValue type = "content_block_location"`
 
           - `String citedText`
 
@@ -22180,9 +22213,9 @@ public final class Main {
 
             minimum: 0
 
-          - `JsonValue type = "content_block_location"`
-
         - `class BetaCitationsWebSearchResultLocation:`
+
+          - `JsonValue type = "web_search_result_location"`
 
           - `String citedText`
 
@@ -22192,11 +22225,11 @@ public final class Main {
 
             maxLength: 512
 
-          - `JsonValue type = "web_search_result_location"`
-
           - `String url`
 
         - `class BetaCitationSearchResultLocation:`
+
+          - `JsonValue type = "search_result_location"`
 
           - `String citedText`
 
@@ -22228,11 +22261,9 @@ public final class Main {
 
           - `Optional<String> title`
 
-          - `JsonValue type = "search_result_location"`
-
-      - `JsonValue type = "citations_delta"`
-
     - `class BetaThinkingDelta:`
+
+      - `JsonValue type = "thinking_delta"`
 
       - `Optional<Long> estimatedTokens`
 
@@ -22242,17 +22273,17 @@ public final class Main {
 
         The incremental `thinking` text for this content block. Concatenate the `thinking` values of successive `thinking_delta` events to assemble the block's full `thinking` value.
 
-      - `JsonValue type = "thinking_delta"`
-
     - `class BetaSignatureDelta:`
+
+      - `JsonValue type = "signature_delta"`
 
       - `String signature`
 
         The `signature` for this thinking block: an opaque value used to verify that the block was generated by Claude when it is passed back to the API. Delivered in a `signature_delta` event just before the block's `content_block_stop` event.
 
-      - `JsonValue type = "signature_delta"`
-
     - `class BetaCompactionContentBlockDelta:`
+
+      - `JsonValue type = "compaction_delta"`
 
       - `Optional<String> content`
 
@@ -22260,21 +22291,21 @@ public final class Main {
 
         Opaque metadata from prior compaction, to be round-tripped verbatim
 
-      - `JsonValue type = "compaction_delta"`
-
   - `long index`
-
-  - `JsonValue type = "content_block_delta"`
 
 ### Beta Raw Content Block Start Event
 
 - `class BetaRawContentBlockStartEvent:`
+
+  - `JsonValue type = "content_block_start"`
 
   - `ContentBlock contentBlock`
 
     Response model for a file uploaded to the container.
 
     - `class BetaTextBlock:`
+
+      - `JsonValue type = "text"`
 
       - `Optional<List<BetaTextCitation>> citations`
 
@@ -22283,6 +22314,8 @@ public final class Main {
         The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
 
         - `class BetaCitationCharLocation:`
+
+          - `JsonValue type = "char_location"`
 
           - `String citedText`
 
@@ -22300,9 +22333,9 @@ public final class Main {
 
             minimum: 0
 
-          - `JsonValue type = "char_location"`
-
         - `class BetaCitationPageLocation:`
+
+          - `JsonValue type = "page_location"`
 
           - `String citedText`
 
@@ -22320,9 +22353,9 @@ public final class Main {
 
             minimum: 1
 
-          - `JsonValue type = "page_location"`
-
         - `class BetaCitationContentBlockLocation:`
+
+          - `JsonValue type = "content_block_location"`
 
           - `String citedText`
 
@@ -22350,9 +22383,9 @@ public final class Main {
 
             minimum: 0
 
-          - `JsonValue type = "content_block_location"`
-
         - `class BetaCitationsWebSearchResultLocation:`
+
+          - `JsonValue type = "web_search_result_location"`
 
           - `String citedText`
 
@@ -22362,11 +22395,11 @@ public final class Main {
 
             maxLength: 512
 
-          - `JsonValue type = "web_search_result_location"`
-
           - `String url`
 
         - `class BetaCitationSearchResultLocation:`
+
+          - `JsonValue type = "search_result_location"`
 
           - `String citedText`
 
@@ -22398,15 +22431,13 @@ public final class Main {
 
           - `Optional<String> title`
 
-          - `JsonValue type = "search_result_location"`
-
       - `String text`
 
-        maxLength: 5000000, minLength: 0
-
-      - `JsonValue type = "text"`
+        minLength: 0
 
     - `class BetaThinkingBlock:`
+
+      - `JsonValue type = "thinking"`
 
       - `String signature`
 
@@ -22420,9 +22451,9 @@ public final class Main {
 
         The text of Claude's thinking process for this block.
 
-      - `JsonValue type = "thinking"`
-
     - `class BetaRedactedThinkingBlock:`
+
+      - `JsonValue type = "redacted_thinking"`
 
       - `String data`
 
@@ -22432,9 +22463,9 @@ public final class Main {
 
         See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking#redacted-thinking-blocks) for details.
 
-      - `JsonValue type = "redacted_thinking"`
-
     - `class BetaToolUseBlock:`
+
+      - `JsonValue type = "tool_use"`
 
       - `String id`
 
@@ -22445,8 +22476,6 @@ public final class Main {
       - `String name`
 
         minLength: 1
-
-      - `JsonValue type = "tool_use"`
 
       - `Optional<Caller> caller`
 
@@ -22462,19 +22491,19 @@ public final class Main {
 
           Tool invocation generated by a server-side tool.
 
+          - `JsonValue type = "code_execution_20250825"`
+
           - `String toolId`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-          - `JsonValue type = "code_execution_20250825"`
 
         - `class BetaServerToolCaller20260120:`
 
+          - `JsonValue type = "code_execution_20260120"`
+
           - `String toolId`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-          - `JsonValue type = "code_execution_20260120"`
 
       - `Optional<String> toolsetName`
 
@@ -22483,6 +22512,8 @@ public final class Main {
         maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
 
     - `class BetaServerToolUseBlock:`
+
+      - `JsonValue type = "server_tool_use"`
 
       - `String id`
 
@@ -22508,8 +22539,6 @@ public final class Main {
 
         - `TOOL_SEARCH_TOOL_BM25("tool_search_tool_bm25")`
 
-      - `JsonValue type = "server_tool_use"`
-
       - `Optional<Caller> caller`
 
         Tool invocation directly from the model.
@@ -22526,9 +22555,13 @@ public final class Main {
 
     - `class BetaWebSearchToolResultBlock:`
 
+      - `JsonValue type = "web_search_tool_result"`
+
       - `BetaWebSearchToolResultBlockContent content`
 
         - `class BetaWebSearchToolResultError:`
+
+          - `JsonValue type = "web_search_tool_result_error"`
 
           - `BetaWebSearchToolResultErrorCode errorCode`
 
@@ -22544,9 +22577,9 @@ public final class Main {
 
             - `REQUEST_TOO_LARGE("request_too_large")`
 
-          - `JsonValue type = "web_search_tool_result_error"`
-
         - `List<BetaWebSearchResultBlock>`
+
+          - `JsonValue type = "web_search_result"`
 
           - `String encryptedContent`
 
@@ -22554,15 +22587,11 @@ public final class Main {
 
           - `String title`
 
-          - `JsonValue type = "web_search_result"`
-
           - `String url`
 
       - `String toolUseId`
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-      - `JsonValue type = "web_search_tool_result"`
 
       - `Optional<Caller> caller`
 
@@ -22580,9 +22609,13 @@ public final class Main {
 
     - `class BetaWebFetchToolResultBlock:`
 
+      - `JsonValue type = "web_fetch_tool_result"`
+
       - `Content content`
 
         - `class BetaWebFetchToolResultErrorBlock:`
+
+          - `JsonValue type = "web_fetch_tool_result_error"`
 
           - `BetaWebFetchToolResultErrorCode errorCode`
 
@@ -22604,11 +22637,15 @@ public final class Main {
 
             - `UNAVAILABLE("unavailable")`
 
-          - `JsonValue type = "web_fetch_tool_result_error"`
+            - `CONTENT_TOO_LARGE("content_too_large")`
 
         - `class BetaWebFetchBlock:`
 
+          - `JsonValue type = "web_fetch_result"`
+
           - `BetaDocumentBlock content`
+
+            - `JsonValue type = "document"`
 
             - `Optional<BetaCitationConfig> citations`
 
@@ -22620,33 +22657,29 @@ public final class Main {
 
               - `class BetaBase64PdfSource:`
 
+                - `JsonValue type = "base64"`
+
                 - `String data`
 
                   format: byte
 
                 - `JsonValue mediaType = "application/pdf"`
 
-                - `JsonValue type = "base64"`
-
               - `class BetaPlainTextSource:`
+
+                - `JsonValue type = "text"`
 
                 - `String data`
 
                 - `JsonValue mediaType = "text/plain"`
 
-                - `JsonValue type = "text"`
-
             - `Optional<String> title`
 
               The title of the document
 
-            - `JsonValue type = "document"`
-
           - `Optional<String> retrievedAt`
 
             ISO 8601 timestamp when the content was retrieved
-
-          - `JsonValue type = "web_fetch_result"`
 
           - `String url`
 
@@ -22655,8 +22688,6 @@ public final class Main {
       - `String toolUseId`
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-      - `JsonValue type = "web_fetch_tool_result"`
 
       - `Optional<Caller> caller`
 
@@ -22674,9 +22705,13 @@ public final class Main {
 
     - `class BetaAdvisorToolResultBlock:`
 
+      - `JsonValue type = "advisor_tool_result"`
+
       - `Content content`
 
         - `class BetaAdvisorToolResultError:`
+
+          - `JsonValue type = "advisor_tool_result_error"`
 
           - `ErrorCode errorCode`
 
@@ -22694,9 +22729,9 @@ public final class Main {
 
             - `MODEL_NOT_FOUND("model_not_found")`
 
-          - `JsonValue type = "advisor_tool_result_error"`
-
         - `class BetaAdvisorResultBlock:`
+
+          - `JsonValue type = "advisor_result"`
 
           - `Optional<String> stopReason`
 
@@ -22704,9 +22739,9 @@ public final class Main {
 
           - `String text`
 
-          - `JsonValue type = "advisor_result"`
-
         - `class BetaAdvisorRedactedResultBlock:`
+
+          - `JsonValue type = "advisor_redacted_result"`
 
           - `String encryptedContent`
 
@@ -22716,21 +22751,21 @@ public final class Main {
 
             The advisor sub-inference's stop reason (same values as the top-level message `stop_reason`).
 
-          - `JsonValue type = "advisor_redacted_result"`
-
       - `String toolUseId`
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-      - `JsonValue type = "advisor_tool_result"`
-
     - `class BetaCodeExecutionToolResultBlock:`
+
+      - `JsonValue type = "code_execution_tool_result"`
 
       - `BetaCodeExecutionToolResultBlockContent content`
 
         Code execution result with encrypted stdout for PFC + web_search results.
 
         - `class BetaCodeExecutionToolResultError:`
+
+          - `JsonValue type = "code_execution_tool_result_error"`
 
           - `BetaCodeExecutionToolResultErrorCode errorCode`
 
@@ -22742,15 +22777,15 @@ public final class Main {
 
             - `EXECUTION_TIME_EXCEEDED("execution_time_exceeded")`
 
-          - `JsonValue type = "code_execution_tool_result_error"`
-
         - `class BetaCodeExecutionResultBlock:`
+
+          - `JsonValue type = "code_execution_result"`
 
           - `List<BetaCodeExecutionOutputBlock> content`
 
-            - `String fileId`
-
             - `JsonValue type = "code_execution_output"`
+
+            - `String fileId`
 
           - `long returnCode`
 
@@ -22758,17 +22793,17 @@ public final class Main {
 
           - `String stdout`
 
-          - `JsonValue type = "code_execution_result"`
-
         - `class BetaEncryptedCodeExecutionResultBlock:`
 
           Code execution result with encrypted stdout for PFC + web_search results.
 
+          - `JsonValue type = "encrypted_code_execution_result"`
+
           - `List<BetaCodeExecutionOutputBlock> content`
 
-            - `String fileId`
-
             - `JsonValue type = "code_execution_output"`
+
+            - `String fileId`
 
           - `String encryptedStdout`
 
@@ -22776,19 +22811,19 @@ public final class Main {
 
           - `String stderr`
 
-          - `JsonValue type = "encrypted_code_execution_result"`
-
       - `String toolUseId`
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-      - `JsonValue type = "code_execution_tool_result"`
-
     - `class BetaBashCodeExecutionToolResultBlock:`
+
+      - `JsonValue type = "bash_code_execution_tool_result"`
 
       - `Content content`
 
         - `class BetaBashCodeExecutionToolResultError:`
+
+          - `JsonValue type = "bash_code_execution_tool_result_error"`
 
           - `ErrorCode errorCode`
 
@@ -22802,15 +22837,15 @@ public final class Main {
 
             - `OUTPUT_FILE_TOO_LARGE("output_file_too_large")`
 
-          - `JsonValue type = "bash_code_execution_tool_result_error"`
-
         - `class BetaBashCodeExecutionResultBlock:`
+
+          - `JsonValue type = "bash_code_execution_result"`
 
           - `List<BetaBashCodeExecutionOutputBlock> content`
 
-            - `String fileId`
-
             - `JsonValue type = "bash_code_execution_output"`
+
+            - `String fileId`
 
           - `long returnCode`
 
@@ -22818,19 +22853,19 @@ public final class Main {
 
           - `String stdout`
 
-          - `JsonValue type = "bash_code_execution_result"`
-
       - `String toolUseId`
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-      - `JsonValue type = "bash_code_execution_tool_result"`
-
     - `class BetaTextEditorCodeExecutionToolResultBlock:`
+
+      - `JsonValue type = "text_editor_code_execution_tool_result"`
 
       - `Content content`
 
         - `class BetaTextEditorCodeExecutionToolResultError:`
+
+          - `JsonValue type = "text_editor_code_execution_tool_result_error"`
 
           - `ErrorCode errorCode`
 
@@ -22846,9 +22881,9 @@ public final class Main {
 
           - `Optional<String> errorMessage`
 
-          - `JsonValue type = "text_editor_code_execution_tool_result_error"`
-
         - `class BetaTextEditorCodeExecutionViewResultBlock:`
+
+          - `JsonValue type = "text_editor_code_execution_view_result"`
 
           - `String content`
 
@@ -22866,15 +22901,15 @@ public final class Main {
 
           - `Optional<Long> totalLines`
 
-          - `JsonValue type = "text_editor_code_execution_view_result"`
-
         - `class BetaTextEditorCodeExecutionCreateResultBlock:`
-
-          - `boolean isFileUpdate`
 
           - `JsonValue type = "text_editor_code_execution_create_result"`
 
+          - `boolean isFileUpdate`
+
         - `class BetaTextEditorCodeExecutionStrReplaceResultBlock:`
+
+          - `JsonValue type = "text_editor_code_execution_str_replace_result"`
 
           - `Optional<List<String>> lines`
 
@@ -22886,19 +22921,19 @@ public final class Main {
 
           - `Optional<Long> oldStart`
 
-          - `JsonValue type = "text_editor_code_execution_str_replace_result"`
-
       - `String toolUseId`
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-      - `JsonValue type = "text_editor_code_execution_tool_result"`
-
     - `class BetaToolSearchToolResultBlock:`
+
+      - `JsonValue type = "tool_search_tool_result"`
 
       - `Content content`
 
         - `class BetaToolSearchToolResultError:`
+
+          - `JsonValue type = "tool_search_tool_result_error"`
 
           - `ErrorCode errorCode`
 
@@ -22912,27 +22947,25 @@ public final class Main {
 
           - `Optional<String> errorMessage`
 
-          - `JsonValue type = "tool_search_tool_result_error"`
-
         - `class BetaToolSearchToolSearchResultBlock:`
 
+          - `JsonValue type = "tool_search_tool_search_result"`
+
           - `List<BetaToolReferenceBlock> toolReferences`
+
+            - `JsonValue type = "tool_reference"`
 
             - `String toolName`
 
               maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
-            - `JsonValue type = "tool_reference"`
-
-          - `JsonValue type = "tool_search_tool_search_result"`
-
       - `String toolUseId`
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-      - `JsonValue type = "tool_search_tool_result"`
-
     - `class BetaMcpToolUseBlock:`
+
+      - `JsonValue type = "mcp_tool_use"`
 
       - `String id`
 
@@ -22948,15 +22981,17 @@ public final class Main {
 
         The name of the MCP server
 
-      - `JsonValue type = "mcp_tool_use"`
-
     - `class BetaMcpToolResultBlock:`
+
+      - `JsonValue type = "mcp_tool_result"`
 
       - `Content content`
 
         - `String`
 
         - `List<BetaTextBlock>`
+
+          - `JsonValue type = "text"`
 
           - `Optional<List<BetaTextCitation>> citations`
 
@@ -22966,9 +23001,7 @@ public final class Main {
 
           - `String text`
 
-            maxLength: 5000000, minLength: 0
-
-          - `JsonValue type = "text"`
+            minLength: 0
 
       - `boolean isError`
 
@@ -22976,15 +23009,13 @@ public final class Main {
 
         pattern: ^[a-zA-Z0-9_-]+$
 
-      - `JsonValue type = "mcp_tool_result"`
-
     - `class BetaContainerUploadBlock:`
 
       Response model for a file uploaded to the container.
 
-      - `String fileId`
-
       - `JsonValue type = "container_upload"`
+
+      - `String fileId`
 
     - `class BetaCompactionBlock:`
 
@@ -22994,6 +23025,8 @@ public final class Main {
       summary (e.g., malformed output from the model). Clients may round-trip
       compaction blocks with null content; the server treats them as no-ops.
 
+      - `JsonValue type = "compaction"`
+
       - `Optional<String> content`
 
         Summary of compacted content, or null if compaction failed
@@ -23001,8 +23034,6 @@ public final class Main {
       - `Optional<String> encryptedContent`
 
         Opaque metadata from prior compaction, to be round-tripped verbatim
-
-      - `JsonValue type = "compaction"`
 
     - `class BetaFallbackBlock:`
 
@@ -23017,6 +23048,8 @@ public final class Main {
       The block is treated like a server-tool content block for streaming: it
       arrives via the standard `content_block_start` / `content_block_stop`
       pair and carries no deltas.
+
+      - `JsonValue type = "fallback"`
 
       - `BetaFallbackInfo from`
 
@@ -23104,6 +23137,8 @@ public final class Main {
 
         What caused the `from` model to hand over at this hop.
 
+        - `JsonValue type = "refusal"`
+
         - `Optional<Category> category`
 
           The policy category that triggered a refusal.
@@ -23128,25 +23163,21 @@ public final class Main {
 
             The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
 
-        - `JsonValue type = "refusal"`
-
-      - `JsonValue type = "fallback"`
-
   - `long index`
-
-  - `JsonValue type = "content_block_start"`
 
 ### Beta Raw Content Block Stop Event
 
 - `class BetaRawContentBlockStopEvent:`
 
-  - `long index`
-
   - `JsonValue type = "content_block_stop"`
+
+  - `long index`
 
 ### Beta Raw Message Delta Event
 
 - `class BetaRawMessageDeltaEvent:`
+
+  - `JsonValue type = "message_delta"`
 
   - `Optional<BetaContextManagementResponse> contextManagement`
 
@@ -23157,6 +23188,10 @@ public final class Main {
       List of context management edits that were applied.
 
       - `class BetaClearToolUses20250919EditResponse:`
+
+        - `JsonValue type = "clear_tool_uses_20250919"`
+
+          The type of context management edit applied.
 
         - `long clearedInputTokens`
 
@@ -23170,11 +23205,11 @@ public final class Main {
 
           minimum: 0
 
-        - `JsonValue type = "clear_tool_uses_20250919"`
+      - `class BetaClearThinking20251015EditResponse:`
+
+        - `JsonValue type = "clear_thinking_20251015"`
 
           The type of context management edit applied.
-
-      - `class BetaClearThinking20251015EditResponse:`
 
         - `long clearedInputTokens`
 
@@ -23187,10 +23222,6 @@ public final class Main {
           Number of thinking turns that were cleared.
 
           minimum: 0
-
-        - `JsonValue type = "clear_thinking_20251015"`
-
-          The type of context management edit applied.
 
   - `Delta delta`
 
@@ -23212,12 +23243,6 @@ public final class Main {
 
         Skills loaded in the container
 
-        - `String skillId`
-
-          Skill ID
-
-          maxLength: 64, minLength: 1
-
         - `Type type`
 
           Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
@@ -23225,6 +23250,12 @@ public final class Main {
           - `ANTHROPIC("anthropic")`
 
           - `CUSTOM("custom")`
+
+        - `String skillId`
+
+          Skill ID
+
+          maxLength: 64, minLength: 1
 
         - `String version`
 
@@ -23235,6 +23266,8 @@ public final class Main {
     - `Optional<BetaRefusalStopDetails> stopDetails`
 
       Structured information about a refusal.
+
+      - `JsonValue type = "refusal"`
 
       - `Optional<Category> category`
 
@@ -23315,8 +23348,6 @@ public final class Main {
 
         The server's suggested retry target for this refusal. Populated when a fallback attempt could not be made (the fallback model's rate limit was exhausted, or it was overloaded); names the fallback model the caller can retry directly. Null otherwise.
 
-      - `JsonValue type = "refusal"`
-
     - `Optional<BetaStopReason> stopReason`
 
       - `END_TURN("end_turn")`
@@ -23336,8 +23367,6 @@ public final class Main {
       - `MODEL_CONTEXT_WINDOW_EXCEEDED("model_context_window_exceeded")`
 
     - `Optional<String> stopSequence`
-
-  - `JsonValue type = "message_delta"`
 
   - `BetaMessageDeltaUsage usage`
 
@@ -23387,6 +23416,8 @@ public final class Main {
 
           No reprice was applied; `reason` says why.
 
+          - `JsonValue type = "not_applied"`
+
           - `Reason reason`
 
             Why the reprice was not applied.
@@ -23417,8 +23448,6 @@ public final class Main {
             - `WRONG_PLATFORM("wrong_platform")`
 
             - `WRONG_WORKSPACE("wrong_workspace")`
-
-          - `JsonValue type = "not_applied"`
 
           - `Optional<List<String>> removeToRedeem`
 
@@ -23452,6 +23481,10 @@ public final class Main {
       - `class BetaMessageIterationUsage:`
 
         Token usage for a sampling iteration.
+
+        - `JsonValue type = "message"`
+
+          Usage for a sampling iteration
 
         - `Optional<BetaCacheCreation> cacheCreation`
 
@@ -23567,13 +23600,13 @@ public final class Main {
 
           minimum: 0
 
-        - `JsonValue type = "message"`
-
-          Usage for a sampling iteration
-
       - `class BetaCompactionIterationUsage:`
 
         Token usage for a compaction iteration.
+
+        - `JsonValue type = "compaction"`
+
+          Usage for a compaction iteration
 
         - `Optional<BetaCacheCreation> cacheCreation`
 
@@ -23603,13 +23636,13 @@ public final class Main {
 
           minimum: 0
 
-        - `JsonValue type = "compaction"`
-
-          Usage for a compaction iteration
-
       - `class BetaAdvisorMessageIterationUsage:`
 
         Token usage for an advisor sub-inference iteration.
+
+        - `JsonValue type = "advisor_message"`
+
+          Usage for an advisor sub-inference iteration
 
         - `Optional<BetaCacheCreation> cacheCreation`
 
@@ -23644,10 +23677,6 @@ public final class Main {
           The number of output tokens which were used.
 
           minimum: 0
-
-        - `JsonValue type = "advisor_message"`
-
-          Usage for an advisor sub-inference iteration
 
       - `class BetaFallbackMessageIterationUsage:`
 
@@ -23658,6 +23687,10 @@ public final class Main {
         a fallback model served the response is signalled by the presence of this
         entry in `usage.iterations`.
 
+        - `JsonValue type = "fallback_message"`
+
+          Usage for the fallback-model attempt that served the response
+
         - `Optional<BetaCacheCreation> cacheCreation`
 
           Breakdown of cached tokens by TTL
@@ -23691,10 +23724,6 @@ public final class Main {
           The number of output tokens which were used.
 
           minimum: 0
-
-        - `JsonValue type = "fallback_message"`
-
-          Usage for the fallback-model attempt that served the response
 
     - `long outputTokens`
 
@@ -23756,6 +23785,10 @@ public final class Main {
     fallback happened mid-stream, in which case it holds the serving model's
     entries and replaces the one in `message_start`.
 
+    - `JsonValue type = "thinking_dropped"`
+
+      Always `thinking_dropped` for this entry type.
+
     - `String path`
 
       Where the removed block was in your request, as `messages.{i}.content.{j}`:
@@ -23786,15 +23819,19 @@ public final class Main {
 
       - `END_USER_BINDING_MISMATCH("end_user_binding_mismatch")`
 
-    - `JsonValue type = "thinking_dropped"`
-
-      Always `thinking_dropped` for this entry type.
-
 ### Beta Raw Message Start Event
 
 - `class BetaRawMessageStartEvent:`
 
+  - `JsonValue type = "message_start"`
+
   - `BetaMessage message`
+
+    - `JsonValue type = "message"`
+
+      Object type.
+
+      For Messages, this is always `"message"`.
 
     - `String id`
 
@@ -23820,12 +23857,6 @@ public final class Main {
 
         Skills loaded in the container
 
-        - `String skillId`
-
-          Skill ID
-
-          maxLength: 64, minLength: 1
-
         - `Type type`
 
           Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
@@ -23833,6 +23864,12 @@ public final class Main {
           - `ANTHROPIC("anthropic")`
 
           - `CUSTOM("custom")`
+
+        - `String skillId`
+
+          Skill ID
+
+          maxLength: 64, minLength: 1
 
         - `String version`
 
@@ -23871,6 +23908,8 @@ public final class Main {
 
       - `class BetaTextBlock:`
 
+        - `JsonValue type = "text"`
+
         - `Optional<List<BetaTextCitation>> citations`
 
           Citations supporting the text block.
@@ -23878,6 +23917,8 @@ public final class Main {
           The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
 
           - `class BetaCitationCharLocation:`
+
+            - `JsonValue type = "char_location"`
 
             - `String citedText`
 
@@ -23895,9 +23936,9 @@ public final class Main {
 
               minimum: 0
 
-            - `JsonValue type = "char_location"`
-
           - `class BetaCitationPageLocation:`
+
+            - `JsonValue type = "page_location"`
 
             - `String citedText`
 
@@ -23915,9 +23956,9 @@ public final class Main {
 
               minimum: 1
 
-            - `JsonValue type = "page_location"`
-
           - `class BetaCitationContentBlockLocation:`
+
+            - `JsonValue type = "content_block_location"`
 
             - `String citedText`
 
@@ -23945,9 +23986,9 @@ public final class Main {
 
               minimum: 0
 
-            - `JsonValue type = "content_block_location"`
-
           - `class BetaCitationsWebSearchResultLocation:`
+
+            - `JsonValue type = "web_search_result_location"`
 
             - `String citedText`
 
@@ -23957,11 +23998,11 @@ public final class Main {
 
               maxLength: 512
 
-            - `JsonValue type = "web_search_result_location"`
-
             - `String url`
 
           - `class BetaCitationSearchResultLocation:`
+
+            - `JsonValue type = "search_result_location"`
 
             - `String citedText`
 
@@ -23993,15 +24034,13 @@ public final class Main {
 
             - `Optional<String> title`
 
-            - `JsonValue type = "search_result_location"`
-
         - `String text`
 
-          maxLength: 5000000, minLength: 0
-
-        - `JsonValue type = "text"`
+          minLength: 0
 
       - `class BetaThinkingBlock:`
+
+        - `JsonValue type = "thinking"`
 
         - `String signature`
 
@@ -24015,9 +24054,9 @@ public final class Main {
 
           The text of Claude's thinking process for this block.
 
-        - `JsonValue type = "thinking"`
-
       - `class BetaRedactedThinkingBlock:`
+
+        - `JsonValue type = "redacted_thinking"`
 
         - `String data`
 
@@ -24027,9 +24066,9 @@ public final class Main {
 
           See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking#redacted-thinking-blocks) for details.
 
-        - `JsonValue type = "redacted_thinking"`
-
       - `class BetaToolUseBlock:`
+
+        - `JsonValue type = "tool_use"`
 
         - `String id`
 
@@ -24040,8 +24079,6 @@ public final class Main {
         - `String name`
 
           minLength: 1
-
-        - `JsonValue type = "tool_use"`
 
         - `Optional<Caller> caller`
 
@@ -24057,19 +24094,19 @@ public final class Main {
 
             Tool invocation generated by a server-side tool.
 
+            - `JsonValue type = "code_execution_20250825"`
+
             - `String toolId`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-            - `JsonValue type = "code_execution_20250825"`
 
           - `class BetaServerToolCaller20260120:`
 
+            - `JsonValue type = "code_execution_20260120"`
+
             - `String toolId`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-            - `JsonValue type = "code_execution_20260120"`
 
         - `Optional<String> toolsetName`
 
@@ -24078,6 +24115,8 @@ public final class Main {
           maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
 
       - `class BetaServerToolUseBlock:`
+
+        - `JsonValue type = "server_tool_use"`
 
         - `String id`
 
@@ -24103,8 +24142,6 @@ public final class Main {
 
           - `TOOL_SEARCH_TOOL_BM25("tool_search_tool_bm25")`
 
-        - `JsonValue type = "server_tool_use"`
-
         - `Optional<Caller> caller`
 
           Tool invocation directly from the model.
@@ -24121,9 +24158,13 @@ public final class Main {
 
       - `class BetaWebSearchToolResultBlock:`
 
+        - `JsonValue type = "web_search_tool_result"`
+
         - `BetaWebSearchToolResultBlockContent content`
 
           - `class BetaWebSearchToolResultError:`
+
+            - `JsonValue type = "web_search_tool_result_error"`
 
             - `BetaWebSearchToolResultErrorCode errorCode`
 
@@ -24139,9 +24180,9 @@ public final class Main {
 
               - `REQUEST_TOO_LARGE("request_too_large")`
 
-            - `JsonValue type = "web_search_tool_result_error"`
-
           - `List<BetaWebSearchResultBlock>`
+
+            - `JsonValue type = "web_search_result"`
 
             - `String encryptedContent`
 
@@ -24149,15 +24190,11 @@ public final class Main {
 
             - `String title`
 
-            - `JsonValue type = "web_search_result"`
-
             - `String url`
 
         - `String toolUseId`
 
           pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-        - `JsonValue type = "web_search_tool_result"`
 
         - `Optional<Caller> caller`
 
@@ -24175,9 +24212,13 @@ public final class Main {
 
       - `class BetaWebFetchToolResultBlock:`
 
+        - `JsonValue type = "web_fetch_tool_result"`
+
         - `Content content`
 
           - `class BetaWebFetchToolResultErrorBlock:`
+
+            - `JsonValue type = "web_fetch_tool_result_error"`
 
             - `BetaWebFetchToolResultErrorCode errorCode`
 
@@ -24199,11 +24240,15 @@ public final class Main {
 
               - `UNAVAILABLE("unavailable")`
 
-            - `JsonValue type = "web_fetch_tool_result_error"`
+              - `CONTENT_TOO_LARGE("content_too_large")`
 
           - `class BetaWebFetchBlock:`
 
+            - `JsonValue type = "web_fetch_result"`
+
             - `BetaDocumentBlock content`
+
+              - `JsonValue type = "document"`
 
               - `Optional<BetaCitationConfig> citations`
 
@@ -24215,33 +24260,29 @@ public final class Main {
 
                 - `class BetaBase64PdfSource:`
 
+                  - `JsonValue type = "base64"`
+
                   - `String data`
 
                     format: byte
 
                   - `JsonValue mediaType = "application/pdf"`
 
-                  - `JsonValue type = "base64"`
-
                 - `class BetaPlainTextSource:`
+
+                  - `JsonValue type = "text"`
 
                   - `String data`
 
                   - `JsonValue mediaType = "text/plain"`
 
-                  - `JsonValue type = "text"`
-
               - `Optional<String> title`
 
                 The title of the document
 
-              - `JsonValue type = "document"`
-
             - `Optional<String> retrievedAt`
 
               ISO 8601 timestamp when the content was retrieved
-
-            - `JsonValue type = "web_fetch_result"`
 
             - `String url`
 
@@ -24250,8 +24291,6 @@ public final class Main {
         - `String toolUseId`
 
           pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-        - `JsonValue type = "web_fetch_tool_result"`
 
         - `Optional<Caller> caller`
 
@@ -24269,9 +24308,13 @@ public final class Main {
 
       - `class BetaAdvisorToolResultBlock:`
 
+        - `JsonValue type = "advisor_tool_result"`
+
         - `Content content`
 
           - `class BetaAdvisorToolResultError:`
+
+            - `JsonValue type = "advisor_tool_result_error"`
 
             - `ErrorCode errorCode`
 
@@ -24289,9 +24332,9 @@ public final class Main {
 
               - `MODEL_NOT_FOUND("model_not_found")`
 
-            - `JsonValue type = "advisor_tool_result_error"`
-
           - `class BetaAdvisorResultBlock:`
+
+            - `JsonValue type = "advisor_result"`
 
             - `Optional<String> stopReason`
 
@@ -24299,9 +24342,9 @@ public final class Main {
 
             - `String text`
 
-            - `JsonValue type = "advisor_result"`
-
           - `class BetaAdvisorRedactedResultBlock:`
+
+            - `JsonValue type = "advisor_redacted_result"`
 
             - `String encryptedContent`
 
@@ -24311,21 +24354,21 @@ public final class Main {
 
               The advisor sub-inference's stop reason (same values as the top-level message `stop_reason`).
 
-            - `JsonValue type = "advisor_redacted_result"`
-
         - `String toolUseId`
 
           pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-        - `JsonValue type = "advisor_tool_result"`
-
       - `class BetaCodeExecutionToolResultBlock:`
+
+        - `JsonValue type = "code_execution_tool_result"`
 
         - `BetaCodeExecutionToolResultBlockContent content`
 
           Code execution result with encrypted stdout for PFC + web_search results.
 
           - `class BetaCodeExecutionToolResultError:`
+
+            - `JsonValue type = "code_execution_tool_result_error"`
 
             - `BetaCodeExecutionToolResultErrorCode errorCode`
 
@@ -24337,15 +24380,15 @@ public final class Main {
 
               - `EXECUTION_TIME_EXCEEDED("execution_time_exceeded")`
 
-            - `JsonValue type = "code_execution_tool_result_error"`
-
           - `class BetaCodeExecutionResultBlock:`
+
+            - `JsonValue type = "code_execution_result"`
 
             - `List<BetaCodeExecutionOutputBlock> content`
 
-              - `String fileId`
-
               - `JsonValue type = "code_execution_output"`
+
+              - `String fileId`
 
             - `long returnCode`
 
@@ -24353,17 +24396,17 @@ public final class Main {
 
             - `String stdout`
 
-            - `JsonValue type = "code_execution_result"`
-
           - `class BetaEncryptedCodeExecutionResultBlock:`
 
             Code execution result with encrypted stdout for PFC + web_search results.
 
+            - `JsonValue type = "encrypted_code_execution_result"`
+
             - `List<BetaCodeExecutionOutputBlock> content`
 
-              - `String fileId`
-
               - `JsonValue type = "code_execution_output"`
+
+              - `String fileId`
 
             - `String encryptedStdout`
 
@@ -24371,19 +24414,19 @@ public final class Main {
 
             - `String stderr`
 
-            - `JsonValue type = "encrypted_code_execution_result"`
-
         - `String toolUseId`
 
           pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-        - `JsonValue type = "code_execution_tool_result"`
-
       - `class BetaBashCodeExecutionToolResultBlock:`
+
+        - `JsonValue type = "bash_code_execution_tool_result"`
 
         - `Content content`
 
           - `class BetaBashCodeExecutionToolResultError:`
+
+            - `JsonValue type = "bash_code_execution_tool_result_error"`
 
             - `ErrorCode errorCode`
 
@@ -24397,15 +24440,15 @@ public final class Main {
 
               - `OUTPUT_FILE_TOO_LARGE("output_file_too_large")`
 
-            - `JsonValue type = "bash_code_execution_tool_result_error"`
-
           - `class BetaBashCodeExecutionResultBlock:`
+
+            - `JsonValue type = "bash_code_execution_result"`
 
             - `List<BetaBashCodeExecutionOutputBlock> content`
 
-              - `String fileId`
-
               - `JsonValue type = "bash_code_execution_output"`
+
+              - `String fileId`
 
             - `long returnCode`
 
@@ -24413,19 +24456,19 @@ public final class Main {
 
             - `String stdout`
 
-            - `JsonValue type = "bash_code_execution_result"`
-
         - `String toolUseId`
 
           pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-        - `JsonValue type = "bash_code_execution_tool_result"`
-
       - `class BetaTextEditorCodeExecutionToolResultBlock:`
+
+        - `JsonValue type = "text_editor_code_execution_tool_result"`
 
         - `Content content`
 
           - `class BetaTextEditorCodeExecutionToolResultError:`
+
+            - `JsonValue type = "text_editor_code_execution_tool_result_error"`
 
             - `ErrorCode errorCode`
 
@@ -24441,9 +24484,9 @@ public final class Main {
 
             - `Optional<String> errorMessage`
 
-            - `JsonValue type = "text_editor_code_execution_tool_result_error"`
-
           - `class BetaTextEditorCodeExecutionViewResultBlock:`
+
+            - `JsonValue type = "text_editor_code_execution_view_result"`
 
             - `String content`
 
@@ -24461,15 +24504,15 @@ public final class Main {
 
             - `Optional<Long> totalLines`
 
-            - `JsonValue type = "text_editor_code_execution_view_result"`
-
           - `class BetaTextEditorCodeExecutionCreateResultBlock:`
-
-            - `boolean isFileUpdate`
 
             - `JsonValue type = "text_editor_code_execution_create_result"`
 
+            - `boolean isFileUpdate`
+
           - `class BetaTextEditorCodeExecutionStrReplaceResultBlock:`
+
+            - `JsonValue type = "text_editor_code_execution_str_replace_result"`
 
             - `Optional<List<String>> lines`
 
@@ -24481,19 +24524,19 @@ public final class Main {
 
             - `Optional<Long> oldStart`
 
-            - `JsonValue type = "text_editor_code_execution_str_replace_result"`
-
         - `String toolUseId`
 
           pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-        - `JsonValue type = "text_editor_code_execution_tool_result"`
-
       - `class BetaToolSearchToolResultBlock:`
+
+        - `JsonValue type = "tool_search_tool_result"`
 
         - `Content content`
 
           - `class BetaToolSearchToolResultError:`
+
+            - `JsonValue type = "tool_search_tool_result_error"`
 
             - `ErrorCode errorCode`
 
@@ -24507,27 +24550,25 @@ public final class Main {
 
             - `Optional<String> errorMessage`
 
-            - `JsonValue type = "tool_search_tool_result_error"`
-
           - `class BetaToolSearchToolSearchResultBlock:`
 
+            - `JsonValue type = "tool_search_tool_search_result"`
+
             - `List<BetaToolReferenceBlock> toolReferences`
+
+              - `JsonValue type = "tool_reference"`
 
               - `String toolName`
 
                 maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
-              - `JsonValue type = "tool_reference"`
-
-            - `JsonValue type = "tool_search_tool_search_result"`
-
         - `String toolUseId`
 
           pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-        - `JsonValue type = "tool_search_tool_result"`
-
       - `class BetaMcpToolUseBlock:`
+
+        - `JsonValue type = "mcp_tool_use"`
 
         - `String id`
 
@@ -24543,15 +24584,17 @@ public final class Main {
 
           The name of the MCP server
 
-        - `JsonValue type = "mcp_tool_use"`
-
       - `class BetaMcpToolResultBlock:`
+
+        - `JsonValue type = "mcp_tool_result"`
 
         - `Content content`
 
           - `String`
 
           - `List<BetaTextBlock>`
+
+            - `JsonValue type = "text"`
 
             - `Optional<List<BetaTextCitation>> citations`
 
@@ -24561,9 +24604,7 @@ public final class Main {
 
             - `String text`
 
-              maxLength: 5000000, minLength: 0
-
-            - `JsonValue type = "text"`
+              minLength: 0
 
         - `boolean isError`
 
@@ -24571,15 +24612,13 @@ public final class Main {
 
           pattern: ^[a-zA-Z0-9_-]+$
 
-        - `JsonValue type = "mcp_tool_result"`
-
       - `class BetaContainerUploadBlock:`
 
         Response model for a file uploaded to the container.
 
-        - `String fileId`
-
         - `JsonValue type = "container_upload"`
+
+        - `String fileId`
 
       - `class BetaCompactionBlock:`
 
@@ -24589,6 +24628,8 @@ public final class Main {
         summary (e.g., malformed output from the model). Clients may round-trip
         compaction blocks with null content; the server treats them as no-ops.
 
+        - `JsonValue type = "compaction"`
+
         - `Optional<String> content`
 
           Summary of compacted content, or null if compaction failed
@@ -24596,8 +24637,6 @@ public final class Main {
         - `Optional<String> encryptedContent`
 
           Opaque metadata from prior compaction, to be round-tripped verbatim
-
-        - `JsonValue type = "compaction"`
 
       - `class BetaFallbackBlock:`
 
@@ -24612,6 +24651,8 @@ public final class Main {
         The block is treated like a server-tool content block for streaming: it
         arrives via the standard `content_block_start` / `content_block_stop`
         pair and carries no deltas.
+
+        - `JsonValue type = "fallback"`
 
         - `BetaFallbackInfo from`
 
@@ -24699,6 +24740,8 @@ public final class Main {
 
           What caused the `from` model to hand over at this hop.
 
+          - `JsonValue type = "refusal"`
+
           - `Optional<Category> category`
 
             The policy category that triggered a refusal.
@@ -24723,10 +24766,6 @@ public final class Main {
 
               The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
 
-          - `JsonValue type = "refusal"`
-
-        - `JsonValue type = "fallback"`
-
     - `Optional<BetaContextManagementResponse> contextManagement`
 
       Context management response.
@@ -24738,6 +24777,10 @@ public final class Main {
         List of context management edits that were applied.
 
         - `class BetaClearToolUses20250919EditResponse:`
+
+          - `JsonValue type = "clear_tool_uses_20250919"`
+
+            The type of context management edit applied.
 
           - `long clearedInputTokens`
 
@@ -24751,11 +24794,11 @@ public final class Main {
 
             minimum: 0
 
-          - `JsonValue type = "clear_tool_uses_20250919"`
+        - `class BetaClearThinking20251015EditResponse:`
+
+          - `JsonValue type = "clear_thinking_20251015"`
 
             The type of context management edit applied.
-
-        - `class BetaClearThinking20251015EditResponse:`
 
           - `long clearedInputTokens`
 
@@ -24769,10 +24812,6 @@ public final class Main {
 
             minimum: 0
 
-          - `JsonValue type = "clear_thinking_20251015"`
-
-            The type of context management edit applied.
-
     - `Optional<BetaDiagnostics> diagnostics`
 
       Response envelope for request-level diagnostics. Present (possibly
@@ -24784,35 +24823,35 @@ public final class Main {
 
         - `class BetaCacheMissModelChanged:`
 
+          - `JsonValue type = "model_changed"`
+
           - `long cacheMissedInputTokens`
 
             Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
-
-          - `JsonValue type = "model_changed"`
 
         - `class BetaCacheMissSystemChanged:`
 
+          - `JsonValue type = "system_changed"`
+
           - `long cacheMissedInputTokens`
 
             Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
-
-          - `JsonValue type = "system_changed"`
 
         - `class BetaCacheMissToolsChanged:`
 
+          - `JsonValue type = "tools_changed"`
+
           - `long cacheMissedInputTokens`
 
             Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
-
-          - `JsonValue type = "tools_changed"`
 
         - `class BetaCacheMissMessagesChanged:`
 
+          - `JsonValue type = "messages_changed"`
+
           - `long cacheMissedInputTokens`
 
             Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
-
-          - `JsonValue type = "messages_changed"`
 
         - `class BetaCacheMissPreviousMessageNotFound:`
 
@@ -24837,6 +24876,8 @@ public final class Main {
     - `Optional<BetaRefusalStopDetails> stopDetails`
 
       Structured information about a refusal.
+
+      - `JsonValue type = "refusal"`
 
       - `Optional<Category> category`
 
@@ -24917,8 +24958,6 @@ public final class Main {
 
         The server's suggested retry target for this refusal. Populated when a fallback attempt could not be made (the fallback model's rate limit was exhausted, or it was overloaded); names the fallback model the caller can retry directly. Null otherwise.
 
-      - `JsonValue type = "refusal"`
-
     - `Optional<BetaStopReason> stopReason`
 
       The reason that we stopped.
@@ -24956,12 +24995,6 @@ public final class Main {
       Which custom stop sequence was generated, if any.
 
       This value will be a non-null string if one of your custom stop sequences was generated.
-
-    - `JsonValue type = "message"`
-
-      Object type.
-
-      For Messages, this is always `"message"`.
 
     - `BetaUsage usage`
 
@@ -25027,6 +25060,8 @@ public final class Main {
 
             No reprice was applied; `reason` says why.
 
+            - `JsonValue type = "not_applied"`
+
             - `Reason reason`
 
               Why the reprice was not applied.
@@ -25057,8 +25092,6 @@ public final class Main {
               - `WRONG_PLATFORM("wrong_platform")`
 
               - `WRONG_WORKSPACE("wrong_workspace")`
-
-            - `JsonValue type = "not_applied"`
 
             - `Optional<List<String>> removeToRedeem`
 
@@ -25097,6 +25130,10 @@ public final class Main {
 
           Token usage for a sampling iteration.
 
+          - `JsonValue type = "message"`
+
+            Usage for a sampling iteration
+
           - `Optional<BetaCacheCreation> cacheCreation`
 
             Breakdown of cached tokens by TTL
@@ -25130,15 +25167,15 @@ public final class Main {
             The number of output tokens which were used.
 
             minimum: 0
-
-          - `JsonValue type = "message"`
-
-            Usage for a sampling iteration
 
         - `class BetaCompactionIterationUsage:`
 
           Token usage for a compaction iteration.
 
+          - `JsonValue type = "compaction"`
+
+            Usage for a compaction iteration
+
           - `Optional<BetaCacheCreation> cacheCreation`
 
             Breakdown of cached tokens by TTL
@@ -25167,13 +25204,13 @@ public final class Main {
 
             minimum: 0
 
-          - `JsonValue type = "compaction"`
-
-            Usage for a compaction iteration
-
         - `class BetaAdvisorMessageIterationUsage:`
 
           Token usage for an advisor sub-inference iteration.
+
+          - `JsonValue type = "advisor_message"`
+
+            Usage for an advisor sub-inference iteration
 
           - `Optional<BetaCacheCreation> cacheCreation`
 
@@ -25208,10 +25245,6 @@ public final class Main {
             The number of output tokens which were used.
 
             minimum: 0
-
-          - `JsonValue type = "advisor_message"`
-
-            Usage for an advisor sub-inference iteration
 
         - `class BetaFallbackMessageIterationUsage:`
 
@@ -25222,6 +25255,10 @@ public final class Main {
           a fallback model served the response is signalled by the presence of this
           entry in `usage.iterations`.
 
+          - `JsonValue type = "fallback_message"`
+
+            Usage for the fallback-model attempt that served the response
+
           - `Optional<BetaCacheCreation> cacheCreation`
 
             Breakdown of cached tokens by TTL
@@ -25255,10 +25292,6 @@ public final class Main {
             The number of output tokens which were used.
 
             minimum: 0
-
-          - `JsonValue type = "fallback_message"`
-
-            Usage for the fallback-model attempt that served the response
 
       - `long outputTokens`
 
@@ -25340,6 +25373,10 @@ public final class Main {
       fallback happened mid-stream, in which case it holds the serving model's
       entries and replaces the one in `message_start`.
 
+      - `JsonValue type = "thinking_dropped"`
+
+        Always `thinking_dropped` for this entry type.
+
       - `String path`
 
         Where the removed block was in your request, as `messages.{i}.content.{j}`:
@@ -25370,12 +25407,6 @@ public final class Main {
 
         - `END_USER_BINDING_MISMATCH("end_user_binding_mismatch")`
 
-      - `JsonValue type = "thinking_dropped"`
-
-        Always `thinking_dropped` for this entry type.
-
-  - `JsonValue type = "message_start"`
-
 ### Beta Raw Message Stop Event
 
 - `class BetaRawMessageStopEvent:`
@@ -25388,7 +25419,15 @@ public final class Main {
 
   - `class BetaRawMessageStartEvent:`
 
+    - `JsonValue type = "message_start"`
+
     - `BetaMessage message`
+
+      - `JsonValue type = "message"`
+
+        Object type.
+
+        For Messages, this is always `"message"`.
 
       - `String id`
 
@@ -25414,12 +25453,6 @@ public final class Main {
 
           Skills loaded in the container
 
-          - `String skillId`
-
-            Skill ID
-
-            maxLength: 64, minLength: 1
-
           - `Type type`
 
             Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
@@ -25427,6 +25460,12 @@ public final class Main {
             - `ANTHROPIC("anthropic")`
 
             - `CUSTOM("custom")`
+
+          - `String skillId`
+
+            Skill ID
+
+            maxLength: 64, minLength: 1
 
           - `String version`
 
@@ -25465,6 +25504,8 @@ public final class Main {
 
         - `class BetaTextBlock:`
 
+          - `JsonValue type = "text"`
+
           - `Optional<List<BetaTextCitation>> citations`
 
             Citations supporting the text block.
@@ -25472,6 +25513,8 @@ public final class Main {
             The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
 
             - `class BetaCitationCharLocation:`
+
+              - `JsonValue type = "char_location"`
 
               - `String citedText`
 
@@ -25489,9 +25532,9 @@ public final class Main {
 
                 minimum: 0
 
-              - `JsonValue type = "char_location"`
-
             - `class BetaCitationPageLocation:`
+
+              - `JsonValue type = "page_location"`
 
               - `String citedText`
 
@@ -25509,9 +25552,9 @@ public final class Main {
 
                 minimum: 1
 
-              - `JsonValue type = "page_location"`
-
             - `class BetaCitationContentBlockLocation:`
+
+              - `JsonValue type = "content_block_location"`
 
               - `String citedText`
 
@@ -25539,9 +25582,9 @@ public final class Main {
 
                 minimum: 0
 
-              - `JsonValue type = "content_block_location"`
-
             - `class BetaCitationsWebSearchResultLocation:`
+
+              - `JsonValue type = "web_search_result_location"`
 
               - `String citedText`
 
@@ -25551,11 +25594,11 @@ public final class Main {
 
                 maxLength: 512
 
-              - `JsonValue type = "web_search_result_location"`
-
               - `String url`
 
             - `class BetaCitationSearchResultLocation:`
+
+              - `JsonValue type = "search_result_location"`
 
               - `String citedText`
 
@@ -25587,15 +25630,13 @@ public final class Main {
 
               - `Optional<String> title`
 
-              - `JsonValue type = "search_result_location"`
-
           - `String text`
 
-            maxLength: 5000000, minLength: 0
-
-          - `JsonValue type = "text"`
+            minLength: 0
 
         - `class BetaThinkingBlock:`
+
+          - `JsonValue type = "thinking"`
 
           - `String signature`
 
@@ -25609,9 +25650,9 @@ public final class Main {
 
             The text of Claude's thinking process for this block.
 
-          - `JsonValue type = "thinking"`
-
         - `class BetaRedactedThinkingBlock:`
+
+          - `JsonValue type = "redacted_thinking"`
 
           - `String data`
 
@@ -25621,9 +25662,9 @@ public final class Main {
 
             See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking#redacted-thinking-blocks) for details.
 
-          - `JsonValue type = "redacted_thinking"`
-
         - `class BetaToolUseBlock:`
+
+          - `JsonValue type = "tool_use"`
 
           - `String id`
 
@@ -25634,8 +25675,6 @@ public final class Main {
           - `String name`
 
             minLength: 1
-
-          - `JsonValue type = "tool_use"`
 
           - `Optional<Caller> caller`
 
@@ -25651,19 +25690,19 @@ public final class Main {
 
               Tool invocation generated by a server-side tool.
 
+              - `JsonValue type = "code_execution_20250825"`
+
               - `String toolId`
 
                 pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-              - `JsonValue type = "code_execution_20250825"`
 
             - `class BetaServerToolCaller20260120:`
 
+              - `JsonValue type = "code_execution_20260120"`
+
               - `String toolId`
 
                 pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-              - `JsonValue type = "code_execution_20260120"`
 
           - `Optional<String> toolsetName`
 
@@ -25672,6 +25711,8 @@ public final class Main {
             maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
 
         - `class BetaServerToolUseBlock:`
+
+          - `JsonValue type = "server_tool_use"`
 
           - `String id`
 
@@ -25697,8 +25738,6 @@ public final class Main {
 
             - `TOOL_SEARCH_TOOL_BM25("tool_search_tool_bm25")`
 
-          - `JsonValue type = "server_tool_use"`
-
           - `Optional<Caller> caller`
 
             Tool invocation directly from the model.
@@ -25715,9 +25754,13 @@ public final class Main {
 
         - `class BetaWebSearchToolResultBlock:`
 
+          - `JsonValue type = "web_search_tool_result"`
+
           - `BetaWebSearchToolResultBlockContent content`
 
             - `class BetaWebSearchToolResultError:`
+
+              - `JsonValue type = "web_search_tool_result_error"`
 
               - `BetaWebSearchToolResultErrorCode errorCode`
 
@@ -25733,9 +25776,9 @@ public final class Main {
 
                 - `REQUEST_TOO_LARGE("request_too_large")`
 
-              - `JsonValue type = "web_search_tool_result_error"`
-
             - `List<BetaWebSearchResultBlock>`
+
+              - `JsonValue type = "web_search_result"`
 
               - `String encryptedContent`
 
@@ -25743,15 +25786,11 @@ public final class Main {
 
               - `String title`
 
-              - `JsonValue type = "web_search_result"`
-
               - `String url`
 
           - `String toolUseId`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-          - `JsonValue type = "web_search_tool_result"`
 
           - `Optional<Caller> caller`
 
@@ -25769,9 +25808,13 @@ public final class Main {
 
         - `class BetaWebFetchToolResultBlock:`
 
+          - `JsonValue type = "web_fetch_tool_result"`
+
           - `Content content`
 
             - `class BetaWebFetchToolResultErrorBlock:`
+
+              - `JsonValue type = "web_fetch_tool_result_error"`
 
               - `BetaWebFetchToolResultErrorCode errorCode`
 
@@ -25793,11 +25836,15 @@ public final class Main {
 
                 - `UNAVAILABLE("unavailable")`
 
-              - `JsonValue type = "web_fetch_tool_result_error"`
+                - `CONTENT_TOO_LARGE("content_too_large")`
 
             - `class BetaWebFetchBlock:`
 
+              - `JsonValue type = "web_fetch_result"`
+
               - `BetaDocumentBlock content`
+
+                - `JsonValue type = "document"`
 
                 - `Optional<BetaCitationConfig> citations`
 
@@ -25809,33 +25856,29 @@ public final class Main {
 
                   - `class BetaBase64PdfSource:`
 
+                    - `JsonValue type = "base64"`
+
                     - `String data`
 
                       format: byte
 
                     - `JsonValue mediaType = "application/pdf"`
 
-                    - `JsonValue type = "base64"`
-
                   - `class BetaPlainTextSource:`
+
+                    - `JsonValue type = "text"`
 
                     - `String data`
 
                     - `JsonValue mediaType = "text/plain"`
 
-                    - `JsonValue type = "text"`
-
                 - `Optional<String> title`
 
                   The title of the document
 
-                - `JsonValue type = "document"`
-
               - `Optional<String> retrievedAt`
 
                 ISO 8601 timestamp when the content was retrieved
-
-              - `JsonValue type = "web_fetch_result"`
 
               - `String url`
 
@@ -25844,8 +25887,6 @@ public final class Main {
           - `String toolUseId`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-          - `JsonValue type = "web_fetch_tool_result"`
 
           - `Optional<Caller> caller`
 
@@ -25863,9 +25904,13 @@ public final class Main {
 
         - `class BetaAdvisorToolResultBlock:`
 
+          - `JsonValue type = "advisor_tool_result"`
+
           - `Content content`
 
             - `class BetaAdvisorToolResultError:`
+
+              - `JsonValue type = "advisor_tool_result_error"`
 
               - `ErrorCode errorCode`
 
@@ -25883,9 +25928,9 @@ public final class Main {
 
                 - `MODEL_NOT_FOUND("model_not_found")`
 
-              - `JsonValue type = "advisor_tool_result_error"`
-
             - `class BetaAdvisorResultBlock:`
+
+              - `JsonValue type = "advisor_result"`
 
               - `Optional<String> stopReason`
 
@@ -25893,9 +25938,9 @@ public final class Main {
 
               - `String text`
 
-              - `JsonValue type = "advisor_result"`
-
             - `class BetaAdvisorRedactedResultBlock:`
+
+              - `JsonValue type = "advisor_redacted_result"`
 
               - `String encryptedContent`
 
@@ -25905,21 +25950,21 @@ public final class Main {
 
                 The advisor sub-inference's stop reason (same values as the top-level message `stop_reason`).
 
-              - `JsonValue type = "advisor_redacted_result"`
-
           - `String toolUseId`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `JsonValue type = "advisor_tool_result"`
-
         - `class BetaCodeExecutionToolResultBlock:`
+
+          - `JsonValue type = "code_execution_tool_result"`
 
           - `BetaCodeExecutionToolResultBlockContent content`
 
             Code execution result with encrypted stdout for PFC + web_search results.
 
             - `class BetaCodeExecutionToolResultError:`
+
+              - `JsonValue type = "code_execution_tool_result_error"`
 
               - `BetaCodeExecutionToolResultErrorCode errorCode`
 
@@ -25931,15 +25976,15 @@ public final class Main {
 
                 - `EXECUTION_TIME_EXCEEDED("execution_time_exceeded")`
 
-              - `JsonValue type = "code_execution_tool_result_error"`
-
             - `class BetaCodeExecutionResultBlock:`
+
+              - `JsonValue type = "code_execution_result"`
 
               - `List<BetaCodeExecutionOutputBlock> content`
 
-                - `String fileId`
-
                 - `JsonValue type = "code_execution_output"`
+
+                - `String fileId`
 
               - `long returnCode`
 
@@ -25947,17 +25992,17 @@ public final class Main {
 
               - `String stdout`
 
-              - `JsonValue type = "code_execution_result"`
-
             - `class BetaEncryptedCodeExecutionResultBlock:`
 
               Code execution result with encrypted stdout for PFC + web_search results.
 
+              - `JsonValue type = "encrypted_code_execution_result"`
+
               - `List<BetaCodeExecutionOutputBlock> content`
 
-                - `String fileId`
-
                 - `JsonValue type = "code_execution_output"`
+
+                - `String fileId`
 
               - `String encryptedStdout`
 
@@ -25965,19 +26010,19 @@ public final class Main {
 
               - `String stderr`
 
-              - `JsonValue type = "encrypted_code_execution_result"`
-
           - `String toolUseId`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `JsonValue type = "code_execution_tool_result"`
-
         - `class BetaBashCodeExecutionToolResultBlock:`
+
+          - `JsonValue type = "bash_code_execution_tool_result"`
 
           - `Content content`
 
             - `class BetaBashCodeExecutionToolResultError:`
+
+              - `JsonValue type = "bash_code_execution_tool_result_error"`
 
               - `ErrorCode errorCode`
 
@@ -25991,15 +26036,15 @@ public final class Main {
 
                 - `OUTPUT_FILE_TOO_LARGE("output_file_too_large")`
 
-              - `JsonValue type = "bash_code_execution_tool_result_error"`
-
             - `class BetaBashCodeExecutionResultBlock:`
+
+              - `JsonValue type = "bash_code_execution_result"`
 
               - `List<BetaBashCodeExecutionOutputBlock> content`
 
-                - `String fileId`
-
                 - `JsonValue type = "bash_code_execution_output"`
+
+                - `String fileId`
 
               - `long returnCode`
 
@@ -26007,19 +26052,19 @@ public final class Main {
 
               - `String stdout`
 
-              - `JsonValue type = "bash_code_execution_result"`
-
           - `String toolUseId`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `JsonValue type = "bash_code_execution_tool_result"`
-
         - `class BetaTextEditorCodeExecutionToolResultBlock:`
+
+          - `JsonValue type = "text_editor_code_execution_tool_result"`
 
           - `Content content`
 
             - `class BetaTextEditorCodeExecutionToolResultError:`
+
+              - `JsonValue type = "text_editor_code_execution_tool_result_error"`
 
               - `ErrorCode errorCode`
 
@@ -26035,9 +26080,9 @@ public final class Main {
 
               - `Optional<String> errorMessage`
 
-              - `JsonValue type = "text_editor_code_execution_tool_result_error"`
-
             - `class BetaTextEditorCodeExecutionViewResultBlock:`
+
+              - `JsonValue type = "text_editor_code_execution_view_result"`
 
               - `String content`
 
@@ -26055,15 +26100,15 @@ public final class Main {
 
               - `Optional<Long> totalLines`
 
-              - `JsonValue type = "text_editor_code_execution_view_result"`
-
             - `class BetaTextEditorCodeExecutionCreateResultBlock:`
-
-              - `boolean isFileUpdate`
 
               - `JsonValue type = "text_editor_code_execution_create_result"`
 
+              - `boolean isFileUpdate`
+
             - `class BetaTextEditorCodeExecutionStrReplaceResultBlock:`
+
+              - `JsonValue type = "text_editor_code_execution_str_replace_result"`
 
               - `Optional<List<String>> lines`
 
@@ -26075,19 +26120,19 @@ public final class Main {
 
               - `Optional<Long> oldStart`
 
-              - `JsonValue type = "text_editor_code_execution_str_replace_result"`
-
           - `String toolUseId`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `JsonValue type = "text_editor_code_execution_tool_result"`
-
         - `class BetaToolSearchToolResultBlock:`
+
+          - `JsonValue type = "tool_search_tool_result"`
 
           - `Content content`
 
             - `class BetaToolSearchToolResultError:`
+
+              - `JsonValue type = "tool_search_tool_result_error"`
 
               - `ErrorCode errorCode`
 
@@ -26101,27 +26146,25 @@ public final class Main {
 
               - `Optional<String> errorMessage`
 
-              - `JsonValue type = "tool_search_tool_result_error"`
-
             - `class BetaToolSearchToolSearchResultBlock:`
 
+              - `JsonValue type = "tool_search_tool_search_result"`
+
               - `List<BetaToolReferenceBlock> toolReferences`
+
+                - `JsonValue type = "tool_reference"`
 
                 - `String toolName`
 
                   maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
-                - `JsonValue type = "tool_reference"`
-
-              - `JsonValue type = "tool_search_tool_search_result"`
-
           - `String toolUseId`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `JsonValue type = "tool_search_tool_result"`
-
         - `class BetaMcpToolUseBlock:`
+
+          - `JsonValue type = "mcp_tool_use"`
 
           - `String id`
 
@@ -26137,15 +26180,17 @@ public final class Main {
 
             The name of the MCP server
 
-          - `JsonValue type = "mcp_tool_use"`
-
         - `class BetaMcpToolResultBlock:`
+
+          - `JsonValue type = "mcp_tool_result"`
 
           - `Content content`
 
             - `String`
 
             - `List<BetaTextBlock>`
+
+              - `JsonValue type = "text"`
 
               - `Optional<List<BetaTextCitation>> citations`
 
@@ -26155,9 +26200,7 @@ public final class Main {
 
               - `String text`
 
-                maxLength: 5000000, minLength: 0
-
-              - `JsonValue type = "text"`
+                minLength: 0
 
           - `boolean isError`
 
@@ -26165,15 +26208,13 @@ public final class Main {
 
             pattern: ^[a-zA-Z0-9_-]+$
 
-          - `JsonValue type = "mcp_tool_result"`
-
         - `class BetaContainerUploadBlock:`
 
           Response model for a file uploaded to the container.
 
-          - `String fileId`
-
           - `JsonValue type = "container_upload"`
+
+          - `String fileId`
 
         - `class BetaCompactionBlock:`
 
@@ -26183,6 +26224,8 @@ public final class Main {
           summary (e.g., malformed output from the model). Clients may round-trip
           compaction blocks with null content; the server treats them as no-ops.
 
+          - `JsonValue type = "compaction"`
+
           - `Optional<String> content`
 
             Summary of compacted content, or null if compaction failed
@@ -26190,8 +26233,6 @@ public final class Main {
           - `Optional<String> encryptedContent`
 
             Opaque metadata from prior compaction, to be round-tripped verbatim
-
-          - `JsonValue type = "compaction"`
 
         - `class BetaFallbackBlock:`
 
@@ -26206,6 +26247,8 @@ public final class Main {
           The block is treated like a server-tool content block for streaming: it
           arrives via the standard `content_block_start` / `content_block_stop`
           pair and carries no deltas.
+
+          - `JsonValue type = "fallback"`
 
           - `BetaFallbackInfo from`
 
@@ -26293,6 +26336,8 @@ public final class Main {
 
             What caused the `from` model to hand over at this hop.
 
+            - `JsonValue type = "refusal"`
+
             - `Optional<Category> category`
 
               The policy category that triggered a refusal.
@@ -26317,10 +26362,6 @@ public final class Main {
 
                 The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
 
-            - `JsonValue type = "refusal"`
-
-          - `JsonValue type = "fallback"`
-
       - `Optional<BetaContextManagementResponse> contextManagement`
 
         Context management response.
@@ -26332,6 +26373,10 @@ public final class Main {
           List of context management edits that were applied.
 
           - `class BetaClearToolUses20250919EditResponse:`
+
+            - `JsonValue type = "clear_tool_uses_20250919"`
+
+              The type of context management edit applied.
 
             - `long clearedInputTokens`
 
@@ -26345,11 +26390,11 @@ public final class Main {
 
               minimum: 0
 
-            - `JsonValue type = "clear_tool_uses_20250919"`
+          - `class BetaClearThinking20251015EditResponse:`
+
+            - `JsonValue type = "clear_thinking_20251015"`
 
               The type of context management edit applied.
-
-          - `class BetaClearThinking20251015EditResponse:`
 
             - `long clearedInputTokens`
 
@@ -26363,10 +26408,6 @@ public final class Main {
 
               minimum: 0
 
-            - `JsonValue type = "clear_thinking_20251015"`
-
-              The type of context management edit applied.
-
       - `Optional<BetaDiagnostics> diagnostics`
 
         Response envelope for request-level diagnostics. Present (possibly
@@ -26378,35 +26419,35 @@ public final class Main {
 
           - `class BetaCacheMissModelChanged:`
 
+            - `JsonValue type = "model_changed"`
+
             - `long cacheMissedInputTokens`
 
               Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
-
-            - `JsonValue type = "model_changed"`
 
           - `class BetaCacheMissSystemChanged:`
 
+            - `JsonValue type = "system_changed"`
+
             - `long cacheMissedInputTokens`
 
               Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
-
-            - `JsonValue type = "system_changed"`
 
           - `class BetaCacheMissToolsChanged:`
 
+            - `JsonValue type = "tools_changed"`
+
             - `long cacheMissedInputTokens`
 
               Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
-
-            - `JsonValue type = "tools_changed"`
 
           - `class BetaCacheMissMessagesChanged:`
 
+            - `JsonValue type = "messages_changed"`
+
             - `long cacheMissedInputTokens`
 
               Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
-
-            - `JsonValue type = "messages_changed"`
 
           - `class BetaCacheMissPreviousMessageNotFound:`
 
@@ -26431,6 +26472,8 @@ public final class Main {
       - `Optional<BetaRefusalStopDetails> stopDetails`
 
         Structured information about a refusal.
+
+        - `JsonValue type = "refusal"`
 
         - `Optional<Category> category`
 
@@ -26511,8 +26554,6 @@ public final class Main {
 
           The server's suggested retry target for this refusal. Populated when a fallback attempt could not be made (the fallback model's rate limit was exhausted, or it was overloaded); names the fallback model the caller can retry directly. Null otherwise.
 
-        - `JsonValue type = "refusal"`
-
       - `Optional<BetaStopReason> stopReason`
 
         The reason that we stopped.
@@ -26550,12 +26591,6 @@ public final class Main {
         Which custom stop sequence was generated, if any.
 
         This value will be a non-null string if one of your custom stop sequences was generated.
-
-      - `JsonValue type = "message"`
-
-        Object type.
-
-        For Messages, this is always `"message"`.
 
       - `BetaUsage usage`
 
@@ -26621,6 +26656,8 @@ public final class Main {
 
               No reprice was applied; `reason` says why.
 
+              - `JsonValue type = "not_applied"`
+
               - `Reason reason`
 
                 Why the reprice was not applied.
@@ -26651,8 +26688,6 @@ public final class Main {
                 - `WRONG_PLATFORM("wrong_platform")`
 
                 - `WRONG_WORKSPACE("wrong_workspace")`
-
-              - `JsonValue type = "not_applied"`
 
               - `Optional<List<String>> removeToRedeem`
 
@@ -26691,6 +26726,10 @@ public final class Main {
 
             Token usage for a sampling iteration.
 
+            - `JsonValue type = "message"`
+
+              Usage for a sampling iteration
+
             - `Optional<BetaCacheCreation> cacheCreation`
 
               Breakdown of cached tokens by TTL
@@ -26724,15 +26763,15 @@ public final class Main {
               The number of output tokens which were used.
 
               minimum: 0
-
-            - `JsonValue type = "message"`
-
-              Usage for a sampling iteration
 
           - `class BetaCompactionIterationUsage:`
 
             Token usage for a compaction iteration.
 
+            - `JsonValue type = "compaction"`
+
+              Usage for a compaction iteration
+
             - `Optional<BetaCacheCreation> cacheCreation`
 
               Breakdown of cached tokens by TTL
@@ -26761,13 +26800,13 @@ public final class Main {
 
               minimum: 0
 
-            - `JsonValue type = "compaction"`
-
-              Usage for a compaction iteration
-
           - `class BetaAdvisorMessageIterationUsage:`
 
             Token usage for an advisor sub-inference iteration.
+
+            - `JsonValue type = "advisor_message"`
+
+              Usage for an advisor sub-inference iteration
 
             - `Optional<BetaCacheCreation> cacheCreation`
 
@@ -26802,10 +26841,6 @@ public final class Main {
               The number of output tokens which were used.
 
               minimum: 0
-
-            - `JsonValue type = "advisor_message"`
-
-              Usage for an advisor sub-inference iteration
 
           - `class BetaFallbackMessageIterationUsage:`
 
@@ -26816,6 +26851,10 @@ public final class Main {
             a fallback model served the response is signalled by the presence of this
             entry in `usage.iterations`.
 
+            - `JsonValue type = "fallback_message"`
+
+              Usage for the fallback-model attempt that served the response
+
             - `Optional<BetaCacheCreation> cacheCreation`
 
               Breakdown of cached tokens by TTL
@@ -26849,10 +26888,6 @@ public final class Main {
               The number of output tokens which were used.
 
               minimum: 0
-
-            - `JsonValue type = "fallback_message"`
-
-              Usage for the fallback-model attempt that served the response
 
         - `long outputTokens`
 
@@ -26934,6 +26969,10 @@ public final class Main {
         fallback happened mid-stream, in which case it holds the serving model's
         entries and replaces the one in `message_start`.
 
+        - `JsonValue type = "thinking_dropped"`
+
+          Always `thinking_dropped` for this entry type.
+
         - `String path`
 
           Where the removed block was in your request, as `messages.{i}.content.{j}`:
@@ -26964,13 +27003,9 @@ public final class Main {
 
           - `END_USER_BINDING_MISMATCH("end_user_binding_mismatch")`
 
-        - `JsonValue type = "thinking_dropped"`
-
-          Always `thinking_dropped` for this entry type.
-
-    - `JsonValue type = "message_start"`
-
   - `class BetaRawMessageDeltaEvent:`
+
+    - `JsonValue type = "message_delta"`
 
     - `Optional<BetaContextManagementResponse> contextManagement`
 
@@ -26989,8 +27024,6 @@ public final class Main {
       - `Optional<BetaStopReason> stopReason`
 
       - `Optional<String> stopSequence`
-
-    - `JsonValue type = "message_delta"`
 
     - `BetaMessageDeltaUsage usage`
 
@@ -27094,6 +27127,10 @@ public final class Main {
       fallback happened mid-stream, in which case it holds the serving model's
       entries and replaces the one in `message_start`.
 
+      - `JsonValue type = "thinking_dropped"`
+
+        Always `thinking_dropped` for this entry type.
+
       - `String path`
 
         Where the removed block was in your request, as `messages.{i}.content.{j}`:
@@ -27116,15 +27153,13 @@ public final class Main {
         `organization_binding_mismatch`, `end_user_binding_mismatch`,
         `model_binding_mismatch`, `prefix_binding_mismatch`.
 
-      - `JsonValue type = "thinking_dropped"`
-
-        Always `thinking_dropped` for this entry type.
-
   - `class BetaRawMessageStopEvent:`
 
     - `JsonValue type = "message_stop"`
 
   - `class BetaRawContentBlockStartEvent:`
+
+    - `JsonValue type = "content_block_start"`
 
     - `ContentBlock contentBlock`
 
@@ -27186,25 +27221,27 @@ public final class Main {
 
     - `long index`
 
-    - `JsonValue type = "content_block_start"`
-
   - `class BetaRawContentBlockDeltaEvent:`
+
+    - `JsonValue type = "content_block_delta"`
 
     - `BetaRawContentBlockDelta delta`
 
       - `class BetaTextDelta:`
 
-        - `String text`
-
         - `JsonValue type = "text_delta"`
+
+        - `String text`
 
       - `class BetaInputJsonDelta:`
 
-        - `String partialJson`
-
         - `JsonValue type = "input_json_delta"`
 
+        - `String partialJson`
+
       - `class BetaCitationsDelta:`
+
+        - `JsonValue type = "citations_delta"`
 
         - `Citation citation`
 
@@ -27218,9 +27255,9 @@ public final class Main {
 
           - `class BetaCitationSearchResultLocation:`
 
-        - `JsonValue type = "citations_delta"`
-
       - `class BetaThinkingDelta:`
+
+        - `JsonValue type = "thinking_delta"`
 
         - `Optional<Long> estimatedTokens`
 
@@ -27230,17 +27267,17 @@ public final class Main {
 
           The incremental `thinking` text for this content block. Concatenate the `thinking` values of successive `thinking_delta` events to assemble the block's full `thinking` value.
 
-        - `JsonValue type = "thinking_delta"`
-
       - `class BetaSignatureDelta:`
+
+        - `JsonValue type = "signature_delta"`
 
         - `String signature`
 
           The `signature` for this thinking block: an opaque value used to verify that the block was generated by Claude when it is passed back to the API. Delivered in a `signature_delta` event just before the block's `content_block_stop` event.
 
-        - `JsonValue type = "signature_delta"`
-
       - `class BetaCompactionContentBlockDelta:`
+
+        - `JsonValue type = "compaction_delta"`
 
         - `Optional<String> content`
 
@@ -27248,21 +27285,19 @@ public final class Main {
 
           Opaque metadata from prior compaction, to be round-tripped verbatim
 
-        - `JsonValue type = "compaction_delta"`
-
     - `long index`
-
-    - `JsonValue type = "content_block_delta"`
 
   - `class BetaRawContentBlockStopEvent:`
 
-    - `long index`
-
     - `JsonValue type = "content_block_stop"`
+
+    - `long index`
 
 ### Beta Redacted Thinking Block
 
 - `class BetaRedactedThinkingBlock:`
+
+  - `JsonValue type = "redacted_thinking"`
 
   - `String data`
 
@@ -27272,23 +27307,23 @@ public final class Main {
 
     See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking#redacted-thinking-blocks) for details.
 
-  - `JsonValue type = "redacted_thinking"`
-
 ### Beta Redacted Thinking Block Param
 
 - `class BetaRedactedThinkingBlockParam:`
 
+  - `JsonValue type = "redacted_thinking"`
+
   - `String data`
 
     The `data` value of this redacted thinking block, exactly as returned by the API in a previous response. Opaque and encrypted; pass it back unchanged.
-
-  - `JsonValue type = "redacted_thinking"`
 
 ### Beta Refusal Stop Details
 
 - `class BetaRefusalStopDetails:`
 
   Structured information about a refusal.
+
+  - `JsonValue type = "refusal"`
 
   - `Optional<Category> category`
 
@@ -27369,15 +27404,17 @@ public final class Main {
 
     The server's suggested retry target for this refusal. Populated when a fallback attempt could not be made (the fallback model's rate limit was exhausted, or it was overloaded); names the fallback model the caller can retry directly. Null otherwise.
 
-  - `JsonValue type = "refusal"`
-
 ### Beta Request Document Block
 
 - `class BetaRequestDocumentBlock:`
 
+  - `JsonValue type = "document"`
+
   - `Source source`
 
     - `class BetaBase64PdfSource:`
+
+      - `JsonValue type = "base64"`
 
       - `String data`
 
@@ -27385,17 +27422,17 @@ public final class Main {
 
       - `JsonValue mediaType = "application/pdf"`
 
-      - `JsonValue type = "base64"`
-
     - `class BetaPlainTextSource:`
+
+      - `JsonValue type = "text"`
 
       - `String data`
 
       - `JsonValue mediaType = "text/plain"`
 
-      - `JsonValue type = "text"`
-
     - `class BetaContentBlockSource:`
+
+      - `JsonValue type = "content"`
 
       - `Content content`
 
@@ -27405,11 +27442,11 @@ public final class Main {
 
           - `class BetaTextBlockParam:`
 
+            - `JsonValue type = "text"`
+
             - `String text`
 
               minLength: 1
-
-            - `JsonValue type = "text"`
 
             - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -27436,6 +27473,8 @@ public final class Main {
 
               - `class BetaCitationCharLocationParam:`
 
+                - `JsonValue type = "char_location"`
+
                 - `String citedText`
 
                 - `long documentIndex`
@@ -27452,9 +27491,9 @@ public final class Main {
 
                   minimum: 0
 
-                - `JsonValue type = "char_location"`
-
               - `class BetaCitationPageLocationParam:`
+
+                - `JsonValue type = "page_location"`
 
                 - `String citedText`
 
@@ -27472,9 +27511,9 @@ public final class Main {
 
                   minimum: 1
 
-                - `JsonValue type = "page_location"`
-
               - `class BetaCitationContentBlockLocationParam:`
+
+                - `JsonValue type = "content_block_location"`
 
                 - `String citedText`
 
@@ -27502,9 +27541,9 @@ public final class Main {
 
                   minimum: 0
 
-                - `JsonValue type = "content_block_location"`
-
               - `class BetaCitationWebSearchResultLocationParam:`
+
+                - `JsonValue type = "web_search_result_location"`
 
                 - `String citedText`
 
@@ -27514,13 +27553,13 @@ public final class Main {
 
                   maxLength: 512, minLength: 1
 
-                - `JsonValue type = "web_search_result_location"`
-
                 - `String url`
 
                   minLength: 1
 
               - `class BetaCitationSearchResultLocationParam:`
+
+                - `JsonValue type = "search_result_location"`
 
                 - `String citedText`
 
@@ -27552,13 +27591,15 @@ public final class Main {
 
                 - `Optional<String> title`
 
-                - `JsonValue type = "search_result_location"`
-
           - `class BetaImageBlockParam:`
+
+            - `JsonValue type = "image"`
 
             - `Source source`
 
               - `class BetaBase64ImageSource:`
+
+                - `JsonValue type = "base64"`
 
                 - `String data`
 
@@ -27574,8 +27615,6 @@ public final class Main {
 
                   - `IMAGE_WEBP("image/webp")`
 
-                - `JsonValue type = "base64"`
-
               - `class BetaUrlImageSource:`
 
                 - `JsonValue type = "url"`
@@ -27584,11 +27623,9 @@ public final class Main {
 
               - `class BetaFileImageSource:`
 
-                - `String fileId`
-
                 - `JsonValue type = "file"`
 
-            - `JsonValue type = "image"`
+                - `String fileId`
 
             - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -27606,8 +27643,6 @@ public final class Main {
 
                 - `ERROR("error")`
 
-      - `JsonValue type = "content"`
-
     - `class BetaUrlPdfSource:`
 
       - `JsonValue type = "url"`
@@ -27616,11 +27651,9 @@ public final class Main {
 
     - `class BetaFileDocumentSource:`
 
-      - `String fileId`
-
       - `JsonValue type = "file"`
 
-  - `JsonValue type = "document"`
+      - `String fileId`
 
   - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -27650,9 +27683,9 @@ public final class Main {
 
 - `class BetaRequestMcpServerUrlDefinition:`
 
-  - `String name`
-
   - `JsonValue type = "url"`
+
+  - `String name`
 
   - `String url`
 
@@ -27668,11 +27701,11 @@ public final class Main {
 
 - `class BetaRequestMcpToolResultBlockParam:`
 
+  - `JsonValue type = "mcp_tool_result"`
+
   - `String toolUseId`
 
     pattern: ^[a-zA-Z0-9_-]+$
-
-  - `JsonValue type = "mcp_tool_result"`
 
   - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -27701,11 +27734,11 @@ public final class Main {
 
     - `List<BetaTextBlockParam>`
 
+      - `JsonValue type = "text"`
+
       - `String text`
 
         minLength: 1
-
-      - `JsonValue type = "text"`
 
       - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -27714,6 +27747,8 @@ public final class Main {
       - `Optional<List<BetaTextCitationParam>> citations`
 
         - `class BetaCitationCharLocationParam:`
+
+          - `JsonValue type = "char_location"`
 
           - `String citedText`
 
@@ -27731,9 +27766,9 @@ public final class Main {
 
             minimum: 0
 
-          - `JsonValue type = "char_location"`
-
         - `class BetaCitationPageLocationParam:`
+
+          - `JsonValue type = "page_location"`
 
           - `String citedText`
 
@@ -27751,9 +27786,9 @@ public final class Main {
 
             minimum: 1
 
-          - `JsonValue type = "page_location"`
-
         - `class BetaCitationContentBlockLocationParam:`
+
+          - `JsonValue type = "content_block_location"`
 
           - `String citedText`
 
@@ -27781,9 +27816,9 @@ public final class Main {
 
             minimum: 0
 
-          - `JsonValue type = "content_block_location"`
-
         - `class BetaCitationWebSearchResultLocationParam:`
+
+          - `JsonValue type = "web_search_result_location"`
 
           - `String citedText`
 
@@ -27793,13 +27828,13 @@ public final class Main {
 
             maxLength: 512, minLength: 1
 
-          - `JsonValue type = "web_search_result_location"`
-
           - `String url`
 
             minLength: 1
 
         - `class BetaCitationSearchResultLocationParam:`
+
+          - `JsonValue type = "search_result_location"`
 
           - `String citedText`
 
@@ -27831,8 +27866,6 @@ public final class Main {
 
           - `Optional<String> title`
 
-          - `JsonValue type = "search_result_location"`
-
   - `Optional<Boolean> isError`
 
 ### Beta Request Tool Addition Block
@@ -27844,6 +27877,8 @@ public final class Main {
   `tool` references a tool (or MCP toolset) by name from the request's
   `tools`; it is offered to the model from this point in the
   conversation onward.
+
+  - `JsonValue type = "tool_addition"`
 
   - `Tool tool`
 
@@ -27859,32 +27894,30 @@ public final class Main {
       server assigns to MCP-resolved tools — use `mcp_tool_reference` or
       `mcp_toolset_reference` for those.
 
+      - `JsonValue type = "tool_reference"`
+
       - `String name`
 
         pattern: ^[a-zA-Z0-9_-]{1,128}$
-
-      - `JsonValue type = "tool_reference"`
 
     - `class BetaToolChangeMcpToolReference:`
 
       Reference to a single MCP tool by its server and remote name — the
       same `server_name`/`name` pair `mcp_tool_use` carries.
 
+      - `JsonValue type = "mcp_tool_reference"`
+
       - `String name`
 
       - `String serverName`
-
-      - `JsonValue type = "mcp_tool_reference"`
 
     - `class BetaToolChangeMcpToolsetReference:`
 
       Reference to every tool in the named MCP server's toolset.
 
-      - `String serverName`
-
       - `JsonValue type = "mcp_toolset_reference"`
 
-  - `JsonValue type = "tool_addition"`
+      - `String serverName`
 
   - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -27917,6 +27950,8 @@ public final class Main {
   `tools`; it is no longer offered to the model from this point in the
   conversation onward.
 
+  - `JsonValue type = "tool_removal"`
+
   - `Tool tool`
 
     Reference to a single tool the caller declared directly in
@@ -27931,32 +27966,30 @@ public final class Main {
       server assigns to MCP-resolved tools — use `mcp_tool_reference` or
       `mcp_toolset_reference` for those.
 
+      - `JsonValue type = "tool_reference"`
+
       - `String name`
 
         pattern: ^[a-zA-Z0-9_-]{1,128}$
-
-      - `JsonValue type = "tool_reference"`
 
     - `class BetaToolChangeMcpToolReference:`
 
       Reference to a single MCP tool by its server and remote name — the
       same `server_name`/`name` pair `mcp_tool_use` carries.
 
+      - `JsonValue type = "mcp_tool_reference"`
+
       - `String name`
 
       - `String serverName`
-
-      - `JsonValue type = "mcp_tool_reference"`
 
     - `class BetaToolChangeMcpToolsetReference:`
 
       Reference to every tool in the named MCP server's toolset.
 
-      - `String serverName`
-
       - `JsonValue type = "mcp_toolset_reference"`
 
-  - `JsonValue type = "tool_removal"`
+      - `String serverName`
 
   - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -27983,13 +28016,15 @@ public final class Main {
 
 - `class BetaSearchResultBlockParam:`
 
+  - `JsonValue type = "search_result"`
+
   - `List<BetaTextBlockParam> content`
+
+    - `JsonValue type = "text"`
 
     - `String text`
 
       minLength: 1
-
-    - `JsonValue type = "text"`
 
     - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -28016,6 +28051,8 @@ public final class Main {
 
       - `class BetaCitationCharLocationParam:`
 
+        - `JsonValue type = "char_location"`
+
         - `String citedText`
 
         - `long documentIndex`
@@ -28032,9 +28069,9 @@ public final class Main {
 
           minimum: 0
 
-        - `JsonValue type = "char_location"`
-
       - `class BetaCitationPageLocationParam:`
+
+        - `JsonValue type = "page_location"`
 
         - `String citedText`
 
@@ -28052,9 +28089,9 @@ public final class Main {
 
           minimum: 1
 
-        - `JsonValue type = "page_location"`
-
       - `class BetaCitationContentBlockLocationParam:`
+
+        - `JsonValue type = "content_block_location"`
 
         - `String citedText`
 
@@ -28082,9 +28119,9 @@ public final class Main {
 
           minimum: 0
 
-        - `JsonValue type = "content_block_location"`
-
       - `class BetaCitationWebSearchResultLocationParam:`
+
+        - `JsonValue type = "web_search_result_location"`
 
         - `String citedText`
 
@@ -28094,13 +28131,13 @@ public final class Main {
 
           maxLength: 512, minLength: 1
 
-        - `JsonValue type = "web_search_result_location"`
-
         - `String url`
 
           minLength: 1
 
       - `class BetaCitationSearchResultLocationParam:`
+
+        - `JsonValue type = "search_result_location"`
 
         - `String citedText`
 
@@ -28132,13 +28169,9 @@ public final class Main {
 
         - `Optional<String> title`
 
-        - `JsonValue type = "search_result_location"`
-
   - `String source`
 
   - `String title`
-
-  - `JsonValue type = "search_result"`
 
   - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -28154,21 +28187,21 @@ public final class Main {
 
   Tool invocation generated by a server-side tool.
 
+  - `JsonValue type = "code_execution_20250825"`
+
   - `String toolId`
 
     pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-  - `JsonValue type = "code_execution_20250825"`
 
 ### Beta Server Tool Caller 20260120
 
 - `class BetaServerToolCaller20260120:`
 
+  - `JsonValue type = "code_execution_20260120"`
+
   - `String toolId`
 
     pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-  - `JsonValue type = "code_execution_20260120"`
 
 ### Beta Server Tool Usage
 
@@ -28190,6 +28223,8 @@ public final class Main {
 
 - `class BetaServerToolUseBlock:`
 
+  - `JsonValue type = "server_tool_use"`
+
   - `String id`
 
     pattern: ^srvtoolu_[a-zA-Z0-9_]+$
@@ -28213,8 +28248,6 @@ public final class Main {
     - `TOOL_SEARCH_TOOL_REGEX("tool_search_tool_regex")`
 
     - `TOOL_SEARCH_TOOL_BM25("tool_search_tool_bm25")`
-
-  - `JsonValue type = "server_tool_use"`
 
   - `Optional<Caller> caller`
 
@@ -28230,23 +28263,25 @@ public final class Main {
 
       Tool invocation generated by a server-side tool.
 
+      - `JsonValue type = "code_execution_20250825"`
+
       - `String toolId`
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-      - `JsonValue type = "code_execution_20250825"`
 
     - `class BetaServerToolCaller20260120:`
 
+      - `JsonValue type = "code_execution_20260120"`
+
       - `String toolId`
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-      - `JsonValue type = "code_execution_20260120"`
 
 ### Beta Server Tool Use Block Param
 
 - `class BetaServerToolUseBlockParam:`
+
+  - `JsonValue type = "server_tool_use"`
 
   - `String id`
 
@@ -28271,8 +28306,6 @@ public final class Main {
     - `TOOL_SEARCH_TOOL_REGEX("tool_search_tool_regex")`
 
     - `TOOL_SEARCH_TOOL_BM25("tool_search_tool_bm25")`
-
-  - `JsonValue type = "server_tool_use"`
 
   - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -28309,41 +28342,35 @@ public final class Main {
 
       Tool invocation generated by a server-side tool.
 
+      - `JsonValue type = "code_execution_20250825"`
+
       - `String toolId`
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-      - `JsonValue type = "code_execution_20250825"`
 
     - `class BetaServerToolCaller20260120:`
 
+      - `JsonValue type = "code_execution_20260120"`
+
       - `String toolId`
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-      - `JsonValue type = "code_execution_20260120"`
 
 ### Beta Signature Delta
 
 - `class BetaSignatureDelta:`
 
+  - `JsonValue type = "signature_delta"`
+
   - `String signature`
 
     The `signature` for this thinking block: an opaque value used to verify that the block was generated by Claude when it is passed back to the API. Delivered in a `signature_delta` event just before the block's `content_block_stop` event.
-
-  - `JsonValue type = "signature_delta"`
 
 ### Beta Skill Params
 
 - `class BetaSkillParams:`
 
   Specification for a skill to be loaded in a container (request model).
-
-  - `String skillId`
-
-    Skill ID
-
-    maxLength: 64, minLength: 1
 
   - `Type type`
 
@@ -28352,6 +28379,12 @@ public final class Main {
     - `ANTHROPIC("anthropic")`
 
     - `CUSTOM("custom")`
+
+  - `String skillId`
+
+    Skill ID
+
+    maxLength: 64, minLength: 1
 
   - `Optional<String> version`
 
@@ -28407,6 +28440,8 @@ public final class Main {
 
 - `class BetaTextBlock:`
 
+  - `JsonValue type = "text"`
+
   - `Optional<List<BetaTextCitation>> citations`
 
     Citations supporting the text block.
@@ -28414,6 +28449,8 @@ public final class Main {
     The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
 
     - `class BetaCitationCharLocation:`
+
+      - `JsonValue type = "char_location"`
 
       - `String citedText`
 
@@ -28431,9 +28468,9 @@ public final class Main {
 
         minimum: 0
 
-      - `JsonValue type = "char_location"`
-
     - `class BetaCitationPageLocation:`
+
+      - `JsonValue type = "page_location"`
 
       - `String citedText`
 
@@ -28451,9 +28488,9 @@ public final class Main {
 
         minimum: 1
 
-      - `JsonValue type = "page_location"`
-
     - `class BetaCitationContentBlockLocation:`
+
+      - `JsonValue type = "content_block_location"`
 
       - `String citedText`
 
@@ -28481,9 +28518,9 @@ public final class Main {
 
         minimum: 0
 
-      - `JsonValue type = "content_block_location"`
-
     - `class BetaCitationsWebSearchResultLocation:`
+
+      - `JsonValue type = "web_search_result_location"`
 
       - `String citedText`
 
@@ -28493,11 +28530,11 @@ public final class Main {
 
         maxLength: 512
 
-      - `JsonValue type = "web_search_result_location"`
-
       - `String url`
 
     - `class BetaCitationSearchResultLocation:`
+
+      - `JsonValue type = "search_result_location"`
 
       - `String citedText`
 
@@ -28529,23 +28566,19 @@ public final class Main {
 
       - `Optional<String> title`
 
-      - `JsonValue type = "search_result_location"`
-
   - `String text`
 
-    maxLength: 5000000, minLength: 0
-
-  - `JsonValue type = "text"`
+    minLength: 0
 
 ### Beta Text Block Param
 
 - `class BetaTextBlockParam:`
 
+  - `JsonValue type = "text"`
+
   - `String text`
 
     minLength: 1
-
-  - `JsonValue type = "text"`
 
   - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -28572,6 +28605,8 @@ public final class Main {
 
     - `class BetaCitationCharLocationParam:`
 
+      - `JsonValue type = "char_location"`
+
       - `String citedText`
 
       - `long documentIndex`
@@ -28588,9 +28623,9 @@ public final class Main {
 
         minimum: 0
 
-      - `JsonValue type = "char_location"`
-
     - `class BetaCitationPageLocationParam:`
+
+      - `JsonValue type = "page_location"`
 
       - `String citedText`
 
@@ -28608,9 +28643,9 @@ public final class Main {
 
         minimum: 1
 
-      - `JsonValue type = "page_location"`
-
     - `class BetaCitationContentBlockLocationParam:`
+
+      - `JsonValue type = "content_block_location"`
 
       - `String citedText`
 
@@ -28638,9 +28673,9 @@ public final class Main {
 
         minimum: 0
 
-      - `JsonValue type = "content_block_location"`
-
     - `class BetaCitationWebSearchResultLocationParam:`
+
+      - `JsonValue type = "web_search_result_location"`
 
       - `String citedText`
 
@@ -28650,13 +28685,13 @@ public final class Main {
 
         maxLength: 512, minLength: 1
 
-      - `JsonValue type = "web_search_result_location"`
-
       - `String url`
 
         minLength: 1
 
     - `class BetaCitationSearchResultLocationParam:`
+
+      - `JsonValue type = "search_result_location"`
 
       - `String citedText`
 
@@ -28688,13 +28723,13 @@ public final class Main {
 
       - `Optional<String> title`
 
-      - `JsonValue type = "search_result_location"`
-
 ### Beta Text Citation
 
 - `class BetaTextCitation: union`
 
   - `class BetaCitationCharLocation:`
+
+    - `JsonValue type = "char_location"`
 
     - `String citedText`
 
@@ -28712,9 +28747,9 @@ public final class Main {
 
       minimum: 0
 
-    - `JsonValue type = "char_location"`
-
   - `class BetaCitationPageLocation:`
+
+    - `JsonValue type = "page_location"`
 
     - `String citedText`
 
@@ -28732,9 +28767,9 @@ public final class Main {
 
       minimum: 1
 
-    - `JsonValue type = "page_location"`
-
   - `class BetaCitationContentBlockLocation:`
+
+    - `JsonValue type = "content_block_location"`
 
     - `String citedText`
 
@@ -28762,9 +28797,9 @@ public final class Main {
 
       minimum: 0
 
-    - `JsonValue type = "content_block_location"`
-
   - `class BetaCitationsWebSearchResultLocation:`
+
+    - `JsonValue type = "web_search_result_location"`
 
     - `String citedText`
 
@@ -28774,11 +28809,11 @@ public final class Main {
 
       maxLength: 512
 
-    - `JsonValue type = "web_search_result_location"`
-
     - `String url`
 
   - `class BetaCitationSearchResultLocation:`
+
+    - `JsonValue type = "search_result_location"`
 
     - `String citedText`
 
@@ -28810,13 +28845,13 @@ public final class Main {
 
     - `Optional<String> title`
 
-    - `JsonValue type = "search_result_location"`
-
 ### Beta Text Citation Param
 
 - `class BetaTextCitationParam: union`
 
   - `class BetaCitationCharLocationParam:`
+
+    - `JsonValue type = "char_location"`
 
     - `String citedText`
 
@@ -28834,9 +28869,9 @@ public final class Main {
 
       minimum: 0
 
-    - `JsonValue type = "char_location"`
-
   - `class BetaCitationPageLocationParam:`
+
+    - `JsonValue type = "page_location"`
 
     - `String citedText`
 
@@ -28854,9 +28889,9 @@ public final class Main {
 
       minimum: 1
 
-    - `JsonValue type = "page_location"`
-
   - `class BetaCitationContentBlockLocationParam:`
+
+    - `JsonValue type = "content_block_location"`
 
     - `String citedText`
 
@@ -28884,9 +28919,9 @@ public final class Main {
 
       minimum: 0
 
-    - `JsonValue type = "content_block_location"`
-
   - `class BetaCitationWebSearchResultLocationParam:`
+
+    - `JsonValue type = "web_search_result_location"`
 
     - `String citedText`
 
@@ -28896,13 +28931,13 @@ public final class Main {
 
       maxLength: 512, minLength: 1
 
-    - `JsonValue type = "web_search_result_location"`
-
     - `String url`
 
       minLength: 1
 
   - `class BetaCitationSearchResultLocationParam:`
+
+    - `JsonValue type = "search_result_location"`
 
     - `String citedText`
 
@@ -28934,35 +28969,35 @@ public final class Main {
 
     - `Optional<String> title`
 
-    - `JsonValue type = "search_result_location"`
-
 ### Beta Text Delta
 
 - `class BetaTextDelta:`
 
-  - `String text`
-
   - `JsonValue type = "text_delta"`
+
+  - `String text`
 
 ### Beta Text Editor Code Execution Create Result Block
 
 - `class BetaTextEditorCodeExecutionCreateResultBlock:`
 
-  - `boolean isFileUpdate`
-
   - `JsonValue type = "text_editor_code_execution_create_result"`
+
+  - `boolean isFileUpdate`
 
 ### Beta Text Editor Code Execution Create Result Block Param
 
 - `class BetaTextEditorCodeExecutionCreateResultBlockParam:`
 
-  - `boolean isFileUpdate`
-
   - `JsonValue type = "text_editor_code_execution_create_result"`
+
+  - `boolean isFileUpdate`
 
 ### Beta Text Editor Code Execution Str Replace Result Block
 
 - `class BetaTextEditorCodeExecutionStrReplaceResultBlock:`
+
+  - `JsonValue type = "text_editor_code_execution_str_replace_result"`
 
   - `Optional<List<String>> lines`
 
@@ -28973,8 +29008,6 @@ public final class Main {
   - `Optional<Long> oldLines`
 
   - `Optional<Long> oldStart`
-
-  - `JsonValue type = "text_editor_code_execution_str_replace_result"`
 
 ### Beta Text Editor Code Execution Str Replace Result Block Param
 
@@ -28996,9 +29029,13 @@ public final class Main {
 
 - `class BetaTextEditorCodeExecutionToolResultBlock:`
 
+  - `JsonValue type = "text_editor_code_execution_tool_result"`
+
   - `Content content`
 
     - `class BetaTextEditorCodeExecutionToolResultError:`
+
+      - `JsonValue type = "text_editor_code_execution_tool_result_error"`
 
       - `ErrorCode errorCode`
 
@@ -29014,9 +29051,9 @@ public final class Main {
 
       - `Optional<String> errorMessage`
 
-      - `JsonValue type = "text_editor_code_execution_tool_result_error"`
-
     - `class BetaTextEditorCodeExecutionViewResultBlock:`
+
+      - `JsonValue type = "text_editor_code_execution_view_result"`
 
       - `String content`
 
@@ -29034,15 +29071,15 @@ public final class Main {
 
       - `Optional<Long> totalLines`
 
-      - `JsonValue type = "text_editor_code_execution_view_result"`
-
     - `class BetaTextEditorCodeExecutionCreateResultBlock:`
-
-      - `boolean isFileUpdate`
 
       - `JsonValue type = "text_editor_code_execution_create_result"`
 
+      - `boolean isFileUpdate`
+
     - `class BetaTextEditorCodeExecutionStrReplaceResultBlock:`
+
+      - `JsonValue type = "text_editor_code_execution_str_replace_result"`
 
       - `Optional<List<String>> lines`
 
@@ -29054,21 +29091,21 @@ public final class Main {
 
       - `Optional<Long> oldStart`
 
-      - `JsonValue type = "text_editor_code_execution_str_replace_result"`
-
   - `String toolUseId`
 
     pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-  - `JsonValue type = "text_editor_code_execution_tool_result"`
 
 ### Beta Text Editor Code Execution Tool Result Block Param
 
 - `class BetaTextEditorCodeExecutionToolResultBlockParam:`
 
+  - `JsonValue type = "text_editor_code_execution_tool_result"`
+
   - `Content content`
 
     - `class BetaTextEditorCodeExecutionToolResultErrorParam:`
+
+      - `JsonValue type = "text_editor_code_execution_tool_result_error"`
 
       - `ErrorCode errorCode`
 
@@ -29082,11 +29119,11 @@ public final class Main {
 
         - `FILE_NOT_FOUND("file_not_found")`
 
-      - `JsonValue type = "text_editor_code_execution_tool_result_error"`
-
       - `Optional<String> errorMessage`
 
     - `class BetaTextEditorCodeExecutionViewResultBlockParam:`
+
+      - `JsonValue type = "text_editor_code_execution_view_result"`
 
       - `String content`
 
@@ -29098,8 +29135,6 @@ public final class Main {
 
         - `PDF("pdf")`
 
-      - `JsonValue type = "text_editor_code_execution_view_result"`
-
       - `Optional<Long> numLines`
 
       - `Optional<Long> startLine`
@@ -29108,9 +29143,9 @@ public final class Main {
 
     - `class BetaTextEditorCodeExecutionCreateResultBlockParam:`
 
-      - `boolean isFileUpdate`
-
       - `JsonValue type = "text_editor_code_execution_create_result"`
+
+      - `boolean isFileUpdate`
 
     - `class BetaTextEditorCodeExecutionStrReplaceResultBlockParam:`
 
@@ -29129,8 +29164,6 @@ public final class Main {
   - `String toolUseId`
 
     pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-  - `JsonValue type = "text_editor_code_execution_tool_result"`
 
   - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -29157,6 +29190,8 @@ public final class Main {
 
 - `class BetaTextEditorCodeExecutionToolResultError:`
 
+  - `JsonValue type = "text_editor_code_execution_tool_result_error"`
+
   - `ErrorCode errorCode`
 
     - `INVALID_TOOL_INPUT("invalid_tool_input")`
@@ -29171,11 +29206,11 @@ public final class Main {
 
   - `Optional<String> errorMessage`
 
-  - `JsonValue type = "text_editor_code_execution_tool_result_error"`
-
 ### Beta Text Editor Code Execution Tool Result Error Param
 
 - `class BetaTextEditorCodeExecutionToolResultErrorParam:`
+
+  - `JsonValue type = "text_editor_code_execution_tool_result_error"`
 
   - `ErrorCode errorCode`
 
@@ -29188,14 +29223,14 @@ public final class Main {
     - `EXECUTION_TIME_EXCEEDED("execution_time_exceeded")`
 
     - `FILE_NOT_FOUND("file_not_found")`
-
-  - `JsonValue type = "text_editor_code_execution_tool_result_error"`
 
   - `Optional<String> errorMessage`
 
 ### Beta Text Editor Code Execution View Result Block
 
 - `class BetaTextEditorCodeExecutionViewResultBlock:`
+
+  - `JsonValue type = "text_editor_code_execution_view_result"`
 
   - `String content`
 
@@ -29213,11 +29248,11 @@ public final class Main {
 
   - `Optional<Long> totalLines`
 
-  - `JsonValue type = "text_editor_code_execution_view_result"`
-
 ### Beta Text Editor Code Execution View Result Block Param
 
 - `class BetaTextEditorCodeExecutionViewResultBlockParam:`
+
+  - `JsonValue type = "text_editor_code_execution_view_result"`
 
   - `String content`
 
@@ -29228,8 +29263,6 @@ public final class Main {
     - `IMAGE("image")`
 
     - `PDF("pdf")`
-
-  - `JsonValue type = "text_editor_code_execution_view_result"`
 
   - `Optional<Long> numLines`
 
@@ -29240,6 +29273,8 @@ public final class Main {
 ### Beta Thinking Block
 
 - `class BetaThinkingBlock:`
+
+  - `JsonValue type = "thinking"`
 
   - `String signature`
 
@@ -29252,8 +29287,6 @@ public final class Main {
   - `String thinking`
 
     The text of Claude's thinking process for this block.
-
-  - `JsonValue type = "thinking"`
 
 ### Beta Thinking Block Binding
 
@@ -29279,6 +29312,8 @@ public final class Main {
 
 - `class BetaThinkingBlockParam:`
 
+  - `JsonValue type = "thinking"`
+
   - `String signature`
 
     The `signature` value of this thinking block, exactly as returned by the API in a previous response. Used to verify that the block was generated by Claude.
@@ -29288,8 +29323,6 @@ public final class Main {
   - `String thinking`
 
     The `thinking` text of this block as returned by the API.
-
-  - `JsonValue type = "thinking"`
 
 ### Beta Thinking Config Adaptive
 
@@ -29335,6 +29368,8 @@ public final class Main {
 
 - `class BetaThinkingConfigEnabled:`
 
+  - `JsonValue type = "enabled"`
+
   - `long budgetTokens`
 
     Determines how many tokens Claude can use for its internal reasoning process. Larger budgets can enable more thorough analysis for complex problems, improving response quality.
@@ -29344,8 +29379,6 @@ public final class Main {
     See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
 
     minimum: 1024
-
-  - `JsonValue type = "enabled"`
 
   - `Optional<BetaThinkingBlockBinding> blockBinding`
 
@@ -29387,6 +29420,8 @@ public final class Main {
 
   - `class BetaThinkingConfigEnabled:`
 
+    - `JsonValue type = "enabled"`
+
     - `long budgetTokens`
 
       Determines how many tokens Claude can use for its internal reasoning process. Larger budgets can enable more thorough analysis for complex problems, improving response quality.
@@ -29396,8 +29431,6 @@ public final class Main {
       See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
 
       minimum: 1024
-
-    - `JsonValue type = "enabled"`
 
     - `Optional<BetaThinkingBlockBinding> blockBinding`
 
@@ -29455,6 +29488,8 @@ public final class Main {
 
 - `class BetaThinkingDelta:`
 
+  - `JsonValue type = "thinking_delta"`
+
   - `Optional<Long> estimatedTokens`
 
     Per-frame increment of a coarse, running estimate of the tokens this thinking block has produced so far. Present whenever the `thinking-token-count-2026-05-13` beta is set; `null` unless `thinking.display` resolves to `"omitted"` and a count is due this frame. Sum the increments across `thinking_delta` frames on this block for a progress indicator. Each increment is a non-negative multiple of a fixed quantum and the cadence is rate-limited, so this is a deliberately lossy display hint, not a billable count; `usage.output_tokens` remains authoritative.
@@ -29463,11 +29498,13 @@ public final class Main {
 
     The incremental `thinking` text for this content block. Concatenate the `thinking` values of successive `thinking_delta` events to assemble the block's full `thinking` value.
 
-  - `JsonValue type = "thinking_delta"`
-
 ### Beta Thinking Dropped Input Transformation
 
 - `class BetaThinkingDroppedInputTransformation:`
+
+  - `JsonValue type = "thinking_dropped"`
+
+    Always `thinking_dropped` for this entry type.
 
   - `String path`
 
@@ -29499,10 +29536,6 @@ public final class Main {
 
     - `END_USER_BINDING_MISMATCH("end_user_binding_mismatch")`
 
-  - `JsonValue type = "thinking_dropped"`
-
-    Always `thinking_dropped` for this entry type.
-
 ### Beta Thinking Prefix Mismatch Behavior
 
 - `enum BetaThinkingPrefixMismatchBehavior:`
@@ -29533,15 +29566,15 @@ public final class Main {
 
   User-configurable total token budget across contexts.
 
+  - `JsonValue type = "tokens"`
+
+    The budget type. Currently only 'tokens' is supported.
+
   - `long total`
 
     Total token budget across all contexts in the session.
 
     minimum: 1024
-
-  - `JsonValue type = "tokens"`
-
-    The budget type. Currently only 'tokens' is supported.
 
   - `Optional<Long> remaining`
 
@@ -29552,6 +29585,8 @@ public final class Main {
 ### Beta Tool
 
 - `class BetaTool:`
+
+  - `Optional<Type> type`
 
   - `InputSchema inputSchema`
 
@@ -29624,19 +29659,17 @@ public final class Main {
 
     When true, guarantees schema validation on tool names and inputs
 
-  - `Optional<Type> type`
-
 ### Beta Tool Bash 20241022
 
 - `class BetaToolBash20241022:`
+
+  - `JsonValue type = "bash_20241022"`
 
   - `JsonValue name = "bash"`
 
     Name of the tool.
 
     This is how the tool will be called by the model and in `tool_use` blocks.
-
-  - `JsonValue type = "bash_20241022"`
 
   - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -29683,13 +29716,13 @@ public final class Main {
 
 - `class BetaToolBash20250124:`
 
+  - `JsonValue type = "bash_20250124"`
+
   - `JsonValue name = "bash"`
 
     Name of the tool.
 
     This is how the tool will be called by the model and in `tool_use` blocks.
-
-  - `JsonValue type = "bash_20250124"`
 
   - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -29739,11 +29772,11 @@ public final class Main {
   Reference to a single MCP tool by its server and remote name — the
   same `server_name`/`name` pair `mcp_tool_use` carries.
 
+  - `JsonValue type = "mcp_tool_reference"`
+
   - `String name`
 
   - `String serverName`
-
-  - `JsonValue type = "mcp_tool_reference"`
 
 ### Beta Tool Change MCP Toolset Reference
 
@@ -29751,9 +29784,9 @@ public final class Main {
 
   Reference to every tool in the named MCP server's toolset.
 
-  - `String serverName`
-
   - `JsonValue type = "mcp_toolset_reference"`
+
+  - `String serverName`
 
 ### Beta Tool Change Tool Reference
 
@@ -29764,11 +29797,11 @@ public final class Main {
   server assigns to MCP-resolved tools — use `mcp_tool_reference` or
   `mcp_toolset_reference` for those.
 
+  - `JsonValue type = "tool_reference"`
+
   - `String name`
 
     pattern: ^[a-zA-Z0-9_-]{1,128}$
-
-  - `JsonValue type = "tool_reference"`
 
 ### Beta Tool Choice
 
@@ -29804,11 +29837,11 @@ public final class Main {
 
     The model will use the specified tool with `tool_choice.name`.
 
+    - `JsonValue type = "tool"`
+
     - `String name`
 
       The name of the tool to use.
-
-    - `JsonValue type = "tool"`
 
     - `Optional<Boolean> disableParallelToolUse`
 
@@ -29864,11 +29897,11 @@ public final class Main {
 
   The model will use the specified tool with `tool_choice.name`.
 
+  - `JsonValue type = "tool"`
+
   - `String name`
 
     The name of the tool to use.
-
-  - `JsonValue type = "tool"`
 
   - `Optional<Boolean> disableParallelToolUse`
 
@@ -29879,6 +29912,8 @@ public final class Main {
 ### Beta Tool Computer Use 20241022
 
 - `class BetaToolComputerUse20241022:`
+
+  - `JsonValue type = "computer_20241022"`
 
   - `long displayHeightPx`
 
@@ -29897,8 +29932,6 @@ public final class Main {
     Name of the tool.
 
     This is how the tool will be called by the model and in `tool_use` blocks.
-
-  - `JsonValue type = "computer_20241022"`
 
   - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -29951,6 +29984,8 @@ public final class Main {
 
 - `class BetaToolComputerUse20250124:`
 
+  - `JsonValue type = "computer_20250124"`
+
   - `long displayHeightPx`
 
     The height of the display in pixels.
@@ -29968,8 +30003,6 @@ public final class Main {
     Name of the tool.
 
     This is how the tool will be called by the model and in `tool_use` blocks.
-
-  - `JsonValue type = "computer_20250124"`
 
   - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -30022,6 +30055,8 @@ public final class Main {
 
 - `class BetaToolComputerUse20251124:`
 
+  - `JsonValue type = "computer_20251124"`
+
   - `long displayHeightPx`
 
     The height of the display in pixels.
@@ -30039,8 +30074,6 @@ public final class Main {
     Name of the tool.
 
     This is how the tool will be called by the model and in `tool_use` blocks.
-
-  - `JsonValue type = "computer_20251124"`
 
   - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -30097,11 +30130,11 @@ public final class Main {
 
 - `class BetaToolReferenceBlock:`
 
+  - `JsonValue type = "tool_reference"`
+
   - `String toolName`
 
     maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
-
-  - `JsonValue type = "tool_reference"`
 
 ### Beta Tool Reference Block Param
 
@@ -30109,11 +30142,11 @@ public final class Main {
 
   Tool reference block that can be included in tool_result content.
 
+  - `JsonValue type = "tool_reference"`
+
   - `String toolName`
 
     maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
-
-  - `JsonValue type = "tool_reference"`
 
   - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -30140,11 +30173,11 @@ public final class Main {
 
 - `class BetaToolResultBlockParam:`
 
+  - `JsonValue type = "tool_result"`
+
   - `String toolUseId`
 
     pattern: ^[a-zA-Z0-9_-]+$
-
-  - `JsonValue type = "tool_result"`
 
   - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -30175,11 +30208,11 @@ public final class Main {
 
       - `class BetaTextBlockParam:`
 
+        - `JsonValue type = "text"`
+
         - `String text`
 
           minLength: 1
-
-        - `JsonValue type = "text"`
 
         - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -30188,6 +30221,8 @@ public final class Main {
         - `Optional<List<BetaTextCitationParam>> citations`
 
           - `class BetaCitationCharLocationParam:`
+
+            - `JsonValue type = "char_location"`
 
             - `String citedText`
 
@@ -30205,9 +30240,9 @@ public final class Main {
 
               minimum: 0
 
-            - `JsonValue type = "char_location"`
-
           - `class BetaCitationPageLocationParam:`
+
+            - `JsonValue type = "page_location"`
 
             - `String citedText`
 
@@ -30225,9 +30260,9 @@ public final class Main {
 
               minimum: 1
 
-            - `JsonValue type = "page_location"`
-
           - `class BetaCitationContentBlockLocationParam:`
+
+            - `JsonValue type = "content_block_location"`
 
             - `String citedText`
 
@@ -30255,9 +30290,9 @@ public final class Main {
 
               minimum: 0
 
-            - `JsonValue type = "content_block_location"`
-
           - `class BetaCitationWebSearchResultLocationParam:`
+
+            - `JsonValue type = "web_search_result_location"`
 
             - `String citedText`
 
@@ -30267,13 +30302,13 @@ public final class Main {
 
               maxLength: 512, minLength: 1
 
-            - `JsonValue type = "web_search_result_location"`
-
             - `String url`
 
               minLength: 1
 
           - `class BetaCitationSearchResultLocationParam:`
+
+            - `JsonValue type = "search_result_location"`
 
             - `String citedText`
 
@@ -30305,13 +30340,15 @@ public final class Main {
 
             - `Optional<String> title`
 
-            - `JsonValue type = "search_result_location"`
-
       - `class BetaImageBlockParam:`
+
+        - `JsonValue type = "image"`
 
         - `Source source`
 
           - `class BetaBase64ImageSource:`
+
+            - `JsonValue type = "base64"`
 
             - `String data`
 
@@ -30327,8 +30364,6 @@ public final class Main {
 
               - `IMAGE_WEBP("image/webp")`
 
-            - `JsonValue type = "base64"`
-
           - `class BetaUrlImageSource:`
 
             - `JsonValue type = "url"`
@@ -30337,11 +30372,9 @@ public final class Main {
 
           - `class BetaFileImageSource:`
 
-            - `String fileId`
-
             - `JsonValue type = "file"`
 
-        - `JsonValue type = "image"`
+            - `String fileId`
 
         - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -30361,13 +30394,15 @@ public final class Main {
 
       - `class BetaSearchResultBlockParam:`
 
+        - `JsonValue type = "search_result"`
+
         - `List<BetaTextBlockParam> content`
+
+          - `JsonValue type = "text"`
 
           - `String text`
 
             minLength: 1
-
-          - `JsonValue type = "text"`
 
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -30379,8 +30414,6 @@ public final class Main {
 
         - `String title`
 
-        - `JsonValue type = "search_result"`
-
         - `Optional<BetaCacheControlEphemeral> cacheControl`
 
           Create a cache control breakpoint at this content block.
@@ -30391,9 +30424,13 @@ public final class Main {
 
       - `class BetaRequestDocumentBlock:`
 
+        - `JsonValue type = "document"`
+
         - `Source source`
 
           - `class BetaBase64PdfSource:`
+
+            - `JsonValue type = "base64"`
 
             - `String data`
 
@@ -30401,17 +30438,17 @@ public final class Main {
 
             - `JsonValue mediaType = "application/pdf"`
 
-            - `JsonValue type = "base64"`
-
           - `class BetaPlainTextSource:`
+
+            - `JsonValue type = "text"`
 
             - `String data`
 
             - `JsonValue mediaType = "text/plain"`
 
-            - `JsonValue type = "text"`
-
           - `class BetaContentBlockSource:`
+
+            - `JsonValue type = "content"`
 
             - `Content content`
 
@@ -30423,8 +30460,6 @@ public final class Main {
 
                 - `class BetaImageBlockParam:`
 
-            - `JsonValue type = "content"`
-
           - `class BetaUrlPdfSource:`
 
             - `JsonValue type = "url"`
@@ -30433,11 +30468,9 @@ public final class Main {
 
           - `class BetaFileDocumentSource:`
 
-            - `String fileId`
-
             - `JsonValue type = "file"`
 
-        - `JsonValue type = "document"`
+            - `String fileId`
 
         - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -30457,11 +30490,11 @@ public final class Main {
 
         Tool reference block that can be included in tool_result content.
 
+        - `JsonValue type = "tool_reference"`
+
         - `String toolName`
 
           maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
-
-        - `JsonValue type = "tool_reference"`
 
         - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -30476,6 +30509,8 @@ public final class Main {
         At most one per `tool_result`, only on a non-error result answering a
         browser toolset member `tool_use`. The server renders the
         model-visible text from it; the model never sees the raw fields.
+
+        - `JsonValue type = "browser_state"`
 
         - `List<BetaBrowserStateTabEntry> tabs`
 
@@ -30505,8 +30540,6 @@ public final class Main {
 
             Whether this tab is the active tab after this call. Whenever `tabs` is non-empty, exactly one entry is marked `active: true`.
 
-        - `JsonValue type = "browser_state"`
-
         - `Optional<BetaCacheControlEphemeral> cacheControl`
 
           Create a cache control breakpoint at this content block.
@@ -30527,25 +30560,25 @@ public final class Main {
             during a failed call gets no deferred `tab_opened`; it simply appears
             in the next result's `tabs` inventory.
 
+            - `JsonValue type = "tab_opened"`
+
             - `String tabId`
 
               The `tab_id` of the opened tab, present in `tabs`.
 
               maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-            - `JsonValue type = "tab_opened"`
-
           - `class BetaBrowserStateChangeDownloadStarted:`
 
             A file download that started during this call.
+
+            - `JsonValue type = "download_started"`
 
             - `String downloadId`
 
               The caller-assigned identifier for this download, stable across the state changes reporting it.
 
               maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
-
-            - `JsonValue type = "download_started"`
 
             - `String url`
 
@@ -30560,13 +30593,13 @@ public final class Main {
             `download_started`, when the download finished during the call that
             started it (at most one state change per `download_id` per result).
 
+            - `JsonValue type = "download_completed"`
+
             - `String downloadId`
 
               The caller-assigned identifier for this download, stable across the state changes reporting it.
 
               maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
-
-            - `JsonValue type = "download_completed"`
 
             - `String url`
 
@@ -30590,13 +30623,13 @@ public final class Main {
 
             A file download that failed — or was cancelled — during this call.
 
+            - `JsonValue type = "download_failed"`
+
             - `String downloadId`
 
               The caller-assigned identifier for this download, stable across the state changes reporting it.
 
               maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
-
-            - `JsonValue type = "download_failed"`
 
             - `String url`
 
@@ -30622,17 +30655,17 @@ public final class Main {
 
 - `class BetaToolSearchToolBm25_20251119:`
 
-  - `JsonValue name = "tool_search_tool_bm25"`
-
-    Name of the tool.
-
-    This is how the tool will be called by the model and in `tool_use` blocks.
-
   - `Type type`
 
     - `TOOL_SEARCH_TOOL_BM25_20251119("tool_search_tool_bm25_20251119")`
 
     - `TOOL_SEARCH_TOOL_BM25("tool_search_tool_bm25")`
+
+  - `JsonValue name = "tool_search_tool_bm25"`
+
+    Name of the tool.
+
+    This is how the tool will be called by the model and in `tool_use` blocks.
 
   - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -30677,17 +30710,17 @@ public final class Main {
 
 - `class BetaToolSearchToolRegex20251119:`
 
-  - `JsonValue name = "tool_search_tool_regex"`
-
-    Name of the tool.
-
-    This is how the tool will be called by the model and in `tool_use` blocks.
-
   - `Type type`
 
     - `TOOL_SEARCH_TOOL_REGEX_20251119("tool_search_tool_regex_20251119")`
 
     - `TOOL_SEARCH_TOOL_REGEX("tool_search_tool_regex")`
+
+  - `JsonValue name = "tool_search_tool_regex"`
+
+    Name of the tool.
+
+    This is how the tool will be called by the model and in `tool_use` blocks.
 
   - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -30732,9 +30765,13 @@ public final class Main {
 
 - `class BetaToolSearchToolResultBlock:`
 
+  - `JsonValue type = "tool_search_tool_result"`
+
   - `Content content`
 
     - `class BetaToolSearchToolResultError:`
+
+      - `JsonValue type = "tool_search_tool_result_error"`
 
       - `ErrorCode errorCode`
 
@@ -30748,33 +30785,33 @@ public final class Main {
 
       - `Optional<String> errorMessage`
 
-      - `JsonValue type = "tool_search_tool_result_error"`
-
     - `class BetaToolSearchToolSearchResultBlock:`
 
+      - `JsonValue type = "tool_search_tool_search_result"`
+
       - `List<BetaToolReferenceBlock> toolReferences`
+
+        - `JsonValue type = "tool_reference"`
 
         - `String toolName`
 
           maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
-
-        - `JsonValue type = "tool_reference"`
-
-      - `JsonValue type = "tool_search_tool_search_result"`
 
   - `String toolUseId`
 
     pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-  - `JsonValue type = "tool_search_tool_result"`
-
 ### Beta Tool Search Tool Result Block Param
 
 - `class BetaToolSearchToolResultBlockParam:`
 
+  - `JsonValue type = "tool_search_tool_result"`
+
   - `Content content`
 
     - `class BetaToolSearchToolResultErrorParam:`
+
+      - `JsonValue type = "tool_search_tool_result_error"`
 
       - `ErrorCode errorCode`
 
@@ -30786,19 +30823,19 @@ public final class Main {
 
         - `EXECUTION_TIME_EXCEEDED("execution_time_exceeded")`
 
-      - `JsonValue type = "tool_search_tool_result_error"`
-
       - `Optional<String> errorMessage`
 
     - `class BetaToolSearchToolSearchResultBlockParam:`
 
+      - `JsonValue type = "tool_search_tool_search_result"`
+
       - `List<BetaToolReferenceBlockParam> toolReferences`
+
+        - `JsonValue type = "tool_reference"`
 
         - `String toolName`
 
           maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
-
-        - `JsonValue type = "tool_reference"`
 
         - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -30821,13 +30858,9 @@ public final class Main {
 
             - `TTL_1H("1h")`
 
-      - `JsonValue type = "tool_search_tool_search_result"`
-
   - `String toolUseId`
 
     pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-  - `JsonValue type = "tool_search_tool_result"`
 
   - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -30837,6 +30870,8 @@ public final class Main {
 
 - `class BetaToolSearchToolResultError:`
 
+  - `JsonValue type = "tool_search_tool_result_error"`
+
   - `ErrorCode errorCode`
 
     - `INVALID_TOOL_INPUT("invalid_tool_input")`
@@ -30849,11 +30884,11 @@ public final class Main {
 
   - `Optional<String> errorMessage`
 
-  - `JsonValue type = "tool_search_tool_result_error"`
-
 ### Beta Tool Search Tool Result Error Param
 
 - `class BetaToolSearchToolResultErrorParam:`
+
+  - `JsonValue type = "tool_search_tool_result_error"`
 
   - `ErrorCode errorCode`
 
@@ -30864,8 +30899,6 @@ public final class Main {
     - `TOO_MANY_REQUESTS("too_many_requests")`
 
     - `EXECUTION_TIME_EXCEEDED("execution_time_exceeded")`
-
-  - `JsonValue type = "tool_search_tool_result_error"`
 
   - `Optional<String> errorMessage`
 
@@ -30873,27 +30906,29 @@ public final class Main {
 
 - `class BetaToolSearchToolSearchResultBlock:`
 
+  - `JsonValue type = "tool_search_tool_search_result"`
+
   - `List<BetaToolReferenceBlock> toolReferences`
+
+    - `JsonValue type = "tool_reference"`
 
     - `String toolName`
 
       maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
-
-    - `JsonValue type = "tool_reference"`
-
-  - `JsonValue type = "tool_search_tool_search_result"`
 
 ### Beta Tool Search Tool Search Result Block Param
 
 - `class BetaToolSearchToolSearchResultBlockParam:`
 
+  - `JsonValue type = "tool_search_tool_search_result"`
+
   - `List<BetaToolReferenceBlockParam> toolReferences`
+
+    - `JsonValue type = "tool_reference"`
 
     - `String toolName`
 
       maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
-
-    - `JsonValue type = "tool_reference"`
 
     - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -30916,19 +30951,17 @@ public final class Main {
 
         - `TTL_1H("1h")`
 
-  - `JsonValue type = "tool_search_tool_search_result"`
-
 ### Beta Tool Text Editor 20241022
 
 - `class BetaToolTextEditor20241022:`
+
+  - `JsonValue type = "text_editor_20241022"`
 
   - `JsonValue name = "str_replace_editor"`
 
     Name of the tool.
 
     This is how the tool will be called by the model and in `tool_use` blocks.
-
-  - `JsonValue type = "text_editor_20241022"`
 
   - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -30975,13 +31008,13 @@ public final class Main {
 
 - `class BetaToolTextEditor20250124:`
 
+  - `JsonValue type = "text_editor_20250124"`
+
   - `JsonValue name = "str_replace_editor"`
 
     Name of the tool.
 
     This is how the tool will be called by the model and in `tool_use` blocks.
-
-  - `JsonValue type = "text_editor_20250124"`
 
   - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -31028,13 +31061,13 @@ public final class Main {
 
 - `class BetaToolTextEditor20250429:`
 
+  - `JsonValue type = "text_editor_20250429"`
+
   - `JsonValue name = "str_replace_based_edit_tool"`
 
     Name of the tool.
 
     This is how the tool will be called by the model and in `tool_use` blocks.
-
-  - `JsonValue type = "text_editor_20250429"`
 
   - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -31081,13 +31114,13 @@ public final class Main {
 
 - `class BetaToolTextEditor20250728:`
 
+  - `JsonValue type = "text_editor_20250728"`
+
   - `JsonValue name = "str_replace_based_edit_tool"`
 
     Name of the tool.
 
     This is how the tool will be called by the model and in `tool_use` blocks.
-
-  - `JsonValue type = "text_editor_20250728"`
 
   - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -31143,6 +31176,8 @@ public final class Main {
   Code execution tool with REPL state persistence (daemon mode + gVisor checkpoint).
 
   - `class BetaTool:`
+
+    - `Optional<Type> type`
 
     - `InputSchema inputSchema`
 
@@ -31215,17 +31250,15 @@ public final class Main {
 
       When true, guarantees schema validation on tool names and inputs
 
-    - `Optional<Type> type`
-
   - `class BetaToolBash20241022:`
+
+    - `JsonValue type = "bash_20241022"`
 
     - `JsonValue name = "bash"`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `JsonValue type = "bash_20241022"`
 
     - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -31253,13 +31286,13 @@ public final class Main {
 
   - `class BetaToolBash20250124:`
 
+    - `JsonValue type = "bash_20250124"`
+
     - `JsonValue name = "bash"`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `JsonValue type = "bash_20250124"`
 
     - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -31287,13 +31320,13 @@ public final class Main {
 
   - `class BetaCodeExecutionTool20250522:`
 
+    - `JsonValue type = "code_execution_20250522"`
+
     - `JsonValue name = "code_execution"`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `JsonValue type = "code_execution_20250522"`
 
     - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -31319,13 +31352,13 @@ public final class Main {
 
   - `class BetaCodeExecutionTool20250825:`
 
+    - `JsonValue type = "code_execution_20250825"`
+
     - `JsonValue name = "code_execution"`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `JsonValue type = "code_execution_20250825"`
 
     - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -31353,13 +31386,13 @@ public final class Main {
 
     Code execution tool with REPL state persistence (daemon mode + gVisor checkpoint).
 
+    - `JsonValue type = "code_execution_20260120"`
+
     - `JsonValue name = "code_execution"`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `JsonValue type = "code_execution_20260120"`
 
     - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -31387,13 +31420,13 @@ public final class Main {
 
     Code execution tool with REPL state persistence.
 
+    - `JsonValue type = "code_execution_20260521"`
+
     - `JsonValue name = "code_execution"`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `JsonValue type = "code_execution_20260521"`
 
     - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -31438,6 +31471,18 @@ public final class Main {
       accepted key, and a member's defaults apply wherever its key is
       absent. Unknown keys are rejected: the field set is this toolset
       version's complete member set.
+
+      - `Optional<BetaBrowserTypeConfig> type`
+
+        `type`'s config overrides.
+
+        - `Optional<Boolean> deferLoading`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `Optional<Boolean> enabled`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
       - `Optional<BetaBrowserCloseTabConfig> closeTab`
 
@@ -31775,18 +31820,6 @@ public final class Main {
 
           Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-      - `Optional<BetaBrowserTypeConfig> type`
-
-        `type`'s config overrides.
-
-        - `Optional<Boolean> deferLoading`
-
-          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-        - `Optional<Boolean> enabled`
-
-          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
       - `Optional<BetaBrowserWaitConfig> wait`
 
         `wait`'s config overrides.
@@ -31813,6 +31846,8 @@ public final class Main {
 
   - `class BetaToolComputerUse20241022:`
 
+    - `JsonValue type = "computer_20241022"`
+
     - `long displayHeightPx`
 
       The height of the display in pixels.
@@ -31830,8 +31865,6 @@ public final class Main {
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `JsonValue type = "computer_20241022"`
 
     - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -31865,13 +31898,13 @@ public final class Main {
 
   - `class BetaMemoryTool20250818:`
 
+    - `JsonValue type = "memory_20250818"`
+
     - `JsonValue name = "memory"`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `JsonValue type = "memory_20250818"`
 
     - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -31899,6 +31932,8 @@ public final class Main {
 
   - `class BetaToolComputerUse20250124:`
 
+    - `JsonValue type = "computer_20250124"`
+
     - `long displayHeightPx`
 
       The height of the display in pixels.
@@ -31916,8 +31951,6 @@ public final class Main {
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `JsonValue type = "computer_20250124"`
 
     - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -31951,13 +31984,13 @@ public final class Main {
 
   - `class BetaToolTextEditor20241022:`
 
+    - `JsonValue type = "text_editor_20241022"`
+
     - `JsonValue name = "str_replace_editor"`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `JsonValue type = "text_editor_20241022"`
 
     - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -31985,6 +32018,8 @@ public final class Main {
 
   - `class BetaToolComputerUse20251124:`
 
+    - `JsonValue type = "computer_20251124"`
+
     - `long displayHeightPx`
 
       The height of the display in pixels.
@@ -32002,8 +32037,6 @@ public final class Main {
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `JsonValue type = "computer_20251124"`
 
     - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -32064,6 +32097,18 @@ public final class Main {
       accepted key, and a member's defaults apply wherever its key is
       absent. Unknown keys are rejected: the field set is this toolset
       version's complete member set.
+
+      - `Optional<BetaComputerTypeConfig> type`
+
+        `type`'s config overrides.
+
+        - `Optional<Boolean> deferLoading`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `Optional<Boolean> enabled`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
       - `Optional<BetaComputerCursorPositionConfig> cursorPosition`
 
@@ -32233,18 +32278,6 @@ public final class Main {
 
           Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-      - `Optional<BetaComputerTypeConfig> type`
-
-        `type`'s config overrides.
-
-        - `Optional<Boolean> deferLoading`
-
-          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-        - `Optional<Boolean> enabled`
-
-          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
       - `Optional<BetaComputerWaitConfig> wait`
 
         `wait`'s config overrides.
@@ -32271,13 +32304,13 @@ public final class Main {
 
   - `class BetaToolTextEditor20250124:`
 
+    - `JsonValue type = "text_editor_20250124"`
+
     - `JsonValue name = "str_replace_editor"`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `JsonValue type = "text_editor_20250124"`
 
     - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -32305,13 +32338,13 @@ public final class Main {
 
   - `class BetaToolTextEditor20250429:`
 
+    - `JsonValue type = "text_editor_20250429"`
+
     - `JsonValue name = "str_replace_based_edit_tool"`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `JsonValue type = "text_editor_20250429"`
 
     - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -32339,13 +32372,13 @@ public final class Main {
 
   - `class BetaToolTextEditor20250728:`
 
+    - `JsonValue type = "text_editor_20250728"`
+
     - `JsonValue name = "str_replace_based_edit_tool"`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `JsonValue type = "text_editor_20250728"`
 
     - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -32379,13 +32412,13 @@ public final class Main {
 
   - `class BetaWebSearchTool20250305:`
 
+    - `JsonValue type = "web_search_20250305"`
+
     - `JsonValue name = "web_search"`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `JsonValue type = "web_search_20250305"`
 
     - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -32455,13 +32488,13 @@ public final class Main {
 
   - `class BetaWebFetchTool20250910:`
 
+    - `JsonValue type = "web_fetch_20250910"`
+
     - `JsonValue name = "web_fetch"`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `JsonValue type = "web_fetch_20250910"`
 
     - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -32513,13 +32546,13 @@ public final class Main {
 
   - `class BetaWebSearchTool20260209:`
 
+    - `JsonValue type = "web_search_20260209"`
+
     - `JsonValue name = "web_search"`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `JsonValue type = "web_search_20260209"`
 
     - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -32563,13 +32596,13 @@ public final class Main {
 
   - `class BetaWebFetchTool20260209:`
 
+    - `JsonValue type = "web_fetch_20260209"`
+
     - `JsonValue name = "web_fetch"`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `JsonValue type = "web_fetch_20260209"`
 
     - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -32621,13 +32654,13 @@ public final class Main {
 
     Web fetch tool with use_cache parameter for bypassing cached content.
 
+    - `JsonValue type = "web_fetch_20260309"`
+
     - `JsonValue name = "web_fetch"`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `JsonValue type = "web_fetch_20260309"`
 
     - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -32681,13 +32714,13 @@ public final class Main {
 
   - `class BetaWebSearchTool20260318:`
 
+    - `JsonValue type = "web_search_20260318"`
+
     - `JsonValue name = "web_search"`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `JsonValue type = "web_search_20260318"`
 
     - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -32739,13 +32772,13 @@ public final class Main {
 
   - `class BetaWebFetchTool20260318:`
 
+    - `JsonValue type = "web_fetch_20260318"`
+
     - `JsonValue name = "web_fetch"`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `JsonValue type = "web_fetch_20260318"`
 
     - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -32806,6 +32839,8 @@ public final class Main {
       Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
 
   - `class BetaAdvisorTool20260301:`
+
+    - `JsonValue type = "advisor_20260301"`
 
     - `Model model`
 
@@ -32887,8 +32922,6 @@ public final class Main {
 
       This is how the tool will be called by the model and in `tool_use` blocks.
 
-    - `JsonValue type = "advisor_20260301"`
-
     - `Optional<List<AllowedCaller>> allowedCallers`
 
       - `DIRECT("direct")`
@@ -32929,17 +32962,17 @@ public final class Main {
 
   - `class BetaToolSearchToolBm25_20251119:`
 
-    - `JsonValue name = "tool_search_tool_bm25"`
-
-      Name of the tool.
-
-      This is how the tool will be called by the model and in `tool_use` blocks.
-
     - `Type type`
 
       - `TOOL_SEARCH_TOOL_BM25_20251119("tool_search_tool_bm25_20251119")`
 
       - `TOOL_SEARCH_TOOL_BM25("tool_search_tool_bm25")`
+
+    - `JsonValue name = "tool_search_tool_bm25"`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
 
     - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -32965,17 +32998,17 @@ public final class Main {
 
   - `class BetaToolSearchToolRegex20251119:`
 
-    - `JsonValue name = "tool_search_tool_regex"`
-
-      Name of the tool.
-
-      This is how the tool will be called by the model and in `tool_use` blocks.
-
     - `Type type`
 
       - `TOOL_SEARCH_TOOL_REGEX_20251119("tool_search_tool_regex_20251119")`
 
       - `TOOL_SEARCH_TOOL_REGEX("tool_search_tool_regex")`
+
+    - `JsonValue name = "tool_search_tool_regex"`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
 
     - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -33006,13 +33039,13 @@ public final class Main {
     Allows configuring enabled status and defer_loading for all tools
     from an MCP server, with optional per-tool overrides.
 
+    - `JsonValue type = "mcp_toolset"`
+
     - `String mcpServerName`
 
       Name of the MCP server to configure tools for
 
       maxLength: 255, minLength: 1
-
-    - `JsonValue type = "mcp_toolset"`
 
     - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -33038,6 +33071,8 @@ public final class Main {
 
 - `class BetaToolUseBlock:`
 
+  - `JsonValue type = "tool_use"`
+
   - `String id`
 
     pattern: ^[a-zA-Z0-9_-]+$
@@ -33047,8 +33082,6 @@ public final class Main {
   - `String name`
 
     minLength: 1
-
-  - `JsonValue type = "tool_use"`
 
   - `Optional<Caller> caller`
 
@@ -33064,19 +33097,19 @@ public final class Main {
 
       Tool invocation generated by a server-side tool.
 
+      - `JsonValue type = "code_execution_20250825"`
+
       - `String toolId`
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-      - `JsonValue type = "code_execution_20250825"`
 
     - `class BetaServerToolCaller20260120:`
 
+      - `JsonValue type = "code_execution_20260120"`
+
       - `String toolId`
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-      - `JsonValue type = "code_execution_20260120"`
 
   - `Optional<String> toolsetName`
 
@@ -33088,6 +33121,8 @@ public final class Main {
 
 - `class BetaToolUseBlockParam:`
 
+  - `JsonValue type = "tool_use"`
+
   - `String id`
 
     pattern: ^[a-zA-Z0-9_-]+$
@@ -33097,8 +33132,6 @@ public final class Main {
   - `String name`
 
     maxLength: 200, minLength: 1
-
-  - `JsonValue type = "tool_use"`
 
   - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -33135,19 +33168,19 @@ public final class Main {
 
       Tool invocation generated by a server-side tool.
 
+      - `JsonValue type = "code_execution_20250825"`
+
       - `String toolId`
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-      - `JsonValue type = "code_execution_20250825"`
 
     - `class BetaServerToolCaller20260120:`
 
+      - `JsonValue type = "code_execution_20260120"`
+
       - `String toolId`
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-      - `JsonValue type = "code_execution_20260120"`
 
   - `Optional<String> toolsetName`
 
@@ -33247,6 +33280,8 @@ public final class Main {
 
         No reprice was applied; `reason` says why.
 
+        - `JsonValue type = "not_applied"`
+
         - `Reason reason`
 
           Why the reprice was not applied.
@@ -33277,8 +33312,6 @@ public final class Main {
           - `WRONG_PLATFORM("wrong_platform")`
 
           - `WRONG_WORKSPACE("wrong_workspace")`
-
-        - `JsonValue type = "not_applied"`
 
         - `Optional<List<String>> removeToRedeem`
 
@@ -33316,6 +33349,10 @@ public final class Main {
     - `class BetaMessageIterationUsage:`
 
       Token usage for a sampling iteration.
+
+      - `JsonValue type = "message"`
+
+        Usage for a sampling iteration
 
       - `Optional<BetaCacheCreation> cacheCreation`
 
@@ -33419,13 +33456,13 @@ public final class Main {
 
         minimum: 0
 
-      - `JsonValue type = "message"`
-
-        Usage for a sampling iteration
-
     - `class BetaCompactionIterationUsage:`
 
       Token usage for a compaction iteration.
+
+      - `JsonValue type = "compaction"`
+
+        Usage for a compaction iteration
 
       - `Optional<BetaCacheCreation> cacheCreation`
 
@@ -33455,13 +33492,13 @@ public final class Main {
 
         minimum: 0
 
-      - `JsonValue type = "compaction"`
-
-        Usage for a compaction iteration
-
     - `class BetaAdvisorMessageIterationUsage:`
 
       Token usage for an advisor sub-inference iteration.
+
+      - `JsonValue type = "advisor_message"`
+
+        Usage for an advisor sub-inference iteration
 
       - `Optional<BetaCacheCreation> cacheCreation`
 
@@ -33496,10 +33533,6 @@ public final class Main {
         The number of output tokens which were used.
 
         minimum: 0
-
-      - `JsonValue type = "advisor_message"`
-
-        Usage for an advisor sub-inference iteration
 
     - `class BetaFallbackMessageIterationUsage:`
 
@@ -33510,6 +33543,10 @@ public final class Main {
       a fallback model served the response is signalled by the presence of this
       entry in `usage.iterations`.
 
+      - `JsonValue type = "fallback_message"`
+
+        Usage for the fallback-model attempt that served the response
+
       - `Optional<BetaCacheCreation> cacheCreation`
 
         Breakdown of cached tokens by TTL
@@ -33543,10 +33580,6 @@ public final class Main {
         The number of output tokens which were used.
 
         minimum: 0
-
-      - `JsonValue type = "fallback_message"`
-
-        Usage for the fallback-model attempt that served the response
 
   - `long outputTokens`
 
@@ -33644,7 +33677,11 @@ public final class Main {
 
 - `class BetaWebFetchBlock:`
 
+  - `JsonValue type = "web_fetch_result"`
+
   - `BetaDocumentBlock content`
+
+    - `JsonValue type = "document"`
 
     - `Optional<BetaCitationConfig> citations`
 
@@ -33656,33 +33693,29 @@ public final class Main {
 
       - `class BetaBase64PdfSource:`
 
+        - `JsonValue type = "base64"`
+
         - `String data`
 
           format: byte
 
         - `JsonValue mediaType = "application/pdf"`
 
-        - `JsonValue type = "base64"`
-
       - `class BetaPlainTextSource:`
+
+        - `JsonValue type = "text"`
 
         - `String data`
 
         - `JsonValue mediaType = "text/plain"`
 
-        - `JsonValue type = "text"`
-
     - `Optional<String> title`
 
       The title of the document
 
-    - `JsonValue type = "document"`
-
   - `Optional<String> retrievedAt`
 
     ISO 8601 timestamp when the content was retrieved
-
-  - `JsonValue type = "web_fetch_result"`
 
   - `String url`
 
@@ -33692,11 +33725,17 @@ public final class Main {
 
 - `class BetaWebFetchBlockParam:`
 
+  - `JsonValue type = "web_fetch_result"`
+
   - `BetaRequestDocumentBlock content`
+
+    - `JsonValue type = "document"`
 
     - `Source source`
 
       - `class BetaBase64PdfSource:`
+
+        - `JsonValue type = "base64"`
 
         - `String data`
 
@@ -33704,17 +33743,17 @@ public final class Main {
 
         - `JsonValue mediaType = "application/pdf"`
 
-        - `JsonValue type = "base64"`
-
       - `class BetaPlainTextSource:`
+
+        - `JsonValue type = "text"`
 
         - `String data`
 
         - `JsonValue mediaType = "text/plain"`
 
-        - `JsonValue type = "text"`
-
       - `class BetaContentBlockSource:`
+
+        - `JsonValue type = "content"`
 
         - `Content content`
 
@@ -33724,11 +33763,11 @@ public final class Main {
 
             - `class BetaTextBlockParam:`
 
+              - `JsonValue type = "text"`
+
               - `String text`
 
                 minLength: 1
-
-              - `JsonValue type = "text"`
 
               - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -33755,6 +33794,8 @@ public final class Main {
 
                 - `class BetaCitationCharLocationParam:`
 
+                  - `JsonValue type = "char_location"`
+
                   - `String citedText`
 
                   - `long documentIndex`
@@ -33771,9 +33812,9 @@ public final class Main {
 
                     minimum: 0
 
-                  - `JsonValue type = "char_location"`
-
                 - `class BetaCitationPageLocationParam:`
+
+                  - `JsonValue type = "page_location"`
 
                   - `String citedText`
 
@@ -33791,9 +33832,9 @@ public final class Main {
 
                     minimum: 1
 
-                  - `JsonValue type = "page_location"`
-
                 - `class BetaCitationContentBlockLocationParam:`
+
+                  - `JsonValue type = "content_block_location"`
 
                   - `String citedText`
 
@@ -33821,9 +33862,9 @@ public final class Main {
 
                     minimum: 0
 
-                  - `JsonValue type = "content_block_location"`
-
                 - `class BetaCitationWebSearchResultLocationParam:`
+
+                  - `JsonValue type = "web_search_result_location"`
 
                   - `String citedText`
 
@@ -33833,13 +33874,13 @@ public final class Main {
 
                     maxLength: 512, minLength: 1
 
-                  - `JsonValue type = "web_search_result_location"`
-
                   - `String url`
 
                     minLength: 1
 
                 - `class BetaCitationSearchResultLocationParam:`
+
+                  - `JsonValue type = "search_result_location"`
 
                   - `String citedText`
 
@@ -33871,13 +33912,15 @@ public final class Main {
 
                   - `Optional<String> title`
 
-                  - `JsonValue type = "search_result_location"`
-
             - `class BetaImageBlockParam:`
+
+              - `JsonValue type = "image"`
 
               - `Source source`
 
                 - `class BetaBase64ImageSource:`
+
+                  - `JsonValue type = "base64"`
 
                   - `String data`
 
@@ -33893,8 +33936,6 @@ public final class Main {
 
                     - `IMAGE_WEBP("image/webp")`
 
-                  - `JsonValue type = "base64"`
-
                 - `class BetaUrlImageSource:`
 
                   - `JsonValue type = "url"`
@@ -33903,11 +33944,9 @@ public final class Main {
 
                 - `class BetaFileImageSource:`
 
-                  - `String fileId`
-
                   - `JsonValue type = "file"`
 
-              - `JsonValue type = "image"`
+                  - `String fileId`
 
               - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -33925,8 +33964,6 @@ public final class Main {
 
                   - `ERROR("error")`
 
-        - `JsonValue type = "content"`
-
       - `class BetaUrlPdfSource:`
 
         - `JsonValue type = "url"`
@@ -33935,11 +33972,9 @@ public final class Main {
 
       - `class BetaFileDocumentSource:`
 
-        - `String fileId`
-
         - `JsonValue type = "file"`
 
-    - `JsonValue type = "document"`
+        - `String fileId`
 
     - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -33957,8 +33992,6 @@ public final class Main {
 
       maxLength: 500, minLength: 1
 
-  - `JsonValue type = "web_fetch_result"`
-
   - `String url`
 
     Fetched content URL
@@ -33971,13 +34004,13 @@ public final class Main {
 
 - `class BetaWebFetchTool20250910:`
 
+  - `JsonValue type = "web_fetch_20250910"`
+
   - `JsonValue name = "web_fetch"`
 
     Name of the tool.
 
     This is how the tool will be called by the model and in `tool_use` blocks.
-
-  - `JsonValue type = "web_fetch_20250910"`
 
   - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -34048,13 +34081,13 @@ public final class Main {
 
 - `class BetaWebFetchTool20260209:`
 
+  - `JsonValue type = "web_fetch_20260209"`
+
   - `JsonValue name = "web_fetch"`
 
     Name of the tool.
 
     This is how the tool will be called by the model and in `tool_use` blocks.
-
-  - `JsonValue type = "web_fetch_20260209"`
 
   - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -34127,13 +34160,13 @@ public final class Main {
 
   Web fetch tool with use_cache parameter for bypassing cached content.
 
+  - `JsonValue type = "web_fetch_20260309"`
+
   - `JsonValue name = "web_fetch"`
 
     Name of the tool.
 
     This is how the tool will be called by the model and in `tool_use` blocks.
-
-  - `JsonValue type = "web_fetch_20260309"`
 
   - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -34208,13 +34241,13 @@ public final class Main {
 
 - `class BetaWebFetchTool20260318:`
 
+  - `JsonValue type = "web_fetch_20260318"`
+
   - `JsonValue name = "web_fetch"`
 
     Name of the tool.
 
     This is how the tool will be called by the model and in `tool_use` blocks.
-
-  - `JsonValue type = "web_fetch_20260318"`
 
   - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -34297,9 +34330,13 @@ public final class Main {
 
 - `class BetaWebFetchToolResultBlock:`
 
+  - `JsonValue type = "web_fetch_tool_result"`
+
   - `Content content`
 
     - `class BetaWebFetchToolResultErrorBlock:`
+
+      - `JsonValue type = "web_fetch_tool_result_error"`
 
       - `BetaWebFetchToolResultErrorCode errorCode`
 
@@ -34320,35 +34357,3 @@ public final class Main {
         - `MAX_USES_EXCEEDED("max_uses_exceeded")`
 
         - `UNAVAILABLE("unavailable")`
-
-      - `JsonValue type = "web_fetch_tool_result_error"`
-
-    - `class BetaWebFetchBlock:`
-
-      - `BetaDocumentBlock content`
-
-        - `Optional<BetaCitationConfig> citations`
-
-          Citation configuration for the document
-
-          - `boolean enabled`
-
-        - `Source source`
-
-          - `class BetaBase64PdfSource:`
-
-            - `String data`
-
-              format: byte
-
-            - `JsonValue mediaType = "application/pdf"`
-
-            - `JsonValue type = "base64"`
-
-          - `class BetaPlainTextSource:`
-
-            - `String data`
-
-            - `JsonValue mediaType = "text/plain"`
-
-            - `JsonValue type = "text"`

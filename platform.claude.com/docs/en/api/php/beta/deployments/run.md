@@ -1,8 +1,13 @@
 <!-- source: https://platform.claude.com/docs/en/api/php/beta/deployments/run -->
 
+---
+title: Run Deployment Now
+url: https://platform.claude.com/docs/en/api/php/beta/deployments/run
+---
+
 # Run Deployment Now
 
-`$client->beta->deployments->run(string deploymentID, ?list<AnthropicBeta> betas): BetaManagedAgentsDeploymentRun`
+`$client->beta->deployments->run(string deploymentID, ?list<AnthropicBeta> betas, ?string workspaceID): BetaManagedAgentsDeploymentRun`
 
 **POST** `/v1/deployments/{deployment_id}/run`
 
@@ -16,9 +21,13 @@ Run Deployment Now
 
   Optional header to specify the beta version(s) you want to use.
 
+- `workspaceID?:optional string`
+
 ## Returns
 
 - `BetaManagedAgentsDeploymentRun`
+
+  - `Type type`
 
   - `string id`
 
@@ -48,8 +57,6 @@ Run Deployment Now
 
     Describes what triggered a deployment run, with trigger-specific metadata.
 
-  - `Type type`
-
 ## Example
 
 ```php
@@ -62,6 +69,7 @@ $client = new Client(apiKey: 'my-anthropic-api-key');
 $betaManagedAgentsDeploymentRun = $client->beta->deployments->run(
   'depl_011CZkZcDH3vPqd7xnEfwTai',
   betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+  workspaceID: 'wrkspc_011CZkZaBF1tNoB5wlCeusgy',
 );
 
 var_dump($betaManagedAgentsDeploymentRun);

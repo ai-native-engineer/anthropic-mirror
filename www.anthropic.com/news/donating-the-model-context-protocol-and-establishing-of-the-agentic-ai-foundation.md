@@ -41,3 +41,5 @@ The Model Context Protocol’s [governance model](https://modelcontextprotocol.i
 Open-source software is essential for building a secure and innovative ecosystem for agentic AI. Today’s donation to the Linux Foundation demonstrates our commitment to ensuring MCP remains a neutral, open standard. We’re excited to continue contributing to MCP and other agentic AI projects through the AAIF.
 
 Learn more about MCP at [modelcontextprotocol.io](https://modelcontextprotocol.io) and get involved with the AAIF [here](https://aaif.io/).
+
+Donating MCP to the Agentic AI Foundation \ Anthropic

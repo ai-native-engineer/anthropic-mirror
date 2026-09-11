@@ -24,7 +24,7 @@ Incognito chats are temporary conversations that aren't saved to your chat histo
 
 When starting a new chat with Claude outside of a project, you'll see a ghost icon in the upper right corner of your screen:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1719768744/c7a2fa56cf284e48472f3b9c4dbf/030563f8-9f97-4891-a749-9ae95968a063?expires=1789000200&signature=bdc0e3847e8931cb61e0f4d5ddd50b7888bc8850e9c59f14b82a888fd8523c9d&req=dScmH854lYZbXfMW1HO4zeUcuwu9buWJDCAt3Cx%2FSO3Gcw0yNHEQaNiMrzTg%0AOcSXEVHht2EAXOEQXB0%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1719768744/c7a2fa56cf284e48472f3b9c4dbf/030563f8-9f97-4891-a749-9ae95968a063?expires=1789000200&signature=bdc0e3847e8931cb61e0f4d5ddd50b7888bc8850e9c59f14b82a888fd8523c9d&req=dScmH854lYZbXfMW1HO4zeUcuwu9buWJDCAt3Cx%2FSO3Gcw0yNHEQaNiMrzTg%0AOcSXEVHht2EAXOEQXB0%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1719768744/c7a2fa56cf284e48472f3b9c4dbf/030563f8-9f97-4891-a749-9ae95968a063?expires=1789086600&signature=0f2ab5fd2d2f38e4812f9f332cf57ea98b45ec31b967d207810a46952b1e747a&req=dScmH854lYZbXfMW1HO4zeUcuwu9ZuONDCAt3Cx%2FSO1T4KiuT4khWkCPbkWm%0ALA5PpFlzKsJigASUj9g%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1719768744/c7a2fa56cf284e48472f3b9c4dbf/030563f8-9f97-4891-a749-9ae95968a063?expires=1789086600&signature=0f2ab5fd2d2f38e4812f9f332cf57ea98b45ec31b967d207810a46952b1e747a&req=dScmH854lYZbXfMW1HO4zeUcuwu9ZuONDCAt3Cx%2FSO1T4KiuT4khWkCPbkWm%0ALA5PpFlzKsJigASUj9g%3D%0A)
 
 1. Click the ghost icon to enable incognito mode.
 2. The interface will indicate you're in an incognito chat with a black border and “Incognito chat” label in the upper left corner.
@@ -64,5 +64,5 @@ Once closed, incognito chats cannot be reopened. Make sure to save any important
 * [How can I create and manage projects?](https://support.claude.com/en/articles/9519177-how-can-i-create-and-manage-projects)
 * [Use Claude’s chat search and memory to build on previous context](https://support.claude.com/en/articles/11817273-use-claude-s-chat-search-and-memory-to-build-on-previous-context)
 * [Release notes](https://support.claude.com/en/articles/12138966-release-notes)
-* [Organize your tasks with projects in Claude Cowork](https://support.claude.com/en/articles/14116274-organize-your-tasks-with-projects-in-claude-cowork)
+* [Use analytics chat to ask Claude about usage](https://support.claude.com/en/articles/14729354-use-analytics-chat-to-ask-claude-about-usage)
 * [See your monthly recap](https://support.claude.com/en/articles/15672559-see-your-monthly-recap)

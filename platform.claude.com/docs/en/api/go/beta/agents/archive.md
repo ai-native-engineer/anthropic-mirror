@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/go/beta/agents/archive -->
 
+---
+title: Archive Agent
+url: https://platform.claude.com/docs/en/api/go/beta/agents/archive
+---
+
 # Archive Agent
 
 `client.Beta.Agents.Archive(ctx, agentID, body) (*BetaManagedAgentsAgent, error)`
@@ -68,6 +73,8 @@ Archive Agent
 
       - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
 
+      - `const AnthropicBetaUserProfiles2026_09_04 AnthropicBeta = "user-profiles-2026-09-04"`
+
       - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
 
       - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
@@ -110,11 +117,19 @@ Archive Agent
 
       - `const AnthropicBetaMidConversationSystemClearAt2026_08_21 AnthropicBeta = "mid-conversation-system-clear-at-2026-08-21"`
 
+  - `WorkspaceID param.Field[string] Optional`
+
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ## Returns
 
 - `type BetaManagedAgentsAgent struct{…}`
 
   A Managed Agents `agent`.
+
+  - `Type BetaManagedAgentsAgentType`
 
   - `ID string`
 
@@ -134,9 +149,9 @@ Archive Agent
 
   - `MCPServers []BetaManagedAgentsMCPServerURLDefinition`
 
-    - `Name string`
-
     - `Type BetaManagedAgentsMCPServerURLDefinitionType`
+
+    - `Name string`
 
     - `URL string`
 
@@ -266,6 +281,8 @@ Archive Agent
 
     Resolved coordinator topology with a concrete agent roster.
 
+    - `Type BetaManagedAgentsMultiagentType`
+
     - `Agents []BetaManagedAgentsMultiagentAgentUnion`
 
       Agents the coordinator may spawn as session threads, each resolved to a specific version.
@@ -274,9 +291,9 @@ Archive Agent
 
         A resolved agent reference with a concrete version.
 
-        - `ID string`
-
         - `Type BetaManagedAgentsAgentReferenceType`
+
+        - `ID string`
 
         - `Version int64`
 
@@ -286,13 +303,11 @@ Archive Agent
 
         Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
 
+        - `Type BetaManagedAgentsAdvisorType`
+
         - `Model string`
 
           The advisor model id.
-
-        - `Type BetaManagedAgentsAdvisorType`
-
-    - `Type BetaManagedAgentsMultiagentType`
 
   - `Name string`
 
@@ -302,9 +317,9 @@ Archive Agent
 
       A resolved Anthropic-managed skill.
 
-      - `SkillID string`
-
       - `Type BetaManagedAgentsAnthropicSkillType`
+
+      - `SkillID string`
 
       - `Version string`
 
@@ -312,9 +327,9 @@ Archive Agent
 
       A resolved user-created custom skill.
 
-      - `SkillID string`
-
       - `Type BetaManagedAgentsCustomSkillType`
+
+      - `SkillID string`
 
       - `Version string`
 
@@ -324,11 +339,15 @@ Archive Agent
 
     - `type BetaManagedAgentsAgentToolset20260401 struct{…}`
 
+      - `Type BetaManagedAgentsAgentToolset20260401Type`
+
       - `Configs []BetaManagedAgentsAgentToolConfigUnion`
 
         - `type BetaManagedAgentsBashToolConfig struct{…}`
 
           Configuration for the bash tool.
+
+          - `Type Bash`
 
           - `Enabled bool`
 
@@ -350,11 +369,17 @@ Archive Agent
 
               - `Type BetaManagedAgentsAlwaysAskPolicyType`
 
-          - `Type Bash`
+            - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+              - `Type Auto`
 
         - `type BetaManagedAgentsEditToolConfig struct{…}`
 
           Configuration for the edit tool.
+
+          - `Type Edit`
 
           - `Enabled bool`
 
@@ -372,11 +397,15 @@ Archive Agent
 
               Tool calls require user confirmation before execution.
 
-          - `Type Edit`
+            - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `type BetaManagedAgentsReadToolConfig struct{…}`
 
           Configuration for the read tool.
+
+          - `Type Read`
 
           - `Enabled bool`
 
@@ -394,11 +423,15 @@ Archive Agent
 
               Tool calls require user confirmation before execution.
 
-          - `Type Read`
+            - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `type BetaManagedAgentsWriteToolConfig struct{…}`
 
           Configuration for the write tool.
+
+          - `Type Write`
 
           - `Enabled bool`
 
@@ -416,11 +449,15 @@ Archive Agent
 
               Tool calls require user confirmation before execution.
 
-          - `Type Write`
+            - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `type BetaManagedAgentsGlobToolConfig struct{…}`
 
           Configuration for the glob tool.
+
+          - `Type Glob`
 
           - `Enabled bool`
 
@@ -438,11 +475,15 @@ Archive Agent
 
               Tool calls require user confirmation before execution.
 
-          - `Type Glob`
+            - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `type BetaManagedAgentsGrepToolConfig struct{…}`
 
           Configuration for the grep tool.
+
+          - `Type Grep`
 
           - `Enabled bool`
 
@@ -460,11 +501,15 @@ Archive Agent
 
               Tool calls require user confirmation before execution.
 
-          - `Type Grep`
+            - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `type BetaManagedAgentsWebFetchToolConfig struct{…}`
 
           Configuration for the web_fetch tool.
+
+          - `Type WebFetch`
 
           - `Enabled bool`
 
@@ -482,7 +527,9 @@ Archive Agent
 
               Tool calls require user confirmation before execution.
 
-          - `Type WebFetch`
+            - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
           - `AllowedDomains []string Optional`
 
@@ -495,6 +542,8 @@ Archive Agent
         - `type BetaManagedAgentsWebSearchToolConfig struct{…}`
 
           Configuration for the web_search tool.
+
+          - `Type WebSearch`
 
           - `Enabled bool`
 
@@ -512,7 +561,9 @@ Archive Agent
 
               Tool calls require user confirmation before execution.
 
-          - `Type WebSearch`
+            - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
           - `AllowedDomains []string Optional`
 
@@ -566,9 +617,13 @@ Archive Agent
 
             Tool calls require user confirmation before execution.
 
-      - `Type BetaManagedAgentsAgentToolset20260401Type`
+          - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
     - `type BetaManagedAgentsMCPToolset struct{…}`
+
+      - `Type BetaManagedAgentsMCPToolsetType`
 
       - `Configs []BetaManagedAgentsMCPToolConfig`
 
@@ -588,6 +643,10 @@ Archive Agent
 
             Tool calls require user confirmation before execution.
 
+          - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
       - `DefaultConfig BetaManagedAgentsMCPToolsetDefaultConfig`
 
         Resolved default configuration for all tools from an MCP server.
@@ -606,13 +665,17 @@ Archive Agent
 
             Tool calls require user confirmation before execution.
 
-      - `MCPServerName string`
+          - `type BetaManagedAgentsAutoPolicy struct{…}`
 
-      - `Type BetaManagedAgentsMCPToolsetType`
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+      - `MCPServerName string`
 
     - `type BetaManagedAgentsCustomTool struct{…}`
 
       A custom tool as returned in API responses.
+
+      - `Type BetaManagedAgentsCustomToolType`
 
       - `Description string`
 
@@ -627,10 +690,6 @@ Archive Agent
         - `Required []string Optional`
 
       - `Name string`
-
-      - `Type BetaManagedAgentsCustomToolType`
-
-  - `Type BetaManagedAgentsAgentType`
 
   - `UpdatedAt Time`
 

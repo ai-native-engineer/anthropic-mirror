@@ -31,14 +31,6 @@ Hyper-local forecasts & alerts
 
 [Add AccuWeather® in Claude (opens in new tab)](https://claude.ai/directory/111502a6-f2e8-45ee-bcf7-a7d325367723 "Add in Claude")
 
-![](https://www.google.com/s2/favicons?domain=civitatis.com&sz=96)
-
-### [Civitatis](https://claude.com/connectors/civitatis)
-
-Search, plan, and book tours and activities worldwide with Civitatis.
-
-[Add Civitatis in Claude (opens in new tab)](https://claude.ai/directory/392985fc-eb02-4d60-889c-aa4c660a7390 "Add in Claude")
-
 ![](https://www.google.com/s2/favicons?domain=novasol.com&sz=96)
 
 ### [Novasol](https://claude.com/connectors/novasol)
@@ -46,6 +38,14 @@ Search, plan, and book tours and activities worldwide with Civitatis.
 Search holiday homes across Europe
 
 [Add Novasol in Claude (opens in new tab)](https://claude.ai/directory/7d0c1f98-2dca-4468-b57d-10e4c3592c2d "Add in Claude")
+
+![](https://www.google.com/s2/favicons?domain=civitatis.com&sz=96)
+
+### [Civitatis](https://claude.com/connectors/civitatis)
+
+Search, plan, and book tours and activities worldwide with Civitatis.
+
+[Add Civitatis in Claude (opens in new tab)](https://claude.ai/directory/392985fc-eb02-4d60-889c-aa4c660a7390 "Add in Claude")
 
 ![](https://www.google.com/s2/favicons?domain=super.com&sz=96)
 

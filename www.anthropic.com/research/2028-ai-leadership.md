@@ -131,7 +131,7 @@ China’s own AI leaders confirm the impact of export controls, and the critical
 
 While export controls have been effective in providing today’s advantage, they have not gone far enough. Despite the CCP’s inability to manufacture enough advanced chips domestically or purchase them legally abroad, AI labs in China have been able to stay close on intelligence through two workarounds: *illicit and evasive compute access*, by smuggling AI chips directly into China and accessing offshore data centers, and *illicit model access*, through which they carry out [distillation attacks](https://www.anthropic.com/news/detecting-and-preventing-distillation-attacks) on US frontier models and use those same models as tools to accelerate their own AI R&D.
 
-China’s evasion of US export controls is an open secret. For example, federal prosecutors [charged](https://www.cnn.com/2026/03/19/politics/super-micro-computer-founder-charged-ai-chips-china) a Supermicro co-founder and two others with diverting $2.5 billion worth of servers containing advanced US chips to China. According to [US government](https://www.reuters.com/world/china/chinas-deepseek-trained-ai-model-nvidias-best-chip-despite-us-ban-official-says-2026-02-24/) and [media](http://theinformation.com/articles/deepseek-using-banned-nvidia-chips-race-build-next-model) reports, DeepSeek trained its latest model on advanced US chips that are banned from sale to China. The *Financial Times* [reported](https://www.ft.com/content/96fe9898-a3a4-4a33-be1d-da06bdb6cb2b) that Alibaba and ByteDance now train their flagship models on export-controlled US chips in data centers located in Southeast Asia, a route current controls do not reach because US export law covers the sale of chips, not remote access to them.1 The US export control system is [struggling](http://chinaselectcommittee.house.gov/media/press-releases/chairman-moolenaar-s-opening-statement-china-s-chip-smuggling-is-a-threat-to-america) to prevent PRC AI labs’ access to advanced US-origin compute.
+China’s evasion of US export controls is an open secret. For example, federal prosecutors [charged](https://www.cnn.com/2026/03/19/politics/super-micro-computer-founder-charged-ai-chips-china) a Supermicro co-founder and two others with diverting $2.5 billion worth of servers containing advanced US chips to China. According to [US government](https://www.reuters.com/world/china/chinas-deepseek-trained-ai-model-nvidias-best-chip-despite-us-ban-official-says-2026-02-24/) and [media](http://theinformation.com/articles/deepseek-using-banned-nvidia-chips-race-build-next-model) reports, DeepSeek trained its latest model on advanced US chips that are banned from sale to China. The *Financial Times* [reported](https://www.ft.com/content/96fe9898-a3a4-4a33-be1d-da06bdb6cb2b) that Alibaba and ByteDance now train their flagship models on export-controlled US chips in data centers located in Southeast Asia, a route current controls do not reach because US export law covers the sale of chips, not remote access to them.[1](#footnote-1) The US export control system is [struggling](http://chinaselectcommittee.house.gov/media/press-releases/chairman-moolenaar-s-opening-statement-china-s-chip-smuggling-is-a-threat-to-america) to prevent PRC AI labs’ access to advanced US-origin compute.
 
 Distillation attacks, in which China-based labs create thousands of fraudulent accounts to circumvent access controls on US AI models and systematically harvest their outputs to replicate frontier capabilities, are another illicit technique used by PRC labs to catch up to their US counterparts and blunt the impact of export controls. The practice allows labs based in China to free-ride on decades of foundational research, billions of dollars in US investment, and the work of thousands of the world’s best engineers that produced US frontier models. The result is near-frontier capability at a fraction of the cost, subsidized by the United States. It is systematic industrial espionage of a technology critical to long-term US national security interests. [OpenAI](https://assets.bwbx.io/documents/users/iqjWHBFdfxIU/rRmql_jJcxb4/v0), [Google](https://cloud.google.com/blog/topics/threat-intelligence/distillation-experimentation-integration-ai-adversarial-use), [Anthropic](https://www.anthropic.com/news/detecting-and-preventing-distillation-attacks), and the [Frontier Model Forum](https://www.frontiermodelforum.org/issue-briefs/issue-brief-adversarial-distillation/) have all publicly condemned the practice of distillation attacks.
 
@@ -183,6 +183,12 @@ America and its allies have developed both the world’s most capable frontier A
 
 1. In January 2026, the House [passed a bipartisan bill](https://www.congress.gov/bill/119th-congress/house-bill/2683/all-actions) 369–22 to close that loophole; the bill has not passed the Senate.
 
+### Measuring tactical intelligence targeting and conventional weapons capabilities of AI models
+
+Anthropic’s Frontier Red Team developed new evaluations to measure AI capabilities in tactical intelligence targeting and conventional weapons development.
+
+[Read more](https://www.anthropic.com/research/intelligence-targeting-conventional-weapons-capabilities)
+
 ### An alignment assessment of recent cybersecurity incidents
 
 We present an alignment assessment of four incidents in which Claude models gained unauthorized access to real third-party systems.
@@ -191,12 +197,6 @@ We present an alignment assessment of four incidents in which Claude models gain
 
 ### Formalizing Fermat's Last Theorem
 
-We are sharing the first complete computer-checked proof of Fermat’s Last Theorem. Claude worked largely autonomously over 11 days to write the proof in the Lean programming language. Below, we describe how the formalization was done and share some thoughts about what this work could mean for research mathematics.
+We are sharing the first complete computer-checked proof of Fermat’s Last Theorem. Claude worked largely autonomously over 11 days to write the proof in the Lean programming language.
 
 [Read more](https://www.anthropic.com/research/formalizing-fermats-last-theorem)
-
-### Automated researchers can reliably mitigate alignment failures
-
-We had Claude autonomously train models to improve their performance on several public benchmarks that measure 10 categories of alignment failure. For all 10, Claude found fixes that improved the target benchmarks without degrading capabilities.
-
-[Read more](https://www.anthropic.com/research/automated-researchers-mitigate-alignment-failures)

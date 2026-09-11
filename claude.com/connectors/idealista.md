@@ -41,11 +41,19 @@ Search, read, and upload files instantly
 
 [Add Google Drive in Claude (opens in new tab)](https://claude.ai/directory/b89f7865-a755-4f86-8062-c3bd651740ce "Add in Claude")
 
+![](https://agent.enrichlabs.ai/avatars/helena.png)
+
+### [Helena by Enrich Labs](https://claude.com/connectors/helena-by-enrich-labs)
+
+Trending
+
+Your AI marketer for paid ads, SEO, email, social, and analytics
+
+[Add Helena by Enrich Labs in Claude (opens in new tab)](https://claude.ai/directory/0da6abdc-62c3-4272-940b-898189371a48 "Add in Claude")
+
 ![](https://raw.githubusercontent.com/Perspective-AI/mcp/main/icon.png)
 
 ### [Perspective AI](https://claude.com/connectors/perspective-ai)
-
-Trending
 
 An AI Concierge that turns forms into conversations
 
@@ -74,11 +82,3 @@ Manage projects, tasks, portfolios, boards, workflows, milestones, dependencies,
 Build, manage, and analyze your Shopify store
 
 [Add Shopify in Claude (opens in new tab)](https://claude.ai/directory/80917cb7-3071-4fca-b053-a4262d356c60 "Add in Claude")
-
-![](https://agent.enrichlabs.ai/avatars/helena.png)
-
-### [Helena by Enrich Labs](https://claude.com/connectors/helena-by-enrich-labs)
-
-Your AI marketer for paid ads, SEO, email, social, and analytics
-
-[Add Helena by Enrich Labs in Claude (opens in new tab)](https://claude.ai/directory/0da6abdc-62c3-4272-940b-898189371a48 "Add in Claude")

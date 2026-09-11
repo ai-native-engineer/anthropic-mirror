@@ -1,10 +1,15 @@
 <!-- source: https://platform.claude.com/docs/en/api/php/beta/files -->
 
+---
+title: Files
+url: https://platform.claude.com/docs/en/api/php/beta/files
+---
+
 # Files
 
 ## Upload File
 
-`$client->beta->files->upload(string file, ?int expiresInSeconds, ?list<AnthropicBeta> betas): BetaFileMetadata`
+`$client->beta->files->upload(string file, ?int expiresInSeconds, ?list<AnthropicBeta> betas, ?string workspaceID): BetaFileMetadata`
 
 **POST** `/v1/files`
 
@@ -14,7 +19,7 @@ Upload File
 
 - `file: string`
 
-  The file to upload
+  The file to upload. Only the final path component of the part's `filename` is kept; an absent or empty `filename` is replaced with `unnamed` plus the extension for the file's stored `mime_type`, when known.
 
 - `expiresInSeconds?:optional int`
 
@@ -24,9 +29,17 @@ Upload File
 
   Optional header to specify the beta version(s) you want to use.
 
+- `workspaceID?:optional string`
+
 ### Returns
 
 - `BetaFileMetadata`
+
+  - `"file" type`
+
+    Object type.
+
+    For files, this is always `"file"`.
 
   - `string id`
 
@@ -49,12 +62,6 @@ Upload File
   - `int sizeBytes`
 
     Size of the file in bytes.
-
-  - `"file" type`
-
-    Object type.
-
-    For files, this is always `"file"`.
 
   - `?bool downloadable`
 
@@ -81,6 +88,7 @@ $betaFileMetadata = $client->beta->files->upload(
   file: FileParam::fromString('Example data', filename: uniqid('file-upload-', true)),
   expiresInSeconds: 3600,
   betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+  workspaceID: 'wrkspc_011CZkZaBF1tNoB5wlCeusgy',
 );
 
 var_dump($betaFileMetadata);
@@ -107,7 +115,7 @@ var_dump($betaFileMetadata);
 
 ## List Files
 
-`$client->beta->files->list(?list<string> ids, ?int limit, ?string page, ?string scopeID, ?list<AnthropicBeta> betas): PageCursor<BetaFileMetadata>`
+`$client->beta->files->list(?list<string> ids, ?int limit, ?string page, ?string scopeID, ?list<AnthropicBeta> betas, ?string workspaceID): PageCursor<BetaFileMetadata>`
 
 **GET** `/v1/files`
 
@@ -139,9 +147,17 @@ List Files
 
   Optional header to specify the beta version(s) you want to use.
 
+- `workspaceID?:optional string`
+
 ### Returns
 
 - `BetaFileMetadata`
+
+  - `"file" type`
+
+    Object type.
+
+    For files, this is always `"file"`.
 
   - `string id`
 
@@ -164,12 +180,6 @@ List Files
   - `int sizeBytes`
 
     Size of the file in bytes.
-
-  - `"file" type`
-
-    Object type.
-
-    For files, this is always `"file"`.
 
   - `?bool downloadable`
 
@@ -198,6 +208,7 @@ $page = $client->beta->files->list(
   page: 'page',
   scopeID: 'scope_id',
   betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+  workspaceID: 'wrkspc_011CZkZaBF1tNoB5wlCeusgy',
 );
 
 var_dump($page);
@@ -229,7 +240,7 @@ var_dump($page);
 
 ## Download File
 
-`$client->beta->files->download(string fileID, ?list<AnthropicBeta> betas): download`
+`$client->beta->files->download(string fileID, ?list<AnthropicBeta> betas, ?string workspaceID): download`
 
 **GET** `/v1/files/{file_id}/content`
 
@@ -245,6 +256,8 @@ Download File
 
   Optional header to specify the beta version(s) you want to use.
 
+- `workspaceID?:optional string`
+
 ### Returns
 
 - `mixed`
@@ -259,7 +272,9 @@ require_once dirname(__DIR__) . '/vendor/autoload.php';
 $client = new Client(apiKey: 'my-anthropic-api-key');
 
 $response = $client->beta->files->download(
-  'file_id', betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24]
+  'file_id',
+  betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+  workspaceID: 'wrkspc_011CZkZaBF1tNoB5wlCeusgy',
 );
 
 var_dump($response);
@@ -267,7 +282,7 @@ var_dump($response);
 
 ## Get File Metadata
 
-`$client->beta->files->retrieveMetadata(string fileID, ?list<AnthropicBeta> betas): BetaFileMetadata`
+`$client->beta->files->retrieveMetadata(string fileID, ?list<AnthropicBeta> betas, ?string workspaceID): BetaFileMetadata`
 
 **GET** `/v1/files/{file_id}`
 
@@ -283,9 +298,17 @@ Get File Metadata
 
   Optional header to specify the beta version(s) you want to use.
 
+- `workspaceID?:optional string`
+
 ### Returns
 
 - `BetaFileMetadata`
+
+  - `"file" type`
+
+    Object type.
+
+    For files, this is always `"file"`.
 
   - `string id`
 
@@ -309,12 +332,6 @@ Get File Metadata
 
     Size of the file in bytes.
 
-  - `"file" type`
-
-    Object type.
-
-    For files, this is always `"file"`.
-
   - `?bool downloadable`
 
     Whether the file can be downloaded.
@@ -337,7 +354,9 @@ require_once dirname(__DIR__) . '/vendor/autoload.php';
 $client = new Client(apiKey: 'my-anthropic-api-key');
 
 $betaFileMetadata = $client->beta->files->retrieveMetadata(
-  'file_id', betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24]
+  'file_id',
+  betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+  workspaceID: 'wrkspc_011CZkZaBF1tNoB5wlCeusgy',
 );
 
 var_dump($betaFileMetadata);
@@ -364,7 +383,7 @@ var_dump($betaFileMetadata);
 
 ## Delete File
 
-`$client->beta->files->delete(string fileID, ?list<AnthropicBeta> betas): BetaDeletedFile`
+`$client->beta->files->delete(string fileID, ?list<AnthropicBeta> betas, ?string workspaceID): BetaDeletedFile`
 
 **DELETE** `/v1/files/{file_id}`
 
@@ -380,19 +399,21 @@ Delete File
 
   Optional header to specify the beta version(s) you want to use.
 
+- `workspaceID?:optional string`
+
 ### Returns
 
 - `BetaDeletedFile`
-
-  - `string id`
-
-    ID of the deleted file.
 
   - `?Type type`
 
     Deleted object type.
 
     For file deletion, this is always `"file_deleted"`.
+
+  - `string id`
+
+    ID of the deleted file.
 
 ### Example
 
@@ -404,7 +425,9 @@ require_once dirname(__DIR__) . '/vendor/autoload.php';
 $client = new Client(apiKey: 'my-anthropic-api-key');
 
 $betaDeletedFile = $client->beta->files->delete(
-  'file_id', betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24]
+  'file_id',
+  betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+  workspaceID: 'wrkspc_011CZkZaBF1tNoB5wlCeusgy',
 );
 
 var_dump($betaDeletedFile);
@@ -425,19 +448,25 @@ var_dump($betaDeletedFile);
 
 - `BetaDeletedFile`
 
-  - `string id`
-
-    ID of the deleted file.
-
   - `?Type type`
 
     Deleted object type.
 
     For file deletion, this is always `"file_deleted"`.
 
+  - `string id`
+
+    ID of the deleted file.
+
 ### Beta File Metadata
 
 - `BetaFileMetadata`
+
+  - `"file" type`
+
+    Object type.
+
+    For files, this is always `"file"`.
 
   - `string id`
 
@@ -461,12 +490,6 @@ var_dump($betaDeletedFile);
 
     Size of the file in bytes.
 
-  - `"file" type`
-
-    Object type.
-
-    For files, this is always `"file"`.
-
   - `?bool downloadable`
 
     Whether the file can be downloaded.
@@ -483,10 +506,10 @@ var_dump($betaDeletedFile);
 
 - `BetaFileScope`
 
-  - `string id`
-
-    The ID of the scoping resource (e.g., the session ID).
-
   - `"session" type`
 
     The type of scope (e.g., `"session"`).
+
+  - `string id`
+
+    The ID of the scoping resource (e.g., the session ID).

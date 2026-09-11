@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/cli/beta/environments/update -->
 
+---
+title: Update Environment
+url: https://platform.claude.com/docs/en/api/cli/beta/environments/update
+---
+
 # Update Environment
 
 `$ ant beta:environments update`
@@ -42,11 +47,21 @@ Update an existing environment's configuration.
 
   Header param: Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ## Returns
 
 - `beta_environment: object`
 
   Unified Environment resource for both cloud and self-hosted environments.
+
+  - `type: "environment"`
+
+    The type of object (always 'environment')
 
   - `id: string`
 
@@ -64,6 +79,10 @@ Update an existing environment's configuration.
 
       `cloud` environment configuration.
 
+      - `type: "cloud"`
+
+        Environment type
+
       - `networking: BetaUnrestrictedNetwork or BetaLimitedNetwork`
 
         Network configuration policy.
@@ -80,6 +99,10 @@ Update an existing environment's configuration.
 
           Limited network access.
 
+          - `type: "limited"`
+
+            Network policy type
+
           - `allow_mcp_servers: boolean`
 
             Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
@@ -92,13 +115,13 @@ Update an existing environment's configuration.
 
             Specifies domains the container can reach.
 
-          - `type: "limited"`
-
-            Network policy type
-
       - `packages: object`
 
         Package manager configuration.
+
+        - `type: optional "packages"`
+
+          Package configuration type
 
         - `apt: array of string`
 
@@ -124,14 +147,6 @@ Update an existing environment's configuration.
 
           Python packages to install
 
-        - `type: optional "packages"`
-
-          Package configuration type
-
-      - `type: "cloud"`
-
-        Environment type
-
     - `beta_self_hosted_config: object`
 
       Configuration for self-hosted environments.
@@ -155,10 +170,6 @@ Update an existing environment's configuration.
   - `name: string`
 
     Human-readable name for the environment
-
-  - `type: "environment"`
-
-    The type of object (always 'environment')
 
   - `updated_at: string`
 

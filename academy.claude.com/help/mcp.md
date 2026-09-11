@@ -23,7 +23,7 @@ Keyword search across courses, lessons, tutorials and use cases, optionally limi
 
 ### Get a Claude Academy item `get_content`
 
-Reads one item by its Academy path or URL. Tutorials and use cases come back in full; a course returns its summary, objectives and ordered lesson list; a lesson returns its summary, objectives and outline — read the lesson itself on the site.
+Reads one item by its Academy path or URL. Lessons, tutorials and use cases come back in full; a course returns its summary, objectives and ordered lesson list. A quiz or members-only lesson returns its summary, objectives and outline — open it on the site.
 
 ### List Claude Academy content `list_content`
 
@@ -85,7 +85,7 @@ Search covers English content only, and the index refreshes with each site relea
 
 ### A lesson came back as an outline only
 
-By design: lessons return their summary, objectives and outline; tutorials and use cases return their full text. Follow the link to read the lesson on academy.claude.com.
+That lesson is a quiz, or is members-only on the site, so the connector carries its summary, objectives and outline but no text. Follow the link to open it on academy.claude.com.
 
 ### “not\_found” or “invalid\_path” when opening a URL
 

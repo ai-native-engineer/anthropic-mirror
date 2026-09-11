@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/beta/tunnels/certificates/list -->
 
+---
+title: List Tunnel Certificates
+url: https://platform.claude.com/docs/en/api/beta/tunnels/certificates/list
+---
+
 # List Tunnel Certificates
 
 **GET** `/v1/tunnels/{tunnel_id}/certificates`
@@ -36,7 +41,7 @@ Lists the certificates registered on a tunnel. Archived certificates are exclude
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 41 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 42 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -84,6 +89,8 @@ Lists the certificates registered on a tunnel. Archived certificates are exclude
 
     - `"user-profiles-2026-08-18"`
 
+    - `"user-profiles-2026-09-04"`
+
     - `"advisor-tool-2026-03-01"`
 
     - `"managed-agents-2026-04-01"`
@@ -126,11 +133,15 @@ Lists the certificates registered on a tunnel. Archived certificates are exclude
 
     - `"mid-conversation-system-clear-at-2026-08-21"`
 
+- `"anthropic-workspace-id": optional string`
+
 ## Returns
 
 - `data: array of BetaTunnelCertificate`
 
   List of certificates, ordered by created_at descending.
+
+  - `type: "tunnel_certificate"`
 
   - `id: string`
 
@@ -161,8 +172,6 @@ Lists the certificates registered on a tunnel. Archived certificates are exclude
   - `tunnel_id: string`
 
     ID of the tunnel the certificate is registered against.
-
-  - `type: "tunnel_certificate"`
 
 - `next_page: string or null`
 

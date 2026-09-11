@@ -8,7 +8,7 @@ This course empowers pK–12 educators to lead AI fluency training for their col
 
 4 lessons45 min
 
-[Start course](https://academy.claude.com/courses/ai-fluency-for-pk-12-train-the-trainer/introduction-from-learner-to-trainer)[Sign in to save progress](https://academy.claude.com/login?returnTo=https%3A%2F%2Facademy.claude.com%2Fcourses%2Fai-fluency-for-pk-12-train-the-trainer)
+[Start course](https://academy.claude.com/courses/ai-fluency-for-pk-12-train-the-trainer/introduction-from-learner-to-trainer)[Sign in to save progress](https://academy.claude.com/login?returnTo=%2Fcourses%2Fai-fluency-for-pk-12-train-the-trainer)
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-mb3gyqvs.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-kx19ab7a.png)
 

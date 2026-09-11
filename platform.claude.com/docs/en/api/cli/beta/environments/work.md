@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/cli/beta/environments/work -->
 
+---
+title: Work
+url: https://platform.claude.com/docs/en/api/cli/beta/environments/work
+---
+
 # Work
 
 ## Get Work Item
@@ -26,6 +31,12 @@ Retrieve detailed information about a specific work item.
 
   Header param: Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ### Returns
 
 - `beta_self_hosted_work: object`
@@ -35,6 +46,10 @@ Retrieve detailed information about a specific work item.
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
+  - `type: "work"`
+
+    The type of object (always 'work')
 
   - `id: string`
 
@@ -52,13 +67,13 @@ Retrieve detailed information about a specific work item.
 
     The actual work to be performed
 
-    - `id: string`
-
-      Session identifier (e.g., 'session_...')
-
     - `type: "session"`
 
       Type of work data
+
+    - `id: string`
+
+      Session identifier (e.g., 'session_...')
 
   - `environment_id: string`
 
@@ -101,10 +116,6 @@ Retrieve detailed information about a specific work item.
   - `stopped_at: string`
 
     RFC 3339 timestamp when work execution stopped
-
-  - `type: "work"`
-
-    The type of object (always 'work')
 
 ### Example
 
@@ -186,6 +197,10 @@ Long poll for work items in the queue.
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
 
+  - `type: "work"`
+
+    The type of object (always 'work')
+
   - `id: string`
 
     Work identifier (e.g., 'work_...')
@@ -202,13 +217,13 @@ Long poll for work items in the queue.
 
     The actual work to be performed
 
-    - `id: string`
-
-      Session identifier (e.g., 'session_...')
-
     - `type: "session"`
 
       Type of work data
+
+    - `id: string`
+
+      Session identifier (e.g., 'session_...')
 
   - `environment_id: string`
 
@@ -251,10 +266,6 @@ Long poll for work items in the queue.
   - `stopped_at: string`
 
     RFC 3339 timestamp when work execution stopped
-
-  - `type: "work"`
-
-    The type of object (always 'work')
 
 ### Example
 
@@ -323,6 +334,10 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
 
+  - `type: "work"`
+
+    The type of object (always 'work')
+
   - `id: string`
 
     Work identifier (e.g., 'work_...')
@@ -339,13 +354,13 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
 
     The actual work to be performed
 
-    - `id: string`
-
-      Session identifier (e.g., 'session_...')
-
     - `type: "session"`
 
       Type of work data
+
+    - `id: string`
+
+      Session identifier (e.g., 'session_...')
 
   - `environment_id: string`
 
@@ -388,10 +403,6 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
   - `stopped_at: string`
 
     RFC 3339 timestamp when work execution stopped
-
-  - `type: "work"`
-
-    The type of object (always 'work')
 
 ### Example
 
@@ -465,6 +476,10 @@ Record a heartbeat for a work item to maintain the lease.
 
   Response after recording a heartbeat for a work item.
 
+  - `type: "work_heartbeat"`
+
+    The type of response
+
   - `last_heartbeat: string`
 
     RFC 3339 timestamp of the actual heartbeat from DB
@@ -490,10 +505,6 @@ Record a heartbeat for a work item to maintain the lease.
   - `ttl_seconds: number`
 
     Effective TTL applied to the lease
-
-  - `type: "work_heartbeat"`
-
-    The type of response
 
 ### Example
 
@@ -544,6 +555,12 @@ Stop a work item, initiating graceful or forced shutdown.
 
   Header param: Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ### Returns
 
 - `beta_self_hosted_work: object`
@@ -553,6 +570,10 @@ Stop a work item, initiating graceful or forced shutdown.
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
+  - `type: "work"`
+
+    The type of object (always 'work')
 
   - `id: string`
 
@@ -570,13 +591,13 @@ Stop a work item, initiating graceful or forced shutdown.
 
     The actual work to be performed
 
-    - `id: string`
-
-      Session identifier (e.g., 'session_...')
-
     - `type: "session"`
 
       Type of work data
+
+    - `id: string`
+
+      Session identifier (e.g., 'session_...')
 
   - `environment_id: string`
 
@@ -619,10 +640,6 @@ Stop a work item, initiating graceful or forced shutdown.
   - `stopped_at: string`
 
     RFC 3339 timestamp when work execution stopped
-
-  - `type: "work"`
-
-    The type of object (always 'work')
 
 ### Example
 
@@ -698,6 +715,10 @@ List work items in an environment.
 
     List of work items
 
+    - `type: "work"`
+
+      The type of object (always 'work')
+
     - `id: string`
 
       Work identifier (e.g., 'work_...')
@@ -714,13 +735,13 @@ List work items in an environment.
 
       The actual work to be performed
 
-      - `id: string`
-
-        Session identifier (e.g., 'session_...')
-
       - `type: "session"`
 
         Type of work data
+
+      - `id: string`
+
+        Session identifier (e.g., 'session_...')
 
     - `environment_id: string`
 
@@ -763,10 +784,6 @@ List work items in an environment.
     - `stopped_at: string`
 
       RFC 3339 timestamp when work execution stopped
-
-    - `type: "work"`
-
-      The type of object (always 'work')
 
   - `next_page: string`
 
@@ -838,6 +855,12 @@ Update work item metadata with merge semantics.
 
   Header param: Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ### Returns
 
 - `beta_self_hosted_work: object`
@@ -847,6 +870,10 @@ Update work item metadata with merge semantics.
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
+  - `type: "work"`
+
+    The type of object (always 'work')
 
   - `id: string`
 
@@ -864,13 +891,13 @@ Update work item metadata with merge semantics.
 
     The actual work to be performed
 
-    - `id: string`
-
-      Session identifier (e.g., 'session_...')
-
     - `type: "session"`
 
       Type of work data
+
+    - `id: string`
+
+      Session identifier (e.g., 'session_...')
 
   - `environment_id: string`
 
@@ -913,10 +940,6 @@ Update work item metadata with merge semantics.
   - `stopped_at: string`
 
     RFC 3339 timestamp when work execution stopped
-
-  - `type: "work"`
-
-    The type of object (always 'work')
 
 ### Example
 
@@ -969,6 +992,12 @@ Get statistics about the work queue for an environment.
 
   Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ### Returns
 
 - `beta_self_hosted_work_queue_stats: object`
@@ -976,6 +1005,10 @@ Get statistics about the work queue for an environment.
   Statistics about the work queue for an environment.
 
   Uses Redis Stream consumer group metrics for O(1) queries.
+
+  - `type: "work_queue_stats"`
+
+    The type of object
 
   - `depth: number`
 
@@ -988,10 +1021,6 @@ Get statistics about the work queue for an environment.
   - `pending: number`
 
     Number of work items being processed (polled but not acknowledged)
-
-  - `type: "work_queue_stats"`
-
-    The type of object
 
   - `workers_polling: number`
 
@@ -1029,6 +1058,10 @@ ant beta:environments:work stats \
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
 
+  - `type: "work"`
+
+    The type of object (always 'work')
+
   - `id: string`
 
     Work identifier (e.g., 'work_...')
@@ -1045,13 +1078,13 @@ ant beta:environments:work stats \
 
     The actual work to be performed
 
-    - `id: string`
-
-      Session identifier (e.g., 'session_...')
-
     - `type: "session"`
 
       Type of work data
+
+    - `id: string`
+
+      Session identifier (e.g., 'session_...')
 
   - `environment_id: string`
 
@@ -1095,15 +1128,15 @@ ant beta:environments:work stats \
 
     RFC 3339 timestamp when work execution stopped
 
-  - `type: "work"`
-
-    The type of object (always 'work')
-
 ### Beta Self Hosted Work Heartbeat Response
 
 - `beta_self_hosted_work_heartbeat_response: object`
 
   Response after recording a heartbeat for a work item.
+
+  - `type: "work_heartbeat"`
+
+    The type of response
 
   - `last_heartbeat: string`
 
@@ -1131,10 +1164,6 @@ ant beta:environments:work stats \
 
     Effective TTL applied to the lease
 
-  - `type: "work_heartbeat"`
-
-    The type of response
-
 ### Beta Self Hosted Work List Response
 
 - `beta_self_hosted_work_list_response: object`
@@ -1144,6 +1173,10 @@ ant beta:environments:work stats \
   - `data: array of BetaSelfHostedWork`
 
     List of work items
+
+    - `type: "work"`
+
+      The type of object (always 'work')
 
     - `id: string`
 
@@ -1161,13 +1194,13 @@ ant beta:environments:work stats \
 
       The actual work to be performed
 
-      - `id: string`
-
-        Session identifier (e.g., 'session_...')
-
       - `type: "session"`
 
         Type of work data
+
+      - `id: string`
+
+        Session identifier (e.g., 'session_...')
 
     - `environment_id: string`
 
@@ -1211,10 +1244,6 @@ ant beta:environments:work stats \
 
       RFC 3339 timestamp when work execution stopped
 
-    - `type: "work"`
-
-      The type of object (always 'work')
-
   - `next_page: string`
 
     Opaque cursor for fetching the next page of results
@@ -1227,6 +1256,10 @@ ant beta:environments:work stats \
 
   Uses Redis Stream consumer group metrics for O(1) queries.
 
+  - `type: "work_queue_stats"`
+
+    The type of object
+
   - `depth: number`
 
     Number of work items waiting to be picked up (lag from consumer group)
@@ -1238,10 +1271,6 @@ ant beta:environments:work stats \
   - `pending: number`
 
     Number of work items being processed (polled but not acknowledged)
-
-  - `type: "work_queue_stats"`
-
-    The type of object
 
   - `workers_polling: number`
 
@@ -1276,10 +1305,10 @@ ant beta:environments:work stats \
   This resource type is used when work represents a session that needs to be executed
   in a self-hosted environment.
 
-  - `id: string`
-
-    Session identifier (e.g., 'session_...')
-
   - `type: "session"`
 
     Type of work data
+
+  - `id: string`
+
+    Session identifier (e.g., 'session_...')

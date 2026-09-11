@@ -8,7 +8,7 @@ Build practical AI collaboration skills for nonprofit work using the 4D Framewor
 
 9 lessons4 hr1 quizCompletion badge
 
-[Start course](https://academy.claude.com/courses/ai-fluency-for-nonprofits/welcome-to-ai-fluency-for-nonprofits)[Sign in to save progress](https://academy.claude.com/login?returnTo=https%3A%2F%2Facademy.claude.com%2Fcourses%2Fai-fluency-for-nonprofits)
+[Start course](https://academy.claude.com/courses/ai-fluency-for-nonprofits/welcome-to-ai-fluency-for-nonprofits)[Sign in to save progress](https://academy.claude.com/login?returnTo=%2Fcourses%2Fai-fluency-for-nonprofits)
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-obzp5frx.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-jwu1vbjk.png)
 

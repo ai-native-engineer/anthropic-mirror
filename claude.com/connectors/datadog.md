@@ -2,7 +2,7 @@
 
 [Skip to main content](#main-content)
 
-Connector URLUS1`https://mcp.datadoghq.com/api/unstable/mcp-server/mcp?toolsets=all,visualizations`US3`https://mcp.us3.datadoghq.com/api/unstable/mcp-server/mcp?toolsets=all,visualizations`US5`https://mcp.us5.datadoghq.com/api/unstable/mcp-server/mcp?toolsets=all,visualizations`EU`https://mcp.datadoghq.eu/api/unstable/mcp-server/mcp?toolsets=all,visualizations`AP1`https://mcp.ap1.datadoghq.com/api/unstable/mcp-server/mcp?toolsets=all,visualizations`AP2`https://mcp.ap2.datadoghq.com/api/unstable/mcp-server/mcp?toolsets=all,visualizations`UK1`https://mcp.uk1.datadoghq.com/api/unstable/mcp-server/mcp?toolsets=all,visualizations`
+Connector URLUS1`https://mcp.datadoghq.com/v1/mcp?toolsets=all,visualizations`US3`https://mcp.us3.datadoghq.com/v1/mcp?toolsets=all,visualizations`US5`https://mcp.us5.datadoghq.com/v1/mcp?toolsets=all,visualizations`EU`https://mcp.datadoghq.eu/v1/mcp?toolsets=all,visualizations`AP1`https://mcp.ap1.datadoghq.com/v1/mcp?toolsets=all,visualizations`AP2`https://mcp.ap2.datadoghq.com/v1/mcp?toolsets=all,visualizations`UK1`https://mcp.uk1.datadoghq.com/v1/mcp?toolsets=all,visualizations`
 
 More[Documentation (opens in new tab)](https://docs.datadoghq.com/bits_ai/mcp_server/)[Enterprise setup guide (opens in new tab)](https://docs.datadoghq.com/account_management/org_settings/cross_app_access/)[Support (opens in new tab)](https://www.datadoghq.com/support/)[Privacy policy (opens in new tab)](https://www.datadoghq.com/legal/privacy/)
 
@@ -44,8 +44,6 @@ Only use connectors from developers you trust. Anthropic does not control which 
 ![](https://cdn.b12.io/branding/b12-logo-purple.png)
 
 ### [Website Generator by B12](https://claude.com/connectors/website-generator-by-b12)
-
-Trending
 
 Build a website or web app in minutes! Generate, design, write code, and create copy for your website. Powered by B12. Contact: hello@b12.io
 

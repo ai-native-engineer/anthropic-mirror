@@ -3,17 +3,22 @@
 
 <!-- chunk-start -->
 
+---
+title: Beta
+url: https://platform.claude.com/docs/en/api/ruby/beta
+---
+
 # Beta
 
 ## Domain types
 
 ### Anthropic Beta
 
-- `AnthropicBeta = String | :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 41 more`
+- `AnthropicBeta = String | :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 42 more`
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 41 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 42 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -60,6 +65,8 @@
     - `:"user-profiles-2026-03-24"`
 
     - `:"user-profiles-2026-08-18"`
+
+    - `:"user-profiles-2026-09-04"`
 
     - `:"advisor-tool-2026-03-01"`
 
@@ -107,25 +114,25 @@
 
 - `class BetaAPIError`
 
-  - `message: String`
-
   - `type: :api_error`
+
+  - `message: String`
 
 ### Beta Authentication Error
 
 - `class BetaAuthenticationError`
 
-  - `message: String`
-
   - `type: :authentication_error`
+
+  - `message: String`
 
 ### Beta Billing Error
 
 - `class BetaBillingError`
 
-  - `message: String`
-
   - `type: :billing_error`
+
+  - `message: String`
 
 ### Beta Currency
 
@@ -137,137 +144,137 @@
 
   - `class BetaInvalidRequestError`
 
-    - `message: String`
-
     - `type: :invalid_request_error`
+
+    - `message: String`
 
   - `class BetaAuthenticationError`
 
-    - `message: String`
-
     - `type: :authentication_error`
+
+    - `message: String`
 
   - `class BetaBillingError`
 
-    - `message: String`
-
     - `type: :billing_error`
+
+    - `message: String`
 
   - `class BetaPermissionError`
 
-    - `message: String`
-
     - `type: :permission_error`
+
+    - `message: String`
 
   - `class BetaNotFoundError`
 
-    - `message: String`
-
     - `type: :not_found_error`
+
+    - `message: String`
 
   - `class BetaRateLimitError`
 
-    - `message: String`
-
     - `type: :rate_limit_error`
+
+    - `message: String`
 
   - `class BetaGatewayTimeoutError`
 
-    - `message: String`
-
     - `type: :timeout_error`
+
+    - `message: String`
 
   - `class BetaAPIError`
 
-    - `message: String`
-
     - `type: :api_error`
+
+    - `message: String`
 
   - `class BetaOverloadedError`
 
-    - `message: String`
-
     - `type: :overloaded_error`
+
+    - `message: String`
 
 ### Beta Error Response
 
 - `class BetaErrorResponse`
 
+  - `type: :error`
+
   - `error: BetaError`
 
     - `class BetaInvalidRequestError`
 
-      - `message: String`
-
       - `type: :invalid_request_error`
+
+      - `message: String`
 
     - `class BetaAuthenticationError`
 
-      - `message: String`
-
       - `type: :authentication_error`
+
+      - `message: String`
 
     - `class BetaBillingError`
 
-      - `message: String`
-
       - `type: :billing_error`
+
+      - `message: String`
 
     - `class BetaPermissionError`
 
-      - `message: String`
-
       - `type: :permission_error`
+
+      - `message: String`
 
     - `class BetaNotFoundError`
 
-      - `message: String`
-
       - `type: :not_found_error`
+
+      - `message: String`
 
     - `class BetaRateLimitError`
 
-      - `message: String`
-
       - `type: :rate_limit_error`
+
+      - `message: String`
 
     - `class BetaGatewayTimeoutError`
 
-      - `message: String`
-
       - `type: :timeout_error`
+
+      - `message: String`
 
     - `class BetaAPIError`
 
-      - `message: String`
-
       - `type: :api_error`
+
+      - `message: String`
 
     - `class BetaOverloadedError`
 
-      - `message: String`
-
       - `type: :overloaded_error`
 
-  - `request_id: String`
+      - `message: String`
 
-  - `type: :error`
+  - `request_id: String`
 
 ### Beta Gateway Timeout Error
 
 - `class BetaGatewayTimeoutError`
 
-  - `message: String`
-
   - `type: :timeout_error`
+
+  - `message: String`
 
 ### Beta Invalid Request Error
 
 - `class BetaInvalidRequestError`
 
-  - `message: String`
-
   - `type: :invalid_request_error`
+
+  - `message: String`
 
 ### Beta Monetary Amount
 
@@ -287,33 +294,33 @@
 
 - `class BetaNotFoundError`
 
-  - `message: String`
-
   - `type: :not_found_error`
+
+  - `message: String`
 
 ### Beta Overloaded Error
 
 - `class BetaOverloadedError`
 
-  - `message: String`
-
   - `type: :overloaded_error`
+
+  - `message: String`
 
 ### Beta Permission Error
 
 - `class BetaPermissionError`
 
-  - `message: String`
-
   - `type: :permission_error`
+
+  - `message: String`
 
 ### Beta Rate Limit Error
 
 - `class BetaRateLimitError`
 
-  - `message: String`
-
   - `type: :rate_limit_error`
+
+  - `message: String`
 
 ## Beta › Models
 
@@ -351,7 +358,7 @@ The Models API response can be used to determine which models are available for 
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 41 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 42 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -399,6 +406,8 @@ The Models API response can be used to determine which models are available for 
 
     - `:"user-profiles-2026-08-18"`
 
+    - `:"user-profiles-2026-09-04"`
+
     - `:"advisor-tool-2026-03-01"`
 
     - `:"managed-agents-2026-04-01"`
@@ -441,9 +450,17 @@ The Models API response can be used to determine which models are available for 
 
     - `:"mid-conversation-system-clear-at-2026-08-21"`
 
+- `workspace_id: String`
+
 #### Returns
 
 - `class BetaModelInfo`
+
+  - `type: :model`
+
+    Object type.
+
+    For Models, this is always `"model"`.
 
   - `id: String`
 
@@ -570,12 +587,6 @@ The Models API response can be used to determine which models are available for 
   - `max_tokens: Integer`
 
     Maximum value for the `max_tokens` parameter when using this model.
-
-  - `type: :model`
-
-    Object type.
-
-    For Models, this is always `"model"`.
 
 #### Example
 
@@ -695,7 +706,7 @@ The Models API response can be used to determine information about a specific mo
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 41 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 42 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -743,6 +754,8 @@ The Models API response can be used to determine information about a specific mo
 
     - `:"user-profiles-2026-08-18"`
 
+    - `:"user-profiles-2026-09-04"`
+
     - `:"advisor-tool-2026-03-01"`
 
     - `:"managed-agents-2026-04-01"`
@@ -785,9 +798,17 @@ The Models API response can be used to determine information about a specific mo
 
     - `:"mid-conversation-system-clear-at-2026-08-21"`
 
+- `workspace_id: String`
+
 #### Returns
 
 - `class BetaModelInfo`
+
+  - `type: :model`
+
+    Object type.
+
+    For Models, this is always `"model"`.
 
   - `id: String`
 
@@ -914,12 +935,6 @@ The Models API response can be used to determine information about a specific mo
   - `max_tokens: Integer`
 
     Maximum value for the `max_tokens` parameter when using this model.
-
-  - `type: :model`
-
-    Object type.
-
-    For Models, this is always `"model"`.
 
 #### Example
 
@@ -1097,11 +1112,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `class BetaTextBlockParam`
 
+        - `type: :text`
+
         - `text: String`
 
           minLength: 1
-
-        - `type: :text`
 
         - `cache_control: BetaCacheControlEphemeral`
 
@@ -1128,6 +1143,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `class BetaCitationCharLocationParam`
 
+            - `type: :char_location`
+
             - `cited_text: String`
 
             - `document_index: Integer`
@@ -1144,9 +1161,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               minimum: 0
 
-            - `type: :char_location`
-
           - `class BetaCitationPageLocationParam`
+
+            - `type: :page_location`
 
             - `cited_text: String`
 
@@ -1164,9 +1181,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               minimum: 1
 
-            - `type: :page_location`
-
           - `class BetaCitationContentBlockLocationParam`
+
+            - `type: :content_block_location`
 
             - `cited_text: String`
 
@@ -1194,9 +1211,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               minimum: 0
 
-            - `type: :content_block_location`
-
           - `class BetaCitationWebSearchResultLocationParam`
+
+            - `type: :web_search_result_location`
 
             - `cited_text: String`
 
@@ -1206,13 +1223,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               maxLength: 512, minLength: 1
 
-            - `type: :web_search_result_location`
-
             - `url: String`
 
               minLength: 1
 
           - `class BetaCitationSearchResultLocationParam`
+
+            - `type: :search_result_location`
 
             - `cited_text: String`
 
@@ -1244,13 +1261,15 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `title: String`
 
-            - `type: :search_result_location`
-
       - `class BetaImageBlockParam`
+
+        - `type: :image`
 
         - `source: BetaBase64ImageSource | BetaURLImageSource | BetaFileImageSource`
 
           - `class BetaBase64ImageSource`
+
+            - `type: :base64`
 
             - `data: String`
 
@@ -1266,8 +1285,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `:"image/webp"`
 
-            - `type: :base64`
-
           - `class BetaURLImageSource`
 
             - `type: :url`
@@ -1276,11 +1293,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `class BetaFileImageSource`
 
-            - `file_id: String`
-
             - `type: :file`
 
-        - `type: :image`
+            - `file_id: String`
 
         - `cache_control: BetaCacheControlEphemeral`
 
@@ -1300,9 +1315,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `class BetaRequestDocumentBlock`
 
+        - `type: :document`
+
         - `source: BetaBase64PDFSource | BetaPlainTextSource | BetaContentBlockSource | 2 more`
 
           - `class BetaBase64PDFSource`
+
+            - `type: :base64`
 
             - `data: String`
 
@@ -1310,17 +1329,17 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `media_type: :"application/pdf"`
 
-            - `type: :base64`
-
           - `class BetaPlainTextSource`
+
+            - `type: :text`
 
             - `data: String`
 
             - `media_type: :"text/plain"`
 
-            - `type: :text`
-
           - `class BetaContentBlockSource`
+
+            - `type: :content`
 
             - `content: String | Array[BetaContentBlockSourceContent]`
 
@@ -1332,8 +1351,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 - `class BetaImageBlockParam`
 
-            - `type: :content`
-
           - `class BetaURLPDFSource`
 
             - `type: :url`
@@ -1342,11 +1359,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `class BetaFileDocumentSource`
 
-            - `file_id: String`
-
             - `type: :file`
 
-        - `type: :document`
+            - `file_id: String`
 
         - `cache_control: BetaCacheControlEphemeral`
 
@@ -1366,13 +1381,15 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `class BetaSearchResultBlockParam`
 
+        - `type: :search_result`
+
         - `content: Array[BetaTextBlockParam]`
+
+          - `type: :text`
 
           - `text: String`
 
             minLength: 1
-
-          - `type: :text`
 
           - `cache_control: BetaCacheControlEphemeral`
 
@@ -1384,8 +1401,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `title: String`
 
-        - `type: :search_result`
-
         - `cache_control: BetaCacheControlEphemeral`
 
           Create a cache control breakpoint at this content block.
@@ -1393,6 +1408,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         - `citations: BetaCitationsConfigParam`
 
       - `class BetaThinkingBlockParam`
+
+        - `type: :thinking`
 
         - `signature: String`
 
@@ -1404,17 +1421,17 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           The `thinking` text of this block as returned by the API.
 
-        - `type: :thinking`
-
       - `class BetaRedactedThinkingBlockParam`
+
+        - `type: :redacted_thinking`
 
         - `data: String`
 
           The `data` value of this redacted thinking block, exactly as returned by the API in a previous response. Opaque and encrypted; pass it back unchanged.
 
-        - `type: :redacted_thinking`
-
       - `class BetaToolUseBlockParam`
+
+        - `type: :tool_use`
 
         - `id: String`
 
@@ -1425,8 +1442,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         - `name: String`
 
           maxLength: 200, minLength: 1
-
-        - `type: :tool_use`
 
         - `cache_control: BetaCacheControlEphemeral`
 
@@ -1446,19 +1461,19 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             Tool invocation generated by a server-side tool.
 
+            - `type: :code_execution_20250825`
+
             - `tool_id: String`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-            - `type: :code_execution_20250825`
 
           - `class BetaServerToolCaller20260120`
 
+            - `type: :code_execution_20260120`
+
             - `tool_id: String`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-            - `type: :code_execution_20260120`
 
         - `toolset_name: String`
 
@@ -1468,11 +1483,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `class BetaToolResultBlockParam`
 
+        - `type: :tool_result`
+
         - `tool_use_id: String`
 
           pattern: ^[a-zA-Z0-9_-]+$
-
-        - `type: :tool_result`
 
         - `cache_control: BetaCacheControlEphemeral`
 
@@ -1496,11 +1511,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               Tool reference block that can be included in tool_result content.
 
+              - `type: :tool_reference`
+
               - `tool_name: String`
 
                 maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
-
-              - `type: :tool_reference`
 
               - `cache_control: BetaCacheControlEphemeral`
 
@@ -1515,6 +1530,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
               At most one per `tool_result`, only on a non-error result answering a
               browser toolset member `tool_use`. The server renders the
               model-visible text from it; the model never sees the raw fields.
+
+              - `type: :browser_state`
 
               - `tabs: Array[BetaBrowserStateTabEntry]`
 
@@ -1544,8 +1561,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                   Whether this tab is the active tab after this call. Whenever `tabs` is non-empty, exactly one entry is marked `active: true`.
 
-              - `type: :browser_state`
-
               - `cache_control: BetaCacheControlEphemeral`
 
                 Create a cache control breakpoint at this content block.
@@ -1566,25 +1581,25 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
                   during a failed call gets no deferred `tab_opened`; it simply appears
                   in the next result's `tabs` inventory.
 
+                  - `type: :tab_opened`
+
                   - `tab_id: String`
 
                     The `tab_id` of the opened tab, present in `tabs`.
 
                     maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-                  - `type: :tab_opened`
-
                 - `class BetaBrowserStateChangeDownloadStarted`
 
                   A file download that started during this call.
+
+                  - `type: :download_started`
 
                   - `download_id: String`
 
                     The caller-assigned identifier for this download, stable across the state changes reporting it.
 
                     maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
-
-                  - `type: :download_started`
 
                   - `url: String`
 
@@ -1599,13 +1614,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
                   `download_started`, when the download finished during the call that
                   started it (at most one state change per `download_id` per result).
 
+                  - `type: :download_completed`
+
                   - `download_id: String`
 
                     The caller-assigned identifier for this download, stable across the state changes reporting it.
 
                     maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
-
-                  - `type: :download_completed`
 
                   - `url: String`
 
@@ -1629,13 +1644,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                   A file download that failed — or was cancelled — during this call.
 
+                  - `type: :download_failed`
+
                   - `download_id: String`
 
                     The caller-assigned identifier for this download, stable across the state changes reporting it.
 
                     maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
-
-                  - `type: :download_failed`
 
                   - `url: String`
 
@@ -1658,6 +1673,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
           maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
 
       - `class BetaServerToolUseBlockParam`
+
+        - `type: :server_tool_use`
 
         - `id: String`
 
@@ -1683,8 +1700,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `:tool_search_tool_bm25`
 
-        - `type: :server_tool_use`
-
         - `cache_control: BetaCacheControlEphemeral`
 
           Create a cache control breakpoint at this content block.
@@ -1705,21 +1720,25 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `class BetaWebSearchToolResultBlockParam`
 
+        - `type: :web_search_tool_result`
+
         - `content: BetaWebSearchToolResultBlockParamContent`
 
           - `ResultBlock = Array[BetaWebSearchResultBlockParam]`
 
+            - `type: :web_search_result`
+
             - `encrypted_content: String`
 
             - `title: String`
-
-            - `type: :web_search_result`
 
             - `url: String`
 
             - `page_age: String`
 
           - `class BetaWebSearchToolRequestError`
+
+            - `type: :web_search_tool_result_error`
 
             - `error_code: BetaWebSearchToolResultErrorCode`
 
@@ -1735,13 +1754,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `:request_too_large`
 
-            - `type: :web_search_tool_result_error`
-
         - `tool_use_id: String`
 
           pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-        - `type: :web_search_tool_result`
 
         - `cache_control: BetaCacheControlEphemeral`
 
@@ -1763,9 +1778,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `class BetaWebFetchToolResultBlockParam`
 
+        - `type: :web_fetch_tool_result`
+
         - `content: BetaWebFetchToolResultErrorBlockParam | BetaWebFetchBlockParam`
 
           - `class BetaWebFetchToolResultErrorBlockParam`
+
+            - `type: :web_fetch_tool_result_error`
 
             - `error_code: BetaWebFetchToolResultErrorCode`
 
@@ -1787,13 +1806,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `:unavailable`
 
-            - `type: :web_fetch_tool_result_error`
+              - `:content_too_large`
 
           - `class BetaWebFetchBlockParam`
 
-            - `content: BetaRequestDocumentBlock`
-
             - `type: :web_fetch_result`
+
+            - `content: BetaRequestDocumentBlock`
 
             - `url: String`
 
@@ -1806,8 +1825,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         - `tool_use_id: String`
 
           pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-        - `type: :web_fetch_tool_result`
 
         - `cache_control: BetaCacheControlEphemeral`
 
@@ -1829,9 +1846,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `class BetaAdvisorToolResultBlockParam`
 
+        - `type: :advisor_tool_result`
+
         - `content: BetaAdvisorToolResultErrorParam | BetaAdvisorResultBlockParam | BetaAdvisorRedactedResultBlockParam`
 
           - `class BetaAdvisorToolResultErrorParam`
+
+            - `type: :advisor_tool_result_error`
 
             - `error_code: :max_uses_exceeded | :prompt_too_long | :too_many_requests | 4 more`
 
@@ -1849,23 +1870,21 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `:model_not_found`
 
-            - `type: :advisor_tool_result_error`
-
           - `class BetaAdvisorResultBlockParam`
 
-            - `text: String`
-
             - `type: :advisor_result`
+
+            - `text: String`
 
             - `stop_reason: String`
 
           - `class BetaAdvisorRedactedResultBlockParam`
 
+            - `type: :advisor_redacted_result`
+
             - `encrypted_content: String`
 
               Opaque blob produced by a prior response; must be round-tripped verbatim.
-
-            - `type: :advisor_redacted_result`
 
             - `stop_reason: String`
 
@@ -1873,19 +1892,21 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-        - `type: :advisor_tool_result`
-
         - `cache_control: BetaCacheControlEphemeral`
 
           Create a cache control breakpoint at this content block.
 
       - `class BetaCodeExecutionToolResultBlockParam`
 
+        - `type: :code_execution_tool_result`
+
         - `content: BetaCodeExecutionToolResultBlockParamContent`
 
           Code execution result with encrypted stdout for PFC + web_search results.
 
           - `class BetaCodeExecutionToolResultErrorParam`
+
+            - `type: :code_execution_tool_result_error`
 
             - `error_code: BetaCodeExecutionToolResultErrorCode`
 
@@ -1897,15 +1918,15 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `:execution_time_exceeded`
 
-            - `type: :code_execution_tool_result_error`
-
           - `class BetaCodeExecutionResultBlockParam`
+
+            - `type: :code_execution_result`
 
             - `content: Array[BetaCodeExecutionOutputBlockParam]`
 
-              - `file_id: String`
-
               - `type: :code_execution_output`
+
+              - `file_id: String`
 
             - `return_code: Integer`
 
@@ -1913,17 +1934,17 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `stdout: String`
 
-            - `type: :code_execution_result`
-
           - `class BetaEncryptedCodeExecutionResultBlockParam`
 
             Code execution result with encrypted stdout for PFC + web_search results.
 
+            - `type: :encrypted_code_execution_result`
+
             - `content: Array[BetaCodeExecutionOutputBlockParam]`
 
-              - `file_id: String`
-
               - `type: :code_execution_output`
+
+              - `file_id: String`
 
             - `encrypted_stdout: String`
 
@@ -1931,13 +1952,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `stderr: String`
 
-            - `type: :encrypted_code_execution_result`
-
         - `tool_use_id: String`
 
           pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-        - `type: :code_execution_tool_result`
 
         - `cache_control: BetaCacheControlEphemeral`
 
@@ -1945,9 +1962,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `class BetaBashCodeExecutionToolResultBlockParam`
 
+        - `type: :bash_code_execution_tool_result`
+
         - `content: BetaBashCodeExecutionToolResultErrorParam | BetaBashCodeExecutionResultBlockParam`
 
           - `class BetaBashCodeExecutionToolResultErrorParam`
+
+            - `type: :bash_code_execution_tool_result_error`
 
             - `error_code: :invalid_tool_input | :unavailable | :too_many_requests | 2 more`
 
@@ -1961,15 +1982,15 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `:output_file_too_large`
 
-            - `type: :bash_code_execution_tool_result_error`
-
           - `class BetaBashCodeExecutionResultBlockParam`
+
+            - `type: :bash_code_execution_result`
 
             - `content: Array[BetaBashCodeExecutionOutputBlockParam]`
 
-              - `file_id: String`
-
               - `type: :bash_code_execution_output`
+
+              - `file_id: String`
 
             - `return_code: Integer`
 
@@ -1977,13 +1998,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `stdout: String`
 
-            - `type: :bash_code_execution_result`
-
         - `tool_use_id: String`
 
           pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-        - `type: :bash_code_execution_tool_result`
 
         - `cache_control: BetaCacheControlEphemeral`
 
@@ -1991,9 +2008,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `class BetaTextEditorCodeExecutionToolResultBlockParam`
 
+        - `type: :text_editor_code_execution_tool_result`
+
         - `content: BetaTextEditorCodeExecutionToolResultErrorParam | BetaTextEditorCodeExecutionViewResultBlockParam | BetaTextEditorCodeExecutionCreateResultBlockParam | BetaTextEditorCodeExecutionStrReplaceResultBlockParam`
 
           - `class BetaTextEditorCodeExecutionToolResultErrorParam`
+
+            - `type: :text_editor_code_execution_tool_result_error`
 
             - `error_code: :invalid_tool_input | :unavailable | :too_many_requests | 2 more`
 
@@ -2007,11 +2028,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `:file_not_found`
 
-            - `type: :text_editor_code_execution_tool_result_error`
-
             - `error_message: String`
 
           - `class BetaTextEditorCodeExecutionViewResultBlockParam`
+
+            - `type: :text_editor_code_execution_view_result`
 
             - `content: String`
 
@@ -2023,8 +2044,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `:pdf`
 
-            - `type: :text_editor_code_execution_view_result`
-
             - `num_lines: Integer`
 
             - `start_line: Integer`
@@ -2033,9 +2052,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `class BetaTextEditorCodeExecutionCreateResultBlockParam`
 
-            - `is_file_update: bool`
-
             - `type: :text_editor_code_execution_create_result`
+
+            - `is_file_update: bool`
 
           - `class BetaTextEditorCodeExecutionStrReplaceResultBlockParam`
 
@@ -2055,17 +2074,19 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-        - `type: :text_editor_code_execution_tool_result`
-
         - `cache_control: BetaCacheControlEphemeral`
 
           Create a cache control breakpoint at this content block.
 
       - `class BetaToolSearchToolResultBlockParam`
 
+        - `type: :tool_search_tool_result`
+
         - `content: BetaToolSearchToolResultErrorParam | BetaToolSearchToolSearchResultBlockParam`
 
           - `class BetaToolSearchToolResultErrorParam`
+
+            - `type: :tool_search_tool_result_error`
 
             - `error_code: :invalid_tool_input | :unavailable | :too_many_requests | :execution_time_exceeded`
 
@@ -2077,37 +2098,35 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `:execution_time_exceeded`
 
-            - `type: :tool_search_tool_result_error`
-
             - `error_message: String`
 
           - `class BetaToolSearchToolSearchResultBlockParam`
 
+            - `type: :tool_search_tool_search_result`
+
             - `tool_references: Array[BetaToolReferenceBlockParam]`
+
+              - `type: :tool_reference`
 
               - `tool_name: String`
 
                 maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
-              - `type: :tool_reference`
-
               - `cache_control: BetaCacheControlEphemeral`
 
                 Create a cache control breakpoint at this content block.
 
-            - `type: :tool_search_tool_search_result`
-
         - `tool_use_id: String`
 
           pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-        - `type: :tool_search_tool_result`
 
         - `cache_control: BetaCacheControlEphemeral`
 
           Create a cache control breakpoint at this content block.
 
       - `class BetaMCPToolUseBlockParam`
+
+        - `type: :mcp_tool_use`
 
         - `id: String`
 
@@ -2121,19 +2140,17 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           The name of the MCP server
 
-        - `type: :mcp_tool_use`
-
         - `cache_control: BetaCacheControlEphemeral`
 
           Create a cache control breakpoint at this content block.
 
       - `class BetaRequestMCPToolResultBlockParam`
 
+        - `type: :mcp_tool_result`
+
         - `tool_use_id: String`
 
           pattern: ^[a-zA-Z0-9_-]+$
-
-        - `type: :mcp_tool_result`
 
         - `cache_control: BetaCacheControlEphemeral`
 
@@ -2145,11 +2162,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `BetaMCPToolResultBlockParamContent = Array[BetaTextBlockParam]`
 
+            - `type: :text`
+
             - `text: String`
 
               minLength: 1
-
-            - `type: :text`
 
             - `cache_control: BetaCacheControlEphemeral`
 
@@ -2164,9 +2181,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         A content block that represents a file to be uploaded to the container
         Files uploaded via this block will be available in the container's input directory.
 
-        - `file_id: String`
-
         - `type: :container_upload`
+
+        - `file_id: String`
 
         - `cache_control: BetaCacheControlEphemeral`
 
@@ -2204,6 +2221,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         `tools`; it is offered to the model from this point in the
         conversation onward.
 
+        - `type: :tool_addition`
+
         - `tool: BetaToolChangeToolReference | BetaToolChangeMCPToolReference | BetaToolChangeMCPToolsetReference`
 
           Reference to a single tool the caller declared directly in
@@ -2218,32 +2237,30 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
             server assigns to MCP-resolved tools — use `mcp_tool_reference` or
             `mcp_toolset_reference` for those.
 
+            - `type: :tool_reference`
+
             - `name: String`
 
               pattern: ^[a-zA-Z0-9_-]{1,128}$
-
-            - `type: :tool_reference`
 
           - `class BetaToolChangeMCPToolReference`
 
             Reference to a single MCP tool by its server and remote name — the
             same `server_name`/`name` pair `mcp_tool_use` carries.
 
+            - `type: :mcp_tool_reference`
+
             - `name: String`
 
             - `server_name: String`
-
-            - `type: :mcp_tool_reference`
 
           - `class BetaToolChangeMCPToolsetReference`
 
             Reference to every tool in the named MCP server's toolset.
 
-            - `server_name: String`
-
             - `type: :mcp_toolset_reference`
 
-        - `type: :tool_addition`
+            - `server_name: String`
 
         - `cache_control: BetaCacheControlEphemeral`
 
@@ -2257,6 +2274,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         `tools`; it is no longer offered to the model from this point in the
         conversation onward.
 
+        - `type: :tool_removal`
+
         - `tool: BetaToolChangeToolReference | BetaToolChangeMCPToolReference | BetaToolChangeMCPToolsetReference`
 
           Reference to a single tool the caller declared directly in
@@ -2279,8 +2298,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
           - `class BetaToolChangeMCPToolsetReference`
 
             Reference to every tool in the named MCP server's toolset.
-
-        - `type: :tool_removal`
 
         - `cache_control: BetaCacheControlEphemeral`
 
@@ -2301,6 +2318,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         request is rejected), and moving it into the middle of a single run is
         likewise rejected; between non-thinking blocks the block's placement has
         no validation effect.
+
+        - `type: :fallback`
 
         - `from: BetaFallbackInfoParam`
 
@@ -2392,8 +2411,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           Identifies one hop of a fallback transition.
 
-        - `type: :fallback`
-
         - `trigger: untyped`
 
           The response block's `trigger`, echoed verbatim. Accepted and ignored by the server; any object or `null` is allowed.
@@ -2464,12 +2481,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       maxItems: 20
 
-      - `skill_id: String`
-
-        Skill ID
-
-        maxLength: 64, minLength: 1
-
       - `type: :anthropic | :custom`
 
         Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
@@ -2477,6 +2488,12 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         - `:anthropic`
 
         - `:custom`
+
+      - `skill_id: String`
+
+        Skill ID
+
+        maxLength: 64, minLength: 1
 
       - `version: String`
 
@@ -2688,25 +2705,25 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         A schema to specify Claude's output format in responses. See [structured outputs](https://platform.claude.com/docs/en/build-with-claude/structured-outputs)
 
+        - `type: :json_schema`
+
         - `schema: Hash[Symbol, untyped]`
 
           The JSON schema of the format
 
-        - `type: :json_schema`
-
       - `task_budget: BetaTokenTaskBudget`
 
         User-configurable total token budget across contexts.
+
+        - `type: :tokens`
+
+          The budget type. Currently only 'tokens' is supported.
 
         - `total: Integer`
 
           Total token budget across all contexts in the session.
 
           minimum: 1024
-
-        - `type: :tokens`
-
-          The budget type. Currently only 'tokens' is supported.
 
         - `remaining: Integer`
 
@@ -2726,6 +2743,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `class BetaThinkingConfigEnabled`
 
+        - `type: :enabled`
+
         - `budget_tokens: Integer`
 
           Determines how many tokens Claude can use for its internal reasoning process. Larger budgets can enable more thorough analysis for complex problems, improving response quality.
@@ -2735,8 +2754,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
           See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
 
           minimum: 1024
-
-        - `type: :enabled`
 
         - `block_binding: BetaThinkingBlockBinding`
 
@@ -2802,9 +2819,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
   maxItems: 20
 
-  - `name: String`
-
   - `type: :url`
+
+  - `name: String`
 
   - `url: String`
 
@@ -2874,11 +2891,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
   - `UnionMember1 = Array[BetaTextBlockParam]`
 
+    - `type: :text`
+
     - `text: String`
 
       minLength: 1
-
-    - `type: :text`
 
     - `cache_control: BetaCacheControlEphemeral`
 
@@ -2932,11 +2949,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     The model will use the specified tool with `tool_choice.name`.
 
+    - `type: :tool`
+
     - `name: String`
 
       The name of the tool to use.
-
-    - `type: :tool`
 
     - `disable_parallel_tool_use: bool`
 
@@ -3016,6 +3033,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
   - `class BetaTool`
 
+    - `type: :custom`
+
     - `input_schema: InputSchema`
 
       [JSON schema](https://json-schema.org/draft/2020-12) for this tool's input.
@@ -3070,17 +3089,15 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       When true, guarantees schema validation on tool names and inputs
 
-    - `type: :custom`
-
   - `class BetaToolBash20241022`
+
+    - `type: :bash_20241022`
 
     - `name: :bash`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `type: :bash_20241022`
 
     - `allowed_callers: Array[:direct | :code_execution_20250825 | :code_execution_20260120 | :code_execution_20260521]`
 
@@ -3108,13 +3125,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
   - `class BetaToolBash20250124`
 
+    - `type: :bash_20250124`
+
     - `name: :bash`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `type: :bash_20250124`
 
     - `allowed_callers: Array[:direct | :code_execution_20250825 | :code_execution_20260120 | :code_execution_20260521]`
 
@@ -3142,13 +3159,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
   - `class BetaCodeExecutionTool20250522`
 
+    - `type: :code_execution_20250522`
+
     - `name: :code_execution`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `type: :code_execution_20250522`
 
     - `allowed_callers: Array[:direct | :code_execution_20250825 | :code_execution_20260120 | :code_execution_20260521]`
 
@@ -3174,13 +3191,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
   - `class BetaCodeExecutionTool20250825`
 
+    - `type: :code_execution_20250825`
+
     - `name: :code_execution`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `type: :code_execution_20250825`
 
     - `allowed_callers: Array[:direct | :code_execution_20250825 | :code_execution_20260120 | :code_execution_20260521]`
 
@@ -3208,13 +3225,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     Code execution tool with REPL state persistence (daemon mode + gVisor checkpoint).
 
+    - `type: :code_execution_20260120`
+
     - `name: :code_execution`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `type: :code_execution_20260120`
 
     - `allowed_callers: Array[:direct | :code_execution_20250825 | :code_execution_20260120 | :code_execution_20260521]`
 
@@ -3242,13 +3259,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     Code execution tool with REPL state persistence.
 
+    - `type: :code_execution_20260521`
+
     - `name: :code_execution`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `type: :code_execution_20260521`
 
     - `allowed_callers: Array[:direct | :code_execution_20250825 | :code_execution_20260120 | :code_execution_20260521]`
 
@@ -3293,6 +3310,18 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
       accepted key, and a member's defaults apply wherever its key is
       absent. Unknown keys are rejected: the field set is this toolset
       version's complete member set.
+
+      - `type: BetaBrowserTypeConfig`
+
+        `type`'s config overrides.
+
+        - `defer_loading: bool`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: bool`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
       - `close_tab: BetaBrowserCloseTabConfig`
 
@@ -3630,18 +3659,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-      - `type: BetaBrowserTypeConfig`
-
-        `type`'s config overrides.
-
-        - `defer_loading: bool`
-
-          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-        - `enabled: bool`
-
-          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
       - `wait: BetaBrowserWaitConfig`
 
         `wait`'s config overrides.
@@ -3668,6 +3685,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
   - `class BetaToolComputerUse20241022`
 
+    - `type: :computer_20241022`
+
     - `display_height_px: Integer`
 
       The height of the display in pixels.
@@ -3685,8 +3704,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `type: :computer_20241022`
 
     - `allowed_callers: Array[:direct | :code_execution_20250825 | :code_execution_20260120 | :code_execution_20260521]`
 
@@ -3720,13 +3737,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
   - `class BetaMemoryTool20250818`
 
+    - `type: :memory_20250818`
+
     - `name: :memory`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `type: :memory_20250818`
 
     - `allowed_callers: Array[:direct | :code_execution_20250825 | :code_execution_20260120 | :code_execution_20260521]`
 
@@ -3754,6 +3771,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
   - `class BetaToolComputerUse20250124`
 
+    - `type: :computer_20250124`
+
     - `display_height_px: Integer`
 
       The height of the display in pixels.
@@ -3771,8 +3790,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `type: :computer_20250124`
 
     - `allowed_callers: Array[:direct | :code_execution_20250825 | :code_execution_20260120 | :code_execution_20260521]`
 
@@ -3806,13 +3823,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
   - `class BetaToolTextEditor20241022`
 
+    - `type: :text_editor_20241022`
+
     - `name: :str_replace_editor`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `type: :text_editor_20241022`
 
     - `allowed_callers: Array[:direct | :code_execution_20250825 | :code_execution_20260120 | :code_execution_20260521]`
 
@@ -3840,6 +3857,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
   - `class BetaToolComputerUse20251124`
 
+    - `type: :computer_20251124`
+
     - `display_height_px: Integer`
 
       The height of the display in pixels.
@@ -3857,8 +3876,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `type: :computer_20251124`
 
     - `allowed_callers: Array[:direct | :code_execution_20250825 | :code_execution_20260120 | :code_execution_20260521]`
 
@@ -3919,6 +3936,18 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
       accepted key, and a member's defaults apply wherever its key is
       absent. Unknown keys are rejected: the field set is this toolset
       version's complete member set.
+
+      - `type: BetaComputerTypeConfig`
+
+        `type`'s config overrides.
+
+        - `defer_loading: bool`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: bool`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
       - `cursor_position: BetaComputerCursorPositionConfig`
 
@@ -4088,18 +4117,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-      - `type: BetaComputerTypeConfig`
-
-        `type`'s config overrides.
-
-        - `defer_loading: bool`
-
-          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-        - `enabled: bool`
-
-          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
       - `wait: BetaComputerWaitConfig`
 
         `wait`'s config overrides.
@@ -4126,13 +4143,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
   - `class BetaToolTextEditor20250124`
 
+    - `type: :text_editor_20250124`
+
     - `name: :str_replace_editor`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `type: :text_editor_20250124`
 
     - `allowed_callers: Array[:direct | :code_execution_20250825 | :code_execution_20260120 | :code_execution_20260521]`
 
@@ -4160,13 +4177,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
   - `class BetaToolTextEditor20250429`
 
+    - `type: :text_editor_20250429`
+
     - `name: :str_replace_based_edit_tool`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `type: :text_editor_20250429`
 
     - `allowed_callers: Array[:direct | :code_execution_20250825 | :code_execution_20260120 | :code_execution_20260521]`
 
@@ -4194,13 +4211,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
   - `class BetaToolTextEditor20250728`
 
+    - `type: :text_editor_20250728`
+
     - `name: :str_replace_based_edit_tool`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `type: :text_editor_20250728`
 
     - `allowed_callers: Array[:direct | :code_execution_20250825 | :code_execution_20260120 | :code_execution_20260521]`
 
@@ -4234,13 +4251,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
   - `class BetaWebSearchTool20250305`
 
+    - `type: :web_search_20250305`
+
     - `name: :web_search`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `type: :web_search_20250305`
 
     - `allowed_callers: Array[:direct | :code_execution_20250825 | :code_execution_20260120 | :code_execution_20260521]`
 
@@ -4310,13 +4327,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
   - `class BetaWebFetchTool20250910`
 
+    - `type: :web_fetch_20250910`
+
     - `name: :web_fetch`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `type: :web_fetch_20250910`
 
     - `allowed_callers: Array[:direct | :code_execution_20250825 | :code_execution_20260120 | :code_execution_20260521]`
 
@@ -4366,13 +4383,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
   - `class BetaWebSearchTool20260209`
 
+    - `type: :web_search_20260209`
+
     - `name: :web_search`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `type: :web_search_20260209`
 
     - `allowed_callers: Array[:direct | :code_execution_20250825 | :code_execution_20260120 | :code_execution_20260521]`
 
@@ -4416,13 +4433,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
   - `class BetaWebFetchTool20260209`
 
+    - `type: :web_fetch_20260209`
+
     - `name: :web_fetch`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `type: :web_fetch_20260209`
 
     - `allowed_callers: Array[:direct | :code_execution_20250825 | :code_execution_20260120 | :code_execution_20260521]`
 
@@ -4474,13 +4491,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     Web fetch tool with use_cache parameter for bypassing cached content.
 
+    - `type: :web_fetch_20260309`
+
     - `name: :web_fetch`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `type: :web_fetch_20260309`
 
     - `allowed_callers: Array[:direct | :code_execution_20250825 | :code_execution_20260120 | :code_execution_20260521]`
 
@@ -4534,13 +4551,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
   - `class BetaWebSearchTool20260318`
 
+    - `type: :web_search_20260318`
+
     - `name: :web_search`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `type: :web_search_20260318`
 
     - `allowed_callers: Array[:direct | :code_execution_20250825 | :code_execution_20260120 | :code_execution_20260521]`
 
@@ -4592,13 +4609,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
   - `class BetaWebFetchTool20260318`
 
+    - `type: :web_fetch_20260318`
+
     - `name: :web_fetch`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `type: :web_fetch_20260318`
 
     - `allowed_callers: Array[:direct | :code_execution_20250825 | :code_execution_20260120 | :code_execution_20260521]`
 
@@ -4660,6 +4677,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
   - `class BetaAdvisorTool20260301`
 
+    - `type: :advisor_20260301`
+
     - `model: Model`
 
       The model that will complete your prompt.
@@ -4671,8 +4690,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `type: :advisor_20260301`
 
     - `allowed_callers: Array[:direct | :code_execution_20250825 | :code_execution_20260120 | :code_execution_20260521]`
 
@@ -4714,17 +4731,17 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
   - `class BetaToolSearchToolBm25_20251119`
 
-    - `name: :tool_search_tool_bm25`
-
-      Name of the tool.
-
-      This is how the tool will be called by the model and in `tool_use` blocks.
-
     - `type: :tool_search_tool_bm25_20251119 | :tool_search_tool_bm25`
 
       - `:tool_search_tool_bm25_20251119`
 
       - `:tool_search_tool_bm25`
+
+    - `name: :tool_search_tool_bm25`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
 
     - `allowed_callers: Array[:direct | :code_execution_20250825 | :code_execution_20260120 | :code_execution_20260521]`
 
@@ -4750,17 +4767,17 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
   - `class BetaToolSearchToolRegex20251119`
 
-    - `name: :tool_search_tool_regex`
-
-      Name of the tool.
-
-      This is how the tool will be called by the model and in `tool_use` blocks.
-
     - `type: :tool_search_tool_regex_20251119 | :tool_search_tool_regex`
 
       - `:tool_search_tool_regex_20251119`
 
       - `:tool_search_tool_regex`
+
+    - `name: :tool_search_tool_regex`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
 
     - `allowed_callers: Array[:direct | :code_execution_20250825 | :code_execution_20260120 | :code_execution_20260521]`
 
@@ -4791,13 +4808,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
     Allows configuring enabled status and defer_loading for all tools
     from an MCP server, with optional per-tool overrides.
 
+    - `type: :mcp_toolset`
+
     - `mcp_server_name: String`
 
       Name of the MCP server to configure tools for
 
       maxLength: 255, minLength: 1
-
-    - `type: :mcp_toolset`
 
     - `cache_control: BetaCacheControlEphemeral`
 
@@ -4825,7 +4842,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 41 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 42 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -4873,6 +4890,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `:"user-profiles-2026-08-18"`
 
+    - `:"user-profiles-2026-09-04"`
+
     - `:"advisor-tool-2026-03-01"`
 
     - `:"managed-agents-2026-04-01"`
@@ -4918,6 +4937,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 - `user_profile_id: String`
 
   The user profile ID to attribute this request to. Use when acting on behalf of a party other than your organization. Requires the `user-profiles` beta header.
+
+- `workspace_id: String`
 
 - `output_format: BetaJSONOutputFormat`
 
@@ -4967,6 +4988,12 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
 - `class BetaMessage`
 
+  - `type: :message`
+
+    Object type.
+
+    For Messages, this is always `"message"`.
+
   - `id: String`
 
     Unique object identifier.
@@ -4991,12 +5018,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       Skills loaded in the container
 
-      - `skill_id: String`
-
-        Skill ID
-
-        maxLength: 64, minLength: 1
-
       - `type: :anthropic | :custom`
 
         Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
@@ -5004,6 +5025,12 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         - `:anthropic`
 
         - `:custom`
+
+      - `skill_id: String`
+
+        Skill ID
+
+        maxLength: 64, minLength: 1
 
       - `version: String`
 
@@ -5042,6 +5069,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class BetaTextBlock`
 
+      - `type: :text`
+
       - `citations: Array[BetaTextCitation]`
 
         Citations supporting the text block.
@@ -5049,6 +5078,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
 
         - `class BetaCitationCharLocation`
+
+          - `type: :char_location`
 
           - `cited_text: String`
 
@@ -5066,9 +5097,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             minimum: 0
 
-          - `type: :char_location`
-
         - `class BetaCitationPageLocation`
+
+          - `type: :page_location`
 
           - `cited_text: String`
 
@@ -5086,9 +5117,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             minimum: 1
 
-          - `type: :page_location`
-
         - `class BetaCitationContentBlockLocation`
+
+          - `type: :content_block_location`
 
           - `cited_text: String`
 
@@ -5116,9 +5147,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             minimum: 0
 
-          - `type: :content_block_location`
-
         - `class BetaCitationsWebSearchResultLocation`
+
+          - `type: :web_search_result_location`
 
           - `cited_text: String`
 
@@ -5128,11 +5159,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             maxLength: 512
 
-          - `type: :web_search_result_location`
-
           - `url: String`
 
         - `class BetaCitationSearchResultLocation`
+
+          - `type: :search_result_location`
 
           - `cited_text: String`
 
@@ -5164,15 +5195,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `title: String`
 
-          - `type: :search_result_location`
-
       - `text: String`
 
-        maxLength: 5000000, minLength: 0
-
-      - `type: :text`
+        minLength: 0
 
     - `class BetaThinkingBlock`
+
+      - `type: :thinking`
 
       - `signature: String`
 
@@ -5186,9 +5215,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         The text of Claude's thinking process for this block.
 
-      - `type: :thinking`
-
     - `class BetaRedactedThinkingBlock`
+
+      - `type: :redacted_thinking`
 
       - `data: String`
 
@@ -5198,9 +5227,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking#redacted-thinking-blocks) for details.
 
-      - `type: :redacted_thinking`
-
     - `class BetaToolUseBlock`
+
+      - `type: :tool_use`
 
       - `id: String`
 
@@ -5211,8 +5240,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
       - `name: String`
 
         minLength: 1
-
-      - `type: :tool_use`
 
       - `caller_: BetaDirectCaller | BetaServerToolCaller | BetaServerToolCaller20260120`
 
@@ -5228,19 +5255,19 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           Tool invocation generated by a server-side tool.
 
+          - `type: :code_execution_20250825`
+
           - `tool_id: String`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-          - `type: :code_execution_20250825`
 
         - `class BetaServerToolCaller20260120`
 
+          - `type: :code_execution_20260120`
+
           - `tool_id: String`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-          - `type: :code_execution_20260120`
 
       - `toolset_name: String`
 
@@ -5249,6 +5276,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
 
     - `class BetaServerToolUseBlock`
+
+      - `type: :server_tool_use`
 
       - `id: String`
 
@@ -5274,8 +5303,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `:tool_search_tool_bm25`
 
-      - `type: :server_tool_use`
-
       - `caller_: BetaDirectCaller | BetaServerToolCaller | BetaServerToolCaller20260120`
 
         Tool invocation directly from the model.
@@ -5292,9 +5319,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class BetaWebSearchToolResultBlock`
 
+      - `type: :web_search_tool_result`
+
       - `content: BetaWebSearchToolResultBlockContent`
 
         - `class BetaWebSearchToolResultError`
+
+          - `type: :web_search_tool_result_error`
 
           - `error_code: BetaWebSearchToolResultErrorCode`
 
@@ -5310,9 +5341,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `:request_too_large`
 
-          - `type: :web_search_tool_result_error`
-
         - `UnionMember1 = Array[BetaWebSearchResultBlock]`
+
+          - `type: :web_search_result`
 
           - `encrypted_content: String`
 
@@ -5320,15 +5351,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `title: String`
 
-          - `type: :web_search_result`
-
           - `url: String`
 
       - `tool_use_id: String`
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-      - `type: :web_search_tool_result`
 
       - `caller_: BetaDirectCaller | BetaServerToolCaller | BetaServerToolCaller20260120`
 
@@ -5346,9 +5373,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class BetaWebFetchToolResultBlock`
 
+      - `type: :web_fetch_tool_result`
+
       - `content: BetaWebFetchToolResultErrorBlock | BetaWebFetchBlock`
 
         - `class BetaWebFetchToolResultErrorBlock`
+
+          - `type: :web_fetch_tool_result_error`
 
           - `error_code: BetaWebFetchToolResultErrorCode`
 
@@ -5370,11 +5401,15 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `:unavailable`
 
-          - `type: :web_fetch_tool_result_error`
+            - `:content_too_large`
 
         - `class BetaWebFetchBlock`
 
+          - `type: :web_fetch_result`
+
           - `content: BetaDocumentBlock`
+
+            - `type: :document`
 
             - `citations: BetaCitationConfig`
 
@@ -5386,33 +5421,29 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `class BetaBase64PDFSource`
 
+                - `type: :base64`
+
                 - `data: String`
 
                   format: byte
 
                 - `media_type: :"application/pdf"`
 
-                - `type: :base64`
-
               - `class BetaPlainTextSource`
+
+                - `type: :text`
 
                 - `data: String`
 
                 - `media_type: :"text/plain"`
 
-                - `type: :text`
-
             - `title: String`
 
               The title of the document
 
-            - `type: :document`
-
           - `retrieved_at: String`
 
             ISO 8601 timestamp when the content was retrieved
-
-          - `type: :web_fetch_result`
 
           - `url: String`
 
@@ -5421,8 +5452,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
       - `tool_use_id: String`
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-      - `type: :web_fetch_tool_result`
 
       - `caller_: BetaDirectCaller | BetaServerToolCaller | BetaServerToolCaller20260120`
 
@@ -5440,9 +5469,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class BetaAdvisorToolResultBlock`
 
+      - `type: :advisor_tool_result`
+
       - `content: BetaAdvisorToolResultError | BetaAdvisorResultBlock | BetaAdvisorRedactedResultBlock`
 
         - `class BetaAdvisorToolResultError`
+
+          - `type: :advisor_tool_result_error`
 
           - `error_code: :max_uses_exceeded | :prompt_too_long | :too_many_requests | 4 more`
 
@@ -5460,9 +5493,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `:model_not_found`
 
-          - `type: :advisor_tool_result_error`
-
         - `class BetaAdvisorResultBlock`
+
+          - `type: :advisor_result`
 
           - `stop_reason: String`
 
@@ -5470,9 +5503,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `text: String`
 
-          - `type: :advisor_result`
-
         - `class BetaAdvisorRedactedResultBlock`
+
+          - `type: :advisor_redacted_result`
 
           - `encrypted_content: String`
 
@@ -5482,21 +5515,21 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             The advisor sub-inference's stop reason (same values as the top-level message `stop_reason`).
 
-          - `type: :advisor_redacted_result`
-
       - `tool_use_id: String`
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-      - `type: :advisor_tool_result`
-
     - `class BetaCodeExecutionToolResultBlock`
+
+      - `type: :code_execution_tool_result`
 
       - `content: BetaCodeExecutionToolResultBlockContent`
 
         Code execution result with encrypted stdout for PFC + web_search results.
 
         - `class BetaCodeExecutionToolResultError`
+
+          - `type: :code_execution_tool_result_error`
 
           - `error_code: BetaCodeExecutionToolResultErrorCode`
 
@@ -5508,15 +5541,15 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `:execution_time_exceeded`
 
-          - `type: :code_execution_tool_result_error`
-
         - `class BetaCodeExecutionResultBlock`
+
+          - `type: :code_execution_result`
 
           - `content: Array[BetaCodeExecutionOutputBlock]`
 
-            - `file_id: String`
-
             - `type: :code_execution_output`
+
+            - `file_id: String`
 
           - `return_code: Integer`
 
@@ -5524,17 +5557,17 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `stdout: String`
 
-          - `type: :code_execution_result`
-
         - `class BetaEncryptedCodeExecutionResultBlock`
 
           Code execution result with encrypted stdout for PFC + web_search results.
 
+          - `type: :encrypted_code_execution_result`
+
           - `content: Array[BetaCodeExecutionOutputBlock]`
 
-            - `file_id: String`
-
             - `type: :code_execution_output`
+
+            - `file_id: String`
 
           - `encrypted_stdout: String`
 
@@ -5542,19 +5575,19 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `stderr: String`
 
-          - `type: :encrypted_code_execution_result`
-
       - `tool_use_id: String`
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-      - `type: :code_execution_tool_result`
-
     - `class BetaBashCodeExecutionToolResultBlock`
+
+      - `type: :bash_code_execution_tool_result`
 
       - `content: BetaBashCodeExecutionToolResultError | BetaBashCodeExecutionResultBlock`
 
         - `class BetaBashCodeExecutionToolResultError`
+
+          - `type: :bash_code_execution_tool_result_error`
 
           - `error_code: :invalid_tool_input | :unavailable | :too_many_requests | 2 more`
 
@@ -5568,15 +5601,15 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `:output_file_too_large`
 
-          - `type: :bash_code_execution_tool_result_error`
-
         - `class BetaBashCodeExecutionResultBlock`
+
+          - `type: :bash_code_execution_result`
 
           - `content: Array[BetaBashCodeExecutionOutputBlock]`
 
-            - `file_id: String`
-
             - `type: :bash_code_execution_output`
+
+            - `file_id: String`
 
           - `return_code: Integer`
 
@@ -5584,19 +5617,19 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `stdout: String`
 
-          - `type: :bash_code_execution_result`
-
       - `tool_use_id: String`
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-      - `type: :bash_code_execution_tool_result`
-
     - `class BetaTextEditorCodeExecutionToolResultBlock`
+
+      - `type: :text_editor_code_execution_tool_result`
 
       - `content: BetaTextEditorCodeExecutionToolResultError | BetaTextEditorCodeExecutionViewResultBlock | BetaTextEditorCodeExecutionCreateResultBlock | BetaTextEditorCodeExecutionStrReplaceResultBlock`
 
         - `class BetaTextEditorCodeExecutionToolResultError`
+
+          - `type: :text_editor_code_execution_tool_result_error`
 
           - `error_code: :invalid_tool_input | :unavailable | :too_many_requests | 2 more`
 
@@ -5612,9 +5645,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `error_message: String`
 
-          - `type: :text_editor_code_execution_tool_result_error`
-
         - `class BetaTextEditorCodeExecutionViewResultBlock`
+
+          - `type: :text_editor_code_execution_view_result`
 
           - `content: String`
 
@@ -5632,15 +5665,15 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `total_lines: Integer`
 
-          - `type: :text_editor_code_execution_view_result`
-
         - `class BetaTextEditorCodeExecutionCreateResultBlock`
-
-          - `is_file_update: bool`
 
           - `type: :text_editor_code_execution_create_result`
 
+          - `is_file_update: bool`
+
         - `class BetaTextEditorCodeExecutionStrReplaceResultBlock`
+
+          - `type: :text_editor_code_execution_str_replace_result`
 
           - `lines: Array[String]`
 
@@ -5652,19 +5685,19 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `old_start: Integer`
 
-          - `type: :text_editor_code_execution_str_replace_result`
-
       - `tool_use_id: String`
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-      - `type: :text_editor_code_execution_tool_result`
-
     - `class BetaToolSearchToolResultBlock`
+
+      - `type: :tool_search_tool_result`
 
       - `content: BetaToolSearchToolResultError | BetaToolSearchToolSearchResultBlock`
 
         - `class BetaToolSearchToolResultError`
+
+          - `type: :tool_search_tool_result_error`
 
           - `error_code: :invalid_tool_input | :unavailable | :too_many_requests | :execution_time_exceeded`
 
@@ -5678,27 +5711,25 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `error_message: String`
 
-          - `type: :tool_search_tool_result_error`
-
         - `class BetaToolSearchToolSearchResultBlock`
 
+          - `type: :tool_search_tool_search_result`
+
           - `tool_references: Array[BetaToolReferenceBlock]`
+
+            - `type: :tool_reference`
 
             - `tool_name: String`
 
               maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
-            - `type: :tool_reference`
-
-          - `type: :tool_search_tool_search_result`
-
       - `tool_use_id: String`
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-      - `type: :tool_search_tool_result`
-
     - `class BetaMCPToolUseBlock`
+
+      - `type: :mcp_tool_use`
 
       - `id: String`
 
@@ -5714,15 +5745,17 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         The name of the MCP server
 
-      - `type: :mcp_tool_use`
-
     - `class BetaMCPToolResultBlock`
+
+      - `type: :mcp_tool_result`
 
       - `content: String | Array[BetaTextBlock]`
 
         - `String = String`
 
         - `BetaMCPToolResultBlockContent = Array[BetaTextBlock]`
+
+          - `type: :text`
 
           - `citations: Array[BetaTextCitation]`
 
@@ -5732,9 +5765,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `text: String`
 
-            maxLength: 5000000, minLength: 0
-
-          - `type: :text`
+            minLength: 0
 
       - `is_error: bool`
 
@@ -5742,15 +5773,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         pattern: ^[a-zA-Z0-9_-]+$
 
-      - `type: :mcp_tool_result`
-
     - `class BetaContainerUploadBlock`
 
       Response model for a file uploaded to the container.
 
-      - `file_id: String`
-
       - `type: :container_upload`
+
+      - `file_id: String`
 
     - `class BetaCompactionBlock`
 
@@ -5760,6 +5789,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
       summary (e.g., malformed output from the model). Clients may round-trip
       compaction blocks with null content; the server treats them as no-ops.
 
+      - `type: :compaction`
+
       - `content: String`
 
         Summary of compacted content, or null if compaction failed
@@ -5767,8 +5798,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
       - `encrypted_content: String`
 
         Opaque metadata from prior compaction, to be round-tripped verbatim
-
-      - `type: :compaction`
 
     - `class BetaFallbackBlock`
 
@@ -5783,6 +5812,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
       The block is treated like a server-tool content block for streaming: it
       arrives via the standard `content_block_start` / `content_block_stop`
       pair and carries no deltas.
+
+      - `type: :fallback`
 
       - `from: BetaFallbackInfo`
 
@@ -5878,6 +5909,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         What caused the `from` model to hand over at this hop.
 
+        - `type: :refusal`
+
         - `category: :cyber | :bio | :frontier_llm | 2 more`
 
           The policy category that triggered a refusal.
@@ -5902,10 +5935,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
 
-        - `type: :refusal`
-
-      - `type: :fallback`
-
   - `context_management: BetaContextManagementResponse`
 
     Context management response.
@@ -5917,6 +5946,10 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
       List of context management edits that were applied.
 
       - `class BetaClearToolUses20250919EditResponse`
+
+        - `type: :clear_tool_uses_20250919`
+
+          The type of context management edit applied.
 
         - `cleared_input_tokens: Integer`
 
@@ -5930,11 +5963,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           minimum: 0
 
-        - `type: :clear_tool_uses_20250919`
+      - `class BetaClearThinking20251015EditResponse`
+
+        - `type: :clear_thinking_20251015`
 
           The type of context management edit applied.
-
-      - `class BetaClearThinking20251015EditResponse`
 
         - `cleared_input_tokens: Integer`
 
@@ -5948,10 +5981,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           minimum: 0
 
-        - `type: :clear_thinking_20251015`
-
-          The type of context management edit applied.
-
   - `diagnostics: BetaDiagnostics`
 
     Response envelope for request-level diagnostics. Present (possibly
@@ -5963,35 +5992,35 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `class BetaCacheMissModelChanged`
 
+        - `type: :model_changed`
+
         - `cache_missed_input_tokens: Integer`
 
           Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
-
-        - `type: :model_changed`
 
       - `class BetaCacheMissSystemChanged`
 
+        - `type: :system_changed`
+
         - `cache_missed_input_tokens: Integer`
 
           Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
-
-        - `type: :system_changed`
 
       - `class BetaCacheMissToolsChanged`
 
+        - `type: :tools_changed`
+
         - `cache_missed_input_tokens: Integer`
 
           Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
-
-        - `type: :tools_changed`
 
       - `class BetaCacheMissMessagesChanged`
 
+        - `type: :messages_changed`
+
         - `cache_missed_input_tokens: Integer`
 
           Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
-
-        - `type: :messages_changed`
 
       - `class BetaCacheMissPreviousMessageNotFound`
 
@@ -6016,6 +6045,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
   - `stop_details: BetaRefusalStopDetails`
 
     Structured information about a refusal.
+
+    - `type: :refusal`
 
     - `category: :cyber | :bio | :frontier_llm | 2 more`
 
@@ -6096,8 +6127,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       The server's suggested retry target for this refusal. Populated when a fallback attempt could not be made (the fallback model's rate limit was exhausted, or it was overloaded); names the fallback model the caller can retry directly. Null otherwise.
 
-    - `type: :refusal`
-
   - `stop_reason: BetaStopReason`
 
     The reason that we stopped.
@@ -6135,12 +6164,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
     Which custom stop sequence was generated, if any.
 
     This value will be a non-null string if one of your custom stop sequences was generated.
-
-  - `type: :message`
-
-    Object type.
-
-    For Messages, this is always `"message"`.
 
   - `usage: BetaUsage`
 
@@ -6206,6 +6229,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           No reprice was applied; `reason` says why.
 
+          - `type: :not_applied`
+
           - `reason: :body_mismatch | :continuation_excluded | :continuation_only | 9 more`
 
             Why the reprice was not applied.
@@ -6236,8 +6261,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
             - `:wrong_platform`
 
             - `:wrong_workspace`
-
-          - `type: :not_applied`
 
           - `remove_to_redeem: Array[String]`
 
@@ -6276,6 +6299,10 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         Token usage for a sampling iteration.
 
+        - `type: :message`
+
+          Usage for a sampling iteration
+
         - `cache_creation: BetaCacheCreation`
 
           Breakdown of cached tokens by TTL
@@ -6309,15 +6336,15 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
           The number of output tokens which were used.
 
           minimum: 0
-
-        - `type: :message`
-
-          Usage for a sampling iteration
 
       - `class BetaCompactionIterationUsage`
 
         Token usage for a compaction iteration.
 
+        - `type: :compaction`
+
+          Usage for a compaction iteration
+
         - `cache_creation: BetaCacheCreation`
 
           Breakdown of cached tokens by TTL
@@ -6346,13 +6373,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           minimum: 0
 
-        - `type: :compaction`
-
-          Usage for a compaction iteration
-
       - `class BetaAdvisorMessageIterationUsage`
 
         Token usage for an advisor sub-inference iteration.
+
+        - `type: :advisor_message`
+
+          Usage for an advisor sub-inference iteration
 
         - `cache_creation: BetaCacheCreation`
 
@@ -6387,10 +6414,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
           The number of output tokens which were used.
 
           minimum: 0
-
-        - `type: :advisor_message`
-
-          Usage for an advisor sub-inference iteration
 
       - `class BetaFallbackMessageIterationUsage`
 
@@ -6401,6 +6424,10 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         a fallback model served the response is signalled by the presence of this
         entry in `usage.iterations`.
 
+        - `type: :fallback_message`
+
+          Usage for the fallback-model attempt that served the response
+
         - `cache_creation: BetaCacheCreation`
 
           Breakdown of cached tokens by TTL
@@ -6434,10 +6461,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
           The number of output tokens which were used.
 
           minimum: 0
-
-        - `type: :fallback_message`
-
-          Usage for the fallback-model attempt that served the response
 
     - `output_tokens: Integer`
 
@@ -6519,6 +6542,10 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
     fallback happened mid-stream, in which case it holds the serving model's
     entries and replaces the one in `message_start`.
 
+    - `type: :thinking_dropped`
+
+      Always `thinking_dropped` for this entry type.
+
     - `path: String`
 
       Where the removed block was in your request, as `messages.{i}.content.{j}`:
@@ -6549,19 +6576,17 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `:end_user_binding_mismatch`
 
-    - `type: :thinking_dropped`
-
-      Always `thinking_dropped` for this entry type.
-
 - `BetaRawMessageStreamEvent = BetaRawMessageStartEvent | BetaRawMessageDeltaEvent | BetaRawMessageStopEvent | 3 more`
 
   - `class BetaRawMessageStartEvent`
 
-    - `message: BetaMessage`
-
     - `type: :message_start`
 
+    - `message: BetaMessage`
+
   - `class BetaRawMessageDeltaEvent`
+
+    - `type: :message_delta`
 
     - `context_management: BetaContextManagementResponse`
 
@@ -6580,8 +6605,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
       - `stop_reason: BetaStopReason`
 
       - `stop_sequence: String`
-
-    - `type: :message_delta`
 
     - `usage: BetaMessageDeltaUsage`
 
@@ -6664,6 +6687,10 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
       fallback happened mid-stream, in which case it holds the serving model's
       entries and replaces the one in `message_start`.
 
+      - `type: :thinking_dropped`
+
+        Always `thinking_dropped` for this entry type.
+
       - `path: String`
 
         Where the removed block was in your request, as `messages.{i}.content.{j}`:
@@ -6686,15 +6713,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         `organization_binding_mismatch`, `end_user_binding_mismatch`,
         `model_binding_mismatch`, `prefix_binding_mismatch`.
 
-      - `type: :thinking_dropped`
-
-        Always `thinking_dropped` for this entry type.
-
   - `class BetaRawMessageStopEvent`
 
     - `type: :message_stop`
 
   - `class BetaRawContentBlockStartEvent`
+
+    - `type: :content_block_start`
 
     - `content_block: BetaTextBlock | BetaThinkingBlock | BetaRedactedThinkingBlock | 14 more`
 
@@ -6756,25 +6781,27 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `index: Integer`
 
-    - `type: :content_block_start`
-
   - `class BetaRawContentBlockDeltaEvent`
+
+    - `type: :content_block_delta`
 
     - `delta: BetaRawContentBlockDelta`
 
       - `class BetaTextDelta`
 
-        - `text: String`
-
         - `type: :text_delta`
+
+        - `text: String`
 
       - `class BetaInputJSONDelta`
 
-        - `partial_json: String`
-
         - `type: :input_json_delta`
 
+        - `partial_json: String`
+
       - `class BetaCitationsDelta`
+
+        - `type: :citations_delta`
 
         - `citation: BetaCitationCharLocation | BetaCitationPageLocation | BetaCitationContentBlockLocation | 2 more`
 
@@ -6788,9 +6815,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `class BetaCitationSearchResultLocation`
 
-        - `type: :citations_delta`
-
       - `class BetaThinkingDelta`
+
+        - `type: :thinking_delta`
 
         - `estimated_tokens: Integer`
 
@@ -6800,17 +6827,17 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           The incremental `thinking` text for this content block. Concatenate the `thinking` values of successive `thinking_delta` events to assemble the block's full `thinking` value.
 
-        - `type: :thinking_delta`
-
       - `class BetaSignatureDelta`
+
+        - `type: :signature_delta`
 
         - `signature: String`
 
           The `signature` for this thinking block: an opaque value used to verify that the block was generated by Claude when it is passed back to the API. Delivered in a `signature_delta` event just before the block's `content_block_stop` event.
 
-        - `type: :signature_delta`
-
       - `class BetaCompactionContentBlockDelta`
+
+        - `type: :compaction_delta`
 
         - `content: String`
 
@@ -6818,17 +6845,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           Opaque metadata from prior compaction, to be round-tripped verbatim
 
-        - `type: :compaction_delta`
-
     - `index: Integer`
-
-    - `type: :content_block_delta`
 
   - `class BetaRawContentBlockStopEvent`
 
-    - `index: Integer`
-
     - `type: :content_block_stop`
+
+    - `index: Integer`
 
 #### Example
 
@@ -7029,11 +7052,11 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       - `class BetaTextBlockParam`
 
+        - `type: :text`
+
         - `text: String`
 
           minLength: 1
-
-        - `type: :text`
 
         - `cache_control: BetaCacheControlEphemeral`
 
@@ -7060,6 +7083,8 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
           - `class BetaCitationCharLocationParam`
 
+            - `type: :char_location`
+
             - `cited_text: String`
 
             - `document_index: Integer`
@@ -7076,9 +7101,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               minimum: 0
 
-            - `type: :char_location`
-
           - `class BetaCitationPageLocationParam`
+
+            - `type: :page_location`
 
             - `cited_text: String`
 
@@ -7096,9 +7121,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               minimum: 1
 
-            - `type: :page_location`
-
           - `class BetaCitationContentBlockLocationParam`
+
+            - `type: :content_block_location`
 
             - `cited_text: String`
 
@@ -7126,9 +7151,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               minimum: 0
 
-            - `type: :content_block_location`
-
           - `class BetaCitationWebSearchResultLocationParam`
+
+            - `type: :web_search_result_location`
 
             - `cited_text: String`
 
@@ -7138,13 +7163,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               maxLength: 512, minLength: 1
 
-            - `type: :web_search_result_location`
-
             - `url: String`
 
               minLength: 1
 
           - `class BetaCitationSearchResultLocationParam`
+
+            - `type: :search_result_location`
 
             - `cited_text: String`
 
@@ -7176,13 +7201,15 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             - `title: String`
 
-            - `type: :search_result_location`
-
       - `class BetaImageBlockParam`
+
+        - `type: :image`
 
         - `source: BetaBase64ImageSource | BetaURLImageSource | BetaFileImageSource`
 
           - `class BetaBase64ImageSource`
+
+            - `type: :base64`
 
             - `data: String`
 
@@ -7198,8 +7225,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `:"image/webp"`
 
-            - `type: :base64`
-
           - `class BetaURLImageSource`
 
             - `type: :url`
@@ -7208,11 +7233,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
           - `class BetaFileImageSource`
 
-            - `file_id: String`
-
             - `type: :file`
 
-        - `type: :image`
+            - `file_id: String`
 
         - `cache_control: BetaCacheControlEphemeral`
 
@@ -7232,9 +7255,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       - `class BetaRequestDocumentBlock`
 
+        - `type: :document`
+
         - `source: BetaBase64PDFSource | BetaPlainTextSource | BetaContentBlockSource | 2 more`
 
           - `class BetaBase64PDFSource`
+
+            - `type: :base64`
 
             - `data: String`
 
@@ -7242,17 +7269,17 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             - `media_type: :"application/pdf"`
 
-            - `type: :base64`
-
           - `class BetaPlainTextSource`
+
+            - `type: :text`
 
             - `data: String`
 
             - `media_type: :"text/plain"`
 
-            - `type: :text`
-
           - `class BetaContentBlockSource`
+
+            - `type: :content`
 
             - `content: String | Array[BetaContentBlockSourceContent]`
 
@@ -7264,8 +7291,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 - `class BetaImageBlockParam`
 
-            - `type: :content`
-
           - `class BetaURLPDFSource`
 
             - `type: :url`
@@ -7274,11 +7299,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
           - `class BetaFileDocumentSource`
 
-            - `file_id: String`
-
             - `type: :file`
 
-        - `type: :document`
+            - `file_id: String`
 
         - `cache_control: BetaCacheControlEphemeral`
 
@@ -7298,13 +7321,15 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       - `class BetaSearchResultBlockParam`
 
+        - `type: :search_result`
+
         - `content: Array[BetaTextBlockParam]`
+
+          - `type: :text`
 
           - `text: String`
 
             minLength: 1
-
-          - `type: :text`
 
           - `cache_control: BetaCacheControlEphemeral`
 
@@ -7316,8 +7341,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `title: String`
 
-        - `type: :search_result`
-
         - `cache_control: BetaCacheControlEphemeral`
 
           Create a cache control breakpoint at this content block.
@@ -7325,6 +7348,8 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
         - `citations: BetaCitationsConfigParam`
 
       - `class BetaThinkingBlockParam`
+
+        - `type: :thinking`
 
         - `signature: String`
 
@@ -7336,17 +7361,17 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
           The `thinking` text of this block as returned by the API.
 
-        - `type: :thinking`
-
       - `class BetaRedactedThinkingBlockParam`
+
+        - `type: :redacted_thinking`
 
         - `data: String`
 
           The `data` value of this redacted thinking block, exactly as returned by the API in a previous response. Opaque and encrypted; pass it back unchanged.
 
-        - `type: :redacted_thinking`
-
       - `class BetaToolUseBlockParam`
+
+        - `type: :tool_use`
 
         - `id: String`
 
@@ -7357,8 +7382,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
         - `name: String`
 
           maxLength: 200, minLength: 1
-
-        - `type: :tool_use`
 
         - `cache_control: BetaCacheControlEphemeral`
 
@@ -7378,19 +7401,19 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             Tool invocation generated by a server-side tool.
 
+            - `type: :code_execution_20250825`
+
             - `tool_id: String`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-            - `type: :code_execution_20250825`
 
           - `class BetaServerToolCaller20260120`
 
+            - `type: :code_execution_20260120`
+
             - `tool_id: String`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-            - `type: :code_execution_20260120`
 
         - `toolset_name: String`
 
@@ -7400,11 +7423,11 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       - `class BetaToolResultBlockParam`
 
+        - `type: :tool_result`
+
         - `tool_use_id: String`
 
           pattern: ^[a-zA-Z0-9_-]+$
-
-        - `type: :tool_result`
 
         - `cache_control: BetaCacheControlEphemeral`
 
@@ -7428,11 +7451,11 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               Tool reference block that can be included in tool_result content.
 
+              - `type: :tool_reference`
+
               - `tool_name: String`
 
                 maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
-
-              - `type: :tool_reference`
 
               - `cache_control: BetaCacheControlEphemeral`
 
@@ -7447,6 +7470,8 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
               At most one per `tool_result`, only on a non-error result answering a
               browser toolset member `tool_use`. The server renders the
               model-visible text from it; the model never sees the raw fields.
+
+              - `type: :browser_state`
 
               - `tabs: Array[BetaBrowserStateTabEntry]`
 
@@ -7476,8 +7501,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                   Whether this tab is the active tab after this call. Whenever `tabs` is non-empty, exactly one entry is marked `active: true`.
 
-              - `type: :browser_state`
-
               - `cache_control: BetaCacheControlEphemeral`
 
                 Create a cache control breakpoint at this content block.
@@ -7498,25 +7521,25 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
                   during a failed call gets no deferred `tab_opened`; it simply appears
                   in the next result's `tabs` inventory.
 
+                  - `type: :tab_opened`
+
                   - `tab_id: String`
 
                     The `tab_id` of the opened tab, present in `tabs`.
 
                     maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-                  - `type: :tab_opened`
-
                 - `class BetaBrowserStateChangeDownloadStarted`
 
                   A file download that started during this call.
+
+                  - `type: :download_started`
 
                   - `download_id: String`
 
                     The caller-assigned identifier for this download, stable across the state changes reporting it.
 
                     maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
-
-                  - `type: :download_started`
 
                   - `url: String`
 
@@ -7531,13 +7554,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
                   `download_started`, when the download finished during the call that
                   started it (at most one state change per `download_id` per result).
 
+                  - `type: :download_completed`
+
                   - `download_id: String`
 
                     The caller-assigned identifier for this download, stable across the state changes reporting it.
 
                     maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
-
-                  - `type: :download_completed`
 
                   - `url: String`
 
@@ -7561,13 +7584,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                   A file download that failed — or was cancelled — during this call.
 
+                  - `type: :download_failed`
+
                   - `download_id: String`
 
                     The caller-assigned identifier for this download, stable across the state changes reporting it.
 
                     maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
-
-                  - `type: :download_failed`
 
                   - `url: String`
 
@@ -7590,6 +7613,8 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
           maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
 
       - `class BetaServerToolUseBlockParam`
+
+        - `type: :server_tool_use`
 
         - `id: String`
 
@@ -7615,8 +7640,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
           - `:tool_search_tool_bm25`
 
-        - `type: :server_tool_use`
-
         - `cache_control: BetaCacheControlEphemeral`
 
           Create a cache control breakpoint at this content block.
@@ -7637,21 +7660,25 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       - `class BetaWebSearchToolResultBlockParam`
 
+        - `type: :web_search_tool_result`
+
         - `content: BetaWebSearchToolResultBlockParamContent`
 
           - `ResultBlock = Array[BetaWebSearchResultBlockParam]`
 
+            - `type: :web_search_result`
+
             - `encrypted_content: String`
 
             - `title: String`
-
-            - `type: :web_search_result`
 
             - `url: String`
 
             - `page_age: String`
 
           - `class BetaWebSearchToolRequestError`
+
+            - `type: :web_search_tool_result_error`
 
             - `error_code: BetaWebSearchToolResultErrorCode`
 
@@ -7667,13 +7694,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `:request_too_large`
 
-            - `type: :web_search_tool_result_error`
-
         - `tool_use_id: String`
 
           pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-        - `type: :web_search_tool_result`
 
         - `cache_control: BetaCacheControlEphemeral`
 
@@ -7695,9 +7718,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       - `class BetaWebFetchToolResultBlockParam`
 
+        - `type: :web_fetch_tool_result`
+
         - `content: BetaWebFetchToolResultErrorBlockParam | BetaWebFetchBlockParam`
 
           - `class BetaWebFetchToolResultErrorBlockParam`
+
+            - `type: :web_fetch_tool_result_error`
 
             - `error_code: BetaWebFetchToolResultErrorCode`
 
@@ -7719,13 +7746,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `:unavailable`
 
-            - `type: :web_fetch_tool_result_error`
+              - `:content_too_large`
 
           - `class BetaWebFetchBlockParam`
 
-            - `content: BetaRequestDocumentBlock`
-
             - `type: :web_fetch_result`
+
+            - `content: BetaRequestDocumentBlock`
 
             - `url: String`
 
@@ -7738,8 +7765,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
         - `tool_use_id: String`
 
           pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-        - `type: :web_fetch_tool_result`
 
         - `cache_control: BetaCacheControlEphemeral`
 
@@ -7761,9 +7786,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       - `class BetaAdvisorToolResultBlockParam`
 
+        - `type: :advisor_tool_result`
+
         - `content: BetaAdvisorToolResultErrorParam | BetaAdvisorResultBlockParam | BetaAdvisorRedactedResultBlockParam`
 
           - `class BetaAdvisorToolResultErrorParam`
+
+            - `type: :advisor_tool_result_error`
 
             - `error_code: :max_uses_exceeded | :prompt_too_long | :too_many_requests | 4 more`
 
@@ -7781,23 +7810,21 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `:model_not_found`
 
-            - `type: :advisor_tool_result_error`
-
           - `class BetaAdvisorResultBlockParam`
 
-            - `text: String`
-
             - `type: :advisor_result`
+
+            - `text: String`
 
             - `stop_reason: String`
 
           - `class BetaAdvisorRedactedResultBlockParam`
 
+            - `type: :advisor_redacted_result`
+
             - `encrypted_content: String`
 
               Opaque blob produced by a prior response; must be round-tripped verbatim.
-
-            - `type: :advisor_redacted_result`
 
             - `stop_reason: String`
 
@@ -7805,19 +7832,21 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
           pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-        - `type: :advisor_tool_result`
-
         - `cache_control: BetaCacheControlEphemeral`
 
           Create a cache control breakpoint at this content block.
 
       - `class BetaCodeExecutionToolResultBlockParam`
 
+        - `type: :code_execution_tool_result`
+
         - `content: BetaCodeExecutionToolResultBlockParamContent`
 
           Code execution result with encrypted stdout for PFC + web_search results.
 
           - `class BetaCodeExecutionToolResultErrorParam`
+
+            - `type: :code_execution_tool_result_error`
 
             - `error_code: BetaCodeExecutionToolResultErrorCode`
 
@@ -7829,15 +7858,15 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `:execution_time_exceeded`
 
-            - `type: :code_execution_tool_result_error`
-
           - `class BetaCodeExecutionResultBlockParam`
+
+            - `type: :code_execution_result`
 
             - `content: Array[BetaCodeExecutionOutputBlockParam]`
 
-              - `file_id: String`
-
               - `type: :code_execution_output`
+
+              - `file_id: String`
 
             - `return_code: Integer`
 
@@ -7845,17 +7874,17 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             - `stdout: String`
 
-            - `type: :code_execution_result`
-
           - `class BetaEncryptedCodeExecutionResultBlockParam`
 
             Code execution result with encrypted stdout for PFC + web_search results.
 
+            - `type: :encrypted_code_execution_result`
+
             - `content: Array[BetaCodeExecutionOutputBlockParam]`
 
-              - `file_id: String`
-
               - `type: :code_execution_output`
+
+              - `file_id: String`
 
             - `encrypted_stdout: String`
 
@@ -7863,13 +7892,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             - `stderr: String`
 
-            - `type: :encrypted_code_execution_result`
-
         - `tool_use_id: String`
 
           pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-        - `type: :code_execution_tool_result`
 
         - `cache_control: BetaCacheControlEphemeral`
 
@@ -7877,9 +7902,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       - `class BetaBashCodeExecutionToolResultBlockParam`
 
+        - `type: :bash_code_execution_tool_result`
+
         - `content: BetaBashCodeExecutionToolResultErrorParam | BetaBashCodeExecutionResultBlockParam`
 
           - `class BetaBashCodeExecutionToolResultErrorParam`
+
+            - `type: :bash_code_execution_tool_result_error`
 
             - `error_code: :invalid_tool_input | :unavailable | :too_many_requests | 2 more`
 
@@ -7893,15 +7922,15 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `:output_file_too_large`
 
-            - `type: :bash_code_execution_tool_result_error`
-
           - `class BetaBashCodeExecutionResultBlockParam`
+
+            - `type: :bash_code_execution_result`
 
             - `content: Array[BetaBashCodeExecutionOutputBlockParam]`
 
-              - `file_id: String`
-
               - `type: :bash_code_execution_output`
+
+              - `file_id: String`
 
             - `return_code: Integer`
 
@@ -7909,13 +7938,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             - `stdout: String`
 
-            - `type: :bash_code_execution_result`
-
         - `tool_use_id: String`
 
           pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-        - `type: :bash_code_execution_tool_result`
 
         - `cache_control: BetaCacheControlEphemeral`
 
@@ -7923,9 +7948,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       - `class BetaTextEditorCodeExecutionToolResultBlockParam`
 
+        - `type: :text_editor_code_execution_tool_result`
+
         - `content: BetaTextEditorCodeExecutionToolResultErrorParam | BetaTextEditorCodeExecutionViewResultBlockParam | BetaTextEditorCodeExecutionCreateResultBlockParam | BetaTextEditorCodeExecutionStrReplaceResultBlockParam`
 
           - `class BetaTextEditorCodeExecutionToolResultErrorParam`
+
+            - `type: :text_editor_code_execution_tool_result_error`
 
             - `error_code: :invalid_tool_input | :unavailable | :too_many_requests | 2 more`
 
@@ -7939,11 +7968,11 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `:file_not_found`
 
-            - `type: :text_editor_code_execution_tool_result_error`
-
             - `error_message: String`
 
           - `class BetaTextEditorCodeExecutionViewResultBlockParam`
+
+            - `type: :text_editor_code_execution_view_result`
 
             - `content: String`
 
@@ -7955,8 +7984,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `:pdf`
 
-            - `type: :text_editor_code_execution_view_result`
-
             - `num_lines: Integer`
 
             - `start_line: Integer`
@@ -7965,9 +7992,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
           - `class BetaTextEditorCodeExecutionCreateResultBlockParam`
 
-            - `is_file_update: bool`
-
             - `type: :text_editor_code_execution_create_result`
+
+            - `is_file_update: bool`
 
           - `class BetaTextEditorCodeExecutionStrReplaceResultBlockParam`
 
@@ -7987,17 +8014,19 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
           pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-        - `type: :text_editor_code_execution_tool_result`
-
         - `cache_control: BetaCacheControlEphemeral`
 
           Create a cache control breakpoint at this content block.
 
       - `class BetaToolSearchToolResultBlockParam`
 
+        - `type: :tool_search_tool_result`
+
         - `content: BetaToolSearchToolResultErrorParam | BetaToolSearchToolSearchResultBlockParam`
 
           - `class BetaToolSearchToolResultErrorParam`
+
+            - `type: :tool_search_tool_result_error`
 
             - `error_code: :invalid_tool_input | :unavailable | :too_many_requests | :execution_time_exceeded`
 
@@ -8009,37 +8038,35 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `:execution_time_exceeded`
 
-            - `type: :tool_search_tool_result_error`
-
             - `error_message: String`
 
           - `class BetaToolSearchToolSearchResultBlockParam`
 
+            - `type: :tool_search_tool_search_result`
+
             - `tool_references: Array[BetaToolReferenceBlockParam]`
+
+              - `type: :tool_reference`
 
               - `tool_name: String`
 
                 maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
-              - `type: :tool_reference`
-
               - `cache_control: BetaCacheControlEphemeral`
 
                 Create a cache control breakpoint at this content block.
 
-            - `type: :tool_search_tool_search_result`
-
         - `tool_use_id: String`
 
           pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-        - `type: :tool_search_tool_result`
 
         - `cache_control: BetaCacheControlEphemeral`
 
           Create a cache control breakpoint at this content block.
 
       - `class BetaMCPToolUseBlockParam`
+
+        - `type: :mcp_tool_use`
 
         - `id: String`
 
@@ -8053,19 +8080,17 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
           The name of the MCP server
 
-        - `type: :mcp_tool_use`
-
         - `cache_control: BetaCacheControlEphemeral`
 
           Create a cache control breakpoint at this content block.
 
       - `class BetaRequestMCPToolResultBlockParam`
 
+        - `type: :mcp_tool_result`
+
         - `tool_use_id: String`
 
           pattern: ^[a-zA-Z0-9_-]+$
-
-        - `type: :mcp_tool_result`
 
         - `cache_control: BetaCacheControlEphemeral`
 
@@ -8077,11 +8102,11 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
           - `BetaMCPToolResultBlockParamContent = Array[BetaTextBlockParam]`
 
+            - `type: :text`
+
             - `text: String`
 
               minLength: 1
-
-            - `type: :text`
 
             - `cache_control: BetaCacheControlEphemeral`
 
@@ -8096,9 +8121,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
         A content block that represents a file to be uploaded to the container
         Files uploaded via this block will be available in the container's input directory.
 
-        - `file_id: String`
-
         - `type: :container_upload`
+
+        - `file_id: String`
 
         - `cache_control: BetaCacheControlEphemeral`
 
@@ -8136,6 +8161,8 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
         `tools`; it is offered to the model from this point in the
         conversation onward.
 
+        - `type: :tool_addition`
+
         - `tool: BetaToolChangeToolReference | BetaToolChangeMCPToolReference | BetaToolChangeMCPToolsetReference`
 
           Reference to a single tool the caller declared directly in
@@ -8150,32 +8177,30 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
             server assigns to MCP-resolved tools — use `mcp_tool_reference` or
             `mcp_toolset_reference` for those.
 
+            - `type: :tool_reference`
+
             - `name: String`
 
               pattern: ^[a-zA-Z0-9_-]{1,128}$
-
-            - `type: :tool_reference`
 
           - `class BetaToolChangeMCPToolReference`
 
             Reference to a single MCP tool by its server and remote name — the
             same `server_name`/`name` pair `mcp_tool_use` carries.
 
+            - `type: :mcp_tool_reference`
+
             - `name: String`
 
             - `server_name: String`
-
-            - `type: :mcp_tool_reference`
 
           - `class BetaToolChangeMCPToolsetReference`
 
             Reference to every tool in the named MCP server's toolset.
 
-            - `server_name: String`
-
             - `type: :mcp_toolset_reference`
 
-        - `type: :tool_addition`
+            - `server_name: String`
 
         - `cache_control: BetaCacheControlEphemeral`
 
@@ -8189,6 +8214,8 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
         `tools`; it is no longer offered to the model from this point in the
         conversation onward.
 
+        - `type: :tool_removal`
+
         - `tool: BetaToolChangeToolReference | BetaToolChangeMCPToolReference | BetaToolChangeMCPToolsetReference`
 
           Reference to a single tool the caller declared directly in
@@ -8211,8 +8238,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
           - `class BetaToolChangeMCPToolsetReference`
 
             Reference to every tool in the named MCP server's toolset.
-
-        - `type: :tool_removal`
 
         - `cache_control: BetaCacheControlEphemeral`
 
@@ -8233,6 +8258,8 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
         request is rejected), and moving it into the middle of a single run is
         likewise rejected; between non-thinking blocks the block's placement has
         no validation effect.
+
+        - `type: :fallback`
 
         - `from: BetaFallbackInfoParam`
 
@@ -8323,8 +8350,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
         - `to: BetaFallbackInfoParam`
 
           Identifies one hop of a fallback transition.
-
-        - `type: :fallback`
 
         - `trigger: untyped`
 
@@ -8492,9 +8517,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
   maxItems: 20
 
-  - `name: String`
-
   - `type: :url`
+
+  - `name: String`
 
   - `url: String`
 
@@ -8528,25 +8553,25 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     A schema to specify Claude's output format in responses. See [structured outputs](https://platform.claude.com/docs/en/build-with-claude/structured-outputs)
 
+    - `type: :json_schema`
+
     - `schema: Hash[Symbol, untyped]`
 
       The JSON schema of the format
 
-    - `type: :json_schema`
-
   - `task_budget: BetaTokenTaskBudget`
 
     User-configurable total token budget across contexts.
+
+    - `type: :tokens`
+
+      The budget type. Currently only 'tokens' is supported.
 
     - `total: Integer`
 
       Total token budget across all contexts in the session.
 
       minimum: 1024
-
-    - `type: :tokens`
-
-      The budget type. Currently only 'tokens' is supported.
 
     - `remaining: Integer`
 
@@ -8572,11 +8597,11 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
   - `UnionMember1 = Array[BetaTextBlockParam]`
 
+    - `type: :text`
+
     - `text: String`
 
       minLength: 1
-
-    - `type: :text`
 
     - `cache_control: BetaCacheControlEphemeral`
 
@@ -8594,6 +8619,8 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
   - `class BetaThinkingConfigEnabled`
 
+    - `type: :enabled`
+
     - `budget_tokens: Integer`
 
       Determines how many tokens Claude can use for its internal reasoning process. Larger budgets can enable more thorough analysis for complex problems, improving response quality.
@@ -8603,8 +8630,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
       See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
 
       minimum: 1024
-
-    - `type: :enabled`
 
     - `block_binding: BetaThinkingBlockBinding`
 
@@ -8690,11 +8715,11 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     The model will use the specified tool with `tool_choice.name`.
 
+    - `type: :tool`
+
     - `name: String`
 
       The name of the tool to use.
-
-    - `type: :tool`
 
     - `disable_parallel_tool_use: bool`
 
@@ -8774,6 +8799,8 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
   - `class BetaTool`
 
+    - `type: :custom`
+
     - `input_schema: InputSchema`
 
       [JSON schema](https://json-schema.org/draft/2020-12) for this tool's input.
@@ -8828,17 +8855,15 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       When true, guarantees schema validation on tool names and inputs
 
-    - `type: :custom`
-
   - `class BetaToolBash20241022`
+
+    - `type: :bash_20241022`
 
     - `name: :bash`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `type: :bash_20241022`
 
     - `allowed_callers: Array[:direct | :code_execution_20250825 | :code_execution_20260120 | :code_execution_20260521]`
 
@@ -8866,13 +8891,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
   - `class BetaToolBash20250124`
 
+    - `type: :bash_20250124`
+
     - `name: :bash`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `type: :bash_20250124`
 
     - `allowed_callers: Array[:direct | :code_execution_20250825 | :code_execution_20260120 | :code_execution_20260521]`
 
@@ -8900,13 +8925,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
   - `class BetaCodeExecutionTool20250522`
 
+    - `type: :code_execution_20250522`
+
     - `name: :code_execution`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `type: :code_execution_20250522`
 
     - `allowed_callers: Array[:direct | :code_execution_20250825 | :code_execution_20260120 | :code_execution_20260521]`
 
@@ -8932,13 +8957,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
   - `class BetaCodeExecutionTool20250825`
 
+    - `type: :code_execution_20250825`
+
     - `name: :code_execution`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `type: :code_execution_20250825`
 
     - `allowed_callers: Array[:direct | :code_execution_20250825 | :code_execution_20260120 | :code_execution_20260521]`
 
@@ -8966,13 +8991,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     Code execution tool with REPL state persistence (daemon mode + gVisor checkpoint).
 
+    - `type: :code_execution_20260120`
+
     - `name: :code_execution`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `type: :code_execution_20260120`
 
     - `allowed_callers: Array[:direct | :code_execution_20250825 | :code_execution_20260120 | :code_execution_20260521]`
 
@@ -9000,13 +9025,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     Code execution tool with REPL state persistence.
 
+    - `type: :code_execution_20260521`
+
     - `name: :code_execution`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `type: :code_execution_20260521`
 
     - `allowed_callers: Array[:direct | :code_execution_20250825 | :code_execution_20260120 | :code_execution_20260521]`
 
@@ -9051,6 +9076,18 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
       accepted key, and a member's defaults apply wherever its key is
       absent. Unknown keys are rejected: the field set is this toolset
       version's complete member set.
+
+      - `type: BetaBrowserTypeConfig`
+
+        `type`'s config overrides.
+
+        - `defer_loading: bool`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: bool`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
       - `close_tab: BetaBrowserCloseTabConfig`
 
@@ -9388,18 +9425,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
           Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-      - `type: BetaBrowserTypeConfig`
-
-        `type`'s config overrides.
-
-        - `defer_loading: bool`
-
-          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-        - `enabled: bool`
-
-          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
       - `wait: BetaBrowserWaitConfig`
 
         `wait`'s config overrides.
@@ -9426,6 +9451,8 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
   - `class BetaToolComputerUse20241022`
 
+    - `type: :computer_20241022`
+
     - `display_height_px: Integer`
 
       The height of the display in pixels.
@@ -9443,8 +9470,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `type: :computer_20241022`
 
     - `allowed_callers: Array[:direct | :code_execution_20250825 | :code_execution_20260120 | :code_execution_20260521]`
 
@@ -9478,13 +9503,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
   - `class BetaMemoryTool20250818`
 
+    - `type: :memory_20250818`
+
     - `name: :memory`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `type: :memory_20250818`
 
     - `allowed_callers: Array[:direct | :code_execution_20250825 | :code_execution_20260120 | :code_execution_20260521]`
 
@@ -9512,6 +9537,8 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
   - `class BetaToolComputerUse20250124`
 
+    - `type: :computer_20250124`
+
     - `display_height_px: Integer`
 
       The height of the display in pixels.
@@ -9529,8 +9556,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `type: :computer_20250124`
 
     - `allowed_callers: Array[:direct | :code_execution_20250825 | :code_execution_20260120 | :code_execution_20260521]`
 
@@ -9564,13 +9589,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
   - `class BetaToolTextEditor20241022`
 
+    - `type: :text_editor_20241022`
+
     - `name: :str_replace_editor`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `type: :text_editor_20241022`
 
     - `allowed_callers: Array[:direct | :code_execution_20250825 | :code_execution_20260120 | :code_execution_20260521]`
 
@@ -9598,6 +9623,8 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
   - `class BetaToolComputerUse20251124`
 
+    - `type: :computer_20251124`
+
     - `display_height_px: Integer`
 
       The height of the display in pixels.
@@ -9615,8 +9642,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `type: :computer_20251124`
 
     - `allowed_callers: Array[:direct | :code_execution_20250825 | :code_execution_20260120 | :code_execution_20260521]`
 
@@ -9677,6 +9702,18 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
       accepted key, and a member's defaults apply wherever its key is
       absent. Unknown keys are rejected: the field set is this toolset
       version's complete member set.
+
+      - `type: BetaComputerTypeConfig`
+
+        `type`'s config overrides.
+
+        - `defer_loading: bool`
+
+          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+        - `enabled: bool`
+
+          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
       - `cursor_position: BetaComputerCursorPositionConfig`
 
@@ -9846,18 +9883,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
           Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-      - `type: BetaComputerTypeConfig`
-
-        `type`'s config overrides.
-
-        - `defer_loading: bool`
-
-          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-        - `enabled: bool`
-
-          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
       - `wait: BetaComputerWaitConfig`
 
         `wait`'s config overrides.
@@ -9884,13 +9909,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
   - `class BetaToolTextEditor20250124`
 
+    - `type: :text_editor_20250124`
+
     - `name: :str_replace_editor`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `type: :text_editor_20250124`
 
     - `allowed_callers: Array[:direct | :code_execution_20250825 | :code_execution_20260120 | :code_execution_20260521]`
 
@@ -9918,13 +9943,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
   - `class BetaToolTextEditor20250429`
 
+    - `type: :text_editor_20250429`
+
     - `name: :str_replace_based_edit_tool`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `type: :text_editor_20250429`
 
     - `allowed_callers: Array[:direct | :code_execution_20250825 | :code_execution_20260120 | :code_execution_20260521]`
 
@@ -9952,13 +9977,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
   - `class BetaToolTextEditor20250728`
 
+    - `type: :text_editor_20250728`
+
     - `name: :str_replace_based_edit_tool`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `type: :text_editor_20250728`
 
     - `allowed_callers: Array[:direct | :code_execution_20250825 | :code_execution_20260120 | :code_execution_20260521]`
 
@@ -9992,13 +10017,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
   - `class BetaWebSearchTool20250305`
 
+    - `type: :web_search_20250305`
+
     - `name: :web_search`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `type: :web_search_20250305`
 
     - `allowed_callers: Array[:direct | :code_execution_20250825 | :code_execution_20260120 | :code_execution_20260521]`
 
@@ -10068,13 +10093,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
   - `class BetaWebFetchTool20250910`
 
+    - `type: :web_fetch_20250910`
+
     - `name: :web_fetch`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `type: :web_fetch_20250910`
 
     - `allowed_callers: Array[:direct | :code_execution_20250825 | :code_execution_20260120 | :code_execution_20260521]`
 
@@ -10124,13 +10149,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
   - `class BetaWebSearchTool20260209`
 
+    - `type: :web_search_20260209`
+
     - `name: :web_search`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `type: :web_search_20260209`
 
     - `allowed_callers: Array[:direct | :code_execution_20250825 | :code_execution_20260120 | :code_execution_20260521]`
 
@@ -10174,13 +10199,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
   - `class BetaWebFetchTool20260209`
 
+    - `type: :web_fetch_20260209`
+
     - `name: :web_fetch`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `type: :web_fetch_20260209`
 
     - `allowed_callers: Array[:direct | :code_execution_20250825 | :code_execution_20260120 | :code_execution_20260521]`
 
@@ -10232,13 +10257,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     Web fetch tool with use_cache parameter for bypassing cached content.
 
+    - `type: :web_fetch_20260309`
+
     - `name: :web_fetch`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `type: :web_fetch_20260309`
 
     - `allowed_callers: Array[:direct | :code_execution_20250825 | :code_execution_20260120 | :code_execution_20260521]`
 
@@ -10292,13 +10317,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
   - `class BetaWebSearchTool20260318`
 
+    - `type: :web_search_20260318`
+
     - `name: :web_search`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `type: :web_search_20260318`
 
     - `allowed_callers: Array[:direct | :code_execution_20250825 | :code_execution_20260120 | :code_execution_20260521]`
 
@@ -10350,13 +10375,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
   - `class BetaWebFetchTool20260318`
 
+    - `type: :web_fetch_20260318`
+
     - `name: :web_fetch`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `type: :web_fetch_20260318`
 
     - `allowed_callers: Array[:direct | :code_execution_20250825 | :code_execution_20260120 | :code_execution_20260521]`
 
@@ -10418,6 +10443,8 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
   - `class BetaAdvisorTool20260301`
 
+    - `type: :advisor_20260301`
+
     - `model: Model`
 
       The model that will complete your prompt.
@@ -10429,8 +10456,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `type: :advisor_20260301`
 
     - `allowed_callers: Array[:direct | :code_execution_20250825 | :code_execution_20260120 | :code_execution_20260521]`
 
@@ -10472,17 +10497,17 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
   - `class BetaToolSearchToolBm25_20251119`
 
-    - `name: :tool_search_tool_bm25`
-
-      Name of the tool.
-
-      This is how the tool will be called by the model and in `tool_use` blocks.
-
     - `type: :tool_search_tool_bm25_20251119 | :tool_search_tool_bm25`
 
       - `:tool_search_tool_bm25_20251119`
 
       - `:tool_search_tool_bm25`
+
+    - `name: :tool_search_tool_bm25`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
 
     - `allowed_callers: Array[:direct | :code_execution_20250825 | :code_execution_20260120 | :code_execution_20260521]`
 
@@ -10508,17 +10533,17 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
   - `class BetaToolSearchToolRegex20251119`
 
-    - `name: :tool_search_tool_regex`
-
-      Name of the tool.
-
-      This is how the tool will be called by the model and in `tool_use` blocks.
-
     - `type: :tool_search_tool_regex_20251119 | :tool_search_tool_regex`
 
       - `:tool_search_tool_regex_20251119`
 
       - `:tool_search_tool_regex`
+
+    - `name: :tool_search_tool_regex`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
 
     - `allowed_callers: Array[:direct | :code_execution_20250825 | :code_execution_20260120 | :code_execution_20260521]`
 
@@ -10549,13 +10574,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
     Allows configuring enabled status and defer_loading for all tools
     from an MCP server, with optional per-tool overrides.
 
+    - `type: :mcp_toolset`
+
     - `mcp_server_name: String`
 
       Name of the MCP server to configure tools for
 
       maxLength: 255, minLength: 1
-
-    - `type: :mcp_toolset`
 
     - `cache_control: BetaCacheControlEphemeral`
 
@@ -10583,7 +10608,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 41 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 42 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -10631,6 +10656,8 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `:"user-profiles-2026-08-18"`
 
+    - `:"user-profiles-2026-09-04"`
+
     - `:"advisor-tool-2026-03-01"`
 
     - `:"managed-agents-2026-04-01"`
@@ -10676,6 +10703,8 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 - `user_profile_id: String`
 
   The user profile ID to attribute this request to. Use when acting on behalf of a party other than your organization. Requires the `user-profiles` beta header.
+
+- `workspace_id: String`
 
 - `output_format: BetaJSONOutputFormat`
 
@@ -10834,11 +10863,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           - `class BetaTextBlockParam`
 
+            - `type: :text`
+
             - `text: String`
 
               minLength: 1
-
-            - `type: :text`
 
             - `cache_control: BetaCacheControlEphemeral`
 
@@ -10865,6 +10894,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `class BetaCitationCharLocationParam`
 
+                - `type: :char_location`
+
                 - `cited_text: String`
 
                 - `document_index: Integer`
@@ -10881,9 +10912,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   minimum: 0
 
-                - `type: :char_location`
-
               - `class BetaCitationPageLocationParam`
+
+                - `type: :page_location`
 
                 - `cited_text: String`
 
@@ -10901,9 +10932,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   minimum: 1
 
-                - `type: :page_location`
-
               - `class BetaCitationContentBlockLocationParam`
+
+                - `type: :content_block_location`
 
                 - `cited_text: String`
 
@@ -10931,9 +10962,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   minimum: 0
 
-                - `type: :content_block_location`
-
               - `class BetaCitationWebSearchResultLocationParam`
+
+                - `type: :web_search_result_location`
 
                 - `cited_text: String`
 
@@ -10943,13 +10974,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   maxLength: 512, minLength: 1
 
-                - `type: :web_search_result_location`
-
                 - `url: String`
 
                   minLength: 1
 
               - `class BetaCitationSearchResultLocationParam`
+
+                - `type: :search_result_location`
 
                 - `cited_text: String`
 
@@ -10981,13 +11012,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `title: String`
 
-                - `type: :search_result_location`
-
           - `class BetaImageBlockParam`
+
+            - `type: :image`
 
             - `source: BetaBase64ImageSource | BetaURLImageSource | BetaFileImageSource`
 
               - `class BetaBase64ImageSource`
+
+                - `type: :base64`
 
                 - `data: String`
 
@@ -11003,8 +11036,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `:"image/webp"`
 
-                - `type: :base64`
-
               - `class BetaURLImageSource`
 
                 - `type: :url`
@@ -11013,11 +11044,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `class BetaFileImageSource`
 
-                - `file_id: String`
-
                 - `type: :file`
 
-            - `type: :image`
+                - `file_id: String`
 
             - `cache_control: BetaCacheControlEphemeral`
 
@@ -11037,9 +11066,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           - `class BetaRequestDocumentBlock`
 
+            - `type: :document`
+
             - `source: BetaBase64PDFSource | BetaPlainTextSource | BetaContentBlockSource | 2 more`
 
               - `class BetaBase64PDFSource`
+
+                - `type: :base64`
 
                 - `data: String`
 
@@ -11047,17 +11080,17 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `media_type: :"application/pdf"`
 
-                - `type: :base64`
-
               - `class BetaPlainTextSource`
+
+                - `type: :text`
 
                 - `data: String`
 
                 - `media_type: :"text/plain"`
 
-                - `type: :text`
-
               - `class BetaContentBlockSource`
+
+                - `type: :content`
 
                 - `content: String | Array[BetaContentBlockSourceContent]`
 
@@ -11069,8 +11102,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     - `class BetaImageBlockParam`
 
-                - `type: :content`
-
               - `class BetaURLPDFSource`
 
                 - `type: :url`
@@ -11079,11 +11110,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `class BetaFileDocumentSource`
 
-                - `file_id: String`
-
                 - `type: :file`
 
-            - `type: :document`
+                - `file_id: String`
 
             - `cache_control: BetaCacheControlEphemeral`
 
@@ -11103,13 +11132,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           - `class BetaSearchResultBlockParam`
 
+            - `type: :search_result`
+
             - `content: Array[BetaTextBlockParam]`
+
+              - `type: :text`
 
               - `text: String`
 
                 minLength: 1
-
-              - `type: :text`
 
               - `cache_control: BetaCacheControlEphemeral`
 
@@ -11121,8 +11152,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `title: String`
 
-            - `type: :search_result`
-
             - `cache_control: BetaCacheControlEphemeral`
 
               Create a cache control breakpoint at this content block.
@@ -11130,6 +11159,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
             - `citations: BetaCitationsConfigParam`
 
           - `class BetaThinkingBlockParam`
+
+            - `type: :thinking`
 
             - `signature: String`
 
@@ -11141,17 +11172,17 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               The `thinking` text of this block as returned by the API.
 
-            - `type: :thinking`
-
           - `class BetaRedactedThinkingBlockParam`
+
+            - `type: :redacted_thinking`
 
             - `data: String`
 
               The `data` value of this redacted thinking block, exactly as returned by the API in a previous response. Opaque and encrypted; pass it back unchanged.
 
-            - `type: :redacted_thinking`
-
           - `class BetaToolUseBlockParam`
+
+            - `type: :tool_use`
 
             - `id: String`
 
@@ -11162,8 +11193,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
             - `name: String`
 
               maxLength: 200, minLength: 1
-
-            - `type: :tool_use`
 
             - `cache_control: BetaCacheControlEphemeral`
 
@@ -11183,19 +11212,19 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 Tool invocation generated by a server-side tool.
 
+                - `type: :code_execution_20250825`
+
                 - `tool_id: String`
 
                   pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-                - `type: :code_execution_20250825`
 
               - `class BetaServerToolCaller20260120`
 
+                - `type: :code_execution_20260120`
+
                 - `tool_id: String`
 
                   pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-                - `type: :code_execution_20260120`
 
             - `toolset_name: String`
 
@@ -11205,11 +11234,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           - `class BetaToolResultBlockParam`
 
+            - `type: :tool_result`
+
             - `tool_use_id: String`
 
               pattern: ^[a-zA-Z0-9_-]+$
-
-            - `type: :tool_result`
 
             - `cache_control: BetaCacheControlEphemeral`
 
@@ -11233,11 +11262,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   Tool reference block that can be included in tool_result content.
 
+                  - `type: :tool_reference`
+
                   - `tool_name: String`
 
                     maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
-
-                  - `type: :tool_reference`
 
                   - `cache_control: BetaCacheControlEphemeral`
 
@@ -11252,6 +11281,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
                   At most one per `tool_result`, only on a non-error result answering a
                   browser toolset member `tool_use`. The server renders the
                   model-visible text from it; the model never sees the raw fields.
+
+                  - `type: :browser_state`
 
                   - `tabs: Array[BetaBrowserStateTabEntry]`
 
@@ -11281,8 +11312,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                       Whether this tab is the active tab after this call. Whenever `tabs` is non-empty, exactly one entry is marked `active: true`.
 
-                  - `type: :browser_state`
-
                   - `cache_control: BetaCacheControlEphemeral`
 
                     Create a cache control breakpoint at this content block.
@@ -11303,25 +11332,25 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
                       during a failed call gets no deferred `tab_opened`; it simply appears
                       in the next result's `tabs` inventory.
 
+                      - `type: :tab_opened`
+
                       - `tab_id: String`
 
                         The `tab_id` of the opened tab, present in `tabs`.
 
                         maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-                      - `type: :tab_opened`
-
                     - `class BetaBrowserStateChangeDownloadStarted`
 
                       A file download that started during this call.
+
+                      - `type: :download_started`
 
                       - `download_id: String`
 
                         The caller-assigned identifier for this download, stable across the state changes reporting it.
 
                         maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
-
-                      - `type: :download_started`
 
                       - `url: String`
 
@@ -11336,13 +11365,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
                       `download_started`, when the download finished during the call that
                       started it (at most one state change per `download_id` per result).
 
+                      - `type: :download_completed`
+
                       - `download_id: String`
 
                         The caller-assigned identifier for this download, stable across the state changes reporting it.
 
                         maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
-
-                      - `type: :download_completed`
 
                       - `url: String`
 
@@ -11366,13 +11395,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                       A file download that failed — or was cancelled — during this call.
 
+                      - `type: :download_failed`
+
                       - `download_id: String`
 
                         The caller-assigned identifier for this download, stable across the state changes reporting it.
 
                         maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
-
-                      - `type: :download_failed`
 
                       - `url: String`
 
@@ -11395,6 +11424,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
               maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
 
           - `class BetaServerToolUseBlockParam`
+
+            - `type: :server_tool_use`
 
             - `id: String`
 
@@ -11420,8 +11451,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `:tool_search_tool_bm25`
 
-            - `type: :server_tool_use`
-
             - `cache_control: BetaCacheControlEphemeral`
 
               Create a cache control breakpoint at this content block.
@@ -11442,21 +11471,25 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           - `class BetaWebSearchToolResultBlockParam`
 
+            - `type: :web_search_tool_result`
+
             - `content: BetaWebSearchToolResultBlockParamContent`
 
               - `ResultBlock = Array[BetaWebSearchResultBlockParam]`
 
+                - `type: :web_search_result`
+
                 - `encrypted_content: String`
 
                 - `title: String`
-
-                - `type: :web_search_result`
 
                 - `url: String`
 
                 - `page_age: String`
 
               - `class BetaWebSearchToolRequestError`
+
+                - `type: :web_search_tool_result_error`
 
                 - `error_code: BetaWebSearchToolResultErrorCode`
 
@@ -11472,13 +11505,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `:request_too_large`
 
-                - `type: :web_search_tool_result_error`
-
             - `tool_use_id: String`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-            - `type: :web_search_tool_result`
 
             - `cache_control: BetaCacheControlEphemeral`
 
@@ -11500,9 +11529,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           - `class BetaWebFetchToolResultBlockParam`
 
+            - `type: :web_fetch_tool_result`
+
             - `content: BetaWebFetchToolResultErrorBlockParam | BetaWebFetchBlockParam`
 
               - `class BetaWebFetchToolResultErrorBlockParam`
+
+                - `type: :web_fetch_tool_result_error`
 
                 - `error_code: BetaWebFetchToolResultErrorCode`
 
@@ -11524,13 +11557,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `:unavailable`
 
-                - `type: :web_fetch_tool_result_error`
+                  - `:content_too_large`
 
               - `class BetaWebFetchBlockParam`
 
-                - `content: BetaRequestDocumentBlock`
-
                 - `type: :web_fetch_result`
+
+                - `content: BetaRequestDocumentBlock`
 
                 - `url: String`
 
@@ -11543,8 +11576,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
             - `tool_use_id: String`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-            - `type: :web_fetch_tool_result`
 
             - `cache_control: BetaCacheControlEphemeral`
 
@@ -11566,9 +11597,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           - `class BetaAdvisorToolResultBlockParam`
 
+            - `type: :advisor_tool_result`
+
             - `content: BetaAdvisorToolResultErrorParam | BetaAdvisorResultBlockParam | BetaAdvisorRedactedResultBlockParam`
 
               - `class BetaAdvisorToolResultErrorParam`
+
+                - `type: :advisor_tool_result_error`
 
                 - `error_code: :max_uses_exceeded | :prompt_too_long | :too_many_requests | 4 more`
 
@@ -11586,23 +11621,21 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `:model_not_found`
 
-                - `type: :advisor_tool_result_error`
-
               - `class BetaAdvisorResultBlockParam`
 
-                - `text: String`
-
                 - `type: :advisor_result`
+
+                - `text: String`
 
                 - `stop_reason: String`
 
               - `class BetaAdvisorRedactedResultBlockParam`
 
+                - `type: :advisor_redacted_result`
+
                 - `encrypted_content: String`
 
                   Opaque blob produced by a prior response; must be round-tripped verbatim.
-
-                - `type: :advisor_redacted_result`
 
                 - `stop_reason: String`
 
@@ -11610,19 +11643,21 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-            - `type: :advisor_tool_result`
-
             - `cache_control: BetaCacheControlEphemeral`
 
               Create a cache control breakpoint at this content block.
 
           - `class BetaCodeExecutionToolResultBlockParam`
 
+            - `type: :code_execution_tool_result`
+
             - `content: BetaCodeExecutionToolResultBlockParamContent`
 
               Code execution result with encrypted stdout for PFC + web_search results.
 
               - `class BetaCodeExecutionToolResultErrorParam`
+
+                - `type: :code_execution_tool_result_error`
 
                 - `error_code: BetaCodeExecutionToolResultErrorCode`
 
@@ -11634,15 +11669,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `:execution_time_exceeded`
 
-                - `type: :code_execution_tool_result_error`
-
               - `class BetaCodeExecutionResultBlockParam`
+
+                - `type: :code_execution_result`
 
                 - `content: Array[BetaCodeExecutionOutputBlockParam]`
 
-                  - `file_id: String`
-
                   - `type: :code_execution_output`
+
+                  - `file_id: String`
 
                 - `return_code: Integer`
 
@@ -11650,17 +11685,17 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `stdout: String`
 
-                - `type: :code_execution_result`
-
               - `class BetaEncryptedCodeExecutionResultBlockParam`
 
                 Code execution result with encrypted stdout for PFC + web_search results.
 
+                - `type: :encrypted_code_execution_result`
+
                 - `content: Array[BetaCodeExecutionOutputBlockParam]`
 
-                  - `file_id: String`
-
                   - `type: :code_execution_output`
+
+                  - `file_id: String`
 
                 - `encrypted_stdout: String`
 
@@ -11668,13 +11703,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `stderr: String`
 
-                - `type: :encrypted_code_execution_result`
-
             - `tool_use_id: String`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-            - `type: :code_execution_tool_result`
 
             - `cache_control: BetaCacheControlEphemeral`
 
@@ -11682,9 +11713,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           - `class BetaBashCodeExecutionToolResultBlockParam`
 
+            - `type: :bash_code_execution_tool_result`
+
             - `content: BetaBashCodeExecutionToolResultErrorParam | BetaBashCodeExecutionResultBlockParam`
 
               - `class BetaBashCodeExecutionToolResultErrorParam`
+
+                - `type: :bash_code_execution_tool_result_error`
 
                 - `error_code: :invalid_tool_input | :unavailable | :too_many_requests | 2 more`
 
@@ -11698,15 +11733,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `:output_file_too_large`
 
-                - `type: :bash_code_execution_tool_result_error`
-
               - `class BetaBashCodeExecutionResultBlockParam`
+
+                - `type: :bash_code_execution_result`
 
                 - `content: Array[BetaBashCodeExecutionOutputBlockParam]`
 
-                  - `file_id: String`
-
                   - `type: :bash_code_execution_output`
+
+                  - `file_id: String`
 
                 - `return_code: Integer`
 
@@ -11714,13 +11749,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `stdout: String`
 
-                - `type: :bash_code_execution_result`
-
             - `tool_use_id: String`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-            - `type: :bash_code_execution_tool_result`
 
             - `cache_control: BetaCacheControlEphemeral`
 
@@ -11728,9 +11759,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           - `class BetaTextEditorCodeExecutionToolResultBlockParam`
 
+            - `type: :text_editor_code_execution_tool_result`
+
             - `content: BetaTextEditorCodeExecutionToolResultErrorParam | BetaTextEditorCodeExecutionViewResultBlockParam | BetaTextEditorCodeExecutionCreateResultBlockParam | BetaTextEditorCodeExecutionStrReplaceResultBlockParam`
 
               - `class BetaTextEditorCodeExecutionToolResultErrorParam`
+
+                - `type: :text_editor_code_execution_tool_result_error`
 
                 - `error_code: :invalid_tool_input | :unavailable | :too_many_requests | 2 more`
 
@@ -11744,11 +11779,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `:file_not_found`
 
-                - `type: :text_editor_code_execution_tool_result_error`
-
                 - `error_message: String`
 
               - `class BetaTextEditorCodeExecutionViewResultBlockParam`
+
+                - `type: :text_editor_code_execution_view_result`
 
                 - `content: String`
 
@@ -11760,8 +11795,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `:pdf`
 
-                - `type: :text_editor_code_execution_view_result`
-
                 - `num_lines: Integer`
 
                 - `start_line: Integer`
@@ -11770,9 +11803,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `class BetaTextEditorCodeExecutionCreateResultBlockParam`
 
-                - `is_file_update: bool`
-
                 - `type: :text_editor_code_execution_create_result`
+
+                - `is_file_update: bool`
 
               - `class BetaTextEditorCodeExecutionStrReplaceResultBlockParam`
 
@@ -11792,17 +11825,19 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-            - `type: :text_editor_code_execution_tool_result`
-
             - `cache_control: BetaCacheControlEphemeral`
 
               Create a cache control breakpoint at this content block.
 
           - `class BetaToolSearchToolResultBlockParam`
 
+            - `type: :tool_search_tool_result`
+
             - `content: BetaToolSearchToolResultErrorParam | BetaToolSearchToolSearchResultBlockParam`
 
               - `class BetaToolSearchToolResultErrorParam`
+
+                - `type: :tool_search_tool_result_error`
 
                 - `error_code: :invalid_tool_input | :unavailable | :too_many_requests | :execution_time_exceeded`
 
@@ -11814,37 +11849,35 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `:execution_time_exceeded`
 
-                - `type: :tool_search_tool_result_error`
-
                 - `error_message: String`
 
               - `class BetaToolSearchToolSearchResultBlockParam`
 
+                - `type: :tool_search_tool_search_result`
+
                 - `tool_references: Array[BetaToolReferenceBlockParam]`
+
+                  - `type: :tool_reference`
 
                   - `tool_name: String`
 
                     maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
-                  - `type: :tool_reference`
-
                   - `cache_control: BetaCacheControlEphemeral`
 
                     Create a cache control breakpoint at this content block.
 
-                - `type: :tool_search_tool_search_result`
-
             - `tool_use_id: String`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-            - `type: :tool_search_tool_result`
 
             - `cache_control: BetaCacheControlEphemeral`
 
               Create a cache control breakpoint at this content block.
 
           - `class BetaMCPToolUseBlockParam`
+
+            - `type: :mcp_tool_use`
 
             - `id: String`
 
@@ -11858,19 +11891,17 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               The name of the MCP server
 
-            - `type: :mcp_tool_use`
-
             - `cache_control: BetaCacheControlEphemeral`
 
               Create a cache control breakpoint at this content block.
 
           - `class BetaRequestMCPToolResultBlockParam`
 
+            - `type: :mcp_tool_result`
+
             - `tool_use_id: String`
 
               pattern: ^[a-zA-Z0-9_-]+$
-
-            - `type: :mcp_tool_result`
 
             - `cache_control: BetaCacheControlEphemeral`
 
@@ -11882,11 +11913,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `BetaMCPToolResultBlockParamContent = Array[BetaTextBlockParam]`
 
+                - `type: :text`
+
                 - `text: String`
 
                   minLength: 1
-
-                - `type: :text`
 
                 - `cache_control: BetaCacheControlEphemeral`
 
@@ -11901,9 +11932,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
             A content block that represents a file to be uploaded to the container
             Files uploaded via this block will be available in the container's input directory.
 
-            - `file_id: String`
-
             - `type: :container_upload`
+
+            - `file_id: String`
 
             - `cache_control: BetaCacheControlEphemeral`
 
@@ -11941,6 +11972,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
             `tools`; it is offered to the model from this point in the
             conversation onward.
 
+            - `type: :tool_addition`
+
             - `tool: BetaToolChangeToolReference | BetaToolChangeMCPToolReference | BetaToolChangeMCPToolsetReference`
 
               Reference to a single tool the caller declared directly in
@@ -11955,32 +11988,30 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
                 server assigns to MCP-resolved tools — use `mcp_tool_reference` or
                 `mcp_toolset_reference` for those.
 
+                - `type: :tool_reference`
+
                 - `name: String`
 
                   pattern: ^[a-zA-Z0-9_-]{1,128}$
-
-                - `type: :tool_reference`
 
               - `class BetaToolChangeMCPToolReference`
 
                 Reference to a single MCP tool by its server and remote name — the
                 same `server_name`/`name` pair `mcp_tool_use` carries.
 
+                - `type: :mcp_tool_reference`
+
                 - `name: String`
 
                 - `server_name: String`
-
-                - `type: :mcp_tool_reference`
 
               - `class BetaToolChangeMCPToolsetReference`
 
                 Reference to every tool in the named MCP server's toolset.
 
-                - `server_name: String`
-
                 - `type: :mcp_toolset_reference`
 
-            - `type: :tool_addition`
+                - `server_name: String`
 
             - `cache_control: BetaCacheControlEphemeral`
 
@@ -11994,6 +12025,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
             `tools`; it is no longer offered to the model from this point in the
             conversation onward.
 
+            - `type: :tool_removal`
+
             - `tool: BetaToolChangeToolReference | BetaToolChangeMCPToolReference | BetaToolChangeMCPToolsetReference`
 
               Reference to a single tool the caller declared directly in
@@ -12016,8 +12049,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
               - `class BetaToolChangeMCPToolsetReference`
 
                 Reference to every tool in the named MCP server's toolset.
-
-            - `type: :tool_removal`
 
             - `cache_control: BetaCacheControlEphemeral`
 
@@ -12038,6 +12069,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
             request is rejected), and moving it into the middle of a single run is
             likewise rejected; between non-thinking blocks the block's placement has
             no validation effect.
+
+            - `type: :fallback`
 
             - `from: BetaFallbackInfoParam`
 
@@ -12129,8 +12162,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               Identifies one hop of a fallback transition.
 
-            - `type: :fallback`
-
             - `trigger: untyped`
 
               The response block's `trigger`, echoed verbatim. Accepted and ignored by the server; any object or `null` is allowed.
@@ -12201,12 +12232,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           maxItems: 20
 
-          - `skill_id: String`
-
-            Skill ID
-
-            maxLength: 64, minLength: 1
-
           - `type: :anthropic | :custom`
 
             Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
@@ -12214,6 +12239,12 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
             - `:anthropic`
 
             - `:custom`
+
+          - `skill_id: String`
+
+            Skill ID
+
+            maxLength: 64, minLength: 1
 
           - `version: String`
 
@@ -12425,25 +12456,25 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             A schema to specify Claude's output format in responses. See [structured outputs](https://platform.claude.com/docs/en/build-with-claude/structured-outputs)
 
+            - `type: :json_schema`
+
             - `schema: Hash[Symbol, untyped]`
 
               The JSON schema of the format
 
-            - `type: :json_schema`
-
           - `task_budget: BetaTokenTaskBudget`
 
             User-configurable total token budget across contexts.
+
+            - `type: :tokens`
+
+              The budget type. Currently only 'tokens' is supported.
 
             - `total: Integer`
 
               Total token budget across all contexts in the session.
 
               minimum: 1024
-
-            - `type: :tokens`
-
-              The budget type. Currently only 'tokens' is supported.
 
             - `remaining: Integer`
 
@@ -12463,6 +12494,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           - `class BetaThinkingConfigEnabled`
 
+            - `type: :enabled`
+
             - `budget_tokens: Integer`
 
               Determines how many tokens Claude can use for its internal reasoning process. Larger budgets can enable more thorough analysis for complex problems, improving response quality.
@@ -12472,8 +12505,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
               See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
 
               minimum: 1024
-
-            - `type: :enabled`
 
             - `block_binding: BetaThinkingBlockBinding`
 
@@ -12539,9 +12570,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       maxItems: 20
 
-      - `name: String`
-
       - `type: :url`
+
+      - `name: String`
 
       - `url: String`
 
@@ -12611,11 +12642,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `UnionMember1 = Array[BetaTextBlockParam]`
 
+        - `type: :text`
+
         - `text: String`
 
           minLength: 1
-
-        - `type: :text`
 
         - `cache_control: BetaCacheControlEphemeral`
 
@@ -12669,11 +12700,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         The model will use the specified tool with `tool_choice.name`.
 
+        - `type: :tool`
+
         - `name: String`
 
           The name of the tool to use.
-
-        - `type: :tool`
 
         - `disable_parallel_tool_use: bool`
 
@@ -12753,6 +12784,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `class BetaTool`
 
+        - `type: :custom`
+
         - `input_schema: InputSchema`
 
           [JSON schema](https://json-schema.org/draft/2020-12) for this tool's input.
@@ -12807,17 +12840,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           When true, guarantees schema validation on tool names and inputs
 
-        - `type: :custom`
-
       - `class BetaToolBash20241022`
+
+        - `type: :bash_20241022`
 
         - `name: :bash`
 
           Name of the tool.
 
           This is how the tool will be called by the model and in `tool_use` blocks.
-
-        - `type: :bash_20241022`
 
         - `allowed_callers: Array[:direct | :code_execution_20250825 | :code_execution_20260120 | :code_execution_20260521]`
 
@@ -12845,13 +12876,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `class BetaToolBash20250124`
 
+        - `type: :bash_20250124`
+
         - `name: :bash`
 
           Name of the tool.
 
           This is how the tool will be called by the model and in `tool_use` blocks.
-
-        - `type: :bash_20250124`
 
         - `allowed_callers: Array[:direct | :code_execution_20250825 | :code_execution_20260120 | :code_execution_20260521]`
 
@@ -12879,13 +12910,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `class BetaCodeExecutionTool20250522`
 
+        - `type: :code_execution_20250522`
+
         - `name: :code_execution`
 
           Name of the tool.
 
           This is how the tool will be called by the model and in `tool_use` blocks.
-
-        - `type: :code_execution_20250522`
 
         - `allowed_callers: Array[:direct | :code_execution_20250825 | :code_execution_20260120 | :code_execution_20260521]`
 
@@ -12911,13 +12942,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `class BetaCodeExecutionTool20250825`
 
+        - `type: :code_execution_20250825`
+
         - `name: :code_execution`
 
           Name of the tool.
 
           This is how the tool will be called by the model and in `tool_use` blocks.
-
-        - `type: :code_execution_20250825`
 
         - `allowed_callers: Array[:direct | :code_execution_20250825 | :code_execution_20260120 | :code_execution_20260521]`
 
@@ -12945,13 +12976,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         Code execution tool with REPL state persistence (daemon mode + gVisor checkpoint).
 
+        - `type: :code_execution_20260120`
+
         - `name: :code_execution`
 
           Name of the tool.
 
           This is how the tool will be called by the model and in `tool_use` blocks.
-
-        - `type: :code_execution_20260120`
 
         - `allowed_callers: Array[:direct | :code_execution_20250825 | :code_execution_20260120 | :code_execution_20260521]`
 
@@ -12979,13 +13010,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         Code execution tool with REPL state persistence.
 
+        - `type: :code_execution_20260521`
+
         - `name: :code_execution`
 
           Name of the tool.
 
           This is how the tool will be called by the model and in `tool_use` blocks.
-
-        - `type: :code_execution_20260521`
 
         - `allowed_callers: Array[:direct | :code_execution_20250825 | :code_execution_20260120 | :code_execution_20260521]`
 
@@ -13030,6 +13061,18 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
           accepted key, and a member's defaults apply wherever its key is
           absent. Unknown keys are rejected: the field set is this toolset
           version's complete member set.
+
+          - `type: BetaBrowserTypeConfig`
+
+            `type`'s config overrides.
+
+            - `defer_loading: bool`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: bool`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
           - `close_tab: BetaBrowserCloseTabConfig`
 
@@ -13367,18 +13410,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-          - `type: BetaBrowserTypeConfig`
-
-            `type`'s config overrides.
-
-            - `defer_loading: bool`
-
-              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-            - `enabled: bool`
-
-              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
           - `wait: BetaBrowserWaitConfig`
 
             `wait`'s config overrides.
@@ -13405,6 +13436,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `class BetaToolComputerUse20241022`
 
+        - `type: :computer_20241022`
+
         - `display_height_px: Integer`
 
           The height of the display in pixels.
@@ -13422,8 +13455,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
           Name of the tool.
 
           This is how the tool will be called by the model and in `tool_use` blocks.
-
-        - `type: :computer_20241022`
 
         - `allowed_callers: Array[:direct | :code_execution_20250825 | :code_execution_20260120 | :code_execution_20260521]`
 
@@ -13457,13 +13488,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `class BetaMemoryTool20250818`
 
+        - `type: :memory_20250818`
+
         - `name: :memory`
 
           Name of the tool.
 
           This is how the tool will be called by the model and in `tool_use` blocks.
-
-        - `type: :memory_20250818`
 
         - `allowed_callers: Array[:direct | :code_execution_20250825 | :code_execution_20260120 | :code_execution_20260521]`
 
@@ -13491,6 +13522,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `class BetaToolComputerUse20250124`
 
+        - `type: :computer_20250124`
+
         - `display_height_px: Integer`
 
           The height of the display in pixels.
@@ -13508,8 +13541,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
           Name of the tool.
 
           This is how the tool will be called by the model and in `tool_use` blocks.
-
-        - `type: :computer_20250124`
 
         - `allowed_callers: Array[:direct | :code_execution_20250825 | :code_execution_20260120 | :code_execution_20260521]`
 
@@ -13543,13 +13574,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `class BetaToolTextEditor20241022`
 
+        - `type: :text_editor_20241022`
+
         - `name: :str_replace_editor`
 
           Name of the tool.
 
           This is how the tool will be called by the model and in `tool_use` blocks.
-
-        - `type: :text_editor_20241022`
 
         - `allowed_callers: Array[:direct | :code_execution_20250825 | :code_execution_20260120 | :code_execution_20260521]`
 
@@ -13577,6 +13608,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `class BetaToolComputerUse20251124`
 
+        - `type: :computer_20251124`
+
         - `display_height_px: Integer`
 
           The height of the display in pixels.
@@ -13594,8 +13627,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
           Name of the tool.
 
           This is how the tool will be called by the model and in `tool_use` blocks.
-
-        - `type: :computer_20251124`
 
         - `allowed_callers: Array[:direct | :code_execution_20250825 | :code_execution_20260120 | :code_execution_20260521]`
 
@@ -13656,6 +13687,18 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
           accepted key, and a member's defaults apply wherever its key is
           absent. Unknown keys are rejected: the field set is this toolset
           version's complete member set.
+
+          - `type: BetaComputerTypeConfig`
+
+            `type`'s config overrides.
+
+            - `defer_loading: bool`
+
+              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+            - `enabled: bool`
+
+              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
           - `cursor_position: BetaComputerCursorPositionConfig`
 
@@ -13825,18 +13868,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-          - `type: BetaComputerTypeConfig`
-
-            `type`'s config overrides.
-
-            - `defer_loading: bool`
-
-              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-            - `enabled: bool`
-
-              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
           - `wait: BetaComputerWaitConfig`
 
             `wait`'s config overrides.
@@ -13863,13 +13894,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `class BetaToolTextEditor20250124`
 
+        - `type: :text_editor_20250124`
+
         - `name: :str_replace_editor`
 
           Name of the tool.
 
           This is how the tool will be called by the model and in `tool_use` blocks.
-
-        - `type: :text_editor_20250124`
 
         - `allowed_callers: Array[:direct | :code_execution_20250825 | :code_execution_20260120 | :code_execution_20260521]`
 
@@ -13897,13 +13928,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `class BetaToolTextEditor20250429`
 
+        - `type: :text_editor_20250429`
+
         - `name: :str_replace_based_edit_tool`
 
           Name of the tool.
 
           This is how the tool will be called by the model and in `tool_use` blocks.
-
-        - `type: :text_editor_20250429`
 
         - `allowed_callers: Array[:direct | :code_execution_20250825 | :code_execution_20260120 | :code_execution_20260521]`
 
@@ -13931,13 +13962,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `class BetaToolTextEditor20250728`
 
+        - `type: :text_editor_20250728`
+
         - `name: :str_replace_based_edit_tool`
 
           Name of the tool.
 
           This is how the tool will be called by the model and in `tool_use` blocks.
-
-        - `type: :text_editor_20250728`
 
         - `allowed_callers: Array[:direct | :code_execution_20250825 | :code_execution_20260120 | :code_execution_20260521]`
 
@@ -13971,13 +14002,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `class BetaWebSearchTool20250305`
 
+        - `type: :web_search_20250305`
+
         - `name: :web_search`
 
           Name of the tool.
 
           This is how the tool will be called by the model and in `tool_use` blocks.
-
-        - `type: :web_search_20250305`
 
         - `allowed_callers: Array[:direct | :code_execution_20250825 | :code_execution_20260120 | :code_execution_20260521]`
 
@@ -14047,13 +14078,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `class BetaWebFetchTool20250910`
 
+        - `type: :web_fetch_20250910`
+
         - `name: :web_fetch`
 
           Name of the tool.
 
           This is how the tool will be called by the model and in `tool_use` blocks.
-
-        - `type: :web_fetch_20250910`
 
         - `allowed_callers: Array[:direct | :code_execution_20250825 | :code_execution_20260120 | :code_execution_20260521]`
 
@@ -14103,13 +14134,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `class BetaWebSearchTool20260209`
 
+        - `type: :web_search_20260209`
+
         - `name: :web_search`
 
           Name of the tool.
 
           This is how the tool will be called by the model and in `tool_use` blocks.
-
-        - `type: :web_search_20260209`
 
         - `allowed_callers: Array[:direct | :code_execution_20250825 | :code_execution_20260120 | :code_execution_20260521]`
 
@@ -14153,13 +14184,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `class BetaWebFetchTool20260209`
 
+        - `type: :web_fetch_20260209`
+
         - `name: :web_fetch`
 
           Name of the tool.
 
           This is how the tool will be called by the model and in `tool_use` blocks.
-
-        - `type: :web_fetch_20260209`
 
         - `allowed_callers: Array[:direct | :code_execution_20250825 | :code_execution_20260120 | :code_execution_20260521]`
 
@@ -14211,13 +14242,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         Web fetch tool with use_cache parameter for bypassing cached content.
 
+        - `type: :web_fetch_20260309`
+
         - `name: :web_fetch`
 
           Name of the tool.
 
           This is how the tool will be called by the model and in `tool_use` blocks.
-
-        - `type: :web_fetch_20260309`
 
         - `allowed_callers: Array[:direct | :code_execution_20250825 | :code_execution_20260120 | :code_execution_20260521]`
 
@@ -14271,13 +14302,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `class BetaWebSearchTool20260318`
 
+        - `type: :web_search_20260318`
+
         - `name: :web_search`
 
           Name of the tool.
 
           This is how the tool will be called by the model and in `tool_use` blocks.
-
-        - `type: :web_search_20260318`
 
         - `allowed_callers: Array[:direct | :code_execution_20250825 | :code_execution_20260120 | :code_execution_20260521]`
 
@@ -14329,13 +14360,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `class BetaWebFetchTool20260318`
 
+        - `type: :web_fetch_20260318`
+
         - `name: :web_fetch`
 
           Name of the tool.
 
           This is how the tool will be called by the model and in `tool_use` blocks.
-
-        - `type: :web_fetch_20260318`
 
         - `allowed_callers: Array[:direct | :code_execution_20250825 | :code_execution_20260120 | :code_execution_20260521]`
 
@@ -14397,6 +14428,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `class BetaAdvisorTool20260301`
 
+        - `type: :advisor_20260301`
+
         - `model: Model`
 
           The model that will complete your prompt.
@@ -14408,8 +14441,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
           Name of the tool.
 
           This is how the tool will be called by the model and in `tool_use` blocks.
-
-        - `type: :advisor_20260301`
 
         - `allowed_callers: Array[:direct | :code_execution_20250825 | :code_execution_20260120 | :code_execution_20260521]`
 
@@ -14451,17 +14482,17 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `class BetaToolSearchToolBm25_20251119`
 
-        - `name: :tool_search_tool_bm25`
-
-          Name of the tool.
-
-          This is how the tool will be called by the model and in `tool_use` blocks.
-
         - `type: :tool_search_tool_bm25_20251119 | :tool_search_tool_bm25`
 
           - `:tool_search_tool_bm25_20251119`
 
           - `:tool_search_tool_bm25`
+
+        - `name: :tool_search_tool_bm25`
+
+          Name of the tool.
+
+          This is how the tool will be called by the model and in `tool_use` blocks.
 
         - `allowed_callers: Array[:direct | :code_execution_20250825 | :code_execution_20260120 | :code_execution_20260521]`
 
@@ -14487,17 +14518,17 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `class BetaToolSearchToolRegex20251119`
 
-        - `name: :tool_search_tool_regex`
-
-          Name of the tool.
-
-          This is how the tool will be called by the model and in `tool_use` blocks.
-
         - `type: :tool_search_tool_regex_20251119 | :tool_search_tool_regex`
 
           - `:tool_search_tool_regex_20251119`
 
           - `:tool_search_tool_regex`
+
+        - `name: :tool_search_tool_regex`
+
+          Name of the tool.
+
+          This is how the tool will be called by the model and in `tool_use` blocks.
 
         - `allowed_callers: Array[:direct | :code_execution_20250825 | :code_execution_20260120 | :code_execution_20260521]`
 
@@ -14528,13 +14559,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
         Allows configuring enabled status and defer_loading for all tools
         from an MCP server, with optional per-tool overrides.
 
+        - `type: :mcp_toolset`
+
         - `mcp_server_name: String`
 
           Name of the MCP server to configure tools for
 
           maxLength: 255, minLength: 1
-
-        - `type: :mcp_toolset`
 
         - `cache_control: BetaCacheControlEphemeral`
 
@@ -14606,7 +14637,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 41 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 42 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -14654,6 +14685,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     - `:"user-profiles-2026-08-18"`
 
+    - `:"user-profiles-2026-09-04"`
+
     - `:"advisor-tool-2026-03-01"`
 
     - `:"managed-agents-2026-04-01"`
@@ -14700,9 +14733,17 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   The user profile ID to attribute the requests in this batch to. Use when acting on behalf of a party other than your organization. Requires the `user-profiles` beta header. Applies to every request in the batch; an individual request whose `user_profile_id` body field conflicts with this header is errored.
 
+- `workspace_id: String`
+
 #### Returns
 
 - `class BetaMessageBatch`
+
+  - `type: :message_batch`
+
+    Object type.
+
+    For Message Batches, this is always `"message_batch"`.
 
   - `id: String`
 
@@ -14791,12 +14832,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
     URL to a `.jsonl` file containing the results of the Message Batch requests. Specified only once processing ends.
 
     Results in the file are not guaranteed to be in the same order as requests. Use the `custom_id` field to match results to requests.
-
-  - `type: :message_batch`
-
-    Object type.
-
-    For Message Batches, this is always `"message_batch"`.
 
 #### Example
 
@@ -14862,7 +14897,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 41 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 42 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -14910,6 +14945,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     - `:"user-profiles-2026-08-18"`
 
+    - `:"user-profiles-2026-09-04"`
+
     - `:"advisor-tool-2026-03-01"`
 
     - `:"managed-agents-2026-04-01"`
@@ -14952,9 +14989,17 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     - `:"mid-conversation-system-clear-at-2026-08-21"`
 
+- `workspace_id: String`
+
 #### Returns
 
 - `class BetaMessageBatch`
+
+  - `type: :message_batch`
+
+    Object type.
+
+    For Message Batches, this is always `"message_batch"`.
 
   - `id: String`
 
@@ -15043,12 +15088,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
     URL to a `.jsonl` file containing the results of the Message Batch requests. Specified only once processing ends.
 
     Results in the file are not guaranteed to be in the same order as requests. Use the `custom_id` field to match results to requests.
-
-  - `type: :message_batch`
-
-    Object type.
-
-    For Message Batches, this is always `"message_batch"`.
 
 #### Example
 
@@ -15119,7 +15158,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 41 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 42 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -15167,6 +15206,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     - `:"user-profiles-2026-08-18"`
 
+    - `:"user-profiles-2026-09-04"`
+
     - `:"advisor-tool-2026-03-01"`
 
     - `:"managed-agents-2026-04-01"`
@@ -15209,9 +15250,17 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     - `:"mid-conversation-system-clear-at-2026-08-21"`
 
+- `workspace_id: String`
+
 #### Returns
 
 - `class BetaMessageBatch`
+
+  - `type: :message_batch`
+
+    Object type.
+
+    For Message Batches, this is always `"message_batch"`.
 
   - `id: String`
 
@@ -15300,12 +15349,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
     URL to a `.jsonl` file containing the results of the Message Batch requests. Specified only once processing ends.
 
     Results in the file are not guaranteed to be in the same order as requests. Use the `custom_id` field to match results to requests.
-
-  - `type: :message_batch`
-
-    Object type.
-
-    For Message Batches, this is always `"message_batch"`.
 
 #### Example
 
@@ -15373,7 +15416,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 41 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 42 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -15421,6 +15464,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     - `:"user-profiles-2026-08-18"`
 
+    - `:"user-profiles-2026-09-04"`
+
     - `:"advisor-tool-2026-03-01"`
 
     - `:"managed-agents-2026-04-01"`
@@ -15463,9 +15508,17 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     - `:"mid-conversation-system-clear-at-2026-08-21"`
 
+- `workspace_id: String`
+
 #### Returns
 
 - `class BetaMessageBatch`
+
+  - `type: :message_batch`
+
+    Object type.
+
+    For Message Batches, this is always `"message_batch"`.
 
   - `id: String`
 
@@ -15555,12 +15608,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     Results in the file are not guaranteed to be in the same order as requests. Use the `custom_id` field to match results to requests.
 
-  - `type: :message_batch`
-
-    Object type.
-
-    For Message Batches, this is always `"message_batch"`.
-
 #### Example
 
 ```ruby
@@ -15620,7 +15667,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 41 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 42 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -15668,6 +15715,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     - `:"user-profiles-2026-08-18"`
 
+    - `:"user-profiles-2026-09-04"`
+
     - `:"advisor-tool-2026-03-01"`
 
     - `:"managed-agents-2026-04-01"`
@@ -15710,19 +15759,21 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     - `:"mid-conversation-system-clear-at-2026-08-21"`
 
+- `workspace_id: String`
+
 #### Returns
 
 - `class BetaDeletedMessageBatch`
-
-  - `id: String`
-
-    ID of the Message Batch.
 
   - `type: :message_batch_deleted`
 
     Deleted object type.
 
     For Message Batches, this is always `"message_batch_deleted"`.
+
+  - `id: String`
+
+    ID of the Message Batch.
 
 #### Example
 
@@ -15769,7 +15820,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 41 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 42 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -15817,6 +15868,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     - `:"user-profiles-2026-08-18"`
 
+    - `:"user-profiles-2026-09-04"`
+
     - `:"advisor-tool-2026-03-01"`
 
     - `:"managed-agents-2026-04-01"`
@@ -15859,6 +15912,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     - `:"mid-conversation-system-clear-at-2026-08-21"`
 
+- `workspace_id: String`
+
 #### Returns
 
 - `class BetaMessageBatchIndividualResponse`
@@ -15879,7 +15934,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     - `class BetaMessageBatchSucceededResult`
 
+      - `type: :succeeded`
+
       - `message: BetaMessage`
+
+        - `type: :message`
+
+          Object type.
+
+          For Messages, this is always `"message"`.
 
         - `id: String`
 
@@ -15905,12 +15968,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             Skills loaded in the container
 
-            - `skill_id: String`
-
-              Skill ID
-
-              maxLength: 64, minLength: 1
-
             - `type: :anthropic | :custom`
 
               Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
@@ -15918,6 +15975,12 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
               - `:anthropic`
 
               - `:custom`
+
+            - `skill_id: String`
+
+              Skill ID
+
+              maxLength: 64, minLength: 1
 
             - `version: String`
 
@@ -15956,6 +16019,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           - `class BetaTextBlock`
 
+            - `type: :text`
+
             - `citations: Array[BetaTextCitation]`
 
               Citations supporting the text block.
@@ -15963,6 +16028,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
               The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
 
               - `class BetaCitationCharLocation`
+
+                - `type: :char_location`
 
                 - `cited_text: String`
 
@@ -15980,9 +16047,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   minimum: 0
 
-                - `type: :char_location`
-
               - `class BetaCitationPageLocation`
+
+                - `type: :page_location`
 
                 - `cited_text: String`
 
@@ -16000,9 +16067,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   minimum: 1
 
-                - `type: :page_location`
-
               - `class BetaCitationContentBlockLocation`
+
+                - `type: :content_block_location`
 
                 - `cited_text: String`
 
@@ -16030,9 +16097,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   minimum: 0
 
-                - `type: :content_block_location`
-
               - `class BetaCitationsWebSearchResultLocation`
+
+                - `type: :web_search_result_location`
 
                 - `cited_text: String`
 
@@ -16042,11 +16109,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   maxLength: 512
 
-                - `type: :web_search_result_location`
-
                 - `url: String`
 
               - `class BetaCitationSearchResultLocation`
+
+                - `type: :search_result_location`
 
                 - `cited_text: String`
 
@@ -16078,15 +16145,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `title: String`
 
-                - `type: :search_result_location`
-
             - `text: String`
 
-              maxLength: 5000000, minLength: 0
-
-            - `type: :text`
+              minLength: 0
 
           - `class BetaThinkingBlock`
+
+            - `type: :thinking`
 
             - `signature: String`
 
@@ -16100,9 +16165,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               The text of Claude's thinking process for this block.
 
-            - `type: :thinking`
-
           - `class BetaRedactedThinkingBlock`
+
+            - `type: :redacted_thinking`
 
             - `data: String`
 
@@ -16112,9 +16177,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking#redacted-thinking-blocks) for details.
 
-            - `type: :redacted_thinking`
-
           - `class BetaToolUseBlock`
+
+            - `type: :tool_use`
 
             - `id: String`
 
@@ -16125,8 +16190,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
             - `name: String`
 
               minLength: 1
-
-            - `type: :tool_use`
 
             - `caller_: BetaDirectCaller | BetaServerToolCaller | BetaServerToolCaller20260120`
 
@@ -16142,19 +16205,19 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 Tool invocation generated by a server-side tool.
 
+                - `type: :code_execution_20250825`
+
                 - `tool_id: String`
 
                   pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-                - `type: :code_execution_20250825`
 
               - `class BetaServerToolCaller20260120`
 
+                - `type: :code_execution_20260120`
+
                 - `tool_id: String`
 
                   pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-                - `type: :code_execution_20260120`
 
             - `toolset_name: String`
 
@@ -16163,6 +16226,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
               maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
 
           - `class BetaServerToolUseBlock`
+
+            - `type: :server_tool_use`
 
             - `id: String`
 
@@ -16188,8 +16253,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `:tool_search_tool_bm25`
 
-            - `type: :server_tool_use`
-
             - `caller_: BetaDirectCaller | BetaServerToolCaller | BetaServerToolCaller20260120`
 
               Tool invocation directly from the model.
@@ -16206,9 +16269,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           - `class BetaWebSearchToolResultBlock`
 
+            - `type: :web_search_tool_result`
+
             - `content: BetaWebSearchToolResultBlockContent`
 
               - `class BetaWebSearchToolResultError`
+
+                - `type: :web_search_tool_result_error`
 
                 - `error_code: BetaWebSearchToolResultErrorCode`
 
@@ -16224,9 +16291,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `:request_too_large`
 
-                - `type: :web_search_tool_result_error`
-
               - `UnionMember1 = Array[BetaWebSearchResultBlock]`
+
+                - `type: :web_search_result`
 
                 - `encrypted_content: String`
 
@@ -16234,15 +16301,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `title: String`
 
-                - `type: :web_search_result`
-
                 - `url: String`
 
             - `tool_use_id: String`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-            - `type: :web_search_tool_result`
 
             - `caller_: BetaDirectCaller | BetaServerToolCaller | BetaServerToolCaller20260120`
 
@@ -16260,9 +16323,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           - `class BetaWebFetchToolResultBlock`
 
+            - `type: :web_fetch_tool_result`
+
             - `content: BetaWebFetchToolResultErrorBlock | BetaWebFetchBlock`
 
               - `class BetaWebFetchToolResultErrorBlock`
+
+                - `type: :web_fetch_tool_result_error`
 
                 - `error_code: BetaWebFetchToolResultErrorCode`
 
@@ -16284,11 +16351,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `:unavailable`
 
-                - `type: :web_fetch_tool_result_error`
+                  - `:content_too_large`
 
               - `class BetaWebFetchBlock`
 
+                - `type: :web_fetch_result`
+
                 - `content: BetaDocumentBlock`
+
+                  - `type: :document`
 
                   - `citations: BetaCitationConfig`
 
@@ -16300,33 +16371,29 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     - `class BetaBase64PDFSource`
 
+                      - `type: :base64`
+
                       - `data: String`
 
                         format: byte
 
                       - `media_type: :"application/pdf"`
 
-                      - `type: :base64`
-
                     - `class BetaPlainTextSource`
+
+                      - `type: :text`
 
                       - `data: String`
 
                       - `media_type: :"text/plain"`
 
-                      - `type: :text`
-
                   - `title: String`
 
                     The title of the document
 
-                  - `type: :document`
-
                 - `retrieved_at: String`
 
                   ISO 8601 timestamp when the content was retrieved
-
-                - `type: :web_fetch_result`
 
                 - `url: String`
 
@@ -16335,8 +16402,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
             - `tool_use_id: String`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-            - `type: :web_fetch_tool_result`
 
             - `caller_: BetaDirectCaller | BetaServerToolCaller | BetaServerToolCaller20260120`
 
@@ -16354,9 +16419,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           - `class BetaAdvisorToolResultBlock`
 
+            - `type: :advisor_tool_result`
+
             - `content: BetaAdvisorToolResultError | BetaAdvisorResultBlock | BetaAdvisorRedactedResultBlock`
 
               - `class BetaAdvisorToolResultError`
+
+                - `type: :advisor_tool_result_error`
 
                 - `error_code: :max_uses_exceeded | :prompt_too_long | :too_many_requests | 4 more`
 
@@ -16374,9 +16443,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `:model_not_found`
 
-                - `type: :advisor_tool_result_error`
-
               - `class BetaAdvisorResultBlock`
+
+                - `type: :advisor_result`
 
                 - `stop_reason: String`
 
@@ -16384,9 +16453,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `text: String`
 
-                - `type: :advisor_result`
-
               - `class BetaAdvisorRedactedResultBlock`
+
+                - `type: :advisor_redacted_result`
 
                 - `encrypted_content: String`
 
@@ -16396,21 +16465,21 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   The advisor sub-inference's stop reason (same values as the top-level message `stop_reason`).
 
-                - `type: :advisor_redacted_result`
-
             - `tool_use_id: String`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-            - `type: :advisor_tool_result`
-
           - `class BetaCodeExecutionToolResultBlock`
+
+            - `type: :code_execution_tool_result`
 
             - `content: BetaCodeExecutionToolResultBlockContent`
 
               Code execution result with encrypted stdout for PFC + web_search results.
 
               - `class BetaCodeExecutionToolResultError`
+
+                - `type: :code_execution_tool_result_error`
 
                 - `error_code: BetaCodeExecutionToolResultErrorCode`
 
@@ -16422,15 +16491,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `:execution_time_exceeded`
 
-                - `type: :code_execution_tool_result_error`
-
               - `class BetaCodeExecutionResultBlock`
+
+                - `type: :code_execution_result`
 
                 - `content: Array[BetaCodeExecutionOutputBlock]`
 
-                  - `file_id: String`
-
                   - `type: :code_execution_output`
+
+                  - `file_id: String`
 
                 - `return_code: Integer`
 
@@ -16438,17 +16507,17 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `stdout: String`
 
-                - `type: :code_execution_result`
-
               - `class BetaEncryptedCodeExecutionResultBlock`
 
                 Code execution result with encrypted stdout for PFC + web_search results.
 
+                - `type: :encrypted_code_execution_result`
+
                 - `content: Array[BetaCodeExecutionOutputBlock]`
 
-                  - `file_id: String`
-
                   - `type: :code_execution_output`
+
+                  - `file_id: String`
 
                 - `encrypted_stdout: String`
 
@@ -16456,19 +16525,19 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `stderr: String`
 
-                - `type: :encrypted_code_execution_result`
-
             - `tool_use_id: String`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-            - `type: :code_execution_tool_result`
-
           - `class BetaBashCodeExecutionToolResultBlock`
+
+            - `type: :bash_code_execution_tool_result`
 
             - `content: BetaBashCodeExecutionToolResultError | BetaBashCodeExecutionResultBlock`
 
               - `class BetaBashCodeExecutionToolResultError`
+
+                - `type: :bash_code_execution_tool_result_error`
 
                 - `error_code: :invalid_tool_input | :unavailable | :too_many_requests | 2 more`
 
@@ -16482,15 +16551,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `:output_file_too_large`
 
-                - `type: :bash_code_execution_tool_result_error`
-
               - `class BetaBashCodeExecutionResultBlock`
+
+                - `type: :bash_code_execution_result`
 
                 - `content: Array[BetaBashCodeExecutionOutputBlock]`
 
-                  - `file_id: String`
-
                   - `type: :bash_code_execution_output`
+
+                  - `file_id: String`
 
                 - `return_code: Integer`
 
@@ -16498,19 +16567,19 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `stdout: String`
 
-                - `type: :bash_code_execution_result`
-
             - `tool_use_id: String`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-            - `type: :bash_code_execution_tool_result`
-
           - `class BetaTextEditorCodeExecutionToolResultBlock`
+
+            - `type: :text_editor_code_execution_tool_result`
 
             - `content: BetaTextEditorCodeExecutionToolResultError | BetaTextEditorCodeExecutionViewResultBlock | BetaTextEditorCodeExecutionCreateResultBlock | BetaTextEditorCodeExecutionStrReplaceResultBlock`
 
               - `class BetaTextEditorCodeExecutionToolResultError`
+
+                - `type: :text_editor_code_execution_tool_result_error`
 
                 - `error_code: :invalid_tool_input | :unavailable | :too_many_requests | 2 more`
 
@@ -16526,9 +16595,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `error_message: String`
 
-                - `type: :text_editor_code_execution_tool_result_error`
-
               - `class BetaTextEditorCodeExecutionViewResultBlock`
+
+                - `type: :text_editor_code_execution_view_result`
 
                 - `content: String`
 
@@ -16546,15 +16615,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `total_lines: Integer`
 
-                - `type: :text_editor_code_execution_view_result`
-
               - `class BetaTextEditorCodeExecutionCreateResultBlock`
-
-                - `is_file_update: bool`
 
                 - `type: :text_editor_code_execution_create_result`
 
+                - `is_file_update: bool`
+
               - `class BetaTextEditorCodeExecutionStrReplaceResultBlock`
+
+                - `type: :text_editor_code_execution_str_replace_result`
 
                 - `lines: Array[String]`
 
@@ -16566,19 +16635,19 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `old_start: Integer`
 
-                - `type: :text_editor_code_execution_str_replace_result`
-
             - `tool_use_id: String`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-            - `type: :text_editor_code_execution_tool_result`
-
           - `class BetaToolSearchToolResultBlock`
+
+            - `type: :tool_search_tool_result`
 
             - `content: BetaToolSearchToolResultError | BetaToolSearchToolSearchResultBlock`
 
               - `class BetaToolSearchToolResultError`
+
+                - `type: :tool_search_tool_result_error`
 
                 - `error_code: :invalid_tool_input | :unavailable | :too_many_requests | :execution_time_exceeded`
 
@@ -16592,27 +16661,25 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `error_message: String`
 
-                - `type: :tool_search_tool_result_error`
-
               - `class BetaToolSearchToolSearchResultBlock`
 
+                - `type: :tool_search_tool_search_result`
+
                 - `tool_references: Array[BetaToolReferenceBlock]`
+
+                  - `type: :tool_reference`
 
                   - `tool_name: String`
 
                     maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
-                  - `type: :tool_reference`
-
-                - `type: :tool_search_tool_search_result`
-
             - `tool_use_id: String`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-            - `type: :tool_search_tool_result`
-
           - `class BetaMCPToolUseBlock`
+
+            - `type: :mcp_tool_use`
 
             - `id: String`
 
@@ -16628,15 +16695,17 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               The name of the MCP server
 
-            - `type: :mcp_tool_use`
-
           - `class BetaMCPToolResultBlock`
+
+            - `type: :mcp_tool_result`
 
             - `content: String | Array[BetaTextBlock]`
 
               - `String = String`
 
               - `BetaMCPToolResultBlockContent = Array[BetaTextBlock]`
+
+                - `type: :text`
 
                 - `citations: Array[BetaTextCitation]`
 
@@ -16646,9 +16715,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `text: String`
 
-                  maxLength: 5000000, minLength: 0
-
-                - `type: :text`
+                  minLength: 0
 
             - `is_error: bool`
 
@@ -16656,15 +16723,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               pattern: ^[a-zA-Z0-9_-]+$
 
-            - `type: :mcp_tool_result`
-
           - `class BetaContainerUploadBlock`
 
             Response model for a file uploaded to the container.
 
-            - `file_id: String`
-
             - `type: :container_upload`
+
+            - `file_id: String`
 
           - `class BetaCompactionBlock`
 
@@ -16674,6 +16739,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
             summary (e.g., malformed output from the model). Clients may round-trip
             compaction blocks with null content; the server treats them as no-ops.
 
+            - `type: :compaction`
+
             - `content: String`
 
               Summary of compacted content, or null if compaction failed
@@ -16681,8 +16748,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
             - `encrypted_content: String`
 
               Opaque metadata from prior compaction, to be round-tripped verbatim
-
-            - `type: :compaction`
 
           - `class BetaFallbackBlock`
 
@@ -16697,6 +16762,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
             The block is treated like a server-tool content block for streaming: it
             arrives via the standard `content_block_start` / `content_block_stop`
             pair and carries no deltas.
+
+            - `type: :fallback`
 
             - `from: BetaFallbackInfo`
 
@@ -16792,6 +16859,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               What caused the `from` model to hand over at this hop.
 
+              - `type: :refusal`
+
               - `category: :cyber | :bio | :frontier_llm | 2 more`
 
                 The policy category that triggered a refusal.
@@ -16816,10 +16885,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
 
-              - `type: :refusal`
-
-            - `type: :fallback`
-
         - `context_management: BetaContextManagementResponse`
 
           Context management response.
@@ -16831,6 +16896,10 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
             List of context management edits that were applied.
 
             - `class BetaClearToolUses20250919EditResponse`
+
+              - `type: :clear_tool_uses_20250919`
+
+                The type of context management edit applied.
 
               - `cleared_input_tokens: Integer`
 
@@ -16844,11 +16913,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 minimum: 0
 
-              - `type: :clear_tool_uses_20250919`
+            - `class BetaClearThinking20251015EditResponse`
+
+              - `type: :clear_thinking_20251015`
 
                 The type of context management edit applied.
-
-            - `class BetaClearThinking20251015EditResponse`
 
               - `cleared_input_tokens: Integer`
 
@@ -16862,10 +16931,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 minimum: 0
 
-              - `type: :clear_thinking_20251015`
-
-                The type of context management edit applied.
-
         - `diagnostics: BetaDiagnostics`
 
           Response envelope for request-level diagnostics. Present (possibly
@@ -16877,35 +16942,35 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `class BetaCacheMissModelChanged`
 
+              - `type: :model_changed`
+
               - `cache_missed_input_tokens: Integer`
 
                 Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
-
-              - `type: :model_changed`
 
             - `class BetaCacheMissSystemChanged`
 
+              - `type: :system_changed`
+
               - `cache_missed_input_tokens: Integer`
 
                 Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
-
-              - `type: :system_changed`
 
             - `class BetaCacheMissToolsChanged`
 
+              - `type: :tools_changed`
+
               - `cache_missed_input_tokens: Integer`
 
                 Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
-
-              - `type: :tools_changed`
 
             - `class BetaCacheMissMessagesChanged`
 
+              - `type: :messages_changed`
+
               - `cache_missed_input_tokens: Integer`
 
                 Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
-
-              - `type: :messages_changed`
 
             - `class BetaCacheMissPreviousMessageNotFound`
 
@@ -16930,6 +16995,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
         - `stop_details: BetaRefusalStopDetails`
 
           Structured information about a refusal.
+
+          - `type: :refusal`
 
           - `category: :cyber | :bio | :frontier_llm | 2 more`
 
@@ -17010,8 +17077,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             The server's suggested retry target for this refusal. Populated when a fallback attempt could not be made (the fallback model's rate limit was exhausted, or it was overloaded); names the fallback model the caller can retry directly. Null otherwise.
 
-          - `type: :refusal`
-
         - `stop_reason: BetaStopReason`
 
           The reason that we stopped.
@@ -17049,12 +17114,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
           Which custom stop sequence was generated, if any.
 
           This value will be a non-null string if one of your custom stop sequences was generated.
-
-        - `type: :message`
-
-          Object type.
-
-          For Messages, this is always `"message"`.
 
         - `usage: BetaUsage`
 
@@ -17120,6 +17179,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 No reprice was applied; `reason` says why.
 
+                - `type: :not_applied`
+
                 - `reason: :body_mismatch | :continuation_excluded | :continuation_only | 9 more`
 
                   Why the reprice was not applied.
@@ -17150,8 +17211,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
                   - `:wrong_platform`
 
                   - `:wrong_workspace`
-
-                - `type: :not_applied`
 
                 - `remove_to_redeem: Array[String]`
 
@@ -17190,6 +17249,10 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               Token usage for a sampling iteration.
 
+              - `type: :message`
+
+                Usage for a sampling iteration
+
               - `cache_creation: BetaCacheCreation`
 
                 Breakdown of cached tokens by TTL
@@ -17223,15 +17286,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
                 The number of output tokens which were used.
 
                 minimum: 0
-
-              - `type: :message`
-
-                Usage for a sampling iteration
 
             - `class BetaCompactionIterationUsage`
 
               Token usage for a compaction iteration.
 
+              - `type: :compaction`
+
+                Usage for a compaction iteration
+
               - `cache_creation: BetaCacheCreation`
 
                 Breakdown of cached tokens by TTL
@@ -17260,13 +17323,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 minimum: 0
 
-              - `type: :compaction`
-
-                Usage for a compaction iteration
-
             - `class BetaAdvisorMessageIterationUsage`
 
               Token usage for an advisor sub-inference iteration.
+
+              - `type: :advisor_message`
+
+                Usage for an advisor sub-inference iteration
 
               - `cache_creation: BetaCacheCreation`
 
@@ -17301,10 +17364,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
                 The number of output tokens which were used.
 
                 minimum: 0
-
-              - `type: :advisor_message`
-
-                Usage for an advisor sub-inference iteration
 
             - `class BetaFallbackMessageIterationUsage`
 
@@ -17315,6 +17374,10 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
               a fallback model served the response is signalled by the presence of this
               entry in `usage.iterations`.
 
+              - `type: :fallback_message`
+
+                Usage for the fallback-model attempt that served the response
+
               - `cache_creation: BetaCacheCreation`
 
                 Breakdown of cached tokens by TTL
@@ -17348,10 +17411,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
                 The number of output tokens which were used.
 
                 minimum: 0
-
-              - `type: :fallback_message`
-
-                Usage for the fallback-model attempt that served the response
 
           - `output_tokens: Integer`
 
@@ -17433,6 +17492,10 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
           fallback happened mid-stream, in which case it holds the serving model's
           entries and replaces the one in `message_start`.
 
+          - `type: :thinking_dropped`
+
+            Always `thinking_dropped` for this entry type.
+
           - `path: String`
 
             Where the removed block was in your request, as `messages.{i}.content.{j}`:
@@ -17463,77 +17526,71 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `:end_user_binding_mismatch`
 
-          - `type: :thinking_dropped`
-
-            Always `thinking_dropped` for this entry type.
-
-      - `type: :succeeded`
-
     - `class BetaMessageBatchErroredResult`
 
+      - `type: :errored`
+
       - `error: BetaErrorResponse`
+
+        - `type: :error`
 
         - `error: BetaError`
 
           - `class BetaInvalidRequestError`
 
-            - `message: String`
-
             - `type: :invalid_request_error`
+
+            - `message: String`
 
           - `class BetaAuthenticationError`
 
-            - `message: String`
-
             - `type: :authentication_error`
+
+            - `message: String`
 
           - `class BetaBillingError`
 
-            - `message: String`
-
             - `type: :billing_error`
+
+            - `message: String`
 
           - `class BetaPermissionError`
 
-            - `message: String`
-
             - `type: :permission_error`
+
+            - `message: String`
 
           - `class BetaNotFoundError`
 
-            - `message: String`
-
             - `type: :not_found_error`
+
+            - `message: String`
 
           - `class BetaRateLimitError`
 
-            - `message: String`
-
             - `type: :rate_limit_error`
+
+            - `message: String`
 
           - `class BetaGatewayTimeoutError`
 
-            - `message: String`
-
             - `type: :timeout_error`
+
+            - `message: String`
 
           - `class BetaAPIError`
 
-            - `message: String`
-
             - `type: :api_error`
+
+            - `message: String`
 
           - `class BetaOverloadedError`
 
-            - `message: String`
-
             - `type: :overloaded_error`
 
+            - `message: String`
+
         - `request_id: String`
-
-        - `type: :error`
-
-      - `type: :errored`
 
     - `class BetaMessageBatchCanceledResult`
 
@@ -17727,13 +17784,13 @@ Create Agent
 
   MCP servers this agent connects to. Maximum 20. Names must be unique within the array. Every server must be referenced by an `mcp_toolset` in `tools`; unreferenced servers are rejected. See the [MCP connector guide](https://platform.claude.com/docs/en/managed-agents/mcp-connector).
 
+  - `type: :url`
+
   - `name: String`
 
     Unique name for this server, referenced by mcp_toolset configurations. 1-255 characters.
 
     minLength: 1, maxLength: 255
-
-  - `type: :url`
 
   - `url: String`
 
@@ -17749,6 +17806,8 @@ Create Agent
 
   A coordinator topology: the session's primary thread orchestrates work by spawning session threads, each running an agent drawn from the `agents` roster.
 
+  - `type: :coordinator`
+
   - `agents: Array[BetaManagedAgentsMultiagentRosterEntryParams]`
 
     Agents the coordinator may spawn as session threads. 1–20 entries. Each entry is an agent ID string, a versioned `{"type":"agent","id","version"}` reference, or `{"type":"self"}` to allow recursive self-invocation. Entries must reference distinct agents (after resolving `self` and string forms); at most one `self`. Referenced agents must exist, must not be archived, and must not themselves have `multiagent` set (depth limit 1).
@@ -17759,13 +17818,13 @@ Create Agent
 
       Specification for an Agent. Provide a specific `version` or use the short-form `agent="agent_id"` for the most recent version
 
+      - `type: :agent`
+
       - `id: String`
 
         The `agent` ID.
 
         minLength: 1, maxLength: 128
-
-      - `type: :agent`
 
       - `version: Integer`
 
@@ -17783,15 +17842,13 @@ Create Agent
 
       Platform advisor roster entry: a model the session's primary thread may consult mid-turn. At most one per roster; the entry occupies the roster name `anthropic.advisor`.
 
+      - `type: :advisor`
+
       - `model: String`
 
         A Claude model id. The model must be permitted as an advisor for this agent's model — see the sessions/threads/advisor spec.
 
         minLength: 1, maxLength: 256
-
-      - `type: :advisor`
-
-  - `type: :coordinator`
 
 - `skills: Array[BetaManagedAgentsSkillParams]`
 
@@ -17801,13 +17858,13 @@ Create Agent
 
     An Anthropic-managed skill.
 
+    - `type: :anthropic`
+
     - `skill_id: String`
 
       Identifier of the Anthropic skill (e.g., "xlsx").
 
       minLength: 1, maxLength: 64
-
-    - `type: :anthropic`
 
     - `version: String`
 
@@ -17819,13 +17876,13 @@ Create Agent
 
     A user-created custom skill.
 
+    - `type: :custom`
+
     - `skill_id: String`
 
       Tagged ID of the custom skill (e.g., "skill_01XJ5...").
 
       minLength: 1, maxLength: 64
-
-    - `type: :custom`
 
     - `version: String`
 
@@ -17857,6 +17914,8 @@ Create Agent
 
         Configuration override for the bash tool.
 
+        - `type: :bash`
+
         - `name: :bash`
 
           Must be "bash".
@@ -17865,7 +17924,7 @@ Create Agent
 
           Whether this tool is enabled and available to Claude. Overrides the default_config setting.
 
-        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
           Permission policy for tool execution.
 
@@ -17881,11 +17940,17 @@ Create Agent
 
             - `type: :always_ask`
 
-        - `type: :bash`
+          - `class BetaManagedAgentsAutoPolicy`
+
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+            - `type: :auto`
 
       - `class BetaManagedAgentsEditToolConfigParams`
 
         Configuration override for the edit tool.
+
+        - `type: :edit`
 
         - `name: :edit`
 
@@ -17895,7 +17960,7 @@ Create Agent
 
           Whether this tool is enabled and available to Claude. Overrides the default_config setting.
 
-        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
           Permission policy for tool execution.
 
@@ -17907,11 +17972,15 @@ Create Agent
 
             Tool calls require user confirmation before execution.
 
-        - `type: :edit`
+          - `class BetaManagedAgentsAutoPolicy`
+
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
       - `class BetaManagedAgentsReadToolConfigParams`
 
         Configuration override for the read tool.
+
+        - `type: :read`
 
         - `name: :read`
 
@@ -17921,7 +17990,7 @@ Create Agent
 
           Whether this tool is enabled and available to Claude. Overrides the default_config setting.
 
-        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
           Permission policy for tool execution.
 
@@ -17933,11 +18002,15 @@ Create Agent
 
             Tool calls require user confirmation before execution.
 
-        - `type: :read`
+          - `class BetaManagedAgentsAutoPolicy`
+
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
       - `class BetaManagedAgentsWriteToolConfigParams`
 
         Configuration override for the write tool.
+
+        - `type: :write`
 
         - `name: :write`
 
@@ -17947,7 +18020,7 @@ Create Agent
 
           Whether this tool is enabled and available to Claude. Overrides the default_config setting.
 
-        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
           Permission policy for tool execution.
 
@@ -17959,11 +18032,15 @@ Create Agent
 
             Tool calls require user confirmation before execution.
 
-        - `type: :write`
+          - `class BetaManagedAgentsAutoPolicy`
+
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
       - `class BetaManagedAgentsGlobToolConfigParams`
 
         Configuration override for the glob tool.
+
+        - `type: :glob`
 
         - `name: :glob`
 
@@ -17973,7 +18050,7 @@ Create Agent
 
           Whether this tool is enabled and available to Claude. Overrides the default_config setting.
 
-        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
           Permission policy for tool execution.
 
@@ -17985,11 +18062,15 @@ Create Agent
 
             Tool calls require user confirmation before execution.
 
-        - `type: :glob`
+          - `class BetaManagedAgentsAutoPolicy`
+
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
       - `class BetaManagedAgentsGrepToolConfigParams`
 
         Configuration override for the grep tool.
+
+        - `type: :grep`
 
         - `name: :grep`
 
@@ -17999,7 +18080,7 @@ Create Agent
 
           Whether this tool is enabled and available to Claude. Overrides the default_config setting.
 
-        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
           Permission policy for tool execution.
 
@@ -18011,11 +18092,15 @@ Create Agent
 
             Tool calls require user confirmation before execution.
 
-        - `type: :grep`
+          - `class BetaManagedAgentsAutoPolicy`
+
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
       - `class BetaManagedAgentsWebFetchToolConfigParams`
 
         Configuration override for the web_fetch tool.
+
+        - `type: :web_fetch`
 
         - `name: :web_fetch`
 
@@ -18039,7 +18124,7 @@ Create Agent
 
           format: int32
 
-        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
           Permission policy for tool execution.
 
@@ -18051,11 +18136,15 @@ Create Agent
 
             Tool calls require user confirmation before execution.
 
-        - `type: :web_fetch`
+          - `class BetaManagedAgentsAutoPolicy`
+
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
       - `class BetaManagedAgentsWebSearchToolConfigParams`
 
         Configuration override for the web_search tool.
+
+        - `type: :web_search`
 
         - `name: :web_search`
 
@@ -18073,7 +18162,7 @@ Create Agent
 
           Whether this tool is enabled and available to Claude. Overrides the default_config setting.
 
-        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
           Permission policy for tool execution.
 
@@ -18085,7 +18174,9 @@ Create Agent
 
             Tool calls require user confirmation before execution.
 
-        - `type: :web_search`
+          - `class BetaManagedAgentsAutoPolicy`
+
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `user_location: BetaManagedAgentsUserLocation`
 
@@ -18125,7 +18216,7 @@ Create Agent
 
         Whether tools are enabled and available to Claude by default. Defaults to true if not specified.
 
-      - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+      - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
         Permission policy for tool execution.
 
@@ -18137,17 +18228,21 @@ Create Agent
 
           Tool calls require user confirmation before execution.
 
+        - `class BetaManagedAgentsAutoPolicy`
+
+          The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
   - `class BetaManagedAgentsMCPToolsetParams`
 
     Configuration for tools from an MCP server defined in `mcp_servers`.
+
+    - `type: :mcp_toolset`
 
     - `mcp_server_name: String`
 
       Name of the MCP server. Must match a server name from the mcp_servers array. 1-255 characters.
 
       minLength: 1, maxLength: 255
-
-    - `type: :mcp_toolset`
 
     - `configs: Array[BetaManagedAgentsMCPToolConfigParams]`
 
@@ -18163,7 +18258,7 @@ Create Agent
 
         Whether this tool is enabled. Overrides the `default_config` setting.
 
-      - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+      - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
         Permission policy for tool execution.
 
@@ -18174,6 +18269,10 @@ Create Agent
         - `class BetaManagedAgentsAlwaysAskPolicy`
 
           Tool calls require user confirmation before execution.
+
+        - `class BetaManagedAgentsAutoPolicy`
+
+          The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
     - `default_config: BetaManagedAgentsMCPToolsetDefaultConfigParams`
 
@@ -18183,7 +18282,7 @@ Create Agent
 
         Whether tools are enabled by default. Defaults to true if not specified.
 
-      - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+      - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
         Permission policy for tool execution.
 
@@ -18195,9 +18294,15 @@ Create Agent
 
           Tool calls require user confirmation before execution.
 
+        - `class BetaManagedAgentsAutoPolicy`
+
+          The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
   - `class BetaManagedAgentsCustomToolParams`
 
     A custom tool that is executed by the API client rather than the agent. When the agent calls this tool, an `agent.custom_tool_use` event is emitted and the session goes idle, waiting for the client to provide the result via a `user.custom_tool_result` event.
+
+    - `type: :custom`
 
     - `description: String`
 
@@ -18221,15 +18326,13 @@ Create Agent
 
       minLength: 1, maxLength: 128
 
-    - `type: :custom`
-
 - `betas: Array[AnthropicBeta]`
 
   Optional header to specify the beta version(s) you want to use.
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 41 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 42 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -18277,6 +18380,8 @@ Create Agent
 
     - `:"user-profiles-2026-08-18"`
 
+    - `:"user-profiles-2026-09-04"`
+
     - `:"advisor-tool-2026-03-01"`
 
     - `:"managed-agents-2026-04-01"`
@@ -18319,11 +18424,15 @@ Create Agent
 
     - `:"mid-conversation-system-clear-at-2026-08-21"`
 
+- `workspace_id: String`
+
 #### Returns
 
 - `class BetaManagedAgentsAgent`
 
   A Managed Agents `agent`.
+
+  - `type: :agent`
 
   - `id: String`
 
@@ -18343,9 +18452,9 @@ Create Agent
 
   - `mcp_servers: Array[BetaManagedAgentsMCPServerURLDefinition]`
 
-    - `name: String`
-
     - `type: :url`
+
+    - `name: String`
 
     - `url: String`
 
@@ -18475,6 +18584,8 @@ Create Agent
 
     Resolved coordinator topology with a concrete agent roster.
 
+    - `type: :coordinator`
+
     - `agents: Array[BetaManagedAgentsAgentReference | BetaManagedAgentsAdvisor]`
 
       Agents the coordinator may spawn as session threads, each resolved to a specific version.
@@ -18483,9 +18594,9 @@ Create Agent
 
         A resolved agent reference with a concrete version.
 
-        - `id: String`
-
         - `type: :agent`
+
+        - `id: String`
 
         - `version: Integer`
 
@@ -18495,13 +18606,11 @@ Create Agent
 
         Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
 
+        - `type: :advisor`
+
         - `model: String`
 
           The advisor model id.
-
-        - `type: :advisor`
-
-    - `type: :coordinator`
 
   - `name: String`
 
@@ -18511,9 +18620,9 @@ Create Agent
 
       A resolved Anthropic-managed skill.
 
-      - `skill_id: String`
-
       - `type: :anthropic`
+
+      - `skill_id: String`
 
       - `version: String`
 
@@ -18521,9 +18630,9 @@ Create Agent
 
       A resolved user-created custom skill.
 
-      - `skill_id: String`
-
       - `type: :custom`
+
+      - `skill_id: String`
 
       - `version: String`
 
@@ -18533,17 +18642,21 @@ Create Agent
 
     - `class BetaManagedAgentsAgentToolset20260401`
 
+      - `type: :agent_toolset_20260401`
+
       - `configs: Array[BetaManagedAgentsAgentToolConfig]`
 
         - `class BetaManagedAgentsBashToolConfig`
 
           Configuration for the bash tool.
 
+          - `type: :bash`
+
           - `enabled: bool`
 
           - `name: :bash`
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -18559,17 +18672,23 @@ Create Agent
 
               - `type: :always_ask`
 
-          - `type: :bash`
+            - `class BetaManagedAgentsAutoPolicy`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+              - `type: :auto`
 
         - `class BetaManagedAgentsEditToolConfig`
 
           Configuration for the edit tool.
 
+          - `type: :edit`
+
           - `enabled: bool`
 
           - `name: :edit`
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -18581,17 +18700,21 @@ Create Agent
 
               Tool calls require user confirmation before execution.
 
-          - `type: :edit`
+            - `class BetaManagedAgentsAutoPolicy`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `class BetaManagedAgentsReadToolConfig`
 
           Configuration for the read tool.
 
+          - `type: :read`
+
           - `enabled: bool`
 
           - `name: :read`
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -18603,17 +18726,21 @@ Create Agent
 
               Tool calls require user confirmation before execution.
 
-          - `type: :read`
+            - `class BetaManagedAgentsAutoPolicy`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `class BetaManagedAgentsWriteToolConfig`
 
           Configuration for the write tool.
 
+          - `type: :write`
+
           - `enabled: bool`
 
           - `name: :write`
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -18625,17 +18752,21 @@ Create Agent
 
               Tool calls require user confirmation before execution.
 
-          - `type: :write`
+            - `class BetaManagedAgentsAutoPolicy`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `class BetaManagedAgentsGlobToolConfig`
 
           Configuration for the glob tool.
 
+          - `type: :glob`
+
           - `enabled: bool`
 
           - `name: :glob`
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -18647,17 +18778,21 @@ Create Agent
 
               Tool calls require user confirmation before execution.
 
-          - `type: :glob`
+            - `class BetaManagedAgentsAutoPolicy`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `class BetaManagedAgentsGrepToolConfig`
 
           Configuration for the grep tool.
 
+          - `type: :grep`
+
           - `enabled: bool`
 
           - `name: :grep`
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -18669,17 +18804,21 @@ Create Agent
 
               Tool calls require user confirmation before execution.
 
-          - `type: :grep`
+            - `class BetaManagedAgentsAutoPolicy`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `class BetaManagedAgentsWebFetchToolConfig`
 
           Configuration for the web_fetch tool.
 
+          - `type: :web_fetch`
+
           - `enabled: bool`
 
           - `name: :web_fetch`
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -18691,7 +18830,9 @@ Create Agent
 
               Tool calls require user confirmation before execution.
 
-          - `type: :web_fetch`
+            - `class BetaManagedAgentsAutoPolicy`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
           - `allowed_domains: Array[String]`
 
@@ -18705,11 +18846,13 @@ Create Agent
 
           Configuration for the web_search tool.
 
+          - `type: :web_search`
+
           - `enabled: bool`
 
           - `name: :web_search`
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -18721,7 +18864,9 @@ Create Agent
 
               Tool calls require user confirmation before execution.
 
-          - `type: :web_search`
+            - `class BetaManagedAgentsAutoPolicy`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
           - `allowed_domains: Array[String]`
 
@@ -18763,7 +18908,7 @@ Create Agent
 
         - `enabled: bool`
 
-        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
           Permission policy for tool execution.
 
@@ -18775,9 +18920,13 @@ Create Agent
 
             Tool calls require user confirmation before execution.
 
-      - `type: :agent_toolset_20260401`
+          - `class BetaManagedAgentsAutoPolicy`
+
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
     - `class BetaManagedAgentsMCPToolset`
+
+      - `type: :mcp_toolset`
 
       - `configs: Array[BetaManagedAgentsMCPToolConfig]`
 
@@ -18785,7 +18934,7 @@ Create Agent
 
         - `name: String`
 
-        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
           Permission policy for tool execution.
 
@@ -18796,6 +18945,10 @@ Create Agent
           - `class BetaManagedAgentsAlwaysAskPolicy`
 
             Tool calls require user confirmation before execution.
+
+          - `class BetaManagedAgentsAutoPolicy`
+
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
       - `default_config: BetaManagedAgentsMCPToolsetDefaultConfig`
 
@@ -18803,7 +18956,7 @@ Create Agent
 
         - `enabled: bool`
 
-        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
           Permission policy for tool execution.
 
@@ -18815,13 +18968,17 @@ Create Agent
 
             Tool calls require user confirmation before execution.
 
-      - `mcp_server_name: String`
+          - `class BetaManagedAgentsAutoPolicy`
 
-      - `type: :mcp_toolset`
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+      - `mcp_server_name: String`
 
     - `class BetaManagedAgentsCustomTool`
 
       A custom tool as returned in API responses.
+
+      - `type: :custom`
 
       - `description: String`
 
@@ -18836,10 +18993,6 @@ Create Agent
         - `required: Array[String]`
 
       - `name: String`
-
-      - `type: :custom`
-
-  - `type: :agent`
 
   - `updated_at: Time`
 
@@ -18987,7 +19140,7 @@ List Agents
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 41 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 42 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -19035,6 +19188,8 @@ List Agents
 
     - `:"user-profiles-2026-08-18"`
 
+    - `:"user-profiles-2026-09-04"`
+
     - `:"advisor-tool-2026-03-01"`
 
     - `:"managed-agents-2026-04-01"`
@@ -19077,11 +19232,15 @@ List Agents
 
     - `:"mid-conversation-system-clear-at-2026-08-21"`
 
+- `workspace_id: String`
+
 #### Returns
 
 - `class BetaManagedAgentsAgent`
 
   A Managed Agents `agent`.
+
+  - `type: :agent`
 
   - `id: String`
 
@@ -19101,9 +19260,9 @@ List Agents
 
   - `mcp_servers: Array[BetaManagedAgentsMCPServerURLDefinition]`
 
-    - `name: String`
-
     - `type: :url`
+
+    - `name: String`
 
     - `url: String`
 
@@ -19233,6 +19392,8 @@ List Agents
 
     Resolved coordinator topology with a concrete agent roster.
 
+    - `type: :coordinator`
+
     - `agents: Array[BetaManagedAgentsAgentReference | BetaManagedAgentsAdvisor]`
 
       Agents the coordinator may spawn as session threads, each resolved to a specific version.
@@ -19241,9 +19402,9 @@ List Agents
 
         A resolved agent reference with a concrete version.
 
-        - `id: String`
-
         - `type: :agent`
+
+        - `id: String`
 
         - `version: Integer`
 
@@ -19253,13 +19414,11 @@ List Agents
 
         Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
 
+        - `type: :advisor`
+
         - `model: String`
 
           The advisor model id.
-
-        - `type: :advisor`
-
-    - `type: :coordinator`
 
   - `name: String`
 
@@ -19269,9 +19428,9 @@ List Agents
 
       A resolved Anthropic-managed skill.
 
-      - `skill_id: String`
-
       - `type: :anthropic`
+
+      - `skill_id: String`
 
       - `version: String`
 
@@ -19279,9 +19438,9 @@ List Agents
 
       A resolved user-created custom skill.
 
-      - `skill_id: String`
-
       - `type: :custom`
+
+      - `skill_id: String`
 
       - `version: String`
 
@@ -19291,17 +19450,21 @@ List Agents
 
     - `class BetaManagedAgentsAgentToolset20260401`
 
+      - `type: :agent_toolset_20260401`
+
       - `configs: Array[BetaManagedAgentsAgentToolConfig]`
 
         - `class BetaManagedAgentsBashToolConfig`
 
           Configuration for the bash tool.
 
+          - `type: :bash`
+
           - `enabled: bool`
 
           - `name: :bash`
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -19317,17 +19480,23 @@ List Agents
 
               - `type: :always_ask`
 
-          - `type: :bash`
+            - `class BetaManagedAgentsAutoPolicy`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+              - `type: :auto`
 
         - `class BetaManagedAgentsEditToolConfig`
 
           Configuration for the edit tool.
 
+          - `type: :edit`
+
           - `enabled: bool`
 
           - `name: :edit`
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -19339,17 +19508,21 @@ List Agents
 
               Tool calls require user confirmation before execution.
 
-          - `type: :edit`
+            - `class BetaManagedAgentsAutoPolicy`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `class BetaManagedAgentsReadToolConfig`
 
           Configuration for the read tool.
 
+          - `type: :read`
+
           - `enabled: bool`
 
           - `name: :read`
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -19361,17 +19534,21 @@ List Agents
 
               Tool calls require user confirmation before execution.
 
-          - `type: :read`
+            - `class BetaManagedAgentsAutoPolicy`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `class BetaManagedAgentsWriteToolConfig`
 
           Configuration for the write tool.
 
+          - `type: :write`
+
           - `enabled: bool`
 
           - `name: :write`
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -19383,17 +19560,21 @@ List Agents
 
               Tool calls require user confirmation before execution.
 
-          - `type: :write`
+            - `class BetaManagedAgentsAutoPolicy`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `class BetaManagedAgentsGlobToolConfig`
 
           Configuration for the glob tool.
 
+          - `type: :glob`
+
           - `enabled: bool`
 
           - `name: :glob`
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -19405,17 +19586,21 @@ List Agents
 
               Tool calls require user confirmation before execution.
 
-          - `type: :glob`
+            - `class BetaManagedAgentsAutoPolicy`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `class BetaManagedAgentsGrepToolConfig`
 
           Configuration for the grep tool.
 
+          - `type: :grep`
+
           - `enabled: bool`
 
           - `name: :grep`
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -19427,17 +19612,21 @@ List Agents
 
               Tool calls require user confirmation before execution.
 
-          - `type: :grep`
+            - `class BetaManagedAgentsAutoPolicy`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `class BetaManagedAgentsWebFetchToolConfig`
 
           Configuration for the web_fetch tool.
 
+          - `type: :web_fetch`
+
           - `enabled: bool`
 
           - `name: :web_fetch`
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -19449,7 +19638,9 @@ List Agents
 
               Tool calls require user confirmation before execution.
 
-          - `type: :web_fetch`
+            - `class BetaManagedAgentsAutoPolicy`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
           - `allowed_domains: Array[String]`
 
@@ -19463,11 +19654,13 @@ List Agents
 
           Configuration for the web_search tool.
 
+          - `type: :web_search`
+
           - `enabled: bool`
 
           - `name: :web_search`
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -19479,7 +19672,9 @@ List Agents
 
               Tool calls require user confirmation before execution.
 
-          - `type: :web_search`
+            - `class BetaManagedAgentsAutoPolicy`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
           - `allowed_domains: Array[String]`
 
@@ -19521,7 +19716,7 @@ List Agents
 
         - `enabled: bool`
 
-        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
           Permission policy for tool execution.
 
@@ -19533,9 +19728,13 @@ List Agents
 
             Tool calls require user confirmation before execution.
 
-      - `type: :agent_toolset_20260401`
+          - `class BetaManagedAgentsAutoPolicy`
+
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
     - `class BetaManagedAgentsMCPToolset`
+
+      - `type: :mcp_toolset`
 
       - `configs: Array[BetaManagedAgentsMCPToolConfig]`
 
@@ -19543,7 +19742,7 @@ List Agents
 
         - `name: String`
 
-        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
           Permission policy for tool execution.
 
@@ -19554,6 +19753,10 @@ List Agents
           - `class BetaManagedAgentsAlwaysAskPolicy`
 
             Tool calls require user confirmation before execution.
+
+          - `class BetaManagedAgentsAutoPolicy`
+
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
       - `default_config: BetaManagedAgentsMCPToolsetDefaultConfig`
 
@@ -19561,7 +19764,7 @@ List Agents
 
         - `enabled: bool`
 
-        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
           Permission policy for tool execution.
 
@@ -19573,13 +19776,17 @@ List Agents
 
             Tool calls require user confirmation before execution.
 
-      - `mcp_server_name: String`
+          - `class BetaManagedAgentsAutoPolicy`
 
-      - `type: :mcp_toolset`
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+      - `mcp_server_name: String`
 
     - `class BetaManagedAgentsCustomTool`
 
       A custom tool as returned in API responses.
+
+      - `type: :custom`
 
       - `description: String`
 
@@ -19594,10 +19801,6 @@ List Agents
         - `required: Array[String]`
 
       - `name: String`
-
-      - `type: :custom`
-
-  - `type: :agent`
 
   - `updated_at: Time`
 
@@ -19729,7 +19932,7 @@ Get Agent
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 41 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 42 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -19777,6 +19980,8 @@ Get Agent
 
     - `:"user-profiles-2026-08-18"`
 
+    - `:"user-profiles-2026-09-04"`
+
     - `:"advisor-tool-2026-03-01"`
 
     - `:"managed-agents-2026-04-01"`
@@ -19819,11 +20024,15 @@ Get Agent
 
     - `:"mid-conversation-system-clear-at-2026-08-21"`
 
+- `workspace_id: String`
+
 #### Returns
 
 - `class BetaManagedAgentsAgent`
 
   A Managed Agents `agent`.
+
+  - `type: :agent`
 
   - `id: String`
 
@@ -19843,9 +20052,9 @@ Get Agent
 
   - `mcp_servers: Array[BetaManagedAgentsMCPServerURLDefinition]`
 
-    - `name: String`
-
     - `type: :url`
+
+    - `name: String`
 
     - `url: String`
 
@@ -19975,6 +20184,8 @@ Get Agent
 
     Resolved coordinator topology with a concrete agent roster.
 
+    - `type: :coordinator`
+
     - `agents: Array[BetaManagedAgentsAgentReference | BetaManagedAgentsAdvisor]`
 
       Agents the coordinator may spawn as session threads, each resolved to a specific version.
@@ -19983,9 +20194,9 @@ Get Agent
 
         A resolved agent reference with a concrete version.
 
-        - `id: String`
-
         - `type: :agent`
+
+        - `id: String`
 
         - `version: Integer`
 
@@ -19995,13 +20206,11 @@ Get Agent
 
         Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
 
+        - `type: :advisor`
+
         - `model: String`
 
           The advisor model id.
-
-        - `type: :advisor`
-
-    - `type: :coordinator`
 
   - `name: String`
 
@@ -20011,9 +20220,9 @@ Get Agent
 
       A resolved Anthropic-managed skill.
 
-      - `skill_id: String`
-
       - `type: :anthropic`
+
+      - `skill_id: String`
 
       - `version: String`
 
@@ -20021,9 +20230,9 @@ Get Agent
 
       A resolved user-created custom skill.
 
-      - `skill_id: String`
-
       - `type: :custom`
+
+      - `skill_id: String`
 
       - `version: String`
 
@@ -20033,17 +20242,21 @@ Get Agent
 
     - `class BetaManagedAgentsAgentToolset20260401`
 
+      - `type: :agent_toolset_20260401`
+
       - `configs: Array[BetaManagedAgentsAgentToolConfig]`
 
         - `class BetaManagedAgentsBashToolConfig`
 
           Configuration for the bash tool.
 
+          - `type: :bash`
+
           - `enabled: bool`
 
           - `name: :bash`
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -20059,17 +20272,23 @@ Get Agent
 
               - `type: :always_ask`
 
-          - `type: :bash`
+            - `class BetaManagedAgentsAutoPolicy`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+              - `type: :auto`
 
         - `class BetaManagedAgentsEditToolConfig`
 
           Configuration for the edit tool.
 
+          - `type: :edit`
+
           - `enabled: bool`
 
           - `name: :edit`
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -20081,17 +20300,21 @@ Get Agent
 
               Tool calls require user confirmation before execution.
 
-          - `type: :edit`
+            - `class BetaManagedAgentsAutoPolicy`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `class BetaManagedAgentsReadToolConfig`
 
           Configuration for the read tool.
 
+          - `type: :read`
+
           - `enabled: bool`
 
           - `name: :read`
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -20103,17 +20326,21 @@ Get Agent
 
               Tool calls require user confirmation before execution.
 
-          - `type: :read`
+            - `class BetaManagedAgentsAutoPolicy`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `class BetaManagedAgentsWriteToolConfig`
 
           Configuration for the write tool.
 
+          - `type: :write`
+
           - `enabled: bool`
 
           - `name: :write`
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -20125,17 +20352,21 @@ Get Agent
 
               Tool calls require user confirmation before execution.
 
-          - `type: :write`
+            - `class BetaManagedAgentsAutoPolicy`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `class BetaManagedAgentsGlobToolConfig`
 
           Configuration for the glob tool.
 
+          - `type: :glob`
+
           - `enabled: bool`
 
           - `name: :glob`
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -20147,17 +20378,21 @@ Get Agent
 
               Tool calls require user confirmation before execution.
 
-          - `type: :glob`
+            - `class BetaManagedAgentsAutoPolicy`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `class BetaManagedAgentsGrepToolConfig`
 
           Configuration for the grep tool.
 
+          - `type: :grep`
+
           - `enabled: bool`
 
           - `name: :grep`
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -20169,17 +20404,21 @@ Get Agent
 
               Tool calls require user confirmation before execution.
 
-          - `type: :grep`
+            - `class BetaManagedAgentsAutoPolicy`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `class BetaManagedAgentsWebFetchToolConfig`
 
           Configuration for the web_fetch tool.
 
+          - `type: :web_fetch`
+
           - `enabled: bool`
 
           - `name: :web_fetch`
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -20191,7 +20430,9 @@ Get Agent
 
               Tool calls require user confirmation before execution.
 
-          - `type: :web_fetch`
+            - `class BetaManagedAgentsAutoPolicy`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
           - `allowed_domains: Array[String]`
 
@@ -20205,11 +20446,13 @@ Get Agent
 
           Configuration for the web_search tool.
 
+          - `type: :web_search`
+
           - `enabled: bool`
 
           - `name: :web_search`
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -20221,7 +20464,9 @@ Get Agent
 
               Tool calls require user confirmation before execution.
 
-          - `type: :web_search`
+            - `class BetaManagedAgentsAutoPolicy`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
           - `allowed_domains: Array[String]`
 
@@ -20263,7 +20508,7 @@ Get Agent
 
         - `enabled: bool`
 
-        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
           Permission policy for tool execution.
 
@@ -20275,9 +20520,13 @@ Get Agent
 
             Tool calls require user confirmation before execution.
 
-      - `type: :agent_toolset_20260401`
+          - `class BetaManagedAgentsAutoPolicy`
+
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
     - `class BetaManagedAgentsMCPToolset`
+
+      - `type: :mcp_toolset`
 
       - `configs: Array[BetaManagedAgentsMCPToolConfig]`
 
@@ -20285,7 +20534,7 @@ Get Agent
 
         - `name: String`
 
-        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
           Permission policy for tool execution.
 
@@ -20296,6 +20545,10 @@ Get Agent
           - `class BetaManagedAgentsAlwaysAskPolicy`
 
             Tool calls require user confirmation before execution.
+
+          - `class BetaManagedAgentsAutoPolicy`
+
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
       - `default_config: BetaManagedAgentsMCPToolsetDefaultConfig`
 
@@ -20303,7 +20556,7 @@ Get Agent
 
         - `enabled: bool`
 
-        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
           Permission policy for tool execution.
 
@@ -20315,13 +20568,17 @@ Get Agent
 
             Tool calls require user confirmation before execution.
 
-      - `mcp_server_name: String`
+          - `class BetaManagedAgentsAutoPolicy`
 
-      - `type: :mcp_toolset`
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+      - `mcp_server_name: String`
 
     - `class BetaManagedAgentsCustomTool`
 
       A custom tool as returned in API responses.
+
+      - `type: :custom`
 
       - `description: String`
 
@@ -20336,10 +20593,6 @@ Get Agent
         - `required: Array[String]`
 
       - `name: String`
-
-      - `type: :custom`
-
-  - `type: :agent`
 
   - `updated_at: Time`
 
@@ -20464,13 +20717,13 @@ Update Agent
 
   MCP servers. Full replacement. Omit to preserve; send empty array or `null` to clear. Names must be unique. Maximum 20. Every server must be referenced by an `mcp_toolset` in the agent's resulting `tools`; unreferenced servers are rejected. See the [MCP connector guide](https://platform.claude.com/docs/en/managed-agents/mcp-connector).
 
+  - `type: :url`
+
   - `name: String`
 
     Unique name for this server, referenced by mcp_toolset configurations. 1-255 characters.
 
     minLength: 1, maxLength: 255
-
-  - `type: :url`
 
   - `url: String`
 
@@ -20630,6 +20883,8 @@ Update Agent
 
   A coordinator topology: the session's primary thread orchestrates work by spawning session threads, each running an agent drawn from the `agents` roster.
 
+  - `type: :coordinator`
+
   - `agents: Array[BetaManagedAgentsMultiagentRosterEntryParams]`
 
     Agents the coordinator may spawn as session threads. 1–20 entries. Each entry is an agent ID string, a versioned `{"type":"agent","id","version"}` reference, or `{"type":"self"}` to allow recursive self-invocation. Entries must reference distinct agents (after resolving `self` and string forms); at most one `self`. Referenced agents must exist, must not be archived, and must not themselves have `multiagent` set (depth limit 1).
@@ -20640,13 +20895,13 @@ Update Agent
 
       Specification for an Agent. Provide a specific `version` or use the short-form `agent="agent_id"` for the most recent version
 
+      - `type: :agent`
+
       - `id: String`
 
         The `agent` ID.
 
         minLength: 1, maxLength: 128
-
-      - `type: :agent`
 
       - `version: Integer`
 
@@ -20664,15 +20919,13 @@ Update Agent
 
       Platform advisor roster entry: a model the session's primary thread may consult mid-turn. At most one per roster; the entry occupies the roster name `anthropic.advisor`.
 
+      - `type: :advisor`
+
       - `model: String`
 
         A Claude model id. The model must be permitted as an advisor for this agent's model — see the sessions/threads/advisor spec.
 
         minLength: 1, maxLength: 256
-
-      - `type: :advisor`
-
-  - `type: :coordinator`
 
 - `name: String`
 
@@ -20688,13 +20941,13 @@ Update Agent
 
     An Anthropic-managed skill.
 
+    - `type: :anthropic`
+
     - `skill_id: String`
 
       Identifier of the Anthropic skill (e.g., "xlsx").
 
       minLength: 1, maxLength: 64
-
-    - `type: :anthropic`
 
     - `version: String`
 
@@ -20706,13 +20959,13 @@ Update Agent
 
     A user-created custom skill.
 
+    - `type: :custom`
+
     - `skill_id: String`
 
       Tagged ID of the custom skill (e.g., "skill_01XJ5...").
 
       minLength: 1, maxLength: 64
-
-    - `type: :custom`
 
     - `version: String`
 
@@ -20744,6 +20997,8 @@ Update Agent
 
         Configuration override for the bash tool.
 
+        - `type: :bash`
+
         - `name: :bash`
 
           Must be "bash".
@@ -20752,7 +21007,7 @@ Update Agent
 
           Whether this tool is enabled and available to Claude. Overrides the default_config setting.
 
-        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
           Permission policy for tool execution.
 
@@ -20768,11 +21023,17 @@ Update Agent
 
             - `type: :always_ask`
 
-        - `type: :bash`
+          - `class BetaManagedAgentsAutoPolicy`
+
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+            - `type: :auto`
 
       - `class BetaManagedAgentsEditToolConfigParams`
 
         Configuration override for the edit tool.
+
+        - `type: :edit`
 
         - `name: :edit`
 
@@ -20782,7 +21043,7 @@ Update Agent
 
           Whether this tool is enabled and available to Claude. Overrides the default_config setting.
 
-        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
           Permission policy for tool execution.
 
@@ -20794,11 +21055,15 @@ Update Agent
 
             Tool calls require user confirmation before execution.
 
-        - `type: :edit`
+          - `class BetaManagedAgentsAutoPolicy`
+
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
       - `class BetaManagedAgentsReadToolConfigParams`
 
         Configuration override for the read tool.
+
+        - `type: :read`
 
         - `name: :read`
 
@@ -20808,7 +21073,7 @@ Update Agent
 
           Whether this tool is enabled and available to Claude. Overrides the default_config setting.
 
-        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
           Permission policy for tool execution.
 
@@ -20820,11 +21085,15 @@ Update Agent
 
             Tool calls require user confirmation before execution.
 
-        - `type: :read`
+          - `class BetaManagedAgentsAutoPolicy`
+
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
       - `class BetaManagedAgentsWriteToolConfigParams`
 
         Configuration override for the write tool.
+
+        - `type: :write`
 
         - `name: :write`
 
@@ -20834,7 +21103,7 @@ Update Agent
 
           Whether this tool is enabled and available to Claude. Overrides the default_config setting.
 
-        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
           Permission policy for tool execution.
 
@@ -20846,11 +21115,15 @@ Update Agent
 
             Tool calls require user confirmation before execution.
 
-        - `type: :write`
+          - `class BetaManagedAgentsAutoPolicy`
+
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
       - `class BetaManagedAgentsGlobToolConfigParams`
 
         Configuration override for the glob tool.
+
+        - `type: :glob`
 
         - `name: :glob`
 
@@ -20860,7 +21133,7 @@ Update Agent
 
           Whether this tool is enabled and available to Claude. Overrides the default_config setting.
 
-        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
           Permission policy for tool execution.
 
@@ -20872,11 +21145,15 @@ Update Agent
 
             Tool calls require user confirmation before execution.
 
-        - `type: :glob`
+          - `class BetaManagedAgentsAutoPolicy`
+
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
       - `class BetaManagedAgentsGrepToolConfigParams`
 
         Configuration override for the grep tool.
+
+        - `type: :grep`
 
         - `name: :grep`
 
@@ -20886,7 +21163,7 @@ Update Agent
 
           Whether this tool is enabled and available to Claude. Overrides the default_config setting.
 
-        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
           Permission policy for tool execution.
 
@@ -20898,11 +21175,15 @@ Update Agent
 
             Tool calls require user confirmation before execution.
 
-        - `type: :grep`
+          - `class BetaManagedAgentsAutoPolicy`
+
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
       - `class BetaManagedAgentsWebFetchToolConfigParams`
 
         Configuration override for the web_fetch tool.
+
+        - `type: :web_fetch`
 
         - `name: :web_fetch`
 
@@ -20926,7 +21207,7 @@ Update Agent
 
           format: int32
 
-        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
           Permission policy for tool execution.
 
@@ -20938,11 +21219,15 @@ Update Agent
 
             Tool calls require user confirmation before execution.
 
-        - `type: :web_fetch`
+          - `class BetaManagedAgentsAutoPolicy`
+
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
       - `class BetaManagedAgentsWebSearchToolConfigParams`
 
         Configuration override for the web_search tool.
+
+        - `type: :web_search`
 
         - `name: :web_search`
 
@@ -20960,7 +21245,7 @@ Update Agent
 
           Whether this tool is enabled and available to Claude. Overrides the default_config setting.
 
-        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
           Permission policy for tool execution.
 
@@ -20972,7 +21257,9 @@ Update Agent
 
             Tool calls require user confirmation before execution.
 
-        - `type: :web_search`
+          - `class BetaManagedAgentsAutoPolicy`
+
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `user_location: BetaManagedAgentsUserLocation`
 
@@ -21012,7 +21299,7 @@ Update Agent
 
         Whether tools are enabled and available to Claude by default. Defaults to true if not specified.
 
-      - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+      - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
         Permission policy for tool execution.
 
@@ -21024,17 +21311,21 @@ Update Agent
 
           Tool calls require user confirmation before execution.
 
+        - `class BetaManagedAgentsAutoPolicy`
+
+          The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
   - `class BetaManagedAgentsMCPToolsetParams`
 
     Configuration for tools from an MCP server defined in `mcp_servers`.
+
+    - `type: :mcp_toolset`
 
     - `mcp_server_name: String`
 
       Name of the MCP server. Must match a server name from the mcp_servers array. 1-255 characters.
 
       minLength: 1, maxLength: 255
-
-    - `type: :mcp_toolset`
 
     - `configs: Array[BetaManagedAgentsMCPToolConfigParams]`
 
@@ -21050,7 +21341,7 @@ Update Agent
 
         Whether this tool is enabled. Overrides the `default_config` setting.
 
-      - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+      - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
         Permission policy for tool execution.
 
@@ -21061,6 +21352,10 @@ Update Agent
         - `class BetaManagedAgentsAlwaysAskPolicy`
 
           Tool calls require user confirmation before execution.
+
+        - `class BetaManagedAgentsAutoPolicy`
+
+          The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
     - `default_config: BetaManagedAgentsMCPToolsetDefaultConfigParams`
 
@@ -21070,7 +21365,7 @@ Update Agent
 
         Whether tools are enabled by default. Defaults to true if not specified.
 
-      - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+      - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
         Permission policy for tool execution.
 
@@ -21082,9 +21377,15 @@ Update Agent
 
           Tool calls require user confirmation before execution.
 
+        - `class BetaManagedAgentsAutoPolicy`
+
+          The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
   - `class BetaManagedAgentsCustomToolParams`
 
     A custom tool that is executed by the API client rather than the agent. When the agent calls this tool, an `agent.custom_tool_use` event is emitted and the session goes idle, waiting for the client to provide the result via a `user.custom_tool_result` event.
+
+    - `type: :custom`
 
     - `description: String`
 
@@ -21108,8 +21409,6 @@ Update Agent
 
       minLength: 1, maxLength: 128
 
-    - `type: :custom`
-
 - `version: Integer`
 
   The agent's current version, used to prevent concurrent overwrites. Obtain this value from a create or retrieve response. Must be at least 1 if specified. When supplied, the request fails if it does not match the server's current version; omit to apply the update unconditionally.
@@ -21122,7 +21421,7 @@ Update Agent
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 41 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 42 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -21170,6 +21469,8 @@ Update Agent
 
     - `:"user-profiles-2026-08-18"`
 
+    - `:"user-profiles-2026-09-04"`
+
     - `:"advisor-tool-2026-03-01"`
 
     - `:"managed-agents-2026-04-01"`
@@ -21212,11 +21513,15 @@ Update Agent
 
     - `:"mid-conversation-system-clear-at-2026-08-21"`
 
+- `workspace_id: String`
+
 #### Returns
 
 - `class BetaManagedAgentsAgent`
 
   A Managed Agents `agent`.
+
+  - `type: :agent`
 
   - `id: String`
 
@@ -21236,9 +21541,9 @@ Update Agent
 
   - `mcp_servers: Array[BetaManagedAgentsMCPServerURLDefinition]`
 
-    - `name: String`
-
     - `type: :url`
+
+    - `name: String`
 
     - `url: String`
 
@@ -21368,6 +21673,8 @@ Update Agent
 
     Resolved coordinator topology with a concrete agent roster.
 
+    - `type: :coordinator`
+
     - `agents: Array[BetaManagedAgentsAgentReference | BetaManagedAgentsAdvisor]`
 
       Agents the coordinator may spawn as session threads, each resolved to a specific version.
@@ -21376,9 +21683,9 @@ Update Agent
 
         A resolved agent reference with a concrete version.
 
-        - `id: String`
-
         - `type: :agent`
+
+        - `id: String`
 
         - `version: Integer`
 
@@ -21388,13 +21695,11 @@ Update Agent
 
         Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
 
+        - `type: :advisor`
+
         - `model: String`
 
           The advisor model id.
-
-        - `type: :advisor`
-
-    - `type: :coordinator`
 
   - `name: String`
 
@@ -21404,9 +21709,9 @@ Update Agent
 
       A resolved Anthropic-managed skill.
 
-      - `skill_id: String`
-
       - `type: :anthropic`
+
+      - `skill_id: String`
 
       - `version: String`
 
@@ -21414,9 +21719,9 @@ Update Agent
 
       A resolved user-created custom skill.
 
-      - `skill_id: String`
-
       - `type: :custom`
+
+      - `skill_id: String`
 
       - `version: String`
 
@@ -21426,17 +21731,21 @@ Update Agent
 
     - `class BetaManagedAgentsAgentToolset20260401`
 
+      - `type: :agent_toolset_20260401`
+
       - `configs: Array[BetaManagedAgentsAgentToolConfig]`
 
         - `class BetaManagedAgentsBashToolConfig`
 
           Configuration for the bash tool.
 
+          - `type: :bash`
+
           - `enabled: bool`
 
           - `name: :bash`
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -21452,17 +21761,23 @@ Update Agent
 
               - `type: :always_ask`
 
-          - `type: :bash`
+            - `class BetaManagedAgentsAutoPolicy`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+              - `type: :auto`
 
         - `class BetaManagedAgentsEditToolConfig`
 
           Configuration for the edit tool.
 
+          - `type: :edit`
+
           - `enabled: bool`
 
           - `name: :edit`
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -21474,17 +21789,21 @@ Update Agent
 
               Tool calls require user confirmation before execution.
 
-          - `type: :edit`
+            - `class BetaManagedAgentsAutoPolicy`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `class BetaManagedAgentsReadToolConfig`
 
           Configuration for the read tool.
 
+          - `type: :read`
+
           - `enabled: bool`
 
           - `name: :read`
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -21496,17 +21815,21 @@ Update Agent
 
               Tool calls require user confirmation before execution.
 
-          - `type: :read`
+            - `class BetaManagedAgentsAutoPolicy`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `class BetaManagedAgentsWriteToolConfig`
 
           Configuration for the write tool.
 
+          - `type: :write`
+
           - `enabled: bool`
 
           - `name: :write`
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -21518,17 +21841,21 @@ Update Agent
 
               Tool calls require user confirmation before execution.
 
-          - `type: :write`
+            - `class BetaManagedAgentsAutoPolicy`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `class BetaManagedAgentsGlobToolConfig`
 
           Configuration for the glob tool.
 
+          - `type: :glob`
+
           - `enabled: bool`
 
           - `name: :glob`
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -21540,17 +21867,21 @@ Update Agent
 
               Tool calls require user confirmation before execution.
 
-          - `type: :glob`
+            - `class BetaManagedAgentsAutoPolicy`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `class BetaManagedAgentsGrepToolConfig`
 
           Configuration for the grep tool.
 
+          - `type: :grep`
+
           - `enabled: bool`
 
           - `name: :grep`
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -21562,17 +21893,21 @@ Update Agent
 
               Tool calls require user confirmation before execution.
 
-          - `type: :grep`
+            - `class BetaManagedAgentsAutoPolicy`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `class BetaManagedAgentsWebFetchToolConfig`
 
           Configuration for the web_fetch tool.
 
+          - `type: :web_fetch`
+
           - `enabled: bool`
 
           - `name: :web_fetch`
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -21584,7 +21919,9 @@ Update Agent
 
               Tool calls require user confirmation before execution.
 
-          - `type: :web_fetch`
+            - `class BetaManagedAgentsAutoPolicy`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
           - `allowed_domains: Array[String]`
 
@@ -21598,11 +21935,13 @@ Update Agent
 
           Configuration for the web_search tool.
 
+          - `type: :web_search`
+
           - `enabled: bool`
 
           - `name: :web_search`
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -21614,7 +21953,9 @@ Update Agent
 
               Tool calls require user confirmation before execution.
 
-          - `type: :web_search`
+            - `class BetaManagedAgentsAutoPolicy`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
           - `allowed_domains: Array[String]`
 
@@ -21656,7 +21997,7 @@ Update Agent
 
         - `enabled: bool`
 
-        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
           Permission policy for tool execution.
 
@@ -21668,9 +22009,13 @@ Update Agent
 
             Tool calls require user confirmation before execution.
 
-      - `type: :agent_toolset_20260401`
+          - `class BetaManagedAgentsAutoPolicy`
+
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
     - `class BetaManagedAgentsMCPToolset`
+
+      - `type: :mcp_toolset`
 
       - `configs: Array[BetaManagedAgentsMCPToolConfig]`
 
@@ -21678,7 +22023,7 @@ Update Agent
 
         - `name: String`
 
-        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
           Permission policy for tool execution.
 
@@ -21689,6 +22034,10 @@ Update Agent
           - `class BetaManagedAgentsAlwaysAskPolicy`
 
             Tool calls require user confirmation before execution.
+
+          - `class BetaManagedAgentsAutoPolicy`
+
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
       - `default_config: BetaManagedAgentsMCPToolsetDefaultConfig`
 
@@ -21696,7 +22045,7 @@ Update Agent
 
         - `enabled: bool`
 
-        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
           Permission policy for tool execution.
 
@@ -21708,13 +22057,17 @@ Update Agent
 
             Tool calls require user confirmation before execution.
 
-      - `mcp_server_name: String`
+          - `class BetaManagedAgentsAutoPolicy`
 
-      - `type: :mcp_toolset`
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+      - `mcp_server_name: String`
 
     - `class BetaManagedAgentsCustomTool`
 
       A custom tool as returned in API responses.
+
+      - `type: :custom`
 
       - `description: String`
 
@@ -21729,10 +22082,6 @@ Update Agent
         - `required: Array[String]`
 
       - `name: String`
-
-      - `type: :custom`
-
-  - `type: :agent`
 
   - `updated_at: Time`
 
@@ -21853,7 +22202,7 @@ Archive Agent
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 41 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 42 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -21901,6 +22250,8 @@ Archive Agent
 
     - `:"user-profiles-2026-08-18"`
 
+    - `:"user-profiles-2026-09-04"`
+
     - `:"advisor-tool-2026-03-01"`
 
     - `:"managed-agents-2026-04-01"`
@@ -21943,11 +22294,15 @@ Archive Agent
 
     - `:"mid-conversation-system-clear-at-2026-08-21"`
 
+- `workspace_id: String`
+
 #### Returns
 
 - `class BetaManagedAgentsAgent`
 
   A Managed Agents `agent`.
+
+  - `type: :agent`
 
   - `id: String`
 
@@ -21967,9 +22322,9 @@ Archive Agent
 
   - `mcp_servers: Array[BetaManagedAgentsMCPServerURLDefinition]`
 
-    - `name: String`
-
     - `type: :url`
+
+    - `name: String`
 
     - `url: String`
 
@@ -22099,6 +22454,8 @@ Archive Agent
 
     Resolved coordinator topology with a concrete agent roster.
 
+    - `type: :coordinator`
+
     - `agents: Array[BetaManagedAgentsAgentReference | BetaManagedAgentsAdvisor]`
 
       Agents the coordinator may spawn as session threads, each resolved to a specific version.
@@ -22107,9 +22464,9 @@ Archive Agent
 
         A resolved agent reference with a concrete version.
 
-        - `id: String`
-
         - `type: :agent`
+
+        - `id: String`
 
         - `version: Integer`
 
@@ -22119,13 +22476,11 @@ Archive Agent
 
         Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
 
+        - `type: :advisor`
+
         - `model: String`
 
           The advisor model id.
-
-        - `type: :advisor`
-
-    - `type: :coordinator`
 
   - `name: String`
 
@@ -22135,9 +22490,9 @@ Archive Agent
 
       A resolved Anthropic-managed skill.
 
-      - `skill_id: String`
-
       - `type: :anthropic`
+
+      - `skill_id: String`
 
       - `version: String`
 
@@ -22145,9 +22500,9 @@ Archive Agent
 
       A resolved user-created custom skill.
 
-      - `skill_id: String`
-
       - `type: :custom`
+
+      - `skill_id: String`
 
       - `version: String`
 
@@ -22157,17 +22512,21 @@ Archive Agent
 
     - `class BetaManagedAgentsAgentToolset20260401`
 
+      - `type: :agent_toolset_20260401`
+
       - `configs: Array[BetaManagedAgentsAgentToolConfig]`
 
         - `class BetaManagedAgentsBashToolConfig`
 
           Configuration for the bash tool.
 
+          - `type: :bash`
+
           - `enabled: bool`
 
           - `name: :bash`
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -22183,17 +22542,23 @@ Archive Agent
 
               - `type: :always_ask`
 
-          - `type: :bash`
+            - `class BetaManagedAgentsAutoPolicy`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+              - `type: :auto`
 
         - `class BetaManagedAgentsEditToolConfig`
 
           Configuration for the edit tool.
 
+          - `type: :edit`
+
           - `enabled: bool`
 
           - `name: :edit`
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -22205,17 +22570,21 @@ Archive Agent
 
               Tool calls require user confirmation before execution.
 
-          - `type: :edit`
+            - `class BetaManagedAgentsAutoPolicy`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `class BetaManagedAgentsReadToolConfig`
 
           Configuration for the read tool.
 
+          - `type: :read`
+
           - `enabled: bool`
 
           - `name: :read`
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -22227,17 +22596,21 @@ Archive Agent
 
               Tool calls require user confirmation before execution.
 
-          - `type: :read`
+            - `class BetaManagedAgentsAutoPolicy`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `class BetaManagedAgentsWriteToolConfig`
 
           Configuration for the write tool.
 
+          - `type: :write`
+
           - `enabled: bool`
 
           - `name: :write`
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -22249,17 +22622,21 @@ Archive Agent
 
               Tool calls require user confirmation before execution.
 
-          - `type: :write`
+            - `class BetaManagedAgentsAutoPolicy`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `class BetaManagedAgentsGlobToolConfig`
 
           Configuration for the glob tool.
 
+          - `type: :glob`
+
           - `enabled: bool`
 
           - `name: :glob`
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -22271,17 +22648,21 @@ Archive Agent
 
               Tool calls require user confirmation before execution.
 
-          - `type: :glob`
+            - `class BetaManagedAgentsAutoPolicy`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `class BetaManagedAgentsGrepToolConfig`
 
           Configuration for the grep tool.
 
+          - `type: :grep`
+
           - `enabled: bool`
 
           - `name: :grep`
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -22293,17 +22674,21 @@ Archive Agent
 
               Tool calls require user confirmation before execution.
 
-          - `type: :grep`
+            - `class BetaManagedAgentsAutoPolicy`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `class BetaManagedAgentsWebFetchToolConfig`
 
           Configuration for the web_fetch tool.
 
+          - `type: :web_fetch`
+
           - `enabled: bool`
 
           - `name: :web_fetch`
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -22315,7 +22700,9 @@ Archive Agent
 
               Tool calls require user confirmation before execution.
 
-          - `type: :web_fetch`
+            - `class BetaManagedAgentsAutoPolicy`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
           - `allowed_domains: Array[String]`
 
@@ -22329,11 +22716,13 @@ Archive Agent
 
           Configuration for the web_search tool.
 
+          - `type: :web_search`
+
           - `enabled: bool`
 
           - `name: :web_search`
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -22345,7 +22734,9 @@ Archive Agent
 
               Tool calls require user confirmation before execution.
 
-          - `type: :web_search`
+            - `class BetaManagedAgentsAutoPolicy`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
           - `allowed_domains: Array[String]`
 
@@ -22387,7 +22778,7 @@ Archive Agent
 
         - `enabled: bool`
 
-        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
           Permission policy for tool execution.
 
@@ -22399,9 +22790,13 @@ Archive Agent
 
             Tool calls require user confirmation before execution.
 
-      - `type: :agent_toolset_20260401`
+          - `class BetaManagedAgentsAutoPolicy`
+
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
     - `class BetaManagedAgentsMCPToolset`
+
+      - `type: :mcp_toolset`
 
       - `configs: Array[BetaManagedAgentsMCPToolConfig]`
 
@@ -22409,7 +22804,7 @@ Archive Agent
 
         - `name: String`
 
-        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
           Permission policy for tool execution.
 
@@ -22420,6 +22815,10 @@ Archive Agent
           - `class BetaManagedAgentsAlwaysAskPolicy`
 
             Tool calls require user confirmation before execution.
+
+          - `class BetaManagedAgentsAutoPolicy`
+
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
       - `default_config: BetaManagedAgentsMCPToolsetDefaultConfig`
 
@@ -22427,7 +22826,7 @@ Archive Agent
 
         - `enabled: bool`
 
-        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
           Permission policy for tool execution.
 
@@ -22439,13 +22838,17 @@ Archive Agent
 
             Tool calls require user confirmation before execution.
 
-      - `mcp_server_name: String`
+          - `class BetaManagedAgentsAutoPolicy`
 
-      - `type: :mcp_toolset`
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+      - `mcp_server_name: String`
 
     - `class BetaManagedAgentsCustomTool`
 
       A custom tool as returned in API responses.
+
+      - `type: :custom`
 
       - `description: String`
 
@@ -22460,10 +22863,6 @@ Archive Agent
         - `required: Array[String]`
 
       - `name: String`
-
-      - `type: :custom`
-
-  - `type: :agent`
 
   - `updated_at: Time`
 
@@ -22596,7 +22995,7 @@ List Agent Versions
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 41 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 42 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -22644,6 +23043,8 @@ List Agent Versions
 
     - `:"user-profiles-2026-08-18"`
 
+    - `:"user-profiles-2026-09-04"`
+
     - `:"advisor-tool-2026-03-01"`
 
     - `:"managed-agents-2026-04-01"`
@@ -22686,11 +23087,15 @@ List Agent Versions
 
     - `:"mid-conversation-system-clear-at-2026-08-21"`
 
+- `workspace_id: String`
+
 #### Returns
 
 - `class BetaManagedAgentsAgent`
 
   A Managed Agents `agent`.
+
+  - `type: :agent`
 
   - `id: String`
 
@@ -22710,9 +23115,9 @@ List Agent Versions
 
   - `mcp_servers: Array[BetaManagedAgentsMCPServerURLDefinition]`
 
-    - `name: String`
-
     - `type: :url`
+
+    - `name: String`
 
     - `url: String`
 
@@ -22842,6 +23247,8 @@ List Agent Versions
 
     Resolved coordinator topology with a concrete agent roster.
 
+    - `type: :coordinator`
+
     - `agents: Array[BetaManagedAgentsAgentReference | BetaManagedAgentsAdvisor]`
 
       Agents the coordinator may spawn as session threads, each resolved to a specific version.
@@ -22850,9 +23257,9 @@ List Agent Versions
 
         A resolved agent reference with a concrete version.
 
-        - `id: String`
-
         - `type: :agent`
+
+        - `id: String`
 
         - `version: Integer`
 
@@ -22862,13 +23269,11 @@ List Agent Versions
 
         Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
 
+        - `type: :advisor`
+
         - `model: String`
 
           The advisor model id.
-
-        - `type: :advisor`
-
-    - `type: :coordinator`
 
   - `name: String`
 
@@ -22878,9 +23283,9 @@ List Agent Versions
 
       A resolved Anthropic-managed skill.
 
-      - `skill_id: String`
-
       - `type: :anthropic`
+
+      - `skill_id: String`
 
       - `version: String`
 
@@ -22888,9 +23293,9 @@ List Agent Versions
 
       A resolved user-created custom skill.
 
-      - `skill_id: String`
-
       - `type: :custom`
+
+      - `skill_id: String`
 
       - `version: String`
 
@@ -22900,17 +23305,21 @@ List Agent Versions
 
     - `class BetaManagedAgentsAgentToolset20260401`
 
+      - `type: :agent_toolset_20260401`
+
       - `configs: Array[BetaManagedAgentsAgentToolConfig]`
 
         - `class BetaManagedAgentsBashToolConfig`
 
           Configuration for the bash tool.
 
+          - `type: :bash`
+
           - `enabled: bool`
 
           - `name: :bash`
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -22926,17 +23335,23 @@ List Agent Versions
 
               - `type: :always_ask`
 
-          - `type: :bash`
+            - `class BetaManagedAgentsAutoPolicy`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+              - `type: :auto`
 
         - `class BetaManagedAgentsEditToolConfig`
 
           Configuration for the edit tool.
 
+          - `type: :edit`
+
           - `enabled: bool`
 
           - `name: :edit`
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -22948,17 +23363,21 @@ List Agent Versions
 
               Tool calls require user confirmation before execution.
 
-          - `type: :edit`
+            - `class BetaManagedAgentsAutoPolicy`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `class BetaManagedAgentsReadToolConfig`
 
           Configuration for the read tool.
 
+          - `type: :read`
+
           - `enabled: bool`
 
           - `name: :read`
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -22970,17 +23389,21 @@ List Agent Versions
 
               Tool calls require user confirmation before execution.
 
-          - `type: :read`
+            - `class BetaManagedAgentsAutoPolicy`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `class BetaManagedAgentsWriteToolConfig`
 
           Configuration for the write tool.
 
+          - `type: :write`
+
           - `enabled: bool`
 
           - `name: :write`
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -22992,17 +23415,21 @@ List Agent Versions
 
               Tool calls require user confirmation before execution.
 
-          - `type: :write`
+            - `class BetaManagedAgentsAutoPolicy`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `class BetaManagedAgentsGlobToolConfig`
 
           Configuration for the glob tool.
 
+          - `type: :glob`
+
           - `enabled: bool`
 
           - `name: :glob`
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -23014,17 +23441,21 @@ List Agent Versions
 
               Tool calls require user confirmation before execution.
 
-          - `type: :glob`
+            - `class BetaManagedAgentsAutoPolicy`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `class BetaManagedAgentsGrepToolConfig`
 
           Configuration for the grep tool.
 
+          - `type: :grep`
+
           - `enabled: bool`
 
           - `name: :grep`
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -23036,17 +23467,21 @@ List Agent Versions
 
               Tool calls require user confirmation before execution.
 
-          - `type: :grep`
+            - `class BetaManagedAgentsAutoPolicy`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `class BetaManagedAgentsWebFetchToolConfig`
 
           Configuration for the web_fetch tool.
 
+          - `type: :web_fetch`
+
           - `enabled: bool`
 
           - `name: :web_fetch`
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -23058,7 +23493,9 @@ List Agent Versions
 
               Tool calls require user confirmation before execution.
 
-          - `type: :web_fetch`
+            - `class BetaManagedAgentsAutoPolicy`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
           - `allowed_domains: Array[String]`
 
@@ -23072,11 +23509,13 @@ List Agent Versions
 
           Configuration for the web_search tool.
 
+          - `type: :web_search`
+
           - `enabled: bool`
 
           - `name: :web_search`
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -23088,7 +23527,9 @@ List Agent Versions
 
               Tool calls require user confirmation before execution.
 
-          - `type: :web_search`
+            - `class BetaManagedAgentsAutoPolicy`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
           - `allowed_domains: Array[String]`
 
@@ -23130,7 +23571,7 @@ List Agent Versions
 
         - `enabled: bool`
 
-        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
           Permission policy for tool execution.
 
@@ -23142,9 +23583,13 @@ List Agent Versions
 
             Tool calls require user confirmation before execution.
 
-      - `type: :agent_toolset_20260401`
+          - `class BetaManagedAgentsAutoPolicy`
+
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
     - `class BetaManagedAgentsMCPToolset`
+
+      - `type: :mcp_toolset`
 
       - `configs: Array[BetaManagedAgentsMCPToolConfig]`
 
@@ -23152,7 +23597,7 @@ List Agent Versions
 
         - `name: String`
 
-        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
           Permission policy for tool execution.
 
@@ -23163,6 +23608,10 @@ List Agent Versions
           - `class BetaManagedAgentsAlwaysAskPolicy`
 
             Tool calls require user confirmation before execution.
+
+          - `class BetaManagedAgentsAutoPolicy`
+
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
       - `default_config: BetaManagedAgentsMCPToolsetDefaultConfig`
 
@@ -23170,7 +23619,7 @@ List Agent Versions
 
         - `enabled: bool`
 
-        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
           Permission policy for tool execution.
 
@@ -23182,13 +23631,17 @@ List Agent Versions
 
             Tool calls require user confirmation before execution.
 
-      - `mcp_server_name: String`
+          - `class BetaManagedAgentsAutoPolicy`
 
-      - `type: :mcp_toolset`
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+      - `mcp_server_name: String`
 
     - `class BetaManagedAgentsCustomTool`
 
       A custom tool as returned in API responses.
+
+      - `type: :custom`
 
       - `description: String`
 
@@ -23203,10 +23656,6 @@ List Agent Versions
         - `required: Array[String]`
 
       - `name: String`
-
-      - `type: :custom`
-
-  - `type: :agent`
 
   - `updated_at: Time`
 
@@ -23390,6 +23839,10 @@ Create a new environment with the specified configuration.
 
       Under `limited` networking, requires `networking.allow_package_managers` to be `true`.
 
+      - `type: :packages`
+
+        Package configuration type
+
       - `apt: Array[String]`
 
         Ubuntu/Debian packages to install
@@ -23414,10 +23867,6 @@ Create a new environment with the specified configuration.
 
         Python packages to install
 
-      - `type: :packages`
-
-        Package configuration type
-
   - `class BetaSelfHostedConfigParams`
 
     Request params for `self_hosted` environment configuration.
@@ -23438,7 +23887,7 @@ Create a new environment with the specified configuration.
 
 - `scope: :organization | :account`
 
-  The visibility scope for this environment. 'organization' makes the environment visible to all accounts. 'account' restricts visibility to the owning account only. Only applicable for self-hosted environments. If not specified, defaults based on organization type.
+  The visibility scope for this environment. 'organization' makes the environment visible to all accounts. 'account' restricts visibility to the owning account only. API organizations support only 'organization'; 'account' is rejected. If not specified, defaults based on organization type.
 
   - `:organization`
 
@@ -23450,7 +23899,7 @@ Create a new environment with the specified configuration.
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 41 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 42 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -23498,6 +23947,8 @@ Create a new environment with the specified configuration.
 
     - `:"user-profiles-2026-08-18"`
 
+    - `:"user-profiles-2026-09-04"`
+
     - `:"advisor-tool-2026-03-01"`
 
     - `:"managed-agents-2026-04-01"`
@@ -23540,11 +23991,17 @@ Create a new environment with the specified configuration.
 
     - `:"mid-conversation-system-clear-at-2026-08-21"`
 
+- `workspace_id: String`
+
 #### Returns
 
 - `class BetaEnvironment`
 
   Unified Environment resource for both cloud and self-hosted environments.
+
+  - `type: :environment`
+
+    The type of object (always 'environment')
 
   - `id: String`
 
@@ -23562,6 +24019,10 @@ Create a new environment with the specified configuration.
 
       `cloud` environment configuration.
 
+      - `type: :cloud`
+
+        Environment type
+
       - `networking: BetaUnrestrictedNetwork | BetaLimitedNetwork`
 
         Network configuration policy.
@@ -23578,6 +24039,10 @@ Create a new environment with the specified configuration.
 
           Limited network access.
 
+          - `type: :limited`
+
+            Network policy type
+
           - `allow_mcp_servers: bool`
 
             Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
@@ -23590,13 +24055,13 @@ Create a new environment with the specified configuration.
 
             Specifies domains the container can reach.
 
-          - `type: :limited`
-
-            Network policy type
-
       - `packages: BetaPackages`
 
         Package manager configuration.
+
+        - `type: :packages`
+
+          Package configuration type
 
         - `apt: Array[String]`
 
@@ -23622,14 +24087,6 @@ Create a new environment with the specified configuration.
 
           Python packages to install
 
-        - `type: :packages`
-
-          Package configuration type
-
-      - `type: :cloud`
-
-        Environment type
-
     - `class BetaSelfHostedConfig`
 
       Configuration for self-hosted environments.
@@ -23653,10 +24110,6 @@ Create a new environment with the specified configuration.
   - `name: String`
 
     Human-readable name for the environment
-
-  - `type: :environment`
-
-    The type of object (always 'environment')
 
   - `updated_at: String`
 
@@ -23761,7 +24214,7 @@ List environments with pagination support.
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 41 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 42 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -23809,6 +24262,8 @@ List environments with pagination support.
 
     - `:"user-profiles-2026-08-18"`
 
+    - `:"user-profiles-2026-09-04"`
+
     - `:"advisor-tool-2026-03-01"`
 
     - `:"managed-agents-2026-04-01"`
@@ -23851,11 +24306,17 @@ List environments with pagination support.
 
     - `:"mid-conversation-system-clear-at-2026-08-21"`
 
+- `workspace_id: String`
+
 #### Returns
 
 - `class BetaEnvironment`
 
   Unified Environment resource for both cloud and self-hosted environments.
+
+  - `type: :environment`
+
+    The type of object (always 'environment')
 
   - `id: String`
 
@@ -23873,6 +24334,10 @@ List environments with pagination support.
 
       `cloud` environment configuration.
 
+      - `type: :cloud`
+
+        Environment type
+
       - `networking: BetaUnrestrictedNetwork | BetaLimitedNetwork`
 
         Network configuration policy.
@@ -23889,6 +24354,10 @@ List environments with pagination support.
 
           Limited network access.
 
+          - `type: :limited`
+
+            Network policy type
+
           - `allow_mcp_servers: bool`
 
             Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
@@ -23901,13 +24370,13 @@ List environments with pagination support.
 
             Specifies domains the container can reach.
 
-          - `type: :limited`
-
-            Network policy type
-
       - `packages: BetaPackages`
 
         Package manager configuration.
+
+        - `type: :packages`
+
+          Package configuration type
 
         - `apt: Array[String]`
 
@@ -23933,14 +24402,6 @@ List environments with pagination support.
 
           Python packages to install
 
-        - `type: :packages`
-
-          Package configuration type
-
-      - `type: :cloud`
-
-        Environment type
-
     - `class BetaSelfHostedConfig`
 
       Configuration for self-hosted environments.
@@ -23964,10 +24425,6 @@ List environments with pagination support.
   - `name: String`
 
     Human-readable name for the environment
-
-  - `type: :environment`
-
-    The type of object (always 'environment')
 
   - `updated_at: String`
 
@@ -24065,7 +24522,7 @@ Retrieve a specific environment by ID.
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 41 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 42 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -24113,6 +24570,8 @@ Retrieve a specific environment by ID.
 
     - `:"user-profiles-2026-08-18"`
 
+    - `:"user-profiles-2026-09-04"`
+
     - `:"advisor-tool-2026-03-01"`
 
     - `:"managed-agents-2026-04-01"`
@@ -24155,11 +24614,17 @@ Retrieve a specific environment by ID.
 
     - `:"mid-conversation-system-clear-at-2026-08-21"`
 
+- `workspace_id: String`
+
 #### Returns
 
 - `class BetaEnvironment`
 
   Unified Environment resource for both cloud and self-hosted environments.
+
+  - `type: :environment`
+
+    The type of object (always 'environment')
 
   - `id: String`
 
@@ -24177,6 +24642,10 @@ Retrieve a specific environment by ID.
 
       `cloud` environment configuration.
 
+      - `type: :cloud`
+
+        Environment type
+
       - `networking: BetaUnrestrictedNetwork | BetaLimitedNetwork`
 
         Network configuration policy.
@@ -24193,6 +24662,10 @@ Retrieve a specific environment by ID.
 
           Limited network access.
 
+          - `type: :limited`
+
+            Network policy type
+
           - `allow_mcp_servers: bool`
 
             Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
@@ -24205,13 +24678,13 @@ Retrieve a specific environment by ID.
 
             Specifies domains the container can reach.
 
-          - `type: :limited`
-
-            Network policy type
-
       - `packages: BetaPackages`
 
         Package manager configuration.
+
+        - `type: :packages`
+
+          Package configuration type
 
         - `apt: Array[String]`
 
@@ -24237,14 +24710,6 @@ Retrieve a specific environment by ID.
 
           Python packages to install
 
-        - `type: :packages`
-
-          Package configuration type
-
-      - `type: :cloud`
-
-        Environment type
-
     - `class BetaSelfHostedConfig`
 
       Configuration for self-hosted environments.
@@ -24268,10 +24733,6 @@ Retrieve a specific environment by ID.
   - `name: String`
 
     Human-readable name for the environment
-
-  - `type: :environment`
-
-    The type of object (always 'environment')
 
   - `updated_at: String`
 
@@ -24416,6 +24877,10 @@ Update an existing environment's configuration.
 
       Under `limited` networking, requires `networking.allow_package_managers` to be `true`.
 
+      - `type: :packages`
+
+        Package configuration type
+
       - `apt: Array[String]`
 
         Ubuntu/Debian packages to install
@@ -24439,10 +24904,6 @@ Update an existing environment's configuration.
       - `pip: Array[String]`
 
         Python packages to install
-
-      - `type: :packages`
-
-        Package configuration type
 
   - `class BetaSelfHostedConfigParams`
 
@@ -24482,7 +24943,7 @@ Update an existing environment's configuration.
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 41 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 42 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -24530,6 +24991,8 @@ Update an existing environment's configuration.
 
     - `:"user-profiles-2026-08-18"`
 
+    - `:"user-profiles-2026-09-04"`
+
     - `:"advisor-tool-2026-03-01"`
 
     - `:"managed-agents-2026-04-01"`
@@ -24572,11 +25035,17 @@ Update an existing environment's configuration.
 
     - `:"mid-conversation-system-clear-at-2026-08-21"`
 
+- `workspace_id: String`
+
 #### Returns
 
 - `class BetaEnvironment`
 
   Unified Environment resource for both cloud and self-hosted environments.
+
+  - `type: :environment`
+
+    The type of object (always 'environment')
 
   - `id: String`
 
@@ -24594,6 +25063,10 @@ Update an existing environment's configuration.
 
       `cloud` environment configuration.
 
+      - `type: :cloud`
+
+        Environment type
+
       - `networking: BetaUnrestrictedNetwork | BetaLimitedNetwork`
 
         Network configuration policy.
@@ -24610,6 +25083,10 @@ Update an existing environment's configuration.
 
           Limited network access.
 
+          - `type: :limited`
+
+            Network policy type
+
           - `allow_mcp_servers: bool`
 
             Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
@@ -24622,13 +25099,13 @@ Update an existing environment's configuration.
 
             Specifies domains the container can reach.
 
-          - `type: :limited`
-
-            Network policy type
-
       - `packages: BetaPackages`
 
         Package manager configuration.
+
+        - `type: :packages`
+
+          Package configuration type
 
         - `apt: Array[String]`
 
@@ -24654,14 +25131,6 @@ Update an existing environment's configuration.
 
           Python packages to install
 
-        - `type: :packages`
-
-          Package configuration type
-
-      - `type: :cloud`
-
-        Environment type
-
     - `class BetaSelfHostedConfig`
 
       Configuration for self-hosted environments.
@@ -24685,10 +25154,6 @@ Update an existing environment's configuration.
   - `name: String`
 
     Human-readable name for the environment
-
-  - `type: :environment`
-
-    The type of object (always 'environment')
 
   - `updated_at: String`
 
@@ -24781,7 +25246,7 @@ Delete an environment by ID. Returns a confirmation of the deletion.
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 41 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 42 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -24829,6 +25294,8 @@ Delete an environment by ID. Returns a confirmation of the deletion.
 
     - `:"user-profiles-2026-08-18"`
 
+    - `:"user-profiles-2026-09-04"`
+
     - `:"advisor-tool-2026-03-01"`
 
     - `:"managed-agents-2026-04-01"`
@@ -24871,19 +25338,21 @@ Delete an environment by ID. Returns a confirmation of the deletion.
 
     - `:"mid-conversation-system-clear-at-2026-08-21"`
 
+- `workspace_id: String`
+
 #### Returns
 
 - `class BetaEnvironmentDeleteResponse`
 
   Response after deleting an environment.
 
-  - `id: String`
-
-    Environment identifier
-
   - `type: :environment_deleted`
 
     The type of response
+
+  - `id: String`
+
+    Environment identifier
 
 #### Example
 
@@ -24924,7 +25393,7 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 41 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 42 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -24972,6 +25441,8 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
     - `:"user-profiles-2026-08-18"`
 
+    - `:"user-profiles-2026-09-04"`
+
     - `:"advisor-tool-2026-03-01"`
 
     - `:"managed-agents-2026-04-01"`
@@ -25014,11 +25485,17 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
     - `:"mid-conversation-system-clear-at-2026-08-21"`
 
+- `workspace_id: String`
+
 #### Returns
 
 - `class BetaEnvironment`
 
   Unified Environment resource for both cloud and self-hosted environments.
+
+  - `type: :environment`
+
+    The type of object (always 'environment')
 
   - `id: String`
 
@@ -25036,6 +25513,10 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
       `cloud` environment configuration.
 
+      - `type: :cloud`
+
+        Environment type
+
       - `networking: BetaUnrestrictedNetwork | BetaLimitedNetwork`
 
         Network configuration policy.
@@ -25052,6 +25533,10 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
           Limited network access.
 
+          - `type: :limited`
+
+            Network policy type
+
           - `allow_mcp_servers: bool`
 
             Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
@@ -25064,13 +25549,13 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
             Specifies domains the container can reach.
 
-          - `type: :limited`
-
-            Network policy type
-
       - `packages: BetaPackages`
 
         Package manager configuration.
+
+        - `type: :packages`
+
+          Package configuration type
 
         - `apt: Array[String]`
 
@@ -25096,14 +25581,6 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
           Python packages to install
 
-        - `type: :packages`
-
-          Package configuration type
-
-      - `type: :cloud`
-
-        Environment type
-
     - `class BetaSelfHostedConfig`
 
       Configuration for self-hosted environments.
@@ -25127,10 +25604,6 @@ Archive an environment by ID. Archived environments cannot be used to create new
   - `name: String`
 
     Human-readable name for the environment
-
-  - `type: :environment`
-
-    The type of object (always 'environment')
 
   - `updated_at: String`
 
@@ -25229,7 +25702,7 @@ Retrieve detailed information about a specific work item.
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 41 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 42 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -25277,6 +25750,8 @@ Retrieve detailed information about a specific work item.
 
     - `:"user-profiles-2026-08-18"`
 
+    - `:"user-profiles-2026-09-04"`
+
     - `:"advisor-tool-2026-03-01"`
 
     - `:"managed-agents-2026-04-01"`
@@ -25319,6 +25794,8 @@ Retrieve detailed information about a specific work item.
 
     - `:"mid-conversation-system-clear-at-2026-08-21"`
 
+- `workspace_id: String`
+
 #### Returns
 
 - `class BetaSelfHostedWork`
@@ -25328,6 +25805,10 @@ Retrieve detailed information about a specific work item.
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
+  - `type: :work`
+
+    The type of object (always 'work')
 
   - `id: String`
 
@@ -25345,13 +25826,13 @@ Retrieve detailed information about a specific work item.
 
     The actual work to be performed
 
-    - `id: String`
-
-      Session identifier (e.g., 'session_...')
-
     - `type: :session`
 
       Type of work data
+
+    - `id: String`
+
+      Session identifier (e.g., 'session_...')
 
   - `environment_id: String`
 
@@ -25394,10 +25875,6 @@ Retrieve detailed information about a specific work item.
   - `stopped_at: String`
 
     RFC 3339 timestamp when work execution stopped
-
-  - `type: :work`
-
-    The type of object (always 'work')
 
 #### Example
 
@@ -25468,7 +25945,7 @@ Long poll for work items in the queue.
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 41 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 42 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -25515,6 +25992,8 @@ Long poll for work items in the queue.
     - `:"user-profiles-2026-03-24"`
 
     - `:"user-profiles-2026-08-18"`
+
+    - `:"user-profiles-2026-09-04"`
 
     - `:"advisor-tool-2026-03-01"`
 
@@ -25572,6 +26051,10 @@ Long poll for work items in the queue.
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
 
+  - `type: :work`
+
+    The type of object (always 'work')
+
   - `id: String`
 
     Work identifier (e.g., 'work_...')
@@ -25588,13 +26071,13 @@ Long poll for work items in the queue.
 
     The actual work to be performed
 
-    - `id: String`
-
-      Session identifier (e.g., 'session_...')
-
     - `type: :session`
 
       Type of work data
+
+    - `id: String`
+
+      Session identifier (e.g., 'session_...')
 
   - `environment_id: String`
 
@@ -25637,10 +26120,6 @@ Long poll for work items in the queue.
   - `stopped_at: String`
 
     RFC 3339 timestamp when work execution stopped
-
-  - `type: :work`
-
-    The type of object (always 'work')
 
 #### Example
 
@@ -25701,7 +26180,7 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 41 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 42 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -25748,6 +26227,8 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
     - `:"user-profiles-2026-03-24"`
 
     - `:"user-profiles-2026-08-18"`
+
+    - `:"user-profiles-2026-09-04"`
 
     - `:"advisor-tool-2026-03-01"`
 
@@ -25801,6 +26282,10 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
 
+  - `type: :work`
+
+    The type of object (always 'work')
+
   - `id: String`
 
     Work identifier (e.g., 'work_...')
@@ -25817,13 +26302,13 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
 
     The actual work to be performed
 
-    - `id: String`
-
-      Session identifier (e.g., 'session_...')
-
     - `type: :session`
 
       Type of work data
+
+    - `id: String`
+
+      Session identifier (e.g., 'session_...')
 
   - `environment_id: String`
 
@@ -25866,10 +26351,6 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
   - `stopped_at: String`
 
     RFC 3339 timestamp when work execution stopped
-
-  - `type: :work`
-
-    The type of object (always 'work')
 
 #### Example
 
@@ -25938,7 +26419,7 @@ Record a heartbeat for a work item to maintain the lease.
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 41 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 42 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -25985,6 +26466,8 @@ Record a heartbeat for a work item to maintain the lease.
     - `:"user-profiles-2026-03-24"`
 
     - `:"user-profiles-2026-08-18"`
+
+    - `:"user-profiles-2026-09-04"`
 
     - `:"advisor-tool-2026-03-01"`
 
@@ -26034,6 +26517,10 @@ Record a heartbeat for a work item to maintain the lease.
 
   Response after recording a heartbeat for a work item.
 
+  - `type: :work_heartbeat`
+
+    The type of response
+
   - `last_heartbeat: String`
 
     RFC 3339 timestamp of the actual heartbeat from DB
@@ -26059,10 +26546,6 @@ Record a heartbeat for a work item to maintain the lease.
   - `ttl_seconds: Integer`
 
     Effective TTL applied to the lease
-
-  - `type: :work_heartbeat`
-
-    The type of response
 
 #### Example
 
@@ -26114,7 +26597,7 @@ Stop a work item, initiating graceful or forced shutdown.
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 41 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 42 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -26162,6 +26645,8 @@ Stop a work item, initiating graceful or forced shutdown.
 
     - `:"user-profiles-2026-08-18"`
 
+    - `:"user-profiles-2026-09-04"`
+
     - `:"advisor-tool-2026-03-01"`
 
     - `:"managed-agents-2026-04-01"`
@@ -26204,6 +26689,8 @@ Stop a work item, initiating graceful or forced shutdown.
 
     - `:"mid-conversation-system-clear-at-2026-08-21"`
 
+- `workspace_id: String`
+
 #### Returns
 
 - `class BetaSelfHostedWork`
@@ -26213,6 +26700,10 @@ Stop a work item, initiating graceful or forced shutdown.
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
+  - `type: :work`
+
+    The type of object (always 'work')
 
   - `id: String`
 
@@ -26230,13 +26721,13 @@ Stop a work item, initiating graceful or forced shutdown.
 
     The actual work to be performed
 
-    - `id: String`
-
-      Session identifier (e.g., 'session_...')
-
     - `type: :session`
 
       Type of work data
+
+    - `id: String`
+
+      Session identifier (e.g., 'session_...')
 
   - `environment_id: String`
 
@@ -26279,10 +26770,6 @@ Stop a work item, initiating graceful or forced shutdown.
   - `stopped_at: String`
 
     RFC 3339 timestamp when work execution stopped
-
-  - `type: :work`
-
-    The type of object (always 'work')
 
 #### Example
 
@@ -26351,7 +26838,7 @@ List work items in an environment.
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 41 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 42 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -26398,6 +26885,8 @@ List work items in an environment.
     - `:"user-profiles-2026-03-24"`
 
     - `:"user-profiles-2026-08-18"`
+
+    - `:"user-profiles-2026-09-04"`
 
     - `:"advisor-tool-2026-03-01"`
 
@@ -26451,6 +26940,10 @@ List work items in an environment.
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
 
+  - `type: :work`
+
+    The type of object (always 'work')
+
   - `id: String`
 
     Work identifier (e.g., 'work_...')
@@ -26467,13 +26960,13 @@ List work items in an environment.
 
     The actual work to be performed
 
-    - `id: String`
-
-      Session identifier (e.g., 'session_...')
-
     - `type: :session`
 
       Type of work data
+
+    - `id: String`
+
+      Session identifier (e.g., 'session_...')
 
   - `environment_id: String`
 
@@ -26516,10 +27009,6 @@ List work items in an environment.
   - `stopped_at: String`
 
     RFC 3339 timestamp when work execution stopped
-
-  - `type: :work`
-
-    The type of object (always 'work')
 
 #### Example
 
@@ -26589,7 +27078,7 @@ Update work item metadata with merge semantics.
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 41 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 42 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -26637,6 +27126,8 @@ Update work item metadata with merge semantics.
 
     - `:"user-profiles-2026-08-18"`
 
+    - `:"user-profiles-2026-09-04"`
+
     - `:"advisor-tool-2026-03-01"`
 
     - `:"managed-agents-2026-04-01"`
@@ -26679,6 +27170,8 @@ Update work item metadata with merge semantics.
 
     - `:"mid-conversation-system-clear-at-2026-08-21"`
 
+- `workspace_id: String`
+
 #### Returns
 
 - `class BetaSelfHostedWork`
@@ -26688,6 +27181,10 @@ Update work item metadata with merge semantics.
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
+  - `type: :work`
+
+    The type of object (always 'work')
 
   - `id: String`
 
@@ -26705,13 +27202,13 @@ Update work item metadata with merge semantics.
 
     The actual work to be performed
 
-    - `id: String`
-
-      Session identifier (e.g., 'session_...')
-
     - `type: :session`
 
       Type of work data
+
+    - `id: String`
+
+      Session identifier (e.g., 'session_...')
 
   - `environment_id: String`
 
@@ -26754,10 +27251,6 @@ Update work item metadata with merge semantics.
   - `stopped_at: String`
 
     RFC 3339 timestamp when work execution stopped
-
-  - `type: :work`
-
-    The type of object (always 'work')
 
 #### Example
 
@@ -26818,7 +27311,7 @@ Get statistics about the work queue for an environment.
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 41 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 42 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -26866,6 +27359,8 @@ Get statistics about the work queue for an environment.
 
     - `:"user-profiles-2026-08-18"`
 
+    - `:"user-profiles-2026-09-04"`
+
     - `:"advisor-tool-2026-03-01"`
 
     - `:"managed-agents-2026-04-01"`
@@ -26908,6 +27403,8 @@ Get statistics about the work queue for an environment.
 
     - `:"mid-conversation-system-clear-at-2026-08-21"`
 
+- `workspace_id: String`
+
 #### Returns
 
 - `class BetaSelfHostedWorkQueueStats`
@@ -26915,6 +27412,10 @@ Get statistics about the work queue for an environment.
   Statistics about the work queue for an environment.
 
   Uses Redis Stream consumer group metrics for O(1) queries.
+
+  - `type: :work_queue_stats`
+
+    The type of object
 
   - `depth: Integer`
 
@@ -26927,10 +27428,6 @@ Get statistics about the work queue for an environment.
   - `pending: Integer`
 
     Number of work items being processed (polled but not acknowledged)
-
-  - `type: :work_queue_stats`
-
-    The type of object
 
   - `workers_polling: Integer`
 
@@ -26982,13 +27479,13 @@ Create Session
 
     Specification for an Agent. Provide a specific `version` or use the short-form `agent="agent_id"` for the most recent version
 
+    - `type: :agent`
+
     - `id: String`
 
       The `agent` ID.
 
       minLength: 1, maxLength: 128
-
-    - `type: :agent`
 
     - `version: Integer`
 
@@ -27000,25 +27497,25 @@ Create Session
 
     Reference to an `agent` plus optional configuration overrides. Each provided field replaces the agent's value for the caller's use; the agent resource is unchanged.
 
+    - `type: :agent_with_overrides`
+
     - `id: String`
 
       The `agent` ID.
 
       minLength: 1, maxLength: 128
 
-    - `type: :agent_with_overrides`
-
     - `mcp_servers: Array[BetaManagedAgentsURLMCPServerParams]`
 
       Replacement MCP server list. Full replacement: the provided array becomes the MCP servers. Send an empty array to clear; omit to preserve the agent's servers.
+
+      - `type: :url`
 
       - `name: String`
 
         Unique name for this server, referenced by mcp_toolset configurations. 1-255 characters.
 
         minLength: 1, maxLength: 255
-
-      - `type: :url`
 
       - `url: String`
 
@@ -27178,13 +27675,13 @@ Create Session
 
         An Anthropic-managed skill.
 
+        - `type: :anthropic`
+
         - `skill_id: String`
 
           Identifier of the Anthropic skill (e.g., "xlsx").
 
           minLength: 1, maxLength: 64
-
-        - `type: :anthropic`
 
         - `version: String`
 
@@ -27196,13 +27693,13 @@ Create Session
 
         A user-created custom skill.
 
+        - `type: :custom`
+
         - `skill_id: String`
 
           Tagged ID of the custom skill (e.g., "skill_01XJ5...").
 
           minLength: 1, maxLength: 64
-
-        - `type: :custom`
 
         - `version: String`
 
@@ -27234,6 +27731,8 @@ Create Session
 
             Configuration override for the bash tool.
 
+            - `type: :bash`
+
             - `name: :bash`
 
               Must be "bash".
@@ -27242,7 +27741,7 @@ Create Session
 
               Whether this tool is enabled and available to Claude. Overrides the default_config setting.
 
-            - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+            - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
               Permission policy for tool execution.
 
@@ -27258,11 +27757,17 @@ Create Session
 
                 - `type: :always_ask`
 
-            - `type: :bash`
+              - `class BetaManagedAgentsAutoPolicy`
+
+                The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+                - `type: :auto`
 
           - `class BetaManagedAgentsEditToolConfigParams`
 
             Configuration override for the edit tool.
+
+            - `type: :edit`
 
             - `name: :edit`
 
@@ -27272,7 +27777,7 @@ Create Session
 
               Whether this tool is enabled and available to Claude. Overrides the default_config setting.
 
-            - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+            - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
               Permission policy for tool execution.
 
@@ -27284,11 +27789,15 @@ Create Session
 
                 Tool calls require user confirmation before execution.
 
-            - `type: :edit`
+              - `class BetaManagedAgentsAutoPolicy`
+
+                The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
           - `class BetaManagedAgentsReadToolConfigParams`
 
             Configuration override for the read tool.
+
+            - `type: :read`
 
             - `name: :read`
 
@@ -27298,7 +27807,7 @@ Create Session
 
               Whether this tool is enabled and available to Claude. Overrides the default_config setting.
 
-            - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+            - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
               Permission policy for tool execution.
 
@@ -27310,11 +27819,15 @@ Create Session
 
                 Tool calls require user confirmation before execution.
 
-            - `type: :read`
+              - `class BetaManagedAgentsAutoPolicy`
+
+                The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
           - `class BetaManagedAgentsWriteToolConfigParams`
 
             Configuration override for the write tool.
+
+            - `type: :write`
 
             - `name: :write`
 
@@ -27324,7 +27837,7 @@ Create Session
 
               Whether this tool is enabled and available to Claude. Overrides the default_config setting.
 
-            - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+            - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
               Permission policy for tool execution.
 
@@ -27336,11 +27849,15 @@ Create Session
 
                 Tool calls require user confirmation before execution.
 
-            - `type: :write`
+              - `class BetaManagedAgentsAutoPolicy`
+
+                The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
           - `class BetaManagedAgentsGlobToolConfigParams`
 
             Configuration override for the glob tool.
+
+            - `type: :glob`
 
             - `name: :glob`
 
@@ -27350,7 +27867,7 @@ Create Session
 
               Whether this tool is enabled and available to Claude. Overrides the default_config setting.
 
-            - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+            - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
               Permission policy for tool execution.
 
@@ -27362,11 +27879,15 @@ Create Session
 
                 Tool calls require user confirmation before execution.
 
-            - `type: :glob`
+              - `class BetaManagedAgentsAutoPolicy`
+
+                The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
           - `class BetaManagedAgentsGrepToolConfigParams`
 
             Configuration override for the grep tool.
+
+            - `type: :grep`
 
             - `name: :grep`
 
@@ -27376,7 +27897,7 @@ Create Session
 
               Whether this tool is enabled and available to Claude. Overrides the default_config setting.
 
-            - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+            - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
               Permission policy for tool execution.
 
@@ -27388,11 +27909,15 @@ Create Session
 
                 Tool calls require user confirmation before execution.
 
-            - `type: :grep`
+              - `class BetaManagedAgentsAutoPolicy`
+
+                The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
           - `class BetaManagedAgentsWebFetchToolConfigParams`
 
             Configuration override for the web_fetch tool.
+
+            - `type: :web_fetch`
 
             - `name: :web_fetch`
 
@@ -27416,7 +27941,7 @@ Create Session
 
               format: int32
 
-            - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+            - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
               Permission policy for tool execution.
 
@@ -27428,11 +27953,15 @@ Create Session
 
                 Tool calls require user confirmation before execution.
 
-            - `type: :web_fetch`
+              - `class BetaManagedAgentsAutoPolicy`
+
+                The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
           - `class BetaManagedAgentsWebSearchToolConfigParams`
 
             Configuration override for the web_search tool.
+
+            - `type: :web_search`
 
             - `name: :web_search`
 
@@ -27450,7 +27979,7 @@ Create Session
 
               Whether this tool is enabled and available to Claude. Overrides the default_config setting.
 
-            - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+            - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
               Permission policy for tool execution.
 
@@ -27462,7 +27991,9 @@ Create Session
 
                 Tool calls require user confirmation before execution.
 
-            - `type: :web_search`
+              - `class BetaManagedAgentsAutoPolicy`
+
+                The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
             - `user_location: BetaManagedAgentsUserLocation`
 
@@ -27502,7 +28033,7 @@ Create Session
 
             Whether tools are enabled and available to Claude by default. Defaults to true if not specified.
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -27514,17 +28045,21 @@ Create Session
 
               Tool calls require user confirmation before execution.
 
+            - `class BetaManagedAgentsAutoPolicy`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
       - `class BetaManagedAgentsMCPToolsetParams`
 
         Configuration for tools from an MCP server defined in `mcp_servers`.
+
+        - `type: :mcp_toolset`
 
         - `mcp_server_name: String`
 
           Name of the MCP server. Must match a server name from the mcp_servers array. 1-255 characters.
 
           minLength: 1, maxLength: 255
-
-        - `type: :mcp_toolset`
 
         - `configs: Array[BetaManagedAgentsMCPToolConfigParams]`
 
@@ -27540,7 +28075,7 @@ Create Session
 
             Whether this tool is enabled. Overrides the `default_config` setting.
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -27551,6 +28086,10 @@ Create Session
             - `class BetaManagedAgentsAlwaysAskPolicy`
 
               Tool calls require user confirmation before execution.
+
+            - `class BetaManagedAgentsAutoPolicy`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `default_config: BetaManagedAgentsMCPToolsetDefaultConfigParams`
 
@@ -27560,7 +28099,7 @@ Create Session
 
             Whether tools are enabled by default. Defaults to true if not specified.
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -27572,9 +28111,15 @@ Create Session
 
               Tool calls require user confirmation before execution.
 
+            - `class BetaManagedAgentsAutoPolicy`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
       - `class BetaManagedAgentsCustomToolParams`
 
         A custom tool that is executed by the API client rather than the agent. When the agent calls this tool, an `agent.custom_tool_use` event is emitted and the session goes idle, waiting for the client to provide the result via a `user.custom_tool_result` event.
+
+        - `type: :custom`
 
         - `description: String`
 
@@ -27598,8 +28143,6 @@ Create Session
 
           minLength: 1, maxLength: 128
 
-        - `type: :custom`
-
     - `version: Integer`
 
       The specific `agent` version to use. Omit to use the latest version.
@@ -27616,6 +28159,8 @@ Create Session
 
   A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
 
+  - `type: :limit`
+
   - `max_list_cost: BetaMonetaryAmount`
 
     A monetary amount in a specific currency.
@@ -27628,8 +28173,6 @@ Create Session
 
       Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
 
-  - `type: :limit`
-
 - `initial_events: Array[BetaManagedAgentsUserMessageEventParams | BetaManagedAgentsUserDefineOutcomeEventParams]`
 
   Initial events to send to the `session` at creation, processed in order. Supports `user.message` and `user.define_outcome` events. Maximum 50 events.
@@ -27637,6 +28180,8 @@ Create Session
   - `class BetaManagedAgentsUserMessageEventParams`
 
     Parameters for sending a user message to the session.
+
+    - `type: :"user.message"`
 
     - `content: Array[BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock | BetaManagedAgentsRedactedBlock]`
 
@@ -27646,17 +28191,19 @@ Create Session
 
         Regular text content.
 
+        - `type: :text`
+
         - `text: String`
 
           The text content.
 
           minLength: 1
 
-        - `type: :text`
-
       - `class BetaManagedAgentsImageBlock`
 
         Image content specified directly as base64 data or as a reference via a URL.
+
+        - `type: :image`
 
         - `source: BetaManagedAgentsBase64ImageSource | BetaManagedAgentsURLImageSource | BetaManagedAgentsFileImageSource`
 
@@ -27665,6 +28212,8 @@ Create Session
           - `class BetaManagedAgentsBase64ImageSource`
 
             Base64-encoded image data.
+
+            - `type: :base64`
 
             - `data: String`
 
@@ -27677,8 +28226,6 @@ Create Session
               MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
 
               minLength: 1
-
-            - `type: :base64`
 
           - `class BetaManagedAgentsURLImageSource`
 
@@ -27696,19 +28243,19 @@ Create Session
 
             Image referenced by file ID.
 
+            - `type: :file`
+
             - `file_id: String`
 
               ID of a previously uploaded file.
 
               minLength: 1
 
-            - `type: :file`
-
-        - `type: :image`
-
       - `class BetaManagedAgentsDocumentBlock`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+        - `type: :document`
 
         - `source: BetaManagedAgentsBase64DocumentSource | BetaManagedAgentsPlainTextDocumentSource | BetaManagedAgentsURLDocumentSource | BetaManagedAgentsFileDocumentSource`
 
@@ -27717,6 +28264,8 @@ Create Session
           - `class BetaManagedAgentsBase64DocumentSource`
 
             Base64-encoded document data.
+
+            - `type: :base64`
 
             - `data: String`
 
@@ -27730,11 +28279,11 @@ Create Session
 
               minLength: 1
 
-            - `type: :base64`
-
           - `class BetaManagedAgentsPlainTextDocumentSource`
 
             Plain text document content.
+
+            - `type: :text`
 
             - `data: String`
 
@@ -27745,8 +28294,6 @@ Create Session
             - `media_type: :"text/plain"`
 
               MIME type of the text content. Must be "text/plain".
-
-            - `type: :text`
 
           - `class BetaManagedAgentsURLDocumentSource`
 
@@ -27764,15 +28311,13 @@ Create Session
 
             Document referenced by file ID.
 
+            - `type: :file`
+
             - `file_id: String`
 
               ID of a previously uploaded file.
 
               minLength: 1
-
-            - `type: :file`
-
-        - `type: :document`
 
         - `context: String`
 
@@ -27788,11 +28333,11 @@ Create Session
 
         - `type: :redacted`
 
-    - `type: :"user.message"`
-
   - `class BetaManagedAgentsUserDefineOutcomeEventParams`
 
     Parameters for defining an outcome the agent should work toward. The agent begins work on receipt.
+
+    - `type: :"user.define_outcome"`
 
     - `description: String`
 
@@ -27806,25 +28351,23 @@ Create Session
 
         Rubric referenced by a file uploaded via the Files API.
 
+        - `type: :file`
+
         - `file_id: String`
 
           ID of the rubric file.
 
-        - `type: :file`
-
       - `class BetaManagedAgentsTextRubricParams`
 
         Rubric content provided inline as text.
+
+        - `type: :text`
 
         - `content: String`
 
           Rubric content. Plain text or markdown — the grader treats it as freeform text. Maximum 262144 characters.
 
           maxLength: 262144
-
-        - `type: :text`
-
-    - `type: :"user.define_outcome"`
 
     - `max_iterations: Integer`
 
@@ -27844,12 +28387,6 @@ Create Session
 
     Mount a GitHub repository into the session's container.
 
-    - `authorization_token: String`
-
-      GitHub authorization token used to clone the repository.
-
-      minLength: 1, maxLength: 4096
-
     - `type: :github_repository`
 
     - `url: String`
@@ -27858,11 +28395,19 @@ Create Session
 
       minLength: 1, maxLength: 2048
 
+    - `authorization_token: String`
+
+      GitHub authorization token used to clone the repository. Required for private repositories; optional for public ones.
+
+      minLength: 1, maxLength: 4096
+
     - `checkout: BetaManagedAgentsBranchCheckout | BetaManagedAgentsCommitCheckout`
 
       Branch or commit to check out. Defaults to the repository's default branch.
 
       - `class BetaManagedAgentsBranchCheckout`
+
+        - `type: :branch`
 
         - `name: String`
 
@@ -27870,17 +28415,15 @@ Create Session
 
           minLength: 1, maxLength: 255
 
-        - `type: :branch`
-
       - `class BetaManagedAgentsCommitCheckout`
+
+        - `type: :commit`
 
         - `sha: String`
 
           Full commit SHA to check out.
 
           minLength: 7, maxLength: 64
-
-        - `type: :commit`
 
     - `mount_path: String`
 
@@ -27892,13 +28435,13 @@ Create Session
 
     Mount a file uploaded via the Files API into the session.
 
+    - `type: :file`
+
     - `file_id: String`
 
       ID of a previously uploaded file.
 
       minLength: 1, maxLength: 128
-
-    - `type: :file`
 
     - `mount_path: String`
 
@@ -27910,11 +28453,11 @@ Create Session
 
     Parameters for attaching a memory store to an agent session.
 
+    - `type: :memory_store`
+
     - `memory_store_id: String`
 
       The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
-
-    - `type: :memory_store`
 
     - `access: :read_write | :read_only`
 
@@ -27946,7 +28489,7 @@ Create Session
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 41 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 42 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -27994,6 +28537,8 @@ Create Session
 
     - `:"user-profiles-2026-08-18"`
 
+    - `:"user-profiles-2026-09-04"`
+
     - `:"advisor-tool-2026-03-01"`
 
     - `:"managed-agents-2026-04-01"`
@@ -28036,11 +28581,15 @@ Create Session
 
     - `:"mid-conversation-system-clear-at-2026-08-21"`
 
+- `workspace_id: String`
+
 #### Returns
 
 - `class BetaManagedAgentsSession`
 
   A Managed Agents `session`.
+
+  - `type: :session`
 
   - `id: String`
 
@@ -28048,15 +28597,17 @@ Create Session
 
     Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
 
+    - `type: :agent`
+
     - `id: String`
 
     - `description: String`
 
     - `mcp_servers: Array[BetaManagedAgentsMCPServerURLDefinition]`
 
-      - `name: String`
-
       - `type: :url`
+
+      - `name: String`
 
       - `url: String`
 
@@ -28184,6 +28735,8 @@ Create Session
 
       Resolved coordinator topology with full agent definitions for each roster member.
 
+      - `type: :coordinator`
+
       - `agents: Array[BetaManagedAgentsSessionThreadAgent | BetaManagedAgentsAdvisor]`
 
         Full `agent` definitions the coordinator may spawn as session threads.
@@ -28192,15 +28745,17 @@ Create Session
 
           Resolved `agent` definition for a single `session_thread`. Snapshot of the agent at thread creation time. The multiagent roster is not repeated here; read it from `Session.agent`.
 
+          - `type: :agent`
+
           - `id: String`
 
           - `description: String`
 
           - `mcp_servers: Array[BetaManagedAgentsMCPServerURLDefinition]`
 
-            - `name: String`
-
             - `type: :url`
+
+            - `name: String`
 
             - `url: String`
 
@@ -28216,9 +28771,9 @@ Create Session
 
               A resolved Anthropic-managed skill.
 
-              - `skill_id: String`
-
               - `type: :anthropic`
+
+              - `skill_id: String`
 
               - `version: String`
 
@@ -28226,9 +28781,9 @@ Create Session
 
               A resolved user-created custom skill.
 
-              - `skill_id: String`
-
               - `type: :custom`
+
+              - `skill_id: String`
 
               - `version: String`
 
@@ -28238,17 +28793,21 @@ Create Session
 
             - `class BetaManagedAgentsAgentToolset20260401`
 
+              - `type: :agent_toolset_20260401`
+
               - `configs: Array[BetaManagedAgentsAgentToolConfig]`
 
                 - `class BetaManagedAgentsBashToolConfig`
 
                   Configuration for the bash tool.
 
+                  - `type: :bash`
+
                   - `enabled: bool`
 
                   - `name: :bash`
 
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
                     Permission policy for tool execution.
 
@@ -28264,17 +28823,23 @@ Create Session
 
                       - `type: :always_ask`
 
-                  - `type: :bash`
+                    - `class BetaManagedAgentsAutoPolicy`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+                      - `type: :auto`
 
                 - `class BetaManagedAgentsEditToolConfig`
 
                   Configuration for the edit tool.
 
+                  - `type: :edit`
+
                   - `enabled: bool`
 
                   - `name: :edit`
 
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
                     Permission policy for tool execution.
 
@@ -28286,17 +28851,21 @@ Create Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `type: :edit`
+                    - `class BetaManagedAgentsAutoPolicy`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                 - `class BetaManagedAgentsReadToolConfig`
 
                   Configuration for the read tool.
 
+                  - `type: :read`
+
                   - `enabled: bool`
 
                   - `name: :read`
 
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
                     Permission policy for tool execution.
 
@@ -28308,17 +28877,21 @@ Create Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `type: :read`
+                    - `class BetaManagedAgentsAutoPolicy`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                 - `class BetaManagedAgentsWriteToolConfig`
 
                   Configuration for the write tool.
 
+                  - `type: :write`
+
                   - `enabled: bool`
 
                   - `name: :write`
 
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
                     Permission policy for tool execution.
 
@@ -28330,17 +28903,21 @@ Create Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `type: :write`
+                    - `class BetaManagedAgentsAutoPolicy`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                 - `class BetaManagedAgentsGlobToolConfig`
 
                   Configuration for the glob tool.
 
+                  - `type: :glob`
+
                   - `enabled: bool`
 
                   - `name: :glob`
 
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
                     Permission policy for tool execution.
 
@@ -28352,17 +28929,21 @@ Create Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `type: :glob`
+                    - `class BetaManagedAgentsAutoPolicy`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                 - `class BetaManagedAgentsGrepToolConfig`
 
                   Configuration for the grep tool.
 
+                  - `type: :grep`
+
                   - `enabled: bool`
 
                   - `name: :grep`
 
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
                     Permission policy for tool execution.
 
@@ -28374,17 +28955,21 @@ Create Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `type: :grep`
+                    - `class BetaManagedAgentsAutoPolicy`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                 - `class BetaManagedAgentsWebFetchToolConfig`
 
                   Configuration for the web_fetch tool.
 
+                  - `type: :web_fetch`
+
                   - `enabled: bool`
 
                   - `name: :web_fetch`
 
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
                     Permission policy for tool execution.
 
@@ -28396,7 +28981,9 @@ Create Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `type: :web_fetch`
+                    - `class BetaManagedAgentsAutoPolicy`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                   - `allowed_domains: Array[String]`
 
@@ -28410,11 +28997,13 @@ Create Session
 
                   Configuration for the web_search tool.
 
+                  - `type: :web_search`
+
                   - `enabled: bool`
 
                   - `name: :web_search`
 
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
                     Permission policy for tool execution.
 
@@ -28426,7 +29015,9 @@ Create Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `type: :web_search`
+                    - `class BetaManagedAgentsAutoPolicy`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                   - `allowed_domains: Array[String]`
 
@@ -28468,7 +29059,7 @@ Create Session
 
                 - `enabled: bool`
 
-                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
                   Permission policy for tool execution.
 
@@ -28480,9 +29071,13 @@ Create Session
 
                     Tool calls require user confirmation before execution.
 
-              - `type: :agent_toolset_20260401`
+                  - `class BetaManagedAgentsAutoPolicy`
+
+                    The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
             - `class BetaManagedAgentsMCPToolset`
+
+              - `type: :mcp_toolset`
 
               - `configs: Array[BetaManagedAgentsMCPToolConfig]`
 
@@ -28490,7 +29085,7 @@ Create Session
 
                 - `name: String`
 
-                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
                   Permission policy for tool execution.
 
@@ -28501,6 +29096,10 @@ Create Session
                   - `class BetaManagedAgentsAlwaysAskPolicy`
 
                     Tool calls require user confirmation before execution.
+
+                  - `class BetaManagedAgentsAutoPolicy`
+
+                    The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
               - `default_config: BetaManagedAgentsMCPToolsetDefaultConfig`
 
@@ -28508,7 +29107,7 @@ Create Session
 
                 - `enabled: bool`
 
-                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
                   Permission policy for tool execution.
 
@@ -28520,13 +29119,17 @@ Create Session
 
                     Tool calls require user confirmation before execution.
 
-              - `mcp_server_name: String`
+                  - `class BetaManagedAgentsAutoPolicy`
 
-              - `type: :mcp_toolset`
+                    The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+              - `mcp_server_name: String`
 
             - `class BetaManagedAgentsCustomTool`
 
               A custom tool as returned in API responses.
+
+              - `type: :custom`
 
               - `description: String`
 
@@ -28542,10 +29145,6 @@ Create Session
 
               - `name: String`
 
-              - `type: :custom`
-
-          - `type: :agent`
-
           - `version: Integer`
 
             format: int32
@@ -28554,13 +29153,11 @@ Create Session
 
           Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
 
+          - `type: :advisor`
+
           - `model: String`
 
             The advisor model id.
-
-          - `type: :advisor`
-
-      - `type: :coordinator`
 
     - `name: String`
 
@@ -28586,8 +29183,6 @@ Create Session
 
         A custom tool as returned in API responses.
 
-    - `type: :agent`
-
     - `version: Integer`
 
       format: int32
@@ -28602,6 +29197,8 @@ Create Session
 
     A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
 
+    - `type: :limit`
+
     - `max_list_cost: BetaMonetaryAmount`
 
       A monetary amount in a specific currency.
@@ -28613,8 +29210,6 @@ Create Session
       - `currency: BetaCurrency`
 
         Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
-
-    - `type: :limit`
 
   - `created_at: Time`
 
@@ -28629,6 +29224,8 @@ Create Session
   - `outcome_evaluations: Array[BetaManagedAgentsOutcomeEvaluationResource]`
 
     Per-outcome evaluation state. One entry per `define_outcome` event sent to the session.
+
+    - `type: :outcome_evaluation`
 
     - `completed_at: Time`
 
@@ -28658,11 +29255,11 @@ Create Session
 
       Current evaluation state. `pending` before the agent begins work; `running` while producing or revising; `evaluating` while the grader scores; `satisfied`/`max_iterations_reached`/`failed`/`interrupted` are terminal.
 
-    - `type: :outcome_evaluation`
-
   - `resources: Array[BetaManagedAgentsSessionResource]`
 
     - `class BetaManagedAgentsGitHubRepositoryResource`
+
+      - `type: :github_repository`
 
       - `id: String`
 
@@ -28673,8 +29270,6 @@ Create Session
         format: date-time
 
       - `mount_path: String`
-
-      - `type: :github_repository`
 
       - `updated_at: Time`
 
@@ -28688,15 +29283,17 @@ Create Session
 
         - `class BetaManagedAgentsBranchCheckout`
 
+          - `type: :branch`
+
           - `name: String`
 
             Branch name to check out.
 
             minLength: 1, maxLength: 255
 
-          - `type: :branch`
-
         - `class BetaManagedAgentsCommitCheckout`
+
+          - `type: :commit`
 
           - `sha: String`
 
@@ -28704,9 +29301,9 @@ Create Session
 
             minLength: 7, maxLength: 64
 
-          - `type: :commit`
-
     - `class BetaManagedAgentsFileResource`
+
+      - `type: :file`
 
       - `id: String`
 
@@ -28720,8 +29317,6 @@ Create Session
 
       - `mount_path: String`
 
-      - `type: :file`
-
       - `updated_at: Time`
 
         A timestamp in RFC 3339 format
@@ -28732,11 +29327,11 @@ Create Session
 
       A memory store attached to an agent session.
 
+      - `type: :memory_store`
+
       - `memory_store_id: String`
 
         The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
-
-      - `type: :memory_store`
 
       - `access: :read_write | :read_only`
 
@@ -28793,8 +29388,6 @@ Create Session
     - `:terminated`
 
   - `title: String`
-
-  - `type: :session`
 
   - `updated_at: Time`
 
@@ -29175,7 +29768,7 @@ List Sessions
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 41 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 42 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -29223,6 +29816,8 @@ List Sessions
 
     - `:"user-profiles-2026-08-18"`
 
+    - `:"user-profiles-2026-09-04"`
+
     - `:"advisor-tool-2026-03-01"`
 
     - `:"managed-agents-2026-04-01"`
@@ -29265,11 +29860,15 @@ List Sessions
 
     - `:"mid-conversation-system-clear-at-2026-08-21"`
 
+- `workspace_id: String`
+
 #### Returns
 
 - `class BetaManagedAgentsSession`
 
   A Managed Agents `session`.
+
+  - `type: :session`
 
   - `id: String`
 
@@ -29277,15 +29876,17 @@ List Sessions
 
     Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
 
+    - `type: :agent`
+
     - `id: String`
 
     - `description: String`
 
     - `mcp_servers: Array[BetaManagedAgentsMCPServerURLDefinition]`
 
-      - `name: String`
-
       - `type: :url`
+
+      - `name: String`
 
       - `url: String`
 
@@ -29413,6 +30014,8 @@ List Sessions
 
       Resolved coordinator topology with full agent definitions for each roster member.
 
+      - `type: :coordinator`
+
       - `agents: Array[BetaManagedAgentsSessionThreadAgent | BetaManagedAgentsAdvisor]`
 
         Full `agent` definitions the coordinator may spawn as session threads.
@@ -29421,15 +30024,17 @@ List Sessions
 
           Resolved `agent` definition for a single `session_thread`. Snapshot of the agent at thread creation time. The multiagent roster is not repeated here; read it from `Session.agent`.
 
+          - `type: :agent`
+
           - `id: String`
 
           - `description: String`
 
           - `mcp_servers: Array[BetaManagedAgentsMCPServerURLDefinition]`
 
-            - `name: String`
-
             - `type: :url`
+
+            - `name: String`
 
             - `url: String`
 
@@ -29445,9 +30050,9 @@ List Sessions
 
               A resolved Anthropic-managed skill.
 
-              - `skill_id: String`
-
               - `type: :anthropic`
+
+              - `skill_id: String`
 
               - `version: String`
 
@@ -29455,9 +30060,9 @@ List Sessions
 
               A resolved user-created custom skill.
 
-              - `skill_id: String`
-
               - `type: :custom`
+
+              - `skill_id: String`
 
               - `version: String`
 
@@ -29467,17 +30072,21 @@ List Sessions
 
             - `class BetaManagedAgentsAgentToolset20260401`
 
+              - `type: :agent_toolset_20260401`
+
               - `configs: Array[BetaManagedAgentsAgentToolConfig]`
 
                 - `class BetaManagedAgentsBashToolConfig`
 
                   Configuration for the bash tool.
 
+                  - `type: :bash`
+
                   - `enabled: bool`
 
                   - `name: :bash`
 
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
                     Permission policy for tool execution.
 
@@ -29493,17 +30102,23 @@ List Sessions
 
                       - `type: :always_ask`
 
-                  - `type: :bash`
+                    - `class BetaManagedAgentsAutoPolicy`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+                      - `type: :auto`
 
                 - `class BetaManagedAgentsEditToolConfig`
 
                   Configuration for the edit tool.
 
+                  - `type: :edit`
+
                   - `enabled: bool`
 
                   - `name: :edit`
 
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
                     Permission policy for tool execution.
 
@@ -29515,17 +30130,21 @@ List Sessions
 
                       Tool calls require user confirmation before execution.
 
-                  - `type: :edit`
+                    - `class BetaManagedAgentsAutoPolicy`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                 - `class BetaManagedAgentsReadToolConfig`
 
                   Configuration for the read tool.
 
+                  - `type: :read`
+
                   - `enabled: bool`
 
                   - `name: :read`
 
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
                     Permission policy for tool execution.
 
@@ -29537,17 +30156,21 @@ List Sessions
 
                       Tool calls require user confirmation before execution.
 
-                  - `type: :read`
+                    - `class BetaManagedAgentsAutoPolicy`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                 - `class BetaManagedAgentsWriteToolConfig`
 
                   Configuration for the write tool.
 
+                  - `type: :write`
+
                   - `enabled: bool`
 
                   - `name: :write`
 
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
                     Permission policy for tool execution.
 
@@ -29559,17 +30182,21 @@ List Sessions
 
                       Tool calls require user confirmation before execution.
 
-                  - `type: :write`
+                    - `class BetaManagedAgentsAutoPolicy`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                 - `class BetaManagedAgentsGlobToolConfig`
 
                   Configuration for the glob tool.
 
+                  - `type: :glob`
+
                   - `enabled: bool`
 
                   - `name: :glob`
 
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
                     Permission policy for tool execution.
 
@@ -29581,17 +30208,21 @@ List Sessions
 
                       Tool calls require user confirmation before execution.
 
-                  - `type: :glob`
+                    - `class BetaManagedAgentsAutoPolicy`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                 - `class BetaManagedAgentsGrepToolConfig`
 
                   Configuration for the grep tool.
 
+                  - `type: :grep`
+
                   - `enabled: bool`
 
                   - `name: :grep`
 
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
                     Permission policy for tool execution.
 
@@ -29603,17 +30234,21 @@ List Sessions
 
                       Tool calls require user confirmation before execution.
 
-                  - `type: :grep`
+                    - `class BetaManagedAgentsAutoPolicy`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                 - `class BetaManagedAgentsWebFetchToolConfig`
 
                   Configuration for the web_fetch tool.
 
+                  - `type: :web_fetch`
+
                   - `enabled: bool`
 
                   - `name: :web_fetch`
 
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
                     Permission policy for tool execution.
 
@@ -29625,7 +30260,9 @@ List Sessions
 
                       Tool calls require user confirmation before execution.
 
-                  - `type: :web_fetch`
+                    - `class BetaManagedAgentsAutoPolicy`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                   - `allowed_domains: Array[String]`
 
@@ -29639,11 +30276,13 @@ List Sessions
 
                   Configuration for the web_search tool.
 
+                  - `type: :web_search`
+
                   - `enabled: bool`
 
                   - `name: :web_search`
 
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
                     Permission policy for tool execution.
 
@@ -29655,7 +30294,9 @@ List Sessions
 
                       Tool calls require user confirmation before execution.
 
-                  - `type: :web_search`
+                    - `class BetaManagedAgentsAutoPolicy`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                   - `allowed_domains: Array[String]`
 
@@ -29697,7 +30338,7 @@ List Sessions
 
                 - `enabled: bool`
 
-                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
                   Permission policy for tool execution.
 
@@ -29709,9 +30350,13 @@ List Sessions
 
                     Tool calls require user confirmation before execution.
 
-              - `type: :agent_toolset_20260401`
+                  - `class BetaManagedAgentsAutoPolicy`
+
+                    The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
             - `class BetaManagedAgentsMCPToolset`
+
+              - `type: :mcp_toolset`
 
               - `configs: Array[BetaManagedAgentsMCPToolConfig]`
 
@@ -29719,7 +30364,7 @@ List Sessions
 
                 - `name: String`
 
-                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
                   Permission policy for tool execution.
 
@@ -29730,6 +30375,10 @@ List Sessions
                   - `class BetaManagedAgentsAlwaysAskPolicy`
 
                     Tool calls require user confirmation before execution.
+
+                  - `class BetaManagedAgentsAutoPolicy`
+
+                    The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
               - `default_config: BetaManagedAgentsMCPToolsetDefaultConfig`
 
@@ -29737,7 +30386,7 @@ List Sessions
 
                 - `enabled: bool`
 
-                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
                   Permission policy for tool execution.
 
@@ -29749,13 +30398,17 @@ List Sessions
 
                     Tool calls require user confirmation before execution.
 
-              - `mcp_server_name: String`
+                  - `class BetaManagedAgentsAutoPolicy`
 
-              - `type: :mcp_toolset`
+                    The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+              - `mcp_server_name: String`
 
             - `class BetaManagedAgentsCustomTool`
 
               A custom tool as returned in API responses.
+
+              - `type: :custom`
 
               - `description: String`
 
@@ -29771,10 +30424,6 @@ List Sessions
 
               - `name: String`
 
-              - `type: :custom`
-
-          - `type: :agent`
-
           - `version: Integer`
 
             format: int32
@@ -29783,13 +30432,11 @@ List Sessions
 
           Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
 
+          - `type: :advisor`
+
           - `model: String`
 
             The advisor model id.
-
-          - `type: :advisor`
-
-      - `type: :coordinator`
 
     - `name: String`
 
@@ -29815,8 +30462,6 @@ List Sessions
 
         A custom tool as returned in API responses.
 
-    - `type: :agent`
-
     - `version: Integer`
 
       format: int32
@@ -29831,6 +30476,8 @@ List Sessions
 
     A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
 
+    - `type: :limit`
+
     - `max_list_cost: BetaMonetaryAmount`
 
       A monetary amount in a specific currency.
@@ -29842,8 +30489,6 @@ List Sessions
       - `currency: BetaCurrency`
 
         Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
-
-    - `type: :limit`
 
   - `created_at: Time`
 
@@ -29858,6 +30503,8 @@ List Sessions
   - `outcome_evaluations: Array[BetaManagedAgentsOutcomeEvaluationResource]`
 
     Per-outcome evaluation state. One entry per `define_outcome` event sent to the session.
+
+    - `type: :outcome_evaluation`
 
     - `completed_at: Time`
 
@@ -29887,11 +30534,11 @@ List Sessions
 
       Current evaluation state. `pending` before the agent begins work; `running` while producing or revising; `evaluating` while the grader scores; `satisfied`/`max_iterations_reached`/`failed`/`interrupted` are terminal.
 
-    - `type: :outcome_evaluation`
-
   - `resources: Array[BetaManagedAgentsSessionResource]`
 
     - `class BetaManagedAgentsGitHubRepositoryResource`
+
+      - `type: :github_repository`
 
       - `id: String`
 
@@ -29902,8 +30549,6 @@ List Sessions
         format: date-time
 
       - `mount_path: String`
-
-      - `type: :github_repository`
 
       - `updated_at: Time`
 
@@ -29917,15 +30562,17 @@ List Sessions
 
         - `class BetaManagedAgentsBranchCheckout`
 
+          - `type: :branch`
+
           - `name: String`
 
             Branch name to check out.
 
             minLength: 1, maxLength: 255
 
-          - `type: :branch`
-
         - `class BetaManagedAgentsCommitCheckout`
+
+          - `type: :commit`
 
           - `sha: String`
 
@@ -29933,9 +30580,9 @@ List Sessions
 
             minLength: 7, maxLength: 64
 
-          - `type: :commit`
-
     - `class BetaManagedAgentsFileResource`
+
+      - `type: :file`
 
       - `id: String`
 
@@ -29949,8 +30596,6 @@ List Sessions
 
       - `mount_path: String`
 
-      - `type: :file`
-
       - `updated_at: Time`
 
         A timestamp in RFC 3339 format
@@ -29961,11 +30606,11 @@ List Sessions
 
       A memory store attached to an agent session.
 
+      - `type: :memory_store`
+
       - `memory_store_id: String`
 
         The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
-
-      - `type: :memory_store`
 
       - `access: :read_write | :read_only`
 
@@ -30022,8 +30667,6 @@ List Sessions
     - `:terminated`
 
   - `title: String`
-
-  - `type: :session`
 
   - `updated_at: Time`
 
@@ -30333,7 +30976,7 @@ Get Session
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 41 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 42 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -30381,6 +31024,8 @@ Get Session
 
     - `:"user-profiles-2026-08-18"`
 
+    - `:"user-profiles-2026-09-04"`
+
     - `:"advisor-tool-2026-03-01"`
 
     - `:"managed-agents-2026-04-01"`
@@ -30423,11 +31068,15 @@ Get Session
 
     - `:"mid-conversation-system-clear-at-2026-08-21"`
 
+- `workspace_id: String`
+
 #### Returns
 
 - `class BetaManagedAgentsSession`
 
   A Managed Agents `session`.
+
+  - `type: :session`
 
   - `id: String`
 
@@ -30435,15 +31084,17 @@ Get Session
 
     Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
 
+    - `type: :agent`
+
     - `id: String`
 
     - `description: String`
 
     - `mcp_servers: Array[BetaManagedAgentsMCPServerURLDefinition]`
 
-      - `name: String`
-
       - `type: :url`
+
+      - `name: String`
 
       - `url: String`
 
@@ -30571,6 +31222,8 @@ Get Session
 
       Resolved coordinator topology with full agent definitions for each roster member.
 
+      - `type: :coordinator`
+
       - `agents: Array[BetaManagedAgentsSessionThreadAgent | BetaManagedAgentsAdvisor]`
 
         Full `agent` definitions the coordinator may spawn as session threads.
@@ -30579,15 +31232,17 @@ Get Session
 
           Resolved `agent` definition for a single `session_thread`. Snapshot of the agent at thread creation time. The multiagent roster is not repeated here; read it from `Session.agent`.
 
+          - `type: :agent`
+
           - `id: String`
 
           - `description: String`
 
           - `mcp_servers: Array[BetaManagedAgentsMCPServerURLDefinition]`
 
-            - `name: String`
-
             - `type: :url`
+
+            - `name: String`
 
             - `url: String`
 
@@ -30603,9 +31258,9 @@ Get Session
 
               A resolved Anthropic-managed skill.
 
-              - `skill_id: String`
-
               - `type: :anthropic`
+
+              - `skill_id: String`
 
               - `version: String`
 
@@ -30613,9 +31268,9 @@ Get Session
 
               A resolved user-created custom skill.
 
-              - `skill_id: String`
-
               - `type: :custom`
+
+              - `skill_id: String`
 
               - `version: String`
 
@@ -30625,17 +31280,21 @@ Get Session
 
             - `class BetaManagedAgentsAgentToolset20260401`
 
+              - `type: :agent_toolset_20260401`
+
               - `configs: Array[BetaManagedAgentsAgentToolConfig]`
 
                 - `class BetaManagedAgentsBashToolConfig`
 
                   Configuration for the bash tool.
 
+                  - `type: :bash`
+
                   - `enabled: bool`
 
                   - `name: :bash`
 
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
                     Permission policy for tool execution.
 
@@ -30651,17 +31310,23 @@ Get Session
 
                       - `type: :always_ask`
 
-                  - `type: :bash`
+                    - `class BetaManagedAgentsAutoPolicy`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+                      - `type: :auto`
 
                 - `class BetaManagedAgentsEditToolConfig`
 
                   Configuration for the edit tool.
 
+                  - `type: :edit`
+
                   - `enabled: bool`
 
                   - `name: :edit`
 
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
                     Permission policy for tool execution.
 
@@ -30673,17 +31338,21 @@ Get Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `type: :edit`
+                    - `class BetaManagedAgentsAutoPolicy`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                 - `class BetaManagedAgentsReadToolConfig`
 
                   Configuration for the read tool.
 
+                  - `type: :read`
+
                   - `enabled: bool`
 
                   - `name: :read`
 
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
                     Permission policy for tool execution.
 
@@ -30695,17 +31364,21 @@ Get Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `type: :read`
+                    - `class BetaManagedAgentsAutoPolicy`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                 - `class BetaManagedAgentsWriteToolConfig`
 
                   Configuration for the write tool.
 
+                  - `type: :write`
+
                   - `enabled: bool`
 
                   - `name: :write`
 
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
                     Permission policy for tool execution.
 
@@ -30717,17 +31390,21 @@ Get Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `type: :write`
+                    - `class BetaManagedAgentsAutoPolicy`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                 - `class BetaManagedAgentsGlobToolConfig`
 
                   Configuration for the glob tool.
 
+                  - `type: :glob`
+
                   - `enabled: bool`
 
                   - `name: :glob`
 
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
                     Permission policy for tool execution.
 
@@ -30739,17 +31416,21 @@ Get Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `type: :glob`
+                    - `class BetaManagedAgentsAutoPolicy`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                 - `class BetaManagedAgentsGrepToolConfig`
 
                   Configuration for the grep tool.
 
+                  - `type: :grep`
+
                   - `enabled: bool`
 
                   - `name: :grep`
 
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
                     Permission policy for tool execution.
 
@@ -30761,17 +31442,21 @@ Get Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `type: :grep`
+                    - `class BetaManagedAgentsAutoPolicy`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                 - `class BetaManagedAgentsWebFetchToolConfig`
 
                   Configuration for the web_fetch tool.
 
+                  - `type: :web_fetch`
+
                   - `enabled: bool`
 
                   - `name: :web_fetch`
 
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
                     Permission policy for tool execution.
 
@@ -30783,7 +31468,9 @@ Get Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `type: :web_fetch`
+                    - `class BetaManagedAgentsAutoPolicy`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                   - `allowed_domains: Array[String]`
 
@@ -30797,11 +31484,13 @@ Get Session
 
                   Configuration for the web_search tool.
 
+                  - `type: :web_search`
+
                   - `enabled: bool`
 
                   - `name: :web_search`
 
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
                     Permission policy for tool execution.
 
@@ -30813,7 +31502,9 @@ Get Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `type: :web_search`
+                    - `class BetaManagedAgentsAutoPolicy`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                   - `allowed_domains: Array[String]`
 
@@ -30855,7 +31546,7 @@ Get Session
 
                 - `enabled: bool`
 
-                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
                   Permission policy for tool execution.
 
@@ -30867,9 +31558,13 @@ Get Session
 
                     Tool calls require user confirmation before execution.
 
-              - `type: :agent_toolset_20260401`
+                  - `class BetaManagedAgentsAutoPolicy`
+
+                    The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
             - `class BetaManagedAgentsMCPToolset`
+
+              - `type: :mcp_toolset`
 
               - `configs: Array[BetaManagedAgentsMCPToolConfig]`
 
@@ -30877,7 +31572,7 @@ Get Session
 
                 - `name: String`
 
-                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
                   Permission policy for tool execution.
 
@@ -30888,6 +31583,10 @@ Get Session
                   - `class BetaManagedAgentsAlwaysAskPolicy`
 
                     Tool calls require user confirmation before execution.
+
+                  - `class BetaManagedAgentsAutoPolicy`
+
+                    The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
               - `default_config: BetaManagedAgentsMCPToolsetDefaultConfig`
 
@@ -30895,7 +31594,7 @@ Get Session
 
                 - `enabled: bool`
 
-                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
                   Permission policy for tool execution.
 
@@ -30907,13 +31606,17 @@ Get Session
 
                     Tool calls require user confirmation before execution.
 
-              - `mcp_server_name: String`
+                  - `class BetaManagedAgentsAutoPolicy`
 
-              - `type: :mcp_toolset`
+                    The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+              - `mcp_server_name: String`
 
             - `class BetaManagedAgentsCustomTool`
 
               A custom tool as returned in API responses.
+
+              - `type: :custom`
 
               - `description: String`
 
@@ -30929,10 +31632,6 @@ Get Session
 
               - `name: String`
 
-              - `type: :custom`
-
-          - `type: :agent`
-
           - `version: Integer`
 
             format: int32
@@ -30941,13 +31640,11 @@ Get Session
 
           Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
 
+          - `type: :advisor`
+
           - `model: String`
 
             The advisor model id.
-
-          - `type: :advisor`
-
-      - `type: :coordinator`
 
     - `name: String`
 
@@ -30973,8 +31670,6 @@ Get Session
 
         A custom tool as returned in API responses.
 
-    - `type: :agent`
-
     - `version: Integer`
 
       format: int32
@@ -30989,6 +31684,8 @@ Get Session
 
     A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
 
+    - `type: :limit`
+
     - `max_list_cost: BetaMonetaryAmount`
 
       A monetary amount in a specific currency.
@@ -31000,8 +31697,6 @@ Get Session
       - `currency: BetaCurrency`
 
         Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
-
-    - `type: :limit`
 
   - `created_at: Time`
 
@@ -31016,6 +31711,8 @@ Get Session
   - `outcome_evaluations: Array[BetaManagedAgentsOutcomeEvaluationResource]`
 
     Per-outcome evaluation state. One entry per `define_outcome` event sent to the session.
+
+    - `type: :outcome_evaluation`
 
     - `completed_at: Time`
 
@@ -31045,11 +31742,11 @@ Get Session
 
       Current evaluation state. `pending` before the agent begins work; `running` while producing or revising; `evaluating` while the grader scores; `satisfied`/`max_iterations_reached`/`failed`/`interrupted` are terminal.
 
-    - `type: :outcome_evaluation`
-
   - `resources: Array[BetaManagedAgentsSessionResource]`
 
     - `class BetaManagedAgentsGitHubRepositoryResource`
+
+      - `type: :github_repository`
 
       - `id: String`
 
@@ -31060,8 +31757,6 @@ Get Session
         format: date-time
 
       - `mount_path: String`
-
-      - `type: :github_repository`
 
       - `updated_at: Time`
 
@@ -31075,15 +31770,17 @@ Get Session
 
         - `class BetaManagedAgentsBranchCheckout`
 
+          - `type: :branch`
+
           - `name: String`
 
             Branch name to check out.
 
             minLength: 1, maxLength: 255
 
-          - `type: :branch`
-
         - `class BetaManagedAgentsCommitCheckout`
+
+          - `type: :commit`
 
           - `sha: String`
 
@@ -31091,9 +31788,9 @@ Get Session
 
             minLength: 7, maxLength: 64
 
-          - `type: :commit`
-
     - `class BetaManagedAgentsFileResource`
+
+      - `type: :file`
 
       - `id: String`
 
@@ -31107,8 +31804,6 @@ Get Session
 
       - `mount_path: String`
 
-      - `type: :file`
-
       - `updated_at: Time`
 
         A timestamp in RFC 3339 format
@@ -31119,11 +31814,11 @@ Get Session
 
       A memory store attached to an agent session.
 
+      - `type: :memory_store`
+
       - `memory_store_id: String`
 
         The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
-
-      - `type: :memory_store`
 
       - `access: :read_write | :read_only`
 
@@ -31180,8 +31875,6 @@ Get Session
     - `:terminated`
 
   - `title: String`
-
-  - `type: :session`
 
   - `updated_at: Time`
 
@@ -31487,13 +32180,13 @@ Update Session
 
     Replacement MCP server list. Full replacement: the provided array becomes the new value. Send an empty array to clear; omit to preserve.
 
+    - `type: :url`
+
     - `name: String`
 
       Unique name for this server, referenced by mcp_toolset configurations. 1-255 characters.
 
       minLength: 1, maxLength: 255
-
-    - `type: :url`
 
     - `url: String`
 
@@ -31519,6 +32212,8 @@ Update Session
 
           Configuration override for the bash tool.
 
+          - `type: :bash`
+
           - `name: :bash`
 
             Must be "bash".
@@ -31527,7 +32222,7 @@ Update Session
 
             Whether this tool is enabled and available to Claude. Overrides the default_config setting.
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -31543,11 +32238,17 @@ Update Session
 
               - `type: :always_ask`
 
-          - `type: :bash`
+            - `class BetaManagedAgentsAutoPolicy`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+              - `type: :auto`
 
         - `class BetaManagedAgentsEditToolConfigParams`
 
           Configuration override for the edit tool.
+
+          - `type: :edit`
 
           - `name: :edit`
 
@@ -31557,7 +32258,7 @@ Update Session
 
             Whether this tool is enabled and available to Claude. Overrides the default_config setting.
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -31569,11 +32270,15 @@ Update Session
 
               Tool calls require user confirmation before execution.
 
-          - `type: :edit`
+            - `class BetaManagedAgentsAutoPolicy`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `class BetaManagedAgentsReadToolConfigParams`
 
           Configuration override for the read tool.
+
+          - `type: :read`
 
           - `name: :read`
 
@@ -31583,7 +32288,7 @@ Update Session
 
             Whether this tool is enabled and available to Claude. Overrides the default_config setting.
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -31595,11 +32300,15 @@ Update Session
 
               Tool calls require user confirmation before execution.
 
-          - `type: :read`
+            - `class BetaManagedAgentsAutoPolicy`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `class BetaManagedAgentsWriteToolConfigParams`
 
           Configuration override for the write tool.
+
+          - `type: :write`
 
           - `name: :write`
 
@@ -31609,7 +32318,7 @@ Update Session
 
             Whether this tool is enabled and available to Claude. Overrides the default_config setting.
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -31621,11 +32330,15 @@ Update Session
 
               Tool calls require user confirmation before execution.
 
-          - `type: :write`
+            - `class BetaManagedAgentsAutoPolicy`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `class BetaManagedAgentsGlobToolConfigParams`
 
           Configuration override for the glob tool.
+
+          - `type: :glob`
 
           - `name: :glob`
 
@@ -31635,7 +32348,7 @@ Update Session
 
             Whether this tool is enabled and available to Claude. Overrides the default_config setting.
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -31647,11 +32360,15 @@ Update Session
 
               Tool calls require user confirmation before execution.
 
-          - `type: :glob`
+            - `class BetaManagedAgentsAutoPolicy`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `class BetaManagedAgentsGrepToolConfigParams`
 
           Configuration override for the grep tool.
+
+          - `type: :grep`
 
           - `name: :grep`
 
@@ -31661,7 +32378,7 @@ Update Session
 
             Whether this tool is enabled and available to Claude. Overrides the default_config setting.
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -31673,11 +32390,15 @@ Update Session
 
               Tool calls require user confirmation before execution.
 
-          - `type: :grep`
+            - `class BetaManagedAgentsAutoPolicy`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `class BetaManagedAgentsWebFetchToolConfigParams`
 
           Configuration override for the web_fetch tool.
+
+          - `type: :web_fetch`
 
           - `name: :web_fetch`
 
@@ -31701,7 +32422,7 @@ Update Session
 
             format: int32
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -31713,11 +32434,15 @@ Update Session
 
               Tool calls require user confirmation before execution.
 
-          - `type: :web_fetch`
+            - `class BetaManagedAgentsAutoPolicy`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `class BetaManagedAgentsWebSearchToolConfigParams`
 
           Configuration override for the web_search tool.
+
+          - `type: :web_search`
 
           - `name: :web_search`
 
@@ -31735,7 +32460,7 @@ Update Session
 
             Whether this tool is enabled and available to Claude. Overrides the default_config setting.
 
-          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
             Permission policy for tool execution.
 
@@ -31747,7 +32472,9 @@ Update Session
 
               Tool calls require user confirmation before execution.
 
-          - `type: :web_search`
+            - `class BetaManagedAgentsAutoPolicy`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
           - `user_location: BetaManagedAgentsUserLocation`
 
@@ -31787,7 +32514,7 @@ Update Session
 
           Whether tools are enabled and available to Claude by default. Defaults to true if not specified.
 
-        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
           Permission policy for tool execution.
 
@@ -31799,17 +32526,21 @@ Update Session
 
             Tool calls require user confirmation before execution.
 
+          - `class BetaManagedAgentsAutoPolicy`
+
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
     - `class BetaManagedAgentsMCPToolsetParams`
 
       Configuration for tools from an MCP server defined in `mcp_servers`.
+
+      - `type: :mcp_toolset`
 
       - `mcp_server_name: String`
 
         Name of the MCP server. Must match a server name from the mcp_servers array. 1-255 characters.
 
         minLength: 1, maxLength: 255
-
-      - `type: :mcp_toolset`
 
       - `configs: Array[BetaManagedAgentsMCPToolConfigParams]`
 
@@ -31825,7 +32556,7 @@ Update Session
 
           Whether this tool is enabled. Overrides the `default_config` setting.
 
-        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
           Permission policy for tool execution.
 
@@ -31836,6 +32567,10 @@ Update Session
           - `class BetaManagedAgentsAlwaysAskPolicy`
 
             Tool calls require user confirmation before execution.
+
+          - `class BetaManagedAgentsAutoPolicy`
+
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
       - `default_config: BetaManagedAgentsMCPToolsetDefaultConfigParams`
 
@@ -31845,7 +32580,7 @@ Update Session
 
           Whether tools are enabled by default. Defaults to true if not specified.
 
-        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
           Permission policy for tool execution.
 
@@ -31857,9 +32592,15 @@ Update Session
 
             Tool calls require user confirmation before execution.
 
+          - `class BetaManagedAgentsAutoPolicy`
+
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
     - `class BetaManagedAgentsCustomToolParams`
 
       A custom tool that is executed by the API client rather than the agent. When the agent calls this tool, an `agent.custom_tool_use` event is emitted and the session goes idle, waiting for the client to provide the result via a `user.custom_tool_result` event.
+
+      - `type: :custom`
 
       - `description: String`
 
@@ -31883,11 +32624,11 @@ Update Session
 
         minLength: 1, maxLength: 128
 
-      - `type: :custom`
-
 - `budget: BetaManagedAgentsBudgetLimit`
 
   A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+
+  - `type: :limit`
 
   - `max_list_cost: BetaMonetaryAmount`
 
@@ -31900,8 +32641,6 @@ Update Session
     - `currency: BetaCurrency`
 
       Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
-
-  - `type: :limit`
 
 - `metadata: Hash[Symbol, String]`
 
@@ -31923,7 +32662,7 @@ Update Session
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 41 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 42 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -31971,6 +32710,8 @@ Update Session
 
     - `:"user-profiles-2026-08-18"`
 
+    - `:"user-profiles-2026-09-04"`
+
     - `:"advisor-tool-2026-03-01"`
 
     - `:"managed-agents-2026-04-01"`
@@ -32013,11 +32754,15 @@ Update Session
 
     - `:"mid-conversation-system-clear-at-2026-08-21"`
 
+- `workspace_id: String`
+
 #### Returns
 
 - `class BetaManagedAgentsSession`
 
   A Managed Agents `session`.
+
+  - `type: :session`
 
   - `id: String`
 
@@ -32025,15 +32770,17 @@ Update Session
 
     Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
 
+    - `type: :agent`
+
     - `id: String`
 
     - `description: String`
 
     - `mcp_servers: Array[BetaManagedAgentsMCPServerURLDefinition]`
 
-      - `name: String`
-
       - `type: :url`
+
+      - `name: String`
 
       - `url: String`
 
@@ -32161,6 +32908,8 @@ Update Session
 
       Resolved coordinator topology with full agent definitions for each roster member.
 
+      - `type: :coordinator`
+
       - `agents: Array[BetaManagedAgentsSessionThreadAgent | BetaManagedAgentsAdvisor]`
 
         Full `agent` definitions the coordinator may spawn as session threads.
@@ -32169,15 +32918,17 @@ Update Session
 
           Resolved `agent` definition for a single `session_thread`. Snapshot of the agent at thread creation time. The multiagent roster is not repeated here; read it from `Session.agent`.
 
+          - `type: :agent`
+
           - `id: String`
 
           - `description: String`
 
           - `mcp_servers: Array[BetaManagedAgentsMCPServerURLDefinition]`
 
-            - `name: String`
-
             - `type: :url`
+
+            - `name: String`
 
             - `url: String`
 
@@ -32193,9 +32944,9 @@ Update Session
 
               A resolved Anthropic-managed skill.
 
-              - `skill_id: String`
-
               - `type: :anthropic`
+
+              - `skill_id: String`
 
               - `version: String`
 
@@ -32203,9 +32954,9 @@ Update Session
 
               A resolved user-created custom skill.
 
-              - `skill_id: String`
-
               - `type: :custom`
+
+              - `skill_id: String`
 
               - `version: String`
 
@@ -32215,17 +32966,21 @@ Update Session
 
             - `class BetaManagedAgentsAgentToolset20260401`
 
+              - `type: :agent_toolset_20260401`
+
               - `configs: Array[BetaManagedAgentsAgentToolConfig]`
 
                 - `class BetaManagedAgentsBashToolConfig`
 
                   Configuration for the bash tool.
 
+                  - `type: :bash`
+
                   - `enabled: bool`
 
                   - `name: :bash`
 
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
                     Permission policy for tool execution.
 
@@ -32241,17 +32996,23 @@ Update Session
 
                       - `type: :always_ask`
 
-                  - `type: :bash`
+                    - `class BetaManagedAgentsAutoPolicy`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+                      - `type: :auto`
 
                 - `class BetaManagedAgentsEditToolConfig`
 
                   Configuration for the edit tool.
 
+                  - `type: :edit`
+
                   - `enabled: bool`
 
                   - `name: :edit`
 
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
                     Permission policy for tool execution.
 
@@ -32263,17 +33024,21 @@ Update Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `type: :edit`
+                    - `class BetaManagedAgentsAutoPolicy`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                 - `class BetaManagedAgentsReadToolConfig`
 
                   Configuration for the read tool.
 
+                  - `type: :read`
+
                   - `enabled: bool`
 
                   - `name: :read`
 
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
                     Permission policy for tool execution.
 
@@ -32285,17 +33050,21 @@ Update Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `type: :read`
+                    - `class BetaManagedAgentsAutoPolicy`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                 - `class BetaManagedAgentsWriteToolConfig`
 
                   Configuration for the write tool.
 
+                  - `type: :write`
+
                   - `enabled: bool`
 
                   - `name: :write`
 
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
                     Permission policy for tool execution.
 
@@ -32307,17 +33076,21 @@ Update Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `type: :write`
+                    - `class BetaManagedAgentsAutoPolicy`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                 - `class BetaManagedAgentsGlobToolConfig`
 
                   Configuration for the glob tool.
 
+                  - `type: :glob`
+
                   - `enabled: bool`
 
                   - `name: :glob`
 
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
                     Permission policy for tool execution.
 
@@ -32329,17 +33102,21 @@ Update Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `type: :glob`
+                    - `class BetaManagedAgentsAutoPolicy`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                 - `class BetaManagedAgentsGrepToolConfig`
 
                   Configuration for the grep tool.
 
+                  - `type: :grep`
+
                   - `enabled: bool`
 
                   - `name: :grep`
 
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
                     Permission policy for tool execution.
 
@@ -32351,17 +33128,21 @@ Update Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `type: :grep`
+                    - `class BetaManagedAgentsAutoPolicy`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                 - `class BetaManagedAgentsWebFetchToolConfig`
 
                   Configuration for the web_fetch tool.
 
+                  - `type: :web_fetch`
+
                   - `enabled: bool`
 
                   - `name: :web_fetch`
 
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
                     Permission policy for tool execution.
 
@@ -32373,7 +33154,9 @@ Update Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `type: :web_fetch`
+                    - `class BetaManagedAgentsAutoPolicy`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                   - `allowed_domains: Array[String]`
 
@@ -32387,11 +33170,13 @@ Update Session
 
                   Configuration for the web_search tool.
 
+                  - `type: :web_search`
+
                   - `enabled: bool`
 
                   - `name: :web_search`
 
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
                     Permission policy for tool execution.
 
@@ -32403,7 +33188,9 @@ Update Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `type: :web_search`
+                    - `class BetaManagedAgentsAutoPolicy`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                   - `allowed_domains: Array[String]`
 
@@ -32445,7 +33232,7 @@ Update Session
 
                 - `enabled: bool`
 
-                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
                   Permission policy for tool execution.
 
@@ -32457,9 +33244,13 @@ Update Session
 
                     Tool calls require user confirmation before execution.
 
-              - `type: :agent_toolset_20260401`
+                  - `class BetaManagedAgentsAutoPolicy`
+
+                    The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
             - `class BetaManagedAgentsMCPToolset`
+
+              - `type: :mcp_toolset`
 
               - `configs: Array[BetaManagedAgentsMCPToolConfig]`
 
@@ -32467,7 +33258,7 @@ Update Session
 
                 - `name: String`
 
-                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
                   Permission policy for tool execution.
 
@@ -32478,6 +33269,10 @@ Update Session
                   - `class BetaManagedAgentsAlwaysAskPolicy`
 
                     Tool calls require user confirmation before execution.
+
+                  - `class BetaManagedAgentsAutoPolicy`
+
+                    The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
               - `default_config: BetaManagedAgentsMCPToolsetDefaultConfig`
 
@@ -32485,7 +33280,7 @@ Update Session
 
                 - `enabled: bool`
 
-                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
                   Permission policy for tool execution.
 
@@ -32497,13 +33292,17 @@ Update Session
 
                     Tool calls require user confirmation before execution.
 
-              - `mcp_server_name: String`
+                  - `class BetaManagedAgentsAutoPolicy`
 
-              - `type: :mcp_toolset`
+                    The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+              - `mcp_server_name: String`
 
             - `class BetaManagedAgentsCustomTool`
 
               A custom tool as returned in API responses.
+
+              - `type: :custom`
 
               - `description: String`
 
@@ -32519,10 +33318,6 @@ Update Session
 
               - `name: String`
 
-              - `type: :custom`
-
-          - `type: :agent`
-
           - `version: Integer`
 
             format: int32
@@ -32531,13 +33326,11 @@ Update Session
 
           Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
 
+          - `type: :advisor`
+
           - `model: String`
 
             The advisor model id.
-
-          - `type: :advisor`
-
-      - `type: :coordinator`
 
     - `name: String`
 
@@ -32563,8 +33356,6 @@ Update Session
 
         A custom tool as returned in API responses.
 
-    - `type: :agent`
-
     - `version: Integer`
 
       format: int32
@@ -32579,6 +33370,8 @@ Update Session
 
     A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
 
+    - `type: :limit`
+
     - `max_list_cost: BetaMonetaryAmount`
 
       A monetary amount in a specific currency.
@@ -32590,8 +33383,6 @@ Update Session
       - `currency: BetaCurrency`
 
         Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
-
-    - `type: :limit`
 
   - `created_at: Time`
 
@@ -32606,6 +33397,8 @@ Update Session
   - `outcome_evaluations: Array[BetaManagedAgentsOutcomeEvaluationResource]`
 
     Per-outcome evaluation state. One entry per `define_outcome` event sent to the session.
+
+    - `type: :outcome_evaluation`
 
     - `completed_at: Time`
 
@@ -32635,11 +33428,11 @@ Update Session
 
       Current evaluation state. `pending` before the agent begins work; `running` while producing or revising; `evaluating` while the grader scores; `satisfied`/`max_iterations_reached`/`failed`/`interrupted` are terminal.
 
-    - `type: :outcome_evaluation`
-
   - `resources: Array[BetaManagedAgentsSessionResource]`
 
     - `class BetaManagedAgentsGitHubRepositoryResource`
+
+      - `type: :github_repository`
 
       - `id: String`
 
@@ -32650,8 +33443,6 @@ Update Session
         format: date-time
 
       - `mount_path: String`
-
-      - `type: :github_repository`
 
       - `updated_at: Time`
 
@@ -32665,15 +33456,17 @@ Update Session
 
         - `class BetaManagedAgentsBranchCheckout`
 
+          - `type: :branch`
+
           - `name: String`
 
             Branch name to check out.
 
             minLength: 1, maxLength: 255
 
-          - `type: :branch`
-
         - `class BetaManagedAgentsCommitCheckout`
+
+          - `type: :commit`
 
           - `sha: String`
 
@@ -32681,9 +33474,9 @@ Update Session
 
             minLength: 7, maxLength: 64
 
-          - `type: :commit`
-
     - `class BetaManagedAgentsFileResource`
+
+      - `type: :file`
 
       - `id: String`
 
@@ -32697,8 +33490,6 @@ Update Session
 
       - `mount_path: String`
 
-      - `type: :file`
-
       - `updated_at: Time`
 
         A timestamp in RFC 3339 format
@@ -32709,11 +33500,11 @@ Update Session
 
       A memory store attached to an agent session.
 
+      - `type: :memory_store`
+
       - `memory_store_id: String`
 
         The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
-
-      - `type: :memory_store`
 
       - `access: :read_write | :read_only`
 
@@ -32770,8 +33561,6 @@ Update Session
     - `:terminated`
 
   - `title: String`
-
-  - `type: :session`
 
   - `updated_at: Time`
 
@@ -33075,7 +33864,7 @@ Delete Session
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 41 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 42 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -33123,6 +33912,8 @@ Delete Session
 
     - `:"user-profiles-2026-08-18"`
 
+    - `:"user-profiles-2026-09-04"`
+
     - `:"advisor-tool-2026-03-01"`
 
     - `:"managed-agents-2026-04-01"`
@@ -33165,15 +33956,17 @@ Delete Session
 
     - `:"mid-conversation-system-clear-at-2026-08-21"`
 
+- `workspace_id: String`
+
 #### Returns
 
 - `class BetaManagedAgentsDeletedSession`
 
   Confirmation that a `session` has been permanently deleted.
 
-  - `id: String`
-
   - `type: :session_deleted`
+
+  - `id: String`
 
 #### Example
 
@@ -33214,7 +34007,7 @@ Archive Session
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 41 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 42 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -33262,6 +34055,8 @@ Archive Session
 
     - `:"user-profiles-2026-08-18"`
 
+    - `:"user-profiles-2026-09-04"`
+
     - `:"advisor-tool-2026-03-01"`
 
     - `:"managed-agents-2026-04-01"`
@@ -33304,11 +34099,15 @@ Archive Session
 
     - `:"mid-conversation-system-clear-at-2026-08-21"`
 
+- `workspace_id: String`
+
 #### Returns
 
 - `class BetaManagedAgentsSession`
 
   A Managed Agents `session`.
+
+  - `type: :session`
 
   - `id: String`
 
@@ -33316,15 +34115,17 @@ Archive Session
 
     Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
 
+    - `type: :agent`
+
     - `id: String`
 
     - `description: String`
 
     - `mcp_servers: Array[BetaManagedAgentsMCPServerURLDefinition]`
 
-      - `name: String`
-
       - `type: :url`
+
+      - `name: String`
 
       - `url: String`
 
@@ -33452,6 +34253,8 @@ Archive Session
 
       Resolved coordinator topology with full agent definitions for each roster member.
 
+      - `type: :coordinator`
+
       - `agents: Array[BetaManagedAgentsSessionThreadAgent | BetaManagedAgentsAdvisor]`
 
         Full `agent` definitions the coordinator may spawn as session threads.
@@ -33460,15 +34263,17 @@ Archive Session
 
           Resolved `agent` definition for a single `session_thread`. Snapshot of the agent at thread creation time. The multiagent roster is not repeated here; read it from `Session.agent`.
 
+          - `type: :agent`
+
           - `id: String`
 
           - `description: String`
 
           - `mcp_servers: Array[BetaManagedAgentsMCPServerURLDefinition]`
 
-            - `name: String`
-
             - `type: :url`
+
+            - `name: String`
 
             - `url: String`
 
@@ -33484,9 +34289,9 @@ Archive Session
 
               A resolved Anthropic-managed skill.
 
-              - `skill_id: String`
-
               - `type: :anthropic`
+
+              - `skill_id: String`
 
               - `version: String`
 
@@ -33494,9 +34299,9 @@ Archive Session
 
               A resolved user-created custom skill.
 
-              - `skill_id: String`
-
               - `type: :custom`
+
+              - `skill_id: String`
 
               - `version: String`
 
@@ -33506,17 +34311,21 @@ Archive Session
 
             - `class BetaManagedAgentsAgentToolset20260401`
 
+              - `type: :agent_toolset_20260401`
+
               - `configs: Array[BetaManagedAgentsAgentToolConfig]`
 
                 - `class BetaManagedAgentsBashToolConfig`
 
                   Configuration for the bash tool.
 
+                  - `type: :bash`
+
                   - `enabled: bool`
 
                   - `name: :bash`
 
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
                     Permission policy for tool execution.
 
@@ -33532,17 +34341,23 @@ Archive Session
 
                       - `type: :always_ask`
 
-                  - `type: :bash`
+                    - `class BetaManagedAgentsAutoPolicy`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+                      - `type: :auto`
 
                 - `class BetaManagedAgentsEditToolConfig`
 
                   Configuration for the edit tool.
 
+                  - `type: :edit`
+
                   - `enabled: bool`
 
                   - `name: :edit`
 
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
                     Permission policy for tool execution.
 
@@ -33554,17 +34369,21 @@ Archive Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `type: :edit`
+                    - `class BetaManagedAgentsAutoPolicy`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                 - `class BetaManagedAgentsReadToolConfig`
 
                   Configuration for the read tool.
 
+                  - `type: :read`
+
                   - `enabled: bool`
 
                   - `name: :read`
 
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
                     Permission policy for tool execution.
 
@@ -33576,17 +34395,21 @@ Archive Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `type: :read`
+                    - `class BetaManagedAgentsAutoPolicy`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                 - `class BetaManagedAgentsWriteToolConfig`
 
                   Configuration for the write tool.
 
+                  - `type: :write`
+
                   - `enabled: bool`
 
                   - `name: :write`
 
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
                     Permission policy for tool execution.
 
@@ -33598,17 +34421,21 @@ Archive Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `type: :write`
+                    - `class BetaManagedAgentsAutoPolicy`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                 - `class BetaManagedAgentsGlobToolConfig`
 
                   Configuration for the glob tool.
 
+                  - `type: :glob`
+
                   - `enabled: bool`
 
                   - `name: :glob`
 
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
                     Permission policy for tool execution.
 
@@ -33620,17 +34447,21 @@ Archive Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `type: :glob`
+                    - `class BetaManagedAgentsAutoPolicy`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                 - `class BetaManagedAgentsGrepToolConfig`
 
                   Configuration for the grep tool.
 
+                  - `type: :grep`
+
                   - `enabled: bool`
 
                   - `name: :grep`
 
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
                     Permission policy for tool execution.
 
@@ -33642,17 +34473,21 @@ Archive Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `type: :grep`
+                    - `class BetaManagedAgentsAutoPolicy`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                 - `class BetaManagedAgentsWebFetchToolConfig`
 
                   Configuration for the web_fetch tool.
 
+                  - `type: :web_fetch`
+
                   - `enabled: bool`
 
                   - `name: :web_fetch`
 
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
                     Permission policy for tool execution.
 
@@ -33664,7 +34499,9 @@ Archive Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `type: :web_fetch`
+                    - `class BetaManagedAgentsAutoPolicy`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                   - `allowed_domains: Array[String]`
 
@@ -33678,11 +34515,13 @@ Archive Session
 
                   Configuration for the web_search tool.
 
+                  - `type: :web_search`
+
                   - `enabled: bool`
 
                   - `name: :web_search`
 
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
                     Permission policy for tool execution.
 
@@ -33694,7 +34533,9 @@ Archive Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `type: :web_search`
+                    - `class BetaManagedAgentsAutoPolicy`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                   - `allowed_domains: Array[String]`
 
@@ -33736,7 +34577,7 @@ Archive Session
 
                 - `enabled: bool`
 
-                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
                   Permission policy for tool execution.
 
@@ -33748,9 +34589,13 @@ Archive Session
 
                     Tool calls require user confirmation before execution.
 
-              - `type: :agent_toolset_20260401`
+                  - `class BetaManagedAgentsAutoPolicy`
+
+                    The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
             - `class BetaManagedAgentsMCPToolset`
+
+              - `type: :mcp_toolset`
 
               - `configs: Array[BetaManagedAgentsMCPToolConfig]`
 
@@ -33758,7 +34603,7 @@ Archive Session
 
                 - `name: String`
 
-                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
                   Permission policy for tool execution.
 
@@ -33769,6 +34614,10 @@ Archive Session
                   - `class BetaManagedAgentsAlwaysAskPolicy`
 
                     Tool calls require user confirmation before execution.
+
+                  - `class BetaManagedAgentsAutoPolicy`
+
+                    The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
               - `default_config: BetaManagedAgentsMCPToolsetDefaultConfig`
 
@@ -33776,7 +34625,7 @@ Archive Session
 
                 - `enabled: bool`
 
-                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | BetaManagedAgentsAutoPolicy`
 
                   Permission policy for tool execution.
 
@@ -33788,13 +34637,17 @@ Archive Session
 
                     Tool calls require user confirmation before execution.
 
-              - `mcp_server_name: String`
+                  - `class BetaManagedAgentsAutoPolicy`
 
-              - `type: :mcp_toolset`
+                    The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+              - `mcp_server_name: String`
 
             - `class BetaManagedAgentsCustomTool`
 
               A custom tool as returned in API responses.
+
+              - `type: :custom`
 
               - `description: String`
 
@@ -33810,10 +34663,6 @@ Archive Session
 
               - `name: String`
 
-              - `type: :custom`
-
-          - `type: :agent`
-
           - `version: Integer`
 
             format: int32
@@ -33822,13 +34671,11 @@ Archive Session
 
           Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
 
+          - `type: :advisor`
+
           - `model: String`
 
             The advisor model id.
-
-          - `type: :advisor`
-
-      - `type: :coordinator`
 
     - `name: String`
 
@@ -33854,8 +34701,6 @@ Archive Session
 
         A custom tool as returned in API responses.
 
-    - `type: :agent`
-
     - `version: Integer`
 
       format: int32
@@ -33870,6 +34715,8 @@ Archive Session
 
     A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
 
+    - `type: :limit`
+
     - `max_list_cost: BetaMonetaryAmount`
 
       A monetary amount in a specific currency.
@@ -33881,8 +34728,6 @@ Archive Session
       - `currency: BetaCurrency`
 
         Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
-
-    - `type: :limit`
 
   - `created_at: Time`
 
@@ -33897,6 +34742,8 @@ Archive Session
   - `outcome_evaluations: Array[BetaManagedAgentsOutcomeEvaluationResource]`
 
     Per-outcome evaluation state. One entry per `define_outcome` event sent to the session.
+
+    - `type: :outcome_evaluation`
 
     - `completed_at: Time`
 
@@ -33926,11 +34773,11 @@ Archive Session
 
       Current evaluation state. `pending` before the agent begins work; `running` while producing or revising; `evaluating` while the grader scores; `satisfied`/`max_iterations_reached`/`failed`/`interrupted` are terminal.
 
-    - `type: :outcome_evaluation`
-
   - `resources: Array[BetaManagedAgentsSessionResource]`
 
     - `class BetaManagedAgentsGitHubRepositoryResource`
+
+      - `type: :github_repository`
 
       - `id: String`
 
@@ -33941,8 +34788,6 @@ Archive Session
         format: date-time
 
       - `mount_path: String`
-
-      - `type: :github_repository`
 
       - `updated_at: Time`
 
@@ -33956,15 +34801,17 @@ Archive Session
 
         - `class BetaManagedAgentsBranchCheckout`
 
+          - `type: :branch`
+
           - `name: String`
 
             Branch name to check out.
 
             minLength: 1, maxLength: 255
 
-          - `type: :branch`
-
         - `class BetaManagedAgentsCommitCheckout`
+
+          - `type: :commit`
 
           - `sha: String`
 
@@ -33972,9 +34819,9 @@ Archive Session
 
             minLength: 7, maxLength: 64
 
-          - `type: :commit`
-
     - `class BetaManagedAgentsFileResource`
+
+      - `type: :file`
 
       - `id: String`
 
@@ -33988,8 +34835,6 @@ Archive Session
 
       - `mount_path: String`
 
-      - `type: :file`
-
       - `updated_at: Time`
 
         A timestamp in RFC 3339 format
@@ -34000,11 +34845,11 @@ Archive Session
 
       A memory store attached to an agent session.
 
+      - `type: :memory_store`
+
       - `memory_store_id: String`
 
         The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
-
-      - `type: :memory_store`
 
       - `access: :read_write | :read_only`
 
@@ -34061,8 +34906,6 @@ Archive Session
     - `:terminated`
 
   - `title: String`
-
-  - `type: :session`
 
   - `updated_at: Time`
 
@@ -34414,7 +35257,7 @@ List Events
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 41 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 42 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -34462,6 +35305,8 @@ List Events
 
     - `:"user-profiles-2026-08-18"`
 
+    - `:"user-profiles-2026-09-04"`
+
     - `:"advisor-tool-2026-03-01"`
 
     - `:"managed-agents-2026-04-01"`
@@ -34504,6 +35349,8 @@ List Events
 
     - `:"mid-conversation-system-clear-at-2026-08-21"`
 
+- `workspace_id: String`
+
 #### Returns
 
 - `BetaManagedAgentsSessionEvent = BetaManagedAgentsUserMessageEvent | BetaManagedAgentsUserInterruptEvent | BetaManagedAgentsUserToolConfirmationEvent | 32 more`
@@ -34513,6 +35360,8 @@ List Events
   - `class BetaManagedAgentsUserMessageEvent`
 
     A user message event in the session conversation.
+
+    - `type: :"user.message"`
 
     - `id: String`
 
@@ -34526,17 +35375,19 @@ List Events
 
         Regular text content.
 
+        - `type: :text`
+
         - `text: String`
 
           The text content.
 
           minLength: 1
 
-        - `type: :text`
-
       - `class BetaManagedAgentsImageBlock`
 
         Image content specified directly as base64 data or as a reference via a URL.
+
+        - `type: :image`
 
         - `source: BetaManagedAgentsBase64ImageSource | BetaManagedAgentsURLImageSource | BetaManagedAgentsFileImageSource`
 
@@ -34545,6 +35396,8 @@ List Events
           - `class BetaManagedAgentsBase64ImageSource`
 
             Base64-encoded image data.
+
+            - `type: :base64`
 
             - `data: String`
 
@@ -34557,8 +35410,6 @@ List Events
               MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
 
               minLength: 1
-
-            - `type: :base64`
 
           - `class BetaManagedAgentsURLImageSource`
 
@@ -34576,19 +35427,19 @@ List Events
 
             Image referenced by file ID.
 
+            - `type: :file`
+
             - `file_id: String`
 
               ID of a previously uploaded file.
 
               minLength: 1
 
-            - `type: :file`
-
-        - `type: :image`
-
       - `class BetaManagedAgentsDocumentBlock`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+        - `type: :document`
 
         - `source: BetaManagedAgentsBase64DocumentSource | BetaManagedAgentsPlainTextDocumentSource | BetaManagedAgentsURLDocumentSource | BetaManagedAgentsFileDocumentSource`
 
@@ -34597,6 +35448,8 @@ List Events
           - `class BetaManagedAgentsBase64DocumentSource`
 
             Base64-encoded document data.
+
+            - `type: :base64`
 
             - `data: String`
 
@@ -34610,11 +35463,11 @@ List Events
 
               minLength: 1
 
-            - `type: :base64`
-
           - `class BetaManagedAgentsPlainTextDocumentSource`
 
             Plain text document content.
+
+            - `type: :text`
 
             - `data: String`
 
@@ -34625,8 +35478,6 @@ List Events
             - `media_type: :"text/plain"`
 
               MIME type of the text content. Must be "text/plain".
-
-            - `type: :text`
 
           - `class BetaManagedAgentsURLDocumentSource`
 
@@ -34644,15 +35495,13 @@ List Events
 
             Document referenced by file ID.
 
+            - `type: :file`
+
             - `file_id: String`
 
               ID of a previously uploaded file.
 
               minLength: 1
-
-            - `type: :file`
-
-        - `type: :document`
 
         - `context: String`
 
@@ -34668,8 +35517,6 @@ List Events
 
         - `type: :redacted`
 
-    - `type: :"user.message"`
-
     - `processed_at: Time`
 
       A timestamp in RFC 3339 format
@@ -34680,11 +35527,11 @@ List Events
 
     An interrupt event that pauses agent execution and returns control to the user.
 
+    - `type: :"user.interrupt"`
+
     - `id: String`
 
       Unique identifier for this event.
-
-    - `type: :"user.interrupt"`
 
     - `processed_at: Time`
 
@@ -34699,6 +35546,8 @@ List Events
   - `class BetaManagedAgentsUserToolConfirmationEvent`
 
     A tool confirmation event that approves or denies a pending tool execution.
+
+    - `type: :"user.tool_confirmation"`
 
     - `id: String`
 
@@ -34715,8 +35564,6 @@ List Events
     - `tool_use_id: String`
 
       The id of the `agent.tool_use` or `agent.mcp_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
-
-    - `type: :"user.tool_confirmation"`
 
     - `deny_message: String`
 
@@ -34738,6 +35585,8 @@ List Events
 
     Event sent by the client providing the result of a custom tool execution.
 
+    - `type: :"user.custom_tool_result"`
+
     - `id: String`
 
       Unique identifier for this event.
@@ -34745,8 +35594,6 @@ List Events
     - `custom_tool_use_id: String`
 
       The id of the `agent.custom_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
-
-    - `type: :"user.custom_tool_result"`
 
     - `content: Array[BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock | BetaManagedAgentsSearchResultBlock]`
 
@@ -34768,6 +35615,8 @@ List Events
 
         A block containing a web search result.
 
+        - `type: :search_result`
+
         - `citations: BetaManagedAgentsSearchResultCitations`
 
           Citation settings for a search result.
@@ -34780,13 +35629,13 @@ List Events
 
           Array of text content blocks from the search result.
 
+          - `type: :text`
+
           - `text: String`
 
             The text content.
 
             minLength: 1
-
-          - `type: :text`
 
         - `source: String`
 
@@ -34799,8 +35648,6 @@ List Events
           The title of the search result.
 
           minLength: 1
-
-        - `type: :search_result`
 
     - `is_error: bool`
 
@@ -34820,6 +35667,8 @@ List Events
 
     Event emitted when the agent calls a custom tool. The session goes idle until the client sends a `user.custom_tool_result` event with the result.
 
+    - `type: :"agent.custom_tool_use"`
+
     - `id: String`
 
       Unique identifier for this event.
@@ -34838,8 +35687,6 @@ List Events
 
       format: date-time
 
-    - `type: :"agent.custom_tool_use"`
-
     - `session_thread_id: String`
 
       When set, this event was cross-posted from a subagent's thread to surface its custom tool use on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.custom_tool_result` event to route the result back.
@@ -34847,6 +35694,8 @@ List Events
   - `class BetaManagedAgentsAgentMessageEvent`
 
     An agent response event in the session conversation.
+
+    - `type: :"agent.message"`
 
     - `id: String`
 
@@ -34870,11 +35719,11 @@ List Events
 
       format: date-time
 
-    - `type: :"agent.message"`
-
   - `class BetaManagedAgentsAgentThinkingEvent`
 
     Indicates the agent is making forward progress via extended thinking. A progress signal, not a content carrier.
+
+    - `type: :"agent.thinking"`
 
     - `id: String`
 
@@ -34886,11 +35735,11 @@ List Events
 
       format: date-time
 
-    - `type: :"agent.thinking"`
-
   - `class BetaManagedAgentsAgentMCPToolUseEvent`
 
     Event emitted when the agent invokes a tool provided by an MCP server.
+
+    - `type: :"agent.mcp_tool_use"`
 
     - `id: String`
 
@@ -34914,8 +35763,6 @@ List Events
 
       format: date-time
 
-    - `type: :"agent.mcp_tool_use"`
-
     - `evaluated_permission: :allow | :ask | :deny`
 
       AgentEvaluatedPermission enum
@@ -34926,6 +35773,62 @@ List Events
 
       - `:deny`
 
+    - `evaluation: BetaManagedAgentsAgentToolEvaluation`
+
+      Names the resolved permission_policy that produced evaluated_permission, and under auto carries the judgement. Open union: clients must tolerate unknown variants.
+
+      - `class BetaManagedAgentsAgentToolEvaluationAlwaysAllow`
+
+        The resolved permission_policy was always_allow; accompanies evaluated_permission "allow".
+
+        - `type: :always_allow`
+
+      - `class BetaManagedAgentsAgentToolEvaluationAlwaysAsk`
+
+        The resolved permission_policy was always_ask; accompanies evaluated_permission "ask".
+
+        - `type: :always_ask`
+
+      - `class BetaManagedAgentsAgentToolEvaluationAuto`
+
+        The resolved permission_policy was auto: the server judged this invocation individually.
+
+        - `type: :auto`
+
+        - `evaluated_permission: BetaManagedAgentsAgentAutoEvaluatedPermission`
+
+          The server's per-invocation judgement under the auto permission policy. Its type always equals the event's top-level evaluated_permission. Open union: clients must tolerate unknown variants.
+
+          - `class BetaManagedAgentsAgentAutoEvaluatedPermissionAllow`
+
+            The server judged the invocation safe to execute without client approval.
+
+            - `type: :allow`
+
+          - `class BetaManagedAgentsAgentAutoEvaluatedPermissionAsk`
+
+            The server reached no judgement; the invocation is held for client approval.
+
+            - `type: :ask`
+
+            - `reason_code: String`
+
+              The judgement's grounds in registry-bound terms, for client branching and audit rather than end-user display. Open registry; currently "indeterminate" (no judgement was reached). Clients must tolerate values outside this set.
+
+              maxLength: 64
+
+          - `class BetaManagedAgentsAgentAutoEvaluatedPermissionDeny`
+
+            The server judged the invocation high-risk; it does not execute and a synthetic error tool result is appended.
+
+            - `type: :deny`
+
+            - `reason_code: String`
+
+              The judgement's grounds in registry-bound terms. Open registry; currently "high_risk" (judged high-risk; the call does not run). Clients must tolerate values outside this set.
+
+              maxLength: 64
+
     - `session_thread_id: String`
 
       When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
@@ -34933,6 +35836,8 @@ List Events
   - `class BetaManagedAgentsAgentMCPToolResultEvent`
 
     Event representing the result of an MCP tool execution.
+
+    - `type: :"agent.mcp_tool_result"`
 
     - `id: String`
 
@@ -34947,8 +35852,6 @@ List Events
       A timestamp in RFC 3339 format
 
       format: date-time
-
-    - `type: :"agent.mcp_tool_result"`
 
     - `content: Array[BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock | BetaManagedAgentsSearchResultBlock]`
 
@@ -34978,6 +35881,8 @@ List Events
 
     Event emitted when the agent invokes a built-in agent tool.
 
+    - `type: :"agent.tool_use"`
+
     - `id: String`
 
       Unique identifier for this event.
@@ -34996,8 +35901,6 @@ List Events
 
       format: date-time
 
-    - `type: :"agent.tool_use"`
-
     - `evaluated_permission: :allow | :ask | :deny`
 
       AgentEvaluatedPermission enum
@@ -35008,6 +35911,10 @@ List Events
 
       - `:deny`
 
+    - `evaluation: BetaManagedAgentsAgentToolEvaluation`
+
+      Names the resolved permission_policy that produced evaluated_permission, and under auto carries the judgement. Open union: clients must tolerate unknown variants.
+
     - `session_thread_id: String`
 
       When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
@@ -35015,6 +35922,8 @@ List Events
   - `class BetaManagedAgentsAgentToolResultEvent`
 
     Event representing the result of an agent tool execution.
+
+    - `type: :"agent.tool_result"`
 
     - `id: String`
 
@@ -35029,8 +35938,6 @@ List Events
     - `tool_use_id: String`
 
       The id of the `agent.tool_use` event this result corresponds to.
-
-    - `type: :"agent.tool_result"`
 
     - `content: Array[BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock | BetaManagedAgentsSearchResultBlock]`
 
@@ -35059,6 +35966,8 @@ List Events
   - `class BetaManagedAgentsAgentThreadMessageReceivedEvent`
 
     Delivery event written to the target thread's input stream when an agent-to-agent message arrives.
+
+    - `type: :"agent.thread_message_received"`
 
     - `id: String`
 
@@ -35094,8 +36003,6 @@ List Events
 
       format: date-time
 
-    - `type: :"agent.thread_message_received"`
-
     - `from_agent_name: String`
 
       Name of the callable agent this message came from. Absent when received from the primary agent.
@@ -35104,2557 +36011,10 @@ List Events
 
     Observability event emitted to the sender's output stream when an agent-to-agent message is sent.
 
-    - `id: String`
-
-      Unique identifier for this event.
-
-    - `content: Array[BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock | BetaManagedAgentsRedactedBlock]`
-
-      Message content blocks.
-
-      - `class BetaManagedAgentsTextBlock`
-
-        Regular text content.
-
-      - `class BetaManagedAgentsImageBlock`
-
-        Image content specified directly as base64 data or as a reference via a URL.
-
-      - `class BetaManagedAgentsDocumentBlock`
-
-        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-      - `class BetaManagedAgentsRedactedBlock`
-
-        Placeholder for content withheld by Anthropic model policy.
-
-    - `processed_at: Time`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `to_session_thread_id: String`
-
-      Public `sthr_` ID of the thread the message was sent to.
-
     - `type: :"agent.thread_message_sent"`
 
-    - `to_agent_name: String`
-
-      Name of the callable agent this message was sent to. Absent when sent to the primary agent.
-
-  - `class BetaManagedAgentsAgentThreadContextCompactedEvent`
-
-    Indicates that context compaction (summarization) occurred during the session.
-
     - `id: String`
 
       Unique identifier for this event.
-
-    - `processed_at: Time`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `type: :"agent.thread_context_compacted"`
-
-  - `class BetaManagedAgentsSessionErrorEvent`
-
-    An error event indicating a problem occurred during session execution.
-
-    - `id: String`
-
-      Unique identifier for this event.
-
-    - `error: BetaManagedAgentsUnknownError | BetaManagedAgentsModelOverloadedError | BetaManagedAgentsModelRateLimitedError | 5 more`
-
-      An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
-
-      - `class BetaManagedAgentsUnknownError`
-
-        An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
-
-        - `message: String`
-
-          Human-readable error description.
-
-        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
-
-          What the client should do next in response to this error.
-
-          - `class BetaManagedAgentsRetryStatusRetrying`
-
-            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-            - `type: :retrying`
-
-          - `class BetaManagedAgentsRetryStatusExhausted`
-
-            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
-
-            - `type: :exhausted`
-
-          - `class BetaManagedAgentsRetryStatusTerminal`
-
-            The session encountered a terminal error and will transition to `terminated` state.
-
-            - `type: :terminal`
-
-        - `type: :unknown_error`
-
-      - `class BetaManagedAgentsModelOverloadedError`
-
-        The model is currently overloaded. Emitted after automatic retries are exhausted.
-
-        - `message: String`
-
-          Human-readable error description.
-
-        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
-
-          What the client should do next in response to this error.
-
-          - `class BetaManagedAgentsRetryStatusRetrying`
-
-            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-          - `class BetaManagedAgentsRetryStatusExhausted`
-
-            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
-
-          - `class BetaManagedAgentsRetryStatusTerminal`
-
-            The session encountered a terminal error and will transition to `terminated` state.
-
-        - `type: :model_overloaded_error`
-
-      - `class BetaManagedAgentsModelRateLimitedError`
-
-        The model request was rate-limited.
-
-        - `message: String`
-
-          Human-readable error description.
-
-        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
-
-          What the client should do next in response to this error.
-
-          - `class BetaManagedAgentsRetryStatusRetrying`
-
-            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-          - `class BetaManagedAgentsRetryStatusExhausted`
-
-            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
-
-          - `class BetaManagedAgentsRetryStatusTerminal`
-
-            The session encountered a terminal error and will transition to `terminated` state.
-
-        - `type: :model_rate_limited_error`
-
-      - `class BetaManagedAgentsModelRequestFailedError`
-
-        A model request failed for a reason other than overload or rate-limiting.
-
-        - `message: String`
-
-          Human-readable error description.
-
-        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
-
-          What the client should do next in response to this error.
-
-          - `class BetaManagedAgentsRetryStatusRetrying`
-
-            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-          - `class BetaManagedAgentsRetryStatusExhausted`
-
-            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
-
-          - `class BetaManagedAgentsRetryStatusTerminal`
-
-            The session encountered a terminal error and will transition to `terminated` state.
-
-        - `type: :model_request_failed_error`
-
-      - `class BetaManagedAgentsMCPConnectionFailedError`
-
-        Failed to connect to an MCP server.
-
-        - `mcp_server_name: String`
-
-          Name of the MCP server that failed to connect.
-
-        - `message: String`
-
-          Human-readable error description.
-
-        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
-
-          What the client should do next in response to this error.
-
-          - `class BetaManagedAgentsRetryStatusRetrying`
-
-            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-          - `class BetaManagedAgentsRetryStatusExhausted`
-
-            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
-
-          - `class BetaManagedAgentsRetryStatusTerminal`
-
-            The session encountered a terminal error and will transition to `terminated` state.
-
-        - `type: :mcp_connection_failed_error`
-
-      - `class BetaManagedAgentsMCPAuthenticationFailedError`
-
-        Authentication to an MCP server failed.
-
-        - `mcp_server_name: String`
-
-          Name of the MCP server that failed authentication.
-
-        - `message: String`
-
-          Human-readable error description.
-
-        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
-
-          What the client should do next in response to this error.
-
-          - `class BetaManagedAgentsRetryStatusRetrying`
-
-            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-          - `class BetaManagedAgentsRetryStatusExhausted`
-
-            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
-
-          - `class BetaManagedAgentsRetryStatusTerminal`
-
-            The session encountered a terminal error and will transition to `terminated` state.
-
-        - `type: :mcp_authentication_failed_error`
-
-      - `class BetaManagedAgentsBillingError`
-
-        The caller's organization or workspace cannot make model requests — out of credits or spend limit reached. Retrying with the same credentials will not succeed; the caller must resolve the billing state.
-
-        - `message: String`
-
-          Human-readable error description.
-
-        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
-
-          What the client should do next in response to this error.
-
-          - `class BetaManagedAgentsRetryStatusRetrying`
-
-            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-          - `class BetaManagedAgentsRetryStatusExhausted`
-
-            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
-
-          - `class BetaManagedAgentsRetryStatusTerminal`
-
-            The session encountered a terminal error and will transition to `terminated` state.
-
-        - `type: :billing_error`
-
-      - `class BetaManagedAgentsCredentialHostUnreachableError`
-
-        An `environment_variable` credential's `auth.networking.allowed_hosts` includes a host the environment's network policy does not permit.
-
-        - `credential_id: String`
-
-          ID of the affected credential.
-
-        - `message: String`
-
-          Human-readable error description.
-
-        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
-
-          What the client should do next in response to this error.
-
-          - `class BetaManagedAgentsRetryStatusRetrying`
-
-            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-          - `class BetaManagedAgentsRetryStatusExhausted`
-
-            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
-
-          - `class BetaManagedAgentsRetryStatusTerminal`
-
-            The session encountered a terminal error and will transition to `terminated` state.
-
-        - `type: :credential_host_unreachable_error`
-
-        - `vault_id: String`
-
-          ID of the vault containing the affected credential.
-
-    - `processed_at: Time`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `type: :"session.error"`
-
-  - `class BetaManagedAgentsSessionStatusRescheduledEvent`
-
-    Indicates the session is recovering from an error state and is rescheduled for execution.
-
-    - `id: String`
-
-      Unique identifier for this event.
-
-    - `processed_at: Time`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `type: :"session.status_rescheduled"`
-
-  - `class BetaManagedAgentsSessionStatusRunningEvent`
-
-    Indicates the session is actively running and the agent is working.
-
-    - `id: String`
-
-      Unique identifier for this event.
-
-    - `processed_at: Time`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `type: :"session.status_running"`
-
-  - `class BetaManagedAgentsSessionStatusIdleEvent`
-
-    Indicates the agent has paused and is awaiting user input.
-
-    - `id: String`
-
-      Unique identifier for this event.
-
-    - `processed_at: Time`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `stop_reason: BetaManagedAgentsSessionEndTurn | BetaManagedAgentsSessionRequiresAction | BetaManagedAgentsSessionRetriesExhausted | BetaManagedAgentsSessionBudgetReached`
-
-      The agent completed its turn naturally and is ready for the next user message.
-
-      - `class BetaManagedAgentsSessionEndTurn`
-
-        The agent completed its turn naturally and is ready for the next user message.
-
-        - `type: :end_turn`
-
-      - `class BetaManagedAgentsSessionRequiresAction`
-
-        The agent is idle waiting on one or more blocking user-input events (tool confirmation, custom tool result, etc.). Resolving all of them transitions the session back to running.
-
-        - `event_ids: Array[String]`
-
-          The ids of events the agent is blocked on. Resolving fewer than all re-emits `session.status_idle` with the remainder.
-
-        - `type: :requires_action`
-
-      - `class BetaManagedAgentsSessionRetriesExhausted`
-
-        The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
-
-        - `type: :retries_exhausted`
-
-      - `class BetaManagedAgentsSessionBudgetReached`
-
-        The agent stopped because the session's tracked list cost reached its budget, or because its usage includes a model with no list price (which the budget cannot measure). Raise the budget to continue — or, if raising is rejected because a model has no list price, remove the budget.
-
-        - `type: :budget_reached`
-
-    - `type: :"session.status_idle"`
-
-  - `class BetaManagedAgentsSessionStatusTerminatedEvent`
-
-    Indicates the session has terminated, either due to an error or completion.
-
-    - `id: String`
-
-      Unique identifier for this event.
-
-    - `processed_at: Time`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `type: :"session.status_terminated"`
-
-  - `class BetaManagedAgentsSessionThreadCreatedEvent`
-
-    Emitted when a subagent is spawned as a new thread. Written to the parent thread's output stream so clients observing the session see child creation.
-
-    - `id: String`
-
-      Unique identifier for this event.
-
-    - `agent_name: String`
-
-      Name of the callable agent the thread runs.
-
-    - `processed_at: Time`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `session_thread_id: String`
-
-      Public `sthr_` ID of the newly created thread.
-
-    - `type: :"session.thread_created"`
-
-  - `class BetaManagedAgentsSpanOutcomeEvaluationStartEvent`
-
-    Emitted when an outcome evaluation cycle begins.
-
-    - `id: String`
-
-      Unique identifier for this event.
-
-    - `iteration: Integer`
-
-      0-indexed revision cycle. 0 is the first evaluation; 1 is the re-evaluation after the first revision; etc.
-
-      format: int32
-
-    - `outcome_id: String`
-
-      The `outc_` ID of the outcome being evaluated.
-
-    - `processed_at: Time`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `type: :"span.outcome_evaluation_start"`
-
-  - `class BetaManagedAgentsSpanOutcomeEvaluationEndEvent`
-
-    Emitted when an outcome evaluation cycle completes. Carries the verdict and aggregate token usage. A verdict of `needs_revision` means another evaluation cycle follows; `satisfied`, `max_iterations_reached`, `failed`, or `interrupted` are terminal — no further evaluation cycles follow.
-
-    - `id: String`
-
-      Unique identifier for this event.
-
-    - `explanation: String`
-
-      Human-readable explanation of the verdict. For `needs_revision`, describes which criteria failed and why.
-
-    - `iteration: Integer`
-
-      0-indexed revision cycle, matching the corresponding `span.outcome_evaluation_start`.
-
-      format: int32
-
-    - `outcome_evaluation_start_id: String`
-
-      The id of the corresponding `span.outcome_evaluation_start` event.
-
-    - `outcome_id: String`
-
-      The `outc_` ID of the outcome being evaluated.
-
-    - `processed_at: Time`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `result: String`
-
-      Evaluation verdict. 'satisfied': criteria met, session goes idle. 'needs_revision': criteria not met, another revision cycle follows. 'max_iterations_reached': evaluation budget exhausted with criteria still unmet — one final acknowledgment turn follows before the session goes idle, but no further evaluation runs. 'failed': grader determined the rubric does not apply to the deliverables. 'interrupted': user sent an interrupt while evaluation was in progress.
-
-    - `type: :"span.outcome_evaluation_end"`
-
-    - `usage: BetaManagedAgentsSpanModelUsage`
-
-      Token usage for a single model request.
-
-      - `cache_creation_input_tokens: Integer`
-
-        Tokens used to create prompt cache in this request.
-
-        format: int32
-
-      - `cache_read_input_tokens: Integer`
-
-        Tokens read from prompt cache in this request.
-
-        format: int32
-
-      - `input_tokens: Integer`
-
-        Input tokens consumed by this request.
-
-        format: int32
-
-      - `output_tokens: Integer`
-
-        Output tokens generated by this request.
-
-        format: int32
-
-      - `speed: :standard | :fast`
-
-        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
-        - `:standard`
-
-        - `:fast`
-
-  - `class BetaManagedAgentsSpanModelRequestStartEvent`
-
-    Emitted when a model request is initiated by the agent.
-
-    - `id: String`
-
-      Unique identifier for this event.
-
-    - `processed_at: Time`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `type: :"span.model_request_start"`
-
-  - `class BetaManagedAgentsSpanModelRequestEndEvent`
-
-    Emitted when a model request completes.
-
-    - `id: String`
-
-      Unique identifier for this event.
-
-    - `is_error: bool`
-
-      Whether the model request resulted in an error.
-
-    - `model_request_start_id: String`
-
-      The id of the corresponding `span.model_request_start` event.
-
-    - `model_usage: BetaManagedAgentsSpanModelUsage`
-
-      Token usage for a single model request.
-
-    - `processed_at: Time`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `type: :"span.model_request_end"`
-
-  - `class BetaManagedAgentsSpanOutcomeEvaluationOngoingEvent`
-
-    Periodic heartbeat emitted while an outcome evaluation cycle is in progress. Distinguishes 'evaluation is actively running' from 'evaluation is stuck' between the corresponding `span.outcome_evaluation_start` and `span.outcome_evaluation_end` events.
-
-    - `id: String`
-
-      Unique identifier for this event.
-
-    - `iteration: Integer`
-
-      0-indexed revision cycle, matching the corresponding `span.outcome_evaluation_start`.
-
-      format: int32
-
-    - `outcome_id: String`
-
-      The `outc_` ID of the outcome being evaluated.
-
-    - `processed_at: Time`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `type: :"span.outcome_evaluation_ongoing"`
-
-  - `class BetaManagedAgentsUserDefineOutcomeEvent`
-
-    Echo of a `user.define_outcome` input event. Carries the server-generated `outcome_id` that subsequent `span.outcome_evaluation_*` events reference.
-
-    - `id: String`
-
-      Unique identifier for this event.
-
-    - `description: String`
-
-      What the agent should produce. Copied from the input event.
-
-    - `max_iterations: Integer`
-
-      Evaluate-then-revise cycles before giving up. Default 3, max 20.
-
-      format: int32
-
-    - `outcome_id: String`
-
-      Server-generated `outc_` ID for this outcome. Referenced by `span.outcome_evaluation_*` events and the session's `outcome_evaluations` list.
-
-    - `processed_at: Time`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `rubric: BetaManagedAgentsFileRubric | BetaManagedAgentsTextRubric`
-
-      Rubric for grading the quality of an outcome.
-
-      - `class BetaManagedAgentsFileRubric`
-
-        Rubric referenced by a file uploaded via the Files API.
-
-        - `file_id: String`
-
-          ID of the rubric file.
-
-        - `type: :file`
-
-      - `class BetaManagedAgentsTextRubric`
-
-        Rubric content provided inline as text.
-
-        - `content: String`
-
-          Rubric content. Plain text or markdown — the grader treats it as freeform text.
-
-        - `type: :text`
-
-    - `type: :"user.define_outcome"`
-
-  - `class BetaManagedAgentsSessionDeletedEvent`
-
-    Emitted when a session has been deleted. Terminates any active event stream — no further events will be emitted for this session.
-
-    - `id: String`
-
-      Unique identifier for this event.
-
-    - `processed_at: Time`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `type: :"session.deleted"`
-
-  - `class BetaManagedAgentsSessionThreadStatusRunningEvent`
-
-    A session thread has begun executing. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
-
-    - `id: String`
-
-      Unique identifier for this event.
-
-    - `agent_name: String`
-
-      Name of the agent the thread runs.
-
-    - `processed_at: Time`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `session_thread_id: String`
-
-      Public sthr_ ID of the thread that started running.
-
-    - `type: :"session.thread_status_running"`
-
-  - `class BetaManagedAgentsSessionThreadStatusIdleEvent`
-
-    A session thread has yielded and is awaiting input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
-
-    - `id: String`
-
-      Unique identifier for this event.
-
-    - `agent_name: String`
-
-      Name of the agent the thread runs.
-
-    - `processed_at: Time`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `session_thread_id: String`
-
-      Public sthr_ ID of the thread that went idle.
-
-    - `stop_reason: BetaManagedAgentsSessionEndTurn | BetaManagedAgentsSessionRequiresAction | BetaManagedAgentsSessionRetriesExhausted | BetaManagedAgentsSessionBudgetReached`
-
-      The agent completed its turn naturally and is ready for the next user message.
-
-      - `class BetaManagedAgentsSessionEndTurn`
-
-        The agent completed its turn naturally and is ready for the next user message.
-
-      - `class BetaManagedAgentsSessionRequiresAction`
-
-        The agent is idle waiting on one or more blocking user-input events (tool confirmation, custom tool result, etc.). Resolving all of them transitions the session back to running.
-
-      - `class BetaManagedAgentsSessionRetriesExhausted`
-
-        The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
-
-      - `class BetaManagedAgentsSessionBudgetReached`
-
-        The agent stopped because the session's tracked list cost reached its budget, or because its usage includes a model with no list price (which the budget cannot measure). Raise the budget to continue — or, if raising is rejected because a model has no list price, remove the budget.
-
-    - `type: :"session.thread_status_idle"`
-
-  - `class BetaManagedAgentsSessionThreadStatusTerminatedEvent`
-
-    A session thread has terminated and will accept no further input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
-
-    - `id: String`
-
-      Unique identifier for this event.
-
-    - `agent_name: String`
-
-      Name of the agent the thread runs.
-
-    - `processed_at: Time`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `session_thread_id: String`
-
-      Public sthr_ ID of the thread that terminated.
-
-    - `type: :"session.thread_status_terminated"`
-
-  - `class BetaManagedAgentsUserToolResultEvent`
-
-    Event sent by the client providing the result of an agent-toolset tool execution. Only valid on `self_hosted` environments, where sandbox-routed tools are executed by the client rather than the server.
-
-    - `id: String`
-
-      Unique identifier for this event.
-
-    - `tool_use_id: String`
-
-      The id of the `agent.tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
-
-    - `type: :"user.tool_result"`
-
-    - `content: Array[BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock | BetaManagedAgentsSearchResultBlock]`
-
-      The result content returned by the tool.
-
-      - `class BetaManagedAgentsTextBlock`
-
-        Regular text content.
-
-      - `class BetaManagedAgentsImageBlock`
-
-        Image content specified directly as base64 data or as a reference via a URL.
-
-      - `class BetaManagedAgentsDocumentBlock`
-
-        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-      - `class BetaManagedAgentsSearchResultBlock`
-
-        A block containing a web search result.
-
-    - `is_error: bool`
-
-      Whether the tool execution resulted in an error.
-
-    - `processed_at: Time`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `session_thread_id: String`
-
-      Routes this result to a subagent thread. Copy from the `agent.tool_use` event's `session_thread_id`.
-
-  - `class BetaManagedAgentsSessionThreadStatusRescheduledEvent`
-
-    A session thread hit a transient error and is retrying automatically. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
-
-    - `id: String`
-
-      Unique identifier for this event.
-
-    - `agent_name: String`
-
-      Name of the agent the thread runs.
-
-    - `processed_at: Time`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `session_thread_id: String`
-
-      Public sthr_ ID of the thread that is retrying.
-
-    - `type: :"session.thread_status_rescheduled"`
-
-  - `class BetaManagedAgentsSessionUpdatedEvent`
-
-    Emitted when an UpdateSession request changed at least one field. Carries only the fields that changed; absent fields were not part of the update. The new configuration applies from the next turn.
-
-    - `id: String`
-
-      Unique identifier for this event.
-
-    - `processed_at: Time`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `type: :"session.updated"`
-
-    - `agent: BetaManagedAgentsSessionAgent`
-
-      Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
-
-      - `id: String`
-
-      - `description: String`
-
-      - `mcp_servers: Array[BetaManagedAgentsMCPServerURLDefinition]`
-
-        - `name: String`
-
-        - `type: :url`
-
-        - `url: String`
-
-      - `model: BetaManagedAgentsModelConfig`
-
-        Model identifier and configuration.
-
-        - `id: BetaManagedAgentsModel`
-
-          The model that will power your agent.
-
-          See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
-          - `BetaManagedAgentsModel = :"claude-fable-5-1" | :"claude-sonnet-5" | :"claude-fable-5" | 11 more`
-
-            The model that will power your agent.
-
-            See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
-            - `:"claude-fable-5-1"`
-
-              Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
-
-            - `:"claude-sonnet-5"`
-
-              High-performance model for coding and agents
-
-            - `:"claude-fable-5"`
-
-              Next generation of intelligence for the hardest knowledge work and coding problems
-
-            - `:"claude-opus-5"`
-
-              Powerful intelligence for long-running agents and coding
-
-            - `:"claude-opus-4-8"`
-
-              Powerful intelligence for long-running agents and coding
-
-            - `:"claude-opus-4-7"`
-
-              Powerful intelligence for long-running agents and coding
-
-            - `:"claude-opus-4-6"`
-
-              Powerful intelligence for long-running agents and coding
-
-            - `:"claude-sonnet-4-6"`
-
-              Best combination of speed and intelligence
-
-            - `:"claude-haiku-4-5"`
-
-              Fastest model with near-frontier intelligence
-
-            - `:"claude-haiku-4-5-20251001"`
-
-              Fastest model with near-frontier intelligence
-
-            - `:"claude-opus-4-5"`
-
-              Powerful intelligence for long-running agents and coding
-
-            - `:"claude-opus-4-5-20251101"`
-
-              Powerful intelligence for long-running agents and coding
-
-            - `:"claude-sonnet-4-5"`
-
-              High-performance model for agents and coding
-
-            - `:"claude-sonnet-4-5-20250929"`
-
-              High-performance model for agents and coding
-
-          - `String = String`
-
-        - `effort: BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | BetaManagedAgentsEffortHigh | 2 more`
-
-          How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
-
-          - `class BetaManagedAgentsEffortLow`
-
-            Low effort. Favors latency over reasoning depth.
-
-            - `type: :low`
-
-          - `class BetaManagedAgentsEffortMedium`
-
-            Medium effort. Balances latency and reasoning depth.
-
-            - `type: :medium`
-
-          - `class BetaManagedAgentsEffortHigh`
-
-            High effort. Favors reasoning depth.
-
-            - `type: :high`
-
-          - `class BetaManagedAgentsEffortXhigh`
-
-            Extra-high effort. Not all models accept this level.
-
-            - `type: :xhigh`
-
-          - `class BetaManagedAgentsEffortMax`
-
-            Maximum effort. Favors reasoning depth over latency.
-
-            - `type: :max`
-
-        - `inference_geo: String`
-
-          Geographic region for model inference. When unset, requests fall through to the workspace's default_inference_geo.
-
-        - `speed: :standard | :fast`
-
-          Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
-          - `:standard`
-
-          - `:fast`
-
-      - `multiagent: BetaManagedAgentsSessionMultiagentCoordinator`
-
-        Resolved coordinator topology with full agent definitions for each roster member.
-
-        - `agents: Array[BetaManagedAgentsSessionThreadAgent | BetaManagedAgentsAdvisor]`
-
-          Full `agent` definitions the coordinator may spawn as session threads.
-
-          - `class BetaManagedAgentsSessionThreadAgent`
-
-            Resolved `agent` definition for a single `session_thread`. Snapshot of the agent at thread creation time. The multiagent roster is not repeated here; read it from `Session.agent`.
-
-            - `id: String`
-
-            - `description: String`
-
-            - `mcp_servers: Array[BetaManagedAgentsMCPServerURLDefinition]`
-
-              - `name: String`
-
-              - `type: :url`
-
-              - `url: String`
-
-            - `model: BetaManagedAgentsModelConfig`
-
-              Model identifier and configuration.
-
-            - `name: String`
-
-            - `skills: Array[BetaManagedAgentsAnthropicSkill | BetaManagedAgentsCustomSkill]`
-
-              - `class BetaManagedAgentsAnthropicSkill`
-
-                A resolved Anthropic-managed skill.
-
-                - `skill_id: String`
-
-                - `type: :anthropic`
-
-                - `version: String`
-
-              - `class BetaManagedAgentsCustomSkill`
-
-                A resolved user-created custom skill.
-
-                - `skill_id: String`
-
-                - `type: :custom`
-
-                - `version: String`
-
-            - `system_: String`
-
-            - `tools: Array[BetaManagedAgentsAgentToolset20260401 | BetaManagedAgentsMCPToolset | BetaManagedAgentsCustomTool]`
-
-              - `class BetaManagedAgentsAgentToolset20260401`
-
-                - `configs: Array[BetaManagedAgentsAgentToolConfig]`
-
-                  - `class BetaManagedAgentsBashToolConfig`
-
-                    Configuration for the bash tool.
-
-                    - `enabled: bool`
-
-                    - `name: :bash`
-
-                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
-
-                      Permission policy for tool execution.
-
-                      - `class BetaManagedAgentsAlwaysAllowPolicy`
-
-                        Tool calls are automatically approved without user confirmation.
-
-                        - `type: :always_allow`
-
-                      - `class BetaManagedAgentsAlwaysAskPolicy`
-
-                        Tool calls require user confirmation before execution.
-
-                        - `type: :always_ask`
-
-                    - `type: :bash`
-
-                  - `class BetaManagedAgentsEditToolConfig`
-
-                    Configuration for the edit tool.
-
-                    - `enabled: bool`
-
-                    - `name: :edit`
-
-                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
-
-                      Permission policy for tool execution.
-
-                      - `class BetaManagedAgentsAlwaysAllowPolicy`
-
-                        Tool calls are automatically approved without user confirmation.
-
-                      - `class BetaManagedAgentsAlwaysAskPolicy`
-
-                        Tool calls require user confirmation before execution.
-
-                    - `type: :edit`
-
-                  - `class BetaManagedAgentsReadToolConfig`
-
-                    Configuration for the read tool.
-
-                    - `enabled: bool`
-
-                    - `name: :read`
-
-                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
-
-                      Permission policy for tool execution.
-
-                      - `class BetaManagedAgentsAlwaysAllowPolicy`
-
-                        Tool calls are automatically approved without user confirmation.
-
-                      - `class BetaManagedAgentsAlwaysAskPolicy`
-
-                        Tool calls require user confirmation before execution.
-
-                    - `type: :read`
-
-                  - `class BetaManagedAgentsWriteToolConfig`
-
-                    Configuration for the write tool.
-
-                    - `enabled: bool`
-
-                    - `name: :write`
-
-                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
-
-                      Permission policy for tool execution.
-
-                      - `class BetaManagedAgentsAlwaysAllowPolicy`
-
-                        Tool calls are automatically approved without user confirmation.
-
-                      - `class BetaManagedAgentsAlwaysAskPolicy`
-
-                        Tool calls require user confirmation before execution.
-
-                    - `type: :write`
-
-                  - `class BetaManagedAgentsGlobToolConfig`
-
-                    Configuration for the glob tool.
-
-                    - `enabled: bool`
-
-                    - `name: :glob`
-
-                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
-
-                      Permission policy for tool execution.
-
-                      - `class BetaManagedAgentsAlwaysAllowPolicy`
-
-                        Tool calls are automatically approved without user confirmation.
-
-                      - `class BetaManagedAgentsAlwaysAskPolicy`
-
-                        Tool calls require user confirmation before execution.
-
-                    - `type: :glob`
-
-                  - `class BetaManagedAgentsGrepToolConfig`
-
-                    Configuration for the grep tool.
-
-                    - `enabled: bool`
-
-                    - `name: :grep`
-
-                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
-
-                      Permission policy for tool execution.
-
-                      - `class BetaManagedAgentsAlwaysAllowPolicy`
-
-                        Tool calls are automatically approved without user confirmation.
-
-                      - `class BetaManagedAgentsAlwaysAskPolicy`
-
-                        Tool calls require user confirmation before execution.
-
-                    - `type: :grep`
-
-                  - `class BetaManagedAgentsWebFetchToolConfig`
-
-                    Configuration for the web_fetch tool.
-
-                    - `enabled: bool`
-
-                    - `name: :web_fetch`
-
-                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
-
-                      Permission policy for tool execution.
-
-                      - `class BetaManagedAgentsAlwaysAllowPolicy`
-
-                        Tool calls are automatically approved without user confirmation.
-
-                      - `class BetaManagedAgentsAlwaysAskPolicy`
-
-                        Tool calls require user confirmation before execution.
-
-                    - `type: :web_fetch`
-
-                    - `allowed_domains: Array[String]`
-
-                    - `blocked_domains: Array[String]`
-
-                    - `max_content_tokens: Integer`
-
-                      format: int32
-
-                  - `class BetaManagedAgentsWebSearchToolConfig`
-
-                    Configuration for the web_search tool.
-
-                    - `enabled: bool`
-
-                    - `name: :web_search`
-
-                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
-
-                      Permission policy for tool execution.
-
-                      - `class BetaManagedAgentsAlwaysAllowPolicy`
-
-                        Tool calls are automatically approved without user confirmation.
-
-                      - `class BetaManagedAgentsAlwaysAskPolicy`
-
-                        Tool calls require user confirmation before execution.
-
-                    - `type: :web_search`
-
-                    - `allowed_domains: Array[String]`
-
-                    - `blocked_domains: Array[String]`
-
-                    - `user_location: BetaManagedAgentsUserLocation`
-
-                      Approximate user location for search result localization.
-
-                      - `type: :approximate`
-
-                        Location precision. Only "approximate" is supported.
-
-                      - `city: String`
-
-                        City name.
-
-                        minLength: 1, maxLength: 255
-
-                      - `country: String`
-
-                        Two-letter ISO 3166-1 country code, uppercase.
-
-                      - `region: String`
-
-                        Region or state name.
-
-                        minLength: 1, maxLength: 255
-
-                      - `timezone: String`
-
-                        IANA timezone identifier, e.g. "America/Los_Angeles".
-
-                        minLength: 1, maxLength: 255
-
-                - `default_config: BetaManagedAgentsAgentToolsetDefaultConfig`
-
-                  Resolved default configuration for agent tools.
-
-                  - `enabled: bool`
-
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
-
-                    Permission policy for tool execution.
-
-                    - `class BetaManagedAgentsAlwaysAllowPolicy`
-
-                      Tool calls are automatically approved without user confirmation.
-
-                    - `class BetaManagedAgentsAlwaysAskPolicy`
-
-                      Tool calls require user confirmation before execution.
-
-                - `type: :agent_toolset_20260401`
-
-              - `class BetaManagedAgentsMCPToolset`
-
-                - `configs: Array[BetaManagedAgentsMCPToolConfig]`
-
-                  - `enabled: bool`
-
-                  - `name: String`
-
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
-
-                    Permission policy for tool execution.
-
-                    - `class BetaManagedAgentsAlwaysAllowPolicy`
-
-                      Tool calls are automatically approved without user confirmation.
-
-                    - `class BetaManagedAgentsAlwaysAskPolicy`
-
-                      Tool calls require user confirmation before execution.
-
-                - `default_config: BetaManagedAgentsMCPToolsetDefaultConfig`
-
-                  Resolved default configuration for all tools from an MCP server.
-
-                  - `enabled: bool`
-
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
-
-                    Permission policy for tool execution.
-
-                    - `class BetaManagedAgentsAlwaysAllowPolicy`
-
-                      Tool calls are automatically approved without user confirmation.
-
-                    - `class BetaManagedAgentsAlwaysAskPolicy`
-
-                      Tool calls require user confirmation before execution.
-
-                - `mcp_server_name: String`
-
-                - `type: :mcp_toolset`
-
-              - `class BetaManagedAgentsCustomTool`
-
-                A custom tool as returned in API responses.
-
-                - `description: String`
-
-                - `input_schema: BetaManagedAgentsCustomToolInputSchema`
-
-                  JSON Schema for custom tool input parameters.
-
-                  - `type: :object`
-
-                  - `properties: Hash[Symbol, untyped]`
-
-                  - `required: Array[String]`
-
-                - `name: String`
-
-                - `type: :custom`
-
-            - `type: :agent`
-
-            - `version: Integer`
-
-              format: int32
-
-          - `class BetaManagedAgentsAdvisor`
-
-            Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
-
-            - `model: String`
-
-              The advisor model id.
-
-            - `type: :advisor`
-
-        - `type: :coordinator`
-
-      - `name: String`
-
-      - `skills: Array[BetaManagedAgentsAnthropicSkill | BetaManagedAgentsCustomSkill]`
-
-        - `class BetaManagedAgentsAnthropicSkill`
-
-          A resolved Anthropic-managed skill.
-
-        - `class BetaManagedAgentsCustomSkill`
-
-          A resolved user-created custom skill.
-
-      - `system_: String`
-
-      - `tools: Array[BetaManagedAgentsAgentToolset20260401 | BetaManagedAgentsMCPToolset | BetaManagedAgentsCustomTool]`
-
-        - `class BetaManagedAgentsAgentToolset20260401`
-
-        - `class BetaManagedAgentsMCPToolset`
-
-        - `class BetaManagedAgentsCustomTool`
-
-          A custom tool as returned in API responses.
-
-      - `type: :agent`
-
-      - `version: Integer`
-
-        format: int32
-
-    - `budget: BetaManagedAgentsBudgetLimit`
-
-      A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
-
-      - `max_list_cost: BetaMonetaryAmount`
-
-        A monetary amount in a specific currency.
-
-        - `amount: String`
-
-          Amount in minor units of the currency, as an integer decimal string with no leading zeros: "2500" is $25.00 and "50" is fifty cents. A string rather than a number so no float rounding is ever applied.
-
-        - `currency: BetaCurrency`
-
-          Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
-
-      - `type: :limit`
-
-    - `metadata: Hash[Symbol, String]`
-
-      The session's full metadata bag after the update. Present when the update set non-empty metadata; absent when metadata was unchanged or cleared to empty.
-
-    - `title: String`
-
-      The session's new title. Present only when the update changed it.
-
-  - `class BetaManagedAgentsSystemMessageEvent`
-
-    A mid-conversation system message event. Carries system-role content that is appended to the session as a `role: "system"` turn.
-
-    - `id: String`
-
-      Unique identifier for this event.
-
-    - `content: Array[BetaManagedAgentsSystemContentBlock]`
-
-      System content blocks. Text-only.
-
-      - `text: String`
-
-        The text content.
-
-        minLength: 1
-
-      - `type: :text`
-
-    - `type: :"system.message"`
-
-    - `processed_at: Time`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-  - `class BetaManagedAgentsSessionUsageEvent`
-
-    Periodic snapshot of the session's cumulative usage and tracked list cost.
-
-    - `id: String`
-
-      Unique identifier for this event.
-
-    - `processed_at: Time`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `type: :"session.usage"`
-
-    - `usage: BetaManagedAgentsSessionUsageSnapshot`
-
-      Point-in-time snapshot of a session's cumulative usage.
-
-      - `active_seconds: Float`
-
-        Cumulative time in seconds during which the session had at least one thread in running status. Overlapping activity from concurrent threads is counted once. This is the duration the session's runtime cost is priced on.
-
-        format: double
-
-      - `cache_creation: BetaManagedAgentsCacheCreationUsage`
-
-        Prompt-cache creation token usage broken down by cache lifetime.
-
-        - `ephemeral_1h_input_tokens: Integer`
-
-          Tokens used to create 1-hour ephemeral cache entries.
-
-          format: int32
-
-        - `ephemeral_5m_input_tokens: Integer`
-
-          Tokens used to create 5-minute ephemeral cache entries.
-
-          format: int32
-
-      - `cache_read_input_tokens: Integer`
-
-        Total tokens read from prompt cache.
-
-        format: int32
-
-      - `input_tokens: Integer`
-
-        Total input tokens consumed across all turns.
-
-        format: int32
-
-      - `list_cost: BetaMonetaryAmount`
-
-        A monetary amount in a specific currency.
-
-      - `output_tokens: Integer`
-
-        Total output tokens generated across all turns.
-
-        format: int32
-
-      - `server_tool_use: BetaManagedAgentsServerToolUsage`
-
-        Cumulative count of server-executed tool invocations, broken down by tool.
-
-        - `web_fetch_requests: Integer`
-
-          Number of server-executed web fetch requests.
-
-          format: int32
-
-        - `web_search_requests: Integer`
-
-          Number of server-executed web search requests.
-
-          format: int32
-
-    - `budget: BetaManagedAgentsBudgetLimit`
-
-      A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
-
-#### Example
-
-```ruby
-require "anthropic"
-
-anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
-
-page = anthropic.beta.sessions.events.list("sesn_011CZkZAtmR3yMPDzynEDxu7")
-
-puts(page)
-```
-
-##### Response (200)
-
-```json
-{
-  "data": [
-    {
-      "id": "sevt_011CZkZGOp0iBcp4kaQSihUmy",
-      "content": [
-        {
-          "text": "Where is my order #1234?",
-          "type": "text"
-        }
-      ],
-      "type": "user.message",
-      "processed_at": "2026-03-15T10:00:00Z"
-    },
-    {
-      "id": "sevt_011CZkZHPq1jCdq5lbRTjiVnz",
-      "content": [
-        {
-          "text": "Let me look up order #1234 for you.",
-          "type": "text"
-        }
-      ],
-      "processed_at": "2026-03-15T10:00:00Z",
-      "type": "agent.message"
-    }
-  ],
-  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
-}
-```
-
-### Send Events
-
-`beta.sessions.events.send_(session_id, **kwargs) -> BetaManagedAgentsSendSessionEvents`
-
-**POST** `/v1/sessions/{session_id}/events`
-
-Send Events
-
-#### Parameters
-
-- `session_id: String`
-
-- `events: Array[BetaManagedAgentsEventParams]`
-
-  Events to send to the `session`.
-
-  - `class BetaManagedAgentsUserMessageEventParams`
-
-    Parameters for sending a user message to the session.
 
     - `content: Array[BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock | BetaManagedAgentsRedactedBlock]`
-
-      Array of content blocks for the user message.
-
-      - `class BetaManagedAgentsTextBlock`
-
-        Regular text content.
-
-        - `text: String`
-
-          The text content.
-
-          minLength: 1
-
-        - `type: :text`
-
-      - `class BetaManagedAgentsImageBlock`
-
-        Image content specified directly as base64 data or as a reference via a URL.
-
-        - `source: BetaManagedAgentsBase64ImageSource | BetaManagedAgentsURLImageSource | BetaManagedAgentsFileImageSource`
-
-          Union type for image source variants.
-
-          - `class BetaManagedAgentsBase64ImageSource`
-
-            Base64-encoded image data.
-
-            - `data: String`
-
-              Base64-encoded image data.
-
-              minLength: 1
-
-            - `media_type: String`
-
-              MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
-
-              minLength: 1
-
-            - `type: :base64`
-
-          - `class BetaManagedAgentsURLImageSource`
-
-            Image referenced by URL.
-
-            - `type: :url`
-
-            - `url: String`
-
-              URL of the image to fetch.
-
-              minLength: 1
-
-          - `class BetaManagedAgentsFileImageSource`
-
-            Image referenced by file ID.
-
-            - `file_id: String`
-
-              ID of a previously uploaded file.
-
-              minLength: 1
-
-            - `type: :file`
-
-        - `type: :image`
-
-      - `class BetaManagedAgentsDocumentBlock`
-
-        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-        - `source: BetaManagedAgentsBase64DocumentSource | BetaManagedAgentsPlainTextDocumentSource | BetaManagedAgentsURLDocumentSource | BetaManagedAgentsFileDocumentSource`
-
-          Union type for document source variants.
-
-          - `class BetaManagedAgentsBase64DocumentSource`
-
-            Base64-encoded document data.
-
-            - `data: String`
-
-              Base64-encoded document data.
-
-              minLength: 1
-
-            - `media_type: String`
-
-              MIME type of the document (e.g., "application/pdf").
-
-              minLength: 1
-
-            - `type: :base64`
-
-          - `class BetaManagedAgentsPlainTextDocumentSource`
-
-            Plain text document content.
-
-            - `data: String`
-
-              The plain text content.
-
-              minLength: 1
-
-            - `media_type: :"text/plain"`
-
-              MIME type of the text content. Must be "text/plain".
-
-            - `type: :text`
-
-          - `class BetaManagedAgentsURLDocumentSource`
-
-            Document referenced by URL.
-
-            - `type: :url`
-
-            - `url: String`
-
-              URL of the document to fetch.
-
-              minLength: 1
-
-          - `class BetaManagedAgentsFileDocumentSource`
-
-            Document referenced by file ID.
-
-            - `file_id: String`
-
-              ID of a previously uploaded file.
-
-              minLength: 1
-
-            - `type: :file`
-
-        - `type: :document`
-
-        - `context: String`
-
-          Additional context about the document for the model.
-
-        - `title: String`
-
-          The title of the document.
-
-      - `class BetaManagedAgentsRedactedBlock`
-
-        Placeholder for content withheld by Anthropic model policy.
-
-        - `type: :redacted`
-
-    - `type: :"user.message"`
-
-  - `class BetaManagedAgentsUserInterruptEventParams`
-
-    Parameters for sending an interrupt to pause the agent.
-
-    - `type: :"user.interrupt"`
-
-    - `session_thread_id: String`
-
-      If absent, interrupts every non-archived thread in a multiagent session (or the primary alone in a single-agent session). If present, interrupts only the named thread.
-
-  - `class BetaManagedAgentsUserToolConfirmationEventParams`
-
-    Parameters for confirming or denying a tool execution request.
-
-    - `result: :allow | :deny`
-
-      UserToolConfirmationResult enum
-
-      - `:allow`
-
-      - `:deny`
-
-    - `tool_use_id: String`
-
-      The id of the `agent.tool_use` or `agent.mcp_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
-
-      minLength: 1, maxLength: 128
-
-    - `type: :"user.tool_confirmation"`
-
-    - `deny_message: String`
-
-      Optional message providing context for a 'deny' decision. Only allowed when result is 'deny'.
-
-      maxLength: 10000
-
-  - `class BetaManagedAgentsUserCustomToolResultEventParams`
-
-    Parameters for providing the result of a custom tool execution.
-
-    - `custom_tool_use_id: String`
-
-      The id of the `agent.custom_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
-
-      minLength: 1, maxLength: 128
-
-    - `type: :"user.custom_tool_result"`
-
-    - `content: Array[BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock | BetaManagedAgentsSearchResultBlock]`
-
-      The result content returned by the tool.
-
-      - `class BetaManagedAgentsTextBlock`
-
-        Regular text content.
-
-      - `class BetaManagedAgentsImageBlock`
-
-        Image content specified directly as base64 data or as a reference via a URL.
-
-      - `class BetaManagedAgentsDocumentBlock`
-
-        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-      - `class BetaManagedAgentsSearchResultBlock`
-
-        A block containing a web search result.
-
-        - `citations: BetaManagedAgentsSearchResultCitations`
-
-          Citation settings for a search result.
-
-          - `enabled: bool`
-
-            Whether citations are enabled for this search result.
-
-        - `content: Array[BetaManagedAgentsSearchResultContent]`
-
-          Array of text content blocks from the search result.
-
-          - `text: String`
-
-            The text content.
-
-            minLength: 1
-
-          - `type: :text`
-
-        - `source: String`
-
-          The URL source of the search result.
-
-          minLength: 1
-
-        - `title: String`
-
-          The title of the search result.
-
-          minLength: 1
-
-        - `type: :search_result`
-
-    - `is_error: bool`
-
-      Whether the tool execution resulted in an error.
-
-  - `class BetaManagedAgentsUserDefineOutcomeEventParams`
-
-    Parameters for defining an outcome the agent should work toward. The agent begins work on receipt.
-
-    - `description: String`
-
-      What the agent should produce. This is the task specification.
-
-    - `rubric: BetaManagedAgentsFileRubricParams | BetaManagedAgentsTextRubricParams`
-
-      Rubric for grading the quality of an outcome.
-
-      - `class BetaManagedAgentsFileRubricParams`
-
-        Rubric referenced by a file uploaded via the Files API.
-
-        - `file_id: String`
-
-          ID of the rubric file.
-
-        - `type: :file`
-
-      - `class BetaManagedAgentsTextRubricParams`
-
-        Rubric content provided inline as text.
-
-        - `content: String`
-
-          Rubric content. Plain text or markdown — the grader treats it as freeform text. Maximum 262144 characters.
-
-          maxLength: 262144
-
-        - `type: :text`
-
-    - `type: :"user.define_outcome"`
-
-    - `max_iterations: Integer`
-
-      Eval→revision cycles before giving up. Default 3, max 20.
-
-      format: int32
-
-  - `class BetaManagedAgentsUserToolResultEventParams`
-
-    Parameters for providing the result of an agent-toolset tool execution. Only valid on `self_hosted` environments, where sandbox-routed tools are executed by the client rather than the server.
-
-    - `tool_use_id: String`
-
-      The id of the `agent.tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
-
-      minLength: 1, maxLength: 128
-
-    - `type: :"user.tool_result"`
-
-    - `content: Array[BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock | BetaManagedAgentsSearchResultBlock]`
-
-      The result content returned by the tool.
-
-      - `class BetaManagedAgentsTextBlock`
-
-        Regular text content.
-
-      - `class BetaManagedAgentsImageBlock`
-
-        Image content specified directly as base64 data or as a reference via a URL.
-
-      - `class BetaManagedAgentsDocumentBlock`
-
-        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-      - `class BetaManagedAgentsSearchResultBlock`
-
-        A block containing a web search result.
-
-    - `is_error: bool`
-
-      Whether the tool execution resulted in an error.
-
-  - `class BetaManagedAgentsSystemMessageEventParams`
-
-    Privileged context for the accompanying turn and all subsequent turns, appended to the session's system context as a `role: "system"` turn rather than replacing the top-level system prompt. At most one per request: it must be the final event and immediately follow the `user.message`, `user.tool_result`, or `user.custom_tool_result` it accompanies. Only supported on models that accept mid-conversation system messages.
-
-    - `content: Array[BetaManagedAgentsSystemContentBlock]`
-
-      System content blocks to append. Text-only.
-
-      - `text: String`
-
-        The text content.
-
-        minLength: 1
-
-      - `type: :text`
-
-    - `type: :"system.message"`
-
-- `betas: Array[AnthropicBeta]`
-
-  Optional header to specify the beta version(s) you want to use.
-
-  - `String = String`
-
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 41 more`
-
-    - `:"message-batches-2024-09-24"`
-
-    - `:"prompt-caching-2024-07-31"`
-
-    - `:"computer-use-2024-10-22"`
-
-    - `:"computer-use-2025-01-24"`
-
-    - `:"pdfs-2024-09-25"`
-
-    - `:"token-counting-2024-11-01"`
-
-    - `:"token-efficient-tools-2025-02-19"`
-
-    - `:"output-128k-2025-02-19"`
-
-    - `:"files-api-2025-04-14"`
-
-    - `:"mcp-client-2025-04-04"`
-
-    - `:"mcp-client-2025-11-20"`
-
-    - `:"dev-full-thinking-2025-05-14"`
-
-    - `:"interleaved-thinking-2025-05-14"`
-
-    - `:"code-execution-2025-05-22"`
-
-    - `:"extended-cache-ttl-2025-04-11"`
-
-    - `:"context-1m-2025-08-07"`
-
-    - `:"context-management-2025-06-27"`
-
-    - `:"model-context-window-exceeded-2025-08-26"`
-
-    - `:"skills-2025-10-02"`
-
-    - `:"fast-mode-2026-02-01"`
-
-    - `:"output-300k-2026-03-24"`
-
-    - `:"user-profiles-2026-03-24"`
-
-    - `:"user-profiles-2026-08-18"`
-
-    - `:"advisor-tool-2026-03-01"`
-
-    - `:"managed-agents-2026-04-01"`
-
-    - `:"cache-diagnosis-2026-04-07"`
-
-    - `:"dreaming-2026-04-21"`
-
-    - `:"thinking-token-count-2026-05-13"`
-
-    - `:"server-side-fallback-2026-06-01"`
-
-    - `:"server-side-fallback-2026-07-01"`
-
-    - `:"fallback-credit-2026-06-01"`
-
-    - `:"fallback-credit-2026-07-01"`
-
-    - `:"agent-memory-2026-07-22"`
-
-    - `:"mid-conversation-tool-changes-2026-07-01"`
-
-    - `:"compact-2026-01-12"`
-
-    - `:"computer-use-2025-11-24"`
-
-    - `:"mcp-tunnels-2026-06-22"`
-
-    - `:"structured-outputs-2025-11-13"`
-
-    - `:"task-budgets-2026-03-13"`
-
-    - `:"thinking-display-updates-2026-08-18"`
-
-    - `:"ce-user-management-2026-07-13"`
-
-    - `:"mid-conversation-output-config-2026-07-01"`
-
-    - `:"thinking-binding-controls-2026-08-01"`
-
-    - `:"mid-conversation-system-clear-at-2026-08-21"`
-
-#### Returns
-
-- `class BetaManagedAgentsSendSessionEvents`
-
-  Events that were successfully sent to the session.
-
-  - `data: Array[BetaManagedAgentsUserMessageEvent | BetaManagedAgentsUserInterruptEvent | BetaManagedAgentsUserToolConfirmationEvent | 4 more]`
-
-    Sent events
-
-    - `class BetaManagedAgentsUserMessageEvent`
-
-      A user message event in the session conversation.
-
-      - `id: String`
-
-        Unique identifier for this event.
-
-      - `content: Array[BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock | BetaManagedAgentsRedactedBlock]`
-
-        Array of content blocks comprising the user message.
-
-        - `class BetaManagedAgentsTextBlock`
-
-          Regular text content.
-
-          - `text: String`
-
-            The text content.
-
-            minLength: 1
-
-          - `type: :text`
-
-        - `class BetaManagedAgentsImageBlock`
-
-          Image content specified directly as base64 data or as a reference via a URL.
-
-          - `source: BetaManagedAgentsBase64ImageSource | BetaManagedAgentsURLImageSource | BetaManagedAgentsFileImageSource`
-
-            Union type for image source variants.
-
-            - `class BetaManagedAgentsBase64ImageSource`
-
-              Base64-encoded image data.
-
-              - `data: String`
-
-                Base64-encoded image data.
-
-                minLength: 1
-
-              - `media_type: String`
-
-                MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
-
-                minLength: 1
-
-              - `type: :base64`
-
-            - `class BetaManagedAgentsURLImageSource`
-
-              Image referenced by URL.
-
-              - `type: :url`
-
-              - `url: String`
-
-                URL of the image to fetch.
-
-                minLength: 1
-
-            - `class BetaManagedAgentsFileImageSource`
-
-              Image referenced by file ID.
-
-              - `file_id: String`
-
-                ID of a previously uploaded file.
-
-                minLength: 1
-
-              - `type: :file`
-
-          - `type: :image`
-
-        - `class BetaManagedAgentsDocumentBlock`
-
-          Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-          - `source: BetaManagedAgentsBase64DocumentSource | BetaManagedAgentsPlainTextDocumentSource | BetaManagedAgentsURLDocumentSource | BetaManagedAgentsFileDocumentSource`
-
-            Union type for document source variants.
-
-            - `class BetaManagedAgentsBase64DocumentSource`
-
-              Base64-encoded document data.
-
-              - `data: String`
-
-                Base64-encoded document data.
-
-                minLength: 1
-
-              - `media_type: String`
-
-                MIME type of the document (e.g., "application/pdf").
-
-                minLength: 1
-
-              - `type: :base64`
-
-            - `class BetaManagedAgentsPlainTextDocumentSource`
-
-              Plain text document content.
-
-              - `data: String`
-
-                The plain text content.
-
-                minLength: 1
-
-              - `media_type: :"text/plain"`
-
-                MIME type of the text content. Must be "text/plain".
-
-              - `type: :text`
-
-            - `class BetaManagedAgentsURLDocumentSource`
-
-              Document referenced by URL.
-
-              - `type: :url`
-
-              - `url: String`
-
-                URL of the document to fetch.
-
-                minLength: 1
-
-            - `class BetaManagedAgentsFileDocumentSource`
-
-              Document referenced by file ID.
-
-              - `file_id: String`
-
-                ID of a previously uploaded file.
-
-                minLength: 1
-
-              - `type: :file`
-
-          - `type: :document`
-
-          - `context: String`
-
-            Additional context about the document for the model.
-
-          - `title: String`
-
-            The title of the document.
-
-        - `class BetaManagedAgentsRedactedBlock`
-
-          Placeholder for content withheld by Anthropic model policy.
-
-          - `type: :redacted`
-
-      - `type: :"user.message"`
-
-      - `processed_at: Time`
-
-        A timestamp in RFC 3339 format
-
-        format: date-time
-
-    - `class BetaManagedAgentsUserInterruptEvent`
-
-      An interrupt event that pauses agent execution and returns control to the user.
-
-      - `id: String`
-
-        Unique identifier for this event.
-
-      - `type: :"user.interrupt"`
-
-      - `processed_at: Time`
-
-        A timestamp in RFC 3339 format
-
-        format: date-time
-
-      - `session_thread_id: String`
-
-        If absent, interrupts every non-archived thread in a multiagent session (or the primary alone in a single-agent session). If present, interrupts only the named thread.
-
-    - `class BetaManagedAgentsUserToolConfirmationEvent`
-
-      A tool confirmation event that approves or denies a pending tool execution.
-
-      - `id: String`
-
-        Unique identifier for this event.
-
-      - `result: :allow | :deny`
-
-        UserToolConfirmationResult enum
-
-        - `:allow`
-
-        - `:deny`
-
-      - `tool_use_id: String`
-
-        The id of the `agent.tool_use` or `agent.mcp_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
-
-      - `type: :"user.tool_confirmation"`
-
-      - `deny_message: String`
-
-        Optional message providing context for a 'deny' decision. Only allowed when result is 'deny'.
-
-        maxLength: 10000
-
-      - `processed_at: Time`
-
-        A timestamp in RFC 3339 format
-
-        format: date-time
-
-      - `session_thread_id: String`
-
-        When set, the confirmation routes to this subagent's thread rather than the primary. Echo this from the `session_thread_id` on the `agent.tool_use` or `agent.mcp_tool_use` event that prompted the approval.
-
-    - `class BetaManagedAgentsUserCustomToolResultEvent`
-
-      Event sent by the client providing the result of a custom tool execution.
-
-      - `id: String`
-
-        Unique identifier for this event.
-
-      - `custom_tool_use_id: String`
-
-        The id of the `agent.custom_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
-
-      - `type: :"user.custom_tool_result"`
-
-      - `content: Array[BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock | BetaManagedAgentsSearchResultBlock]`
-
-        The result content returned by the tool.
-
-        - `class BetaManagedAgentsTextBlock`
-
-          Regular text content.
-
-        - `class BetaManagedAgentsImageBlock`
-
-          Image content specified directly as base64 data or as a reference via a URL.
-
-        - `class BetaManagedAgentsDocumentBlock`
-
-          Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-        - `class BetaManagedAgentsSearchResultBlock`
-
-          A block containing a web search result.
-
-          - `citations: BetaManagedAgentsSearchResultCitations`
-
-            Citation settings for a search result.
-
-            - `enabled: bool`
-
-              Whether citations are enabled for this search result.
-
-          - `content: Array[BetaManagedAgentsSearchResultContent]`
-
-            Array of text content blocks from the search result.
-
-            - `text: String`
-
-              The text content.
-
-              minLength: 1
-
-            - `type: :text`
-
-          - `source: String`
-
-            The URL source of the search result.
-
-            minLength: 1
-
-          - `title: String`
-
-            The title of the search result.
-
-            minLength: 1
-
-          - `type: :search_result`
-
-      - `is_error: bool`
-
-        Whether the tool execution resulted in an error.
-
-      - `processed_at: Time`
-
-        A timestamp in RFC 3339 format
-
-        format: date-time
-
-      - `session_thread_id: String`
-
-        Routes this result to a subagent thread. Copy from the `agent.custom_tool_use` event's `session_thread_id`.
-
-    - `class BetaManagedAgentsUserDefineOutcomeEvent`
-
-      Echo of a `user.define_outcome` input event. Carries the server-generated `outcome_id` that subsequent `span.outcome_evaluation_*` events reference.
-
-      - `id: String`
-
-        Unique identifier for this event.
-
-      - `description: String`
-
-        What the agent should produce. Copied from the input event.
-
-      - `max_iterations: Integer`
-
-        Evaluate-then-revise cycles before giving up. Default 3, max 20.
-
-        format: int32
-
-      - `outcome_id: String`
-
-        Server-generated `outc_` ID for this outcome. Referenced by `span.outcome_evaluation_*` events and the session's `outcome_evaluations` list.
-
-      - `processed_at: Time`
-
-        A timestamp in RFC 3339 format
-
-        format: date-time
-
-      - `rubric: BetaManagedAgentsFileRubric | BetaManagedAgentsTextRubric`
-
-        Rubric for grading the quality of an outcome.
-
-        - `class BetaManagedAgentsFileRubric`
-
-          Rubric referenced by a file uploaded via the Files API.
-
-          - `file_id: String`
-
-            ID of the rubric file.
-
-          - `type: :file`
-
-        - `class BetaManagedAgentsTextRubric`
-
-          Rubric content provided inline as text.
-
-          - `content: String`
-
-            Rubric content. Plain text or markdown — the grader treats it as freeform text.
-
-          - `type: :text`
-
-      - `type: :"user.define_outcome"`
-
-    - `class BetaManagedAgentsUserToolResultEvent`
-
-      Event sent by the client providing the result of an agent-toolset tool execution. Only valid on `self_hosted` environments, where sandbox-routed tools are executed by the client rather than the server.
-
-      - `id: String`
-
-        Unique identifier for this event.
-
-      - `tool_use_id: String`
-
-        The id of the `agent.tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
-
-      - `type: :"user.tool_result"`
-
-      - `content: Array[BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock | BetaManagedAgentsSearchResultBlock]`
-
-        The result content returned by the tool.
-
-        - `class BetaManagedAgentsTextBlock`
-
-          Regular text content.
-
-        - `class BetaManagedAgentsImageBlock`
-
-          Image content specified directly as base64 data or as a reference via a URL.
-
-        - `class BetaManagedAgentsDocumentBlock`
-
-          Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-        - `class BetaManagedAgentsSearchResultBlock`
-
-          A block containing a web search result.
-
-      - `is_error: bool`
-
-        Whether the tool execution resulted in an error.
-
-      - `processed_at: Time`
-
-        A timestamp in RFC 3339 format
-
-        format: date-time
-
-      - `session_thread_id: String`
-
-        Routes this result to a subagent thread. Copy from the `agent.tool_use` event's `session_thread_id`.
-
-    - `class BetaManagedAgentsSystemMessageEvent`
-
-      A mid-conversation system message event. Carries system-role content that is appended to the session as a `role: "system"` turn.
-
-      - `id: String`
-
-        Unique identifier for this event.
-
-      - `content: Array[BetaManagedAgentsSystemContentBlock]`
-
-        System content blocks. Text-only.
-
-        - `text: String`
-
-          The text content.
-
-          minLength: 1
-
-        - `type: :text`
-
-      - `type: :"system.message"`
-
-      - `processed_at: Time`
-
-        A timestamp in RFC 3339 format
-
-        format: date-time
-
-#### Example
-
-```ruby
-require "anthropic"
-
-anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
-
-beta_managed_agents_send_session_events = anthropic.beta.sessions.events.send_(
-  "sesn_011CZkZAtmR3yMPDzynEDxu7",
-  events: [{content: [{text: "Where is my order #1234?", type: :text}], type: :"user.message"}]
-)
-
-puts(beta_managed_agents_send_session_events)
-```
-
-##### Response (200)
-
-```json
-{
-  "data": [
-    {
-      "id": "sevt_011CZkZGOp0iBcp4kaQSihUmy",
-      "content": [
-        {
-          "text": "Where is my order #1234?",
-          "type": "text"
-        }
-      ],
-      "type": "user.message",
-      "processed_at": "2026-03-15T10:00:00Z"
-    }
-  ]
-}
-```
-
-### Stream Events
-
-`beta.sessions.events.stream(session_id, **kwargs) -> BetaManagedAgentsStreamSessionEvents`
-
-**GET** `/v1/sessions/{session_id}/events/stream`
-
-Stream Events
-
-#### Parameters
-
-- `session_id: String`
-
-- `event_deltas: Array[BetaManagedAgentsDeltaType]`
-
-  When set, this connection also receives streaming deltas (`event_start`, `event_delta`) while an event is being produced, before the event itself arrives. Deltas are best-effort; when the final event is produced it carries the complete content. A model request that ends early (an error or interrupt) produces no final event — its terminal `span.model_request_end` closes the preview. Accepts one or more event types to preview and may be repeated: `agent.message` streams `content_delta` fragments; `agent.thinking` is start-only — a signal that the agent has begun extended thinking, concluded by the `agent.thinking` event itself. Only previews of the requested event types are sent.
-
-  - `:"agent.message"`
-
-  - `:"agent.thinking"`
-
-- `betas: Array[AnthropicBeta]`
-
-  Optional header to specify the beta version(s) you want to use.
-
-  - `String = String`
-
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 41 more`

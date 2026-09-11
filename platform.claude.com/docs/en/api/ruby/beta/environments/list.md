@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/ruby/beta/environments/list -->
 
+---
+title: List Environments
+url: https://platform.claude.com/docs/en/api/ruby/beta/environments/list
+---
+
 # List Environments
 
 `beta.environments.list(**kwargs) -> PageCursor<BetaEnvironment>`
@@ -30,7 +35,7 @@ List environments with pagination support.
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 41 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 42 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -78,6 +83,8 @@ List environments with pagination support.
 
     - `:"user-profiles-2026-08-18"`
 
+    - `:"user-profiles-2026-09-04"`
+
     - `:"advisor-tool-2026-03-01"`
 
     - `:"managed-agents-2026-04-01"`
@@ -120,11 +127,17 @@ List environments with pagination support.
 
     - `:"mid-conversation-system-clear-at-2026-08-21"`
 
+- `workspace_id: String`
+
 ## Returns
 
 - `class BetaEnvironment`
 
   Unified Environment resource for both cloud and self-hosted environments.
+
+  - `type: :environment`
+
+    The type of object (always 'environment')
 
   - `id: String`
 
@@ -142,6 +155,10 @@ List environments with pagination support.
 
       `cloud` environment configuration.
 
+      - `type: :cloud`
+
+        Environment type
+
       - `networking: BetaUnrestrictedNetwork | BetaLimitedNetwork`
 
         Network configuration policy.
@@ -158,6 +175,10 @@ List environments with pagination support.
 
           Limited network access.
 
+          - `type: :limited`
+
+            Network policy type
+
           - `allow_mcp_servers: bool`
 
             Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
@@ -170,13 +191,13 @@ List environments with pagination support.
 
             Specifies domains the container can reach.
 
-          - `type: :limited`
-
-            Network policy type
-
       - `packages: BetaPackages`
 
         Package manager configuration.
+
+        - `type: :packages`
+
+          Package configuration type
 
         - `apt: Array[String]`
 
@@ -202,14 +223,6 @@ List environments with pagination support.
 
           Python packages to install
 
-        - `type: :packages`
-
-          Package configuration type
-
-      - `type: :cloud`
-
-        Environment type
-
     - `class BetaSelfHostedConfig`
 
       Configuration for self-hosted environments.
@@ -233,10 +246,6 @@ List environments with pagination support.
   - `name: String`
 
     Human-readable name for the environment
-
-  - `type: :environment`
-
-    The type of object (always 'environment')
 
   - `updated_at: String`
 

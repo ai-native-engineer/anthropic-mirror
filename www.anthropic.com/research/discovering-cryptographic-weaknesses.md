@@ -14,7 +14,7 @@ Jul 28, 2026
 
 When we launched Claude Mythos Preview, we showed it was able to autonomously find and exploit vulnerabilities in almost every piece of software we pointed it at. This included several major cryptographic libraries—shared collections of code that are used to encrypt data.
 
-The vulnerabilities that Claude found in these cryptographic libraries1 were due to incorrect *implementation* of the algorithms—that is, errors in how programmers used the algorithms in their code that created opportunities for attackers to break the encryption.
+The vulnerabilities that Claude found in these cryptographic libraries[1](#footnote-1) were due to incorrect *implementation* of the algorithms—that is, errors in how programmers used the algorithms in their code that created opportunities for attackers to break the encryption.
 
 Now, we have found that Claude is able to find mathematical flaws *in the algorithms themselves*.
 
@@ -24,11 +24,11 @@ The first result we describe in this post, which was discovered with Claude Myth
 
 The second result concerns the [Advanced Encryption Standard](https://www.nist.gov/publications/advanced-encryption-standard-aes) (AES), a symmetric cipher that was adopted by NIST in 2001 and has received more scrutiny than almost any other encryption algorithm. In order to better understand the robustness of AES, weaker variations of the algorithm are regularly studied in cryptography research; Mythos found a way to break one such weaker version, and eliminated one of the guesses an attacker needs to make, improving the speed of the previous best attacks by 200-800×.
 
-To be clear, neither of these results has a practical impact on today’s computer systems; no production software will have to change as a result. HAWK is only a *candidate* signature scheme and so is not deployed;2 our second attack is on a reduced version of AES and does not break the full cipher.3
+To be clear, neither of these results has a practical impact on today’s computer systems; no production software will have to change as a result. HAWK is only a *candidate* signature scheme and so is not deployed;[2](#footnote-2) our second attack is on a reduced version of AES and does not break the full cipher.[3](#footnote-3)
 
 Nevertheless, both results show the potential for frontier AI models to help discover flaws in important cryptographic algorithms, both before and after real-world deployment. This is cryptography research working as intended: stress-testing algorithms to build trust and ultimately make systems more secure.
 
-Mythos Preview achieved these results mostly autonomously and mostly without human intervention. Over the course of a week, one Anthropic researcher worked together with Claude to develop the HAWK attack, and another researcher built a scaffold4 that allowed Claude to fully autonomously discover the AES attack.5 Each of the results cost roughly $100,000 in API cost to develop. After seeing these results, we broadened our search and began to discover other attacks. We discuss some of these follow-ups below.
+Mythos Preview achieved these results mostly autonomously and mostly without human intervention. Over the course of a week, one Anthropic researcher worked together with Claude to develop the HAWK attack, and another researcher built a scaffold[4](#footnote-4) that allowed Claude to fully autonomously discover the AES attack.[5](#footnote-5) Each of the results cost roughly $100,000 in API cost to develop. After seeing these results, we broadened our search and began to discover other attacks. We discuss some of these follow-ups below.
 
 In order to make it easier for others to continue studying the cryptanalytic ability of LLMs, we partnered with academics at ETH Zurich, Tel Aviv University, and TU Berlin to build [CryptanalysisBench](https://arxiv.org/abs/2607.18538), a benchmark that packages together many cryptographic ciphers and makes it easy for others to evaluate the capabilities of LLMs on this important topic.
 
@@ -100,7 +100,7 @@ Three days later, Mythos discovered the Möbius Bridge idea that results in an i
 
 Researchers at Anthropic then spent several hundred hours learning enough cryptography research to validate the model’s claim, and to prepare [the research paper](https://anthropic.com/document/aes_mobius_bridge.pdf) itself, which we are releasing along with this blog post.
 
-Along with the research paper, we are also releasing [a document containing Claude’s chain of thought](https://anthropic.com/document/aes_mobius_bridge_cot.pdf) during the discovery of the key algorithmic insight.6 In this session, Claude begins by reviewing what previous agents had discovered, reading the various critiques, and then turns to proposing various new transforms; after proposing and rejecting several ideas, it comes up with the key idea of the Möbius transform. Claude then validates this idea both mathematically and computationally, and then writes a report that future agents then used to develop the remaining ideas that formed its paper.
+Along with the research paper, we are also releasing [a document containing Claude’s chain of thought](https://anthropic.com/document/aes_mobius_bridge_cot.pdf) during the discovery of the key algorithmic insight.[6](#footnote-6) In this session, Claude begins by reviewing what previous agents had discovered, reading the various critiques, and then turns to proposing various new transforms; after proposing and rejecting several ideas, it comes up with the key idea of the Möbius transform. Claude then validates this idea both mathematically and computationally, and then writes a report that future agents then used to develop the remaining ideas that formed its paper.
 
 ## Further work
 
@@ -145,6 +145,12 @@ Read the paper [introducing CryptanalysisBench](https://arxiv.org/abs/2607.18538
 5. Out of curiosity, after confirming the HAWK result was correct, we then tested if the same scaffold that successfully attacked AES could also re-discover the HAWK break. It could.
 6. Importantly, this is just one of many (autonomous) sessions where Claude worked on discovering new ideas. Many sessions resulted in no new discoveries; other follow-up sessions improved on the insight developed in this one. This document was produced by having Claude rewrite the chain of thought to include more detail to make it easier to read.
 
+### Measuring tactical intelligence targeting and conventional weapons capabilities of AI models
+
+Anthropic’s Frontier Red Team developed new evaluations to measure AI capabilities in tactical intelligence targeting and conventional weapons development.
+
+[Read more](https://www.anthropic.com/research/intelligence-targeting-conventional-weapons-capabilities)
+
 ### An alignment assessment of recent cybersecurity incidents
 
 We present an alignment assessment of four incidents in which Claude models gained unauthorized access to real third-party systems.
@@ -153,15 +159,9 @@ We present an alignment assessment of four incidents in which Claude models gain
 
 ### Formalizing Fermat's Last Theorem
 
-We are sharing the first complete computer-checked proof of Fermat’s Last Theorem. Claude worked largely autonomously over 11 days to write the proof in the Lean programming language. Below, we describe how the formalization was done and share some thoughts about what this work could mean for research mathematics.
+We are sharing the first complete computer-checked proof of Fermat’s Last Theorem. Claude worked largely autonomously over 11 days to write the proof in the Lean programming language.
 
 [Read more](https://www.anthropic.com/research/formalizing-fermats-last-theorem)
-
-### Automated researchers can reliably mitigate alignment failures
-
-We had Claude autonomously train models to improve their performance on several public benchmarks that measure 10 categories of alignment failure. For all 10, Claude found fixes that improved the target benchmarks without degrading capabilities.
-
-[Read more](https://www.anthropic.com/research/automated-researchers-mitigate-alignment-failures)
 
 ## Subscribe to the Frontier Red Team newsletter
 

@@ -73,7 +73,7 @@ Your admin may have already published plugins for your organization — check th
 
 Let's find the plugins that fit your work. In a new Cowork conversation, type:
 
-/setup-cowork
+/setup-claude
 
 Open in Cowork
 

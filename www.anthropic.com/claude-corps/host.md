@@ -6,6 +6,10 @@ Claude Corps is a fully funded, 12-month paid fellowship that places early-caree
 
 [Apply to host](https://form.typeform.com/to/X0apETWF)[Watch informational webinar](https://www.anthropic.com/webinars/claude-corps-how-to-become-a-host-organization)
 
+## Review process
+
+All acceptance and deferral emails were sent from [hosts@claudecorps.org](mailto:hosts@claudecorps.org). If you applied and haven't heard from us, check your spam or quarantine folder and ask your IT team to allow mail from [claudecorps.org](http://claudecorps.org). Still nothing? Email [hosts@claudecorps.org](mailto:hosts@claudecorps.org) and we'll resend it
+
 ## About Claude Corps
 
 ### What is Claude Corps?

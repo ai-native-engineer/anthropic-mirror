@@ -3,6 +3,11 @@
 
 <!-- chunk-start -->
 
+---
+title: Beta
+url: https://platform.claude.com/docs/en/api/go/beta
+---
+
 # Beta
 
 ## Domain types
@@ -61,6 +66,8 @@
 
     - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
 
+    - `const AnthropicBetaUserProfiles2026_09_04 AnthropicBeta = "user-profiles-2026-09-04"`
+
     - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
 
     - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
@@ -107,37 +114,37 @@
 
 - `type BetaAPIError struct{…}`
 
-  - `Message string`
-
-    default: Internal server error
-
   - `Type APIError`
 
     default: api_error
+
+  - `Message string`
+
+    default: Internal server error
 
 ### Beta Authentication Error
 
 - `type BetaAuthenticationError struct{…}`
 
-  - `Message string`
-
-    default: Authentication error
-
   - `Type AuthenticationError`
 
     default: authentication_error
+
+  - `Message string`
+
+    default: Authentication error
 
 ### Beta Billing Error
 
 - `type BetaBillingError struct{…}`
 
-  - `Message string`
-
-    default: Billing error
-
   - `Type BillingError`
 
     default: billing_error
+
+  - `Message string`
+
+    default: Billing error
 
 ### Beta Currency
 
@@ -149,219 +156,219 @@
 
   - `type BetaInvalidRequestError struct{…}`
 
-    - `Message string`
-
-      default: Invalid request
-
     - `Type InvalidRequestError`
 
       default: invalid_request_error
 
-  - `type BetaAuthenticationError struct{…}`
-
     - `Message string`
 
-      default: Authentication error
+      default: Invalid request
+
+  - `type BetaAuthenticationError struct{…}`
 
     - `Type AuthenticationError`
 
       default: authentication_error
 
-  - `type BetaBillingError struct{…}`
-
     - `Message string`
 
-      default: Billing error
+      default: Authentication error
+
+  - `type BetaBillingError struct{…}`
 
     - `Type BillingError`
 
       default: billing_error
 
-  - `type BetaPermissionError struct{…}`
-
     - `Message string`
 
-      default: Permission denied
+      default: Billing error
+
+  - `type BetaPermissionError struct{…}`
 
     - `Type PermissionError`
 
       default: permission_error
 
-  - `type BetaNotFoundError struct{…}`
-
     - `Message string`
 
-      default: Not found
+      default: Permission denied
+
+  - `type BetaNotFoundError struct{…}`
 
     - `Type NotFoundError`
 
       default: not_found_error
 
-  - `type BetaRateLimitError struct{…}`
-
     - `Message string`
 
-      default: Rate limited
+      default: Not found
+
+  - `type BetaRateLimitError struct{…}`
 
     - `Type RateLimitError`
 
       default: rate_limit_error
 
-  - `type BetaGatewayTimeoutError struct{…}`
-
     - `Message string`
 
-      default: Request timeout
+      default: Rate limited
+
+  - `type BetaGatewayTimeoutError struct{…}`
 
     - `Type TimeoutError`
 
       default: timeout_error
 
-  - `type BetaAPIError struct{…}`
-
     - `Message string`
 
-      default: Internal server error
+      default: Request timeout
+
+  - `type BetaAPIError struct{…}`
 
     - `Type APIError`
 
       default: api_error
 
-  - `type BetaOverloadedError struct{…}`
-
     - `Message string`
 
-      default: Overloaded
+      default: Internal server error
+
+  - `type BetaOverloadedError struct{…}`
 
     - `Type OverloadedError`
 
       default: overloaded_error
 
+    - `Message string`
+
+      default: Overloaded
+
 ### Beta Error Response
 
 - `type BetaErrorResponse struct{…}`
-
-  - `Error BetaErrorUnion`
-
-    - `type BetaInvalidRequestError struct{…}`
-
-      - `Message string`
-
-        default: Invalid request
-
-      - `Type InvalidRequestError`
-
-        default: invalid_request_error
-
-    - `type BetaAuthenticationError struct{…}`
-
-      - `Message string`
-
-        default: Authentication error
-
-      - `Type AuthenticationError`
-
-        default: authentication_error
-
-    - `type BetaBillingError struct{…}`
-
-      - `Message string`
-
-        default: Billing error
-
-      - `Type BillingError`
-
-        default: billing_error
-
-    - `type BetaPermissionError struct{…}`
-
-      - `Message string`
-
-        default: Permission denied
-
-      - `Type PermissionError`
-
-        default: permission_error
-
-    - `type BetaNotFoundError struct{…}`
-
-      - `Message string`
-
-        default: Not found
-
-      - `Type NotFoundError`
-
-        default: not_found_error
-
-    - `type BetaRateLimitError struct{…}`
-
-      - `Message string`
-
-        default: Rate limited
-
-      - `Type RateLimitError`
-
-        default: rate_limit_error
-
-    - `type BetaGatewayTimeoutError struct{…}`
-
-      - `Message string`
-
-        default: Request timeout
-
-      - `Type TimeoutError`
-
-        default: timeout_error
-
-    - `type BetaAPIError struct{…}`
-
-      - `Message string`
-
-        default: Internal server error
-
-      - `Type APIError`
-
-        default: api_error
-
-    - `type BetaOverloadedError struct{…}`
-
-      - `Message string`
-
-        default: Overloaded
-
-      - `Type OverloadedError`
-
-        default: overloaded_error
-
-  - `RequestID string`
 
   - `Type Error`
 
     default: error
 
+  - `Error BetaErrorUnion`
+
+    - `type BetaInvalidRequestError struct{…}`
+
+      - `Type InvalidRequestError`
+
+        default: invalid_request_error
+
+      - `Message string`
+
+        default: Invalid request
+
+    - `type BetaAuthenticationError struct{…}`
+
+      - `Type AuthenticationError`
+
+        default: authentication_error
+
+      - `Message string`
+
+        default: Authentication error
+
+    - `type BetaBillingError struct{…}`
+
+      - `Type BillingError`
+
+        default: billing_error
+
+      - `Message string`
+
+        default: Billing error
+
+    - `type BetaPermissionError struct{…}`
+
+      - `Type PermissionError`
+
+        default: permission_error
+
+      - `Message string`
+
+        default: Permission denied
+
+    - `type BetaNotFoundError struct{…}`
+
+      - `Type NotFoundError`
+
+        default: not_found_error
+
+      - `Message string`
+
+        default: Not found
+
+    - `type BetaRateLimitError struct{…}`
+
+      - `Type RateLimitError`
+
+        default: rate_limit_error
+
+      - `Message string`
+
+        default: Rate limited
+
+    - `type BetaGatewayTimeoutError struct{…}`
+
+      - `Type TimeoutError`
+
+        default: timeout_error
+
+      - `Message string`
+
+        default: Request timeout
+
+    - `type BetaAPIError struct{…}`
+
+      - `Type APIError`
+
+        default: api_error
+
+      - `Message string`
+
+        default: Internal server error
+
+    - `type BetaOverloadedError struct{…}`
+
+      - `Type OverloadedError`
+
+        default: overloaded_error
+
+      - `Message string`
+
+        default: Overloaded
+
+  - `RequestID string`
+
 ### Beta Gateway Timeout Error
 
 - `type BetaGatewayTimeoutError struct{…}`
-
-  - `Message string`
-
-    default: Request timeout
 
   - `Type TimeoutError`
 
     default: timeout_error
 
+  - `Message string`
+
+    default: Request timeout
+
 ### Beta Invalid Request Error
 
 - `type BetaInvalidRequestError struct{…}`
 
-  - `Message string`
-
-    default: Invalid request
-
   - `Type InvalidRequestError`
 
     default: invalid_request_error
+
+  - `Message string`
+
+    default: Invalid request
 
 ### Beta Monetary Amount
 
@@ -381,49 +388,49 @@
 
 - `type BetaNotFoundError struct{…}`
 
-  - `Message string`
-
-    default: Not found
-
   - `Type NotFoundError`
 
     default: not_found_error
+
+  - `Message string`
+
+    default: Not found
 
 ### Beta Overloaded Error
 
 - `type BetaOverloadedError struct{…}`
 
-  - `Message string`
-
-    default: Overloaded
-
   - `Type OverloadedError`
 
     default: overloaded_error
+
+  - `Message string`
+
+    default: Overloaded
 
 ### Beta Permission Error
 
 - `type BetaPermissionError struct{…}`
 
-  - `Message string`
-
-    default: Permission denied
-
   - `Type PermissionError`
 
     default: permission_error
+
+  - `Message string`
+
+    default: Permission denied
 
 ### Beta Rate Limit Error
 
 - `type BetaRateLimitError struct{…}`
 
-  - `Message string`
-
-    default: Rate limited
-
   - `Type RateLimitError`
 
     default: rate_limit_error
+
+  - `Message string`
+
+    default: Rate limited
 
 ## Beta › Models
 
@@ -511,6 +518,8 @@ The Models API response can be used to determine which models are available for 
 
       - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
 
+      - `const AnthropicBetaUserProfiles2026_09_04 AnthropicBeta = "user-profiles-2026-09-04"`
+
       - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
 
       - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
@@ -553,9 +562,23 @@ The Models API response can be used to determine which models are available for 
 
       - `const AnthropicBetaMidConversationSystemClearAt2026_08_21 AnthropicBeta = "mid-conversation-system-clear-at-2026-08-21"`
 
+  - `WorkspaceID param.Field[string] Optional`
+
+    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `type BetaModelInfo struct{…}`
+
+  - `Type Model`
+
+    Object type.
+
+    For Models, this is always `"model"`.
+
+    default: model
 
   - `ID string`
 
@@ -682,14 +705,6 @@ The Models API response can be used to determine which models are available for 
   - `MaxTokens int64`
 
     Maximum value for the `max_tokens` parameter when using this model.
-
-  - `Type Model`
-
-    Object type.
-
-    For Models, this is always `"model"`.
-
-    default: model
 
 #### Example
 
@@ -872,6 +887,8 @@ The Models API response can be used to determine information about a specific mo
 
       - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
 
+      - `const AnthropicBetaUserProfiles2026_09_04 AnthropicBeta = "user-profiles-2026-09-04"`
+
       - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
 
       - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
@@ -914,9 +931,23 @@ The Models API response can be used to determine information about a specific mo
 
       - `const AnthropicBetaMidConversationSystemClearAt2026_08_21 AnthropicBeta = "mid-conversation-system-clear-at-2026-08-21"`
 
+  - `WorkspaceID param.Field[string] Optional`
+
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `type BetaModelInfo struct{…}`
+
+  - `Type Model`
+
+    Object type.
+
+    For Models, this is always `"model"`.
+
+    default: model
 
   - `ID string`
 
@@ -1043,14 +1074,6 @@ The Models API response can be used to determine information about a specific mo
   - `MaxTokens int64`
 
     Maximum value for the `max_tokens` parameter when using this model.
-
-  - `Type Model`
-
-    Object type.
-
-    For Models, this is always `"model"`.
-
-    default: model
 
 #### Example
 
@@ -1245,11 +1268,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `type BetaTextBlockParamResp struct{…}`
 
+          - `Type Text`
+
           - `Text string`
 
             minLength: 1
-
-          - `Type Text`
 
           - `CacheControl BetaCacheControlEphemeral Optional`
 
@@ -1276,6 +1299,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `type BetaCitationCharLocationParamResp struct{…}`
 
+              - `Type CharLocation`
+
               - `CitedText string`
 
               - `DocumentIndex int64`
@@ -1292,9 +1317,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 minimum: 0
 
-              - `Type CharLocation`
-
             - `type BetaCitationPageLocationParamResp struct{…}`
+
+              - `Type PageLocation`
 
               - `CitedText string`
 
@@ -1312,9 +1337,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 minimum: 1
 
-              - `Type PageLocation`
-
             - `type BetaCitationContentBlockLocationParamResp struct{…}`
+
+              - `Type ContentBlockLocation`
 
               - `CitedText string`
 
@@ -1342,9 +1367,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 minimum: 0
 
-              - `Type ContentBlockLocation`
-
             - `type BetaCitationWebSearchResultLocationParamResp struct{…}`
+
+              - `Type WebSearchResultLocation`
 
               - `CitedText string`
 
@@ -1354,13 +1379,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 maxLength: 512, minLength: 1
 
-              - `Type WebSearchResultLocation`
-
               - `URL string`
 
                 minLength: 1
 
             - `type BetaCitationSearchResultLocationParamResp struct{…}`
+
+              - `Type SearchResultLocation`
 
               - `CitedText string`
 
@@ -1392,13 +1417,15 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `Title string`
 
-              - `Type SearchResultLocation`
-
         - `type BetaImageBlockParamResp struct{…}`
+
+          - `Type Image`
 
           - `Source BetaImageBlockParamSourceUnionResp`
 
             - `type BetaBase64ImageSource struct{…}`
+
+              - `Type Base64`
 
               - `Data string`
 
@@ -1414,8 +1441,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 - `const BetaBase64ImageSourceMediaTypeImageWebP BetaBase64ImageSourceMediaType = "image/webp"`
 
-              - `Type Base64`
-
             - `type BetaURLImageSource struct{…}`
 
               - `Type URL`
@@ -1424,11 +1449,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `type BetaFileImageSource struct{…}`
 
-              - `FileID string`
-
               - `Type File`
 
-          - `Type Image`
+              - `FileID string`
 
           - `CacheControl BetaCacheControlEphemeral Optional`
 
@@ -1448,9 +1471,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `type BetaRequestDocumentBlock struct{…}`
 
+          - `Type Document`
+
           - `Source BetaRequestDocumentBlockSourceUnion`
 
             - `type BetaBase64PDFSource struct{…}`
+
+              - `Type Base64`
 
               - `Data string`
 
@@ -1458,17 +1485,17 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `MediaType ApplicationPDF`
 
-              - `Type Base64`
-
             - `type BetaPlainTextSource struct{…}`
+
+              - `Type Text`
 
               - `Data string`
 
               - `MediaType TextPlain`
 
-              - `Type Text`
-
             - `type BetaContentBlockSource struct{…}`
+
+              - `Type Content`
 
               - `Content BetaContentBlockSourceContentUnion`
 
@@ -1480,8 +1507,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                   - `type BetaImageBlockParamResp struct{…}`
 
-              - `Type Content`
-
             - `type BetaURLPDFSource struct{…}`
 
               - `Type URL`
@@ -1490,11 +1515,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `type BetaFileDocumentSource struct{…}`
 
-              - `FileID string`
-
               - `Type File`
 
-          - `Type Document`
+              - `FileID string`
 
           - `CacheControl BetaCacheControlEphemeral Optional`
 
@@ -1514,13 +1537,15 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `type BetaSearchResultBlockParamResp struct{…}`
 
+          - `Type SearchResult`
+
           - `Content []BetaTextBlockParamResp`
+
+            - `Type Text`
 
             - `Text string`
 
               minLength: 1
-
-            - `Type Text`
 
             - `CacheControl BetaCacheControlEphemeral Optional`
 
@@ -1532,8 +1557,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `Title string`
 
-          - `Type SearchResult`
-
           - `CacheControl BetaCacheControlEphemeral Optional`
 
             Create a cache control breakpoint at this content block.
@@ -1541,6 +1564,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
           - `Citations BetaCitationsConfigParamResp Optional`
 
         - `type BetaThinkingBlockParamResp struct{…}`
+
+          - `Type Thinking`
 
           - `Signature string`
 
@@ -1552,17 +1577,17 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             The `thinking` text of this block as returned by the API.
 
-          - `Type Thinking`
-
         - `type BetaRedactedThinkingBlockParamResp struct{…}`
+
+          - `Type RedactedThinking`
 
           - `Data string`
 
             The `data` value of this redacted thinking block, exactly as returned by the API in a previous response. Opaque and encrypted; pass it back unchanged.
 
-          - `Type RedactedThinking`
-
         - `type BetaToolUseBlockParamResp struct{…}`
+
+          - `Type ToolUse`
 
           - `ID string`
 
@@ -1573,8 +1598,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
           - `Name string`
 
             maxLength: 200, minLength: 1
-
-          - `Type ToolUse`
 
           - `CacheControl BetaCacheControlEphemeral Optional`
 
@@ -1594,19 +1617,19 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               Tool invocation generated by a server-side tool.
 
+              - `Type CodeExecution20250825`
+
               - `ToolID string`
 
                 pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-              - `Type CodeExecution20250825`
 
             - `type BetaServerToolCaller20260120 struct{…}`
 
+              - `Type CodeExecution20260120`
+
               - `ToolID string`
 
                 pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-              - `Type CodeExecution20260120`
 
           - `ToolsetName string Optional`
 
@@ -1616,11 +1639,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `type BetaToolResultBlockParamResp struct{…}`
 
+          - `Type ToolResult`
+
           - `ToolUseID string`
 
             pattern: ^[a-zA-Z0-9_-]+$
-
-          - `Type ToolResult`
 
           - `CacheControl BetaCacheControlEphemeral Optional`
 
@@ -1642,11 +1665,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 Tool reference block that can be included in tool_result content.
 
+                - `Type ToolReference`
+
                 - `ToolName string`
 
                   maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
-
-                - `Type ToolReference`
 
                 - `CacheControl BetaCacheControlEphemeral Optional`
 
@@ -1661,6 +1684,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
                 At most one per `tool_result`, only on a non-error result answering a
                 browser toolset member `tool_use`. The server renders the
                 model-visible text from it; the model never sees the raw fields.
+
+                - `Type BrowserState`
 
                 - `Tabs []BetaBrowserStateTabEntry`
 
@@ -1690,8 +1715,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                     Whether this tab is the active tab after this call. Whenever `tabs` is non-empty, exactly one entry is marked `active: true`.
 
-                - `Type BrowserState`
-
                 - `CacheControl BetaCacheControlEphemeral Optional`
 
                   Create a cache control breakpoint at this content block.
@@ -1712,25 +1735,25 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
                     during a failed call gets no deferred `tab_opened`; it simply appears
                     in the next result's `tabs` inventory.
 
+                    - `Type TabOpened`
+
                     - `TabID string`
 
                       The `tab_id` of the opened tab, present in `tabs`.
 
                       maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-                    - `Type TabOpened`
-
                   - `type BetaBrowserStateChangeDownloadStarted struct{…}`
 
                     A file download that started during this call.
+
+                    - `Type DownloadStarted`
 
                     - `DownloadID string`
 
                       The caller-assigned identifier for this download, stable across the state changes reporting it.
 
                       maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
-
-                    - `Type DownloadStarted`
 
                     - `URL string`
 
@@ -1745,13 +1768,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
                     `download_started`, when the download finished during the call that
                     started it (at most one state change per `download_id` per result).
 
+                    - `Type DownloadCompleted`
+
                     - `DownloadID string`
 
                       The caller-assigned identifier for this download, stable across the state changes reporting it.
 
                       maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
-
-                    - `Type DownloadCompleted`
 
                     - `URL string`
 
@@ -1775,13 +1798,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                     A file download that failed — or was cancelled — during this call.
 
+                    - `Type DownloadFailed`
+
                     - `DownloadID string`
 
                       The caller-assigned identifier for this download, stable across the state changes reporting it.
 
                       maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
-
-                    - `Type DownloadFailed`
 
                     - `URL string`
 
@@ -1804,6 +1827,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
             maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
 
         - `type BetaServerToolUseBlockParamResp struct{…}`
+
+          - `Type ServerToolUse`
 
           - `ID string`
 
@@ -1829,8 +1854,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `const BetaServerToolUseBlockParamNameToolSearchToolBm25 BetaServerToolUseBlockParamName = "tool_search_tool_bm25"`
 
-          - `Type ServerToolUse`
-
           - `CacheControl BetaCacheControlEphemeral Optional`
 
             Create a cache control breakpoint at this content block.
@@ -1851,21 +1874,25 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `type BetaWebSearchToolResultBlockParamResp struct{…}`
 
+          - `Type WebSearchToolResult`
+
           - `Content BetaWebSearchToolResultBlockParamContentUnionResp`
 
             - `[]BetaWebSearchResultBlockParamResp`
 
+              - `Type WebSearchResult`
+
               - `EncryptedContent string`
 
               - `Title string`
-
-              - `Type WebSearchResult`
 
               - `URL string`
 
               - `PageAge string Optional`
 
             - `type BetaWebSearchToolRequestError struct{…}`
+
+              - `Type WebSearchToolResultError`
 
               - `ErrorCode BetaWebSearchToolResultErrorCode`
 
@@ -1881,13 +1908,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 - `const BetaWebSearchToolResultErrorCodeRequestTooLarge BetaWebSearchToolResultErrorCode = "request_too_large"`
 
-              - `Type WebSearchToolResultError`
-
           - `ToolUseID string`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-          - `Type WebSearchToolResult`
 
           - `CacheControl BetaCacheControlEphemeral Optional`
 
@@ -1909,9 +1932,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `type BetaWebFetchToolResultBlockParamResp struct{…}`
 
+          - `Type WebFetchToolResult`
+
           - `Content BetaWebFetchToolResultBlockParamContentUnionResp`
 
             - `type BetaWebFetchToolResultErrorBlockParamResp struct{…}`
+
+              - `Type WebFetchToolResultError`
 
               - `ErrorCode BetaWebFetchToolResultErrorCode`
 
@@ -1933,13 +1960,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 - `const BetaWebFetchToolResultErrorCodeUnavailable BetaWebFetchToolResultErrorCode = "unavailable"`
 
-              - `Type WebFetchToolResultError`
+                - `const BetaWebFetchToolResultErrorCodeContentTooLarge BetaWebFetchToolResultErrorCode = "content_too_large"`
 
             - `type BetaWebFetchBlockParamResp struct{…}`
 
-              - `Content BetaRequestDocumentBlock`
-
               - `Type WebFetchResult`
+
+              - `Content BetaRequestDocumentBlock`
 
               - `URL string`
 
@@ -1952,8 +1979,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
           - `ToolUseID string`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-          - `Type WebFetchToolResult`
 
           - `CacheControl BetaCacheControlEphemeral Optional`
 
@@ -1975,9 +2000,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `type BetaAdvisorToolResultBlockParamResp struct{…}`
 
+          - `Type AdvisorToolResult`
+
           - `Content BetaAdvisorToolResultBlockParamContentUnionResp`
 
             - `type BetaAdvisorToolResultErrorParamResp struct{…}`
+
+              - `Type AdvisorToolResultError`
 
               - `ErrorCode BetaAdvisorToolResultErrorParamErrorCode`
 
@@ -1995,23 +2024,21 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 - `const BetaAdvisorToolResultErrorParamErrorCodeModelNotFound BetaAdvisorToolResultErrorParamErrorCode = "model_not_found"`
 
-              - `Type AdvisorToolResultError`
-
             - `type BetaAdvisorResultBlockParamResp struct{…}`
 
-              - `Text string`
-
               - `Type AdvisorResult`
+
+              - `Text string`
 
               - `StopReason string Optional`
 
             - `type BetaAdvisorRedactedResultBlockParamResp struct{…}`
 
+              - `Type AdvisorRedactedResult`
+
               - `EncryptedContent string`
 
                 Opaque blob produced by a prior response; must be round-tripped verbatim.
-
-              - `Type AdvisorRedactedResult`
 
               - `StopReason string Optional`
 
@@ -2019,19 +2046,21 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `Type AdvisorToolResult`
-
           - `CacheControl BetaCacheControlEphemeral Optional`
 
             Create a cache control breakpoint at this content block.
 
         - `type BetaCodeExecutionToolResultBlockParamResp struct{…}`
 
+          - `Type CodeExecutionToolResult`
+
           - `Content BetaCodeExecutionToolResultBlockParamContentUnionResp`
 
             Code execution result with encrypted stdout for PFC + web_search results.
 
             - `type BetaCodeExecutionToolResultErrorParamResp struct{…}`
+
+              - `Type CodeExecutionToolResultError`
 
               - `ErrorCode BetaCodeExecutionToolResultErrorCode`
 
@@ -2043,15 +2072,15 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 - `const BetaCodeExecutionToolResultErrorCodeExecutionTimeExceeded BetaCodeExecutionToolResultErrorCode = "execution_time_exceeded"`
 
-              - `Type CodeExecutionToolResultError`
-
             - `type BetaCodeExecutionResultBlockParamResp struct{…}`
+
+              - `Type CodeExecutionResult`
 
               - `Content []BetaCodeExecutionOutputBlockParamResp`
 
-                - `FileID string`
-
                 - `Type CodeExecutionOutput`
+
+                - `FileID string`
 
               - `ReturnCode int64`
 
@@ -2059,17 +2088,17 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `Stdout string`
 
-              - `Type CodeExecutionResult`
-
             - `type BetaEncryptedCodeExecutionResultBlockParamResp struct{…}`
 
               Code execution result with encrypted stdout for PFC + web_search results.
 
+              - `Type EncryptedCodeExecutionResult`
+
               - `Content []BetaCodeExecutionOutputBlockParamResp`
 
-                - `FileID string`
-
                 - `Type CodeExecutionOutput`
+
+                - `FileID string`
 
               - `EncryptedStdout string`
 
@@ -2077,13 +2106,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `Stderr string`
 
-              - `Type EncryptedCodeExecutionResult`
-
           - `ToolUseID string`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-          - `Type CodeExecutionToolResult`
 
           - `CacheControl BetaCacheControlEphemeral Optional`
 
@@ -2091,9 +2116,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `type BetaBashCodeExecutionToolResultBlockParamResp struct{…}`
 
+          - `Type BashCodeExecutionToolResult`
+
           - `Content BetaBashCodeExecutionToolResultBlockParamContentUnionResp`
 
             - `type BetaBashCodeExecutionToolResultErrorParamResp struct{…}`
+
+              - `Type BashCodeExecutionToolResultError`
 
               - `ErrorCode BetaBashCodeExecutionToolResultErrorParamErrorCode`
 
@@ -2107,15 +2136,15 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 - `const BetaBashCodeExecutionToolResultErrorParamErrorCodeOutputFileTooLarge BetaBashCodeExecutionToolResultErrorParamErrorCode = "output_file_too_large"`
 
-              - `Type BashCodeExecutionToolResultError`
-
             - `type BetaBashCodeExecutionResultBlockParamResp struct{…}`
+
+              - `Type BashCodeExecutionResult`
 
               - `Content []BetaBashCodeExecutionOutputBlockParamResp`
 
-                - `FileID string`
-
                 - `Type BashCodeExecutionOutput`
+
+                - `FileID string`
 
               - `ReturnCode int64`
 
@@ -2123,13 +2152,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `Stdout string`
 
-              - `Type BashCodeExecutionResult`
-
           - `ToolUseID string`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-          - `Type BashCodeExecutionToolResult`
 
           - `CacheControl BetaCacheControlEphemeral Optional`
 
@@ -2137,9 +2162,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `type BetaTextEditorCodeExecutionToolResultBlockParamResp struct{…}`
 
+          - `Type TextEditorCodeExecutionToolResult`
+
           - `Content BetaTextEditorCodeExecutionToolResultBlockParamContentUnionResp`
 
             - `type BetaTextEditorCodeExecutionToolResultErrorParamResp struct{…}`
+
+              - `Type TextEditorCodeExecutionToolResultError`
 
               - `ErrorCode BetaTextEditorCodeExecutionToolResultErrorParamErrorCode`
 
@@ -2153,11 +2182,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 - `const BetaTextEditorCodeExecutionToolResultErrorParamErrorCodeFileNotFound BetaTextEditorCodeExecutionToolResultErrorParamErrorCode = "file_not_found"`
 
-              - `Type TextEditorCodeExecutionToolResultError`
-
               - `ErrorMessage string Optional`
 
             - `type BetaTextEditorCodeExecutionViewResultBlockParamResp struct{…}`
+
+              - `Type TextEditorCodeExecutionViewResult`
 
               - `Content string`
 
@@ -2169,8 +2198,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 - `const BetaTextEditorCodeExecutionViewResultBlockParamFileTypePDF BetaTextEditorCodeExecutionViewResultBlockParamFileType = "pdf"`
 
-              - `Type TextEditorCodeExecutionViewResult`
-
               - `NumLines int64 Optional`
 
               - `StartLine int64 Optional`
@@ -2179,9 +2206,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `type BetaTextEditorCodeExecutionCreateResultBlockParamResp struct{…}`
 
-              - `IsFileUpdate bool`
-
               - `Type TextEditorCodeExecutionCreateResult`
+
+              - `IsFileUpdate bool`
 
             - `type BetaTextEditorCodeExecutionStrReplaceResultBlockParamResp struct{…}`
 
@@ -2201,17 +2228,19 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `Type TextEditorCodeExecutionToolResult`
-
           - `CacheControl BetaCacheControlEphemeral Optional`
 
             Create a cache control breakpoint at this content block.
 
         - `type BetaToolSearchToolResultBlockParamResp struct{…}`
 
+          - `Type ToolSearchToolResult`
+
           - `Content BetaToolSearchToolResultBlockParamContentUnionResp`
 
             - `type BetaToolSearchToolResultErrorParamResp struct{…}`
+
+              - `Type ToolSearchToolResultError`
 
               - `ErrorCode BetaToolSearchToolResultErrorParamErrorCode`
 
@@ -2223,37 +2252,35 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 - `const BetaToolSearchToolResultErrorParamErrorCodeExecutionTimeExceeded BetaToolSearchToolResultErrorParamErrorCode = "execution_time_exceeded"`
 
-              - `Type ToolSearchToolResultError`
-
               - `ErrorMessage string Optional`
 
             - `type BetaToolSearchToolSearchResultBlockParamResp struct{…}`
 
+              - `Type ToolSearchToolSearchResult`
+
               - `ToolReferences []BetaToolReferenceBlockParamResp`
+
+                - `Type ToolReference`
 
                 - `ToolName string`
 
                   maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
-                - `Type ToolReference`
-
                 - `CacheControl BetaCacheControlEphemeral Optional`
 
                   Create a cache control breakpoint at this content block.
 
-              - `Type ToolSearchToolSearchResult`
-
           - `ToolUseID string`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-          - `Type ToolSearchToolResult`
 
           - `CacheControl BetaCacheControlEphemeral Optional`
 
             Create a cache control breakpoint at this content block.
 
         - `type BetaMCPToolUseBlockParamResp struct{…}`
+
+          - `Type MCPToolUse`
 
           - `ID string`
 
@@ -2267,19 +2294,17 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             The name of the MCP server
 
-          - `Type MCPToolUse`
-
           - `CacheControl BetaCacheControlEphemeral Optional`
 
             Create a cache control breakpoint at this content block.
 
         - `type BetaRequestMCPToolResultBlockParamResp struct{…}`
 
+          - `Type MCPToolResult`
+
           - `ToolUseID string`
 
             pattern: ^[a-zA-Z0-9_-]+$
-
-          - `Type MCPToolResult`
 
           - `CacheControl BetaCacheControlEphemeral Optional`
 
@@ -2291,11 +2316,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `[]BetaTextBlockParamResp`
 
+              - `Type Text`
+
               - `Text string`
 
                 minLength: 1
-
-              - `Type Text`
 
               - `CacheControl BetaCacheControlEphemeral Optional`
 
@@ -2310,9 +2335,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
           A content block that represents a file to be uploaded to the container
           Files uploaded via this block will be available in the container's input directory.
 
-          - `FileID string`
-
           - `Type ContainerUpload`
+
+          - `FileID string`
 
           - `CacheControl BetaCacheControlEphemeral Optional`
 
@@ -2350,6 +2375,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
           `tools`; it is offered to the model from this point in the
           conversation onward.
 
+          - `Type ToolAddition`
+
           - `Tool BetaRequestToolAdditionBlockToolUnion`
 
             Reference to a single tool the caller declared directly in
@@ -2364,32 +2391,30 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
               server assigns to MCP-resolved tools — use `mcp_tool_reference` or
               `mcp_toolset_reference` for those.
 
+              - `Type ToolReference`
+
               - `Name string`
 
                 pattern: ^[a-zA-Z0-9_-]{1,128}$
-
-              - `Type ToolReference`
 
             - `type BetaToolChangeMCPToolReference struct{…}`
 
               Reference to a single MCP tool by its server and remote name — the
               same `server_name`/`name` pair `mcp_tool_use` carries.
 
+              - `Type MCPToolReference`
+
               - `Name string`
 
               - `ServerName string`
-
-              - `Type MCPToolReference`
 
             - `type BetaToolChangeMCPToolsetReference struct{…}`
 
               Reference to every tool in the named MCP server's toolset.
 
-              - `ServerName string`
-
               - `Type MCPToolsetReference`
 
-          - `Type ToolAddition`
+              - `ServerName string`
 
           - `CacheControl BetaCacheControlEphemeral Optional`
 
@@ -2402,6 +2427,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
           `tool` references a tool (or MCP toolset) by name from the request's
           `tools`; it is no longer offered to the model from this point in the
           conversation onward.
+
+          - `Type ToolRemoval`
 
           - `Tool BetaRequestToolRemovalBlockToolUnion`
 
@@ -2426,8 +2453,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               Reference to every tool in the named MCP server's toolset.
 
-          - `Type ToolRemoval`
-
           - `CacheControl BetaCacheControlEphemeral Optional`
 
             Create a cache control breakpoint at this content block.
@@ -2447,6 +2472,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
           request is rejected), and moving it into the middle of a single run is
           likewise rejected; between non-thinking blocks the block's placement has
           no validation effect.
+
+          - `Type Fallback`
 
           - `From BetaFallbackInfoParamResp`
 
@@ -2538,8 +2565,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             Identifies one hop of a fallback transition.
 
-          - `Type Fallback`
-
           - `Trigger any Optional`
 
             The response block's `trigger`, echoed verbatim. Accepted and ignored by the server; any object or `null` is allowed.
@@ -2610,12 +2635,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         maxItems: 20
 
-        - `SkillID string`
-
-          Skill ID
-
-          maxLength: 64, minLength: 1
-
         - `Type BetaSkillParamsType`
 
           Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
@@ -2623,6 +2642,12 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
           - `const BetaSkillParamsTypeAnthropic BetaSkillParamsType = "anthropic"`
 
           - `const BetaSkillParamsTypeCustom BetaSkillParamsType = "custom"`
+
+        - `SkillID string`
+
+          Skill ID
+
+          maxLength: 64, minLength: 1
 
         - `Version string Optional`
 
@@ -2706,9 +2731,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     maxItems: 20
 
-    - `Name string`
-
     - `Type URL`
+
+    - `Name string`
 
     - `URL string`
 
@@ -2762,11 +2787,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `[]BetaTextBlockParam`
 
+      - `Type Text`
+
       - `Text string`
 
         minLength: 1
-
-      - `Type Text`
 
       - `CacheControl BetaCacheControlEphemeral Optional`
 
@@ -2852,6 +2877,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `type BetaTool struct{…}`
 
+      - `Type BetaToolType Optional`
+
       - `InputSchema BetaToolInputSchema`
 
         [JSON schema](https://json-schema.org/draft/2020-12) for this tool's input.
@@ -2906,17 +2933,15 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         When true, guarantees schema validation on tool names and inputs
 
-      - `Type BetaToolType Optional`
-
     - `type BetaToolBash20241022 struct{…}`
+
+      - `Type Bash20241022`
 
       - `Name Bash`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `Type Bash20241022`
 
       - `AllowedCallers []string Optional`
 
@@ -2944,13 +2969,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `type BetaToolBash20250124 struct{…}`
 
+      - `Type Bash20250124`
+
       - `Name Bash`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `Type Bash20250124`
 
       - `AllowedCallers []string Optional`
 
@@ -2978,13 +3003,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `type BetaCodeExecutionTool20250522 struct{…}`
 
+      - `Type CodeExecution20250522`
+
       - `Name CodeExecution`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `Type CodeExecution20250522`
 
       - `AllowedCallers []string Optional`
 
@@ -3010,13 +3035,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `type BetaCodeExecutionTool20250825 struct{…}`
 
+      - `Type CodeExecution20250825`
+
       - `Name CodeExecution`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `Type CodeExecution20250825`
 
       - `AllowedCallers []string Optional`
 
@@ -3044,13 +3069,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       Code execution tool with REPL state persistence (daemon mode + gVisor checkpoint).
 
+      - `Type CodeExecution20260120`
+
       - `Name CodeExecution`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `Type CodeExecution20260120`
 
       - `AllowedCallers []string Optional`
 
@@ -3078,13 +3103,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       Code execution tool with REPL state persistence.
 
+      - `Type CodeExecution20260521`
+
       - `Name CodeExecution`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `Type CodeExecution20260521`
 
       - `AllowedCallers []string Optional`
 
@@ -3129,6 +3154,18 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         accepted key, and a member's defaults apply wherever its key is
         absent. Unknown keys are rejected: the field set is this toolset
         version's complete member set.
+
+        - `Type BetaBrowserTypeConfig Optional`
+
+          `type`'s config overrides.
+
+          - `DeferLoading bool Optional`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `Enabled bool Optional`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
         - `CloseTab BetaBrowserCloseTabConfig Optional`
 
@@ -3466,18 +3503,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-        - `Type BetaBrowserTypeConfig Optional`
-
-          `type`'s config overrides.
-
-          - `DeferLoading bool Optional`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `Enabled bool Optional`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
         - `Wait BetaBrowserWaitConfig Optional`
 
           `wait`'s config overrides.
@@ -3504,6 +3529,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `type BetaToolComputerUse20241022 struct{…}`
 
+      - `Type Computer20241022`
+
       - `DisplayHeightPx int64`
 
         The height of the display in pixels.
@@ -3521,8 +3548,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `Type Computer20241022`
 
       - `AllowedCallers []string Optional`
 
@@ -3556,13 +3581,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `type BetaMemoryTool20250818 struct{…}`
 
+      - `Type Memory20250818`
+
       - `Name Memory`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `Type Memory20250818`
 
       - `AllowedCallers []string Optional`
 
@@ -3590,6 +3615,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `type BetaToolComputerUse20250124 struct{…}`
 
+      - `Type Computer20250124`
+
       - `DisplayHeightPx int64`
 
         The height of the display in pixels.
@@ -3607,8 +3634,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `Type Computer20250124`
 
       - `AllowedCallers []string Optional`
 
@@ -3642,13 +3667,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `type BetaToolTextEditor20241022 struct{…}`
 
+      - `Type TextEditor20241022`
+
       - `Name StrReplaceEditor`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `Type TextEditor20241022`
 
       - `AllowedCallers []string Optional`
 
@@ -3676,6 +3701,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `type BetaToolComputerUse20251124 struct{…}`
 
+      - `Type Computer20251124`
+
       - `DisplayHeightPx int64`
 
         The height of the display in pixels.
@@ -3693,8 +3720,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `Type Computer20251124`
 
       - `AllowedCallers []string Optional`
 
@@ -3755,6 +3780,18 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         accepted key, and a member's defaults apply wherever its key is
         absent. Unknown keys are rejected: the field set is this toolset
         version's complete member set.
+
+        - `Type BetaComputerTypeConfig Optional`
+
+          `type`'s config overrides.
+
+          - `DeferLoading bool Optional`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `Enabled bool Optional`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
         - `CursorPosition BetaComputerCursorPositionConfig Optional`
 
@@ -3924,18 +3961,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-        - `Type BetaComputerTypeConfig Optional`
-
-          `type`'s config overrides.
-
-          - `DeferLoading bool Optional`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `Enabled bool Optional`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
         - `Wait BetaComputerWaitConfig Optional`
 
           `wait`'s config overrides.
@@ -3962,13 +3987,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `type BetaToolTextEditor20250124 struct{…}`
 
+      - `Type TextEditor20250124`
+
       - `Name StrReplaceEditor`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `Type TextEditor20250124`
 
       - `AllowedCallers []string Optional`
 
@@ -3996,13 +4021,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `type BetaToolTextEditor20250429 struct{…}`
 
+      - `Type TextEditor20250429`
+
       - `Name StrReplaceBasedEditTool`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `Type TextEditor20250429`
 
       - `AllowedCallers []string Optional`
 
@@ -4030,13 +4055,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `type BetaToolTextEditor20250728 struct{…}`
 
+      - `Type TextEditor20250728`
+
       - `Name StrReplaceBasedEditTool`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `Type TextEditor20250728`
 
       - `AllowedCallers []string Optional`
 
@@ -4070,13 +4095,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `type BetaWebSearchTool20250305 struct{…}`
 
+      - `Type WebSearch20250305`
+
       - `Name WebSearch`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `Type WebSearch20250305`
 
       - `AllowedCallers []string Optional`
 
@@ -4146,13 +4171,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `type BetaWebFetchTool20250910 struct{…}`
 
+      - `Type WebFetch20250910`
+
       - `Name WebFetch`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `Type WebFetch20250910`
 
       - `AllowedCallers []string Optional`
 
@@ -4202,13 +4227,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `type BetaWebSearchTool20260209 struct{…}`
 
+      - `Type WebSearch20260209`
+
       - `Name WebSearch`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `Type WebSearch20260209`
 
       - `AllowedCallers []string Optional`
 
@@ -4252,13 +4277,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `type BetaWebFetchTool20260209 struct{…}`
 
+      - `Type WebFetch20260209`
+
       - `Name WebFetch`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `Type WebFetch20260209`
 
       - `AllowedCallers []string Optional`
 
@@ -4310,13 +4335,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       Web fetch tool with use_cache parameter for bypassing cached content.
 
+      - `Type WebFetch20260309`
+
       - `Name WebFetch`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `Type WebFetch20260309`
 
       - `AllowedCallers []string Optional`
 
@@ -4370,13 +4395,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `type BetaWebSearchTool20260318 struct{…}`
 
+      - `Type WebSearch20260318`
+
       - `Name WebSearch`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `Type WebSearch20260318`
 
       - `AllowedCallers []string Optional`
 
@@ -4428,13 +4453,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `type BetaWebFetchTool20260318 struct{…}`
 
+      - `Type WebFetch20260318`
+
       - `Name WebFetch`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `Type WebFetch20260318`
 
       - `AllowedCallers []string Optional`
 
@@ -4496,6 +4521,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `type BetaAdvisorTool20260301 struct{…}`
 
+      - `Type Advisor20260301`
+
       - `Model Model`
 
         The model that will complete your prompt.
@@ -4507,8 +4534,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `Type Advisor20260301`
 
       - `AllowedCallers []string Optional`
 
@@ -4550,17 +4575,17 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `type BetaToolSearchToolBm25_20251119 struct{…}`
 
-      - `Name ToolSearchToolBm25`
-
-        Name of the tool.
-
-        This is how the tool will be called by the model and in `tool_use` blocks.
-
       - `Type BetaToolSearchToolBm25_20251119Type`
 
         - `const BetaToolSearchToolBm25_20251119TypeToolSearchToolBm25_20251119 BetaToolSearchToolBm25_20251119Type = "tool_search_tool_bm25_20251119"`
 
         - `const BetaToolSearchToolBm25_20251119TypeToolSearchToolBm25 BetaToolSearchToolBm25_20251119Type = "tool_search_tool_bm25"`
+
+      - `Name ToolSearchToolBm25`
+
+        Name of the tool.
+
+        This is how the tool will be called by the model and in `tool_use` blocks.
 
       - `AllowedCallers []string Optional`
 
@@ -4586,17 +4611,17 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `type BetaToolSearchToolRegex20251119 struct{…}`
 
-      - `Name ToolSearchToolRegex`
-
-        Name of the tool.
-
-        This is how the tool will be called by the model and in `tool_use` blocks.
-
       - `Type BetaToolSearchToolRegex20251119Type`
 
         - `const BetaToolSearchToolRegex20251119TypeToolSearchToolRegex20251119 BetaToolSearchToolRegex20251119Type = "tool_search_tool_regex_20251119"`
 
         - `const BetaToolSearchToolRegex20251119TypeToolSearchToolRegex BetaToolSearchToolRegex20251119Type = "tool_search_tool_regex"`
+
+      - `Name ToolSearchToolRegex`
+
+        Name of the tool.
+
+        This is how the tool will be called by the model and in `tool_use` blocks.
 
       - `AllowedCallers []string Optional`
 
@@ -4627,13 +4652,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
       Allows configuring enabled status and defer_loading for all tools
       from an MCP server, with optional per-tool overrides.
 
+      - `Type MCPToolset`
+
       - `MCPServerName string`
 
         Name of the MCP server to configure tools for
 
         maxLength: 255, minLength: 1
-
-      - `Type MCPToolset`
 
       - `CacheControl BetaCacheControlEphemeral Optional`
 
@@ -4709,6 +4734,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
 
+      - `const AnthropicBetaUserProfiles2026_09_04 AnthropicBeta = "user-profiles-2026-09-04"`
+
       - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
 
       - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
@@ -4754,6 +4781,12 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
   - `UserProfileID param.Field[string] Optional`
 
     Header param: The user profile ID to attribute this request to. Use when acting on behalf of a party other than your organization. Requires the `user-profiles` beta header.
+
+  - `WorkspaceID param.Field[string] Optional`
+
+    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
   - `OutputFormat param.Field[BetaJSONOutputFormat] Optional`
 
@@ -4803,6 +4836,14 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
 - `type BetaMessage struct{…}`
 
+  - `Type Message`
+
+    Object type.
+
+    For Messages, this is always `"message"`.
+
+    default: message
+
   - `ID string`
 
     Unique object identifier.
@@ -4827,12 +4868,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       Skills loaded in the container
 
-      - `SkillID string`
-
-        Skill ID
-
-        maxLength: 64, minLength: 1
-
       - `Type BetaContainerSkillType`
 
         Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
@@ -4840,6 +4875,12 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         - `const BetaContainerSkillTypeAnthropic BetaContainerSkillType = "anthropic"`
 
         - `const BetaContainerSkillTypeCustom BetaContainerSkillType = "custom"`
+
+      - `SkillID string`
+
+        Skill ID
+
+        maxLength: 64, minLength: 1
 
       - `Version string`
 
@@ -4878,6 +4919,10 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `type BetaTextBlock struct{…}`
 
+      - `Type Text`
+
+        default: text
+
       - `Citations []BetaTextCitationUnion`
 
         Citations supporting the text block.
@@ -4885,6 +4930,10 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
 
         - `type BetaCitationCharLocation struct{…}`
+
+          - `Type CharLocation`
+
+            default: char_location
 
           - `CitedText string`
 
@@ -4902,11 +4951,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             minimum: 0
 
-          - `Type CharLocation`
-
-            default: char_location
-
         - `type BetaCitationPageLocation struct{…}`
+
+          - `Type PageLocation`
+
+            default: page_location
 
           - `CitedText string`
 
@@ -4924,11 +4973,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             minimum: 1
 
-          - `Type PageLocation`
-
-            default: page_location
-
         - `type BetaCitationContentBlockLocation struct{…}`
+
+          - `Type ContentBlockLocation`
+
+            default: content_block_location
 
           - `CitedText string`
 
@@ -4956,11 +5005,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             minimum: 0
 
-          - `Type ContentBlockLocation`
-
-            default: content_block_location
-
         - `type BetaCitationsWebSearchResultLocation struct{…}`
+
+          - `Type WebSearchResultLocation`
+
+            default: web_search_result_location
 
           - `CitedText string`
 
@@ -4970,13 +5019,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             maxLength: 512
 
-          - `Type WebSearchResultLocation`
-
-            default: web_search_result_location
-
           - `URL string`
 
         - `type BetaCitationSearchResultLocation struct{…}`
+
+          - `Type SearchResultLocation`
+
+            default: search_result_location
 
           - `CitedText string`
 
@@ -5008,19 +5057,15 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `Title string`
 
-          - `Type SearchResultLocation`
-
-            default: search_result_location
-
       - `Text string`
 
-        maxLength: 5000000, minLength: 0
-
-      - `Type Text`
-
-        default: text
+        minLength: 0
 
     - `type BetaThinkingBlock struct{…}`
+
+      - `Type Thinking`
+
+        default: thinking
 
       - `Signature string`
 
@@ -5034,11 +5079,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         The text of Claude's thinking process for this block.
 
-      - `Type Thinking`
-
-        default: thinking
-
     - `type BetaRedactedThinkingBlock struct{…}`
+
+      - `Type RedactedThinking`
+
+        default: redacted_thinking
 
       - `Data string`
 
@@ -5048,11 +5093,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking#redacted-thinking-blocks) for details.
 
-      - `Type RedactedThinking`
-
-        default: redacted_thinking
-
     - `type BetaToolUseBlock struct{…}`
+
+      - `Type ToolUse`
+
+        default: tool_use
 
       - `ID string`
 
@@ -5063,10 +5108,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
       - `Name string`
 
         minLength: 1
-
-      - `Type ToolUse`
-
-        default: tool_use
 
       - `Caller BetaToolUseBlockCallerUnion Optional`
 
@@ -5082,19 +5123,19 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           Tool invocation generated by a server-side tool.
 
+          - `Type CodeExecution20250825`
+
           - `ToolID string`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-          - `Type CodeExecution20250825`
 
         - `type BetaServerToolCaller20260120 struct{…}`
 
+          - `Type CodeExecution20260120`
+
           - `ToolID string`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-          - `Type CodeExecution20260120`
 
       - `ToolsetName string Optional`
 
@@ -5103,6 +5144,10 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
 
     - `type BetaServerToolUseBlock struct{…}`
+
+      - `Type ServerToolUse`
+
+        default: server_tool_use
 
       - `ID string`
 
@@ -5128,10 +5173,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `const BetaServerToolUseBlockNameToolSearchToolBm25 BetaServerToolUseBlockName = "tool_search_tool_bm25"`
 
-      - `Type ServerToolUse`
-
-        default: server_tool_use
-
       - `Caller BetaServerToolUseBlockCallerUnion Optional`
 
         Tool invocation directly from the model.
@@ -5148,9 +5189,17 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `type BetaWebSearchToolResultBlock struct{…}`
 
+      - `Type WebSearchToolResult`
+
+        default: web_search_tool_result
+
       - `Content BetaWebSearchToolResultBlockContentUnion`
 
         - `type BetaWebSearchToolResultError struct{…}`
+
+          - `Type WebSearchToolResultError`
+
+            default: web_search_tool_result_error
 
           - `ErrorCode BetaWebSearchToolResultErrorCode`
 
@@ -5166,11 +5215,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `const BetaWebSearchToolResultErrorCodeRequestTooLarge BetaWebSearchToolResultErrorCode = "request_too_large"`
 
-          - `Type WebSearchToolResultError`
-
-            default: web_search_tool_result_error
-
         - `type BetaWebSearchToolResultBlockContentArray []BetaWebSearchResultBlock`
+
+          - `Type WebSearchResult`
+
+            default: web_search_result
 
           - `EncryptedContent string`
 
@@ -5178,19 +5227,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `Title string`
 
-          - `Type WebSearchResult`
-
-            default: web_search_result
-
           - `URL string`
 
       - `ToolUseID string`
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-      - `Type WebSearchToolResult`
-
-        default: web_search_tool_result
 
       - `Caller BetaWebSearchToolResultBlockCallerUnion Optional`
 
@@ -5208,9 +5249,17 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `type BetaWebFetchToolResultBlock struct{…}`
 
+      - `Type WebFetchToolResult`
+
+        default: web_fetch_tool_result
+
       - `Content BetaWebFetchToolResultBlockContentUnion`
 
         - `type BetaWebFetchToolResultErrorBlock struct{…}`
+
+          - `Type WebFetchToolResultError`
+
+            default: web_fetch_tool_result_error
 
           - `ErrorCode BetaWebFetchToolResultErrorCode`
 
@@ -5232,13 +5281,19 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `const BetaWebFetchToolResultErrorCodeUnavailable BetaWebFetchToolResultErrorCode = "unavailable"`
 
-          - `Type WebFetchToolResultError`
-
-            default: web_fetch_tool_result_error
+            - `const BetaWebFetchToolResultErrorCodeContentTooLarge BetaWebFetchToolResultErrorCode = "content_too_large"`
 
         - `type BetaWebFetchBlock struct{…}`
 
+          - `Type WebFetchResult`
+
+            default: web_fetch_result
+
           - `Content BetaDocumentBlock`
+
+            - `Type Document`
+
+              default: document
 
             - `Citations BetaCitationConfig`
 
@@ -5252,37 +5307,29 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `type BetaBase64PDFSource struct{…}`
 
+                - `Type Base64`
+
                 - `Data string`
 
                   format: byte
 
                 - `MediaType ApplicationPDF`
 
-                - `Type Base64`
-
               - `type BetaPlainTextSource struct{…}`
+
+                - `Type Text`
 
                 - `Data string`
 
                 - `MediaType TextPlain`
 
-                - `Type Text`
-
             - `Title string`
 
               The title of the document
 
-            - `Type Document`
-
-              default: document
-
           - `RetrievedAt string`
 
             ISO 8601 timestamp when the content was retrieved
-
-          - `Type WebFetchResult`
-
-            default: web_fetch_result
 
           - `URL string`
 
@@ -5291,10 +5338,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
       - `ToolUseID string`
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-      - `Type WebFetchToolResult`
-
-        default: web_fetch_tool_result
 
       - `Caller BetaWebFetchToolResultBlockCallerUnion Optional`
 
@@ -5312,9 +5355,17 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `type BetaAdvisorToolResultBlock struct{…}`
 
+      - `Type AdvisorToolResult`
+
+        default: advisor_tool_result
+
       - `Content BetaAdvisorToolResultBlockContentUnion`
 
         - `type BetaAdvisorToolResultError struct{…}`
+
+          - `Type AdvisorToolResultError`
+
+            default: advisor_tool_result_error
 
           - `ErrorCode BetaAdvisorToolResultErrorErrorCode`
 
@@ -5332,11 +5383,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `const BetaAdvisorToolResultErrorErrorCodeModelNotFound BetaAdvisorToolResultErrorErrorCode = "model_not_found"`
 
-          - `Type AdvisorToolResultError`
-
-            default: advisor_tool_result_error
-
         - `type BetaAdvisorResultBlock struct{…}`
+
+          - `Type AdvisorResult`
+
+            default: advisor_result
 
           - `StopReason string`
 
@@ -5344,11 +5395,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `Text string`
 
-          - `Type AdvisorResult`
-
-            default: advisor_result
-
         - `type BetaAdvisorRedactedResultBlock struct{…}`
+
+          - `Type AdvisorRedactedResult`
+
+            default: advisor_redacted_result
 
           - `EncryptedContent string`
 
@@ -5358,25 +5409,25 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             The advisor sub-inference's stop reason (same values as the top-level message `stop_reason`).
 
-          - `Type AdvisorRedactedResult`
-
-            default: advisor_redacted_result
-
       - `ToolUseID string`
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-      - `Type AdvisorToolResult`
-
-        default: advisor_tool_result
-
     - `type BetaCodeExecutionToolResultBlock struct{…}`
+
+      - `Type CodeExecutionToolResult`
+
+        default: code_execution_tool_result
 
       - `Content BetaCodeExecutionToolResultBlockContentUnion`
 
         Code execution result with encrypted stdout for PFC + web_search results.
 
         - `type BetaCodeExecutionToolResultError struct{…}`
+
+          - `Type CodeExecutionToolResultError`
+
+            default: code_execution_tool_result_error
 
           - `ErrorCode BetaCodeExecutionToolResultErrorCode`
 
@@ -5388,19 +5439,19 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `const BetaCodeExecutionToolResultErrorCodeExecutionTimeExceeded BetaCodeExecutionToolResultErrorCode = "execution_time_exceeded"`
 
-          - `Type CodeExecutionToolResultError`
-
-            default: code_execution_tool_result_error
-
         - `type BetaCodeExecutionResultBlock struct{…}`
 
-          - `Content []BetaCodeExecutionOutputBlock`
+          - `Type CodeExecutionResult`
 
-            - `FileID string`
+            default: code_execution_result
+
+          - `Content []BetaCodeExecutionOutputBlock`
 
             - `Type CodeExecutionOutput`
 
               default: code_execution_output
+
+            - `FileID string`
 
           - `ReturnCode int64`
 
@@ -5408,21 +5459,21 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `Stdout string`
 
-          - `Type CodeExecutionResult`
-
-            default: code_execution_result
-
         - `type BetaEncryptedCodeExecutionResultBlock struct{…}`
 
           Code execution result with encrypted stdout for PFC + web_search results.
 
-          - `Content []BetaCodeExecutionOutputBlock`
+          - `Type EncryptedCodeExecutionResult`
 
-            - `FileID string`
+            default: encrypted_code_execution_result
+
+          - `Content []BetaCodeExecutionOutputBlock`
 
             - `Type CodeExecutionOutput`
 
               default: code_execution_output
+
+            - `FileID string`
 
           - `EncryptedStdout string`
 
@@ -5430,23 +5481,23 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `Stderr string`
 
-          - `Type EncryptedCodeExecutionResult`
-
-            default: encrypted_code_execution_result
-
       - `ToolUseID string`
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-      - `Type CodeExecutionToolResult`
-
-        default: code_execution_tool_result
-
     - `type BetaBashCodeExecutionToolResultBlock struct{…}`
+
+      - `Type BashCodeExecutionToolResult`
+
+        default: bash_code_execution_tool_result
 
       - `Content BetaBashCodeExecutionToolResultBlockContentUnion`
 
         - `type BetaBashCodeExecutionToolResultError struct{…}`
+
+          - `Type BashCodeExecutionToolResultError`
+
+            default: bash_code_execution_tool_result_error
 
           - `ErrorCode BetaBashCodeExecutionToolResultErrorErrorCode`
 
@@ -5460,19 +5511,19 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `const BetaBashCodeExecutionToolResultErrorErrorCodeOutputFileTooLarge BetaBashCodeExecutionToolResultErrorErrorCode = "output_file_too_large"`
 
-          - `Type BashCodeExecutionToolResultError`
-
-            default: bash_code_execution_tool_result_error
-
         - `type BetaBashCodeExecutionResultBlock struct{…}`
 
-          - `Content []BetaBashCodeExecutionOutputBlock`
+          - `Type BashCodeExecutionResult`
 
-            - `FileID string`
+            default: bash_code_execution_result
+
+          - `Content []BetaBashCodeExecutionOutputBlock`
 
             - `Type BashCodeExecutionOutput`
 
               default: bash_code_execution_output
+
+            - `FileID string`
 
           - `ReturnCode int64`
 
@@ -5480,23 +5531,23 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `Stdout string`
 
-          - `Type BashCodeExecutionResult`
-
-            default: bash_code_execution_result
-
       - `ToolUseID string`
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-      - `Type BashCodeExecutionToolResult`
-
-        default: bash_code_execution_tool_result
-
     - `type BetaTextEditorCodeExecutionToolResultBlock struct{…}`
+
+      - `Type TextEditorCodeExecutionToolResult`
+
+        default: text_editor_code_execution_tool_result
 
       - `Content BetaTextEditorCodeExecutionToolResultBlockContentUnion`
 
         - `type BetaTextEditorCodeExecutionToolResultError struct{…}`
+
+          - `Type TextEditorCodeExecutionToolResultError`
+
+            default: text_editor_code_execution_tool_result_error
 
           - `ErrorCode BetaTextEditorCodeExecutionToolResultErrorErrorCode`
 
@@ -5512,11 +5563,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `ErrorMessage string`
 
-          - `Type TextEditorCodeExecutionToolResultError`
-
-            default: text_editor_code_execution_tool_result_error
-
         - `type BetaTextEditorCodeExecutionViewResultBlock struct{…}`
+
+          - `Type TextEditorCodeExecutionViewResult`
+
+            default: text_editor_code_execution_view_result
 
           - `Content string`
 
@@ -5534,19 +5585,19 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `TotalLines int64`
 
-          - `Type TextEditorCodeExecutionViewResult`
-
-            default: text_editor_code_execution_view_result
-
         - `type BetaTextEditorCodeExecutionCreateResultBlock struct{…}`
-
-          - `IsFileUpdate bool`
 
           - `Type TextEditorCodeExecutionCreateResult`
 
             default: text_editor_code_execution_create_result
 
+          - `IsFileUpdate bool`
+
         - `type BetaTextEditorCodeExecutionStrReplaceResultBlock struct{…}`
+
+          - `Type TextEditorCodeExecutionStrReplaceResult`
+
+            default: text_editor_code_execution_str_replace_result
 
           - `Lines []string`
 
@@ -5558,23 +5609,23 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `OldStart int64`
 
-          - `Type TextEditorCodeExecutionStrReplaceResult`
-
-            default: text_editor_code_execution_str_replace_result
-
       - `ToolUseID string`
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-      - `Type TextEditorCodeExecutionToolResult`
-
-        default: text_editor_code_execution_tool_result
-
     - `type BetaToolSearchToolResultBlock struct{…}`
+
+      - `Type ToolSearchToolResult`
+
+        default: tool_search_tool_result
 
       - `Content BetaToolSearchToolResultBlockContentUnion`
 
         - `type BetaToolSearchToolResultError struct{…}`
+
+          - `Type ToolSearchToolResultError`
+
+            default: tool_search_tool_result_error
 
           - `ErrorCode BetaToolSearchToolResultErrorErrorCode`
 
@@ -5588,35 +5639,31 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `ErrorMessage string`
 
-          - `Type ToolSearchToolResultError`
-
-            default: tool_search_tool_result_error
-
         - `type BetaToolSearchToolSearchResultBlock struct{…}`
-
-          - `ToolReferences []BetaToolReferenceBlock`
-
-            - `ToolName string`
-
-              maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
-
-            - `Type ToolReference`
-
-              default: tool_reference
 
           - `Type ToolSearchToolSearchResult`
 
             default: tool_search_tool_search_result
 
+          - `ToolReferences []BetaToolReferenceBlock`
+
+            - `Type ToolReference`
+
+              default: tool_reference
+
+            - `ToolName string`
+
+              maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+
       - `ToolUseID string`
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-      - `Type ToolSearchToolResult`
-
-        default: tool_search_tool_result
-
     - `type BetaMCPToolUseBlock struct{…}`
+
+      - `Type MCPToolUse`
+
+        default: mcp_tool_use
 
       - `ID string`
 
@@ -5632,17 +5679,21 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         The name of the MCP server
 
-      - `Type MCPToolUse`
-
-        default: mcp_tool_use
-
     - `type BetaMCPToolResultBlock struct{…}`
+
+      - `Type MCPToolResult`
+
+        default: mcp_tool_result
 
       - `Content BetaMCPToolResultBlockContentUnion`
 
         - `string`
 
         - `type BetaMCPToolResultBlockContentBetaMCPToolResultBlockContent []BetaTextBlock`
+
+          - `Type Text`
+
+            default: text
 
           - `Citations []BetaTextCitationUnion`
 
@@ -5652,11 +5703,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `Text string`
 
-            maxLength: 5000000, minLength: 0
-
-          - `Type Text`
-
-            default: text
+            minLength: 0
 
       - `IsError bool`
 
@@ -5666,19 +5713,15 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         pattern: ^[a-zA-Z0-9_-]+$
 
-      - `Type MCPToolResult`
-
-        default: mcp_tool_result
-
     - `type BetaContainerUploadBlock struct{…}`
 
       Response model for a file uploaded to the container.
 
-      - `FileID string`
-
       - `Type ContainerUpload`
 
         default: container_upload
+
+      - `FileID string`
 
     - `type BetaCompactionBlock struct{…}`
 
@@ -5688,6 +5731,10 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
       summary (e.g., malformed output from the model). Clients may round-trip
       compaction blocks with null content; the server treats them as no-ops.
 
+      - `Type Compaction`
+
+        default: compaction
+
       - `Content string`
 
         Summary of compacted content, or null if compaction failed
@@ -5695,10 +5742,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
       - `EncryptedContent string`
 
         Opaque metadata from prior compaction, to be round-tripped verbatim
-
-      - `Type Compaction`
-
-        default: compaction
 
     - `type BetaFallbackBlock struct{…}`
 
@@ -5713,6 +5756,10 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
       The block is treated like a server-tool content block for streaming: it
       arrives via the standard `content_block_start` / `content_block_stop`
       pair and carries no deltas.
+
+      - `Type Fallback`
+
+        default: fallback
 
       - `From BetaFallbackInfo`
 
@@ -5808,6 +5855,10 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         What caused the `from` model to hand over at this hop.
 
+        - `Type Refusal`
+
+          default: refusal
+
         - `Category BetaFallbackRefusalTriggerCategory`
 
           The policy category that triggered a refusal.
@@ -5832,14 +5883,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
 
-        - `Type Refusal`
-
-          default: refusal
-
-      - `Type Fallback`
-
-        default: fallback
-
   - `ContextManagement BetaContextManagementResponse`
 
     Context management response.
@@ -5851,6 +5894,12 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
       List of context management edits that were applied.
 
       - `type BetaClearToolUses20250919EditResponse struct{…}`
+
+        - `Type ClearToolUses20250919`
+
+          The type of context management edit applied.
+
+          default: clear_tool_uses_20250919
 
         - `ClearedInputTokens int64`
 
@@ -5864,13 +5913,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           minimum: 0
 
-        - `Type ClearToolUses20250919`
+      - `type BetaClearThinking20251015EditResponse struct{…}`
+
+        - `Type ClearThinking20251015`
 
           The type of context management edit applied.
 
-          default: clear_tool_uses_20250919
-
-      - `type BetaClearThinking20251015EditResponse struct{…}`
+          default: clear_thinking_20251015
 
         - `ClearedInputTokens int64`
 
@@ -5884,12 +5933,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           minimum: 0
 
-        - `Type ClearThinking20251015`
-
-          The type of context management edit applied.
-
-          default: clear_thinking_20251015
-
   - `Diagnostics BetaDiagnostics`
 
     Response envelope for request-level diagnostics. Present (possibly
@@ -5901,43 +5944,43 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `type BetaCacheMissModelChanged struct{…}`
 
-        - `CacheMissedInputTokens int64`
-
-          Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
-
         - `Type ModelChanged`
 
           default: model_changed
 
-      - `type BetaCacheMissSystemChanged struct{…}`
-
         - `CacheMissedInputTokens int64`
 
           Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+      - `type BetaCacheMissSystemChanged struct{…}`
 
         - `Type SystemChanged`
 
           default: system_changed
 
-      - `type BetaCacheMissToolsChanged struct{…}`
-
         - `CacheMissedInputTokens int64`
 
           Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+      - `type BetaCacheMissToolsChanged struct{…}`
 
         - `Type ToolsChanged`
 
           default: tools_changed
 
-      - `type BetaCacheMissMessagesChanged struct{…}`
-
         - `CacheMissedInputTokens int64`
 
           Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
 
+      - `type BetaCacheMissMessagesChanged struct{…}`
+
         - `Type MessagesChanged`
 
           default: messages_changed
+
+        - `CacheMissedInputTokens int64`
+
+          Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
 
       - `type BetaCacheMissPreviousMessageNotFound struct{…}`
 
@@ -5968,6 +6011,10 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
   - `StopDetails BetaRefusalStopDetails`
 
     Structured information about a refusal.
+
+    - `Type Refusal`
+
+      default: refusal
 
     - `Category BetaRefusalStopDetailsCategory`
 
@@ -6048,10 +6095,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       The server's suggested retry target for this refusal. Populated when a fallback attempt could not be made (the fallback model's rate limit was exhausted, or it was overloaded); names the fallback model the caller can retry directly. Null otherwise.
 
-    - `Type Refusal`
-
-      default: refusal
-
   - `StopReason BetaStopReason`
 
     The reason that we stopped.
@@ -6089,14 +6132,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
     Which custom stop sequence was generated, if any.
 
     This value will be a non-null string if one of your custom stop sequences was generated.
-
-  - `Type Message`
-
-    Object type.
-
-    For Messages, this is always `"message"`.
-
-    default: message
 
   - `Usage BetaUsage`
 
@@ -6164,6 +6199,10 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           No reprice was applied; `reason` says why.
 
+          - `Type NotApplied`
+
+            default: not_applied
+
           - `Reason BetaFallbackCreditNotAppliedReason`
 
             Why the reprice was not applied.
@@ -6194,10 +6233,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
             - `const BetaFallbackCreditNotAppliedReasonWrongPlatform BetaFallbackCreditNotAppliedReason = "wrong_platform"`
 
             - `const BetaFallbackCreditNotAppliedReasonWrongWorkspace BetaFallbackCreditNotAppliedReason = "wrong_workspace"`
-
-          - `Type NotApplied`
-
-            default: not_applied
 
           - `RemoveToRedeem []string Optional`
 
@@ -6236,6 +6271,12 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         Token usage for a sampling iteration.
 
+        - `Type Message`
+
+          Usage for a sampling iteration
+
+          default: message
+
         - `CacheCreation BetaCacheCreation`
 
           Breakdown of cached tokens by TTL
@@ -6270,43 +6311,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           minimum: 0
 
-        - `Type Message`
-
-          Usage for a sampling iteration
-
-          default: message
-
       - `type BetaCompactionIterationUsage struct{…}`
 
         Token usage for a compaction iteration.
-
-        - `CacheCreation BetaCacheCreation`
-
-          Breakdown of cached tokens by TTL
-
-        - `CacheCreationInputTokens int64`
-
-          The number of input tokens used to create the cache entry.
-
-          default: 0, minimum: 0
-
-        - `CacheReadInputTokens int64`
-
-          The number of input tokens read from the cache.
-
-          default: 0, minimum: 0
-
-        - `InputTokens int64`
-
-          The number of input tokens which were used.
-
-          minimum: 0
-
-        - `OutputTokens int64`
-
-          The number of output tokens which were used.
-
-          minimum: 0
 
         - `Type Compaction`
 
@@ -6314,9 +6321,43 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           default: compaction
 
+        - `CacheCreation BetaCacheCreation`
+
+          Breakdown of cached tokens by TTL
+
+        - `CacheCreationInputTokens int64`
+
+          The number of input tokens used to create the cache entry.
+
+          default: 0, minimum: 0
+
+        - `CacheReadInputTokens int64`
+
+          The number of input tokens read from the cache.
+
+          default: 0, minimum: 0
+
+        - `InputTokens int64`
+
+          The number of input tokens which were used.
+
+          minimum: 0
+
+        - `OutputTokens int64`
+
+          The number of output tokens which were used.
+
+          minimum: 0
+
       - `type BetaAdvisorMessageIterationUsage struct{…}`
 
         Token usage for an advisor sub-inference iteration.
+
+        - `Type AdvisorMessage`
+
+          Usage for an advisor sub-inference iteration
+
+          default: advisor_message
 
         - `CacheCreation BetaCacheCreation`
 
@@ -6351,12 +6392,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
           The number of output tokens which were used.
 
           minimum: 0
-
-        - `Type AdvisorMessage`
-
-          Usage for an advisor sub-inference iteration
-
-          default: advisor_message
 
       - `type BetaFallbackMessageIterationUsage struct{…}`
 
@@ -6367,6 +6402,12 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         a fallback model served the response is signalled by the presence of this
         entry in `usage.iterations`.
 
+        - `Type FallbackMessage`
+
+          Usage for the fallback-model attempt that served the response
+
+          default: fallback_message
+
         - `CacheCreation BetaCacheCreation`
 
           Breakdown of cached tokens by TTL
@@ -6400,12 +6441,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
           The number of output tokens which were used.
 
           minimum: 0
-
-        - `Type FallbackMessage`
-
-          Usage for the fallback-model attempt that served the response
-
-          default: fallback_message
 
     - `OutputTokens int64`
 
@@ -6487,6 +6522,12 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
     fallback happened mid-stream, in which case it holds the serving model's
     entries and replaces the one in `message_start`.
 
+    - `Type ThinkingDropped`
+
+      Always `thinking_dropped` for this entry type.
+
+      default: thinking_dropped
+
     - `Path string`
 
       Where the removed block was in your request, as `messages.{i}.content.{j}`:
@@ -6517,23 +6558,21 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `const BetaThinkingDroppedInputTransformationReasonEndUserBindingMismatch BetaThinkingDroppedInputTransformationReason = "end_user_binding_mismatch"`
 
-    - `Type ThinkingDropped`
-
-      Always `thinking_dropped` for this entry type.
-
-      default: thinking_dropped
-
 - `type BetaRawMessageStreamEventUnion interface{…}`
 
   - `type BetaRawMessageStartEvent struct{…}`
-
-    - `Message BetaMessage`
 
     - `Type MessageStart`
 
       default: message_start
 
+    - `Message BetaMessage`
+
   - `type BetaRawMessageDeltaEvent struct{…}`
+
+    - `Type MessageDelta`
+
+      default: message_delta
 
     - `ContextManagement BetaContextManagementResponse`
 
@@ -6552,10 +6591,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
       - `StopReason BetaStopReason`
 
       - `StopSequence string`
-
-    - `Type MessageDelta`
-
-      default: message_delta
 
     - `Usage BetaMessageDeltaUsage`
 
@@ -6638,6 +6673,12 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
       fallback happened mid-stream, in which case it holds the serving model's
       entries and replaces the one in `message_start`.
 
+      - `Type ThinkingDropped`
+
+        Always `thinking_dropped` for this entry type.
+
+        default: thinking_dropped
+
       - `Path string`
 
         Where the removed block was in your request, as `messages.{i}.content.{j}`:
@@ -6660,12 +6701,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         `organization_binding_mismatch`, `end_user_binding_mismatch`,
         `model_binding_mismatch`, `prefix_binding_mismatch`.
 
-      - `Type ThinkingDropped`
-
-        Always `thinking_dropped` for this entry type.
-
-        default: thinking_dropped
-
   - `type BetaRawMessageStopEvent struct{…}`
 
     - `Type MessageStop`
@@ -6673,6 +6708,10 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
       default: message_stop
 
   - `type BetaRawContentBlockStartEvent struct{…}`
+
+    - `Type ContentBlockStart`
+
+      default: content_block_start
 
     - `ContentBlock BetaRawContentBlockStartEventContentBlockUnion`
 
@@ -6734,31 +6773,35 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `Index int64`
 
-    - `Type ContentBlockStart`
-
-      default: content_block_start
-
   - `type BetaRawContentBlockDeltaEvent struct{…}`
+
+    - `Type ContentBlockDelta`
+
+      default: content_block_delta
 
     - `Delta BetaRawContentBlockDeltaUnion`
 
       - `type BetaTextDelta struct{…}`
 
-        - `Text string`
-
         - `Type TextDelta`
 
           default: text_delta
 
-      - `type BetaInputJSONDelta struct{…}`
+        - `Text string`
 
-        - `PartialJSON string`
+      - `type BetaInputJSONDelta struct{…}`
 
         - `Type InputJSONDelta`
 
           default: input_json_delta
 
+        - `PartialJSON string`
+
       - `type BetaCitationsDelta struct{…}`
+
+        - `Type CitationsDelta`
+
+          default: citations_delta
 
         - `Citation BetaCitationsDeltaCitationUnion`
 
@@ -6772,11 +6815,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `type BetaCitationSearchResultLocation struct{…}`
 
-        - `Type CitationsDelta`
-
-          default: citations_delta
-
       - `type BetaThinkingDelta struct{…}`
+
+        - `Type ThinkingDelta`
+
+          default: thinking_delta
 
         - `EstimatedTokens int64`
 
@@ -6786,21 +6829,21 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           The incremental `thinking` text for this content block. Concatenate the `thinking` values of successive `thinking_delta` events to assemble the block's full `thinking` value.
 
-        - `Type ThinkingDelta`
-
-          default: thinking_delta
-
       - `type BetaSignatureDelta struct{…}`
-
-        - `Signature string`
-
-          The `signature` for this thinking block: an opaque value used to verify that the block was generated by Claude when it is passed back to the API. Delivered in a `signature_delta` event just before the block's `content_block_stop` event.
 
         - `Type SignatureDelta`
 
           default: signature_delta
 
+        - `Signature string`
+
+          The `signature` for this thinking block: an opaque value used to verify that the block was generated by Claude when it is passed back to the API. Delivered in a `signature_delta` event just before the block's `content_block_stop` event.
+
       - `type BetaCompactionContentBlockDelta struct{…}`
+
+        - `Type CompactionDelta`
+
+          default: compaction_delta
 
         - `Content string`
 
@@ -6808,23 +6851,15 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           Opaque metadata from prior compaction, to be round-tripped verbatim
 
-        - `Type CompactionDelta`
-
-          default: compaction_delta
-
     - `Index int64`
-
-    - `Type ContentBlockDelta`
-
-      default: content_block_delta
 
   - `type BetaRawContentBlockStopEvent struct{…}`
-
-    - `Index int64`
 
     - `Type ContentBlockStop`
 
       default: content_block_stop
+
+    - `Index int64`
 
 #### Example
 
@@ -7045,11 +7080,11 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `type BetaTextBlockParamResp struct{…}`
 
+          - `Type Text`
+
           - `Text string`
 
             minLength: 1
-
-          - `Type Text`
 
           - `CacheControl BetaCacheControlEphemeral Optional`
 
@@ -7076,6 +7111,8 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             - `type BetaCitationCharLocationParamResp struct{…}`
 
+              - `Type CharLocation`
+
               - `CitedText string`
 
               - `DocumentIndex int64`
@@ -7092,9 +7129,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 minimum: 0
 
-              - `Type CharLocation`
-
             - `type BetaCitationPageLocationParamResp struct{…}`
+
+              - `Type PageLocation`
 
               - `CitedText string`
 
@@ -7112,9 +7149,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 minimum: 1
 
-              - `Type PageLocation`
-
             - `type BetaCitationContentBlockLocationParamResp struct{…}`
+
+              - `Type ContentBlockLocation`
 
               - `CitedText string`
 
@@ -7142,9 +7179,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 minimum: 0
 
-              - `Type ContentBlockLocation`
-
             - `type BetaCitationWebSearchResultLocationParamResp struct{…}`
+
+              - `Type WebSearchResultLocation`
 
               - `CitedText string`
 
@@ -7154,13 +7191,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 maxLength: 512, minLength: 1
 
-              - `Type WebSearchResultLocation`
-
               - `URL string`
 
                 minLength: 1
 
             - `type BetaCitationSearchResultLocationParamResp struct{…}`
+
+              - `Type SearchResultLocation`
 
               - `CitedText string`
 
@@ -7192,13 +7229,15 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `Title string`
 
-              - `Type SearchResultLocation`
-
         - `type BetaImageBlockParamResp struct{…}`
+
+          - `Type Image`
 
           - `Source BetaImageBlockParamSourceUnionResp`
 
             - `type BetaBase64ImageSource struct{…}`
+
+              - `Type Base64`
 
               - `Data string`
 
@@ -7214,8 +7253,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 - `const BetaBase64ImageSourceMediaTypeImageWebP BetaBase64ImageSourceMediaType = "image/webp"`
 
-              - `Type Base64`
-
             - `type BetaURLImageSource struct{…}`
 
               - `Type URL`
@@ -7224,11 +7261,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             - `type BetaFileImageSource struct{…}`
 
-              - `FileID string`
-
               - `Type File`
 
-          - `Type Image`
+              - `FileID string`
 
           - `CacheControl BetaCacheControlEphemeral Optional`
 
@@ -7248,9 +7283,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `type BetaRequestDocumentBlock struct{…}`
 
+          - `Type Document`
+
           - `Source BetaRequestDocumentBlockSourceUnion`
 
             - `type BetaBase64PDFSource struct{…}`
+
+              - `Type Base64`
 
               - `Data string`
 
@@ -7258,17 +7297,17 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `MediaType ApplicationPDF`
 
-              - `Type Base64`
-
             - `type BetaPlainTextSource struct{…}`
+
+              - `Type Text`
 
               - `Data string`
 
               - `MediaType TextPlain`
 
-              - `Type Text`
-
             - `type BetaContentBlockSource struct{…}`
+
+              - `Type Content`
 
               - `Content BetaContentBlockSourceContentUnion`
 
@@ -7280,8 +7319,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                   - `type BetaImageBlockParamResp struct{…}`
 
-              - `Type Content`
-
             - `type BetaURLPDFSource struct{…}`
 
               - `Type URL`
@@ -7290,11 +7327,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             - `type BetaFileDocumentSource struct{…}`
 
-              - `FileID string`
-
               - `Type File`
 
-          - `Type Document`
+              - `FileID string`
 
           - `CacheControl BetaCacheControlEphemeral Optional`
 
@@ -7314,13 +7349,15 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `type BetaSearchResultBlockParamResp struct{…}`
 
+          - `Type SearchResult`
+
           - `Content []BetaTextBlockParamResp`
+
+            - `Type Text`
 
             - `Text string`
 
               minLength: 1
-
-            - `Type Text`
 
             - `CacheControl BetaCacheControlEphemeral Optional`
 
@@ -7332,8 +7369,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
           - `Title string`
 
-          - `Type SearchResult`
-
           - `CacheControl BetaCacheControlEphemeral Optional`
 
             Create a cache control breakpoint at this content block.
@@ -7341,6 +7376,8 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
           - `Citations BetaCitationsConfigParamResp Optional`
 
         - `type BetaThinkingBlockParamResp struct{…}`
+
+          - `Type Thinking`
 
           - `Signature string`
 
@@ -7352,17 +7389,17 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             The `thinking` text of this block as returned by the API.
 
-          - `Type Thinking`
-
         - `type BetaRedactedThinkingBlockParamResp struct{…}`
+
+          - `Type RedactedThinking`
 
           - `Data string`
 
             The `data` value of this redacted thinking block, exactly as returned by the API in a previous response. Opaque and encrypted; pass it back unchanged.
 
-          - `Type RedactedThinking`
-
         - `type BetaToolUseBlockParamResp struct{…}`
+
+          - `Type ToolUse`
 
           - `ID string`
 
@@ -7373,8 +7410,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
           - `Name string`
 
             maxLength: 200, minLength: 1
-
-          - `Type ToolUse`
 
           - `CacheControl BetaCacheControlEphemeral Optional`
 
@@ -7394,19 +7429,19 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               Tool invocation generated by a server-side tool.
 
+              - `Type CodeExecution20250825`
+
               - `ToolID string`
 
                 pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-              - `Type CodeExecution20250825`
 
             - `type BetaServerToolCaller20260120 struct{…}`
 
+              - `Type CodeExecution20260120`
+
               - `ToolID string`
 
                 pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-              - `Type CodeExecution20260120`
 
           - `ToolsetName string Optional`
 
@@ -7416,11 +7451,11 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `type BetaToolResultBlockParamResp struct{…}`
 
+          - `Type ToolResult`
+
           - `ToolUseID string`
 
             pattern: ^[a-zA-Z0-9_-]+$
-
-          - `Type ToolResult`
 
           - `CacheControl BetaCacheControlEphemeral Optional`
 
@@ -7442,11 +7477,11 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 Tool reference block that can be included in tool_result content.
 
+                - `Type ToolReference`
+
                 - `ToolName string`
 
                   maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
-
-                - `Type ToolReference`
 
                 - `CacheControl BetaCacheControlEphemeral Optional`
 
@@ -7461,6 +7496,8 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
                 At most one per `tool_result`, only on a non-error result answering a
                 browser toolset member `tool_use`. The server renders the
                 model-visible text from it; the model never sees the raw fields.
+
+                - `Type BrowserState`
 
                 - `Tabs []BetaBrowserStateTabEntry`
 
@@ -7490,8 +7527,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                     Whether this tab is the active tab after this call. Whenever `tabs` is non-empty, exactly one entry is marked `active: true`.
 
-                - `Type BrowserState`
-
                 - `CacheControl BetaCacheControlEphemeral Optional`
 
                   Create a cache control breakpoint at this content block.
@@ -7512,25 +7547,25 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
                     during a failed call gets no deferred `tab_opened`; it simply appears
                     in the next result's `tabs` inventory.
 
+                    - `Type TabOpened`
+
                     - `TabID string`
 
                       The `tab_id` of the opened tab, present in `tabs`.
 
                       maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-                    - `Type TabOpened`
-
                   - `type BetaBrowserStateChangeDownloadStarted struct{…}`
 
                     A file download that started during this call.
+
+                    - `Type DownloadStarted`
 
                     - `DownloadID string`
 
                       The caller-assigned identifier for this download, stable across the state changes reporting it.
 
                       maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
-
-                    - `Type DownloadStarted`
 
                     - `URL string`
 
@@ -7545,13 +7580,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
                     `download_started`, when the download finished during the call that
                     started it (at most one state change per `download_id` per result).
 
+                    - `Type DownloadCompleted`
+
                     - `DownloadID string`
 
                       The caller-assigned identifier for this download, stable across the state changes reporting it.
 
                       maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
-
-                    - `Type DownloadCompleted`
 
                     - `URL string`
 
@@ -7575,13 +7610,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                     A file download that failed — or was cancelled — during this call.
 
+                    - `Type DownloadFailed`
+
                     - `DownloadID string`
 
                       The caller-assigned identifier for this download, stable across the state changes reporting it.
 
                       maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
-
-                    - `Type DownloadFailed`
 
                     - `URL string`
 
@@ -7604,6 +7639,8 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
             maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
 
         - `type BetaServerToolUseBlockParamResp struct{…}`
+
+          - `Type ServerToolUse`
 
           - `ID string`
 
@@ -7629,8 +7666,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             - `const BetaServerToolUseBlockParamNameToolSearchToolBm25 BetaServerToolUseBlockParamName = "tool_search_tool_bm25"`
 
-          - `Type ServerToolUse`
-
           - `CacheControl BetaCacheControlEphemeral Optional`
 
             Create a cache control breakpoint at this content block.
@@ -7651,21 +7686,25 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `type BetaWebSearchToolResultBlockParamResp struct{…}`
 
+          - `Type WebSearchToolResult`
+
           - `Content BetaWebSearchToolResultBlockParamContentUnionResp`
 
             - `[]BetaWebSearchResultBlockParamResp`
 
+              - `Type WebSearchResult`
+
               - `EncryptedContent string`
 
               - `Title string`
-
-              - `Type WebSearchResult`
 
               - `URL string`
 
               - `PageAge string Optional`
 
             - `type BetaWebSearchToolRequestError struct{…}`
+
+              - `Type WebSearchToolResultError`
 
               - `ErrorCode BetaWebSearchToolResultErrorCode`
 
@@ -7681,13 +7720,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 - `const BetaWebSearchToolResultErrorCodeRequestTooLarge BetaWebSearchToolResultErrorCode = "request_too_large"`
 
-              - `Type WebSearchToolResultError`
-
           - `ToolUseID string`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-          - `Type WebSearchToolResult`
 
           - `CacheControl BetaCacheControlEphemeral Optional`
 
@@ -7709,9 +7744,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `type BetaWebFetchToolResultBlockParamResp struct{…}`
 
+          - `Type WebFetchToolResult`
+
           - `Content BetaWebFetchToolResultBlockParamContentUnionResp`
 
             - `type BetaWebFetchToolResultErrorBlockParamResp struct{…}`
+
+              - `Type WebFetchToolResultError`
 
               - `ErrorCode BetaWebFetchToolResultErrorCode`
 
@@ -7733,13 +7772,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 - `const BetaWebFetchToolResultErrorCodeUnavailable BetaWebFetchToolResultErrorCode = "unavailable"`
 
-              - `Type WebFetchToolResultError`
+                - `const BetaWebFetchToolResultErrorCodeContentTooLarge BetaWebFetchToolResultErrorCode = "content_too_large"`
 
             - `type BetaWebFetchBlockParamResp struct{…}`
 
-              - `Content BetaRequestDocumentBlock`
-
               - `Type WebFetchResult`
+
+              - `Content BetaRequestDocumentBlock`
 
               - `URL string`
 
@@ -7752,8 +7791,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
           - `ToolUseID string`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-          - `Type WebFetchToolResult`
 
           - `CacheControl BetaCacheControlEphemeral Optional`
 
@@ -7775,9 +7812,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `type BetaAdvisorToolResultBlockParamResp struct{…}`
 
+          - `Type AdvisorToolResult`
+
           - `Content BetaAdvisorToolResultBlockParamContentUnionResp`
 
             - `type BetaAdvisorToolResultErrorParamResp struct{…}`
+
+              - `Type AdvisorToolResultError`
 
               - `ErrorCode BetaAdvisorToolResultErrorParamErrorCode`
 
@@ -7795,23 +7836,21 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 - `const BetaAdvisorToolResultErrorParamErrorCodeModelNotFound BetaAdvisorToolResultErrorParamErrorCode = "model_not_found"`
 
-              - `Type AdvisorToolResultError`
-
             - `type BetaAdvisorResultBlockParamResp struct{…}`
 
-              - `Text string`
-
               - `Type AdvisorResult`
+
+              - `Text string`
 
               - `StopReason string Optional`
 
             - `type BetaAdvisorRedactedResultBlockParamResp struct{…}`
 
+              - `Type AdvisorRedactedResult`
+
               - `EncryptedContent string`
 
                 Opaque blob produced by a prior response; must be round-tripped verbatim.
-
-              - `Type AdvisorRedactedResult`
 
               - `StopReason string Optional`
 
@@ -7819,19 +7858,21 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `Type AdvisorToolResult`
-
           - `CacheControl BetaCacheControlEphemeral Optional`
 
             Create a cache control breakpoint at this content block.
 
         - `type BetaCodeExecutionToolResultBlockParamResp struct{…}`
 
+          - `Type CodeExecutionToolResult`
+
           - `Content BetaCodeExecutionToolResultBlockParamContentUnionResp`
 
             Code execution result with encrypted stdout for PFC + web_search results.
 
             - `type BetaCodeExecutionToolResultErrorParamResp struct{…}`
+
+              - `Type CodeExecutionToolResultError`
 
               - `ErrorCode BetaCodeExecutionToolResultErrorCode`
 
@@ -7843,15 +7884,15 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 - `const BetaCodeExecutionToolResultErrorCodeExecutionTimeExceeded BetaCodeExecutionToolResultErrorCode = "execution_time_exceeded"`
 
-              - `Type CodeExecutionToolResultError`
-
             - `type BetaCodeExecutionResultBlockParamResp struct{…}`
+
+              - `Type CodeExecutionResult`
 
               - `Content []BetaCodeExecutionOutputBlockParamResp`
 
-                - `FileID string`
-
                 - `Type CodeExecutionOutput`
+
+                - `FileID string`
 
               - `ReturnCode int64`
 
@@ -7859,17 +7900,17 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `Stdout string`
 
-              - `Type CodeExecutionResult`
-
             - `type BetaEncryptedCodeExecutionResultBlockParamResp struct{…}`
 
               Code execution result with encrypted stdout for PFC + web_search results.
 
+              - `Type EncryptedCodeExecutionResult`
+
               - `Content []BetaCodeExecutionOutputBlockParamResp`
 
-                - `FileID string`
-
                 - `Type CodeExecutionOutput`
+
+                - `FileID string`
 
               - `EncryptedStdout string`
 
@@ -7877,13 +7918,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `Stderr string`
 
-              - `Type EncryptedCodeExecutionResult`
-
           - `ToolUseID string`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-          - `Type CodeExecutionToolResult`
 
           - `CacheControl BetaCacheControlEphemeral Optional`
 
@@ -7891,9 +7928,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `type BetaBashCodeExecutionToolResultBlockParamResp struct{…}`
 
+          - `Type BashCodeExecutionToolResult`
+
           - `Content BetaBashCodeExecutionToolResultBlockParamContentUnionResp`
 
             - `type BetaBashCodeExecutionToolResultErrorParamResp struct{…}`
+
+              - `Type BashCodeExecutionToolResultError`
 
               - `ErrorCode BetaBashCodeExecutionToolResultErrorParamErrorCode`
 
@@ -7907,15 +7948,15 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 - `const BetaBashCodeExecutionToolResultErrorParamErrorCodeOutputFileTooLarge BetaBashCodeExecutionToolResultErrorParamErrorCode = "output_file_too_large"`
 
-              - `Type BashCodeExecutionToolResultError`
-
             - `type BetaBashCodeExecutionResultBlockParamResp struct{…}`
+
+              - `Type BashCodeExecutionResult`
 
               - `Content []BetaBashCodeExecutionOutputBlockParamResp`
 
-                - `FileID string`
-
                 - `Type BashCodeExecutionOutput`
+
+                - `FileID string`
 
               - `ReturnCode int64`
 
@@ -7923,13 +7964,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `Stdout string`
 
-              - `Type BashCodeExecutionResult`
-
           - `ToolUseID string`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-          - `Type BashCodeExecutionToolResult`
 
           - `CacheControl BetaCacheControlEphemeral Optional`
 
@@ -7937,9 +7974,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `type BetaTextEditorCodeExecutionToolResultBlockParamResp struct{…}`
 
+          - `Type TextEditorCodeExecutionToolResult`
+
           - `Content BetaTextEditorCodeExecutionToolResultBlockParamContentUnionResp`
 
             - `type BetaTextEditorCodeExecutionToolResultErrorParamResp struct{…}`
+
+              - `Type TextEditorCodeExecutionToolResultError`
 
               - `ErrorCode BetaTextEditorCodeExecutionToolResultErrorParamErrorCode`
 
@@ -7953,11 +7994,11 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 - `const BetaTextEditorCodeExecutionToolResultErrorParamErrorCodeFileNotFound BetaTextEditorCodeExecutionToolResultErrorParamErrorCode = "file_not_found"`
 
-              - `Type TextEditorCodeExecutionToolResultError`
-
               - `ErrorMessage string Optional`
 
             - `type BetaTextEditorCodeExecutionViewResultBlockParamResp struct{…}`
+
+              - `Type TextEditorCodeExecutionViewResult`
 
               - `Content string`
 
@@ -7969,8 +8010,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 - `const BetaTextEditorCodeExecutionViewResultBlockParamFileTypePDF BetaTextEditorCodeExecutionViewResultBlockParamFileType = "pdf"`
 
-              - `Type TextEditorCodeExecutionViewResult`
-
               - `NumLines int64 Optional`
 
               - `StartLine int64 Optional`
@@ -7979,9 +8018,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             - `type BetaTextEditorCodeExecutionCreateResultBlockParamResp struct{…}`
 
-              - `IsFileUpdate bool`
-
               - `Type TextEditorCodeExecutionCreateResult`
+
+              - `IsFileUpdate bool`
 
             - `type BetaTextEditorCodeExecutionStrReplaceResultBlockParamResp struct{…}`
 
@@ -8001,17 +8040,19 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `Type TextEditorCodeExecutionToolResult`
-
           - `CacheControl BetaCacheControlEphemeral Optional`
 
             Create a cache control breakpoint at this content block.
 
         - `type BetaToolSearchToolResultBlockParamResp struct{…}`
 
+          - `Type ToolSearchToolResult`
+
           - `Content BetaToolSearchToolResultBlockParamContentUnionResp`
 
             - `type BetaToolSearchToolResultErrorParamResp struct{…}`
+
+              - `Type ToolSearchToolResultError`
 
               - `ErrorCode BetaToolSearchToolResultErrorParamErrorCode`
 
@@ -8023,37 +8064,35 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 - `const BetaToolSearchToolResultErrorParamErrorCodeExecutionTimeExceeded BetaToolSearchToolResultErrorParamErrorCode = "execution_time_exceeded"`
 
-              - `Type ToolSearchToolResultError`
-
               - `ErrorMessage string Optional`
 
             - `type BetaToolSearchToolSearchResultBlockParamResp struct{…}`
 
+              - `Type ToolSearchToolSearchResult`
+
               - `ToolReferences []BetaToolReferenceBlockParamResp`
+
+                - `Type ToolReference`
 
                 - `ToolName string`
 
                   maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
-                - `Type ToolReference`
-
                 - `CacheControl BetaCacheControlEphemeral Optional`
 
                   Create a cache control breakpoint at this content block.
 
-              - `Type ToolSearchToolSearchResult`
-
           - `ToolUseID string`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-          - `Type ToolSearchToolResult`
 
           - `CacheControl BetaCacheControlEphemeral Optional`
 
             Create a cache control breakpoint at this content block.
 
         - `type BetaMCPToolUseBlockParamResp struct{…}`
+
+          - `Type MCPToolUse`
 
           - `ID string`
 
@@ -8067,19 +8106,17 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             The name of the MCP server
 
-          - `Type MCPToolUse`
-
           - `CacheControl BetaCacheControlEphemeral Optional`
 
             Create a cache control breakpoint at this content block.
 
         - `type BetaRequestMCPToolResultBlockParamResp struct{…}`
 
+          - `Type MCPToolResult`
+
           - `ToolUseID string`
 
             pattern: ^[a-zA-Z0-9_-]+$
-
-          - `Type MCPToolResult`
 
           - `CacheControl BetaCacheControlEphemeral Optional`
 
@@ -8091,11 +8128,11 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             - `[]BetaTextBlockParamResp`
 
+              - `Type Text`
+
               - `Text string`
 
                 minLength: 1
-
-              - `Type Text`
 
               - `CacheControl BetaCacheControlEphemeral Optional`
 
@@ -8110,9 +8147,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
           A content block that represents a file to be uploaded to the container
           Files uploaded via this block will be available in the container's input directory.
 
-          - `FileID string`
-
           - `Type ContainerUpload`
+
+          - `FileID string`
 
           - `CacheControl BetaCacheControlEphemeral Optional`
 
@@ -8150,6 +8187,8 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
           `tools`; it is offered to the model from this point in the
           conversation onward.
 
+          - `Type ToolAddition`
+
           - `Tool BetaRequestToolAdditionBlockToolUnion`
 
             Reference to a single tool the caller declared directly in
@@ -8164,32 +8203,30 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
               server assigns to MCP-resolved tools — use `mcp_tool_reference` or
               `mcp_toolset_reference` for those.
 
+              - `Type ToolReference`
+
               - `Name string`
 
                 pattern: ^[a-zA-Z0-9_-]{1,128}$
-
-              - `Type ToolReference`
 
             - `type BetaToolChangeMCPToolReference struct{…}`
 
               Reference to a single MCP tool by its server and remote name — the
               same `server_name`/`name` pair `mcp_tool_use` carries.
 
+              - `Type MCPToolReference`
+
               - `Name string`
 
               - `ServerName string`
-
-              - `Type MCPToolReference`
 
             - `type BetaToolChangeMCPToolsetReference struct{…}`
 
               Reference to every tool in the named MCP server's toolset.
 
-              - `ServerName string`
-
               - `Type MCPToolsetReference`
 
-          - `Type ToolAddition`
+              - `ServerName string`
 
           - `CacheControl BetaCacheControlEphemeral Optional`
 
@@ -8202,6 +8239,8 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
           `tool` references a tool (or MCP toolset) by name from the request's
           `tools`; it is no longer offered to the model from this point in the
           conversation onward.
+
+          - `Type ToolRemoval`
 
           - `Tool BetaRequestToolRemovalBlockToolUnion`
 
@@ -8226,8 +8265,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               Reference to every tool in the named MCP server's toolset.
 
-          - `Type ToolRemoval`
-
           - `CacheControl BetaCacheControlEphemeral Optional`
 
             Create a cache control breakpoint at this content block.
@@ -8247,6 +8284,8 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
           request is rejected), and moving it into the middle of a single run is
           likewise rejected; between non-thinking blocks the block's placement has
           no validation effect.
+
+          - `Type Fallback`
 
           - `From BetaFallbackInfoParamResp`
 
@@ -8338,8 +8377,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             Identifies one hop of a fallback transition.
 
-          - `Type Fallback`
-
           - `Trigger any Optional`
 
             The response block's `trigger`, echoed verbatim. Accepted and ignored by the server; any object or `null` is allowed.
@@ -8404,9 +8441,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     maxItems: 20
 
-    - `Name string`
-
     - `Type URL`
+
+    - `Name string`
 
     - `URL string`
 
@@ -8440,11 +8477,11 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `type BetaMessageCountTokensParamsSystemArray []BetaTextBlockParamResp`
 
+      - `Type Text`
+
       - `Text string`
 
         minLength: 1
-
-      - `Type Text`
 
       - `CacheControl BetaCacheControlEphemeral Optional`
 
@@ -8530,6 +8567,8 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `type BetaTool struct{…}`
 
+      - `Type BetaToolType Optional`
+
       - `InputSchema BetaToolInputSchema`
 
         [JSON schema](https://json-schema.org/draft/2020-12) for this tool's input.
@@ -8584,17 +8623,15 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         When true, guarantees schema validation on tool names and inputs
 
-      - `Type BetaToolType Optional`
-
     - `type BetaToolBash20241022 struct{…}`
+
+      - `Type Bash20241022`
 
       - `Name Bash`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `Type Bash20241022`
 
       - `AllowedCallers []string Optional`
 
@@ -8622,13 +8659,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `type BetaToolBash20250124 struct{…}`
 
+      - `Type Bash20250124`
+
       - `Name Bash`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `Type Bash20250124`
 
       - `AllowedCallers []string Optional`
 
@@ -8656,13 +8693,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `type BetaCodeExecutionTool20250522 struct{…}`
 
+      - `Type CodeExecution20250522`
+
       - `Name CodeExecution`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `Type CodeExecution20250522`
 
       - `AllowedCallers []string Optional`
 
@@ -8688,13 +8725,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `type BetaCodeExecutionTool20250825 struct{…}`
 
+      - `Type CodeExecution20250825`
+
       - `Name CodeExecution`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `Type CodeExecution20250825`
 
       - `AllowedCallers []string Optional`
 
@@ -8722,13 +8759,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       Code execution tool with REPL state persistence (daemon mode + gVisor checkpoint).
 
+      - `Type CodeExecution20260120`
+
       - `Name CodeExecution`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `Type CodeExecution20260120`
 
       - `AllowedCallers []string Optional`
 
@@ -8756,13 +8793,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       Code execution tool with REPL state persistence.
 
+      - `Type CodeExecution20260521`
+
       - `Name CodeExecution`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `Type CodeExecution20260521`
 
       - `AllowedCallers []string Optional`
 
@@ -8807,6 +8844,18 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
         accepted key, and a member's defaults apply wherever its key is
         absent. Unknown keys are rejected: the field set is this toolset
         version's complete member set.
+
+        - `Type BetaBrowserTypeConfig Optional`
+
+          `type`'s config overrides.
+
+          - `DeferLoading bool Optional`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `Enabled bool Optional`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
         - `CloseTab BetaBrowserCloseTabConfig Optional`
 
@@ -9144,18 +9193,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-        - `Type BetaBrowserTypeConfig Optional`
-
-          `type`'s config overrides.
-
-          - `DeferLoading bool Optional`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `Enabled bool Optional`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
         - `Wait BetaBrowserWaitConfig Optional`
 
           `wait`'s config overrides.
@@ -9182,6 +9219,8 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `type BetaToolComputerUse20241022 struct{…}`
 
+      - `Type Computer20241022`
+
       - `DisplayHeightPx int64`
 
         The height of the display in pixels.
@@ -9199,8 +9238,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `Type Computer20241022`
 
       - `AllowedCallers []string Optional`
 
@@ -9234,13 +9271,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `type BetaMemoryTool20250818 struct{…}`
 
+      - `Type Memory20250818`
+
       - `Name Memory`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `Type Memory20250818`
 
       - `AllowedCallers []string Optional`
 
@@ -9268,6 +9305,8 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `type BetaToolComputerUse20250124 struct{…}`
 
+      - `Type Computer20250124`
+
       - `DisplayHeightPx int64`
 
         The height of the display in pixels.
@@ -9285,8 +9324,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `Type Computer20250124`
 
       - `AllowedCallers []string Optional`
 
@@ -9320,13 +9357,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `type BetaToolTextEditor20241022 struct{…}`
 
+      - `Type TextEditor20241022`
+
       - `Name StrReplaceEditor`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `Type TextEditor20241022`
 
       - `AllowedCallers []string Optional`
 
@@ -9354,6 +9391,8 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `type BetaToolComputerUse20251124 struct{…}`
 
+      - `Type Computer20251124`
+
       - `DisplayHeightPx int64`
 
         The height of the display in pixels.
@@ -9371,8 +9410,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `Type Computer20251124`
 
       - `AllowedCallers []string Optional`
 
@@ -9433,6 +9470,18 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
         accepted key, and a member's defaults apply wherever its key is
         absent. Unknown keys are rejected: the field set is this toolset
         version's complete member set.
+
+        - `Type BetaComputerTypeConfig Optional`
+
+          `type`'s config overrides.
+
+          - `DeferLoading bool Optional`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `Enabled bool Optional`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
         - `CursorPosition BetaComputerCursorPositionConfig Optional`
 
@@ -9602,18 +9651,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-        - `Type BetaComputerTypeConfig Optional`
-
-          `type`'s config overrides.
-
-          - `DeferLoading bool Optional`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `Enabled bool Optional`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
         - `Wait BetaComputerWaitConfig Optional`
 
           `wait`'s config overrides.
@@ -9640,13 +9677,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `type BetaToolTextEditor20250124 struct{…}`
 
+      - `Type TextEditor20250124`
+
       - `Name StrReplaceEditor`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `Type TextEditor20250124`
 
       - `AllowedCallers []string Optional`
 
@@ -9674,13 +9711,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `type BetaToolTextEditor20250429 struct{…}`
 
+      - `Type TextEditor20250429`
+
       - `Name StrReplaceBasedEditTool`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `Type TextEditor20250429`
 
       - `AllowedCallers []string Optional`
 
@@ -9708,13 +9745,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `type BetaToolTextEditor20250728 struct{…}`
 
+      - `Type TextEditor20250728`
+
       - `Name StrReplaceBasedEditTool`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `Type TextEditor20250728`
 
       - `AllowedCallers []string Optional`
 
@@ -9748,13 +9785,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `type BetaWebSearchTool20250305 struct{…}`
 
+      - `Type WebSearch20250305`
+
       - `Name WebSearch`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `Type WebSearch20250305`
 
       - `AllowedCallers []string Optional`
 
@@ -9824,13 +9861,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `type BetaWebFetchTool20250910 struct{…}`
 
+      - `Type WebFetch20250910`
+
       - `Name WebFetch`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `Type WebFetch20250910`
 
       - `AllowedCallers []string Optional`
 
@@ -9880,13 +9917,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `type BetaWebSearchTool20260209 struct{…}`
 
+      - `Type WebSearch20260209`
+
       - `Name WebSearch`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `Type WebSearch20260209`
 
       - `AllowedCallers []string Optional`
 
@@ -9930,13 +9967,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `type BetaWebFetchTool20260209 struct{…}`
 
+      - `Type WebFetch20260209`
+
       - `Name WebFetch`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `Type WebFetch20260209`
 
       - `AllowedCallers []string Optional`
 
@@ -9988,13 +10025,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       Web fetch tool with use_cache parameter for bypassing cached content.
 
+      - `Type WebFetch20260309`
+
       - `Name WebFetch`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `Type WebFetch20260309`
 
       - `AllowedCallers []string Optional`
 
@@ -10048,13 +10085,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `type BetaWebSearchTool20260318 struct{…}`
 
+      - `Type WebSearch20260318`
+
       - `Name WebSearch`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `Type WebSearch20260318`
 
       - `AllowedCallers []string Optional`
 
@@ -10106,13 +10143,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `type BetaWebFetchTool20260318 struct{…}`
 
+      - `Type WebFetch20260318`
+
       - `Name WebFetch`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `Type WebFetch20260318`
 
       - `AllowedCallers []string Optional`
 
@@ -10174,6 +10211,8 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `type BetaAdvisorTool20260301 struct{…}`
 
+      - `Type Advisor20260301`
+
       - `Model Model`
 
         The model that will complete your prompt.
@@ -10185,8 +10224,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `Type Advisor20260301`
 
       - `AllowedCallers []string Optional`
 
@@ -10228,17 +10265,17 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `type BetaToolSearchToolBm25_20251119 struct{…}`
 
-      - `Name ToolSearchToolBm25`
-
-        Name of the tool.
-
-        This is how the tool will be called by the model and in `tool_use` blocks.
-
       - `Type BetaToolSearchToolBm25_20251119Type`
 
         - `const BetaToolSearchToolBm25_20251119TypeToolSearchToolBm25_20251119 BetaToolSearchToolBm25_20251119Type = "tool_search_tool_bm25_20251119"`
 
         - `const BetaToolSearchToolBm25_20251119TypeToolSearchToolBm25 BetaToolSearchToolBm25_20251119Type = "tool_search_tool_bm25"`
+
+      - `Name ToolSearchToolBm25`
+
+        Name of the tool.
+
+        This is how the tool will be called by the model and in `tool_use` blocks.
 
       - `AllowedCallers []string Optional`
 
@@ -10264,17 +10301,17 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `type BetaToolSearchToolRegex20251119 struct{…}`
 
-      - `Name ToolSearchToolRegex`
-
-        Name of the tool.
-
-        This is how the tool will be called by the model and in `tool_use` blocks.
-
       - `Type BetaToolSearchToolRegex20251119Type`
 
         - `const BetaToolSearchToolRegex20251119TypeToolSearchToolRegex20251119 BetaToolSearchToolRegex20251119Type = "tool_search_tool_regex_20251119"`
 
         - `const BetaToolSearchToolRegex20251119TypeToolSearchToolRegex BetaToolSearchToolRegex20251119Type = "tool_search_tool_regex"`
+
+      - `Name ToolSearchToolRegex`
+
+        Name of the tool.
+
+        This is how the tool will be called by the model and in `tool_use` blocks.
 
       - `AllowedCallers []string Optional`
 
@@ -10305,13 +10342,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
       Allows configuring enabled status and defer_loading for all tools
       from an MCP server, with optional per-tool overrides.
 
+      - `Type MCPToolset`
+
       - `MCPServerName string`
 
         Name of the MCP server to configure tools for
 
         maxLength: 255, minLength: 1
-
-      - `Type MCPToolset`
 
       - `CacheControl BetaCacheControlEphemeral Optional`
 
@@ -10387,6 +10424,8 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
 
+      - `const AnthropicBetaUserProfiles2026_09_04 AnthropicBeta = "user-profiles-2026-09-04"`
+
       - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
 
       - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
@@ -10432,6 +10471,12 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
   - `UserProfileID param.Field[string] Optional`
 
     Header param: The user profile ID to attribute this request to. Use when acting on behalf of a party other than your organization. Requires the `user-profiles` beta header.
+
+  - `WorkspaceID param.Field[string] Optional`
+
+    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
   - `OutputFormat param.Field[BetaJSONOutputFormat] Optional`
 
@@ -10610,11 +10655,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `type BetaTextBlockParamResp struct{…}`
 
+              - `Type Text`
+
               - `Text string`
 
                 minLength: 1
-
-              - `Type Text`
 
               - `CacheControl BetaCacheControlEphemeral Optional`
 
@@ -10641,6 +10686,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `type BetaCitationCharLocationParamResp struct{…}`
 
+                  - `Type CharLocation`
+
                   - `CitedText string`
 
                   - `DocumentIndex int64`
@@ -10657,9 +10704,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     minimum: 0
 
-                  - `Type CharLocation`
-
                 - `type BetaCitationPageLocationParamResp struct{…}`
+
+                  - `Type PageLocation`
 
                   - `CitedText string`
 
@@ -10677,9 +10724,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     minimum: 1
 
-                  - `Type PageLocation`
-
                 - `type BetaCitationContentBlockLocationParamResp struct{…}`
+
+                  - `Type ContentBlockLocation`
 
                   - `CitedText string`
 
@@ -10707,9 +10754,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     minimum: 0
 
-                  - `Type ContentBlockLocation`
-
                 - `type BetaCitationWebSearchResultLocationParamResp struct{…}`
+
+                  - `Type WebSearchResultLocation`
 
                   - `CitedText string`
 
@@ -10719,13 +10766,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     maxLength: 512, minLength: 1
 
-                  - `Type WebSearchResultLocation`
-
                   - `URL string`
 
                     minLength: 1
 
                 - `type BetaCitationSearchResultLocationParamResp struct{…}`
+
+                  - `Type SearchResultLocation`
 
                   - `CitedText string`
 
@@ -10757,13 +10804,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `Title string`
 
-                  - `Type SearchResultLocation`
-
             - `type BetaImageBlockParamResp struct{…}`
+
+              - `Type Image`
 
               - `Source BetaImageBlockParamSourceUnionResp`
 
                 - `type BetaBase64ImageSource struct{…}`
+
+                  - `Type Base64`
 
                   - `Data string`
 
@@ -10779,8 +10828,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     - `const BetaBase64ImageSourceMediaTypeImageWebP BetaBase64ImageSourceMediaType = "image/webp"`
 
-                  - `Type Base64`
-
                 - `type BetaURLImageSource struct{…}`
 
                   - `Type URL`
@@ -10789,11 +10836,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `type BetaFileImageSource struct{…}`
 
-                  - `FileID string`
-
                   - `Type File`
 
-              - `Type Image`
+                  - `FileID string`
 
               - `CacheControl BetaCacheControlEphemeral Optional`
 
@@ -10813,9 +10858,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `type BetaRequestDocumentBlock struct{…}`
 
+              - `Type Document`
+
               - `Source BetaRequestDocumentBlockSourceUnion`
 
                 - `type BetaBase64PDFSource struct{…}`
+
+                  - `Type Base64`
 
                   - `Data string`
 
@@ -10823,17 +10872,17 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `MediaType ApplicationPDF`
 
-                  - `Type Base64`
-
                 - `type BetaPlainTextSource struct{…}`
+
+                  - `Type Text`
 
                   - `Data string`
 
                   - `MediaType TextPlain`
 
-                  - `Type Text`
-
                 - `type BetaContentBlockSource struct{…}`
+
+                  - `Type Content`
 
                   - `Content BetaContentBlockSourceContentUnion`
 
@@ -10845,8 +10894,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                       - `type BetaImageBlockParamResp struct{…}`
 
-                  - `Type Content`
-
                 - `type BetaURLPDFSource struct{…}`
 
                   - `Type URL`
@@ -10855,11 +10902,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `type BetaFileDocumentSource struct{…}`
 
-                  - `FileID string`
-
                   - `Type File`
 
-              - `Type Document`
+                  - `FileID string`
 
               - `CacheControl BetaCacheControlEphemeral Optional`
 
@@ -10879,13 +10924,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `type BetaSearchResultBlockParamResp struct{…}`
 
+              - `Type SearchResult`
+
               - `Content []BetaTextBlockParamResp`
+
+                - `Type Text`
 
                 - `Text string`
 
                   minLength: 1
-
-                - `Type Text`
 
                 - `CacheControl BetaCacheControlEphemeral Optional`
 
@@ -10897,8 +10944,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `Title string`
 
-              - `Type SearchResult`
-
               - `CacheControl BetaCacheControlEphemeral Optional`
 
                 Create a cache control breakpoint at this content block.
@@ -10906,6 +10951,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
               - `Citations BetaCitationsConfigParamResp Optional`
 
             - `type BetaThinkingBlockParamResp struct{…}`
+
+              - `Type Thinking`
 
               - `Signature string`
 
@@ -10917,17 +10964,17 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 The `thinking` text of this block as returned by the API.
 
-              - `Type Thinking`
-
             - `type BetaRedactedThinkingBlockParamResp struct{…}`
+
+              - `Type RedactedThinking`
 
               - `Data string`
 
                 The `data` value of this redacted thinking block, exactly as returned by the API in a previous response. Opaque and encrypted; pass it back unchanged.
 
-              - `Type RedactedThinking`
-
             - `type BetaToolUseBlockParamResp struct{…}`
+
+              - `Type ToolUse`
 
               - `ID string`
 
@@ -10938,8 +10985,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
               - `Name string`
 
                 maxLength: 200, minLength: 1
-
-              - `Type ToolUse`
 
               - `CacheControl BetaCacheControlEphemeral Optional`
 
@@ -10959,19 +11004,19 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   Tool invocation generated by a server-side tool.
 
+                  - `Type CodeExecution20250825`
+
                   - `ToolID string`
 
                     pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-                  - `Type CodeExecution20250825`
 
                 - `type BetaServerToolCaller20260120 struct{…}`
 
+                  - `Type CodeExecution20260120`
+
                   - `ToolID string`
 
                     pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-                  - `Type CodeExecution20260120`
 
               - `ToolsetName string Optional`
 
@@ -10981,11 +11026,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `type BetaToolResultBlockParamResp struct{…}`
 
+              - `Type ToolResult`
+
               - `ToolUseID string`
 
                 pattern: ^[a-zA-Z0-9_-]+$
-
-              - `Type ToolResult`
 
               - `CacheControl BetaCacheControlEphemeral Optional`
 
@@ -11007,11 +11052,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     Tool reference block that can be included in tool_result content.
 
+                    - `Type ToolReference`
+
                     - `ToolName string`
 
                       maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
-
-                    - `Type ToolReference`
 
                     - `CacheControl BetaCacheControlEphemeral Optional`
 
@@ -11026,6 +11071,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
                     At most one per `tool_result`, only on a non-error result answering a
                     browser toolset member `tool_use`. The server renders the
                     model-visible text from it; the model never sees the raw fields.
+
+                    - `Type BrowserState`
 
                     - `Tabs []BetaBrowserStateTabEntry`
 
@@ -11055,8 +11102,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                         Whether this tab is the active tab after this call. Whenever `tabs` is non-empty, exactly one entry is marked `active: true`.
 
-                    - `Type BrowserState`
-
                     - `CacheControl BetaCacheControlEphemeral Optional`
 
                       Create a cache control breakpoint at this content block.
@@ -11077,25 +11122,25 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
                         during a failed call gets no deferred `tab_opened`; it simply appears
                         in the next result's `tabs` inventory.
 
+                        - `Type TabOpened`
+
                         - `TabID string`
 
                           The `tab_id` of the opened tab, present in `tabs`.
 
                           maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-                        - `Type TabOpened`
-
                       - `type BetaBrowserStateChangeDownloadStarted struct{…}`
 
                         A file download that started during this call.
+
+                        - `Type DownloadStarted`
 
                         - `DownloadID string`
 
                           The caller-assigned identifier for this download, stable across the state changes reporting it.
 
                           maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
-
-                        - `Type DownloadStarted`
 
                         - `URL string`
 
@@ -11110,13 +11155,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
                         `download_started`, when the download finished during the call that
                         started it (at most one state change per `download_id` per result).
 
+                        - `Type DownloadCompleted`
+
                         - `DownloadID string`
 
                           The caller-assigned identifier for this download, stable across the state changes reporting it.
 
                           maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
-
-                        - `Type DownloadCompleted`
 
                         - `URL string`
 
@@ -11140,13 +11185,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                         A file download that failed — or was cancelled — during this call.
 
+                        - `Type DownloadFailed`
+
                         - `DownloadID string`
 
                           The caller-assigned identifier for this download, stable across the state changes reporting it.
 
                           maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
-
-                        - `Type DownloadFailed`
 
                         - `URL string`
 
@@ -11169,6 +11214,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
                 maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
 
             - `type BetaServerToolUseBlockParamResp struct{…}`
+
+              - `Type ServerToolUse`
 
               - `ID string`
 
@@ -11194,8 +11241,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `const BetaServerToolUseBlockParamNameToolSearchToolBm25 BetaServerToolUseBlockParamName = "tool_search_tool_bm25"`
 
-              - `Type ServerToolUse`
-
               - `CacheControl BetaCacheControlEphemeral Optional`
 
                 Create a cache control breakpoint at this content block.
@@ -11216,21 +11261,25 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `type BetaWebSearchToolResultBlockParamResp struct{…}`
 
+              - `Type WebSearchToolResult`
+
               - `Content BetaWebSearchToolResultBlockParamContentUnionResp`
 
                 - `[]BetaWebSearchResultBlockParamResp`
 
+                  - `Type WebSearchResult`
+
                   - `EncryptedContent string`
 
                   - `Title string`
-
-                  - `Type WebSearchResult`
 
                   - `URL string`
 
                   - `PageAge string Optional`
 
                 - `type BetaWebSearchToolRequestError struct{…}`
+
+                  - `Type WebSearchToolResultError`
 
                   - `ErrorCode BetaWebSearchToolResultErrorCode`
 
@@ -11246,13 +11295,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     - `const BetaWebSearchToolResultErrorCodeRequestTooLarge BetaWebSearchToolResultErrorCode = "request_too_large"`
 
-                  - `Type WebSearchToolResultError`
-
               - `ToolUseID string`
 
                 pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-              - `Type WebSearchToolResult`
 
               - `CacheControl BetaCacheControlEphemeral Optional`
 
@@ -11274,9 +11319,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `type BetaWebFetchToolResultBlockParamResp struct{…}`
 
+              - `Type WebFetchToolResult`
+
               - `Content BetaWebFetchToolResultBlockParamContentUnionResp`
 
                 - `type BetaWebFetchToolResultErrorBlockParamResp struct{…}`
+
+                  - `Type WebFetchToolResultError`
 
                   - `ErrorCode BetaWebFetchToolResultErrorCode`
 
@@ -11298,13 +11347,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     - `const BetaWebFetchToolResultErrorCodeUnavailable BetaWebFetchToolResultErrorCode = "unavailable"`
 
-                  - `Type WebFetchToolResultError`
+                    - `const BetaWebFetchToolResultErrorCodeContentTooLarge BetaWebFetchToolResultErrorCode = "content_too_large"`
 
                 - `type BetaWebFetchBlockParamResp struct{…}`
 
-                  - `Content BetaRequestDocumentBlock`
-
                   - `Type WebFetchResult`
+
+                  - `Content BetaRequestDocumentBlock`
 
                   - `URL string`
 
@@ -11317,8 +11366,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
               - `ToolUseID string`
 
                 pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-              - `Type WebFetchToolResult`
 
               - `CacheControl BetaCacheControlEphemeral Optional`
 
@@ -11340,9 +11387,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `type BetaAdvisorToolResultBlockParamResp struct{…}`
 
+              - `Type AdvisorToolResult`
+
               - `Content BetaAdvisorToolResultBlockParamContentUnionResp`
 
                 - `type BetaAdvisorToolResultErrorParamResp struct{…}`
+
+                  - `Type AdvisorToolResultError`
 
                   - `ErrorCode BetaAdvisorToolResultErrorParamErrorCode`
 
@@ -11360,23 +11411,21 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     - `const BetaAdvisorToolResultErrorParamErrorCodeModelNotFound BetaAdvisorToolResultErrorParamErrorCode = "model_not_found"`
 
-                  - `Type AdvisorToolResultError`
-
                 - `type BetaAdvisorResultBlockParamResp struct{…}`
 
-                  - `Text string`
-
                   - `Type AdvisorResult`
+
+                  - `Text string`
 
                   - `StopReason string Optional`
 
                 - `type BetaAdvisorRedactedResultBlockParamResp struct{…}`
 
+                  - `Type AdvisorRedactedResult`
+
                   - `EncryptedContent string`
 
                     Opaque blob produced by a prior response; must be round-tripped verbatim.
-
-                  - `Type AdvisorRedactedResult`
 
                   - `StopReason string Optional`
 
@@ -11384,19 +11433,21 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-              - `Type AdvisorToolResult`
-
               - `CacheControl BetaCacheControlEphemeral Optional`
 
                 Create a cache control breakpoint at this content block.
 
             - `type BetaCodeExecutionToolResultBlockParamResp struct{…}`
 
+              - `Type CodeExecutionToolResult`
+
               - `Content BetaCodeExecutionToolResultBlockParamContentUnionResp`
 
                 Code execution result with encrypted stdout for PFC + web_search results.
 
                 - `type BetaCodeExecutionToolResultErrorParamResp struct{…}`
+
+                  - `Type CodeExecutionToolResultError`
 
                   - `ErrorCode BetaCodeExecutionToolResultErrorCode`
 
@@ -11408,15 +11459,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     - `const BetaCodeExecutionToolResultErrorCodeExecutionTimeExceeded BetaCodeExecutionToolResultErrorCode = "execution_time_exceeded"`
 
-                  - `Type CodeExecutionToolResultError`
-
                 - `type BetaCodeExecutionResultBlockParamResp struct{…}`
+
+                  - `Type CodeExecutionResult`
 
                   - `Content []BetaCodeExecutionOutputBlockParamResp`
 
-                    - `FileID string`
-
                     - `Type CodeExecutionOutput`
+
+                    - `FileID string`
 
                   - `ReturnCode int64`
 
@@ -11424,17 +11475,17 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `Stdout string`
 
-                  - `Type CodeExecutionResult`
-
                 - `type BetaEncryptedCodeExecutionResultBlockParamResp struct{…}`
 
                   Code execution result with encrypted stdout for PFC + web_search results.
 
+                  - `Type EncryptedCodeExecutionResult`
+
                   - `Content []BetaCodeExecutionOutputBlockParamResp`
 
-                    - `FileID string`
-
                     - `Type CodeExecutionOutput`
+
+                    - `FileID string`
 
                   - `EncryptedStdout string`
 
@@ -11442,13 +11493,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `Stderr string`
 
-                  - `Type EncryptedCodeExecutionResult`
-
               - `ToolUseID string`
 
                 pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-              - `Type CodeExecutionToolResult`
 
               - `CacheControl BetaCacheControlEphemeral Optional`
 
@@ -11456,9 +11503,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `type BetaBashCodeExecutionToolResultBlockParamResp struct{…}`
 
+              - `Type BashCodeExecutionToolResult`
+
               - `Content BetaBashCodeExecutionToolResultBlockParamContentUnionResp`
 
                 - `type BetaBashCodeExecutionToolResultErrorParamResp struct{…}`
+
+                  - `Type BashCodeExecutionToolResultError`
 
                   - `ErrorCode BetaBashCodeExecutionToolResultErrorParamErrorCode`
 
@@ -11472,15 +11523,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     - `const BetaBashCodeExecutionToolResultErrorParamErrorCodeOutputFileTooLarge BetaBashCodeExecutionToolResultErrorParamErrorCode = "output_file_too_large"`
 
-                  - `Type BashCodeExecutionToolResultError`
-
                 - `type BetaBashCodeExecutionResultBlockParamResp struct{…}`
+
+                  - `Type BashCodeExecutionResult`
 
                   - `Content []BetaBashCodeExecutionOutputBlockParamResp`
 
-                    - `FileID string`
-
                     - `Type BashCodeExecutionOutput`
+
+                    - `FileID string`
 
                   - `ReturnCode int64`
 
@@ -11488,13 +11539,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `Stdout string`
 
-                  - `Type BashCodeExecutionResult`
-
               - `ToolUseID string`
 
                 pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-              - `Type BashCodeExecutionToolResult`
 
               - `CacheControl BetaCacheControlEphemeral Optional`
 
@@ -11502,9 +11549,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `type BetaTextEditorCodeExecutionToolResultBlockParamResp struct{…}`
 
+              - `Type TextEditorCodeExecutionToolResult`
+
               - `Content BetaTextEditorCodeExecutionToolResultBlockParamContentUnionResp`
 
                 - `type BetaTextEditorCodeExecutionToolResultErrorParamResp struct{…}`
+
+                  - `Type TextEditorCodeExecutionToolResultError`
 
                   - `ErrorCode BetaTextEditorCodeExecutionToolResultErrorParamErrorCode`
 
@@ -11518,11 +11569,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     - `const BetaTextEditorCodeExecutionToolResultErrorParamErrorCodeFileNotFound BetaTextEditorCodeExecutionToolResultErrorParamErrorCode = "file_not_found"`
 
-                  - `Type TextEditorCodeExecutionToolResultError`
-
                   - `ErrorMessage string Optional`
 
                 - `type BetaTextEditorCodeExecutionViewResultBlockParamResp struct{…}`
+
+                  - `Type TextEditorCodeExecutionViewResult`
 
                   - `Content string`
 
@@ -11534,8 +11585,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     - `const BetaTextEditorCodeExecutionViewResultBlockParamFileTypePDF BetaTextEditorCodeExecutionViewResultBlockParamFileType = "pdf"`
 
-                  - `Type TextEditorCodeExecutionViewResult`
-
                   - `NumLines int64 Optional`
 
                   - `StartLine int64 Optional`
@@ -11544,9 +11593,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `type BetaTextEditorCodeExecutionCreateResultBlockParamResp struct{…}`
 
-                  - `IsFileUpdate bool`
-
                   - `Type TextEditorCodeExecutionCreateResult`
+
+                  - `IsFileUpdate bool`
 
                 - `type BetaTextEditorCodeExecutionStrReplaceResultBlockParamResp struct{…}`
 
@@ -11566,17 +11615,19 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-              - `Type TextEditorCodeExecutionToolResult`
-
               - `CacheControl BetaCacheControlEphemeral Optional`
 
                 Create a cache control breakpoint at this content block.
 
             - `type BetaToolSearchToolResultBlockParamResp struct{…}`
 
+              - `Type ToolSearchToolResult`
+
               - `Content BetaToolSearchToolResultBlockParamContentUnionResp`
 
                 - `type BetaToolSearchToolResultErrorParamResp struct{…}`
+
+                  - `Type ToolSearchToolResultError`
 
                   - `ErrorCode BetaToolSearchToolResultErrorParamErrorCode`
 
@@ -11588,37 +11639,35 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     - `const BetaToolSearchToolResultErrorParamErrorCodeExecutionTimeExceeded BetaToolSearchToolResultErrorParamErrorCode = "execution_time_exceeded"`
 
-                  - `Type ToolSearchToolResultError`
-
                   - `ErrorMessage string Optional`
 
                 - `type BetaToolSearchToolSearchResultBlockParamResp struct{…}`
 
+                  - `Type ToolSearchToolSearchResult`
+
                   - `ToolReferences []BetaToolReferenceBlockParamResp`
+
+                    - `Type ToolReference`
 
                     - `ToolName string`
 
                       maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
-                    - `Type ToolReference`
-
                     - `CacheControl BetaCacheControlEphemeral Optional`
 
                       Create a cache control breakpoint at this content block.
 
-                  - `Type ToolSearchToolSearchResult`
-
               - `ToolUseID string`
 
                 pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-              - `Type ToolSearchToolResult`
 
               - `CacheControl BetaCacheControlEphemeral Optional`
 
                 Create a cache control breakpoint at this content block.
 
             - `type BetaMCPToolUseBlockParamResp struct{…}`
+
+              - `Type MCPToolUse`
 
               - `ID string`
 
@@ -11632,19 +11681,17 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 The name of the MCP server
 
-              - `Type MCPToolUse`
-
               - `CacheControl BetaCacheControlEphemeral Optional`
 
                 Create a cache control breakpoint at this content block.
 
             - `type BetaRequestMCPToolResultBlockParamResp struct{…}`
 
+              - `Type MCPToolResult`
+
               - `ToolUseID string`
 
                 pattern: ^[a-zA-Z0-9_-]+$
-
-              - `Type MCPToolResult`
 
               - `CacheControl BetaCacheControlEphemeral Optional`
 
@@ -11656,11 +11703,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `[]BetaTextBlockParamResp`
 
+                  - `Type Text`
+
                   - `Text string`
 
                     minLength: 1
-
-                  - `Type Text`
 
                   - `CacheControl BetaCacheControlEphemeral Optional`
 
@@ -11675,9 +11722,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
               A content block that represents a file to be uploaded to the container
               Files uploaded via this block will be available in the container's input directory.
 
-              - `FileID string`
-
               - `Type ContainerUpload`
+
+              - `FileID string`
 
               - `CacheControl BetaCacheControlEphemeral Optional`
 
@@ -11715,6 +11762,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
               `tools`; it is offered to the model from this point in the
               conversation onward.
 
+              - `Type ToolAddition`
+
               - `Tool BetaRequestToolAdditionBlockToolUnion`
 
                 Reference to a single tool the caller declared directly in
@@ -11729,32 +11778,30 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
                   server assigns to MCP-resolved tools — use `mcp_tool_reference` or
                   `mcp_toolset_reference` for those.
 
+                  - `Type ToolReference`
+
                   - `Name string`
 
                     pattern: ^[a-zA-Z0-9_-]{1,128}$
-
-                  - `Type ToolReference`
 
                 - `type BetaToolChangeMCPToolReference struct{…}`
 
                   Reference to a single MCP tool by its server and remote name — the
                   same `server_name`/`name` pair `mcp_tool_use` carries.
 
+                  - `Type MCPToolReference`
+
                   - `Name string`
 
                   - `ServerName string`
-
-                  - `Type MCPToolReference`
 
                 - `type BetaToolChangeMCPToolsetReference struct{…}`
 
                   Reference to every tool in the named MCP server's toolset.
 
-                  - `ServerName string`
-
                   - `Type MCPToolsetReference`
 
-              - `Type ToolAddition`
+                  - `ServerName string`
 
               - `CacheControl BetaCacheControlEphemeral Optional`
 
@@ -11767,6 +11814,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
               `tool` references a tool (or MCP toolset) by name from the request's
               `tools`; it is no longer offered to the model from this point in the
               conversation onward.
+
+              - `Type ToolRemoval`
 
               - `Tool BetaRequestToolRemovalBlockToolUnion`
 
@@ -11791,8 +11840,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   Reference to every tool in the named MCP server's toolset.
 
-              - `Type ToolRemoval`
-
               - `CacheControl BetaCacheControlEphemeral Optional`
 
                 Create a cache control breakpoint at this content block.
@@ -11812,6 +11859,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
               request is rejected), and moving it into the middle of a single run is
               likewise rejected; between non-thinking blocks the block's placement has
               no validation effect.
+
+              - `Type Fallback`
 
               - `From BetaFallbackInfoParamResp`
 
@@ -11903,8 +11952,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 Identifies one hop of a fallback transition.
 
-              - `Type Fallback`
-
               - `Trigger any Optional`
 
                 The response block's `trigger`, echoed verbatim. Accepted and ignored by the server; any object or `null` is allowed.
@@ -11975,12 +12022,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             maxItems: 20
 
-            - `SkillID string`
-
-              Skill ID
-
-              maxLength: 64, minLength: 1
-
             - `Type BetaSkillParamsType`
 
               Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
@@ -11988,6 +12029,12 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
               - `const BetaSkillParamsTypeAnthropic BetaSkillParamsType = "anthropic"`
 
               - `const BetaSkillParamsTypeCustom BetaSkillParamsType = "custom"`
+
+            - `SkillID string`
+
+              Skill ID
+
+              maxLength: 64, minLength: 1
 
             - `Version string Optional`
 
@@ -12199,25 +12246,25 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               A schema to specify Claude's output format in responses. See [structured outputs](https://platform.claude.com/docs/en/build-with-claude/structured-outputs)
 
+              - `Type JSONSchema`
+
               - `Schema map[string, any]`
 
                 The JSON schema of the format
 
-              - `Type JSONSchema`
-
             - `TaskBudget BetaTokenTaskBudget Optional`
 
               User-configurable total token budget across contexts.
+
+              - `Type Tokens`
+
+                The budget type. Currently only 'tokens' is supported.
 
               - `Total int64`
 
                 Total token budget across all contexts in the session.
 
                 minimum: 1024
-
-              - `Type Tokens`
-
-                The budget type. Currently only 'tokens' is supported.
 
               - `Remaining int64 Optional`
 
@@ -12237,6 +12284,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `type BetaThinkingConfigEnabled struct{…}`
 
+              - `Type Enabled`
+
               - `BudgetTokens int64`
 
                 Determines how many tokens Claude can use for its internal reasoning process. Larger budgets can enable more thorough analysis for complex problems, improving response quality.
@@ -12246,8 +12295,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
                 See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
 
                 minimum: 1024
-
-              - `Type Enabled`
 
               - `BlockBinding BetaThinkingBlockBinding Optional`
 
@@ -12313,9 +12360,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         maxItems: 20
 
-        - `Name string`
-
         - `Type URL`
+
+        - `Name string`
 
         - `URL string`
 
@@ -12383,11 +12430,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `[]BetaTextBlockParam`
 
+          - `Type Text`
+
           - `Text string`
 
             minLength: 1
-
-          - `Type Text`
 
           - `CacheControl BetaCacheControlEphemeral Optional`
 
@@ -12441,11 +12488,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           The model will use the specified tool with `tool_choice.name`.
 
+          - `Type Tool`
+
           - `Name string`
 
             The name of the tool to use.
-
-          - `Type Tool`
 
           - `DisableParallelToolUse bool Optional`
 
@@ -12525,6 +12572,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `type BetaTool struct{…}`
 
+          - `Type BetaToolType Optional`
+
           - `InputSchema BetaToolInputSchema`
 
             [JSON schema](https://json-schema.org/draft/2020-12) for this tool's input.
@@ -12579,17 +12628,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             When true, guarantees schema validation on tool names and inputs
 
-          - `Type BetaToolType Optional`
-
         - `type BetaToolBash20241022 struct{…}`
+
+          - `Type Bash20241022`
 
           - `Name Bash`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `Type Bash20241022`
 
           - `AllowedCallers []string Optional`
 
@@ -12617,13 +12664,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `type BetaToolBash20250124 struct{…}`
 
+          - `Type Bash20250124`
+
           - `Name Bash`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `Type Bash20250124`
 
           - `AllowedCallers []string Optional`
 
@@ -12651,13 +12698,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `type BetaCodeExecutionTool20250522 struct{…}`
 
+          - `Type CodeExecution20250522`
+
           - `Name CodeExecution`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `Type CodeExecution20250522`
 
           - `AllowedCallers []string Optional`
 
@@ -12683,13 +12730,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `type BetaCodeExecutionTool20250825 struct{…}`
 
+          - `Type CodeExecution20250825`
+
           - `Name CodeExecution`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `Type CodeExecution20250825`
 
           - `AllowedCallers []string Optional`
 
@@ -12717,13 +12764,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           Code execution tool with REPL state persistence (daemon mode + gVisor checkpoint).
 
+          - `Type CodeExecution20260120`
+
           - `Name CodeExecution`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `Type CodeExecution20260120`
 
           - `AllowedCallers []string Optional`
 
@@ -12751,13 +12798,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           Code execution tool with REPL state persistence.
 
+          - `Type CodeExecution20260521`
+
           - `Name CodeExecution`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `Type CodeExecution20260521`
 
           - `AllowedCallers []string Optional`
 
@@ -12802,6 +12849,18 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
             accepted key, and a member's defaults apply wherever its key is
             absent. Unknown keys are rejected: the field set is this toolset
             version's complete member set.
+
+            - `Type BetaBrowserTypeConfig Optional`
+
+              `type`'s config overrides.
+
+              - `DeferLoading bool Optional`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `Enabled bool Optional`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
             - `CloseTab BetaBrowserCloseTabConfig Optional`
 
@@ -13139,18 +13198,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-            - `Type BetaBrowserTypeConfig Optional`
-
-              `type`'s config overrides.
-
-              - `DeferLoading bool Optional`
-
-                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-              - `Enabled bool Optional`
-
-                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
             - `Wait BetaBrowserWaitConfig Optional`
 
               `wait`'s config overrides.
@@ -13177,6 +13224,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `type BetaToolComputerUse20241022 struct{…}`
 
+          - `Type Computer20241022`
+
           - `DisplayHeightPx int64`
 
             The height of the display in pixels.
@@ -13194,8 +13243,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `Type Computer20241022`
 
           - `AllowedCallers []string Optional`
 
@@ -13229,13 +13276,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `type BetaMemoryTool20250818 struct{…}`
 
+          - `Type Memory20250818`
+
           - `Name Memory`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `Type Memory20250818`
 
           - `AllowedCallers []string Optional`
 
@@ -13263,6 +13310,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `type BetaToolComputerUse20250124 struct{…}`
 
+          - `Type Computer20250124`
+
           - `DisplayHeightPx int64`
 
             The height of the display in pixels.
@@ -13280,8 +13329,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `Type Computer20250124`
 
           - `AllowedCallers []string Optional`
 
@@ -13315,13 +13362,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `type BetaToolTextEditor20241022 struct{…}`
 
+          - `Type TextEditor20241022`
+
           - `Name StrReplaceEditor`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `Type TextEditor20241022`
 
           - `AllowedCallers []string Optional`
 
@@ -13349,6 +13396,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `type BetaToolComputerUse20251124 struct{…}`
 
+          - `Type Computer20251124`
+
           - `DisplayHeightPx int64`
 
             The height of the display in pixels.
@@ -13366,8 +13415,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `Type Computer20251124`
 
           - `AllowedCallers []string Optional`
 
@@ -13428,6 +13475,18 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
             accepted key, and a member's defaults apply wherever its key is
             absent. Unknown keys are rejected: the field set is this toolset
             version's complete member set.
+
+            - `Type BetaComputerTypeConfig Optional`
+
+              `type`'s config overrides.
+
+              - `DeferLoading bool Optional`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `Enabled bool Optional`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
             - `CursorPosition BetaComputerCursorPositionConfig Optional`
 
@@ -13597,18 +13656,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-            - `Type BetaComputerTypeConfig Optional`
-
-              `type`'s config overrides.
-
-              - `DeferLoading bool Optional`
-
-                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-              - `Enabled bool Optional`
-
-                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
             - `Wait BetaComputerWaitConfig Optional`
 
               `wait`'s config overrides.
@@ -13635,13 +13682,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `type BetaToolTextEditor20250124 struct{…}`
 
+          - `Type TextEditor20250124`
+
           - `Name StrReplaceEditor`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `Type TextEditor20250124`
 
           - `AllowedCallers []string Optional`
 
@@ -13669,13 +13716,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `type BetaToolTextEditor20250429 struct{…}`
 
+          - `Type TextEditor20250429`
+
           - `Name StrReplaceBasedEditTool`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `Type TextEditor20250429`
 
           - `AllowedCallers []string Optional`
 
@@ -13703,13 +13750,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `type BetaToolTextEditor20250728 struct{…}`
 
+          - `Type TextEditor20250728`
+
           - `Name StrReplaceBasedEditTool`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `Type TextEditor20250728`
 
           - `AllowedCallers []string Optional`
 
@@ -13743,13 +13790,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `type BetaWebSearchTool20250305 struct{…}`
 
+          - `Type WebSearch20250305`
+
           - `Name WebSearch`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `Type WebSearch20250305`
 
           - `AllowedCallers []string Optional`
 
@@ -13819,13 +13866,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `type BetaWebFetchTool20250910 struct{…}`
 
+          - `Type WebFetch20250910`
+
           - `Name WebFetch`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `Type WebFetch20250910`
 
           - `AllowedCallers []string Optional`
 
@@ -13875,13 +13922,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `type BetaWebSearchTool20260209 struct{…}`
 
+          - `Type WebSearch20260209`
+
           - `Name WebSearch`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `Type WebSearch20260209`
 
           - `AllowedCallers []string Optional`
 
@@ -13925,13 +13972,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `type BetaWebFetchTool20260209 struct{…}`
 
+          - `Type WebFetch20260209`
+
           - `Name WebFetch`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `Type WebFetch20260209`
 
           - `AllowedCallers []string Optional`
 
@@ -13983,13 +14030,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           Web fetch tool with use_cache parameter for bypassing cached content.
 
+          - `Type WebFetch20260309`
+
           - `Name WebFetch`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `Type WebFetch20260309`
 
           - `AllowedCallers []string Optional`
 
@@ -14043,13 +14090,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `type BetaWebSearchTool20260318 struct{…}`
 
+          - `Type WebSearch20260318`
+
           - `Name WebSearch`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `Type WebSearch20260318`
 
           - `AllowedCallers []string Optional`
 
@@ -14101,13 +14148,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `type BetaWebFetchTool20260318 struct{…}`
 
+          - `Type WebFetch20260318`
+
           - `Name WebFetch`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `Type WebFetch20260318`
 
           - `AllowedCallers []string Optional`
 
@@ -14169,6 +14216,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `type BetaAdvisorTool20260301 struct{…}`
 
+          - `Type Advisor20260301`
+
           - `Model Model`
 
             The model that will complete your prompt.
@@ -14180,8 +14229,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `Type Advisor20260301`
 
           - `AllowedCallers []string Optional`
 
@@ -14223,17 +14270,17 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `type BetaToolSearchToolBm25_20251119 struct{…}`
 
-          - `Name ToolSearchToolBm25`
-
-            Name of the tool.
-
-            This is how the tool will be called by the model and in `tool_use` blocks.
-
           - `Type BetaToolSearchToolBm25_20251119Type`
 
             - `const BetaToolSearchToolBm25_20251119TypeToolSearchToolBm25_20251119 BetaToolSearchToolBm25_20251119Type = "tool_search_tool_bm25_20251119"`
 
             - `const BetaToolSearchToolBm25_20251119TypeToolSearchToolBm25 BetaToolSearchToolBm25_20251119Type = "tool_search_tool_bm25"`
+
+          - `Name ToolSearchToolBm25`
+
+            Name of the tool.
+
+            This is how the tool will be called by the model and in `tool_use` blocks.
 
           - `AllowedCallers []string Optional`
 
@@ -14259,17 +14306,17 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `type BetaToolSearchToolRegex20251119 struct{…}`
 
-          - `Name ToolSearchToolRegex`
-
-            Name of the tool.
-
-            This is how the tool will be called by the model and in `tool_use` blocks.
-
           - `Type BetaToolSearchToolRegex20251119Type`
 
             - `const BetaToolSearchToolRegex20251119TypeToolSearchToolRegex20251119 BetaToolSearchToolRegex20251119Type = "tool_search_tool_regex_20251119"`
 
             - `const BetaToolSearchToolRegex20251119TypeToolSearchToolRegex BetaToolSearchToolRegex20251119Type = "tool_search_tool_regex"`
+
+          - `Name ToolSearchToolRegex`
+
+            Name of the tool.
+
+            This is how the tool will be called by the model and in `tool_use` blocks.
 
           - `AllowedCallers []string Optional`
 
@@ -14300,13 +14347,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
           Allows configuring enabled status and defer_loading for all tools
           from an MCP server, with optional per-tool overrides.
 
+          - `Type MCPToolset`
+
           - `MCPServerName string`
 
             Name of the MCP server to configure tools for
 
             maxLength: 255, minLength: 1
-
-          - `Type MCPToolset`
 
           - `CacheControl BetaCacheControlEphemeral Optional`
 
@@ -14426,6 +14473,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
 
+      - `const AnthropicBetaUserProfiles2026_09_04 AnthropicBeta = "user-profiles-2026-09-04"`
+
       - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
 
       - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
@@ -14472,9 +14521,23 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     Header param: The user profile ID to attribute the requests in this batch to. Use when acting on behalf of a party other than your organization. Requires the `user-profiles` beta header. Applies to every request in the batch; an individual request whose `user_profile_id` body field conflicts with this header is errored.
 
+  - `WorkspaceID param.Field[string] Optional`
+
+    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `type BetaMessageBatch struct{…}`
+
+  - `Type MessageBatch`
+
+    Object type.
+
+    For Message Batches, this is always `"message_batch"`.
+
+    default: message_batch
 
   - `ID string`
 
@@ -14573,14 +14636,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
     URL to a `.jsonl` file containing the results of the Message Batch requests. Specified only once processing ends.
 
     Results in the file are not guaranteed to be in the same order as requests. Use the `custom_id` field to match results to requests.
-
-  - `Type MessageBatch`
-
-    Object type.
-
-    For Message Batches, this is always `"message_batch"`.
-
-    default: message_batch
 
 #### Example
 
@@ -14718,6 +14773,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
 
+      - `const AnthropicBetaUserProfiles2026_09_04 AnthropicBeta = "user-profiles-2026-09-04"`
+
       - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
 
       - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
@@ -14760,9 +14817,23 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `const AnthropicBetaMidConversationSystemClearAt2026_08_21 AnthropicBeta = "mid-conversation-system-clear-at-2026-08-21"`
 
+  - `WorkspaceID param.Field[string] Optional`
+
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `type BetaMessageBatch struct{…}`
+
+  - `Type MessageBatch`
+
+    Object type.
+
+    For Message Batches, this is always `"message_batch"`.
+
+    default: message_batch
 
   - `ID string`
 
@@ -14861,14 +14932,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
     URL to a `.jsonl` file containing the results of the Message Batch requests. Specified only once processing ends.
 
     Results in the file are not guaranteed to be in the same order as requests. Use the `custom_id` field to match results to requests.
-
-  - `Type MessageBatch`
-
-    Object type.
-
-    For Message Batches, this is always `"message_batch"`.
-
-    default: message_batch
 
 #### Example
 
@@ -15006,6 +15069,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
 
+      - `const AnthropicBetaUserProfiles2026_09_04 AnthropicBeta = "user-profiles-2026-09-04"`
+
       - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
 
       - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
@@ -15048,9 +15113,23 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `const AnthropicBetaMidConversationSystemClearAt2026_08_21 AnthropicBeta = "mid-conversation-system-clear-at-2026-08-21"`
 
+  - `WorkspaceID param.Field[string] Optional`
+
+    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `type BetaMessageBatch struct{…}`
+
+  - `Type MessageBatch`
+
+    Object type.
+
+    For Message Batches, this is always `"message_batch"`.
+
+    default: message_batch
 
   - `ID string`
 
@@ -15149,14 +15228,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
     URL to a `.jsonl` file containing the results of the Message Batch requests. Specified only once processing ends.
 
     Results in the file are not guaranteed to be in the same order as requests. Use the `custom_id` field to match results to requests.
-
-  - `Type MessageBatch`
-
-    Object type.
-
-    For Message Batches, this is always `"message_batch"`.
-
-    default: message_batch
 
 #### Example
 
@@ -15287,6 +15358,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
 
+      - `const AnthropicBetaUserProfiles2026_09_04 AnthropicBeta = "user-profiles-2026-09-04"`
+
       - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
 
       - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
@@ -15329,9 +15402,23 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `const AnthropicBetaMidConversationSystemClearAt2026_08_21 AnthropicBeta = "mid-conversation-system-clear-at-2026-08-21"`
 
+  - `WorkspaceID param.Field[string] Optional`
+
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `type BetaMessageBatch struct{…}`
+
+  - `Type MessageBatch`
+
+    Object type.
+
+    For Message Batches, this is always `"message_batch"`.
+
+    default: message_batch
 
   - `ID string`
 
@@ -15430,14 +15517,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
     URL to a `.jsonl` file containing the results of the Message Batch requests. Specified only once processing ends.
 
     Results in the file are not guaranteed to be in the same order as requests. Use the `custom_id` field to match results to requests.
-
-  - `Type MessageBatch`
-
-    Object type.
-
-    For Message Batches, this is always `"message_batch"`.
-
-    default: message_batch
 
 #### Example
 
@@ -15565,6 +15644,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
 
+      - `const AnthropicBetaUserProfiles2026_09_04 AnthropicBeta = "user-profiles-2026-09-04"`
+
       - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
 
       - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
@@ -15607,13 +15688,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `const AnthropicBetaMidConversationSystemClearAt2026_08_21 AnthropicBeta = "mid-conversation-system-clear-at-2026-08-21"`
 
+  - `WorkspaceID param.Field[string] Optional`
+
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `type BetaDeletedMessageBatch struct{…}`
-
-  - `ID string`
-
-    ID of the Message Batch.
 
   - `Type MessageBatchDeleted`
 
@@ -15622,6 +15705,10 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
     For Message Batches, this is always `"message_batch_deleted"`.
 
     default: message_batch_deleted
+
+  - `ID string`
+
+    ID of the Message Batch.
 
 #### Example
 
@@ -15735,6 +15822,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
 
+      - `const AnthropicBetaUserProfiles2026_09_04 AnthropicBeta = "user-profiles-2026-09-04"`
+
       - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
 
       - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
@@ -15777,6 +15866,12 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `const AnthropicBetaMidConversationSystemClearAt2026_08_21 AnthropicBeta = "mid-conversation-system-clear-at-2026-08-21"`
 
+  - `WorkspaceID param.Field[string] Optional`
+
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `type BetaMessageBatchIndividualResponse struct{…}`
@@ -15797,7 +15892,19 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     - `type BetaMessageBatchSucceededResult struct{…}`
 
+      - `Type Succeeded`
+
+        default: succeeded
+
       - `Message BetaMessage`
+
+        - `Type Message`
+
+          Object type.
+
+          For Messages, this is always `"message"`.
+
+          default: message
 
         - `ID string`
 
@@ -15823,12 +15930,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             Skills loaded in the container
 
-            - `SkillID string`
-
-              Skill ID
-
-              maxLength: 64, minLength: 1
-
             - `Type BetaContainerSkillType`
 
               Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
@@ -15836,6 +15937,12 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
               - `const BetaContainerSkillTypeAnthropic BetaContainerSkillType = "anthropic"`
 
               - `const BetaContainerSkillTypeCustom BetaContainerSkillType = "custom"`
+
+            - `SkillID string`
+
+              Skill ID
+
+              maxLength: 64, minLength: 1
 
             - `Version string`
 
@@ -15874,6 +15981,10 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           - `type BetaTextBlock struct{…}`
 
+            - `Type Text`
+
+              default: text
+
             - `Citations []BetaTextCitationUnion`
 
               Citations supporting the text block.
@@ -15881,6 +15992,10 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
               The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
 
               - `type BetaCitationCharLocation struct{…}`
+
+                - `Type CharLocation`
+
+                  default: char_location
 
                 - `CitedText string`
 
@@ -15898,11 +16013,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   minimum: 0
 
-                - `Type CharLocation`
-
-                  default: char_location
-
               - `type BetaCitationPageLocation struct{…}`
+
+                - `Type PageLocation`
+
+                  default: page_location
 
                 - `CitedText string`
 
@@ -15920,11 +16035,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   minimum: 1
 
-                - `Type PageLocation`
-
-                  default: page_location
-
               - `type BetaCitationContentBlockLocation struct{…}`
+
+                - `Type ContentBlockLocation`
+
+                  default: content_block_location
 
                 - `CitedText string`
 
@@ -15952,11 +16067,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   minimum: 0
 
-                - `Type ContentBlockLocation`
-
-                  default: content_block_location
-
               - `type BetaCitationsWebSearchResultLocation struct{…}`
+
+                - `Type WebSearchResultLocation`
+
+                  default: web_search_result_location
 
                 - `CitedText string`
 
@@ -15966,13 +16081,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   maxLength: 512
 
-                - `Type WebSearchResultLocation`
-
-                  default: web_search_result_location
-
                 - `URL string`
 
               - `type BetaCitationSearchResultLocation struct{…}`
+
+                - `Type SearchResultLocation`
+
+                  default: search_result_location
 
                 - `CitedText string`
 
@@ -16004,19 +16119,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `Title string`
 
-                - `Type SearchResultLocation`
-
-                  default: search_result_location
-
             - `Text string`
 
-              maxLength: 5000000, minLength: 0
-
-            - `Type Text`
-
-              default: text
+              minLength: 0
 
           - `type BetaThinkingBlock struct{…}`
+
+            - `Type Thinking`
+
+              default: thinking
 
             - `Signature string`
 
@@ -16030,11 +16141,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               The text of Claude's thinking process for this block.
 
-            - `Type Thinking`
-
-              default: thinking
-
           - `type BetaRedactedThinkingBlock struct{…}`
+
+            - `Type RedactedThinking`
+
+              default: redacted_thinking
 
             - `Data string`
 
@@ -16044,11 +16155,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking#redacted-thinking-blocks) for details.
 
-            - `Type RedactedThinking`
-
-              default: redacted_thinking
-
           - `type BetaToolUseBlock struct{…}`
+
+            - `Type ToolUse`
+
+              default: tool_use
 
             - `ID string`
 
@@ -16059,10 +16170,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
             - `Name string`
 
               minLength: 1
-
-            - `Type ToolUse`
-
-              default: tool_use
 
             - `Caller BetaToolUseBlockCallerUnion Optional`
 
@@ -16078,19 +16185,19 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 Tool invocation generated by a server-side tool.
 
+                - `Type CodeExecution20250825`
+
                 - `ToolID string`
 
                   pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-                - `Type CodeExecution20250825`
 
               - `type BetaServerToolCaller20260120 struct{…}`
 
+                - `Type CodeExecution20260120`
+
                 - `ToolID string`
 
                   pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-                - `Type CodeExecution20260120`
 
             - `ToolsetName string Optional`
 
@@ -16099,6 +16206,10 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
               maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
 
           - `type BetaServerToolUseBlock struct{…}`
+
+            - `Type ServerToolUse`
+
+              default: server_tool_use
 
             - `ID string`
 
@@ -16124,10 +16235,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `const BetaServerToolUseBlockNameToolSearchToolBm25 BetaServerToolUseBlockName = "tool_search_tool_bm25"`
 
-            - `Type ServerToolUse`
-
-              default: server_tool_use
-
             - `Caller BetaServerToolUseBlockCallerUnion Optional`
 
               Tool invocation directly from the model.
@@ -16144,9 +16251,17 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           - `type BetaWebSearchToolResultBlock struct{…}`
 
+            - `Type WebSearchToolResult`
+
+              default: web_search_tool_result
+
             - `Content BetaWebSearchToolResultBlockContentUnion`
 
               - `type BetaWebSearchToolResultError struct{…}`
+
+                - `Type WebSearchToolResultError`
+
+                  default: web_search_tool_result_error
 
                 - `ErrorCode BetaWebSearchToolResultErrorCode`
 
@@ -16162,11 +16277,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `const BetaWebSearchToolResultErrorCodeRequestTooLarge BetaWebSearchToolResultErrorCode = "request_too_large"`
 
-                - `Type WebSearchToolResultError`
-
-                  default: web_search_tool_result_error
-
               - `type BetaWebSearchToolResultBlockContentArray []BetaWebSearchResultBlock`
+
+                - `Type WebSearchResult`
+
+                  default: web_search_result
 
                 - `EncryptedContent string`
 
@@ -16174,19 +16289,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `Title string`
 
-                - `Type WebSearchResult`
-
-                  default: web_search_result
-
                 - `URL string`
 
             - `ToolUseID string`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-            - `Type WebSearchToolResult`
-
-              default: web_search_tool_result
 
             - `Caller BetaWebSearchToolResultBlockCallerUnion Optional`
 
@@ -16204,9 +16311,17 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           - `type BetaWebFetchToolResultBlock struct{…}`
 
+            - `Type WebFetchToolResult`
+
+              default: web_fetch_tool_result
+
             - `Content BetaWebFetchToolResultBlockContentUnion`
 
               - `type BetaWebFetchToolResultErrorBlock struct{…}`
+
+                - `Type WebFetchToolResultError`
+
+                  default: web_fetch_tool_result_error
 
                 - `ErrorCode BetaWebFetchToolResultErrorCode`
 
@@ -16228,13 +16343,19 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `const BetaWebFetchToolResultErrorCodeUnavailable BetaWebFetchToolResultErrorCode = "unavailable"`
 
-                - `Type WebFetchToolResultError`
-
-                  default: web_fetch_tool_result_error
+                  - `const BetaWebFetchToolResultErrorCodeContentTooLarge BetaWebFetchToolResultErrorCode = "content_too_large"`
 
               - `type BetaWebFetchBlock struct{…}`
 
+                - `Type WebFetchResult`
+
+                  default: web_fetch_result
+
                 - `Content BetaDocumentBlock`
+
+                  - `Type Document`
+
+                    default: document
 
                   - `Citations BetaCitationConfig`
 
@@ -16248,37 +16369,29 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     - `type BetaBase64PDFSource struct{…}`
 
+                      - `Type Base64`
+
                       - `Data string`
 
                         format: byte
 
                       - `MediaType ApplicationPDF`
 
-                      - `Type Base64`
-
                     - `type BetaPlainTextSource struct{…}`
+
+                      - `Type Text`
 
                       - `Data string`
 
                       - `MediaType TextPlain`
 
-                      - `Type Text`
-
                   - `Title string`
 
                     The title of the document
 
-                  - `Type Document`
-
-                    default: document
-
                 - `RetrievedAt string`
 
                   ISO 8601 timestamp when the content was retrieved
-
-                - `Type WebFetchResult`
-
-                  default: web_fetch_result
 
                 - `URL string`
 
@@ -16287,10 +16400,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
             - `ToolUseID string`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-            - `Type WebFetchToolResult`
-
-              default: web_fetch_tool_result
 
             - `Caller BetaWebFetchToolResultBlockCallerUnion Optional`
 
@@ -16308,9 +16417,17 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           - `type BetaAdvisorToolResultBlock struct{…}`
 
+            - `Type AdvisorToolResult`
+
+              default: advisor_tool_result
+
             - `Content BetaAdvisorToolResultBlockContentUnion`
 
               - `type BetaAdvisorToolResultError struct{…}`
+
+                - `Type AdvisorToolResultError`
+
+                  default: advisor_tool_result_error
 
                 - `ErrorCode BetaAdvisorToolResultErrorErrorCode`
 
@@ -16328,11 +16445,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `const BetaAdvisorToolResultErrorErrorCodeModelNotFound BetaAdvisorToolResultErrorErrorCode = "model_not_found"`
 
-                - `Type AdvisorToolResultError`
-
-                  default: advisor_tool_result_error
-
               - `type BetaAdvisorResultBlock struct{…}`
+
+                - `Type AdvisorResult`
+
+                  default: advisor_result
 
                 - `StopReason string`
 
@@ -16340,11 +16457,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `Text string`
 
-                - `Type AdvisorResult`
-
-                  default: advisor_result
-
               - `type BetaAdvisorRedactedResultBlock struct{…}`
+
+                - `Type AdvisorRedactedResult`
+
+                  default: advisor_redacted_result
 
                 - `EncryptedContent string`
 
@@ -16354,25 +16471,25 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   The advisor sub-inference's stop reason (same values as the top-level message `stop_reason`).
 
-                - `Type AdvisorRedactedResult`
-
-                  default: advisor_redacted_result
-
             - `ToolUseID string`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-            - `Type AdvisorToolResult`
-
-              default: advisor_tool_result
-
           - `type BetaCodeExecutionToolResultBlock struct{…}`
+
+            - `Type CodeExecutionToolResult`
+
+              default: code_execution_tool_result
 
             - `Content BetaCodeExecutionToolResultBlockContentUnion`
 
               Code execution result with encrypted stdout for PFC + web_search results.
 
               - `type BetaCodeExecutionToolResultError struct{…}`
+
+                - `Type CodeExecutionToolResultError`
+
+                  default: code_execution_tool_result_error
 
                 - `ErrorCode BetaCodeExecutionToolResultErrorCode`
 
@@ -16384,19 +16501,19 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `const BetaCodeExecutionToolResultErrorCodeExecutionTimeExceeded BetaCodeExecutionToolResultErrorCode = "execution_time_exceeded"`
 
-                - `Type CodeExecutionToolResultError`
-
-                  default: code_execution_tool_result_error
-
               - `type BetaCodeExecutionResultBlock struct{…}`
 
-                - `Content []BetaCodeExecutionOutputBlock`
+                - `Type CodeExecutionResult`
 
-                  - `FileID string`
+                  default: code_execution_result
+
+                - `Content []BetaCodeExecutionOutputBlock`
 
                   - `Type CodeExecutionOutput`
 
                     default: code_execution_output
+
+                  - `FileID string`
 
                 - `ReturnCode int64`
 
@@ -16404,21 +16521,21 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `Stdout string`
 
-                - `Type CodeExecutionResult`
-
-                  default: code_execution_result
-
               - `type BetaEncryptedCodeExecutionResultBlock struct{…}`
 
                 Code execution result with encrypted stdout for PFC + web_search results.
 
-                - `Content []BetaCodeExecutionOutputBlock`
+                - `Type EncryptedCodeExecutionResult`
 
-                  - `FileID string`
+                  default: encrypted_code_execution_result
+
+                - `Content []BetaCodeExecutionOutputBlock`
 
                   - `Type CodeExecutionOutput`
 
                     default: code_execution_output
+
+                  - `FileID string`
 
                 - `EncryptedStdout string`
 
@@ -16426,23 +16543,23 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `Stderr string`
 
-                - `Type EncryptedCodeExecutionResult`
-
-                  default: encrypted_code_execution_result
-
             - `ToolUseID string`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-            - `Type CodeExecutionToolResult`
-
-              default: code_execution_tool_result
-
           - `type BetaBashCodeExecutionToolResultBlock struct{…}`
+
+            - `Type BashCodeExecutionToolResult`
+
+              default: bash_code_execution_tool_result
 
             - `Content BetaBashCodeExecutionToolResultBlockContentUnion`
 
               - `type BetaBashCodeExecutionToolResultError struct{…}`
+
+                - `Type BashCodeExecutionToolResultError`
+
+                  default: bash_code_execution_tool_result_error
 
                 - `ErrorCode BetaBashCodeExecutionToolResultErrorErrorCode`
 
@@ -16456,19 +16573,19 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `const BetaBashCodeExecutionToolResultErrorErrorCodeOutputFileTooLarge BetaBashCodeExecutionToolResultErrorErrorCode = "output_file_too_large"`
 
-                - `Type BashCodeExecutionToolResultError`
-
-                  default: bash_code_execution_tool_result_error
-
               - `type BetaBashCodeExecutionResultBlock struct{…}`
 
-                - `Content []BetaBashCodeExecutionOutputBlock`
+                - `Type BashCodeExecutionResult`
 
-                  - `FileID string`
+                  default: bash_code_execution_result
+
+                - `Content []BetaBashCodeExecutionOutputBlock`
 
                   - `Type BashCodeExecutionOutput`
 
                     default: bash_code_execution_output
+
+                  - `FileID string`
 
                 - `ReturnCode int64`
 
@@ -16476,23 +16593,23 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `Stdout string`
 
-                - `Type BashCodeExecutionResult`
-
-                  default: bash_code_execution_result
-
             - `ToolUseID string`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-            - `Type BashCodeExecutionToolResult`
-
-              default: bash_code_execution_tool_result
-
           - `type BetaTextEditorCodeExecutionToolResultBlock struct{…}`
+
+            - `Type TextEditorCodeExecutionToolResult`
+
+              default: text_editor_code_execution_tool_result
 
             - `Content BetaTextEditorCodeExecutionToolResultBlockContentUnion`
 
               - `type BetaTextEditorCodeExecutionToolResultError struct{…}`
+
+                - `Type TextEditorCodeExecutionToolResultError`
+
+                  default: text_editor_code_execution_tool_result_error
 
                 - `ErrorCode BetaTextEditorCodeExecutionToolResultErrorErrorCode`
 
@@ -16508,11 +16625,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `ErrorMessage string`
 
-                - `Type TextEditorCodeExecutionToolResultError`
-
-                  default: text_editor_code_execution_tool_result_error
-
               - `type BetaTextEditorCodeExecutionViewResultBlock struct{…}`
+
+                - `Type TextEditorCodeExecutionViewResult`
+
+                  default: text_editor_code_execution_view_result
 
                 - `Content string`
 
@@ -16530,19 +16647,19 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `TotalLines int64`
 
-                - `Type TextEditorCodeExecutionViewResult`
-
-                  default: text_editor_code_execution_view_result
-
               - `type BetaTextEditorCodeExecutionCreateResultBlock struct{…}`
-
-                - `IsFileUpdate bool`
 
                 - `Type TextEditorCodeExecutionCreateResult`
 
                   default: text_editor_code_execution_create_result
 
+                - `IsFileUpdate bool`
+
               - `type BetaTextEditorCodeExecutionStrReplaceResultBlock struct{…}`
+
+                - `Type TextEditorCodeExecutionStrReplaceResult`
+
+                  default: text_editor_code_execution_str_replace_result
 
                 - `Lines []string`
 
@@ -16554,23 +16671,23 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `OldStart int64`
 
-                - `Type TextEditorCodeExecutionStrReplaceResult`
-
-                  default: text_editor_code_execution_str_replace_result
-
             - `ToolUseID string`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-            - `Type TextEditorCodeExecutionToolResult`
-
-              default: text_editor_code_execution_tool_result
-
           - `type BetaToolSearchToolResultBlock struct{…}`
+
+            - `Type ToolSearchToolResult`
+
+              default: tool_search_tool_result
 
             - `Content BetaToolSearchToolResultBlockContentUnion`
 
               - `type BetaToolSearchToolResultError struct{…}`
+
+                - `Type ToolSearchToolResultError`
+
+                  default: tool_search_tool_result_error
 
                 - `ErrorCode BetaToolSearchToolResultErrorErrorCode`
 
@@ -16584,35 +16701,31 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `ErrorMessage string`
 
-                - `Type ToolSearchToolResultError`
-
-                  default: tool_search_tool_result_error
-
               - `type BetaToolSearchToolSearchResultBlock struct{…}`
-
-                - `ToolReferences []BetaToolReferenceBlock`
-
-                  - `ToolName string`
-
-                    maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
-
-                  - `Type ToolReference`
-
-                    default: tool_reference
 
                 - `Type ToolSearchToolSearchResult`
 
                   default: tool_search_tool_search_result
 
+                - `ToolReferences []BetaToolReferenceBlock`
+
+                  - `Type ToolReference`
+
+                    default: tool_reference
+
+                  - `ToolName string`
+
+                    maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+
             - `ToolUseID string`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-            - `Type ToolSearchToolResult`
-
-              default: tool_search_tool_result
-
           - `type BetaMCPToolUseBlock struct{…}`
+
+            - `Type MCPToolUse`
+
+              default: mcp_tool_use
 
             - `ID string`
 
@@ -16628,17 +16741,21 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               The name of the MCP server
 
-            - `Type MCPToolUse`
-
-              default: mcp_tool_use
-
           - `type BetaMCPToolResultBlock struct{…}`
+
+            - `Type MCPToolResult`
+
+              default: mcp_tool_result
 
             - `Content BetaMCPToolResultBlockContentUnion`
 
               - `string`
 
               - `type BetaMCPToolResultBlockContentBetaMCPToolResultBlockContent []BetaTextBlock`
+
+                - `Type Text`
+
+                  default: text
 
                 - `Citations []BetaTextCitationUnion`
 
@@ -16648,11 +16765,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `Text string`
 
-                  maxLength: 5000000, minLength: 0
-
-                - `Type Text`
-
-                  default: text
+                  minLength: 0
 
             - `IsError bool`
 
@@ -16662,19 +16775,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               pattern: ^[a-zA-Z0-9_-]+$
 
-            - `Type MCPToolResult`
-
-              default: mcp_tool_result
-
           - `type BetaContainerUploadBlock struct{…}`
 
             Response model for a file uploaded to the container.
 
-            - `FileID string`
-
             - `Type ContainerUpload`
 
               default: container_upload
+
+            - `FileID string`
 
           - `type BetaCompactionBlock struct{…}`
 
@@ -16684,6 +16793,10 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
             summary (e.g., malformed output from the model). Clients may round-trip
             compaction blocks with null content; the server treats them as no-ops.
 
+            - `Type Compaction`
+
+              default: compaction
+
             - `Content string`
 
               Summary of compacted content, or null if compaction failed
@@ -16691,10 +16804,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
             - `EncryptedContent string`
 
               Opaque metadata from prior compaction, to be round-tripped verbatim
-
-            - `Type Compaction`
-
-              default: compaction
 
           - `type BetaFallbackBlock struct{…}`
 
@@ -16709,6 +16818,10 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
             The block is treated like a server-tool content block for streaming: it
             arrives via the standard `content_block_start` / `content_block_stop`
             pair and carries no deltas.
+
+            - `Type Fallback`
+
+              default: fallback
 
             - `From BetaFallbackInfo`
 
@@ -16804,6 +16917,10 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               What caused the `from` model to hand over at this hop.
 
+              - `Type Refusal`
+
+                default: refusal
+
               - `Category BetaFallbackRefusalTriggerCategory`
 
                 The policy category that triggered a refusal.
@@ -16828,14 +16945,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
 
-              - `Type Refusal`
-
-                default: refusal
-
-            - `Type Fallback`
-
-              default: fallback
-
         - `ContextManagement BetaContextManagementResponse`
 
           Context management response.
@@ -16847,6 +16956,12 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
             List of context management edits that were applied.
 
             - `type BetaClearToolUses20250919EditResponse struct{…}`
+
+              - `Type ClearToolUses20250919`
+
+                The type of context management edit applied.
+
+                default: clear_tool_uses_20250919
 
               - `ClearedInputTokens int64`
 
@@ -16860,13 +16975,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 minimum: 0
 
-              - `Type ClearToolUses20250919`
+            - `type BetaClearThinking20251015EditResponse struct{…}`
+
+              - `Type ClearThinking20251015`
 
                 The type of context management edit applied.
 
-                default: clear_tool_uses_20250919
-
-            - `type BetaClearThinking20251015EditResponse struct{…}`
+                default: clear_thinking_20251015
 
               - `ClearedInputTokens int64`
 
@@ -16880,12 +16995,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 minimum: 0
 
-              - `Type ClearThinking20251015`
-
-                The type of context management edit applied.
-
-                default: clear_thinking_20251015
-
         - `Diagnostics BetaDiagnostics`
 
           Response envelope for request-level diagnostics. Present (possibly
@@ -16897,43 +17006,43 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `type BetaCacheMissModelChanged struct{…}`
 
-              - `CacheMissedInputTokens int64`
-
-                Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
-
               - `Type ModelChanged`
 
                 default: model_changed
 
-            - `type BetaCacheMissSystemChanged struct{…}`
-
               - `CacheMissedInputTokens int64`
 
                 Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+            - `type BetaCacheMissSystemChanged struct{…}`
 
               - `Type SystemChanged`
 
                 default: system_changed
 
-            - `type BetaCacheMissToolsChanged struct{…}`
-
               - `CacheMissedInputTokens int64`
 
                 Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+            - `type BetaCacheMissToolsChanged struct{…}`
 
               - `Type ToolsChanged`
 
                 default: tools_changed
 
-            - `type BetaCacheMissMessagesChanged struct{…}`
-
               - `CacheMissedInputTokens int64`
 
                 Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
 
+            - `type BetaCacheMissMessagesChanged struct{…}`
+
               - `Type MessagesChanged`
 
                 default: messages_changed
+
+              - `CacheMissedInputTokens int64`
+
+                Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
 
             - `type BetaCacheMissPreviousMessageNotFound struct{…}`
 
@@ -16964,6 +17073,10 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
         - `StopDetails BetaRefusalStopDetails`
 
           Structured information about a refusal.
+
+          - `Type Refusal`
+
+            default: refusal
 
           - `Category BetaRefusalStopDetailsCategory`
 
@@ -17044,10 +17157,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             The server's suggested retry target for this refusal. Populated when a fallback attempt could not be made (the fallback model's rate limit was exhausted, or it was overloaded); names the fallback model the caller can retry directly. Null otherwise.
 
-          - `Type Refusal`
-
-            default: refusal
-
         - `StopReason BetaStopReason`
 
           The reason that we stopped.
@@ -17085,14 +17194,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
           Which custom stop sequence was generated, if any.
 
           This value will be a non-null string if one of your custom stop sequences was generated.
-
-        - `Type Message`
-
-          Object type.
-
-          For Messages, this is always `"message"`.
-
-          default: message
 
         - `Usage BetaUsage`
 
@@ -17160,6 +17261,10 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 No reprice was applied; `reason` says why.
 
+                - `Type NotApplied`
+
+                  default: not_applied
+
                 - `Reason BetaFallbackCreditNotAppliedReason`
 
                   Why the reprice was not applied.
@@ -17190,10 +17295,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
                   - `const BetaFallbackCreditNotAppliedReasonWrongPlatform BetaFallbackCreditNotAppliedReason = "wrong_platform"`
 
                   - `const BetaFallbackCreditNotAppliedReasonWrongWorkspace BetaFallbackCreditNotAppliedReason = "wrong_workspace"`
-
-                - `Type NotApplied`
-
-                  default: not_applied
 
                 - `RemoveToRedeem []string Optional`
 
@@ -17232,6 +17333,12 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               Token usage for a sampling iteration.
 
+              - `Type Message`
+
+                Usage for a sampling iteration
+
+                default: message
+
               - `CacheCreation BetaCacheCreation`
 
                 Breakdown of cached tokens by TTL
@@ -17266,43 +17373,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 minimum: 0
 
-              - `Type Message`
-
-                Usage for a sampling iteration
-
-                default: message
-
             - `type BetaCompactionIterationUsage struct{…}`
 
               Token usage for a compaction iteration.
-
-              - `CacheCreation BetaCacheCreation`
-
-                Breakdown of cached tokens by TTL
-
-              - `CacheCreationInputTokens int64`
-
-                The number of input tokens used to create the cache entry.
-
-                default: 0, minimum: 0
-
-              - `CacheReadInputTokens int64`
-
-                The number of input tokens read from the cache.
-
-                default: 0, minimum: 0
-
-              - `InputTokens int64`
-
-                The number of input tokens which were used.
-
-                minimum: 0
-
-              - `OutputTokens int64`
-
-                The number of output tokens which were used.
-
-                minimum: 0
 
               - `Type Compaction`
 
@@ -17310,9 +17383,43 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 default: compaction
 
+              - `CacheCreation BetaCacheCreation`
+
+                Breakdown of cached tokens by TTL
+
+              - `CacheCreationInputTokens int64`
+
+                The number of input tokens used to create the cache entry.
+
+                default: 0, minimum: 0
+
+              - `CacheReadInputTokens int64`
+
+                The number of input tokens read from the cache.
+
+                default: 0, minimum: 0
+
+              - `InputTokens int64`
+
+                The number of input tokens which were used.
+
+                minimum: 0
+
+              - `OutputTokens int64`
+
+                The number of output tokens which were used.
+
+                minimum: 0
+
             - `type BetaAdvisorMessageIterationUsage struct{…}`
 
               Token usage for an advisor sub-inference iteration.
+
+              - `Type AdvisorMessage`
+
+                Usage for an advisor sub-inference iteration
+
+                default: advisor_message
 
               - `CacheCreation BetaCacheCreation`
 
@@ -17347,12 +17454,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
                 The number of output tokens which were used.
 
                 minimum: 0
-
-              - `Type AdvisorMessage`
-
-                Usage for an advisor sub-inference iteration
-
-                default: advisor_message
 
             - `type BetaFallbackMessageIterationUsage struct{…}`
 
@@ -17363,6 +17464,12 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
               a fallback model served the response is signalled by the presence of this
               entry in `usage.iterations`.
 
+              - `Type FallbackMessage`
+
+                Usage for the fallback-model attempt that served the response
+
+                default: fallback_message
+
               - `CacheCreation BetaCacheCreation`
 
                 Breakdown of cached tokens by TTL
@@ -17396,12 +17503,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
                 The number of output tokens which were used.
 
                 minimum: 0
-
-              - `Type FallbackMessage`
-
-                Usage for the fallback-model attempt that served the response
-
-                default: fallback_message
 
           - `OutputTokens int64`
 
@@ -17483,6 +17584,12 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
           fallback happened mid-stream, in which case it holds the serving model's
           entries and replaces the one in `message_start`.
 
+          - `Type ThinkingDropped`
+
+            Always `thinking_dropped` for this entry type.
+
+            default: thinking_dropped
+
           - `Path string`
 
             Where the removed block was in your request, as `messages.{i}.content.{j}`:
@@ -17513,121 +17620,111 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `const BetaThinkingDroppedInputTransformationReasonEndUserBindingMismatch BetaThinkingDroppedInputTransformationReason = "end_user_binding_mismatch"`
 
-          - `Type ThinkingDropped`
-
-            Always `thinking_dropped` for this entry type.
-
-            default: thinking_dropped
-
-      - `Type Succeeded`
-
-        default: succeeded
-
     - `type BetaMessageBatchErroredResult struct{…}`
 
+      - `Type Errored`
+
+        default: errored
+
       - `Error BetaErrorResponse`
-
-        - `Error BetaErrorUnion`
-
-          - `type BetaInvalidRequestError struct{…}`
-
-            - `Message string`
-
-              default: Invalid request
-
-            - `Type InvalidRequestError`
-
-              default: invalid_request_error
-
-          - `type BetaAuthenticationError struct{…}`
-
-            - `Message string`
-
-              default: Authentication error
-
-            - `Type AuthenticationError`
-
-              default: authentication_error
-
-          - `type BetaBillingError struct{…}`
-
-            - `Message string`
-
-              default: Billing error
-
-            - `Type BillingError`
-
-              default: billing_error
-
-          - `type BetaPermissionError struct{…}`
-
-            - `Message string`
-
-              default: Permission denied
-
-            - `Type PermissionError`
-
-              default: permission_error
-
-          - `type BetaNotFoundError struct{…}`
-
-            - `Message string`
-
-              default: Not found
-
-            - `Type NotFoundError`
-
-              default: not_found_error
-
-          - `type BetaRateLimitError struct{…}`
-
-            - `Message string`
-
-              default: Rate limited
-
-            - `Type RateLimitError`
-
-              default: rate_limit_error
-
-          - `type BetaGatewayTimeoutError struct{…}`
-
-            - `Message string`
-
-              default: Request timeout
-
-            - `Type TimeoutError`
-
-              default: timeout_error
-
-          - `type BetaAPIError struct{…}`
-
-            - `Message string`
-
-              default: Internal server error
-
-            - `Type APIError`
-
-              default: api_error
-
-          - `type BetaOverloadedError struct{…}`
-
-            - `Message string`
-
-              default: Overloaded
-
-            - `Type OverloadedError`
-
-              default: overloaded_error
-
-        - `RequestID string`
 
         - `Type Error`
 
           default: error
 
-      - `Type Errored`
+        - `Error BetaErrorUnion`
 
-        default: errored
+          - `type BetaInvalidRequestError struct{…}`
+
+            - `Type InvalidRequestError`
+
+              default: invalid_request_error
+
+            - `Message string`
+
+              default: Invalid request
+
+          - `type BetaAuthenticationError struct{…}`
+
+            - `Type AuthenticationError`
+
+              default: authentication_error
+
+            - `Message string`
+
+              default: Authentication error
+
+          - `type BetaBillingError struct{…}`
+
+            - `Type BillingError`
+
+              default: billing_error
+
+            - `Message string`
+
+              default: Billing error
+
+          - `type BetaPermissionError struct{…}`
+
+            - `Type PermissionError`
+
+              default: permission_error
+
+            - `Message string`
+
+              default: Permission denied
+
+          - `type BetaNotFoundError struct{…}`
+
+            - `Type NotFoundError`
+
+              default: not_found_error
+
+            - `Message string`
+
+              default: Not found
+
+          - `type BetaRateLimitError struct{…}`
+
+            - `Type RateLimitError`
+
+              default: rate_limit_error
+
+            - `Message string`
+
+              default: Rate limited
+
+          - `type BetaGatewayTimeoutError struct{…}`
+
+            - `Type TimeoutError`
+
+              default: timeout_error
+
+            - `Message string`
+
+              default: Request timeout
+
+          - `type BetaAPIError struct{…}`
+
+            - `Type APIError`
+
+              default: api_error
+
+            - `Message string`
+
+              default: Internal server error
+
+          - `type BetaOverloadedError struct{…}`
+
+            - `Type OverloadedError`
+
+              default: overloaded_error
+
+            - `Message string`
+
+              default: Overloaded
+
+        - `RequestID string`
 
     - `type BetaMessageBatchCanceledResult struct{…}`
 
@@ -17839,13 +17936,13 @@ Create Agent
 
     Body param: MCP servers this agent connects to. Maximum 20. Names must be unique within the array. Every server must be referenced by an `mcp_toolset` in `tools`; unreferenced servers are rejected. See the [MCP connector guide](https://platform.claude.com/docs/en/managed-agents/mcp-connector).
 
+    - `Type BetaManagedAgentsURLMCPServerParamsType`
+
     - `Name string`
 
       Unique name for this server, referenced by mcp_toolset configurations. 1-255 characters.
 
       minLength: 1, maxLength: 255
-
-    - `Type BetaManagedAgentsURLMCPServerParamsType`
 
     - `URL string`
 
@@ -17869,13 +17966,13 @@ Create Agent
 
       An Anthropic-managed skill.
 
+      - `Type BetaManagedAgentsAnthropicSkillParamsType`
+
       - `SkillID string`
 
         Identifier of the Anthropic skill (e.g., "xlsx").
 
         minLength: 1, maxLength: 64
-
-      - `Type BetaManagedAgentsAnthropicSkillParamsType`
 
       - `Version string Optional`
 
@@ -17887,13 +17984,13 @@ Create Agent
 
       A user-created custom skill.
 
+      - `Type BetaManagedAgentsCustomSkillParamsType`
+
       - `SkillID string`
 
         Tagged ID of the custom skill (e.g., "skill_01XJ5...").
 
         minLength: 1, maxLength: 64
-
-      - `Type BetaManagedAgentsCustomSkillParamsType`
 
       - `Version string Optional`
 
@@ -17925,6 +18022,8 @@ Create Agent
 
           Configuration override for the bash tool.
 
+          - `Type BetaManagedAgentsBashToolConfigParamsType Optional`
+
           - `Name Bash`
 
             Must be "bash".
@@ -17949,11 +18048,17 @@ Create Agent
 
               - `Type BetaManagedAgentsAlwaysAskPolicyType`
 
-          - `Type BetaManagedAgentsBashToolConfigParamsType Optional`
+            - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+              - `Type Auto`
 
         - `type BetaManagedAgentsEditToolConfigParamsResp struct{…}`
 
           Configuration override for the edit tool.
+
+          - `Type BetaManagedAgentsEditToolConfigParamsType Optional`
 
           - `Name Edit`
 
@@ -17975,11 +18080,15 @@ Create Agent
 
               Tool calls require user confirmation before execution.
 
-          - `Type BetaManagedAgentsEditToolConfigParamsType Optional`
+            - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `type BetaManagedAgentsReadToolConfigParamsResp struct{…}`
 
           Configuration override for the read tool.
+
+          - `Type BetaManagedAgentsReadToolConfigParamsType Optional`
 
           - `Name Read`
 
@@ -18001,11 +18110,15 @@ Create Agent
 
               Tool calls require user confirmation before execution.
 
-          - `Type BetaManagedAgentsReadToolConfigParamsType Optional`
+            - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `type BetaManagedAgentsWriteToolConfigParamsResp struct{…}`
 
           Configuration override for the write tool.
+
+          - `Type BetaManagedAgentsWriteToolConfigParamsType Optional`
 
           - `Name Write`
 
@@ -18027,11 +18140,15 @@ Create Agent
 
               Tool calls require user confirmation before execution.
 
-          - `Type BetaManagedAgentsWriteToolConfigParamsType Optional`
+            - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `type BetaManagedAgentsGlobToolConfigParamsResp struct{…}`
 
           Configuration override for the glob tool.
+
+          - `Type BetaManagedAgentsGlobToolConfigParamsType Optional`
 
           - `Name Glob`
 
@@ -18053,11 +18170,15 @@ Create Agent
 
               Tool calls require user confirmation before execution.
 
-          - `Type BetaManagedAgentsGlobToolConfigParamsType Optional`
+            - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `type BetaManagedAgentsGrepToolConfigParamsResp struct{…}`
 
           Configuration override for the grep tool.
+
+          - `Type BetaManagedAgentsGrepToolConfigParamsType Optional`
 
           - `Name Grep`
 
@@ -18079,11 +18200,15 @@ Create Agent
 
               Tool calls require user confirmation before execution.
 
-          - `Type BetaManagedAgentsGrepToolConfigParamsType Optional`
+            - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `type BetaManagedAgentsWebFetchToolConfigParamsResp struct{…}`
 
           Configuration override for the web_fetch tool.
+
+          - `Type BetaManagedAgentsWebFetchToolConfigParamsType Optional`
 
           - `Name WebFetch`
 
@@ -18119,11 +18244,15 @@ Create Agent
 
               Tool calls require user confirmation before execution.
 
-          - `Type BetaManagedAgentsWebFetchToolConfigParamsType Optional`
+            - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `type BetaManagedAgentsWebSearchToolConfigParamsResp struct{…}`
 
           Configuration override for the web_search tool.
+
+          - `Type BetaManagedAgentsWebSearchToolConfigParamsType Optional`
 
           - `Name WebSearch`
 
@@ -18153,7 +18282,9 @@ Create Agent
 
               Tool calls require user confirmation before execution.
 
-          - `Type BetaManagedAgentsWebSearchToolConfigParamsType Optional`
+            - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
           - `UserLocation BetaManagedAgentsUserLocation Optional`
 
@@ -18205,17 +18336,21 @@ Create Agent
 
             Tool calls require user confirmation before execution.
 
+          - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
     - `type BetaManagedAgentsMCPToolsetParamsResp struct{…}`
 
       Configuration for tools from an MCP server defined in `mcp_servers`.
+
+      - `Type BetaManagedAgentsMCPToolsetParamsType`
 
       - `MCPServerName string`
 
         Name of the MCP server. Must match a server name from the mcp_servers array. 1-255 characters.
 
         minLength: 1, maxLength: 255
-
-      - `Type BetaManagedAgentsMCPToolsetParamsType`
 
       - `Configs []BetaManagedAgentsMCPToolConfigParamsResp Optional`
 
@@ -18243,6 +18378,10 @@ Create Agent
 
             Tool calls require user confirmation before execution.
 
+          - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
       - `DefaultConfig BetaManagedAgentsMCPToolsetDefaultConfigParamsResp Optional`
 
         Default configuration for all tools from an MCP server.
@@ -18263,9 +18402,15 @@ Create Agent
 
             Tool calls require user confirmation before execution.
 
+          - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
     - `type BetaManagedAgentsCustomToolParamsResp struct{…}`
 
       A custom tool that is executed by the API client rather than the agent. When the agent calls this tool, an `agent.custom_tool_use` event is emitted and the session goes idle, waiting for the client to provide the result via a `user.custom_tool_result` event.
+
+      - `Type BetaManagedAgentsCustomToolParamsType`
 
       - `Description string`
 
@@ -18288,8 +18433,6 @@ Create Agent
         Unique name for the tool. 1-128 characters; letters, digits, underscores, and hyphens.
 
         minLength: 1, maxLength: 128
-
-      - `Type BetaManagedAgentsCustomToolParamsType`
 
   - `Betas param.Field[[]AnthropicBeta] Optional`
 
@@ -18345,6 +18488,8 @@ Create Agent
 
       - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
 
+      - `const AnthropicBetaUserProfiles2026_09_04 AnthropicBeta = "user-profiles-2026-09-04"`
+
       - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
 
       - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
@@ -18387,11 +18532,19 @@ Create Agent
 
       - `const AnthropicBetaMidConversationSystemClearAt2026_08_21 AnthropicBeta = "mid-conversation-system-clear-at-2026-08-21"`
 
+  - `WorkspaceID param.Field[string] Optional`
+
+    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `type BetaManagedAgentsAgent struct{…}`
 
   A Managed Agents `agent`.
+
+  - `Type BetaManagedAgentsAgentType`
 
   - `ID string`
 
@@ -18411,9 +18564,9 @@ Create Agent
 
   - `MCPServers []BetaManagedAgentsMCPServerURLDefinition`
 
-    - `Name string`
-
     - `Type BetaManagedAgentsMCPServerURLDefinitionType`
+
+    - `Name string`
 
     - `URL string`
 
@@ -18543,6 +18696,8 @@ Create Agent
 
     Resolved coordinator topology with a concrete agent roster.
 
+    - `Type BetaManagedAgentsMultiagentType`
+
     - `Agents []BetaManagedAgentsMultiagentAgentUnion`
 
       Agents the coordinator may spawn as session threads, each resolved to a specific version.
@@ -18551,9 +18706,9 @@ Create Agent
 
         A resolved agent reference with a concrete version.
 
-        - `ID string`
-
         - `Type BetaManagedAgentsAgentReferenceType`
+
+        - `ID string`
 
         - `Version int64`
 
@@ -18563,13 +18718,11 @@ Create Agent
 
         Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
 
+        - `Type BetaManagedAgentsAdvisorType`
+
         - `Model string`
 
           The advisor model id.
-
-        - `Type BetaManagedAgentsAdvisorType`
-
-    - `Type BetaManagedAgentsMultiagentType`
 
   - `Name string`
 
@@ -18579,9 +18732,9 @@ Create Agent
 
       A resolved Anthropic-managed skill.
 
-      - `SkillID string`
-
       - `Type BetaManagedAgentsAnthropicSkillType`
+
+      - `SkillID string`
 
       - `Version string`
 
@@ -18589,9 +18742,9 @@ Create Agent
 
       A resolved user-created custom skill.
 
-      - `SkillID string`
-
       - `Type BetaManagedAgentsCustomSkillType`
+
+      - `SkillID string`
 
       - `Version string`
 
@@ -18601,11 +18754,15 @@ Create Agent
 
     - `type BetaManagedAgentsAgentToolset20260401 struct{…}`
 
+      - `Type BetaManagedAgentsAgentToolset20260401Type`
+
       - `Configs []BetaManagedAgentsAgentToolConfigUnion`
 
         - `type BetaManagedAgentsBashToolConfig struct{…}`
 
           Configuration for the bash tool.
+
+          - `Type Bash`
 
           - `Enabled bool`
 
@@ -18627,11 +18784,17 @@ Create Agent
 
               - `Type BetaManagedAgentsAlwaysAskPolicyType`
 
-          - `Type Bash`
+            - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+              - `Type Auto`
 
         - `type BetaManagedAgentsEditToolConfig struct{…}`
 
           Configuration for the edit tool.
+
+          - `Type Edit`
 
           - `Enabled bool`
 
@@ -18649,11 +18812,15 @@ Create Agent
 
               Tool calls require user confirmation before execution.
 
-          - `Type Edit`
+            - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `type BetaManagedAgentsReadToolConfig struct{…}`
 
           Configuration for the read tool.
+
+          - `Type Read`
 
           - `Enabled bool`
 
@@ -18671,11 +18838,15 @@ Create Agent
 
               Tool calls require user confirmation before execution.
 
-          - `Type Read`
+            - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `type BetaManagedAgentsWriteToolConfig struct{…}`
 
           Configuration for the write tool.
+
+          - `Type Write`
 
           - `Enabled bool`
 
@@ -18693,11 +18864,15 @@ Create Agent
 
               Tool calls require user confirmation before execution.
 
-          - `Type Write`
+            - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `type BetaManagedAgentsGlobToolConfig struct{…}`
 
           Configuration for the glob tool.
+
+          - `Type Glob`
 
           - `Enabled bool`
 
@@ -18715,11 +18890,15 @@ Create Agent
 
               Tool calls require user confirmation before execution.
 
-          - `Type Glob`
+            - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `type BetaManagedAgentsGrepToolConfig struct{…}`
 
           Configuration for the grep tool.
+
+          - `Type Grep`
 
           - `Enabled bool`
 
@@ -18737,11 +18916,15 @@ Create Agent
 
               Tool calls require user confirmation before execution.
 
-          - `Type Grep`
+            - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `type BetaManagedAgentsWebFetchToolConfig struct{…}`
 
           Configuration for the web_fetch tool.
+
+          - `Type WebFetch`
 
           - `Enabled bool`
 
@@ -18759,7 +18942,9 @@ Create Agent
 
               Tool calls require user confirmation before execution.
 
-          - `Type WebFetch`
+            - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
           - `AllowedDomains []string Optional`
 
@@ -18772,6 +18957,8 @@ Create Agent
         - `type BetaManagedAgentsWebSearchToolConfig struct{…}`
 
           Configuration for the web_search tool.
+
+          - `Type WebSearch`
 
           - `Enabled bool`
 
@@ -18789,7 +18976,9 @@ Create Agent
 
               Tool calls require user confirmation before execution.
 
-          - `Type WebSearch`
+            - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
           - `AllowedDomains []string Optional`
 
@@ -18843,9 +19032,13 @@ Create Agent
 
             Tool calls require user confirmation before execution.
 
-      - `Type BetaManagedAgentsAgentToolset20260401Type`
+          - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
     - `type BetaManagedAgentsMCPToolset struct{…}`
+
+      - `Type BetaManagedAgentsMCPToolsetType`
 
       - `Configs []BetaManagedAgentsMCPToolConfig`
 
@@ -18865,6 +19058,10 @@ Create Agent
 
             Tool calls require user confirmation before execution.
 
+          - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
       - `DefaultConfig BetaManagedAgentsMCPToolsetDefaultConfig`
 
         Resolved default configuration for all tools from an MCP server.
@@ -18883,13 +19080,17 @@ Create Agent
 
             Tool calls require user confirmation before execution.
 
-      - `MCPServerName string`
+          - `type BetaManagedAgentsAutoPolicy struct{…}`
 
-      - `Type BetaManagedAgentsMCPToolsetType`
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+      - `MCPServerName string`
 
     - `type BetaManagedAgentsCustomTool struct{…}`
 
       A custom tool as returned in API responses.
+
+      - `Type BetaManagedAgentsCustomToolType`
 
       - `Description string`
 
@@ -18904,10 +19105,6 @@ Create Agent
         - `Required []string Optional`
 
       - `Name string`
-
-      - `Type BetaManagedAgentsCustomToolType`
-
-  - `Type BetaManagedAgentsAgentType`
 
   - `UpdatedAt Time`
 
@@ -19120,6 +19317,8 @@ List Agents
 
       - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
 
+      - `const AnthropicBetaUserProfiles2026_09_04 AnthropicBeta = "user-profiles-2026-09-04"`
+
       - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
 
       - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
@@ -19162,11 +19361,19 @@ List Agents
 
       - `const AnthropicBetaMidConversationSystemClearAt2026_08_21 AnthropicBeta = "mid-conversation-system-clear-at-2026-08-21"`
 
+  - `WorkspaceID param.Field[string] Optional`
+
+    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `type BetaManagedAgentsAgent struct{…}`
 
   A Managed Agents `agent`.
+
+  - `Type BetaManagedAgentsAgentType`
 
   - `ID string`
 
@@ -19186,9 +19393,9 @@ List Agents
 
   - `MCPServers []BetaManagedAgentsMCPServerURLDefinition`
 
-    - `Name string`
-
     - `Type BetaManagedAgentsMCPServerURLDefinitionType`
+
+    - `Name string`
 
     - `URL string`
 
@@ -19318,6 +19525,8 @@ List Agents
 
     Resolved coordinator topology with a concrete agent roster.
 
+    - `Type BetaManagedAgentsMultiagentType`
+
     - `Agents []BetaManagedAgentsMultiagentAgentUnion`
 
       Agents the coordinator may spawn as session threads, each resolved to a specific version.
@@ -19326,9 +19535,9 @@ List Agents
 
         A resolved agent reference with a concrete version.
 
-        - `ID string`
-
         - `Type BetaManagedAgentsAgentReferenceType`
+
+        - `ID string`
 
         - `Version int64`
 
@@ -19338,13 +19547,11 @@ List Agents
 
         Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
 
+        - `Type BetaManagedAgentsAdvisorType`
+
         - `Model string`
 
           The advisor model id.
-
-        - `Type BetaManagedAgentsAdvisorType`
-
-    - `Type BetaManagedAgentsMultiagentType`
 
   - `Name string`
 
@@ -19354,9 +19561,9 @@ List Agents
 
       A resolved Anthropic-managed skill.
 
-      - `SkillID string`
-
       - `Type BetaManagedAgentsAnthropicSkillType`
+
+      - `SkillID string`
 
       - `Version string`
 
@@ -19364,9 +19571,9 @@ List Agents
 
       A resolved user-created custom skill.
 
-      - `SkillID string`
-
       - `Type BetaManagedAgentsCustomSkillType`
+
+      - `SkillID string`
 
       - `Version string`
 
@@ -19376,11 +19583,15 @@ List Agents
 
     - `type BetaManagedAgentsAgentToolset20260401 struct{…}`
 
+      - `Type BetaManagedAgentsAgentToolset20260401Type`
+
       - `Configs []BetaManagedAgentsAgentToolConfigUnion`
 
         - `type BetaManagedAgentsBashToolConfig struct{…}`
 
           Configuration for the bash tool.
+
+          - `Type Bash`
 
           - `Enabled bool`
 
@@ -19402,11 +19613,17 @@ List Agents
 
               - `Type BetaManagedAgentsAlwaysAskPolicyType`
 
-          - `Type Bash`
+            - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+              - `Type Auto`
 
         - `type BetaManagedAgentsEditToolConfig struct{…}`
 
           Configuration for the edit tool.
+
+          - `Type Edit`
 
           - `Enabled bool`
 
@@ -19424,11 +19641,15 @@ List Agents
 
               Tool calls require user confirmation before execution.
 
-          - `Type Edit`
+            - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `type BetaManagedAgentsReadToolConfig struct{…}`
 
           Configuration for the read tool.
+
+          - `Type Read`
 
           - `Enabled bool`
 
@@ -19446,11 +19667,15 @@ List Agents
 
               Tool calls require user confirmation before execution.
 
-          - `Type Read`
+            - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `type BetaManagedAgentsWriteToolConfig struct{…}`
 
           Configuration for the write tool.
+
+          - `Type Write`
 
           - `Enabled bool`
 
@@ -19468,11 +19693,15 @@ List Agents
 
               Tool calls require user confirmation before execution.
 
-          - `Type Write`
+            - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `type BetaManagedAgentsGlobToolConfig struct{…}`
 
           Configuration for the glob tool.
+
+          - `Type Glob`
 
           - `Enabled bool`
 
@@ -19490,11 +19719,15 @@ List Agents
 
               Tool calls require user confirmation before execution.
 
-          - `Type Glob`
+            - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `type BetaManagedAgentsGrepToolConfig struct{…}`
 
           Configuration for the grep tool.
+
+          - `Type Grep`
 
           - `Enabled bool`
 
@@ -19512,11 +19745,15 @@ List Agents
 
               Tool calls require user confirmation before execution.
 
-          - `Type Grep`
+            - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `type BetaManagedAgentsWebFetchToolConfig struct{…}`
 
           Configuration for the web_fetch tool.
+
+          - `Type WebFetch`
 
           - `Enabled bool`
 
@@ -19534,7 +19771,9 @@ List Agents
 
               Tool calls require user confirmation before execution.
 
-          - `Type WebFetch`
+            - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
           - `AllowedDomains []string Optional`
 
@@ -19547,6 +19786,8 @@ List Agents
         - `type BetaManagedAgentsWebSearchToolConfig struct{…}`
 
           Configuration for the web_search tool.
+
+          - `Type WebSearch`
 
           - `Enabled bool`
 
@@ -19564,7 +19805,9 @@ List Agents
 
               Tool calls require user confirmation before execution.
 
-          - `Type WebSearch`
+            - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
           - `AllowedDomains []string Optional`
 
@@ -19618,9 +19861,13 @@ List Agents
 
             Tool calls require user confirmation before execution.
 
-      - `Type BetaManagedAgentsAgentToolset20260401Type`
+          - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
     - `type BetaManagedAgentsMCPToolset struct{…}`
+
+      - `Type BetaManagedAgentsMCPToolsetType`
 
       - `Configs []BetaManagedAgentsMCPToolConfig`
 
@@ -19640,6 +19887,10 @@ List Agents
 
             Tool calls require user confirmation before execution.
 
+          - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
       - `DefaultConfig BetaManagedAgentsMCPToolsetDefaultConfig`
 
         Resolved default configuration for all tools from an MCP server.
@@ -19658,13 +19909,17 @@ List Agents
 
             Tool calls require user confirmation before execution.
 
-      - `MCPServerName string`
+          - `type BetaManagedAgentsAutoPolicy struct{…}`
 
-      - `Type BetaManagedAgentsMCPToolsetType`
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+      - `MCPServerName string`
 
     - `type BetaManagedAgentsCustomTool struct{…}`
 
       A custom tool as returned in API responses.
+
+      - `Type BetaManagedAgentsCustomToolType`
 
       - `Description string`
 
@@ -19679,10 +19934,6 @@ List Agents
         - `Required []string Optional`
 
       - `Name string`
-
-      - `Type BetaManagedAgentsCustomToolType`
-
-  - `Type BetaManagedAgentsAgentType`
 
   - `UpdatedAt Time`
 
@@ -19877,6 +20128,8 @@ Get Agent
 
       - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
 
+      - `const AnthropicBetaUserProfiles2026_09_04 AnthropicBeta = "user-profiles-2026-09-04"`
+
       - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
 
       - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
@@ -19919,11 +20172,19 @@ Get Agent
 
       - `const AnthropicBetaMidConversationSystemClearAt2026_08_21 AnthropicBeta = "mid-conversation-system-clear-at-2026-08-21"`
 
+  - `WorkspaceID param.Field[string] Optional`
+
+    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `type BetaManagedAgentsAgent struct{…}`
 
   A Managed Agents `agent`.
+
+  - `Type BetaManagedAgentsAgentType`
 
   - `ID string`
 
@@ -19943,9 +20204,9 @@ Get Agent
 
   - `MCPServers []BetaManagedAgentsMCPServerURLDefinition`
 
-    - `Name string`
-
     - `Type BetaManagedAgentsMCPServerURLDefinitionType`
+
+    - `Name string`
 
     - `URL string`
 
@@ -20075,6 +20336,8 @@ Get Agent
 
     Resolved coordinator topology with a concrete agent roster.
 
+    - `Type BetaManagedAgentsMultiagentType`
+
     - `Agents []BetaManagedAgentsMultiagentAgentUnion`
 
       Agents the coordinator may spawn as session threads, each resolved to a specific version.
@@ -20083,9 +20346,9 @@ Get Agent
 
         A resolved agent reference with a concrete version.
 
-        - `ID string`
-
         - `Type BetaManagedAgentsAgentReferenceType`
+
+        - `ID string`
 
         - `Version int64`
 
@@ -20095,13 +20358,11 @@ Get Agent
 
         Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
 
+        - `Type BetaManagedAgentsAdvisorType`
+
         - `Model string`
 
           The advisor model id.
-
-        - `Type BetaManagedAgentsAdvisorType`
-
-    - `Type BetaManagedAgentsMultiagentType`
 
   - `Name string`
 
@@ -20111,9 +20372,9 @@ Get Agent
 
       A resolved Anthropic-managed skill.
 
-      - `SkillID string`
-
       - `Type BetaManagedAgentsAnthropicSkillType`
+
+      - `SkillID string`
 
       - `Version string`
 
@@ -20121,9 +20382,9 @@ Get Agent
 
       A resolved user-created custom skill.
 
-      - `SkillID string`
-
       - `Type BetaManagedAgentsCustomSkillType`
+
+      - `SkillID string`
 
       - `Version string`
 
@@ -20133,11 +20394,15 @@ Get Agent
 
     - `type BetaManagedAgentsAgentToolset20260401 struct{…}`
 
+      - `Type BetaManagedAgentsAgentToolset20260401Type`
+
       - `Configs []BetaManagedAgentsAgentToolConfigUnion`
 
         - `type BetaManagedAgentsBashToolConfig struct{…}`
 
           Configuration for the bash tool.
+
+          - `Type Bash`
 
           - `Enabled bool`
 
@@ -20159,11 +20424,17 @@ Get Agent
 
               - `Type BetaManagedAgentsAlwaysAskPolicyType`
 
-          - `Type Bash`
+            - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+              - `Type Auto`
 
         - `type BetaManagedAgentsEditToolConfig struct{…}`
 
           Configuration for the edit tool.
+
+          - `Type Edit`
 
           - `Enabled bool`
 
@@ -20181,11 +20452,15 @@ Get Agent
 
               Tool calls require user confirmation before execution.
 
-          - `Type Edit`
+            - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `type BetaManagedAgentsReadToolConfig struct{…}`
 
           Configuration for the read tool.
+
+          - `Type Read`
 
           - `Enabled bool`
 
@@ -20203,11 +20478,15 @@ Get Agent
 
               Tool calls require user confirmation before execution.
 
-          - `Type Read`
+            - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `type BetaManagedAgentsWriteToolConfig struct{…}`
 
           Configuration for the write tool.
+
+          - `Type Write`
 
           - `Enabled bool`
 
@@ -20225,11 +20504,15 @@ Get Agent
 
               Tool calls require user confirmation before execution.
 
-          - `Type Write`
+            - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `type BetaManagedAgentsGlobToolConfig struct{…}`
 
           Configuration for the glob tool.
+
+          - `Type Glob`
 
           - `Enabled bool`
 
@@ -20247,11 +20530,15 @@ Get Agent
 
               Tool calls require user confirmation before execution.
 
-          - `Type Glob`
+            - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `type BetaManagedAgentsGrepToolConfig struct{…}`
 
           Configuration for the grep tool.
+
+          - `Type Grep`
 
           - `Enabled bool`
 
@@ -20269,11 +20556,15 @@ Get Agent
 
               Tool calls require user confirmation before execution.
 
-          - `Type Grep`
+            - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `type BetaManagedAgentsWebFetchToolConfig struct{…}`
 
           Configuration for the web_fetch tool.
+
+          - `Type WebFetch`
 
           - `Enabled bool`
 
@@ -20291,7 +20582,9 @@ Get Agent
 
               Tool calls require user confirmation before execution.
 
-          - `Type WebFetch`
+            - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
           - `AllowedDomains []string Optional`
 
@@ -20304,6 +20597,8 @@ Get Agent
         - `type BetaManagedAgentsWebSearchToolConfig struct{…}`
 
           Configuration for the web_search tool.
+
+          - `Type WebSearch`
 
           - `Enabled bool`
 
@@ -20321,7 +20616,9 @@ Get Agent
 
               Tool calls require user confirmation before execution.
 
-          - `Type WebSearch`
+            - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
           - `AllowedDomains []string Optional`
 
@@ -20375,9 +20672,13 @@ Get Agent
 
             Tool calls require user confirmation before execution.
 
-      - `Type BetaManagedAgentsAgentToolset20260401Type`
+          - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
     - `type BetaManagedAgentsMCPToolset struct{…}`
+
+      - `Type BetaManagedAgentsMCPToolsetType`
 
       - `Configs []BetaManagedAgentsMCPToolConfig`
 
@@ -20397,6 +20698,10 @@ Get Agent
 
             Tool calls require user confirmation before execution.
 
+          - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
       - `DefaultConfig BetaManagedAgentsMCPToolsetDefaultConfig`
 
         Resolved default configuration for all tools from an MCP server.
@@ -20415,13 +20720,17 @@ Get Agent
 
             Tool calls require user confirmation before execution.
 
-      - `MCPServerName string`
+          - `type BetaManagedAgentsAutoPolicy struct{…}`
 
-      - `Type BetaManagedAgentsMCPToolsetType`
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+      - `MCPServerName string`
 
     - `type BetaManagedAgentsCustomTool struct{…}`
 
       A custom tool as returned in API responses.
+
+      - `Type BetaManagedAgentsCustomToolType`
 
       - `Description string`
 
@@ -20436,10 +20745,6 @@ Get Agent
         - `Required []string Optional`
 
       - `Name string`
-
-      - `Type BetaManagedAgentsCustomToolType`
-
-  - `Type BetaManagedAgentsAgentType`
 
   - `UpdatedAt Time`
 
@@ -20583,13 +20888,13 @@ Update Agent
 
     Body param: MCP servers. Full replacement. Omit to preserve; send empty array or `null` to clear. Names must be unique. Maximum 20. Every server must be referenced by an `mcp_toolset` in the agent's resulting `tools`; unreferenced servers are rejected. See the [MCP connector guide](https://platform.claude.com/docs/en/managed-agents/mcp-connector).
 
+    - `Type BetaManagedAgentsURLMCPServerParamsType`
+
     - `Name string`
 
       Unique name for this server, referenced by mcp_toolset configurations. 1-255 characters.
 
       minLength: 1, maxLength: 255
-
-    - `Type BetaManagedAgentsURLMCPServerParamsType`
 
     - `URL string`
 
@@ -20755,13 +21060,13 @@ Update Agent
 
       An Anthropic-managed skill.
 
+      - `Type BetaManagedAgentsAnthropicSkillParamsType`
+
       - `SkillID string`
 
         Identifier of the Anthropic skill (e.g., "xlsx").
 
         minLength: 1, maxLength: 64
-
-      - `Type BetaManagedAgentsAnthropicSkillParamsType`
 
       - `Version string Optional`
 
@@ -20773,13 +21078,13 @@ Update Agent
 
       A user-created custom skill.
 
+      - `Type BetaManagedAgentsCustomSkillParamsType`
+
       - `SkillID string`
 
         Tagged ID of the custom skill (e.g., "skill_01XJ5...").
 
         minLength: 1, maxLength: 64
-
-      - `Type BetaManagedAgentsCustomSkillParamsType`
 
       - `Version string Optional`
 
@@ -20811,6 +21116,8 @@ Update Agent
 
           Configuration override for the bash tool.
 
+          - `Type BetaManagedAgentsBashToolConfigParamsType Optional`
+
           - `Name Bash`
 
             Must be "bash".
@@ -20835,11 +21142,17 @@ Update Agent
 
               - `Type BetaManagedAgentsAlwaysAskPolicyType`
 
-          - `Type BetaManagedAgentsBashToolConfigParamsType Optional`
+            - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+              - `Type Auto`
 
         - `type BetaManagedAgentsEditToolConfigParamsResp struct{…}`
 
           Configuration override for the edit tool.
+
+          - `Type BetaManagedAgentsEditToolConfigParamsType Optional`
 
           - `Name Edit`
 
@@ -20861,11 +21174,15 @@ Update Agent
 
               Tool calls require user confirmation before execution.
 
-          - `Type BetaManagedAgentsEditToolConfigParamsType Optional`
+            - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `type BetaManagedAgentsReadToolConfigParamsResp struct{…}`
 
           Configuration override for the read tool.
+
+          - `Type BetaManagedAgentsReadToolConfigParamsType Optional`
 
           - `Name Read`
 
@@ -20887,11 +21204,15 @@ Update Agent
 
               Tool calls require user confirmation before execution.
 
-          - `Type BetaManagedAgentsReadToolConfigParamsType Optional`
+            - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `type BetaManagedAgentsWriteToolConfigParamsResp struct{…}`
 
           Configuration override for the write tool.
+
+          - `Type BetaManagedAgentsWriteToolConfigParamsType Optional`
 
           - `Name Write`
 
@@ -20913,11 +21234,15 @@ Update Agent
 
               Tool calls require user confirmation before execution.
 
-          - `Type BetaManagedAgentsWriteToolConfigParamsType Optional`
+            - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `type BetaManagedAgentsGlobToolConfigParamsResp struct{…}`
 
           Configuration override for the glob tool.
+
+          - `Type BetaManagedAgentsGlobToolConfigParamsType Optional`
 
           - `Name Glob`
 
@@ -20939,11 +21264,15 @@ Update Agent
 
               Tool calls require user confirmation before execution.
 
-          - `Type BetaManagedAgentsGlobToolConfigParamsType Optional`
+            - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `type BetaManagedAgentsGrepToolConfigParamsResp struct{…}`
 
           Configuration override for the grep tool.
+
+          - `Type BetaManagedAgentsGrepToolConfigParamsType Optional`
 
           - `Name Grep`
 
@@ -20965,11 +21294,15 @@ Update Agent
 
               Tool calls require user confirmation before execution.
 
-          - `Type BetaManagedAgentsGrepToolConfigParamsType Optional`
+            - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `type BetaManagedAgentsWebFetchToolConfigParamsResp struct{…}`
 
           Configuration override for the web_fetch tool.
+
+          - `Type BetaManagedAgentsWebFetchToolConfigParamsType Optional`
 
           - `Name WebFetch`
 
@@ -21005,11 +21338,15 @@ Update Agent
 
               Tool calls require user confirmation before execution.
 
-          - `Type BetaManagedAgentsWebFetchToolConfigParamsType Optional`
+            - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `type BetaManagedAgentsWebSearchToolConfigParamsResp struct{…}`
 
           Configuration override for the web_search tool.
+
+          - `Type BetaManagedAgentsWebSearchToolConfigParamsType Optional`
 
           - `Name WebSearch`
 
@@ -21039,7 +21376,9 @@ Update Agent
 
               Tool calls require user confirmation before execution.
 
-          - `Type BetaManagedAgentsWebSearchToolConfigParamsType Optional`
+            - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
           - `UserLocation BetaManagedAgentsUserLocation Optional`
 
@@ -21091,17 +21430,21 @@ Update Agent
 
             Tool calls require user confirmation before execution.
 
+          - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
     - `type BetaManagedAgentsMCPToolsetParamsResp struct{…}`
 
       Configuration for tools from an MCP server defined in `mcp_servers`.
+
+      - `Type BetaManagedAgentsMCPToolsetParamsType`
 
       - `MCPServerName string`
 
         Name of the MCP server. Must match a server name from the mcp_servers array. 1-255 characters.
 
         minLength: 1, maxLength: 255
-
-      - `Type BetaManagedAgentsMCPToolsetParamsType`
 
       - `Configs []BetaManagedAgentsMCPToolConfigParamsResp Optional`
 
@@ -21129,6 +21472,10 @@ Update Agent
 
             Tool calls require user confirmation before execution.
 
+          - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
       - `DefaultConfig BetaManagedAgentsMCPToolsetDefaultConfigParamsResp Optional`
 
         Default configuration for all tools from an MCP server.
@@ -21149,9 +21496,15 @@ Update Agent
 
             Tool calls require user confirmation before execution.
 
+          - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
     - `type BetaManagedAgentsCustomToolParamsResp struct{…}`
 
       A custom tool that is executed by the API client rather than the agent. When the agent calls this tool, an `agent.custom_tool_use` event is emitted and the session goes idle, waiting for the client to provide the result via a `user.custom_tool_result` event.
+
+      - `Type BetaManagedAgentsCustomToolParamsType`
 
       - `Description string`
 
@@ -21174,8 +21527,6 @@ Update Agent
         Unique name for the tool. 1-128 characters; letters, digits, underscores, and hyphens.
 
         minLength: 1, maxLength: 128
-
-      - `Type BetaManagedAgentsCustomToolParamsType`
 
   - `Version param.Field[int64] Optional`
 
@@ -21237,6 +21588,8 @@ Update Agent
 
       - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
 
+      - `const AnthropicBetaUserProfiles2026_09_04 AnthropicBeta = "user-profiles-2026-09-04"`
+
       - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
 
       - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
@@ -21279,11 +21632,19 @@ Update Agent
 
       - `const AnthropicBetaMidConversationSystemClearAt2026_08_21 AnthropicBeta = "mid-conversation-system-clear-at-2026-08-21"`
 
+  - `WorkspaceID param.Field[string] Optional`
+
+    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `type BetaManagedAgentsAgent struct{…}`
 
   A Managed Agents `agent`.
+
+  - `Type BetaManagedAgentsAgentType`
 
   - `ID string`
 
@@ -21303,9 +21664,9 @@ Update Agent
 
   - `MCPServers []BetaManagedAgentsMCPServerURLDefinition`
 
-    - `Name string`
-
     - `Type BetaManagedAgentsMCPServerURLDefinitionType`
+
+    - `Name string`
 
     - `URL string`
 
@@ -21435,6 +21796,8 @@ Update Agent
 
     Resolved coordinator topology with a concrete agent roster.
 
+    - `Type BetaManagedAgentsMultiagentType`
+
     - `Agents []BetaManagedAgentsMultiagentAgentUnion`
 
       Agents the coordinator may spawn as session threads, each resolved to a specific version.
@@ -21443,9 +21806,9 @@ Update Agent
 
         A resolved agent reference with a concrete version.
 
-        - `ID string`
-
         - `Type BetaManagedAgentsAgentReferenceType`
+
+        - `ID string`
 
         - `Version int64`
 
@@ -21455,13 +21818,11 @@ Update Agent
 
         Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
 
+        - `Type BetaManagedAgentsAdvisorType`
+
         - `Model string`
 
           The advisor model id.
-
-        - `Type BetaManagedAgentsAdvisorType`
-
-    - `Type BetaManagedAgentsMultiagentType`
 
   - `Name string`
 
@@ -21471,9 +21832,9 @@ Update Agent
 
       A resolved Anthropic-managed skill.
 
-      - `SkillID string`
-
       - `Type BetaManagedAgentsAnthropicSkillType`
+
+      - `SkillID string`
 
       - `Version string`
 
@@ -21481,9 +21842,9 @@ Update Agent
 
       A resolved user-created custom skill.
 
-      - `SkillID string`
-
       - `Type BetaManagedAgentsCustomSkillType`
+
+      - `SkillID string`
 
       - `Version string`
 
@@ -21493,11 +21854,15 @@ Update Agent
 
     - `type BetaManagedAgentsAgentToolset20260401 struct{…}`
 
+      - `Type BetaManagedAgentsAgentToolset20260401Type`
+
       - `Configs []BetaManagedAgentsAgentToolConfigUnion`
 
         - `type BetaManagedAgentsBashToolConfig struct{…}`
 
           Configuration for the bash tool.
+
+          - `Type Bash`
 
           - `Enabled bool`
 
@@ -21519,11 +21884,17 @@ Update Agent
 
               - `Type BetaManagedAgentsAlwaysAskPolicyType`
 
-          - `Type Bash`
+            - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+              - `Type Auto`
 
         - `type BetaManagedAgentsEditToolConfig struct{…}`
 
           Configuration for the edit tool.
+
+          - `Type Edit`
 
           - `Enabled bool`
 
@@ -21541,11 +21912,15 @@ Update Agent
 
               Tool calls require user confirmation before execution.
 
-          - `Type Edit`
+            - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `type BetaManagedAgentsReadToolConfig struct{…}`
 
           Configuration for the read tool.
+
+          - `Type Read`
 
           - `Enabled bool`
 
@@ -21563,11 +21938,15 @@ Update Agent
 
               Tool calls require user confirmation before execution.
 
-          - `Type Read`
+            - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `type BetaManagedAgentsWriteToolConfig struct{…}`
 
           Configuration for the write tool.
+
+          - `Type Write`
 
           - `Enabled bool`
 
@@ -21585,11 +21964,15 @@ Update Agent
 
               Tool calls require user confirmation before execution.
 
-          - `Type Write`
+            - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `type BetaManagedAgentsGlobToolConfig struct{…}`
 
           Configuration for the glob tool.
+
+          - `Type Glob`
 
           - `Enabled bool`
 
@@ -21607,11 +21990,15 @@ Update Agent
 
               Tool calls require user confirmation before execution.
 
-          - `Type Glob`
+            - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `type BetaManagedAgentsGrepToolConfig struct{…}`
 
           Configuration for the grep tool.
+
+          - `Type Grep`
 
           - `Enabled bool`
 
@@ -21629,11 +22016,15 @@ Update Agent
 
               Tool calls require user confirmation before execution.
 
-          - `Type Grep`
+            - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `type BetaManagedAgentsWebFetchToolConfig struct{…}`
 
           Configuration for the web_fetch tool.
+
+          - `Type WebFetch`
 
           - `Enabled bool`
 
@@ -21651,7 +22042,9 @@ Update Agent
 
               Tool calls require user confirmation before execution.
 
-          - `Type WebFetch`
+            - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
           - `AllowedDomains []string Optional`
 
@@ -21664,6 +22057,8 @@ Update Agent
         - `type BetaManagedAgentsWebSearchToolConfig struct{…}`
 
           Configuration for the web_search tool.
+
+          - `Type WebSearch`
 
           - `Enabled bool`
 
@@ -21681,7 +22076,9 @@ Update Agent
 
               Tool calls require user confirmation before execution.
 
-          - `Type WebSearch`
+            - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
           - `AllowedDomains []string Optional`
 
@@ -21735,9 +22132,13 @@ Update Agent
 
             Tool calls require user confirmation before execution.
 
-      - `Type BetaManagedAgentsAgentToolset20260401Type`
+          - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
     - `type BetaManagedAgentsMCPToolset struct{…}`
+
+      - `Type BetaManagedAgentsMCPToolsetType`
 
       - `Configs []BetaManagedAgentsMCPToolConfig`
 
@@ -21757,6 +22158,10 @@ Update Agent
 
             Tool calls require user confirmation before execution.
 
+          - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
       - `DefaultConfig BetaManagedAgentsMCPToolsetDefaultConfig`
 
         Resolved default configuration for all tools from an MCP server.
@@ -21775,13 +22180,17 @@ Update Agent
 
             Tool calls require user confirmation before execution.
 
-      - `MCPServerName string`
+          - `type BetaManagedAgentsAutoPolicy struct{…}`
 
-      - `Type BetaManagedAgentsMCPToolsetType`
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+      - `MCPServerName string`
 
     - `type BetaManagedAgentsCustomTool struct{…}`
 
       A custom tool as returned in API responses.
+
+      - `Type BetaManagedAgentsCustomToolType`
 
       - `Description string`
 
@@ -21796,10 +22205,6 @@ Update Agent
         - `Required []string Optional`
 
       - `Name string`
-
-      - `Type BetaManagedAgentsCustomToolType`
-
-  - `Type BetaManagedAgentsAgentType`
 
   - `UpdatedAt Time`
 
@@ -21989,6 +22394,8 @@ Archive Agent
 
       - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
 
+      - `const AnthropicBetaUserProfiles2026_09_04 AnthropicBeta = "user-profiles-2026-09-04"`
+
       - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
 
       - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
@@ -22031,11 +22438,19 @@ Archive Agent
 
       - `const AnthropicBetaMidConversationSystemClearAt2026_08_21 AnthropicBeta = "mid-conversation-system-clear-at-2026-08-21"`
 
+  - `WorkspaceID param.Field[string] Optional`
+
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `type BetaManagedAgentsAgent struct{…}`
 
   A Managed Agents `agent`.
+
+  - `Type BetaManagedAgentsAgentType`
 
   - `ID string`
 
@@ -22055,9 +22470,9 @@ Archive Agent
 
   - `MCPServers []BetaManagedAgentsMCPServerURLDefinition`
 
-    - `Name string`
-
     - `Type BetaManagedAgentsMCPServerURLDefinitionType`
+
+    - `Name string`
 
     - `URL string`
 
@@ -22187,6 +22602,8 @@ Archive Agent
 
     Resolved coordinator topology with a concrete agent roster.
 
+    - `Type BetaManagedAgentsMultiagentType`
+
     - `Agents []BetaManagedAgentsMultiagentAgentUnion`
 
       Agents the coordinator may spawn as session threads, each resolved to a specific version.
@@ -22195,9 +22612,9 @@ Archive Agent
 
         A resolved agent reference with a concrete version.
 
-        - `ID string`
-
         - `Type BetaManagedAgentsAgentReferenceType`
+
+        - `ID string`
 
         - `Version int64`
 
@@ -22207,13 +22624,11 @@ Archive Agent
 
         Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
 
+        - `Type BetaManagedAgentsAdvisorType`
+
         - `Model string`
 
           The advisor model id.
-
-        - `Type BetaManagedAgentsAdvisorType`
-
-    - `Type BetaManagedAgentsMultiagentType`
 
   - `Name string`
 
@@ -22223,9 +22638,9 @@ Archive Agent
 
       A resolved Anthropic-managed skill.
 
-      - `SkillID string`
-
       - `Type BetaManagedAgentsAnthropicSkillType`
+
+      - `SkillID string`
 
       - `Version string`
 
@@ -22233,9 +22648,9 @@ Archive Agent
 
       A resolved user-created custom skill.
 
-      - `SkillID string`
-
       - `Type BetaManagedAgentsCustomSkillType`
+
+      - `SkillID string`
 
       - `Version string`
 
@@ -22245,11 +22660,15 @@ Archive Agent
 
     - `type BetaManagedAgentsAgentToolset20260401 struct{…}`
 
+      - `Type BetaManagedAgentsAgentToolset20260401Type`
+
       - `Configs []BetaManagedAgentsAgentToolConfigUnion`
 
         - `type BetaManagedAgentsBashToolConfig struct{…}`
 
           Configuration for the bash tool.
+
+          - `Type Bash`
 
           - `Enabled bool`
 
@@ -22271,11 +22690,17 @@ Archive Agent
 
               - `Type BetaManagedAgentsAlwaysAskPolicyType`
 
-          - `Type Bash`
+            - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+              - `Type Auto`
 
         - `type BetaManagedAgentsEditToolConfig struct{…}`
 
           Configuration for the edit tool.
+
+          - `Type Edit`
 
           - `Enabled bool`
 
@@ -22293,11 +22718,15 @@ Archive Agent
 
               Tool calls require user confirmation before execution.
 
-          - `Type Edit`
+            - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `type BetaManagedAgentsReadToolConfig struct{…}`
 
           Configuration for the read tool.
+
+          - `Type Read`
 
           - `Enabled bool`
 
@@ -22315,11 +22744,15 @@ Archive Agent
 
               Tool calls require user confirmation before execution.
 
-          - `Type Read`
+            - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `type BetaManagedAgentsWriteToolConfig struct{…}`
 
           Configuration for the write tool.
+
+          - `Type Write`
 
           - `Enabled bool`
 
@@ -22337,11 +22770,15 @@ Archive Agent
 
               Tool calls require user confirmation before execution.
 
-          - `Type Write`
+            - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `type BetaManagedAgentsGlobToolConfig struct{…}`
 
           Configuration for the glob tool.
+
+          - `Type Glob`
 
           - `Enabled bool`
 
@@ -22359,11 +22796,15 @@ Archive Agent
 
               Tool calls require user confirmation before execution.
 
-          - `Type Glob`
+            - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `type BetaManagedAgentsGrepToolConfig struct{…}`
 
           Configuration for the grep tool.
+
+          - `Type Grep`
 
           - `Enabled bool`
 
@@ -22381,11 +22822,15 @@ Archive Agent
 
               Tool calls require user confirmation before execution.
 
-          - `Type Grep`
+            - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `type BetaManagedAgentsWebFetchToolConfig struct{…}`
 
           Configuration for the web_fetch tool.
+
+          - `Type WebFetch`
 
           - `Enabled bool`
 
@@ -22403,7 +22848,9 @@ Archive Agent
 
               Tool calls require user confirmation before execution.
 
-          - `Type WebFetch`
+            - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
           - `AllowedDomains []string Optional`
 
@@ -22416,6 +22863,8 @@ Archive Agent
         - `type BetaManagedAgentsWebSearchToolConfig struct{…}`
 
           Configuration for the web_search tool.
+
+          - `Type WebSearch`
 
           - `Enabled bool`
 
@@ -22433,7 +22882,9 @@ Archive Agent
 
               Tool calls require user confirmation before execution.
 
-          - `Type WebSearch`
+            - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
           - `AllowedDomains []string Optional`
 
@@ -22487,9 +22938,13 @@ Archive Agent
 
             Tool calls require user confirmation before execution.
 
-      - `Type BetaManagedAgentsAgentToolset20260401Type`
+          - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
     - `type BetaManagedAgentsMCPToolset struct{…}`
+
+      - `Type BetaManagedAgentsMCPToolsetType`
 
       - `Configs []BetaManagedAgentsMCPToolConfig`
 
@@ -22509,6 +22964,10 @@ Archive Agent
 
             Tool calls require user confirmation before execution.
 
+          - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
       - `DefaultConfig BetaManagedAgentsMCPToolsetDefaultConfig`
 
         Resolved default configuration for all tools from an MCP server.
@@ -22527,13 +22986,17 @@ Archive Agent
 
             Tool calls require user confirmation before execution.
 
-      - `MCPServerName string`
+          - `type BetaManagedAgentsAutoPolicy struct{…}`
 
-      - `Type BetaManagedAgentsMCPToolsetType`
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+      - `MCPServerName string`
 
     - `type BetaManagedAgentsCustomTool struct{…}`
 
       A custom tool as returned in API responses.
+
+      - `Type BetaManagedAgentsCustomToolType`
 
       - `Description string`
 
@@ -22548,10 +23011,6 @@ Archive Agent
         - `Required []string Optional`
 
       - `Name string`
-
-      - `Type BetaManagedAgentsCustomToolType`
-
-  - `Type BetaManagedAgentsAgentType`
 
   - `UpdatedAt Time`
 
@@ -22751,6 +23210,8 @@ List Agent Versions
 
       - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
 
+      - `const AnthropicBetaUserProfiles2026_09_04 AnthropicBeta = "user-profiles-2026-09-04"`
+
       - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
 
       - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
@@ -22793,11 +23254,19 @@ List Agent Versions
 
       - `const AnthropicBetaMidConversationSystemClearAt2026_08_21 AnthropicBeta = "mid-conversation-system-clear-at-2026-08-21"`
 
+  - `WorkspaceID param.Field[string] Optional`
+
+    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `type BetaManagedAgentsAgent struct{…}`
 
   A Managed Agents `agent`.
+
+  - `Type BetaManagedAgentsAgentType`
 
   - `ID string`
 
@@ -22817,9 +23286,9 @@ List Agent Versions
 
   - `MCPServers []BetaManagedAgentsMCPServerURLDefinition`
 
-    - `Name string`
-
     - `Type BetaManagedAgentsMCPServerURLDefinitionType`
+
+    - `Name string`
 
     - `URL string`
 
@@ -22949,6 +23418,8 @@ List Agent Versions
 
     Resolved coordinator topology with a concrete agent roster.
 
+    - `Type BetaManagedAgentsMultiagentType`
+
     - `Agents []BetaManagedAgentsMultiagentAgentUnion`
 
       Agents the coordinator may spawn as session threads, each resolved to a specific version.
@@ -22957,9 +23428,9 @@ List Agent Versions
 
         A resolved agent reference with a concrete version.
 
-        - `ID string`
-
         - `Type BetaManagedAgentsAgentReferenceType`
+
+        - `ID string`
 
         - `Version int64`
 
@@ -22969,13 +23440,11 @@ List Agent Versions
 
         Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
 
+        - `Type BetaManagedAgentsAdvisorType`
+
         - `Model string`
 
           The advisor model id.
-
-        - `Type BetaManagedAgentsAdvisorType`
-
-    - `Type BetaManagedAgentsMultiagentType`
 
   - `Name string`
 
@@ -22985,9 +23454,9 @@ List Agent Versions
 
       A resolved Anthropic-managed skill.
 
-      - `SkillID string`
-
       - `Type BetaManagedAgentsAnthropicSkillType`
+
+      - `SkillID string`
 
       - `Version string`
 
@@ -22995,9 +23464,9 @@ List Agent Versions
 
       A resolved user-created custom skill.
 
-      - `SkillID string`
-
       - `Type BetaManagedAgentsCustomSkillType`
+
+      - `SkillID string`
 
       - `Version string`
 
@@ -23007,11 +23476,15 @@ List Agent Versions
 
     - `type BetaManagedAgentsAgentToolset20260401 struct{…}`
 
+      - `Type BetaManagedAgentsAgentToolset20260401Type`
+
       - `Configs []BetaManagedAgentsAgentToolConfigUnion`
 
         - `type BetaManagedAgentsBashToolConfig struct{…}`
 
           Configuration for the bash tool.
+
+          - `Type Bash`
 
           - `Enabled bool`
 
@@ -23033,11 +23506,17 @@ List Agent Versions
 
               - `Type BetaManagedAgentsAlwaysAskPolicyType`
 
-          - `Type Bash`
+            - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+              - `Type Auto`
 
         - `type BetaManagedAgentsEditToolConfig struct{…}`
 
           Configuration for the edit tool.
+
+          - `Type Edit`
 
           - `Enabled bool`
 
@@ -23055,11 +23534,15 @@ List Agent Versions
 
               Tool calls require user confirmation before execution.
 
-          - `Type Edit`
+            - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `type BetaManagedAgentsReadToolConfig struct{…}`
 
           Configuration for the read tool.
+
+          - `Type Read`
 
           - `Enabled bool`
 
@@ -23077,11 +23560,15 @@ List Agent Versions
 
               Tool calls require user confirmation before execution.
 
-          - `Type Read`
+            - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `type BetaManagedAgentsWriteToolConfig struct{…}`
 
           Configuration for the write tool.
+
+          - `Type Write`
 
           - `Enabled bool`
 
@@ -23099,11 +23586,15 @@ List Agent Versions
 
               Tool calls require user confirmation before execution.
 
-          - `Type Write`
+            - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `type BetaManagedAgentsGlobToolConfig struct{…}`
 
           Configuration for the glob tool.
+
+          - `Type Glob`
 
           - `Enabled bool`
 
@@ -23121,11 +23612,15 @@ List Agent Versions
 
               Tool calls require user confirmation before execution.
 
-          - `Type Glob`
+            - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `type BetaManagedAgentsGrepToolConfig struct{…}`
 
           Configuration for the grep tool.
+
+          - `Type Grep`
 
           - `Enabled bool`
 
@@ -23143,11 +23638,15 @@ List Agent Versions
 
               Tool calls require user confirmation before execution.
 
-          - `Type Grep`
+            - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `type BetaManagedAgentsWebFetchToolConfig struct{…}`
 
           Configuration for the web_fetch tool.
+
+          - `Type WebFetch`
 
           - `Enabled bool`
 
@@ -23165,7 +23664,9 @@ List Agent Versions
 
               Tool calls require user confirmation before execution.
 
-          - `Type WebFetch`
+            - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
           - `AllowedDomains []string Optional`
 
@@ -23178,6 +23679,8 @@ List Agent Versions
         - `type BetaManagedAgentsWebSearchToolConfig struct{…}`
 
           Configuration for the web_search tool.
+
+          - `Type WebSearch`
 
           - `Enabled bool`
 
@@ -23195,7 +23698,9 @@ List Agent Versions
 
               Tool calls require user confirmation before execution.
 
-          - `Type WebSearch`
+            - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
           - `AllowedDomains []string Optional`
 
@@ -23249,9 +23754,13 @@ List Agent Versions
 
             Tool calls require user confirmation before execution.
 
-      - `Type BetaManagedAgentsAgentToolset20260401Type`
+          - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
     - `type BetaManagedAgentsMCPToolset struct{…}`
+
+      - `Type BetaManagedAgentsMCPToolsetType`
 
       - `Configs []BetaManagedAgentsMCPToolConfig`
 
@@ -23271,6 +23780,10 @@ List Agent Versions
 
             Tool calls require user confirmation before execution.
 
+          - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
       - `DefaultConfig BetaManagedAgentsMCPToolsetDefaultConfig`
 
         Resolved default configuration for all tools from an MCP server.
@@ -23289,13 +23802,17 @@ List Agent Versions
 
             Tool calls require user confirmation before execution.
 
-      - `MCPServerName string`
+          - `type BetaManagedAgentsAutoPolicy struct{…}`
 
-      - `Type BetaManagedAgentsMCPToolsetType`
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+      - `MCPServerName string`
 
     - `type BetaManagedAgentsCustomTool struct{…}`
 
       A custom tool as returned in API responses.
+
+      - `Type BetaManagedAgentsCustomToolType`
 
       - `Description string`
 
@@ -23310,10 +23827,6 @@ List Agent Versions
         - `Required []string Optional`
 
       - `Name string`
-
-      - `Type BetaManagedAgentsCustomToolType`
-
-  - `Type BetaManagedAgentsAgentType`
 
   - `UpdatedAt Time`
 
@@ -23516,6 +24029,12 @@ Create a new environment with the specified configuration.
 
         Under `limited` networking, requires `networking.allow_package_managers` to be `true`.
 
+        - `Type BetaPackagesParamsType Optional`
+
+          Package configuration type
+
+          default: packages
+
         - `Apt []string Optional`
 
           Ubuntu/Debian packages to install
@@ -23540,12 +24059,6 @@ Create a new environment with the specified configuration.
 
           Python packages to install
 
-        - `Type BetaPackagesParamsType Optional`
-
-          Package configuration type
-
-          default: packages
-
     - `type BetaSelfHostedConfigParamsResp struct{…}`
 
       Request params for `self_hosted` environment configuration.
@@ -23566,7 +24079,7 @@ Create a new environment with the specified configuration.
 
   - `Scope param.Field[BetaEnvironmentNewParamsScope] Optional`
 
-    Body param: The visibility scope for this environment. 'organization' makes the environment visible to all accounts. 'account' restricts visibility to the owning account only. Only applicable for self-hosted environments. If not specified, defaults based on organization type.
+    Body param: The visibility scope for this environment. 'organization' makes the environment visible to all accounts. 'account' restricts visibility to the owning account only. API organizations support only 'organization'; 'account' is rejected. If not specified, defaults based on organization type.
 
     - `const BetaEnvironmentNewParamsScopeOrganization BetaEnvironmentNewParamsScope = "organization"`
 
@@ -23626,6 +24139,8 @@ Create a new environment with the specified configuration.
 
       - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
 
+      - `const AnthropicBetaUserProfiles2026_09_04 AnthropicBeta = "user-profiles-2026-09-04"`
+
       - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
 
       - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
@@ -23668,11 +24183,23 @@ Create a new environment with the specified configuration.
 
       - `const AnthropicBetaMidConversationSystemClearAt2026_08_21 AnthropicBeta = "mid-conversation-system-clear-at-2026-08-21"`
 
+  - `WorkspaceID param.Field[string] Optional`
+
+    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `type BetaEnvironment struct{…}`
 
   Unified Environment resource for both cloud and self-hosted environments.
+
+  - `Type Environment`
+
+    The type of object (always 'environment')
+
+    default: environment
 
   - `ID string`
 
@@ -23690,6 +24217,10 @@ Create a new environment with the specified configuration.
 
       `cloud` environment configuration.
 
+      - `Type Cloud`
+
+        Environment type
+
       - `Networking BetaCloudConfigNetworkingUnion`
 
         Network configuration policy.
@@ -23706,6 +24237,10 @@ Create a new environment with the specified configuration.
 
           Limited network access.
 
+          - `Type Limited`
+
+            Network policy type
+
           - `AllowMCPServers bool`
 
             Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
@@ -23718,13 +24253,15 @@ Create a new environment with the specified configuration.
 
             Specifies domains the container can reach.
 
-          - `Type Limited`
-
-            Network policy type
-
       - `Packages BetaPackages`
 
         Package manager configuration.
+
+        - `Type BetaPackagesType Optional`
+
+          Package configuration type
+
+          default: packages
 
         - `Apt []string`
 
@@ -23750,16 +24287,6 @@ Create a new environment with the specified configuration.
 
           Python packages to install
 
-        - `Type BetaPackagesType Optional`
-
-          Package configuration type
-
-          default: packages
-
-      - `Type Cloud`
-
-        Environment type
-
     - `type BetaSelfHostedConfig struct{…}`
 
       Configuration for self-hosted environments.
@@ -23783,12 +24310,6 @@ Create a new environment with the specified configuration.
   - `Name string`
 
     Human-readable name for the environment
-
-  - `Type Environment`
-
-    The type of object (always 'environment')
-
-    default: environment
 
   - `UpdatedAt string`
 
@@ -23958,6 +24479,8 @@ List environments with pagination support.
 
       - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
 
+      - `const AnthropicBetaUserProfiles2026_09_04 AnthropicBeta = "user-profiles-2026-09-04"`
+
       - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
 
       - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
@@ -24000,11 +24523,23 @@ List environments with pagination support.
 
       - `const AnthropicBetaMidConversationSystemClearAt2026_08_21 AnthropicBeta = "mid-conversation-system-clear-at-2026-08-21"`
 
+  - `WorkspaceID param.Field[string] Optional`
+
+    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `type BetaEnvironment struct{…}`
 
   Unified Environment resource for both cloud and self-hosted environments.
+
+  - `Type Environment`
+
+    The type of object (always 'environment')
+
+    default: environment
 
   - `ID string`
 
@@ -24022,6 +24557,10 @@ List environments with pagination support.
 
       `cloud` environment configuration.
 
+      - `Type Cloud`
+
+        Environment type
+
       - `Networking BetaCloudConfigNetworkingUnion`
 
         Network configuration policy.
@@ -24038,6 +24577,10 @@ List environments with pagination support.
 
           Limited network access.
 
+          - `Type Limited`
+
+            Network policy type
+
           - `AllowMCPServers bool`
 
             Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
@@ -24050,13 +24593,15 @@ List environments with pagination support.
 
             Specifies domains the container can reach.
 
-          - `Type Limited`
-
-            Network policy type
-
       - `Packages BetaPackages`
 
         Package manager configuration.
+
+        - `Type BetaPackagesType Optional`
+
+          Package configuration type
+
+          default: packages
 
         - `Apt []string`
 
@@ -24082,16 +24627,6 @@ List environments with pagination support.
 
           Python packages to install
 
-        - `Type BetaPackagesType Optional`
-
-          Package configuration type
-
-          default: packages
-
-      - `Type Cloud`
-
-        Environment type
-
     - `type BetaSelfHostedConfig struct{…}`
 
       Configuration for self-hosted environments.
@@ -24115,12 +24650,6 @@ List environments with pagination support.
   - `Name string`
 
     Human-readable name for the environment
-
-  - `Type Environment`
-
-    The type of object (always 'environment')
-
-    default: environment
 
   - `UpdatedAt string`
 
@@ -24281,6 +24810,8 @@ Retrieve a specific environment by ID.
 
       - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
 
+      - `const AnthropicBetaUserProfiles2026_09_04 AnthropicBeta = "user-profiles-2026-09-04"`
+
       - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
 
       - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
@@ -24323,11 +24854,23 @@ Retrieve a specific environment by ID.
 
       - `const AnthropicBetaMidConversationSystemClearAt2026_08_21 AnthropicBeta = "mid-conversation-system-clear-at-2026-08-21"`
 
+  - `WorkspaceID param.Field[string] Optional`
+
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `type BetaEnvironment struct{…}`
 
   Unified Environment resource for both cloud and self-hosted environments.
+
+  - `Type Environment`
+
+    The type of object (always 'environment')
+
+    default: environment
 
   - `ID string`
 
@@ -24345,6 +24888,10 @@ Retrieve a specific environment by ID.
 
       `cloud` environment configuration.
 
+      - `Type Cloud`
+
+        Environment type
+
       - `Networking BetaCloudConfigNetworkingUnion`
 
         Network configuration policy.
@@ -24361,6 +24908,10 @@ Retrieve a specific environment by ID.
 
           Limited network access.
 
+          - `Type Limited`
+
+            Network policy type
+
           - `AllowMCPServers bool`
 
             Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
@@ -24373,13 +24924,15 @@ Retrieve a specific environment by ID.
 
             Specifies domains the container can reach.
 
-          - `Type Limited`
-
-            Network policy type
-
       - `Packages BetaPackages`
 
         Package manager configuration.
+
+        - `Type BetaPackagesType Optional`
+
+          Package configuration type
+
+          default: packages
 
         - `Apt []string`
 
@@ -24405,16 +24958,6 @@ Retrieve a specific environment by ID.
 
           Python packages to install
 
-        - `Type BetaPackagesType Optional`
-
-          Package configuration type
-
-          default: packages
-
-      - `Type Cloud`
-
-        Environment type
-
     - `type BetaSelfHostedConfig struct{…}`
 
       Configuration for self-hosted environments.
@@ -24438,12 +24981,6 @@ Retrieve a specific environment by ID.
   - `Name string`
 
     Human-readable name for the environment
-
-  - `Type Environment`
-
-    The type of object (always 'environment')
-
-    default: environment
 
   - `UpdatedAt string`
 
@@ -24607,6 +25144,12 @@ Update an existing environment's configuration.
 
         Under `limited` networking, requires `networking.allow_package_managers` to be `true`.
 
+        - `Type BetaPackagesParamsType Optional`
+
+          Package configuration type
+
+          default: packages
+
         - `Apt []string Optional`
 
           Ubuntu/Debian packages to install
@@ -24630,12 +25173,6 @@ Update an existing environment's configuration.
         - `Pip []string Optional`
 
           Python packages to install
-
-        - `Type BetaPackagesParamsType Optional`
-
-          Package configuration type
-
-          default: packages
 
     - `type BetaSelfHostedConfigParamsResp struct{…}`
 
@@ -24723,6 +25260,8 @@ Update an existing environment's configuration.
 
       - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
 
+      - `const AnthropicBetaUserProfiles2026_09_04 AnthropicBeta = "user-profiles-2026-09-04"`
+
       - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
 
       - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
@@ -24765,11 +25304,23 @@ Update an existing environment's configuration.
 
       - `const AnthropicBetaMidConversationSystemClearAt2026_08_21 AnthropicBeta = "mid-conversation-system-clear-at-2026-08-21"`
 
+  - `WorkspaceID param.Field[string] Optional`
+
+    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `type BetaEnvironment struct{…}`
 
   Unified Environment resource for both cloud and self-hosted environments.
+
+  - `Type Environment`
+
+    The type of object (always 'environment')
+
+    default: environment
 
   - `ID string`
 
@@ -24787,6 +25338,10 @@ Update an existing environment's configuration.
 
       `cloud` environment configuration.
 
+      - `Type Cloud`
+
+        Environment type
+
       - `Networking BetaCloudConfigNetworkingUnion`
 
         Network configuration policy.
@@ -24803,6 +25358,10 @@ Update an existing environment's configuration.
 
           Limited network access.
 
+          - `Type Limited`
+
+            Network policy type
+
           - `AllowMCPServers bool`
 
             Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
@@ -24815,13 +25374,15 @@ Update an existing environment's configuration.
 
             Specifies domains the container can reach.
 
-          - `Type Limited`
-
-            Network policy type
-
       - `Packages BetaPackages`
 
         Package manager configuration.
+
+        - `Type BetaPackagesType Optional`
+
+          Package configuration type
+
+          default: packages
 
         - `Apt []string`
 
@@ -24847,16 +25408,6 @@ Update an existing environment's configuration.
 
           Python packages to install
 
-        - `Type BetaPackagesType Optional`
-
-          Package configuration type
-
-          default: packages
-
-      - `Type Cloud`
-
-        Environment type
-
     - `type BetaSelfHostedConfig struct{…}`
 
       Configuration for self-hosted environments.
@@ -24880,12 +25431,6 @@ Update an existing environment's configuration.
   - `Name string`
 
     Human-readable name for the environment
-
-  - `Type Environment`
-
-    The type of object (always 'environment')
-
-    default: environment
 
   - `UpdatedAt string`
 
@@ -25045,6 +25590,8 @@ Delete an environment by ID. Returns a confirmation of the deletion.
 
       - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
 
+      - `const AnthropicBetaUserProfiles2026_09_04 AnthropicBeta = "user-profiles-2026-09-04"`
+
       - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
 
       - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
@@ -25087,21 +25634,27 @@ Delete an environment by ID. Returns a confirmation of the deletion.
 
       - `const AnthropicBetaMidConversationSystemClearAt2026_08_21 AnthropicBeta = "mid-conversation-system-clear-at-2026-08-21"`
 
+  - `WorkspaceID param.Field[string] Optional`
+
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `type BetaEnvironmentDeleteResponse struct{…}`
 
   Response after deleting an environment.
 
-  - `ID string`
-
-    Environment identifier
-
   - `Type BetaEnvironmentDeleteResponseType`
 
     The type of response
 
     default: environment_deleted
+
+  - `ID string`
+
+    Environment identifier
 
 #### Example
 
@@ -25209,6 +25762,8 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
       - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
 
+      - `const AnthropicBetaUserProfiles2026_09_04 AnthropicBeta = "user-profiles-2026-09-04"`
+
       - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
 
       - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
@@ -25251,11 +25806,23 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
       - `const AnthropicBetaMidConversationSystemClearAt2026_08_21 AnthropicBeta = "mid-conversation-system-clear-at-2026-08-21"`
 
+  - `WorkspaceID param.Field[string] Optional`
+
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `type BetaEnvironment struct{…}`
 
   Unified Environment resource for both cloud and self-hosted environments.
+
+  - `Type Environment`
+
+    The type of object (always 'environment')
+
+    default: environment
 
   - `ID string`
 
@@ -25273,6 +25840,10 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
       `cloud` environment configuration.
 
+      - `Type Cloud`
+
+        Environment type
+
       - `Networking BetaCloudConfigNetworkingUnion`
 
         Network configuration policy.
@@ -25289,6 +25860,10 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
           Limited network access.
 
+          - `Type Limited`
+
+            Network policy type
+
           - `AllowMCPServers bool`
 
             Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
@@ -25301,13 +25876,15 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
             Specifies domains the container can reach.
 
-          - `Type Limited`
-
-            Network policy type
-
       - `Packages BetaPackages`
 
         Package manager configuration.
+
+        - `Type BetaPackagesType Optional`
+
+          Package configuration type
+
+          default: packages
 
         - `Apt []string`
 
@@ -25333,16 +25910,6 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
           Python packages to install
 
-        - `Type BetaPackagesType Optional`
-
-          Package configuration type
-
-          default: packages
-
-      - `Type Cloud`
-
-        Environment type
-
     - `type BetaSelfHostedConfig struct{…}`
 
       Configuration for self-hosted environments.
@@ -25366,12 +25933,6 @@ Archive an environment by ID. Archived environments cannot be used to create new
   - `Name string`
 
     Human-readable name for the environment
-
-  - `Type Environment`
-
-    The type of object (always 'environment')
-
-    default: environment
 
   - `UpdatedAt string`
 
@@ -25539,6 +26100,8 @@ Retrieve detailed information about a specific work item.
 
       - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
 
+      - `const AnthropicBetaUserProfiles2026_09_04 AnthropicBeta = "user-profiles-2026-09-04"`
+
       - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
 
       - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
@@ -25581,6 +26144,12 @@ Retrieve detailed information about a specific work item.
 
       - `const AnthropicBetaMidConversationSystemClearAt2026_08_21 AnthropicBeta = "mid-conversation-system-clear-at-2026-08-21"`
 
+  - `WorkspaceID param.Field[string] Optional`
+
+    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `type BetaSelfHostedWork struct{…}`
@@ -25590,6 +26159,12 @@ Retrieve detailed information about a specific work item.
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
+  - `Type Work`
+
+    The type of object (always 'work')
+
+    default: work
 
   - `ID string`
 
@@ -25607,13 +26182,13 @@ Retrieve detailed information about a specific work item.
 
     The actual work to be performed
 
-    - `ID string`
-
-      Session identifier (e.g., 'session_...')
-
     - `Type Session`
 
       Type of work data
+
+    - `ID string`
+
+      Session identifier (e.g., 'session_...')
 
   - `EnvironmentID string`
 
@@ -25656,12 +26231,6 @@ Retrieve detailed information about a specific work item.
   - `StoppedAt string`
 
     RFC 3339 timestamp when work execution stopped
-
-  - `Type Work`
-
-    The type of object (always 'work')
-
-    default: work
 
 #### Example
 
@@ -25801,6 +26370,8 @@ Long poll for work items in the queue.
 
       - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
 
+      - `const AnthropicBetaUserProfiles2026_09_04 AnthropicBeta = "user-profiles-2026-09-04"`
+
       - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
 
       - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
@@ -25857,6 +26428,12 @@ Long poll for work items in the queue.
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
 
+  - `Type Work`
+
+    The type of object (always 'work')
+
+    default: work
+
   - `ID string`
 
     Work identifier (e.g., 'work_...')
@@ -25873,13 +26450,13 @@ Long poll for work items in the queue.
 
     The actual work to be performed
 
-    - `ID string`
-
-      Session identifier (e.g., 'session_...')
-
     - `Type Session`
 
       Type of work data
+
+    - `ID string`
+
+      Session identifier (e.g., 'session_...')
 
   - `EnvironmentID string`
 
@@ -25922,12 +26499,6 @@ Long poll for work items in the queue.
   - `StoppedAt string`
 
     RFC 3339 timestamp when work execution stopped
-
-  - `Type Work`
-
-    The type of object (always 'work')
-
-    default: work
 
 #### Example
 
@@ -26057,6 +26628,8 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
 
       - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
 
+      - `const AnthropicBetaUserProfiles2026_09_04 AnthropicBeta = "user-profiles-2026-09-04"`
+
       - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
 
       - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
@@ -26109,6 +26682,12 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
 
+  - `Type Work`
+
+    The type of object (always 'work')
+
+    default: work
+
   - `ID string`
 
     Work identifier (e.g., 'work_...')
@@ -26125,13 +26704,13 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
 
     The actual work to be performed
 
-    - `ID string`
-
-      Session identifier (e.g., 'session_...')
-
     - `Type Session`
 
       Type of work data
+
+    - `ID string`
+
+      Session identifier (e.g., 'session_...')
 
   - `EnvironmentID string`
 
@@ -26174,12 +26753,6 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
   - `StoppedAt string`
 
     RFC 3339 timestamp when work execution stopped
-
-  - `Type Work`
-
-    The type of object (always 'work')
-
-    default: work
 
 #### Example
 
@@ -26319,6 +26892,8 @@ Record a heartbeat for a work item to maintain the lease.
 
       - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
 
+      - `const AnthropicBetaUserProfiles2026_09_04 AnthropicBeta = "user-profiles-2026-09-04"`
+
       - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
 
       - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
@@ -26367,6 +26942,12 @@ Record a heartbeat for a work item to maintain the lease.
 
   Response after recording a heartbeat for a work item.
 
+  - `Type WorkHeartbeat`
+
+    The type of response
+
+    default: work_heartbeat
+
   - `LastHeartbeat string`
 
     RFC 3339 timestamp of the actual heartbeat from DB
@@ -26392,12 +26973,6 @@ Record a heartbeat for a work item to maintain the lease.
   - `TTLSeconds int64`
 
     Effective TTL applied to the lease
-
-  - `Type WorkHeartbeat`
-
-    The type of response
-
-    default: work_heartbeat
 
 #### Example
 
@@ -26520,6 +27095,8 @@ Stop a work item, initiating graceful or forced shutdown.
 
       - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
 
+      - `const AnthropicBetaUserProfiles2026_09_04 AnthropicBeta = "user-profiles-2026-09-04"`
+
       - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
 
       - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
@@ -26562,6 +27139,12 @@ Stop a work item, initiating graceful or forced shutdown.
 
       - `const AnthropicBetaMidConversationSystemClearAt2026_08_21 AnthropicBeta = "mid-conversation-system-clear-at-2026-08-21"`
 
+  - `WorkspaceID param.Field[string] Optional`
+
+    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `type BetaSelfHostedWork struct{…}`
@@ -26571,6 +27154,12 @@ Stop a work item, initiating graceful or forced shutdown.
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
+  - `Type Work`
+
+    The type of object (always 'work')
+
+    default: work
 
   - `ID string`
 
@@ -26588,13 +27177,13 @@ Stop a work item, initiating graceful or forced shutdown.
 
     The actual work to be performed
 
-    - `ID string`
-
-      Session identifier (e.g., 'session_...')
-
     - `Type Session`
 
       Type of work data
+
+    - `ID string`
+
+      Session identifier (e.g., 'session_...')
 
   - `EnvironmentID string`
 
@@ -26637,12 +27226,6 @@ Stop a work item, initiating graceful or forced shutdown.
   - `StoppedAt string`
 
     RFC 3339 timestamp when work execution stopped
-
-  - `Type Work`
-
-    The type of object (always 'work')
-
-    default: work
 
 #### Example
 
@@ -26781,6 +27364,8 @@ List work items in an environment.
 
       - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
 
+      - `const AnthropicBetaUserProfiles2026_09_04 AnthropicBeta = "user-profiles-2026-09-04"`
+
       - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
 
       - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
@@ -26833,6 +27418,12 @@ List work items in an environment.
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
 
+  - `Type Work`
+
+    The type of object (always 'work')
+
+    default: work
+
   - `ID string`
 
     Work identifier (e.g., 'work_...')
@@ -26849,13 +27440,13 @@ List work items in an environment.
 
     The actual work to be performed
 
-    - `ID string`
-
-      Session identifier (e.g., 'session_...')
-
     - `Type Session`
 
       Type of work data
+
+    - `ID string`
+
+      Session identifier (e.g., 'session_...')
 
   - `EnvironmentID string`
 
@@ -26898,12 +27489,6 @@ List work items in an environment.
   - `StoppedAt string`
 
     RFC 3339 timestamp when work execution stopped
-
-  - `Type Work`
-
-    The type of object (always 'work')
-
-    default: work
 
 #### Example
 
@@ -27042,6 +27627,8 @@ Update work item metadata with merge semantics.
 
       - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
 
+      - `const AnthropicBetaUserProfiles2026_09_04 AnthropicBeta = "user-profiles-2026-09-04"`
+
       - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
 
       - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
@@ -27084,6 +27671,12 @@ Update work item metadata with merge semantics.
 
       - `const AnthropicBetaMidConversationSystemClearAt2026_08_21 AnthropicBeta = "mid-conversation-system-clear-at-2026-08-21"`
 
+  - `WorkspaceID param.Field[string] Optional`
+
+    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `type BetaSelfHostedWork struct{…}`
@@ -27093,6 +27686,12 @@ Update work item metadata with merge semantics.
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
+  - `Type Work`
+
+    The type of object (always 'work')
+
+    default: work
 
   - `ID string`
 
@@ -27110,13 +27709,13 @@ Update work item metadata with merge semantics.
 
     The actual work to be performed
 
-    - `ID string`
-
-      Session identifier (e.g., 'session_...')
-
     - `Type Session`
 
       Type of work data
+
+    - `ID string`
+
+      Session identifier (e.g., 'session_...')
 
   - `EnvironmentID string`
 
@@ -27159,12 +27758,6 @@ Update work item metadata with merge semantics.
   - `StoppedAt string`
 
     RFC 3339 timestamp when work execution stopped
-
-  - `Type Work`
-
-    The type of object (always 'work')
-
-    default: work
 
 #### Example
 
@@ -27295,6 +27888,8 @@ Get statistics about the work queue for an environment.
 
       - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
 
+      - `const AnthropicBetaUserProfiles2026_09_04 AnthropicBeta = "user-profiles-2026-09-04"`
+
       - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
 
       - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
@@ -27337,6 +27932,12 @@ Get statistics about the work queue for an environment.
 
       - `const AnthropicBetaMidConversationSystemClearAt2026_08_21 AnthropicBeta = "mid-conversation-system-clear-at-2026-08-21"`
 
+  - `WorkspaceID param.Field[string] Optional`
+
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `type BetaSelfHostedWorkQueueStats struct{…}`
@@ -27344,6 +27945,12 @@ Get statistics about the work queue for an environment.
   Statistics about the work queue for an environment.
 
   Uses Redis Stream consumer group metrics for O(1) queries.
+
+  - `Type WorkQueueStats`
+
+    The type of object
+
+    default: work_queue_stats
 
   - `Depth int64`
 
@@ -27358,12 +27965,6 @@ Get statistics about the work queue for an environment.
     Number of work items being processed (polled but not acknowledged)
 
     default: 0
-
-  - `Type WorkQueueStats`
-
-    The type of object
-
-    default: work_queue_stats
 
   - `WorkersPolling int64`
 
@@ -27434,13 +28035,13 @@ Create Session
 
       Specification for an Agent. Provide a specific `version` or use the short-form `agent="agent_id"` for the most recent version
 
+      - `Type BetaManagedAgentsAgentParamsType`
+
       - `ID string`
 
         The `agent` ID.
 
         minLength: 1, maxLength: 128
-
-      - `Type BetaManagedAgentsAgentParamsType`
 
       - `Version int64 Optional`
 
@@ -27452,25 +28053,25 @@ Create Session
 
       Reference to an `agent` plus optional configuration overrides. Each provided field replaces the agent's value for the caller's use; the agent resource is unchanged.
 
+      - `Type BetaManagedAgentsAgentWithOverridesParamsType`
+
       - `ID string`
 
         The `agent` ID.
 
         minLength: 1, maxLength: 128
 
-      - `Type BetaManagedAgentsAgentWithOverridesParamsType`
-
       - `MCPServers []BetaManagedAgentsURLMCPServerParamsResp Optional`
 
         Replacement MCP server list. Full replacement: the provided array becomes the MCP servers. Send an empty array to clear; omit to preserve the agent's servers.
+
+        - `Type BetaManagedAgentsURLMCPServerParamsType`
 
         - `Name string`
 
           Unique name for this server, referenced by mcp_toolset configurations. 1-255 characters.
 
           minLength: 1, maxLength: 255
-
-        - `Type BetaManagedAgentsURLMCPServerParamsType`
 
         - `URL string`
 
@@ -27622,13 +28223,13 @@ Create Session
 
           An Anthropic-managed skill.
 
+          - `Type BetaManagedAgentsAnthropicSkillParamsType`
+
           - `SkillID string`
 
             Identifier of the Anthropic skill (e.g., "xlsx").
 
             minLength: 1, maxLength: 64
-
-          - `Type BetaManagedAgentsAnthropicSkillParamsType`
 
           - `Version string Optional`
 
@@ -27640,13 +28241,13 @@ Create Session
 
           A user-created custom skill.
 
+          - `Type BetaManagedAgentsCustomSkillParamsType`
+
           - `SkillID string`
 
             Tagged ID of the custom skill (e.g., "skill_01XJ5...").
 
             minLength: 1, maxLength: 64
-
-          - `Type BetaManagedAgentsCustomSkillParamsType`
 
           - `Version string Optional`
 
@@ -27678,6 +28279,8 @@ Create Session
 
               Configuration override for the bash tool.
 
+              - `Type BetaManagedAgentsBashToolConfigParamsType Optional`
+
               - `Name Bash`
 
                 Must be "bash".
@@ -27702,11 +28305,17 @@ Create Session
 
                   - `Type BetaManagedAgentsAlwaysAskPolicyType`
 
-              - `Type BetaManagedAgentsBashToolConfigParamsType Optional`
+                - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+                  The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+                  - `Type Auto`
 
             - `type BetaManagedAgentsEditToolConfigParamsResp struct{…}`
 
               Configuration override for the edit tool.
+
+              - `Type BetaManagedAgentsEditToolConfigParamsType Optional`
 
               - `Name Edit`
 
@@ -27728,11 +28337,15 @@ Create Session
 
                   Tool calls require user confirmation before execution.
 
-              - `Type BetaManagedAgentsEditToolConfigParamsType Optional`
+                - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+                  The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
             - `type BetaManagedAgentsReadToolConfigParamsResp struct{…}`
 
               Configuration override for the read tool.
+
+              - `Type BetaManagedAgentsReadToolConfigParamsType Optional`
 
               - `Name Read`
 
@@ -27754,11 +28367,15 @@ Create Session
 
                   Tool calls require user confirmation before execution.
 
-              - `Type BetaManagedAgentsReadToolConfigParamsType Optional`
+                - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+                  The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
             - `type BetaManagedAgentsWriteToolConfigParamsResp struct{…}`
 
               Configuration override for the write tool.
+
+              - `Type BetaManagedAgentsWriteToolConfigParamsType Optional`
 
               - `Name Write`
 
@@ -27780,11 +28397,15 @@ Create Session
 
                   Tool calls require user confirmation before execution.
 
-              - `Type BetaManagedAgentsWriteToolConfigParamsType Optional`
+                - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+                  The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
             - `type BetaManagedAgentsGlobToolConfigParamsResp struct{…}`
 
               Configuration override for the glob tool.
+
+              - `Type BetaManagedAgentsGlobToolConfigParamsType Optional`
 
               - `Name Glob`
 
@@ -27806,11 +28427,15 @@ Create Session
 
                   Tool calls require user confirmation before execution.
 
-              - `Type BetaManagedAgentsGlobToolConfigParamsType Optional`
+                - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+                  The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
             - `type BetaManagedAgentsGrepToolConfigParamsResp struct{…}`
 
               Configuration override for the grep tool.
+
+              - `Type BetaManagedAgentsGrepToolConfigParamsType Optional`
 
               - `Name Grep`
 
@@ -27832,11 +28457,15 @@ Create Session
 
                   Tool calls require user confirmation before execution.
 
-              - `Type BetaManagedAgentsGrepToolConfigParamsType Optional`
+                - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+                  The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
             - `type BetaManagedAgentsWebFetchToolConfigParamsResp struct{…}`
 
               Configuration override for the web_fetch tool.
+
+              - `Type BetaManagedAgentsWebFetchToolConfigParamsType Optional`
 
               - `Name WebFetch`
 
@@ -27872,11 +28501,15 @@ Create Session
 
                   Tool calls require user confirmation before execution.
 
-              - `Type BetaManagedAgentsWebFetchToolConfigParamsType Optional`
+                - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+                  The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
             - `type BetaManagedAgentsWebSearchToolConfigParamsResp struct{…}`
 
               Configuration override for the web_search tool.
+
+              - `Type BetaManagedAgentsWebSearchToolConfigParamsType Optional`
 
               - `Name WebSearch`
 
@@ -27906,7 +28539,9 @@ Create Session
 
                   Tool calls require user confirmation before execution.
 
-              - `Type BetaManagedAgentsWebSearchToolConfigParamsType Optional`
+                - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+                  The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
               - `UserLocation BetaManagedAgentsUserLocation Optional`
 
@@ -27958,17 +28593,21 @@ Create Session
 
                 Tool calls require user confirmation before execution.
 
+              - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+                The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
         - `type BetaManagedAgentsMCPToolsetParamsResp struct{…}`
 
           Configuration for tools from an MCP server defined in `mcp_servers`.
+
+          - `Type BetaManagedAgentsMCPToolsetParamsType`
 
           - `MCPServerName string`
 
             Name of the MCP server. Must match a server name from the mcp_servers array. 1-255 characters.
 
             minLength: 1, maxLength: 255
-
-          - `Type BetaManagedAgentsMCPToolsetParamsType`
 
           - `Configs []BetaManagedAgentsMCPToolConfigParamsResp Optional`
 
@@ -27996,6 +28635,10 @@ Create Session
 
                 Tool calls require user confirmation before execution.
 
+              - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+                The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
           - `DefaultConfig BetaManagedAgentsMCPToolsetDefaultConfigParamsResp Optional`
 
             Default configuration for all tools from an MCP server.
@@ -28016,9 +28659,15 @@ Create Session
 
                 Tool calls require user confirmation before execution.
 
+              - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+                The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
         - `type BetaManagedAgentsCustomToolParamsResp struct{…}`
 
           A custom tool that is executed by the API client rather than the agent. When the agent calls this tool, an `agent.custom_tool_use` event is emitted and the session goes idle, waiting for the client to provide the result via a `user.custom_tool_result` event.
+
+          - `Type BetaManagedAgentsCustomToolParamsType`
 
           - `Description string`
 
@@ -28041,8 +28690,6 @@ Create Session
             Unique name for the tool. 1-128 characters; letters, digits, underscores, and hyphens.
 
             minLength: 1, maxLength: 128
-
-          - `Type BetaManagedAgentsCustomToolParamsType`
 
       - `Version int64 Optional`
 
@@ -28068,6 +28715,8 @@ Create Session
 
       Parameters for sending a user message to the session.
 
+      - `Type BetaManagedAgentsUserMessageEventParamsType`
+
       - `Content []BetaManagedAgentsUserMessageEventParamsContentUnionResp`
 
         Array of content blocks for the user message.
@@ -28076,17 +28725,19 @@ Create Session
 
           Regular text content.
 
+          - `Type BetaManagedAgentsTextBlockType`
+
           - `Text string`
 
             The text content.
 
             minLength: 1
 
-          - `Type BetaManagedAgentsTextBlockType`
-
         - `type BetaManagedAgentsImageBlock struct{…}`
 
           Image content specified directly as base64 data or as a reference via a URL.
+
+          - `Type BetaManagedAgentsImageBlockType`
 
           - `Source BetaManagedAgentsImageBlockSourceUnion`
 
@@ -28095,6 +28746,8 @@ Create Session
             - `type BetaManagedAgentsBase64ImageSource struct{…}`
 
               Base64-encoded image data.
+
+              - `Type BetaManagedAgentsBase64ImageSourceType`
 
               - `Data string`
 
@@ -28107,8 +28760,6 @@ Create Session
                 MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
 
                 minLength: 1
-
-              - `Type BetaManagedAgentsBase64ImageSourceType`
 
             - `type BetaManagedAgentsURLImageSource struct{…}`
 
@@ -28126,19 +28777,19 @@ Create Session
 
               Image referenced by file ID.
 
+              - `Type BetaManagedAgentsFileImageSourceType`
+
               - `FileID string`
 
                 ID of a previously uploaded file.
 
                 minLength: 1
 
-              - `Type BetaManagedAgentsFileImageSourceType`
-
-          - `Type BetaManagedAgentsImageBlockType`
-
         - `type BetaManagedAgentsDocumentBlock struct{…}`
 
           Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+          - `Type BetaManagedAgentsDocumentBlockType`
 
           - `Source BetaManagedAgentsDocumentBlockSourceUnion`
 
@@ -28147,6 +28798,8 @@ Create Session
             - `type BetaManagedAgentsBase64DocumentSource struct{…}`
 
               Base64-encoded document data.
+
+              - `Type BetaManagedAgentsBase64DocumentSourceType`
 
               - `Data string`
 
@@ -28160,11 +28813,11 @@ Create Session
 
                 minLength: 1
 
-              - `Type BetaManagedAgentsBase64DocumentSourceType`
-
             - `type BetaManagedAgentsPlainTextDocumentSource struct{…}`
 
               Plain text document content.
+
+              - `Type BetaManagedAgentsPlainTextDocumentSourceType`
 
               - `Data string`
 
@@ -28175,8 +28828,6 @@ Create Session
               - `MediaType BetaManagedAgentsPlainTextDocumentSourceMediaType`
 
                 MIME type of the text content. Must be "text/plain".
-
-              - `Type BetaManagedAgentsPlainTextDocumentSourceType`
 
             - `type BetaManagedAgentsURLDocumentSource struct{…}`
 
@@ -28194,15 +28845,13 @@ Create Session
 
               Document referenced by file ID.
 
+              - `Type BetaManagedAgentsFileDocumentSourceType`
+
               - `FileID string`
 
                 ID of a previously uploaded file.
 
                 minLength: 1
-
-              - `Type BetaManagedAgentsFileDocumentSourceType`
-
-          - `Type BetaManagedAgentsDocumentBlockType`
 
           - `Context string Optional`
 
@@ -28218,11 +28867,11 @@ Create Session
 
           - `Type BetaManagedAgentsRedactedBlockType`
 
-      - `Type BetaManagedAgentsUserMessageEventParamsType`
-
     - `type BetaManagedAgentsUserDefineOutcomeEventParams struct{…}`
 
       Parameters for defining an outcome the agent should work toward. The agent begins work on receipt.
+
+      - `Type BetaManagedAgentsUserDefineOutcomeEventParamsType`
 
       - `Description string`
 
@@ -28236,25 +28885,23 @@ Create Session
 
           Rubric referenced by a file uploaded via the Files API.
 
+          - `Type BetaManagedAgentsFileRubricParamsType`
+
           - `FileID string`
 
             ID of the rubric file.
 
-          - `Type BetaManagedAgentsFileRubricParamsType`
-
         - `type BetaManagedAgentsTextRubricParams struct{…}`
 
           Rubric content provided inline as text.
+
+          - `Type BetaManagedAgentsTextRubricParamsType`
 
           - `Content string`
 
             Rubric content. Plain text or markdown — the grader treats it as freeform text. Maximum 262144 characters.
 
             maxLength: 262144
-
-          - `Type BetaManagedAgentsTextRubricParamsType`
-
-      - `Type BetaManagedAgentsUserDefineOutcomeEventParamsType`
 
       - `MaxIterations int64 Optional`
 
@@ -28274,12 +28921,6 @@ Create Session
 
       Mount a GitHub repository into the session's container.
 
-      - `AuthorizationToken string`
-
-        GitHub authorization token used to clone the repository.
-
-        minLength: 1, maxLength: 4096
-
       - `Type BetaManagedAgentsGitHubRepositoryResourceParamsType`
 
       - `URL string`
@@ -28288,11 +28929,19 @@ Create Session
 
         minLength: 1, maxLength: 2048
 
+      - `AuthorizationToken string Optional`
+
+        GitHub authorization token used to clone the repository. Required for private repositories; optional for public ones.
+
+        minLength: 1, maxLength: 4096
+
       - `Checkout BetaManagedAgentsGitHubRepositoryResourceParamsCheckoutUnionResp Optional`
 
         Branch or commit to check out. Defaults to the repository's default branch.
 
         - `type BetaManagedAgentsBranchCheckout struct{…}`
+
+          - `Type BetaManagedAgentsBranchCheckoutType`
 
           - `Name string`
 
@@ -28300,17 +28949,15 @@ Create Session
 
             minLength: 1, maxLength: 255
 
-          - `Type BetaManagedAgentsBranchCheckoutType`
-
         - `type BetaManagedAgentsCommitCheckout struct{…}`
+
+          - `Type BetaManagedAgentsCommitCheckoutType`
 
           - `Sha string`
 
             Full commit SHA to check out.
 
             minLength: 7, maxLength: 64
-
-          - `Type BetaManagedAgentsCommitCheckoutType`
 
       - `MountPath string Optional`
 
@@ -28322,13 +28969,13 @@ Create Session
 
       Mount a file uploaded via the Files API into the session.
 
+      - `Type BetaManagedAgentsFileResourceParamsType`
+
       - `FileID string`
 
         ID of a previously uploaded file.
 
         minLength: 1, maxLength: 128
-
-      - `Type BetaManagedAgentsFileResourceParamsType`
 
       - `MountPath string Optional`
 
@@ -28340,11 +28987,11 @@ Create Session
 
       Parameters for attaching a memory store to an agent session.
 
+      - `Type BetaManagedAgentsMemoryStoreResourceParamType`
+
       - `MemoryStoreID string`
 
         The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
-
-      - `Type BetaManagedAgentsMemoryStoreResourceParamType`
 
       - `Access BetaManagedAgentsMemoryStoreResourceParamAccess Optional`
 
@@ -28424,6 +29071,8 @@ Create Session
 
       - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
 
+      - `const AnthropicBetaUserProfiles2026_09_04 AnthropicBeta = "user-profiles-2026-09-04"`
+
       - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
 
       - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
@@ -28466,1263 +29115,27 @@ Create Session
 
       - `const AnthropicBetaMidConversationSystemClearAt2026_08_21 AnthropicBeta = "mid-conversation-system-clear-at-2026-08-21"`
 
+  - `WorkspaceID param.Field[string] Optional`
+
+    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `type BetaManagedAgentsSession struct{…}`
 
   A Managed Agents `session`.
-
-  - `ID string`
-
-  - `Agent BetaManagedAgentsSessionAgent`
-
-    Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
-
-    - `ID string`
-
-    - `Description string`
-
-    - `MCPServers []BetaManagedAgentsMCPServerURLDefinition`
-
-      - `Name string`
-
-      - `Type BetaManagedAgentsMCPServerURLDefinitionType`
-
-      - `URL string`
-
-    - `Model BetaManagedAgentsModelConfig`
-
-      Model identifier and configuration.
-
-      - `ID BetaManagedAgentsModel`
-
-        The model that will power your agent.
-
-        See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
-        - `type BetaManagedAgentsModel string`
-
-          The model that will power your agent.
-
-          See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
-          - `const BetaManagedAgentsModelClaudeFable5_1 BetaManagedAgentsModel = "claude-fable-5-1"`
-
-            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
-
-          - `const BetaManagedAgentsModelClaudeSonnet5 BetaManagedAgentsModel = "claude-sonnet-5"`
-
-            High-performance model for coding and agents
-
-          - `const BetaManagedAgentsModelClaudeFable5 BetaManagedAgentsModel = "claude-fable-5"`
-
-            Next generation of intelligence for the hardest knowledge work and coding problems
-
-          - `const BetaManagedAgentsModelClaudeOpus5 BetaManagedAgentsModel = "claude-opus-5"`
-
-            Powerful intelligence for long-running agents and coding
-
-          - `const BetaManagedAgentsModelClaudeOpus4_8 BetaManagedAgentsModel = "claude-opus-4-8"`
-
-            Powerful intelligence for long-running agents and coding
-
-          - `const BetaManagedAgentsModelClaudeOpus4_7 BetaManagedAgentsModel = "claude-opus-4-7"`
-
-            Powerful intelligence for long-running agents and coding
-
-          - `const BetaManagedAgentsModelClaudeOpus4_6 BetaManagedAgentsModel = "claude-opus-4-6"`
-
-            Powerful intelligence for long-running agents and coding
-
-          - `const BetaManagedAgentsModelClaudeSonnet4_6 BetaManagedAgentsModel = "claude-sonnet-4-6"`
-
-            Best combination of speed and intelligence
-
-          - `const BetaManagedAgentsModelClaudeHaiku4_5 BetaManagedAgentsModel = "claude-haiku-4-5"`
-
-            Fastest model with near-frontier intelligence
-
-          - `const BetaManagedAgentsModelClaudeHaiku4_5_20251001 BetaManagedAgentsModel = "claude-haiku-4-5-20251001"`
-
-            Fastest model with near-frontier intelligence
-
-          - `const BetaManagedAgentsModelClaudeOpus4_5 BetaManagedAgentsModel = "claude-opus-4-5"`
-
-            Powerful intelligence for long-running agents and coding
-
-          - `const BetaManagedAgentsModelClaudeOpus4_5_20251101 BetaManagedAgentsModel = "claude-opus-4-5-20251101"`
-
-            Powerful intelligence for long-running agents and coding
-
-          - `const BetaManagedAgentsModelClaudeSonnet4_5 BetaManagedAgentsModel = "claude-sonnet-4-5"`
-
-            High-performance model for agents and coding
-
-          - `const BetaManagedAgentsModelClaudeSonnet4_5_20250929 BetaManagedAgentsModel = "claude-sonnet-4-5-20250929"`
-
-            High-performance model for agents and coding
-
-        - `string`
-
-      - `Effort BetaManagedAgentsModelConfigEffortUnion Optional`
-
-        How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
-
-        - `type BetaManagedAgentsEffortLow struct{…}`
-
-          Low effort. Favors latency over reasoning depth.
-
-          - `Type BetaManagedAgentsEffortLowType`
-
-        - `type BetaManagedAgentsEffortMedium struct{…}`
-
-          Medium effort. Balances latency and reasoning depth.
-
-          - `Type BetaManagedAgentsEffortMediumType`
-
-        - `type BetaManagedAgentsEffortHigh struct{…}`
-
-          High effort. Favors reasoning depth.
-
-          - `Type BetaManagedAgentsEffortHighType`
-
-        - `type BetaManagedAgentsEffortXhigh struct{…}`
-
-          Extra-high effort. Not all models accept this level.
-
-          - `Type BetaManagedAgentsEffortXhighType`
-
-        - `type BetaManagedAgentsEffortMax struct{…}`
-
-          Maximum effort. Favors reasoning depth over latency.
-
-          - `Type BetaManagedAgentsEffortMaxType`
-
-      - `InferenceGeo string Optional`
-
-        Geographic region for model inference. When unset, requests fall through to the workspace's default_inference_geo.
-
-      - `Speed BetaManagedAgentsModelConfigSpeed Optional`
-
-        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
-        - `const BetaManagedAgentsModelConfigSpeedStandard BetaManagedAgentsModelConfigSpeed = "standard"`
-
-        - `const BetaManagedAgentsModelConfigSpeedFast BetaManagedAgentsModelConfigSpeed = "fast"`
-
-    - `Multiagent BetaManagedAgentsSessionMultiagentCoordinator`
-
-      Resolved coordinator topology with full agent definitions for each roster member.
-
-      - `Agents []BetaManagedAgentsSessionMultiagentCoordinatorAgentUnion`
-
-        Full `agent` definitions the coordinator may spawn as session threads.
-
-        - `type BetaManagedAgentsSessionThreadAgent struct{…}`
-
-          Resolved `agent` definition for a single `session_thread`. Snapshot of the agent at thread creation time. The multiagent roster is not repeated here; read it from `Session.agent`.
-
-          - `ID string`
-
-          - `Description string`
-
-          - `MCPServers []BetaManagedAgentsMCPServerURLDefinition`
-
-            - `Name string`
-
-            - `Type BetaManagedAgentsMCPServerURLDefinitionType`
-
-            - `URL string`
-
-          - `Model BetaManagedAgentsModelConfig`
-
-            Model identifier and configuration.
-
-          - `Name string`
-
-          - `Skills []BetaManagedAgentsSessionThreadAgentSkillUnion`
-
-            - `type BetaManagedAgentsAnthropicSkill struct{…}`
-
-              A resolved Anthropic-managed skill.
-
-              - `SkillID string`
-
-              - `Type BetaManagedAgentsAnthropicSkillType`
-
-              - `Version string`
-
-            - `type BetaManagedAgentsCustomSkill struct{…}`
-
-              A resolved user-created custom skill.
-
-              - `SkillID string`
-
-              - `Type BetaManagedAgentsCustomSkillType`
-
-              - `Version string`
-
-          - `System string`
-
-          - `Tools []BetaManagedAgentsSessionThreadAgentToolUnion`
-
-            - `type BetaManagedAgentsAgentToolset20260401 struct{…}`
-
-              - `Configs []BetaManagedAgentsAgentToolConfigUnion`
-
-                - `type BetaManagedAgentsBashToolConfig struct{…}`
-
-                  Configuration for the bash tool.
-
-                  - `Enabled bool`
-
-                  - `Name Bash`
-
-                  - `PermissionPolicy BetaManagedAgentsBashToolConfigPermissionPolicyUnion`
-
-                    Permission policy for tool execution.
-
-                    - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
-
-                      Tool calls are automatically approved without user confirmation.
-
-                      - `Type BetaManagedAgentsAlwaysAllowPolicyType`
-
-                    - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
-
-                      Tool calls require user confirmation before execution.
-
-                      - `Type BetaManagedAgentsAlwaysAskPolicyType`
-
-                  - `Type Bash`
-
-                - `type BetaManagedAgentsEditToolConfig struct{…}`
-
-                  Configuration for the edit tool.
-
-                  - `Enabled bool`
-
-                  - `Name Edit`
-
-                  - `PermissionPolicy BetaManagedAgentsEditToolConfigPermissionPolicyUnion`
-
-                    Permission policy for tool execution.
-
-                    - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
-
-                      Tool calls are automatically approved without user confirmation.
-
-                    - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
-
-                      Tool calls require user confirmation before execution.
-
-                  - `Type Edit`
-
-                - `type BetaManagedAgentsReadToolConfig struct{…}`
-
-                  Configuration for the read tool.
-
-                  - `Enabled bool`
-
-                  - `Name Read`
-
-                  - `PermissionPolicy BetaManagedAgentsReadToolConfigPermissionPolicyUnion`
-
-                    Permission policy for tool execution.
-
-                    - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
-
-                      Tool calls are automatically approved without user confirmation.
-
-                    - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
-
-                      Tool calls require user confirmation before execution.
-
-                  - `Type Read`
-
-                - `type BetaManagedAgentsWriteToolConfig struct{…}`
-
-                  Configuration for the write tool.
-
-                  - `Enabled bool`
-
-                  - `Name Write`
-
-                  - `PermissionPolicy BetaManagedAgentsWriteToolConfigPermissionPolicyUnion`
-
-                    Permission policy for tool execution.
-
-                    - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
-
-                      Tool calls are automatically approved without user confirmation.
-
-                    - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
-
-                      Tool calls require user confirmation before execution.
-
-                  - `Type Write`
-
-                - `type BetaManagedAgentsGlobToolConfig struct{…}`
-
-                  Configuration for the glob tool.
-
-                  - `Enabled bool`
-
-                  - `Name Glob`
-
-                  - `PermissionPolicy BetaManagedAgentsGlobToolConfigPermissionPolicyUnion`
-
-                    Permission policy for tool execution.
-
-                    - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
-
-                      Tool calls are automatically approved without user confirmation.
-
-                    - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
-
-                      Tool calls require user confirmation before execution.
-
-                  - `Type Glob`
-
-                - `type BetaManagedAgentsGrepToolConfig struct{…}`
-
-                  Configuration for the grep tool.
-
-                  - `Enabled bool`
-
-                  - `Name Grep`
-
-                  - `PermissionPolicy BetaManagedAgentsGrepToolConfigPermissionPolicyUnion`
-
-                    Permission policy for tool execution.
-
-                    - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
-
-                      Tool calls are automatically approved without user confirmation.
-
-                    - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
-
-                      Tool calls require user confirmation before execution.
-
-                  - `Type Grep`
-
-                - `type BetaManagedAgentsWebFetchToolConfig struct{…}`
-
-                  Configuration for the web_fetch tool.
-
-                  - `Enabled bool`
-
-                  - `Name WebFetch`
-
-                  - `PermissionPolicy BetaManagedAgentsWebFetchToolConfigPermissionPolicyUnion`
-
-                    Permission policy for tool execution.
-
-                    - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
-
-                      Tool calls are automatically approved without user confirmation.
-
-                    - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
-
-                      Tool calls require user confirmation before execution.
-
-                  - `Type WebFetch`
-
-                  - `AllowedDomains []string Optional`
-
-                  - `BlockedDomains []string Optional`
-
-                  - `MaxContentTokens int64 Optional`
-
-                    format: int32
-
-                - `type BetaManagedAgentsWebSearchToolConfig struct{…}`
-
-                  Configuration for the web_search tool.
-
-                  - `Enabled bool`
-
-                  - `Name WebSearch`
-
-                  - `PermissionPolicy BetaManagedAgentsWebSearchToolConfigPermissionPolicyUnion`
-
-                    Permission policy for tool execution.
-
-                    - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
-
-                      Tool calls are automatically approved without user confirmation.
-
-                    - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
-
-                      Tool calls require user confirmation before execution.
-
-                  - `Type WebSearch`
-
-                  - `AllowedDomains []string Optional`
-
-                  - `BlockedDomains []string Optional`
-
-                  - `UserLocation BetaManagedAgentsUserLocation Optional`
-
-                    Approximate user location for search result localization.
-
-                    - `Type Approximate`
-
-                      Location precision. Only "approximate" is supported.
-
-                    - `City string Optional`
-
-                      City name.
-
-                      minLength: 1, maxLength: 255
-
-                    - `Country string Optional`
-
-                      Two-letter ISO 3166-1 country code, uppercase.
-
-                    - `Region string Optional`
-
-                      Region or state name.
-
-                      minLength: 1, maxLength: 255
-
-                    - `Timezone string Optional`
-
-                      IANA timezone identifier, e.g. "America/Los_Angeles".
-
-                      minLength: 1, maxLength: 255
-
-              - `DefaultConfig BetaManagedAgentsAgentToolsetDefaultConfig`
-
-                Resolved default configuration for agent tools.
-
-                - `Enabled bool`
-
-                - `PermissionPolicy BetaManagedAgentsAgentToolsetDefaultConfigPermissionPolicyUnion`
-
-                  Permission policy for tool execution.
-
-                  - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
-
-                    Tool calls are automatically approved without user confirmation.
-
-                  - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
-
-                    Tool calls require user confirmation before execution.
-
-              - `Type BetaManagedAgentsAgentToolset20260401Type`
-
-            - `type BetaManagedAgentsMCPToolset struct{…}`
-
-              - `Configs []BetaManagedAgentsMCPToolConfig`
-
-                - `Enabled bool`
-
-                - `Name string`
-
-                - `PermissionPolicy BetaManagedAgentsMCPToolConfigPermissionPolicyUnion`
-
-                  Permission policy for tool execution.
-
-                  - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
-
-                    Tool calls are automatically approved without user confirmation.
-
-                  - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
-
-                    Tool calls require user confirmation before execution.
-
-              - `DefaultConfig BetaManagedAgentsMCPToolsetDefaultConfig`
-
-                Resolved default configuration for all tools from an MCP server.
-
-                - `Enabled bool`
-
-                - `PermissionPolicy BetaManagedAgentsMCPToolsetDefaultConfigPermissionPolicyUnion`
-
-                  Permission policy for tool execution.
-
-                  - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
-
-                    Tool calls are automatically approved without user confirmation.
-
-                  - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
-
-                    Tool calls require user confirmation before execution.
-
-              - `MCPServerName string`
-
-              - `Type BetaManagedAgentsMCPToolsetType`
-
-            - `type BetaManagedAgentsCustomTool struct{…}`
-
-              A custom tool as returned in API responses.
-
-              - `Description string`
-
-              - `InputSchema BetaManagedAgentsCustomToolInputSchema`
-
-                JSON Schema for custom tool input parameters.
-
-                - `Type Object`
-
-                - `Properties map[string, any] Optional`
-
-                - `Required []string Optional`
-
-              - `Name string`
-
-              - `Type BetaManagedAgentsCustomToolType`
-
-          - `Type BetaManagedAgentsSessionThreadAgentType`
-
-          - `Version int64`
-
-            format: int32
-
-        - `type BetaManagedAgentsAdvisor struct{…}`
-
-          Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
-
-          - `Model string`
-
-            The advisor model id.
-
-          - `Type BetaManagedAgentsAdvisorType`
-
-      - `Type BetaManagedAgentsSessionMultiagentCoordinatorType`
-
-    - `Name string`
-
-    - `Skills []BetaManagedAgentsSessionAgentSkillUnion`
-
-      - `type BetaManagedAgentsAnthropicSkill struct{…}`
-
-        A resolved Anthropic-managed skill.
-
-      - `type BetaManagedAgentsCustomSkill struct{…}`
-
-        A resolved user-created custom skill.
-
-    - `System string`
-
-    - `Tools []BetaManagedAgentsSessionAgentToolUnion`
-
-      - `type BetaManagedAgentsAgentToolset20260401 struct{…}`
-
-      - `type BetaManagedAgentsMCPToolset struct{…}`
-
-      - `type BetaManagedAgentsCustomTool struct{…}`
-
-        A custom tool as returned in API responses.
-
-    - `Type BetaManagedAgentsSessionAgentType`
-
-    - `Version int64`
-
-      format: int32
-
-  - `ArchivedAt Time`
-
-    A timestamp in RFC 3339 format
-
-    format: date-time
-
-  - `Budget BetaManagedAgentsBudgetLimit`
-
-    A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
-
-    - `MaxListCost BetaMonetaryAmount`
-
-      A monetary amount in a specific currency.
-
-      - `Amount string`
-
-        Amount in minor units of the currency, as an integer decimal string with no leading zeros: "2500" is $25.00 and "50" is fifty cents. A string rather than a number so no float rounding is ever applied.
-
-      - `Currency BetaCurrency`
-
-        Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
-
-    - `Type BetaManagedAgentsBudgetLimitType`
-
-  - `CreatedAt Time`
-
-    A timestamp in RFC 3339 format
-
-    format: date-time
-
-  - `EnvironmentID string`
-
-  - `Metadata map[string, string]`
-
-  - `OutcomeEvaluations []BetaManagedAgentsOutcomeEvaluationResource`
-
-    Per-outcome evaluation state. One entry per `define_outcome` event sent to the session.
-
-    - `CompletedAt Time`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `Description string`
-
-      What the agent should produce.
-
-    - `Explanation string`
-
-      Grader's verdict text from the most recent evaluation. For `satisfied`, explains why criteria are met; for `needs_revision` (intermediate), what's missing; for `failed`, why unrecoverable.
-
-    - `Iteration int64`
-
-      0-indexed revision cycle the outcome is currently on.
-
-      format: int32
-
-    - `OutcomeID string`
-
-      Server-generated outc_ ID for this outcome.
-
-    - `Result string`
-
-      Current evaluation state. `pending` before the agent begins work; `running` while producing or revising; `evaluating` while the grader scores; `satisfied`/`max_iterations_reached`/`failed`/`interrupted` are terminal.
-
-    - `Type BetaManagedAgentsOutcomeEvaluationResourceType`
-
-  - `Resources []BetaManagedAgentsSessionResourceUnion`
-
-    - `type BetaManagedAgentsGitHubRepositoryResource struct{…}`
-
-      - `ID string`
-
-      - `CreatedAt Time`
-
-        A timestamp in RFC 3339 format
-
-        format: date-time
-
-      - `MountPath string`
-
-      - `Type BetaManagedAgentsGitHubRepositoryResourceType`
-
-      - `UpdatedAt Time`
-
-        A timestamp in RFC 3339 format
-
-        format: date-time
-
-      - `URL string`
-
-      - `Checkout BetaManagedAgentsGitHubRepositoryResourceCheckoutUnion Optional`
-
-        - `type BetaManagedAgentsBranchCheckout struct{…}`
-
-          - `Name string`
-
-            Branch name to check out.
-
-            minLength: 1, maxLength: 255
-
-          - `Type BetaManagedAgentsBranchCheckoutType`
-
-        - `type BetaManagedAgentsCommitCheckout struct{…}`
-
-          - `Sha string`
-
-            Full commit SHA to check out.
-
-            minLength: 7, maxLength: 64
-
-          - `Type BetaManagedAgentsCommitCheckoutType`
-
-    - `type BetaManagedAgentsFileResource struct{…}`
-
-      - `ID string`
-
-      - `CreatedAt Time`
-
-        A timestamp in RFC 3339 format
-
-        format: date-time
-
-      - `FileID string`
-
-      - `MountPath string`
-
-      - `Type BetaManagedAgentsFileResourceType`
-
-      - `UpdatedAt Time`
-
-        A timestamp in RFC 3339 format
-
-        format: date-time
-
-    - `type BetaManagedAgentsMemoryStoreResource struct{…}`
-
-      A memory store attached to an agent session.
-
-      - `MemoryStoreID string`
-
-        The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
-
-      - `Type BetaManagedAgentsMemoryStoreResourceType`
-
-      - `Access BetaManagedAgentsMemoryStoreResourceAccess Optional`
-
-        Access mode for an attached memory store.
-
-        - `const BetaManagedAgentsMemoryStoreResourceAccessReadWrite BetaManagedAgentsMemoryStoreResourceAccess = "read_write"`
-
-        - `const BetaManagedAgentsMemoryStoreResourceAccessReadOnly BetaManagedAgentsMemoryStoreResourceAccess = "read_only"`
-
-      - `Description string Optional`
-
-        Description of the memory store, snapshotted at attach time. Rendered into the agent's system prompt. Empty string when the store has no description.
-
-      - `Instructions string Optional`
-
-        Per-attachment guidance for the agent on how to use this store. Rendered into the memory section of the system prompt. Max 4096 chars.
-
-        maxLength: 4096
-
-      - `MountPath string Optional`
-
-        Filesystem path where the store is mounted in the session container, e.g. /mnt/memory/user-preferences. Derived from the store's name. Output-only.
-
-      - `Name string Optional`
-
-        Display name of the memory store, snapshotted at attach time. Later edits to the store's name do not propagate to this resource.
-
-  - `Stats BetaManagedAgentsSessionStats`
-
-    Timing statistics for a session.
-
-    - `ActiveSeconds float64 Optional`
-
-      Cumulative time in seconds the session spent in `running` status. Excludes idle time.
-
-      format: double
-
-    - `DurationSeconds float64 Optional`
-
-      Elapsed time since session creation in seconds. For terminated sessions, frozen at the final update.
-
-      format: double
-
-  - `Status BetaManagedAgentsSessionStatus`
-
-    SessionStatus enum
-
-    - `const BetaManagedAgentsSessionStatusRescheduling BetaManagedAgentsSessionStatus = "rescheduling"`
-
-    - `const BetaManagedAgentsSessionStatusRunning BetaManagedAgentsSessionStatus = "running"`
-
-    - `const BetaManagedAgentsSessionStatusIdle BetaManagedAgentsSessionStatus = "idle"`
-
-    - `const BetaManagedAgentsSessionStatusTerminated BetaManagedAgentsSessionStatus = "terminated"`
-
-  - `Title string`
 
   - `Type BetaManagedAgentsSessionType`
 
-  - `UpdatedAt Time`
-
-    A timestamp in RFC 3339 format
-
-    format: date-time
-
-  - `Usage BetaManagedAgentsSessionUsage`
-
-    Cumulative token usage for a session across all turns.
-
-    - `ActiveSeconds float64 Optional`
-
-      Cumulative time in seconds during which the session had at least one thread in running status. Overlapping activity from concurrent threads is counted once, unlike `stats.active_seconds`, which sums each thread's own active time. This is the duration the session's runtime cost is priced on.
-
-      format: double
-
-    - `CacheCreation BetaManagedAgentsCacheCreationUsage Optional`
-
-      Prompt-cache creation token usage broken down by cache lifetime.
-
-      - `Ephemeral1hInputTokens int64 Optional`
-
-        Tokens used to create 1-hour ephemeral cache entries.
-
-        format: int32
-
-      - `Ephemeral5mInputTokens int64 Optional`
-
-        Tokens used to create 5-minute ephemeral cache entries.
-
-        format: int32
-
-    - `CacheReadInputTokens int64 Optional`
-
-      Total tokens read from prompt cache.
-
-      format: int32
-
-    - `InputTokens int64 Optional`
-
-      Total input tokens consumed across all turns.
-
-      format: int32
-
-    - `ListCost BetaMonetaryAmount Optional`
-
-      A monetary amount in a specific currency.
-
-    - `OutputTokens int64 Optional`
-
-      Total output tokens generated across all turns.
-
-      format: int32
-
-    - `ServerToolUse BetaManagedAgentsServerToolUsage Optional`
-
-      Cumulative count of server-executed tool invocations, broken down by tool.
-
-      - `WebFetchRequests int64 Optional`
-
-        Number of server-executed web fetch requests.
-
-        format: int32
-
-      - `WebSearchRequests int64 Optional`
-
-        Number of server-executed web search requests.
-
-        format: int32
-
-  - `VaultIDs []string`
-
-    Vault IDs attached to the session at creation. Empty when no vaults were supplied.
-
-  - `DeploymentID string Optional`
-
-    Deployment ID when the session was created from a deployment reference. Null otherwise.
-
-#### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-
-	"github.com/anthropics/anthropic-sdk-go"
-	"github.com/anthropics/anthropic-sdk-go/option"
-)
-
-func main() {
-	client := anthropic.NewClient(
-		option.WithAPIKey("my-anthropic-api-key"),
-	)
-	betaManagedAgentsSession, err := client.Beta.Sessions.New(context.TODO(), anthropic.BetaSessionNewParams{
-		Agent: anthropic.BetaSessionNewParamsAgentUnion{
-			OfString: anthropic.String("agent_011CZkYpogX7uDKUyvBTophP"),
-		},
-		EnvironmentID: "env_011CZkZ9X2dpNyB7HsEFoRfW",
-	})
-	if err != nil {
-		panic(err.Error())
-	}
-	fmt.Printf("%+v\n", betaManagedAgentsSession.ID)
-}
-```
-
-##### Response (200)
-
-```json
-{
-  "id": "sesn_011CZkZAtmR3yMPDzynEDxu7",
-  "agent": {
-    "id": "agent_011CZkYpogX7uDKUyvBTophP",
-    "description": "A general-purpose starter agent.",
-    "mcp_servers": [
-      {
-        "name": "example-mcp",
-        "type": "url",
-        "url": "https://example-server.modelcontextprotocol.io/sse"
-      }
-    ],
-    "model": {
-      "id": "claude-opus-5",
-      "effort": {
-        "type": "low"
-      },
-      "inference_geo": "inference_geo",
-      "speed": "standard"
-    },
-    "multiagent": {
-      "agents": [
-        {
-          "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
-          "description": "A focused research subagent.",
-          "mcp_servers": [
-            {
-              "name": "example-mcp",
-              "type": "url",
-              "url": "https://example-server.modelcontextprotocol.io/sse"
-            }
-          ],
-          "model": {
-            "id": "claude-opus-5",
-            "effort": {
-              "type": "low"
-            },
-            "inference_geo": "inference_geo",
-            "speed": "standard"
-          },
-          "name": "Researcher",
-          "skills": [
-            {
-              "skill_id": "xlsx",
-              "type": "anthropic",
-              "version": "1"
-            }
-          ],
-          "system": "You are a research subagent that gathers and summarises sources for the coordinating agent.",
-          "tools": [
-            {
-              "configs": [
-                {
-                  "enabled": true,
-                  "name": "bash",
-                  "permission_policy": {
-                    "type": "always_allow"
-                  },
-                  "type": "bash"
-                }
-              ],
-              "default_config": {
-                "enabled": true,
-                "permission_policy": {
-                  "type": "always_ask"
-                }
-              },
-              "type": "agent_toolset_20260401"
-            }
-          ],
-          "type": "agent",
-          "version": 1
-        }
-      ],
-      "type": "coordinator"
-    },
-    "name": "My First Agent",
-    "skills": [
-      {
-        "skill_id": "xlsx",
-        "type": "anthropic",
-        "version": "1"
-      },
-      {
-        "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTlx",
-        "type": "custom",
-        "version": "2"
-      }
-    ],
-    "system": "You are a general-purpose agent that can research, write code, run commands, and use connected tools to complete the user's task end to end.",
-    "tools": [
-      {
-        "configs": [
-          {
-            "enabled": true,
-            "name": "bash",
-            "permission_policy": {
-              "type": "always_allow"
-            },
-            "type": "bash"
-          }
-        ],
-        "default_config": {
-          "enabled": true,
-          "permission_policy": {
-            "type": "always_ask"
-          }
-        },
-        "type": "agent_toolset_20260401"
-      }
-    ],
-    "type": "agent",
-    "version": 1
-  },
-  "archived_at": null,
-  "budget": {
-    "max_list_cost": {
-      "amount": "2500",
-      "currency": "USD"
-    },
-    "type": "limit"
-  },
-  "created_at": "2026-03-15T10:00:00Z",
-  "environment_id": "env_011CZkZ9X2dpNyB7HsEFoRfW",
-  "metadata": {},
-  "outcome_evaluations": [
-    {
-      "completed_at": "2026-03-15T10:02:31Z",
-      "description": "Produce a 2-page summary as summary.md",
-      "explanation": "All five sections present with inline citations.",
-      "iteration": 0,
-      "outcome_id": "outc_011CZkZRSw2kEfs6ncTVljxP",
-      "result": "satisfied",
-      "type": "outcome_evaluation"
-    }
-  ],
-  "resources": [
-    {
-      "id": "sesrsc_011CZkZBJq5dWxk9fVLNcPht",
-      "created_at": "2026-03-15T10:00:00Z",
-      "file_id": "file_011CNha8iCJcU1wXNR6q4V8w",
-      "mount_path": "/uploads/receipt.pdf",
-      "type": "file",
-      "updated_at": "2026-03-15T10:00:00Z"
-    },
-    {
-      "id": "sesrsc_011CZkZCKr6eXyl0gWMOdQiu",
-      "created_at": "2026-03-15T10:00:00Z",
-      "mount_path": "/workspace/example-repo",
-      "type": "github_repository",
-      "updated_at": "2026-03-15T10:00:00Z",
-      "url": "https://github.com/example-org/example-repo",
-      "checkout": {
-        "name": "main",
-        "type": "branch"
-      }
-    }
-  ],
-  "stats": {
-    "active_seconds": 0,
-    "duration_seconds": 0
-  },
-  "status": "idle",
-  "title": "Order #1234 inquiry",
-  "type": "session",
-  "updated_at": "2026-03-15T10:00:00Z",
-  "usage": {
-    "active_seconds": 0,
-    "cache_creation": {
-      "ephemeral_1h_input_tokens": 0,
-      "ephemeral_5m_input_tokens": 0
-    },
-    "cache_read_input_tokens": 0,
-    "input_tokens": 0,
-    "list_cost": {
-      "amount": "2500",
-      "currency": "USD"
-    },
-    "output_tokens": 0,
-    "server_tool_use": {
-      "web_fetch_requests": 0,
-      "web_search_requests": 3
-    }
-  },
-  "vault_ids": [
-    "vlt_011CZkZDLs7fYzm1hXNPeRjv"
-  ],
-  "deployment_id": "deployment_id"
-}
-```
-
-### List Sessions
-
-`client.Beta.Sessions.List(ctx, params) (*BidirectionalPageCursor[BetaManagedAgentsSession], error)`
-
-**GET** `/v1/sessions`
-
-List Sessions
-
-#### Parameters
-
-- `params BetaSessionListParams`
-
-  - `AgentID param.Field[string] Optional`
-
-    Query param: Filter sessions created with this agent ID.
-
-  - `AgentVersion param.Field[int64] Optional`
-
-    Query param: Filter by agent version. Only applies when `agent_id` is also set.
-
-    format: int32
-
-  - `CreatedAtGt param.Field[Time] Optional`
-
-    Query param: Return sessions created after this time (exclusive).
-
-    format: date-time
-
-  - `CreatedAtGte param.Field[Time] Optional`
-
-    Query param: Return sessions created at or after this time (inclusive).
-
-    format: date-time
-
-  - `CreatedAtLt param.Field[Time] Optional`
-
-    Query param: Return sessions created before this time (exclusive).
-
-    format: date-time
-
-  - `CreatedAtLte param.Field[Time] Optional`
-
-    Query param: Return sessions created at or before this time (inclusive).
-
-    format: date-time
-
-  - `DeploymentID param.Field[string] Optional`
-
-    Query param: Filter sessions created by this deployment ID.
-
-  - `IncludeArchived param.Field[bool] Optional`
-
-    Query param: When true, includes archived sessions. Default: false (exclude archived).
-
-  - `Limit param.Field[int64] Optional`
-
-    Query param: Maximum number of results to return.
-
-    format: int32
-
-  - `MemoryStoreID param.Field[string] Optional`
-
-    Query param: Filter sessions whose resources contain a `memory_store` with this memory store ID.
-
-  - `Order param.Field[BetaSessionListParamsOrder] Optional`
-
-    Query param: Sort direction for results, ordered by `created_at`. Defaults to `desc` (newest first).
-
-    - `const BetaSessionListParamsOrderAsc BetaSessionListParamsOrder = "asc"`
-
-    - `const BetaSessionListParamsOrderDesc BetaSessionListParamsOrder = "desc"`
-
-  - `Page param.Field[string] Optional`
-
-    Query param: Opaque pagination cursor from a previous response.
-
-  - `Statuses param.Field[[]string] Optional`
-
-    Query param: Filter by session status. Repeat the parameter to match any of multiple statuses.
-
-    - `const BetaSessionListParamsStatusRescheduling BetaSessionListParamsStatus = "rescheduling"`
-
-    - `const BetaSessionListParamsStatusRunning BetaSessionListParamsStatus = "running"`
-
-    - `const BetaSessionListParamsStatusIdle BetaSessionListParamsStatus = "idle"`
-
-    - `const BetaSessionListParamsStatusTerminated BetaSessionListParamsStatus = "terminated"`
-
-  - `Betas param.Field[[]AnthropicBeta] Optional`
-
-    Header param: Optional header to specify the beta version(s) you want to use.
-
-    - `string`
-
-    - `type AnthropicBeta string`
-
-      - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
-
-      - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
-
-      - `const AnthropicBetaComputerUse2024_10_22 AnthropicBeta = "computer-use-2024-10-22"`
-
-      - `const AnthropicBetaComputerUse2025_01_24 AnthropicBeta = "computer-use-2025-01-24"`
-
-      - `const AnthropicBetaPDFs2024_09_25 AnthropicBeta = "pdfs-2024-09-25"`
-
-      - `const AnthropicBetaTokenCounting2024_11_01 AnthropicBeta = "token-counting-2024-11-01"`
-
-      - `const AnthropicBetaTokenEfficientTools2025_02_19 AnthropicBeta = "token-efficient-tools-2025-02-19"`
-
-      - `const AnthropicBetaOutput128k2025_02_19 AnthropicBeta = "output-128k-2025-02-19"`
-
-      - `const AnthropicBetaFilesAPI2025_04_14 AnthropicBeta = "files-api-2025-04-14"`
-
-      - `const AnthropicBetaMCPClient2025_04_04 AnthropicBeta = "mcp-client-2025-04-04"`
-
-      - `const AnthropicBetaMCPClient2025_11_20 AnthropicBeta = "mcp-client-2025-11-20"`
-
-      - `const AnthropicBetaDevFullThinking2025_05_14 AnthropicBeta = "dev-full-thinking-2025-05-14"`
-
-      - `const AnthropicBetaInterleavedThinking2025_05_14 AnthropicBeta = "interleaved-thinking-2025-05-14"`
-
-      - `const AnthropicBetaCodeExecution2025_05_22 AnthropicBeta = "code-execution-2025-05-22"`
-
-      - `const AnthropicBetaExtendedCacheTTL2025_04_11 AnthropicBeta = "extended-cache-ttl-2025-04-11"`
-
-      - `const AnthropicBetaContext1m2025_08_07 AnthropicBeta = "context-1m-2025-08-07"`
-
-      - `const AnthropicBetaContextManagement2025_06_27 AnthropicBeta = "context-management-2025-06-27"`
-
-      - `const AnthropicBetaModelContextWindowExceeded2025_08_26 AnthropicBeta = "model-context-window-exceeded-2025-08-26"`
-
-      - `const AnthropicBetaSkills2025_10_02 AnthropicBeta = "skills-2025-10-02"`
-
-      - `const AnthropicBetaFastMode2026_02_01 AnthropicBeta = "fast-mode-2026-02-01"`
-
-      - `const AnthropicBetaOutput300k2026_03_24 AnthropicBeta = "output-300k-2026-03-24"`
-
-      - `const AnthropicBetaUserProfiles2026_03_24 AnthropicBeta = "user-profiles-2026-03-24"`
-
-      - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
-
-      - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
-
-      - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
-
-      - `const AnthropicBetaCacheDiagnosis2026_04_07 AnthropicBeta = "cache-diagnosis-2026-04-07"`
-
-      - `const AnthropicBetaDreaming2026_04_21 AnthropicBeta = "dreaming-2026-04-21"`
-
-      - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
-
-      - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
-
-      - `const AnthropicBetaServerSideFallback2026_07_01 AnthropicBeta = "server-side-fallback-2026-07-01"`
-
-      - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
-
-      - `const AnthropicBetaFallbackCredit2026_07_01 AnthropicBeta = "fallback-credit-2026-07-01"`
-
-      - `const AnthropicBetaAgentMemory2026_07_22 AnthropicBeta = "agent-memory-2026-07-22"`
-
-      - `const AnthropicBetaMidConversationToolChanges2026_07_01 AnthropicBeta = "mid-conversation-tool-changes-2026-07-01"`
-
-      - `const AnthropicBetaCompact2026_01_12 AnthropicBeta = "compact-2026-01-12"`
-
-      - `const AnthropicBetaComputerUse2025_11_24 AnthropicBeta = "computer-use-2025-11-24"`
-
-      - `const AnthropicBetaMCPTunnels2026_06_22 AnthropicBeta = "mcp-tunnels-2026-06-22"`
-
-      - `const AnthropicBetaStructuredOutputs2025_11_13 AnthropicBeta = "structured-outputs-2025-11-13"`
-
-      - `const AnthropicBetaTaskBudgets2026_03_13 AnthropicBeta = "task-budgets-2026-03-13"`
-
-      - `const AnthropicBetaThinkingDisplayUpdates2026_08_18 AnthropicBeta = "thinking-display-updates-2026-08-18"`
-
-      - `const AnthropicBetaCEUserManagement2026_07_13 AnthropicBeta = "ce-user-management-2026-07-13"`
-
-      - `const AnthropicBetaMidConversationOutputConfig2026_07_01 AnthropicBeta = "mid-conversation-output-config-2026-07-01"`
-
-      - `const AnthropicBetaThinkingBindingControls2026_08_01 AnthropicBeta = "thinking-binding-controls-2026-08-01"`
-
-      - `const AnthropicBetaMidConversationSystemClearAt2026_08_21 AnthropicBeta = "mid-conversation-system-clear-at-2026-08-21"`
-
-#### Returns
-
-- `type BetaManagedAgentsSession struct{…}`
-
-  A Managed Agents `session`.
-
   - `ID string`
 
   - `Agent BetaManagedAgentsSessionAgent`
 
     Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
+
+    - `Type BetaManagedAgentsSessionAgentType`
 
     - `ID string`
 
@@ -29730,9 +29143,9 @@ List Sessions
 
     - `MCPServers []BetaManagedAgentsMCPServerURLDefinition`
 
-      - `Name string`
-
       - `Type BetaManagedAgentsMCPServerURLDefinitionType`
+
+      - `Name string`
 
       - `URL string`
 
@@ -29860,6 +29273,8 @@ List Sessions
 
       Resolved coordinator topology with full agent definitions for each roster member.
 
+      - `Type BetaManagedAgentsSessionMultiagentCoordinatorType`
+
       - `Agents []BetaManagedAgentsSessionMultiagentCoordinatorAgentUnion`
 
         Full `agent` definitions the coordinator may spawn as session threads.
@@ -29868,15 +29283,17 @@ List Sessions
 
           Resolved `agent` definition for a single `session_thread`. Snapshot of the agent at thread creation time. The multiagent roster is not repeated here; read it from `Session.agent`.
 
+          - `Type BetaManagedAgentsSessionThreadAgentType`
+
           - `ID string`
 
           - `Description string`
 
           - `MCPServers []BetaManagedAgentsMCPServerURLDefinition`
 
-            - `Name string`
-
             - `Type BetaManagedAgentsMCPServerURLDefinitionType`
+
+            - `Name string`
 
             - `URL string`
 
@@ -29892,9 +29309,9 @@ List Sessions
 
               A resolved Anthropic-managed skill.
 
-              - `SkillID string`
-
               - `Type BetaManagedAgentsAnthropicSkillType`
+
+              - `SkillID string`
 
               - `Version string`
 
@@ -29902,9 +29319,9 @@ List Sessions
 
               A resolved user-created custom skill.
 
-              - `SkillID string`
-
               - `Type BetaManagedAgentsCustomSkillType`
+
+              - `SkillID string`
 
               - `Version string`
 
@@ -29914,512 +29331,8 @@ List Sessions
 
             - `type BetaManagedAgentsAgentToolset20260401 struct{…}`
 
+              - `Type BetaManagedAgentsAgentToolset20260401Type`
+
               - `Configs []BetaManagedAgentsAgentToolConfigUnion`
 
                 - `type BetaManagedAgentsBashToolConfig struct{…}`
-
-                  Configuration for the bash tool.
-
-                  - `Enabled bool`
-
-                  - `Name Bash`
-
-                  - `PermissionPolicy BetaManagedAgentsBashToolConfigPermissionPolicyUnion`
-
-                    Permission policy for tool execution.
-
-                    - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
-
-                      Tool calls are automatically approved without user confirmation.
-
-                      - `Type BetaManagedAgentsAlwaysAllowPolicyType`
-
-                    - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
-
-                      Tool calls require user confirmation before execution.
-
-                      - `Type BetaManagedAgentsAlwaysAskPolicyType`
-
-                  - `Type Bash`
-
-                - `type BetaManagedAgentsEditToolConfig struct{…}`
-
-                  Configuration for the edit tool.
-
-                  - `Enabled bool`
-
-                  - `Name Edit`
-
-                  - `PermissionPolicy BetaManagedAgentsEditToolConfigPermissionPolicyUnion`
-
-                    Permission policy for tool execution.
-
-                    - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
-
-                      Tool calls are automatically approved without user confirmation.
-
-                    - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
-
-                      Tool calls require user confirmation before execution.
-
-                  - `Type Edit`
-
-                - `type BetaManagedAgentsReadToolConfig struct{…}`
-
-                  Configuration for the read tool.
-
-                  - `Enabled bool`
-
-                  - `Name Read`
-
-                  - `PermissionPolicy BetaManagedAgentsReadToolConfigPermissionPolicyUnion`
-
-                    Permission policy for tool execution.
-
-                    - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
-
-                      Tool calls are automatically approved without user confirmation.
-
-                    - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
-
-                      Tool calls require user confirmation before execution.
-
-                  - `Type Read`
-
-                - `type BetaManagedAgentsWriteToolConfig struct{…}`
-
-                  Configuration for the write tool.
-
-                  - `Enabled bool`
-
-                  - `Name Write`
-
-                  - `PermissionPolicy BetaManagedAgentsWriteToolConfigPermissionPolicyUnion`
-
-                    Permission policy for tool execution.
-
-                    - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
-
-                      Tool calls are automatically approved without user confirmation.
-
-                    - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
-
-                      Tool calls require user confirmation before execution.
-
-                  - `Type Write`
-
-                - `type BetaManagedAgentsGlobToolConfig struct{…}`
-
-                  Configuration for the glob tool.
-
-                  - `Enabled bool`
-
-                  - `Name Glob`
-
-                  - `PermissionPolicy BetaManagedAgentsGlobToolConfigPermissionPolicyUnion`
-
-                    Permission policy for tool execution.
-
-                    - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
-
-                      Tool calls are automatically approved without user confirmation.
-
-                    - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
-
-                      Tool calls require user confirmation before execution.
-
-                  - `Type Glob`
-
-                - `type BetaManagedAgentsGrepToolConfig struct{…}`
-
-                  Configuration for the grep tool.
-
-                  - `Enabled bool`
-
-                  - `Name Grep`
-
-                  - `PermissionPolicy BetaManagedAgentsGrepToolConfigPermissionPolicyUnion`
-
-                    Permission policy for tool execution.
-
-                    - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
-
-                      Tool calls are automatically approved without user confirmation.
-
-                    - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
-
-                      Tool calls require user confirmation before execution.
-
-                  - `Type Grep`
-
-                - `type BetaManagedAgentsWebFetchToolConfig struct{…}`
-
-                  Configuration for the web_fetch tool.
-
-                  - `Enabled bool`
-
-                  - `Name WebFetch`
-
-                  - `PermissionPolicy BetaManagedAgentsWebFetchToolConfigPermissionPolicyUnion`
-
-                    Permission policy for tool execution.
-
-                    - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
-
-                      Tool calls are automatically approved without user confirmation.
-
-                    - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
-
-                      Tool calls require user confirmation before execution.
-
-                  - `Type WebFetch`
-
-                  - `AllowedDomains []string Optional`
-
-                  - `BlockedDomains []string Optional`
-
-                  - `MaxContentTokens int64 Optional`
-
-                    format: int32
-
-                - `type BetaManagedAgentsWebSearchToolConfig struct{…}`
-
-                  Configuration for the web_search tool.
-
-                  - `Enabled bool`
-
-                  - `Name WebSearch`
-
-                  - `PermissionPolicy BetaManagedAgentsWebSearchToolConfigPermissionPolicyUnion`
-
-                    Permission policy for tool execution.
-
-                    - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
-
-                      Tool calls are automatically approved without user confirmation.
-
-                    - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
-
-                      Tool calls require user confirmation before execution.
-
-                  - `Type WebSearch`
-
-                  - `AllowedDomains []string Optional`
-
-                  - `BlockedDomains []string Optional`
-
-                  - `UserLocation BetaManagedAgentsUserLocation Optional`
-
-                    Approximate user location for search result localization.
-
-                    - `Type Approximate`
-
-                      Location precision. Only "approximate" is supported.
-
-                    - `City string Optional`
-
-                      City name.
-
-                      minLength: 1, maxLength: 255
-
-                    - `Country string Optional`
-
-                      Two-letter ISO 3166-1 country code, uppercase.
-
-                    - `Region string Optional`
-
-                      Region or state name.
-
-                      minLength: 1, maxLength: 255
-
-                    - `Timezone string Optional`
-
-                      IANA timezone identifier, e.g. "America/Los_Angeles".
-
-                      minLength: 1, maxLength: 255
-
-              - `DefaultConfig BetaManagedAgentsAgentToolsetDefaultConfig`
-
-                Resolved default configuration for agent tools.
-
-                - `Enabled bool`
-
-                - `PermissionPolicy BetaManagedAgentsAgentToolsetDefaultConfigPermissionPolicyUnion`
-
-                  Permission policy for tool execution.
-
-                  - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
-
-                    Tool calls are automatically approved without user confirmation.
-
-                  - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
-
-                    Tool calls require user confirmation before execution.
-
-              - `Type BetaManagedAgentsAgentToolset20260401Type`
-
-            - `type BetaManagedAgentsMCPToolset struct{…}`
-
-              - `Configs []BetaManagedAgentsMCPToolConfig`
-
-                - `Enabled bool`
-
-                - `Name string`
-
-                - `PermissionPolicy BetaManagedAgentsMCPToolConfigPermissionPolicyUnion`
-
-                  Permission policy for tool execution.
-
-                  - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
-
-                    Tool calls are automatically approved without user confirmation.
-
-                  - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
-
-                    Tool calls require user confirmation before execution.
-
-              - `DefaultConfig BetaManagedAgentsMCPToolsetDefaultConfig`
-
-                Resolved default configuration for all tools from an MCP server.
-
-                - `Enabled bool`
-
-                - `PermissionPolicy BetaManagedAgentsMCPToolsetDefaultConfigPermissionPolicyUnion`
-
-                  Permission policy for tool execution.
-
-                  - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
-
-                    Tool calls are automatically approved without user confirmation.
-
-                  - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
-
-                    Tool calls require user confirmation before execution.
-
-              - `MCPServerName string`
-
-              - `Type BetaManagedAgentsMCPToolsetType`
-
-            - `type BetaManagedAgentsCustomTool struct{…}`
-
-              A custom tool as returned in API responses.
-
-              - `Description string`
-
-              - `InputSchema BetaManagedAgentsCustomToolInputSchema`
-
-                JSON Schema for custom tool input parameters.
-
-                - `Type Object`
-
-                - `Properties map[string, any] Optional`
-
-                - `Required []string Optional`
-
-              - `Name string`
-
-              - `Type BetaManagedAgentsCustomToolType`
-
-          - `Type BetaManagedAgentsSessionThreadAgentType`
-
-          - `Version int64`
-
-            format: int32
-
-        - `type BetaManagedAgentsAdvisor struct{…}`
-
-          Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
-
-          - `Model string`
-
-            The advisor model id.
-
-          - `Type BetaManagedAgentsAdvisorType`
-
-      - `Type BetaManagedAgentsSessionMultiagentCoordinatorType`
-
-    - `Name string`
-
-    - `Skills []BetaManagedAgentsSessionAgentSkillUnion`
-
-      - `type BetaManagedAgentsAnthropicSkill struct{…}`
-
-        A resolved Anthropic-managed skill.
-
-      - `type BetaManagedAgentsCustomSkill struct{…}`
-
-        A resolved user-created custom skill.
-
-    - `System string`
-
-    - `Tools []BetaManagedAgentsSessionAgentToolUnion`
-
-      - `type BetaManagedAgentsAgentToolset20260401 struct{…}`
-
-      - `type BetaManagedAgentsMCPToolset struct{…}`
-
-      - `type BetaManagedAgentsCustomTool struct{…}`
-
-        A custom tool as returned in API responses.
-
-    - `Type BetaManagedAgentsSessionAgentType`
-
-    - `Version int64`
-
-      format: int32
-
-  - `ArchivedAt Time`
-
-    A timestamp in RFC 3339 format
-
-    format: date-time
-
-  - `Budget BetaManagedAgentsBudgetLimit`
-
-    A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
-
-    - `MaxListCost BetaMonetaryAmount`
-
-      A monetary amount in a specific currency.
-
-      - `Amount string`
-
-        Amount in minor units of the currency, as an integer decimal string with no leading zeros: "2500" is $25.00 and "50" is fifty cents. A string rather than a number so no float rounding is ever applied.
-
-      - `Currency BetaCurrency`
-
-        Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
-
-    - `Type BetaManagedAgentsBudgetLimitType`
-
-  - `CreatedAt Time`
-
-    A timestamp in RFC 3339 format
-
-    format: date-time
-
-  - `EnvironmentID string`
-
-  - `Metadata map[string, string]`
-
-  - `OutcomeEvaluations []BetaManagedAgentsOutcomeEvaluationResource`
-
-    Per-outcome evaluation state. One entry per `define_outcome` event sent to the session.
-
-    - `CompletedAt Time`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `Description string`
-
-      What the agent should produce.
-
-    - `Explanation string`
-
-      Grader's verdict text from the most recent evaluation. For `satisfied`, explains why criteria are met; for `needs_revision` (intermediate), what's missing; for `failed`, why unrecoverable.
-
-    - `Iteration int64`
-
-      0-indexed revision cycle the outcome is currently on.
-
-      format: int32
-
-    - `OutcomeID string`
-
-      Server-generated outc_ ID for this outcome.
-
-    - `Result string`
-
-      Current evaluation state. `pending` before the agent begins work; `running` while producing or revising; `evaluating` while the grader scores; `satisfied`/`max_iterations_reached`/`failed`/`interrupted` are terminal.
-
-    - `Type BetaManagedAgentsOutcomeEvaluationResourceType`
-
-  - `Resources []BetaManagedAgentsSessionResourceUnion`
-
-    - `type BetaManagedAgentsGitHubRepositoryResource struct{…}`
-
-      - `ID string`
-
-      - `CreatedAt Time`
-
-        A timestamp in RFC 3339 format
-
-        format: date-time
-
-      - `MountPath string`
-
-      - `Type BetaManagedAgentsGitHubRepositoryResourceType`
-
-      - `UpdatedAt Time`
-
-        A timestamp in RFC 3339 format
-
-        format: date-time
-
-      - `URL string`
-
-      - `Checkout BetaManagedAgentsGitHubRepositoryResourceCheckoutUnion Optional`
-
-        - `type BetaManagedAgentsBranchCheckout struct{…}`
-
-          - `Name string`
-
-            Branch name to check out.
-
-            minLength: 1, maxLength: 255
-
-          - `Type BetaManagedAgentsBranchCheckoutType`
-
-        - `type BetaManagedAgentsCommitCheckout struct{…}`
-
-          - `Sha string`
-
-            Full commit SHA to check out.
-
-            minLength: 7, maxLength: 64
-
-          - `Type BetaManagedAgentsCommitCheckoutType`
-
-    - `type BetaManagedAgentsFileResource struct{…}`
-
-      - `ID string`
-
-      - `CreatedAt Time`
-
-        A timestamp in RFC 3339 format
-
-        format: date-time
-
-      - `FileID string`
-
-      - `MountPath string`
-
-      - `Type BetaManagedAgentsFileResourceType`
-
-      - `UpdatedAt Time`
-
-        A timestamp in RFC 3339 format
-
-        format: date-time
-
-    - `type BetaManagedAgentsMemoryStoreResource struct{…}`
-
-      A memory store attached to an agent session.
-
-      - `MemoryStoreID string`
-
-        The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
-
-      - `Type BetaManagedAgentsMemoryStoreResourceType`
-
-      - `Access BetaManagedAgentsMemoryStoreResourceAccess Optional`
-
-        Access mode for an attached memory store.
-
-        - `const BetaManagedAgentsMemoryStoreResourceAccessReadWrite BetaManagedAgentsMemoryStoreResourceAccess = "read_write"`
-
-        - `const BetaManagedAgentsMemoryStoreResourceAccessReadOnly BetaManagedAgentsMemoryStoreResourceAccess = "read_only"`
-
-      - `Description string Optional`

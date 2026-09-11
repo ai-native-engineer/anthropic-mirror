@@ -8,7 +8,7 @@ Helps pK-12 educators build practical AI fluency through the 4D Framework, suppo
 
 10 lessons3 hr1 quizCompletion badge
 
-[Start course](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/how-this-course-was-made)[Sign in to save progress](https://academy.claude.com/login?returnTo=https%3A%2F%2Facademy.claude.com%2Fcourses%2Fai-fluency-for-k-12-educators)
+[Start course](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/how-this-course-was-made)[Sign in to save progress](https://academy.claude.com/login?returnTo=%2Fcourses%2Fai-fluency-for-k-12-educators)
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-imfe3sqb.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-hmyzns9m.png)
 

@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/python/beta/sessions/threads/archive -->
 
+---
+title: Archive Session Thread
+url: https://platform.claude.com/docs/en/api/python/beta/sessions/threads/archive
+---
+
 # Archive Session Thread
 
 `beta.sessions.threads.archive(thread_id, **kwargs)  -> BetaManagedAgentsSessionThread`
@@ -20,7 +25,7 @@ Archive Session Thread
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 41 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 42 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -68,6 +73,8 @@ Archive Session Thread
 
     - `"user-profiles-2026-08-18"`
 
+    - `"user-profiles-2026-09-04"`
+
     - `"advisor-tool-2026-03-01"`
 
     - `"managed-agents-2026-04-01"`
@@ -110,11 +117,15 @@ Archive Session Thread
 
     - `"mid-conversation-system-clear-at-2026-08-21"`
 
+- `workspace_id: Optional[str]`
+
 ## Returns
 
 - `class BetaManagedAgentsSessionThread: …`
 
   An execution thread within a `session`. Each session has one primary thread plus zero or more child threads spawned by the coordinator.
+
+  - `type: Literal["session_thread"]`
 
   - `id: str`
 
@@ -128,15 +139,17 @@ Archive Session Thread
 
       Resolved `agent` definition for a single `session_thread`. Snapshot of the agent at thread creation time. The multiagent roster is not repeated here; read it from `Session.agent`.
 
+      - `type: Literal["agent"]`
+
       - `id: str`
 
       - `description: Optional[str]`
 
       - `mcp_servers: List[BetaManagedAgentsMCPServerURLDefinition]`
 
-        - `name: str`
-
         - `type: Literal["url"]`
+
+        - `name: str`
 
         - `url: str`
 
@@ -283,9 +296,9 @@ Archive Session Thread
 
           A resolved Anthropic-managed skill.
 
-          - `skill_id: str`
-
           - `type: Literal["anthropic"]`
+
+          - `skill_id: str`
 
           - `version: str`
 
@@ -293,9 +306,9 @@ Archive Session Thread
 
           A resolved user-created custom skill.
 
-          - `skill_id: str`
-
           - `type: Literal["custom"]`
+
+          - `skill_id: str`
 
           - `version: str`
 
@@ -305,11 +318,15 @@ Archive Session Thread
 
         - `class BetaManagedAgentsAgentToolset20260401: …`
 
+          - `type: Literal["agent_toolset_20260401"]`
+
           - `configs: List[BetaManagedAgentsAgentToolConfig]`
 
             - `class BetaManagedAgentsBashToolConfig: …`
 
               Configuration for the bash tool.
+
+              - `type: Literal["bash"]`
 
               - `enabled: bool`
 
@@ -331,11 +348,17 @@ Archive Session Thread
 
                   - `type: Literal["always_ask"]`
 
-              - `type: Literal["bash"]`
+                - `class BetaManagedAgentsAutoPolicy: …`
+
+                  The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+                  - `type: Literal["auto"]`
 
             - `class BetaManagedAgentsEditToolConfig: …`
 
               Configuration for the edit tool.
+
+              - `type: Literal["edit"]`
 
               - `enabled: bool`
 
@@ -353,11 +376,15 @@ Archive Session Thread
 
                   Tool calls require user confirmation before execution.
 
-              - `type: Literal["edit"]`
+                - `class BetaManagedAgentsAutoPolicy: …`
+
+                  The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
             - `class BetaManagedAgentsReadToolConfig: …`
 
               Configuration for the read tool.
+
+              - `type: Literal["read"]`
 
               - `enabled: bool`
 
@@ -375,11 +402,15 @@ Archive Session Thread
 
                   Tool calls require user confirmation before execution.
 
-              - `type: Literal["read"]`
+                - `class BetaManagedAgentsAutoPolicy: …`
+
+                  The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
             - `class BetaManagedAgentsWriteToolConfig: …`
 
               Configuration for the write tool.
+
+              - `type: Literal["write"]`
 
               - `enabled: bool`
 
@@ -397,11 +428,15 @@ Archive Session Thread
 
                   Tool calls require user confirmation before execution.
 
-              - `type: Literal["write"]`
+                - `class BetaManagedAgentsAutoPolicy: …`
+
+                  The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
             - `class BetaManagedAgentsGlobToolConfig: …`
 
               Configuration for the glob tool.
+
+              - `type: Literal["glob"]`
 
               - `enabled: bool`
 
@@ -419,11 +454,15 @@ Archive Session Thread
 
                   Tool calls require user confirmation before execution.
 
-              - `type: Literal["glob"]`
+                - `class BetaManagedAgentsAutoPolicy: …`
+
+                  The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
             - `class BetaManagedAgentsGrepToolConfig: …`
 
               Configuration for the grep tool.
+
+              - `type: Literal["grep"]`
 
               - `enabled: bool`
 
@@ -441,11 +480,15 @@ Archive Session Thread
 
                   Tool calls require user confirmation before execution.
 
-              - `type: Literal["grep"]`
+                - `class BetaManagedAgentsAutoPolicy: …`
+
+                  The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
             - `class BetaManagedAgentsWebFetchToolConfig: …`
 
               Configuration for the web_fetch tool.
+
+              - `type: Literal["web_fetch"]`
 
               - `enabled: bool`
 
@@ -463,7 +506,9 @@ Archive Session Thread
 
                   Tool calls require user confirmation before execution.
 
-              - `type: Literal["web_fetch"]`
+                - `class BetaManagedAgentsAutoPolicy: …`
+
+                  The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
               - `allowed_domains: Optional[List[str]]`
 
@@ -476,6 +521,8 @@ Archive Session Thread
             - `class BetaManagedAgentsWebSearchToolConfig: …`
 
               Configuration for the web_search tool.
+
+              - `type: Literal["web_search"]`
 
               - `enabled: bool`
 
@@ -493,7 +540,9 @@ Archive Session Thread
 
                   Tool calls require user confirmation before execution.
 
-              - `type: Literal["web_search"]`
+                - `class BetaManagedAgentsAutoPolicy: …`
+
+                  The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
               - `allowed_domains: Optional[List[str]]`
 
@@ -547,9 +596,13 @@ Archive Session Thread
 
                 Tool calls require user confirmation before execution.
 
-          - `type: Literal["agent_toolset_20260401"]`
+              - `class BetaManagedAgentsAutoPolicy: …`
+
+                The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `class BetaManagedAgentsMCPToolset: …`
+
+          - `type: Literal["mcp_toolset"]`
 
           - `configs: List[BetaManagedAgentsMCPToolConfig]`
 
@@ -569,6 +622,10 @@ Archive Session Thread
 
                 Tool calls require user confirmation before execution.
 
+              - `class BetaManagedAgentsAutoPolicy: …`
+
+                The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
           - `default_config: BetaManagedAgentsMCPToolsetDefaultConfig`
 
             Resolved default configuration for all tools from an MCP server.
@@ -587,13 +644,17 @@ Archive Session Thread
 
                 Tool calls require user confirmation before execution.
 
-          - `mcp_server_name: str`
+              - `class BetaManagedAgentsAutoPolicy: …`
 
-          - `type: Literal["mcp_toolset"]`
+                The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+          - `mcp_server_name: str`
 
         - `class BetaManagedAgentsCustomTool: …`
 
           A custom tool as returned in API responses.
+
+          - `type: Literal["custom"]`
 
           - `description: str`
 
@@ -609,10 +670,6 @@ Archive Session Thread
 
           - `name: str`
 
-          - `type: Literal["custom"]`
-
-      - `type: Literal["agent"]`
-
       - `version: int`
 
         format: int32
@@ -621,11 +678,11 @@ Archive Session Thread
 
       Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
 
+      - `type: Literal["advisor"]`
+
       - `model: str`
 
         The advisor model id.
-
-      - `type: Literal["advisor"]`
 
   - `archived_at: Optional[datetime]`
 
@@ -680,8 +737,6 @@ Archive Session Thread
     - `"rescheduling"`
 
     - `"terminated"`
-
-  - `type: Literal["session_thread"]`
 
   - `updated_at: datetime`
 

@@ -8,7 +8,7 @@ The full spectrum of working with Anthropic models using the Claude API: prompti
 
 67 lessons9 hr8 quizzesCompletion badge
 
-[Start course](https://academy.claude.com/courses/building-with-the-claude-api/accessing-the-api)[Sign in to save progress](https://academy.claude.com/login?returnTo=https%3A%2F%2Facademy.claude.com%2Fcourses%2Fbuilding-with-the-claude-api)
+[Start course](https://academy.claude.com/courses/building-with-the-claude-api/accessing-the-api)[Sign in to save progress](https://academy.claude.com/login?returnTo=%2Fcourses%2Fbuilding-with-the-claude-api)
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-fbajem3t.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-mp5ojhrh.png)
 

@@ -1,8 +1,13 @@
 <!-- source: https://platform.claude.com/docs/en/api/php/beta/vaults/list -->
 
+---
+title: List Vaults
+url: https://platform.claude.com/docs/en/api/php/beta/vaults/list
+---
+
 # List Vaults
 
-`$client->beta->vaults->list(?bool includeArchived, ?int limit, ?string page, ?list<AnthropicBeta> betas): PageCursor<BetaManagedAgentsVault>`
+`$client->beta->vaults->list(?bool includeArchived, ?int limit, ?string page, ?list<AnthropicBeta> betas, ?string workspaceID): PageCursor<BetaManagedAgentsVault>`
 
 **GET** `/v1/vaults`
 
@@ -26,9 +31,13 @@ List Vaults
 
   Optional header to specify the beta version(s) you want to use.
 
+- `workspaceID?:optional string`
+
 ## Returns
 
 - `BetaManagedAgentsVault`
+
+  - `Type type`
 
   - `string id`
 
@@ -50,8 +59,6 @@ List Vaults
 
     Arbitrary key-value metadata attached to the vault.
 
-  - `Type type`
-
   - `\Datetime updatedAt`
 
     A timestamp in RFC 3339 format
@@ -70,6 +77,7 @@ $page = $client->beta->vaults->list(
   limit: 0,
   page: 'page',
   betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+  workspaceID: 'wrkspc_011CZkZaBF1tNoB5wlCeusgy',
 );
 
 var_dump($page);

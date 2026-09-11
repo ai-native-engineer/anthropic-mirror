@@ -8,7 +8,7 @@ A technical guide for how to transform your software development lifecycle (SDLC
 
 14 lessons1 hr
 
-[Start course](https://academy.claude.com/courses/ai-native-sdlc-playbook/introduction)[Sign in to save progress](https://academy.claude.com/login?returnTo=https%3A%2F%2Facademy.claude.com%2Fcourses%2Fai-native-sdlc-playbook)
+[Start course](https://academy.claude.com/courses/ai-native-sdlc-playbook/introduction)[Sign in to save progress](https://academy.claude.com/login?returnTo=%2Fcourses%2Fai-native-sdlc-playbook)
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-nhb0ms08.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-h7rjkd88.png)
 

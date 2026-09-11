@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/cli/beta/environments -->
 
+---
+title: Environments
+url: https://platform.claude.com/docs/en/api/cli/beta/environments
+---
+
 # Environments
 
 ## Create Environment
@@ -34,17 +39,27 @@ Create a new environment with the specified configuration.
 
 - `--scope: optional "organization" or "account"`
 
-  Body param: The visibility scope for this environment. 'organization' makes the environment visible to all accounts. 'account' restricts visibility to the owning account only. Only applicable for self-hosted environments. If not specified, defaults based on organization type.
+  Body param: The visibility scope for this environment. 'organization' makes the environment visible to all accounts. 'account' restricts visibility to the owning account only. API organizations support only 'organization'; 'account' is rejected. If not specified, defaults based on organization type.
 
 - `--beta: optional array of AnthropicBeta`
 
   Header param: Optional header to specify the beta version(s) you want to use.
+
+- `--workspace-id: optional string`
+
+  Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
 ### Returns
 
 - `beta_environment: object`
 
   Unified Environment resource for both cloud and self-hosted environments.
+
+  - `type: "environment"`
+
+    The type of object (always 'environment')
 
   - `id: string`
 
@@ -62,6 +77,10 @@ Create a new environment with the specified configuration.
 
       `cloud` environment configuration.
 
+      - `type: "cloud"`
+
+        Environment type
+
       - `networking: BetaUnrestrictedNetwork or BetaLimitedNetwork`
 
         Network configuration policy.
@@ -78,6 +97,10 @@ Create a new environment with the specified configuration.
 
           Limited network access.
 
+          - `type: "limited"`
+
+            Network policy type
+
           - `allow_mcp_servers: boolean`
 
             Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
@@ -90,13 +113,13 @@ Create a new environment with the specified configuration.
 
             Specifies domains the container can reach.
 
-          - `type: "limited"`
-
-            Network policy type
-
       - `packages: object`
 
         Package manager configuration.
+
+        - `type: optional "packages"`
+
+          Package configuration type
 
         - `apt: array of string`
 
@@ -122,14 +145,6 @@ Create a new environment with the specified configuration.
 
           Python packages to install
 
-        - `type: optional "packages"`
-
-          Package configuration type
-
-      - `type: "cloud"`
-
-        Environment type
-
     - `beta_self_hosted_config: object`
 
       Configuration for self-hosted environments.
@@ -153,10 +168,6 @@ Create a new environment with the specified configuration.
   - `name: string`
 
     Human-readable name for the environment
-
-  - `type: "environment"`
-
-    The type of object (always 'environment')
 
   - `updated_at: string`
 
@@ -255,6 +266,12 @@ List environments with pagination support.
 
   Header param: Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ### Returns
 
 - `BetaEnvironmentListResponse: object`
@@ -267,6 +284,10 @@ List environments with pagination support.
   - `data: array of BetaEnvironment`
 
     List of environments.
+
+    - `type: "environment"`
+
+      The type of object (always 'environment')
 
     - `id: string`
 
@@ -284,6 +305,10 @@ List environments with pagination support.
 
         `cloud` environment configuration.
 
+        - `type: "cloud"`
+
+          Environment type
+
         - `networking: BetaUnrestrictedNetwork or BetaLimitedNetwork`
 
           Network configuration policy.
@@ -300,6 +325,10 @@ List environments with pagination support.
 
             Limited network access.
 
+            - `type: "limited"`
+
+              Network policy type
+
             - `allow_mcp_servers: boolean`
 
               Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
@@ -312,13 +341,13 @@ List environments with pagination support.
 
               Specifies domains the container can reach.
 
-            - `type: "limited"`
-
-              Network policy type
-
         - `packages: object`
 
           Package manager configuration.
+
+          - `type: optional "packages"`
+
+            Package configuration type
 
           - `apt: array of string`
 
@@ -344,14 +373,6 @@ List environments with pagination support.
 
             Python packages to install
 
-          - `type: optional "packages"`
-
-            Package configuration type
-
-        - `type: "cloud"`
-
-          Environment type
-
       - `beta_self_hosted_config: object`
 
         Configuration for self-hosted environments.
@@ -375,10 +396,6 @@ List environments with pagination support.
     - `name: string`
 
       Human-readable name for the environment
-
-    - `type: "environment"`
-
-      The type of object (always 'environment')
 
     - `updated_at: string`
 
@@ -473,11 +490,21 @@ Retrieve a specific environment by ID.
 
   Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ### Returns
 
 - `beta_environment: object`
 
   Unified Environment resource for both cloud and self-hosted environments.
+
+  - `type: "environment"`
+
+    The type of object (always 'environment')
 
   - `id: string`
 
@@ -495,6 +522,10 @@ Retrieve a specific environment by ID.
 
       `cloud` environment configuration.
 
+      - `type: "cloud"`
+
+        Environment type
+
       - `networking: BetaUnrestrictedNetwork or BetaLimitedNetwork`
 
         Network configuration policy.
@@ -511,6 +542,10 @@ Retrieve a specific environment by ID.
 
           Limited network access.
 
+          - `type: "limited"`
+
+            Network policy type
+
           - `allow_mcp_servers: boolean`
 
             Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
@@ -523,13 +558,13 @@ Retrieve a specific environment by ID.
 
             Specifies domains the container can reach.
 
-          - `type: "limited"`
-
-            Network policy type
-
       - `packages: object`
 
         Package manager configuration.
+
+        - `type: optional "packages"`
+
+          Package configuration type
 
         - `apt: array of string`
 
@@ -555,14 +590,6 @@ Retrieve a specific environment by ID.
 
           Python packages to install
 
-        - `type: optional "packages"`
-
-          Package configuration type
-
-      - `type: "cloud"`
-
-        Environment type
-
     - `beta_self_hosted_config: object`
 
       Configuration for self-hosted environments.
@@ -586,10 +613,6 @@ Retrieve a specific environment by ID.
   - `name: string`
 
     Human-readable name for the environment
-
-  - `type: "environment"`
-
-    The type of object (always 'environment')
 
   - `updated_at: string`
 
@@ -702,11 +725,21 @@ Update an existing environment's configuration.
 
   Header param: Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ### Returns
 
 - `beta_environment: object`
 
   Unified Environment resource for both cloud and self-hosted environments.
+
+  - `type: "environment"`
+
+    The type of object (always 'environment')
 
   - `id: string`
 
@@ -724,6 +757,10 @@ Update an existing environment's configuration.
 
       `cloud` environment configuration.
 
+      - `type: "cloud"`
+
+        Environment type
+
       - `networking: BetaUnrestrictedNetwork or BetaLimitedNetwork`
 
         Network configuration policy.
@@ -740,6 +777,10 @@ Update an existing environment's configuration.
 
           Limited network access.
 
+          - `type: "limited"`
+
+            Network policy type
+
           - `allow_mcp_servers: boolean`
 
             Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
@@ -752,13 +793,13 @@ Update an existing environment's configuration.
 
             Specifies domains the container can reach.
 
-          - `type: "limited"`
-
-            Network policy type
-
       - `packages: object`
 
         Package manager configuration.
+
+        - `type: optional "packages"`
+
+          Package configuration type
 
         - `apt: array of string`
 
@@ -784,14 +825,6 @@ Update an existing environment's configuration.
 
           Python packages to install
 
-        - `type: optional "packages"`
-
-          Package configuration type
-
-      - `type: "cloud"`
-
-        Environment type
-
     - `beta_self_hosted_config: object`
 
       Configuration for self-hosted environments.
@@ -815,10 +848,6 @@ Update an existing environment's configuration.
   - `name: string`
 
     Human-readable name for the environment
-
-  - `type: "environment"`
-
-    The type of object (always 'environment')
 
   - `updated_at: string`
 
@@ -905,19 +934,25 @@ Delete an environment by ID. Returns a confirmation of the deletion.
 
   Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ### Returns
 
 - `beta_environment_delete_response: object`
 
   Response after deleting an environment.
 
-  - `id: string`
-
-    Environment identifier
-
   - `type: "environment_deleted"`
 
     The type of response
+
+  - `id: string`
+
+    Environment identifier
 
 ### Example
 
@@ -952,11 +987,21 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
   Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ### Returns
 
 - `beta_environment: object`
 
   Unified Environment resource for both cloud and self-hosted environments.
+
+  - `type: "environment"`
+
+    The type of object (always 'environment')
 
   - `id: string`
 
@@ -974,6 +1019,10 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
       `cloud` environment configuration.
 
+      - `type: "cloud"`
+
+        Environment type
+
       - `networking: BetaUnrestrictedNetwork or BetaLimitedNetwork`
 
         Network configuration policy.
@@ -990,6 +1039,10 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
           Limited network access.
 
+          - `type: "limited"`
+
+            Network policy type
+
           - `allow_mcp_servers: boolean`
 
             Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
@@ -1002,13 +1055,13 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
             Specifies domains the container can reach.
 
-          - `type: "limited"`
-
-            Network policy type
-
       - `packages: object`
 
         Package manager configuration.
+
+        - `type: optional "packages"`
+
+          Package configuration type
 
         - `apt: array of string`
 
@@ -1034,14 +1087,6 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
           Python packages to install
 
-        - `type: optional "packages"`
-
-          Package configuration type
-
-      - `type: "cloud"`
-
-        Environment type
-
     - `beta_self_hosted_config: object`
 
       Configuration for self-hosted environments.
@@ -1065,10 +1110,6 @@ Archive an environment by ID. Archived environments cannot be used to create new
   - `name: string`
 
     Human-readable name for the environment
-
-  - `type: "environment"`
-
-    The type of object (always 'environment')
 
   - `updated_at: string`
 
@@ -1147,6 +1188,10 @@ ant beta:environments archive \
 
   `cloud` environment configuration.
 
+  - `type: "cloud"`
+
+    Environment type
+
   - `networking: BetaUnrestrictedNetwork or BetaLimitedNetwork`
 
     Network configuration policy.
@@ -1163,6 +1208,10 @@ ant beta:environments archive \
 
       Limited network access.
 
+      - `type: "limited"`
+
+        Network policy type
+
       - `allow_mcp_servers: boolean`
 
         Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
@@ -1175,13 +1224,13 @@ ant beta:environments archive \
 
         Specifies domains the container can reach.
 
-      - `type: "limited"`
-
-        Network policy type
-
   - `packages: object`
 
     Package manager configuration.
+
+    - `type: optional "packages"`
+
+      Package configuration type
 
     - `apt: array of string`
 
@@ -1206,14 +1255,6 @@ ant beta:environments archive \
     - `pip: array of string`
 
       Python packages to install
-
-    - `type: optional "packages"`
-
-      Package configuration type
-
-  - `type: "cloud"`
-
-    Environment type
 
 ### Beta Cloud Config Params
 
@@ -1271,6 +1312,10 @@ ant beta:environments archive \
 
     Under `limited` networking, requires `networking.allow_package_managers` to be `true`.
 
+    - `type: optional "packages"`
+
+      Package configuration type
+
     - `apt: optional array of string`
 
       Ubuntu/Debian packages to install
@@ -1295,15 +1340,15 @@ ant beta:environments archive \
 
       Python packages to install
 
-    - `type: optional "packages"`
-
-      Package configuration type
-
 ### Beta Environment
 
 - `beta_environment: object`
 
   Unified Environment resource for both cloud and self-hosted environments.
+
+  - `type: "environment"`
+
+    The type of object (always 'environment')
 
   - `id: string`
 
@@ -1321,6 +1366,10 @@ ant beta:environments archive \
 
       `cloud` environment configuration.
 
+      - `type: "cloud"`
+
+        Environment type
+
       - `networking: BetaUnrestrictedNetwork or BetaLimitedNetwork`
 
         Network configuration policy.
@@ -1337,6 +1386,10 @@ ant beta:environments archive \
 
           Limited network access.
 
+          - `type: "limited"`
+
+            Network policy type
+
           - `allow_mcp_servers: boolean`
 
             Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
@@ -1349,13 +1402,13 @@ ant beta:environments archive \
 
             Specifies domains the container can reach.
 
-          - `type: "limited"`
-
-            Network policy type
-
       - `packages: object`
 
         Package manager configuration.
+
+        - `type: optional "packages"`
+
+          Package configuration type
 
         - `apt: array of string`
 
@@ -1381,14 +1434,6 @@ ant beta:environments archive \
 
           Python packages to install
 
-        - `type: optional "packages"`
-
-          Package configuration type
-
-      - `type: "cloud"`
-
-        Environment type
-
     - `beta_self_hosted_config: object`
 
       Configuration for self-hosted environments.
@@ -1413,10 +1458,6 @@ ant beta:environments archive \
 
     Human-readable name for the environment
 
-  - `type: "environment"`
-
-    The type of object (always 'environment')
-
   - `updated_at: string`
 
     RFC 3339 timestamp when environment was last updated
@@ -1435,19 +1476,23 @@ ant beta:environments archive \
 
   Response after deleting an environment.
 
-  - `id: string`
-
-    Environment identifier
-
   - `type: "environment_deleted"`
 
     The type of response
+
+  - `id: string`
+
+    Environment identifier
 
 ### Beta Limited Network
 
 - `beta_limited_network: object`
 
   Limited network access.
+
+  - `type: "limited"`
+
+    Network policy type
 
   - `allow_mcp_servers: boolean`
 
@@ -1460,10 +1505,6 @@ ant beta:environments archive \
   - `allowed_hosts: array of string`
 
     Specifies domains the container can reach.
-
-  - `type: "limited"`
-
-    Network policy type
 
 ### Beta Limited Network Params
 
@@ -1496,6 +1537,10 @@ ant beta:environments archive \
 
   Packages (and their versions) available in this environment.
 
+  - `type: optional "packages"`
+
+    Package configuration type
+
   - `apt: array of string`
 
     Ubuntu/Debian packages to install
@@ -1520,10 +1565,6 @@ ant beta:environments archive \
 
     Python packages to install
 
-  - `type: optional "packages"`
-
-    Package configuration type
-
 ### Beta Packages Params
 
 - `beta_packages_params: object`
@@ -1533,6 +1574,10 @@ ant beta:environments archive \
   When versioning, use the version semantics relevant for the package manager, e.g. for `pip` use `package==1.0.0`. You are responsible for validating the package and version exist. Unversioned installs the latest.
 
   Under `limited` networking, requires `networking.allow_package_managers` to be `true`.
+
+  - `type: optional "packages"`
+
+    Package configuration type
 
   - `apt: optional array of string`
 
@@ -1557,10 +1602,6 @@ ant beta:environments archive \
   - `pip: optional array of string`
 
     Python packages to install
-
-  - `type: optional "packages"`
-
-    Package configuration type
 
 ### Beta Self Hosted Config
 
@@ -1618,6 +1659,12 @@ Retrieve detailed information about a specific work item.
 
   Header param: Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `beta_self_hosted_work: object`
@@ -1627,6 +1674,10 @@ Retrieve detailed information about a specific work item.
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
+  - `type: "work"`
+
+    The type of object (always 'work')
 
   - `id: string`
 
@@ -1644,13 +1695,13 @@ Retrieve detailed information about a specific work item.
 
     The actual work to be performed
 
-    - `id: string`
-
-      Session identifier (e.g., 'session_...')
-
     - `type: "session"`
 
       Type of work data
+
+    - `id: string`
+
+      Session identifier (e.g., 'session_...')
 
   - `environment_id: string`
 
@@ -1693,10 +1744,6 @@ Retrieve detailed information about a specific work item.
   - `stopped_at: string`
 
     RFC 3339 timestamp when work execution stopped
-
-  - `type: "work"`
-
-    The type of object (always 'work')
 
 #### Example
 
@@ -1778,6 +1825,10 @@ Long poll for work items in the queue.
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
 
+  - `type: "work"`
+
+    The type of object (always 'work')
+
   - `id: string`
 
     Work identifier (e.g., 'work_...')
@@ -1794,13 +1845,13 @@ Long poll for work items in the queue.
 
     The actual work to be performed
 
-    - `id: string`
-
-      Session identifier (e.g., 'session_...')
-
     - `type: "session"`
 
       Type of work data
+
+    - `id: string`
+
+      Session identifier (e.g., 'session_...')
 
   - `environment_id: string`
 
@@ -1843,10 +1894,6 @@ Long poll for work items in the queue.
   - `stopped_at: string`
 
     RFC 3339 timestamp when work execution stopped
-
-  - `type: "work"`
-
-    The type of object (always 'work')
 
 #### Example
 
@@ -1915,6 +1962,10 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
 
+  - `type: "work"`
+
+    The type of object (always 'work')
+
   - `id: string`
 
     Work identifier (e.g., 'work_...')
@@ -1931,13 +1982,13 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
 
     The actual work to be performed
 
-    - `id: string`
-
-      Session identifier (e.g., 'session_...')
-
     - `type: "session"`
 
       Type of work data
+
+    - `id: string`
+
+      Session identifier (e.g., 'session_...')
 
   - `environment_id: string`
 
@@ -1980,10 +2031,6 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
   - `stopped_at: string`
 
     RFC 3339 timestamp when work execution stopped
-
-  - `type: "work"`
-
-    The type of object (always 'work')
 
 #### Example
 
@@ -2057,6 +2104,10 @@ Record a heartbeat for a work item to maintain the lease.
 
   Response after recording a heartbeat for a work item.
 
+  - `type: "work_heartbeat"`
+
+    The type of response
+
   - `last_heartbeat: string`
 
     RFC 3339 timestamp of the actual heartbeat from DB
@@ -2082,10 +2133,6 @@ Record a heartbeat for a work item to maintain the lease.
   - `ttl_seconds: number`
 
     Effective TTL applied to the lease
-
-  - `type: "work_heartbeat"`
-
-    The type of response
 
 #### Example
 
@@ -2136,6 +2183,12 @@ Stop a work item, initiating graceful or forced shutdown.
 
   Header param: Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `beta_self_hosted_work: object`
@@ -2145,6 +2198,10 @@ Stop a work item, initiating graceful or forced shutdown.
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
+  - `type: "work"`
+
+    The type of object (always 'work')
 
   - `id: string`
 
@@ -2162,13 +2219,13 @@ Stop a work item, initiating graceful or forced shutdown.
 
     The actual work to be performed
 
-    - `id: string`
-
-      Session identifier (e.g., 'session_...')
-
     - `type: "session"`
 
       Type of work data
+
+    - `id: string`
+
+      Session identifier (e.g., 'session_...')
 
   - `environment_id: string`
 
@@ -2211,10 +2268,6 @@ Stop a work item, initiating graceful or forced shutdown.
   - `stopped_at: string`
 
     RFC 3339 timestamp when work execution stopped
-
-  - `type: "work"`
-
-    The type of object (always 'work')
 
 #### Example
 
@@ -2290,6 +2343,10 @@ List work items in an environment.
 
     List of work items
 
+    - `type: "work"`
+
+      The type of object (always 'work')
+
     - `id: string`
 
       Work identifier (e.g., 'work_...')
@@ -2306,13 +2363,13 @@ List work items in an environment.
 
       The actual work to be performed
 
-      - `id: string`
-
-        Session identifier (e.g., 'session_...')
-
       - `type: "session"`
 
         Type of work data
+
+      - `id: string`
+
+        Session identifier (e.g., 'session_...')
 
     - `environment_id: string`
 
@@ -2355,10 +2412,6 @@ List work items in an environment.
     - `stopped_at: string`
 
       RFC 3339 timestamp when work execution stopped
-
-    - `type: "work"`
-
-      The type of object (always 'work')
 
   - `next_page: string`
 
@@ -2430,6 +2483,12 @@ Update work item metadata with merge semantics.
 
   Header param: Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `beta_self_hosted_work: object`
@@ -2439,6 +2498,10 @@ Update work item metadata with merge semantics.
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
+  - `type: "work"`
+
+    The type of object (always 'work')
 
   - `id: string`
 
@@ -2456,13 +2519,13 @@ Update work item metadata with merge semantics.
 
     The actual work to be performed
 
-    - `id: string`
-
-      Session identifier (e.g., 'session_...')
-
     - `type: "session"`
 
       Type of work data
+
+    - `id: string`
+
+      Session identifier (e.g., 'session_...')
 
   - `environment_id: string`
 
@@ -2505,10 +2568,6 @@ Update work item metadata with merge semantics.
   - `stopped_at: string`
 
     RFC 3339 timestamp when work execution stopped
-
-  - `type: "work"`
-
-    The type of object (always 'work')
 
 #### Example
 
@@ -2561,6 +2620,12 @@ Get statistics about the work queue for an environment.
 
   Optional header to specify the beta version(s) you want to use.
 
+- `--workspace-id: optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `beta_self_hosted_work_queue_stats: object`
@@ -2568,6 +2633,10 @@ Get statistics about the work queue for an environment.
   Statistics about the work queue for an environment.
 
   Uses Redis Stream consumer group metrics for O(1) queries.
+
+  - `type: "work_queue_stats"`
+
+    The type of object
 
   - `depth: number`
 
@@ -2580,10 +2649,6 @@ Get statistics about the work queue for an environment.
   - `pending: number`
 
     Number of work items being processed (polled but not acknowledged)
-
-  - `type: "work_queue_stats"`
-
-    The type of object
 
   - `workers_polling: number`
 

@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/ruby/beta/sessions/resources/delete -->
 
+---
+title: Delete Session Resource
+url: https://platform.claude.com/docs/en/api/ruby/beta/sessions/resources/delete
+---
+
 # Delete Session Resource
 
 `beta.sessions.resources.delete(resource_id, **kwargs) -> BetaManagedAgentsDeleteSessionResource`
@@ -20,7 +25,7 @@ Delete Session Resource
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 41 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 42 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -68,6 +73,8 @@ Delete Session Resource
 
     - `:"user-profiles-2026-08-18"`
 
+    - `:"user-profiles-2026-09-04"`
+
     - `:"advisor-tool-2026-03-01"`
 
     - `:"managed-agents-2026-04-01"`
@@ -110,15 +117,17 @@ Delete Session Resource
 
     - `:"mid-conversation-system-clear-at-2026-08-21"`
 
+- `workspace_id: String`
+
 ## Returns
 
 - `class BetaManagedAgentsDeleteSessionResource`
 
   Confirmation of resource deletion.
 
-  - `id: String`
-
   - `type: :session_resource_deleted`
+
+  - `id: String`
 
 ## Example
 

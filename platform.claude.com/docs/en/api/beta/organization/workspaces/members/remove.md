@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/beta/organization/workspaces/members/remove -->
 
+---
+title: Delete Workspace Member
+url: https://platform.claude.com/docs/en/api/beta/organization/workspaces/members/remove
+---
+
 # Delete Workspace Member
 
 **DELETE** `/v1/organizations/workspaces/{workspace_id}/members/{user_id}`

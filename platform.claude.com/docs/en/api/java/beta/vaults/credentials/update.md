@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/java/beta/vaults/credentials/update -->
 
+---
+title: Update Credential
+url: https://platform.claude.com/docs/en/api/java/beta/vaults/credentials/update
+---
+
 # Update Credential
 
 `BetaManagedAgentsCredential beta().vaults().credentials().update(params, requestOptions = RequestOptions.none())`
@@ -66,6 +71,8 @@ Update Credential
 
     - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
 
+    - `USER_PROFILES_2026_09_04("user-profiles-2026-09-04")`
+
     - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
@@ -108,6 +115,8 @@ Update Credential
 
     - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
+  - `Optional<String> workspaceId`
+
   - `Optional<Auth> auth`
 
     Updated authentication details for a credential.
@@ -138,7 +147,7 @@ Update Credential
 
           Updated OAuth refresh token.
 
-          minLength: 1, maxLength: 4096
+          minLength: 1, maxLength: 8192
 
         - `Optional<String> scope`
 
@@ -218,11 +227,11 @@ Update Credential
 
           Substitute the secret only on requests to the listed hosts.
 
+          - `Type type`
+
           - `List<String> allowedHosts`
 
             Hostnames on which the secret will be substituted. Each entry is a bare hostname (`api.example.com`), an IPv4 address (`192.0.2.1`), or a `*.`-prefixed wildcard (`*.example.com`). URLs, ports, paths, and IPv6 addresses are not accepted. At most 16 entries.
-
-          - `Type type`
 
       - `Optional<String> secretValue`
 
@@ -246,6 +255,8 @@ Update Credential
 
   A credential stored in a vault. Sensitive fields are never returned in responses.
 
+  - `Type type`
+
   - `String id`
 
     Unique identifier for the credential.
@@ -264,11 +275,11 @@ Update Credential
 
       OAuth credential details for an MCP server.
 
+      - `Type type`
+
       - `String mcpServerUrl`
 
         URL of the MCP server this credential authenticates against.
-
-      - `Type type`
 
       - `Optional<LocalDateTime> expiresAt`
 
@@ -322,15 +333,17 @@ Update Credential
 
       Static bearer token credential details for an MCP server.
 
+      - `Type type`
+
       - `String mcpServerUrl`
 
         URL of the MCP server this credential authenticates against.
 
-      - `Type type`
-
     - `class BetaManagedAgentsEnvironmentVariableAuthResponse:`
 
       Environment variable credential details. The secret value is never returned.
+
+      - `Type type`
 
       - `BetaManagedAgentsInjectionLocationResponse injectionLocation`
 
@@ -358,17 +371,15 @@ Update Credential
 
           The secret is substituted only on requests to the listed hosts.
 
+          - `Type type`
+
           - `List<String> allowedHosts`
 
             Hostnames on which the secret will be substituted. An entry matches the request host exactly; a `*.`-prefixed entry matches any subdomain of the named domain but not the domain itself.
 
-          - `Type type`
-
       - `String secretName`
 
         Name of the environment variable.
-
-      - `Type type`
 
   - `LocalDateTime createdAt`
 
@@ -379,8 +390,6 @@ Update Credential
   - `Metadata metadata`
 
     Arbitrary key-value metadata attached to the credential.
-
-  - `Type type`
 
   - `LocalDateTime updatedAt`
 

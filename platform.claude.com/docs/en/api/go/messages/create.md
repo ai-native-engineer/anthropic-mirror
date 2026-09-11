@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/go/messages/create -->
 
+---
+title: Create a Message
+url: https://platform.claude.com/docs/en/api/go/messages/create
+---
+
 # Create a Message
 
 `client.Messages.New(ctx, params) (*Message, error)`
@@ -85,11 +90,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `type TextBlockParamResp struct{…}`
 
+          - `Type Text`
+
           - `Text string`
 
             minLength: 1
-
-          - `Type Text`
 
           - `CacheControl CacheControlEphemeral Optional`
 
@@ -116,6 +121,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `type CitationCharLocationParamResp struct{…}`
 
+              - `Type CharLocation`
+
               - `CitedText string`
 
               - `DocumentIndex int64`
@@ -132,9 +139,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 minimum: 0
 
-              - `Type CharLocation`
-
             - `type CitationPageLocationParamResp struct{…}`
+
+              - `Type PageLocation`
 
               - `CitedText string`
 
@@ -152,9 +159,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 minimum: 1
 
-              - `Type PageLocation`
-
             - `type CitationContentBlockLocationParamResp struct{…}`
+
+              - `Type ContentBlockLocation`
 
               - `CitedText string`
 
@@ -182,9 +189,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 minimum: 0
 
-              - `Type ContentBlockLocation`
-
             - `type CitationWebSearchResultLocationParamResp struct{…}`
+
+              - `Type WebSearchResultLocation`
 
               - `CitedText string`
 
@@ -194,13 +201,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 maxLength: 512, minLength: 1
 
-              - `Type WebSearchResultLocation`
-
               - `URL string`
 
                 minLength: 1
 
             - `type CitationSearchResultLocationParamResp struct{…}`
+
+              - `Type SearchResultLocation`
 
               - `CitedText string`
 
@@ -232,13 +239,15 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `Title string`
 
-              - `Type SearchResultLocation`
-
         - `type ImageBlockParamResp struct{…}`
+
+          - `Type Image`
 
           - `Source ImageBlockParamSourceUnionResp`
 
             - `type Base64ImageSource struct{…}`
+
+              - `Type Base64`
 
               - `Data string`
 
@@ -254,8 +263,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 - `const Base64ImageSourceMediaTypeImageWebP Base64ImageSourceMediaType = "image/webp"`
 
-              - `Type Base64`
-
             - `type URLImageSource struct{…}`
 
               - `Type URL`
@@ -264,11 +271,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `type FileImageSource struct{…}`
 
-              - `FileID string`
-
               - `Type File`
 
-          - `Type Image`
+              - `FileID string`
 
           - `CacheControl CacheControlEphemeral Optional`
 
@@ -288,9 +293,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `type DocumentBlockParamResp struct{…}`
 
+          - `Type Document`
+
           - `Source DocumentBlockParamSourceUnionResp`
 
             - `type Base64PDFSource struct{…}`
+
+              - `Type Base64`
 
               - `Data string`
 
@@ -298,17 +307,17 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `MediaType ApplicationPDF`
 
-              - `Type Base64`
-
             - `type PlainTextSource struct{…}`
+
+              - `Type Text`
 
               - `Data string`
 
               - `MediaType TextPlain`
 
-              - `Type Text`
-
             - `type ContentBlockSource struct{…}`
+
+              - `Type Content`
 
               - `Content ContentBlockSourceContentUnion`
 
@@ -320,8 +329,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                   - `type ImageBlockParamResp struct{…}`
 
-              - `Type Content`
-
             - `type URLPDFSource struct{…}`
 
               - `Type URL`
@@ -330,11 +337,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `type FileDocumentSource struct{…}`
 
-              - `FileID string`
-
               - `Type File`
 
-          - `Type Document`
+              - `FileID string`
 
           - `CacheControl CacheControlEphemeral Optional`
 
@@ -354,13 +359,15 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `type SearchResultBlockParamResp struct{…}`
 
+          - `Type SearchResult`
+
           - `Content []TextBlockParamResp`
+
+            - `Type Text`
 
             - `Text string`
 
               minLength: 1
-
-            - `Type Text`
 
             - `CacheControl CacheControlEphemeral Optional`
 
@@ -372,8 +379,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `Title string`
 
-          - `Type SearchResult`
-
           - `CacheControl CacheControlEphemeral Optional`
 
             Create a cache control breakpoint at this content block.
@@ -381,6 +386,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
           - `Citations CitationsConfigParamResp Optional`
 
         - `type ThinkingBlockParamResp struct{…}`
+
+          - `Type Thinking`
 
           - `Signature string`
 
@@ -392,17 +399,17 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             The `thinking` text of this block as returned by the API.
 
-          - `Type Thinking`
-
         - `type RedactedThinkingBlockParamResp struct{…}`
+
+          - `Type RedactedThinking`
 
           - `Data string`
 
             The `data` value of this redacted thinking block, exactly as returned by the API in a previous response. Opaque and encrypted; pass it back unchanged.
 
-          - `Type RedactedThinking`
-
         - `type ToolUseBlockParamResp struct{…}`
+
+          - `Type ToolUse`
 
           - `ID string`
 
@@ -413,8 +420,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
           - `Name string`
 
             maxLength: 200, minLength: 1
-
-          - `Type ToolUse`
 
           - `CacheControl CacheControlEphemeral Optional`
 
@@ -434,19 +439,19 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               Tool invocation generated by a server-side tool.
 
+              - `Type CodeExecution20250825`
+
               - `ToolID string`
 
                 pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-              - `Type CodeExecution20250825`
 
             - `type ServerToolCaller20260120 struct{…}`
 
+              - `Type CodeExecution20260120`
+
               - `ToolID string`
 
                 pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-              - `Type CodeExecution20260120`
 
           - `ToolsetName string Optional`
 
@@ -456,11 +461,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `type ToolResultBlockParamResp struct{…}`
 
+          - `Type ToolResult`
+
           - `ToolUseID string`
 
             pattern: ^[a-zA-Z0-9_-]+$
-
-          - `Type ToolResult`
 
           - `CacheControl CacheControlEphemeral Optional`
 
@@ -482,11 +487,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 Tool reference block that can be included in tool_result content.
 
+                - `Type ToolReference`
+
                 - `ToolName string`
 
                   maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
-
-                - `Type ToolReference`
 
                 - `CacheControl CacheControlEphemeral Optional`
 
@@ -501,6 +506,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
                 At most one per `tool_result`, only on a non-error result answering a
                 browser toolset member `tool_use`. The server renders the
                 model-visible text from it; the model never sees the raw fields.
+
+                - `Type BrowserState`
 
                 - `Tabs []BrowserStateTabEntry`
 
@@ -530,8 +537,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                     Whether this tab is the active tab after this call. Whenever `tabs` is non-empty, exactly one entry is marked `active: true`.
 
-                - `Type BrowserState`
-
                 - `CacheControl CacheControlEphemeral Optional`
 
                   Create a cache control breakpoint at this content block.
@@ -552,25 +557,25 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
                     during a failed call gets no deferred `tab_opened`; it simply appears
                     in the next result's `tabs` inventory.
 
+                    - `Type TabOpened`
+
                     - `TabID string`
 
                       The `tab_id` of the opened tab, present in `tabs`.
 
                       maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-                    - `Type TabOpened`
-
                   - `type BrowserStateChangeDownloadStarted struct{…}`
 
                     A file download that started during this call.
+
+                    - `Type DownloadStarted`
 
                     - `DownloadID string`
 
                       The caller-assigned identifier for this download, stable across the state changes reporting it.
 
                       maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
-
-                    - `Type DownloadStarted`
 
                     - `URL string`
 
@@ -585,13 +590,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
                     `download_started`, when the download finished during the call that
                     started it (at most one state change per `download_id` per result).
 
+                    - `Type DownloadCompleted`
+
                     - `DownloadID string`
 
                       The caller-assigned identifier for this download, stable across the state changes reporting it.
 
                       maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
-
-                    - `Type DownloadCompleted`
 
                     - `URL string`
 
@@ -615,13 +620,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                     A file download that failed — or was cancelled — during this call.
 
+                    - `Type DownloadFailed`
+
                     - `DownloadID string`
 
                       The caller-assigned identifier for this download, stable across the state changes reporting it.
 
                       maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
-
-                    - `Type DownloadFailed`
 
                     - `URL string`
 
@@ -645,6 +650,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `type ServerToolUseBlockParamResp struct{…}`
 
+          - `Type ServerToolUse`
+
           - `ID string`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
@@ -667,8 +674,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `const ServerToolUseBlockParamNameToolSearchToolBm25 ServerToolUseBlockParamName = "tool_search_tool_bm25"`
 
-          - `Type ServerToolUse`
-
           - `CacheControl CacheControlEphemeral Optional`
 
             Create a cache control breakpoint at this content block.
@@ -689,21 +694,25 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `type WebSearchToolResultBlockParamResp struct{…}`
 
+          - `Type WebSearchToolResult`
+
           - `Content WebSearchToolResultBlockParamContentUnionResp`
 
             - `[]WebSearchResultBlockParamResp`
 
+              - `Type WebSearchResult`
+
               - `EncryptedContent string`
 
               - `Title string`
-
-              - `Type WebSearchResult`
 
               - `URL string`
 
               - `PageAge string Optional`
 
             - `type WebSearchToolRequestError struct{…}`
+
+              - `Type WebSearchToolResultError`
 
               - `ErrorCode WebSearchToolResultErrorCode`
 
@@ -719,13 +728,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 - `const WebSearchToolResultErrorCodeRequestTooLarge WebSearchToolResultErrorCode = "request_too_large"`
 
-              - `Type WebSearchToolResultError`
-
           - `ToolUseID string`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-          - `Type WebSearchToolResult`
 
           - `CacheControl CacheControlEphemeral Optional`
 
@@ -747,9 +752,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `type WebFetchToolResultBlockParamResp struct{…}`
 
+          - `Type WebFetchToolResult`
+
           - `Content WebFetchToolResultBlockParamContentUnionResp`
 
             - `type WebFetchToolResultErrorBlockParamResp struct{…}`
+
+              - `Type WebFetchToolResultError`
 
               - `ErrorCode WebFetchToolResultErrorCode`
 
@@ -771,13 +780,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 - `const WebFetchToolResultErrorCodeUnavailable WebFetchToolResultErrorCode = "unavailable"`
 
-              - `Type WebFetchToolResultError`
+                - `const WebFetchToolResultErrorCodeContentTooLarge WebFetchToolResultErrorCode = "content_too_large"`
 
             - `type WebFetchBlockParamResp struct{…}`
 
-              - `Content DocumentBlockParamResp`
-
               - `Type WebFetchResult`
+
+              - `Content DocumentBlockParamResp`
 
               - `URL string`
 
@@ -790,8 +799,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
           - `ToolUseID string`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-          - `Type WebFetchToolResult`
 
           - `CacheControl CacheControlEphemeral Optional`
 
@@ -813,11 +820,15 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `type CodeExecutionToolResultBlockParamResp struct{…}`
 
+          - `Type CodeExecutionToolResult`
+
           - `Content CodeExecutionToolResultBlockParamContentUnionResp`
 
             Code execution result with encrypted stdout for PFC + web_search results.
 
             - `type CodeExecutionToolResultErrorParamResp struct{…}`
+
+              - `Type CodeExecutionToolResultError`
 
               - `ErrorCode CodeExecutionToolResultErrorCode`
 
@@ -829,15 +840,15 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 - `const CodeExecutionToolResultErrorCodeExecutionTimeExceeded CodeExecutionToolResultErrorCode = "execution_time_exceeded"`
 
-              - `Type CodeExecutionToolResultError`
-
             - `type CodeExecutionResultBlockParamResp struct{…}`
+
+              - `Type CodeExecutionResult`
 
               - `Content []CodeExecutionOutputBlockParamResp`
 
-                - `FileID string`
-
                 - `Type CodeExecutionOutput`
+
+                - `FileID string`
 
               - `ReturnCode int64`
 
@@ -845,17 +856,17 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `Stdout string`
 
-              - `Type CodeExecutionResult`
-
             - `type EncryptedCodeExecutionResultBlockParamResp struct{…}`
 
               Code execution result with encrypted stdout for PFC + web_search results.
 
+              - `Type EncryptedCodeExecutionResult`
+
               - `Content []CodeExecutionOutputBlockParamResp`
 
-                - `FileID string`
-
                 - `Type CodeExecutionOutput`
+
+                - `FileID string`
 
               - `EncryptedStdout string`
 
@@ -863,13 +874,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `Stderr string`
 
-              - `Type EncryptedCodeExecutionResult`
-
           - `ToolUseID string`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-          - `Type CodeExecutionToolResult`
 
           - `CacheControl CacheControlEphemeral Optional`
 
@@ -877,9 +884,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `type BashCodeExecutionToolResultBlockParamResp struct{…}`
 
+          - `Type BashCodeExecutionToolResult`
+
           - `Content BashCodeExecutionToolResultBlockParamContentUnionResp`
 
             - `type BashCodeExecutionToolResultErrorParamResp struct{…}`
+
+              - `Type BashCodeExecutionToolResultError`
 
               - `ErrorCode BashCodeExecutionToolResultErrorCode`
 
@@ -893,15 +904,15 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 - `const BashCodeExecutionToolResultErrorCodeOutputFileTooLarge BashCodeExecutionToolResultErrorCode = "output_file_too_large"`
 
-              - `Type BashCodeExecutionToolResultError`
-
             - `type BashCodeExecutionResultBlockParamResp struct{…}`
+
+              - `Type BashCodeExecutionResult`
 
               - `Content []BashCodeExecutionOutputBlockParamResp`
 
-                - `FileID string`
-
                 - `Type BashCodeExecutionOutput`
+
+                - `FileID string`
 
               - `ReturnCode int64`
 
@@ -909,13 +920,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `Stdout string`
 
-              - `Type BashCodeExecutionResult`
-
           - `ToolUseID string`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-          - `Type BashCodeExecutionToolResult`
 
           - `CacheControl CacheControlEphemeral Optional`
 
@@ -923,9 +930,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `type TextEditorCodeExecutionToolResultBlockParamResp struct{…}`
 
+          - `Type TextEditorCodeExecutionToolResult`
+
           - `Content TextEditorCodeExecutionToolResultBlockParamContentUnionResp`
 
             - `type TextEditorCodeExecutionToolResultErrorParamResp struct{…}`
+
+              - `Type TextEditorCodeExecutionToolResultError`
 
               - `ErrorCode TextEditorCodeExecutionToolResultErrorCode`
 
@@ -939,11 +950,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 - `const TextEditorCodeExecutionToolResultErrorCodeFileNotFound TextEditorCodeExecutionToolResultErrorCode = "file_not_found"`
 
-              - `Type TextEditorCodeExecutionToolResultError`
-
               - `ErrorMessage string Optional`
 
             - `type TextEditorCodeExecutionViewResultBlockParamResp struct{…}`
+
+              - `Type TextEditorCodeExecutionViewResult`
 
               - `Content string`
 
@@ -955,8 +966,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 - `const TextEditorCodeExecutionViewResultBlockParamFileTypePDF TextEditorCodeExecutionViewResultBlockParamFileType = "pdf"`
 
-              - `Type TextEditorCodeExecutionViewResult`
-
               - `NumLines int64 Optional`
 
               - `StartLine int64 Optional`
@@ -965,9 +974,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `type TextEditorCodeExecutionCreateResultBlockParamResp struct{…}`
 
-              - `IsFileUpdate bool`
-
               - `Type TextEditorCodeExecutionCreateResult`
+
+              - `IsFileUpdate bool`
 
             - `type TextEditorCodeExecutionStrReplaceResultBlockParamResp struct{…}`
 
@@ -987,17 +996,19 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `Type TextEditorCodeExecutionToolResult`
-
           - `CacheControl CacheControlEphemeral Optional`
 
             Create a cache control breakpoint at this content block.
 
         - `type ToolSearchToolResultBlockParamResp struct{…}`
 
+          - `Type ToolSearchToolResult`
+
           - `Content ToolSearchToolResultBlockParamContentUnionResp`
 
             - `type ToolSearchToolResultErrorParamResp struct{…}`
+
+              - `Type ToolSearchToolResultError`
 
               - `ErrorCode ToolSearchToolResultErrorCode`
 
@@ -1009,31 +1020,27 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 - `const ToolSearchToolResultErrorCodeExecutionTimeExceeded ToolSearchToolResultErrorCode = "execution_time_exceeded"`
 
-              - `Type ToolSearchToolResultError`
-
               - `ErrorMessage string Optional`
 
             - `type ToolSearchToolSearchResultBlockParamResp struct{…}`
 
+              - `Type ToolSearchToolSearchResult`
+
               - `ToolReferences []ToolReferenceBlockParamResp`
+
+                - `Type ToolReference`
 
                 - `ToolName string`
 
                   maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
-                - `Type ToolReference`
-
                 - `CacheControl CacheControlEphemeral Optional`
 
                   Create a cache control breakpoint at this content block.
 
-              - `Type ToolSearchToolSearchResult`
-
           - `ToolUseID string`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-          - `Type ToolSearchToolResult`
 
           - `CacheControl CacheControlEphemeral Optional`
 
@@ -1044,9 +1051,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
           A content block that represents a file to be uploaded to the container
           Files uploaded via this block will be available in the container's input directory.
 
-          - `FileID string`
-
           - `Type ContainerUpload`
+
+          - `FileID string`
 
           - `CacheControl CacheControlEphemeral Optional`
 
@@ -1112,11 +1119,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `[]TextBlockParam`
 
+      - `Type Text`
+
       - `Text string`
 
         minLength: 1
-
-      - `Type Text`
 
       - `CacheControl CacheControlEphemeral Optional`
 
@@ -1202,6 +1209,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `type Tool struct{…}`
 
+      - `Type ToolType Optional`
+
       - `InputSchema ToolInputSchema`
 
         [JSON schema](https://json-schema.org/draft/2020-12) for this tool's input.
@@ -1256,17 +1265,15 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         When true, guarantees schema validation on tool names and inputs
 
-      - `Type ToolType Optional`
-
     - `type ToolBash20250124 struct{…}`
+
+      - `Type Bash20250124`
 
       - `Name Bash`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `Type Bash20250124`
 
       - `AllowedCallers []string Optional`
 
@@ -1294,13 +1301,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `type CodeExecutionTool20250522 struct{…}`
 
+      - `Type CodeExecution20250522`
+
       - `Name CodeExecution`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `Type CodeExecution20250522`
 
       - `AllowedCallers []string Optional`
 
@@ -1326,13 +1333,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `type CodeExecutionTool20250825 struct{…}`
 
+      - `Type CodeExecution20250825`
+
       - `Name CodeExecution`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `Type CodeExecution20250825`
 
       - `AllowedCallers []string Optional`
 
@@ -1360,13 +1367,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       Code execution tool with REPL state persistence (daemon mode + gVisor checkpoint).
 
+      - `Type CodeExecution20260120`
+
       - `Name CodeExecution`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `Type CodeExecution20260120`
 
       - `AllowedCallers []string Optional`
 
@@ -1394,13 +1401,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       Code execution tool with REPL state persistence.
 
+      - `Type CodeExecution20260521`
+
       - `Name CodeExecution`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `Type CodeExecution20260521`
 
       - `AllowedCallers []string Optional`
 
@@ -1445,6 +1452,18 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         accepted key, and a member's defaults apply wherever its key is
         absent. Unknown keys are rejected: the field set is this toolset
         version's complete member set.
+
+        - `Type BrowserTypeConfig Optional`
+
+          `type`'s config overrides.
+
+          - `DeferLoading bool Optional`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `Enabled bool Optional`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
         - `CloseTab BrowserCloseTabConfig Optional`
 
@@ -1782,18 +1801,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-        - `Type BrowserTypeConfig Optional`
-
-          `type`'s config overrides.
-
-          - `DeferLoading bool Optional`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `Enabled bool Optional`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
         - `Wait BrowserWaitConfig Optional`
 
           `wait`'s config overrides.
@@ -1820,13 +1827,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `type MemoryTool20250818 struct{…}`
 
+      - `Type Memory20250818`
+
       - `Name Memory`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `Type Memory20250818`
 
       - `AllowedCallers []string Optional`
 
@@ -1877,6 +1884,18 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         accepted key, and a member's defaults apply wherever its key is
         absent. Unknown keys are rejected: the field set is this toolset
         version's complete member set.
+
+        - `Type ComputerTypeConfig Optional`
+
+          `type`'s config overrides.
+
+          - `DeferLoading bool Optional`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `Enabled bool Optional`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
         - `CursorPosition ComputerCursorPositionConfig Optional`
 
@@ -2046,18 +2065,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-        - `Type ComputerTypeConfig Optional`
-
-          `type`'s config overrides.
-
-          - `DeferLoading bool Optional`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `Enabled bool Optional`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
         - `Wait ComputerWaitConfig Optional`
 
           `wait`'s config overrides.
@@ -2084,13 +2091,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `type ToolTextEditor20250124 struct{…}`
 
+      - `Type TextEditor20250124`
+
       - `Name StrReplaceEditor`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `Type TextEditor20250124`
 
       - `AllowedCallers []string Optional`
 
@@ -2118,13 +2125,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `type ToolTextEditor20250429 struct{…}`
 
+      - `Type TextEditor20250429`
+
       - `Name StrReplaceBasedEditTool`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `Type TextEditor20250429`
 
       - `AllowedCallers []string Optional`
 
@@ -2152,13 +2159,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `type ToolTextEditor20250728 struct{…}`
 
+      - `Type TextEditor20250728`
+
       - `Name StrReplaceBasedEditTool`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `Type TextEditor20250728`
 
       - `AllowedCallers []string Optional`
 
@@ -2192,13 +2199,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `type WebSearchTool20250305 struct{…}`
 
+      - `Type WebSearch20250305`
+
       - `Name WebSearch`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `Type WebSearch20250305`
 
       - `AllowedCallers []string Optional`
 
@@ -2268,13 +2275,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `type WebFetchTool20250910 struct{…}`
 
+      - `Type WebFetch20250910`
+
       - `Name WebFetch`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `Type WebFetch20250910`
 
       - `AllowedCallers []string Optional`
 
@@ -2324,13 +2331,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `type WebSearchTool20260209 struct{…}`
 
+      - `Type WebSearch20260209`
+
       - `Name WebSearch`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `Type WebSearch20260209`
 
       - `AllowedCallers []string Optional`
 
@@ -2374,13 +2381,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `type WebFetchTool20260209 struct{…}`
 
+      - `Type WebFetch20260209`
+
       - `Name WebFetch`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `Type WebFetch20260209`
 
       - `AllowedCallers []string Optional`
 
@@ -2432,13 +2439,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       Web fetch tool with use_cache parameter for bypassing cached content.
 
+      - `Type WebFetch20260309`
+
       - `Name WebFetch`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `Type WebFetch20260309`
 
       - `AllowedCallers []string Optional`
 
@@ -2492,13 +2499,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `type WebSearchTool20260318 struct{…}`
 
+      - `Type WebSearch20260318`
+
       - `Name WebSearch`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `Type WebSearch20260318`
 
       - `AllowedCallers []string Optional`
 
@@ -2550,13 +2557,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `type WebFetchTool20260318 struct{…}`
 
+      - `Type WebFetch20260318`
+
       - `Name WebFetch`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `Type WebFetch20260318`
 
       - `AllowedCallers []string Optional`
 
@@ -2618,17 +2625,17 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `type ToolSearchToolBm25_20251119 struct{…}`
 
-      - `Name ToolSearchToolBm25`
-
-        Name of the tool.
-
-        This is how the tool will be called by the model and in `tool_use` blocks.
-
       - `Type ToolSearchToolBm25_20251119Type`
 
         - `const ToolSearchToolBm25_20251119TypeToolSearchToolBm25_20251119 ToolSearchToolBm25_20251119Type = "tool_search_tool_bm25_20251119"`
 
         - `const ToolSearchToolBm25_20251119TypeToolSearchToolBm25 ToolSearchToolBm25_20251119Type = "tool_search_tool_bm25"`
+
+      - `Name ToolSearchToolBm25`
+
+        Name of the tool.
+
+        This is how the tool will be called by the model and in `tool_use` blocks.
 
       - `AllowedCallers []string Optional`
 
@@ -2654,17 +2661,17 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `type ToolSearchToolRegex20251119 struct{…}`
 
-      - `Name ToolSearchToolRegex`
-
-        Name of the tool.
-
-        This is how the tool will be called by the model and in `tool_use` blocks.
-
       - `Type ToolSearchToolRegex20251119Type`
 
         - `const ToolSearchToolRegex20251119TypeToolSearchToolRegex20251119 ToolSearchToolRegex20251119Type = "tool_search_tool_regex_20251119"`
 
         - `const ToolSearchToolRegex20251119TypeToolSearchToolRegex ToolSearchToolRegex20251119Type = "tool_search_tool_regex"`
+
+      - `Name ToolSearchToolRegex`
+
+        Name of the tool.
+
+        This is how the tool will be called by the model and in `tool_use` blocks.
 
       - `AllowedCallers []string Optional`
 
@@ -2691,6 +2698,12 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
   - `UserProfileID param.Field[string] Optional`
 
     Header param: The user profile ID to attribute this request to. Use when acting on behalf of a party other than your organization. Requires the `user-profiles` beta header.
+
+  - `WorkspaceID param.Field[string] Optional`
+
+    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
   - `Temperature param.Field[float64] Optional`
 
@@ -2732,6 +2745,14 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
 - `type Message struct{…}`
 
+  - `Type Message`
+
+    Object type.
+
+    For Messages, this is always `"message"`.
+
+    default: message
+
   - `ID string`
 
     Unique object identifier.
@@ -2756,12 +2777,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       Skills loaded in the container
 
-      - `SkillID string`
-
-        Skill ID
-
-        maxLength: 64, minLength: 1
-
       - `Type ContainerSkillType`
 
         Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
@@ -2769,6 +2784,12 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         - `const ContainerSkillTypeAnthropic ContainerSkillType = "anthropic"`
 
         - `const ContainerSkillTypeCustom ContainerSkillType = "custom"`
+
+      - `SkillID string`
+
+        Skill ID
+
+        maxLength: 64, minLength: 1
 
       - `Version string`
 
@@ -2807,6 +2828,10 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `type TextBlock struct{…}`
 
+      - `Type Text`
+
+        default: text
+
       - `Citations []TextCitationUnion`
 
         Citations supporting the text block.
@@ -2814,6 +2839,10 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
 
         - `type CitationCharLocation struct{…}`
+
+          - `Type CharLocation`
+
+            default: char_location
 
           - `CitedText string`
 
@@ -2831,11 +2860,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             minimum: 0
 
-          - `Type CharLocation`
-
-            default: char_location
-
         - `type CitationPageLocation struct{…}`
+
+          - `Type PageLocation`
+
+            default: page_location
 
           - `CitedText string`
 
@@ -2853,11 +2882,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             minimum: 1
 
-          - `Type PageLocation`
-
-            default: page_location
-
         - `type CitationContentBlockLocation struct{…}`
+
+          - `Type ContentBlockLocation`
+
+            default: content_block_location
 
           - `CitedText string`
 
@@ -2885,11 +2914,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             minimum: 0
 
-          - `Type ContentBlockLocation`
-
-            default: content_block_location
-
         - `type CitationsWebSearchResultLocation struct{…}`
+
+          - `Type WebSearchResultLocation`
+
+            default: web_search_result_location
 
           - `CitedText string`
 
@@ -2899,13 +2928,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             maxLength: 512
 
-          - `Type WebSearchResultLocation`
-
-            default: web_search_result_location
-
           - `URL string`
 
         - `type CitationsSearchResultLocation struct{…}`
+
+          - `Type SearchResultLocation`
+
+            default: search_result_location
 
           - `CitedText string`
 
@@ -2937,19 +2966,15 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `Title string`
 
-          - `Type SearchResultLocation`
-
-            default: search_result_location
-
       - `Text string`
 
-        maxLength: 5000000, minLength: 0
-
-      - `Type Text`
-
-        default: text
+        minLength: 0
 
     - `type ThinkingBlock struct{…}`
+
+      - `Type Thinking`
+
+        default: thinking
 
       - `Signature string`
 
@@ -2963,11 +2988,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         The text of Claude's thinking process for this block.
 
-      - `Type Thinking`
-
-        default: thinking
-
     - `type RedactedThinkingBlock struct{…}`
+
+      - `Type RedactedThinking`
+
+        default: redacted_thinking
 
       - `Data string`
 
@@ -2977,11 +3002,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking#redacted-thinking-blocks) for details.
 
-      - `Type RedactedThinking`
-
-        default: redacted_thinking
-
     - `type ToolUseBlock struct{…}`
+
+      - `Type ToolUse`
+
+        default: tool_use
 
       - `ID string`
 
@@ -3003,29 +3028,25 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           Tool invocation generated by a server-side tool.
 
+          - `Type CodeExecution20250825`
+
           - `ToolID string`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-          - `Type CodeExecution20250825`
 
         - `type ServerToolCaller20260120 struct{…}`
 
+          - `Type CodeExecution20260120`
+
           - `ToolID string`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-          - `Type CodeExecution20260120`
 
       - `Input map[string, any]`
 
       - `Name string`
 
         minLength: 1
-
-      - `Type ToolUse`
-
-        default: tool_use
 
       - `ToolsetName string Optional`
 
@@ -3034,6 +3055,10 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
 
     - `type ServerToolUseBlock struct{…}`
+
+      - `Type ServerToolUse`
+
+        default: server_tool_use
 
       - `ID string`
 
@@ -3073,11 +3098,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `const ServerToolUseBlockNameToolSearchToolBm25 ServerToolUseBlockName = "tool_search_tool_bm25"`
 
-      - `Type ServerToolUse`
-
-        default: server_tool_use
-
     - `type WebSearchToolResultBlock struct{…}`
+
+      - `Type WebSearchToolResult`
+
+        default: web_search_tool_result
 
       - `Caller WebSearchToolResultBlockCallerUnion`
 
@@ -3099,6 +3124,10 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `type WebSearchToolResultError struct{…}`
 
+          - `Type WebSearchToolResultError`
+
+            default: web_search_tool_result_error
+
           - `ErrorCode WebSearchToolResultErrorCode`
 
             - `const WebSearchToolResultErrorCodeInvalidToolInput WebSearchToolResultErrorCode = "invalid_tool_input"`
@@ -3113,11 +3142,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `const WebSearchToolResultErrorCodeRequestTooLarge WebSearchToolResultErrorCode = "request_too_large"`
 
-          - `Type WebSearchToolResultError`
-
-            default: web_search_tool_result_error
-
         - `type WebSearchToolResultBlockContentArray []WebSearchResultBlock`
+
+          - `Type WebSearchResult`
+
+            default: web_search_result
 
           - `EncryptedContent string`
 
@@ -3125,21 +3154,17 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `Title string`
 
-          - `Type WebSearchResult`
-
-            default: web_search_result
-
           - `URL string`
 
       - `ToolUseID string`
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-      - `Type WebSearchToolResult`
-
-        default: web_search_tool_result
-
     - `type WebFetchToolResultBlock struct{…}`
+
+      - `Type WebFetchToolResult`
+
+        default: web_fetch_tool_result
 
       - `Caller WebFetchToolResultBlockCallerUnion`
 
@@ -3161,6 +3186,10 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `type WebFetchToolResultErrorBlock struct{…}`
 
+          - `Type WebFetchToolResultError`
+
+            default: web_fetch_tool_result_error
+
           - `ErrorCode WebFetchToolResultErrorCode`
 
             - `const WebFetchToolResultErrorCodeInvalidToolInput WebFetchToolResultErrorCode = "invalid_tool_input"`
@@ -3181,13 +3210,19 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `const WebFetchToolResultErrorCodeUnavailable WebFetchToolResultErrorCode = "unavailable"`
 
-          - `Type WebFetchToolResultError`
-
-            default: web_fetch_tool_result_error
+            - `const WebFetchToolResultErrorCodeContentTooLarge WebFetchToolResultErrorCode = "content_too_large"`
 
         - `type WebFetchBlock struct{…}`
 
+          - `Type WebFetchResult`
+
+            default: web_fetch_result
+
           - `Content DocumentBlock`
+
+            - `Type Document`
+
+              default: document
 
             - `Citations CitationsConfig`
 
@@ -3201,37 +3236,29 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `type Base64PDFSource struct{…}`
 
+                - `Type Base64`
+
                 - `Data string`
 
                   format: byte
 
                 - `MediaType ApplicationPDF`
 
-                - `Type Base64`
-
               - `type PlainTextSource struct{…}`
+
+                - `Type Text`
 
                 - `Data string`
 
                 - `MediaType TextPlain`
 
-                - `Type Text`
-
             - `Title string`
 
               The title of the document
 
-            - `Type Document`
-
-              default: document
-
           - `RetrievedAt string`
 
             ISO 8601 timestamp when the content was retrieved
-
-          - `Type WebFetchResult`
-
-            default: web_fetch_result
 
           - `URL string`
 
@@ -3241,17 +3268,21 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-      - `Type WebFetchToolResult`
-
-        default: web_fetch_tool_result
-
     - `type CodeExecutionToolResultBlock struct{…}`
+
+      - `Type CodeExecutionToolResult`
+
+        default: code_execution_tool_result
 
       - `Content CodeExecutionToolResultBlockContentUnion`
 
         Code execution result with encrypted stdout for PFC + web_search results.
 
         - `type CodeExecutionToolResultError struct{…}`
+
+          - `Type CodeExecutionToolResultError`
+
+            default: code_execution_tool_result_error
 
           - `ErrorCode CodeExecutionToolResultErrorCode`
 
@@ -3263,19 +3294,19 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `const CodeExecutionToolResultErrorCodeExecutionTimeExceeded CodeExecutionToolResultErrorCode = "execution_time_exceeded"`
 
-          - `Type CodeExecutionToolResultError`
-
-            default: code_execution_tool_result_error
-
         - `type CodeExecutionResultBlock struct{…}`
 
-          - `Content []CodeExecutionOutputBlock`
+          - `Type CodeExecutionResult`
 
-            - `FileID string`
+            default: code_execution_result
+
+          - `Content []CodeExecutionOutputBlock`
 
             - `Type CodeExecutionOutput`
 
               default: code_execution_output
+
+            - `FileID string`
 
           - `ReturnCode int64`
 
@@ -3283,21 +3314,21 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `Stdout string`
 
-          - `Type CodeExecutionResult`
-
-            default: code_execution_result
-
         - `type EncryptedCodeExecutionResultBlock struct{…}`
 
           Code execution result with encrypted stdout for PFC + web_search results.
 
-          - `Content []CodeExecutionOutputBlock`
+          - `Type EncryptedCodeExecutionResult`
 
-            - `FileID string`
+            default: encrypted_code_execution_result
+
+          - `Content []CodeExecutionOutputBlock`
 
             - `Type CodeExecutionOutput`
 
               default: code_execution_output
+
+            - `FileID string`
 
           - `EncryptedStdout string`
 
@@ -3305,23 +3336,23 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `Stderr string`
 
-          - `Type EncryptedCodeExecutionResult`
-
-            default: encrypted_code_execution_result
-
       - `ToolUseID string`
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-      - `Type CodeExecutionToolResult`
-
-        default: code_execution_tool_result
-
     - `type BashCodeExecutionToolResultBlock struct{…}`
+
+      - `Type BashCodeExecutionToolResult`
+
+        default: bash_code_execution_tool_result
 
       - `Content BashCodeExecutionToolResultBlockContentUnion`
 
         - `type BashCodeExecutionToolResultError struct{…}`
+
+          - `Type BashCodeExecutionToolResultError`
+
+            default: bash_code_execution_tool_result_error
 
           - `ErrorCode BashCodeExecutionToolResultErrorCode`
 
@@ -3335,19 +3366,19 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `const BashCodeExecutionToolResultErrorCodeOutputFileTooLarge BashCodeExecutionToolResultErrorCode = "output_file_too_large"`
 
-          - `Type BashCodeExecutionToolResultError`
-
-            default: bash_code_execution_tool_result_error
-
         - `type BashCodeExecutionResultBlock struct{…}`
 
-          - `Content []BashCodeExecutionOutputBlock`
+          - `Type BashCodeExecutionResult`
 
-            - `FileID string`
+            default: bash_code_execution_result
+
+          - `Content []BashCodeExecutionOutputBlock`
 
             - `Type BashCodeExecutionOutput`
 
               default: bash_code_execution_output
+
+            - `FileID string`
 
           - `ReturnCode int64`
 
@@ -3355,23 +3386,23 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `Stdout string`
 
-          - `Type BashCodeExecutionResult`
-
-            default: bash_code_execution_result
-
       - `ToolUseID string`
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-      - `Type BashCodeExecutionToolResult`
-
-        default: bash_code_execution_tool_result
-
     - `type TextEditorCodeExecutionToolResultBlock struct{…}`
+
+      - `Type TextEditorCodeExecutionToolResult`
+
+        default: text_editor_code_execution_tool_result
 
       - `Content TextEditorCodeExecutionToolResultBlockContentUnion`
 
         - `type TextEditorCodeExecutionToolResultError struct{…}`
+
+          - `Type TextEditorCodeExecutionToolResultError`
+
+            default: text_editor_code_execution_tool_result_error
 
           - `ErrorCode TextEditorCodeExecutionToolResultErrorCode`
 
@@ -3387,11 +3418,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `ErrorMessage string`
 
-          - `Type TextEditorCodeExecutionToolResultError`
-
-            default: text_editor_code_execution_tool_result_error
-
         - `type TextEditorCodeExecutionViewResultBlock struct{…}`
+
+          - `Type TextEditorCodeExecutionViewResult`
+
+            default: text_editor_code_execution_view_result
 
           - `Content string`
 
@@ -3409,19 +3440,19 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `TotalLines int64`
 
-          - `Type TextEditorCodeExecutionViewResult`
-
-            default: text_editor_code_execution_view_result
-
         - `type TextEditorCodeExecutionCreateResultBlock struct{…}`
-
-          - `IsFileUpdate bool`
 
           - `Type TextEditorCodeExecutionCreateResult`
 
             default: text_editor_code_execution_create_result
 
+          - `IsFileUpdate bool`
+
         - `type TextEditorCodeExecutionStrReplaceResultBlock struct{…}`
+
+          - `Type TextEditorCodeExecutionStrReplaceResult`
+
+            default: text_editor_code_execution_str_replace_result
 
           - `Lines []string`
 
@@ -3433,23 +3464,23 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `OldStart int64`
 
-          - `Type TextEditorCodeExecutionStrReplaceResult`
-
-            default: text_editor_code_execution_str_replace_result
-
       - `ToolUseID string`
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-      - `Type TextEditorCodeExecutionToolResult`
-
-        default: text_editor_code_execution_tool_result
-
     - `type ToolSearchToolResultBlock struct{…}`
+
+      - `Type ToolSearchToolResult`
+
+        default: tool_search_tool_result
 
       - `Content ToolSearchToolResultBlockContentUnion`
 
         - `type ToolSearchToolResultError struct{…}`
+
+          - `Type ToolSearchToolResultError`
+
+            default: tool_search_tool_result_error
 
           - `ErrorCode ToolSearchToolResultErrorCode`
 
@@ -3463,43 +3494,35 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `ErrorMessage string`
 
-          - `Type ToolSearchToolResultError`
-
-            default: tool_search_tool_result_error
-
         - `type ToolSearchToolSearchResultBlock struct{…}`
-
-          - `ToolReferences []ToolReferenceBlock`
-
-            - `ToolName string`
-
-              maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
-
-            - `Type ToolReference`
-
-              default: tool_reference
 
           - `Type ToolSearchToolSearchResult`
 
             default: tool_search_tool_search_result
 
+          - `ToolReferences []ToolReferenceBlock`
+
+            - `Type ToolReference`
+
+              default: tool_reference
+
+            - `ToolName string`
+
+              maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+
       - `ToolUseID string`
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-      - `Type ToolSearchToolResult`
-
-        default: tool_search_tool_result
 
     - `type ContainerUploadBlock struct{…}`
 
       Response model for a file uploaded to the container.
 
-      - `FileID string`
-
       - `Type ContainerUpload`
 
         default: container_upload
+
+      - `FileID string`
 
   - `Model Model`
 
@@ -3595,6 +3618,10 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     Structured information about a refusal.
 
+    - `Type Refusal`
+
+      default: refusal
+
     - `Category RefusalStopDetailsCategory`
 
       The policy category that triggered a refusal.
@@ -3624,10 +3651,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
       Human-readable explanation of the refusal.
 
       This text is not guaranteed to be stable. `null` when no explanation is available for the category.
-
-    - `Type Refusal`
-
-      default: refusal
 
   - `StopReason StopReason`
 
@@ -3664,14 +3687,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
     Which custom stop sequence was generated, if any.
 
     This value will be a non-null string if one of your custom stop sequences was generated.
-
-  - `Type Message`
-
-    Object type.
-
-    For Messages, this is always `"message"`.
-
-    default: message
 
   - `Usage Usage`
 
@@ -3781,13 +3796,17 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
   - `type MessageStartEvent struct{…}`
 
-    - `Message Message`
-
     - `Type MessageStart`
 
       default: message_start
 
+    - `Message Message`
+
   - `type MessageDeltaEvent struct{…}`
+
+    - `Type MessageDelta`
+
+      default: message_delta
 
     - `Delta MessageDeltaEventDelta`
 
@@ -3802,10 +3821,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
       - `StopReason StopReason`
 
       - `StopSequence string`
-
-    - `Type MessageDelta`
-
-      default: message_delta
 
     - `Usage MessageDeltaUsage`
 
@@ -3862,6 +3877,10 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
   - `type ContentBlockStartEvent struct{…}`
 
+    - `Type ContentBlockStart`
+
+      default: content_block_start
+
     - `ContentBlock ContentBlockStartEventContentBlockUnion`
 
       Response model for a file uploaded to the container.
@@ -3894,31 +3913,35 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `Index int64`
 
-    - `Type ContentBlockStart`
-
-      default: content_block_start
-
   - `type ContentBlockDeltaEvent struct{…}`
+
+    - `Type ContentBlockDelta`
+
+      default: content_block_delta
 
     - `Delta RawContentBlockDeltaUnion`
 
       - `type TextDelta struct{…}`
 
-        - `Text string`
-
         - `Type TextDelta`
 
           default: text_delta
 
-      - `type InputJSONDelta struct{…}`
+        - `Text string`
 
-        - `PartialJSON string`
+      - `type InputJSONDelta struct{…}`
 
         - `Type InputJSONDelta`
 
           default: input_json_delta
 
+        - `PartialJSON string`
+
       - `type CitationsDelta struct{…}`
+
+        - `Type CitationsDelta`
+
+          default: citations_delta
 
         - `Citation CitationsDeltaCitationUnion`
 
@@ -3932,43 +3955,35 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `type CitationsSearchResultLocation struct{…}`
 
-        - `Type CitationsDelta`
-
-          default: citations_delta
-
       - `type ThinkingDelta struct{…}`
-
-        - `Thinking string`
-
-          The incremental `thinking` text for this content block. Concatenate the `thinking` values of successive `thinking_delta` events to assemble the block's full `thinking` value.
 
         - `Type ThinkingDelta`
 
           default: thinking_delta
 
+        - `Thinking string`
+
+          The incremental `thinking` text for this content block. Concatenate the `thinking` values of successive `thinking_delta` events to assemble the block's full `thinking` value.
+
       - `type SignatureDelta struct{…}`
-
-        - `Signature string`
-
-          The `signature` for this thinking block: an opaque value used to verify that the block was generated by Claude when it is passed back to the API. Delivered in a `signature_delta` event just before the block's `content_block_stop` event.
 
         - `Type SignatureDelta`
 
           default: signature_delta
 
+        - `Signature string`
+
+          The `signature` for this thinking block: an opaque value used to verify that the block was generated by Claude when it is passed back to the API. Delivered in a `signature_delta` event just before the block's `content_block_stop` event.
+
     - `Index int64`
-
-    - `Type ContentBlockDelta`
-
-      default: content_block_delta
 
   - `type ContentBlockStopEvent struct{…}`
-
-    - `Index int64`
 
     - `Type ContentBlockStop`
 
       default: content_block_stop
+
+    - `Index int64`
 
 ## Example
 

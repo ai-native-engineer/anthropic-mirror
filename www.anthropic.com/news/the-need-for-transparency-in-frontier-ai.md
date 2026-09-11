@@ -30,5 +30,3 @@ This transparency approach sheds light on industry best practices for safety and
 Views differ on whether and when AI models could pose catastrophic risks. Transparency requirements for Secure Development Frameworks and system cards could help give policymakers the evidence they need to determine if further regulation is warranted, as well as provide the public with important information about this powerful new technology.
 
 As models advance, we have an unprecedented opportunity to accelerate scientific discovery, healthcare, and economic growth. Without safe and responsible development, a single catastrophic failure could halt progress for decades. **Our [proposed transparency framework](https://www-cdn.anthropic.com/19cc4bf9eb6a94f9762ac67368f3322cf82b09fe.pdf) offers a practical first step:** public visibility into safety practices while preserving private sector agility to deliver AI's transformative potential.
-
-A framework for AI development transparency \ Anthropic

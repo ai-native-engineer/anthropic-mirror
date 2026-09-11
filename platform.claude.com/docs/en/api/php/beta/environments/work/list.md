@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/php/beta/environments/work/list -->
 
+---
+title: List Work Items
+url: https://platform.claude.com/docs/en/api/php/beta/environments/work/list
+---
+
 # List Work Items
 
 `$client->beta->environments->work->list(string environmentID, ?int limit, ?string page, ?list<AnthropicBeta> betas): PageCursor<SelfHostedWork>`
@@ -31,6 +36,10 @@ List work items in an environment.
 ## Returns
 
 - `SelfHostedWork`
+
+  - `"work" type`
+
+    The type of object (always 'work')
 
   - `string id`
 
@@ -79,10 +88,6 @@ List work items in an environment.
   - `?string stoppedAt`
 
     RFC 3339 timestamp when work execution stopped
-
-  - `"work" type`
-
-    The type of object (always 'work')
 
 ## Example
 

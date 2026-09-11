@@ -1,18 +1,18 @@
 <!-- source: https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence/certificate-quiz -->
 
-Quiz 1 of 1 · Deploying Claude Enterprise with Confidence: The five decisions that shape your rolloutCertificate quiz
+Quiz 1 of 1 · Deploying Claude Enterprise with Confidence: The five decisions that shape your rolloutCourse quiz
 
 3. /[Deploying Claude Enterprise with Confidence: The five decisions that shape your rollout](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence)
 
 [Deploying Claude Enterprise with Confidence: The five decisions that shape your rollout](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence)
 
-# Certificate quiz
+# Course quiz
 
 Quiz10 min
 
 [Previous lessonWhen a new product arrives](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence/when-a-new-product-arrives)[Up nextCompletion badge](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence/badge)
 
-Quiz 1 of 1 · Deploying Claude Enterprise with Confidence: The five decisions that shape your rolloutCertificate quiz
+Quiz 1 of 1 · Deploying Claude Enterprise with Confidence: The five decisions that shape your rolloutCourse quiz
 
 The plan
 
@@ -48,6 +48,6 @@ Your rollout
 
 * [How the decisions connect](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence/how-the-decisions-connect)
 * [When a new product arrives](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence/when-a-new-product-arrives)
-* [Certificate quizQuiz](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence/certificate-quiz)
+* [Course quizQuiz](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence/certificate-quiz)
 
 * [Completion badge](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence/badge)

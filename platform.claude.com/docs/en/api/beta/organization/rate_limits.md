@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/beta/organization/rate_limits -->
 
+---
+title: Rate Limits
+url: https://platform.claude.com/docs/en/api/beta/organization/rate_limits
+---
+
 # Rate Limits
 
 ## List Organization Rate Limits
@@ -56,6 +61,12 @@ the remaining entries.
 
   Rate-limit entries for the organization, one per group.
 
+  - `type: "rate_limit"`
+
+    Object type. Always `rate_limit` for organization rate-limit entries.
+
+    default: rate_limit
+
   - `id: string`
 
     Stable identifier for this rate-limit group within the organization.
@@ -91,12 +102,6 @@ the remaining entries.
   - `models: array of string or null`
 
     Model names this entry's limits apply to, including aliases. `null` when `group_type` is not `"model_group"`.
-
-  - `type: "rate_limit"`
-
-    Object type. Always `rate_limit` for organization rate-limit entries.
-
-    default: rate_limit
 
 - `next_page: string or null`
 
@@ -140,6 +145,12 @@ curl https://api.anthropic.com/v1/organizations/rate_limits \
 
 - `BetaOrganizationRateLimit object`
 
+  - `type: "rate_limit"`
+
+    Object type. Always `rate_limit` for organization rate-limit entries.
+
+    default: rate_limit
+
   - `id: string`
 
     Stable identifier for this rate-limit group within the organization.
@@ -175,12 +186,6 @@ curl https://api.anthropic.com/v1/organizations/rate_limits \
   - `models: array of string or null`
 
     Model names this entry's limits apply to, including aliases. `null` when `group_type` is not `"model_group"`.
-
-  - `type: "rate_limit"`
-
-    Object type. Always `rate_limit` for organization rate-limit entries.
-
-    default: rate_limit
 
 ### Beta Organization Rate Limit Value
 

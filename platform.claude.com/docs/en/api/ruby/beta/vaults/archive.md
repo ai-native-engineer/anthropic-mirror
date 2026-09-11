@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/ruby/beta/vaults/archive -->
 
+---
+title: Archive Vault
+url: https://platform.claude.com/docs/en/api/ruby/beta/vaults/archive
+---
+
 # Archive Vault
 
 `beta.vaults.archive(vault_id, **kwargs) -> BetaManagedAgentsVault`
@@ -18,7 +23,7 @@ Archive Vault
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 41 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 42 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -66,6 +71,8 @@ Archive Vault
 
     - `:"user-profiles-2026-08-18"`
 
+    - `:"user-profiles-2026-09-04"`
+
     - `:"advisor-tool-2026-03-01"`
 
     - `:"managed-agents-2026-04-01"`
@@ -108,11 +115,15 @@ Archive Vault
 
     - `:"mid-conversation-system-clear-at-2026-08-21"`
 
+- `workspace_id: String`
+
 ## Returns
 
 - `class BetaManagedAgentsVault`
 
   A vault that stores credentials for use by agents during sessions.
+
+  - `type: :vault`
 
   - `id: String`
 
@@ -137,8 +148,6 @@ Archive Vault
   - `metadata: Hash[Symbol, String]`
 
     Arbitrary key-value metadata attached to the vault.
-
-  - `type: :vault`
 
   - `updated_at: Time`
 

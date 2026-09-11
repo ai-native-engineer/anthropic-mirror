@@ -1,8 +1,13 @@
 <!-- source: https://platform.claude.com/docs/en/api/php/beta/sessions/resources/delete -->
 
+---
+title: Delete Session Resource
+url: https://platform.claude.com/docs/en/api/php/beta/sessions/resources/delete
+---
+
 # Delete Session Resource
 
-`$client->beta->sessions->resources->delete(string resourceID, string sessionID, ?list<AnthropicBeta> betas): ManagedAgentsDeleteSessionResource`
+`$client->beta->sessions->resources->delete(string resourceID, string sessionID, ?list<AnthropicBeta> betas, ?string workspaceID): ManagedAgentsDeleteSessionResource`
 
 **DELETE** `/v1/sessions/{session_id}/resources/{resource_id}`
 
@@ -18,13 +23,15 @@ Delete Session Resource
 
   Optional header to specify the beta version(s) you want to use.
 
+- `workspaceID?:optional string`
+
 ## Returns
 
 - `ManagedAgentsDeleteSessionResource`
 
-  - `string id`
-
   - `Type type`
+
+  - `string id`
 
 ## Example
 
@@ -43,6 +50,7 @@ $betaManagedAgentsDeleteSessionResource = $client
   'sesrsc_011CZkZBJq5dWxk9fVLNcPht',
   sessionID: 'sesn_011CZkZAtmR3yMPDzynEDxu7',
   betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+  workspaceID: 'wrkspc_011CZkZaBF1tNoB5wlCeusgy',
 );
 
 var_dump($betaManagedAgentsDeleteSessionResource);

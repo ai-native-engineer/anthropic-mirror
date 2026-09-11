@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/go/beta/agents/create -->
 
+---
+title: Create Agent
+url: https://platform.claude.com/docs/en/api/go/beta/agents/create
+---
+
 # Create Agent
 
 `client.Beta.Agents.New(ctx, params) (*BetaManagedAgentsAgent, error)`
@@ -164,13 +169,13 @@ Create Agent
 
     Body param: MCP servers this agent connects to. Maximum 20. Names must be unique within the array. Every server must be referenced by an `mcp_toolset` in `tools`; unreferenced servers are rejected. See the [MCP connector guide](https://platform.claude.com/docs/en/managed-agents/mcp-connector).
 
+    - `Type BetaManagedAgentsURLMCPServerParamsType`
+
     - `Name string`
 
       Unique name for this server, referenced by mcp_toolset configurations. 1-255 characters.
 
       minLength: 1, maxLength: 255
-
-    - `Type BetaManagedAgentsURLMCPServerParamsType`
 
     - `URL string`
 
@@ -194,13 +199,13 @@ Create Agent
 
       An Anthropic-managed skill.
 
+      - `Type BetaManagedAgentsAnthropicSkillParamsType`
+
       - `SkillID string`
 
         Identifier of the Anthropic skill (e.g., "xlsx").
 
         minLength: 1, maxLength: 64
-
-      - `Type BetaManagedAgentsAnthropicSkillParamsType`
 
       - `Version string Optional`
 
@@ -212,13 +217,13 @@ Create Agent
 
       A user-created custom skill.
 
+      - `Type BetaManagedAgentsCustomSkillParamsType`
+
       - `SkillID string`
 
         Tagged ID of the custom skill (e.g., "skill_01XJ5...").
 
         minLength: 1, maxLength: 64
-
-      - `Type BetaManagedAgentsCustomSkillParamsType`
 
       - `Version string Optional`
 
@@ -250,6 +255,8 @@ Create Agent
 
           Configuration override for the bash tool.
 
+          - `Type BetaManagedAgentsBashToolConfigParamsType Optional`
+
           - `Name Bash`
 
             Must be "bash".
@@ -274,11 +281,17 @@ Create Agent
 
               - `Type BetaManagedAgentsAlwaysAskPolicyType`
 
-          - `Type BetaManagedAgentsBashToolConfigParamsType Optional`
+            - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+              - `Type Auto`
 
         - `type BetaManagedAgentsEditToolConfigParamsResp struct{…}`
 
           Configuration override for the edit tool.
+
+          - `Type BetaManagedAgentsEditToolConfigParamsType Optional`
 
           - `Name Edit`
 
@@ -300,11 +313,15 @@ Create Agent
 
               Tool calls require user confirmation before execution.
 
-          - `Type BetaManagedAgentsEditToolConfigParamsType Optional`
+            - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `type BetaManagedAgentsReadToolConfigParamsResp struct{…}`
 
           Configuration override for the read tool.
+
+          - `Type BetaManagedAgentsReadToolConfigParamsType Optional`
 
           - `Name Read`
 
@@ -326,11 +343,15 @@ Create Agent
 
               Tool calls require user confirmation before execution.
 
-          - `Type BetaManagedAgentsReadToolConfigParamsType Optional`
+            - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `type BetaManagedAgentsWriteToolConfigParamsResp struct{…}`
 
           Configuration override for the write tool.
+
+          - `Type BetaManagedAgentsWriteToolConfigParamsType Optional`
 
           - `Name Write`
 
@@ -352,11 +373,15 @@ Create Agent
 
               Tool calls require user confirmation before execution.
 
-          - `Type BetaManagedAgentsWriteToolConfigParamsType Optional`
+            - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `type BetaManagedAgentsGlobToolConfigParamsResp struct{…}`
 
           Configuration override for the glob tool.
+
+          - `Type BetaManagedAgentsGlobToolConfigParamsType Optional`
 
           - `Name Glob`
 
@@ -378,11 +403,15 @@ Create Agent
 
               Tool calls require user confirmation before execution.
 
-          - `Type BetaManagedAgentsGlobToolConfigParamsType Optional`
+            - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `type BetaManagedAgentsGrepToolConfigParamsResp struct{…}`
 
           Configuration override for the grep tool.
+
+          - `Type BetaManagedAgentsGrepToolConfigParamsType Optional`
 
           - `Name Grep`
 
@@ -404,11 +433,15 @@ Create Agent
 
               Tool calls require user confirmation before execution.
 
-          - `Type BetaManagedAgentsGrepToolConfigParamsType Optional`
+            - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `type BetaManagedAgentsWebFetchToolConfigParamsResp struct{…}`
 
           Configuration override for the web_fetch tool.
+
+          - `Type BetaManagedAgentsWebFetchToolConfigParamsType Optional`
 
           - `Name WebFetch`
 
@@ -444,11 +477,15 @@ Create Agent
 
               Tool calls require user confirmation before execution.
 
-          - `Type BetaManagedAgentsWebFetchToolConfigParamsType Optional`
+            - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `type BetaManagedAgentsWebSearchToolConfigParamsResp struct{…}`
 
           Configuration override for the web_search tool.
+
+          - `Type BetaManagedAgentsWebSearchToolConfigParamsType Optional`
 
           - `Name WebSearch`
 
@@ -478,7 +515,9 @@ Create Agent
 
               Tool calls require user confirmation before execution.
 
-          - `Type BetaManagedAgentsWebSearchToolConfigParamsType Optional`
+            - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
           - `UserLocation BetaManagedAgentsUserLocation Optional`
 
@@ -530,17 +569,21 @@ Create Agent
 
             Tool calls require user confirmation before execution.
 
+          - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
     - `type BetaManagedAgentsMCPToolsetParamsResp struct{…}`
 
       Configuration for tools from an MCP server defined in `mcp_servers`.
+
+      - `Type BetaManagedAgentsMCPToolsetParamsType`
 
       - `MCPServerName string`
 
         Name of the MCP server. Must match a server name from the mcp_servers array. 1-255 characters.
 
         minLength: 1, maxLength: 255
-
-      - `Type BetaManagedAgentsMCPToolsetParamsType`
 
       - `Configs []BetaManagedAgentsMCPToolConfigParamsResp Optional`
 
@@ -568,6 +611,10 @@ Create Agent
 
             Tool calls require user confirmation before execution.
 
+          - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
       - `DefaultConfig BetaManagedAgentsMCPToolsetDefaultConfigParamsResp Optional`
 
         Default configuration for all tools from an MCP server.
@@ -588,9 +635,15 @@ Create Agent
 
             Tool calls require user confirmation before execution.
 
+          - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
     - `type BetaManagedAgentsCustomToolParamsResp struct{…}`
 
       A custom tool that is executed by the API client rather than the agent. When the agent calls this tool, an `agent.custom_tool_use` event is emitted and the session goes idle, waiting for the client to provide the result via a `user.custom_tool_result` event.
+
+      - `Type BetaManagedAgentsCustomToolParamsType`
 
       - `Description string`
 
@@ -613,8 +666,6 @@ Create Agent
         Unique name for the tool. 1-128 characters; letters, digits, underscores, and hyphens.
 
         minLength: 1, maxLength: 128
-
-      - `Type BetaManagedAgentsCustomToolParamsType`
 
   - `Betas param.Field[[]AnthropicBeta] Optional`
 
@@ -670,6 +721,8 @@ Create Agent
 
       - `const AnthropicBetaUserProfiles2026_08_18 AnthropicBeta = "user-profiles-2026-08-18"`
 
+      - `const AnthropicBetaUserProfiles2026_09_04 AnthropicBeta = "user-profiles-2026-09-04"`
+
       - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
 
       - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
@@ -712,11 +765,19 @@ Create Agent
 
       - `const AnthropicBetaMidConversationSystemClearAt2026_08_21 AnthropicBeta = "mid-conversation-system-clear-at-2026-08-21"`
 
+  - `WorkspaceID param.Field[string] Optional`
+
+    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ## Returns
 
 - `type BetaManagedAgentsAgent struct{…}`
 
   A Managed Agents `agent`.
+
+  - `Type BetaManagedAgentsAgentType`
 
   - `ID string`
 
@@ -736,9 +797,9 @@ Create Agent
 
   - `MCPServers []BetaManagedAgentsMCPServerURLDefinition`
 
-    - `Name string`
-
     - `Type BetaManagedAgentsMCPServerURLDefinitionType`
+
+    - `Name string`
 
     - `URL string`
 
@@ -868,6 +929,8 @@ Create Agent
 
     Resolved coordinator topology with a concrete agent roster.
 
+    - `Type BetaManagedAgentsMultiagentType`
+
     - `Agents []BetaManagedAgentsMultiagentAgentUnion`
 
       Agents the coordinator may spawn as session threads, each resolved to a specific version.
@@ -876,9 +939,9 @@ Create Agent
 
         A resolved agent reference with a concrete version.
 
-        - `ID string`
-
         - `Type BetaManagedAgentsAgentReferenceType`
+
+        - `ID string`
 
         - `Version int64`
 
@@ -888,13 +951,11 @@ Create Agent
 
         Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
 
+        - `Type BetaManagedAgentsAdvisorType`
+
         - `Model string`
 
           The advisor model id.
-
-        - `Type BetaManagedAgentsAdvisorType`
-
-    - `Type BetaManagedAgentsMultiagentType`
 
   - `Name string`
 
@@ -904,9 +965,9 @@ Create Agent
 
       A resolved Anthropic-managed skill.
 
-      - `SkillID string`
-
       - `Type BetaManagedAgentsAnthropicSkillType`
+
+      - `SkillID string`
 
       - `Version string`
 
@@ -914,9 +975,9 @@ Create Agent
 
       A resolved user-created custom skill.
 
-      - `SkillID string`
-
       - `Type BetaManagedAgentsCustomSkillType`
+
+      - `SkillID string`
 
       - `Version string`
 
@@ -926,11 +987,15 @@ Create Agent
 
     - `type BetaManagedAgentsAgentToolset20260401 struct{…}`
 
+      - `Type BetaManagedAgentsAgentToolset20260401Type`
+
       - `Configs []BetaManagedAgentsAgentToolConfigUnion`
 
         - `type BetaManagedAgentsBashToolConfig struct{…}`
 
           Configuration for the bash tool.
+
+          - `Type Bash`
 
           - `Enabled bool`
 
@@ -952,11 +1017,17 @@ Create Agent
 
               - `Type BetaManagedAgentsAlwaysAskPolicyType`
 
-          - `Type Bash`
+            - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+              - `Type Auto`
 
         - `type BetaManagedAgentsEditToolConfig struct{…}`
 
           Configuration for the edit tool.
+
+          - `Type Edit`
 
           - `Enabled bool`
 
@@ -974,11 +1045,15 @@ Create Agent
 
               Tool calls require user confirmation before execution.
 
-          - `Type Edit`
+            - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `type BetaManagedAgentsReadToolConfig struct{…}`
 
           Configuration for the read tool.
+
+          - `Type Read`
 
           - `Enabled bool`
 
@@ -996,11 +1071,15 @@ Create Agent
 
               Tool calls require user confirmation before execution.
 
-          - `Type Read`
+            - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `type BetaManagedAgentsWriteToolConfig struct{…}`
 
           Configuration for the write tool.
+
+          - `Type Write`
 
           - `Enabled bool`
 
@@ -1018,11 +1097,15 @@ Create Agent
 
               Tool calls require user confirmation before execution.
 
-          - `Type Write`
+            - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `type BetaManagedAgentsGlobToolConfig struct{…}`
 
           Configuration for the glob tool.
+
+          - `Type Glob`
 
           - `Enabled bool`
 
@@ -1040,11 +1123,15 @@ Create Agent
 
               Tool calls require user confirmation before execution.
 
-          - `Type Glob`
+            - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `type BetaManagedAgentsGrepToolConfig struct{…}`
 
           Configuration for the grep tool.
+
+          - `Type Grep`
 
           - `Enabled bool`
 
@@ -1062,11 +1149,15 @@ Create Agent
 
               Tool calls require user confirmation before execution.
 
-          - `Type Grep`
+            - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `type BetaManagedAgentsWebFetchToolConfig struct{…}`
 
           Configuration for the web_fetch tool.
+
+          - `Type WebFetch`
 
           - `Enabled bool`
 
@@ -1084,7 +1175,9 @@ Create Agent
 
               Tool calls require user confirmation before execution.
 
-          - `Type WebFetch`
+            - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
           - `AllowedDomains []string Optional`
 
@@ -1097,6 +1190,8 @@ Create Agent
         - `type BetaManagedAgentsWebSearchToolConfig struct{…}`
 
           Configuration for the web_search tool.
+
+          - `Type WebSearch`
 
           - `Enabled bool`
 
@@ -1114,7 +1209,9 @@ Create Agent
 
               Tool calls require user confirmation before execution.
 
-          - `Type WebSearch`
+            - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
           - `AllowedDomains []string Optional`
 
@@ -1168,9 +1265,13 @@ Create Agent
 
             Tool calls require user confirmation before execution.
 
-      - `Type BetaManagedAgentsAgentToolset20260401Type`
+          - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
     - `type BetaManagedAgentsMCPToolset struct{…}`
+
+      - `Type BetaManagedAgentsMCPToolsetType`
 
       - `Configs []BetaManagedAgentsMCPToolConfig`
 
@@ -1190,6 +1291,10 @@ Create Agent
 
             Tool calls require user confirmation before execution.
 
+          - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
       - `DefaultConfig BetaManagedAgentsMCPToolsetDefaultConfig`
 
         Resolved default configuration for all tools from an MCP server.
@@ -1208,13 +1313,17 @@ Create Agent
 
             Tool calls require user confirmation before execution.
 
-      - `MCPServerName string`
+          - `type BetaManagedAgentsAutoPolicy struct{…}`
 
-      - `Type BetaManagedAgentsMCPToolsetType`
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+      - `MCPServerName string`
 
     - `type BetaManagedAgentsCustomTool struct{…}`
 
       A custom tool as returned in API responses.
+
+      - `Type BetaManagedAgentsCustomToolType`
 
       - `Description string`
 
@@ -1229,10 +1338,6 @@ Create Agent
         - `Required []string Optional`
 
       - `Name string`
-
-      - `Type BetaManagedAgentsCustomToolType`
-
-  - `Type BetaManagedAgentsAgentType`
 
   - `UpdatedAt Time`
 

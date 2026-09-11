@@ -34,14 +34,6 @@ Manage your schedule and coordinate meetings effortlessly
 
 [Add Google Calendar in Claude (opens in new tab)](https://claude.ai/directory/2a838eaa-f7b4-4bc2-bd47-c326f3c813c5 "Add in Claude")
 
-![](https://www.google.com/s2/favicons?domain=atlassian.com&sz=96)
-
-### [Atlassian Rovo](https://claude.com/connectors/atlassian)
-
-Access Jira & Confluence from Claude
-
-[Add Atlassian Rovo in Claude (opens in new tab)](https://claude.ai/directory/11ba10d9-477b-4988-bd1c-90a7fa680dc1 "Add in Claude")
-
 ![](https://www.google.com/s2/favicons?domain=microsoft.com&sz=96)
 
 ### [Microsoft 365](https://claude.com/connectors/microsoft-365)
@@ -49,6 +41,14 @@ Access Jira & Confluence from Claude
 Access your company's SharePoint, OneDrive, Outlook, and Teams directly in Claude
 
 [Add Microsoft 365 in Claude (opens in new tab)](https://claude.ai/directory/ce0c9cda-5ea5-44c5-9cf2-40810dfa6582 "Add in Claude")
+
+![](https://www.google.com/s2/favicons?domain=atlassian.com&sz=96)
+
+### [Atlassian Rovo](https://claude.com/connectors/atlassian)
+
+Access Jira & Confluence from Claude
+
+[Add Atlassian Rovo in Claude (opens in new tab)](https://claude.ai/directory/11ba10d9-477b-4988-bd1c-90a7fa680dc1 "Add in Claude")
 
 ![](https://www.notion.so/images/notion-logo-block-main.svg)
 
@@ -66,12 +66,10 @@ Send messages, create canvases, and fetch Slack data
 
 [Add Slack in Claude (opens in new tab)](https://claude.ai/directory/597f662f-36de-437e-836e-5a81013cbfbe "Add in Claude")
 
-![](https://cdn.b12.io/branding/b12-logo-purple.png)
+![](https://www.google.com/s2/favicons?domain=asana.com&sz=96)
 
-### [Website Generator by B12](https://claude.com/connectors/website-generator-by-b12)
+### [Asana](https://claude.com/connectors/asana)
 
-Trending
+Connect to Asana to coordinate tasks, projects, and goals
 
-Build a website or web app in minutes! Generate, design, write code, and create copy for your website. Powered by B12. Contact: hello@b12.io
-
-[Add Website Generator by B12 in Claude (opens in new tab)](https://claude.ai/directory/e25b319d-9c6a-4baa-90a3-0bb8eb5e25b0 "Add in Claude")
+[Add Asana in Claude (opens in new tab)](https://claude.ai/directory/41aefcf3-a829-45eb-8cee-d90b93912f57 "Add in Claude")

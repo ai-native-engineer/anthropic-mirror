@@ -45,6 +45,16 @@ Find and enrich company and contact data in Claude for prospecting, lead generat
 
 [Add Vibe Prospecting in Claude (opens in new tab)](https://claude.ai/directory/1bdcb159-b6f0-4f13-bc08-fdb40b007828 "Add in Claude")
 
+![](https://compass.maryland.gov/assets/compass-icon.png)
+
+### [Maryland Community Compass](https://claude.com/connectors/maryland-compass)
+
+New
+
+Maryland's neighborhood development data platform.
+
+[Add Maryland Community Compass in Claude (opens in new tab)](https://claude.ai/directory/68edb405-8774-419f-b9d8-32f0a95229dd "Add in Claude")
+
 ![](https://storage.googleapis.com/assets.mobbin.com/claude.ai/logo.svg)
 
 ### [Mobbin](https://claude.com/connectors/mobbin)
@@ -60,11 +70,3 @@ Find UI & UX design references
 Prep, edit, clip, and publish your videos and podcasts
 
 [Add Riverside in Claude (opens in new tab)](https://claude.ai/directory/3366d1e9-5d1d-49b1-a758-677949a84fd9 "Add in Claude")
-
-![](https://www.google.com/s2/favicons?domain=idealista.com&sz=96)
-
-### [idealista](https://claude.com/connectors/idealista)
-
-Find properties to buy or rent
-
-[Add idealista in Claude (opens in new tab)](https://claude.ai/directory/a93a736f-6b7a-46d3-849a-48f75534183a "Add in Claude")

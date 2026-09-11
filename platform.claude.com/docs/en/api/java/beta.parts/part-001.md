@@ -3,6 +3,11 @@
 
 <!-- chunk-start -->
 
+---
+title: Beta
+url: https://platform.claude.com/docs/en/api/java/beta
+---
+
 # Beta
 
 ## Domain types
@@ -57,6 +62,8 @@
 
   - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
 
+  - `USER_PROFILES_2026_09_04("user-profiles-2026-09-04")`
+
   - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
 
   - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
@@ -103,25 +110,25 @@
 
 - `class BetaApiError:`
 
-  - `String message`
-
   - `JsonValue type = "api_error"`
+
+  - `String message`
 
 ### Beta Authentication Error
 
 - `class BetaAuthenticationError:`
 
-  - `String message`
-
   - `JsonValue type = "authentication_error"`
+
+  - `String message`
 
 ### Beta Billing Error
 
 - `class BetaBillingError:`
 
-  - `String message`
-
   - `JsonValue type = "billing_error"`
+
+  - `String message`
 
 ### Beta Currency
 
@@ -135,137 +142,137 @@
 
   - `class BetaInvalidRequestError:`
 
-    - `String message`
-
     - `JsonValue type = "invalid_request_error"`
+
+    - `String message`
 
   - `class BetaAuthenticationError:`
 
-    - `String message`
-
     - `JsonValue type = "authentication_error"`
+
+    - `String message`
 
   - `class BetaBillingError:`
 
-    - `String message`
-
     - `JsonValue type = "billing_error"`
+
+    - `String message`
 
   - `class BetaPermissionError:`
 
-    - `String message`
-
     - `JsonValue type = "permission_error"`
+
+    - `String message`
 
   - `class BetaNotFoundError:`
 
-    - `String message`
-
     - `JsonValue type = "not_found_error"`
+
+    - `String message`
 
   - `class BetaRateLimitError:`
 
-    - `String message`
-
     - `JsonValue type = "rate_limit_error"`
+
+    - `String message`
 
   - `class BetaGatewayTimeoutError:`
 
-    - `String message`
-
     - `JsonValue type = "timeout_error"`
+
+    - `String message`
 
   - `class BetaApiError:`
 
-    - `String message`
-
     - `JsonValue type = "api_error"`
+
+    - `String message`
 
   - `class BetaOverloadedError:`
 
-    - `String message`
-
     - `JsonValue type = "overloaded_error"`
+
+    - `String message`
 
 ### Beta Error Response
 
 - `class BetaErrorResponse:`
 
+  - `JsonValue type = "error"`
+
   - `BetaError error`
 
     - `class BetaInvalidRequestError:`
 
-      - `String message`
-
       - `JsonValue type = "invalid_request_error"`
+
+      - `String message`
 
     - `class BetaAuthenticationError:`
 
-      - `String message`
-
       - `JsonValue type = "authentication_error"`
+
+      - `String message`
 
     - `class BetaBillingError:`
 
-      - `String message`
-
       - `JsonValue type = "billing_error"`
+
+      - `String message`
 
     - `class BetaPermissionError:`
 
-      - `String message`
-
       - `JsonValue type = "permission_error"`
+
+      - `String message`
 
     - `class BetaNotFoundError:`
 
-      - `String message`
-
       - `JsonValue type = "not_found_error"`
+
+      - `String message`
 
     - `class BetaRateLimitError:`
 
-      - `String message`
-
       - `JsonValue type = "rate_limit_error"`
+
+      - `String message`
 
     - `class BetaGatewayTimeoutError:`
 
-      - `String message`
-
       - `JsonValue type = "timeout_error"`
+
+      - `String message`
 
     - `class BetaApiError:`
 
-      - `String message`
-
       - `JsonValue type = "api_error"`
+
+      - `String message`
 
     - `class BetaOverloadedError:`
 
-      - `String message`
-
       - `JsonValue type = "overloaded_error"`
 
-  - `Optional<String> requestId`
+      - `String message`
 
-  - `JsonValue type = "error"`
+  - `Optional<String> requestId`
 
 ### Beta Gateway Timeout Error
 
 - `class BetaGatewayTimeoutError:`
 
-  - `String message`
-
   - `JsonValue type = "timeout_error"`
+
+  - `String message`
 
 ### Beta Invalid Request Error
 
 - `class BetaInvalidRequestError:`
 
-  - `String message`
-
   - `JsonValue type = "invalid_request_error"`
+
+  - `String message`
 
 ### Beta Monetary Amount
 
@@ -285,33 +292,33 @@
 
 - `class BetaNotFoundError:`
 
-  - `String message`
-
   - `JsonValue type = "not_found_error"`
+
+  - `String message`
 
 ### Beta Overloaded Error
 
 - `class BetaOverloadedError:`
 
-  - `String message`
-
   - `JsonValue type = "overloaded_error"`
+
+  - `String message`
 
 ### Beta Permission Error
 
 - `class BetaPermissionError:`
 
-  - `String message`
-
   - `JsonValue type = "permission_error"`
+
+  - `String message`
 
 ### Beta Rate Limit Error
 
 - `class BetaRateLimitError:`
 
-  - `String message`
-
   - `JsonValue type = "rate_limit_error"`
+
+  - `String message`
 
 ## Beta › Models
 
@@ -395,6 +402,8 @@ The Models API response can be used to determine which models are available for 
 
     - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
 
+    - `USER_PROFILES_2026_09_04("user-profiles-2026-09-04")`
+
     - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
@@ -437,9 +446,17 @@ The Models API response can be used to determine which models are available for 
 
     - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
+  - `Optional<String> workspaceId`
+
 #### Returns
 
 - `class BetaModelInfo:`
+
+  - `JsonValue type = "model"`
+
+    Object type.
+
+    For Models, this is always `"model"`.
 
   - `String id`
 
@@ -566,12 +583,6 @@ The Models API response can be used to determine which models are available for 
   - `Optional<Long> maxTokens`
 
     Maximum value for the `max_tokens` parameter when using this model.
-
-  - `JsonValue type = "model"`
-
-    Object type.
-
-    For Models, this is always `"model"`.
 
 #### Example
 
@@ -746,6 +757,8 @@ The Models API response can be used to determine information about a specific mo
 
     - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
 
+    - `USER_PROFILES_2026_09_04("user-profiles-2026-09-04")`
+
     - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
@@ -788,9 +801,17 @@ The Models API response can be used to determine information about a specific mo
 
     - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
+  - `Optional<String> workspaceId`
+
 #### Returns
 
 - `class BetaModelInfo:`
+
+  - `JsonValue type = "model"`
+
+    Object type.
+
+    For Models, this is always `"model"`.
 
   - `String id`
 
@@ -917,12 +938,6 @@ The Models API response can be used to determine information about a specific mo
   - `Optional<Long> maxTokens`
 
     Maximum value for the `max_tokens` parameter when using this model.
-
-  - `JsonValue type = "model"`
-
-    Object type.
-
-    For Models, this is always `"model"`.
 
 #### Example
 
@@ -1090,6 +1105,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
 
+    - `USER_PROFILES_2026_09_04("user-profiles-2026-09-04")`
+
     - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
@@ -1135,6 +1152,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
   - `Optional<String> userProfileId`
 
     The user profile ID to attribute this request to. Use when acting on behalf of a party other than your organization. Requires the `user-profiles` beta header.
+
+  - `Optional<String> workspaceId`
 
   - `long maxTokens`
 
@@ -1207,11 +1226,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `class BetaTextBlockParam:`
 
+          - `JsonValue type = "text"`
+
           - `String text`
 
             minLength: 1
-
-          - `JsonValue type = "text"`
 
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -1238,6 +1257,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `class BetaCitationCharLocationParam:`
 
+              - `JsonValue type = "char_location"`
+
               - `String citedText`
 
               - `long documentIndex`
@@ -1254,9 +1275,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 minimum: 0
 
-              - `JsonValue type = "char_location"`
-
             - `class BetaCitationPageLocationParam:`
+
+              - `JsonValue type = "page_location"`
 
               - `String citedText`
 
@@ -1274,9 +1295,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 minimum: 1
 
-              - `JsonValue type = "page_location"`
-
             - `class BetaCitationContentBlockLocationParam:`
+
+              - `JsonValue type = "content_block_location"`
 
               - `String citedText`
 
@@ -1304,9 +1325,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 minimum: 0
 
-              - `JsonValue type = "content_block_location"`
-
             - `class BetaCitationWebSearchResultLocationParam:`
+
+              - `JsonValue type = "web_search_result_location"`
 
               - `String citedText`
 
@@ -1316,13 +1337,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 maxLength: 512, minLength: 1
 
-              - `JsonValue type = "web_search_result_location"`
-
               - `String url`
 
                 minLength: 1
 
             - `class BetaCitationSearchResultLocationParam:`
+
+              - `JsonValue type = "search_result_location"`
 
               - `String citedText`
 
@@ -1354,13 +1375,15 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `Optional<String> title`
 
-              - `JsonValue type = "search_result_location"`
-
         - `class BetaImageBlockParam:`
+
+          - `JsonValue type = "image"`
 
           - `Source source`
 
             - `class BetaBase64ImageSource:`
+
+              - `JsonValue type = "base64"`
 
               - `String data`
 
@@ -1376,8 +1399,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 - `IMAGE_WEBP("image/webp")`
 
-              - `JsonValue type = "base64"`
-
             - `class BetaUrlImageSource:`
 
               - `JsonValue type = "url"`
@@ -1386,11 +1407,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `class BetaFileImageSource:`
 
-              - `String fileId`
-
               - `JsonValue type = "file"`
 
-          - `JsonValue type = "image"`
+              - `String fileId`
 
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -1410,9 +1429,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `class BetaRequestDocumentBlock:`
 
+          - `JsonValue type = "document"`
+
           - `Source source`
 
             - `class BetaBase64PdfSource:`
+
+              - `JsonValue type = "base64"`
 
               - `String data`
 
@@ -1420,17 +1443,17 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `JsonValue mediaType = "application/pdf"`
 
-              - `JsonValue type = "base64"`
-
             - `class BetaPlainTextSource:`
+
+              - `JsonValue type = "text"`
 
               - `String data`
 
               - `JsonValue mediaType = "text/plain"`
 
-              - `JsonValue type = "text"`
-
             - `class BetaContentBlockSource:`
+
+              - `JsonValue type = "content"`
 
               - `Content content`
 
@@ -1442,8 +1465,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                   - `class BetaImageBlockParam:`
 
-              - `JsonValue type = "content"`
-
             - `class BetaUrlPdfSource:`
 
               - `JsonValue type = "url"`
@@ -1452,11 +1473,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `class BetaFileDocumentSource:`
 
-              - `String fileId`
-
               - `JsonValue type = "file"`
 
-          - `JsonValue type = "document"`
+              - `String fileId`
 
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -1476,13 +1495,15 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `class BetaSearchResultBlockParam:`
 
+          - `JsonValue type = "search_result"`
+
           - `List<BetaTextBlockParam> content`
+
+            - `JsonValue type = "text"`
 
             - `String text`
 
               minLength: 1
-
-            - `JsonValue type = "text"`
 
             - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -1494,8 +1515,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `String title`
 
-          - `JsonValue type = "search_result"`
-
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
             Create a cache control breakpoint at this content block.
@@ -1503,6 +1522,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
           - `Optional<BetaCitationsConfigParam> citations`
 
         - `class BetaThinkingBlockParam:`
+
+          - `JsonValue type = "thinking"`
 
           - `String signature`
 
@@ -1514,17 +1535,17 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             The `thinking` text of this block as returned by the API.
 
-          - `JsonValue type = "thinking"`
-
         - `class BetaRedactedThinkingBlockParam:`
+
+          - `JsonValue type = "redacted_thinking"`
 
           - `String data`
 
             The `data` value of this redacted thinking block, exactly as returned by the API in a previous response. Opaque and encrypted; pass it back unchanged.
 
-          - `JsonValue type = "redacted_thinking"`
-
         - `class BetaToolUseBlockParam:`
+
+          - `JsonValue type = "tool_use"`
 
           - `String id`
 
@@ -1535,8 +1556,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
           - `String name`
 
             maxLength: 200, minLength: 1
-
-          - `JsonValue type = "tool_use"`
 
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -1556,19 +1575,19 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               Tool invocation generated by a server-side tool.
 
+              - `JsonValue type = "code_execution_20250825"`
+
               - `String toolId`
 
                 pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-              - `JsonValue type = "code_execution_20250825"`
 
             - `class BetaServerToolCaller20260120:`
 
+              - `JsonValue type = "code_execution_20260120"`
+
               - `String toolId`
 
                 pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-              - `JsonValue type = "code_execution_20260120"`
 
           - `Optional<String> toolsetName`
 
@@ -1578,11 +1597,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `class BetaToolResultBlockParam:`
 
+          - `JsonValue type = "tool_result"`
+
           - `String toolUseId`
 
             pattern: ^[a-zA-Z0-9_-]+$
-
-          - `JsonValue type = "tool_result"`
 
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -1606,11 +1625,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 Tool reference block that can be included in tool_result content.
 
+                - `JsonValue type = "tool_reference"`
+
                 - `String toolName`
 
                   maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
-
-                - `JsonValue type = "tool_reference"`
 
                 - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -1625,6 +1644,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
                 At most one per `tool_result`, only on a non-error result answering a
                 browser toolset member `tool_use`. The server renders the
                 model-visible text from it; the model never sees the raw fields.
+
+                - `JsonValue type = "browser_state"`
 
                 - `List<BetaBrowserStateTabEntry> tabs`
 
@@ -1654,8 +1675,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                     Whether this tab is the active tab after this call. Whenever `tabs` is non-empty, exactly one entry is marked `active: true`.
 
-                - `JsonValue type = "browser_state"`
-
                 - `Optional<BetaCacheControlEphemeral> cacheControl`
 
                   Create a cache control breakpoint at this content block.
@@ -1676,25 +1695,25 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
                     during a failed call gets no deferred `tab_opened`; it simply appears
                     in the next result's `tabs` inventory.
 
+                    - `JsonValue type = "tab_opened"`
+
                     - `String tabId`
 
                       The `tab_id` of the opened tab, present in `tabs`.
 
                       maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-                    - `JsonValue type = "tab_opened"`
-
                   - `class BetaBrowserStateChangeDownloadStarted:`
 
                     A file download that started during this call.
+
+                    - `JsonValue type = "download_started"`
 
                     - `String downloadId`
 
                       The caller-assigned identifier for this download, stable across the state changes reporting it.
 
                       maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
-
-                    - `JsonValue type = "download_started"`
 
                     - `String url`
 
@@ -1709,13 +1728,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
                     `download_started`, when the download finished during the call that
                     started it (at most one state change per `download_id` per result).
 
+                    - `JsonValue type = "download_completed"`
+
                     - `String downloadId`
 
                       The caller-assigned identifier for this download, stable across the state changes reporting it.
 
                       maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
-
-                    - `JsonValue type = "download_completed"`
 
                     - `String url`
 
@@ -1739,13 +1758,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                     A file download that failed — or was cancelled — during this call.
 
+                    - `JsonValue type = "download_failed"`
+
                     - `String downloadId`
 
                       The caller-assigned identifier for this download, stable across the state changes reporting it.
 
                       maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
-
-                    - `JsonValue type = "download_failed"`
 
                     - `String url`
 
@@ -1768,6 +1787,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
             maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
 
         - `class BetaServerToolUseBlockParam:`
+
+          - `JsonValue type = "server_tool_use"`
 
           - `String id`
 
@@ -1793,8 +1814,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `TOOL_SEARCH_TOOL_BM25("tool_search_tool_bm25")`
 
-          - `JsonValue type = "server_tool_use"`
-
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
             Create a cache control breakpoint at this content block.
@@ -1815,21 +1834,25 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `class BetaWebSearchToolResultBlockParam:`
 
+          - `JsonValue type = "web_search_tool_result"`
+
           - `BetaWebSearchToolResultBlockParamContent content`
 
             - `List<BetaWebSearchResultBlockParam>`
 
+              - `JsonValue type = "web_search_result"`
+
               - `String encryptedContent`
 
               - `String title`
-
-              - `JsonValue type = "web_search_result"`
 
               - `String url`
 
               - `Optional<String> pageAge`
 
             - `class BetaWebSearchToolRequestError:`
+
+              - `JsonValue type = "web_search_tool_result_error"`
 
               - `BetaWebSearchToolResultErrorCode errorCode`
 
@@ -1845,13 +1868,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 - `REQUEST_TOO_LARGE("request_too_large")`
 
-              - `JsonValue type = "web_search_tool_result_error"`
-
           - `String toolUseId`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-          - `JsonValue type = "web_search_tool_result"`
 
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -1873,9 +1892,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `class BetaWebFetchToolResultBlockParam:`
 
+          - `JsonValue type = "web_fetch_tool_result"`
+
           - `Content content`
 
             - `class BetaWebFetchToolResultErrorBlockParam:`
+
+              - `JsonValue type = "web_fetch_tool_result_error"`
 
               - `BetaWebFetchToolResultErrorCode errorCode`
 
@@ -1897,13 +1920,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 - `UNAVAILABLE("unavailable")`
 
-              - `JsonValue type = "web_fetch_tool_result_error"`
+                - `CONTENT_TOO_LARGE("content_too_large")`
 
             - `class BetaWebFetchBlockParam:`
 
-              - `BetaRequestDocumentBlock content`
-
               - `JsonValue type = "web_fetch_result"`
+
+              - `BetaRequestDocumentBlock content`
 
               - `String url`
 
@@ -1916,8 +1939,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
           - `String toolUseId`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-          - `JsonValue type = "web_fetch_tool_result"`
 
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -1939,9 +1960,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `class BetaAdvisorToolResultBlockParam:`
 
+          - `JsonValue type = "advisor_tool_result"`
+
           - `Content content`
 
             - `class BetaAdvisorToolResultErrorParam:`
+
+              - `JsonValue type = "advisor_tool_result_error"`
 
               - `ErrorCode errorCode`
 
@@ -1959,23 +1984,21 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 - `MODEL_NOT_FOUND("model_not_found")`
 
-              - `JsonValue type = "advisor_tool_result_error"`
-
             - `class BetaAdvisorResultBlockParam:`
 
-              - `String text`
-
               - `JsonValue type = "advisor_result"`
+
+              - `String text`
 
               - `Optional<String> stopReason`
 
             - `class BetaAdvisorRedactedResultBlockParam:`
 
+              - `JsonValue type = "advisor_redacted_result"`
+
               - `String encryptedContent`
 
                 Opaque blob produced by a prior response; must be round-tripped verbatim.
-
-              - `JsonValue type = "advisor_redacted_result"`
 
               - `Optional<String> stopReason`
 
@@ -1983,19 +2006,21 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `JsonValue type = "advisor_tool_result"`
-
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
             Create a cache control breakpoint at this content block.
 
         - `class BetaCodeExecutionToolResultBlockParam:`
 
+          - `JsonValue type = "code_execution_tool_result"`
+
           - `BetaCodeExecutionToolResultBlockParamContent content`
 
             Code execution result with encrypted stdout for PFC + web_search results.
 
             - `class BetaCodeExecutionToolResultErrorParam:`
+
+              - `JsonValue type = "code_execution_tool_result_error"`
 
               - `BetaCodeExecutionToolResultErrorCode errorCode`
 
@@ -2007,15 +2032,15 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 - `EXECUTION_TIME_EXCEEDED("execution_time_exceeded")`
 
-              - `JsonValue type = "code_execution_tool_result_error"`
-
             - `class BetaCodeExecutionResultBlockParam:`
+
+              - `JsonValue type = "code_execution_result"`
 
               - `List<BetaCodeExecutionOutputBlockParam> content`
 
-                - `String fileId`
-
                 - `JsonValue type = "code_execution_output"`
+
+                - `String fileId`
 
               - `long returnCode`
 
@@ -2023,17 +2048,17 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `String stdout`
 
-              - `JsonValue type = "code_execution_result"`
-
             - `class BetaEncryptedCodeExecutionResultBlockParam:`
 
               Code execution result with encrypted stdout for PFC + web_search results.
 
+              - `JsonValue type = "encrypted_code_execution_result"`
+
               - `List<BetaCodeExecutionOutputBlockParam> content`
 
-                - `String fileId`
-
                 - `JsonValue type = "code_execution_output"`
+
+                - `String fileId`
 
               - `String encryptedStdout`
 
@@ -2041,13 +2066,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `String stderr`
 
-              - `JsonValue type = "encrypted_code_execution_result"`
-
           - `String toolUseId`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-          - `JsonValue type = "code_execution_tool_result"`
 
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -2055,9 +2076,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `class BetaBashCodeExecutionToolResultBlockParam:`
 
+          - `JsonValue type = "bash_code_execution_tool_result"`
+
           - `Content content`
 
             - `class BetaBashCodeExecutionToolResultErrorParam:`
+
+              - `JsonValue type = "bash_code_execution_tool_result_error"`
 
               - `ErrorCode errorCode`
 
@@ -2071,15 +2096,15 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 - `OUTPUT_FILE_TOO_LARGE("output_file_too_large")`
 
-              - `JsonValue type = "bash_code_execution_tool_result_error"`
-
             - `class BetaBashCodeExecutionResultBlockParam:`
+
+              - `JsonValue type = "bash_code_execution_result"`
 
               - `List<BetaBashCodeExecutionOutputBlockParam> content`
 
-                - `String fileId`
-
                 - `JsonValue type = "bash_code_execution_output"`
+
+                - `String fileId`
 
               - `long returnCode`
 
@@ -2087,13 +2112,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `String stdout`
 
-              - `JsonValue type = "bash_code_execution_result"`
-
           - `String toolUseId`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-          - `JsonValue type = "bash_code_execution_tool_result"`
 
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -2101,9 +2122,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `class BetaTextEditorCodeExecutionToolResultBlockParam:`
 
+          - `JsonValue type = "text_editor_code_execution_tool_result"`
+
           - `Content content`
 
             - `class BetaTextEditorCodeExecutionToolResultErrorParam:`
+
+              - `JsonValue type = "text_editor_code_execution_tool_result_error"`
 
               - `ErrorCode errorCode`
 
@@ -2117,11 +2142,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 - `FILE_NOT_FOUND("file_not_found")`
 
-              - `JsonValue type = "text_editor_code_execution_tool_result_error"`
-
               - `Optional<String> errorMessage`
 
             - `class BetaTextEditorCodeExecutionViewResultBlockParam:`
+
+              - `JsonValue type = "text_editor_code_execution_view_result"`
 
               - `String content`
 
@@ -2133,8 +2158,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 - `PDF("pdf")`
 
-              - `JsonValue type = "text_editor_code_execution_view_result"`
-
               - `Optional<Long> numLines`
 
               - `Optional<Long> startLine`
@@ -2143,9 +2166,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `class BetaTextEditorCodeExecutionCreateResultBlockParam:`
 
-              - `boolean isFileUpdate`
-
               - `JsonValue type = "text_editor_code_execution_create_result"`
+
+              - `boolean isFileUpdate`
 
             - `class BetaTextEditorCodeExecutionStrReplaceResultBlockParam:`
 
@@ -2165,17 +2188,19 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `JsonValue type = "text_editor_code_execution_tool_result"`
-
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
             Create a cache control breakpoint at this content block.
 
         - `class BetaToolSearchToolResultBlockParam:`
 
+          - `JsonValue type = "tool_search_tool_result"`
+
           - `Content content`
 
             - `class BetaToolSearchToolResultErrorParam:`
+
+              - `JsonValue type = "tool_search_tool_result_error"`
 
               - `ErrorCode errorCode`
 
@@ -2187,37 +2212,35 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 - `EXECUTION_TIME_EXCEEDED("execution_time_exceeded")`
 
-              - `JsonValue type = "tool_search_tool_result_error"`
-
               - `Optional<String> errorMessage`
 
             - `class BetaToolSearchToolSearchResultBlockParam:`
 
+              - `JsonValue type = "tool_search_tool_search_result"`
+
               - `List<BetaToolReferenceBlockParam> toolReferences`
+
+                - `JsonValue type = "tool_reference"`
 
                 - `String toolName`
 
                   maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
-                - `JsonValue type = "tool_reference"`
-
                 - `Optional<BetaCacheControlEphemeral> cacheControl`
 
                   Create a cache control breakpoint at this content block.
 
-              - `JsonValue type = "tool_search_tool_search_result"`
-
           - `String toolUseId`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-          - `JsonValue type = "tool_search_tool_result"`
 
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
             Create a cache control breakpoint at this content block.
 
         - `class BetaMcpToolUseBlockParam:`
+
+          - `JsonValue type = "mcp_tool_use"`
 
           - `String id`
 
@@ -2231,19 +2254,17 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             The name of the MCP server
 
-          - `JsonValue type = "mcp_tool_use"`
-
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
             Create a cache control breakpoint at this content block.
 
         - `class BetaRequestMcpToolResultBlockParam:`
 
+          - `JsonValue type = "mcp_tool_result"`
+
           - `String toolUseId`
 
             pattern: ^[a-zA-Z0-9_-]+$
-
-          - `JsonValue type = "mcp_tool_result"`
 
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -2255,11 +2276,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `List<BetaTextBlockParam>`
 
+              - `JsonValue type = "text"`
+
               - `String text`
 
                 minLength: 1
-
-              - `JsonValue type = "text"`
 
               - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -2274,9 +2295,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
           A content block that represents a file to be uploaded to the container
           Files uploaded via this block will be available in the container's input directory.
 
-          - `String fileId`
-
           - `JsonValue type = "container_upload"`
+
+          - `String fileId`
 
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -2314,6 +2335,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
           `tools`; it is offered to the model from this point in the
           conversation onward.
 
+          - `JsonValue type = "tool_addition"`
+
           - `Tool tool`
 
             Reference to a single tool the caller declared directly in
@@ -2328,32 +2351,30 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
               server assigns to MCP-resolved tools — use `mcp_tool_reference` or
               `mcp_toolset_reference` for those.
 
+              - `JsonValue type = "tool_reference"`
+
               - `String name`
 
                 pattern: ^[a-zA-Z0-9_-]{1,128}$
-
-              - `JsonValue type = "tool_reference"`
 
             - `class BetaToolChangeMcpToolReference:`
 
               Reference to a single MCP tool by its server and remote name — the
               same `server_name`/`name` pair `mcp_tool_use` carries.
 
+              - `JsonValue type = "mcp_tool_reference"`
+
               - `String name`
 
               - `String serverName`
-
-              - `JsonValue type = "mcp_tool_reference"`
 
             - `class BetaToolChangeMcpToolsetReference:`
 
               Reference to every tool in the named MCP server's toolset.
 
-              - `String serverName`
-
               - `JsonValue type = "mcp_toolset_reference"`
 
-          - `JsonValue type = "tool_addition"`
+              - `String serverName`
 
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -2367,6 +2388,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
           `tools`; it is no longer offered to the model from this point in the
           conversation onward.
 
+          - `JsonValue type = "tool_removal"`
+
           - `Tool tool`
 
             Reference to a single tool the caller declared directly in
@@ -2389,8 +2412,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
             - `class BetaToolChangeMcpToolsetReference:`
 
               Reference to every tool in the named MCP server's toolset.
-
-          - `JsonValue type = "tool_removal"`
 
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -2411,6 +2432,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
           request is rejected), and moving it into the middle of a single run is
           likewise rejected; between non-thinking blocks the block's placement has
           no validation effect.
+
+          - `JsonValue type = "fallback"`
 
           - `BetaFallbackInfoParam from`
 
@@ -2494,8 +2517,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             Identifies one hop of a fallback transition.
 
-          - `JsonValue type = "fallback"`
-
           - `Optional<JsonValue> trigger`
 
             The response block's `trigger`, echoed verbatim. Accepted and ignored by the server; any object or `null` is allowed.
@@ -2566,12 +2587,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         maxItems: 20
 
-        - `String skillId`
-
-          Skill ID
-
-          maxLength: 64, minLength: 1
-
         - `Type type`
 
           Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
@@ -2579,6 +2594,12 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
           - `ANTHROPIC("anthropic")`
 
           - `CUSTOM("custom")`
+
+        - `String skillId`
+
+          Skill ID
+
+          maxLength: 64, minLength: 1
 
         - `Optional<String> version`
 
@@ -2662,9 +2683,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     maxItems: 20
 
-    - `String name`
-
     - `JsonValue type = "url"`
+
+    - `String name`
 
     - `String url`
 
@@ -2720,11 +2741,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `List<BetaTextBlockParam>`
 
+      - `JsonValue type = "text"`
+
       - `String text`
 
         minLength: 1
-
-      - `JsonValue type = "text"`
 
       - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -2810,6 +2831,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class BetaTool:`
 
+      - `Optional<Type> type`
+
       - `InputSchema inputSchema`
 
         [JSON schema](https://json-schema.org/draft/2020-12) for this tool's input.
@@ -2864,17 +2887,15 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         When true, guarantees schema validation on tool names and inputs
 
-      - `Optional<Type> type`
-
     - `class BetaToolBash20241022:`
+
+      - `JsonValue type = "bash_20241022"`
 
       - `JsonValue name = "bash"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonValue type = "bash_20241022"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -2902,13 +2923,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class BetaToolBash20250124:`
 
+      - `JsonValue type = "bash_20250124"`
+
       - `JsonValue name = "bash"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonValue type = "bash_20250124"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -2936,13 +2957,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class BetaCodeExecutionTool20250522:`
 
+      - `JsonValue type = "code_execution_20250522"`
+
       - `JsonValue name = "code_execution"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonValue type = "code_execution_20250522"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -2968,13 +2989,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class BetaCodeExecutionTool20250825:`
 
+      - `JsonValue type = "code_execution_20250825"`
+
       - `JsonValue name = "code_execution"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonValue type = "code_execution_20250825"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -3002,13 +3023,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       Code execution tool with REPL state persistence (daemon mode + gVisor checkpoint).
 
+      - `JsonValue type = "code_execution_20260120"`
+
       - `JsonValue name = "code_execution"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonValue type = "code_execution_20260120"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -3036,13 +3057,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       Code execution tool with REPL state persistence.
 
+      - `JsonValue type = "code_execution_20260521"`
+
       - `JsonValue name = "code_execution"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonValue type = "code_execution_20260521"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -3087,6 +3108,18 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         accepted key, and a member's defaults apply wherever its key is
         absent. Unknown keys are rejected: the field set is this toolset
         version's complete member set.
+
+        - `Optional<BetaBrowserTypeConfig> type`
+
+          `type`'s config overrides.
+
+          - `Optional<Boolean> deferLoading`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `Optional<Boolean> enabled`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
         - `Optional<BetaBrowserCloseTabConfig> closeTab`
 
@@ -3424,18 +3457,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-        - `Optional<BetaBrowserTypeConfig> type`
-
-          `type`'s config overrides.
-
-          - `Optional<Boolean> deferLoading`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `Optional<Boolean> enabled`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
         - `Optional<BetaBrowserWaitConfig> wait`
 
           `wait`'s config overrides.
@@ -3462,6 +3483,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class BetaToolComputerUse20241022:`
 
+      - `JsonValue type = "computer_20241022"`
+
       - `long displayHeightPx`
 
         The height of the display in pixels.
@@ -3479,8 +3502,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonValue type = "computer_20241022"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -3514,13 +3535,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class BetaMemoryTool20250818:`
 
+      - `JsonValue type = "memory_20250818"`
+
       - `JsonValue name = "memory"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonValue type = "memory_20250818"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -3548,6 +3569,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class BetaToolComputerUse20250124:`
 
+      - `JsonValue type = "computer_20250124"`
+
       - `long displayHeightPx`
 
         The height of the display in pixels.
@@ -3565,8 +3588,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonValue type = "computer_20250124"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -3600,13 +3621,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class BetaToolTextEditor20241022:`
 
+      - `JsonValue type = "text_editor_20241022"`
+
       - `JsonValue name = "str_replace_editor"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonValue type = "text_editor_20241022"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -3634,6 +3655,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class BetaToolComputerUse20251124:`
 
+      - `JsonValue type = "computer_20251124"`
+
       - `long displayHeightPx`
 
         The height of the display in pixels.
@@ -3651,8 +3674,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonValue type = "computer_20251124"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -3713,6 +3734,18 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         accepted key, and a member's defaults apply wherever its key is
         absent. Unknown keys are rejected: the field set is this toolset
         version's complete member set.
+
+        - `Optional<BetaComputerTypeConfig> type`
+
+          `type`'s config overrides.
+
+          - `Optional<Boolean> deferLoading`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `Optional<Boolean> enabled`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
         - `Optional<BetaComputerCursorPositionConfig> cursorPosition`
 
@@ -3882,18 +3915,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-        - `Optional<BetaComputerTypeConfig> type`
-
-          `type`'s config overrides.
-
-          - `Optional<Boolean> deferLoading`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `Optional<Boolean> enabled`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
         - `Optional<BetaComputerWaitConfig> wait`
 
           `wait`'s config overrides.
@@ -3920,13 +3941,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class BetaToolTextEditor20250124:`
 
+      - `JsonValue type = "text_editor_20250124"`
+
       - `JsonValue name = "str_replace_editor"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonValue type = "text_editor_20250124"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -3954,13 +3975,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class BetaToolTextEditor20250429:`
 
+      - `JsonValue type = "text_editor_20250429"`
+
       - `JsonValue name = "str_replace_based_edit_tool"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonValue type = "text_editor_20250429"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -3988,13 +4009,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class BetaToolTextEditor20250728:`
 
+      - `JsonValue type = "text_editor_20250728"`
+
       - `JsonValue name = "str_replace_based_edit_tool"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonValue type = "text_editor_20250728"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -4028,13 +4049,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class BetaWebSearchTool20250305:`
 
+      - `JsonValue type = "web_search_20250305"`
+
       - `JsonValue name = "web_search"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonValue type = "web_search_20250305"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -4104,13 +4125,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class BetaWebFetchTool20250910:`
 
+      - `JsonValue type = "web_fetch_20250910"`
+
       - `JsonValue name = "web_fetch"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonValue type = "web_fetch_20250910"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -4160,13 +4181,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class BetaWebSearchTool20260209:`
 
+      - `JsonValue type = "web_search_20260209"`
+
       - `JsonValue name = "web_search"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonValue type = "web_search_20260209"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -4210,13 +4231,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class BetaWebFetchTool20260209:`
 
+      - `JsonValue type = "web_fetch_20260209"`
+
       - `JsonValue name = "web_fetch"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonValue type = "web_fetch_20260209"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -4268,13 +4289,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       Web fetch tool with use_cache parameter for bypassing cached content.
 
+      - `JsonValue type = "web_fetch_20260309"`
+
       - `JsonValue name = "web_fetch"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonValue type = "web_fetch_20260309"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -4328,13 +4349,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class BetaWebSearchTool20260318:`
 
+      - `JsonValue type = "web_search_20260318"`
+
       - `JsonValue name = "web_search"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonValue type = "web_search_20260318"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -4386,13 +4407,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class BetaWebFetchTool20260318:`
 
+      - `JsonValue type = "web_fetch_20260318"`
+
       - `JsonValue name = "web_fetch"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonValue type = "web_fetch_20260318"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -4454,6 +4475,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class BetaAdvisorTool20260301:`
 
+      - `JsonValue type = "advisor_20260301"`
+
       - `Model model`
 
         The model that will complete your prompt.
@@ -4465,8 +4488,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonValue type = "advisor_20260301"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -4508,17 +4529,17 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class BetaToolSearchToolBm25_20251119:`
 
-      - `JsonValue name = "tool_search_tool_bm25"`
-
-        Name of the tool.
-
-        This is how the tool will be called by the model and in `tool_use` blocks.
-
       - `Type type`
 
         - `TOOL_SEARCH_TOOL_BM25_20251119("tool_search_tool_bm25_20251119")`
 
         - `TOOL_SEARCH_TOOL_BM25("tool_search_tool_bm25")`
+
+      - `JsonValue name = "tool_search_tool_bm25"`
+
+        Name of the tool.
+
+        This is how the tool will be called by the model and in `tool_use` blocks.
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -4544,17 +4565,17 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class BetaToolSearchToolRegex20251119:`
 
-      - `JsonValue name = "tool_search_tool_regex"`
-
-        Name of the tool.
-
-        This is how the tool will be called by the model and in `tool_use` blocks.
-
       - `Type type`
 
         - `TOOL_SEARCH_TOOL_REGEX_20251119("tool_search_tool_regex_20251119")`
 
         - `TOOL_SEARCH_TOOL_REGEX("tool_search_tool_regex")`
+
+      - `JsonValue name = "tool_search_tool_regex"`
+
+        Name of the tool.
+
+        This is how the tool will be called by the model and in `tool_use` blocks.
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -4585,13 +4606,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
       Allows configuring enabled status and defer_loading for all tools
       from an MCP server, with optional per-tool overrides.
 
+      - `JsonValue type = "mcp_toolset"`
+
       - `String mcpServerName`
 
         Name of the MCP server to configure tools for
 
         maxLength: 255, minLength: 1
-
-      - `JsonValue type = "mcp_toolset"`
 
       - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -4661,6 +4682,12 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
 - `class BetaMessage:`
 
+  - `JsonValue type = "message"`
+
+    Object type.
+
+    For Messages, this is always `"message"`.
+
   - `String id`
 
     Unique object identifier.
@@ -4685,12 +4712,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       Skills loaded in the container
 
-      - `String skillId`
-
-        Skill ID
-
-        maxLength: 64, minLength: 1
-
       - `Type type`
 
         Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
@@ -4698,6 +4719,12 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         - `ANTHROPIC("anthropic")`
 
         - `CUSTOM("custom")`
+
+      - `String skillId`
+
+        Skill ID
+
+        maxLength: 64, minLength: 1
 
       - `String version`
 
@@ -4736,6 +4763,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class BetaTextBlock:`
 
+      - `JsonValue type = "text"`
+
       - `Optional<List<BetaTextCitation>> citations`
 
         Citations supporting the text block.
@@ -4743,6 +4772,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
 
         - `class BetaCitationCharLocation:`
+
+          - `JsonValue type = "char_location"`
 
           - `String citedText`
 
@@ -4760,9 +4791,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             minimum: 0
 
-          - `JsonValue type = "char_location"`
-
         - `class BetaCitationPageLocation:`
+
+          - `JsonValue type = "page_location"`
 
           - `String citedText`
 
@@ -4780,9 +4811,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             minimum: 1
 
-          - `JsonValue type = "page_location"`
-
         - `class BetaCitationContentBlockLocation:`
+
+          - `JsonValue type = "content_block_location"`
 
           - `String citedText`
 
@@ -4810,9 +4841,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             minimum: 0
 
-          - `JsonValue type = "content_block_location"`
-
         - `class BetaCitationsWebSearchResultLocation:`
+
+          - `JsonValue type = "web_search_result_location"`
 
           - `String citedText`
 
@@ -4822,11 +4853,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             maxLength: 512
 
-          - `JsonValue type = "web_search_result_location"`
-
           - `String url`
 
         - `class BetaCitationSearchResultLocation:`
+
+          - `JsonValue type = "search_result_location"`
 
           - `String citedText`
 
@@ -4858,15 +4889,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `Optional<String> title`
 
-          - `JsonValue type = "search_result_location"`
-
       - `String text`
 
-        maxLength: 5000000, minLength: 0
-
-      - `JsonValue type = "text"`
+        minLength: 0
 
     - `class BetaThinkingBlock:`
+
+      - `JsonValue type = "thinking"`
 
       - `String signature`
 
@@ -4880,9 +4909,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         The text of Claude's thinking process for this block.
 
-      - `JsonValue type = "thinking"`
-
     - `class BetaRedactedThinkingBlock:`
+
+      - `JsonValue type = "redacted_thinking"`
 
       - `String data`
 
@@ -4892,9 +4921,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking#redacted-thinking-blocks) for details.
 
-      - `JsonValue type = "redacted_thinking"`
-
     - `class BetaToolUseBlock:`
+
+      - `JsonValue type = "tool_use"`
 
       - `String id`
 
@@ -4905,8 +4934,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
       - `String name`
 
         minLength: 1
-
-      - `JsonValue type = "tool_use"`
 
       - `Optional<Caller> caller`
 
@@ -4922,19 +4949,19 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           Tool invocation generated by a server-side tool.
 
+          - `JsonValue type = "code_execution_20250825"`
+
           - `String toolId`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-          - `JsonValue type = "code_execution_20250825"`
 
         - `class BetaServerToolCaller20260120:`
 
+          - `JsonValue type = "code_execution_20260120"`
+
           - `String toolId`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-          - `JsonValue type = "code_execution_20260120"`
 
       - `Optional<String> toolsetName`
 
@@ -4943,6 +4970,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
 
     - `class BetaServerToolUseBlock:`
+
+      - `JsonValue type = "server_tool_use"`
 
       - `String id`
 
@@ -4968,8 +4997,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `TOOL_SEARCH_TOOL_BM25("tool_search_tool_bm25")`
 
-      - `JsonValue type = "server_tool_use"`
-
       - `Optional<Caller> caller`
 
         Tool invocation directly from the model.
@@ -4986,9 +5013,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class BetaWebSearchToolResultBlock:`
 
+      - `JsonValue type = "web_search_tool_result"`
+
       - `BetaWebSearchToolResultBlockContent content`
 
         - `class BetaWebSearchToolResultError:`
+
+          - `JsonValue type = "web_search_tool_result_error"`
 
           - `BetaWebSearchToolResultErrorCode errorCode`
 
@@ -5004,9 +5035,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `REQUEST_TOO_LARGE("request_too_large")`
 
-          - `JsonValue type = "web_search_tool_result_error"`
-
         - `List<BetaWebSearchResultBlock>`
+
+          - `JsonValue type = "web_search_result"`
 
           - `String encryptedContent`
 
@@ -5014,15 +5045,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `String title`
 
-          - `JsonValue type = "web_search_result"`
-
           - `String url`
 
       - `String toolUseId`
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-      - `JsonValue type = "web_search_tool_result"`
 
       - `Optional<Caller> caller`
 
@@ -5040,9 +5067,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class BetaWebFetchToolResultBlock:`
 
+      - `JsonValue type = "web_fetch_tool_result"`
+
       - `Content content`
 
         - `class BetaWebFetchToolResultErrorBlock:`
+
+          - `JsonValue type = "web_fetch_tool_result_error"`
 
           - `BetaWebFetchToolResultErrorCode errorCode`
 
@@ -5064,11 +5095,15 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `UNAVAILABLE("unavailable")`
 
-          - `JsonValue type = "web_fetch_tool_result_error"`
+            - `CONTENT_TOO_LARGE("content_too_large")`
 
         - `class BetaWebFetchBlock:`
 
+          - `JsonValue type = "web_fetch_result"`
+
           - `BetaDocumentBlock content`
+
+            - `JsonValue type = "document"`
 
             - `Optional<BetaCitationConfig> citations`
 
@@ -5080,33 +5115,29 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `class BetaBase64PdfSource:`
 
+                - `JsonValue type = "base64"`
+
                 - `String data`
 
                   format: byte
 
                 - `JsonValue mediaType = "application/pdf"`
 
-                - `JsonValue type = "base64"`
-
               - `class BetaPlainTextSource:`
+
+                - `JsonValue type = "text"`
 
                 - `String data`
 
                 - `JsonValue mediaType = "text/plain"`
 
-                - `JsonValue type = "text"`
-
             - `Optional<String> title`
 
               The title of the document
 
-            - `JsonValue type = "document"`
-
           - `Optional<String> retrievedAt`
 
             ISO 8601 timestamp when the content was retrieved
-
-          - `JsonValue type = "web_fetch_result"`
 
           - `String url`
 
@@ -5115,8 +5146,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
       - `String toolUseId`
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-      - `JsonValue type = "web_fetch_tool_result"`
 
       - `Optional<Caller> caller`
 
@@ -5134,9 +5163,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class BetaAdvisorToolResultBlock:`
 
+      - `JsonValue type = "advisor_tool_result"`
+
       - `Content content`
 
         - `class BetaAdvisorToolResultError:`
+
+          - `JsonValue type = "advisor_tool_result_error"`
 
           - `ErrorCode errorCode`
 
@@ -5154,9 +5187,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `MODEL_NOT_FOUND("model_not_found")`
 
-          - `JsonValue type = "advisor_tool_result_error"`
-
         - `class BetaAdvisorResultBlock:`
+
+          - `JsonValue type = "advisor_result"`
 
           - `Optional<String> stopReason`
 
@@ -5164,9 +5197,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `String text`
 
-          - `JsonValue type = "advisor_result"`
-
         - `class BetaAdvisorRedactedResultBlock:`
+
+          - `JsonValue type = "advisor_redacted_result"`
 
           - `String encryptedContent`
 
@@ -5176,21 +5209,21 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             The advisor sub-inference's stop reason (same values as the top-level message `stop_reason`).
 
-          - `JsonValue type = "advisor_redacted_result"`
-
       - `String toolUseId`
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-      - `JsonValue type = "advisor_tool_result"`
-
     - `class BetaCodeExecutionToolResultBlock:`
+
+      - `JsonValue type = "code_execution_tool_result"`
 
       - `BetaCodeExecutionToolResultBlockContent content`
 
         Code execution result with encrypted stdout for PFC + web_search results.
 
         - `class BetaCodeExecutionToolResultError:`
+
+          - `JsonValue type = "code_execution_tool_result_error"`
 
           - `BetaCodeExecutionToolResultErrorCode errorCode`
 
@@ -5202,15 +5235,15 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `EXECUTION_TIME_EXCEEDED("execution_time_exceeded")`
 
-          - `JsonValue type = "code_execution_tool_result_error"`
-
         - `class BetaCodeExecutionResultBlock:`
+
+          - `JsonValue type = "code_execution_result"`
 
           - `List<BetaCodeExecutionOutputBlock> content`
 
-            - `String fileId`
-
             - `JsonValue type = "code_execution_output"`
+
+            - `String fileId`
 
           - `long returnCode`
 
@@ -5218,17 +5251,17 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `String stdout`
 
-          - `JsonValue type = "code_execution_result"`
-
         - `class BetaEncryptedCodeExecutionResultBlock:`
 
           Code execution result with encrypted stdout for PFC + web_search results.
 
+          - `JsonValue type = "encrypted_code_execution_result"`
+
           - `List<BetaCodeExecutionOutputBlock> content`
 
-            - `String fileId`
-
             - `JsonValue type = "code_execution_output"`
+
+            - `String fileId`
 
           - `String encryptedStdout`
 
@@ -5236,19 +5269,19 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `String stderr`
 
-          - `JsonValue type = "encrypted_code_execution_result"`
-
       - `String toolUseId`
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-      - `JsonValue type = "code_execution_tool_result"`
-
     - `class BetaBashCodeExecutionToolResultBlock:`
+
+      - `JsonValue type = "bash_code_execution_tool_result"`
 
       - `Content content`
 
         - `class BetaBashCodeExecutionToolResultError:`
+
+          - `JsonValue type = "bash_code_execution_tool_result_error"`
 
           - `ErrorCode errorCode`
 
@@ -5262,15 +5295,15 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `OUTPUT_FILE_TOO_LARGE("output_file_too_large")`
 
-          - `JsonValue type = "bash_code_execution_tool_result_error"`
-
         - `class BetaBashCodeExecutionResultBlock:`
+
+          - `JsonValue type = "bash_code_execution_result"`
 
           - `List<BetaBashCodeExecutionOutputBlock> content`
 
-            - `String fileId`
-
             - `JsonValue type = "bash_code_execution_output"`
+
+            - `String fileId`
 
           - `long returnCode`
 
@@ -5278,19 +5311,19 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `String stdout`
 
-          - `JsonValue type = "bash_code_execution_result"`
-
       - `String toolUseId`
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-      - `JsonValue type = "bash_code_execution_tool_result"`
-
     - `class BetaTextEditorCodeExecutionToolResultBlock:`
+
+      - `JsonValue type = "text_editor_code_execution_tool_result"`
 
       - `Content content`
 
         - `class BetaTextEditorCodeExecutionToolResultError:`
+
+          - `JsonValue type = "text_editor_code_execution_tool_result_error"`
 
           - `ErrorCode errorCode`
 
@@ -5306,9 +5339,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `Optional<String> errorMessage`
 
-          - `JsonValue type = "text_editor_code_execution_tool_result_error"`
-
         - `class BetaTextEditorCodeExecutionViewResultBlock:`
+
+          - `JsonValue type = "text_editor_code_execution_view_result"`
 
           - `String content`
 
@@ -5326,15 +5359,15 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `Optional<Long> totalLines`
 
-          - `JsonValue type = "text_editor_code_execution_view_result"`
-
         - `class BetaTextEditorCodeExecutionCreateResultBlock:`
-
-          - `boolean isFileUpdate`
 
           - `JsonValue type = "text_editor_code_execution_create_result"`
 
+          - `boolean isFileUpdate`
+
         - `class BetaTextEditorCodeExecutionStrReplaceResultBlock:`
+
+          - `JsonValue type = "text_editor_code_execution_str_replace_result"`
 
           - `Optional<List<String>> lines`
 
@@ -5346,19 +5379,19 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `Optional<Long> oldStart`
 
-          - `JsonValue type = "text_editor_code_execution_str_replace_result"`
-
       - `String toolUseId`
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-      - `JsonValue type = "text_editor_code_execution_tool_result"`
-
     - `class BetaToolSearchToolResultBlock:`
+
+      - `JsonValue type = "tool_search_tool_result"`
 
       - `Content content`
 
         - `class BetaToolSearchToolResultError:`
+
+          - `JsonValue type = "tool_search_tool_result_error"`
 
           - `ErrorCode errorCode`
 
@@ -5372,27 +5405,25 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `Optional<String> errorMessage`
 
-          - `JsonValue type = "tool_search_tool_result_error"`
-
         - `class BetaToolSearchToolSearchResultBlock:`
 
+          - `JsonValue type = "tool_search_tool_search_result"`
+
           - `List<BetaToolReferenceBlock> toolReferences`
+
+            - `JsonValue type = "tool_reference"`
 
             - `String toolName`
 
               maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
-            - `JsonValue type = "tool_reference"`
-
-          - `JsonValue type = "tool_search_tool_search_result"`
-
       - `String toolUseId`
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-      - `JsonValue type = "tool_search_tool_result"`
-
     - `class BetaMcpToolUseBlock:`
+
+      - `JsonValue type = "mcp_tool_use"`
 
       - `String id`
 
@@ -5408,15 +5439,17 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         The name of the MCP server
 
-      - `JsonValue type = "mcp_tool_use"`
-
     - `class BetaMcpToolResultBlock:`
+
+      - `JsonValue type = "mcp_tool_result"`
 
       - `Content content`
 
         - `String`
 
         - `List<BetaTextBlock>`
+
+          - `JsonValue type = "text"`
 
           - `Optional<List<BetaTextCitation>> citations`
 
@@ -5426,9 +5459,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `String text`
 
-            maxLength: 5000000, minLength: 0
-
-          - `JsonValue type = "text"`
+            minLength: 0
 
       - `boolean isError`
 
@@ -5436,15 +5467,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         pattern: ^[a-zA-Z0-9_-]+$
 
-      - `JsonValue type = "mcp_tool_result"`
-
     - `class BetaContainerUploadBlock:`
 
       Response model for a file uploaded to the container.
 
-      - `String fileId`
-
       - `JsonValue type = "container_upload"`
+
+      - `String fileId`
 
     - `class BetaCompactionBlock:`
 
@@ -5454,6 +5483,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
       summary (e.g., malformed output from the model). Clients may round-trip
       compaction blocks with null content; the server treats them as no-ops.
 
+      - `JsonValue type = "compaction"`
+
       - `Optional<String> content`
 
         Summary of compacted content, or null if compaction failed
@@ -5461,8 +5492,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
       - `Optional<String> encryptedContent`
 
         Opaque metadata from prior compaction, to be round-tripped verbatim
-
-      - `JsonValue type = "compaction"`
 
     - `class BetaFallbackBlock:`
 
@@ -5477,6 +5506,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
       The block is treated like a server-tool content block for streaming: it
       arrives via the standard `content_block_start` / `content_block_stop`
       pair and carries no deltas.
+
+      - `JsonValue type = "fallback"`
 
       - `BetaFallbackInfo from`
 
@@ -5564,6 +5595,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         What caused the `from` model to hand over at this hop.
 
+        - `JsonValue type = "refusal"`
+
         - `Optional<Category> category`
 
           The policy category that triggered a refusal.
@@ -5588,10 +5621,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
 
-        - `JsonValue type = "refusal"`
-
-      - `JsonValue type = "fallback"`
-
   - `Optional<BetaContextManagementResponse> contextManagement`
 
     Context management response.
@@ -5603,6 +5632,10 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
       List of context management edits that were applied.
 
       - `class BetaClearToolUses20250919EditResponse:`
+
+        - `JsonValue type = "clear_tool_uses_20250919"`
+
+          The type of context management edit applied.
 
         - `long clearedInputTokens`
 
@@ -5616,11 +5649,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           minimum: 0
 
-        - `JsonValue type = "clear_tool_uses_20250919"`
+      - `class BetaClearThinking20251015EditResponse:`
+
+        - `JsonValue type = "clear_thinking_20251015"`
 
           The type of context management edit applied.
-
-      - `class BetaClearThinking20251015EditResponse:`
 
         - `long clearedInputTokens`
 
@@ -5634,10 +5667,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           minimum: 0
 
-        - `JsonValue type = "clear_thinking_20251015"`
-
-          The type of context management edit applied.
-
   - `Optional<BetaDiagnostics> diagnostics`
 
     Response envelope for request-level diagnostics. Present (possibly
@@ -5649,35 +5678,35 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `class BetaCacheMissModelChanged:`
 
+        - `JsonValue type = "model_changed"`
+
         - `long cacheMissedInputTokens`
 
           Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
-
-        - `JsonValue type = "model_changed"`
 
       - `class BetaCacheMissSystemChanged:`
 
+        - `JsonValue type = "system_changed"`
+
         - `long cacheMissedInputTokens`
 
           Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
-
-        - `JsonValue type = "system_changed"`
 
       - `class BetaCacheMissToolsChanged:`
 
+        - `JsonValue type = "tools_changed"`
+
         - `long cacheMissedInputTokens`
 
           Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
-
-        - `JsonValue type = "tools_changed"`
 
       - `class BetaCacheMissMessagesChanged:`
 
+        - `JsonValue type = "messages_changed"`
+
         - `long cacheMissedInputTokens`
 
           Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
-
-        - `JsonValue type = "messages_changed"`
 
       - `class BetaCacheMissPreviousMessageNotFound:`
 
@@ -5702,6 +5731,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
   - `Optional<BetaRefusalStopDetails> stopDetails`
 
     Structured information about a refusal.
+
+    - `JsonValue type = "refusal"`
 
     - `Optional<Category> category`
 
@@ -5782,8 +5813,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       The server's suggested retry target for this refusal. Populated when a fallback attempt could not be made (the fallback model's rate limit was exhausted, or it was overloaded); names the fallback model the caller can retry directly. Null otherwise.
 
-    - `JsonValue type = "refusal"`
-
   - `Optional<BetaStopReason> stopReason`
 
     The reason that we stopped.
@@ -5821,12 +5850,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
     Which custom stop sequence was generated, if any.
 
     This value will be a non-null string if one of your custom stop sequences was generated.
-
-  - `JsonValue type = "message"`
-
-    Object type.
-
-    For Messages, this is always `"message"`.
 
   - `BetaUsage usage`
 
@@ -5892,6 +5915,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           No reprice was applied; `reason` says why.
 
+          - `JsonValue type = "not_applied"`
+
           - `Reason reason`
 
             Why the reprice was not applied.
@@ -5922,8 +5947,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
             - `WRONG_PLATFORM("wrong_platform")`
 
             - `WRONG_WORKSPACE("wrong_workspace")`
-
-          - `JsonValue type = "not_applied"`
 
           - `Optional<List<String>> removeToRedeem`
 
@@ -5962,6 +5985,10 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         Token usage for a sampling iteration.
 
+        - `JsonValue type = "message"`
+
+          Usage for a sampling iteration
+
         - `Optional<BetaCacheCreation> cacheCreation`
 
           Breakdown of cached tokens by TTL
@@ -5995,15 +6022,15 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
           The number of output tokens which were used.
 
           minimum: 0
-
-        - `JsonValue type = "message"`
-
-          Usage for a sampling iteration
 
       - `class BetaCompactionIterationUsage:`
 
         Token usage for a compaction iteration.
 
+        - `JsonValue type = "compaction"`
+
+          Usage for a compaction iteration
+
         - `Optional<BetaCacheCreation> cacheCreation`
 
           Breakdown of cached tokens by TTL
@@ -6032,13 +6059,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           minimum: 0
 
-        - `JsonValue type = "compaction"`
-
-          Usage for a compaction iteration
-
       - `class BetaAdvisorMessageIterationUsage:`
 
         Token usage for an advisor sub-inference iteration.
+
+        - `JsonValue type = "advisor_message"`
+
+          Usage for an advisor sub-inference iteration
 
         - `Optional<BetaCacheCreation> cacheCreation`
 
@@ -6073,10 +6100,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
           The number of output tokens which were used.
 
           minimum: 0
-
-        - `JsonValue type = "advisor_message"`
-
-          Usage for an advisor sub-inference iteration
 
       - `class BetaFallbackMessageIterationUsage:`
 
@@ -6087,6 +6110,10 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         a fallback model served the response is signalled by the presence of this
         entry in `usage.iterations`.
 
+        - `JsonValue type = "fallback_message"`
+
+          Usage for the fallback-model attempt that served the response
+
         - `Optional<BetaCacheCreation> cacheCreation`
 
           Breakdown of cached tokens by TTL
@@ -6120,10 +6147,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
           The number of output tokens which were used.
 
           minimum: 0
-
-        - `JsonValue type = "fallback_message"`
-
-          Usage for the fallback-model attempt that served the response
 
     - `long outputTokens`
 
@@ -6205,6 +6228,10 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
     fallback happened mid-stream, in which case it holds the serving model's
     entries and replaces the one in `message_start`.
 
+    - `JsonValue type = "thinking_dropped"`
+
+      Always `thinking_dropped` for this entry type.
+
     - `String path`
 
       Where the removed block was in your request, as `messages.{i}.content.{j}`:
@@ -6235,19 +6262,17 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `END_USER_BINDING_MISMATCH("end_user_binding_mismatch")`
 
-    - `JsonValue type = "thinking_dropped"`
-
-      Always `thinking_dropped` for this entry type.
-
 - `class BetaRawMessageStreamEvent: union`
 
   - `class BetaRawMessageStartEvent:`
 
-    - `BetaMessage message`
-
     - `JsonValue type = "message_start"`
 
+    - `BetaMessage message`
+
   - `class BetaRawMessageDeltaEvent:`
+
+    - `JsonValue type = "message_delta"`
 
     - `Optional<BetaContextManagementResponse> contextManagement`
 
@@ -6266,8 +6291,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
       - `Optional<BetaStopReason> stopReason`
 
       - `Optional<String> stopSequence`
-
-    - `JsonValue type = "message_delta"`
 
     - `BetaMessageDeltaUsage usage`
 
@@ -6371,6 +6394,10 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
       fallback happened mid-stream, in which case it holds the serving model's
       entries and replaces the one in `message_start`.
 
+      - `JsonValue type = "thinking_dropped"`
+
+        Always `thinking_dropped` for this entry type.
+
       - `String path`
 
         Where the removed block was in your request, as `messages.{i}.content.{j}`:
@@ -6393,15 +6420,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         `organization_binding_mismatch`, `end_user_binding_mismatch`,
         `model_binding_mismatch`, `prefix_binding_mismatch`.
 
-      - `JsonValue type = "thinking_dropped"`
-
-        Always `thinking_dropped` for this entry type.
-
   - `class BetaRawMessageStopEvent:`
 
     - `JsonValue type = "message_stop"`
 
   - `class BetaRawContentBlockStartEvent:`
+
+    - `JsonValue type = "content_block_start"`
 
     - `ContentBlock contentBlock`
 
@@ -6463,25 +6488,27 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `long index`
 
-    - `JsonValue type = "content_block_start"`
-
   - `class BetaRawContentBlockDeltaEvent:`
+
+    - `JsonValue type = "content_block_delta"`
 
     - `BetaRawContentBlockDelta delta`
 
       - `class BetaTextDelta:`
 
-        - `String text`
-
         - `JsonValue type = "text_delta"`
+
+        - `String text`
 
       - `class BetaInputJsonDelta:`
 
-        - `String partialJson`
-
         - `JsonValue type = "input_json_delta"`
 
+        - `String partialJson`
+
       - `class BetaCitationsDelta:`
+
+        - `JsonValue type = "citations_delta"`
 
         - `Citation citation`
 
@@ -6495,9 +6522,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `class BetaCitationSearchResultLocation:`
 
-        - `JsonValue type = "citations_delta"`
-
       - `class BetaThinkingDelta:`
+
+        - `JsonValue type = "thinking_delta"`
 
         - `Optional<Long> estimatedTokens`
 
@@ -6507,17 +6534,17 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           The incremental `thinking` text for this content block. Concatenate the `thinking` values of successive `thinking_delta` events to assemble the block's full `thinking` value.
 
-        - `JsonValue type = "thinking_delta"`
-
       - `class BetaSignatureDelta:`
+
+        - `JsonValue type = "signature_delta"`
 
         - `String signature`
 
           The `signature` for this thinking block: an opaque value used to verify that the block was generated by Claude when it is passed back to the API. Delivered in a `signature_delta` event just before the block's `content_block_stop` event.
 
-        - `JsonValue type = "signature_delta"`
-
       - `class BetaCompactionContentBlockDelta:`
+
+        - `JsonValue type = "compaction_delta"`
 
         - `Optional<String> content`
 
@@ -6525,17 +6552,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           Opaque metadata from prior compaction, to be round-tripped verbatim
 
-        - `JsonValue type = "compaction_delta"`
-
     - `long index`
-
-    - `JsonValue type = "content_block_delta"`
 
   - `class BetaRawContentBlockStopEvent:`
 
-    - `long index`
-
     - `JsonValue type = "content_block_stop"`
+
+    - `long index`
 
 #### Example
 
@@ -6740,6 +6763,8 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
 
+    - `USER_PROFILES_2026_09_04("user-profiles-2026-09-04")`
+
     - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
@@ -6785,6 +6810,8 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
   - `Optional<String> userProfileId`
 
     The user profile ID to attribute this request to. Use when acting on behalf of a party other than your organization. Requires the `user-profiles` beta header.
+
+  - `Optional<String> workspaceId`
 
   - `List<BetaMessageParam> messages`
 
@@ -6845,11 +6872,11 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `class BetaTextBlockParam:`
 
+          - `JsonValue type = "text"`
+
           - `String text`
 
             minLength: 1
-
-          - `JsonValue type = "text"`
 
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -6876,6 +6903,8 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             - `class BetaCitationCharLocationParam:`
 
+              - `JsonValue type = "char_location"`
+
               - `String citedText`
 
               - `long documentIndex`
@@ -6892,9 +6921,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 minimum: 0
 
-              - `JsonValue type = "char_location"`
-
             - `class BetaCitationPageLocationParam:`
+
+              - `JsonValue type = "page_location"`
 
               - `String citedText`
 
@@ -6912,9 +6941,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 minimum: 1
 
-              - `JsonValue type = "page_location"`
-
             - `class BetaCitationContentBlockLocationParam:`
+
+              - `JsonValue type = "content_block_location"`
 
               - `String citedText`
 
@@ -6942,9 +6971,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 minimum: 0
 
-              - `JsonValue type = "content_block_location"`
-
             - `class BetaCitationWebSearchResultLocationParam:`
+
+              - `JsonValue type = "web_search_result_location"`
 
               - `String citedText`
 
@@ -6954,13 +6983,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 maxLength: 512, minLength: 1
 
-              - `JsonValue type = "web_search_result_location"`
-
               - `String url`
 
                 minLength: 1
 
             - `class BetaCitationSearchResultLocationParam:`
+
+              - `JsonValue type = "search_result_location"`
 
               - `String citedText`
 
@@ -6992,13 +7021,15 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `Optional<String> title`
 
-              - `JsonValue type = "search_result_location"`
-
         - `class BetaImageBlockParam:`
+
+          - `JsonValue type = "image"`
 
           - `Source source`
 
             - `class BetaBase64ImageSource:`
+
+              - `JsonValue type = "base64"`
 
               - `String data`
 
@@ -7014,8 +7045,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 - `IMAGE_WEBP("image/webp")`
 
-              - `JsonValue type = "base64"`
-
             - `class BetaUrlImageSource:`
 
               - `JsonValue type = "url"`
@@ -7024,11 +7053,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             - `class BetaFileImageSource:`
 
-              - `String fileId`
-
               - `JsonValue type = "file"`
 
-          - `JsonValue type = "image"`
+              - `String fileId`
 
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -7048,9 +7075,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `class BetaRequestDocumentBlock:`
 
+          - `JsonValue type = "document"`
+
           - `Source source`
 
             - `class BetaBase64PdfSource:`
+
+              - `JsonValue type = "base64"`
 
               - `String data`
 
@@ -7058,17 +7089,17 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `JsonValue mediaType = "application/pdf"`
 
-              - `JsonValue type = "base64"`
-
             - `class BetaPlainTextSource:`
+
+              - `JsonValue type = "text"`
 
               - `String data`
 
               - `JsonValue mediaType = "text/plain"`
 
-              - `JsonValue type = "text"`
-
             - `class BetaContentBlockSource:`
+
+              - `JsonValue type = "content"`
 
               - `Content content`
 
@@ -7080,8 +7111,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                   - `class BetaImageBlockParam:`
 
-              - `JsonValue type = "content"`
-
             - `class BetaUrlPdfSource:`
 
               - `JsonValue type = "url"`
@@ -7090,11 +7119,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             - `class BetaFileDocumentSource:`
 
-              - `String fileId`
-
               - `JsonValue type = "file"`
 
-          - `JsonValue type = "document"`
+              - `String fileId`
 
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -7114,13 +7141,15 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `class BetaSearchResultBlockParam:`
 
+          - `JsonValue type = "search_result"`
+
           - `List<BetaTextBlockParam> content`
+
+            - `JsonValue type = "text"`
 
             - `String text`
 
               minLength: 1
-
-            - `JsonValue type = "text"`
 
             - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -7132,8 +7161,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
           - `String title`
 
-          - `JsonValue type = "search_result"`
-
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
             Create a cache control breakpoint at this content block.
@@ -7141,6 +7168,8 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
           - `Optional<BetaCitationsConfigParam> citations`
 
         - `class BetaThinkingBlockParam:`
+
+          - `JsonValue type = "thinking"`
 
           - `String signature`
 
@@ -7152,17 +7181,17 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             The `thinking` text of this block as returned by the API.
 
-          - `JsonValue type = "thinking"`
-
         - `class BetaRedactedThinkingBlockParam:`
+
+          - `JsonValue type = "redacted_thinking"`
 
           - `String data`
 
             The `data` value of this redacted thinking block, exactly as returned by the API in a previous response. Opaque and encrypted; pass it back unchanged.
 
-          - `JsonValue type = "redacted_thinking"`
-
         - `class BetaToolUseBlockParam:`
+
+          - `JsonValue type = "tool_use"`
 
           - `String id`
 
@@ -7173,8 +7202,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
           - `String name`
 
             maxLength: 200, minLength: 1
-
-          - `JsonValue type = "tool_use"`
 
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -7194,19 +7221,19 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               Tool invocation generated by a server-side tool.
 
+              - `JsonValue type = "code_execution_20250825"`
+
               - `String toolId`
 
                 pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-              - `JsonValue type = "code_execution_20250825"`
 
             - `class BetaServerToolCaller20260120:`
 
+              - `JsonValue type = "code_execution_20260120"`
+
               - `String toolId`
 
                 pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-              - `JsonValue type = "code_execution_20260120"`
 
           - `Optional<String> toolsetName`
 
@@ -7216,11 +7243,11 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `class BetaToolResultBlockParam:`
 
+          - `JsonValue type = "tool_result"`
+
           - `String toolUseId`
 
             pattern: ^[a-zA-Z0-9_-]+$
-
-          - `JsonValue type = "tool_result"`
 
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -7244,11 +7271,11 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 Tool reference block that can be included in tool_result content.
 
+                - `JsonValue type = "tool_reference"`
+
                 - `String toolName`
 
                   maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
-
-                - `JsonValue type = "tool_reference"`
 
                 - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -7263,6 +7290,8 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
                 At most one per `tool_result`, only on a non-error result answering a
                 browser toolset member `tool_use`. The server renders the
                 model-visible text from it; the model never sees the raw fields.
+
+                - `JsonValue type = "browser_state"`
 
                 - `List<BetaBrowserStateTabEntry> tabs`
 
@@ -7292,8 +7321,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                     Whether this tab is the active tab after this call. Whenever `tabs` is non-empty, exactly one entry is marked `active: true`.
 
-                - `JsonValue type = "browser_state"`
-
                 - `Optional<BetaCacheControlEphemeral> cacheControl`
 
                   Create a cache control breakpoint at this content block.
@@ -7314,25 +7341,25 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
                     during a failed call gets no deferred `tab_opened`; it simply appears
                     in the next result's `tabs` inventory.
 
+                    - `JsonValue type = "tab_opened"`
+
                     - `String tabId`
 
                       The `tab_id` of the opened tab, present in `tabs`.
 
                       maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-                    - `JsonValue type = "tab_opened"`
-
                   - `class BetaBrowserStateChangeDownloadStarted:`
 
                     A file download that started during this call.
+
+                    - `JsonValue type = "download_started"`
 
                     - `String downloadId`
 
                       The caller-assigned identifier for this download, stable across the state changes reporting it.
 
                       maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
-
-                    - `JsonValue type = "download_started"`
 
                     - `String url`
 
@@ -7347,13 +7374,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
                     `download_started`, when the download finished during the call that
                     started it (at most one state change per `download_id` per result).
 
+                    - `JsonValue type = "download_completed"`
+
                     - `String downloadId`
 
                       The caller-assigned identifier for this download, stable across the state changes reporting it.
 
                       maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
-
-                    - `JsonValue type = "download_completed"`
 
                     - `String url`
 
@@ -7377,13 +7404,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                     A file download that failed — or was cancelled — during this call.
 
+                    - `JsonValue type = "download_failed"`
+
                     - `String downloadId`
 
                       The caller-assigned identifier for this download, stable across the state changes reporting it.
 
                       maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
-
-                    - `JsonValue type = "download_failed"`
 
                     - `String url`
 
@@ -7406,6 +7433,8 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
             maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
 
         - `class BetaServerToolUseBlockParam:`
+
+          - `JsonValue type = "server_tool_use"`
 
           - `String id`
 
@@ -7431,8 +7460,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             - `TOOL_SEARCH_TOOL_BM25("tool_search_tool_bm25")`
 
-          - `JsonValue type = "server_tool_use"`
-
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
             Create a cache control breakpoint at this content block.
@@ -7453,21 +7480,25 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `class BetaWebSearchToolResultBlockParam:`
 
+          - `JsonValue type = "web_search_tool_result"`
+
           - `BetaWebSearchToolResultBlockParamContent content`
 
             - `List<BetaWebSearchResultBlockParam>`
 
+              - `JsonValue type = "web_search_result"`
+
               - `String encryptedContent`
 
               - `String title`
-
-              - `JsonValue type = "web_search_result"`
 
               - `String url`
 
               - `Optional<String> pageAge`
 
             - `class BetaWebSearchToolRequestError:`
+
+              - `JsonValue type = "web_search_tool_result_error"`
 
               - `BetaWebSearchToolResultErrorCode errorCode`
 
@@ -7483,13 +7514,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 - `REQUEST_TOO_LARGE("request_too_large")`
 
-              - `JsonValue type = "web_search_tool_result_error"`
-
           - `String toolUseId`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-          - `JsonValue type = "web_search_tool_result"`
 
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -7511,9 +7538,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `class BetaWebFetchToolResultBlockParam:`
 
+          - `JsonValue type = "web_fetch_tool_result"`
+
           - `Content content`
 
             - `class BetaWebFetchToolResultErrorBlockParam:`
+
+              - `JsonValue type = "web_fetch_tool_result_error"`
 
               - `BetaWebFetchToolResultErrorCode errorCode`
 
@@ -7535,13 +7566,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 - `UNAVAILABLE("unavailable")`
 
-              - `JsonValue type = "web_fetch_tool_result_error"`
+                - `CONTENT_TOO_LARGE("content_too_large")`
 
             - `class BetaWebFetchBlockParam:`
 
-              - `BetaRequestDocumentBlock content`
-
               - `JsonValue type = "web_fetch_result"`
+
+              - `BetaRequestDocumentBlock content`
 
               - `String url`
 
@@ -7554,8 +7585,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
           - `String toolUseId`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-          - `JsonValue type = "web_fetch_tool_result"`
 
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -7577,9 +7606,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `class BetaAdvisorToolResultBlockParam:`
 
+          - `JsonValue type = "advisor_tool_result"`
+
           - `Content content`
 
             - `class BetaAdvisorToolResultErrorParam:`
+
+              - `JsonValue type = "advisor_tool_result_error"`
 
               - `ErrorCode errorCode`
 
@@ -7597,23 +7630,21 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 - `MODEL_NOT_FOUND("model_not_found")`
 
-              - `JsonValue type = "advisor_tool_result_error"`
-
             - `class BetaAdvisorResultBlockParam:`
 
-              - `String text`
-
               - `JsonValue type = "advisor_result"`
+
+              - `String text`
 
               - `Optional<String> stopReason`
 
             - `class BetaAdvisorRedactedResultBlockParam:`
 
+              - `JsonValue type = "advisor_redacted_result"`
+
               - `String encryptedContent`
 
                 Opaque blob produced by a prior response; must be round-tripped verbatim.
-
-              - `JsonValue type = "advisor_redacted_result"`
 
               - `Optional<String> stopReason`
 
@@ -7621,19 +7652,21 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `JsonValue type = "advisor_tool_result"`
-
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
             Create a cache control breakpoint at this content block.
 
         - `class BetaCodeExecutionToolResultBlockParam:`
 
+          - `JsonValue type = "code_execution_tool_result"`
+
           - `BetaCodeExecutionToolResultBlockParamContent content`
 
             Code execution result with encrypted stdout for PFC + web_search results.
 
             - `class BetaCodeExecutionToolResultErrorParam:`
+
+              - `JsonValue type = "code_execution_tool_result_error"`
 
               - `BetaCodeExecutionToolResultErrorCode errorCode`
 
@@ -7645,15 +7678,15 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 - `EXECUTION_TIME_EXCEEDED("execution_time_exceeded")`
 
-              - `JsonValue type = "code_execution_tool_result_error"`
-
             - `class BetaCodeExecutionResultBlockParam:`
+
+              - `JsonValue type = "code_execution_result"`
 
               - `List<BetaCodeExecutionOutputBlockParam> content`
 
-                - `String fileId`
-
                 - `JsonValue type = "code_execution_output"`
+
+                - `String fileId`
 
               - `long returnCode`
 
@@ -7661,17 +7694,17 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `String stdout`
 
-              - `JsonValue type = "code_execution_result"`
-
             - `class BetaEncryptedCodeExecutionResultBlockParam:`
 
               Code execution result with encrypted stdout for PFC + web_search results.
 
+              - `JsonValue type = "encrypted_code_execution_result"`
+
               - `List<BetaCodeExecutionOutputBlockParam> content`
 
-                - `String fileId`
-
                 - `JsonValue type = "code_execution_output"`
+
+                - `String fileId`
 
               - `String encryptedStdout`
 
@@ -7679,13 +7712,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `String stderr`
 
-              - `JsonValue type = "encrypted_code_execution_result"`
-
           - `String toolUseId`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-          - `JsonValue type = "code_execution_tool_result"`
 
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -7693,9 +7722,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `class BetaBashCodeExecutionToolResultBlockParam:`
 
+          - `JsonValue type = "bash_code_execution_tool_result"`
+
           - `Content content`
 
             - `class BetaBashCodeExecutionToolResultErrorParam:`
+
+              - `JsonValue type = "bash_code_execution_tool_result_error"`
 
               - `ErrorCode errorCode`
 
@@ -7709,15 +7742,15 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 - `OUTPUT_FILE_TOO_LARGE("output_file_too_large")`
 
-              - `JsonValue type = "bash_code_execution_tool_result_error"`
-
             - `class BetaBashCodeExecutionResultBlockParam:`
+
+              - `JsonValue type = "bash_code_execution_result"`
 
               - `List<BetaBashCodeExecutionOutputBlockParam> content`
 
-                - `String fileId`
-
                 - `JsonValue type = "bash_code_execution_output"`
+
+                - `String fileId`
 
               - `long returnCode`
 
@@ -7725,13 +7758,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `String stdout`
 
-              - `JsonValue type = "bash_code_execution_result"`
-
           - `String toolUseId`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-          - `JsonValue type = "bash_code_execution_tool_result"`
 
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -7739,9 +7768,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `class BetaTextEditorCodeExecutionToolResultBlockParam:`
 
+          - `JsonValue type = "text_editor_code_execution_tool_result"`
+
           - `Content content`
 
             - `class BetaTextEditorCodeExecutionToolResultErrorParam:`
+
+              - `JsonValue type = "text_editor_code_execution_tool_result_error"`
 
               - `ErrorCode errorCode`
 
@@ -7755,11 +7788,11 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 - `FILE_NOT_FOUND("file_not_found")`
 
-              - `JsonValue type = "text_editor_code_execution_tool_result_error"`
-
               - `Optional<String> errorMessage`
 
             - `class BetaTextEditorCodeExecutionViewResultBlockParam:`
+
+              - `JsonValue type = "text_editor_code_execution_view_result"`
 
               - `String content`
 
@@ -7771,8 +7804,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 - `PDF("pdf")`
 
-              - `JsonValue type = "text_editor_code_execution_view_result"`
-
               - `Optional<Long> numLines`
 
               - `Optional<Long> startLine`
@@ -7781,9 +7812,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             - `class BetaTextEditorCodeExecutionCreateResultBlockParam:`
 
-              - `boolean isFileUpdate`
-
               - `JsonValue type = "text_editor_code_execution_create_result"`
+
+              - `boolean isFileUpdate`
 
             - `class BetaTextEditorCodeExecutionStrReplaceResultBlockParam:`
 
@@ -7803,17 +7834,19 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `JsonValue type = "text_editor_code_execution_tool_result"`
-
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
             Create a cache control breakpoint at this content block.
 
         - `class BetaToolSearchToolResultBlockParam:`
 
+          - `JsonValue type = "tool_search_tool_result"`
+
           - `Content content`
 
             - `class BetaToolSearchToolResultErrorParam:`
+
+              - `JsonValue type = "tool_search_tool_result_error"`
 
               - `ErrorCode errorCode`
 
@@ -7825,37 +7858,35 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 - `EXECUTION_TIME_EXCEEDED("execution_time_exceeded")`
 
-              - `JsonValue type = "tool_search_tool_result_error"`
-
               - `Optional<String> errorMessage`
 
             - `class BetaToolSearchToolSearchResultBlockParam:`
 
+              - `JsonValue type = "tool_search_tool_search_result"`
+
               - `List<BetaToolReferenceBlockParam> toolReferences`
+
+                - `JsonValue type = "tool_reference"`
 
                 - `String toolName`
 
                   maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
-                - `JsonValue type = "tool_reference"`
-
                 - `Optional<BetaCacheControlEphemeral> cacheControl`
 
                   Create a cache control breakpoint at this content block.
 
-              - `JsonValue type = "tool_search_tool_search_result"`
-
           - `String toolUseId`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-          - `JsonValue type = "tool_search_tool_result"`
 
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
             Create a cache control breakpoint at this content block.
 
         - `class BetaMcpToolUseBlockParam:`
+
+          - `JsonValue type = "mcp_tool_use"`
 
           - `String id`
 
@@ -7869,19 +7900,17 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             The name of the MCP server
 
-          - `JsonValue type = "mcp_tool_use"`
-
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
             Create a cache control breakpoint at this content block.
 
         - `class BetaRequestMcpToolResultBlockParam:`
 
+          - `JsonValue type = "mcp_tool_result"`
+
           - `String toolUseId`
 
             pattern: ^[a-zA-Z0-9_-]+$
-
-          - `JsonValue type = "mcp_tool_result"`
 
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -7893,11 +7922,11 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             - `List<BetaTextBlockParam>`
 
+              - `JsonValue type = "text"`
+
               - `String text`
 
                 minLength: 1
-
-              - `JsonValue type = "text"`
 
               - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -7912,9 +7941,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
           A content block that represents a file to be uploaded to the container
           Files uploaded via this block will be available in the container's input directory.
 
-          - `String fileId`
-
           - `JsonValue type = "container_upload"`
+
+          - `String fileId`
 
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -7952,6 +7981,8 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
           `tools`; it is offered to the model from this point in the
           conversation onward.
 
+          - `JsonValue type = "tool_addition"`
+
           - `Tool tool`
 
             Reference to a single tool the caller declared directly in
@@ -7966,32 +7997,30 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
               server assigns to MCP-resolved tools — use `mcp_tool_reference` or
               `mcp_toolset_reference` for those.
 
+              - `JsonValue type = "tool_reference"`
+
               - `String name`
 
                 pattern: ^[a-zA-Z0-9_-]{1,128}$
-
-              - `JsonValue type = "tool_reference"`
 
             - `class BetaToolChangeMcpToolReference:`
 
               Reference to a single MCP tool by its server and remote name — the
               same `server_name`/`name` pair `mcp_tool_use` carries.
 
+              - `JsonValue type = "mcp_tool_reference"`
+
               - `String name`
 
               - `String serverName`
-
-              - `JsonValue type = "mcp_tool_reference"`
 
             - `class BetaToolChangeMcpToolsetReference:`
 
               Reference to every tool in the named MCP server's toolset.
 
-              - `String serverName`
-
               - `JsonValue type = "mcp_toolset_reference"`
 
-          - `JsonValue type = "tool_addition"`
+              - `String serverName`
 
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -8005,6 +8034,8 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
           `tools`; it is no longer offered to the model from this point in the
           conversation onward.
 
+          - `JsonValue type = "tool_removal"`
+
           - `Tool tool`
 
             Reference to a single tool the caller declared directly in
@@ -8027,8 +8058,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
             - `class BetaToolChangeMcpToolsetReference:`
 
               Reference to every tool in the named MCP server's toolset.
-
-          - `JsonValue type = "tool_removal"`
 
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -8049,6 +8078,8 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
           request is rejected), and moving it into the middle of a single run is
           likewise rejected; between non-thinking blocks the block's placement has
           no validation effect.
+
+          - `JsonValue type = "fallback"`
 
           - `BetaFallbackInfoParam from`
 
@@ -8132,8 +8163,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             Identifies one hop of a fallback transition.
 
-          - `JsonValue type = "fallback"`
-
           - `Optional<JsonValue> trigger`
 
             The response block's `trigger`, echoed verbatim. Accepted and ignored by the server; any object or `null` is allowed.
@@ -8198,9 +8227,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     maxItems: 20
 
-    - `String name`
-
     - `JsonValue type = "url"`
+
+    - `String name`
 
     - `String url`
 
@@ -8234,11 +8263,11 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `List<BetaTextBlockParam>`
 
+      - `JsonValue type = "text"`
+
       - `String text`
 
         minLength: 1
-
-      - `JsonValue type = "text"`
 
       - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -8324,6 +8353,8 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `class BetaTool:`
 
+      - `Optional<Type> type`
+
       - `InputSchema inputSchema`
 
         [JSON schema](https://json-schema.org/draft/2020-12) for this tool's input.
@@ -8378,17 +8409,15 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         When true, guarantees schema validation on tool names and inputs
 
-      - `Optional<Type> type`
-
     - `class BetaToolBash20241022:`
+
+      - `JsonValue type = "bash_20241022"`
 
       - `JsonValue name = "bash"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonValue type = "bash_20241022"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -8416,13 +8445,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `class BetaToolBash20250124:`
 
+      - `JsonValue type = "bash_20250124"`
+
       - `JsonValue name = "bash"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonValue type = "bash_20250124"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -8450,13 +8479,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `class BetaCodeExecutionTool20250522:`
 
+      - `JsonValue type = "code_execution_20250522"`
+
       - `JsonValue name = "code_execution"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonValue type = "code_execution_20250522"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -8482,13 +8511,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `class BetaCodeExecutionTool20250825:`
 
+      - `JsonValue type = "code_execution_20250825"`
+
       - `JsonValue name = "code_execution"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonValue type = "code_execution_20250825"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -8516,13 +8545,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       Code execution tool with REPL state persistence (daemon mode + gVisor checkpoint).
 
+      - `JsonValue type = "code_execution_20260120"`
+
       - `JsonValue name = "code_execution"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonValue type = "code_execution_20260120"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -8550,13 +8579,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       Code execution tool with REPL state persistence.
 
+      - `JsonValue type = "code_execution_20260521"`
+
       - `JsonValue name = "code_execution"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonValue type = "code_execution_20260521"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -8601,6 +8630,18 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
         accepted key, and a member's defaults apply wherever its key is
         absent. Unknown keys are rejected: the field set is this toolset
         version's complete member set.
+
+        - `Optional<BetaBrowserTypeConfig> type`
+
+          `type`'s config overrides.
+
+          - `Optional<Boolean> deferLoading`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `Optional<Boolean> enabled`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
         - `Optional<BetaBrowserCloseTabConfig> closeTab`
 
@@ -8938,18 +8979,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-        - `Optional<BetaBrowserTypeConfig> type`
-
-          `type`'s config overrides.
-
-          - `Optional<Boolean> deferLoading`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `Optional<Boolean> enabled`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
         - `Optional<BetaBrowserWaitConfig> wait`
 
           `wait`'s config overrides.
@@ -8976,6 +9005,8 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `class BetaToolComputerUse20241022:`
 
+      - `JsonValue type = "computer_20241022"`
+
       - `long displayHeightPx`
 
         The height of the display in pixels.
@@ -8993,8 +9024,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonValue type = "computer_20241022"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -9028,13 +9057,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `class BetaMemoryTool20250818:`
 
+      - `JsonValue type = "memory_20250818"`
+
       - `JsonValue name = "memory"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonValue type = "memory_20250818"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -9062,6 +9091,8 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `class BetaToolComputerUse20250124:`
 
+      - `JsonValue type = "computer_20250124"`
+
       - `long displayHeightPx`
 
         The height of the display in pixels.
@@ -9079,8 +9110,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonValue type = "computer_20250124"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -9114,13 +9143,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `class BetaToolTextEditor20241022:`
 
+      - `JsonValue type = "text_editor_20241022"`
+
       - `JsonValue name = "str_replace_editor"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonValue type = "text_editor_20241022"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -9148,6 +9177,8 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `class BetaToolComputerUse20251124:`
 
+      - `JsonValue type = "computer_20251124"`
+
       - `long displayHeightPx`
 
         The height of the display in pixels.
@@ -9165,8 +9196,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonValue type = "computer_20251124"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -9227,6 +9256,18 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
         accepted key, and a member's defaults apply wherever its key is
         absent. Unknown keys are rejected: the field set is this toolset
         version's complete member set.
+
+        - `Optional<BetaComputerTypeConfig> type`
+
+          `type`'s config overrides.
+
+          - `Optional<Boolean> deferLoading`
+
+            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+          - `Optional<Boolean> enabled`
+
+            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
         - `Optional<BetaComputerCursorPositionConfig> cursorPosition`
 
@@ -9396,18 +9437,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-        - `Optional<BetaComputerTypeConfig> type`
-
-          `type`'s config overrides.
-
-          - `Optional<Boolean> deferLoading`
-
-            Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-          - `Optional<Boolean> enabled`
-
-            Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
         - `Optional<BetaComputerWaitConfig> wait`
 
           `wait`'s config overrides.
@@ -9434,13 +9463,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `class BetaToolTextEditor20250124:`
 
+      - `JsonValue type = "text_editor_20250124"`
+
       - `JsonValue name = "str_replace_editor"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonValue type = "text_editor_20250124"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -9468,13 +9497,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `class BetaToolTextEditor20250429:`
 
+      - `JsonValue type = "text_editor_20250429"`
+
       - `JsonValue name = "str_replace_based_edit_tool"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonValue type = "text_editor_20250429"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -9502,13 +9531,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `class BetaToolTextEditor20250728:`
 
+      - `JsonValue type = "text_editor_20250728"`
+
       - `JsonValue name = "str_replace_based_edit_tool"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonValue type = "text_editor_20250728"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -9542,13 +9571,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `class BetaWebSearchTool20250305:`
 
+      - `JsonValue type = "web_search_20250305"`
+
       - `JsonValue name = "web_search"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonValue type = "web_search_20250305"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -9618,13 +9647,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `class BetaWebFetchTool20250910:`
 
+      - `JsonValue type = "web_fetch_20250910"`
+
       - `JsonValue name = "web_fetch"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonValue type = "web_fetch_20250910"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -9674,13 +9703,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `class BetaWebSearchTool20260209:`
 
+      - `JsonValue type = "web_search_20260209"`
+
       - `JsonValue name = "web_search"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonValue type = "web_search_20260209"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -9724,13 +9753,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `class BetaWebFetchTool20260209:`
 
+      - `JsonValue type = "web_fetch_20260209"`
+
       - `JsonValue name = "web_fetch"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonValue type = "web_fetch_20260209"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -9782,13 +9811,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       Web fetch tool with use_cache parameter for bypassing cached content.
 
+      - `JsonValue type = "web_fetch_20260309"`
+
       - `JsonValue name = "web_fetch"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonValue type = "web_fetch_20260309"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -9842,13 +9871,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `class BetaWebSearchTool20260318:`
 
+      - `JsonValue type = "web_search_20260318"`
+
       - `JsonValue name = "web_search"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonValue type = "web_search_20260318"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -9900,13 +9929,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `class BetaWebFetchTool20260318:`
 
+      - `JsonValue type = "web_fetch_20260318"`
+
       - `JsonValue name = "web_fetch"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonValue type = "web_fetch_20260318"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -9968,6 +9997,8 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `class BetaAdvisorTool20260301:`
 
+      - `JsonValue type = "advisor_20260301"`
+
       - `Model model`
 
         The model that will complete your prompt.
@@ -9979,8 +10010,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `JsonValue type = "advisor_20260301"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -10022,17 +10051,17 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `class BetaToolSearchToolBm25_20251119:`
 
-      - `JsonValue name = "tool_search_tool_bm25"`
-
-        Name of the tool.
-
-        This is how the tool will be called by the model and in `tool_use` blocks.
-
       - `Type type`
 
         - `TOOL_SEARCH_TOOL_BM25_20251119("tool_search_tool_bm25_20251119")`
 
         - `TOOL_SEARCH_TOOL_BM25("tool_search_tool_bm25")`
+
+      - `JsonValue name = "tool_search_tool_bm25"`
+
+        Name of the tool.
+
+        This is how the tool will be called by the model and in `tool_use` blocks.
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -10058,17 +10087,17 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `class BetaToolSearchToolRegex20251119:`
 
-      - `JsonValue name = "tool_search_tool_regex"`
-
-        Name of the tool.
-
-        This is how the tool will be called by the model and in `tool_use` blocks.
-
       - `Type type`
 
         - `TOOL_SEARCH_TOOL_REGEX_20251119("tool_search_tool_regex_20251119")`
 
         - `TOOL_SEARCH_TOOL_REGEX("tool_search_tool_regex")`
+
+      - `JsonValue name = "tool_search_tool_regex"`
+
+        Name of the tool.
+
+        This is how the tool will be called by the model and in `tool_use` blocks.
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -10099,13 +10128,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
       Allows configuring enabled status and defer_loading for all tools
       from an MCP server, with optional per-tool overrides.
 
+      - `JsonValue type = "mcp_toolset"`
+
       - `String mcpServerName`
 
         Name of the MCP server to configure tools for
 
         maxLength: 255, minLength: 1
-
-      - `JsonValue type = "mcp_toolset"`
 
       - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -10256,6 +10285,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
 
+    - `USER_PROFILES_2026_09_04("user-profiles-2026-09-04")`
+
     - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
@@ -10301,6 +10332,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
   - `Optional<String> userProfileId`
 
     The user profile ID to attribute the requests in this batch to. Use when acting on behalf of a party other than your organization. Requires the `user-profiles` beta header. Applies to every request in the batch; an individual request whose `user_profile_id` body field conflicts with this header is errored.
+
+  - `Optional<String> workspaceId`
 
   - `List<Request> requests`
 
@@ -10393,11 +10426,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `class BetaTextBlockParam:`
 
+              - `JsonValue type = "text"`
+
               - `String text`
 
                 minLength: 1
-
-              - `JsonValue type = "text"`
 
               - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -10424,6 +10457,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `class BetaCitationCharLocationParam:`
 
+                  - `JsonValue type = "char_location"`
+
                   - `String citedText`
 
                   - `long documentIndex`
@@ -10440,9 +10475,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     minimum: 0
 
-                  - `JsonValue type = "char_location"`
-
                 - `class BetaCitationPageLocationParam:`
+
+                  - `JsonValue type = "page_location"`
 
                   - `String citedText`
 
@@ -10460,9 +10495,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     minimum: 1
 
-                  - `JsonValue type = "page_location"`
-
                 - `class BetaCitationContentBlockLocationParam:`
+
+                  - `JsonValue type = "content_block_location"`
 
                   - `String citedText`
 
@@ -10490,9 +10525,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     minimum: 0
 
-                  - `JsonValue type = "content_block_location"`
-
                 - `class BetaCitationWebSearchResultLocationParam:`
+
+                  - `JsonValue type = "web_search_result_location"`
 
                   - `String citedText`
 
@@ -10502,13 +10537,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     maxLength: 512, minLength: 1
 
-                  - `JsonValue type = "web_search_result_location"`
-
                   - `String url`
 
                     minLength: 1
 
                 - `class BetaCitationSearchResultLocationParam:`
+
+                  - `JsonValue type = "search_result_location"`
 
                   - `String citedText`
 
@@ -10540,13 +10575,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `Optional<String> title`
 
-                  - `JsonValue type = "search_result_location"`
-
             - `class BetaImageBlockParam:`
+
+              - `JsonValue type = "image"`
 
               - `Source source`
 
                 - `class BetaBase64ImageSource:`
+
+                  - `JsonValue type = "base64"`
 
                   - `String data`
 
@@ -10562,8 +10599,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     - `IMAGE_WEBP("image/webp")`
 
-                  - `JsonValue type = "base64"`
-
                 - `class BetaUrlImageSource:`
 
                   - `JsonValue type = "url"`
@@ -10572,11 +10607,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `class BetaFileImageSource:`
 
-                  - `String fileId`
-
                   - `JsonValue type = "file"`
 
-              - `JsonValue type = "image"`
+                  - `String fileId`
 
               - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -10596,9 +10629,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `class BetaRequestDocumentBlock:`
 
+              - `JsonValue type = "document"`
+
               - `Source source`
 
                 - `class BetaBase64PdfSource:`
+
+                  - `JsonValue type = "base64"`
 
                   - `String data`
 
@@ -10606,17 +10643,17 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `JsonValue mediaType = "application/pdf"`
 
-                  - `JsonValue type = "base64"`
-
                 - `class BetaPlainTextSource:`
+
+                  - `JsonValue type = "text"`
 
                   - `String data`
 
                   - `JsonValue mediaType = "text/plain"`
 
-                  - `JsonValue type = "text"`
-
                 - `class BetaContentBlockSource:`
+
+                  - `JsonValue type = "content"`
 
                   - `Content content`
 
@@ -10628,8 +10665,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                       - `class BetaImageBlockParam:`
 
-                  - `JsonValue type = "content"`
-
                 - `class BetaUrlPdfSource:`
 
                   - `JsonValue type = "url"`
@@ -10638,11 +10673,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `class BetaFileDocumentSource:`
 
-                  - `String fileId`
-
                   - `JsonValue type = "file"`
 
-              - `JsonValue type = "document"`
+                  - `String fileId`
 
               - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -10662,13 +10695,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `class BetaSearchResultBlockParam:`
 
+              - `JsonValue type = "search_result"`
+
               - `List<BetaTextBlockParam> content`
+
+                - `JsonValue type = "text"`
 
                 - `String text`
 
                   minLength: 1
-
-                - `JsonValue type = "text"`
 
                 - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -10680,8 +10715,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `String title`
 
-              - `JsonValue type = "search_result"`
-
               - `Optional<BetaCacheControlEphemeral> cacheControl`
 
                 Create a cache control breakpoint at this content block.
@@ -10689,6 +10722,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
               - `Optional<BetaCitationsConfigParam> citations`
 
             - `class BetaThinkingBlockParam:`
+
+              - `JsonValue type = "thinking"`
 
               - `String signature`
 
@@ -10700,17 +10735,17 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 The `thinking` text of this block as returned by the API.
 
-              - `JsonValue type = "thinking"`
-
             - `class BetaRedactedThinkingBlockParam:`
+
+              - `JsonValue type = "redacted_thinking"`
 
               - `String data`
 
                 The `data` value of this redacted thinking block, exactly as returned by the API in a previous response. Opaque and encrypted; pass it back unchanged.
 
-              - `JsonValue type = "redacted_thinking"`
-
             - `class BetaToolUseBlockParam:`
+
+              - `JsonValue type = "tool_use"`
 
               - `String id`
 
@@ -10721,8 +10756,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
               - `String name`
 
                 maxLength: 200, minLength: 1
-
-              - `JsonValue type = "tool_use"`
 
               - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -10742,19 +10775,19 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   Tool invocation generated by a server-side tool.
 
+                  - `JsonValue type = "code_execution_20250825"`
+
                   - `String toolId`
 
                     pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-                  - `JsonValue type = "code_execution_20250825"`
 
                 - `class BetaServerToolCaller20260120:`
 
+                  - `JsonValue type = "code_execution_20260120"`
+
                   - `String toolId`
 
                     pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-                  - `JsonValue type = "code_execution_20260120"`
 
               - `Optional<String> toolsetName`
 
@@ -10764,11 +10797,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `class BetaToolResultBlockParam:`
 
+              - `JsonValue type = "tool_result"`
+
               - `String toolUseId`
 
                 pattern: ^[a-zA-Z0-9_-]+$
-
-              - `JsonValue type = "tool_result"`
 
               - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -10792,11 +10825,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     Tool reference block that can be included in tool_result content.
 
+                    - `JsonValue type = "tool_reference"`
+
                     - `String toolName`
 
                       maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
-
-                    - `JsonValue type = "tool_reference"`
 
                     - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -10811,6 +10844,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
                     At most one per `tool_result`, only on a non-error result answering a
                     browser toolset member `tool_use`. The server renders the
                     model-visible text from it; the model never sees the raw fields.
+
+                    - `JsonValue type = "browser_state"`
 
                     - `List<BetaBrowserStateTabEntry> tabs`
 
@@ -10840,8 +10875,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                         Whether this tab is the active tab after this call. Whenever `tabs` is non-empty, exactly one entry is marked `active: true`.
 
-                    - `JsonValue type = "browser_state"`
-
                     - `Optional<BetaCacheControlEphemeral> cacheControl`
 
                       Create a cache control breakpoint at this content block.
@@ -10862,25 +10895,25 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
                         during a failed call gets no deferred `tab_opened`; it simply appears
                         in the next result's `tabs` inventory.
 
+                        - `JsonValue type = "tab_opened"`
+
                         - `String tabId`
 
                           The `tab_id` of the opened tab, present in `tabs`.
 
                           maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-                        - `JsonValue type = "tab_opened"`
-
                       - `class BetaBrowserStateChangeDownloadStarted:`
 
                         A file download that started during this call.
+
+                        - `JsonValue type = "download_started"`
 
                         - `String downloadId`
 
                           The caller-assigned identifier for this download, stable across the state changes reporting it.
 
                           maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
-
-                        - `JsonValue type = "download_started"`
 
                         - `String url`
 
@@ -10895,13 +10928,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
                         `download_started`, when the download finished during the call that
                         started it (at most one state change per `download_id` per result).
 
+                        - `JsonValue type = "download_completed"`
+
                         - `String downloadId`
 
                           The caller-assigned identifier for this download, stable across the state changes reporting it.
 
                           maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
-
-                        - `JsonValue type = "download_completed"`
 
                         - `String url`
 
@@ -10925,13 +10958,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                         A file download that failed — or was cancelled — during this call.
 
+                        - `JsonValue type = "download_failed"`
+
                         - `String downloadId`
 
                           The caller-assigned identifier for this download, stable across the state changes reporting it.
 
                           maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
-
-                        - `JsonValue type = "download_failed"`
 
                         - `String url`
 
@@ -10954,6 +10987,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
                 maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
 
             - `class BetaServerToolUseBlockParam:`
+
+              - `JsonValue type = "server_tool_use"`
 
               - `String id`
 
@@ -10979,8 +11014,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `TOOL_SEARCH_TOOL_BM25("tool_search_tool_bm25")`
 
-              - `JsonValue type = "server_tool_use"`
-
               - `Optional<BetaCacheControlEphemeral> cacheControl`
 
                 Create a cache control breakpoint at this content block.
@@ -11001,21 +11034,25 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `class BetaWebSearchToolResultBlockParam:`
 
+              - `JsonValue type = "web_search_tool_result"`
+
               - `BetaWebSearchToolResultBlockParamContent content`
 
                 - `List<BetaWebSearchResultBlockParam>`
 
+                  - `JsonValue type = "web_search_result"`
+
                   - `String encryptedContent`
 
                   - `String title`
-
-                  - `JsonValue type = "web_search_result"`
 
                   - `String url`
 
                   - `Optional<String> pageAge`
 
                 - `class BetaWebSearchToolRequestError:`
+
+                  - `JsonValue type = "web_search_tool_result_error"`
 
                   - `BetaWebSearchToolResultErrorCode errorCode`
 
@@ -11031,13 +11068,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     - `REQUEST_TOO_LARGE("request_too_large")`
 
-                  - `JsonValue type = "web_search_tool_result_error"`
-
               - `String toolUseId`
 
                 pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-              - `JsonValue type = "web_search_tool_result"`
 
               - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -11059,9 +11092,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `class BetaWebFetchToolResultBlockParam:`
 
+              - `JsonValue type = "web_fetch_tool_result"`
+
               - `Content content`
 
                 - `class BetaWebFetchToolResultErrorBlockParam:`
+
+                  - `JsonValue type = "web_fetch_tool_result_error"`
 
                   - `BetaWebFetchToolResultErrorCode errorCode`
 
@@ -11083,13 +11120,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     - `UNAVAILABLE("unavailable")`
 
-                  - `JsonValue type = "web_fetch_tool_result_error"`
+                    - `CONTENT_TOO_LARGE("content_too_large")`
 
                 - `class BetaWebFetchBlockParam:`
 
-                  - `BetaRequestDocumentBlock content`
-
                   - `JsonValue type = "web_fetch_result"`
+
+                  - `BetaRequestDocumentBlock content`
 
                   - `String url`
 
@@ -11102,8 +11139,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
               - `String toolUseId`
 
                 pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-              - `JsonValue type = "web_fetch_tool_result"`
 
               - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -11125,9 +11160,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `class BetaAdvisorToolResultBlockParam:`
 
+              - `JsonValue type = "advisor_tool_result"`
+
               - `Content content`
 
                 - `class BetaAdvisorToolResultErrorParam:`
+
+                  - `JsonValue type = "advisor_tool_result_error"`
 
                   - `ErrorCode errorCode`
 
@@ -11145,23 +11184,21 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     - `MODEL_NOT_FOUND("model_not_found")`
 
-                  - `JsonValue type = "advisor_tool_result_error"`
-
                 - `class BetaAdvisorResultBlockParam:`
 
-                  - `String text`
-
                   - `JsonValue type = "advisor_result"`
+
+                  - `String text`
 
                   - `Optional<String> stopReason`
 
                 - `class BetaAdvisorRedactedResultBlockParam:`
 
+                  - `JsonValue type = "advisor_redacted_result"`
+
                   - `String encryptedContent`
 
                     Opaque blob produced by a prior response; must be round-tripped verbatim.
-
-                  - `JsonValue type = "advisor_redacted_result"`
 
                   - `Optional<String> stopReason`
 
@@ -11169,19 +11206,21 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-              - `JsonValue type = "advisor_tool_result"`
-
               - `Optional<BetaCacheControlEphemeral> cacheControl`
 
                 Create a cache control breakpoint at this content block.
 
             - `class BetaCodeExecutionToolResultBlockParam:`
 
+              - `JsonValue type = "code_execution_tool_result"`
+
               - `BetaCodeExecutionToolResultBlockParamContent content`
 
                 Code execution result with encrypted stdout for PFC + web_search results.
 
                 - `class BetaCodeExecutionToolResultErrorParam:`
+
+                  - `JsonValue type = "code_execution_tool_result_error"`
 
                   - `BetaCodeExecutionToolResultErrorCode errorCode`
 
@@ -11193,15 +11232,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     - `EXECUTION_TIME_EXCEEDED("execution_time_exceeded")`
 
-                  - `JsonValue type = "code_execution_tool_result_error"`
-
                 - `class BetaCodeExecutionResultBlockParam:`
+
+                  - `JsonValue type = "code_execution_result"`
 
                   - `List<BetaCodeExecutionOutputBlockParam> content`
 
-                    - `String fileId`
-
                     - `JsonValue type = "code_execution_output"`
+
+                    - `String fileId`
 
                   - `long returnCode`
 
@@ -11209,17 +11248,17 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `String stdout`
 
-                  - `JsonValue type = "code_execution_result"`
-
                 - `class BetaEncryptedCodeExecutionResultBlockParam:`
 
                   Code execution result with encrypted stdout for PFC + web_search results.
 
+                  - `JsonValue type = "encrypted_code_execution_result"`
+
                   - `List<BetaCodeExecutionOutputBlockParam> content`
 
-                    - `String fileId`
-
                     - `JsonValue type = "code_execution_output"`
+
+                    - `String fileId`
 
                   - `String encryptedStdout`
 
@@ -11227,13 +11266,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `String stderr`
 
-                  - `JsonValue type = "encrypted_code_execution_result"`
-
               - `String toolUseId`
 
                 pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-              - `JsonValue type = "code_execution_tool_result"`
 
               - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -11241,9 +11276,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `class BetaBashCodeExecutionToolResultBlockParam:`
 
+              - `JsonValue type = "bash_code_execution_tool_result"`
+
               - `Content content`
 
                 - `class BetaBashCodeExecutionToolResultErrorParam:`
+
+                  - `JsonValue type = "bash_code_execution_tool_result_error"`
 
                   - `ErrorCode errorCode`
 
@@ -11257,15 +11296,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     - `OUTPUT_FILE_TOO_LARGE("output_file_too_large")`
 
-                  - `JsonValue type = "bash_code_execution_tool_result_error"`
-
                 - `class BetaBashCodeExecutionResultBlockParam:`
+
+                  - `JsonValue type = "bash_code_execution_result"`
 
                   - `List<BetaBashCodeExecutionOutputBlockParam> content`
 
-                    - `String fileId`
-
                     - `JsonValue type = "bash_code_execution_output"`
+
+                    - `String fileId`
 
                   - `long returnCode`
 
@@ -11273,13 +11312,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `String stdout`
 
-                  - `JsonValue type = "bash_code_execution_result"`
-
               - `String toolUseId`
 
                 pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-              - `JsonValue type = "bash_code_execution_tool_result"`
 
               - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -11287,9 +11322,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `class BetaTextEditorCodeExecutionToolResultBlockParam:`
 
+              - `JsonValue type = "text_editor_code_execution_tool_result"`
+
               - `Content content`
 
                 - `class BetaTextEditorCodeExecutionToolResultErrorParam:`
+
+                  - `JsonValue type = "text_editor_code_execution_tool_result_error"`
 
                   - `ErrorCode errorCode`
 
@@ -11303,11 +11342,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     - `FILE_NOT_FOUND("file_not_found")`
 
-                  - `JsonValue type = "text_editor_code_execution_tool_result_error"`
-
                   - `Optional<String> errorMessage`
 
                 - `class BetaTextEditorCodeExecutionViewResultBlockParam:`
+
+                  - `JsonValue type = "text_editor_code_execution_view_result"`
 
                   - `String content`
 
@@ -11319,8 +11358,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     - `PDF("pdf")`
 
-                  - `JsonValue type = "text_editor_code_execution_view_result"`
-
                   - `Optional<Long> numLines`
 
                   - `Optional<Long> startLine`
@@ -11329,9 +11366,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `class BetaTextEditorCodeExecutionCreateResultBlockParam:`
 
-                  - `boolean isFileUpdate`
-
                   - `JsonValue type = "text_editor_code_execution_create_result"`
+
+                  - `boolean isFileUpdate`
 
                 - `class BetaTextEditorCodeExecutionStrReplaceResultBlockParam:`
 
@@ -11351,17 +11388,19 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-              - `JsonValue type = "text_editor_code_execution_tool_result"`
-
               - `Optional<BetaCacheControlEphemeral> cacheControl`
 
                 Create a cache control breakpoint at this content block.
 
             - `class BetaToolSearchToolResultBlockParam:`
 
+              - `JsonValue type = "tool_search_tool_result"`
+
               - `Content content`
 
                 - `class BetaToolSearchToolResultErrorParam:`
+
+                  - `JsonValue type = "tool_search_tool_result_error"`
 
                   - `ErrorCode errorCode`
 
@@ -11373,37 +11412,35 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     - `EXECUTION_TIME_EXCEEDED("execution_time_exceeded")`
 
-                  - `JsonValue type = "tool_search_tool_result_error"`
-
                   - `Optional<String> errorMessage`
 
                 - `class BetaToolSearchToolSearchResultBlockParam:`
 
+                  - `JsonValue type = "tool_search_tool_search_result"`
+
                   - `List<BetaToolReferenceBlockParam> toolReferences`
+
+                    - `JsonValue type = "tool_reference"`
 
                     - `String toolName`
 
                       maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
-                    - `JsonValue type = "tool_reference"`
-
                     - `Optional<BetaCacheControlEphemeral> cacheControl`
 
                       Create a cache control breakpoint at this content block.
 
-                  - `JsonValue type = "tool_search_tool_search_result"`
-
               - `String toolUseId`
 
                 pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-              - `JsonValue type = "tool_search_tool_result"`
 
               - `Optional<BetaCacheControlEphemeral> cacheControl`
 
                 Create a cache control breakpoint at this content block.
 
             - `class BetaMcpToolUseBlockParam:`
+
+              - `JsonValue type = "mcp_tool_use"`
 
               - `String id`
 
@@ -11417,19 +11454,17 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 The name of the MCP server
 
-              - `JsonValue type = "mcp_tool_use"`
-
               - `Optional<BetaCacheControlEphemeral> cacheControl`
 
                 Create a cache control breakpoint at this content block.
 
             - `class BetaRequestMcpToolResultBlockParam:`
 
+              - `JsonValue type = "mcp_tool_result"`
+
               - `String toolUseId`
 
                 pattern: ^[a-zA-Z0-9_-]+$
-
-              - `JsonValue type = "mcp_tool_result"`
 
               - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -11441,11 +11476,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `List<BetaTextBlockParam>`
 
+                  - `JsonValue type = "text"`
+
                   - `String text`
 
                     minLength: 1
-
-                  - `JsonValue type = "text"`
 
                   - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -11460,9 +11495,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
               A content block that represents a file to be uploaded to the container
               Files uploaded via this block will be available in the container's input directory.
 
-              - `String fileId`
-
               - `JsonValue type = "container_upload"`
+
+              - `String fileId`
 
               - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -11500,6 +11535,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
               `tools`; it is offered to the model from this point in the
               conversation onward.
 
+              - `JsonValue type = "tool_addition"`
+
               - `Tool tool`
 
                 Reference to a single tool the caller declared directly in
@@ -11514,32 +11551,30 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
                   server assigns to MCP-resolved tools — use `mcp_tool_reference` or
                   `mcp_toolset_reference` for those.
 
+                  - `JsonValue type = "tool_reference"`
+
                   - `String name`
 
                     pattern: ^[a-zA-Z0-9_-]{1,128}$
-
-                  - `JsonValue type = "tool_reference"`
 
                 - `class BetaToolChangeMcpToolReference:`
 
                   Reference to a single MCP tool by its server and remote name — the
                   same `server_name`/`name` pair `mcp_tool_use` carries.
 
+                  - `JsonValue type = "mcp_tool_reference"`
+
                   - `String name`
 
                   - `String serverName`
-
-                  - `JsonValue type = "mcp_tool_reference"`
 
                 - `class BetaToolChangeMcpToolsetReference:`
 
                   Reference to every tool in the named MCP server's toolset.
 
-                  - `String serverName`
-
                   - `JsonValue type = "mcp_toolset_reference"`
 
-              - `JsonValue type = "tool_addition"`
+                  - `String serverName`
 
               - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -11553,6 +11588,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
               `tools`; it is no longer offered to the model from this point in the
               conversation onward.
 
+              - `JsonValue type = "tool_removal"`
+
               - `Tool tool`
 
                 Reference to a single tool the caller declared directly in
@@ -11575,8 +11612,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
                 - `class BetaToolChangeMcpToolsetReference:`
 
                   Reference to every tool in the named MCP server's toolset.
-
-              - `JsonValue type = "tool_removal"`
 
               - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -11597,6 +11632,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
               request is rejected), and moving it into the middle of a single run is
               likewise rejected; between non-thinking blocks the block's placement has
               no validation effect.
+
+              - `JsonValue type = "fallback"`
 
               - `BetaFallbackInfoParam from`
 
@@ -11680,8 +11717,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 Identifies one hop of a fallback transition.
 
-              - `JsonValue type = "fallback"`
-
               - `Optional<JsonValue> trigger`
 
                 The response block's `trigger`, echoed verbatim. Accepted and ignored by the server; any object or `null` is allowed.
@@ -11752,12 +11787,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             maxItems: 20
 
-            - `String skillId`
-
-              Skill ID
-
-              maxLength: 64, minLength: 1
-
             - `Type type`
 
               Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
@@ -11765,6 +11794,12 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
               - `ANTHROPIC("anthropic")`
 
               - `CUSTOM("custom")`
+
+            - `String skillId`
+
+              Skill ID
+
+              maxLength: 64, minLength: 1
 
             - `Optional<String> version`
 
@@ -11976,25 +12011,25 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               A schema to specify Claude's output format in responses. See [structured outputs](https://platform.claude.com/docs/en/build-with-claude/structured-outputs)
 
+              - `JsonValue type = "json_schema"`
+
               - `Schema schema`
 
                 The JSON schema of the format
 
-              - `JsonValue type = "json_schema"`
-
             - `Optional<BetaTokenTaskBudget> taskBudget`
 
               User-configurable total token budget across contexts.
+
+              - `JsonValue type = "tokens"`
+
+                The budget type. Currently only 'tokens' is supported.
 
               - `long total`
 
                 Total token budget across all contexts in the session.
 
                 minimum: 1024
-
-              - `JsonValue type = "tokens"`
-
-                The budget type. Currently only 'tokens' is supported.
 
               - `Optional<Long> remaining`
 
@@ -12014,6 +12049,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `class BetaThinkingConfigEnabled:`
 
+              - `JsonValue type = "enabled"`
+
               - `long budgetTokens`
 
                 Determines how many tokens Claude can use for its internal reasoning process. Larger budgets can enable more thorough analysis for complex problems, improving response quality.
@@ -12023,8 +12060,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
                 See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
 
                 minimum: 1024
-
-              - `JsonValue type = "enabled"`
 
               - `Optional<BetaThinkingBlockBinding> blockBinding`
 
@@ -12090,9 +12125,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         maxItems: 20
 
-        - `String name`
-
         - `JsonValue type = "url"`
+
+        - `String name`
 
         - `String url`
 
@@ -12162,11 +12197,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `List<BetaTextBlockParam>`
 
+          - `JsonValue type = "text"`
+
           - `String text`
 
             minLength: 1
-
-          - `JsonValue type = "text"`
 
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -12220,11 +12255,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           The model will use the specified tool with `tool_choice.name`.
 
+          - `JsonValue type = "tool"`
+
           - `String name`
 
             The name of the tool to use.
-
-          - `JsonValue type = "tool"`
 
           - `Optional<Boolean> disableParallelToolUse`
 
@@ -12304,6 +12339,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `class BetaTool:`
 
+          - `Optional<Type> type`
+
           - `InputSchema inputSchema`
 
             [JSON schema](https://json-schema.org/draft/2020-12) for this tool's input.
@@ -12358,17 +12395,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             When true, guarantees schema validation on tool names and inputs
 
-          - `Optional<Type> type`
-
         - `class BetaToolBash20241022:`
+
+          - `JsonValue type = "bash_20241022"`
 
           - `JsonValue name = "bash"`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `JsonValue type = "bash_20241022"`
 
           - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -12396,13 +12431,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `class BetaToolBash20250124:`
 
+          - `JsonValue type = "bash_20250124"`
+
           - `JsonValue name = "bash"`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `JsonValue type = "bash_20250124"`
 
           - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -12430,13 +12465,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `class BetaCodeExecutionTool20250522:`
 
+          - `JsonValue type = "code_execution_20250522"`
+
           - `JsonValue name = "code_execution"`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `JsonValue type = "code_execution_20250522"`
 
           - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -12462,13 +12497,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `class BetaCodeExecutionTool20250825:`
 
+          - `JsonValue type = "code_execution_20250825"`
+
           - `JsonValue name = "code_execution"`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `JsonValue type = "code_execution_20250825"`
 
           - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -12496,13 +12531,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           Code execution tool with REPL state persistence (daemon mode + gVisor checkpoint).
 
+          - `JsonValue type = "code_execution_20260120"`
+
           - `JsonValue name = "code_execution"`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `JsonValue type = "code_execution_20260120"`
 
           - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -12530,13 +12565,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           Code execution tool with REPL state persistence.
 
+          - `JsonValue type = "code_execution_20260521"`
+
           - `JsonValue name = "code_execution"`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `JsonValue type = "code_execution_20260521"`
 
           - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -12581,6 +12616,18 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
             accepted key, and a member's defaults apply wherever its key is
             absent. Unknown keys are rejected: the field set is this toolset
             version's complete member set.
+
+            - `Optional<BetaBrowserTypeConfig> type`
+
+              `type`'s config overrides.
+
+              - `Optional<Boolean> deferLoading`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `Optional<Boolean> enabled`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
             - `Optional<BetaBrowserCloseTabConfig> closeTab`
 
@@ -12918,18 +12965,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-            - `Optional<BetaBrowserTypeConfig> type`
-
-              `type`'s config overrides.
-
-              - `Optional<Boolean> deferLoading`
-
-                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-              - `Optional<Boolean> enabled`
-
-                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
             - `Optional<BetaBrowserWaitConfig> wait`
 
               `wait`'s config overrides.
@@ -12956,6 +12991,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `class BetaToolComputerUse20241022:`
 
+          - `JsonValue type = "computer_20241022"`
+
           - `long displayHeightPx`
 
             The height of the display in pixels.
@@ -12973,8 +13010,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `JsonValue type = "computer_20241022"`
 
           - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -13008,13 +13043,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `class BetaMemoryTool20250818:`
 
+          - `JsonValue type = "memory_20250818"`
+
           - `JsonValue name = "memory"`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `JsonValue type = "memory_20250818"`
 
           - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -13042,6 +13077,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `class BetaToolComputerUse20250124:`
 
+          - `JsonValue type = "computer_20250124"`
+
           - `long displayHeightPx`
 
             The height of the display in pixels.
@@ -13059,8 +13096,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `JsonValue type = "computer_20250124"`
 
           - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -13094,13 +13129,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `class BetaToolTextEditor20241022:`
 
+          - `JsonValue type = "text_editor_20241022"`
+
           - `JsonValue name = "str_replace_editor"`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `JsonValue type = "text_editor_20241022"`
 
           - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -13128,6 +13163,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `class BetaToolComputerUse20251124:`
 
+          - `JsonValue type = "computer_20251124"`
+
           - `long displayHeightPx`
 
             The height of the display in pixels.
@@ -13145,8 +13182,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `JsonValue type = "computer_20251124"`
 
           - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -13207,6 +13242,18 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
             accepted key, and a member's defaults apply wherever its key is
             absent. Unknown keys are rejected: the field set is this toolset
             version's complete member set.
+
+            - `Optional<BetaComputerTypeConfig> type`
+
+              `type`'s config overrides.
+
+              - `Optional<Boolean> deferLoading`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `Optional<Boolean> enabled`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
             - `Optional<BetaComputerCursorPositionConfig> cursorPosition`
 
@@ -13376,18 +13423,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-            - `Optional<BetaComputerTypeConfig> type`
-
-              `type`'s config overrides.
-
-              - `Optional<Boolean> deferLoading`
-
-                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-              - `Optional<Boolean> enabled`
-
-                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
             - `Optional<BetaComputerWaitConfig> wait`
 
               `wait`'s config overrides.
@@ -13414,13 +13449,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `class BetaToolTextEditor20250124:`
 
+          - `JsonValue type = "text_editor_20250124"`
+
           - `JsonValue name = "str_replace_editor"`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `JsonValue type = "text_editor_20250124"`
 
           - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -13448,13 +13483,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `class BetaToolTextEditor20250429:`
 
+          - `JsonValue type = "text_editor_20250429"`
+
           - `JsonValue name = "str_replace_based_edit_tool"`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `JsonValue type = "text_editor_20250429"`
 
           - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -13482,13 +13517,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `class BetaToolTextEditor20250728:`
 
+          - `JsonValue type = "text_editor_20250728"`
+
           - `JsonValue name = "str_replace_based_edit_tool"`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `JsonValue type = "text_editor_20250728"`
 
           - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -13522,13 +13557,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `class BetaWebSearchTool20250305:`
 
+          - `JsonValue type = "web_search_20250305"`
+
           - `JsonValue name = "web_search"`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `JsonValue type = "web_search_20250305"`
 
           - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -13598,13 +13633,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `class BetaWebFetchTool20250910:`
 
+          - `JsonValue type = "web_fetch_20250910"`
+
           - `JsonValue name = "web_fetch"`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `JsonValue type = "web_fetch_20250910"`
 
           - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -13654,13 +13689,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `class BetaWebSearchTool20260209:`
 
+          - `JsonValue type = "web_search_20260209"`
+
           - `JsonValue name = "web_search"`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `JsonValue type = "web_search_20260209"`
 
           - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -13704,13 +13739,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `class BetaWebFetchTool20260209:`
 
+          - `JsonValue type = "web_fetch_20260209"`
+
           - `JsonValue name = "web_fetch"`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `JsonValue type = "web_fetch_20260209"`
 
           - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -13762,13 +13797,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           Web fetch tool with use_cache parameter for bypassing cached content.
 
+          - `JsonValue type = "web_fetch_20260309"`
+
           - `JsonValue name = "web_fetch"`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `JsonValue type = "web_fetch_20260309"`
 
           - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -13822,13 +13857,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `class BetaWebSearchTool20260318:`
 
+          - `JsonValue type = "web_search_20260318"`
+
           - `JsonValue name = "web_search"`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `JsonValue type = "web_search_20260318"`
 
           - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -13880,13 +13915,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `class BetaWebFetchTool20260318:`
 
+          - `JsonValue type = "web_fetch_20260318"`
+
           - `JsonValue name = "web_fetch"`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `JsonValue type = "web_fetch_20260318"`
 
           - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -13948,6 +13983,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `class BetaAdvisorTool20260301:`
 
+          - `JsonValue type = "advisor_20260301"`
+
           - `Model model`
 
             The model that will complete your prompt.
@@ -13959,8 +13996,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `JsonValue type = "advisor_20260301"`
 
           - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -14002,17 +14037,17 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `class BetaToolSearchToolBm25_20251119:`
 
-          - `JsonValue name = "tool_search_tool_bm25"`
-
-            Name of the tool.
-
-            This is how the tool will be called by the model and in `tool_use` blocks.
-
           - `Type type`
 
             - `TOOL_SEARCH_TOOL_BM25_20251119("tool_search_tool_bm25_20251119")`
 
             - `TOOL_SEARCH_TOOL_BM25("tool_search_tool_bm25")`
+
+          - `JsonValue name = "tool_search_tool_bm25"`
+
+            Name of the tool.
+
+            This is how the tool will be called by the model and in `tool_use` blocks.
 
           - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -14038,17 +14073,17 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `class BetaToolSearchToolRegex20251119:`
 
-          - `JsonValue name = "tool_search_tool_regex"`
-
-            Name of the tool.
-
-            This is how the tool will be called by the model and in `tool_use` blocks.
-
           - `Type type`
 
             - `TOOL_SEARCH_TOOL_REGEX_20251119("tool_search_tool_regex_20251119")`
 
             - `TOOL_SEARCH_TOOL_REGEX("tool_search_tool_regex")`
+
+          - `JsonValue name = "tool_search_tool_regex"`
+
+            Name of the tool.
+
+            This is how the tool will be called by the model and in `tool_use` blocks.
 
           - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -14079,13 +14114,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
           Allows configuring enabled status and defer_loading for all tools
           from an MCP server, with optional per-tool overrides.
 
+          - `JsonValue type = "mcp_toolset"`
+
           - `String mcpServerName`
 
             Name of the MCP server to configure tools for
 
             maxLength: 255, minLength: 1
-
-          - `JsonValue type = "mcp_toolset"`
 
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -14154,6 +14189,12 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 #### Returns
 
 - `class BetaMessageBatch:`
+
+  - `JsonValue type = "message_batch"`
+
+    Object type.
+
+    For Message Batches, this is always `"message_batch"`.
 
   - `String id`
 
@@ -14242,12 +14283,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
     URL to a `.jsonl` file containing the results of the Message Batch requests. Specified only once processing ends.
 
     Results in the file are not guaranteed to be in the same order as requests. Use the `custom_id` field to match results to requests.
-
-  - `JsonValue type = "message_batch"`
-
-    Object type.
-
-    For Message Batches, this is always `"message_batch"`.
 
 #### Example
 
@@ -14372,6 +14407,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
 
+    - `USER_PROFILES_2026_09_04("user-profiles-2026-09-04")`
+
     - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
@@ -14414,9 +14451,17 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
+  - `Optional<String> workspaceId`
+
 #### Returns
 
 - `class BetaMessageBatch:`
+
+  - `JsonValue type = "message_batch"`
+
+    Object type.
+
+    For Message Batches, this is always `"message_batch"`.
 
   - `String id`
 
@@ -14505,12 +14550,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
     URL to a `.jsonl` file containing the results of the Message Batch requests. Specified only once processing ends.
 
     Results in the file are not guaranteed to be in the same order as requests. Use the `custom_id` field to match results to requests.
-
-  - `JsonValue type = "message_batch"`
-
-    Object type.
-
-    For Message Batches, this is always `"message_batch"`.
 
 #### Example
 
@@ -14636,6 +14675,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
 
+    - `USER_PROFILES_2026_09_04("user-profiles-2026-09-04")`
+
     - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
@@ -14678,9 +14719,17 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
+  - `Optional<String> workspaceId`
+
 #### Returns
 
 - `class BetaMessageBatch:`
+
+  - `JsonValue type = "message_batch"`
+
+    Object type.
+
+    For Message Batches, this is always `"message_batch"`.
 
   - `String id`
 
@@ -14769,12 +14818,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
     URL to a `.jsonl` file containing the results of the Message Batch requests. Specified only once processing ends.
 
     Results in the file are not guaranteed to be in the same order as requests. Use the `custom_id` field to match results to requests.
-
-  - `JsonValue type = "message_batch"`
-
-    Object type.
-
-    For Message Batches, this is always `"message_batch"`.
 
 #### Example
 
@@ -14897,6 +14940,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
 
+    - `USER_PROFILES_2026_09_04("user-profiles-2026-09-04")`
+
     - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
@@ -14939,9 +14984,17 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
+  - `Optional<String> workspaceId`
+
 #### Returns
 
 - `class BetaMessageBatch:`
+
+  - `JsonValue type = "message_batch"`
+
+    Object type.
+
+    For Message Batches, this is always `"message_batch"`.
 
   - `String id`
 
@@ -15030,12 +15083,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
     URL to a `.jsonl` file containing the results of the Message Batch requests. Specified only once processing ends.
 
     Results in the file are not guaranteed to be in the same order as requests. Use the `custom_id` field to match results to requests.
-
-  - `JsonValue type = "message_batch"`
-
-    Object type.
-
-    For Message Batches, this is always `"message_batch"`.
 
 #### Example
 
@@ -15151,6 +15198,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
 
+    - `USER_PROFILES_2026_09_04("user-profiles-2026-09-04")`
+
     - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
@@ -15193,19 +15242,21 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
+  - `Optional<String> workspaceId`
+
 #### Returns
 
 - `class BetaDeletedMessageBatch:`
-
-  - `String id`
-
-    ID of the Message Batch.
 
   - `JsonValue type = "message_batch_deleted"`
 
     Deleted object type.
 
     For Message Batches, this is always `"message_batch_deleted"`.
+
+  - `String id`
+
+    ID of the Message Batch.
 
 #### Example
 
@@ -15307,6 +15358,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
 
+    - `USER_PROFILES_2026_09_04("user-profiles-2026-09-04")`
+
     - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
@@ -15349,6 +15402,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
+  - `Optional<String> workspaceId`
+
 #### Returns
 
 - `class BetaMessageBatchIndividualResponse:`
@@ -15369,7 +15424,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     - `class BetaMessageBatchSucceededResult:`
 
+      - `JsonValue type = "succeeded"`
+
       - `BetaMessage message`
+
+        - `JsonValue type = "message"`
+
+          Object type.
+
+          For Messages, this is always `"message"`.
 
         - `String id`
 
@@ -15395,12 +15458,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             Skills loaded in the container
 
-            - `String skillId`
-
-              Skill ID
-
-              maxLength: 64, minLength: 1
-
             - `Type type`
 
               Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
@@ -15408,6 +15465,12 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
               - `ANTHROPIC("anthropic")`
 
               - `CUSTOM("custom")`
+
+            - `String skillId`
+
+              Skill ID
+
+              maxLength: 64, minLength: 1
 
             - `String version`
 
@@ -15446,6 +15509,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           - `class BetaTextBlock:`
 
+            - `JsonValue type = "text"`
+
             - `Optional<List<BetaTextCitation>> citations`
 
               Citations supporting the text block.
@@ -15453,6 +15518,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
               The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
 
               - `class BetaCitationCharLocation:`
+
+                - `JsonValue type = "char_location"`
 
                 - `String citedText`
 
@@ -15470,9 +15537,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   minimum: 0
 
-                - `JsonValue type = "char_location"`
-
               - `class BetaCitationPageLocation:`
+
+                - `JsonValue type = "page_location"`
 
                 - `String citedText`
 
@@ -15490,9 +15557,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   minimum: 1
 
-                - `JsonValue type = "page_location"`
-
               - `class BetaCitationContentBlockLocation:`
+
+                - `JsonValue type = "content_block_location"`
 
                 - `String citedText`
 
@@ -15520,9 +15587,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   minimum: 0
 
-                - `JsonValue type = "content_block_location"`
-
               - `class BetaCitationsWebSearchResultLocation:`
+
+                - `JsonValue type = "web_search_result_location"`
 
                 - `String citedText`
 
@@ -15532,11 +15599,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   maxLength: 512
 
-                - `JsonValue type = "web_search_result_location"`
-
                 - `String url`
 
               - `class BetaCitationSearchResultLocation:`
+
+                - `JsonValue type = "search_result_location"`
 
                 - `String citedText`
 
@@ -15568,15 +15635,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `Optional<String> title`
 
-                - `JsonValue type = "search_result_location"`
-
             - `String text`
 
-              maxLength: 5000000, minLength: 0
-
-            - `JsonValue type = "text"`
+              minLength: 0
 
           - `class BetaThinkingBlock:`
+
+            - `JsonValue type = "thinking"`
 
             - `String signature`
 
@@ -15590,9 +15655,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               The text of Claude's thinking process for this block.
 
-            - `JsonValue type = "thinking"`
-
           - `class BetaRedactedThinkingBlock:`
+
+            - `JsonValue type = "redacted_thinking"`
 
             - `String data`
 
@@ -15602,9 +15667,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking#redacted-thinking-blocks) for details.
 
-            - `JsonValue type = "redacted_thinking"`
-
           - `class BetaToolUseBlock:`
+
+            - `JsonValue type = "tool_use"`
 
             - `String id`
 
@@ -15615,8 +15680,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
             - `String name`
 
               minLength: 1
-
-            - `JsonValue type = "tool_use"`
 
             - `Optional<Caller> caller`
 
@@ -15632,19 +15695,19 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 Tool invocation generated by a server-side tool.
 
+                - `JsonValue type = "code_execution_20250825"`
+
                 - `String toolId`
 
                   pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-                - `JsonValue type = "code_execution_20250825"`
 
               - `class BetaServerToolCaller20260120:`
 
+                - `JsonValue type = "code_execution_20260120"`
+
                 - `String toolId`
 
                   pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-                - `JsonValue type = "code_execution_20260120"`
 
             - `Optional<String> toolsetName`
 
@@ -15653,6 +15716,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
               maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
 
           - `class BetaServerToolUseBlock:`
+
+            - `JsonValue type = "server_tool_use"`
 
             - `String id`
 
@@ -15678,8 +15743,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `TOOL_SEARCH_TOOL_BM25("tool_search_tool_bm25")`
 
-            - `JsonValue type = "server_tool_use"`
-
             - `Optional<Caller> caller`
 
               Tool invocation directly from the model.
@@ -15696,9 +15759,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           - `class BetaWebSearchToolResultBlock:`
 
+            - `JsonValue type = "web_search_tool_result"`
+
             - `BetaWebSearchToolResultBlockContent content`
 
               - `class BetaWebSearchToolResultError:`
+
+                - `JsonValue type = "web_search_tool_result_error"`
 
                 - `BetaWebSearchToolResultErrorCode errorCode`
 
@@ -15714,9 +15781,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `REQUEST_TOO_LARGE("request_too_large")`
 
-                - `JsonValue type = "web_search_tool_result_error"`
-
               - `List<BetaWebSearchResultBlock>`
+
+                - `JsonValue type = "web_search_result"`
 
                 - `String encryptedContent`
 
@@ -15724,15 +15791,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `String title`
 
-                - `JsonValue type = "web_search_result"`
-
                 - `String url`
 
             - `String toolUseId`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-            - `JsonValue type = "web_search_tool_result"`
 
             - `Optional<Caller> caller`
 
@@ -15750,9 +15813,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           - `class BetaWebFetchToolResultBlock:`
 
+            - `JsonValue type = "web_fetch_tool_result"`
+
             - `Content content`
 
               - `class BetaWebFetchToolResultErrorBlock:`
+
+                - `JsonValue type = "web_fetch_tool_result_error"`
 
                 - `BetaWebFetchToolResultErrorCode errorCode`
 
@@ -15774,11 +15841,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `UNAVAILABLE("unavailable")`
 
-                - `JsonValue type = "web_fetch_tool_result_error"`
+                  - `CONTENT_TOO_LARGE("content_too_large")`
 
               - `class BetaWebFetchBlock:`
 
+                - `JsonValue type = "web_fetch_result"`
+
                 - `BetaDocumentBlock content`
+
+                  - `JsonValue type = "document"`
 
                   - `Optional<BetaCitationConfig> citations`
 
@@ -15790,33 +15861,29 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     - `class BetaBase64PdfSource:`
 
+                      - `JsonValue type = "base64"`
+
                       - `String data`
 
                         format: byte
 
                       - `JsonValue mediaType = "application/pdf"`
 
-                      - `JsonValue type = "base64"`
-
                     - `class BetaPlainTextSource:`
+
+                      - `JsonValue type = "text"`
 
                       - `String data`
 
                       - `JsonValue mediaType = "text/plain"`
 
-                      - `JsonValue type = "text"`
-
                   - `Optional<String> title`
 
                     The title of the document
 
-                  - `JsonValue type = "document"`
-
                 - `Optional<String> retrievedAt`
 
                   ISO 8601 timestamp when the content was retrieved
-
-                - `JsonValue type = "web_fetch_result"`
 
                 - `String url`
 
@@ -15825,8 +15892,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
             - `String toolUseId`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-            - `JsonValue type = "web_fetch_tool_result"`
 
             - `Optional<Caller> caller`
 
@@ -15844,9 +15909,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           - `class BetaAdvisorToolResultBlock:`
 
+            - `JsonValue type = "advisor_tool_result"`
+
             - `Content content`
 
               - `class BetaAdvisorToolResultError:`
+
+                - `JsonValue type = "advisor_tool_result_error"`
 
                 - `ErrorCode errorCode`
 
@@ -15864,9 +15933,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `MODEL_NOT_FOUND("model_not_found")`
 
-                - `JsonValue type = "advisor_tool_result_error"`
-
               - `class BetaAdvisorResultBlock:`
+
+                - `JsonValue type = "advisor_result"`
 
                 - `Optional<String> stopReason`
 
@@ -15874,9 +15943,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `String text`
 
-                - `JsonValue type = "advisor_result"`
-
               - `class BetaAdvisorRedactedResultBlock:`
+
+                - `JsonValue type = "advisor_redacted_result"`
 
                 - `String encryptedContent`
 
@@ -15886,21 +15955,21 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   The advisor sub-inference's stop reason (same values as the top-level message `stop_reason`).
 
-                - `JsonValue type = "advisor_redacted_result"`
-
             - `String toolUseId`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-            - `JsonValue type = "advisor_tool_result"`
-
           - `class BetaCodeExecutionToolResultBlock:`
+
+            - `JsonValue type = "code_execution_tool_result"`
 
             - `BetaCodeExecutionToolResultBlockContent content`
 
               Code execution result with encrypted stdout for PFC + web_search results.
 
               - `class BetaCodeExecutionToolResultError:`
+
+                - `JsonValue type = "code_execution_tool_result_error"`
 
                 - `BetaCodeExecutionToolResultErrorCode errorCode`
 
@@ -15912,15 +15981,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `EXECUTION_TIME_EXCEEDED("execution_time_exceeded")`
 
-                - `JsonValue type = "code_execution_tool_result_error"`
-
               - `class BetaCodeExecutionResultBlock:`
+
+                - `JsonValue type = "code_execution_result"`
 
                 - `List<BetaCodeExecutionOutputBlock> content`
 
-                  - `String fileId`
-
                   - `JsonValue type = "code_execution_output"`
+
+                  - `String fileId`
 
                 - `long returnCode`
 
@@ -15928,17 +15997,17 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `String stdout`
 
-                - `JsonValue type = "code_execution_result"`
-
               - `class BetaEncryptedCodeExecutionResultBlock:`
 
                 Code execution result with encrypted stdout for PFC + web_search results.
 
+                - `JsonValue type = "encrypted_code_execution_result"`
+
                 - `List<BetaCodeExecutionOutputBlock> content`
 
-                  - `String fileId`
-
                   - `JsonValue type = "code_execution_output"`
+
+                  - `String fileId`
 
                 - `String encryptedStdout`
 
@@ -15946,19 +16015,19 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `String stderr`
 
-                - `JsonValue type = "encrypted_code_execution_result"`
-
             - `String toolUseId`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-            - `JsonValue type = "code_execution_tool_result"`
-
           - `class BetaBashCodeExecutionToolResultBlock:`
+
+            - `JsonValue type = "bash_code_execution_tool_result"`
 
             - `Content content`
 
               - `class BetaBashCodeExecutionToolResultError:`
+
+                - `JsonValue type = "bash_code_execution_tool_result_error"`
 
                 - `ErrorCode errorCode`
 
@@ -15972,15 +16041,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `OUTPUT_FILE_TOO_LARGE("output_file_too_large")`
 
-                - `JsonValue type = "bash_code_execution_tool_result_error"`
-
               - `class BetaBashCodeExecutionResultBlock:`
+
+                - `JsonValue type = "bash_code_execution_result"`
 
                 - `List<BetaBashCodeExecutionOutputBlock> content`
 
-                  - `String fileId`
-
                   - `JsonValue type = "bash_code_execution_output"`
+
+                  - `String fileId`
 
                 - `long returnCode`
 
@@ -15988,19 +16057,19 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `String stdout`
 
-                - `JsonValue type = "bash_code_execution_result"`
-
             - `String toolUseId`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-            - `JsonValue type = "bash_code_execution_tool_result"`
-
           - `class BetaTextEditorCodeExecutionToolResultBlock:`
+
+            - `JsonValue type = "text_editor_code_execution_tool_result"`
 
             - `Content content`
 
               - `class BetaTextEditorCodeExecutionToolResultError:`
+
+                - `JsonValue type = "text_editor_code_execution_tool_result_error"`
 
                 - `ErrorCode errorCode`
 
@@ -16016,9 +16085,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `Optional<String> errorMessage`
 
-                - `JsonValue type = "text_editor_code_execution_tool_result_error"`
-
               - `class BetaTextEditorCodeExecutionViewResultBlock:`
+
+                - `JsonValue type = "text_editor_code_execution_view_result"`
 
                 - `String content`
 
@@ -16036,15 +16105,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `Optional<Long> totalLines`
 
-                - `JsonValue type = "text_editor_code_execution_view_result"`
-
               - `class BetaTextEditorCodeExecutionCreateResultBlock:`
-
-                - `boolean isFileUpdate`
 
                 - `JsonValue type = "text_editor_code_execution_create_result"`
 
+                - `boolean isFileUpdate`
+
               - `class BetaTextEditorCodeExecutionStrReplaceResultBlock:`
+
+                - `JsonValue type = "text_editor_code_execution_str_replace_result"`
 
                 - `Optional<List<String>> lines`
 
@@ -16056,19 +16125,19 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `Optional<Long> oldStart`
 
-                - `JsonValue type = "text_editor_code_execution_str_replace_result"`
-
             - `String toolUseId`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-            - `JsonValue type = "text_editor_code_execution_tool_result"`
-
           - `class BetaToolSearchToolResultBlock:`
+
+            - `JsonValue type = "tool_search_tool_result"`
 
             - `Content content`
 
               - `class BetaToolSearchToolResultError:`
+
+                - `JsonValue type = "tool_search_tool_result_error"`
 
                 - `ErrorCode errorCode`
 
@@ -16082,27 +16151,25 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `Optional<String> errorMessage`
 
-                - `JsonValue type = "tool_search_tool_result_error"`
-
               - `class BetaToolSearchToolSearchResultBlock:`
 
+                - `JsonValue type = "tool_search_tool_search_result"`
+
                 - `List<BetaToolReferenceBlock> toolReferences`
+
+                  - `JsonValue type = "tool_reference"`
 
                   - `String toolName`
 
                     maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
-                  - `JsonValue type = "tool_reference"`
-
-                - `JsonValue type = "tool_search_tool_search_result"`
-
             - `String toolUseId`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-            - `JsonValue type = "tool_search_tool_result"`
-
           - `class BetaMcpToolUseBlock:`
+
+            - `JsonValue type = "mcp_tool_use"`
 
             - `String id`
 
@@ -16118,15 +16185,17 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               The name of the MCP server
 
-            - `JsonValue type = "mcp_tool_use"`
-
           - `class BetaMcpToolResultBlock:`
+
+            - `JsonValue type = "mcp_tool_result"`
 
             - `Content content`
 
               - `String`
 
               - `List<BetaTextBlock>`
+
+                - `JsonValue type = "text"`
 
                 - `Optional<List<BetaTextCitation>> citations`
 
@@ -16136,9 +16205,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `String text`
 
-                  maxLength: 5000000, minLength: 0
-
-                - `JsonValue type = "text"`
+                  minLength: 0
 
             - `boolean isError`
 
@@ -16146,15 +16213,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               pattern: ^[a-zA-Z0-9_-]+$
 
-            - `JsonValue type = "mcp_tool_result"`
-
           - `class BetaContainerUploadBlock:`
 
             Response model for a file uploaded to the container.
 
-            - `String fileId`
-
             - `JsonValue type = "container_upload"`
+
+            - `String fileId`
 
           - `class BetaCompactionBlock:`
 
@@ -16164,6 +16229,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
             summary (e.g., malformed output from the model). Clients may round-trip
             compaction blocks with null content; the server treats them as no-ops.
 
+            - `JsonValue type = "compaction"`
+
             - `Optional<String> content`
 
               Summary of compacted content, or null if compaction failed
@@ -16171,8 +16238,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
             - `Optional<String> encryptedContent`
 
               Opaque metadata from prior compaction, to be round-tripped verbatim
-
-            - `JsonValue type = "compaction"`
 
           - `class BetaFallbackBlock:`
 
@@ -16187,6 +16252,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
             The block is treated like a server-tool content block for streaming: it
             arrives via the standard `content_block_start` / `content_block_stop`
             pair and carries no deltas.
+
+            - `JsonValue type = "fallback"`
 
             - `BetaFallbackInfo from`
 
@@ -16274,6 +16341,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               What caused the `from` model to hand over at this hop.
 
+              - `JsonValue type = "refusal"`
+
               - `Optional<Category> category`
 
                 The policy category that triggered a refusal.
@@ -16298,10 +16367,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
 
-              - `JsonValue type = "refusal"`
-
-            - `JsonValue type = "fallback"`
-
         - `Optional<BetaContextManagementResponse> contextManagement`
 
           Context management response.
@@ -16313,6 +16378,10 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
             List of context management edits that were applied.
 
             - `class BetaClearToolUses20250919EditResponse:`
+
+              - `JsonValue type = "clear_tool_uses_20250919"`
+
+                The type of context management edit applied.
 
               - `long clearedInputTokens`
 
@@ -16326,11 +16395,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 minimum: 0
 
-              - `JsonValue type = "clear_tool_uses_20250919"`
+            - `class BetaClearThinking20251015EditResponse:`
+
+              - `JsonValue type = "clear_thinking_20251015"`
 
                 The type of context management edit applied.
-
-            - `class BetaClearThinking20251015EditResponse:`
 
               - `long clearedInputTokens`
 
@@ -16344,10 +16413,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 minimum: 0
 
-              - `JsonValue type = "clear_thinking_20251015"`
-
-                The type of context management edit applied.
-
         - `Optional<BetaDiagnostics> diagnostics`
 
           Response envelope for request-level diagnostics. Present (possibly
@@ -16359,35 +16424,35 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `class BetaCacheMissModelChanged:`
 
+              - `JsonValue type = "model_changed"`
+
               - `long cacheMissedInputTokens`
 
                 Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
-
-              - `JsonValue type = "model_changed"`
 
             - `class BetaCacheMissSystemChanged:`
 
+              - `JsonValue type = "system_changed"`
+
               - `long cacheMissedInputTokens`
 
                 Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
-
-              - `JsonValue type = "system_changed"`
 
             - `class BetaCacheMissToolsChanged:`
 
+              - `JsonValue type = "tools_changed"`
+
               - `long cacheMissedInputTokens`
 
                 Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
-
-              - `JsonValue type = "tools_changed"`
 
             - `class BetaCacheMissMessagesChanged:`
 
+              - `JsonValue type = "messages_changed"`
+
               - `long cacheMissedInputTokens`
 
                 Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
-
-              - `JsonValue type = "messages_changed"`
 
             - `class BetaCacheMissPreviousMessageNotFound:`
 
@@ -16412,6 +16477,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
         - `Optional<BetaRefusalStopDetails> stopDetails`
 
           Structured information about a refusal.
+
+          - `JsonValue type = "refusal"`
 
           - `Optional<Category> category`
 
@@ -16492,8 +16559,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             The server's suggested retry target for this refusal. Populated when a fallback attempt could not be made (the fallback model's rate limit was exhausted, or it was overloaded); names the fallback model the caller can retry directly. Null otherwise.
 
-          - `JsonValue type = "refusal"`
-
         - `Optional<BetaStopReason> stopReason`
 
           The reason that we stopped.
@@ -16531,12 +16596,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
           Which custom stop sequence was generated, if any.
 
           This value will be a non-null string if one of your custom stop sequences was generated.
-
-        - `JsonValue type = "message"`
-
-          Object type.
-
-          For Messages, this is always `"message"`.
 
         - `BetaUsage usage`
 
@@ -16602,6 +16661,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 No reprice was applied; `reason` says why.
 
+                - `JsonValue type = "not_applied"`
+
                 - `Reason reason`
 
                   Why the reprice was not applied.
@@ -16632,8 +16693,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
                   - `WRONG_PLATFORM("wrong_platform")`
 
                   - `WRONG_WORKSPACE("wrong_workspace")`
-
-                - `JsonValue type = "not_applied"`
 
                 - `Optional<List<String>> removeToRedeem`
 
@@ -16672,6 +16731,10 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               Token usage for a sampling iteration.
 
+              - `JsonValue type = "message"`
+
+                Usage for a sampling iteration
+
               - `Optional<BetaCacheCreation> cacheCreation`
 
                 Breakdown of cached tokens by TTL
@@ -16705,15 +16768,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
                 The number of output tokens which were used.
 
                 minimum: 0
-
-              - `JsonValue type = "message"`
-
-                Usage for a sampling iteration
 
             - `class BetaCompactionIterationUsage:`
 
               Token usage for a compaction iteration.
 
+              - `JsonValue type = "compaction"`
+
+                Usage for a compaction iteration
+
               - `Optional<BetaCacheCreation> cacheCreation`
 
                 Breakdown of cached tokens by TTL
@@ -16742,13 +16805,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 minimum: 0
 
-              - `JsonValue type = "compaction"`
-
-                Usage for a compaction iteration
-
             - `class BetaAdvisorMessageIterationUsage:`
 
               Token usage for an advisor sub-inference iteration.
+
+              - `JsonValue type = "advisor_message"`
+
+                Usage for an advisor sub-inference iteration
 
               - `Optional<BetaCacheCreation> cacheCreation`
 
@@ -16783,10 +16846,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
                 The number of output tokens which were used.
 
                 minimum: 0
-
-              - `JsonValue type = "advisor_message"`
-
-                Usage for an advisor sub-inference iteration
 
             - `class BetaFallbackMessageIterationUsage:`
 
@@ -16797,6 +16856,10 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
               a fallback model served the response is signalled by the presence of this
               entry in `usage.iterations`.
 
+              - `JsonValue type = "fallback_message"`
+
+                Usage for the fallback-model attempt that served the response
+
               - `Optional<BetaCacheCreation> cacheCreation`
 
                 Breakdown of cached tokens by TTL
@@ -16830,10 +16893,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
                 The number of output tokens which were used.
 
                 minimum: 0
-
-              - `JsonValue type = "fallback_message"`
-
-                Usage for the fallback-model attempt that served the response
 
           - `long outputTokens`
 
@@ -16915,6 +16974,10 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
           fallback happened mid-stream, in which case it holds the serving model's
           entries and replaces the one in `message_start`.
 
+          - `JsonValue type = "thinking_dropped"`
+
+            Always `thinking_dropped` for this entry type.
+
           - `String path`
 
             Where the removed block was in your request, as `messages.{i}.content.{j}`:
@@ -16945,77 +17008,71 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `END_USER_BINDING_MISMATCH("end_user_binding_mismatch")`
 
-          - `JsonValue type = "thinking_dropped"`
-
-            Always `thinking_dropped` for this entry type.
-
-      - `JsonValue type = "succeeded"`
-
     - `class BetaMessageBatchErroredResult:`
 
+      - `JsonValue type = "errored"`
+
       - `BetaErrorResponse error`
+
+        - `JsonValue type = "error"`
 
         - `BetaError error`
 
           - `class BetaInvalidRequestError:`
 
-            - `String message`
-
             - `JsonValue type = "invalid_request_error"`
+
+            - `String message`
 
           - `class BetaAuthenticationError:`
 
-            - `String message`
-
             - `JsonValue type = "authentication_error"`
+
+            - `String message`
 
           - `class BetaBillingError:`
 
-            - `String message`
-
             - `JsonValue type = "billing_error"`
+
+            - `String message`
 
           - `class BetaPermissionError:`
 
-            - `String message`
-
             - `JsonValue type = "permission_error"`
+
+            - `String message`
 
           - `class BetaNotFoundError:`
 
-            - `String message`
-
             - `JsonValue type = "not_found_error"`
+
+            - `String message`
 
           - `class BetaRateLimitError:`
 
-            - `String message`
-
             - `JsonValue type = "rate_limit_error"`
+
+            - `String message`
 
           - `class BetaGatewayTimeoutError:`
 
-            - `String message`
-
             - `JsonValue type = "timeout_error"`
+
+            - `String message`
 
           - `class BetaApiError:`
 
-            - `String message`
-
             - `JsonValue type = "api_error"`
+
+            - `String message`
 
           - `class BetaOverloadedError:`
 
-            - `String message`
-
             - `JsonValue type = "overloaded_error"`
 
+            - `String message`
+
         - `Optional<String> requestId`
-
-        - `JsonValue type = "error"`
-
-      - `JsonValue type = "errored"`
 
     - `class BetaMessageBatchCanceledResult:`
 
@@ -17111,6 +17168,8 @@ Create Agent
 
     - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
 
+    - `USER_PROFILES_2026_09_04("user-profiles-2026-09-04")`
+
     - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
@@ -17152,6 +17211,8 @@ Create Agent
     - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
 
     - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
+  - `Optional<String> workspaceId`
 
   - `Model model`
 
@@ -17305,13 +17366,13 @@ Create Agent
 
     MCP servers this agent connects to. Maximum 20. Names must be unique within the array. Every server must be referenced by an `mcp_toolset` in `tools`; unreferenced servers are rejected. See the [MCP connector guide](https://platform.claude.com/docs/en/managed-agents/mcp-connector).
 
+    - `Type type`
+
     - `String name`
 
       Unique name for this server, referenced by mcp_toolset configurations. 1-255 characters.
 
       minLength: 1, maxLength: 255
-
-    - `Type type`
 
     - `String url`
 
@@ -17335,13 +17396,13 @@ Create Agent
 
       An Anthropic-managed skill.
 
+      - `Type type`
+
       - `String skillId`
 
         Identifier of the Anthropic skill (e.g., "xlsx").
 
         minLength: 1, maxLength: 64
-
-      - `Type type`
 
       - `Optional<String> version`
 
@@ -17353,13 +17414,13 @@ Create Agent
 
       A user-created custom skill.
 
+      - `Type type`
+
       - `String skillId`
 
         Tagged ID of the custom skill (e.g., "skill_01XJ5...").
 
         minLength: 1, maxLength: 64
-
-      - `Type type`
 
       - `Optional<String> version`
 
@@ -17391,6 +17452,8 @@ Create Agent
 
           Configuration override for the bash tool.
 
+          - `Optional<Type> type`
+
           - `JsonValue name = "bash"`
 
             Must be "bash".
@@ -17415,11 +17478,17 @@ Create Agent
 
               - `Type type`
 
-          - `Optional<Type> type`
+            - `class BetaManagedAgentsAutoPolicy:`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+              - `JsonValue type = "auto"`
 
         - `class BetaManagedAgentsEditToolConfigParams:`
 
           Configuration override for the edit tool.
+
+          - `Optional<Type> type`
 
           - `JsonValue name = "edit"`
 
@@ -17441,11 +17510,15 @@ Create Agent
 
               Tool calls require user confirmation before execution.
 
-          - `Optional<Type> type`
+            - `class BetaManagedAgentsAutoPolicy:`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `class BetaManagedAgentsReadToolConfigParams:`
 
           Configuration override for the read tool.
+
+          - `Optional<Type> type`
 
           - `JsonValue name = "read"`
 
@@ -17467,11 +17540,15 @@ Create Agent
 
               Tool calls require user confirmation before execution.
 
-          - `Optional<Type> type`
+            - `class BetaManagedAgentsAutoPolicy:`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `class BetaManagedAgentsWriteToolConfigParams:`
 
           Configuration override for the write tool.
+
+          - `Optional<Type> type`
 
           - `JsonValue name = "write"`
 
@@ -17493,11 +17570,15 @@ Create Agent
 
               Tool calls require user confirmation before execution.
 
-          - `Optional<Type> type`
+            - `class BetaManagedAgentsAutoPolicy:`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `class BetaManagedAgentsGlobToolConfigParams:`
 
           Configuration override for the glob tool.
+
+          - `Optional<Type> type`
 
           - `JsonValue name = "glob"`
 
@@ -17519,11 +17600,15 @@ Create Agent
 
               Tool calls require user confirmation before execution.
 
-          - `Optional<Type> type`
+            - `class BetaManagedAgentsAutoPolicy:`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `class BetaManagedAgentsGrepToolConfigParams:`
 
           Configuration override for the grep tool.
+
+          - `Optional<Type> type`
 
           - `JsonValue name = "grep"`
 
@@ -17545,11 +17630,15 @@ Create Agent
 
               Tool calls require user confirmation before execution.
 
-          - `Optional<Type> type`
+            - `class BetaManagedAgentsAutoPolicy:`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `class BetaManagedAgentsWebFetchToolConfigParams:`
 
           Configuration override for the web_fetch tool.
+
+          - `Optional<Type> type`
 
           - `JsonValue name = "web_fetch"`
 
@@ -17585,11 +17674,15 @@ Create Agent
 
               Tool calls require user confirmation before execution.
 
-          - `Optional<Type> type`
+            - `class BetaManagedAgentsAutoPolicy:`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `class BetaManagedAgentsWebSearchToolConfigParams:`
 
           Configuration override for the web_search tool.
+
+          - `Optional<Type> type`
 
           - `JsonValue name = "web_search"`
 
@@ -17619,7 +17712,9 @@ Create Agent
 
               Tool calls require user confirmation before execution.
 
-          - `Optional<Type> type`
+            - `class BetaManagedAgentsAutoPolicy:`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
           - `Optional<BetaManagedAgentsUserLocation> userLocation`
 
@@ -17671,17 +17766,21 @@ Create Agent
 
             Tool calls require user confirmation before execution.
 
+          - `class BetaManagedAgentsAutoPolicy:`
+
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
     - `class BetaManagedAgentsMcpToolsetParams:`
 
       Configuration for tools from an MCP server defined in `mcp_servers`.
+
+      - `Type type`
 
       - `String mcpServerName`
 
         Name of the MCP server. Must match a server name from the mcp_servers array. 1-255 characters.
 
         minLength: 1, maxLength: 255
-
-      - `Type type`
 
       - `Optional<List<BetaManagedAgentsMcpToolConfigParams>> configs`
 
@@ -17709,6 +17808,10 @@ Create Agent
 
             Tool calls require user confirmation before execution.
 
+          - `class BetaManagedAgentsAutoPolicy:`
+
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
       - `Optional<BetaManagedAgentsMcpToolsetDefaultConfigParams> defaultConfig`
 
         Default configuration for all tools from an MCP server.
@@ -17729,9 +17832,15 @@ Create Agent
 
             Tool calls require user confirmation before execution.
 
+          - `class BetaManagedAgentsAutoPolicy:`
+
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
     - `class BetaManagedAgentsCustomToolParams:`
 
       A custom tool that is executed by the API client rather than the agent. When the agent calls this tool, an `agent.custom_tool_use` event is emitted and the session goes idle, waiting for the client to provide the result via a `user.custom_tool_result` event.
+
+      - `Type type`
 
       - `String description`
 
@@ -17755,13 +17864,13 @@ Create Agent
 
         minLength: 1, maxLength: 128
 
-      - `Type type`
-
 #### Returns
 
 - `class BetaManagedAgentsAgent:`
 
   A Managed Agents `agent`.
+
+  - `Type type`
 
   - `String id`
 
@@ -17781,9 +17890,9 @@ Create Agent
 
   - `List<BetaManagedAgentsMcpServerUrlDefinition> mcpServers`
 
-    - `String name`
-
     - `Type type`
+
+    - `String name`
 
     - `String url`
 
@@ -17905,6 +18014,8 @@ Create Agent
 
     Resolved coordinator topology with a concrete agent roster.
 
+    - `Type type`
+
     - `List<Agent> agents`
 
       Agents the coordinator may spawn as session threads, each resolved to a specific version.
@@ -17913,9 +18024,9 @@ Create Agent
 
         A resolved agent reference with a concrete version.
 
-        - `String id`
-
         - `Type type`
+
+        - `String id`
 
         - `long version`
 
@@ -17925,13 +18036,11 @@ Create Agent
 
         Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
 
+        - `Type type`
+
         - `String model`
 
           The advisor model id.
-
-        - `Type type`
-
-    - `Type type`
 
   - `String name`
 
@@ -17941,9 +18050,9 @@ Create Agent
 
       A resolved Anthropic-managed skill.
 
-      - `String skillId`
-
       - `Type type`
+
+      - `String skillId`
 
       - `String version`
 
@@ -17951,9 +18060,9 @@ Create Agent
 
       A resolved user-created custom skill.
 
-      - `String skillId`
-
       - `Type type`
+
+      - `String skillId`
 
       - `String version`
 
@@ -17963,11 +18072,15 @@ Create Agent
 
     - `class BetaManagedAgentsAgentToolset20260401:`
 
+      - `Type type`
+
       - `List<BetaManagedAgentsAgentToolConfig> configs`
 
         - `class BetaManagedAgentsBashToolConfig:`
 
           Configuration for the bash tool.
+
+          - `JsonValue type = "bash"`
 
           - `boolean enabled`
 
@@ -17989,11 +18102,17 @@ Create Agent
 
               - `Type type`
 
-          - `JsonValue type = "bash"`
+            - `class BetaManagedAgentsAutoPolicy:`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+              - `JsonValue type = "auto"`
 
         - `class BetaManagedAgentsEditToolConfig:`
 
           Configuration for the edit tool.
+
+          - `JsonValue type = "edit"`
 
           - `boolean enabled`
 
@@ -18011,11 +18130,15 @@ Create Agent
 
               Tool calls require user confirmation before execution.
 
-          - `JsonValue type = "edit"`
+            - `class BetaManagedAgentsAutoPolicy:`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `class BetaManagedAgentsReadToolConfig:`
 
           Configuration for the read tool.
+
+          - `JsonValue type = "read"`
 
           - `boolean enabled`
 
@@ -18033,11 +18156,15 @@ Create Agent
 
               Tool calls require user confirmation before execution.
 
-          - `JsonValue type = "read"`
+            - `class BetaManagedAgentsAutoPolicy:`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `class BetaManagedAgentsWriteToolConfig:`
 
           Configuration for the write tool.
+
+          - `JsonValue type = "write"`
 
           - `boolean enabled`
 
@@ -18055,11 +18182,15 @@ Create Agent
 
               Tool calls require user confirmation before execution.
 
-          - `JsonValue type = "write"`
+            - `class BetaManagedAgentsAutoPolicy:`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `class BetaManagedAgentsGlobToolConfig:`
 
           Configuration for the glob tool.
+
+          - `JsonValue type = "glob"`
 
           - `boolean enabled`
 
@@ -18077,11 +18208,15 @@ Create Agent
 
               Tool calls require user confirmation before execution.
 
-          - `JsonValue type = "glob"`
+            - `class BetaManagedAgentsAutoPolicy:`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `class BetaManagedAgentsGrepToolConfig:`
 
           Configuration for the grep tool.
+
+          - `JsonValue type = "grep"`
 
           - `boolean enabled`
 
@@ -18099,11 +18234,15 @@ Create Agent
 
               Tool calls require user confirmation before execution.
 
-          - `JsonValue type = "grep"`
+            - `class BetaManagedAgentsAutoPolicy:`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `class BetaManagedAgentsWebFetchToolConfig:`
 
           Configuration for the web_fetch tool.
+
+          - `JsonValue type = "web_fetch"`
 
           - `boolean enabled`
 
@@ -18121,7 +18260,9 @@ Create Agent
 
               Tool calls require user confirmation before execution.
 
-          - `JsonValue type = "web_fetch"`
+            - `class BetaManagedAgentsAutoPolicy:`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
           - `Optional<List<String>> allowedDomains`
 
@@ -18134,6 +18275,8 @@ Create Agent
         - `class BetaManagedAgentsWebSearchToolConfig:`
 
           Configuration for the web_search tool.
+
+          - `JsonValue type = "web_search"`
 
           - `boolean enabled`
 
@@ -18151,7 +18294,9 @@ Create Agent
 
               Tool calls require user confirmation before execution.
 
-          - `JsonValue type = "web_search"`
+            - `class BetaManagedAgentsAutoPolicy:`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
           - `Optional<List<String>> allowedDomains`
 
@@ -18205,9 +18350,13 @@ Create Agent
 
             Tool calls require user confirmation before execution.
 
-      - `Type type`
+          - `class BetaManagedAgentsAutoPolicy:`
+
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
     - `class BetaManagedAgentsMcpToolset:`
+
+      - `Type type`
 
       - `List<BetaManagedAgentsMcpToolConfig> configs`
 
@@ -18227,6 +18376,10 @@ Create Agent
 
             Tool calls require user confirmation before execution.
 
+          - `class BetaManagedAgentsAutoPolicy:`
+
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
       - `BetaManagedAgentsMcpToolsetDefaultConfig defaultConfig`
 
         Resolved default configuration for all tools from an MCP server.
@@ -18245,13 +18398,17 @@ Create Agent
 
             Tool calls require user confirmation before execution.
 
-      - `String mcpServerName`
+          - `class BetaManagedAgentsAutoPolicy:`
 
-      - `Type type`
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+      - `String mcpServerName`
 
     - `class BetaManagedAgentsCustomTool:`
 
       A custom tool as returned in API responses.
+
+      - `Type type`
 
       - `String description`
 
@@ -18266,10 +18423,6 @@ Create Agent
         - `Optional<List<String>> required`
 
       - `String name`
-
-      - `Type type`
-
-  - `Type type`
 
   - `LocalDateTime updatedAt`
 
@@ -18474,6 +18627,8 @@ List Agents
 
     - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
 
+    - `USER_PROFILES_2026_09_04("user-profiles-2026-09-04")`
+
     - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
@@ -18516,11 +18671,15 @@ List Agents
 
     - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
+  - `Optional<String> workspaceId`
+
 #### Returns
 
 - `class BetaManagedAgentsAgent:`
 
   A Managed Agents `agent`.
+
+  - `Type type`
 
   - `String id`
 
@@ -18540,9 +18699,9 @@ List Agents
 
   - `List<BetaManagedAgentsMcpServerUrlDefinition> mcpServers`
 
-    - `String name`
-
     - `Type type`
+
+    - `String name`
 
     - `String url`
 
@@ -18664,6 +18823,8 @@ List Agents
 
     Resolved coordinator topology with a concrete agent roster.
 
+    - `Type type`
+
     - `List<Agent> agents`
 
       Agents the coordinator may spawn as session threads, each resolved to a specific version.
@@ -18672,9 +18833,9 @@ List Agents
 
         A resolved agent reference with a concrete version.
 
-        - `String id`
-
         - `Type type`
+
+        - `String id`
 
         - `long version`
 
@@ -18684,13 +18845,11 @@ List Agents
 
         Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
 
+        - `Type type`
+
         - `String model`
 
           The advisor model id.
-
-        - `Type type`
-
-    - `Type type`
 
   - `String name`
 
@@ -18700,9 +18859,9 @@ List Agents
 
       A resolved Anthropic-managed skill.
 
-      - `String skillId`
-
       - `Type type`
+
+      - `String skillId`
 
       - `String version`
 
@@ -18710,9 +18869,9 @@ List Agents
 
       A resolved user-created custom skill.
 
-      - `String skillId`
-
       - `Type type`
+
+      - `String skillId`
 
       - `String version`
 
@@ -18722,11 +18881,15 @@ List Agents
 
     - `class BetaManagedAgentsAgentToolset20260401:`
 
+      - `Type type`
+
       - `List<BetaManagedAgentsAgentToolConfig> configs`
 
         - `class BetaManagedAgentsBashToolConfig:`
 
           Configuration for the bash tool.
+
+          - `JsonValue type = "bash"`
 
           - `boolean enabled`
 
@@ -18748,11 +18911,17 @@ List Agents
 
               - `Type type`
 
-          - `JsonValue type = "bash"`
+            - `class BetaManagedAgentsAutoPolicy:`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+              - `JsonValue type = "auto"`
 
         - `class BetaManagedAgentsEditToolConfig:`
 
           Configuration for the edit tool.
+
+          - `JsonValue type = "edit"`
 
           - `boolean enabled`
 
@@ -18770,11 +18939,15 @@ List Agents
 
               Tool calls require user confirmation before execution.
 
-          - `JsonValue type = "edit"`
+            - `class BetaManagedAgentsAutoPolicy:`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `class BetaManagedAgentsReadToolConfig:`
 
           Configuration for the read tool.
+
+          - `JsonValue type = "read"`
 
           - `boolean enabled`
 
@@ -18792,11 +18965,15 @@ List Agents
 
               Tool calls require user confirmation before execution.
 
-          - `JsonValue type = "read"`
+            - `class BetaManagedAgentsAutoPolicy:`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `class BetaManagedAgentsWriteToolConfig:`
 
           Configuration for the write tool.
+
+          - `JsonValue type = "write"`
 
           - `boolean enabled`
 
@@ -18814,11 +18991,15 @@ List Agents
 
               Tool calls require user confirmation before execution.
 
-          - `JsonValue type = "write"`
+            - `class BetaManagedAgentsAutoPolicy:`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `class BetaManagedAgentsGlobToolConfig:`
 
           Configuration for the glob tool.
+
+          - `JsonValue type = "glob"`
 
           - `boolean enabled`
 
@@ -18836,11 +19017,15 @@ List Agents
 
               Tool calls require user confirmation before execution.
 
-          - `JsonValue type = "glob"`
+            - `class BetaManagedAgentsAutoPolicy:`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `class BetaManagedAgentsGrepToolConfig:`
 
           Configuration for the grep tool.
+
+          - `JsonValue type = "grep"`
 
           - `boolean enabled`
 
@@ -18858,11 +19043,15 @@ List Agents
 
               Tool calls require user confirmation before execution.
 
-          - `JsonValue type = "grep"`
+            - `class BetaManagedAgentsAutoPolicy:`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `class BetaManagedAgentsWebFetchToolConfig:`
 
           Configuration for the web_fetch tool.
+
+          - `JsonValue type = "web_fetch"`
 
           - `boolean enabled`
 
@@ -18880,7 +19069,9 @@ List Agents
 
               Tool calls require user confirmation before execution.
 
-          - `JsonValue type = "web_fetch"`
+            - `class BetaManagedAgentsAutoPolicy:`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
           - `Optional<List<String>> allowedDomains`
 
@@ -18893,6 +19084,8 @@ List Agents
         - `class BetaManagedAgentsWebSearchToolConfig:`
 
           Configuration for the web_search tool.
+
+          - `JsonValue type = "web_search"`
 
           - `boolean enabled`
 
@@ -18910,7 +19103,9 @@ List Agents
 
               Tool calls require user confirmation before execution.
 
-          - `JsonValue type = "web_search"`
+            - `class BetaManagedAgentsAutoPolicy:`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
           - `Optional<List<String>> allowedDomains`
 
@@ -18964,9 +19159,13 @@ List Agents
 
             Tool calls require user confirmation before execution.
 
-      - `Type type`
+          - `class BetaManagedAgentsAutoPolicy:`
+
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
     - `class BetaManagedAgentsMcpToolset:`
+
+      - `Type type`
 
       - `List<BetaManagedAgentsMcpToolConfig> configs`
 
@@ -18986,6 +19185,10 @@ List Agents
 
             Tool calls require user confirmation before execution.
 
+          - `class BetaManagedAgentsAutoPolicy:`
+
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
       - `BetaManagedAgentsMcpToolsetDefaultConfig defaultConfig`
 
         Resolved default configuration for all tools from an MCP server.
@@ -19004,13 +19207,17 @@ List Agents
 
             Tool calls require user confirmation before execution.
 
-      - `String mcpServerName`
+          - `class BetaManagedAgentsAutoPolicy:`
 
-      - `Type type`
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+      - `String mcpServerName`
 
     - `class BetaManagedAgentsCustomTool:`
 
       A custom tool as returned in API responses.
+
+      - `Type type`
 
       - `String description`
 
@@ -19025,10 +19232,6 @@ List Agents
         - `Optional<List<String>> required`
 
       - `String name`
-
-      - `Type type`
-
-  - `Type type`
 
   - `LocalDateTime updatedAt`
 
@@ -19215,6 +19418,8 @@ Get Agent
 
     - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
 
+    - `USER_PROFILES_2026_09_04("user-profiles-2026-09-04")`
+
     - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
@@ -19257,11 +19462,15 @@ Get Agent
 
     - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
+  - `Optional<String> workspaceId`
+
 #### Returns
 
 - `class BetaManagedAgentsAgent:`
 
   A Managed Agents `agent`.
+
+  - `Type type`
 
   - `String id`
 
@@ -19281,9 +19490,9 @@ Get Agent
 
   - `List<BetaManagedAgentsMcpServerUrlDefinition> mcpServers`
 
-    - `String name`
-
     - `Type type`
+
+    - `String name`
 
     - `String url`
 
@@ -19405,6 +19614,8 @@ Get Agent
 
     Resolved coordinator topology with a concrete agent roster.
 
+    - `Type type`
+
     - `List<Agent> agents`
 
       Agents the coordinator may spawn as session threads, each resolved to a specific version.
@@ -19413,9 +19624,9 @@ Get Agent
 
         A resolved agent reference with a concrete version.
 
-        - `String id`
-
         - `Type type`
+
+        - `String id`
 
         - `long version`
 
@@ -19425,13 +19636,11 @@ Get Agent
 
         Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
 
+        - `Type type`
+
         - `String model`
 
           The advisor model id.
-
-        - `Type type`
-
-    - `Type type`
 
   - `String name`
 
@@ -19441,9 +19650,9 @@ Get Agent
 
       A resolved Anthropic-managed skill.
 
-      - `String skillId`
-
       - `Type type`
+
+      - `String skillId`
 
       - `String version`
 
@@ -19451,9 +19660,9 @@ Get Agent
 
       A resolved user-created custom skill.
 
-      - `String skillId`
-
       - `Type type`
+
+      - `String skillId`
 
       - `String version`
 
@@ -19463,11 +19672,15 @@ Get Agent
 
     - `class BetaManagedAgentsAgentToolset20260401:`
 
+      - `Type type`
+
       - `List<BetaManagedAgentsAgentToolConfig> configs`
 
         - `class BetaManagedAgentsBashToolConfig:`
 
           Configuration for the bash tool.
+
+          - `JsonValue type = "bash"`
 
           - `boolean enabled`
 
@@ -19489,11 +19702,17 @@ Get Agent
 
               - `Type type`
 
-          - `JsonValue type = "bash"`
+            - `class BetaManagedAgentsAutoPolicy:`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+              - `JsonValue type = "auto"`
 
         - `class BetaManagedAgentsEditToolConfig:`
 
           Configuration for the edit tool.
+
+          - `JsonValue type = "edit"`
 
           - `boolean enabled`
 
@@ -19511,11 +19730,15 @@ Get Agent
 
               Tool calls require user confirmation before execution.
 
-          - `JsonValue type = "edit"`
+            - `class BetaManagedAgentsAutoPolicy:`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `class BetaManagedAgentsReadToolConfig:`
 
           Configuration for the read tool.
+
+          - `JsonValue type = "read"`
 
           - `boolean enabled`
 
@@ -19533,11 +19756,15 @@ Get Agent
 
               Tool calls require user confirmation before execution.
 
-          - `JsonValue type = "read"`
+            - `class BetaManagedAgentsAutoPolicy:`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `class BetaManagedAgentsWriteToolConfig:`
 
           Configuration for the write tool.
+
+          - `JsonValue type = "write"`
 
           - `boolean enabled`
 
@@ -19555,11 +19782,15 @@ Get Agent
 
               Tool calls require user confirmation before execution.
 
-          - `JsonValue type = "write"`
+            - `class BetaManagedAgentsAutoPolicy:`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `class BetaManagedAgentsGlobToolConfig:`
 
           Configuration for the glob tool.
+
+          - `JsonValue type = "glob"`
 
           - `boolean enabled`
 
@@ -19577,11 +19808,15 @@ Get Agent
 
               Tool calls require user confirmation before execution.
 
-          - `JsonValue type = "glob"`
+            - `class BetaManagedAgentsAutoPolicy:`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `class BetaManagedAgentsGrepToolConfig:`
 
           Configuration for the grep tool.
+
+          - `JsonValue type = "grep"`
 
           - `boolean enabled`
 
@@ -19599,11 +19834,15 @@ Get Agent
 
               Tool calls require user confirmation before execution.
 
-          - `JsonValue type = "grep"`
+            - `class BetaManagedAgentsAutoPolicy:`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `class BetaManagedAgentsWebFetchToolConfig:`
 
           Configuration for the web_fetch tool.
+
+          - `JsonValue type = "web_fetch"`
 
           - `boolean enabled`
 
@@ -19621,7 +19860,9 @@ Get Agent
 
               Tool calls require user confirmation before execution.
 
-          - `JsonValue type = "web_fetch"`
+            - `class BetaManagedAgentsAutoPolicy:`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
           - `Optional<List<String>> allowedDomains`
 
@@ -19634,6 +19875,8 @@ Get Agent
         - `class BetaManagedAgentsWebSearchToolConfig:`
 
           Configuration for the web_search tool.
+
+          - `JsonValue type = "web_search"`
 
           - `boolean enabled`
 
@@ -19651,7 +19894,9 @@ Get Agent
 
               Tool calls require user confirmation before execution.
 
-          - `JsonValue type = "web_search"`
+            - `class BetaManagedAgentsAutoPolicy:`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
           - `Optional<List<String>> allowedDomains`
 
@@ -19705,9 +19950,13 @@ Get Agent
 
             Tool calls require user confirmation before execution.
 
-      - `Type type`
+          - `class BetaManagedAgentsAutoPolicy:`
+
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
     - `class BetaManagedAgentsMcpToolset:`
+
+      - `Type type`
 
       - `List<BetaManagedAgentsMcpToolConfig> configs`
 
@@ -19727,6 +19976,10 @@ Get Agent
 
             Tool calls require user confirmation before execution.
 
+          - `class BetaManagedAgentsAutoPolicy:`
+
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
       - `BetaManagedAgentsMcpToolsetDefaultConfig defaultConfig`
 
         Resolved default configuration for all tools from an MCP server.
@@ -19745,13 +19998,17 @@ Get Agent
 
             Tool calls require user confirmation before execution.
 
-      - `String mcpServerName`
+          - `class BetaManagedAgentsAutoPolicy:`
 
-      - `Type type`
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+      - `String mcpServerName`
 
     - `class BetaManagedAgentsCustomTool:`
 
       A custom tool as returned in API responses.
+
+      - `Type type`
 
       - `String description`
 
@@ -19766,10 +20023,6 @@ Get Agent
         - `Optional<List<String>> required`
 
       - `String name`
-
-      - `Type type`
-
-  - `Type type`
 
   - `LocalDateTime updatedAt`
 
@@ -19945,6 +20198,8 @@ Update Agent
 
     - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
 
+    - `USER_PROFILES_2026_09_04("user-profiles-2026-09-04")`
+
     - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
@@ -19987,6 +20242,8 @@ Update Agent
 
     - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
+  - `Optional<String> workspaceId`
+
   - `Optional<String> description`
 
     Description. Omit to preserve; send empty string or null to clear.
@@ -19997,13 +20254,13 @@ Update Agent
 
     MCP servers. Full replacement. Omit to preserve; send empty array or `null` to clear. Names must be unique. Maximum 20. Every server must be referenced by an `mcp_toolset` in the agent's resulting `tools`; unreferenced servers are rejected. See the [MCP connector guide](https://platform.claude.com/docs/en/managed-agents/mcp-connector).
 
+    - `Type type`
+
     - `String name`
 
       Unique name for this server, referenced by mcp_toolset configurations. 1-255 characters.
 
       minLength: 1, maxLength: 255
-
-    - `Type type`
 
     - `String url`
 
@@ -20169,13 +20426,13 @@ Update Agent
 
       An Anthropic-managed skill.
 
+      - `Type type`
+
       - `String skillId`
 
         Identifier of the Anthropic skill (e.g., "xlsx").
 
         minLength: 1, maxLength: 64
-
-      - `Type type`
 
       - `Optional<String> version`
 
@@ -20187,13 +20444,13 @@ Update Agent
 
       A user-created custom skill.
 
+      - `Type type`
+
       - `String skillId`
 
         Tagged ID of the custom skill (e.g., "skill_01XJ5...").
 
         minLength: 1, maxLength: 64
-
-      - `Type type`
 
       - `Optional<String> version`
 
@@ -20225,6 +20482,8 @@ Update Agent
 
           Configuration override for the bash tool.
 
+          - `Optional<Type> type`
+
           - `JsonValue name = "bash"`
 
             Must be "bash".
@@ -20249,11 +20508,17 @@ Update Agent
 
               - `Type type`
 
-          - `Optional<Type> type`
+            - `class BetaManagedAgentsAutoPolicy:`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+              - `JsonValue type = "auto"`
 
         - `class BetaManagedAgentsEditToolConfigParams:`
 
           Configuration override for the edit tool.
+
+          - `Optional<Type> type`
 
           - `JsonValue name = "edit"`
 
@@ -20275,11 +20540,15 @@ Update Agent
 
               Tool calls require user confirmation before execution.
 
-          - `Optional<Type> type`
+            - `class BetaManagedAgentsAutoPolicy:`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `class BetaManagedAgentsReadToolConfigParams:`
 
           Configuration override for the read tool.
+
+          - `Optional<Type> type`
 
           - `JsonValue name = "read"`
 
@@ -20301,11 +20570,15 @@ Update Agent
 
               Tool calls require user confirmation before execution.
 
-          - `Optional<Type> type`
+            - `class BetaManagedAgentsAutoPolicy:`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `class BetaManagedAgentsWriteToolConfigParams:`
 
           Configuration override for the write tool.
+
+          - `Optional<Type> type`
 
           - `JsonValue name = "write"`
 
@@ -20327,11 +20600,15 @@ Update Agent
 
               Tool calls require user confirmation before execution.
 
-          - `Optional<Type> type`
+            - `class BetaManagedAgentsAutoPolicy:`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `class BetaManagedAgentsGlobToolConfigParams:`
 
           Configuration override for the glob tool.
+
+          - `Optional<Type> type`
 
           - `JsonValue name = "glob"`
 
@@ -20353,11 +20630,15 @@ Update Agent
 
               Tool calls require user confirmation before execution.
 
-          - `Optional<Type> type`
+            - `class BetaManagedAgentsAutoPolicy:`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `class BetaManagedAgentsGrepToolConfigParams:`
 
           Configuration override for the grep tool.
+
+          - `Optional<Type> type`
 
           - `JsonValue name = "grep"`
 
@@ -20379,11 +20660,15 @@ Update Agent
 
               Tool calls require user confirmation before execution.
 
-          - `Optional<Type> type`
+            - `class BetaManagedAgentsAutoPolicy:`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `class BetaManagedAgentsWebFetchToolConfigParams:`
 
           Configuration override for the web_fetch tool.
+
+          - `Optional<Type> type`
 
           - `JsonValue name = "web_fetch"`
 
@@ -20419,11 +20704,15 @@ Update Agent
 
               Tool calls require user confirmation before execution.
 
-          - `Optional<Type> type`
+            - `class BetaManagedAgentsAutoPolicy:`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `class BetaManagedAgentsWebSearchToolConfigParams:`
 
           Configuration override for the web_search tool.
+
+          - `Optional<Type> type`
 
           - `JsonValue name = "web_search"`
 
@@ -20453,7 +20742,9 @@ Update Agent
 
               Tool calls require user confirmation before execution.
 
-          - `Optional<Type> type`
+            - `class BetaManagedAgentsAutoPolicy:`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
           - `Optional<BetaManagedAgentsUserLocation> userLocation`
 
@@ -20505,17 +20796,21 @@ Update Agent
 
             Tool calls require user confirmation before execution.
 
+          - `class BetaManagedAgentsAutoPolicy:`
+
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
     - `class BetaManagedAgentsMcpToolsetParams:`
 
       Configuration for tools from an MCP server defined in `mcp_servers`.
+
+      - `Type type`
 
       - `String mcpServerName`
 
         Name of the MCP server. Must match a server name from the mcp_servers array. 1-255 characters.
 
         minLength: 1, maxLength: 255
-
-      - `Type type`
 
       - `Optional<List<BetaManagedAgentsMcpToolConfigParams>> configs`
 
@@ -20543,6 +20838,10 @@ Update Agent
 
             Tool calls require user confirmation before execution.
 
+          - `class BetaManagedAgentsAutoPolicy:`
+
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
       - `Optional<BetaManagedAgentsMcpToolsetDefaultConfigParams> defaultConfig`
 
         Default configuration for all tools from an MCP server.
@@ -20563,9 +20862,15 @@ Update Agent
 
             Tool calls require user confirmation before execution.
 
+          - `class BetaManagedAgentsAutoPolicy:`
+
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
     - `class BetaManagedAgentsCustomToolParams:`
 
       A custom tool that is executed by the API client rather than the agent. When the agent calls this tool, an `agent.custom_tool_use` event is emitted and the session goes idle, waiting for the client to provide the result via a `user.custom_tool_result` event.
+
+      - `Type type`
 
       - `String description`
 
@@ -20589,8 +20894,6 @@ Update Agent
 
         minLength: 1, maxLength: 128
 
-      - `Type type`
-
   - `Optional<Long> version`
 
     The agent's current version, used to prevent concurrent overwrites. Obtain this value from a create or retrieve response. Must be at least 1 if specified. When supplied, the request fails if it does not match the server's current version; omit to apply the update unconditionally.
@@ -20602,6 +20905,8 @@ Update Agent
 - `class BetaManagedAgentsAgent:`
 
   A Managed Agents `agent`.
+
+  - `Type type`
 
   - `String id`
 
@@ -20621,9 +20926,9 @@ Update Agent
 
   - `List<BetaManagedAgentsMcpServerUrlDefinition> mcpServers`
 
-    - `String name`
-
     - `Type type`
+
+    - `String name`
 
     - `String url`
 
@@ -20745,6 +21050,8 @@ Update Agent
 
     Resolved coordinator topology with a concrete agent roster.
 
+    - `Type type`
+
     - `List<Agent> agents`
 
       Agents the coordinator may spawn as session threads, each resolved to a specific version.
@@ -20753,9 +21060,9 @@ Update Agent
 
         A resolved agent reference with a concrete version.
 
-        - `String id`
-
         - `Type type`
+
+        - `String id`
 
         - `long version`
 
@@ -20765,13 +21072,11 @@ Update Agent
 
         Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
 
+        - `Type type`
+
         - `String model`
 
           The advisor model id.
-
-        - `Type type`
-
-    - `Type type`
 
   - `String name`
 
@@ -20781,9 +21086,9 @@ Update Agent
 
       A resolved Anthropic-managed skill.
 
-      - `String skillId`
-
       - `Type type`
+
+      - `String skillId`
 
       - `String version`
 
@@ -20791,9 +21096,9 @@ Update Agent
 
       A resolved user-created custom skill.
 
-      - `String skillId`
-
       - `Type type`
+
+      - `String skillId`
 
       - `String version`
 
@@ -20803,11 +21108,15 @@ Update Agent
 
     - `class BetaManagedAgentsAgentToolset20260401:`
 
+      - `Type type`
+
       - `List<BetaManagedAgentsAgentToolConfig> configs`
 
         - `class BetaManagedAgentsBashToolConfig:`
 
           Configuration for the bash tool.
+
+          - `JsonValue type = "bash"`
 
           - `boolean enabled`
 
@@ -20829,11 +21138,17 @@ Update Agent
 
               - `Type type`
 
-          - `JsonValue type = "bash"`
+            - `class BetaManagedAgentsAutoPolicy:`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+              - `JsonValue type = "auto"`
 
         - `class BetaManagedAgentsEditToolConfig:`
 
           Configuration for the edit tool.
+
+          - `JsonValue type = "edit"`
 
           - `boolean enabled`
 
@@ -20851,11 +21166,15 @@ Update Agent
 
               Tool calls require user confirmation before execution.
 
-          - `JsonValue type = "edit"`
+            - `class BetaManagedAgentsAutoPolicy:`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `class BetaManagedAgentsReadToolConfig:`
 
           Configuration for the read tool.
+
+          - `JsonValue type = "read"`
 
           - `boolean enabled`
 
@@ -20873,11 +21192,15 @@ Update Agent
 
               Tool calls require user confirmation before execution.
 
-          - `JsonValue type = "read"`
+            - `class BetaManagedAgentsAutoPolicy:`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `class BetaManagedAgentsWriteToolConfig:`
 
           Configuration for the write tool.
+
+          - `JsonValue type = "write"`
 
           - `boolean enabled`
 
@@ -20895,11 +21218,15 @@ Update Agent
 
               Tool calls require user confirmation before execution.
 
-          - `JsonValue type = "write"`
+            - `class BetaManagedAgentsAutoPolicy:`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `class BetaManagedAgentsGlobToolConfig:`
 
           Configuration for the glob tool.
+
+          - `JsonValue type = "glob"`
 
           - `boolean enabled`
 
@@ -20917,11 +21244,15 @@ Update Agent
 
               Tool calls require user confirmation before execution.
 
-          - `JsonValue type = "glob"`
+            - `class BetaManagedAgentsAutoPolicy:`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `class BetaManagedAgentsGrepToolConfig:`
 
           Configuration for the grep tool.
+
+          - `JsonValue type = "grep"`
 
           - `boolean enabled`
 
@@ -20939,11 +21270,15 @@ Update Agent
 
               Tool calls require user confirmation before execution.
 
-          - `JsonValue type = "grep"`
+            - `class BetaManagedAgentsAutoPolicy:`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `class BetaManagedAgentsWebFetchToolConfig:`
 
           Configuration for the web_fetch tool.
+
+          - `JsonValue type = "web_fetch"`
 
           - `boolean enabled`
 
@@ -20961,7 +21296,9 @@ Update Agent
 
               Tool calls require user confirmation before execution.
 
-          - `JsonValue type = "web_fetch"`
+            - `class BetaManagedAgentsAutoPolicy:`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
           - `Optional<List<String>> allowedDomains`
 
@@ -20974,6 +21311,8 @@ Update Agent
         - `class BetaManagedAgentsWebSearchToolConfig:`
 
           Configuration for the web_search tool.
+
+          - `JsonValue type = "web_search"`
 
           - `boolean enabled`
 
@@ -20991,7 +21330,9 @@ Update Agent
 
               Tool calls require user confirmation before execution.
 
-          - `JsonValue type = "web_search"`
+            - `class BetaManagedAgentsAutoPolicy:`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
           - `Optional<List<String>> allowedDomains`
 
@@ -21045,9 +21386,13 @@ Update Agent
 
             Tool calls require user confirmation before execution.
 
-      - `Type type`
+          - `class BetaManagedAgentsAutoPolicy:`
+
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
     - `class BetaManagedAgentsMcpToolset:`
+
+      - `Type type`
 
       - `List<BetaManagedAgentsMcpToolConfig> configs`
 
@@ -21067,6 +21412,10 @@ Update Agent
 
             Tool calls require user confirmation before execution.
 
+          - `class BetaManagedAgentsAutoPolicy:`
+
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
       - `BetaManagedAgentsMcpToolsetDefaultConfig defaultConfig`
 
         Resolved default configuration for all tools from an MCP server.
@@ -21085,13 +21434,17 @@ Update Agent
 
             Tool calls require user confirmation before execution.
 
-      - `String mcpServerName`
+          - `class BetaManagedAgentsAutoPolicy:`
 
-      - `Type type`
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+      - `String mcpServerName`
 
     - `class BetaManagedAgentsCustomTool:`
 
       A custom tool as returned in API responses.
+
+      - `Type type`
 
       - `String description`
 
@@ -21106,10 +21459,6 @@ Update Agent
         - `Optional<List<String>> required`
 
       - `String name`
-
-      - `Type type`
-
-  - `Type type`
 
   - `LocalDateTime updatedAt`
 
@@ -21285,6 +21634,8 @@ Archive Agent
 
     - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
 
+    - `USER_PROFILES_2026_09_04("user-profiles-2026-09-04")`
+
     - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
@@ -21327,11 +21678,15 @@ Archive Agent
 
     - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
+  - `Optional<String> workspaceId`
+
 #### Returns
 
 - `class BetaManagedAgentsAgent:`
 
   A Managed Agents `agent`.
+
+  - `Type type`
 
   - `String id`
 
@@ -21351,9 +21706,9 @@ Archive Agent
 
   - `List<BetaManagedAgentsMcpServerUrlDefinition> mcpServers`
 
-    - `String name`
-
     - `Type type`
+
+    - `String name`
 
     - `String url`
 
@@ -21475,6 +21830,8 @@ Archive Agent
 
     Resolved coordinator topology with a concrete agent roster.
 
+    - `Type type`
+
     - `List<Agent> agents`
 
       Agents the coordinator may spawn as session threads, each resolved to a specific version.
@@ -21483,9 +21840,9 @@ Archive Agent
 
         A resolved agent reference with a concrete version.
 
-        - `String id`
-
         - `Type type`
+
+        - `String id`
 
         - `long version`
 
@@ -21495,13 +21852,11 @@ Archive Agent
 
         Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
 
+        - `Type type`
+
         - `String model`
 
           The advisor model id.
-
-        - `Type type`
-
-    - `Type type`
 
   - `String name`
 
@@ -21511,9 +21866,9 @@ Archive Agent
 
       A resolved Anthropic-managed skill.
 
-      - `String skillId`
-
       - `Type type`
+
+      - `String skillId`
 
       - `String version`
 
@@ -21521,9 +21876,9 @@ Archive Agent
 
       A resolved user-created custom skill.
 
-      - `String skillId`
-
       - `Type type`
+
+      - `String skillId`
 
       - `String version`
 
@@ -21533,11 +21888,15 @@ Archive Agent
 
     - `class BetaManagedAgentsAgentToolset20260401:`
 
+      - `Type type`
+
       - `List<BetaManagedAgentsAgentToolConfig> configs`
 
         - `class BetaManagedAgentsBashToolConfig:`
 
           Configuration for the bash tool.
+
+          - `JsonValue type = "bash"`
 
           - `boolean enabled`
 
@@ -21559,11 +21918,17 @@ Archive Agent
 
               - `Type type`
 
-          - `JsonValue type = "bash"`
+            - `class BetaManagedAgentsAutoPolicy:`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+              - `JsonValue type = "auto"`
 
         - `class BetaManagedAgentsEditToolConfig:`
 
           Configuration for the edit tool.
+
+          - `JsonValue type = "edit"`
 
           - `boolean enabled`
 
@@ -21581,11 +21946,15 @@ Archive Agent
 
               Tool calls require user confirmation before execution.
 
-          - `JsonValue type = "edit"`
+            - `class BetaManagedAgentsAutoPolicy:`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `class BetaManagedAgentsReadToolConfig:`
 
           Configuration for the read tool.
+
+          - `JsonValue type = "read"`
 
           - `boolean enabled`
 
@@ -21603,11 +21972,15 @@ Archive Agent
 
               Tool calls require user confirmation before execution.
 
-          - `JsonValue type = "read"`
+            - `class BetaManagedAgentsAutoPolicy:`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `class BetaManagedAgentsWriteToolConfig:`
 
           Configuration for the write tool.
+
+          - `JsonValue type = "write"`
 
           - `boolean enabled`
 
@@ -21625,11 +21998,15 @@ Archive Agent
 
               Tool calls require user confirmation before execution.
 
-          - `JsonValue type = "write"`
+            - `class BetaManagedAgentsAutoPolicy:`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `class BetaManagedAgentsGlobToolConfig:`
 
           Configuration for the glob tool.
+
+          - `JsonValue type = "glob"`
 
           - `boolean enabled`
 
@@ -21647,11 +22024,15 @@ Archive Agent
 
               Tool calls require user confirmation before execution.
 
-          - `JsonValue type = "glob"`
+            - `class BetaManagedAgentsAutoPolicy:`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `class BetaManagedAgentsGrepToolConfig:`
 
           Configuration for the grep tool.
+
+          - `JsonValue type = "grep"`
 
           - `boolean enabled`
 
@@ -21669,11 +22050,15 @@ Archive Agent
 
               Tool calls require user confirmation before execution.
 
-          - `JsonValue type = "grep"`
+            - `class BetaManagedAgentsAutoPolicy:`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `class BetaManagedAgentsWebFetchToolConfig:`
 
           Configuration for the web_fetch tool.
+
+          - `JsonValue type = "web_fetch"`
 
           - `boolean enabled`
 
@@ -21691,7 +22076,9 @@ Archive Agent
 
               Tool calls require user confirmation before execution.
 
-          - `JsonValue type = "web_fetch"`
+            - `class BetaManagedAgentsAutoPolicy:`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
           - `Optional<List<String>> allowedDomains`
 
@@ -21704,6 +22091,8 @@ Archive Agent
         - `class BetaManagedAgentsWebSearchToolConfig:`
 
           Configuration for the web_search tool.
+
+          - `JsonValue type = "web_search"`
 
           - `boolean enabled`
 
@@ -21721,7 +22110,9 @@ Archive Agent
 
               Tool calls require user confirmation before execution.
 
-          - `JsonValue type = "web_search"`
+            - `class BetaManagedAgentsAutoPolicy:`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
           - `Optional<List<String>> allowedDomains`
 
@@ -21775,9 +22166,13 @@ Archive Agent
 
             Tool calls require user confirmation before execution.
 
-      - `Type type`
+          - `class BetaManagedAgentsAutoPolicy:`
+
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
     - `class BetaManagedAgentsMcpToolset:`
+
+      - `Type type`
 
       - `List<BetaManagedAgentsMcpToolConfig> configs`
 
@@ -21797,6 +22192,10 @@ Archive Agent
 
             Tool calls require user confirmation before execution.
 
+          - `class BetaManagedAgentsAutoPolicy:`
+
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
       - `BetaManagedAgentsMcpToolsetDefaultConfig defaultConfig`
 
         Resolved default configuration for all tools from an MCP server.
@@ -21815,13 +22214,17 @@ Archive Agent
 
             Tool calls require user confirmation before execution.
 
-      - `String mcpServerName`
+          - `class BetaManagedAgentsAutoPolicy:`
 
-      - `Type type`
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+      - `String mcpServerName`
 
     - `class BetaManagedAgentsCustomTool:`
 
       A custom tool as returned in API responses.
+
+      - `Type type`
 
       - `String description`
 
@@ -21836,10 +22239,6 @@ Archive Agent
         - `Optional<List<String>> required`
 
       - `String name`
-
-      - `Type type`
-
-  - `Type type`
 
   - `LocalDateTime updatedAt`
 
@@ -22027,6 +22426,8 @@ List Agent Versions
 
     - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
 
+    - `USER_PROFILES_2026_09_04("user-profiles-2026-09-04")`
+
     - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
@@ -22069,11 +22470,15 @@ List Agent Versions
 
     - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
+  - `Optional<String> workspaceId`
+
 #### Returns
 
 - `class BetaManagedAgentsAgent:`
 
   A Managed Agents `agent`.
+
+  - `Type type`
 
   - `String id`
 
@@ -22093,9 +22498,9 @@ List Agent Versions
 
   - `List<BetaManagedAgentsMcpServerUrlDefinition> mcpServers`
 
-    - `String name`
-
     - `Type type`
+
+    - `String name`
 
     - `String url`
 
@@ -22217,6 +22622,8 @@ List Agent Versions
 
     Resolved coordinator topology with a concrete agent roster.
 
+    - `Type type`
+
     - `List<Agent> agents`
 
       Agents the coordinator may spawn as session threads, each resolved to a specific version.
@@ -22225,9 +22632,9 @@ List Agent Versions
 
         A resolved agent reference with a concrete version.
 
-        - `String id`
-
         - `Type type`
+
+        - `String id`
 
         - `long version`
 
@@ -22237,13 +22644,11 @@ List Agent Versions
 
         Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
 
+        - `Type type`
+
         - `String model`
 
           The advisor model id.
-
-        - `Type type`
-
-    - `Type type`
 
   - `String name`
 
@@ -22253,9 +22658,9 @@ List Agent Versions
 
       A resolved Anthropic-managed skill.
 
-      - `String skillId`
-
       - `Type type`
+
+      - `String skillId`
 
       - `String version`
 
@@ -22263,9 +22668,9 @@ List Agent Versions
 
       A resolved user-created custom skill.
 
-      - `String skillId`
-
       - `Type type`
+
+      - `String skillId`
 
       - `String version`
 
@@ -22275,11 +22680,15 @@ List Agent Versions
 
     - `class BetaManagedAgentsAgentToolset20260401:`
 
+      - `Type type`
+
       - `List<BetaManagedAgentsAgentToolConfig> configs`
 
         - `class BetaManagedAgentsBashToolConfig:`
 
           Configuration for the bash tool.
+
+          - `JsonValue type = "bash"`
 
           - `boolean enabled`
 
@@ -22301,11 +22710,17 @@ List Agent Versions
 
               - `Type type`
 
-          - `JsonValue type = "bash"`
+            - `class BetaManagedAgentsAutoPolicy:`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+              - `JsonValue type = "auto"`
 
         - `class BetaManagedAgentsEditToolConfig:`
 
           Configuration for the edit tool.
+
+          - `JsonValue type = "edit"`
 
           - `boolean enabled`
 
@@ -22323,11 +22738,15 @@ List Agent Versions
 
               Tool calls require user confirmation before execution.
 
-          - `JsonValue type = "edit"`
+            - `class BetaManagedAgentsAutoPolicy:`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `class BetaManagedAgentsReadToolConfig:`
 
           Configuration for the read tool.
+
+          - `JsonValue type = "read"`
 
           - `boolean enabled`
 
@@ -22345,11 +22764,15 @@ List Agent Versions
 
               Tool calls require user confirmation before execution.
 
-          - `JsonValue type = "read"`
+            - `class BetaManagedAgentsAutoPolicy:`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `class BetaManagedAgentsWriteToolConfig:`
 
           Configuration for the write tool.
+
+          - `JsonValue type = "write"`
 
           - `boolean enabled`
 
@@ -22367,11 +22790,15 @@ List Agent Versions
 
               Tool calls require user confirmation before execution.
 
-          - `JsonValue type = "write"`
+            - `class BetaManagedAgentsAutoPolicy:`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `class BetaManagedAgentsGlobToolConfig:`
 
           Configuration for the glob tool.
+
+          - `JsonValue type = "glob"`
 
           - `boolean enabled`
 
@@ -22389,11 +22816,15 @@ List Agent Versions
 
               Tool calls require user confirmation before execution.
 
-          - `JsonValue type = "glob"`
+            - `class BetaManagedAgentsAutoPolicy:`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `class BetaManagedAgentsGrepToolConfig:`
 
           Configuration for the grep tool.
+
+          - `JsonValue type = "grep"`
 
           - `boolean enabled`
 
@@ -22411,11 +22842,15 @@ List Agent Versions
 
               Tool calls require user confirmation before execution.
 
-          - `JsonValue type = "grep"`
+            - `class BetaManagedAgentsAutoPolicy:`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
         - `class BetaManagedAgentsWebFetchToolConfig:`
 
           Configuration for the web_fetch tool.
+
+          - `JsonValue type = "web_fetch"`
 
           - `boolean enabled`
 
@@ -22433,7 +22868,9 @@ List Agent Versions
 
               Tool calls require user confirmation before execution.
 
-          - `JsonValue type = "web_fetch"`
+            - `class BetaManagedAgentsAutoPolicy:`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
           - `Optional<List<String>> allowedDomains`
 
@@ -22446,6 +22883,8 @@ List Agent Versions
         - `class BetaManagedAgentsWebSearchToolConfig:`
 
           Configuration for the web_search tool.
+
+          - `JsonValue type = "web_search"`
 
           - `boolean enabled`
 
@@ -22463,7 +22902,9 @@ List Agent Versions
 
               Tool calls require user confirmation before execution.
 
-          - `JsonValue type = "web_search"`
+            - `class BetaManagedAgentsAutoPolicy:`
+
+              The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
           - `Optional<List<String>> allowedDomains`
 
@@ -22517,9 +22958,13 @@ List Agent Versions
 
             Tool calls require user confirmation before execution.
 
-      - `Type type`
+          - `class BetaManagedAgentsAutoPolicy:`
+
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
     - `class BetaManagedAgentsMcpToolset:`
+
+      - `Type type`
 
       - `List<BetaManagedAgentsMcpToolConfig> configs`
 
@@ -22539,6 +22984,10 @@ List Agent Versions
 
             Tool calls require user confirmation before execution.
 
+          - `class BetaManagedAgentsAutoPolicy:`
+
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
       - `BetaManagedAgentsMcpToolsetDefaultConfig defaultConfig`
 
         Resolved default configuration for all tools from an MCP server.
@@ -22557,13 +23006,17 @@ List Agent Versions
 
             Tool calls require user confirmation before execution.
 
-      - `String mcpServerName`
+          - `class BetaManagedAgentsAutoPolicy:`
 
-      - `Type type`
+            The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+      - `String mcpServerName`
 
     - `class BetaManagedAgentsCustomTool:`
 
       A custom tool as returned in API responses.
+
+      - `Type type`
 
       - `String description`
 
@@ -22578,10 +23031,6 @@ List Agent Versions
         - `Optional<List<String>> required`
 
       - `String name`
-
-      - `Type type`
-
-  - `Type type`
 
   - `LocalDateTime updatedAt`
 
@@ -22762,6 +23211,8 @@ Create a new environment with the specified configuration.
 
     - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
 
+    - `USER_PROFILES_2026_09_04("user-profiles-2026-09-04")`
+
     - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
@@ -22803,6 +23254,8 @@ Create a new environment with the specified configuration.
     - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
 
     - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
+  - `Optional<String> workspaceId`
 
   - `String name`
 
@@ -22868,6 +23321,10 @@ Create a new environment with the specified configuration.
 
         Under `limited` networking, requires `networking.allow_package_managers` to be `true`.
 
+        - `Optional<Type> type`
+
+          Package configuration type
+
         - `Optional<List<String>> apt`
 
           Ubuntu/Debian packages to install
@@ -22892,10 +23349,6 @@ Create a new environment with the specified configuration.
 
           Python packages to install
 
-        - `Optional<Type> type`
-
-          Package configuration type
-
     - `class BetaSelfHostedConfigParams:`
 
       Request params for `self_hosted` environment configuration.
@@ -22916,7 +23369,7 @@ Create a new environment with the specified configuration.
 
   - `Optional<Scope> scope`
 
-    The visibility scope for this environment. 'organization' makes the environment visible to all accounts. 'account' restricts visibility to the owning account only. Only applicable for self-hosted environments. If not specified, defaults based on organization type.
+    The visibility scope for this environment. 'organization' makes the environment visible to all accounts. 'account' restricts visibility to the owning account only. API organizations support only 'organization'; 'account' is rejected. If not specified, defaults based on organization type.
 
     - `ORGANIZATION("organization")`
 
@@ -22927,6 +23380,10 @@ Create a new environment with the specified configuration.
 - `class BetaEnvironment:`
 
   Unified Environment resource for both cloud and self-hosted environments.
+
+  - `JsonValue type = "environment"`
+
+    The type of object (always 'environment')
 
   - `String id`
 
@@ -22944,6 +23401,10 @@ Create a new environment with the specified configuration.
 
       `cloud` environment configuration.
 
+      - `JsonValue type = "cloud"`
+
+        Environment type
+
       - `Networking networking`
 
         Network configuration policy.
@@ -22960,6 +23421,10 @@ Create a new environment with the specified configuration.
 
           Limited network access.
 
+          - `JsonValue type = "limited"`
+
+            Network policy type
+
           - `boolean allowMcpServers`
 
             Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
@@ -22972,13 +23437,13 @@ Create a new environment with the specified configuration.
 
             Specifies domains the container can reach.
 
-          - `JsonValue type = "limited"`
-
-            Network policy type
-
       - `BetaPackages packages`
 
         Package manager configuration.
+
+        - `Optional<Type> type`
+
+          Package configuration type
 
         - `List<String> apt`
 
@@ -23004,14 +23469,6 @@ Create a new environment with the specified configuration.
 
           Python packages to install
 
-        - `Optional<Type> type`
-
-          Package configuration type
-
-      - `JsonValue type = "cloud"`
-
-        Environment type
-
     - `class BetaSelfHostedConfig:`
 
       Configuration for self-hosted environments.
@@ -23035,10 +23492,6 @@ Create a new environment with the specified configuration.
   - `String name`
 
     Human-readable name for the environment
-
-  - `JsonValue type = "environment"`
-
-    The type of object (always 'environment')
 
   - `String updatedAt`
 
@@ -23201,6 +23654,8 @@ List environments with pagination support.
 
     - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
 
+    - `USER_PROFILES_2026_09_04("user-profiles-2026-09-04")`
+
     - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
@@ -23243,11 +23698,17 @@ List environments with pagination support.
 
     - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
+  - `Optional<String> workspaceId`
+
 #### Returns
 
 - `class BetaEnvironment:`
 
   Unified Environment resource for both cloud and self-hosted environments.
+
+  - `JsonValue type = "environment"`
+
+    The type of object (always 'environment')
 
   - `String id`
 
@@ -23265,6 +23726,10 @@ List environments with pagination support.
 
       `cloud` environment configuration.
 
+      - `JsonValue type = "cloud"`
+
+        Environment type
+
       - `Networking networking`
 
         Network configuration policy.
@@ -23281,6 +23746,10 @@ List environments with pagination support.
 
           Limited network access.
 
+          - `JsonValue type = "limited"`
+
+            Network policy type
+
           - `boolean allowMcpServers`
 
             Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
@@ -23293,13 +23762,13 @@ List environments with pagination support.
 
             Specifies domains the container can reach.
 
-          - `JsonValue type = "limited"`
-
-            Network policy type
-
       - `BetaPackages packages`
 
         Package manager configuration.
+
+        - `Optional<Type> type`
+
+          Package configuration type
 
         - `List<String> apt`
 
@@ -23325,14 +23794,6 @@ List environments with pagination support.
 
           Python packages to install
 
-        - `Optional<Type> type`
-
-          Package configuration type
-
-      - `JsonValue type = "cloud"`
-
-        Environment type
-
     - `class BetaSelfHostedConfig:`
 
       Configuration for self-hosted environments.
@@ -23356,10 +23817,6 @@ List environments with pagination support.
   - `String name`
 
     Human-readable name for the environment
-
-  - `JsonValue type = "environment"`
-
-    The type of object (always 'environment')
 
   - `String updatedAt`
 
@@ -23512,6 +23969,8 @@ Retrieve a specific environment by ID.
 
     - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
 
+    - `USER_PROFILES_2026_09_04("user-profiles-2026-09-04")`
+
     - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
@@ -23554,11 +24013,17 @@ Retrieve a specific environment by ID.
 
     - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
+  - `Optional<String> workspaceId`
+
 #### Returns
 
 - `class BetaEnvironment:`
 
   Unified Environment resource for both cloud and self-hosted environments.
+
+  - `JsonValue type = "environment"`
+
+    The type of object (always 'environment')
 
   - `String id`
 
@@ -23576,6 +24041,10 @@ Retrieve a specific environment by ID.
 
       `cloud` environment configuration.
 
+      - `JsonValue type = "cloud"`
+
+        Environment type
+
       - `Networking networking`
 
         Network configuration policy.
@@ -23592,6 +24061,10 @@ Retrieve a specific environment by ID.
 
           Limited network access.
 
+          - `JsonValue type = "limited"`
+
+            Network policy type
+
           - `boolean allowMcpServers`
 
             Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
@@ -23604,13 +24077,13 @@ Retrieve a specific environment by ID.
 
             Specifies domains the container can reach.
 
-          - `JsonValue type = "limited"`
-
-            Network policy type
-
       - `BetaPackages packages`
 
         Package manager configuration.
+
+        - `Optional<Type> type`
+
+          Package configuration type
 
         - `List<String> apt`
 
@@ -23636,14 +24109,6 @@ Retrieve a specific environment by ID.
 
           Python packages to install
 
-        - `Optional<Type> type`
-
-          Package configuration type
-
-      - `JsonValue type = "cloud"`
-
-        Environment type
-
     - `class BetaSelfHostedConfig:`
 
       Configuration for self-hosted environments.
@@ -23667,10 +24132,6 @@ Retrieve a specific environment by ID.
   - `String name`
 
     Human-readable name for the environment
-
-  - `JsonValue type = "environment"`
-
-    The type of object (always 'environment')
 
   - `String updatedAt`
 
@@ -23818,6 +24279,8 @@ Update an existing environment's configuration.
 
     - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
 
+    - `USER_PROFILES_2026_09_04("user-profiles-2026-09-04")`
+
     - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
@@ -23859,6 +24322,8 @@ Update an existing environment's configuration.
     - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
 
     - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
+  - `Optional<String> workspaceId`
 
   - `Optional<Config> config`
 
@@ -23918,6 +24383,10 @@ Update an existing environment's configuration.
 
         Under `limited` networking, requires `networking.allow_package_managers` to be `true`.
 
+        - `Optional<Type> type`
+
+          Package configuration type
+
         - `Optional<List<String>> apt`
 
           Ubuntu/Debian packages to install
@@ -23941,10 +24410,6 @@ Update an existing environment's configuration.
         - `Optional<List<String>> pip`
 
           Python packages to install
-
-        - `Optional<Type> type`
-
-          Package configuration type
 
     - `class BetaSelfHostedConfigParams:`
 
@@ -23984,6 +24449,10 @@ Update an existing environment's configuration.
 
   Unified Environment resource for both cloud and self-hosted environments.
 
+  - `JsonValue type = "environment"`
+
+    The type of object (always 'environment')
+
   - `String id`
 
     Environment identifier (e.g., 'env_...')
@@ -23999,6 +24468,10 @@ Update an existing environment's configuration.
     - `class BetaCloudConfig:`
 
       `cloud` environment configuration.
+
+      - `JsonValue type = "cloud"`
+
+        Environment type
 
       - `Networking networking`
 
@@ -24016,6 +24489,10 @@ Update an existing environment's configuration.
 
           Limited network access.
 
+          - `JsonValue type = "limited"`
+
+            Network policy type
+
           - `boolean allowMcpServers`
 
             Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
@@ -24028,13 +24505,13 @@ Update an existing environment's configuration.
 
             Specifies domains the container can reach.
 
-          - `JsonValue type = "limited"`
-
-            Network policy type
-
       - `BetaPackages packages`
 
         Package manager configuration.
+
+        - `Optional<Type> type`
+
+          Package configuration type
 
         - `List<String> apt`
 
@@ -24060,14 +24537,6 @@ Update an existing environment's configuration.
 
           Python packages to install
 
-        - `Optional<Type> type`
-
-          Package configuration type
-
-      - `JsonValue type = "cloud"`
-
-        Environment type
-
     - `class BetaSelfHostedConfig:`
 
       Configuration for self-hosted environments.
@@ -24091,10 +24560,6 @@ Update an existing environment's configuration.
   - `String name`
 
     Human-readable name for the environment
-
-  - `JsonValue type = "environment"`
-
-    The type of object (always 'environment')
 
   - `String updatedAt`
 
@@ -24242,6 +24707,8 @@ Delete an environment by ID. Returns a confirmation of the deletion.
 
     - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
 
+    - `USER_PROFILES_2026_09_04("user-profiles-2026-09-04")`
+
     - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
@@ -24284,19 +24751,21 @@ Delete an environment by ID. Returns a confirmation of the deletion.
 
     - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
+  - `Optional<String> workspaceId`
+
 #### Returns
 
 - `class BetaEnvironmentDeleteResponse:`
 
   Response after deleting an environment.
 
-  - `String id`
-
-    Environment identifier
-
   - `Type type`
 
     The type of response
+
+  - `String id`
+
+    Environment identifier
 
 #### Example
 
@@ -24392,6 +24861,8 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
     - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
 
+    - `USER_PROFILES_2026_09_04("user-profiles-2026-09-04")`
+
     - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
@@ -24434,11 +24905,17 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
     - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
+  - `Optional<String> workspaceId`
+
 #### Returns
 
 - `class BetaEnvironment:`
 
   Unified Environment resource for both cloud and self-hosted environments.
+
+  - `JsonValue type = "environment"`
+
+    The type of object (always 'environment')
 
   - `String id`
 
@@ -24456,6 +24933,10 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
       `cloud` environment configuration.
 
+      - `JsonValue type = "cloud"`
+
+        Environment type
+
       - `Networking networking`
 
         Network configuration policy.
@@ -24472,6 +24953,10 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
           Limited network access.
 
+          - `JsonValue type = "limited"`
+
+            Network policy type
+
           - `boolean allowMcpServers`
 
             Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
@@ -24484,13 +24969,13 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
             Specifies domains the container can reach.
 
-          - `JsonValue type = "limited"`
-
-            Network policy type
-
       - `BetaPackages packages`
 
         Package manager configuration.
+
+        - `Optional<Type> type`
+
+          Package configuration type
 
         - `List<String> apt`
 
@@ -24516,14 +25001,6 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
           Python packages to install
 
-        - `Optional<Type> type`
-
-          Package configuration type
-
-      - `JsonValue type = "cloud"`
-
-        Environment type
-
     - `class BetaSelfHostedConfig:`
 
       Configuration for self-hosted environments.
@@ -24547,10 +25024,6 @@ Archive an environment by ID. Archived environments cannot be used to create new
   - `String name`
 
     Human-readable name for the environment
-
-  - `JsonValue type = "environment"`
-
-    The type of object (always 'environment')
 
   - `String updatedAt`
 
@@ -24704,6 +25177,8 @@ Retrieve detailed information about a specific work item.
 
     - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
 
+    - `USER_PROFILES_2026_09_04("user-profiles-2026-09-04")`
+
     - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
@@ -24746,6 +25221,8 @@ Retrieve detailed information about a specific work item.
 
     - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
+  - `Optional<String> workspaceId`
+
 #### Returns
 
 - `class BetaSelfHostedWork:`
@@ -24755,6 +25232,10 @@ Retrieve detailed information about a specific work item.
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
+  - `JsonValue type = "work"`
+
+    The type of object (always 'work')
 
   - `String id`
 
@@ -24772,13 +25253,13 @@ Retrieve detailed information about a specific work item.
 
     The actual work to be performed
 
-    - `String id`
-
-      Session identifier (e.g., 'session_...')
-
     - `JsonValue type = "session"`
 
       Type of work data
+
+    - `String id`
+
+      Session identifier (e.g., 'session_...')
 
   - `String environmentId`
 
@@ -24821,10 +25302,6 @@ Retrieve detailed information about a specific work item.
   - `Optional<String> stoppedAt`
 
     RFC 3339 timestamp when work execution stopped
-
-  - `JsonValue type = "work"`
-
-    The type of object (always 'work')
 
 #### Example
 
@@ -24954,6 +25431,8 @@ Long poll for work items in the queue.
 
     - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
 
+    - `USER_PROFILES_2026_09_04("user-profiles-2026-09-04")`
+
     - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
@@ -25010,6 +25489,10 @@ Long poll for work items in the queue.
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
 
+  - `JsonValue type = "work"`
+
+    The type of object (always 'work')
+
   - `String id`
 
     Work identifier (e.g., 'work_...')
@@ -25026,13 +25509,13 @@ Long poll for work items in the queue.
 
     The actual work to be performed
 
-    - `String id`
-
-      Session identifier (e.g., 'session_...')
-
     - `JsonValue type = "session"`
 
       Type of work data
+
+    - `String id`
+
+      Session identifier (e.g., 'session_...')
 
   - `String environmentId`
 
@@ -25075,10 +25558,6 @@ Long poll for work items in the queue.
   - `Optional<String> stoppedAt`
 
     RFC 3339 timestamp when work execution stopped
-
-  - `JsonValue type = "work"`
-
-    The type of object (always 'work')
 
 #### Example
 
@@ -25195,6 +25674,8 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
 
     - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
 
+    - `USER_PROFILES_2026_09_04("user-profiles-2026-09-04")`
+
     - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
@@ -25247,6 +25728,10 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
 
+  - `JsonValue type = "work"`
+
+    The type of object (always 'work')
+
   - `String id`
 
     Work identifier (e.g., 'work_...')
@@ -25263,13 +25748,13 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
 
     The actual work to be performed
 
-    - `String id`
-
-      Session identifier (e.g., 'session_...')
-
     - `JsonValue type = "session"`
 
       Type of work data
+
+    - `String id`
+
+      Session identifier (e.g., 'session_...')
 
   - `String environmentId`
 
@@ -25312,10 +25797,6 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
   - `Optional<String> stoppedAt`
 
     RFC 3339 timestamp when work execution stopped
-
-  - `JsonValue type = "work"`
-
-    The type of object (always 'work')
 
 #### Example
 
@@ -25443,6 +25924,8 @@ Record a heartbeat for a work item to maintain the lease.
 
     - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
 
+    - `USER_PROFILES_2026_09_04("user-profiles-2026-09-04")`
+
     - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
@@ -25491,6 +25974,10 @@ Record a heartbeat for a work item to maintain the lease.
 
   Response after recording a heartbeat for a work item.
 
+  - `JsonValue type = "work_heartbeat"`
+
+    The type of response
+
   - `String lastHeartbeat`
 
     RFC 3339 timestamp of the actual heartbeat from DB
@@ -25516,10 +26003,6 @@ Record a heartbeat for a work item to maintain the lease.
   - `long ttlSeconds`
 
     Effective TTL applied to the lease
-
-  - `JsonValue type = "work_heartbeat"`
-
-    The type of response
 
 #### Example
 
@@ -25626,6 +26109,8 @@ Stop a work item, initiating graceful or forced shutdown.
 
     - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
 
+    - `USER_PROFILES_2026_09_04("user-profiles-2026-09-04")`
+
     - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
@@ -25668,6 +26153,8 @@ Stop a work item, initiating graceful or forced shutdown.
 
     - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
+  - `Optional<String> workspaceId`
+
   - `BetaSelfHostedWorkStopRequest betaSelfHostedWorkStopRequest`
 
     Request to stop a work item.
@@ -25681,6 +26168,10 @@ Stop a work item, initiating graceful or forced shutdown.
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
+  - `JsonValue type = "work"`
+
+    The type of object (always 'work')
 
   - `String id`
 
@@ -25698,13 +26189,13 @@ Stop a work item, initiating graceful or forced shutdown.
 
     The actual work to be performed
 
-    - `String id`
-
-      Session identifier (e.g., 'session_...')
-
     - `JsonValue type = "session"`
 
       Type of work data
+
+    - `String id`
+
+      Session identifier (e.g., 'session_...')
 
   - `String environmentId`
 
@@ -25747,10 +26238,6 @@ Stop a work item, initiating graceful or forced shutdown.
   - `Optional<String> stoppedAt`
 
     RFC 3339 timestamp when work execution stopped
-
-  - `JsonValue type = "work"`
-
-    The type of object (always 'work')
 
 #### Example
 
@@ -25880,6 +26367,8 @@ List work items in an environment.
 
     - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
 
+    - `USER_PROFILES_2026_09_04("user-profiles-2026-09-04")`
+
     - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
@@ -25932,6 +26421,10 @@ List work items in an environment.
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
 
+  - `JsonValue type = "work"`
+
+    The type of object (always 'work')
+
   - `String id`
 
     Work identifier (e.g., 'work_...')
@@ -25948,13 +26441,13 @@ List work items in an environment.
 
     The actual work to be performed
 
-    - `String id`
-
-      Session identifier (e.g., 'session_...')
-
     - `JsonValue type = "session"`
 
       Type of work data
+
+    - `String id`
+
+      Session identifier (e.g., 'session_...')
 
   - `String environmentId`
 
@@ -25997,10 +26490,6 @@ List work items in an environment.
   - `Optional<String> stoppedAt`
 
     RFC 3339 timestamp when work execution stopped
-
-  - `JsonValue type = "work"`
-
-    The type of object (always 'work')
 
 #### Example
 
@@ -26121,6 +26610,8 @@ Update work item metadata with merge semantics.
 
     - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
 
+    - `USER_PROFILES_2026_09_04("user-profiles-2026-09-04")`
+
     - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
@@ -26163,6 +26654,8 @@ Update work item metadata with merge semantics.
 
     - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
+  - `Optional<String> workspaceId`
+
   - `BetaSelfHostedWorkUpdateRequest betaSelfHostedWorkUpdateRequest`
 
     Request to update work item metadata.
@@ -26176,6 +26669,10 @@ Update work item metadata with merge semantics.
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
+  - `JsonValue type = "work"`
+
+    The type of object (always 'work')
 
   - `String id`
 
@@ -26193,13 +26690,13 @@ Update work item metadata with merge semantics.
 
     The actual work to be performed
 
-    - `String id`
-
-      Session identifier (e.g., 'session_...')
-
     - `JsonValue type = "session"`
 
       Type of work data
+
+    - `String id`
+
+      Session identifier (e.g., 'session_...')
 
   - `String environmentId`
 
@@ -26242,10 +26739,6 @@ Update work item metadata with merge semantics.
   - `Optional<String> stoppedAt`
 
     RFC 3339 timestamp when work execution stopped
-
-  - `JsonValue type = "work"`
-
-    The type of object (always 'work')
 
 #### Example
 
@@ -26366,6 +26859,8 @@ Get statistics about the work queue for an environment.
 
     - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
 
+    - `USER_PROFILES_2026_09_04("user-profiles-2026-09-04")`
+
     - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
@@ -26408,6 +26903,8 @@ Get statistics about the work queue for an environment.
 
     - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
+  - `Optional<String> workspaceId`
+
 #### Returns
 
 - `class BetaSelfHostedWorkQueueStats:`
@@ -26415,6 +26912,10 @@ Get statistics about the work queue for an environment.
   Statistics about the work queue for an environment.
 
   Uses Redis Stream consumer group metrics for O(1) queries.
+
+  - `JsonValue type = "work_queue_stats"`
+
+    The type of object
 
   - `long depth`
 
@@ -26427,10 +26928,6 @@ Get statistics about the work queue for an environment.
   - `long pending`
 
     Number of work items being processed (polled but not acknowledged)
-
-  - `JsonValue type = "work_queue_stats"`
-
-    The type of object
 
   - `Optional<Long> workersPolling`
 
@@ -26533,6 +27030,8 @@ Create Session
 
     - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
 
+    - `USER_PROFILES_2026_09_04("user-profiles-2026-09-04")`
+
     - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
@@ -26575,6 +27074,8 @@ Create Session
 
     - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
+  - `Optional<String> workspaceId`
+
   - `Agent agent`
 
     Agent identifier. Accepts the `agent` ID string, which pins the latest version for the session, or an `agent` object with both id and version specified.
@@ -26585,13 +27086,13 @@ Create Session
 
       Specification for an Agent. Provide a specific `version` or use the short-form `agent="agent_id"` for the most recent version
 
+      - `Type type`
+
       - `String id`
 
         The `agent` ID.
 
         minLength: 1, maxLength: 128
-
-      - `Type type`
 
       - `Optional<Long> version`
 
@@ -26603,25 +27104,25 @@ Create Session
 
       Reference to an `agent` plus optional configuration overrides. Each provided field replaces the agent's value for the caller's use; the agent resource is unchanged.
 
+      - `Type type`
+
       - `String id`
 
         The `agent` ID.
 
         minLength: 1, maxLength: 128
 
-      - `Type type`
-
       - `Optional<List<BetaManagedAgentsUrlMcpServerParams>> mcpServers`
 
         Replacement MCP server list. Full replacement: the provided array becomes the MCP servers. Send an empty array to clear; omit to preserve the agent's servers.
+
+        - `Type type`
 
         - `String name`
 
           Unique name for this server, referenced by mcp_toolset configurations. 1-255 characters.
 
           minLength: 1, maxLength: 255
-
-        - `Type type`
 
         - `String url`
 
@@ -26773,13 +27274,13 @@ Create Session
 
           An Anthropic-managed skill.
 
+          - `Type type`
+
           - `String skillId`
 
             Identifier of the Anthropic skill (e.g., "xlsx").
 
             minLength: 1, maxLength: 64
-
-          - `Type type`
 
           - `Optional<String> version`
 
@@ -26791,13 +27292,13 @@ Create Session
 
           A user-created custom skill.
 
+          - `Type type`
+
           - `String skillId`
 
             Tagged ID of the custom skill (e.g., "skill_01XJ5...").
 
             minLength: 1, maxLength: 64
-
-          - `Type type`
 
           - `Optional<String> version`
 
@@ -26829,6 +27330,8 @@ Create Session
 
               Configuration override for the bash tool.
 
+              - `Optional<Type> type`
+
               - `JsonValue name = "bash"`
 
                 Must be "bash".
@@ -26853,11 +27356,17 @@ Create Session
 
                   - `Type type`
 
-              - `Optional<Type> type`
+                - `class BetaManagedAgentsAutoPolicy:`
+
+                  The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+                  - `JsonValue type = "auto"`
 
             - `class BetaManagedAgentsEditToolConfigParams:`
 
               Configuration override for the edit tool.
+
+              - `Optional<Type> type`
 
               - `JsonValue name = "edit"`
 
@@ -26879,11 +27388,15 @@ Create Session
 
                   Tool calls require user confirmation before execution.
 
-              - `Optional<Type> type`
+                - `class BetaManagedAgentsAutoPolicy:`
+
+                  The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
             - `class BetaManagedAgentsReadToolConfigParams:`
 
               Configuration override for the read tool.
+
+              - `Optional<Type> type`
 
               - `JsonValue name = "read"`
 
@@ -26905,11 +27418,15 @@ Create Session
 
                   Tool calls require user confirmation before execution.
 
-              - `Optional<Type> type`
+                - `class BetaManagedAgentsAutoPolicy:`
+
+                  The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
             - `class BetaManagedAgentsWriteToolConfigParams:`
 
               Configuration override for the write tool.
+
+              - `Optional<Type> type`
 
               - `JsonValue name = "write"`
 
@@ -26931,11 +27448,15 @@ Create Session
 
                   Tool calls require user confirmation before execution.
 
-              - `Optional<Type> type`
+                - `class BetaManagedAgentsAutoPolicy:`
+
+                  The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
             - `class BetaManagedAgentsGlobToolConfigParams:`
 
               Configuration override for the glob tool.
+
+              - `Optional<Type> type`
 
               - `JsonValue name = "glob"`
 
@@ -26957,11 +27478,15 @@ Create Session
 
                   Tool calls require user confirmation before execution.
 
-              - `Optional<Type> type`
+                - `class BetaManagedAgentsAutoPolicy:`
+
+                  The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
             - `class BetaManagedAgentsGrepToolConfigParams:`
 
               Configuration override for the grep tool.
+
+              - `Optional<Type> type`
 
               - `JsonValue name = "grep"`
 
@@ -26983,11 +27508,15 @@ Create Session
 
                   Tool calls require user confirmation before execution.
 
-              - `Optional<Type> type`
+                - `class BetaManagedAgentsAutoPolicy:`
+
+                  The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
             - `class BetaManagedAgentsWebFetchToolConfigParams:`
 
               Configuration override for the web_fetch tool.
+
+              - `Optional<Type> type`
 
               - `JsonValue name = "web_fetch"`
 
@@ -27023,11 +27552,15 @@ Create Session
 
                   Tool calls require user confirmation before execution.
 
-              - `Optional<Type> type`
+                - `class BetaManagedAgentsAutoPolicy:`
+
+                  The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
             - `class BetaManagedAgentsWebSearchToolConfigParams:`
 
               Configuration override for the web_search tool.
+
+              - `Optional<Type> type`
 
               - `JsonValue name = "web_search"`
 
@@ -27057,7 +27590,9 @@ Create Session
 
                   Tool calls require user confirmation before execution.
 
-              - `Optional<Type> type`
+                - `class BetaManagedAgentsAutoPolicy:`
+
+                  The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
               - `Optional<BetaManagedAgentsUserLocation> userLocation`
 
@@ -27109,17 +27644,21 @@ Create Session
 
                 Tool calls require user confirmation before execution.
 
+              - `class BetaManagedAgentsAutoPolicy:`
+
+                The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
         - `class BetaManagedAgentsMcpToolsetParams:`
 
           Configuration for tools from an MCP server defined in `mcp_servers`.
+
+          - `Type type`
 
           - `String mcpServerName`
 
             Name of the MCP server. Must match a server name from the mcp_servers array. 1-255 characters.
 
             minLength: 1, maxLength: 255
-
-          - `Type type`
 
           - `Optional<List<BetaManagedAgentsMcpToolConfigParams>> configs`
 
@@ -27147,6 +27686,10 @@ Create Session
 
                 Tool calls require user confirmation before execution.
 
+              - `class BetaManagedAgentsAutoPolicy:`
+
+                The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
           - `Optional<BetaManagedAgentsMcpToolsetDefaultConfigParams> defaultConfig`
 
             Default configuration for all tools from an MCP server.
@@ -27167,9 +27710,15 @@ Create Session
 
                 Tool calls require user confirmation before execution.
 
+              - `class BetaManagedAgentsAutoPolicy:`
+
+                The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
         - `class BetaManagedAgentsCustomToolParams:`
 
           A custom tool that is executed by the API client rather than the agent. When the agent calls this tool, an `agent.custom_tool_use` event is emitted and the session goes idle, waiting for the client to provide the result via a `user.custom_tool_result` event.
+
+          - `Type type`
 
           - `String description`
 
@@ -27192,8 +27741,6 @@ Create Session
             Unique name for the tool. 1-128 characters; letters, digits, underscores, and hyphens.
 
             minLength: 1, maxLength: 128
-
-          - `Type type`
 
       - `Optional<Long> version`
 
@@ -27219,6 +27766,8 @@ Create Session
 
       Parameters for sending a user message to the session.
 
+      - `Type type`
+
       - `List<Content> content`
 
         Array of content blocks for the user message.
@@ -27227,17 +27776,19 @@ Create Session
 
           Regular text content.
 
+          - `Type type`
+
           - `String text`
 
             The text content.
 
             minLength: 1
 
-          - `Type type`
-
         - `class BetaManagedAgentsImageBlock:`
 
           Image content specified directly as base64 data or as a reference via a URL.
+
+          - `Type type`
 
           - `Source source`
 
@@ -27246,6 +27797,8 @@ Create Session
             - `class BetaManagedAgentsBase64ImageSource:`
 
               Base64-encoded image data.
+
+              - `Type type`
 
               - `String data`
 
@@ -27258,8 +27811,6 @@ Create Session
                 MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
 
                 minLength: 1
-
-              - `Type type`
 
             - `class BetaManagedAgentsUrlImageSource:`
 
@@ -27277,19 +27828,19 @@ Create Session
 
               Image referenced by file ID.
 
+              - `Type type`
+
               - `String fileId`
 
                 ID of a previously uploaded file.
 
                 minLength: 1
 
-              - `Type type`
-
-          - `Type type`
-
         - `class BetaManagedAgentsDocumentBlock:`
 
           Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+          - `Type type`
 
           - `Source source`
 
@@ -27298,6 +27849,8 @@ Create Session
             - `class BetaManagedAgentsBase64DocumentSource:`
 
               Base64-encoded document data.
+
+              - `Type type`
 
               - `String data`
 
@@ -27311,11 +27864,11 @@ Create Session
 
                 minLength: 1
 
-              - `Type type`
-
             - `class BetaManagedAgentsPlainTextDocumentSource:`
 
               Plain text document content.
+
+              - `Type type`
 
               - `String data`
 
@@ -27326,8 +27879,6 @@ Create Session
               - `MediaType mediaType`
 
                 MIME type of the text content. Must be "text/plain".
-
-              - `Type type`
 
             - `class BetaManagedAgentsUrlDocumentSource:`
 
@@ -27345,15 +27896,13 @@ Create Session
 
               Document referenced by file ID.
 
+              - `Type type`
+
               - `String fileId`
 
                 ID of a previously uploaded file.
 
                 minLength: 1
-
-              - `Type type`
-
-          - `Type type`
 
           - `Optional<String> context`
 
@@ -27369,11 +27918,11 @@ Create Session
 
           - `Type type`
 
-      - `Type type`
-
     - `class BetaManagedAgentsUserDefineOutcomeEventParams:`
 
       Parameters for defining an outcome the agent should work toward. The agent begins work on receipt.
+
+      - `Type type`
 
       - `String description`
 
@@ -27387,25 +27936,23 @@ Create Session
 
           Rubric referenced by a file uploaded via the Files API.
 
+          - `Type type`
+
           - `String fileId`
 
             ID of the rubric file.
 
-          - `Type type`
-
         - `class BetaManagedAgentsTextRubricParams:`
 
           Rubric content provided inline as text.
+
+          - `Type type`
 
           - `String content`
 
             Rubric content. Plain text or markdown — the grader treats it as freeform text. Maximum 262144 characters.
 
             maxLength: 262144
-
-          - `Type type`
-
-      - `Type type`
 
       - `Optional<Long> maxIterations`
 
@@ -27425,12 +27972,6 @@ Create Session
 
       Mount a GitHub repository into the session's container.
 
-      - `String authorizationToken`
-
-        GitHub authorization token used to clone the repository.
-
-        minLength: 1, maxLength: 4096
-
       - `Type type`
 
       - `String url`
@@ -27439,11 +27980,19 @@ Create Session
 
         minLength: 1, maxLength: 2048
 
+      - `Optional<String> authorizationToken`
+
+        GitHub authorization token used to clone the repository. Required for private repositories; optional for public ones.
+
+        minLength: 1, maxLength: 4096
+
       - `Optional<Checkout> checkout`
 
         Branch or commit to check out. Defaults to the repository's default branch.
 
         - `class BetaManagedAgentsBranchCheckout:`
+
+          - `Type type`
 
           - `String name`
 
@@ -27451,17 +28000,15 @@ Create Session
 
             minLength: 1, maxLength: 255
 
-          - `Type type`
-
         - `class BetaManagedAgentsCommitCheckout:`
+
+          - `Type type`
 
           - `String sha`
 
             Full commit SHA to check out.
 
             minLength: 7, maxLength: 64
-
-          - `Type type`
 
       - `Optional<String> mountPath`
 
@@ -27473,13 +28020,13 @@ Create Session
 
       Mount a file uploaded via the Files API into the session.
 
+      - `Type type`
+
       - `String fileId`
 
         ID of a previously uploaded file.
 
         minLength: 1, maxLength: 128
-
-      - `Type type`
 
       - `Optional<String> mountPath`
 
@@ -27491,11 +28038,11 @@ Create Session
 
       Parameters for attaching a memory store to an agent session.
 
+      - `Type type`
+
       - `String memoryStoreId`
 
         The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
-
-      - `Type type`
 
       - `Optional<Access> access`
 
@@ -27527,11 +28074,15 @@ Create Session
 
   A Managed Agents `session`.
 
+  - `Type type`
+
   - `String id`
 
   - `BetaManagedAgentsSessionAgent agent`
 
     Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
+
+    - `Type type`
 
     - `String id`
 
@@ -27539,9 +28090,9 @@ Create Session
 
     - `List<BetaManagedAgentsMcpServerUrlDefinition> mcpServers`
 
-      - `String name`
-
       - `Type type`
+
+      - `String name`
 
       - `String url`
 
@@ -27661,6 +28212,8 @@ Create Session
 
       Resolved coordinator topology with full agent definitions for each roster member.
 
+      - `Type type`
+
       - `List<Agent> agents`
 
         Full `agent` definitions the coordinator may spawn as session threads.
@@ -27669,15 +28222,17 @@ Create Session
 
           Resolved `agent` definition for a single `session_thread`. Snapshot of the agent at thread creation time. The multiagent roster is not repeated here; read it from `Session.agent`.
 
+          - `Type type`
+
           - `String id`
 
           - `Optional<String> description`
 
           - `List<BetaManagedAgentsMcpServerUrlDefinition> mcpServers`
 
-            - `String name`
-
             - `Type type`
+
+            - `String name`
 
             - `String url`
 
@@ -27693,9 +28248,9 @@ Create Session
 
               A resolved Anthropic-managed skill.
 
-              - `String skillId`
-
               - `Type type`
+
+              - `String skillId`
 
               - `String version`
 
@@ -27703,9 +28258,9 @@ Create Session
 
               A resolved user-created custom skill.
 
-              - `String skillId`
-
               - `Type type`
+
+              - `String skillId`
 
               - `String version`
 
@@ -27715,11 +28270,15 @@ Create Session
 
             - `class BetaManagedAgentsAgentToolset20260401:`
 
+              - `Type type`
+
               - `List<BetaManagedAgentsAgentToolConfig> configs`
 
                 - `class BetaManagedAgentsBashToolConfig:`
 
                   Configuration for the bash tool.
+
+                  - `JsonValue type = "bash"`
 
                   - `boolean enabled`
 
@@ -27741,11 +28300,17 @@ Create Session
 
                       - `Type type`
 
-                  - `JsonValue type = "bash"`
+                    - `class BetaManagedAgentsAutoPolicy:`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+                      - `JsonValue type = "auto"`
 
                 - `class BetaManagedAgentsEditToolConfig:`
 
                   Configuration for the edit tool.
+
+                  - `JsonValue type = "edit"`
 
                   - `boolean enabled`
 
@@ -27763,11 +28328,15 @@ Create Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `JsonValue type = "edit"`
+                    - `class BetaManagedAgentsAutoPolicy:`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                 - `class BetaManagedAgentsReadToolConfig:`
 
                   Configuration for the read tool.
+
+                  - `JsonValue type = "read"`
 
                   - `boolean enabled`
 
@@ -27785,11 +28354,15 @@ Create Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `JsonValue type = "read"`
+                    - `class BetaManagedAgentsAutoPolicy:`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                 - `class BetaManagedAgentsWriteToolConfig:`
 
                   Configuration for the write tool.
+
+                  - `JsonValue type = "write"`
 
                   - `boolean enabled`
 
@@ -27807,11 +28380,15 @@ Create Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `JsonValue type = "write"`
+                    - `class BetaManagedAgentsAutoPolicy:`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                 - `class BetaManagedAgentsGlobToolConfig:`
 
                   Configuration for the glob tool.
+
+                  - `JsonValue type = "glob"`
 
                   - `boolean enabled`
 
@@ -27829,11 +28406,15 @@ Create Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `JsonValue type = "glob"`
+                    - `class BetaManagedAgentsAutoPolicy:`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                 - `class BetaManagedAgentsGrepToolConfig:`
 
                   Configuration for the grep tool.
+
+                  - `JsonValue type = "grep"`
 
                   - `boolean enabled`
 
@@ -27851,11 +28432,15 @@ Create Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `JsonValue type = "grep"`
+                    - `class BetaManagedAgentsAutoPolicy:`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                 - `class BetaManagedAgentsWebFetchToolConfig:`
 
                   Configuration for the web_fetch tool.
+
+                  - `JsonValue type = "web_fetch"`
 
                   - `boolean enabled`
 
@@ -27873,7 +28458,9 @@ Create Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `JsonValue type = "web_fetch"`
+                    - `class BetaManagedAgentsAutoPolicy:`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                   - `Optional<List<String>> allowedDomains`
 
@@ -27886,6 +28473,8 @@ Create Session
                 - `class BetaManagedAgentsWebSearchToolConfig:`
 
                   Configuration for the web_search tool.
+
+                  - `JsonValue type = "web_search"`
 
                   - `boolean enabled`
 
@@ -27903,7 +28492,9 @@ Create Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `JsonValue type = "web_search"`
+                    - `class BetaManagedAgentsAutoPolicy:`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                   - `Optional<List<String>> allowedDomains`
 
@@ -27957,9 +28548,13 @@ Create Session
 
                     Tool calls require user confirmation before execution.
 
-              - `Type type`
+                  - `class BetaManagedAgentsAutoPolicy:`
+
+                    The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
             - `class BetaManagedAgentsMcpToolset:`
+
+              - `Type type`
 
               - `List<BetaManagedAgentsMcpToolConfig> configs`
 
@@ -27979,6 +28574,10 @@ Create Session
 
                     Tool calls require user confirmation before execution.
 
+                  - `class BetaManagedAgentsAutoPolicy:`
+
+                    The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
               - `BetaManagedAgentsMcpToolsetDefaultConfig defaultConfig`
 
                 Resolved default configuration for all tools from an MCP server.
@@ -27997,13 +28596,17 @@ Create Session
 
                     Tool calls require user confirmation before execution.
 
-              - `String mcpServerName`
+                  - `class BetaManagedAgentsAutoPolicy:`
 
-              - `Type type`
+                    The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+              - `String mcpServerName`
 
             - `class BetaManagedAgentsCustomTool:`
 
               A custom tool as returned in API responses.
+
+              - `Type type`
 
               - `String description`
 
@@ -28019,10 +28622,6 @@ Create Session
 
               - `String name`
 
-              - `Type type`
-
-          - `Type type`
-
           - `long version`
 
             format: int32
@@ -28031,13 +28630,11 @@ Create Session
 
           Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
 
+          - `Type type`
+
           - `String model`
 
             The advisor model id.
-
-          - `Type type`
-
-      - `Type type`
 
     - `String name`
 
@@ -28063,8 +28660,6 @@ Create Session
 
         A custom tool as returned in API responses.
 
-    - `Type type`
-
     - `long version`
 
       format: int32
@@ -28079,6 +28674,8 @@ Create Session
 
     A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
 
+    - `Type type`
+
     - `BetaMonetaryAmount maxListCost`
 
       A monetary amount in a specific currency.
@@ -28090,8 +28687,6 @@ Create Session
       - `BetaCurrency currency`
 
         Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
-
-    - `Type type`
 
   - `LocalDateTime createdAt`
 
@@ -28106,6 +28701,8 @@ Create Session
   - `List<BetaManagedAgentsOutcomeEvaluationResource> outcomeEvaluations`
 
     Per-outcome evaluation state. One entry per `define_outcome` event sent to the session.
+
+    - `Type type`
 
     - `Optional<LocalDateTime> completedAt`
 
@@ -28135,11 +28732,11 @@ Create Session
 
       Current evaluation state. `pending` before the agent begins work; `running` while producing or revising; `evaluating` while the grader scores; `satisfied`/`max_iterations_reached`/`failed`/`interrupted` are terminal.
 
-    - `Type type`
-
   - `List<BetaManagedAgentsSessionResource> resources`
 
     - `class BetaManagedAgentsGitHubRepositoryResource:`
+
+      - `Type type`
 
       - `String id`
 
@@ -28150,8 +28747,6 @@ Create Session
         format: date-time
 
       - `String mountPath`
-
-      - `Type type`
 
       - `LocalDateTime updatedAt`
 
@@ -28165,15 +28760,17 @@ Create Session
 
         - `class BetaManagedAgentsBranchCheckout:`
 
+          - `Type type`
+
           - `String name`
 
             Branch name to check out.
 
             minLength: 1, maxLength: 255
 
-          - `Type type`
-
         - `class BetaManagedAgentsCommitCheckout:`
+
+          - `Type type`
 
           - `String sha`
 
@@ -28181,9 +28778,9 @@ Create Session
 
             minLength: 7, maxLength: 64
 
-          - `Type type`
-
     - `class BetaManagedAgentsFileResource:`
+
+      - `Type type`
 
       - `String id`
 
@@ -28197,8 +28794,6 @@ Create Session
 
       - `String mountPath`
 
-      - `Type type`
-
       - `LocalDateTime updatedAt`
 
         A timestamp in RFC 3339 format
@@ -28209,11 +28804,11 @@ Create Session
 
       A memory store attached to an agent session.
 
+      - `Type type`
+
       - `String memoryStoreId`
 
         The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
-
-      - `Type type`
 
       - `Optional<Access> access`
 
@@ -28270,8 +28865,6 @@ Create Session
     - `TERMINATED("terminated")`
 
   - `Optional<String> title`
-
-  - `Type type`
 
   - `LocalDateTime updatedAt`
 
@@ -28708,6 +29301,8 @@ List Sessions
 
     - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
 
+    - `USER_PROFILES_2026_09_04("user-profiles-2026-09-04")`
+
     - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
@@ -28750,11 +29345,15 @@ List Sessions
 
     - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
+  - `Optional<String> workspaceId`
+
 #### Returns
 
 - `class BetaManagedAgentsSession:`
 
   A Managed Agents `session`.
+
+  - `Type type`
 
   - `String id`
 
@@ -28762,15 +29361,17 @@ List Sessions
 
     Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
 
+    - `Type type`
+
     - `String id`
 
     - `Optional<String> description`
 
     - `List<BetaManagedAgentsMcpServerUrlDefinition> mcpServers`
 
-      - `String name`
-
       - `Type type`
+
+      - `String name`
 
       - `String url`
 
@@ -28890,6 +29491,8 @@ List Sessions
 
       Resolved coordinator topology with full agent definitions for each roster member.
 
+      - `Type type`
+
       - `List<Agent> agents`
 
         Full `agent` definitions the coordinator may spawn as session threads.
@@ -28898,15 +29501,17 @@ List Sessions
 
           Resolved `agent` definition for a single `session_thread`. Snapshot of the agent at thread creation time. The multiagent roster is not repeated here; read it from `Session.agent`.
 
+          - `Type type`
+
           - `String id`
 
           - `Optional<String> description`
 
           - `List<BetaManagedAgentsMcpServerUrlDefinition> mcpServers`
 
-            - `String name`
-
             - `Type type`
+
+            - `String name`
 
             - `String url`
 
@@ -28922,9 +29527,9 @@ List Sessions
 
               A resolved Anthropic-managed skill.
 
-              - `String skillId`
-
               - `Type type`
+
+              - `String skillId`
 
               - `String version`
 
@@ -28932,9 +29537,9 @@ List Sessions
 
               A resolved user-created custom skill.
 
-              - `String skillId`
-
               - `Type type`
+
+              - `String skillId`
 
               - `String version`
 
@@ -28944,11 +29549,15 @@ List Sessions
 
             - `class BetaManagedAgentsAgentToolset20260401:`
 
+              - `Type type`
+
               - `List<BetaManagedAgentsAgentToolConfig> configs`
 
                 - `class BetaManagedAgentsBashToolConfig:`
 
                   Configuration for the bash tool.
+
+                  - `JsonValue type = "bash"`
 
                   - `boolean enabled`
 
@@ -28970,11 +29579,17 @@ List Sessions
 
                       - `Type type`
 
-                  - `JsonValue type = "bash"`
+                    - `class BetaManagedAgentsAutoPolicy:`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+                      - `JsonValue type = "auto"`
 
                 - `class BetaManagedAgentsEditToolConfig:`
 
                   Configuration for the edit tool.
+
+                  - `JsonValue type = "edit"`
 
                   - `boolean enabled`
 
@@ -28992,11 +29607,15 @@ List Sessions
 
                       Tool calls require user confirmation before execution.
 
-                  - `JsonValue type = "edit"`
+                    - `class BetaManagedAgentsAutoPolicy:`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                 - `class BetaManagedAgentsReadToolConfig:`
 
                   Configuration for the read tool.
+
+                  - `JsonValue type = "read"`
 
                   - `boolean enabled`
 
@@ -29014,11 +29633,15 @@ List Sessions
 
                       Tool calls require user confirmation before execution.
 
-                  - `JsonValue type = "read"`
+                    - `class BetaManagedAgentsAutoPolicy:`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                 - `class BetaManagedAgentsWriteToolConfig:`
 
                   Configuration for the write tool.
+
+                  - `JsonValue type = "write"`
 
                   - `boolean enabled`
 
@@ -29036,11 +29659,15 @@ List Sessions
 
                       Tool calls require user confirmation before execution.
 
-                  - `JsonValue type = "write"`
+                    - `class BetaManagedAgentsAutoPolicy:`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                 - `class BetaManagedAgentsGlobToolConfig:`
 
                   Configuration for the glob tool.
+
+                  - `JsonValue type = "glob"`
 
                   - `boolean enabled`
 
@@ -29058,11 +29685,15 @@ List Sessions
 
                       Tool calls require user confirmation before execution.
 
-                  - `JsonValue type = "glob"`
+                    - `class BetaManagedAgentsAutoPolicy:`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                 - `class BetaManagedAgentsGrepToolConfig:`
 
                   Configuration for the grep tool.
+
+                  - `JsonValue type = "grep"`
 
                   - `boolean enabled`
 
@@ -29080,11 +29711,15 @@ List Sessions
 
                       Tool calls require user confirmation before execution.
 
-                  - `JsonValue type = "grep"`
+                    - `class BetaManagedAgentsAutoPolicy:`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                 - `class BetaManagedAgentsWebFetchToolConfig:`
 
                   Configuration for the web_fetch tool.
+
+                  - `JsonValue type = "web_fetch"`
 
                   - `boolean enabled`
 
@@ -29102,7 +29737,9 @@ List Sessions
 
                       Tool calls require user confirmation before execution.
 
-                  - `JsonValue type = "web_fetch"`
+                    - `class BetaManagedAgentsAutoPolicy:`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                   - `Optional<List<String>> allowedDomains`
 
@@ -29115,6 +29752,8 @@ List Sessions
                 - `class BetaManagedAgentsWebSearchToolConfig:`
 
                   Configuration for the web_search tool.
+
+                  - `JsonValue type = "web_search"`
 
                   - `boolean enabled`
 
@@ -29132,7 +29771,9 @@ List Sessions
 
                       Tool calls require user confirmation before execution.
 
-                  - `JsonValue type = "web_search"`
+                    - `class BetaManagedAgentsAutoPolicy:`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                   - `Optional<List<String>> allowedDomains`
 
@@ -29186,9 +29827,13 @@ List Sessions
 
                     Tool calls require user confirmation before execution.
 
-              - `Type type`
+                  - `class BetaManagedAgentsAutoPolicy:`
+
+                    The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
             - `class BetaManagedAgentsMcpToolset:`
+
+              - `Type type`
 
               - `List<BetaManagedAgentsMcpToolConfig> configs`
 
@@ -29208,6 +29853,10 @@ List Sessions
 
                     Tool calls require user confirmation before execution.
 
+                  - `class BetaManagedAgentsAutoPolicy:`
+
+                    The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
               - `BetaManagedAgentsMcpToolsetDefaultConfig defaultConfig`
 
                 Resolved default configuration for all tools from an MCP server.
@@ -29226,13 +29875,17 @@ List Sessions
 
                     Tool calls require user confirmation before execution.
 
-              - `String mcpServerName`
+                  - `class BetaManagedAgentsAutoPolicy:`
 
-              - `Type type`
+                    The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+              - `String mcpServerName`
 
             - `class BetaManagedAgentsCustomTool:`
 
               A custom tool as returned in API responses.
+
+              - `Type type`
 
               - `String description`
 
@@ -29248,10 +29901,6 @@ List Sessions
 
               - `String name`
 
-              - `Type type`
-
-          - `Type type`
-
           - `long version`
 
             format: int32
@@ -29260,13 +29909,11 @@ List Sessions
 
           Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
 
+          - `Type type`
+
           - `String model`
 
             The advisor model id.
-
-          - `Type type`
-
-      - `Type type`
 
     - `String name`
 
@@ -29292,8 +29939,6 @@ List Sessions
 
         A custom tool as returned in API responses.
 
-    - `Type type`
-
     - `long version`
 
       format: int32
@@ -29308,6 +29953,8 @@ List Sessions
 
     A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
 
+    - `Type type`
+
     - `BetaMonetaryAmount maxListCost`
 
       A monetary amount in a specific currency.
@@ -29319,8 +29966,6 @@ List Sessions
       - `BetaCurrency currency`
 
         Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
-
-    - `Type type`
 
   - `LocalDateTime createdAt`
 
@@ -29335,6 +29980,8 @@ List Sessions
   - `List<BetaManagedAgentsOutcomeEvaluationResource> outcomeEvaluations`
 
     Per-outcome evaluation state. One entry per `define_outcome` event sent to the session.
+
+    - `Type type`
 
     - `Optional<LocalDateTime> completedAt`
 
@@ -29364,11 +30011,11 @@ List Sessions
 
       Current evaluation state. `pending` before the agent begins work; `running` while producing or revising; `evaluating` while the grader scores; `satisfied`/`max_iterations_reached`/`failed`/`interrupted` are terminal.
 
-    - `Type type`
-
   - `List<BetaManagedAgentsSessionResource> resources`
 
     - `class BetaManagedAgentsGitHubRepositoryResource:`
+
+      - `Type type`
 
       - `String id`
 
@@ -29379,8 +30026,6 @@ List Sessions
         format: date-time
 
       - `String mountPath`
-
-      - `Type type`
 
       - `LocalDateTime updatedAt`
 
@@ -29394,15 +30039,17 @@ List Sessions
 
         - `class BetaManagedAgentsBranchCheckout:`
 
+          - `Type type`
+
           - `String name`
 
             Branch name to check out.
 
             minLength: 1, maxLength: 255
 
-          - `Type type`
-
         - `class BetaManagedAgentsCommitCheckout:`
+
+          - `Type type`
 
           - `String sha`
 
@@ -29410,9 +30057,9 @@ List Sessions
 
             minLength: 7, maxLength: 64
 
-          - `Type type`
-
     - `class BetaManagedAgentsFileResource:`
+
+      - `Type type`
 
       - `String id`
 
@@ -29426,8 +30073,6 @@ List Sessions
 
       - `String mountPath`
 
-      - `Type type`
-
       - `LocalDateTime updatedAt`
 
         A timestamp in RFC 3339 format
@@ -29438,11 +30083,11 @@ List Sessions
 
       A memory store attached to an agent session.
 
+      - `Type type`
+
       - `String memoryStoreId`
 
         The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
-
-      - `Type type`
 
       - `Optional<Access> access`
 
@@ -29499,8 +30144,6 @@ List Sessions
     - `TERMINATED("terminated")`
 
   - `Optional<String> title`
-
-  - `Type type`
 
   - `LocalDateTime updatedAt`
 
@@ -29865,6 +30508,8 @@ Get Session
 
     - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
 
+    - `USER_PROFILES_2026_09_04("user-profiles-2026-09-04")`
+
     - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
@@ -29907,11 +30552,15 @@ Get Session
 
     - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
+  - `Optional<String> workspaceId`
+
 #### Returns
 
 - `class BetaManagedAgentsSession:`
 
   A Managed Agents `session`.
+
+  - `Type type`
 
   - `String id`
 
@@ -29919,15 +30568,17 @@ Get Session
 
     Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
 
+    - `Type type`
+
     - `String id`
 
     - `Optional<String> description`
 
     - `List<BetaManagedAgentsMcpServerUrlDefinition> mcpServers`
 
-      - `String name`
-
       - `Type type`
+
+      - `String name`
 
       - `String url`
 
@@ -30047,6 +30698,8 @@ Get Session
 
       Resolved coordinator topology with full agent definitions for each roster member.
 
+      - `Type type`
+
       - `List<Agent> agents`
 
         Full `agent` definitions the coordinator may spawn as session threads.
@@ -30055,15 +30708,17 @@ Get Session
 
           Resolved `agent` definition for a single `session_thread`. Snapshot of the agent at thread creation time. The multiagent roster is not repeated here; read it from `Session.agent`.
 
+          - `Type type`
+
           - `String id`
 
           - `Optional<String> description`
 
           - `List<BetaManagedAgentsMcpServerUrlDefinition> mcpServers`
 
-            - `String name`
-
             - `Type type`
+
+            - `String name`
 
             - `String url`
 
@@ -30079,9 +30734,9 @@ Get Session
 
               A resolved Anthropic-managed skill.
 
-              - `String skillId`
-
               - `Type type`
+
+              - `String skillId`
 
               - `String version`
 
@@ -30089,9 +30744,9 @@ Get Session
 
               A resolved user-created custom skill.
 
-              - `String skillId`
-
               - `Type type`
+
+              - `String skillId`
 
               - `String version`
 
@@ -30101,11 +30756,15 @@ Get Session
 
             - `class BetaManagedAgentsAgentToolset20260401:`
 
+              - `Type type`
+
               - `List<BetaManagedAgentsAgentToolConfig> configs`
 
                 - `class BetaManagedAgentsBashToolConfig:`
 
                   Configuration for the bash tool.
+
+                  - `JsonValue type = "bash"`
 
                   - `boolean enabled`
 
@@ -30127,11 +30786,17 @@ Get Session
 
                       - `Type type`
 
-                  - `JsonValue type = "bash"`
+                    - `class BetaManagedAgentsAutoPolicy:`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+                      - `JsonValue type = "auto"`
 
                 - `class BetaManagedAgentsEditToolConfig:`
 
                   Configuration for the edit tool.
+
+                  - `JsonValue type = "edit"`
 
                   - `boolean enabled`
 
@@ -30149,11 +30814,15 @@ Get Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `JsonValue type = "edit"`
+                    - `class BetaManagedAgentsAutoPolicy:`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                 - `class BetaManagedAgentsReadToolConfig:`
 
                   Configuration for the read tool.
+
+                  - `JsonValue type = "read"`
 
                   - `boolean enabled`
 
@@ -30171,11 +30840,15 @@ Get Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `JsonValue type = "read"`
+                    - `class BetaManagedAgentsAutoPolicy:`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                 - `class BetaManagedAgentsWriteToolConfig:`
 
                   Configuration for the write tool.
+
+                  - `JsonValue type = "write"`
 
                   - `boolean enabled`
 
@@ -30193,11 +30866,15 @@ Get Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `JsonValue type = "write"`
+                    - `class BetaManagedAgentsAutoPolicy:`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                 - `class BetaManagedAgentsGlobToolConfig:`
 
                   Configuration for the glob tool.
+
+                  - `JsonValue type = "glob"`
 
                   - `boolean enabled`
 
@@ -30215,11 +30892,15 @@ Get Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `JsonValue type = "glob"`
+                    - `class BetaManagedAgentsAutoPolicy:`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                 - `class BetaManagedAgentsGrepToolConfig:`
 
                   Configuration for the grep tool.
+
+                  - `JsonValue type = "grep"`
 
                   - `boolean enabled`
 
@@ -30237,11 +30918,15 @@ Get Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `JsonValue type = "grep"`
+                    - `class BetaManagedAgentsAutoPolicy:`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                 - `class BetaManagedAgentsWebFetchToolConfig:`
 
                   Configuration for the web_fetch tool.
+
+                  - `JsonValue type = "web_fetch"`
 
                   - `boolean enabled`
 
@@ -30259,7 +30944,9 @@ Get Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `JsonValue type = "web_fetch"`
+                    - `class BetaManagedAgentsAutoPolicy:`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                   - `Optional<List<String>> allowedDomains`
 
@@ -30272,6 +30959,8 @@ Get Session
                 - `class BetaManagedAgentsWebSearchToolConfig:`
 
                   Configuration for the web_search tool.
+
+                  - `JsonValue type = "web_search"`
 
                   - `boolean enabled`
 
@@ -30289,7 +30978,9 @@ Get Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `JsonValue type = "web_search"`
+                    - `class BetaManagedAgentsAutoPolicy:`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                   - `Optional<List<String>> allowedDomains`
 
@@ -30343,9 +31034,13 @@ Get Session
 
                     Tool calls require user confirmation before execution.
 
-              - `Type type`
+                  - `class BetaManagedAgentsAutoPolicy:`
+
+                    The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
             - `class BetaManagedAgentsMcpToolset:`
+
+              - `Type type`
 
               - `List<BetaManagedAgentsMcpToolConfig> configs`
 
@@ -30365,6 +31060,10 @@ Get Session
 
                     Tool calls require user confirmation before execution.
 
+                  - `class BetaManagedAgentsAutoPolicy:`
+
+                    The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
               - `BetaManagedAgentsMcpToolsetDefaultConfig defaultConfig`
 
                 Resolved default configuration for all tools from an MCP server.
@@ -30383,13 +31082,17 @@ Get Session
 
                     Tool calls require user confirmation before execution.
 
-              - `String mcpServerName`
+                  - `class BetaManagedAgentsAutoPolicy:`
 
-              - `Type type`
+                    The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+              - `String mcpServerName`
 
             - `class BetaManagedAgentsCustomTool:`
 
               A custom tool as returned in API responses.
+
+              - `Type type`
 
               - `String description`
 
@@ -30405,10 +31108,6 @@ Get Session
 
               - `String name`
 
-              - `Type type`
-
-          - `Type type`
-
           - `long version`
 
             format: int32
@@ -30417,13 +31116,11 @@ Get Session
 
           Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
 
+          - `Type type`
+
           - `String model`
 
             The advisor model id.
-
-          - `Type type`
-
-      - `Type type`
 
     - `String name`
 
@@ -30449,8 +31146,6 @@ Get Session
 
         A custom tool as returned in API responses.
 
-    - `Type type`
-
     - `long version`
 
       format: int32
@@ -30465,6 +31160,8 @@ Get Session
 
     A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
 
+    - `Type type`
+
     - `BetaMonetaryAmount maxListCost`
 
       A monetary amount in a specific currency.
@@ -30476,8 +31173,6 @@ Get Session
       - `BetaCurrency currency`
 
         Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
-
-    - `Type type`
 
   - `LocalDateTime createdAt`
 
@@ -30492,6 +31187,8 @@ Get Session
   - `List<BetaManagedAgentsOutcomeEvaluationResource> outcomeEvaluations`
 
     Per-outcome evaluation state. One entry per `define_outcome` event sent to the session.
+
+    - `Type type`
 
     - `Optional<LocalDateTime> completedAt`
 
@@ -30521,11 +31218,11 @@ Get Session
 
       Current evaluation state. `pending` before the agent begins work; `running` while producing or revising; `evaluating` while the grader scores; `satisfied`/`max_iterations_reached`/`failed`/`interrupted` are terminal.
 
-    - `Type type`
-
   - `List<BetaManagedAgentsSessionResource> resources`
 
     - `class BetaManagedAgentsGitHubRepositoryResource:`
+
+      - `Type type`
 
       - `String id`
 
@@ -30536,8 +31233,6 @@ Get Session
         format: date-time
 
       - `String mountPath`
-
-      - `Type type`
 
       - `LocalDateTime updatedAt`
 
@@ -30551,15 +31246,17 @@ Get Session
 
         - `class BetaManagedAgentsBranchCheckout:`
 
+          - `Type type`
+
           - `String name`
 
             Branch name to check out.
 
             minLength: 1, maxLength: 255
 
-          - `Type type`
-
         - `class BetaManagedAgentsCommitCheckout:`
+
+          - `Type type`
 
           - `String sha`
 
@@ -30567,9 +31264,9 @@ Get Session
 
             minLength: 7, maxLength: 64
 
-          - `Type type`
-
     - `class BetaManagedAgentsFileResource:`
+
+      - `Type type`
 
       - `String id`
 
@@ -30583,8 +31280,6 @@ Get Session
 
       - `String mountPath`
 
-      - `Type type`
-
       - `LocalDateTime updatedAt`
 
         A timestamp in RFC 3339 format
@@ -30595,11 +31290,11 @@ Get Session
 
       A memory store attached to an agent session.
 
+      - `Type type`
+
       - `String memoryStoreId`
 
         The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
-
-      - `Type type`
 
       - `Optional<Access> access`
 
@@ -30656,8 +31351,6 @@ Get Session
     - `TERMINATED("terminated")`
 
   - `Optional<String> title`
-
-  - `Type type`
 
   - `LocalDateTime updatedAt`
 
@@ -31016,6 +31709,8 @@ Update Session
 
     - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
 
+    - `USER_PROFILES_2026_09_04("user-profiles-2026-09-04")`
+
     - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
@@ -31058,6 +31753,8 @@ Update Session
 
     - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
+  - `Optional<String> workspaceId`
+
   - `Optional<BetaManagedAgentsSessionAgentUpdate> agent`
 
     Mid-session agent configuration update. Only `tools` and `mcp_servers` are updatable. Full replacement: the provided array becomes the new value. To preserve existing entries, GET the session, modify the array, and POST it back.
@@ -31086,11 +31783,15 @@ Update Session
 
   A Managed Agents `session`.
 
+  - `Type type`
+
   - `String id`
 
   - `BetaManagedAgentsSessionAgent agent`
 
     Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
+
+    - `Type type`
 
     - `String id`
 
@@ -31098,9 +31799,9 @@ Update Session
 
     - `List<BetaManagedAgentsMcpServerUrlDefinition> mcpServers`
 
-      - `String name`
-
       - `Type type`
+
+      - `String name`
 
       - `String url`
 
@@ -31220,6 +31921,8 @@ Update Session
 
       Resolved coordinator topology with full agent definitions for each roster member.
 
+      - `Type type`
+
       - `List<Agent> agents`
 
         Full `agent` definitions the coordinator may spawn as session threads.
@@ -31228,15 +31931,17 @@ Update Session
 
           Resolved `agent` definition for a single `session_thread`. Snapshot of the agent at thread creation time. The multiagent roster is not repeated here; read it from `Session.agent`.
 
+          - `Type type`
+
           - `String id`
 
           - `Optional<String> description`
 
           - `List<BetaManagedAgentsMcpServerUrlDefinition> mcpServers`
 
-            - `String name`
-
             - `Type type`
+
+            - `String name`
 
             - `String url`
 
@@ -31252,9 +31957,9 @@ Update Session
 
               A resolved Anthropic-managed skill.
 
-              - `String skillId`
-
               - `Type type`
+
+              - `String skillId`
 
               - `String version`
 
@@ -31262,9 +31967,9 @@ Update Session
 
               A resolved user-created custom skill.
 
-              - `String skillId`
-
               - `Type type`
+
+              - `String skillId`
 
               - `String version`
 
@@ -31274,11 +31979,15 @@ Update Session
 
             - `class BetaManagedAgentsAgentToolset20260401:`
 
+              - `Type type`
+
               - `List<BetaManagedAgentsAgentToolConfig> configs`
 
                 - `class BetaManagedAgentsBashToolConfig:`
 
                   Configuration for the bash tool.
+
+                  - `JsonValue type = "bash"`
 
                   - `boolean enabled`
 
@@ -31300,11 +32009,17 @@ Update Session
 
                       - `Type type`
 
-                  - `JsonValue type = "bash"`
+                    - `class BetaManagedAgentsAutoPolicy:`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+                      - `JsonValue type = "auto"`
 
                 - `class BetaManagedAgentsEditToolConfig:`
 
                   Configuration for the edit tool.
+
+                  - `JsonValue type = "edit"`
 
                   - `boolean enabled`
 
@@ -31322,11 +32037,15 @@ Update Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `JsonValue type = "edit"`
+                    - `class BetaManagedAgentsAutoPolicy:`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                 - `class BetaManagedAgentsReadToolConfig:`
 
                   Configuration for the read tool.
+
+                  - `JsonValue type = "read"`
 
                   - `boolean enabled`
 
@@ -31344,11 +32063,15 @@ Update Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `JsonValue type = "read"`
+                    - `class BetaManagedAgentsAutoPolicy:`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                 - `class BetaManagedAgentsWriteToolConfig:`
 
                   Configuration for the write tool.
+
+                  - `JsonValue type = "write"`
 
                   - `boolean enabled`
 
@@ -31366,11 +32089,15 @@ Update Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `JsonValue type = "write"`
+                    - `class BetaManagedAgentsAutoPolicy:`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                 - `class BetaManagedAgentsGlobToolConfig:`
 
                   Configuration for the glob tool.
+
+                  - `JsonValue type = "glob"`
 
                   - `boolean enabled`
 
@@ -31388,11 +32115,15 @@ Update Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `JsonValue type = "glob"`
+                    - `class BetaManagedAgentsAutoPolicy:`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                 - `class BetaManagedAgentsGrepToolConfig:`
 
                   Configuration for the grep tool.
+
+                  - `JsonValue type = "grep"`
 
                   - `boolean enabled`
 
@@ -31410,11 +32141,15 @@ Update Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `JsonValue type = "grep"`
+                    - `class BetaManagedAgentsAutoPolicy:`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                 - `class BetaManagedAgentsWebFetchToolConfig:`
 
                   Configuration for the web_fetch tool.
+
+                  - `JsonValue type = "web_fetch"`
 
                   - `boolean enabled`
 
@@ -31432,7 +32167,9 @@ Update Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `JsonValue type = "web_fetch"`
+                    - `class BetaManagedAgentsAutoPolicy:`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                   - `Optional<List<String>> allowedDomains`
 
@@ -31445,6 +32182,8 @@ Update Session
                 - `class BetaManagedAgentsWebSearchToolConfig:`
 
                   Configuration for the web_search tool.
+
+                  - `JsonValue type = "web_search"`
 
                   - `boolean enabled`
 
@@ -31462,7 +32201,9 @@ Update Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `JsonValue type = "web_search"`
+                    - `class BetaManagedAgentsAutoPolicy:`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                   - `Optional<List<String>> allowedDomains`
 
@@ -31516,9 +32257,13 @@ Update Session
 
                     Tool calls require user confirmation before execution.
 
-              - `Type type`
+                  - `class BetaManagedAgentsAutoPolicy:`
+
+                    The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
             - `class BetaManagedAgentsMcpToolset:`
+
+              - `Type type`
 
               - `List<BetaManagedAgentsMcpToolConfig> configs`
 
@@ -31538,6 +32283,10 @@ Update Session
 
                     Tool calls require user confirmation before execution.
 
+                  - `class BetaManagedAgentsAutoPolicy:`
+
+                    The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
               - `BetaManagedAgentsMcpToolsetDefaultConfig defaultConfig`
 
                 Resolved default configuration for all tools from an MCP server.
@@ -31556,13 +32305,17 @@ Update Session
 
                     Tool calls require user confirmation before execution.
 
-              - `String mcpServerName`
+                  - `class BetaManagedAgentsAutoPolicy:`
 
-              - `Type type`
+                    The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+              - `String mcpServerName`
 
             - `class BetaManagedAgentsCustomTool:`
 
               A custom tool as returned in API responses.
+
+              - `Type type`
 
               - `String description`
 
@@ -31578,10 +32331,6 @@ Update Session
 
               - `String name`
 
-              - `Type type`
-
-          - `Type type`
-
           - `long version`
 
             format: int32
@@ -31590,13 +32339,11 @@ Update Session
 
           Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
 
+          - `Type type`
+
           - `String model`
 
             The advisor model id.
-
-          - `Type type`
-
-      - `Type type`
 
     - `String name`
 
@@ -31622,8 +32369,6 @@ Update Session
 
         A custom tool as returned in API responses.
 
-    - `Type type`
-
     - `long version`
 
       format: int32
@@ -31638,6 +32383,8 @@ Update Session
 
     A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
 
+    - `Type type`
+
     - `BetaMonetaryAmount maxListCost`
 
       A monetary amount in a specific currency.
@@ -31649,8 +32396,6 @@ Update Session
       - `BetaCurrency currency`
 
         Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
-
-    - `Type type`
 
   - `LocalDateTime createdAt`
 
@@ -31665,6 +32410,8 @@ Update Session
   - `List<BetaManagedAgentsOutcomeEvaluationResource> outcomeEvaluations`
 
     Per-outcome evaluation state. One entry per `define_outcome` event sent to the session.
+
+    - `Type type`
 
     - `Optional<LocalDateTime> completedAt`
 
@@ -31694,11 +32441,11 @@ Update Session
 
       Current evaluation state. `pending` before the agent begins work; `running` while producing or revising; `evaluating` while the grader scores; `satisfied`/`max_iterations_reached`/`failed`/`interrupted` are terminal.
 
-    - `Type type`
-
   - `List<BetaManagedAgentsSessionResource> resources`
 
     - `class BetaManagedAgentsGitHubRepositoryResource:`
+
+      - `Type type`
 
       - `String id`
 
@@ -31709,8 +32456,6 @@ Update Session
         format: date-time
 
       - `String mountPath`
-
-      - `Type type`
 
       - `LocalDateTime updatedAt`
 
@@ -31724,15 +32469,17 @@ Update Session
 
         - `class BetaManagedAgentsBranchCheckout:`
 
+          - `Type type`
+
           - `String name`
 
             Branch name to check out.
 
             minLength: 1, maxLength: 255
 
-          - `Type type`
-
         - `class BetaManagedAgentsCommitCheckout:`
+
+          - `Type type`
 
           - `String sha`
 
@@ -31740,9 +32487,9 @@ Update Session
 
             minLength: 7, maxLength: 64
 
-          - `Type type`
-
     - `class BetaManagedAgentsFileResource:`
+
+      - `Type type`
 
       - `String id`
 
@@ -31756,8 +32503,6 @@ Update Session
 
       - `String mountPath`
 
-      - `Type type`
-
       - `LocalDateTime updatedAt`
 
         A timestamp in RFC 3339 format
@@ -31768,11 +32513,11 @@ Update Session
 
       A memory store attached to an agent session.
 
+      - `Type type`
+
       - `String memoryStoreId`
 
         The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
-
-      - `Type type`
 
       - `Optional<Access> access`
 
@@ -31829,8 +32574,6 @@ Update Session
     - `TERMINATED("terminated")`
 
   - `Optional<String> title`
-
-  - `Type type`
 
   - `LocalDateTime updatedAt`
 
@@ -32189,6 +32932,8 @@ Delete Session
 
     - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
 
+    - `USER_PROFILES_2026_09_04("user-profiles-2026-09-04")`
+
     - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
@@ -32231,15 +32976,17 @@ Delete Session
 
     - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
+  - `Optional<String> workspaceId`
+
 #### Returns
 
 - `class BetaManagedAgentsDeletedSession:`
 
   Confirmation that a `session` has been permanently deleted.
 
-  - `String id`
-
   - `Type type`
+
+  - `String id`
 
 #### Example
 
@@ -32335,6 +33082,8 @@ Archive Session
 
     - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
 
+    - `USER_PROFILES_2026_09_04("user-profiles-2026-09-04")`
+
     - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
@@ -32377,11 +33126,15 @@ Archive Session
 
     - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
+  - `Optional<String> workspaceId`
+
 #### Returns
 
 - `class BetaManagedAgentsSession:`
 
   A Managed Agents `session`.
+
+  - `Type type`
 
   - `String id`
 
@@ -32389,15 +33142,17 @@ Archive Session
 
     Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
 
+    - `Type type`
+
     - `String id`
 
     - `Optional<String> description`
 
     - `List<BetaManagedAgentsMcpServerUrlDefinition> mcpServers`
 
-      - `String name`
-
       - `Type type`
+
+      - `String name`
 
       - `String url`
 
@@ -32517,6 +33272,8 @@ Archive Session
 
       Resolved coordinator topology with full agent definitions for each roster member.
 
+      - `Type type`
+
       - `List<Agent> agents`
 
         Full `agent` definitions the coordinator may spawn as session threads.
@@ -32525,15 +33282,17 @@ Archive Session
 
           Resolved `agent` definition for a single `session_thread`. Snapshot of the agent at thread creation time. The multiagent roster is not repeated here; read it from `Session.agent`.
 
+          - `Type type`
+
           - `String id`
 
           - `Optional<String> description`
 
           - `List<BetaManagedAgentsMcpServerUrlDefinition> mcpServers`
 
-            - `String name`
-
             - `Type type`
+
+            - `String name`
 
             - `String url`
 
@@ -32549,9 +33308,9 @@ Archive Session
 
               A resolved Anthropic-managed skill.
 
-              - `String skillId`
-
               - `Type type`
+
+              - `String skillId`
 
               - `String version`
 
@@ -32559,9 +33318,9 @@ Archive Session
 
               A resolved user-created custom skill.
 
-              - `String skillId`
-
               - `Type type`
+
+              - `String skillId`
 
               - `String version`
 
@@ -32571,11 +33330,15 @@ Archive Session
 
             - `class BetaManagedAgentsAgentToolset20260401:`
 
+              - `Type type`
+
               - `List<BetaManagedAgentsAgentToolConfig> configs`
 
                 - `class BetaManagedAgentsBashToolConfig:`
 
                   Configuration for the bash tool.
+
+                  - `JsonValue type = "bash"`
 
                   - `boolean enabled`
 
@@ -32597,11 +33360,17 @@ Archive Session
 
                       - `Type type`
 
-                  - `JsonValue type = "bash"`
+                    - `class BetaManagedAgentsAutoPolicy:`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+                      - `JsonValue type = "auto"`
 
                 - `class BetaManagedAgentsEditToolConfig:`
 
                   Configuration for the edit tool.
+
+                  - `JsonValue type = "edit"`
 
                   - `boolean enabled`
 
@@ -32619,11 +33388,15 @@ Archive Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `JsonValue type = "edit"`
+                    - `class BetaManagedAgentsAutoPolicy:`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                 - `class BetaManagedAgentsReadToolConfig:`
 
                   Configuration for the read tool.
+
+                  - `JsonValue type = "read"`
 
                   - `boolean enabled`
 
@@ -32641,11 +33414,15 @@ Archive Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `JsonValue type = "read"`
+                    - `class BetaManagedAgentsAutoPolicy:`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                 - `class BetaManagedAgentsWriteToolConfig:`
 
                   Configuration for the write tool.
+
+                  - `JsonValue type = "write"`
 
                   - `boolean enabled`
 
@@ -32663,11 +33440,15 @@ Archive Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `JsonValue type = "write"`
+                    - `class BetaManagedAgentsAutoPolicy:`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                 - `class BetaManagedAgentsGlobToolConfig:`
 
                   Configuration for the glob tool.
+
+                  - `JsonValue type = "glob"`
 
                   - `boolean enabled`
 
@@ -32685,11 +33466,15 @@ Archive Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `JsonValue type = "glob"`
+                    - `class BetaManagedAgentsAutoPolicy:`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                 - `class BetaManagedAgentsGrepToolConfig:`
 
                   Configuration for the grep tool.
+
+                  - `JsonValue type = "grep"`
 
                   - `boolean enabled`
 
@@ -32707,11 +33492,15 @@ Archive Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `JsonValue type = "grep"`
+                    - `class BetaManagedAgentsAutoPolicy:`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                 - `class BetaManagedAgentsWebFetchToolConfig:`
 
                   Configuration for the web_fetch tool.
+
+                  - `JsonValue type = "web_fetch"`
 
                   - `boolean enabled`
 
@@ -32729,7 +33518,9 @@ Archive Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `JsonValue type = "web_fetch"`
+                    - `class BetaManagedAgentsAutoPolicy:`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                   - `Optional<List<String>> allowedDomains`
 
@@ -32742,6 +33533,8 @@ Archive Session
                 - `class BetaManagedAgentsWebSearchToolConfig:`
 
                   Configuration for the web_search tool.
+
+                  - `JsonValue type = "web_search"`
 
                   - `boolean enabled`
 
@@ -32759,2349 +33552,8 @@ Archive Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `JsonValue type = "web_search"`
+                    - `class BetaManagedAgentsAutoPolicy:`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                   - `Optional<List<String>> allowedDomains`
-
-                  - `Optional<List<String>> blockedDomains`
-
-                  - `Optional<BetaManagedAgentsUserLocation> userLocation`
-
-                    Approximate user location for search result localization.
-
-                    - `JsonValue type = "approximate"`
-
-                      Location precision. Only "approximate" is supported.
-
-                    - `Optional<String> city`
-
-                      City name.
-
-                      minLength: 1, maxLength: 255
-
-                    - `Optional<String> country`
-
-                      Two-letter ISO 3166-1 country code, uppercase.
-
-                    - `Optional<String> region`
-
-                      Region or state name.
-
-                      minLength: 1, maxLength: 255
-
-                    - `Optional<String> timezone`
-
-                      IANA timezone identifier, e.g. "America/Los_Angeles".
-
-                      minLength: 1, maxLength: 255
-
-              - `BetaManagedAgentsAgentToolsetDefaultConfig defaultConfig`
-
-                Resolved default configuration for agent tools.
-
-                - `boolean enabled`
-
-                - `PermissionPolicy permissionPolicy`
-
-                  Permission policy for tool execution.
-
-                  - `class BetaManagedAgentsAlwaysAllowPolicy:`
-
-                    Tool calls are automatically approved without user confirmation.
-
-                  - `class BetaManagedAgentsAlwaysAskPolicy:`
-
-                    Tool calls require user confirmation before execution.
-
-              - `Type type`
-
-            - `class BetaManagedAgentsMcpToolset:`
-
-              - `List<BetaManagedAgentsMcpToolConfig> configs`
-
-                - `boolean enabled`
-
-                - `String name`
-
-                - `PermissionPolicy permissionPolicy`
-
-                  Permission policy for tool execution.
-
-                  - `class BetaManagedAgentsAlwaysAllowPolicy:`
-
-                    Tool calls are automatically approved without user confirmation.
-
-                  - `class BetaManagedAgentsAlwaysAskPolicy:`
-
-                    Tool calls require user confirmation before execution.
-
-              - `BetaManagedAgentsMcpToolsetDefaultConfig defaultConfig`
-
-                Resolved default configuration for all tools from an MCP server.
-
-                - `boolean enabled`
-
-                - `PermissionPolicy permissionPolicy`
-
-                  Permission policy for tool execution.
-
-                  - `class BetaManagedAgentsAlwaysAllowPolicy:`
-
-                    Tool calls are automatically approved without user confirmation.
-
-                  - `class BetaManagedAgentsAlwaysAskPolicy:`
-
-                    Tool calls require user confirmation before execution.
-
-              - `String mcpServerName`
-
-              - `Type type`
-
-            - `class BetaManagedAgentsCustomTool:`
-
-              A custom tool as returned in API responses.
-
-              - `String description`
-
-              - `BetaManagedAgentsCustomToolInputSchema inputSchema`
-
-                JSON Schema for custom tool input parameters.
-
-                - `JsonValue type = "object"`
-
-                - `Optional<Properties> properties`
-
-                - `Optional<List<String>> required`
-
-              - `String name`
-
-              - `Type type`
-
-          - `Type type`
-
-          - `long version`
-
-            format: int32
-
-        - `class BetaManagedAgentsAdvisor:`
-
-          Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
-
-          - `String model`
-
-            The advisor model id.
-
-          - `Type type`
-
-      - `Type type`
-
-    - `String name`
-
-    - `List<Skill> skills`
-
-      - `class BetaManagedAgentsAnthropicSkill:`
-
-        A resolved Anthropic-managed skill.
-
-      - `class BetaManagedAgentsCustomSkill:`
-
-        A resolved user-created custom skill.
-
-    - `Optional<String> system`
-
-    - `List<Tool> tools`
-
-      - `class BetaManagedAgentsAgentToolset20260401:`
-
-      - `class BetaManagedAgentsMcpToolset:`
-
-      - `class BetaManagedAgentsCustomTool:`
-
-        A custom tool as returned in API responses.
-
-    - `Type type`
-
-    - `long version`
-
-      format: int32
-
-  - `Optional<LocalDateTime> archivedAt`
-
-    A timestamp in RFC 3339 format
-
-    format: date-time
-
-  - `Optional<BetaManagedAgentsBudgetLimit> budget`
-
-    A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
-
-    - `BetaMonetaryAmount maxListCost`
-
-      A monetary amount in a specific currency.
-
-      - `String amount`
-
-        Amount in minor units of the currency, as an integer decimal string with no leading zeros: "2500" is $25.00 and "50" is fifty cents. A string rather than a number so no float rounding is ever applied.
-
-      - `BetaCurrency currency`
-
-        Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
-
-    - `Type type`
-
-  - `LocalDateTime createdAt`
-
-    A timestamp in RFC 3339 format
-
-    format: date-time
-
-  - `String environmentId`
-
-  - `Metadata metadata`
-
-  - `List<BetaManagedAgentsOutcomeEvaluationResource> outcomeEvaluations`
-
-    Per-outcome evaluation state. One entry per `define_outcome` event sent to the session.
-
-    - `Optional<LocalDateTime> completedAt`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `String description`
-
-      What the agent should produce.
-
-    - `Optional<String> explanation`
-
-      Grader's verdict text from the most recent evaluation. For `satisfied`, explains why criteria are met; for `needs_revision` (intermediate), what's missing; for `failed`, why unrecoverable.
-
-    - `long iteration`
-
-      0-indexed revision cycle the outcome is currently on.
-
-      format: int32
-
-    - `String outcomeId`
-
-      Server-generated outc_ ID for this outcome.
-
-    - `String result`
-
-      Current evaluation state. `pending` before the agent begins work; `running` while producing or revising; `evaluating` while the grader scores; `satisfied`/`max_iterations_reached`/`failed`/`interrupted` are terminal.
-
-    - `Type type`
-
-  - `List<BetaManagedAgentsSessionResource> resources`
-
-    - `class BetaManagedAgentsGitHubRepositoryResource:`
-
-      - `String id`
-
-      - `LocalDateTime createdAt`
-
-        A timestamp in RFC 3339 format
-
-        format: date-time
-
-      - `String mountPath`
-
-      - `Type type`
-
-      - `LocalDateTime updatedAt`
-
-        A timestamp in RFC 3339 format
-
-        format: date-time
-
-      - `String url`
-
-      - `Optional<Checkout> checkout`
-
-        - `class BetaManagedAgentsBranchCheckout:`
-
-          - `String name`
-
-            Branch name to check out.
-
-            minLength: 1, maxLength: 255
-
-          - `Type type`
-
-        - `class BetaManagedAgentsCommitCheckout:`
-
-          - `String sha`
-
-            Full commit SHA to check out.
-
-            minLength: 7, maxLength: 64
-
-          - `Type type`
-
-    - `class BetaManagedAgentsFileResource:`
-
-      - `String id`
-
-      - `LocalDateTime createdAt`
-
-        A timestamp in RFC 3339 format
-
-        format: date-time
-
-      - `String fileId`
-
-      - `String mountPath`
-
-      - `Type type`
-
-      - `LocalDateTime updatedAt`
-
-        A timestamp in RFC 3339 format
-
-        format: date-time
-
-    - `class BetaManagedAgentsMemoryStoreResource:`
-
-      A memory store attached to an agent session.
-
-      - `String memoryStoreId`
-
-        The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
-
-      - `Type type`
-
-      - `Optional<Access> access`
-
-        Access mode for an attached memory store.
-
-        - `READ_WRITE("read_write")`
-
-        - `READ_ONLY("read_only")`
-
-      - `Optional<String> description`
-
-        Description of the memory store, snapshotted at attach time. Rendered into the agent's system prompt. Empty string when the store has no description.
-
-      - `Optional<String> instructions`
-
-        Per-attachment guidance for the agent on how to use this store. Rendered into the memory section of the system prompt. Max 4096 chars.
-
-        maxLength: 4096
-
-      - `Optional<String> mountPath`
-
-        Filesystem path where the store is mounted in the session container, e.g. /mnt/memory/user-preferences. Derived from the store's name. Output-only.
-
-      - `Optional<String> name`
-
-        Display name of the memory store, snapshotted at attach time. Later edits to the store's name do not propagate to this resource.
-
-  - `BetaManagedAgentsSessionStats stats`
-
-    Timing statistics for a session.
-
-    - `Optional<Double> activeSeconds`
-
-      Cumulative time in seconds the session spent in `running` status. Excludes idle time.
-
-      format: double
-
-    - `Optional<Double> durationSeconds`
-
-      Elapsed time since session creation in seconds. For terminated sessions, frozen at the final update.
-
-      format: double
-
-  - `Status status`
-
-    SessionStatus enum
-
-    - `RESCHEDULING("rescheduling")`
-
-    - `RUNNING("running")`
-
-    - `IDLE("idle")`
-
-    - `TERMINATED("terminated")`
-
-  - `Optional<String> title`
-
-  - `Type type`
-
-  - `LocalDateTime updatedAt`
-
-    A timestamp in RFC 3339 format
-
-    format: date-time
-
-  - `BetaManagedAgentsSessionUsage usage`
-
-    Cumulative token usage for a session across all turns.
-
-    - `Optional<Double> activeSeconds`
-
-      Cumulative time in seconds during which the session had at least one thread in running status. Overlapping activity from concurrent threads is counted once, unlike `stats.active_seconds`, which sums each thread's own active time. This is the duration the session's runtime cost is priced on.
-
-      format: double
-
-    - `Optional<BetaManagedAgentsCacheCreationUsage> cacheCreation`
-
-      Prompt-cache creation token usage broken down by cache lifetime.
-
-      - `Optional<Long> ephemeral1hInputTokens`
-
-        Tokens used to create 1-hour ephemeral cache entries.
-
-        format: int32
-
-      - `Optional<Long> ephemeral5mInputTokens`
-
-        Tokens used to create 5-minute ephemeral cache entries.
-
-        format: int32
-
-    - `Optional<Long> cacheReadInputTokens`
-
-      Total tokens read from prompt cache.
-
-      format: int32
-
-    - `Optional<Long> inputTokens`
-
-      Total input tokens consumed across all turns.
-
-      format: int32
-
-    - `Optional<BetaMonetaryAmount> listCost`
-
-      A monetary amount in a specific currency.
-
-    - `Optional<Long> outputTokens`
-
-      Total output tokens generated across all turns.
-
-      format: int32
-
-    - `Optional<BetaManagedAgentsServerToolUsage> serverToolUse`
-
-      Cumulative count of server-executed tool invocations, broken down by tool.
-
-      - `Optional<Long> webFetchRequests`
-
-        Number of server-executed web fetch requests.
-
-        format: int32
-
-      - `Optional<Long> webSearchRequests`
-
-        Number of server-executed web search requests.
-
-        format: int32
-
-  - `List<String> vaultIds`
-
-    Vault IDs attached to the session at creation. Empty when no vaults were supplied.
-
-  - `Optional<String> deploymentId`
-
-    Deployment ID when the session was created from a deployment reference. Null otherwise.
-
-#### Example
-
-```java
-package com.anthropic.example;
-
-import com.anthropic.client.AnthropicClient;
-import com.anthropic.client.okhttp.AnthropicOkHttpClient;
-import com.anthropic.models.beta.sessions.BetaManagedAgentsSession;
-import com.anthropic.models.beta.sessions.SessionArchiveParams;
-
-public final class Main {
-    private Main() {}
-
-    public static void main(String[] args) {
-        AnthropicClient client = AnthropicOkHttpClient.fromEnv();
-
-        BetaManagedAgentsSession betaManagedAgentsSession = client.beta().sessions().archive("sesn_011CZkZAtmR3yMPDzynEDxu7");
-    }
-}
-```
-
-##### Response (200)
-
-```json
-{
-  "id": "sesn_011CZkZAtmR3yMPDzynEDxu7",
-  "agent": {
-    "id": "agent_011CZkYpogX7uDKUyvBTophP",
-    "description": "A general-purpose starter agent.",
-    "mcp_servers": [
-      {
-        "name": "example-mcp",
-        "type": "url",
-        "url": "https://example-server.modelcontextprotocol.io/sse"
-      }
-    ],
-    "model": {
-      "id": "claude-opus-5",
-      "effort": {
-        "type": "low"
-      },
-      "inference_geo": "inference_geo",
-      "speed": "standard"
-    },
-    "multiagent": {
-      "agents": [
-        {
-          "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
-          "description": "A focused research subagent.",
-          "mcp_servers": [
-            {
-              "name": "example-mcp",
-              "type": "url",
-              "url": "https://example-server.modelcontextprotocol.io/sse"
-            }
-          ],
-          "model": {
-            "id": "claude-opus-5",
-            "effort": {
-              "type": "low"
-            },
-            "inference_geo": "inference_geo",
-            "speed": "standard"
-          },
-          "name": "Researcher",
-          "skills": [
-            {
-              "skill_id": "xlsx",
-              "type": "anthropic",
-              "version": "1"
-            }
-          ],
-          "system": "You are a research subagent that gathers and summarises sources for the coordinating agent.",
-          "tools": [
-            {
-              "configs": [
-                {
-                  "enabled": true,
-                  "name": "bash",
-                  "permission_policy": {
-                    "type": "always_allow"
-                  },
-                  "type": "bash"
-                }
-              ],
-              "default_config": {
-                "enabled": true,
-                "permission_policy": {
-                  "type": "always_ask"
-                }
-              },
-              "type": "agent_toolset_20260401"
-            }
-          ],
-          "type": "agent",
-          "version": 1
-        }
-      ],
-      "type": "coordinator"
-    },
-    "name": "My First Agent",
-    "skills": [
-      {
-        "skill_id": "xlsx",
-        "type": "anthropic",
-        "version": "1"
-      },
-      {
-        "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTlx",
-        "type": "custom",
-        "version": "2"
-      }
-    ],
-    "system": "You are a general-purpose agent that can research, write code, run commands, and use connected tools to complete the user's task end to end.",
-    "tools": [
-      {
-        "configs": [
-          {
-            "enabled": true,
-            "name": "bash",
-            "permission_policy": {
-              "type": "always_allow"
-            },
-            "type": "bash"
-          }
-        ],
-        "default_config": {
-          "enabled": true,
-          "permission_policy": {
-            "type": "always_ask"
-          }
-        },
-        "type": "agent_toolset_20260401"
-      }
-    ],
-    "type": "agent",
-    "version": 1
-  },
-  "archived_at": null,
-  "budget": {
-    "max_list_cost": {
-      "amount": "2500",
-      "currency": "USD"
-    },
-    "type": "limit"
-  },
-  "created_at": "2026-03-15T10:00:00Z",
-  "environment_id": "env_011CZkZ9X2dpNyB7HsEFoRfW",
-  "metadata": {},
-  "outcome_evaluations": [
-    {
-      "completed_at": "2026-03-15T10:02:31Z",
-      "description": "Produce a 2-page summary as summary.md",
-      "explanation": "All five sections present with inline citations.",
-      "iteration": 0,
-      "outcome_id": "outc_011CZkZRSw2kEfs6ncTVljxP",
-      "result": "satisfied",
-      "type": "outcome_evaluation"
-    }
-  ],
-  "resources": [
-    {
-      "id": "sesrsc_011CZkZBJq5dWxk9fVLNcPht",
-      "created_at": "2026-03-15T10:00:00Z",
-      "file_id": "file_011CNha8iCJcU1wXNR6q4V8w",
-      "mount_path": "/uploads/receipt.pdf",
-      "type": "file",
-      "updated_at": "2026-03-15T10:00:00Z"
-    },
-    {
-      "id": "sesrsc_011CZkZCKr6eXyl0gWMOdQiu",
-      "created_at": "2026-03-15T10:00:00Z",
-      "mount_path": "/workspace/example-repo",
-      "type": "github_repository",
-      "updated_at": "2026-03-15T10:00:00Z",
-      "url": "https://github.com/example-org/example-repo",
-      "checkout": {
-        "name": "main",
-        "type": "branch"
-      }
-    }
-  ],
-  "stats": {
-    "active_seconds": 0,
-    "duration_seconds": 0
-  },
-  "status": "idle",
-  "title": "Order #1234 inquiry",
-  "type": "session",
-  "updated_at": "2026-03-15T10:00:00Z",
-  "usage": {
-    "active_seconds": 0,
-    "cache_creation": {
-      "ephemeral_1h_input_tokens": 0,
-      "ephemeral_5m_input_tokens": 0
-    },
-    "cache_read_input_tokens": 0,
-    "input_tokens": 0,
-    "list_cost": {
-      "amount": "2500",
-      "currency": "USD"
-    },
-    "output_tokens": 0,
-    "server_tool_use": {
-      "web_fetch_requests": 0,
-      "web_search_requests": 3
-    }
-  },
-  "vault_ids": [
-    "vlt_011CZkZDLs7fYzm1hXNPeRjv"
-  ],
-  "deployment_id": "deployment_id"
-}
-```
-
-## Beta › Sessions › Events
-
-### List Events
-
-`EventListPage beta().sessions().events().list(params = EventListParams.none(), requestOptions = RequestOptions.none())`
-
-**GET** `/v1/sessions/{session_id}/events`
-
-List Events
-
-#### Parameters
-
-- `EventListParams params`
-
-  - `Optional<String> sessionId`
-
-  - `Optional<LocalDateTime> createdAtGt`
-
-    Return events created after this time (exclusive). Compared against the event's `processed_at` value.
-
-    format: date-time
-
-  - `Optional<LocalDateTime> createdAtGte`
-
-    Return events created at or after this time (inclusive). Compared against the event's `processed_at` value.
-
-    format: date-time
-
-  - `Optional<LocalDateTime> createdAtLt`
-
-    Return events created before this time (exclusive). Compared against the event's `processed_at` value.
-
-    format: date-time
-
-  - `Optional<LocalDateTime> createdAtLte`
-
-    Return events created at or before this time (inclusive). Compared against the event's `processed_at` value.
-
-    format: date-time
-
-  - `Optional<Long> limit`
-
-    Query parameter for limit
-
-    format: int32
-
-  - `Optional<Order> order`
-
-    Sort direction for results, ordered by the event's `processed_at`. Defaults to `asc` (chronological).
-
-    - `ASC("asc")`
-
-    - `DESC("desc")`
-
-  - `Optional<String> page`
-
-    Opaque pagination cursor from a previous response's `next_page`.
-
-  - `Optional<List<String>> types`
-
-    Filter by event type. Values match the `type` field on returned events (for example, `user.message` or `agent.tool_use`). Omit to return all event types.
-
-  - `Optional<List<AnthropicBeta>> betas`
-
-    Optional header to specify the beta version(s) you want to use.
-
-    - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
-
-    - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
-
-    - `COMPUTER_USE_2024_10_22("computer-use-2024-10-22")`
-
-    - `COMPUTER_USE_2025_01_24("computer-use-2025-01-24")`
-
-    - `PDFS_2024_09_25("pdfs-2024-09-25")`
-
-    - `TOKEN_COUNTING_2024_11_01("token-counting-2024-11-01")`
-
-    - `TOKEN_EFFICIENT_TOOLS_2025_02_19("token-efficient-tools-2025-02-19")`
-
-    - `OUTPUT_128K_2025_02_19("output-128k-2025-02-19")`
-
-    - `FILES_API_2025_04_14("files-api-2025-04-14")`
-
-    - `MCP_CLIENT_2025_04_04("mcp-client-2025-04-04")`
-
-    - `MCP_CLIENT_2025_11_20("mcp-client-2025-11-20")`
-
-    - `DEV_FULL_THINKING_2025_05_14("dev-full-thinking-2025-05-14")`
-
-    - `INTERLEAVED_THINKING_2025_05_14("interleaved-thinking-2025-05-14")`
-
-    - `CODE_EXECUTION_2025_05_22("code-execution-2025-05-22")`
-
-    - `EXTENDED_CACHE_TTL_2025_04_11("extended-cache-ttl-2025-04-11")`
-
-    - `CONTEXT_1M_2025_08_07("context-1m-2025-08-07")`
-
-    - `CONTEXT_MANAGEMENT_2025_06_27("context-management-2025-06-27")`
-
-    - `MODEL_CONTEXT_WINDOW_EXCEEDED_2025_08_26("model-context-window-exceeded-2025-08-26")`
-
-    - `SKILLS_2025_10_02("skills-2025-10-02")`
-
-    - `FAST_MODE_2026_02_01("fast-mode-2026-02-01")`
-
-    - `OUTPUT_300K_2026_03_24("output-300k-2026-03-24")`
-
-    - `USER_PROFILES_2026_03_24("user-profiles-2026-03-24")`
-
-    - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
-
-    - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
-
-    - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
-
-    - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
-
-    - `DREAMING_2026_04_21("dreaming-2026-04-21")`
-
-    - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
-
-    - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
-
-    - `SERVER_SIDE_FALLBACK_2026_07_01("server-side-fallback-2026-07-01")`
-
-    - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
-
-    - `FALLBACK_CREDIT_2026_07_01("fallback-credit-2026-07-01")`
-
-    - `AGENT_MEMORY_2026_07_22("agent-memory-2026-07-22")`
-
-    - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
-
-    - `COMPACT_2026_01_12("compact-2026-01-12")`
-
-    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
-
-    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
-
-    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
-
-    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
-
-    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
-
-    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
-
-    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
-
-    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
-
-    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
-
-#### Returns
-
-- `class BetaManagedAgentsSessionEvent: union`
-
-  Union type for all event types in a session.
-
-  - `class BetaManagedAgentsUserMessageEvent:`
-
-    A user message event in the session conversation.
-
-    - `String id`
-
-      Unique identifier for this event.
-
-    - `List<Content> content`
-
-      Array of content blocks comprising the user message.
-
-      - `class BetaManagedAgentsTextBlock:`
-
-        Regular text content.
-
-        - `String text`
-
-          The text content.
-
-          minLength: 1
-
-        - `Type type`
-
-      - `class BetaManagedAgentsImageBlock:`
-
-        Image content specified directly as base64 data or as a reference via a URL.
-
-        - `Source source`
-
-          Union type for image source variants.
-
-          - `class BetaManagedAgentsBase64ImageSource:`
-
-            Base64-encoded image data.
-
-            - `String data`
-
-              Base64-encoded image data.
-
-              minLength: 1
-
-            - `String mediaType`
-
-              MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
-
-              minLength: 1
-
-            - `Type type`
-
-          - `class BetaManagedAgentsUrlImageSource:`
-
-            Image referenced by URL.
-
-            - `Type type`
-
-            - `String url`
-
-              URL of the image to fetch.
-
-              minLength: 1
-
-          - `class BetaManagedAgentsFileImageSource:`
-
-            Image referenced by file ID.
-
-            - `String fileId`
-
-              ID of a previously uploaded file.
-
-              minLength: 1
-
-            - `Type type`
-
-        - `Type type`
-
-      - `class BetaManagedAgentsDocumentBlock:`
-
-        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-        - `Source source`
-
-          Union type for document source variants.
-
-          - `class BetaManagedAgentsBase64DocumentSource:`
-
-            Base64-encoded document data.
-
-            - `String data`
-
-              Base64-encoded document data.
-
-              minLength: 1
-
-            - `String mediaType`
-
-              MIME type of the document (e.g., "application/pdf").
-
-              minLength: 1
-
-            - `Type type`
-
-          - `class BetaManagedAgentsPlainTextDocumentSource:`
-
-            Plain text document content.
-
-            - `String data`
-
-              The plain text content.
-
-              minLength: 1
-
-            - `MediaType mediaType`
-
-              MIME type of the text content. Must be "text/plain".
-
-            - `Type type`
-
-          - `class BetaManagedAgentsUrlDocumentSource:`
-
-            Document referenced by URL.
-
-            - `Type type`
-
-            - `String url`
-
-              URL of the document to fetch.
-
-              minLength: 1
-
-          - `class BetaManagedAgentsFileDocumentSource:`
-
-            Document referenced by file ID.
-
-            - `String fileId`
-
-              ID of a previously uploaded file.
-
-              minLength: 1
-
-            - `Type type`
-
-        - `Type type`
-
-        - `Optional<String> context`
-
-          Additional context about the document for the model.
-
-        - `Optional<String> title`
-
-          The title of the document.
-
-      - `class BetaManagedAgentsRedactedBlock:`
-
-        Placeholder for content withheld by Anthropic model policy.
-
-        - `Type type`
-
-    - `Type type`
-
-    - `Optional<LocalDateTime> processedAt`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-  - `class BetaManagedAgentsUserInterruptEvent:`
-
-    An interrupt event that pauses agent execution and returns control to the user.
-
-    - `String id`
-
-      Unique identifier for this event.
-
-    - `Type type`
-
-    - `Optional<LocalDateTime> processedAt`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `Optional<String> sessionThreadId`
-
-      If absent, interrupts every non-archived thread in a multiagent session (or the primary alone in a single-agent session). If present, interrupts only the named thread.
-
-  - `class BetaManagedAgentsUserToolConfirmationEvent:`
-
-    A tool confirmation event that approves or denies a pending tool execution.
-
-    - `String id`
-
-      Unique identifier for this event.
-
-    - `Result result`
-
-      UserToolConfirmationResult enum
-
-      - `ALLOW("allow")`
-
-      - `DENY("deny")`
-
-    - `String toolUseId`
-
-      The id of the `agent.tool_use` or `agent.mcp_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
-
-    - `Type type`
-
-    - `Optional<String> denyMessage`
-
-      Optional message providing context for a 'deny' decision. Only allowed when result is 'deny'.
-
-      maxLength: 10000
-
-    - `Optional<LocalDateTime> processedAt`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `Optional<String> sessionThreadId`
-
-      When set, the confirmation routes to this subagent's thread rather than the primary. Echo this from the `session_thread_id` on the `agent.tool_use` or `agent.mcp_tool_use` event that prompted the approval.
-
-  - `class BetaManagedAgentsUserCustomToolResultEvent:`
-
-    Event sent by the client providing the result of a custom tool execution.
-
-    - `String id`
-
-      Unique identifier for this event.
-
-    - `String customToolUseId`
-
-      The id of the `agent.custom_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
-
-    - `Type type`
-
-    - `Optional<List<Content>> content`
-
-      The result content returned by the tool.
-
-      - `class BetaManagedAgentsTextBlock:`
-
-        Regular text content.
-
-      - `class BetaManagedAgentsImageBlock:`
-
-        Image content specified directly as base64 data or as a reference via a URL.
-
-      - `class BetaManagedAgentsDocumentBlock:`
-
-        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-      - `class BetaManagedAgentsSearchResultBlock:`
-
-        A block containing a web search result.
-
-        - `BetaManagedAgentsSearchResultCitations citations`
-
-          Citation settings for a search result.
-
-          - `boolean enabled`
-
-            Whether citations are enabled for this search result.
-
-        - `List<BetaManagedAgentsSearchResultContent> content`
-
-          Array of text content blocks from the search result.
-
-          - `String text`
-
-            The text content.
-
-            minLength: 1
-
-          - `Type type`
-
-        - `String source`
-
-          The URL source of the search result.
-
-          minLength: 1
-
-        - `String title`
-
-          The title of the search result.
-
-          minLength: 1
-
-        - `Type type`
-
-    - `Optional<Boolean> isError`
-
-      Whether the tool execution resulted in an error.
-
-    - `Optional<LocalDateTime> processedAt`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `Optional<String> sessionThreadId`
-
-      Routes this result to a subagent thread. Copy from the `agent.custom_tool_use` event's `session_thread_id`.
-
-  - `class BetaManagedAgentsAgentCustomToolUseEvent:`
-
-    Event emitted when the agent calls a custom tool. The session goes idle until the client sends a `user.custom_tool_result` event with the result.
-
-    - `String id`
-
-      Unique identifier for this event.
-
-    - `Input input`
-
-      Input parameters for the tool call.
-
-    - `String name`
-
-      Name of the custom tool being called.
-
-    - `LocalDateTime processedAt`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `Type type`
-
-    - `Optional<String> sessionThreadId`
-
-      When set, this event was cross-posted from a subagent's thread to surface its custom tool use on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.custom_tool_result` event to route the result back.
-
-  - `class BetaManagedAgentsAgentMessageEvent:`
-
-    An agent response event in the session conversation.
-
-    - `String id`
-
-      Unique identifier for this event.
-
-    - `List<Content> content`
-
-      Array of text blocks comprising the agent response.
-
-      - `class BetaManagedAgentsTextBlock:`
-
-        Regular text content.
-
-      - `class BetaManagedAgentsRedactedBlock:`
-
-        Placeholder for content withheld by Anthropic model policy.
-
-    - `LocalDateTime processedAt`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `Type type`
-
-  - `class BetaManagedAgentsAgentThinkingEvent:`
-
-    Indicates the agent is making forward progress via extended thinking. A progress signal, not a content carrier.
-
-    - `String id`
-
-      Unique identifier for this event.
-
-    - `LocalDateTime processedAt`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `Type type`
-
-  - `class BetaManagedAgentsAgentMcpToolUseEvent:`
-
-    Event emitted when the agent invokes a tool provided by an MCP server.
-
-    - `String id`
-
-      Unique identifier for this event.
-
-    - `Input input`
-
-      Input parameters for the tool call.
-
-    - `String mcpServerName`
-
-      Name of the MCP server providing the tool.
-
-    - `String name`
-
-      Name of the MCP tool being used.
-
-    - `LocalDateTime processedAt`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `Type type`
-
-    - `Optional<EvaluatedPermission> evaluatedPermission`
-
-      AgentEvaluatedPermission enum
-
-      - `ALLOW("allow")`
-
-      - `ASK("ask")`
-
-      - `DENY("deny")`
-
-    - `Optional<String> sessionThreadId`
-
-      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
-
-  - `class BetaManagedAgentsAgentMcpToolResultEvent:`
-
-    Event representing the result of an MCP tool execution.
-
-    - `String id`
-
-      Unique identifier for this event.
-
-    - `String mcpToolUseId`
-
-      The id of the `agent.mcp_tool_use` event this result corresponds to.
-
-    - `LocalDateTime processedAt`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `Type type`
-
-    - `Optional<List<Content>> content`
-
-      The result content returned by the tool.
-
-      - `class BetaManagedAgentsTextBlock:`
-
-        Regular text content.
-
-      - `class BetaManagedAgentsImageBlock:`
-
-        Image content specified directly as base64 data or as a reference via a URL.
-
-      - `class BetaManagedAgentsDocumentBlock:`
-
-        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-      - `class BetaManagedAgentsSearchResultBlock:`
-
-        A block containing a web search result.
-
-    - `Optional<Boolean> isError`
-
-      Whether the tool execution resulted in an error.
-
-  - `class BetaManagedAgentsAgentToolUseEvent:`
-
-    Event emitted when the agent invokes a built-in agent tool.
-
-    - `String id`
-
-      Unique identifier for this event.
-
-    - `Input input`
-
-      Input parameters for the tool call.
-
-    - `String name`
-
-      Name of the agent tool being used.
-
-    - `LocalDateTime processedAt`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `Type type`
-
-    - `Optional<EvaluatedPermission> evaluatedPermission`
-
-      AgentEvaluatedPermission enum
-
-      - `ALLOW("allow")`
-
-      - `ASK("ask")`
-
-      - `DENY("deny")`
-
-    - `Optional<String> sessionThreadId`
-
-      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
-
-  - `class BetaManagedAgentsAgentToolResultEvent:`
-
-    Event representing the result of an agent tool execution.
-
-    - `String id`
-
-      Unique identifier for this event.
-
-    - `LocalDateTime processedAt`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `String toolUseId`
-
-      The id of the `agent.tool_use` event this result corresponds to.
-
-    - `Type type`
-
-    - `Optional<List<Content>> content`
-
-      The result content returned by the tool.
-
-      - `class BetaManagedAgentsTextBlock:`
-
-        Regular text content.
-
-      - `class BetaManagedAgentsImageBlock:`
-
-        Image content specified directly as base64 data or as a reference via a URL.
-
-      - `class BetaManagedAgentsDocumentBlock:`
-
-        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-      - `class BetaManagedAgentsSearchResultBlock:`
-
-        A block containing a web search result.
-
-    - `Optional<Boolean> isError`
-
-      Whether the tool execution resulted in an error.
-
-  - `class BetaManagedAgentsAgentThreadMessageReceivedEvent:`
-
-    Delivery event written to the target thread's input stream when an agent-to-agent message arrives.
-
-    - `String id`
-
-      Unique identifier for this event.
-
-    - `List<Content> content`
-
-      Message content blocks.
-
-      - `class BetaManagedAgentsTextBlock:`
-
-        Regular text content.
-
-      - `class BetaManagedAgentsImageBlock:`
-
-        Image content specified directly as base64 data or as a reference via a URL.
-
-      - `class BetaManagedAgentsDocumentBlock:`
-
-        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-      - `class BetaManagedAgentsRedactedBlock:`
-
-        Placeholder for content withheld by Anthropic model policy.
-
-    - `String fromSessionThreadId`
-
-      Public `sthr_` ID of the thread that sent the message.
-
-    - `LocalDateTime processedAt`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `Type type`
-
-    - `Optional<String> fromAgentName`
-
-      Name of the callable agent this message came from. Absent when received from the primary agent.
-
-  - `class BetaManagedAgentsAgentThreadMessageSentEvent:`
-
-    Observability event emitted to the sender's output stream when an agent-to-agent message is sent.
-
-    - `String id`
-
-      Unique identifier for this event.
-
-    - `List<Content> content`
-
-      Message content blocks.
-
-      - `class BetaManagedAgentsTextBlock:`
-
-        Regular text content.
-
-      - `class BetaManagedAgentsImageBlock:`
-
-        Image content specified directly as base64 data or as a reference via a URL.
-
-      - `class BetaManagedAgentsDocumentBlock:`
-
-        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-      - `class BetaManagedAgentsRedactedBlock:`
-
-        Placeholder for content withheld by Anthropic model policy.
-
-    - `LocalDateTime processedAt`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `String toSessionThreadId`
-
-      Public `sthr_` ID of the thread the message was sent to.
-
-    - `Type type`
-
-    - `Optional<String> toAgentName`
-
-      Name of the callable agent this message was sent to. Absent when sent to the primary agent.
-
-  - `class BetaManagedAgentsAgentThreadContextCompactedEvent:`
-
-    Indicates that context compaction (summarization) occurred during the session.
-
-    - `String id`
-
-      Unique identifier for this event.
-
-    - `LocalDateTime processedAt`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `Type type`
-
-  - `class BetaManagedAgentsSessionErrorEvent:`
-
-    An error event indicating a problem occurred during session execution.
-
-    - `String id`
-
-      Unique identifier for this event.
-
-    - `Error error`
-
-      An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
-
-      - `class BetaManagedAgentsUnknownError:`
-
-        An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
-
-        - `String message`
-
-          Human-readable error description.
-
-        - `RetryStatus retryStatus`
-
-          What the client should do next in response to this error.
-
-          - `class BetaManagedAgentsRetryStatusRetrying:`
-
-            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-            - `Type type`
-
-          - `class BetaManagedAgentsRetryStatusExhausted:`
-
-            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
-
-            - `Type type`
-
-          - `class BetaManagedAgentsRetryStatusTerminal:`
-
-            The session encountered a terminal error and will transition to `terminated` state.
-
-            - `Type type`
-
-        - `Type type`
-
-      - `class BetaManagedAgentsModelOverloadedError:`
-
-        The model is currently overloaded. Emitted after automatic retries are exhausted.
-
-        - `String message`
-
-          Human-readable error description.
-
-        - `RetryStatus retryStatus`
-
-          What the client should do next in response to this error.
-
-          - `class BetaManagedAgentsRetryStatusRetrying:`
-
-            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-          - `class BetaManagedAgentsRetryStatusExhausted:`
-
-            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
-
-          - `class BetaManagedAgentsRetryStatusTerminal:`
-
-            The session encountered a terminal error and will transition to `terminated` state.
-
-        - `Type type`
-
-      - `class BetaManagedAgentsModelRateLimitedError:`
-
-        The model request was rate-limited.
-
-        - `String message`
-
-          Human-readable error description.
-
-        - `RetryStatus retryStatus`
-
-          What the client should do next in response to this error.
-
-          - `class BetaManagedAgentsRetryStatusRetrying:`
-
-            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-          - `class BetaManagedAgentsRetryStatusExhausted:`
-
-            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
-
-          - `class BetaManagedAgentsRetryStatusTerminal:`
-
-            The session encountered a terminal error and will transition to `terminated` state.
-
-        - `Type type`
-
-      - `class BetaManagedAgentsModelRequestFailedError:`
-
-        A model request failed for a reason other than overload or rate-limiting.
-
-        - `String message`
-
-          Human-readable error description.
-
-        - `RetryStatus retryStatus`
-
-          What the client should do next in response to this error.
-
-          - `class BetaManagedAgentsRetryStatusRetrying:`
-
-            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-          - `class BetaManagedAgentsRetryStatusExhausted:`
-
-            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
-
-          - `class BetaManagedAgentsRetryStatusTerminal:`
-
-            The session encountered a terminal error and will transition to `terminated` state.
-
-        - `Type type`
-
-      - `class BetaManagedAgentsMcpConnectionFailedError:`
-
-        Failed to connect to an MCP server.
-
-        - `String mcpServerName`
-
-          Name of the MCP server that failed to connect.
-
-        - `String message`
-
-          Human-readable error description.
-
-        - `RetryStatus retryStatus`
-
-          What the client should do next in response to this error.
-
-          - `class BetaManagedAgentsRetryStatusRetrying:`
-
-            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-          - `class BetaManagedAgentsRetryStatusExhausted:`
-
-            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
-
-          - `class BetaManagedAgentsRetryStatusTerminal:`
-
-            The session encountered a terminal error and will transition to `terminated` state.
-
-        - `Type type`
-
-      - `class BetaManagedAgentsMcpAuthenticationFailedError:`
-
-        Authentication to an MCP server failed.
-
-        - `String mcpServerName`
-
-          Name of the MCP server that failed authentication.
-
-        - `String message`
-
-          Human-readable error description.
-
-        - `RetryStatus retryStatus`
-
-          What the client should do next in response to this error.
-
-          - `class BetaManagedAgentsRetryStatusRetrying:`
-
-            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-          - `class BetaManagedAgentsRetryStatusExhausted:`
-
-            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
-
-          - `class BetaManagedAgentsRetryStatusTerminal:`
-
-            The session encountered a terminal error and will transition to `terminated` state.
-
-        - `Type type`
-
-      - `class BetaManagedAgentsBillingError:`
-
-        The caller's organization or workspace cannot make model requests — out of credits or spend limit reached. Retrying with the same credentials will not succeed; the caller must resolve the billing state.
-
-        - `String message`
-
-          Human-readable error description.
-
-        - `RetryStatus retryStatus`
-
-          What the client should do next in response to this error.
-
-          - `class BetaManagedAgentsRetryStatusRetrying:`
-
-            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-          - `class BetaManagedAgentsRetryStatusExhausted:`
-
-            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
-
-          - `class BetaManagedAgentsRetryStatusTerminal:`
-
-            The session encountered a terminal error and will transition to `terminated` state.
-
-        - `Type type`
-
-      - `class BetaManagedAgentsCredentialHostUnreachableError:`
-
-        An `environment_variable` credential's `auth.networking.allowed_hosts` includes a host the environment's network policy does not permit.
-
-        - `String credentialId`
-
-          ID of the affected credential.
-
-        - `String message`
-
-          Human-readable error description.
-
-        - `RetryStatus retryStatus`
-
-          What the client should do next in response to this error.
-
-          - `class BetaManagedAgentsRetryStatusRetrying:`
-
-            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-          - `class BetaManagedAgentsRetryStatusExhausted:`
-
-            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
-
-          - `class BetaManagedAgentsRetryStatusTerminal:`
-
-            The session encountered a terminal error and will transition to `terminated` state.
-
-        - `Type type`
-
-        - `String vaultId`
-
-          ID of the vault containing the affected credential.
-
-    - `LocalDateTime processedAt`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `Type type`
-
-  - `class BetaManagedAgentsSessionStatusRescheduledEvent:`
-
-    Indicates the session is recovering from an error state and is rescheduled for execution.
-
-    - `String id`
-
-      Unique identifier for this event.
-
-    - `LocalDateTime processedAt`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `Type type`
-
-  - `class BetaManagedAgentsSessionStatusRunningEvent:`
-
-    Indicates the session is actively running and the agent is working.
-
-    - `String id`
-
-      Unique identifier for this event.
-
-    - `LocalDateTime processedAt`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `Type type`
-
-  - `class BetaManagedAgentsSessionStatusIdleEvent:`
-
-    Indicates the agent has paused and is awaiting user input.
-
-    - `String id`
-
-      Unique identifier for this event.
-
-    - `LocalDateTime processedAt`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `StopReason stopReason`
-
-      The agent completed its turn naturally and is ready for the next user message.
-
-      - `class BetaManagedAgentsSessionEndTurn:`
-
-        The agent completed its turn naturally and is ready for the next user message.
-
-        - `Type type`
-
-      - `class BetaManagedAgentsSessionRequiresAction:`
-
-        The agent is idle waiting on one or more blocking user-input events (tool confirmation, custom tool result, etc.). Resolving all of them transitions the session back to running.
-
-        - `List<String> eventIds`
-
-          The ids of events the agent is blocked on. Resolving fewer than all re-emits `session.status_idle` with the remainder.
-
-        - `Type type`
-
-      - `class BetaManagedAgentsSessionRetriesExhausted:`
-
-        The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
-
-        - `Type type`
-
-      - `class BetaManagedAgentsSessionBudgetReached:`
-
-        The agent stopped because the session's tracked list cost reached its budget, or because its usage includes a model with no list price (which the budget cannot measure). Raise the budget to continue — or, if raising is rejected because a model has no list price, remove the budget.
-
-        - `Type type`
-
-    - `Type type`
-
-  - `class BetaManagedAgentsSessionStatusTerminatedEvent:`
-
-    Indicates the session has terminated, either due to an error or completion.
-
-    - `String id`
-
-      Unique identifier for this event.
-
-    - `LocalDateTime processedAt`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `Type type`
-
-  - `class BetaManagedAgentsSessionThreadCreatedEvent:`
-
-    Emitted when a subagent is spawned as a new thread. Written to the parent thread's output stream so clients observing the session see child creation.
-
-    - `String id`
-
-      Unique identifier for this event.
-
-    - `String agentName`
-
-      Name of the callable agent the thread runs.
-
-    - `LocalDateTime processedAt`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `String sessionThreadId`
-
-      Public `sthr_` ID of the newly created thread.
-
-    - `Type type`
-
-  - `class BetaManagedAgentsSpanOutcomeEvaluationStartEvent:`
-
-    Emitted when an outcome evaluation cycle begins.
-
-    - `String id`
-
-      Unique identifier for this event.
-
-    - `long iteration`
-
-      0-indexed revision cycle. 0 is the first evaluation; 1 is the re-evaluation after the first revision; etc.
-
-      format: int32
-
-    - `String outcomeId`
-
-      The `outc_` ID of the outcome being evaluated.
-
-    - `LocalDateTime processedAt`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `Type type`
-
-  - `class BetaManagedAgentsSpanOutcomeEvaluationEndEvent:`
-
-    Emitted when an outcome evaluation cycle completes. Carries the verdict and aggregate token usage. A verdict of `needs_revision` means another evaluation cycle follows; `satisfied`, `max_iterations_reached`, `failed`, or `interrupted` are terminal — no further evaluation cycles follow.
-
-    - `String id`
-
-      Unique identifier for this event.
-
-    - `String explanation`
-
-      Human-readable explanation of the verdict. For `needs_revision`, describes which criteria failed and why.
-
-    - `long iteration`
-
-      0-indexed revision cycle, matching the corresponding `span.outcome_evaluation_start`.
-
-      format: int32
-
-    - `String outcomeEvaluationStartId`
-
-      The id of the corresponding `span.outcome_evaluation_start` event.
-
-    - `String outcomeId`
-
-      The `outc_` ID of the outcome being evaluated.
-
-    - `LocalDateTime processedAt`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `String result`
-
-      Evaluation verdict. 'satisfied': criteria met, session goes idle. 'needs_revision': criteria not met, another revision cycle follows. 'max_iterations_reached': evaluation budget exhausted with criteria still unmet — one final acknowledgment turn follows before the session goes idle, but no further evaluation runs. 'failed': grader determined the rubric does not apply to the deliverables. 'interrupted': user sent an interrupt while evaluation was in progress.
-
-    - `Type type`
-
-    - `BetaManagedAgentsSpanModelUsage usage`
-
-      Token usage for a single model request.
-
-      - `long cacheCreationInputTokens`
-
-        Tokens used to create prompt cache in this request.
-
-        format: int32
-
-      - `long cacheReadInputTokens`
-
-        Tokens read from prompt cache in this request.
-
-        format: int32
-
-      - `long inputTokens`
-
-        Input tokens consumed by this request.
-
-        format: int32
-
-      - `long outputTokens`
-
-        Output tokens generated by this request.
-
-        format: int32
-
-      - `Optional<Speed> speed`
-
-        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
-        - `STANDARD("standard")`
-
-        - `FAST("fast")`
-
-  - `class BetaManagedAgentsSpanModelRequestStartEvent:`
-
-    Emitted when a model request is initiated by the agent.
-
-    - `String id`
-
-      Unique identifier for this event.
-
-    - `LocalDateTime processedAt`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `Type type`
-
-  - `class BetaManagedAgentsSpanModelRequestEndEvent:`
-
-    Emitted when a model request completes.
-
-    - `String id`
-
-      Unique identifier for this event.
-
-    - `Optional<Boolean> isError`
-
-      Whether the model request resulted in an error.
-
-    - `String modelRequestStartId`
-
-      The id of the corresponding `span.model_request_start` event.
-
-    - `BetaManagedAgentsSpanModelUsage modelUsage`
-
-      Token usage for a single model request.
-
-    - `LocalDateTime processedAt`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `Type type`
-
-  - `class BetaManagedAgentsSpanOutcomeEvaluationOngoingEvent:`
-
-    Periodic heartbeat emitted while an outcome evaluation cycle is in progress. Distinguishes 'evaluation is actively running' from 'evaluation is stuck' between the corresponding `span.outcome_evaluation_start` and `span.outcome_evaluation_end` events.
-
-    - `String id`
-
-      Unique identifier for this event.
-
-    - `long iteration`
-
-      0-indexed revision cycle, matching the corresponding `span.outcome_evaluation_start`.
-
-      format: int32
-
-    - `String outcomeId`
-
-      The `outc_` ID of the outcome being evaluated.
-
-    - `LocalDateTime processedAt`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `Type type`
-
-  - `class BetaManagedAgentsUserDefineOutcomeEvent:`
-
-    Echo of a `user.define_outcome` input event. Carries the server-generated `outcome_id` that subsequent `span.outcome_evaluation_*` events reference.
-
-    - `String id`
-
-      Unique identifier for this event.
-
-    - `String description`
-
-      What the agent should produce. Copied from the input event.
-
-    - `Optional<Long> maxIterations`
-
-      Evaluate-then-revise cycles before giving up. Default 3, max 20.
-
-      format: int32
-
-    - `String outcomeId`
-
-      Server-generated `outc_` ID for this outcome. Referenced by `span.outcome_evaluation_*` events and the session's `outcome_evaluations` list.
-
-    - `LocalDateTime processedAt`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `Rubric rubric`
-
-      Rubric for grading the quality of an outcome.
-
-      - `class BetaManagedAgentsFileRubric:`
-
-        Rubric referenced by a file uploaded via the Files API.
-
-        - `String fileId`
-
-          ID of the rubric file.
-
-        - `Type type`
-
-      - `class BetaManagedAgentsTextRubric:`
-
-        Rubric content provided inline as text.
-
-        - `String content`
-
-          Rubric content. Plain text or markdown — the grader treats it as freeform text.
-
-        - `Type type`
-
-    - `Type type`
-
-  - `class BetaManagedAgentsSessionDeletedEvent:`
-
-    Emitted when a session has been deleted. Terminates any active event stream — no further events will be emitted for this session.
-
-    - `String id`
-
-      Unique identifier for this event.
-
-    - `LocalDateTime processedAt`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `Type type`
-
-  - `class BetaManagedAgentsSessionThreadStatusRunningEvent:`
-
-    A session thread has begun executing. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
-
-    - `String id`
-
-      Unique identifier for this event.
-
-    - `String agentName`
-
-      Name of the agent the thread runs.
-
-    - `LocalDateTime processedAt`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `String sessionThreadId`
-
-      Public sthr_ ID of the thread that started running.
-
-    - `Type type`
-
-  - `class BetaManagedAgentsSessionThreadStatusIdleEvent:`
-
-    A session thread has yielded and is awaiting input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
-
-    - `String id`
-
-      Unique identifier for this event.
-
-    - `String agentName`
-
-      Name of the agent the thread runs.
-
-    - `LocalDateTime processedAt`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `String sessionThreadId`
-
-      Public sthr_ ID of the thread that went idle.
-
-    - `StopReason stopReason`
-
-      The agent completed its turn naturally and is ready for the next user message.
-
-      - `class BetaManagedAgentsSessionEndTurn:`
-
-        The agent completed its turn naturally and is ready for the next user message.
-
-      - `class BetaManagedAgentsSessionRequiresAction:`
-
-        The agent is idle waiting on one or more blocking user-input events (tool confirmation, custom tool result, etc.). Resolving all of them transitions the session back to running.
-
-      - `class BetaManagedAgentsSessionRetriesExhausted:`
-
-        The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
-
-      - `class BetaManagedAgentsSessionBudgetReached:`
-
-        The agent stopped because the session's tracked list cost reached its budget, or because its usage includes a model with no list price (which the budget cannot measure). Raise the budget to continue — or, if raising is rejected because a model has no list price, remove the budget.
-
-    - `Type type`
-
-  - `class BetaManagedAgentsSessionThreadStatusTerminatedEvent:`
-
-    A session thread has terminated and will accept no further input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
-
-    - `String id`
-
-      Unique identifier for this event.
-
-    - `String agentName`
-
-      Name of the agent the thread runs.
-
-    - `LocalDateTime processedAt`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `String sessionThreadId`
-
-      Public sthr_ ID of the thread that terminated.
-
-    - `Type type`
-
-  - `class BetaManagedAgentsUserToolResultEvent:`
-
-    Event sent by the client providing the result of an agent-toolset tool execution. Only valid on `self_hosted` environments, where sandbox-routed tools are executed by the client rather than the server.
-
-    - `String id`
-
-      Unique identifier for this event.
-
-    - `String toolUseId`
-
-      The id of the `agent.tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
-
-    - `Type type`
-
-    - `Optional<List<Content>> content`
-
-      The result content returned by the tool.
-
-      - `class BetaManagedAgentsTextBlock:`
-
-        Regular text content.
-
-      - `class BetaManagedAgentsImageBlock:`
-
-        Image content specified directly as base64 data or as a reference via a URL.
-
-      - `class BetaManagedAgentsDocumentBlock:`
-
-        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-      - `class BetaManagedAgentsSearchResultBlock:`
-
-        A block containing a web search result.
-
-    - `Optional<Boolean> isError`
-
-      Whether the tool execution resulted in an error.
-
-    - `Optional<LocalDateTime> processedAt`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `Optional<String> sessionThreadId`
-
-      Routes this result to a subagent thread. Copy from the `agent.tool_use` event's `session_thread_id`.
-
-  - `class BetaManagedAgentsSessionThreadStatusRescheduledEvent:`
-
-    A session thread hit a transient error and is retrying automatically. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
-
-    - `String id`
-
-      Unique identifier for this event.
-
-    - `String agentName`
-
-      Name of the agent the thread runs.
-
-    - `LocalDateTime processedAt`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `String sessionThreadId`
-
-      Public sthr_ ID of the thread that is retrying.
-
-    - `Type type`
-
-  - `class BetaManagedAgentsSessionUpdatedEvent:`
-
-    Emitted when an UpdateSession request changed at least one field. Carries only the fields that changed; absent fields were not part of the update. The new configuration applies from the next turn.
-
-    - `String id`
-
-      Unique identifier for this event.
-
-    - `LocalDateTime processedAt`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `Type type`
-
-    - `Optional<BetaManagedAgentsSessionAgent> agent`
-
-      Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
-
-      - `String id`
-
-      - `Optional<String> description`
-
-      - `List<BetaManagedAgentsMcpServerUrlDefinition> mcpServers`
-
-        - `String name`
-
-        - `Type type`
-
-        - `String url`
-
-      - `BetaManagedAgentsModelConfig model`
-
-        Model identifier and configuration.
-
-        - `BetaManagedAgentsModel id`
-
-          The model that will power your agent.
-
-          See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
-          - `CLAUDE_FABLE_5_1("claude-fable-5-1")`
-
-            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
-
-          - `CLAUDE_SONNET_5("claude-sonnet-5")`
-
-            High-performance model for coding and agents
-
-          - `CLAUDE_FABLE_5("claude-fable-5")`
-
-            Next generation of intelligence for the hardest knowledge work and coding problems
-
-          - `CLAUDE_OPUS_5("claude-opus-5")`
-
-            Powerful intelligence for long-running agents and coding
-
-          - `CLAUDE_OPUS_4_8("claude-opus-4-8")`
-
-            Powerful intelligence for long-running agents and coding
-
-          - `CLAUDE_OPUS_4_7("claude-opus-4-7")`
-
-            Powerful intelligence for long-running agents and coding
-
-          - `CLAUDE_OPUS_4_6("claude-opus-4-6")`
-
-            Powerful intelligence for long-running agents and coding
-
-          - `CLAUDE_SONNET_4_6("claude-sonnet-4-6")`
-
-            Best combination of speed and intelligence
-
-          - `CLAUDE_HAIKU_4_5("claude-haiku-4-5")`
-
-            Fastest model with near-frontier intelligence
-
-          - `CLAUDE_HAIKU_4_5_20251001("claude-haiku-4-5-20251001")`
-
-            Fastest model with near-frontier intelligence
-
-          - `CLAUDE_OPUS_4_5("claude-opus-4-5")`
-
-            Powerful intelligence for long-running agents and coding
-
-          - `CLAUDE_OPUS_4_5_20251101("claude-opus-4-5-20251101")`
-
-            Powerful intelligence for long-running agents and coding
-
-          - `CLAUDE_SONNET_4_5("claude-sonnet-4-5")`
-
-            High-performance model for agents and coding
-
-          - `CLAUDE_SONNET_4_5_20250929("claude-sonnet-4-5-20250929")`
-
-            High-performance model for agents and coding
-
-        - `Optional<Effort> effort`

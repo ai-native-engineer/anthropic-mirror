@@ -1,10 +1,15 @@
 <!-- source: https://platform.claude.com/docs/en/api/php/beta/deployments -->
 
+---
+title: Deployments
+url: https://platform.claude.com/docs/en/api/php/beta/deployments
+---
+
 # Deployments
 
 ## Create Deployment
 
-`$client->beta->deployments->create(Agent agent, string environmentID, list<BetaManagedAgentsDeploymentInitialEventParams> initialEvents, string name, ?BetaManagedAgentsBudgetLimit budget, ?string description, ?array<string,string> metadata, ?list<Resource> resources, ?BetaManagedAgentsScheduleParams schedule, ?list<string> vaultIDs, ?list<AnthropicBeta> betas): BetaManagedAgentsDeployment`
+`$client->beta->deployments->create(Agent agent, string environmentID, list<BetaManagedAgentsDeploymentInitialEventParams> initialEvents, string name, ?BetaManagedAgentsBudgetLimit budget, ?string description, ?array<string,string> metadata, ?list<Resource> resources, ?BetaManagedAgentsScheduleParams schedule, ?list<string> vaultIDs, ?list<AnthropicBeta> betas, ?string workspaceID): BetaManagedAgentsDeployment`
 
 **POST** `/v1/deployments`
 
@@ -56,9 +61,13 @@ Create Deployment
 
   Optional header to specify the beta version(s) you want to use.
 
+- `workspaceID?:optional string`
+
 ### Returns
 
 - `BetaManagedAgentsDeployment`
+
+  - `Type type`
 
   - `string id`
 
@@ -112,8 +121,6 @@ Create Deployment
 
     Lifecycle status of a deployment.
 
-  - `Type type`
-
   - `\Datetime updatedAt`
 
     A timestamp in RFC 3339 format
@@ -165,6 +172,7 @@ $betaManagedAgentsDeployment = $client->beta->deployments->create(
   ],
   vaultIDs: ['string'],
   betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+  workspaceID: 'wrkspc_011CZkZaBF1tNoB5wlCeusgy',
 );
 
 var_dump($betaManagedAgentsDeployment);
@@ -239,7 +247,7 @@ var_dump($betaManagedAgentsDeployment);
 
 ## List Deployments
 
-`$client->beta->deployments->list(?string agentID, ?\Datetime createdAtGte, ?\Datetime createdAtLte, ?bool includeArchived, ?int limit, ?string page, ?BetaManagedAgentsDeploymentStatus status, ?list<AnthropicBeta> betas): PageCursor<BetaManagedAgentsDeployment>`
+`$client->beta->deployments->list(?string agentID, ?\Datetime createdAtGte, ?\Datetime createdAtLte, ?bool includeArchived, ?int limit, ?string page, ?BetaManagedAgentsDeploymentStatus status, ?list<AnthropicBeta> betas, ?string workspaceID): PageCursor<BetaManagedAgentsDeployment>`
 
 **GET** `/v1/deployments`
 
@@ -279,9 +287,13 @@ List Deployments
 
   Optional header to specify the beta version(s) you want to use.
 
+- `workspaceID?:optional string`
+
 ### Returns
 
 - `BetaManagedAgentsDeployment`
+
+  - `Type type`
 
   - `string id`
 
@@ -335,8 +347,6 @@ List Deployments
 
     Lifecycle status of a deployment.
 
-  - `Type type`
-
   - `\Datetime updatedAt`
 
     A timestamp in RFC 3339 format
@@ -367,6 +377,7 @@ $page = $client->beta->deployments->list(
   page: 'page',
   status: BetaManagedAgentsDeploymentStatus::ACTIVE,
   betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+  workspaceID: 'wrkspc_011CZkZaBF1tNoB5wlCeusgy',
 );
 
 var_dump($page);
@@ -446,7 +457,7 @@ var_dump($page);
 
 ## Get Deployment
 
-`$client->beta->deployments->retrieve(string deploymentID, ?list<AnthropicBeta> betas): BetaManagedAgentsDeployment`
+`$client->beta->deployments->retrieve(string deploymentID, ?list<AnthropicBeta> betas, ?string workspaceID): BetaManagedAgentsDeployment`
 
 **GET** `/v1/deployments/{deployment_id}`
 
@@ -460,9 +471,13 @@ Get Deployment
 
   Optional header to specify the beta version(s) you want to use.
 
+- `workspaceID?:optional string`
+
 ### Returns
 
 - `BetaManagedAgentsDeployment`
+
+  - `Type type`
 
   - `string id`
 
@@ -516,8 +531,6 @@ Get Deployment
 
     Lifecycle status of a deployment.
 
-  - `Type type`
-
   - `\Datetime updatedAt`
 
     A timestamp in RFC 3339 format
@@ -542,6 +555,7 @@ $client = new Client(apiKey: 'my-anthropic-api-key');
 $betaManagedAgentsDeployment = $client->beta->deployments->retrieve(
   'depl_011CZkZcDH3vPqd7xnEfwTai',
   betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+  workspaceID: 'wrkspc_011CZkZaBF1tNoB5wlCeusgy',
 );
 
 var_dump($betaManagedAgentsDeployment);
@@ -616,7 +630,7 @@ var_dump($betaManagedAgentsDeployment);
 
 ## Update Deployment
 
-`$client->beta->deployments->update(string deploymentID, ?Agent agent, ?BetaManagedAgentsBudgetLimit budget, ?string description, ?string environmentID, ?list<BetaManagedAgentsDeploymentInitialEventParams> initialEvents, ?array<string,string> metadata, ?string name, ?list<Resource> resources, ?BetaManagedAgentsScheduleParams schedule, ?list<string> vaultIDs, ?list<AnthropicBeta> betas): BetaManagedAgentsDeployment`
+`$client->beta->deployments->update(string deploymentID, ?Agent agent, ?BetaManagedAgentsBudgetLimit budget, ?string description, ?string environmentID, ?list<BetaManagedAgentsDeploymentInitialEventParams> initialEvents, ?array<string,string> metadata, ?string name, ?list<Resource> resources, ?BetaManagedAgentsScheduleParams schedule, ?list<string> vaultIDs, ?list<AnthropicBeta> betas, ?string workspaceID): BetaManagedAgentsDeployment`
 
 **POST** `/v1/deployments/{deployment_id}`
 
@@ -670,9 +684,13 @@ Update Deployment
 
   Optional header to specify the beta version(s) you want to use.
 
+- `workspaceID?:optional string`
+
 ### Returns
 
 - `BetaManagedAgentsDeployment`
+
+  - `Type type`
 
   - `string id`
 
@@ -726,8 +744,6 @@ Update Deployment
 
     Lifecycle status of a deployment.
 
-  - `Type type`
-
   - `\Datetime updatedAt`
 
     A timestamp in RFC 3339 format
@@ -780,6 +796,7 @@ $betaManagedAgentsDeployment = $client->beta->deployments->update(
   ],
   vaultIDs: ['string'],
   betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+  workspaceID: 'wrkspc_011CZkZaBF1tNoB5wlCeusgy',
 );
 
 var_dump($betaManagedAgentsDeployment);
@@ -854,7 +871,7 @@ var_dump($betaManagedAgentsDeployment);
 
 ## Archive Deployment
 
-`$client->beta->deployments->archive(string deploymentID, ?list<AnthropicBeta> betas): BetaManagedAgentsDeployment`
+`$client->beta->deployments->archive(string deploymentID, ?list<AnthropicBeta> betas, ?string workspaceID): BetaManagedAgentsDeployment`
 
 **POST** `/v1/deployments/{deployment_id}/archive`
 
@@ -868,9 +885,13 @@ Archive Deployment
 
   Optional header to specify the beta version(s) you want to use.
 
+- `workspaceID?:optional string`
+
 ### Returns
 
 - `BetaManagedAgentsDeployment`
+
+  - `Type type`
 
   - `string id`
 
@@ -924,8 +945,6 @@ Archive Deployment
 
     Lifecycle status of a deployment.
 
-  - `Type type`
-
   - `\Datetime updatedAt`
 
     A timestamp in RFC 3339 format
@@ -950,6 +969,7 @@ $client = new Client(apiKey: 'my-anthropic-api-key');
 $betaManagedAgentsDeployment = $client->beta->deployments->archive(
   'depl_011CZkZcDH3vPqd7xnEfwTai',
   betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+  workspaceID: 'wrkspc_011CZkZaBF1tNoB5wlCeusgy',
 );
 
 var_dump($betaManagedAgentsDeployment);
@@ -1024,7 +1044,7 @@ var_dump($betaManagedAgentsDeployment);
 
 ## Run Deployment Now
 
-`$client->beta->deployments->run(string deploymentID, ?list<AnthropicBeta> betas): BetaManagedAgentsDeploymentRun`
+`$client->beta->deployments->run(string deploymentID, ?list<AnthropicBeta> betas, ?string workspaceID): BetaManagedAgentsDeploymentRun`
 
 **POST** `/v1/deployments/{deployment_id}/run`
 
@@ -1038,9 +1058,13 @@ Run Deployment Now
 
   Optional header to specify the beta version(s) you want to use.
 
+- `workspaceID?:optional string`
+
 ### Returns
 
 - `BetaManagedAgentsDeploymentRun`
+
+  - `Type type`
 
   - `string id`
 
@@ -1070,8 +1094,6 @@ Run Deployment Now
 
     Describes what triggered a deployment run, with trigger-specific metadata.
 
-  - `Type type`
-
 ### Example
 
 ```php
@@ -1084,6 +1106,7 @@ $client = new Client(apiKey: 'my-anthropic-api-key');
 $betaManagedAgentsDeploymentRun = $client->beta->deployments->run(
   'depl_011CZkZcDH3vPqd7xnEfwTai',
   betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+  workspaceID: 'wrkspc_011CZkZaBF1tNoB5wlCeusgy',
 );
 
 var_dump($betaManagedAgentsDeploymentRun);
@@ -1116,7 +1139,7 @@ var_dump($betaManagedAgentsDeploymentRun);
 
 ## Pause Deployment
 
-`$client->beta->deployments->pause(string deploymentID, ?list<AnthropicBeta> betas): BetaManagedAgentsDeployment`
+`$client->beta->deployments->pause(string deploymentID, ?list<AnthropicBeta> betas, ?string workspaceID): BetaManagedAgentsDeployment`
 
 **POST** `/v1/deployments/{deployment_id}/pause`
 
@@ -1130,9 +1153,13 @@ Pause Deployment
 
   Optional header to specify the beta version(s) you want to use.
 
+- `workspaceID?:optional string`
+
 ### Returns
 
 - `BetaManagedAgentsDeployment`
+
+  - `Type type`
 
   - `string id`
 
@@ -1186,8 +1213,6 @@ Pause Deployment
 
     Lifecycle status of a deployment.
 
-  - `Type type`
-
   - `\Datetime updatedAt`
 
     A timestamp in RFC 3339 format
@@ -1212,6 +1237,7 @@ $client = new Client(apiKey: 'my-anthropic-api-key');
 $betaManagedAgentsDeployment = $client->beta->deployments->pause(
   'depl_011CZkZcDH3vPqd7xnEfwTai',
   betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+  workspaceID: 'wrkspc_011CZkZaBF1tNoB5wlCeusgy',
 );
 
 var_dump($betaManagedAgentsDeployment);
@@ -1286,7 +1312,7 @@ var_dump($betaManagedAgentsDeployment);
 
 ## Unpause Deployment
 
-`$client->beta->deployments->unpause(string deploymentID, ?list<AnthropicBeta> betas): BetaManagedAgentsDeployment`
+`$client->beta->deployments->unpause(string deploymentID, ?list<AnthropicBeta> betas, ?string workspaceID): BetaManagedAgentsDeployment`
 
 **POST** `/v1/deployments/{deployment_id}/unpause`
 
@@ -1300,9 +1326,13 @@ Unpause Deployment
 
   Optional header to specify the beta version(s) you want to use.
 
+- `workspaceID?:optional string`
+
 ### Returns
 
 - `BetaManagedAgentsDeployment`
+
+  - `Type type`
 
   - `string id`
 
@@ -1356,8 +1386,6 @@ Unpause Deployment
 
     Lifecycle status of a deployment.
 
-  - `Type type`
-
   - `\Datetime updatedAt`
 
     A timestamp in RFC 3339 format
@@ -1382,6 +1410,7 @@ $client = new Client(apiKey: 'my-anthropic-api-key');
 $betaManagedAgentsDeployment = $client->beta->deployments->unpause(
   'depl_011CZkZcDH3vPqd7xnEfwTai',
   betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+  workspaceID: 'wrkspc_011CZkZaBF1tNoB5wlCeusgy',
 );
 
 var_dump($betaManagedAgentsDeployment);
@@ -1466,6 +1495,8 @@ var_dump($betaManagedAgentsDeployment);
 
 - `BetaManagedAgentsCronSchedule`
 
+  - `Type type`
+
   - `string expression`
 
     5-field POSIX cron expression: minute hour day-of-month month day-of-week (e.g., "0 9 * * 1-5" for weekdays at 9am). Day-of-week is 0-7 where 0 and 7 both mean Sunday. Extended cron syntax - seconds or year fields, and the special characters L, W, #, and ? - is not supported, nor are predefined shortcuts (@daily).
@@ -1473,8 +1504,6 @@ var_dump($betaManagedAgentsDeployment);
   - `string timezone`
 
     IANA timezone identifier (e.g., "America/Los_Angeles", "UTC").
-
-  - `Type type`
 
   - `?\Datetime lastRunAt`
 
@@ -1488,6 +1517,8 @@ var_dump($betaManagedAgentsDeployment);
 
 - `BetaManagedAgentsCronScheduleParams`
 
+  - `Type type`
+
   - `string expression`
 
     5-field POSIX cron expression: minute hour day-of-month month day-of-week (e.g., "0 9 * * 1-5" for weekdays at 9am). Day-of-week is 0-7 where 0 and 7 both mean Sunday. Extended cron syntax - seconds or year fields, and the special characters L, W, #, and ? - is not supported, nor are predefined shortcuts (@daily).
@@ -1496,11 +1527,11 @@ var_dump($betaManagedAgentsDeployment);
 
     Required. IANA timezone identifier (e.g., "America/Los_Angeles", "UTC"). Validated against the IANA timezone database.
 
-  - `Type type`
-
 ### Beta Managed Agents Deployment
 
 - `BetaManagedAgentsDeployment`
+
+  - `Type type`
 
   - `string id`
 
@@ -1554,8 +1585,6 @@ var_dump($betaManagedAgentsDeployment);
 
     Lifecycle status of a deployment.
 
-  - `Type type`
-
   - `\Datetime updatedAt`
 
     A timestamp in RFC 3339 format
@@ -1574,13 +1603,15 @@ var_dump($betaManagedAgentsDeployment);
 
   - `BetaManagedAgentsDeploymentUserMessageEvent`
 
+    - `Type type`
+
     - `list<Content> content`
 
       Array of content blocks for the user message.
 
-    - `Type type`
-
   - `BetaManagedAgentsDeploymentUserDefineOutcomeEvent`
+
+    - `Type type`
 
     - `string description`
 
@@ -1589,8 +1620,6 @@ var_dump($betaManagedAgentsDeployment);
     - `Rubric rubric`
 
       Rubric for grading the quality of an outcome.
-
-    - `Type type`
 
     - `?int maxIterations`
 
@@ -1598,11 +1627,11 @@ var_dump($betaManagedAgentsDeployment);
 
   - `BetaManagedAgentsDeploymentSystemMessageEvent`
 
+    - `Type type`
+
     - `list<BetaManagedAgentsSystemContentBlock> content`
 
       System content blocks to append. Text-only.
-
-    - `Type type`
 
 ### Beta Managed Agents Deployment Initial Event Params
 
@@ -1610,13 +1639,15 @@ var_dump($betaManagedAgentsDeployment);
 
   - `ManagedAgentsUserMessageEventParams`
 
+    - `Type type`
+
     - `list<Content> content`
 
       Array of content blocks for the user message.
 
-    - `Type type`
-
   - `ManagedAgentsUserDefineOutcomeEventParams`
+
+    - `Type type`
 
     - `string description`
 
@@ -1626,19 +1657,17 @@ var_dump($betaManagedAgentsDeployment);
 
       Rubric for grading the quality of an outcome.
 
-    - `Type type`
-
     - `?int maxIterations`
 
       Eval→revision cycles before giving up. Default 3, max 20.
 
   - `ManagedAgentsSystemMessageEventParams`
 
+    - `Type type`
+
     - `list<BetaManagedAgentsSystemContentBlock> content`
 
       System content blocks to append. Text-only.
-
-    - `Type type`
 
 ### Beta Managed Agents Deployment Paused Reason
 
@@ -1650,11 +1679,11 @@ var_dump($betaManagedAgentsDeployment);
 
   - `BetaManagedAgentsErrorDeploymentPausedReason`
 
+    - `Type type`
+
     - `BetaManagedAgentsDeploymentPausedReasonError error`
 
       The error that triggered an auto-pause. Matches the failed run's `error.type`.
-
-    - `Type type`
 
 ### Beta Managed Agents Deployment Paused Reason Error
 
@@ -1728,15 +1757,17 @@ var_dump($betaManagedAgentsDeployment);
 
 - `BetaManagedAgentsDeploymentSystemMessageEvent`
 
+  - `Type type`
+
   - `list<BetaManagedAgentsSystemContentBlock> content`
 
     System content blocks to append. Text-only.
 
-  - `Type type`
-
 ### Beta Managed Agents Deployment User Define Outcome Event
 
 - `BetaManagedAgentsDeploymentUserDefineOutcomeEvent`
+
+  - `Type type`
 
   - `string description`
 
@@ -1746,8 +1777,6 @@ var_dump($betaManagedAgentsDeployment);
 
     Rubric for grading the quality of an outcome.
 
-  - `Type type`
-
   - `?int maxIterations`
 
     Eval→revision cycles before giving up. Default 3, max 20.
@@ -1756,11 +1785,11 @@ var_dump($betaManagedAgentsDeployment);
 
 - `BetaManagedAgentsDeploymentUserMessageEvent`
 
+  - `Type type`
+
   - `list<Content> content`
 
     Array of content blocks for the user message.
-
-  - `Type type`
 
 ### Beta Managed Agents Environment Archived Deployment Paused Reason Error
 
@@ -1778,11 +1807,11 @@ var_dump($betaManagedAgentsDeployment);
 
 - `BetaManagedAgentsErrorDeploymentPausedReason`
 
+  - `Type type`
+
   - `BetaManagedAgentsDeploymentPausedReasonError error`
 
     The error that triggered an auto-pause. Matches the failed run's `error.type`.
-
-  - `Type type`
 
 ### Beta Managed Agents File Not Found Deployment Paused Reason Error
 
@@ -1794,11 +1823,11 @@ var_dump($betaManagedAgentsDeployment);
 
 - `BetaManagedAgentsFileResourceConfig`
 
+  - `Type type`
+
   - `string fileID`
 
     ID of a previously uploaded file.
-
-  - `Type type`
 
   - `?string mountPath`
 
@@ -1844,11 +1873,11 @@ var_dump($betaManagedAgentsDeployment);
 
 - `BetaManagedAgentsMemoryStoreResourceConfig`
 
+  - `Type type`
+
   - `string memoryStoreID`
 
     The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
-
-  - `Type type`
 
   - `?Access access`
 
@@ -1868,6 +1897,8 @@ var_dump($betaManagedAgentsDeployment);
 
 - `BetaManagedAgentsSchedule`
 
+  - `Type type`
+
   - `string expression`
 
     5-field POSIX cron expression: minute hour day-of-month month day-of-week (e.g., "0 9 * * 1-5" for weekdays at 9am). Day-of-week is 0-7 where 0 and 7 both mean Sunday. Extended cron syntax - seconds or year fields, and the special characters L, W, #, and ? - is not supported, nor are predefined shortcuts (@daily).
@@ -1875,8 +1906,6 @@ var_dump($betaManagedAgentsDeployment);
   - `string timezone`
 
     IANA timezone identifier (e.g., "America/Los_Angeles", "UTC").
-
-  - `Type type`
 
   - `?\Datetime lastRunAt`
 
@@ -1890,6 +1919,8 @@ var_dump($betaManagedAgentsDeployment);
 
 - `BetaManagedAgentsScheduleParams`
 
+  - `Type type`
+
   - `string expression`
 
     5-field POSIX cron expression: minute hour day-of-month month day-of-week (e.g., "0 9 * * 1-5" for weekdays at 9am). Day-of-week is 0-7 where 0 and 7 both mean Sunday. Extended cron syntax - seconds or year fields, and the special characters L, W, #, and ? - is not supported, nor are predefined shortcuts (@daily).
@@ -1897,8 +1928,6 @@ var_dump($betaManagedAgentsDeployment);
   - `string timezone`
 
     Required. IANA timezone identifier (e.g., "America/Los_Angeles", "UTC"). Validated against the IANA timezone database.
-
-  - `Type type`
 
 ### Beta Managed Agents Self Hosted Resources Unsupported Deployment Paused Reason Error
 
@@ -1928,11 +1957,11 @@ var_dump($betaManagedAgentsDeployment);
 
   - `BetaManagedAgentsFileResourceConfig`
 
+    - `Type type`
+
     - `string fileID`
 
       ID of a previously uploaded file.
-
-    - `Type type`
 
     - `?string mountPath`
 
@@ -1940,11 +1969,11 @@ var_dump($betaManagedAgentsDeployment);
 
   - `BetaManagedAgentsMemoryStoreResourceConfig`
 
+    - `Type type`
+
     - `string memoryStoreID`
 
       The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
-
-    - `Type type`
 
     - `?Access access`
 

@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/csharp/messages/batches -->
 
+---
+title: Batches
+url: https://platform.claude.com/docs/en/api/csharp/messages/batches
+---
+
 # Batches
 
 ## Create a Message Batch
@@ -109,11 +114,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `class TextBlockParam:`
 
+              - `JsonElement Type = "text"`
+
               - `required string Text`
 
                 minLength: 1
-
-              - `JsonElement Type = "text"`
 
               - `CacheControlEphemeral? CacheControl`
 
@@ -140,6 +145,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `class CitationCharLocationParam:`
 
+                  - `JsonElement Type = "char_location"`
+
                   - `required string CitedText`
 
                   - `required long DocumentIndex`
@@ -156,9 +163,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     minimum: 0
 
-                  - `JsonElement Type = "char_location"`
-
                 - `class CitationPageLocationParam:`
+
+                  - `JsonElement Type = "page_location"`
 
                   - `required string CitedText`
 
@@ -176,9 +183,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     minimum: 1
 
-                  - `JsonElement Type = "page_location"`
-
                 - `class CitationContentBlockLocationParam:`
+
+                  - `JsonElement Type = "content_block_location"`
 
                   - `required string CitedText`
 
@@ -206,9 +213,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     minimum: 0
 
-                  - `JsonElement Type = "content_block_location"`
-
                 - `class CitationWebSearchResultLocationParam:`
+
+                  - `JsonElement Type = "web_search_result_location"`
 
                   - `required string CitedText`
 
@@ -218,13 +225,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     maxLength: 512, minLength: 1
 
-                  - `JsonElement Type = "web_search_result_location"`
-
                   - `required string Url`
 
                     minLength: 1
 
                 - `class CitationSearchResultLocationParam:`
+
+                  - `JsonElement Type = "search_result_location"`
 
                   - `required string CitedText`
 
@@ -256,13 +263,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `required string? Title`
 
-                  - `JsonElement Type = "search_result_location"`
-
             - `class ImageBlockParam:`
+
+              - `JsonElement Type = "image"`
 
               - `required Source Source`
 
                 - `class Base64ImageSource:`
+
+                  - `JsonElement Type = "base64"`
 
                   - `required string Data`
 
@@ -278,8 +287,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     - `ImageWebP("image/webp")`
 
-                  - `JsonElement Type = "base64"`
-
                 - `class UrlImageSource:`
 
                   - `JsonElement Type = "url"`
@@ -288,11 +295,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `class FileImageSource:`
 
-                  - `required string FileID`
-
                   - `JsonElement Type = "file"`
 
-              - `JsonElement Type = "image"`
+                  - `required string FileID`
 
               - `CacheControlEphemeral? CacheControl`
 
@@ -312,9 +317,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `class DocumentBlockParam:`
 
+              - `JsonElement Type = "document"`
+
               - `required Source Source`
 
                 - `class Base64PdfSource:`
+
+                  - `JsonElement Type = "base64"`
 
                   - `required string Data`
 
@@ -322,17 +331,17 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `JsonElement MediaType = "application/pdf"`
 
-                  - `JsonElement Type = "base64"`
-
                 - `class PlainTextSource:`
+
+                  - `JsonElement Type = "text"`
 
                   - `required string Data`
 
                   - `JsonElement MediaType = "text/plain"`
 
-                  - `JsonElement Type = "text"`
-
                 - `class ContentBlockSource:`
+
+                  - `JsonElement Type = "content"`
 
                   - `required Content Content`
 
@@ -344,8 +353,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                       - `class ImageBlockParam:`
 
-                  - `JsonElement Type = "content"`
-
                 - `class UrlPdfSource:`
 
                   - `JsonElement Type = "url"`
@@ -354,11 +361,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `class FileDocumentSource:`
 
-                  - `required string FileID`
-
                   - `JsonElement Type = "file"`
 
-              - `JsonElement Type = "document"`
+                  - `required string FileID`
 
               - `CacheControlEphemeral? CacheControl`
 
@@ -378,13 +383,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `class SearchResultBlockParam:`
 
+              - `JsonElement Type = "search_result"`
+
               - `required IReadOnlyList<TextBlockParam> Content`
+
+                - `JsonElement Type = "text"`
 
                 - `required string Text`
 
                   minLength: 1
-
-                - `JsonElement Type = "text"`
 
                 - `CacheControlEphemeral? CacheControl`
 
@@ -396,8 +403,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `required string Title`
 
-              - `JsonElement Type = "search_result"`
-
               - `CacheControlEphemeral? CacheControl`
 
                 Create a cache control breakpoint at this content block.
@@ -405,6 +410,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
               - `CitationsConfigParam Citations`
 
             - `class ThinkingBlockParam:`
+
+              - `JsonElement Type = "thinking"`
 
               - `required string Signature`
 
@@ -416,17 +423,17 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 The `thinking` text of this block as returned by the API.
 
-              - `JsonElement Type = "thinking"`
-
             - `class RedactedThinkingBlockParam:`
+
+              - `JsonElement Type = "redacted_thinking"`
 
               - `required string Data`
 
                 The `data` value of this redacted thinking block, exactly as returned by the API in a previous response. Opaque and encrypted; pass it back unchanged.
 
-              - `JsonElement Type = "redacted_thinking"`
-
             - `class ToolUseBlockParam:`
+
+              - `JsonElement Type = "tool_use"`
 
               - `required string ID`
 
@@ -437,8 +444,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
               - `required string Name`
 
                 maxLength: 200, minLength: 1
-
-              - `JsonElement Type = "tool_use"`
 
               - `CacheControlEphemeral? CacheControl`
 
@@ -458,19 +463,19 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   Tool invocation generated by a server-side tool.
 
+                  - `JsonElement Type = "code_execution_20250825"`
+
                   - `required string ToolID`
 
                     pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-                  - `JsonElement Type = "code_execution_20250825"`
 
                 - `class ServerToolCaller20260120:`
 
+                  - `JsonElement Type = "code_execution_20260120"`
+
                   - `required string ToolID`
 
                     pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-                  - `JsonElement Type = "code_execution_20260120"`
 
               - `string? ToolsetName`
 
@@ -480,11 +485,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `class ToolResultBlockParam:`
 
+              - `JsonElement Type = "tool_result"`
+
               - `required string ToolUseID`
 
                 pattern: ^[a-zA-Z0-9_-]+$
-
-              - `JsonElement Type = "tool_result"`
 
               - `CacheControlEphemeral? CacheControl`
 
@@ -508,11 +513,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     Tool reference block that can be included in tool_result content.
 
+                    - `JsonElement Type = "tool_reference"`
+
                     - `required string ToolName`
 
                       maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
-
-                    - `JsonElement Type = "tool_reference"`
 
                     - `CacheControlEphemeral? CacheControl`
 
@@ -527,6 +532,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
                     At most one per `tool_result`, only on a non-error result answering a
                     browser toolset member `tool_use`. The server renders the
                     model-visible text from it; the model never sees the raw fields.
+
+                    - `JsonElement Type = "browser_state"`
 
                     - `required IReadOnlyList<BrowserStateTabEntry> Tabs`
 
@@ -556,8 +563,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                         Whether this tab is the active tab after this call. Whenever `tabs` is non-empty, exactly one entry is marked `active: true`.
 
-                    - `JsonElement Type = "browser_state"`
-
                     - `CacheControlEphemeral? CacheControl`
 
                       Create a cache control breakpoint at this content block.
@@ -578,25 +583,25 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
                         during a failed call gets no deferred `tab_opened`; it simply appears
                         in the next result's `tabs` inventory.
 
+                        - `JsonElement Type = "tab_opened"`
+
                         - `required string TabID`
 
                           The `tab_id` of the opened tab, present in `tabs`.
 
                           maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-                        - `JsonElement Type = "tab_opened"`
-
                       - `class BrowserStateChangeDownloadStarted:`
 
                         A file download that started during this call.
+
+                        - `JsonElement Type = "download_started"`
 
                         - `required string DownloadID`
 
                           The caller-assigned identifier for this download, stable across the state changes reporting it.
 
                           maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
-
-                        - `JsonElement Type = "download_started"`
 
                         - `required string Url`
 
@@ -611,13 +616,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
                         `download_started`, when the download finished during the call that
                         started it (at most one state change per `download_id` per result).
 
+                        - `JsonElement Type = "download_completed"`
+
                         - `required string DownloadID`
 
                           The caller-assigned identifier for this download, stable across the state changes reporting it.
 
                           maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
-
-                        - `JsonElement Type = "download_completed"`
 
                         - `required string Url`
 
@@ -641,13 +646,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                         A file download that failed — or was cancelled — during this call.
 
+                        - `JsonElement Type = "download_failed"`
+
                         - `required string DownloadID`
 
                           The caller-assigned identifier for this download, stable across the state changes reporting it.
 
                           maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
-
-                        - `JsonElement Type = "download_failed"`
 
                         - `required string Url`
 
@@ -671,6 +676,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `class ServerToolUseBlockParam:`
 
+              - `JsonElement Type = "server_tool_use"`
+
               - `required string ID`
 
                 pattern: ^srvtoolu_[a-zA-Z0-9_]+$
@@ -693,8 +700,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `ToolSearchToolBm25("tool_search_tool_bm25")`
 
-              - `JsonElement Type = "server_tool_use"`
-
               - `CacheControlEphemeral? CacheControl`
 
                 Create a cache control breakpoint at this content block.
@@ -715,21 +720,25 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `class WebSearchToolResultBlockParam:`
 
+              - `JsonElement Type = "web_search_tool_result"`
+
               - `required WebSearchToolResultBlockParamContent Content`
 
                 - `IReadOnlyList<WebSearchResultBlockParam>`
 
+                  - `JsonElement Type = "web_search_result"`
+
                   - `required string EncryptedContent`
 
                   - `required string Title`
-
-                  - `JsonElement Type = "web_search_result"`
 
                   - `required string Url`
 
                   - `string? PageAge`
 
                 - `class WebSearchToolRequestError:`
+
+                  - `JsonElement Type = "web_search_tool_result_error"`
 
                   - `required WebSearchToolResultErrorCode ErrorCode`
 
@@ -745,13 +754,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     - `RequestTooLarge("request_too_large")`
 
-                  - `JsonElement Type = "web_search_tool_result_error"`
-
               - `required string ToolUseID`
 
                 pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-              - `JsonElement Type = "web_search_tool_result"`
 
               - `CacheControlEphemeral? CacheControl`
 
@@ -773,9 +778,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `class WebFetchToolResultBlockParam:`
 
+              - `JsonElement Type = "web_fetch_tool_result"`
+
               - `required Content Content`
 
                 - `class WebFetchToolResultErrorBlockParam:`
+
+                  - `JsonElement Type = "web_fetch_tool_result_error"`
 
                   - `required WebFetchToolResultErrorCode ErrorCode`
 
@@ -797,13 +806,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     - `Unavailable("unavailable")`
 
-                  - `JsonElement Type = "web_fetch_tool_result_error"`
+                    - `ContentTooLarge("content_too_large")`
 
                 - `class WebFetchBlockParam:`
 
-                  - `required DocumentBlockParam Content`
-
                   - `JsonElement Type = "web_fetch_result"`
+
+                  - `required DocumentBlockParam Content`
 
                   - `required string Url`
 
@@ -816,8 +825,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
               - `required string ToolUseID`
 
                 pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-              - `JsonElement Type = "web_fetch_tool_result"`
 
               - `CacheControlEphemeral? CacheControl`
 
@@ -839,11 +846,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `class CodeExecutionToolResultBlockParam:`
 
+              - `JsonElement Type = "code_execution_tool_result"`
+
               - `required CodeExecutionToolResultBlockParamContent Content`
 
                 Code execution result with encrypted stdout for PFC + web_search results.
 
                 - `class CodeExecutionToolResultErrorParam:`
+
+                  - `JsonElement Type = "code_execution_tool_result_error"`
 
                   - `required CodeExecutionToolResultErrorCode ErrorCode`
 
@@ -855,15 +866,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     - `ExecutionTimeExceeded("execution_time_exceeded")`
 
-                  - `JsonElement Type = "code_execution_tool_result_error"`
-
                 - `class CodeExecutionResultBlockParam:`
+
+                  - `JsonElement Type = "code_execution_result"`
 
                   - `required IReadOnlyList<CodeExecutionOutputBlockParam> Content`
 
-                    - `required string FileID`
-
                     - `JsonElement Type = "code_execution_output"`
+
+                    - `required string FileID`
 
                   - `required long ReturnCode`
 
@@ -871,17 +882,17 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `required string Stdout`
 
-                  - `JsonElement Type = "code_execution_result"`
-
                 - `class EncryptedCodeExecutionResultBlockParam:`
 
                   Code execution result with encrypted stdout for PFC + web_search results.
 
+                  - `JsonElement Type = "encrypted_code_execution_result"`
+
                   - `required IReadOnlyList<CodeExecutionOutputBlockParam> Content`
 
-                    - `required string FileID`
-
                     - `JsonElement Type = "code_execution_output"`
+
+                    - `required string FileID`
 
                   - `required string EncryptedStdout`
 
@@ -889,13 +900,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `required string Stderr`
 
-                  - `JsonElement Type = "encrypted_code_execution_result"`
-
               - `required string ToolUseID`
 
                 pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-              - `JsonElement Type = "code_execution_tool_result"`
 
               - `CacheControlEphemeral? CacheControl`
 
@@ -903,9 +910,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `class BashCodeExecutionToolResultBlockParam:`
 
+              - `JsonElement Type = "bash_code_execution_tool_result"`
+
               - `required Content Content`
 
                 - `class BashCodeExecutionToolResultErrorParam:`
+
+                  - `JsonElement Type = "bash_code_execution_tool_result_error"`
 
                   - `required BashCodeExecutionToolResultErrorCode ErrorCode`
 
@@ -919,15 +930,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     - `OutputFileTooLarge("output_file_too_large")`
 
-                  - `JsonElement Type = "bash_code_execution_tool_result_error"`
-
                 - `class BashCodeExecutionResultBlockParam:`
+
+                  - `JsonElement Type = "bash_code_execution_result"`
 
                   - `required IReadOnlyList<BashCodeExecutionOutputBlockParam> Content`
 
-                    - `required string FileID`
-
                     - `JsonElement Type = "bash_code_execution_output"`
+
+                    - `required string FileID`
 
                   - `required long ReturnCode`
 
@@ -935,13 +946,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `required string Stdout`
 
-                  - `JsonElement Type = "bash_code_execution_result"`
-
               - `required string ToolUseID`
 
                 pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-              - `JsonElement Type = "bash_code_execution_tool_result"`
 
               - `CacheControlEphemeral? CacheControl`
 
@@ -949,9 +956,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `class TextEditorCodeExecutionToolResultBlockParam:`
 
+              - `JsonElement Type = "text_editor_code_execution_tool_result"`
+
               - `required Content Content`
 
                 - `class TextEditorCodeExecutionToolResultErrorParam:`
+
+                  - `JsonElement Type = "text_editor_code_execution_tool_result_error"`
 
                   - `required TextEditorCodeExecutionToolResultErrorCode ErrorCode`
 
@@ -965,11 +976,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     - `FileNotFound("file_not_found")`
 
-                  - `JsonElement Type = "text_editor_code_execution_tool_result_error"`
-
                   - `string? ErrorMessage`
 
                 - `class TextEditorCodeExecutionViewResultBlockParam:`
+
+                  - `JsonElement Type = "text_editor_code_execution_view_result"`
 
                   - `required string Content`
 
@@ -981,8 +992,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     - `Pdf("pdf")`
 
-                  - `JsonElement Type = "text_editor_code_execution_view_result"`
-
                   - `long? NumLines`
 
                   - `long? StartLine`
@@ -991,9 +1000,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `class TextEditorCodeExecutionCreateResultBlockParam:`
 
-                  - `required bool IsFileUpdate`
-
                   - `JsonElement Type = "text_editor_code_execution_create_result"`
+
+                  - `required bool IsFileUpdate`
 
                 - `class TextEditorCodeExecutionStrReplaceResultBlockParam:`
 
@@ -1013,17 +1022,19 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-              - `JsonElement Type = "text_editor_code_execution_tool_result"`
-
               - `CacheControlEphemeral? CacheControl`
 
                 Create a cache control breakpoint at this content block.
 
             - `class ToolSearchToolResultBlockParam:`
 
+              - `JsonElement Type = "tool_search_tool_result"`
+
               - `required Content Content`
 
                 - `class ToolSearchToolResultErrorParam:`
+
+                  - `JsonElement Type = "tool_search_tool_result_error"`
 
                   - `required ToolSearchToolResultErrorCode ErrorCode`
 
@@ -1035,31 +1046,27 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     - `ExecutionTimeExceeded("execution_time_exceeded")`
 
-                  - `JsonElement Type = "tool_search_tool_result_error"`
-
                   - `string? ErrorMessage`
 
                 - `class ToolSearchToolSearchResultBlockParam:`
 
+                  - `JsonElement Type = "tool_search_tool_search_result"`
+
                   - `required IReadOnlyList<ToolReferenceBlockParam> ToolReferences`
+
+                    - `JsonElement Type = "tool_reference"`
 
                     - `required string ToolName`
 
                       maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
-                    - `JsonElement Type = "tool_reference"`
-
                     - `CacheControlEphemeral? CacheControl`
 
                       Create a cache control breakpoint at this content block.
 
-                  - `JsonElement Type = "tool_search_tool_search_result"`
-
               - `required string ToolUseID`
 
                 pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-              - `JsonElement Type = "tool_search_tool_result"`
 
               - `CacheControlEphemeral? CacheControl`
 
@@ -1070,9 +1077,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
               A content block that represents a file to be uploaded to the container
               Files uploaded via this block will be available in the container's input directory.
 
-              - `required string FileID`
-
               - `JsonElement Type = "container_upload"`
+
+              - `required string FileID`
 
               - `CacheControlEphemeral? CacheControl`
 
@@ -1182,12 +1189,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             maxItems: 20
 
-            - `required string SkillID`
-
-              Skill ID
-
-              maxLength: 64, minLength: 1
-
             - `required SkillParamsType Type`
 
               Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
@@ -1195,6 +1196,12 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
               - `Anthropic("anthropic")`
 
               - `Custom("custom")`
+
+            - `required string SkillID`
+
+              Skill ID
+
+              maxLength: 64, minLength: 1
 
             - `string Version`
 
@@ -1242,11 +1249,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           A schema to specify Claude's output format in responses. See [structured outputs](https://platform.claude.com/docs/en/build-with-claude/structured-outputs)
 
+          - `JsonElement Type = "json_schema"`
+
           - `required IReadOnlyDictionary<string, JsonElement> Schema`
 
             The JSON schema of the format
-
-          - `JsonElement Type = "json_schema"`
 
       - `ServiceTier ServiceTier`
 
@@ -1282,11 +1289,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `IReadOnlyList<TextBlockParam>`
 
+          - `JsonElement Type = "text"`
+
           - `required string Text`
 
             minLength: 1
-
-          - `JsonElement Type = "text"`
 
           - `CacheControlEphemeral? CacheControl`
 
@@ -1304,6 +1311,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `class ThinkingConfigEnabled:`
 
+          - `JsonElement Type = "enabled"`
+
           - `required long BudgetTokens`
 
             Determines how many tokens Claude can use for its internal reasoning process. Larger budgets can enable more thorough analysis for complex problems, improving response quality.
@@ -1313,8 +1322,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
             See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
 
             minimum: 1024
-
-          - `JsonElement Type = "enabled"`
 
           - `Display? Display`
 
@@ -1372,11 +1379,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           The model will use the specified tool with `tool_choice.name`.
 
+          - `JsonElement Type = "tool"`
+
           - `required string Name`
 
             The name of the tool to use.
-
-          - `JsonElement Type = "tool"`
 
           - `bool DisableParallelToolUse`
 
@@ -1456,6 +1463,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `class Tool:`
 
+          - `Type? Type`
+
           - `required InputSchema InputSchema`
 
             [JSON schema](https://json-schema.org/draft/2020-12) for this tool's input.
@@ -1510,17 +1519,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             When true, guarantees schema validation on tool names and inputs
 
-          - `Type? Type`
-
         - `class ToolBash20250124:`
+
+          - `JsonElement Type = "bash_20250124"`
 
           - `JsonElement Name = "bash"`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `JsonElement Type = "bash_20250124"`
 
           - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
@@ -1548,13 +1555,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `class CodeExecutionTool20250522:`
 
+          - `JsonElement Type = "code_execution_20250522"`
+
           - `JsonElement Name = "code_execution"`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `JsonElement Type = "code_execution_20250522"`
 
           - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
@@ -1580,13 +1587,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `class CodeExecutionTool20250825:`
 
+          - `JsonElement Type = "code_execution_20250825"`
+
           - `JsonElement Name = "code_execution"`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `JsonElement Type = "code_execution_20250825"`
 
           - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
@@ -1614,13 +1621,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           Code execution tool with REPL state persistence (daemon mode + gVisor checkpoint).
 
+          - `JsonElement Type = "code_execution_20260120"`
+
           - `JsonElement Name = "code_execution"`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `JsonElement Type = "code_execution_20260120"`
 
           - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
@@ -1648,13 +1655,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           Code execution tool with REPL state persistence.
 
+          - `JsonElement Type = "code_execution_20260521"`
+
           - `JsonElement Name = "code_execution"`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `JsonElement Type = "code_execution_20260521"`
 
           - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
@@ -1699,6 +1706,18 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
             accepted key, and a member's defaults apply wherever its key is
             absent. Unknown keys are rejected: the field set is this toolset
             version's complete member set.
+
+            - `BrowserTypeConfig? Type`
+
+              `type`'s config overrides.
+
+              - `bool? DeferLoading`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `bool? Enabled`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
             - `BrowserCloseTabConfig? CloseTab`
 
@@ -2036,18 +2055,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-            - `BrowserTypeConfig? Type`
-
-              `type`'s config overrides.
-
-              - `bool? DeferLoading`
-
-                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-              - `bool? Enabled`
-
-                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
             - `BrowserWaitConfig? Wait`
 
               `wait`'s config overrides.
@@ -2074,13 +2081,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `class MemoryTool20250818:`
 
+          - `JsonElement Type = "memory_20250818"`
+
           - `JsonElement Name = "memory"`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `JsonElement Type = "memory_20250818"`
 
           - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
@@ -2131,6 +2138,18 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
             accepted key, and a member's defaults apply wherever its key is
             absent. Unknown keys are rejected: the field set is this toolset
             version's complete member set.
+
+            - `ComputerTypeConfig? Type`
+
+              `type`'s config overrides.
+
+              - `bool? DeferLoading`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `bool? Enabled`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
             - `ComputerCursorPositionConfig? CursorPosition`
 
@@ -2300,18 +2319,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-            - `ComputerTypeConfig? Type`
-
-              `type`'s config overrides.
-
-              - `bool? DeferLoading`
-
-                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-              - `bool? Enabled`
-
-                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
             - `ComputerWaitConfig? Wait`
 
               `wait`'s config overrides.
@@ -2338,13 +2345,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `class ToolTextEditor20250124:`
 
+          - `JsonElement Type = "text_editor_20250124"`
+
           - `JsonElement Name = "str_replace_editor"`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `JsonElement Type = "text_editor_20250124"`
 
           - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
@@ -2372,13 +2379,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `class ToolTextEditor20250429:`
 
+          - `JsonElement Type = "text_editor_20250429"`
+
           - `JsonElement Name = "str_replace_based_edit_tool"`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `JsonElement Type = "text_editor_20250429"`
 
           - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
@@ -2406,13 +2413,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `class ToolTextEditor20250728:`
 
+          - `JsonElement Type = "text_editor_20250728"`
+
           - `JsonElement Name = "str_replace_based_edit_tool"`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `JsonElement Type = "text_editor_20250728"`
 
           - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
@@ -2446,13 +2453,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `class WebSearchTool20250305:`
 
+          - `JsonElement Type = "web_search_20250305"`
+
           - `JsonElement Name = "web_search"`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `JsonElement Type = "web_search_20250305"`
 
           - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
@@ -2522,13 +2529,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `class WebFetchTool20250910:`
 
+          - `JsonElement Type = "web_fetch_20250910"`
+
           - `JsonElement Name = "web_fetch"`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `JsonElement Type = "web_fetch_20250910"`
 
           - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
@@ -2578,13 +2585,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `class WebSearchTool20260209:`
 
+          - `JsonElement Type = "web_search_20260209"`
+
           - `JsonElement Name = "web_search"`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `JsonElement Type = "web_search_20260209"`
 
           - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
@@ -2628,13 +2635,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `class WebFetchTool20260209:`
 
+          - `JsonElement Type = "web_fetch_20260209"`
+
           - `JsonElement Name = "web_fetch"`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `JsonElement Type = "web_fetch_20260209"`
 
           - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
@@ -2686,13 +2693,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           Web fetch tool with use_cache parameter for bypassing cached content.
 
+          - `JsonElement Type = "web_fetch_20260309"`
+
           - `JsonElement Name = "web_fetch"`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `JsonElement Type = "web_fetch_20260309"`
 
           - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
@@ -2746,13 +2753,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `class WebSearchTool20260318:`
 
+          - `JsonElement Type = "web_search_20260318"`
+
           - `JsonElement Name = "web_search"`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `JsonElement Type = "web_search_20260318"`
 
           - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
@@ -2804,13 +2811,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `class WebFetchTool20260318:`
 
+          - `JsonElement Type = "web_fetch_20260318"`
+
           - `JsonElement Name = "web_fetch"`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `JsonElement Type = "web_fetch_20260318"`
 
           - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
@@ -2872,17 +2879,17 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `class ToolSearchToolBm25_20251119:`
 
-          - `JsonElement Name = "tool_search_tool_bm25"`
-
-            Name of the tool.
-
-            This is how the tool will be called by the model and in `tool_use` blocks.
-
           - `required Type Type`
 
             - `ToolSearchToolBm25_20251119("tool_search_tool_bm25_20251119")`
 
             - `ToolSearchToolBm25("tool_search_tool_bm25")`
+
+          - `JsonElement Name = "tool_search_tool_bm25"`
+
+            Name of the tool.
+
+            This is how the tool will be called by the model and in `tool_use` blocks.
 
           - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
@@ -2908,17 +2915,17 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `class ToolSearchToolRegex20251119:`
 
-          - `JsonElement Name = "tool_search_tool_regex"`
-
-            Name of the tool.
-
-            This is how the tool will be called by the model and in `tool_use` blocks.
-
           - `required Type Type`
 
             - `ToolSearchToolRegex20251119("tool_search_tool_regex_20251119")`
 
             - `ToolSearchToolRegex("tool_search_tool_regex")`
+
+          - `JsonElement Name = "tool_search_tool_regex"`
+
+            Name of the tool.
+
+            This is how the tool will be called by the model and in `tool_use` blocks.
 
           - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
@@ -2982,9 +2989,21 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     Header param: The user profile ID to attribute the requests in this batch to. Use when acting on behalf of a party other than your organization. Requires the `user-profiles` beta header. Applies to every request in the batch; an individual request whose `user_profile_id` body field conflicts with this header is errored.
 
+  - `string workspaceID`
+
+    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ### Returns
 
 - `class MessageBatch:`
+
+  - `JsonElement Type = "message_batch"`
+
+    Object type.
+
+    For Message Batches, this is always `"message_batch"`.
 
   - `required string ID`
 
@@ -3073,12 +3092,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
     URL to a `.jsonl` file containing the results of the Message Batch requests. Specified only once processing ends.
 
     Results in the file are not guaranteed to be in the same order as requests. Use the `custom_id` field to match results to requests.
-
-  - `JsonElement Type = "message_batch"`
-
-    Object type.
-
-    For Message Batches, this is always `"message_batch"`.
 
 ### Example
 
@@ -3257,9 +3270,21 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     ID of the Message Batch.
 
+  - `string workspaceID`
+
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ### Returns
 
 - `class MessageBatch:`
+
+  - `JsonElement Type = "message_batch"`
+
+    Object type.
+
+    For Message Batches, this is always `"message_batch"`.
 
   - `required string ID`
 
@@ -3348,12 +3373,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
     URL to a `.jsonl` file containing the results of the Message Batch requests. Specified only once processing ends.
 
     Results in the file are not guaranteed to be in the same order as requests. Use the `custom_id` field to match results to requests.
-
-  - `JsonElement Type = "message_batch"`
-
-    Object type.
-
-    For Message Batches, this is always `"message_batch"`.
 
 ### Example
 
@@ -3404,23 +3423,35 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   - `string afterID`
 
-    ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately after this object.
+    Query param: ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately after this object.
 
   - `string beforeID`
 
-    ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately before this object.
+    Query param: ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately before this object.
 
   - `long limit`
 
-    Number of items to return per page.
+    Query param: Number of items to return per page.
 
     Defaults to `20`. Ranges from `1` to `1000`.
 
     maximum: 1000, minimum: 1
 
+  - `string workspaceID`
+
+    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ### Returns
 
 - `class MessageBatch:`
+
+  - `JsonElement Type = "message_batch"`
+
+    Object type.
+
+    For Message Batches, this is always `"message_batch"`.
 
   - `required string ID`
 
@@ -3509,12 +3540,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
     URL to a `.jsonl` file containing the results of the Message Batch requests. Specified only once processing ends.
 
     Results in the file are not guaranteed to be in the same order as requests. Use the `custom_id` field to match results to requests.
-
-  - `JsonElement Type = "message_batch"`
-
-    Object type.
-
-    For Message Batches, this is always `"message_batch"`.
 
 ### Example
 
@@ -3578,9 +3603,21 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     ID of the Message Batch.
 
+  - `string workspaceID`
+
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ### Returns
 
 - `class MessageBatch:`
+
+  - `JsonElement Type = "message_batch"`
+
+    Object type.
+
+    For Message Batches, this is always `"message_batch"`.
 
   - `required string ID`
 
@@ -3669,12 +3706,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
     URL to a `.jsonl` file containing the results of the Message Batch requests. Specified only once processing ends.
 
     Results in the file are not guaranteed to be in the same order as requests. Use the `custom_id` field to match results to requests.
-
-  - `JsonElement Type = "message_batch"`
-
-    Object type.
-
-    For Message Batches, this is always `"message_batch"`.
 
 ### Example
 
@@ -3729,19 +3760,25 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     ID of the Message Batch.
 
+  - `string workspaceID`
+
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ### Returns
 
 - `class DeletedMessageBatch:`
-
-  - `required string ID`
-
-    ID of the Message Batch.
 
   - `JsonElement Type = "message_batch_deleted"`
 
     Deleted object type.
 
     For Message Batches, this is always `"message_batch_deleted"`.
+
+  - `required string ID`
+
+    ID of the Message Batch.
 
 ### Example
 
@@ -3782,6 +3819,12 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     ID of the Message Batch.
 
+  - `string workspaceID`
+
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ### Returns
 
 - `class MessageBatchIndividualResponse:`
@@ -3802,7 +3845,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     - `class MessageBatchSucceededResult:`
 
+      - `JsonElement Type = "succeeded"`
+
       - `required Message Message`
+
+        - `JsonElement Type = "message"`
+
+          Object type.
+
+          For Messages, this is always `"message"`.
 
         - `required string ID`
 
@@ -3828,12 +3879,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             Skills loaded in the container
 
-            - `required string SkillID`
-
-              Skill ID
-
-              maxLength: 64, minLength: 1
-
             - `required ContainerSkillType Type`
 
               Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
@@ -3841,6 +3886,12 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
               - `Anthropic("anthropic")`
 
               - `Custom("custom")`
+
+            - `required string SkillID`
+
+              Skill ID
+
+              maxLength: 64, minLength: 1
 
             - `required string Version`
 
@@ -3879,6 +3930,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           - `class TextBlock:`
 
+            - `JsonElement Type = "text"`
+
             - `required IReadOnlyList<TextCitation>? Citations`
 
               Citations supporting the text block.
@@ -3886,6 +3939,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
               The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
 
               - `class CitationCharLocation:`
+
+                - `JsonElement Type = "char_location"`
 
                 - `required string CitedText`
 
@@ -3903,9 +3958,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   minimum: 0
 
-                - `JsonElement Type = "char_location"`
-
               - `class CitationPageLocation:`
+
+                - `JsonElement Type = "page_location"`
 
                 - `required string CitedText`
 
@@ -3923,9 +3978,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   minimum: 1
 
-                - `JsonElement Type = "page_location"`
-
               - `class CitationContentBlockLocation:`
+
+                - `JsonElement Type = "content_block_location"`
 
                 - `required string CitedText`
 
@@ -3953,9 +4008,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   minimum: 0
 
-                - `JsonElement Type = "content_block_location"`
-
               - `class CitationsWebSearchResultLocation:`
+
+                - `JsonElement Type = "web_search_result_location"`
 
                 - `required string CitedText`
 
@@ -3965,11 +4020,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   maxLength: 512
 
-                - `JsonElement Type = "web_search_result_location"`
-
                 - `required string Url`
 
               - `class CitationsSearchResultLocation:`
+
+                - `JsonElement Type = "search_result_location"`
 
                 - `required string CitedText`
 
@@ -4001,15 +4056,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `required string? Title`
 
-                - `JsonElement Type = "search_result_location"`
-
             - `required string Text`
 
-              maxLength: 5000000, minLength: 0
-
-            - `JsonElement Type = "text"`
+              minLength: 0
 
           - `class ThinkingBlock:`
+
+            - `JsonElement Type = "thinking"`
 
             - `required string Signature`
 
@@ -4023,9 +4076,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               The text of Claude's thinking process for this block.
 
-            - `JsonElement Type = "thinking"`
-
           - `class RedactedThinkingBlock:`
+
+            - `JsonElement Type = "redacted_thinking"`
 
             - `required string Data`
 
@@ -4035,9 +4088,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking#redacted-thinking-blocks) for details.
 
-            - `JsonElement Type = "redacted_thinking"`
-
           - `class ToolUseBlock:`
+
+            - `JsonElement Type = "tool_use"`
 
             - `required string ID`
 
@@ -4057,27 +4110,25 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 Tool invocation generated by a server-side tool.
 
+                - `JsonElement Type = "code_execution_20250825"`
+
                 - `required string ToolID`
 
                   pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-                - `JsonElement Type = "code_execution_20250825"`
 
               - `class ServerToolCaller20260120:`
 
+                - `JsonElement Type = "code_execution_20260120"`
+
                 - `required string ToolID`
 
                   pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-                - `JsonElement Type = "code_execution_20260120"`
 
             - `required IReadOnlyDictionary<string, JsonElement> Input`
 
             - `required string Name`
 
               minLength: 1
-
-            - `JsonElement Type = "tool_use"`
 
             - `string? ToolsetName`
 
@@ -4086,6 +4137,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
               maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
 
           - `class ServerToolUseBlock:`
+
+            - `JsonElement Type = "server_tool_use"`
 
             - `required string ID`
 
@@ -4123,9 +4176,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `ToolSearchToolBm25("tool_search_tool_bm25")`
 
-            - `JsonElement Type = "server_tool_use"`
-
           - `class WebSearchToolResultBlock:`
+
+            - `JsonElement Type = "web_search_tool_result"`
 
             - `required Caller Caller`
 
@@ -4145,6 +4198,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `class WebSearchToolResultError:`
 
+                - `JsonElement Type = "web_search_tool_result_error"`
+
                 - `required WebSearchToolResultErrorCode ErrorCode`
 
                   - `InvalidToolInput("invalid_tool_input")`
@@ -4159,9 +4214,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `RequestTooLarge("request_too_large")`
 
-                - `JsonElement Type = "web_search_tool_result_error"`
-
               - `IReadOnlyList<WebSearchResultBlock>`
+
+                - `JsonElement Type = "web_search_result"`
 
                 - `required string EncryptedContent`
 
@@ -4169,17 +4224,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `required string Title`
 
-                - `JsonElement Type = "web_search_result"`
-
                 - `required string Url`
 
             - `required string ToolUseID`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-            - `JsonElement Type = "web_search_tool_result"`
-
           - `class WebFetchToolResultBlock:`
+
+            - `JsonElement Type = "web_fetch_tool_result"`
 
             - `required Caller Caller`
 
@@ -4198,6 +4251,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
             - `required Content Content`
 
               - `class WebFetchToolResultErrorBlock:`
+
+                - `JsonElement Type = "web_fetch_tool_result_error"`
 
                 - `required WebFetchToolResultErrorCode ErrorCode`
 
@@ -4219,11 +4274,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `Unavailable("unavailable")`
 
-                - `JsonElement Type = "web_fetch_tool_result_error"`
+                  - `ContentTooLarge("content_too_large")`
 
               - `class WebFetchBlock:`
 
+                - `JsonElement Type = "web_fetch_result"`
+
                 - `required DocumentBlock Content`
+
+                  - `JsonElement Type = "document"`
 
                   - `required CitationsConfig? Citations`
 
@@ -4235,33 +4294,29 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     - `class Base64PdfSource:`
 
+                      - `JsonElement Type = "base64"`
+
                       - `required string Data`
 
                         format: byte
 
                       - `JsonElement MediaType = "application/pdf"`
 
-                      - `JsonElement Type = "base64"`
-
                     - `class PlainTextSource:`
+
+                      - `JsonElement Type = "text"`
 
                       - `required string Data`
 
                       - `JsonElement MediaType = "text/plain"`
 
-                      - `JsonElement Type = "text"`
-
                   - `required string? Title`
 
                     The title of the document
 
-                  - `JsonElement Type = "document"`
-
                 - `required string? RetrievedAt`
 
                   ISO 8601 timestamp when the content was retrieved
-
-                - `JsonElement Type = "web_fetch_result"`
 
                 - `required string Url`
 
@@ -4271,15 +4326,17 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-            - `JsonElement Type = "web_fetch_tool_result"`
-
           - `class CodeExecutionToolResultBlock:`
+
+            - `JsonElement Type = "code_execution_tool_result"`
 
             - `required CodeExecutionToolResultBlockContent Content`
 
               Code execution result with encrypted stdout for PFC + web_search results.
 
               - `class CodeExecutionToolResultError:`
+
+                - `JsonElement Type = "code_execution_tool_result_error"`
 
                 - `required CodeExecutionToolResultErrorCode ErrorCode`
 
@@ -4291,15 +4348,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `ExecutionTimeExceeded("execution_time_exceeded")`
 
-                - `JsonElement Type = "code_execution_tool_result_error"`
-
               - `class CodeExecutionResultBlock:`
+
+                - `JsonElement Type = "code_execution_result"`
 
                 - `required IReadOnlyList<CodeExecutionOutputBlock> Content`
 
-                  - `required string FileID`
-
                   - `JsonElement Type = "code_execution_output"`
+
+                  - `required string FileID`
 
                 - `required long ReturnCode`
 
@@ -4307,17 +4364,17 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `required string Stdout`
 
-                - `JsonElement Type = "code_execution_result"`
-
               - `class EncryptedCodeExecutionResultBlock:`
 
                 Code execution result with encrypted stdout for PFC + web_search results.
 
+                - `JsonElement Type = "encrypted_code_execution_result"`
+
                 - `required IReadOnlyList<CodeExecutionOutputBlock> Content`
 
-                  - `required string FileID`
-
                   - `JsonElement Type = "code_execution_output"`
+
+                  - `required string FileID`
 
                 - `required string EncryptedStdout`
 
@@ -4325,19 +4382,19 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `required string Stderr`
 
-                - `JsonElement Type = "encrypted_code_execution_result"`
-
             - `required string ToolUseID`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-            - `JsonElement Type = "code_execution_tool_result"`
-
           - `class BashCodeExecutionToolResultBlock:`
+
+            - `JsonElement Type = "bash_code_execution_tool_result"`
 
             - `required Content Content`
 
               - `class BashCodeExecutionToolResultError:`
+
+                - `JsonElement Type = "bash_code_execution_tool_result_error"`
 
                 - `required BashCodeExecutionToolResultErrorCode ErrorCode`
 
@@ -4351,15 +4408,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `OutputFileTooLarge("output_file_too_large")`
 
-                - `JsonElement Type = "bash_code_execution_tool_result_error"`
-
               - `class BashCodeExecutionResultBlock:`
+
+                - `JsonElement Type = "bash_code_execution_result"`
 
                 - `required IReadOnlyList<BashCodeExecutionOutputBlock> Content`
 
-                  - `required string FileID`
-
                   - `JsonElement Type = "bash_code_execution_output"`
+
+                  - `required string FileID`
 
                 - `required long ReturnCode`
 
@@ -4367,19 +4424,19 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `required string Stdout`
 
-                - `JsonElement Type = "bash_code_execution_result"`
-
             - `required string ToolUseID`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-            - `JsonElement Type = "bash_code_execution_tool_result"`
-
           - `class TextEditorCodeExecutionToolResultBlock:`
+
+            - `JsonElement Type = "text_editor_code_execution_tool_result"`
 
             - `required Content Content`
 
               - `class TextEditorCodeExecutionToolResultError:`
+
+                - `JsonElement Type = "text_editor_code_execution_tool_result_error"`
 
                 - `required TextEditorCodeExecutionToolResultErrorCode ErrorCode`
 
@@ -4395,9 +4452,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `required string? ErrorMessage`
 
-                - `JsonElement Type = "text_editor_code_execution_tool_result_error"`
-
               - `class TextEditorCodeExecutionViewResultBlock:`
+
+                - `JsonElement Type = "text_editor_code_execution_view_result"`
 
                 - `required string Content`
 
@@ -4415,15 +4472,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `required long? TotalLines`
 
-                - `JsonElement Type = "text_editor_code_execution_view_result"`
-
               - `class TextEditorCodeExecutionCreateResultBlock:`
-
-                - `required bool IsFileUpdate`
 
                 - `JsonElement Type = "text_editor_code_execution_create_result"`
 
+                - `required bool IsFileUpdate`
+
               - `class TextEditorCodeExecutionStrReplaceResultBlock:`
+
+                - `JsonElement Type = "text_editor_code_execution_str_replace_result"`
 
                 - `required IReadOnlyList<string>? Lines`
 
@@ -4435,19 +4492,19 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `required long? OldStart`
 
-                - `JsonElement Type = "text_editor_code_execution_str_replace_result"`
-
             - `required string ToolUseID`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-            - `JsonElement Type = "text_editor_code_execution_tool_result"`
-
           - `class ToolSearchToolResultBlock:`
+
+            - `JsonElement Type = "tool_search_tool_result"`
 
             - `required Content Content`
 
               - `class ToolSearchToolResultError:`
+
+                - `JsonElement Type = "tool_search_tool_result_error"`
 
                 - `required ToolSearchToolResultErrorCode ErrorCode`
 
@@ -4461,33 +4518,29 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `required string? ErrorMessage`
 
-                - `JsonElement Type = "tool_search_tool_result_error"`
-
               - `class ToolSearchToolSearchResultBlock:`
 
+                - `JsonElement Type = "tool_search_tool_search_result"`
+
                 - `required IReadOnlyList<ToolReferenceBlock> ToolReferences`
+
+                  - `JsonElement Type = "tool_reference"`
 
                   - `required string ToolName`
 
                     maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
-                  - `JsonElement Type = "tool_reference"`
-
-                - `JsonElement Type = "tool_search_tool_search_result"`
-
             - `required string ToolUseID`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-            - `JsonElement Type = "tool_search_tool_result"`
 
           - `class ContainerUploadBlock:`
 
             Response model for a file uploaded to the container.
 
-            - `required string FileID`
-
             - `JsonElement Type = "container_upload"`
+
+            - `required string FileID`
 
         - `required Model Model`
 
@@ -4573,6 +4626,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           Structured information about a refusal.
 
+          - `JsonElement Type = "refusal"`
+
           - `required Category? Category`
 
             The policy category that triggered a refusal.
@@ -4602,8 +4657,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
             Human-readable explanation of the refusal.
 
             This text is not guaranteed to be stable. `null` when no explanation is available for the category.
-
-          - `JsonElement Type = "refusal"`
 
         - `required StopReason? StopReason`
 
@@ -4640,12 +4693,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
           Which custom stop sequence was generated, if any.
 
           This value will be a non-null string if one of your custom stop sequences was generated.
-
-        - `JsonElement Type = "message"`
-
-          Object type.
-
-          For Messages, this is always `"message"`.
 
         - `required Usage Usage`
 
@@ -4751,73 +4798,71 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `Batch("batch")`
 
-      - `JsonElement Type = "succeeded"`
-
     - `class MessageBatchErroredResult:`
 
+      - `JsonElement Type = "errored"`
+
       - `required ErrorResponse Error`
+
+        - `JsonElement Type = "error"`
 
         - `required ErrorObject Error`
 
           - `class InvalidRequestError:`
 
-            - `required string Message`
-
             - `JsonElement Type = "invalid_request_error"`
+
+            - `required string Message`
 
           - `class AuthenticationError:`
 
-            - `required string Message`
-
             - `JsonElement Type = "authentication_error"`
+
+            - `required string Message`
 
           - `class BillingError:`
 
-            - `required string Message`
-
             - `JsonElement Type = "billing_error"`
+
+            - `required string Message`
 
           - `class PermissionError:`
 
-            - `required string Message`
-
             - `JsonElement Type = "permission_error"`
+
+            - `required string Message`
 
           - `class NotFoundError:`
 
-            - `required string Message`
-
             - `JsonElement Type = "not_found_error"`
+
+            - `required string Message`
 
           - `class RateLimitError:`
 
-            - `required string Message`
-
             - `JsonElement Type = "rate_limit_error"`
+
+            - `required string Message`
 
           - `class GatewayTimeoutError:`
 
-            - `required string Message`
-
             - `JsonElement Type = "timeout_error"`
+
+            - `required string Message`
 
           - `class ApiErrorObject:`
 
-            - `required string Message`
-
             - `JsonElement Type = "api_error"`
+
+            - `required string Message`
 
           - `class OverloadedError:`
 
-            - `required string Message`
-
             - `JsonElement Type = "overloaded_error"`
 
+            - `required string Message`
+
         - `required string? RequestID`
-
-        - `JsonElement Type = "error"`
-
-      - `JsonElement Type = "errored"`
 
     - `class MessageBatchCanceledResult:`
 
@@ -4844,19 +4889,25 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
 
 - `class DeletedMessageBatch:`
 
-  - `required string ID`
-
-    ID of the Message Batch.
-
   - `JsonElement Type = "message_batch_deleted"`
 
     Deleted object type.
 
     For Message Batches, this is always `"message_batch_deleted"`.
 
+  - `required string ID`
+
+    ID of the Message Batch.
+
 ### Message Batch
 
 - `class MessageBatch:`
+
+  - `JsonElement Type = "message_batch"`
+
+    Object type.
+
+    For Message Batches, this is always `"message_batch"`.
 
   - `required string ID`
 
@@ -4946,12 +4997,6 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
 
     Results in the file are not guaranteed to be in the same order as requests. Use the `custom_id` field to match results to requests.
 
-  - `JsonElement Type = "message_batch"`
-
-    Object type.
-
-    For Message Batches, this is always `"message_batch"`.
-
 ### Message Batch Canceled Result
 
 - `class MessageBatchCanceledResult:`
@@ -4962,69 +5007,69 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
 
 - `class MessageBatchErroredResult:`
 
+  - `JsonElement Type = "errored"`
+
   - `required ErrorResponse Error`
+
+    - `JsonElement Type = "error"`
 
     - `required ErrorObject Error`
 
       - `class InvalidRequestError:`
 
-        - `required string Message`
-
         - `JsonElement Type = "invalid_request_error"`
+
+        - `required string Message`
 
       - `class AuthenticationError:`
 
-        - `required string Message`
-
         - `JsonElement Type = "authentication_error"`
+
+        - `required string Message`
 
       - `class BillingError:`
 
-        - `required string Message`
-
         - `JsonElement Type = "billing_error"`
+
+        - `required string Message`
 
       - `class PermissionError:`
 
-        - `required string Message`
-
         - `JsonElement Type = "permission_error"`
+
+        - `required string Message`
 
       - `class NotFoundError:`
 
-        - `required string Message`
-
         - `JsonElement Type = "not_found_error"`
+
+        - `required string Message`
 
       - `class RateLimitError:`
 
-        - `required string Message`
-
         - `JsonElement Type = "rate_limit_error"`
+
+        - `required string Message`
 
       - `class GatewayTimeoutError:`
 
-        - `required string Message`
-
         - `JsonElement Type = "timeout_error"`
+
+        - `required string Message`
 
       - `class ApiErrorObject:`
 
-        - `required string Message`
-
         - `JsonElement Type = "api_error"`
+
+        - `required string Message`
 
       - `class OverloadedError:`
 
-        - `required string Message`
-
         - `JsonElement Type = "overloaded_error"`
 
+        - `required string Message`
+
     - `required string? RequestID`
-
-    - `JsonElement Type = "error"`
-
-  - `JsonElement Type = "errored"`
 
 ### Message Batch Expired Result
 
@@ -5052,7 +5097,15 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
 
     - `class MessageBatchSucceededResult:`
 
+      - `JsonElement Type = "succeeded"`
+
       - `required Message Message`
+
+        - `JsonElement Type = "message"`
+
+          Object type.
+
+          For Messages, this is always `"message"`.
 
         - `required string ID`
 
@@ -5078,12 +5131,6 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
 
             Skills loaded in the container
 
-            - `required string SkillID`
-
-              Skill ID
-
-              maxLength: 64, minLength: 1
-
             - `required ContainerSkillType Type`
 
               Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
@@ -5091,6 +5138,12 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
               - `Anthropic("anthropic")`
 
               - `Custom("custom")`
+
+            - `required string SkillID`
+
+              Skill ID
+
+              maxLength: 64, minLength: 1
 
             - `required string Version`
 
@@ -5129,6 +5182,8 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
 
           - `class TextBlock:`
 
+            - `JsonElement Type = "text"`
+
             - `required IReadOnlyList<TextCitation>? Citations`
 
               Citations supporting the text block.
@@ -5136,6 +5191,8 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
               The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
 
               - `class CitationCharLocation:`
+
+                - `JsonElement Type = "char_location"`
 
                 - `required string CitedText`
 
@@ -5153,9 +5210,9 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
 
                   minimum: 0
 
-                - `JsonElement Type = "char_location"`
-
               - `class CitationPageLocation:`
+
+                - `JsonElement Type = "page_location"`
 
                 - `required string CitedText`
 
@@ -5173,9 +5230,9 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
 
                   minimum: 1
 
-                - `JsonElement Type = "page_location"`
-
               - `class CitationContentBlockLocation:`
+
+                - `JsonElement Type = "content_block_location"`
 
                 - `required string CitedText`
 
@@ -5203,9 +5260,9 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
 
                   minimum: 0
 
-                - `JsonElement Type = "content_block_location"`
-
               - `class CitationsWebSearchResultLocation:`
+
+                - `JsonElement Type = "web_search_result_location"`
 
                 - `required string CitedText`
 
@@ -5215,11 +5272,11 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
 
                   maxLength: 512
 
-                - `JsonElement Type = "web_search_result_location"`
-
                 - `required string Url`
 
               - `class CitationsSearchResultLocation:`
+
+                - `JsonElement Type = "search_result_location"`
 
                 - `required string CitedText`
 
@@ -5251,15 +5308,13 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
 
                 - `required string? Title`
 
-                - `JsonElement Type = "search_result_location"`
-
             - `required string Text`
 
-              maxLength: 5000000, minLength: 0
-
-            - `JsonElement Type = "text"`
+              minLength: 0
 
           - `class ThinkingBlock:`
+
+            - `JsonElement Type = "thinking"`
 
             - `required string Signature`
 
@@ -5273,9 +5328,9 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
 
               The text of Claude's thinking process for this block.
 
-            - `JsonElement Type = "thinking"`
-
           - `class RedactedThinkingBlock:`
+
+            - `JsonElement Type = "redacted_thinking"`
 
             - `required string Data`
 
@@ -5285,9 +5340,9 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
 
               See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking#redacted-thinking-blocks) for details.
 
-            - `JsonElement Type = "redacted_thinking"`
-
           - `class ToolUseBlock:`
+
+            - `JsonElement Type = "tool_use"`
 
             - `required string ID`
 
@@ -5307,27 +5362,25 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
 
                 Tool invocation generated by a server-side tool.
 
+                - `JsonElement Type = "code_execution_20250825"`
+
                 - `required string ToolID`
 
                   pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-                - `JsonElement Type = "code_execution_20250825"`
 
               - `class ServerToolCaller20260120:`
 
+                - `JsonElement Type = "code_execution_20260120"`
+
                 - `required string ToolID`
 
                   pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-                - `JsonElement Type = "code_execution_20260120"`
 
             - `required IReadOnlyDictionary<string, JsonElement> Input`
 
             - `required string Name`
 
               minLength: 1
-
-            - `JsonElement Type = "tool_use"`
 
             - `string? ToolsetName`
 
@@ -5336,6 +5389,8 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
               maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
 
           - `class ServerToolUseBlock:`
+
+            - `JsonElement Type = "server_tool_use"`
 
             - `required string ID`
 
@@ -5373,9 +5428,9 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
 
               - `ToolSearchToolBm25("tool_search_tool_bm25")`
 
-            - `JsonElement Type = "server_tool_use"`
-
           - `class WebSearchToolResultBlock:`
+
+            - `JsonElement Type = "web_search_tool_result"`
 
             - `required Caller Caller`
 
@@ -5395,6 +5450,8 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
 
               - `class WebSearchToolResultError:`
 
+                - `JsonElement Type = "web_search_tool_result_error"`
+
                 - `required WebSearchToolResultErrorCode ErrorCode`
 
                   - `InvalidToolInput("invalid_tool_input")`
@@ -5409,9 +5466,9 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
 
                   - `RequestTooLarge("request_too_large")`
 
-                - `JsonElement Type = "web_search_tool_result_error"`
-
               - `IReadOnlyList<WebSearchResultBlock>`
+
+                - `JsonElement Type = "web_search_result"`
 
                 - `required string EncryptedContent`
 
@@ -5419,17 +5476,15 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
 
                 - `required string Title`
 
-                - `JsonElement Type = "web_search_result"`
-
                 - `required string Url`
 
             - `required string ToolUseID`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-            - `JsonElement Type = "web_search_tool_result"`
-
           - `class WebFetchToolResultBlock:`
+
+            - `JsonElement Type = "web_fetch_tool_result"`
 
             - `required Caller Caller`
 
@@ -5448,6 +5503,8 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
             - `required Content Content`
 
               - `class WebFetchToolResultErrorBlock:`
+
+                - `JsonElement Type = "web_fetch_tool_result_error"`
 
                 - `required WebFetchToolResultErrorCode ErrorCode`
 
@@ -5469,11 +5526,15 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
 
                   - `Unavailable("unavailable")`
 
-                - `JsonElement Type = "web_fetch_tool_result_error"`
+                  - `ContentTooLarge("content_too_large")`
 
               - `class WebFetchBlock:`
 
+                - `JsonElement Type = "web_fetch_result"`
+
                 - `required DocumentBlock Content`
+
+                  - `JsonElement Type = "document"`
 
                   - `required CitationsConfig? Citations`
 
@@ -5485,33 +5546,29 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
 
                     - `class Base64PdfSource:`
 
+                      - `JsonElement Type = "base64"`
+
                       - `required string Data`
 
                         format: byte
 
                       - `JsonElement MediaType = "application/pdf"`
 
-                      - `JsonElement Type = "base64"`
-
                     - `class PlainTextSource:`
+
+                      - `JsonElement Type = "text"`
 
                       - `required string Data`
 
                       - `JsonElement MediaType = "text/plain"`
 
-                      - `JsonElement Type = "text"`
-
                   - `required string? Title`
 
                     The title of the document
 
-                  - `JsonElement Type = "document"`
-
                 - `required string? RetrievedAt`
 
                   ISO 8601 timestamp when the content was retrieved
-
-                - `JsonElement Type = "web_fetch_result"`
 
                 - `required string Url`
 
@@ -5521,15 +5578,17 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-            - `JsonElement Type = "web_fetch_tool_result"`
-
           - `class CodeExecutionToolResultBlock:`
+
+            - `JsonElement Type = "code_execution_tool_result"`
 
             - `required CodeExecutionToolResultBlockContent Content`
 
               Code execution result with encrypted stdout for PFC + web_search results.
 
               - `class CodeExecutionToolResultError:`
+
+                - `JsonElement Type = "code_execution_tool_result_error"`
 
                 - `required CodeExecutionToolResultErrorCode ErrorCode`
 
@@ -5541,15 +5600,15 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
 
                   - `ExecutionTimeExceeded("execution_time_exceeded")`
 
-                - `JsonElement Type = "code_execution_tool_result_error"`
-
               - `class CodeExecutionResultBlock:`
+
+                - `JsonElement Type = "code_execution_result"`
 
                 - `required IReadOnlyList<CodeExecutionOutputBlock> Content`
 
-                  - `required string FileID`
-
                   - `JsonElement Type = "code_execution_output"`
+
+                  - `required string FileID`
 
                 - `required long ReturnCode`
 
@@ -5557,17 +5616,17 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
 
                 - `required string Stdout`
 
-                - `JsonElement Type = "code_execution_result"`
-
               - `class EncryptedCodeExecutionResultBlock:`
 
                 Code execution result with encrypted stdout for PFC + web_search results.
 
+                - `JsonElement Type = "encrypted_code_execution_result"`
+
                 - `required IReadOnlyList<CodeExecutionOutputBlock> Content`
 
-                  - `required string FileID`
-
                   - `JsonElement Type = "code_execution_output"`
+
+                  - `required string FileID`
 
                 - `required string EncryptedStdout`
 
@@ -5575,19 +5634,19 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
 
                 - `required string Stderr`
 
-                - `JsonElement Type = "encrypted_code_execution_result"`
-
             - `required string ToolUseID`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-            - `JsonElement Type = "code_execution_tool_result"`
-
           - `class BashCodeExecutionToolResultBlock:`
+
+            - `JsonElement Type = "bash_code_execution_tool_result"`
 
             - `required Content Content`
 
               - `class BashCodeExecutionToolResultError:`
+
+                - `JsonElement Type = "bash_code_execution_tool_result_error"`
 
                 - `required BashCodeExecutionToolResultErrorCode ErrorCode`
 
@@ -5601,15 +5660,15 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
 
                   - `OutputFileTooLarge("output_file_too_large")`
 
-                - `JsonElement Type = "bash_code_execution_tool_result_error"`
-
               - `class BashCodeExecutionResultBlock:`
+
+                - `JsonElement Type = "bash_code_execution_result"`
 
                 - `required IReadOnlyList<BashCodeExecutionOutputBlock> Content`
 
-                  - `required string FileID`
-
                   - `JsonElement Type = "bash_code_execution_output"`
+
+                  - `required string FileID`
 
                 - `required long ReturnCode`
 
@@ -5617,19 +5676,19 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
 
                 - `required string Stdout`
 
-                - `JsonElement Type = "bash_code_execution_result"`
-
             - `required string ToolUseID`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-            - `JsonElement Type = "bash_code_execution_tool_result"`
-
           - `class TextEditorCodeExecutionToolResultBlock:`
+
+            - `JsonElement Type = "text_editor_code_execution_tool_result"`
 
             - `required Content Content`
 
               - `class TextEditorCodeExecutionToolResultError:`
+
+                - `JsonElement Type = "text_editor_code_execution_tool_result_error"`
 
                 - `required TextEditorCodeExecutionToolResultErrorCode ErrorCode`
 
@@ -5645,9 +5704,9 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
 
                 - `required string? ErrorMessage`
 
-                - `JsonElement Type = "text_editor_code_execution_tool_result_error"`
-
               - `class TextEditorCodeExecutionViewResultBlock:`
+
+                - `JsonElement Type = "text_editor_code_execution_view_result"`
 
                 - `required string Content`
 
@@ -5665,15 +5724,15 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
 
                 - `required long? TotalLines`
 
-                - `JsonElement Type = "text_editor_code_execution_view_result"`
-
               - `class TextEditorCodeExecutionCreateResultBlock:`
-
-                - `required bool IsFileUpdate`
 
                 - `JsonElement Type = "text_editor_code_execution_create_result"`
 
+                - `required bool IsFileUpdate`
+
               - `class TextEditorCodeExecutionStrReplaceResultBlock:`
+
+                - `JsonElement Type = "text_editor_code_execution_str_replace_result"`
 
                 - `required IReadOnlyList<string>? Lines`
 
@@ -5685,19 +5744,19 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
 
                 - `required long? OldStart`
 
-                - `JsonElement Type = "text_editor_code_execution_str_replace_result"`
-
             - `required string ToolUseID`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-            - `JsonElement Type = "text_editor_code_execution_tool_result"`
-
           - `class ToolSearchToolResultBlock:`
+
+            - `JsonElement Type = "tool_search_tool_result"`
 
             - `required Content Content`
 
               - `class ToolSearchToolResultError:`
+
+                - `JsonElement Type = "tool_search_tool_result_error"`
 
                 - `required ToolSearchToolResultErrorCode ErrorCode`
 
@@ -5711,33 +5770,29 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
 
                 - `required string? ErrorMessage`
 
-                - `JsonElement Type = "tool_search_tool_result_error"`
-
               - `class ToolSearchToolSearchResultBlock:`
 
+                - `JsonElement Type = "tool_search_tool_search_result"`
+
                 - `required IReadOnlyList<ToolReferenceBlock> ToolReferences`
+
+                  - `JsonElement Type = "tool_reference"`
 
                   - `required string ToolName`
 
                     maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
-                  - `JsonElement Type = "tool_reference"`
-
-                - `JsonElement Type = "tool_search_tool_search_result"`
-
             - `required string ToolUseID`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-            - `JsonElement Type = "tool_search_tool_result"`
 
           - `class ContainerUploadBlock:`
 
             Response model for a file uploaded to the container.
 
-            - `required string FileID`
-
             - `JsonElement Type = "container_upload"`
+
+            - `required string FileID`
 
         - `required Model Model`
 
@@ -5823,6 +5878,8 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
 
           Structured information about a refusal.
 
+          - `JsonElement Type = "refusal"`
+
           - `required Category? Category`
 
             The policy category that triggered a refusal.
@@ -5852,8 +5909,6 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
             Human-readable explanation of the refusal.
 
             This text is not guaranteed to be stable. `null` when no explanation is available for the category.
-
-          - `JsonElement Type = "refusal"`
 
         - `required StopReason? StopReason`
 
@@ -5890,12 +5945,6 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
           Which custom stop sequence was generated, if any.
 
           This value will be a non-null string if one of your custom stop sequences was generated.
-
-        - `JsonElement Type = "message"`
-
-          Object type.
-
-          For Messages, this is always `"message"`.
 
         - `required Usage Usage`
 
@@ -6001,73 +6050,71 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
 
             - `Batch("batch")`
 
-      - `JsonElement Type = "succeeded"`
-
     - `class MessageBatchErroredResult:`
 
+      - `JsonElement Type = "errored"`
+
       - `required ErrorResponse Error`
+
+        - `JsonElement Type = "error"`
 
         - `required ErrorObject Error`
 
           - `class InvalidRequestError:`
 
-            - `required string Message`
-
             - `JsonElement Type = "invalid_request_error"`
+
+            - `required string Message`
 
           - `class AuthenticationError:`
 
-            - `required string Message`
-
             - `JsonElement Type = "authentication_error"`
+
+            - `required string Message`
 
           - `class BillingError:`
 
-            - `required string Message`
-
             - `JsonElement Type = "billing_error"`
+
+            - `required string Message`
 
           - `class PermissionError:`
 
-            - `required string Message`
-
             - `JsonElement Type = "permission_error"`
+
+            - `required string Message`
 
           - `class NotFoundError:`
 
-            - `required string Message`
-
             - `JsonElement Type = "not_found_error"`
+
+            - `required string Message`
 
           - `class RateLimitError:`
 
-            - `required string Message`
-
             - `JsonElement Type = "rate_limit_error"`
+
+            - `required string Message`
 
           - `class GatewayTimeoutError:`
 
-            - `required string Message`
-
             - `JsonElement Type = "timeout_error"`
+
+            - `required string Message`
 
           - `class ApiErrorObject:`
 
-            - `required string Message`
-
             - `JsonElement Type = "api_error"`
+
+            - `required string Message`
 
           - `class OverloadedError:`
 
-            - `required string Message`
-
             - `JsonElement Type = "overloaded_error"`
 
+            - `required string Message`
+
         - `required string? RequestID`
-
-        - `JsonElement Type = "error"`
-
-      - `JsonElement Type = "errored"`
 
     - `class MessageBatchCanceledResult:`
 
@@ -6119,7 +6166,15 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
 
   - `class MessageBatchSucceededResult:`
 
+    - `JsonElement Type = "succeeded"`
+
     - `required Message Message`
+
+      - `JsonElement Type = "message"`
+
+        Object type.
+
+        For Messages, this is always `"message"`.
 
       - `required string ID`
 
@@ -6145,12 +6200,6 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
 
           Skills loaded in the container
 
-          - `required string SkillID`
-
-            Skill ID
-
-            maxLength: 64, minLength: 1
-
           - `required ContainerSkillType Type`
 
             Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
@@ -6158,6 +6207,12 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
             - `Anthropic("anthropic")`
 
             - `Custom("custom")`
+
+          - `required string SkillID`
+
+            Skill ID
+
+            maxLength: 64, minLength: 1
 
           - `required string Version`
 
@@ -6196,6 +6251,8 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
 
         - `class TextBlock:`
 
+          - `JsonElement Type = "text"`
+
           - `required IReadOnlyList<TextCitation>? Citations`
 
             Citations supporting the text block.
@@ -6203,6 +6260,8 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
             The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
 
             - `class CitationCharLocation:`
+
+              - `JsonElement Type = "char_location"`
 
               - `required string CitedText`
 
@@ -6220,9 +6279,9 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
 
                 minimum: 0
 
-              - `JsonElement Type = "char_location"`
-
             - `class CitationPageLocation:`
+
+              - `JsonElement Type = "page_location"`
 
               - `required string CitedText`
 
@@ -6240,9 +6299,9 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
 
                 minimum: 1
 
-              - `JsonElement Type = "page_location"`
-
             - `class CitationContentBlockLocation:`
+
+              - `JsonElement Type = "content_block_location"`
 
               - `required string CitedText`
 
@@ -6270,9 +6329,9 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
 
                 minimum: 0
 
-              - `JsonElement Type = "content_block_location"`
-
             - `class CitationsWebSearchResultLocation:`
+
+              - `JsonElement Type = "web_search_result_location"`
 
               - `required string CitedText`
 
@@ -6282,11 +6341,11 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
 
                 maxLength: 512
 
-              - `JsonElement Type = "web_search_result_location"`
-
               - `required string Url`
 
             - `class CitationsSearchResultLocation:`
+
+              - `JsonElement Type = "search_result_location"`
 
               - `required string CitedText`
 
@@ -6318,15 +6377,13 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
 
               - `required string? Title`
 
-              - `JsonElement Type = "search_result_location"`
-
           - `required string Text`
 
-            maxLength: 5000000, minLength: 0
-
-          - `JsonElement Type = "text"`
+            minLength: 0
 
         - `class ThinkingBlock:`
+
+          - `JsonElement Type = "thinking"`
 
           - `required string Signature`
 
@@ -6340,9 +6397,9 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
 
             The text of Claude's thinking process for this block.
 
-          - `JsonElement Type = "thinking"`
-
         - `class RedactedThinkingBlock:`
+
+          - `JsonElement Type = "redacted_thinking"`
 
           - `required string Data`
 
@@ -6352,9 +6409,9 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
 
             See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking#redacted-thinking-blocks) for details.
 
-          - `JsonElement Type = "redacted_thinking"`
-
         - `class ToolUseBlock:`
+
+          - `JsonElement Type = "tool_use"`
 
           - `required string ID`
 
@@ -6374,27 +6431,25 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
 
               Tool invocation generated by a server-side tool.
 
+              - `JsonElement Type = "code_execution_20250825"`
+
               - `required string ToolID`
 
                 pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-              - `JsonElement Type = "code_execution_20250825"`
 
             - `class ServerToolCaller20260120:`
 
+              - `JsonElement Type = "code_execution_20260120"`
+
               - `required string ToolID`
 
                 pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-              - `JsonElement Type = "code_execution_20260120"`
 
           - `required IReadOnlyDictionary<string, JsonElement> Input`
 
           - `required string Name`
 
             minLength: 1
-
-          - `JsonElement Type = "tool_use"`
 
           - `string? ToolsetName`
 
@@ -6403,6 +6458,8 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
             maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
 
         - `class ServerToolUseBlock:`
+
+          - `JsonElement Type = "server_tool_use"`
 
           - `required string ID`
 
@@ -6440,9 +6497,9 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
 
             - `ToolSearchToolBm25("tool_search_tool_bm25")`
 
-          - `JsonElement Type = "server_tool_use"`
-
         - `class WebSearchToolResultBlock:`
+
+          - `JsonElement Type = "web_search_tool_result"`
 
           - `required Caller Caller`
 
@@ -6462,6 +6519,8 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
 
             - `class WebSearchToolResultError:`
 
+              - `JsonElement Type = "web_search_tool_result_error"`
+
               - `required WebSearchToolResultErrorCode ErrorCode`
 
                 - `InvalidToolInput("invalid_tool_input")`
@@ -6476,9 +6535,9 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
 
                 - `RequestTooLarge("request_too_large")`
 
-              - `JsonElement Type = "web_search_tool_result_error"`
-
             - `IReadOnlyList<WebSearchResultBlock>`
+
+              - `JsonElement Type = "web_search_result"`
 
               - `required string EncryptedContent`
 
@@ -6486,17 +6545,15 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
 
               - `required string Title`
 
-              - `JsonElement Type = "web_search_result"`
-
               - `required string Url`
 
           - `required string ToolUseID`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `JsonElement Type = "web_search_tool_result"`
-
         - `class WebFetchToolResultBlock:`
+
+          - `JsonElement Type = "web_fetch_tool_result"`
 
           - `required Caller Caller`
 
@@ -6515,6 +6572,8 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
           - `required Content Content`
 
             - `class WebFetchToolResultErrorBlock:`
+
+              - `JsonElement Type = "web_fetch_tool_result_error"`
 
               - `required WebFetchToolResultErrorCode ErrorCode`
 
@@ -6536,11 +6595,15 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
 
                 - `Unavailable("unavailable")`
 
-              - `JsonElement Type = "web_fetch_tool_result_error"`
+                - `ContentTooLarge("content_too_large")`
 
             - `class WebFetchBlock:`
 
+              - `JsonElement Type = "web_fetch_result"`
+
               - `required DocumentBlock Content`
+
+                - `JsonElement Type = "document"`
 
                 - `required CitationsConfig? Citations`
 
@@ -6552,33 +6615,29 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
 
                   - `class Base64PdfSource:`
 
+                    - `JsonElement Type = "base64"`
+
                     - `required string Data`
 
                       format: byte
 
                     - `JsonElement MediaType = "application/pdf"`
 
-                    - `JsonElement Type = "base64"`
-
                   - `class PlainTextSource:`
+
+                    - `JsonElement Type = "text"`
 
                     - `required string Data`
 
                     - `JsonElement MediaType = "text/plain"`
 
-                    - `JsonElement Type = "text"`
-
                 - `required string? Title`
 
                   The title of the document
 
-                - `JsonElement Type = "document"`
-
               - `required string? RetrievedAt`
 
                 ISO 8601 timestamp when the content was retrieved
-
-              - `JsonElement Type = "web_fetch_result"`
 
               - `required string Url`
 
@@ -6588,15 +6647,17 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `JsonElement Type = "web_fetch_tool_result"`
-
         - `class CodeExecutionToolResultBlock:`
+
+          - `JsonElement Type = "code_execution_tool_result"`
 
           - `required CodeExecutionToolResultBlockContent Content`
 
             Code execution result with encrypted stdout for PFC + web_search results.
 
             - `class CodeExecutionToolResultError:`
+
+              - `JsonElement Type = "code_execution_tool_result_error"`
 
               - `required CodeExecutionToolResultErrorCode ErrorCode`
 
@@ -6608,15 +6669,15 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
 
                 - `ExecutionTimeExceeded("execution_time_exceeded")`
 
-              - `JsonElement Type = "code_execution_tool_result_error"`
-
             - `class CodeExecutionResultBlock:`
+
+              - `JsonElement Type = "code_execution_result"`
 
               - `required IReadOnlyList<CodeExecutionOutputBlock> Content`
 
-                - `required string FileID`
-
                 - `JsonElement Type = "code_execution_output"`
+
+                - `required string FileID`
 
               - `required long ReturnCode`
 
@@ -6624,17 +6685,17 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
 
               - `required string Stdout`
 
-              - `JsonElement Type = "code_execution_result"`
-
             - `class EncryptedCodeExecutionResultBlock:`
 
               Code execution result with encrypted stdout for PFC + web_search results.
 
+              - `JsonElement Type = "encrypted_code_execution_result"`
+
               - `required IReadOnlyList<CodeExecutionOutputBlock> Content`
 
-                - `required string FileID`
-
                 - `JsonElement Type = "code_execution_output"`
+
+                - `required string FileID`
 
               - `required string EncryptedStdout`
 
@@ -6642,19 +6703,19 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
 
               - `required string Stderr`
 
-              - `JsonElement Type = "encrypted_code_execution_result"`
-
           - `required string ToolUseID`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `JsonElement Type = "code_execution_tool_result"`
-
         - `class BashCodeExecutionToolResultBlock:`
+
+          - `JsonElement Type = "bash_code_execution_tool_result"`
 
           - `required Content Content`
 
             - `class BashCodeExecutionToolResultError:`
+
+              - `JsonElement Type = "bash_code_execution_tool_result_error"`
 
               - `required BashCodeExecutionToolResultErrorCode ErrorCode`
 
@@ -6668,15 +6729,15 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
 
                 - `OutputFileTooLarge("output_file_too_large")`
 
-              - `JsonElement Type = "bash_code_execution_tool_result_error"`
-
             - `class BashCodeExecutionResultBlock:`
+
+              - `JsonElement Type = "bash_code_execution_result"`
 
               - `required IReadOnlyList<BashCodeExecutionOutputBlock> Content`
 
-                - `required string FileID`
-
                 - `JsonElement Type = "bash_code_execution_output"`
+
+                - `required string FileID`
 
               - `required long ReturnCode`
 
@@ -6684,19 +6745,19 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
 
               - `required string Stdout`
 
-              - `JsonElement Type = "bash_code_execution_result"`
-
           - `required string ToolUseID`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `JsonElement Type = "bash_code_execution_tool_result"`
-
         - `class TextEditorCodeExecutionToolResultBlock:`
+
+          - `JsonElement Type = "text_editor_code_execution_tool_result"`
 
           - `required Content Content`
 
             - `class TextEditorCodeExecutionToolResultError:`
+
+              - `JsonElement Type = "text_editor_code_execution_tool_result_error"`
 
               - `required TextEditorCodeExecutionToolResultErrorCode ErrorCode`
 
@@ -6712,9 +6773,9 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
 
               - `required string? ErrorMessage`
 
-              - `JsonElement Type = "text_editor_code_execution_tool_result_error"`
-
             - `class TextEditorCodeExecutionViewResultBlock:`
+
+              - `JsonElement Type = "text_editor_code_execution_view_result"`
 
               - `required string Content`
 
@@ -6732,15 +6793,15 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
 
               - `required long? TotalLines`
 
-              - `JsonElement Type = "text_editor_code_execution_view_result"`
-
             - `class TextEditorCodeExecutionCreateResultBlock:`
-
-              - `required bool IsFileUpdate`
 
               - `JsonElement Type = "text_editor_code_execution_create_result"`
 
+              - `required bool IsFileUpdate`
+
             - `class TextEditorCodeExecutionStrReplaceResultBlock:`
+
+              - `JsonElement Type = "text_editor_code_execution_str_replace_result"`
 
               - `required IReadOnlyList<string>? Lines`
 
@@ -6752,19 +6813,19 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
 
               - `required long? OldStart`
 
-              - `JsonElement Type = "text_editor_code_execution_str_replace_result"`
-
           - `required string ToolUseID`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `JsonElement Type = "text_editor_code_execution_tool_result"`
-
         - `class ToolSearchToolResultBlock:`
+
+          - `JsonElement Type = "tool_search_tool_result"`
 
           - `required Content Content`
 
             - `class ToolSearchToolResultError:`
+
+              - `JsonElement Type = "tool_search_tool_result_error"`
 
               - `required ToolSearchToolResultErrorCode ErrorCode`
 
@@ -6778,33 +6839,29 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
 
               - `required string? ErrorMessage`
 
-              - `JsonElement Type = "tool_search_tool_result_error"`
-
             - `class ToolSearchToolSearchResultBlock:`
 
+              - `JsonElement Type = "tool_search_tool_search_result"`
+
               - `required IReadOnlyList<ToolReferenceBlock> ToolReferences`
+
+                - `JsonElement Type = "tool_reference"`
 
                 - `required string ToolName`
 
                   maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
-                - `JsonElement Type = "tool_reference"`
-
-              - `JsonElement Type = "tool_search_tool_search_result"`
-
           - `required string ToolUseID`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-          - `JsonElement Type = "tool_search_tool_result"`
 
         - `class ContainerUploadBlock:`
 
           Response model for a file uploaded to the container.
 
-          - `required string FileID`
-
           - `JsonElement Type = "container_upload"`
+
+          - `required string FileID`
 
       - `required Model Model`
 
@@ -6890,6 +6947,8 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
 
         Structured information about a refusal.
 
+        - `JsonElement Type = "refusal"`
+
         - `required Category? Category`
 
           The policy category that triggered a refusal.
@@ -6919,8 +6978,6 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
           Human-readable explanation of the refusal.
 
           This text is not guaranteed to be stable. `null` when no explanation is available for the category.
-
-        - `JsonElement Type = "refusal"`
 
       - `required StopReason? StopReason`
 
@@ -6957,12 +7014,6 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
         Which custom stop sequence was generated, if any.
 
         This value will be a non-null string if one of your custom stop sequences was generated.
-
-      - `JsonElement Type = "message"`
-
-        Object type.
-
-        For Messages, this is always `"message"`.
 
       - `required Usage Usage`
 
@@ -7068,73 +7119,71 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
 
           - `Batch("batch")`
 
-    - `JsonElement Type = "succeeded"`
-
   - `class MessageBatchErroredResult:`
 
+    - `JsonElement Type = "errored"`
+
     - `required ErrorResponse Error`
+
+      - `JsonElement Type = "error"`
 
       - `required ErrorObject Error`
 
         - `class InvalidRequestError:`
 
-          - `required string Message`
-
           - `JsonElement Type = "invalid_request_error"`
+
+          - `required string Message`
 
         - `class AuthenticationError:`
 
-          - `required string Message`
-
           - `JsonElement Type = "authentication_error"`
+
+          - `required string Message`
 
         - `class BillingError:`
 
-          - `required string Message`
-
           - `JsonElement Type = "billing_error"`
+
+          - `required string Message`
 
         - `class PermissionError:`
 
-          - `required string Message`
-
           - `JsonElement Type = "permission_error"`
+
+          - `required string Message`
 
         - `class NotFoundError:`
 
-          - `required string Message`
-
           - `JsonElement Type = "not_found_error"`
+
+          - `required string Message`
 
         - `class RateLimitError:`
 
-          - `required string Message`
-
           - `JsonElement Type = "rate_limit_error"`
+
+          - `required string Message`
 
         - `class GatewayTimeoutError:`
 
-          - `required string Message`
-
           - `JsonElement Type = "timeout_error"`
+
+          - `required string Message`
 
         - `class ApiErrorObject:`
 
-          - `required string Message`
-
           - `JsonElement Type = "api_error"`
+
+          - `required string Message`
 
         - `class OverloadedError:`
 
-          - `required string Message`
-
           - `JsonElement Type = "overloaded_error"`
 
+          - `required string Message`
+
       - `required string? RequestID`
-
-      - `JsonElement Type = "error"`
-
-    - `JsonElement Type = "errored"`
 
   - `class MessageBatchCanceledResult:`
 
@@ -7148,7 +7197,15 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
 
 - `class MessageBatchSucceededResult:`
 
+  - `JsonElement Type = "succeeded"`
+
   - `required Message Message`
+
+    - `JsonElement Type = "message"`
+
+      Object type.
+
+      For Messages, this is always `"message"`.
 
     - `required string ID`
 
@@ -7174,12 +7231,6 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
 
         Skills loaded in the container
 
-        - `required string SkillID`
-
-          Skill ID
-
-          maxLength: 64, minLength: 1
-
         - `required ContainerSkillType Type`
 
           Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
@@ -7187,6 +7238,12 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
           - `Anthropic("anthropic")`
 
           - `Custom("custom")`
+
+        - `required string SkillID`
+
+          Skill ID
+
+          maxLength: 64, minLength: 1
 
         - `required string Version`
 
@@ -7225,6 +7282,8 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
 
       - `class TextBlock:`
 
+        - `JsonElement Type = "text"`
+
         - `required IReadOnlyList<TextCitation>? Citations`
 
           Citations supporting the text block.
@@ -7232,6 +7291,8 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
           The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
 
           - `class CitationCharLocation:`
+
+            - `JsonElement Type = "char_location"`
 
             - `required string CitedText`
 
@@ -7249,9 +7310,9 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
 
               minimum: 0
 
-            - `JsonElement Type = "char_location"`
-
           - `class CitationPageLocation:`
+
+            - `JsonElement Type = "page_location"`
 
             - `required string CitedText`
 
@@ -7269,9 +7330,9 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
 
               minimum: 1
 
-            - `JsonElement Type = "page_location"`
-
           - `class CitationContentBlockLocation:`
+
+            - `JsonElement Type = "content_block_location"`
 
             - `required string CitedText`
 
@@ -7299,9 +7360,9 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
 
               minimum: 0
 
-            - `JsonElement Type = "content_block_location"`
-
           - `class CitationsWebSearchResultLocation:`
+
+            - `JsonElement Type = "web_search_result_location"`
 
             - `required string CitedText`
 
@@ -7311,11 +7372,11 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
 
               maxLength: 512
 
-            - `JsonElement Type = "web_search_result_location"`
-
             - `required string Url`
 
           - `class CitationsSearchResultLocation:`
+
+            - `JsonElement Type = "search_result_location"`
 
             - `required string CitedText`
 
@@ -7347,15 +7408,13 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
 
             - `required string? Title`
 
-            - `JsonElement Type = "search_result_location"`
-
         - `required string Text`
 
-          maxLength: 5000000, minLength: 0
-
-        - `JsonElement Type = "text"`
+          minLength: 0
 
       - `class ThinkingBlock:`
+
+        - `JsonElement Type = "thinking"`
 
         - `required string Signature`
 
@@ -7369,9 +7428,9 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
 
           The text of Claude's thinking process for this block.
 
-        - `JsonElement Type = "thinking"`
-
       - `class RedactedThinkingBlock:`
+
+        - `JsonElement Type = "redacted_thinking"`
 
         - `required string Data`
 
@@ -7381,9 +7440,9 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
 
           See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking#redacted-thinking-blocks) for details.
 
-        - `JsonElement Type = "redacted_thinking"`
-
       - `class ToolUseBlock:`
+
+        - `JsonElement Type = "tool_use"`
 
         - `required string ID`
 
@@ -7403,27 +7462,25 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
 
             Tool invocation generated by a server-side tool.
 
+            - `JsonElement Type = "code_execution_20250825"`
+
             - `required string ToolID`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-            - `JsonElement Type = "code_execution_20250825"`
 
           - `class ServerToolCaller20260120:`
 
+            - `JsonElement Type = "code_execution_20260120"`
+
             - `required string ToolID`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-            - `JsonElement Type = "code_execution_20260120"`
 
         - `required IReadOnlyDictionary<string, JsonElement> Input`
 
         - `required string Name`
 
           minLength: 1
-
-        - `JsonElement Type = "tool_use"`
 
         - `string? ToolsetName`
 
@@ -7432,6 +7489,8 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
           maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
 
       - `class ServerToolUseBlock:`
+
+        - `JsonElement Type = "server_tool_use"`
 
         - `required string ID`
 
@@ -7469,9 +7528,9 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
 
           - `ToolSearchToolBm25("tool_search_tool_bm25")`
 
-        - `JsonElement Type = "server_tool_use"`
-
       - `class WebSearchToolResultBlock:`
+
+        - `JsonElement Type = "web_search_tool_result"`
 
         - `required Caller Caller`
 
@@ -7491,6 +7550,8 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
 
           - `class WebSearchToolResultError:`
 
+            - `JsonElement Type = "web_search_tool_result_error"`
+
             - `required WebSearchToolResultErrorCode ErrorCode`
 
               - `InvalidToolInput("invalid_tool_input")`
@@ -7505,9 +7566,9 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
 
               - `RequestTooLarge("request_too_large")`
 
-            - `JsonElement Type = "web_search_tool_result_error"`
-
           - `IReadOnlyList<WebSearchResultBlock>`
+
+            - `JsonElement Type = "web_search_result"`
 
             - `required string EncryptedContent`
 
@@ -7515,17 +7576,15 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
 
             - `required string Title`
 
-            - `JsonElement Type = "web_search_result"`
-
             - `required string Url`
 
         - `required string ToolUseID`
 
           pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-        - `JsonElement Type = "web_search_tool_result"`
-
       - `class WebFetchToolResultBlock:`
+
+        - `JsonElement Type = "web_fetch_tool_result"`
 
         - `required Caller Caller`
 
@@ -7544,6 +7603,8 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
         - `required Content Content`
 
           - `class WebFetchToolResultErrorBlock:`
+
+            - `JsonElement Type = "web_fetch_tool_result_error"`
 
             - `required WebFetchToolResultErrorCode ErrorCode`
 
@@ -7565,11 +7626,15 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
 
               - `Unavailable("unavailable")`
 
-            - `JsonElement Type = "web_fetch_tool_result_error"`
+              - `ContentTooLarge("content_too_large")`
 
           - `class WebFetchBlock:`
 
+            - `JsonElement Type = "web_fetch_result"`
+
             - `required DocumentBlock Content`
+
+              - `JsonElement Type = "document"`
 
               - `required CitationsConfig? Citations`
 
@@ -7581,33 +7646,29 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
 
                 - `class Base64PdfSource:`
 
+                  - `JsonElement Type = "base64"`
+
                   - `required string Data`
 
                     format: byte
 
                   - `JsonElement MediaType = "application/pdf"`
 
-                  - `JsonElement Type = "base64"`
-
                 - `class PlainTextSource:`
+
+                  - `JsonElement Type = "text"`
 
                   - `required string Data`
 
                   - `JsonElement MediaType = "text/plain"`
 
-                  - `JsonElement Type = "text"`
-
               - `required string? Title`
 
                 The title of the document
 
-              - `JsonElement Type = "document"`
-
             - `required string? RetrievedAt`
 
               ISO 8601 timestamp when the content was retrieved
-
-            - `JsonElement Type = "web_fetch_result"`
 
             - `required string Url`
 
@@ -7617,15 +7678,17 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
 
           pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-        - `JsonElement Type = "web_fetch_tool_result"`
-
       - `class CodeExecutionToolResultBlock:`
+
+        - `JsonElement Type = "code_execution_tool_result"`
 
         - `required CodeExecutionToolResultBlockContent Content`
 
           Code execution result with encrypted stdout for PFC + web_search results.
 
           - `class CodeExecutionToolResultError:`
+
+            - `JsonElement Type = "code_execution_tool_result_error"`
 
             - `required CodeExecutionToolResultErrorCode ErrorCode`
 
@@ -7637,15 +7700,15 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
 
               - `ExecutionTimeExceeded("execution_time_exceeded")`
 
-            - `JsonElement Type = "code_execution_tool_result_error"`
-
           - `class CodeExecutionResultBlock:`
+
+            - `JsonElement Type = "code_execution_result"`
 
             - `required IReadOnlyList<CodeExecutionOutputBlock> Content`
 
-              - `required string FileID`
-
               - `JsonElement Type = "code_execution_output"`
+
+              - `required string FileID`
 
             - `required long ReturnCode`
 
@@ -7653,17 +7716,17 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
 
             - `required string Stdout`
 
-            - `JsonElement Type = "code_execution_result"`
-
           - `class EncryptedCodeExecutionResultBlock:`
 
             Code execution result with encrypted stdout for PFC + web_search results.
 
+            - `JsonElement Type = "encrypted_code_execution_result"`
+
             - `required IReadOnlyList<CodeExecutionOutputBlock> Content`
 
-              - `required string FileID`
-
               - `JsonElement Type = "code_execution_output"`
+
+              - `required string FileID`
 
             - `required string EncryptedStdout`
 
@@ -7671,19 +7734,19 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
 
             - `required string Stderr`
 
-            - `JsonElement Type = "encrypted_code_execution_result"`
-
         - `required string ToolUseID`
 
           pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-        - `JsonElement Type = "code_execution_tool_result"`
-
       - `class BashCodeExecutionToolResultBlock:`
+
+        - `JsonElement Type = "bash_code_execution_tool_result"`
 
         - `required Content Content`
 
           - `class BashCodeExecutionToolResultError:`
+
+            - `JsonElement Type = "bash_code_execution_tool_result_error"`
 
             - `required BashCodeExecutionToolResultErrorCode ErrorCode`
 
@@ -7697,15 +7760,15 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
 
               - `OutputFileTooLarge("output_file_too_large")`
 
-            - `JsonElement Type = "bash_code_execution_tool_result_error"`
-
           - `class BashCodeExecutionResultBlock:`
+
+            - `JsonElement Type = "bash_code_execution_result"`
 
             - `required IReadOnlyList<BashCodeExecutionOutputBlock> Content`
 
-              - `required string FileID`
-
               - `JsonElement Type = "bash_code_execution_output"`
+
+              - `required string FileID`
 
             - `required long ReturnCode`
 
@@ -7713,19 +7776,19 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
 
             - `required string Stdout`
 
-            - `JsonElement Type = "bash_code_execution_result"`
-
         - `required string ToolUseID`
 
           pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-        - `JsonElement Type = "bash_code_execution_tool_result"`
-
       - `class TextEditorCodeExecutionToolResultBlock:`
+
+        - `JsonElement Type = "text_editor_code_execution_tool_result"`
 
         - `required Content Content`
 
           - `class TextEditorCodeExecutionToolResultError:`
+
+            - `JsonElement Type = "text_editor_code_execution_tool_result_error"`
 
             - `required TextEditorCodeExecutionToolResultErrorCode ErrorCode`
 
@@ -7741,9 +7804,9 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
 
             - `required string? ErrorMessage`
 
-            - `JsonElement Type = "text_editor_code_execution_tool_result_error"`
-
           - `class TextEditorCodeExecutionViewResultBlock:`
+
+            - `JsonElement Type = "text_editor_code_execution_view_result"`
 
             - `required string Content`
 
@@ -7761,15 +7824,15 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
 
             - `required long? TotalLines`
 
-            - `JsonElement Type = "text_editor_code_execution_view_result"`
-
           - `class TextEditorCodeExecutionCreateResultBlock:`
-
-            - `required bool IsFileUpdate`
 
             - `JsonElement Type = "text_editor_code_execution_create_result"`
 
+            - `required bool IsFileUpdate`
+
           - `class TextEditorCodeExecutionStrReplaceResultBlock:`
+
+            - `JsonElement Type = "text_editor_code_execution_str_replace_result"`
 
             - `required IReadOnlyList<string>? Lines`
 
@@ -7781,19 +7844,19 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
 
             - `required long? OldStart`
 
-            - `JsonElement Type = "text_editor_code_execution_str_replace_result"`
-
         - `required string ToolUseID`
 
           pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-        - `JsonElement Type = "text_editor_code_execution_tool_result"`
-
       - `class ToolSearchToolResultBlock:`
+
+        - `JsonElement Type = "tool_search_tool_result"`
 
         - `required Content Content`
 
           - `class ToolSearchToolResultError:`
+
+            - `JsonElement Type = "tool_search_tool_result_error"`
 
             - `required ToolSearchToolResultErrorCode ErrorCode`
 
@@ -7807,33 +7870,29 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
 
             - `required string? ErrorMessage`
 
-            - `JsonElement Type = "tool_search_tool_result_error"`
-
           - `class ToolSearchToolSearchResultBlock:`
 
+            - `JsonElement Type = "tool_search_tool_search_result"`
+
             - `required IReadOnlyList<ToolReferenceBlock> ToolReferences`
+
+              - `JsonElement Type = "tool_reference"`
 
               - `required string ToolName`
 
                 maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
-              - `JsonElement Type = "tool_reference"`
-
-            - `JsonElement Type = "tool_search_tool_search_result"`
-
         - `required string ToolUseID`
 
           pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-        - `JsonElement Type = "tool_search_tool_result"`
 
       - `class ContainerUploadBlock:`
 
         Response model for a file uploaded to the container.
 
-        - `required string FileID`
-
         - `JsonElement Type = "container_upload"`
+
+        - `required string FileID`
 
     - `required Model Model`
 
@@ -7919,6 +7978,8 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
 
       Structured information about a refusal.
 
+      - `JsonElement Type = "refusal"`
+
       - `required Category? Category`
 
         The policy category that triggered a refusal.
@@ -7948,8 +8009,6 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
         Human-readable explanation of the refusal.
 
         This text is not guaranteed to be stable. `null` when no explanation is available for the category.
-
-      - `JsonElement Type = "refusal"`
 
     - `required StopReason? StopReason`
 
@@ -7986,12 +8045,6 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
       Which custom stop sequence was generated, if any.
 
       This value will be a non-null string if one of your custom stop sequences was generated.
-
-    - `JsonElement Type = "message"`
-
-      Object type.
-
-      For Messages, this is always `"message"`.
 
     - `required Usage Usage`
 
@@ -8096,5 +8149,3 @@ await foreach (var messageBatchIndividualResponse in client.Messages.Batches.Res
         - `Priority("priority")`
 
         - `Batch("batch")`
-
-  - `JsonElement Type = "succeeded"`

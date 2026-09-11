@@ -8,7 +8,7 @@ An agentic coding tool that lives in your terminal. Learn what Claude Code is, h
 
 12 lessons1.5 hr1 quizCompletion badge
 
-[Start course](https://academy.claude.com/courses/claude-code-101/what-is-claude-code)[Sign in to save progress](https://academy.claude.com/login?returnTo=https%3A%2F%2Facademy.claude.com%2Fcourses%2Fclaude-code-101)
+[Start course](https://academy.claude.com/courses/claude-code-101/what-is-claude-code)[Sign in to save progress](https://academy.claude.com/login?returnTo=%2Fcourses%2Fclaude-code-101)
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-bfpfnf0h.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-nahn65a2.png)
 

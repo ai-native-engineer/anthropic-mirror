@@ -1,5 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/beta/organization/workspaces/members/retrieve -->
 
+---
+title: Get Workspace Member
+url: https://platform.claude.com/docs/en/api/beta/organization/workspaces/members/retrieve
+---
+
 # Get Workspace Member
 
 **GET** `/v1/organizations/workspaces/{workspace_id}/members/{user_id}`

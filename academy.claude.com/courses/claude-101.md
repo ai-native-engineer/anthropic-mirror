@@ -8,7 +8,7 @@ Learn to use Claude for everyday work, from your first conversation and effectiv
 
 13 lessons2.5 hr1 quizCompletion badge
 
-[Start course](https://academy.claude.com/courses/claude-101/what-is-claude)[Sign in to save progress](https://academy.claude.com/login?returnTo=https%3A%2F%2Facademy.claude.com%2Fcourses%2Fclaude-101)
+[Start course](https://academy.claude.com/courses/claude-101/what-is-claude)[Sign in to save progress](https://academy.claude.com/login?returnTo=%2Fcourses%2Fclaude-101)
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-o2csvx0g.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-no82k858.png)
 

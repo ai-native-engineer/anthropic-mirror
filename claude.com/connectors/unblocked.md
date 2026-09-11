@@ -6,7 +6,13 @@ Connector URL`https://getunblocked.com/api/mcpsse`
 
 More[Documentation (opens in new tab)](https://docs.getunblocked.com/unblocked-mcp/mcp-overview)[Support (opens in new tab)](https://getunblocked.com/?showIntercom=true)[Privacy policy (opens in new tab)](https://getunblocked.com/privacy/)
 
-Unblocked is the context engine for AI-driven software development. It gives your agents the organizational understanding your best engineers already have by connecting the context scattered across your code, messaging platforms, issue trackers, documentation systems, and product and production data. The result: reliable code that reflects how your team actually builds software, generated with fewer tokens and less back-and-forth.
+Unblocked is the context layer for agentic software development. It reasons across your code, conversations, issues, docs, product, and production systems so agents can complete work correctly with less human intervention.
+
+Coding agents know the code. They do not know why it was written that way, which of two conflicting docs is current, what a ticket decided, or what production is doing right now. Unblocked gives them that organizational understanding by connecting the context scattered across your code, messaging platforms, issue trackers, documentation, and product and production data, reconciling conflicts between sources, and enforcing the permissions you already set in each tool.
+
+One MCP server replaces a dozen. Context is ranked, compressed, and assembled server-side before it reaches the agent, so the agent reasons over higher-quality input. The result: reliable code that reflects how your team actually builds software, generated with fewer tokens and less back-and-forth.
+
+Works with Claude Code, Cursor, Windsurf, GitHub Copilot, and Codex over MCP, or through the Unblocked CLI and API. Connects to GitHub, GitLab, Slack, Microsoft Teams, Jira, Linear, Confluence, Notion, Google Drive, Sentry, Datadog, and more.
 
 ## Tools
 
@@ -20,8 +26,6 @@ Only use connectors from developers you trust. Anthropic does not control which 
 ![](https://cdn.b12.io/branding/b12-logo-purple.png)
 
 ### [Website Generator by B12](https://claude.com/connectors/website-generator-by-b12)
-
-Trending
 
 Build a website or web app in minutes! Generate, design, write code, and create copy for your website. Powered by B12. Contact: hello@b12.io
 

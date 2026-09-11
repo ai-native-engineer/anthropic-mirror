@@ -18,7 +18,7 @@ By combining actual flight demonstrations and decomposing the constituent tasks 
 
 The core task we tested in Project Fetch—getting a robot dog to retrieve a beach ball—was neither especially practical nor especially concerning. In this project, we chose an objective with clearer utility and policy relevance: a simple locate-and-follow task used in aerial surveillance. Capabilities like automated person-detection and tracking can have legitimate purposes such as search and rescue, disaster response, and lawful public safety uses. But this is a class of capabilities that is also subject to abuse, either through overreach of a legitimate authority or by unaccountable private individuals or organizations. The work we report here thus more closely matches the “dual-use” nature of AI models.
 
-In these experiments, we ask the model to control a quad-rotor drone in an indoor office environment in order to locate and follow a person.1 This requires a number of complex sub-tasks. The AI model needs to develop schema for controlling the aircraft, mapping and navigating the obstacle-laden indoor space, finding the target individual from a reference photo, and following them (plus reacquiring the target if they move out of frame).
+In these experiments, we ask the model to control a quad-rotor drone in an indoor office environment in order to locate and follow a person.[1](#footnote-1) This requires a number of complex sub-tasks. The AI model needs to develop schema for controlling the aircraft, mapping and navigating the obstacle-laden indoor space, finding the target individual from a reference photo, and following them (plus reacquiring the target if they move out of frame).
 
 Individually, there are known algorithms for accomplishing all of these tasks. What is not trivial is for the AI model to understand the challenges, identify the preexisting resources it can use to solve them, adapt those off-the-shelf solutions to its current situation, and execute the mission in real time. As we will see, the difficulty—both individually and in chaining these tasks together—is sufficient to distinguish between models of varying intelligence and plot the trajectory of capability improvement.
 
@@ -102,6 +102,12 @@ More generally, at low levels of capability and reliability, keeping a human in 
 
 1. Specifically, this work was done with a DJI Tello EDU, which currently retails for $129. The person being followed had consented to and was a member of the experiment team.
 
+### Measuring tactical intelligence targeting and conventional weapons capabilities of AI models
+
+Anthropic’s Frontier Red Team developed new evaluations to measure AI capabilities in tactical intelligence targeting and conventional weapons development.
+
+[Read more](https://www.anthropic.com/research/intelligence-targeting-conventional-weapons-capabilities)
+
 ### An alignment assessment of recent cybersecurity incidents
 
 We present an alignment assessment of four incidents in which Claude models gained unauthorized access to real third-party systems.
@@ -110,15 +116,9 @@ We present an alignment assessment of four incidents in which Claude models gain
 
 ### Formalizing Fermat's Last Theorem
 
-We are sharing the first complete computer-checked proof of Fermat’s Last Theorem. Claude worked largely autonomously over 11 days to write the proof in the Lean programming language. Below, we describe how the formalization was done and share some thoughts about what this work could mean for research mathematics.
+We are sharing the first complete computer-checked proof of Fermat’s Last Theorem. Claude worked largely autonomously over 11 days to write the proof in the Lean programming language.
 
 [Read more](https://www.anthropic.com/research/formalizing-fermats-last-theorem)
-
-### Automated researchers can reliably mitigate alignment failures
-
-We had Claude autonomously train models to improve their performance on several public benchmarks that measure 10 categories of alignment failure. For all 10, Claude found fixes that improved the target benchmarks without degrading capabilities.
-
-[Read more](https://www.anthropic.com/research/automated-researchers-mitigate-alignment-failures)
 
 ## Subscribe to the Frontier Red Team newsletter
 

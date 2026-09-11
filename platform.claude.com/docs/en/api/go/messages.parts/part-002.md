@@ -2,6 +2,30 @@
 <!-- part of: https://platform.claude.com/docs/en/api/go/messages -->
 
 <!-- chunk-start -->
+
+              The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
+
+            - `const RefusalStopDetailsCategoryReasoningExtraction RefusalStopDetailsCategory = "reasoning_extraction"`
+
+              The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
+
+            - `const RefusalStopDetailsCategoryGeneralHarms RefusalStopDetailsCategory = "general_harms"`
+
+              The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
+
+          - `Explanation string`
+
+            Human-readable explanation of the refusal.
+
+            This text is not guaranteed to be stable. `null` when no explanation is available for the category.
+
+        - `StopReason StopReason`
+
+          The reason that we stopped.
+
+          This may be one the following values:
+
+          * `"end_turn"`: the model reached a natural stopping point
           * `"max_tokens"`: we exceeded the requested `max_tokens` or the model's maximum
           * `"stop_sequence"`: one of your provided custom `stop_sequences` was generated
           * `"tool_use"`: the model invoked one or more tools
@@ -30,14 +54,6 @@
           Which custom stop sequence was generated, if any.
 
           This value will be a non-null string if one of your custom stop sequences was generated.
-
-        - `Type Message`
-
-          Object type.
-
-          For Messages, this is always `"message"`.
-
-          default: message
 
         - `Usage Usage`
 
@@ -143,115 +159,111 @@
 
             - `const UsageServiceTierBatch UsageServiceTier = "batch"`
 
-      - `Type Succeeded`
-
-        default: succeeded
-
     - `type MessageBatchErroredResult struct{…}`
 
+      - `Type Errored`
+
+        default: errored
+
       - `Error ErrorResponse`
-
-        - `Error ErrorObjectUnion`
-
-          - `type InvalidRequestError struct{…}`
-
-            - `Message string`
-
-              default: Invalid request
-
-            - `Type InvalidRequestError`
-
-              default: invalid_request_error
-
-          - `type AuthenticationError struct{…}`
-
-            - `Message string`
-
-              default: Authentication error
-
-            - `Type AuthenticationError`
-
-              default: authentication_error
-
-          - `type BillingError struct{…}`
-
-            - `Message string`
-
-              default: Billing error
-
-            - `Type BillingError`
-
-              default: billing_error
-
-          - `type PermissionError struct{…}`
-
-            - `Message string`
-
-              default: Permission denied
-
-            - `Type PermissionError`
-
-              default: permission_error
-
-          - `type NotFoundError struct{…}`
-
-            - `Message string`
-
-              default: Not found
-
-            - `Type NotFoundError`
-
-              default: not_found_error
-
-          - `type RateLimitError struct{…}`
-
-            - `Message string`
-
-              default: Rate limited
-
-            - `Type RateLimitError`
-
-              default: rate_limit_error
-
-          - `type GatewayTimeoutError struct{…}`
-
-            - `Message string`
-
-              default: Request timeout
-
-            - `Type TimeoutError`
-
-              default: timeout_error
-
-          - `type APIErrorObject struct{…}`
-
-            - `Message string`
-
-              default: Internal server error
-
-            - `Type APIError`
-
-              default: api_error
-
-          - `type OverloadedError struct{…}`
-
-            - `Message string`
-
-              default: Overloaded
-
-            - `Type OverloadedError`
-
-              default: overloaded_error
-
-        - `RequestID string`
 
         - `Type Error`
 
           default: error
 
-      - `Type Errored`
+        - `Error ErrorObjectUnion`
 
-        default: errored
+          - `type InvalidRequestError struct{…}`
+
+            - `Type InvalidRequestError`
+
+              default: invalid_request_error
+
+            - `Message string`
+
+              default: Invalid request
+
+          - `type AuthenticationError struct{…}`
+
+            - `Type AuthenticationError`
+
+              default: authentication_error
+
+            - `Message string`
+
+              default: Authentication error
+
+          - `type BillingError struct{…}`
+
+            - `Type BillingError`
+
+              default: billing_error
+
+            - `Message string`
+
+              default: Billing error
+
+          - `type PermissionError struct{…}`
+
+            - `Type PermissionError`
+
+              default: permission_error
+
+            - `Message string`
+
+              default: Permission denied
+
+          - `type NotFoundError struct{…}`
+
+            - `Type NotFoundError`
+
+              default: not_found_error
+
+            - `Message string`
+
+              default: Not found
+
+          - `type RateLimitError struct{…}`
+
+            - `Type RateLimitError`
+
+              default: rate_limit_error
+
+            - `Message string`
+
+              default: Rate limited
+
+          - `type GatewayTimeoutError struct{…}`
+
+            - `Type TimeoutError`
+
+              default: timeout_error
+
+            - `Message string`
+
+              default: Request timeout
+
+          - `type APIErrorObject struct{…}`
+
+            - `Type APIError`
+
+              default: api_error
+
+            - `Message string`
+
+              default: Internal server error
+
+          - `type OverloadedError struct{…}`
+
+            - `Type OverloadedError`
+
+              default: overloaded_error
+
+            - `Message string`
+
+              default: Overloaded
+
+        - `RequestID string`
 
     - `type MessageBatchCanceledResult struct{…}`
 
@@ -282,7 +294,11 @@ func main() {
 	client := anthropic.NewClient(
 		option.WithAPIKey("my-anthropic-api-key"),
 	)
-	stream := client.Messages.Batches.ResultsStreaming(context.TODO(), "message_batch_id")
+	stream := client.Messages.Batches.ResultsStreaming(
+		context.TODO(),
+		"message_batch_id",
+		anthropic.MessageBatchResultsParams{},
+	)
 	for stream.Next() {
 		fmt.Printf("%+v\n", stream.Current())
 	}

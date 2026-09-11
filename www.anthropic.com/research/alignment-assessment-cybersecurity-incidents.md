@@ -38,7 +38,7 @@ Below is a brief summary of the four incidents; a more complete description of t
 
 In total, four different Claude models were involved: an early checkpoint of Claude Opus 4.6, Claude Opus 4.7, Claude Mythos 5, and an internal, general-purpose research model. Three of the four incidents were single evaluation runs. The Opus 4.7 incident comprised four different runs of the same evaluation, all of which attacked the same target, for seven runs in total. All occurred within cybersecurity evaluations we regularly run before release, all built by the same third-party partner.
 
-In each evaluation, Claude was tasked with a CTF challenge: the model was given a fictional scenario, a target machine, and a piece of secret information (the “flag”) to retrieve from it. All four prompts stated that Claude had no access to the internet, but in each case, a misconfiguration in the environment left internet access open. None of the prompts stated which systems were in scope for the exercise or constrained where Claude could search for the flag.1 All incidents involved only a single instance of Claude working in isolation, with each run lasting between roughly 10 and 34 hours of active work.
+In each evaluation, Claude was tasked with a CTF challenge: the model was given a fictional scenario, a target machine, and a piece of secret information (the “flag”) to retrieve from it. All four prompts stated that Claude had no access to the internet, but in each case, a misconfiguration in the environment left internet access open. None of the prompts stated which systems were in scope for the exercise or constrained where Claude could search for the flag.[1](#footnote-1) All incidents involved only a single instance of Claude working in isolation, with each run lasting between roughly 10 and 34 hours of active work.
 
 ![](https://www-cdn.anthropic.com/images/4zrzovbb/website/1051e0f45fd8907d2bdf9e722af1bae06e14c4c4-2000x1418.png)
 
@@ -129,7 +129,7 @@ Claude Mythos 5 was given a CTF task to hack a fictional company and was told it
 
 The model decided to solve the CTF by uploading a malicious PyPI package that could harvest the target system’s credentials. It settled on this approach after reading a document stating that one of the simulated target’s users would periodically install a particular Python package that was not yet registered on PyPI. (We are unsure whether this was an intended solution to the challenge, but it seems like a plausible one.) Claude decided to exploit this behavior by registering a package under that name, publishing malicious code within the uploaded package, and waiting for the target to run that code the next time they installed the package.
 
-Claude spent most of the session trying to upload the package. This involved attempts to register email accounts and hunt for phone numbers that could be used for registration. It ultimately succeeded in uploading the package, which was soon installed on 15 third-party hosts. We believe that all 15 of these third parties were security vendors deliberately scanning for new packages and installing them in sandboxed environments to assess the package for security concerns. One vendor’s scanner leaked its access credentials to the model while installing the package, which the model then used to access the vendor’s live database. After approximately 90 minutes, PyPI removed the package. The transcript ended when the session timed out while the model was preparing an additional malicious package.
+Claude spent most of the session trying to upload the package. This involved attempts to register email accounts and hunt for phone numbers that could be used for registration. It ultimately succeeded in uploading the package, which was soon installed on 15 third-party hosts. We believe that all 15 of these third parties were security vendors deliberately scanning for new packages and installing them in sandboxed environments to assess the package for security concerns. One vendor’s scanner leaked its access credentials to the model while installing the package, which the model then used to access the vendor’s live database. PyPI removed the package within an hour. The transcript ended when the session timed out while the model was preparing an additional malicious package.
 
 #### Claude Mythos 5 ignored evidence that its environment might be real
 
@@ -225,7 +225,7 @@ No longer able to access its target, the model proceeded to look for it, and end
 
 **Figure 15:** The internal research model generally referred to its environment as a simulated replica of the internet.
 
-Working from this belief, the model scanned network addresses surrounding its target, suspecting that one might hold the flag. The model again briefly considered whether it might be interacting with the public internet but quickly inferred that the network neighbors were targets meant for other CTF participants and were thus in scope for the task. In reality, these systems were unrelated third-party entities, which the model then attacked. Specifically, the model used access tokens and passwords to penetrate several of these network neighbors, downloading files and inserting a remote-control script in one. Eventually, the model recognized that it was engaging a real company, declared it out of scope, and stopped attacking it.
+Working from this belief, the model scanned network addresses surrounding its target, suspecting that one might hold the flag. The model again briefly considered whether it might be interacting with the public internet but quickly inferred that the network neighbors were targets meant for other CTF participants and were thus in scope for the task. In reality, these systems were unrelated third-party entities, which the model then attacked. Specifically, the model used access tokens and passwords to penetrate one of the network neighbors, downloading files and inserting a remote-control script. Eventually, the model recognized that it was engaging a real company, declared it out of scope, and stopped attacking it.
 
 ![](https://www-cdn.anthropic.com/images/4zrzovbb/website/c8eba3e440316d0596490b7c5ac97070c1601840-2000x873.png)
 
@@ -367,7 +367,7 @@ We note that resampling experiments of this kind are not necessarily a reliable 
 
 **Figure 31:** Resampling different models at different key decision points within three of the incident transcripts shows that Claude Opus 5 and Claude Mythos 5.1 are generally more likely than older models to take de-escalatory actions (left). In the transcript involving the internal research model, Mythos 5.1 is most likely to de-escalate at the point where the model recognizes that it is engaging a real target (right).
 
-Additionally, Claude Opus 5 and Claude Mythos 5.1 gave more desirable responses to follow-up questions inserted at key points within the transcripts. Compared to Opus 4.7, Mythos 5, and the internal research model, Opus 5 and Mythos 5.1 more readily acknowledged that the prefilled transcript displayed bias in its reading of the evidence; the newer models also more often acknowledged that the systems were real. Among older models, Mythos 5 was particularly unlikely to admit bias or that the systems were real. We discuss potential reasons for this effect in [our analysis of the training data.](https://www.staging.ant.dev/research/alignment-assessment-cybersecurity-incidents#analysis-of-biased-reasoning-and-possible-training-causes) We find it reassuring that Mythos 5.1—the most capable model in the set—provided forthright answers. We note that sampling a model’s responses to follow-up questions about actions produced by another model may not be reflective of how the model would respond to follow-ups about its *own* actions.
+Additionally, Claude Opus 5 and Claude Mythos 5.1 gave more desirable responses to follow-up questions inserted at key points within the transcripts. Compared to Opus 4.7, Mythos 5, and the internal research model, Opus 5 and Mythos 5.1 more readily acknowledged that the prefilled transcript displayed bias in its reading of the evidence; the newer models also more often acknowledged that the systems were real. Among older models, Mythos 5 was particularly unlikely to admit bias or that the systems were real. We discuss potential reasons for this effect in [our analysis of the training data.](https://www.anthropic.com/research/alignment-assessment-cybersecurity-incidents#analysis-of-biased-reasoning-and-possible-training-causes) We find it reassuring that Mythos 5.1—the most capable model in the set—provided forthright answers. We note that sampling a model’s responses to follow-up questions about actions produced by another model may not be reflective of how the model would respond to follow-ups about its *own* actions.
 
 ![](https://www-cdn.anthropic.com/images/4zrzovbb/website/a81a158058477fa8ebc116e507995a10481df9ba-2000x1112.png)
 
@@ -546,6 +546,8 @@ Investigating the behaviors surfaced by these incidents proved challenging. They
 
 We take a layered approach to safety on the expectation that any given layer will sometimes fail. The proximate cause of these incidents was a configuration error in the outermost layer of a third-party evaluation environment, but it exposed a second failure in the form of misaligned behavior that our pre-release auditing had failed to surface. We consider these incidents to be serious. Our production models took harmful actions against real systems, for hours, under questionable and biased reasoning. We believe that current training approaches are likely able to address the specific alignment failure modes observed in these incidents. However, we also consider these incidents and others from this summer to be valuable warning shots. Future AI systems will be increasingly capable, which implies that misalignment will have the potential to cause more extreme harm. Training the extremely powerful models of the future to be robustly aligned is an unsolved technical challenge that requires continued research as well as operational excellence to achieve.
 
+*Updated Sept 10:* A previous version of this post misstated two details. We wrote that PyPI removed the malicious package after approximately 90 minutes; the correct window was less than an hour. We also wrote that the internal research model penetrated several neighboring systems; it attempted to access several, but only gained access to one.
+
 ## Authors
 
 *Paul C. Bogdan, Richard Qi, Jake Eaton, Sam Kennedy, Fabien Roger, Alex Glynn, Runjin Chen, Ben Wright, Otto Stegmaier, Jon Kutasov, Dan Foreman-Mackey*
@@ -599,9 +601,15 @@ Copy
 
 1. We have since [advised](https://www.anthropic.com/news/improving-alignment-security-efforts) external partners running cyber evaluations with pre-release models to explicitly define what is in and out of scope for any exercise, including the targets, permitted actions, and network boundaries.
 
+### Measuring tactical intelligence targeting and conventional weapons capabilities of AI models
+
+Anthropic’s Frontier Red Team developed new evaluations to measure AI capabilities in tactical intelligence targeting and conventional weapons development.
+
+[Read more](https://www.anthropic.com/research/intelligence-targeting-conventional-weapons-capabilities)
+
 ### Formalizing Fermat's Last Theorem
 
-We are sharing the first complete computer-checked proof of Fermat’s Last Theorem. Claude worked largely autonomously over 11 days to write the proof in the Lean programming language. Below, we describe how the formalization was done and share some thoughts about what this work could mean for research mathematics.
+We are sharing the first complete computer-checked proof of Fermat’s Last Theorem. Claude worked largely autonomously over 11 days to write the proof in the Lean programming language.
 
 [Read more](https://www.anthropic.com/research/formalizing-fermats-last-theorem)
 
@@ -610,9 +618,3 @@ We are sharing the first complete computer-checked proof of Fermat’s Last Theo
 We had Claude autonomously train models to improve their performance on several public benchmarks that measure 10 categories of alignment failure. For all 10, Claude found fixes that improved the target benchmarks without degrading capabilities.
 
 [Read more](https://www.anthropic.com/research/automated-researchers-mitigate-alignment-failures)
-
-### Enabling independent research on how people use Claude
-
-Earlier this year, we ran a pilot giving external researchers access to aggregate, real-world Claude usage data. Three research groups designed their own studies for Anthropic Insights, our privacy-preserving analysis tool. In this post, we share high-level results from those studies and what we learned running this pilot.
-
-[Read more](https://www.anthropic.com/research/enabling-independent-research)
