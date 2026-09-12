@@ -182,9 +182,14 @@ def absolute_url(base, ref):
 
 
 def absolutize_html(node, base):
-    for img in node.find_all("img", src=True):
-        if not img["src"].startswith("data:"):
-            img["src"] = absolute_url(base, img["src"])
+    for img in node.find_all("img"):
+        if not img.has_attr("src"):
+            continue
+        src = img.get("src", "").strip()
+        if not src:
+            img.decompose()
+        elif not src.startswith("data:"):
+            img["src"] = absolute_url(base, src)
     for a in node.find_all("a", href=True):
         if not a["href"].startswith(("#", "mailto:", "tel:", "javascript:")):
             a["href"] = urljoin(base, a["href"])
@@ -550,6 +555,7 @@ def main():
             assert "https://example.com/docs/x.png" in absolutize_markdown_images("![](/docs/x.png)", url)
             assert redact_sensitive_query("https://x.test/mcp?tracker=secret") == "https://x.test/mcp?tracker=REDACTED"
             assert html_to_md("<main><p>x  </p></main>") == "x"
+            assert html_to_md("<main><img src=''><p>x</p></main>", "https://example.com/page") == "x"
             # academy는 <main> 안 nav(레슨 목차)와 header(제목)를 보존해야 한다.
             academy_html = (
                 '<body><nav>사이트메뉴</nav><main><header><h1>Claude 101</h1></header>'
