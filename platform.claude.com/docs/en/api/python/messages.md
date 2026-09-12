@@ -429,8 +429,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `caller: Optional[Caller]`
 
-          Tool invocation directly from the model.
-
           - `class DirectCaller: …`
 
             Tool invocation directly from the model.
@@ -684,8 +682,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `caller: Optional[Caller]`
 
-          Tool invocation directly from the model.
-
           - `class DirectCaller: …`
 
             Tool invocation directly from the model.
@@ -741,8 +737,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
           Create a cache control breakpoint at this content block.
 
         - `caller: Optional[Caller]`
-
-          Tool invocation directly from the model.
 
           - `class DirectCaller: …`
 
@@ -810,8 +804,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `caller: Optional[Caller]`
 
-          Tool invocation directly from the model.
-
           - `class DirectCaller: …`
 
             Tool invocation directly from the model.
@@ -827,8 +819,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         - `type: Literal["code_execution_tool_result"]`
 
         - `content: CodeExecutionToolResultBlockParamContent`
-
-          Code execution result with encrypted stdout for PFC + web_search results.
 
           - `class CodeExecutionToolResultErrorParam: …`
 
@@ -3232,8 +3222,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `caller: Caller`
 
-        Tool invocation directly from the model.
-
         default: {"type":"direct"}
 
         - `class DirectCaller: …`
@@ -3284,8 +3272,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `caller: Caller`
 
-        Tool invocation directly from the model.
-
         default: {"type":"direct"}
 
         - `class DirectCaller: …`
@@ -3323,8 +3309,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         default: web_search_tool_result
 
       - `caller: Caller`
-
-        Tool invocation directly from the model.
 
         default: {"type":"direct"}
 
@@ -3385,8 +3369,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         default: web_fetch_tool_result
 
       - `caller: Caller`
-
-        Tool invocation directly from the model.
 
         default: {"type":"direct"}
 
@@ -3493,8 +3475,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         default: code_execution_tool_result
 
       - `content: CodeExecutionToolResultBlockContent`
-
-        Code execution result with encrypted stdout for PFC + web_search results.
 
         - `class CodeExecutionToolResultError: …`
 
@@ -4125,8 +4105,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `content_block: ContentBlock`
 
-      Response model for a file uploaded to the container.
-
       - `class TextBlock: …`
 
       - `class ThinkingBlock: …`
@@ -4726,8 +4704,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `caller: Optional[Caller]`
 
-          Tool invocation directly from the model.
-
           - `class DirectCaller: …`
 
             Tool invocation directly from the model.
@@ -4981,8 +4957,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `caller: Optional[Caller]`
 
-          Tool invocation directly from the model.
-
           - `class DirectCaller: …`
 
             Tool invocation directly from the model.
@@ -5038,8 +5012,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
           Create a cache control breakpoint at this content block.
 
         - `caller: Optional[Caller]`
-
-          Tool invocation directly from the model.
 
           - `class DirectCaller: …`
 
@@ -5107,8 +5079,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `caller: Optional[Caller]`
 
-          Tool invocation directly from the model.
-
           - `class DirectCaller: …`
 
             Tool invocation directly from the model.
@@ -5124,8 +5094,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
         - `type: Literal["code_execution_tool_result"]`
 
         - `content: CodeExecutionToolResultBlockParamContent`
-
-          Code execution result with encrypted stdout for PFC + web_search results.
 
           - `class CodeExecutionToolResultErrorParam: …`
 
@@ -8006,14 +7974,6 @@ print(message_tokens_count.input_tokens)
 
 - `BrowserStateChange`
 
-  A tab this call's execution opened that remains open at its end —
-  the creation delta of the `tabs` inventory, not an event log.
-
-  Carries only the `tab_id`; the tab's `title` and `url` live on its
-  `tabs` entry, which must include the same `tab_id`. A tab opened
-  during a failed call gets no deferred `tab_opened`; it simply appears
-  in the next result's `tabs` inventory.
-
   - `class BrowserStateChangeTabOpened: …`
 
     A tab this call's execution opened that remains open at its end —
@@ -9842,8 +9802,6 @@ print(message_tokens_count.input_tokens)
 
   - `content: CodeExecutionToolResultBlockContent`
 
-    Code execution result with encrypted stdout for PFC + web_search results.
-
     - `class CodeExecutionToolResultError: …`
 
       - `type: Literal["code_execution_tool_result_error"]`
@@ -9910,8 +9868,6 @@ print(message_tokens_count.input_tokens)
 
 - `CodeExecutionToolResultBlockContent`
 
-  Code execution result with encrypted stdout for PFC + web_search results.
-
   - `class CodeExecutionToolResultError: …`
 
     - `type: Literal["code_execution_tool_result_error"]`
@@ -9977,8 +9933,6 @@ print(message_tokens_count.input_tokens)
   - `type: Literal["code_execution_tool_result"]`
 
   - `content: CodeExecutionToolResultBlockParamContent`
-
-    Code execution result with encrypted stdout for PFC + web_search results.
 
     - `class CodeExecutionToolResultErrorParam: …`
 
@@ -10056,8 +10010,6 @@ print(message_tokens_count.input_tokens)
 ### Code Execution Tool Result Block Param Content
 
 - `CodeExecutionToolResultBlockParamContent`
-
-  Code execution result with encrypted stdout for PFC + web_search results.
 
   - `class CodeExecutionToolResultErrorParam: …`
 
@@ -11005,8 +10957,6 @@ print(message_tokens_count.input_tokens)
 
 - `ContentBlock`
 
-  Response model for a file uploaded to the container.
-
   - `class TextBlock: …`
 
     - `type: Literal["text"]`
@@ -11195,8 +11145,6 @@ print(message_tokens_count.input_tokens)
 
     - `caller: Caller`
 
-      Tool invocation directly from the model.
-
       default: {"type":"direct"}
 
       - `class DirectCaller: …`
@@ -11247,8 +11195,6 @@ print(message_tokens_count.input_tokens)
 
     - `caller: Caller`
 
-      Tool invocation directly from the model.
-
       default: {"type":"direct"}
 
       - `class DirectCaller: …`
@@ -11286,8 +11232,6 @@ print(message_tokens_count.input_tokens)
       default: web_search_tool_result
 
     - `caller: Caller`
-
-      Tool invocation directly from the model.
 
       default: {"type":"direct"}
 
@@ -11348,8 +11292,6 @@ print(message_tokens_count.input_tokens)
       default: web_fetch_tool_result
 
     - `caller: Caller`
-
-      Tool invocation directly from the model.
 
       default: {"type":"direct"}
 
@@ -11456,8 +11398,6 @@ print(message_tokens_count.input_tokens)
       default: code_execution_tool_result
 
     - `content: CodeExecutionToolResultBlockContent`
-
-      Code execution result with encrypted stdout for PFC + web_search results.
 
       - `class CodeExecutionToolResultError: …`
 
@@ -11708,8 +11648,6 @@ print(message_tokens_count.input_tokens)
 ### Content Block Param
 
 - `Union[TextBlockParam, ImageBlockParam, DocumentBlockParam, 13 more]`
-
-  Regular text content.
 
   - `class TextBlockParam: …`
 
@@ -12050,8 +11988,6 @@ print(message_tokens_count.input_tokens)
 
     - `caller: Optional[Caller]`
 
-      Tool invocation directly from the model.
-
       - `class DirectCaller: …`
 
         Tool invocation directly from the model.
@@ -12305,8 +12241,6 @@ print(message_tokens_count.input_tokens)
 
     - `caller: Optional[Caller]`
 
-      Tool invocation directly from the model.
-
       - `class DirectCaller: …`
 
         Tool invocation directly from the model.
@@ -12362,8 +12296,6 @@ print(message_tokens_count.input_tokens)
       Create a cache control breakpoint at this content block.
 
     - `caller: Optional[Caller]`
-
-      Tool invocation directly from the model.
 
       - `class DirectCaller: …`
 
@@ -12431,8 +12363,6 @@ print(message_tokens_count.input_tokens)
 
     - `caller: Optional[Caller]`
 
-      Tool invocation directly from the model.
-
       - `class DirectCaller: …`
 
         Tool invocation directly from the model.
@@ -12448,8 +12378,6 @@ print(message_tokens_count.input_tokens)
     - `type: Literal["code_execution_tool_result"]`
 
     - `content: CodeExecutionToolResultBlockParamContent`
-
-      Code execution result with encrypted stdout for PFC + web_search results.
 
       - `class CodeExecutionToolResultErrorParam: …`
 
@@ -13912,8 +13840,6 @@ print(message_tokens_count.input_tokens)
 
       - `caller: Caller`
 
-        Tool invocation directly from the model.
-
         default: {"type":"direct"}
 
         - `class DirectCaller: …`
@@ -13964,8 +13890,6 @@ print(message_tokens_count.input_tokens)
 
       - `caller: Caller`
 
-        Tool invocation directly from the model.
-
         default: {"type":"direct"}
 
         - `class DirectCaller: …`
@@ -14003,8 +13927,6 @@ print(message_tokens_count.input_tokens)
         default: web_search_tool_result
 
       - `caller: Caller`
-
-        Tool invocation directly from the model.
 
         default: {"type":"direct"}
 
@@ -14065,8 +13987,6 @@ print(message_tokens_count.input_tokens)
         default: web_fetch_tool_result
 
       - `caller: Caller`
-
-        Tool invocation directly from the model.
 
         default: {"type":"direct"}
 
@@ -14173,8 +14093,6 @@ print(message_tokens_count.input_tokens)
         default: code_execution_tool_result
 
       - `content: CodeExecutionToolResultBlockContent`
-
-        Code execution result with encrypted stdout for PFC + web_search results.
 
         - `class CodeExecutionToolResultError: …`
 
@@ -14717,8 +14635,6 @@ print(message_tokens_count.input_tokens)
 ### Message Count Tokens Tool
 
 - `MessageCountTokensTool`
-
-  Code execution tool with REPL state persistence (daemon mode + gVisor checkpoint).
 
   - `class Tool: …`
 
@@ -16682,8 +16598,6 @@ print(message_tokens_count.input_tokens)
 
         - `caller: Optional[Caller]`
 
-          Tool invocation directly from the model.
-
           - `class DirectCaller: …`
 
             Tool invocation directly from the model.
@@ -16937,8 +16851,6 @@ print(message_tokens_count.input_tokens)
 
         - `caller: Optional[Caller]`
 
-          Tool invocation directly from the model.
-
           - `class DirectCaller: …`
 
             Tool invocation directly from the model.
@@ -16994,8 +16906,6 @@ print(message_tokens_count.input_tokens)
           Create a cache control breakpoint at this content block.
 
         - `caller: Optional[Caller]`
-
-          Tool invocation directly from the model.
 
           - `class DirectCaller: …`
 
@@ -17063,8 +16973,6 @@ print(message_tokens_count.input_tokens)
 
         - `caller: Optional[Caller]`
 
-          Tool invocation directly from the model.
-
           - `class DirectCaller: …`
 
             Tool invocation directly from the model.
@@ -17080,8 +16988,6 @@ print(message_tokens_count.input_tokens)
         - `type: Literal["code_execution_tool_result"]`
 
         - `content: CodeExecutionToolResultBlockParamContent`
-
-          Code execution result with encrypted stdout for PFC + web_search results.
 
           - `class CodeExecutionToolResultErrorParam: …`
 
@@ -17871,8 +17777,6 @@ print(message_tokens_count.input_tokens)
 
   - `content_block: ContentBlock`
 
-    Response model for a file uploaded to the container.
-
     - `class TextBlock: …`
 
       - `type: Literal["text"]`
@@ -18061,8 +17965,6 @@ print(message_tokens_count.input_tokens)
 
       - `caller: Caller`
 
-        Tool invocation directly from the model.
-
         default: {"type":"direct"}
 
         - `class DirectCaller: …`
@@ -18113,8 +18015,6 @@ print(message_tokens_count.input_tokens)
 
       - `caller: Caller`
 
-        Tool invocation directly from the model.
-
         default: {"type":"direct"}
 
         - `class DirectCaller: …`
@@ -18152,8 +18052,6 @@ print(message_tokens_count.input_tokens)
         default: web_search_tool_result
 
       - `caller: Caller`
-
-        Tool invocation directly from the model.
 
         default: {"type":"direct"}
 
@@ -18214,8 +18112,6 @@ print(message_tokens_count.input_tokens)
         default: web_fetch_tool_result
 
       - `caller: Caller`
-
-        Tool invocation directly from the model.
 
         default: {"type":"direct"}
 
@@ -18322,8 +18218,6 @@ print(message_tokens_count.input_tokens)
         default: code_execution_tool_result
 
       - `content: CodeExecutionToolResultBlockContent`
-
-        Code execution result with encrypted stdout for PFC + web_search results.
 
         - `class CodeExecutionToolResultError: …`
 
@@ -19044,8 +18938,6 @@ print(message_tokens_count.input_tokens)
 
         - `caller: Caller`
 
-          Tool invocation directly from the model.
-
           default: {"type":"direct"}
 
           - `class DirectCaller: …`
@@ -19096,8 +18988,6 @@ print(message_tokens_count.input_tokens)
 
         - `caller: Caller`
 
-          Tool invocation directly from the model.
-
           default: {"type":"direct"}
 
           - `class DirectCaller: …`
@@ -19135,8 +19025,6 @@ print(message_tokens_count.input_tokens)
           default: web_search_tool_result
 
         - `caller: Caller`
-
-          Tool invocation directly from the model.
 
           default: {"type":"direct"}
 
@@ -19197,8 +19085,6 @@ print(message_tokens_count.input_tokens)
           default: web_fetch_tool_result
 
         - `caller: Caller`
-
-          Tool invocation directly from the model.
 
           default: {"type":"direct"}
 
@@ -19305,8 +19191,6 @@ print(message_tokens_count.input_tokens)
           default: code_execution_tool_result
 
         - `content: CodeExecutionToolResultBlockContent`
-
-          Code execution result with encrypted stdout for PFC + web_search results.
 
           - `class CodeExecutionToolResultError: …`
 
@@ -20135,8 +20019,6 @@ print(message_tokens_count.input_tokens)
 
           - `caller: Caller`
 
-            Tool invocation directly from the model.
-
             default: {"type":"direct"}
 
             - `class DirectCaller: …`
@@ -20187,8 +20069,6 @@ print(message_tokens_count.input_tokens)
 
           - `caller: Caller`
 
-            Tool invocation directly from the model.
-
             default: {"type":"direct"}
 
             - `class DirectCaller: …`
@@ -20226,8 +20106,6 @@ print(message_tokens_count.input_tokens)
             default: web_search_tool_result
 
           - `caller: Caller`
-
-            Tool invocation directly from the model.
 
             default: {"type":"direct"}
 
@@ -20288,8 +20166,6 @@ print(message_tokens_count.input_tokens)
             default: web_fetch_tool_result
 
           - `caller: Caller`
-
-            Tool invocation directly from the model.
 
             default: {"type":"direct"}
 
@@ -20396,8 +20272,6 @@ print(message_tokens_count.input_tokens)
             default: code_execution_tool_result
 
           - `content: CodeExecutionToolResultBlockContent`
-
-            Code execution result with encrypted stdout for PFC + web_search results.
 
             - `class CodeExecutionToolResultError: …`
 
@@ -21018,8 +20892,6 @@ print(message_tokens_count.input_tokens)
 
     - `content_block: ContentBlock`
 
-      Response model for a file uploaded to the container.
-
       - `class TextBlock: …`
 
       - `class ThinkingBlock: …`
@@ -21413,8 +21285,6 @@ print(message_tokens_count.input_tokens)
 
   - `caller: Caller`
 
-    Tool invocation directly from the model.
-
     default: {"type":"direct"}
 
     - `class DirectCaller: …`
@@ -21509,8 +21379,6 @@ print(message_tokens_count.input_tokens)
       - `"1h"`
 
   - `caller: Optional[Caller]`
-
-    Tool invocation directly from the model.
 
     - `class DirectCaller: …`
 
@@ -23880,8 +23748,6 @@ print(message_tokens_count.input_tokens)
 
 - `ToolUnion`
 
-  Code execution tool with REPL state persistence (daemon mode + gVisor checkpoint).
-
   - `class Tool: …`
 
     - `type: Optional[Literal["custom"]]`
@@ -25403,8 +25269,6 @@ print(message_tokens_count.input_tokens)
 
   - `caller: Caller`
 
-    Tool invocation directly from the model.
-
     default: {"type":"direct"}
 
     - `class DirectCaller: …`
@@ -25481,8 +25345,6 @@ print(message_tokens_count.input_tokens)
       - `"1h"`
 
   - `caller: Optional[Caller]`
-
-    Tool invocation directly from the model.
 
     - `class DirectCaller: …`
 
@@ -26325,8 +26187,6 @@ print(message_tokens_count.input_tokens)
 
   - `caller: Caller`
 
-    Tool invocation directly from the model.
-
     default: {"type":"direct"}
 
     - `class DirectCaller: …`
@@ -26759,8 +26619,6 @@ print(message_tokens_count.input_tokens)
     Create a cache control breakpoint at this content block.
 
   - `caller: Optional[Caller]`
-
-    Tool invocation directly from the model.
 
     - `class DirectCaller: …`
 
@@ -27221,8 +27079,6 @@ print(message_tokens_count.input_tokens)
 
   - `caller: Caller`
 
-    Tool invocation directly from the model.
-
     default: {"type":"direct"}
 
     - `class DirectCaller: …`
@@ -27391,8 +27247,6 @@ print(message_tokens_count.input_tokens)
       - `"1h"`
 
   - `caller: Optional[Caller]`
-
-    Tool invocation directly from the model.
 
     - `class DirectCaller: …`
 
@@ -27934,8 +27788,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `caller: Optional[Caller]`
 
-              Tool invocation directly from the model.
-
               - `class DirectCaller: …`
 
                 Tool invocation directly from the model.
@@ -28189,8 +28041,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `caller: Optional[Caller]`
 
-              Tool invocation directly from the model.
-
               - `class DirectCaller: …`
 
                 Tool invocation directly from the model.
@@ -28246,8 +28096,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
               Create a cache control breakpoint at this content block.
 
             - `caller: Optional[Caller]`
-
-              Tool invocation directly from the model.
 
               - `class DirectCaller: …`
 
@@ -28315,8 +28163,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `caller: Optional[Caller]`
 
-              Tool invocation directly from the model.
-
               - `class DirectCaller: …`
 
                 Tool invocation directly from the model.
@@ -28332,8 +28178,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
             - `type: Literal["code_execution_tool_result"]`
 
             - `content: CodeExecutionToolResultBlockParamContent`
-
-              Code execution result with encrypted stdout for PFC + web_search results.
 
               - `class CodeExecutionToolResultErrorParam: …`
 
@@ -31529,8 +31373,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `caller: Caller`
 
-              Tool invocation directly from the model.
-
               default: {"type":"direct"}
 
               - `class DirectCaller: …`
@@ -31581,8 +31423,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `caller: Caller`
 
-              Tool invocation directly from the model.
-
               default: {"type":"direct"}
 
               - `class DirectCaller: …`
@@ -31620,8 +31460,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
               default: web_search_tool_result
 
             - `caller: Caller`
-
-              Tool invocation directly from the model.
 
               default: {"type":"direct"}
 
@@ -31682,8 +31520,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
               default: web_fetch_tool_result
 
             - `caller: Caller`
-
-              Tool invocation directly from the model.
 
               default: {"type":"direct"}
 
@@ -31790,8 +31626,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
               default: code_execution_tool_result
 
             - `content: CodeExecutionToolResultBlockContent`
-
-              Code execution result with encrypted stdout for PFC + web_search results.
 
               - `class CodeExecutionToolResultError: …`
 

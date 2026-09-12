@@ -291,3 +291,5 @@ Although many of the problems here feel novel—context management, tool composi
 ## Get the developer newsletter
 
 Product updates, how-tos, community spotlights, and more. Delivered monthly to your inbox.
+
+Code execution with MCP: building more efficient AI agents \ Anthropic

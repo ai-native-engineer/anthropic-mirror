@@ -243,7 +243,7 @@ Head of Life Sciences Partnerships, Anthropic
 
 ## Agenda
 
-* Jun 30
+* 30 Jun
 
 Day 1Day 2Day 3Day 3
 

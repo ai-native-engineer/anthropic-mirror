@@ -1,5 +1,13 @@
 <!-- source: https://claude.com/docs/claude-tag/admins/federated-access/troubleshooting -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 Federated connections are managed at [`claude.ai/admin-settings/claude-tag`](https://claude.ai/admin-settings/claude-tag): open **Federated cloud access** in the left navigation. Changing them needs an organization Owner, or an admin with full Claude Tag management permission.
 
 This page covers what goes wrong after you connect a gateway, AWS role, Google Cloud identity, or authorization server through **Federated cloud access**. It’s organized by where the problem shows up: a message in a console dialog, an error Claude reports in the thread, or a rejection in your own logs. The token terms used below are explained on the [identity token reference](https://claude.com/docs/claude-tag/admins/federated-access/token-reference).
@@ -45,6 +53,7 @@ The connection check sent two requests to your gateway and didn’t get the two 
 The check sends an empty `POST` to the address itself, with nothing added after the host, twice. Work through the causes in order.
 
 | Check | What to do |
+| --- | --- |
 | Claude can reach the address from the internet over HTTPS | Confirm the host resolves publicly, the TLS certificate is valid, and the gateway isn’t behind a VPN. |
 | An empty `POST` to the address itself is answered directly | The check doesn’t follow redirects, and any status other than the two expected ones fails it, including a 503 from a gateway that couldn’t fetch the signing keys. |
 | The token whose subject isn’t your organization gets 401 or 403 | If the gateway answered 2xx, the subject check is missing or wrong. |
@@ -81,19 +90,19 @@ The gateway was removed from the **Gateways** table, but its connection is still
 **How to resolve**
 To keep the gateway, register the same address again; see [Removing and reconnecting a gateway](#removing-and-reconnecting-a-gateway). To drop it, in **Access bundles**, open the bundle’s **Credentials** tab, open the **⋮** menu on the connection’s row, and choose **Delete**.
 
-###  request blocked: Google (gcp) credentials aren’t enabled for this organization
+###  Claude says Google credentials are not enabled for this organization
 
 **What you see**
-Claude’s request got HTTP 403 with this reason.
+Claude’s request got HTTP 403 with the reason “request blocked: Google (gcp) credentials aren’t enabled for this organization”.
 **What it means**
 A Google Cloud identity is connected in a bundle, but Google Cloud federation is off for your organization.
 **How to resolve**
 Contact your Anthropic account team with the details under [Contact Anthropic](#contact-anthropic).
 
-###  request blocked: this credential has restrict\_credential\_minting set, so Google’s credential-minting endpoints are refused
+###  Claude says a Google credential-minting endpoint was refused
 
 **What you see**
-Claude’s request got HTTP 403 with this reason.
+Claude’s request got HTTP 403 with the reason “request blocked: this credential has restrict\_credential\_minting set, so Google’s credential-minting endpoints are refused”.
 **What it means**
 The Google Cloud identity was connected with **Block requests that mint new credentials** selected, and Claude tried to call a Google endpoint that creates keys, tokens, or other credentials. The block worked as intended.
 **How to resolve**
@@ -131,17 +140,36 @@ Ask Claude to retry. If one connection keeps failing this way, check that your a
 **What you see**
 Claude’s request got HTTP 502 with the reason `injection failed ("<connection name>")`.
 **What it means**
-Most often, the system Claude’s identity token was presented to refused the exchange. AWS refused `AssumeRoleWithWebIdentity`, Google Cloud’s token exchange refused the token, or your authorization server answered the grant with an error. Claude’s reply doesn’t say why; your own logs do.
+Most often, the system Claude’s identity token was presented to refused the exchange. AWS refused `AssumeRoleWithWebIdentity`, Google Cloud’s token exchange refused the token, or your authorization server answered the grant with an error. Claude’s reply doesn’t say why; for a refused exchange, your own logs do.
 **How to resolve**
 Look up the refusal where it happened and fix the configuration it names.
 
 | Connection | Where to look | Entry |
 | --- | --- | --- |
-| AWS role | CloudTrail, the `AssumeRoleWithWebIdentity` event for the role | [AWS refuses AssumeRoleWithWebIdentity](#aws-refuses-assumerolewithwebidentity) |
+| AWS role | CloudTrail, the `AssumeRoleWithWebIdentity` event for the role | [AWS refuses AssumeRoleWithWebIdentity](#aws-refuses-assumerolewithwebidentity) if the event failed. [An AWS request fails after a successful sign-in](#an-aws-request-fails-after-a-successful-sign-in) if the event succeeded, or there is no new event. |
 | Google Cloud identity | Cloud Audit Logs, the Security Token Service API entry for the token exchange and, if you named a service account, the IAM Service Account Credentials API entry | [Google Cloud refuses the token exchange](#google-cloud-refuses-the-token-exchange) |
 | Authorization server | Your server’s log for the `POST` to the token endpoint | [Your authorization server rejects the grant](#your-authorization-server-rejects-the-grant) |
 
-Allow for log delivery delay before concluding there was no attempt. If your logs show none at the time of the request, the token wasn’t issued, and you should [contact Anthropic](#contact-anthropic) with the details listed there. A gateway connection doesn’t produce this error. Your gateway’s own response reaches Claude, so Claude reports the status your gateway returned, usually 401 or 403; see [Your gateway rejects every token](#your-gateway-rejects-every-token).
+Allow for log delivery delay before concluding there was no attempt. For an AWS role, no new event can also mean Claude reused credentials from an earlier sign-in. See [An AWS request fails after a successful sign-in](#an-aws-request-fails-after-a-successful-sign-in). Otherwise, if your logs show no attempt at the time of the request, the token wasn’t issued. [Contact Anthropic](#contact-anthropic) with the details listed there. A gateway connection doesn’t produce this error. Your gateway’s own response reaches Claude, so Claude reports the status your gateway returned, usually 401 or 403; see [Your gateway rejects every token](#your-gateway-rejects-every-token).
+
+###  An AWS request fails after a successful sign-in
+
+**What you see**
+Claude’s request to an AWS service got HTTP 502 with the reason `injection failed ("<connection name>")`. CloudTrail shows that the role’s `AssumeRoleWithWebIdentity` event succeeded, or shows no new event because Claude was reusing credentials from an earlier sign-in. Other kinds of request with the same connection may still work. The failure repeats for one kind of request, for example every call to one host or every upload to S3.
+**What it means**
+The sign-in worked, but [Agent Proxy](https://claude.com/docs/claude-tag/concepts/agent-identity#agent-proxy) couldn’t sign the request with the role’s credentials, so it never left for AWS. Claude’s reply doesn’t say which of these applies:
+
+* **A hostname with no usable region.** Agent Proxy reads the AWS service and signing region from the hostname, so the region must be the last label before `amazonaws.com`, as in `service.region.amazonaws.com`, `my-bucket.s3.us-east-1.amazonaws.com`, or `api.ecr.us-east-1.amazonaws.com`. Agent Proxy refuses a hostname with no region, such as `ec2.amazonaws.com`, unless the service is IAM, STS, S3, Route 53, CloudFront, Organizations, or Global Accelerator, which it signs for `us-east-1`. It also refuses a hostname that puts the region before the service name, such as an OpenSearch domain endpoint (`my-domain.us-east-1.es.amazonaws.com`).
+* **A large request to a service other than S3 with no content hash.** When a request has no `x-amz-content-sha256` header, Agent Proxy hashes the body before signing and refuses a body over 1 MB (1,048,576 bytes). The AWS CLI and SDKs add that header for S3 but usually not for other services.
+* **An S3 upload sent in chunks.** The AWS CLI (2.23.0 and later) and the AWS SDKs that compute upload checksums by default can send S3 uploads in chunks with a checksum trailer. Agent Proxy can’t sign a request in that format. The fix is to have the AWS CLI or SDK send the body in one piece.
+
+**How to resolve**
+
+| Cause | Do this |
+| --- | --- |
+| Hostname with no usable region | Use the service’s regional endpoint, `service.region.amazonaws.com` (for S3, also `bucket.s3.region.amazonaws.com`), and make sure that host is in the connection’s **Allowed hosts**. A host that exists only with the region before the service name, such as an OpenSearch domain endpoint, can’t be reached through a federated connection. [Contact Anthropic](#contact-anthropic) with the hostname. |
+| Large request to a service other than S3 | Keep the body under 1 MB, or have Claude send the request with an `x-amz-content-sha256` header set to the hex SHA-256 of the body, for example with `curl`. For large data, upload to S3 and pass a reference instead. |
+| S3 upload sent in chunks | Have Claude set the environment variable `AWS_REQUEST_CHECKSUM_CALCULATION=WHEN_REQUIRED` before running the AWS CLI or a script that uses an AWS SDK, or add `request_checksum_calculation = WHEN_REQUIRED` to the profile in `~/.aws/config`, then retry. To apply it in every thread, add a line to the scope’s [custom instructions](https://claude.com/docs/claude-tag/admins/attach-to-scope#add-custom-instructions), for example “Before using the AWS CLI or an AWS SDK, add `request_checksum_calculation = WHEN_REQUIRED` to the default profile in `~/.aws/config`.” S3 still computes and stores a checksum for the object. If the upload still fails, [contact Anthropic](#contact-anthropic). |
 
 ###  The cloud API answers 403 after a successful exchange
 
@@ -163,6 +191,7 @@ One of the standard checks is configured with the wrong value. Your gateway’s 
 **How to resolve**
 
 | Check | What to confirm |
+| --- | --- |
 | Audience | The `aud` claim is a JSON array with one element, your gateway address exactly as the console stored it: `https://` plus the lowercase host, no path or trailing slash. Use your library’s audience option rather than comparing the raw claim to a string. |
 | Issuer | Exactly `https://identity.anthropic.com/agents`, including the path. A verifier configured with any other issuer value, such as the bare host, a different path, or a trailing slash, rejects every token, including the connection check’s token. |
 | Signing keys | Fetched from the JSON Web Key Set (JWKS) named in `https://identity.anthropic.com/agents/.well-known/openid-configuration`. Accept ES256 only. Select the key by `kid`, and refetch the JWKS on an unknown `kid` before rejecting. |
@@ -196,6 +225,7 @@ STS refused to issue credentials for Claude’s token. The trust relationship be
 **How to resolve**
 
 | CloudTrail error | What to confirm |
+| --- | --- |
 | `InvalidIdentityToken` | The IAM OIDC identity provider’s URL is exactly `https://identity.anthropic.com/agents`, with the `/agents` path (AWS displays it without `https://`), and its audience list includes `sts.amazonaws.com`. |
 | `AccessDenied` | The trust policy’s condition keys start with `identity.anthropic.com/agents:`; the `aud` condition is `StringEquals` on `sts.amazonaws.com`; the `sub` condition matches the token’s subject, either `StringEquals` on this agent’s full subject or `StringLike` on `wimse://identity.anthropic.com/org/<your organization ID>/agent/*`. `AccessDenied` also appears when the role was deleted or renamed. |
 | Any other code | AWS’s STS documentation describes it. If the two rows above check out, the token itself is fine. |
@@ -212,6 +242,7 @@ The workload identity pool’s provider or attribute condition doesn’t accept 
 Google records the reason in your Cloud Audit Logs. The Security Token Service API entry covers the token exchange, and, if you named a service account, the IAM Service Account Credentials API entry covers the impersonation. Both are Data Access audit logs, which Google keeps off by default, as described under [Verify the connection](https://claude.com/docs/claude-tag/admins/federated-access/gcp#verify-the-connection). If the logs were on and show no entry at the time of the request, the token wasn’t issued; see [injection failed](#injection-failed). Otherwise, work through the checks in order.
 
 | Check | What to confirm |
+| --- | --- |
 | Attribute condition | The provider’s attribute condition accepts this token. A condition that lists full subjects must include this agent’s subject. A condition on your **Subject prefix**, `assertion.sub.startsWith("wimse://identity.anthropic.com/org/<your organization ID>/agent/")`, accepts every agent in your organization, as does `attribute.org == "<your organization ID>"` if you mapped `attribute.org` from `assertion.tenant`. Comparing the subject to the prefix with `==`, as in `assertion.sub == "wimse://identity.anthropic.com/org/<your organization ID>/agent/"`, never matches, because every subject continues past the prefix with an agent’s ID. Use `startsWith` on the prefix, or `==` on a full subject. |
 | Issuer, attribute mapping, and audience | The provider’s issuer is `https://identity.anthropic.com/agents`, its attribute mapping sets `google.subject` to `assertion.sub` (and `attribute.org` to `assertion.tenant` if your condition or grants use it), and the **Workload identity provider** you entered in the console is the provider’s full resource name, which is the token’s audience. |
 | Service account grant | If you named a service account, the federated identity holds a role on it that allows `iam.serviceAccounts.getAccessToken`, such as `roles/iam.workloadIdentityUser`. |
@@ -225,6 +256,7 @@ Your server didn’t accept Claude’s identity token as a JWT bearer assertion.
 **How to resolve**
 
 | Check | What to confirm |
+| --- | --- |
 | Grant shape | The token endpoint accepts `grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer` with the token in `assertion`, plus `resource` and `scope` if you set them, as a form-encoded `POST` with `Accept: application/json`. No `client_id` or client secret is sent, so the endpoint must accept the grant without client authentication. |
 | Audience | The token’s `aud` is your authorization server’s issuer identifier exactly as you entered it when connecting the server, or the token endpoint URL exactly as registered if you left the issuer identifier empty, as a one-element array. The **Audience** row of the **Connect an authorization server** dialog shows the value. |
 | Issuer and keys | As for a gateway: issuer `https://identity.anthropic.com/agents`, keys from its discovery document, ES256 only. |
@@ -243,6 +275,8 @@ If no entry resolves the problem, contact your Anthropic account team and includ
 * For a gateway, the line from your gateway’s log; for AWS, the CloudTrail event; for Google Cloud, the audit log entry; for an authorization server, the request and response your server logged
 
 Never send a token itself. Anthropic’s logs record why a token was refused or not issued, and the time and connection name are enough to find the entry.
+
+##  Related resources
 
 * [Federated cloud access overview](https://claude.com/docs/claude-tag/admins/federated-access/overview): how the token works and which connection type to use
 * [Connect a gateway](https://claude.com/docs/claude-tag/admins/federated-access/connect-a-gateway): the setup steps and the connection check in full

@@ -51,21 +51,21 @@ Search, create, autofill, and export Canva designs
 
 [Add Canva in Claude (opens in new tab)](https://claude.ai/directory/eb9240f2-e1c1-43c1-828f-0fda40c22e4c "Add in Claude")
 
-![](https://www.google.com/s2/favicons?domain=padlet.com&sz=96)
+![](https://padlet.net/logos/padlet_crane_icon.svg)
 
-### [Padlet MCP](https://claude.com/connectors/padlet-mcp)
+### [Padlet](https://claude.com/connectors/padlet-mcp)
 
 Create and manage padlets
 
-[Add Padlet MCP in Claude (opens in new tab)](https://claude.ai/directory/618a4a60-3705-448f-b86f-b43e85fb37ba "Add in Claude")
+[Add Padlet in Claude (opens in new tab)](https://claude.ai/directory/618a4a60-3705-448f-b86f-b43e85fb37ba "Add in Claude")
 
 ![](https://ask.cna.com.tw/ask/fav_icon_256x256.png)
 
-### [中央社 CNA](https://claude.com/connectors/cna-mcp)
+### [中央社新聞 CNA TAIWAN NEWS](https://claude.com/connectors/cna-mcp)
 
 把中央社可信新聞接進你的 AI｜Taiwan CNA news, sourced answers
 
-[Add 中央社 CNA in Claude (opens in new tab)](https://claude.ai/directory/3e388e4c-9cd4-427d-a200-c533d39f92f8 "Add in Claude")
+[Add 中央社新聞 CNA TAIWAN NEWS in Claude (opens in new tab)](https://claude.ai/directory/3e388e4c-9cd4-427d-a200-c533d39f92f8 "Add in Claude")
 
 ![](https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/82/ae/4c/82ae4ce7-6614-ea43-f543-d3cbd11e9726/AppIcon-0-0-1x_U007epad-0-10-0-85-220.png/512x512bb.png)
 

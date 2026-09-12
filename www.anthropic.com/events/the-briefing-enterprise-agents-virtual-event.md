@@ -160,7 +160,7 @@ No items found.
 
 ## Agenda
 
-* Feb 24
+* 24 Feb
 
 Day 1Day 2Day 3Day 3
 

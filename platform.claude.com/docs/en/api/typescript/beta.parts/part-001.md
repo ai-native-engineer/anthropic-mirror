@@ -1584,8 +1584,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `caller?: BetaDirectCaller | BetaServerToolCaller | BetaServerToolCaller20260120`
 
-              Tool invocation directly from the model.
-
               - `BetaDirectCaller`
 
                 Tool invocation directly from the model.
@@ -1841,8 +1839,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `caller?: BetaDirectCaller | BetaServerToolCaller | BetaServerToolCaller20260120`
 
-              Tool invocation directly from the model.
-
               - `BetaDirectCaller`
 
                 Tool invocation directly from the model.
@@ -1898,8 +1894,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
               Create a cache control breakpoint at this content block.
 
             - `caller?: BetaDirectCaller | BetaServerToolCaller | BetaServerToolCaller20260120`
-
-              Tool invocation directly from the model.
 
               - `BetaDirectCaller`
 
@@ -1966,8 +1960,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
               Create a cache control breakpoint at this content block.
 
             - `caller?: BetaDirectCaller | BetaServerToolCaller | BetaServerToolCaller20260120`
-
-              Tool invocation directly from the model.
 
               - `BetaDirectCaller`
 
@@ -2036,8 +2028,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
             - `type: "code_execution_tool_result"`
 
             - `content: BetaCodeExecutionToolResultBlockParamContent`
-
-              Code execution result with encrypted stdout for PFC + web_search results.
 
               - `BetaCodeExecutionToolResultErrorParam`
 
@@ -2360,11 +2350,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `tool: BetaToolChangeToolReference | BetaToolChangeMCPToolReference | BetaToolChangeMCPToolsetReference`
 
-              Reference to a single tool the caller declared directly in
-              `tools[]`. Does not accept the composed `{server}_{name}` form the
-              server assigns to MCP-resolved tools — use `mcp_tool_reference` or
-              `mcp_toolset_reference` for those.
-
               - `BetaToolChangeToolReference`
 
                 Reference to a single tool the caller declared directly in
@@ -2412,11 +2397,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
             - `type: "tool_removal"`
 
             - `tool: BetaToolChangeToolReference | BetaToolChangeMCPToolReference | BetaToolChangeMCPToolsetReference`
-
-              Reference to a single tool the caller declared directly in
-              `tools[]`. Does not accept the composed `{server}_{name}` form the
-              server assigns to MCP-resolved tools — use `mcp_tool_reference` or
-              `mcp_toolset_reference` for those.
 
               - `BetaToolChangeToolReference`
 
@@ -5418,8 +5398,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `caller?: BetaDirectCaller | BetaServerToolCaller | BetaServerToolCaller20260120`
 
-        Tool invocation directly from the model.
-
         - `BetaDirectCaller`
 
           Tool invocation directly from the model.
@@ -5482,8 +5460,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `caller?: BetaDirectCaller | BetaServerToolCaller | BetaServerToolCaller20260120`
 
-        Tool invocation directly from the model.
-
         - `BetaDirectCaller`
 
           Tool invocation directly from the model.
@@ -5541,8 +5517,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
       - `caller?: BetaDirectCaller | BetaServerToolCaller | BetaServerToolCaller20260120`
-
-        Tool invocation directly from the model.
 
         - `BetaDirectCaller`
 
@@ -5648,8 +5622,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `caller?: BetaDirectCaller | BetaServerToolCaller | BetaServerToolCaller20260120`
 
-        Tool invocation directly from the model.
-
         - `BetaDirectCaller`
 
           Tool invocation directly from the model.
@@ -5727,8 +5699,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         default: code_execution_tool_result
 
       - `content: BetaCodeExecutionToolResultBlockContent`
-
-        Code execution result with encrypted stdout for PFC + web_search results.
 
         - `BetaCodeExecutionToolResultError`
 
@@ -7030,8 +7000,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `content_block: BetaTextBlock | BetaThinkingBlock | BetaRedactedThinkingBlock | 14 more`
 
-      Response model for a file uploaded to the container.
-
       - `BetaTextBlock`
 
       - `BetaThinkingBlock`
@@ -7716,8 +7684,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
           - `caller?: BetaDirectCaller | BetaServerToolCaller | BetaServerToolCaller20260120`
 
-            Tool invocation directly from the model.
-
             - `BetaDirectCaller`
 
               Tool invocation directly from the model.
@@ -7973,8 +7939,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
           - `caller?: BetaDirectCaller | BetaServerToolCaller | BetaServerToolCaller20260120`
 
-            Tool invocation directly from the model.
-
             - `BetaDirectCaller`
 
               Tool invocation directly from the model.
@@ -8030,8 +7994,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
             Create a cache control breakpoint at this content block.
 
           - `caller?: BetaDirectCaller | BetaServerToolCaller | BetaServerToolCaller20260120`
-
-            Tool invocation directly from the model.
 
             - `BetaDirectCaller`
 
@@ -8098,8 +8060,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
             Create a cache control breakpoint at this content block.
 
           - `caller?: BetaDirectCaller | BetaServerToolCaller | BetaServerToolCaller20260120`
-
-            Tool invocation directly from the model.
 
             - `BetaDirectCaller`
 
@@ -8168,8 +8128,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
           - `type: "code_execution_tool_result"`
 
           - `content: BetaCodeExecutionToolResultBlockParamContent`
-
-            Code execution result with encrypted stdout for PFC + web_search results.
 
             - `BetaCodeExecutionToolResultErrorParam`
 
@@ -8492,11 +8450,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
           - `tool: BetaToolChangeToolReference | BetaToolChangeMCPToolReference | BetaToolChangeMCPToolsetReference`
 
-            Reference to a single tool the caller declared directly in
-            `tools[]`. Does not accept the composed `{server}_{name}` form the
-            server assigns to MCP-resolved tools — use `mcp_tool_reference` or
-            `mcp_toolset_reference` for those.
-
             - `BetaToolChangeToolReference`
 
               Reference to a single tool the caller declared directly in
@@ -8544,11 +8497,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
           - `type: "tool_removal"`
 
           - `tool: BetaToolChangeToolReference | BetaToolChangeMCPToolReference | BetaToolChangeMCPToolsetReference`
-
-            Reference to a single tool the caller declared directly in
-            `tools[]`. Does not accept the composed `{server}_{name}` form the
-            server assigns to MCP-resolved tools — use `mcp_tool_reference` or
-            `mcp_toolset_reference` for those.
 
             - `BetaToolChangeToolReference`
 
@@ -11533,8 +11481,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `caller?: BetaDirectCaller | BetaServerToolCaller | BetaServerToolCaller20260120`
 
-                Tool invocation directly from the model.
-
                 - `BetaDirectCaller`
 
                   Tool invocation directly from the model.
@@ -11790,8 +11736,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `caller?: BetaDirectCaller | BetaServerToolCaller | BetaServerToolCaller20260120`
 
-                Tool invocation directly from the model.
-
                 - `BetaDirectCaller`
 
                   Tool invocation directly from the model.
@@ -11847,8 +11791,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
                 Create a cache control breakpoint at this content block.
 
               - `caller?: BetaDirectCaller | BetaServerToolCaller | BetaServerToolCaller20260120`
-
-                Tool invocation directly from the model.
 
                 - `BetaDirectCaller`
 
@@ -11915,8 +11857,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
                 Create a cache control breakpoint at this content block.
 
               - `caller?: BetaDirectCaller | BetaServerToolCaller | BetaServerToolCaller20260120`
-
-                Tool invocation directly from the model.
 
                 - `BetaDirectCaller`
 
@@ -11985,8 +11925,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
               - `type: "code_execution_tool_result"`
 
               - `content: BetaCodeExecutionToolResultBlockParamContent`
-
-                Code execution result with encrypted stdout for PFC + web_search results.
 
                 - `BetaCodeExecutionToolResultErrorParam`
 
@@ -12309,11 +12247,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `tool: BetaToolChangeToolReference | BetaToolChangeMCPToolReference | BetaToolChangeMCPToolsetReference`
 
-                Reference to a single tool the caller declared directly in
-                `tools[]`. Does not accept the composed `{server}_{name}` form the
-                server assigns to MCP-resolved tools — use `mcp_tool_reference` or
-                `mcp_toolset_reference` for those.
-
                 - `BetaToolChangeToolReference`
 
                   Reference to a single tool the caller declared directly in
@@ -12361,11 +12294,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
               - `type: "tool_removal"`
 
               - `tool: BetaToolChangeToolReference | BetaToolChangeMCPToolReference | BetaToolChangeMCPToolsetReference`
-
-                Reference to a single tool the caller declared directly in
-                `tools[]`. Does not accept the composed `{server}_{name}` form the
-                server assigns to MCP-resolved tools — use `mcp_tool_reference` or
-                `mcp_toolset_reference` for those.
 
                 - `BetaToolChangeToolReference`
 
@@ -16647,8 +16575,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `caller?: BetaDirectCaller | BetaServerToolCaller | BetaServerToolCaller20260120`
 
-              Tool invocation directly from the model.
-
               - `BetaDirectCaller`
 
                 Tool invocation directly from the model.
@@ -16711,8 +16637,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `caller?: BetaDirectCaller | BetaServerToolCaller | BetaServerToolCaller20260120`
 
-              Tool invocation directly from the model.
-
               - `BetaDirectCaller`
 
                 Tool invocation directly from the model.
@@ -16770,8 +16694,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
             - `caller?: BetaDirectCaller | BetaServerToolCaller | BetaServerToolCaller20260120`
-
-              Tool invocation directly from the model.
 
               - `BetaDirectCaller`
 
@@ -16877,8 +16799,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `caller?: BetaDirectCaller | BetaServerToolCaller | BetaServerToolCaller20260120`
 
-              Tool invocation directly from the model.
-
               - `BetaDirectCaller`
 
                 Tool invocation directly from the model.
@@ -16956,8 +16876,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
               default: code_execution_tool_result
 
             - `content: BetaCodeExecutionToolResultBlockContent`
-
-              Code execution result with encrypted stdout for PFC + web_search results.
 
               - `BetaCodeExecutionToolResultError`
 
@@ -34808,3 +34726,159 @@ Delete Session
 import Anthropic from "@anthropic-ai/sdk";
 
 const client = new Anthropic({
+  apiKey: process.env["ANTHROPIC_API_KEY"] // This is the default and can be omitted
+});
+
+const betaManagedAgentsDeletedSession = await client.beta.sessions.delete(
+  "sesn_011CZkZAtmR3yMPDzynEDxu7"
+);
+
+console.log(betaManagedAgentsDeletedSession.id);
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "sesn_011CZkZAtmR3yMPDzynEDxu7",
+  "type": "session_deleted"
+}
+```
+
+### Archive Session
+
+`client.beta.sessions.archive(sessionID, params?, options?): BetaManagedAgentsSession`
+
+**POST** `/v1/sessions/{session_id}/archive`
+
+Archive Session
+
+#### Parameters
+
+- `sessionID: string`
+
+- `params: SessionArchiveParams`
+
+  - `betas?: Array<AnthropicBeta>`
+
+    Optional header to specify the beta version(s) you want to use.
+
+    - `(string & {})`
+
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 42 more`
+
+      - `"message-batches-2024-09-24"`
+
+      - `"prompt-caching-2024-07-31"`
+
+      - `"computer-use-2024-10-22"`
+
+      - `"computer-use-2025-01-24"`
+
+      - `"pdfs-2024-09-25"`
+
+      - `"token-counting-2024-11-01"`
+
+      - `"token-efficient-tools-2025-02-19"`
+
+      - `"output-128k-2025-02-19"`
+
+      - `"files-api-2025-04-14"`
+
+      - `"mcp-client-2025-04-04"`
+
+      - `"mcp-client-2025-11-20"`
+
+      - `"dev-full-thinking-2025-05-14"`
+
+      - `"interleaved-thinking-2025-05-14"`
+
+      - `"code-execution-2025-05-22"`
+
+      - `"extended-cache-ttl-2025-04-11"`
+
+      - `"context-1m-2025-08-07"`
+
+      - `"context-management-2025-06-27"`
+
+      - `"model-context-window-exceeded-2025-08-26"`
+
+      - `"skills-2025-10-02"`
+
+      - `"fast-mode-2026-02-01"`
+
+      - `"output-300k-2026-03-24"`
+
+      - `"user-profiles-2026-03-24"`
+
+      - `"user-profiles-2026-08-18"`
+
+      - `"user-profiles-2026-09-04"`
+
+      - `"advisor-tool-2026-03-01"`
+
+      - `"managed-agents-2026-04-01"`
+
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"dreaming-2026-04-21"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"server-side-fallback-2026-07-01"`
+
+      - `"fallback-credit-2026-06-01"`
+
+      - `"fallback-credit-2026-07-01"`
+
+      - `"agent-memory-2026-07-22"`
+
+      - `"mid-conversation-tool-changes-2026-07-01"`
+
+      - `"compact-2026-01-12"`
+
+      - `"computer-use-2025-11-24"`
+
+      - `"mcp-tunnels-2026-06-22"`
+
+      - `"structured-outputs-2025-11-13"`
+
+      - `"task-budgets-2026-03-13"`
+
+      - `"thinking-display-updates-2026-08-18"`
+
+      - `"ce-user-management-2026-07-13"`
+
+      - `"mid-conversation-output-config-2026-07-01"`
+
+      - `"thinking-binding-controls-2026-08-01"`
+
+      - `"mid-conversation-system-clear-at-2026-08-21"`
+
+  - `workspace_id?: string`
+
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `BetaManagedAgentsSession`
+
+  A Managed Agents `session`.
+
+  - `type: "session"`
+
+  - `id: string`
+
+  - `agent: BetaManagedAgentsSessionAgent`
+
+    Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
+
+    - `type: "agent"`
+
+    - `id: string`
+
+    - `description: string | null`

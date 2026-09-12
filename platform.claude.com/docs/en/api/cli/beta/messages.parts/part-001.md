@@ -572,8 +572,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
 
-        Tool invocation directly from the model.
-
         - `beta_direct_caller: object`
 
           Tool invocation directly from the model.
@@ -634,8 +632,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
 
-        Tool invocation directly from the model.
-
         - `beta_direct_caller: object`
 
           Tool invocation directly from the model.
@@ -687,8 +683,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
       - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
-
-        Tool invocation directly from the model.
 
         - `beta_direct_caller: object`
 
@@ -784,8 +778,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
 
-        Tool invocation directly from the model.
-
         - `beta_direct_caller: object`
 
           Tool invocation directly from the model.
@@ -853,8 +845,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
       - `type: "code_execution_tool_result"`
 
       - `content: BetaCodeExecutionToolResultError or BetaCodeExecutionResultBlock or BetaEncryptedCodeExecutionResultBlock`
-
-        Code execution result with encrypted stdout for PFC + web_search results.
 
         - `beta_code_execution_tool_result_error: object`
 
@@ -2644,8 +2634,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `content_block: BetaTextBlock or BetaThinkingBlock or BetaRedactedThinkingBlock or 14 more`
 
-      Response model for a file uploaded to the container.
-
       - `beta_text_block: object`
 
         - `type: "text"`
@@ -2704,8 +2692,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
 
-          Tool invocation directly from the model.
-
         - `toolset_name: optional string`
 
           For a toolset member tool_use, the toolset family.
@@ -2726,8 +2712,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
 
-          Tool invocation directly from the model.
-
       - `beta_web_search_tool_result_block: object`
 
         - `type: "web_search_tool_result"`
@@ -2740,8 +2724,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
 
-          Tool invocation directly from the model.
-
       - `beta_web_fetch_tool_result_block: object`
 
         - `type: "web_fetch_tool_result"`
@@ -2753,8 +2735,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
           pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
         - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
-
-          Tool invocation directly from the model.
 
       - `beta_advisor_tool_result_block: object`
 
@@ -2771,8 +2751,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         - `type: "code_execution_tool_result"`
 
         - `content: BetaCodeExecutionToolResultError or BetaCodeExecutionResultBlock or BetaEncryptedCodeExecutionResultBlock`
-
-          Code execution result with encrypted stdout for PFC + web_search results.
 
         - `tool_use_id: string`
 
@@ -4688,14 +4666,6 @@ ant beta:messages count-tokens \
 ### Beta Browser State Change
 
 - `beta_browser_state_change: BetaBrowserStateChangeTabOpened or BetaBrowserStateChangeDownloadStarted or BetaBrowserStateChangeDownloadCompleted or BetaBrowserStateChangeDownloadFailed`
-
-  A tab this call's execution opened that remains open at its end —
-  the creation delta of the `tabs` inventory, not an event log.
-
-  Carries only the `tab_id`; the tab's `title` and `url` live on its
-  `tabs` entry, which must include the same `tab_id`. A tab opened
-  during a failed call gets no deferred `tab_opened`; it simply appears
-  in the next result's `tabs` inventory.
 
   - `beta_browser_state_change_tab_opened: object`
 
@@ -6667,8 +6637,6 @@ ant beta:messages count-tokens \
 
   - `content: BetaCodeExecutionToolResultError or BetaCodeExecutionResultBlock or BetaEncryptedCodeExecutionResultBlock`
 
-    Code execution result with encrypted stdout for PFC + web_search results.
-
     - `beta_code_execution_tool_result_error: object`
 
       - `type: "code_execution_tool_result_error"`
@@ -6725,8 +6693,6 @@ ant beta:messages count-tokens \
 
 - `beta_code_execution_tool_result_block_content: BetaCodeExecutionToolResultError or BetaCodeExecutionResultBlock or BetaEncryptedCodeExecutionResultBlock`
 
-  Code execution result with encrypted stdout for PFC + web_search results.
-
   - `beta_code_execution_tool_result_error: object`
 
     - `type: "code_execution_tool_result_error"`
@@ -6782,8 +6748,6 @@ ant beta:messages count-tokens \
   - `type: "code_execution_tool_result"`
 
   - `content: BetaCodeExecutionToolResultErrorParam or BetaCodeExecutionResultBlockParam or BetaEncryptedCodeExecutionResultBlockParam`
-
-    Code execution result with encrypted stdout for PFC + web_search results.
 
     - `beta_code_execution_tool_result_error_param: object`
 
@@ -6861,8 +6825,6 @@ ant beta:messages count-tokens \
 ### Beta Code Execution Tool Result Block Param Content
 
 - `beta_code_execution_tool_result_block_param_content: BetaCodeExecutionToolResultErrorParam or BetaCodeExecutionResultBlockParam or BetaEncryptedCodeExecutionResultBlockParam`
-
-  Code execution result with encrypted stdout for PFC + web_search results.
 
   - `beta_code_execution_tool_result_error_param: object`
 
@@ -7957,8 +7919,6 @@ ant beta:messages count-tokens \
 
 - `beta_content_block: BetaTextBlock or BetaThinkingBlock or BetaRedactedThinkingBlock or 14 more`
 
-  Response model for a file uploaded to the container.
-
   - `beta_text_block: object`
 
     - `type: "text"`
@@ -8135,8 +8095,6 @@ ant beta:messages count-tokens \
 
     - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
 
-      Tool invocation directly from the model.
-
       - `beta_direct_caller: object`
 
         Tool invocation directly from the model.
@@ -8197,8 +8155,6 @@ ant beta:messages count-tokens \
 
     - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
 
-      Tool invocation directly from the model.
-
       - `beta_direct_caller: object`
 
         Tool invocation directly from the model.
@@ -8250,8 +8206,6 @@ ant beta:messages count-tokens \
       pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
     - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
-
-      Tool invocation directly from the model.
 
       - `beta_direct_caller: object`
 
@@ -8347,8 +8301,6 @@ ant beta:messages count-tokens \
 
     - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
 
-      Tool invocation directly from the model.
-
       - `beta_direct_caller: object`
 
         Tool invocation directly from the model.
@@ -8416,8 +8368,6 @@ ant beta:messages count-tokens \
     - `type: "code_execution_tool_result"`
 
     - `content: BetaCodeExecutionToolResultError or BetaCodeExecutionResultBlock or BetaEncryptedCodeExecutionResultBlock`
-
-      Code execution result with encrypted stdout for PFC + web_search results.
 
       - `beta_code_execution_tool_result_error: object`
 
@@ -8828,8 +8778,6 @@ ant beta:messages count-tokens \
 ### Beta Content Block Param
 
 - `beta_content_block_param: BetaTextBlockParam or BetaImageBlockParam or BetaRequestDocumentBlock or 20 more`
-
-  Regular text content.
 
   - `beta_text_block_param: object`
 
@@ -9248,8 +9196,6 @@ ant beta:messages count-tokens \
 
     - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
 
-      Tool invocation directly from the model.
-
       - `beta_direct_caller: object`
 
         Tool invocation directly from the model.
@@ -9609,8 +9555,6 @@ ant beta:messages count-tokens \
 
     - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
 
-      Tool invocation directly from the model.
-
       - `beta_direct_caller: object`
 
         Tool invocation directly from the model.
@@ -9679,8 +9623,6 @@ ant beta:messages count-tokens \
         Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
     - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
-
-      Tool invocation directly from the model.
 
       - `beta_direct_caller: object`
 
@@ -9779,8 +9721,6 @@ ant beta:messages count-tokens \
 
     - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
 
-      Tool invocation directly from the model.
-
       - `beta_direct_caller: object`
 
         Tool invocation directly from the model.
@@ -9861,8 +9801,6 @@ ant beta:messages count-tokens \
     - `type: "code_execution_tool_result"`
 
     - `content: BetaCodeExecutionToolResultErrorParam or BetaCodeExecutionResultBlockParam or BetaEncryptedCodeExecutionResultBlockParam`
-
-      Code execution result with encrypted stdout for PFC + web_search results.
 
       - `beta_code_execution_tool_result_error_param: object`
 
@@ -10289,11 +10227,6 @@ ant beta:messages count-tokens \
 
     - `tool: BetaToolChangeToolReference or BetaToolChangeMCPToolReference or BetaToolChangeMCPToolsetReference`
 
-      Reference to a single tool the caller declared directly in
-      `tools[]`. Does not accept the composed `{server}_{name}` form the
-      server assigns to MCP-resolved tools — use `mcp_tool_reference` or
-      `mcp_toolset_reference` for those.
-
       - `beta_tool_change_tool_reference: object`
 
         Reference to a single tool the caller declared directly in
@@ -10354,11 +10287,6 @@ ant beta:messages count-tokens \
     - `type: "tool_removal"`
 
     - `tool: BetaToolChangeToolReference or BetaToolChangeMCPToolReference or BetaToolChangeMCPToolsetReference`
-
-      Reference to a single tool the caller declared directly in
-      `tools[]`. Does not accept the composed `{server}_{name}` form the
-      server assigns to MCP-resolved tools — use `mcp_tool_reference` or
-      `mcp_toolset_reference` for those.
 
       - `beta_tool_change_tool_reference: object`
 
@@ -13785,8 +13713,6 @@ ant beta:messages count-tokens \
 
       - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
 
-        Tool invocation directly from the model.
-
         - `beta_direct_caller: object`
 
           Tool invocation directly from the model.
@@ -13847,8 +13773,6 @@ ant beta:messages count-tokens \
 
       - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
 
-        Tool invocation directly from the model.
-
         - `beta_direct_caller: object`
 
           Tool invocation directly from the model.
@@ -13900,8 +13824,6 @@ ant beta:messages count-tokens \
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
       - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
-
-        Tool invocation directly from the model.
 
         - `beta_direct_caller: object`
 
@@ -13997,8 +13919,6 @@ ant beta:messages count-tokens \
 
       - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
 
-        Tool invocation directly from the model.
-
         - `beta_direct_caller: object`
 
           Tool invocation directly from the model.
@@ -14066,8 +13986,6 @@ ant beta:messages count-tokens \
       - `type: "code_execution_tool_result"`
 
       - `content: BetaCodeExecutionToolResultError or BetaCodeExecutionResultBlock or BetaEncryptedCodeExecutionResultBlock`
-
-        Code execution result with encrypted stdout for PFC + web_search results.
 
         - `beta_code_execution_tool_result_error: object`
 
@@ -16546,8 +16464,6 @@ ant beta:messages count-tokens \
 
       - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
 
-        Tool invocation directly from the model.
-
         - `beta_direct_caller: object`
 
           Tool invocation directly from the model.
@@ -16907,8 +16823,6 @@ ant beta:messages count-tokens \
 
       - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
 
-        Tool invocation directly from the model.
-
         - `beta_direct_caller: object`
 
           Tool invocation directly from the model.
@@ -16977,8 +16891,6 @@ ant beta:messages count-tokens \
           Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
-
-        Tool invocation directly from the model.
 
         - `beta_direct_caller: object`
 
@@ -17077,8 +16989,6 @@ ant beta:messages count-tokens \
 
       - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
 
-        Tool invocation directly from the model.
-
         - `beta_direct_caller: object`
 
           Tool invocation directly from the model.
@@ -17159,8 +17069,6 @@ ant beta:messages count-tokens \
       - `type: "code_execution_tool_result"`
 
       - `content: BetaCodeExecutionToolResultErrorParam or BetaCodeExecutionResultBlockParam or BetaEncryptedCodeExecutionResultBlockParam`
-
-        Code execution result with encrypted stdout for PFC + web_search results.
 
         - `beta_code_execution_tool_result_error_param: object`
 
@@ -17587,11 +17495,6 @@ ant beta:messages count-tokens \
 
       - `tool: BetaToolChangeToolReference or BetaToolChangeMCPToolReference or BetaToolChangeMCPToolsetReference`
 
-        Reference to a single tool the caller declared directly in
-        `tools[]`. Does not accept the composed `{server}_{name}` form the
-        server assigns to MCP-resolved tools — use `mcp_tool_reference` or
-        `mcp_toolset_reference` for those.
-
         - `beta_tool_change_tool_reference: object`
 
           Reference to a single tool the caller declared directly in
@@ -17652,11 +17555,6 @@ ant beta:messages count-tokens \
       - `type: "tool_removal"`
 
       - `tool: BetaToolChangeToolReference or BetaToolChangeMCPToolReference or BetaToolChangeMCPToolsetReference`
-
-        Reference to a single tool the caller declared directly in
-        `tools[]`. Does not accept the composed `{server}_{name}` form the
-        server assigns to MCP-resolved tools — use `mcp_tool_reference` or
-        `mcp_toolset_reference` for those.
 
         - `beta_tool_change_tool_reference: object`
 
@@ -18296,8 +18194,6 @@ ant beta:messages count-tokens \
 
   - `content_block: BetaTextBlock or BetaThinkingBlock or BetaRedactedThinkingBlock or 14 more`
 
-    Response model for a file uploaded to the container.
-
     - `beta_text_block: object`
 
       - `type: "text"`
@@ -18474,8 +18370,6 @@ ant beta:messages count-tokens \
 
       - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
 
-        Tool invocation directly from the model.
-
         - `beta_direct_caller: object`
 
           Tool invocation directly from the model.
@@ -18536,8 +18430,6 @@ ant beta:messages count-tokens \
 
       - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
 
-        Tool invocation directly from the model.
-
         - `beta_direct_caller: object`
 
           Tool invocation directly from the model.
@@ -18589,8 +18481,6 @@ ant beta:messages count-tokens \
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
       - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
-
-        Tool invocation directly from the model.
 
         - `beta_direct_caller: object`
 
@@ -18686,8 +18576,6 @@ ant beta:messages count-tokens \
 
       - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
 
-        Tool invocation directly from the model.
-
         - `beta_direct_caller: object`
 
           Tool invocation directly from the model.
@@ -18755,8 +18643,6 @@ ant beta:messages count-tokens \
       - `type: "code_execution_tool_result"`
 
       - `content: BetaCodeExecutionToolResultError or BetaCodeExecutionResultBlock or BetaEncryptedCodeExecutionResultBlock`
-
-        Code execution result with encrypted stdout for PFC + web_search results.
 
         - `beta_code_execution_tool_result_error: object`
 
@@ -20255,8 +20141,6 @@ ant beta:messages count-tokens \
 
         - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
 
-          Tool invocation directly from the model.
-
           - `beta_direct_caller: object`
 
             Tool invocation directly from the model.
@@ -20317,8 +20201,6 @@ ant beta:messages count-tokens \
 
         - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
 
-          Tool invocation directly from the model.
-
           - `beta_direct_caller: object`
 
             Tool invocation directly from the model.
@@ -20370,8 +20252,6 @@ ant beta:messages count-tokens \
           pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
         - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
-
-          Tool invocation directly from the model.
 
           - `beta_direct_caller: object`
 
@@ -20467,8 +20347,6 @@ ant beta:messages count-tokens \
 
         - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
 
-          Tool invocation directly from the model.
-
           - `beta_direct_caller: object`
 
             Tool invocation directly from the model.
@@ -20536,8 +20414,6 @@ ant beta:messages count-tokens \
         - `type: "code_execution_tool_result"`
 
         - `content: BetaCodeExecutionToolResultError or BetaCodeExecutionResultBlock or BetaEncryptedCodeExecutionResultBlock`
-
-          Code execution result with encrypted stdout for PFC + web_search results.
 
           - `beta_code_execution_tool_result_error: object`
 
@@ -22177,8 +22053,6 @@ ant beta:messages count-tokens \
 
           - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
 
-            Tool invocation directly from the model.
-
             - `beta_direct_caller: object`
 
               Tool invocation directly from the model.
@@ -22239,8 +22113,6 @@ ant beta:messages count-tokens \
 
           - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
 
-            Tool invocation directly from the model.
-
             - `beta_direct_caller: object`
 
               Tool invocation directly from the model.
@@ -22292,8 +22164,6 @@ ant beta:messages count-tokens \
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
           - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
-
-            Tool invocation directly from the model.
 
             - `beta_direct_caller: object`
 
@@ -22389,8 +22259,6 @@ ant beta:messages count-tokens \
 
           - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
 
-            Tool invocation directly from the model.
-
             - `beta_direct_caller: object`
 
               Tool invocation directly from the model.
@@ -22458,8 +22326,6 @@ ant beta:messages count-tokens \
           - `type: "code_execution_tool_result"`
 
           - `content: BetaCodeExecutionToolResultError or BetaCodeExecutionResultBlock or BetaEncryptedCodeExecutionResultBlock`
-
-            Code execution result with encrypted stdout for PFC + web_search results.
 
             - `beta_code_execution_tool_result_error: object`
 
@@ -24117,8 +23983,6 @@ ant beta:messages count-tokens \
 
     - `content_block: BetaTextBlock or BetaThinkingBlock or BetaRedactedThinkingBlock or 14 more`
 
-      Response model for a file uploaded to the container.
-
       - `beta_text_block: object`
 
         - `type: "text"`
@@ -24177,8 +24041,6 @@ ant beta:messages count-tokens \
 
         - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
 
-          Tool invocation directly from the model.
-
         - `toolset_name: optional string`
 
           For a toolset member tool_use, the toolset family.
@@ -24199,8 +24061,6 @@ ant beta:messages count-tokens \
 
         - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
 
-          Tool invocation directly from the model.
-
       - `beta_web_search_tool_result_block: object`
 
         - `type: "web_search_tool_result"`
@@ -24213,8 +24073,6 @@ ant beta:messages count-tokens \
 
         - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
 
-          Tool invocation directly from the model.
-
       - `beta_web_fetch_tool_result_block: object`
 
         - `type: "web_fetch_tool_result"`
@@ -24226,8 +24084,6 @@ ant beta:messages count-tokens \
           pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
         - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
-
-          Tool invocation directly from the model.
 
       - `beta_advisor_tool_result_block: object`
 
@@ -24244,8 +24100,6 @@ ant beta:messages count-tokens \
         - `type: "code_execution_tool_result"`
 
         - `content: BetaCodeExecutionToolResultError or BetaCodeExecutionResultBlock or BetaEncryptedCodeExecutionResultBlock`
-
-          Code execution result with encrypted stdout for PFC + web_search results.
 
         - `tool_use_id: string`
 
@@ -25175,11 +25029,6 @@ ant beta:messages count-tokens \
 
   - `tool: BetaToolChangeToolReference or BetaToolChangeMCPToolReference or BetaToolChangeMCPToolsetReference`
 
-    Reference to a single tool the caller declared directly in
-    `tools[]`. Does not accept the composed `{server}_{name}` form the
-    server assigns to MCP-resolved tools — use `mcp_tool_reference` or
-    `mcp_toolset_reference` for those.
-
     - `beta_tool_change_tool_reference: object`
 
       Reference to a single tool the caller declared directly in
@@ -25246,11 +25095,6 @@ ant beta:messages count-tokens \
   - `type: "tool_removal"`
 
   - `tool: BetaToolChangeToolReference or BetaToolChangeMCPToolReference or BetaToolChangeMCPToolsetReference`
-
-    Reference to a single tool the caller declared directly in
-    `tools[]`. Does not accept the composed `{server}_{name}` form the
-    server assigns to MCP-resolved tools — use `mcp_tool_reference` or
-    `mcp_toolset_reference` for those.
 
     - `beta_tool_change_tool_reference: object`
 
@@ -25557,8 +25401,6 @@ ant beta:messages count-tokens \
 
   - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
 
-    Tool invocation directly from the model.
-
     - `beta_direct_caller: object`
 
       Tool invocation directly from the model.
@@ -25635,8 +25477,6 @@ ant beta:messages count-tokens \
       - `"1h"`
 
   - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
-
-    Tool invocation directly from the model.
 
     - `beta_direct_caller: object`
 
@@ -28600,8 +28440,6 @@ ant beta:messages count-tokens \
 
 - `beta_tool_union: BetaTool or BetaToolBash20241022 or BetaToolBash20250124 or 25 more`
 
-  Code execution tool with REPL state persistence (daemon mode + gVisor checkpoint).
-
   - `beta_tool: object`
 
     - `type: optional "custom"`
@@ -30934,8 +30772,6 @@ ant beta:messages count-tokens \
 
   - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
 
-    Tool invocation directly from the model.
-
     - `beta_direct_caller: object`
 
       Tool invocation directly from the model.
@@ -31004,8 +30840,6 @@ ant beta:messages count-tokens \
       - `"1h"`
 
   - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
-
-    Tool invocation directly from the model.
 
     - `beta_direct_caller: object`
 
@@ -32471,8 +32305,6 @@ ant beta:messages count-tokens \
 
   - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
 
-    Tool invocation directly from the model.
-
     - `beta_direct_caller: object`
 
       Tool invocation directly from the model.
@@ -32856,8 +32688,6 @@ ant beta:messages count-tokens \
       Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
   - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
-
-    Tool invocation directly from the model.
 
     - `beta_direct_caller: object`
 
@@ -33348,8 +33178,6 @@ ant beta:messages count-tokens \
 
   - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
 
-    Tool invocation directly from the model.
-
     - `beta_direct_caller: object`
 
       Tool invocation directly from the model.
@@ -33472,8 +33300,6 @@ ant beta:messages count-tokens \
       - `"1h"`
 
   - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
-
-    Tool invocation directly from the model.
 
     - `beta_direct_caller: object`
 
@@ -34599,8 +34425,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
 
-              Tool invocation directly from the model.
-
               - `beta_direct_caller: object`
 
                 Tool invocation directly from the model.
@@ -34661,8 +34485,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
 
-              Tool invocation directly from the model.
-
               - `beta_direct_caller: object`
 
                 Tool invocation directly from the model.
@@ -34714,8 +34536,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
             - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
-
-              Tool invocation directly from the model.
 
               - `beta_direct_caller: object`
 
@@ -34811,8 +34631,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
 
-              Tool invocation directly from the model.
-
               - `beta_direct_caller: object`
 
                 Tool invocation directly from the model.
@@ -34880,8 +34698,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
             - `type: "code_execution_tool_result"`
 
             - `content: BetaCodeExecutionToolResultError or BetaCodeExecutionResultBlock or BetaEncryptedCodeExecutionResultBlock`
-
-              Code execution result with encrypted stdout for PFC + web_search results.
 
               - `beta_code_execution_tool_result_error: object`
 
@@ -35445,3 +35261,120 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
           - `"claude-opus-4-5"`
 
             Powerful intelligence for long-running agents and coding
+
+          - `"claude-opus-4-5-20251101"`
+
+            Powerful intelligence for long-running agents and coding
+
+          - `"claude-sonnet-4-5"`
+
+            High-performance model for agents and coding
+
+          - `"claude-sonnet-4-5-20250929"`
+
+            High-performance model for agents and coding
+
+        - `role: "assistant"`
+
+          Conversational role of the generated message.
+
+          This will always be `"assistant"`.
+
+        - `stop_details: object`
+
+          Structured information about a refusal.
+
+          - `type: "refusal"`
+
+          - `category: "cyber" or "bio" or "frontier_llm" or 2 more`
+
+            The policy category that triggered a refusal.
+
+            - `"cyber"`
+
+              The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
+
+            - `"bio"`
+
+              The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
+
+            - `"frontier_llm"`
+
+              The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
+
+            - `"reasoning_extraction"`
+
+              The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
+
+            - `"general_harms"`
+
+              The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
+
+          - `explanation: string`
+
+            Human-readable explanation of the refusal.
+
+            This text is not guaranteed to be stable. `null` when no explanation is available for the category.
+
+          - `fallback_credit_token: string`
+
+            Opaque code that refunds the cache-miss cost when retrying this refused
+            request on the fallback model. Pass it as `fallback_credit_token` on the
+            retry request. Expires 5 minutes after the refusal.
+
+            The retry is sent either with the same request body (`system`, `messages`,
+            `tools`, and other render-shaping fields), or with the same body plus one
+            appended `assistant` message whose content is the partial text (with any
+            trailing whitespace stripped from the final text block) and paired
+            server-tool blocks from this refusal — which also authorizes that
+            appended turn as an assistant-prefill continuation on models that otherwise
+            disallow prefill. A token minted mid-server-tool-loop whose partial content
+            was continuable may only be redeemed the second way — if a same-body retry
+            is rejected with a 400 saying the token must be redeemed by continuing the
+            partial response, retry the second way instead. Either way: same workspace,
+            same platform; a mismatch is a 400. Resending a token for an already-warm
+            prefix is permitted but yields no additional credit.
+
+            `null` when the refused model isn't eligible for a fallback credit.
+
+          - `fallback_has_prefill_claim: boolean`
+
+            Whether the accompanying `fallback_credit_token` may be redeemed with the
+            appended-assistant retry form. Only set when `fallback_credit_token` is
+            present.
+
+            `true`: retry by resending the same request body plus one appended
+            `assistant` message whose content is this response's `content` with any
+            trailing whitespace stripped from the final text block and unpaired
+            `tool_use` blocks omitted (the same appended-turn shape described on
+            `fallback_credit_token`), with the token attached. `false`: retry by
+            resending the original request body unchanged, with the token attached —
+            the appended-assistant form is not available for this refusal (no
+            continuable partial content, or the request uses `output_format` or a
+            `tool_choice` that forces tool use). One exception: when the request used
+            `output_format` or a forced `tool_choice` and the refusal arrived after
+            server tools (including MCP connector tools) had already executed, the
+            token may not be redeemable by either retry form; if the exact-body retry
+            is then rejected with a 400 saying the token must be redeemed by
+            continuing the partial response, discard the token and retry without it.
+
+            Advisory: if an appended-assistant retry is rejected with a 400 despite
+            `true`, fall back to resending the original request body with the token.
+
+          - `recommended_model: string`
+
+            The server's suggested retry target for this refusal. Populated when a fallback attempt could not be made (the fallback model's rate limit was exhausted, or it was overloaded); names the fallback model the caller can retry directly. Null otherwise.
+
+        - `stop_reason: "end_turn" or "max_tokens" or "stop_sequence" or 5 more`
+
+          The reason that we stopped.
+
+          This may be one the following values:
+
+          * `"end_turn"`: the model reached a natural stopping point
+          * `"max_tokens"`: we exceeded the requested `max_tokens` or the model's maximum
+          * `"stop_sequence"`: one of your provided custom `stop_sequences` was generated
+          * `"tool_use"`: the model invoked one or more tools
+          * `"pause_turn"`: we paused a long-running turn. You may provide the response back as-is in a subsequent request to let the model continue.
+          * `"refusal"`: when streaming classifiers intervene to handle potential policy violations
+          * `"model_context_window_exceeded"`: we exceeded the model's context window

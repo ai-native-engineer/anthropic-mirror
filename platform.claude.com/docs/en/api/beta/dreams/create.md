@@ -137,8 +137,6 @@ Create a Dream
 
 - `model: string or BetaDreamModelConfigParam`
 
-  Model identifier and configuration applied to every pipeline stage.
-
   - `string`
 
   - `BetaDreamModelConfigParam object`
@@ -164,8 +162,6 @@ Create a Dream
   minLength: 1, maxLength: 4096
 
 - `output_behavior: optional BetaOutputBehavior`
-
-  The default destination: the job creates a new output memory store as a clone of the memory_store input and writes the consolidated memories into it. The input store is never mutated.
 
   - `BetaOutputBehaviorCreateNew object`
 
@@ -260,8 +256,6 @@ Create a Dream
       - `"fast"`
 
   - `output_behavior: BetaOutputBehavior`
-
-    The default destination: the job creates a new output memory store as a clone of the memory_store input and writes the consolidated memories into it. The input store is never mutated.
 
     - `BetaOutputBehaviorCreateNew object`
 

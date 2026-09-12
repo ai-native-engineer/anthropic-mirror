@@ -46,13 +46,13 @@ Search, edit and get insights on your Box content
 
 [Add Box in Claude (opens in new tab)](https://claude.ai/directory/a5380429-c773-4180-b642-301418240c8c "Add in Claude")
 
-![](https://www.google.com/s2/favicons?domain=zapier.com&sz=96)
+![](https://www.google.com/s2/favicons?domain=salesforce.com&sz=96)
 
-### [Zapier](https://claude.com/connectors/zapier)
+### [Salesforce - Beta](https://claude.com/connectors/salesforce-headless-360)
 
-Automate workflows across thousands of apps via conversation
+Sell, serve, and operate at scale with Salesforce.
 
-[Add Zapier in Claude (opens in new tab)](https://claude.ai/directory/1f6f271e-3d29-4241-b35e-8abe6def4891 "Add in Claude")
+[Add Salesforce - Beta in Claude (opens in new tab)](https://claude.ai/directory/a352dbf6-c732-43d4-84c1-0bbb389d3921 "Add in Claude")
 
 ![](https://www.google.com/s2/favicons?domain=windsor.ai&sz=96)
 

@@ -449,8 +449,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `caller: Optional[Caller]`
 
-              Tool invocation directly from the model.
-
               - `class DirectCaller: …`
 
                 Tool invocation directly from the model.
@@ -704,8 +702,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `caller: Optional[Caller]`
 
-              Tool invocation directly from the model.
-
               - `class DirectCaller: …`
 
                 Tool invocation directly from the model.
@@ -761,8 +757,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
               Create a cache control breakpoint at this content block.
 
             - `caller: Optional[Caller]`
-
-              Tool invocation directly from the model.
 
               - `class DirectCaller: …`
 
@@ -830,8 +824,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `caller: Optional[Caller]`
 
-              Tool invocation directly from the model.
-
               - `class DirectCaller: …`
 
                 Tool invocation directly from the model.
@@ -847,8 +839,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
             - `type: Literal["code_execution_tool_result"]`
 
             - `content: CodeExecutionToolResultBlockParamContent`
-
-              Code execution result with encrypted stdout for PFC + web_search results.
 
               - `class CodeExecutionToolResultErrorParam: …`
 
@@ -4044,8 +4034,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `caller: Caller`
 
-              Tool invocation directly from the model.
-
               default: {"type":"direct"}
 
               - `class DirectCaller: …`
@@ -4096,8 +4084,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `caller: Caller`
 
-              Tool invocation directly from the model.
-
               default: {"type":"direct"}
 
               - `class DirectCaller: …`
@@ -4135,8 +4121,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
               default: web_search_tool_result
 
             - `caller: Caller`
-
-              Tool invocation directly from the model.
 
               default: {"type":"direct"}
 
@@ -4197,8 +4181,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
               default: web_fetch_tool_result
 
             - `caller: Caller`
-
-              Tool invocation directly from the model.
 
               default: {"type":"direct"}
 
@@ -4305,8 +4287,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
               default: code_execution_tool_result
 
             - `content: CodeExecutionToolResultBlockContent`
-
-              Code execution result with encrypted stdout for PFC + web_search results.
 
               - `class CodeExecutionToolResultError: …`
 
@@ -5528,8 +5508,6 @@ for batch in client.messages.batches.results(
 
             - `caller: Caller`
 
-              Tool invocation directly from the model.
-
               default: {"type":"direct"}
 
               - `class DirectCaller: …`
@@ -5580,8 +5558,6 @@ for batch in client.messages.batches.results(
 
             - `caller: Caller`
 
-              Tool invocation directly from the model.
-
               default: {"type":"direct"}
 
               - `class DirectCaller: …`
@@ -5619,8 +5595,6 @@ for batch in client.messages.batches.results(
               default: web_search_tool_result
 
             - `caller: Caller`
-
-              Tool invocation directly from the model.
 
               default: {"type":"direct"}
 
@@ -5681,8 +5655,6 @@ for batch in client.messages.batches.results(
               default: web_fetch_tool_result
 
             - `caller: Caller`
-
-              Tool invocation directly from the model.
 
               default: {"type":"direct"}
 
@@ -5789,8 +5761,6 @@ for batch in client.messages.batches.results(
               default: code_execution_tool_result
 
             - `content: CodeExecutionToolResultBlockContent`
-
-              Code execution result with encrypted stdout for PFC + web_search results.
 
               - `class CodeExecutionToolResultError: …`
 
@@ -6775,8 +6745,6 @@ for batch in client.messages.batches.results(
 
           - `caller: Caller`
 
-            Tool invocation directly from the model.
-
             default: {"type":"direct"}
 
             - `class DirectCaller: …`
@@ -6827,8 +6795,6 @@ for batch in client.messages.batches.results(
 
           - `caller: Caller`
 
-            Tool invocation directly from the model.
-
             default: {"type":"direct"}
 
             - `class DirectCaller: …`
@@ -6866,8 +6832,6 @@ for batch in client.messages.batches.results(
             default: web_search_tool_result
 
           - `caller: Caller`
-
-            Tool invocation directly from the model.
 
             default: {"type":"direct"}
 
@@ -6928,8 +6892,6 @@ for batch in client.messages.batches.results(
             default: web_fetch_tool_result
 
           - `caller: Caller`
-
-            Tool invocation directly from the model.
 
             default: {"type":"direct"}
 
@@ -7036,8 +6998,6 @@ for batch in client.messages.batches.results(
             default: code_execution_tool_result
 
           - `content: CodeExecutionToolResultBlockContent`
-
-            Code execution result with encrypted stdout for PFC + web_search results.
 
             - `class CodeExecutionToolResultError: …`
 
@@ -7974,8 +7934,6 @@ for batch in client.messages.batches.results(
 
         - `caller: Caller`
 
-          Tool invocation directly from the model.
-
           default: {"type":"direct"}
 
           - `class DirectCaller: …`
@@ -8026,8 +7984,6 @@ for batch in client.messages.batches.results(
 
         - `caller: Caller`
 
-          Tool invocation directly from the model.
-
           default: {"type":"direct"}
 
           - `class DirectCaller: …`
@@ -8065,8 +8021,6 @@ for batch in client.messages.batches.results(
           default: web_search_tool_result
 
         - `caller: Caller`
-
-          Tool invocation directly from the model.
 
           default: {"type":"direct"}
 
@@ -8127,8 +8081,6 @@ for batch in client.messages.batches.results(
           default: web_fetch_tool_result
 
         - `caller: Caller`
-
-          Tool invocation directly from the model.
 
           default: {"type":"direct"}
 
@@ -8235,8 +8187,6 @@ for batch in client.messages.batches.results(
           default: code_execution_tool_result
 
         - `content: CodeExecutionToolResultBlockContent`
-
-          Code execution result with encrypted stdout for PFC + web_search results.
 
           - `class CodeExecutionToolResultError: …`
 

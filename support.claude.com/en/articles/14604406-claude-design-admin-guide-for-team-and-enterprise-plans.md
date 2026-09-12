@@ -17,7 +17,7 @@ Team and Enterprise plan admins can enable this organization-wide by following t
 1. Go to **[Organization settings > Capabilities](https://claude.ai/admin-settings/capabilities)**.
 2. Find the **Claude Design** toggle under **Anthropic Labs** and switch it on.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2289240025/8a528b6cccc3ea1001c25953cb14/image.png?expires=1789086600&signature=7933aef5c61b8d83e425b26d91cd176fb03f99e726262842e28bac3cd4260729&req=diIvH8t6nYFdXPMW1HO4zahp3esIEeAjDIPtKBLQ9H%2BI9DS%2FJGX%2B%2BgdnMfNk%0Ax1ewEjnw2BP9kHk93lk%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2289240025/8a528b6cccc3ea1001c25953cb14/image.png?expires=1789086600&signature=7933aef5c61b8d83e425b26d91cd176fb03f99e726262842e28bac3cd4260729&req=diIvH8t6nYFdXPMW1HO4zahp3esIEeAjDIPtKBLQ9H%2BI9DS%2FJGX%2B%2BgdnMfNk%0Ax1ewEjnw2BP9kHk93lk%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2289240025/8a528b6cccc3ea1001c25953cb14/image.png?expires=1789173900&signature=e8ef488bfef035bee73a800cf6e438720238ff0242c78dfcebb3f41767864bd6&req=diIvH8t6nYFdXPMW1HO4zahp3esJHuUsDIPtKBLQ9H%2BnjZ1lefUOgajFHLt%2F%0ASNFpXt8XqouwKRcfqZQ%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2289240025/8a528b6cccc3ea1001c25953cb14/image.png?expires=1789173900&signature=e8ef488bfef035bee73a800cf6e438720238ff0242c78dfcebb3f41767864bd6&req=diIvH8t6nYFdXPMW1HO4zahp3esJHuUsDIPtKBLQ9H%2BnjZ1lefUOgajFHLt%2F%0ASNFpXt8XqouwKRcfqZQ%3D%0A)
 
 ##
 
@@ -206,8 +206,8 @@ There are no strict limits, but we recommend the phased approach outlined above 
 
 Claude Design currently supports export to HTML bundles, PPTX, PDF, and hand-off to Claude Code or the following partners: Adobe, Base44, Canva, Gamma, Lovable, Miro, Replit, Vercel, or Wix. Reach out to your Anthropic Contact or our **[Sales team](https://claude.com/contact-sales)** if there’s a specific format or destination you need.
 
+* [View usage analytics for Team and Enterprise plans](https://support.claude.com/en/articles/12883420-view-usage-analytics-for-team-and-enterprise-plans)
 * [Claude in Chrome admin controls](https://support.claude.com/en/articles/13065128-claude-in-chrome-admin-controls)
-* [Manage members on Team and Enterprise plans](https://support.claude.com/en/articles/13133750-manage-members-on-team-and-enterprise-plans)
+* [Purchase and manage seats on Enterprise plans](https://support.claude.com/en/articles/13393991-purchase-and-manage-seats-on-enterprise-plans)
 * [Use Claude Cowork on Team and Enterprise plans](https://support.claude.com/en/articles/13455879-use-claude-cowork-on-team-and-enterprise-plans)
-* [Migrate your organization from Team to Enterprise](https://support.claude.com/en/articles/13779868-migrate-your-organization-from-team-to-enterprise)
 * [Claude Enterprise consumption guide](https://support.claude.com/en/articles/14782391-claude-enterprise-consumption-guide)

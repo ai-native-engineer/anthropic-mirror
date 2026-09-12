@@ -3,74 +3,6 @@
 
 <!-- chunk-start -->
 
-  - `paused_reason: BetaManagedAgentsManualDeploymentPausedReason or BetaManagedAgentsErrorDeploymentPausedReason`
-
-    Why a deployment is paused. Non-null exactly when `status` is `paused`.
-
-    - `beta_managed_agents_manual_deployment_paused_reason: object`
-
-      The caller invoked the pause endpoint on the deployment.
-
-      - `type: "manual"`
-
-    - `beta_managed_agents_error_deployment_paused_reason: object`
-
-      A scheduled fire recorded a failed run whose error auto-pauses the deployment.
-
-      - `type: "error"`
-
-      - `error: BetaManagedAgentsEnvironmentArchivedDeploymentPausedReasonError or BetaManagedAgentsAgentArchivedDeploymentPausedReasonError or BetaManagedAgentsEnvironmentNotFoundDeploymentPausedReasonError or 11 more`
-
-        The error that triggered an auto-pause. Matches the failed run's `error.type`.
-
-        - `beta_managed_agents_environment_archived_deployment_paused_reason_error: object`
-
-          The deployment's environment was archived.
-
-          - `type: "environment_archived_error"`
-
-        - `beta_managed_agents_agent_archived_deployment_paused_reason_error: object`
-
-          The deployment's agent was archived.
-
-          - `type: "agent_archived_error"`
-
-        - `beta_managed_agents_environment_not_found_deployment_paused_reason_error: object`
-
-          The deployment's environment no longer exists.
-
-          - `type: "environment_not_found_error"`
-
-        - `beta_managed_agents_vault_not_found_deployment_paused_reason_error: object`
-
-          A vault referenced by the deployment no longer exists.
-
-          - `type: "vault_not_found_error"`
-
-        - `beta_managed_agents_file_not_found_deployment_paused_reason_error: object`
-
-          A file resource referenced by the deployment no longer exists.
-
-          - `type: "file_not_found_error"`
-
-        - `beta_managed_agents_session_resource_not_found_deployment_paused_reason_error: object`
-
-          A referenced resource no longer exists and its kind was not reported.
-
-          - `type: "session_resource_not_found_error"`
-
-        - `beta_managed_agents_workspace_archived_deployment_paused_reason_error: object`
-
-          The deployment's workspace was archived.
-
-          - `type: "workspace_archived_error"`
-
-        - `beta_managed_agents_organization_disabled_deployment_paused_reason_error: object`
-
-          The deployment's organization is disabled.
-
-          - `type: "organization_disabled_error"`
-
         - `beta_managed_agents_memory_store_archived_deployment_paused_reason_error: object`
 
           A memory store referenced by the deployment is archived.
@@ -4344,8 +4276,6 @@ Create Credential
 
         - `token_endpoint_auth: BetaManagedAgentsTokenEndpointAuthNoneResponse or BetaManagedAgentsTokenEndpointAuthBasicResponse or BetaManagedAgentsTokenEndpointAuthPostResponse`
 
-          Token endpoint requires no client authentication.
-
           - `beta_managed_agents_token_endpoint_auth_none_response: object`
 
             Token endpoint requires no client authentication.
@@ -4572,8 +4502,6 @@ List Credentials
 
           - `token_endpoint_auth: BetaManagedAgentsTokenEndpointAuthNoneResponse or BetaManagedAgentsTokenEndpointAuthBasicResponse or BetaManagedAgentsTokenEndpointAuthPostResponse`
 
-            Token endpoint requires no client authentication.
-
             - `beta_managed_agents_token_endpoint_auth_none_response: object`
 
               Token endpoint requires no client authentication.
@@ -4793,8 +4721,6 @@ Get Credential
           Token endpoint URL used to refresh the access token.
 
         - `token_endpoint_auth: BetaManagedAgentsTokenEndpointAuthNoneResponse or BetaManagedAgentsTokenEndpointAuthBasicResponse or BetaManagedAgentsTokenEndpointAuthPostResponse`
-
-          Token endpoint requires no client authentication.
 
           - `beta_managed_agents_token_endpoint_auth_none_response: object`
 
@@ -5021,8 +4947,6 @@ Update Credential
           Token endpoint URL used to refresh the access token.
 
         - `token_endpoint_auth: BetaManagedAgentsTokenEndpointAuthNoneResponse or BetaManagedAgentsTokenEndpointAuthBasicResponse or BetaManagedAgentsTokenEndpointAuthPostResponse`
-
-          Token endpoint requires no client authentication.
 
           - `beta_managed_agents_token_endpoint_auth_none_response: object`
 
@@ -5293,8 +5217,6 @@ Archive Credential
           Token endpoint URL used to refresh the access token.
 
         - `token_endpoint_auth: BetaManagedAgentsTokenEndpointAuthNoneResponse or BetaManagedAgentsTokenEndpointAuthBasicResponse or BetaManagedAgentsTokenEndpointAuthPostResponse`
-
-          Token endpoint requires no client authentication.
 
           - `beta_managed_agents_token_endpoint_auth_none_response: object`
 
@@ -9537,7 +9459,7 @@ Create a Dream
 
 - `--model: string or BetaDreamModelConfigParam`
 
-  Body param: Model identifier and configuration applied to every pipeline stage.
+  Body param
 
 - `--instructions: optional string`
 
@@ -9547,7 +9469,7 @@ Create a Dream
 
 - `--output-behavior: optional BetaOutputBehaviorCreateNew or BetaOutputBehaviorUpdateExisting`
 
-  Body param: The default destination: the job creates a new output memory store as a clone of the memory_store input and writes the consolidated memories into it. The input store is never mutated.
+  Body param
 
 - `--beta: optional array of AnthropicBeta`
 
@@ -9636,8 +9558,6 @@ Create a Dream
       - `"fast"`
 
   - `output_behavior: BetaOutputBehaviorCreateNew or BetaOutputBehaviorUpdateExisting`
-
-    The default destination: the job creates a new output memory store as a clone of the memory_store input and writes the consolidated memories into it. The input store is never mutated.
 
     - `beta_output_behavior_create_new: object`
 
@@ -9886,8 +9806,6 @@ List Dreams
 
     - `output_behavior: BetaOutputBehaviorCreateNew or BetaOutputBehaviorUpdateExisting`
 
-      The default destination: the job creates a new output memory store as a clone of the memory_store input and writes the consolidated memories into it. The input store is never mutated.
-
       - `beta_output_behavior_create_new: object`
 
         The default destination: the job creates a new output memory store as a clone of the memory_store input and writes the consolidated memories into it. The input store is never mutated.
@@ -10114,8 +10032,6 @@ Get a Dream
 
   - `output_behavior: BetaOutputBehaviorCreateNew or BetaOutputBehaviorUpdateExisting`
 
-    The default destination: the job creates a new output memory store as a clone of the memory_store input and writes the consolidated memories into it. The input store is never mutated.
-
     - `beta_output_behavior_create_new: object`
 
       The default destination: the job creates a new output memory store as a clone of the memory_store input and writes the consolidated memories into it. The input store is never mutated.
@@ -10336,8 +10252,6 @@ Cancel a Dream
 
   - `output_behavior: BetaOutputBehaviorCreateNew or BetaOutputBehaviorUpdateExisting`
 
-    The default destination: the job creates a new output memory store as a clone of the memory_store input and writes the consolidated memories into it. The input store is never mutated.
-
     - `beta_output_behavior_create_new: object`
 
       The default destination: the job creates a new output memory store as a clone of the memory_store input and writes the consolidated memories into it. The input store is never mutated.
@@ -10557,8 +10471,6 @@ Archive a Dream
       - `"fast"`
 
   - `output_behavior: BetaOutputBehaviorCreateNew or BetaOutputBehaviorUpdateExisting`
-
-    The default destination: the job creates a new output memory store as a clone of the memory_store input and writes the consolidated memories into it. The input store is never mutated.
 
     - `beta_output_behavior_create_new: object`
 

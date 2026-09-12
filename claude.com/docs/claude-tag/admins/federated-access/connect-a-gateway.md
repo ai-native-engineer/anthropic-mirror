@@ -1,9 +1,19 @@
 <!-- source: https://claude.com/docs/claude-tag/admins/federated-access/connect-a-gateway -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 Gateways are connected at [`claude.ai/admin-settings/claude-tag`](https://claude.ai/admin-settings/claude-tag): open **Federated cloud access** in the left navigation and use the **Gateways** section. Connecting a gateway needs an organization Owner, or an admin with full Claude Tag management permission.
 
 A gateway is a service you run between Claude and your internal systems. Every request Claude sends it carries a signed identity token naming your organization and the [agent](https://claude.com/docs/claude-tag/concepts/agent-identity) making the request (Claude’s identity in one Slack channel). The gateway checks the token, decides what that agent may do, and forwards the request with your own credentials. No long-lived credential for your systems is stored in Claude.
 Two terms recur on this page. The **subject check** is what your gateway does to every token, confirming it belongs to your organization. The **connection check** is what the console does once, when you connect the gateway, confirming that your gateway performs the subject check.
+
+##  Before you begin
 
 * You’re an organization Owner, or an admin with full Claude Tag management permission.
 * The gateway has a public HTTPS address with a domain name, such as `https://gateway.example.com`, on the standard HTTPS port. The console rejects a path, port, trailing slash, IP address, private-network name, Anthropic-owned host, or cloud token-exchange host.
@@ -17,6 +27,7 @@ In **Gateways**, click **Connect a gateway** and copy the **Issuer**, **JWKS URL
 Claude authenticates with a JSON Web Token (JWT) in the `Authorization: Bearer` header of every request. It reuses one token for a session’s requests for about five minutes, or until your gateway answers 401, and then requests a new one, so don’t treat a repeated `jti` as a replay. Verify it with a standard JWT or OpenID Connect (OIDC) library configured with these values.
 
 | Value | What to configure |
+| --- | --- |
 | Issuer | `https://identity.anthropic.com/agents`, matched exactly. The OIDC discovery document is at `https://identity.anthropic.com/agents/.well-known/openid-configuration`. |
 | Signing keys | The JSON Web Key Set (JWKS) named by `jwks_uri` in the discovery document, `https://identity.anthropic.com/agents/jwks.json`. Accept ES256 only. On an unknown key ID, refetch the key set before rejecting the token. |
 | Audience | Your gateway address as the console stores it (the console converts the host to lowercase), for example `https://gateway.example.com`. The `aud` claim is a JSON array with one element, so use the library’s audience option. |
@@ -77,7 +88,9 @@ The **Gateways** table lists each gateway with its **Connection check** result (
 Claude uses the gateway in channels whose scope has the bundle attached. [Attach the bundle to a workspace or channel](https://claude.com/docs/claude-tag/admins/attach-to-scope#attach-the-bundle) if it isn’t attached already.
 Claude also needs to know the gateway exists. Add a line like this to the scope’s [custom instructions](https://claude.com/docs/claude-tag/admins/attach-to-scope#add-custom-instructions):
 
+```
 Internal APIs are behind https://gateway.example.com. Call GET /list-services there to see what is available.
+```
 
 The sample gateway serves `GET /list-services` for this; an OpenAPI document named in the instructions works as well.
 New threads pick up the connection on their own. In a thread already running, ask Claude to use the gateway and include its address. If Claude still can’t see the gateway, send [`@Claude !restart`](https://claude.com/docs/claude-tag/users/commands#restart-a-stuck-or-wrong-context-session) at the channel’s top level to start a fresh session with your organization’s current configuration.
@@ -86,7 +99,9 @@ New threads pick up the connection on their own. In a thread already running, as
 
 In a channel under the bundle’s scope, start a new thread and ask Claude to make a small read through the gateway:
 
+```
 @Claude call GET /list-services on https://gateway.example.com and tell me what it returns.
+```
 
 If your gateway logs subjects and decisions, confirm the request arrived with a token that passed every check and a subject starting with your **Subject prefix**. [Agent Proxy](https://claude.com/docs/claude-tag/concepts/agent-identity#agent-proxy) attaches the token at the network boundary; the model and the sandbox are not given it.
 To disconnect a gateway, click **Remove** in the gateway’s row of the **Gateways** table. Claude stops using the gateway at once. A token issued before the removal stays valid until it expires, within 10 minutes.
@@ -99,6 +114,8 @@ Two messages come up while connecting:
 * **A bundle-step message that the gateway is already in a bundle**: a gateway can be in one bundle only. [Attach that bundle to the scope](https://claude.com/docs/claude-tag/admins/attach-to-scope#attach-the-bundle) instead.
 
 For other dialog messages, see [Troubleshoot federated cloud access](https://claude.com/docs/claude-tag/admins/federated-access/troubleshooting).
+
+##  Related resources
 
 * [Give Claude access](https://claude.com/docs/claude-tag/admins/add-connections): the Access bundle and connection model
 * [Attach a bundle to a scope](https://claude.com/docs/claude-tag/admins/attach-to-scope): where a gateway connection applies

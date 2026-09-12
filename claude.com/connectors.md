@@ -16,7 +16,7 @@ SortRecommendedMost popularTrendingNewestA–Z
 
 ## Top connectors
 
-Show all 796
+Show all 803
 
 ![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://drive.google.com&size=64)
 
@@ -116,7 +116,7 @@ Manage issues, projects & team workflows in Linear
 
 ## Trending connectors
 
-Show all 6
+Show all 5
 
 ![](https://support.healthdataavatar.com/HDA-square.svg)
 
@@ -138,16 +138,6 @@ Inspect your Speko voice-AI account from Claude — agents, calls, transcripts, 
 
 [Add Speko in Claude (opens in new tab)](https://claude.ai/directory/e70653f5-76ec-4712-b8d7-8454ebf955c1 "Add in Claude")
 
-![](https://www.google.com/s2/favicons?domain=brightdeck.ai&sz=96)
-
-### [Brightdeck](https://claude.com/connectors/brightdeck-ai)
-
-Trending
-
-Create presentations and slides, compatible with PowerPoint
-
-[Add Brightdeck in Claude (opens in new tab)](https://claude.ai/directory/c0a11a21-c9c7-4b10-9118-629035443c7b "Add in Claude")
-
 ![](https://agent.enrichlabs.ai/avatars/helena.png)
 
 ### [Helena by Enrich Labs](https://claude.com/connectors/helena-by-enrich-labs)
@@ -157,6 +147,16 @@ Trending
 Your AI marketer for paid ads, SEO, email, social, and analytics
 
 [Add Helena by Enrich Labs in Claude (opens in new tab)](https://claude.ai/directory/0da6abdc-62c3-4272-940b-898189371a48 "Add in Claude")
+
+![](https://www.google.com/s2/favicons?domain=brightdeck.ai&sz=96)
+
+### [Brightdeck](https://claude.com/connectors/brightdeck-ai)
+
+Trending
+
+Create presentations and slides, compatible with PowerPoint
+
+[Add Brightdeck in Claude (opens in new tab)](https://claude.ai/directory/c0a11a21-c9c7-4b10-9118-629035443c7b "Add in Claude")
 
 ![](https://www.google.com/s2/favicons?domain=pinelabs.com&sz=96)
 
@@ -168,19 +168,43 @@ Query your Pine Labs payments data in plain language — orders, transactions, s
 
 [Add Pine Labs Payments Assistant in Claude (opens in new tab)](https://claude.ai/directory/b20c4865-4ef3-4a57-8f8f-7e36f4fe4e89 "Add in Claude")
 
-![](https://zohomcp-development.zohostratus.com/logo/Bigin-512.png)
+## New connectors
 
-### [bigin.zohomcp.com](https://claude.com/connectors/bigin-zohomcp-com)
+Show all 3
 
-Trending
+![](https://compass.maryland.gov/assets/compass-icon.png)
 
-Simplify sales and customer management for small businesses
+### [Maryland Community Compass](https://claude.com/connectors/maryland-compass)
 
-[Add bigin.zohomcp.com in Claude (opens in new tab)](https://claude.ai/directory/013d0803-4052-40b5-91f5-833ec5e7b714 "Add in Claude")
+New
+
+Maryland's neighborhood development data platform.
+
+[Add Maryland Community Compass in Claude (opens in new tab)](https://claude.ai/directory/68edb405-8774-419f-b9d8-32f0a95229dd "Add in Claude")
+
+![](https://www.google.com/s2/favicons?domain=blackrock.com&sz=96)
+
+### [BlackRock Advisor Center](https://claude.com/connectors/blackrock-advisor-center)
+
+New
+
+Build, analyze, and compare portfolios for advisors
+
+[Add BlackRock Advisor Center in Claude (opens in new tab)](https://claude.ai/directory/1f085c38-f40c-4079-87ab-1c4dd7ae67dd "Add in Claude")
+
+![](https://www.google.com/s2/favicons?domain=cargurus.com&sz=96)
+
+### [CarGurus](https://claude.com/connectors/cargurus)
+
+New
+
+Find, buy, and research cars
+
+[Add CarGurus in Claude (opens in new tab)](https://claude.ai/directory/f78c2d49-167a-4299-9b23-94197eb4b649 "Add in Claude")
 
 ## All connectors
 
-796 connectors
+803 connectors
 
 ![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://drive.google.com&size=64)
 
@@ -272,14 +296,6 @@ Connect to Asana to coordinate tasks, projects, and goals
 
 [Add Asana in Claude (opens in new tab)](https://claude.ai/directory/41aefcf3-a829-45eb-8cee-d90b93912f57 "Add in Claude")
 
-![](https://www.google.com/s2/favicons?domain=indeed.com&sz=96)
-
-### [Indeed](https://claude.com/connectors/indeed)
-
-Search for jobs on Indeed
-
-[Add Indeed in Claude (opens in new tab)](https://claude.ai/directory/78cb9092-b837-4439-845d-fdccd5723e7f "Add in Claude")
-
 ![](https://agent.enrichlabs.ai/avatars/helena.png)
 
 ### [Helena by Enrich Labs](https://claude.com/connectors/helena-by-enrich-labs)
@@ -290,21 +306,13 @@ Your AI marketer for paid ads, SEO, email, social, and analytics
 
 [Add Helena by Enrich Labs in Claude (opens in new tab)](https://claude.ai/directory/0da6abdc-62c3-4272-940b-898189371a48 "Add in Claude")
 
-![](https://cdn.b12.io/branding/b12-logo-purple.png)
+![](https://www.google.com/s2/favicons?domain=indeed.com&sz=96)
 
-### [Website Generator by B12](https://claude.com/connectors/website-generator-by-b12)
+### [Indeed](https://claude.com/connectors/indeed)
 
-Build a website or web app in minutes! Generate, design, write code, and create copy for your website. Powered by B12. Contact: hello@b12.io
+Search for jobs on Indeed
 
-[Add Website Generator by B12 in Claude (opens in new tab)](https://claude.ai/directory/e25b319d-9c6a-4baa-90a3-0bb8eb5e25b0 "Add in Claude")
-
-![](https://raw.githubusercontent.com/Perspective-AI/mcp/main/icon.png)
-
-### [Perspective AI](https://claude.com/connectors/perspective-ai)
-
-An AI Concierge that turns forms into conversations
-
-[Add Perspective AI in Claude (opens in new tab)](https://claude.ai/directory/ac16a66e-c876-4447-a723-cfa55a3bce1b "Add in Claude")
+[Add Indeed in Claude (opens in new tab)](https://claude.ai/directory/78cb9092-b837-4439-845d-fdccd5723e7f "Add in Claude")
 
 ![](https://www.google.com/s2/favicons?domain=hubspot.com&sz=96)
 
@@ -322,6 +330,22 @@ Music and podcast recommendations, just for you.
 
 [Add Spotify in Claude (opens in new tab)](https://claude.ai/directory/86925244-b3bb-415b-b7e8-6e3cd1392247 "Add in Claude")
 
+![](https://raw.githubusercontent.com/Perspective-AI/mcp/main/icon.png)
+
+### [Perspective AI](https://claude.com/connectors/perspective-ai)
+
+An AI Concierge that turns forms into conversations
+
+[Add Perspective AI in Claude (opens in new tab)](https://claude.ai/directory/ac16a66e-c876-4447-a723-cfa55a3bce1b "Add in Claude")
+
+![](https://www.google.com/s2/favicons?domain=supabase.com&sz=96)
+
+### [Supabase](https://claude.com/connectors/supabase)
+
+Manage databases, authentication, and storage
+
+[Add Supabase in Claude (opens in new tab)](https://claude.ai/directory/11ca66fc-1e98-49d5-ab9b-7cb4672a8f10 "Add in Claude")
+
 ![](https://www.google.com/s2/favicons?domain=linear.app&sz=96)
 
 ### [Linear](https://claude.com/connectors/linear)
@@ -338,13 +362,13 @@ Ideate, create, and deliver with Adobe pro tools
 
 [Add Adobe for creativity in Claude (opens in new tab)](https://claude.ai/directory/22854937-9510-4b57-9230-62c820102d8f "Add in Claude")
 
-![](https://www.google.com/s2/favicons?domain=supabase.com&sz=96)
+![](https://cdn.b12.io/branding/b12-logo-purple.png)
 
-### [Supabase](https://claude.com/connectors/supabase)
+### [Website Generator by B12](https://claude.com/connectors/website-generator-by-b12)
 
-Manage databases, authentication, and storage
+Build a website or web app in minutes! Generate, design, write code, and create copy for your website. Powered by B12. Contact: hello@b12.io
 
-[Add Supabase in Claude (opens in new tab)](https://claude.ai/directory/11ca66fc-1e98-49d5-ab9b-7cb4672a8f10 "Add in Claude")
+[Add Website Generator by B12 in Claude (opens in new tab)](https://claude.ai/directory/e25b319d-9c6a-4baa-90a3-0bb8eb5e25b0 "Add in Claude")
 
 ![](https://www.google.com/s2/favicons?domain=monday.com&sz=96)
 

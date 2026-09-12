@@ -36,7 +36,7 @@ When Claude searches your previous chats, you will see this reflected in your cu
 
 Yes, navigate to **[Settings > Memory](https://claude.ai/new#settings/customize-memory)** and switch the toggle next to "Search and reference chats" off:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2533482439/4dee2d7b267f865205feefc8f4f3/cb60c334-d1e2-4828-a01d-dfb36bbaa7eb?expires=1789086600&signature=f0f0ed4ca55cca6022d024c9ae418bc4a01fb80ca9543efab39c7a609c2b37c3&req=diUkFc12n4VcUPMW1HO4zY9IRANsXddxYNcz5nFaZkHBHk8LypHUcY9vJyTf%0AzsCwn2SnXVkVp%2BuhMOA%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2533482439/4dee2d7b267f865205feefc8f4f3/cb60c334-d1e2-4828-a01d-dfb36bbaa7eb?expires=1789086600&signature=f0f0ed4ca55cca6022d024c9ae418bc4a01fb80ca9543efab39c7a609c2b37c3&req=diUkFc12n4VcUPMW1HO4zY9IRANsXddxYNcz5nFaZkHBHk8LypHUcY9vJyTf%0AzsCwn2SnXVkVp%2BuhMOA%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2533482439/4dee2d7b267f865205feefc8f4f3/cb60c334-d1e2-4828-a01d-dfb36bbaa7eb?expires=1789257600&signature=e0f990eeb7b6a5089c692f82bf7fb64491d672d45236480e138d40aa887b48df&req=diUkFc12n4VcUPMW3nq%2Bgc%2FqKU4POE9tW1ce7sLh5cySMNiTlWrUpw%2B4yqvW%0Agxa5Bv%2F3kwH52O5s7r8rLIZDMcM%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2533482439/4dee2d7b267f865205feefc8f4f3/cb60c334-d1e2-4828-a01d-dfb36bbaa7eb?expires=1789257600&signature=e0f990eeb7b6a5089c692f82bf7fb64491d672d45236480e138d40aa887b48df&req=diUkFc12n4VcUPMW3nq%2Bgc%2FqKU4POE9tW1ce7sLh5cySMNiTlWrUpw%2B4yqvW%0Agxa5Bv%2F3kwH52O5s7r8rLIZDMcM%3D%0A)
 
 ## Can I exclude a specific past chat from searches?
 
@@ -80,7 +80,7 @@ What Claude remembers from your chats is available when you hand it a task in Co
 
 You can toggle Claude’s memory on by navigating to **[Settings > Memory](https://claude.ai/new#settings/customize-memory)** and turning on **Generate memory from chats**:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2533482441/b5c806a8e3f68bf34c4a70724d38/d30be013-d099-4c93-99d1-23d404792f08?expires=1789086600&signature=b273295d25e574a32d18615aa5ba05fe620a88c5fdaf1607fa315f5b7d77b6cf&req=diUkFc12n4VbWPMW1HO4zRlYrpJt6lYqNshWSMEMw9dThjHVSqL2ekaImSlh%0A8qlz9fe0ExO9MvRAiU8%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2533482441/b5c806a8e3f68bf34c4a70724d38/d30be013-d099-4c93-99d1-23d404792f08?expires=1789086600&signature=b273295d25e574a32d18615aa5ba05fe620a88c5fdaf1607fa315f5b7d77b6cf&req=diUkFc12n4VbWPMW1HO4zRlYrpJt6lYqNshWSMEMw9dThjHVSqL2ekaImSlh%0A8qlz9fe0ExO9MvRAiU8%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2533482441/b5c806a8e3f68bf34c4a70724d38/d30be013-d099-4c93-99d1-23d404792f08?expires=1789257600&signature=8ee0fc97d5dcdaf002c178d31663768398b16e1699c90f7c76f9b990a4ba5584&req=diUkFc12n4VbWPMW3nq%2BgUSsLm4kYEyTEDlz1G74VAHhyVCqIkQdSMEWted0%0AKZKtFjy9LIUDoR7aNmCSS8SMpl0%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2533482441/b5c806a8e3f68bf34c4a70724d38/d30be013-d099-4c93-99d1-23d404792f08?expires=1789257600&signature=8ee0fc97d5dcdaf002c178d31663768398b16e1699c90f7c76f9b990a4ba5584&req=diUkFc12n4VbWPMW3nq%2BgUSsLm4kYEyTEDlz1G74VAHhyVCqIkQdSMEWted0%0AKZKtFjy9LIUDoR7aNmCSS8SMpl0%3D%0A)
 
 If you want to disable Claude’s memory, click the toggle and you'll see two options:
 
@@ -133,8 +133,9 @@ All memory will be retained in accordance with existing chat data retention poli
 * Claude’s memory reflects changes to your conversations as they happen.
 * When a conversation expires or is deleted, related memory entries generated from it won’t be removed, but you can delete individual memories at any time.
 * All memory data is included in data exports.
-* Enterprise data retention policies apply to all memory-related data, including incognito chats.
-  ​
+* Enterprise data retention policies apply to chat search and incognito chats.
+
+**Important:** Memory entries generated from eligible chats won’t be removed, but you can delete individual memories at any time.
 
 ---
 
@@ -150,7 +151,7 @@ You can also update memory directly from a chat. Tell Claude what you'd like it 
 
 ### Past chat citations
 
-When Claude references previous conversations, you'll see citations linking back to the original chats, along with the option to delete specific conversations.
+When Claude references previous conversations through search, you'll see citations linking back to the original chats, along with the option to delete specific conversations.
 
 ### Toggle search past chats and memory on/off
 
@@ -221,7 +222,7 @@ When Claude searches your previous chats, you will see this reflected in your cu
 
 Yes, navigate to **[Settings > Capabilities](https://claude.ai/settings/capabilities)** and find the **Preferences** section. Switch the toggle next to “Search and reference chats” off:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1719730889/3fafbf5ecaa0ae31d7d84a66229b/c25536c1-7433-4b94-a5e9-cd5acf97a4fd?expires=1789086600&signature=dc043c3b01b13a682804d249f00909b3bc72a5308c9f681a304d8bbe2541dd39&req=dScmH859nYlXUPMW1HO4zRzXH1YwKzfEJG68qZhl782GvWSSJRl4HvUPnLOS%0Aim2xJQgeIdE1BHVk9xg%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1719730889/3fafbf5ecaa0ae31d7d84a66229b/c25536c1-7433-4b94-a5e9-cd5acf97a4fd?expires=1789086600&signature=dc043c3b01b13a682804d249f00909b3bc72a5308c9f681a304d8bbe2541dd39&req=dScmH859nYlXUPMW1HO4zRzXH1YwKzfEJG68qZhl782GvWSSJRl4HvUPnLOS%0Aim2xJQgeIdE1BHVk9xg%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1719730889/3fafbf5ecaa0ae31d7d84a66229b/c25536c1-7433-4b94-a5e9-cd5acf97a4fd?expires=1789257600&signature=aab774e1e586581b80de36dccc4f93ea130dbdfef26a9c2578aabb826dae2cc6&req=dScmH859nYlXUPMW3nq%2BgZWAenTwwn25QBaiEHajSEQuLWNNezBVuEkfxyBj%0ARE7Puc%2FVPwoLMxMLFTsPEBNvmWg%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1719730889/3fafbf5ecaa0ae31d7d84a66229b/c25536c1-7433-4b94-a5e9-cd5acf97a4fd?expires=1789257600&signature=aab774e1e586581b80de36dccc4f93ea130dbdfef26a9c2578aabb826dae2cc6&req=dScmH859nYlXUPMW3nq%2BgZWAenTwwn25QBaiEHajSEQuLWNNezBVuEkfxyBj%0ARE7Puc%2FVPwoLMxMLFTsPEBNvmWg%3D%0A)
 
 ### Can I exclude a specific past chat from searches?
 
@@ -229,7 +230,7 @@ Incognito chats are available to all Claude users (free, Pro, Max, Team, and Ent
 
 When starting a new chat with Claude outside of a project, you'll see a ghost icon in the upper right corner of your screen:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1719730893/9549b21954e0070ceb6b85231fd5/88e59234-6fc2-4229-84fe-733b33efff26?expires=1789086600&signature=676f5b570c2326fb1d3faf5343a67d9d1a9de5d7111ece5445293269df5761d3&req=dScmH859nYlWWvMW1HO4za54sKpsNIC9XDpzhlKsgjPyV437C4duAgkTWCH5%0ATbjlGnx2XYf9MK0rei4%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1719730893/9549b21954e0070ceb6b85231fd5/88e59234-6fc2-4229-84fe-733b33efff26?expires=1789086600&signature=676f5b570c2326fb1d3faf5343a67d9d1a9de5d7111ece5445293269df5761d3&req=dScmH859nYlWWvMW1HO4za54sKpsNIC9XDpzhlKsgjPyV437C4duAgkTWCH5%0ATbjlGnx2XYf9MK0rei4%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1719730893/9549b21954e0070ceb6b85231fd5/88e59234-6fc2-4229-84fe-733b33efff26?expires=1789257600&signature=2b7b3d47f15efd6b162d8232830096cecfebc217b4accb8288cd5a6eb06cc7a3&req=dScmH859nYlWWvMW3nq%2Bgf44pcp9o%2B%2F3M2t1mzkyUm2hKkZ8gABY%2BPhB42Ep%0AcyVaENdfVOFMFOB3997GAR6VofE%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1719730893/9549b21954e0070ceb6b85231fd5/88e59234-6fc2-4229-84fe-733b33efff26?expires=1789257600&signature=2b7b3d47f15efd6b162d8232830096cecfebc217b4accb8288cd5a6eb06cc7a3&req=dScmH859nYlWWvMW3nq%2Bgf44pcp9o%2B%2F3M2t1mzkyUm2hKkZ8gABY%2BPhB42Ep%0AcyVaENdfVOFMFOB3997GAR6VofE%3D%0A)
 
 Clicking the ghost icon will open an incognito chat, creating a temporary conversation that isn’t saved to your chat history. Claude won’t pull information from incognito chats when searching previous conversations.
 
@@ -261,7 +262,7 @@ Each project has its own separate memory space and dedicated project summary, so
 
 You can toggle Claude’s memory on by navigating to **[Settings > Capabilities](https://claude.ai/settings/capabilities)**:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1719730892/62f9f2b68d675a8e33393f06024f/89198978-192f-4c52-915d-5294b16f3fe1?expires=1789086600&signature=e94f2b46cdc308036dae98ef0ed3d71e5e719aeaf42a0b0afdf3087d273036ad&req=dScmH859nYlWW%2FMW1HO4zTD5MMjmf%2BJDBq9N9dRTKYeJMmGBBCNSx7aAy7vS%0AVkKyb4OBKl6MIKXZIFs%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1719730892/62f9f2b68d675a8e33393f06024f/89198978-192f-4c52-915d-5294b16f3fe1?expires=1789086600&signature=e94f2b46cdc308036dae98ef0ed3d71e5e719aeaf42a0b0afdf3087d273036ad&req=dScmH859nYlWW%2FMW1HO4zTD5MMjmf%2BJDBq9N9dRTKYeJMmGBBCNSx7aAy7vS%0AVkKyb4OBKl6MIKXZIFs%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1719730892/62f9f2b68d675a8e33393f06024f/89198978-192f-4c52-915d-5294b16f3fe1?expires=1789257600&signature=bcf63c5bbcf6d24a25f73afea96f4bc43730dcd223a29eeaf056e51add258d0b&req=dScmH859nYlWW%2FMW3nq%2BgRexfslS3XA9UWnBdWCMNKOcBGQHUoR5wOlDhuOv%0AB5DsE77X35XnxTGVyBlvrqAOXtM%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1719730892/62f9f2b68d675a8e33393f06024f/89198978-192f-4c52-915d-5294b16f3fe1?expires=1789257600&signature=bcf63c5bbcf6d24a25f73afea96f4bc43730dcd223a29eeaf056e51add258d0b&req=dScmH859nYlWW%2FMW3nq%2BgRexfslS3XA9UWnBdWCMNKOcBGQHUoR5wOlDhuOv%0AB5DsE77X35XnxTGVyBlvrqAOXtM%3D%0A)
 
 If you want to disable Claude’s memory, click the toggle to see two options:
 
@@ -296,7 +297,7 @@ All memory will be retained in accordance with existing chat data retention poli
 * Deleted conversations are removed from memory synthesis.
 * Claude’s memory is updated within 24 hours when conversations are created, modified, or deleted.
 * All memory data is included in data exports.
-* Enterprise data retention policies apply to all memory-related data, including incognito chats.
+* Enterprise data retention policies apply to all memory-related data, including chat search and incognito chats.
 
 ---
 
@@ -312,7 +313,7 @@ You can also update your memory summary directly from your chats. Simply tell Cl
 
 **Past chat citations**
 
-When Claude references previous conversations, you'll see citations linking back to the original chats, along with the option to delete specific conversations.
+When Claude references previous conversations through search, you'll see citations linking back to the original chats, along with the option to delete specific conversations.
 
 **Toggle search past chats and memory on/off**
 

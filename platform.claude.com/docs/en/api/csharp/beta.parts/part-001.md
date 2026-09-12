@@ -1357,8 +1357,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `Caller Caller`
 
-            Tool invocation directly from the model.
-
             - `class BetaDirectCaller:`
 
               Tool invocation directly from the model.
@@ -1614,8 +1612,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `Caller Caller`
 
-            Tool invocation directly from the model.
-
             - `class BetaDirectCaller:`
 
               Tool invocation directly from the model.
@@ -1671,8 +1667,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
             Create a cache control breakpoint at this content block.
 
           - `Caller Caller`
-
-            Tool invocation directly from the model.
 
             - `class BetaDirectCaller:`
 
@@ -1739,8 +1733,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
             Create a cache control breakpoint at this content block.
 
           - `Caller Caller`
-
-            Tool invocation directly from the model.
 
             - `class BetaDirectCaller:`
 
@@ -1809,8 +1801,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
           - `JsonElement Type = "code_execution_tool_result"`
 
           - `required BetaCodeExecutionToolResultBlockParamContent Content`
-
-            Code execution result with encrypted stdout for PFC + web_search results.
 
             - `class BetaCodeExecutionToolResultErrorParam:`
 
@@ -2133,11 +2123,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `required Tool Tool`
 
-            Reference to a single tool the caller declared directly in
-            `tools[]`. Does not accept the composed `{server}_{name}` form the
-            server assigns to MCP-resolved tools — use `mcp_tool_reference` or
-            `mcp_toolset_reference` for those.
-
             - `class BetaToolChangeToolReference:`
 
               Reference to a single tool the caller declared directly in
@@ -2185,11 +2170,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
           - `JsonElement Type = "tool_removal"`
 
           - `required Tool Tool`
-
-            Reference to a single tool the caller declared directly in
-            `tools[]`. Does not accept the composed `{server}_{name}` form the
-            server assigns to MCP-resolved tools — use `mcp_tool_reference` or
-            `mcp_toolset_reference` for those.
 
             - `class BetaToolChangeToolReference:`
 
@@ -4835,8 +4815,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `Caller Caller`
 
-        Tool invocation directly from the model.
-
         - `class BetaDirectCaller:`
 
           Tool invocation directly from the model.
@@ -4897,8 +4875,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `Caller Caller`
 
-        Tool invocation directly from the model.
-
         - `class BetaDirectCaller:`
 
           Tool invocation directly from the model.
@@ -4950,8 +4926,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
       - `Caller Caller`
-
-        Tool invocation directly from the model.
 
         - `class BetaDirectCaller:`
 
@@ -5047,8 +5021,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `Caller Caller`
 
-        Tool invocation directly from the model.
-
         - `class BetaDirectCaller:`
 
           Tool invocation directly from the model.
@@ -5116,8 +5088,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
       - `JsonElement Type = "code_execution_tool_result"`
 
       - `required BetaCodeExecutionToolResultBlockContent Content`
-
-        Code execution result with encrypted stdout for PFC + web_search results.
 
         - `class BetaCodeExecutionToolResultError:`
 
@@ -6328,8 +6298,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `required ContentBlock ContentBlock`
 
-      Response model for a file uploaded to the container.
-
       - `class BetaTextBlock:`
 
       - `class BetaThinkingBlock:`
@@ -7004,8 +6972,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
           - `Caller Caller`
 
-            Tool invocation directly from the model.
-
             - `class BetaDirectCaller:`
 
               Tool invocation directly from the model.
@@ -7261,8 +7227,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
           - `Caller Caller`
 
-            Tool invocation directly from the model.
-
             - `class BetaDirectCaller:`
 
               Tool invocation directly from the model.
@@ -7318,8 +7282,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
             Create a cache control breakpoint at this content block.
 
           - `Caller Caller`
-
-            Tool invocation directly from the model.
 
             - `class BetaDirectCaller:`
 
@@ -7386,8 +7348,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
             Create a cache control breakpoint at this content block.
 
           - `Caller Caller`
-
-            Tool invocation directly from the model.
 
             - `class BetaDirectCaller:`
 
@@ -7456,8 +7416,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
           - `JsonElement Type = "code_execution_tool_result"`
 
           - `required BetaCodeExecutionToolResultBlockParamContent Content`
-
-            Code execution result with encrypted stdout for PFC + web_search results.
 
             - `class BetaCodeExecutionToolResultErrorParam:`
 
@@ -7780,11 +7738,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
           - `required Tool Tool`
 
-            Reference to a single tool the caller declared directly in
-            `tools[]`. Does not accept the composed `{server}_{name}` form the
-            server assigns to MCP-resolved tools — use `mcp_tool_reference` or
-            `mcp_toolset_reference` for those.
-
             - `class BetaToolChangeToolReference:`
 
               Reference to a single tool the caller declared directly in
@@ -7832,11 +7785,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
           - `JsonElement Type = "tool_removal"`
 
           - `required Tool Tool`
-
-            Reference to a single tool the caller declared directly in
-            `tools[]`. Does not accept the composed `{server}_{name}` form the
-            server assigns to MCP-resolved tools — use `mcp_tool_reference` or
-            `mcp_toolset_reference` for those.
 
             - `class BetaToolChangeToolReference:`
 
@@ -10559,8 +10507,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `Caller Caller`
 
-                Tool invocation directly from the model.
-
                 - `class BetaDirectCaller:`
 
                   Tool invocation directly from the model.
@@ -10816,8 +10762,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `Caller Caller`
 
-                Tool invocation directly from the model.
-
                 - `class BetaDirectCaller:`
 
                   Tool invocation directly from the model.
@@ -10873,8 +10817,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
                 Create a cache control breakpoint at this content block.
 
               - `Caller Caller`
-
-                Tool invocation directly from the model.
 
                 - `class BetaDirectCaller:`
 
@@ -10941,8 +10883,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
                 Create a cache control breakpoint at this content block.
 
               - `Caller Caller`
-
-                Tool invocation directly from the model.
 
                 - `class BetaDirectCaller:`
 
@@ -11011,8 +10951,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
               - `JsonElement Type = "code_execution_tool_result"`
 
               - `required BetaCodeExecutionToolResultBlockParamContent Content`
-
-                Code execution result with encrypted stdout for PFC + web_search results.
 
                 - `class BetaCodeExecutionToolResultErrorParam:`
 
@@ -11335,11 +11273,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `required Tool Tool`
 
-                Reference to a single tool the caller declared directly in
-                `tools[]`. Does not accept the composed `{server}_{name}` form the
-                server assigns to MCP-resolved tools — use `mcp_tool_reference` or
-                `mcp_toolset_reference` for those.
-
                 - `class BetaToolChangeToolReference:`
 
                   Reference to a single tool the caller declared directly in
@@ -11387,11 +11320,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
               - `JsonElement Type = "tool_removal"`
 
               - `required Tool Tool`
-
-                Reference to a single tool the caller declared directly in
-                `tools[]`. Does not accept the composed `{server}_{name}` form the
-                server assigns to MCP-resolved tools — use `mcp_tool_reference` or
-                `mcp_toolset_reference` for those.
 
                 - `class BetaToolChangeToolReference:`
 
@@ -15724,8 +15652,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `Caller Caller`
 
-              Tool invocation directly from the model.
-
               - `class BetaDirectCaller:`
 
                 Tool invocation directly from the model.
@@ -15786,8 +15712,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `Caller Caller`
 
-              Tool invocation directly from the model.
-
               - `class BetaDirectCaller:`
 
                 Tool invocation directly from the model.
@@ -15839,8 +15763,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
             - `Caller Caller`
-
-              Tool invocation directly from the model.
 
               - `class BetaDirectCaller:`
 
@@ -15936,8 +15858,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `Caller Caller`
 
-              Tool invocation directly from the model.
-
               - `class BetaDirectCaller:`
 
                 Tool invocation directly from the model.
@@ -16005,8 +15925,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
             - `JsonElement Type = "code_execution_tool_result"`
 
             - `required BetaCodeExecutionToolResultBlockContent Content`
-
-              Code execution result with encrypted stdout for PFC + web_search results.
 
               - `class BetaCodeExecutionToolResultError:`
 
@@ -33399,3 +33317,101 @@ Archive Session
           - `required IReadOnlyList<Skill> Skills`
 
             - `class BetaManagedAgentsAnthropicSkill:`
+
+              A resolved Anthropic-managed skill.
+
+              - `required Type Type`
+
+              - `required string SkillID`
+
+              - `required string Version`
+
+            - `class BetaManagedAgentsCustomSkill:`
+
+              A resolved user-created custom skill.
+
+              - `required Type Type`
+
+              - `required string SkillID`
+
+              - `required string Version`
+
+          - `required string? System`
+
+          - `required IReadOnlyList<Tool> Tools`
+
+            - `class BetaManagedAgentsAgentToolset20260401:`
+
+              - `required Type Type`
+
+              - `required IReadOnlyList<BetaManagedAgentsAgentToolConfig> Configs`
+
+                - `class BetaManagedAgentsBashToolConfig:`
+
+                  Configuration for the bash tool.
+
+                  - `JsonElement Type = "bash"`
+
+                  - `required bool Enabled`
+
+                  - `JsonElement Name = "bash"`
+
+                  - `required PermissionPolicy PermissionPolicy`
+
+                    Permission policy for tool execution.
+
+                    - `class BetaManagedAgentsAlwaysAllowPolicy:`
+
+                      Tool calls are automatically approved without user confirmation.
+
+                      - `required Type Type`
+
+                    - `class BetaManagedAgentsAlwaysAskPolicy:`
+
+                      Tool calls require user confirmation before execution.
+
+                      - `required Type Type`
+
+                    - `class BetaManagedAgentsAutoPolicy:`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+                      - `JsonElement Type = "auto"`
+
+                - `class BetaManagedAgentsEditToolConfig:`
+
+                  Configuration for the edit tool.
+
+                  - `JsonElement Type = "edit"`
+
+                  - `required bool Enabled`
+
+                  - `JsonElement Name = "edit"`
+
+                  - `required PermissionPolicy PermissionPolicy`
+
+                    Permission policy for tool execution.
+
+                    - `class BetaManagedAgentsAlwaysAllowPolicy:`
+
+                      Tool calls are automatically approved without user confirmation.
+
+                    - `class BetaManagedAgentsAlwaysAskPolicy:`
+
+                      Tool calls require user confirmation before execution.
+
+                    - `class BetaManagedAgentsAutoPolicy:`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+                - `class BetaManagedAgentsReadToolConfig:`
+
+                  Configuration for the read tool.
+
+                  - `JsonElement Type = "read"`
+
+                  - `required bool Enabled`
+
+                  - `JsonElement Name = "read"`
+
+                  - `required PermissionPolicy PermissionPolicy`

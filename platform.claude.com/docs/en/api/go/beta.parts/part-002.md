@@ -3,86 +3,6 @@
 
 <!-- chunk-start -->
 
-                  Configuration for the bash tool.
-
-                  - `Type Bash`
-
-                  - `Enabled bool`
-
-                  - `Name Bash`
-
-                  - `PermissionPolicy BetaManagedAgentsBashToolConfigPermissionPolicyUnion`
-
-                    Permission policy for tool execution.
-
-                    - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
-
-                      Tool calls are automatically approved without user confirmation.
-
-                      - `Type BetaManagedAgentsAlwaysAllowPolicyType`
-
-                    - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
-
-                      Tool calls require user confirmation before execution.
-
-                      - `Type BetaManagedAgentsAlwaysAskPolicyType`
-
-                    - `type BetaManagedAgentsAutoPolicy struct{…}`
-
-                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
-
-                      - `Type Auto`
-
-                - `type BetaManagedAgentsEditToolConfig struct{…}`
-
-                  Configuration for the edit tool.
-
-                  - `Type Edit`
-
-                  - `Enabled bool`
-
-                  - `Name Edit`
-
-                  - `PermissionPolicy BetaManagedAgentsEditToolConfigPermissionPolicyUnion`
-
-                    Permission policy for tool execution.
-
-                    - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
-
-                      Tool calls are automatically approved without user confirmation.
-
-                    - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
-
-                      Tool calls require user confirmation before execution.
-
-                    - `type BetaManagedAgentsAutoPolicy struct{…}`
-
-                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
-
-                - `type BetaManagedAgentsReadToolConfig struct{…}`
-
-                  Configuration for the read tool.
-
-                  - `Type Read`
-
-                  - `Enabled bool`
-
-                  - `Name Read`
-
-                  - `PermissionPolicy BetaManagedAgentsReadToolConfigPermissionPolicyUnion`
-
-                    Permission policy for tool execution.
-
-                    - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
-
-                      Tool calls are automatically approved without user confirmation.
-
-                    - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
-
-                      Tool calls require user confirmation before execution.
-
-                    - `type BetaManagedAgentsAutoPolicy struct{…}`
-
                       The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                 - `type BetaManagedAgentsWriteToolConfig struct{…}`
@@ -6953,8 +6873,6 @@ List Events
 
     - `Error BetaManagedAgentsSessionErrorEventErrorUnion`
 
-      An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
-
       - `type BetaManagedAgentsUnknownError struct{…}`
 
         An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
@@ -7240,8 +7158,6 @@ List Events
       format: date-time
 
     - `StopReason BetaManagedAgentsSessionStatusIdleEventStopReasonUnion`
-
-      The agent completed its turn naturally and is ready for the next user message.
 
       - `type BetaManagedAgentsSessionEndTurn struct{…}`
 
@@ -7600,8 +7516,6 @@ List Events
       Public sthr_ ID of the thread that went idle.
 
     - `StopReason BetaManagedAgentsSessionThreadStatusIdleEventStopReasonUnion`
-
-      The agent completed its turn naturally and is ready for the next user message.
 
       - `type BetaManagedAgentsSessionEndTurn struct{…}`
 
@@ -10365,8 +10279,6 @@ Stream Events
 
     - `Error BetaManagedAgentsSessionErrorEventErrorUnion`
 
-      An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
-
       - `type BetaManagedAgentsUnknownError struct{…}`
 
         An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
@@ -10652,8 +10564,6 @@ Stream Events
       format: date-time
 
     - `StopReason BetaManagedAgentsSessionStatusIdleEventStopReasonUnion`
-
-      The agent completed its turn naturally and is ready for the next user message.
 
       - `type BetaManagedAgentsSessionEndTurn struct{…}`
 
@@ -11012,8 +10922,6 @@ Stream Events
       Public sthr_ ID of the thread that went idle.
 
     - `StopReason BetaManagedAgentsSessionThreadStatusIdleEventStopReasonUnion`
-
-      The agent completed its turn naturally and is ready for the next user message.
 
       - `type BetaManagedAgentsSessionEndTurn struct{…}`
 
@@ -12301,8 +12209,6 @@ List Session Resources
 #### Returns
 
 - `type BetaManagedAgentsSessionResourceUnion interface{…}`
-
-  A memory store attached to an agent session.
 
   - `type BetaManagedAgentsGitHubRepositoryResource struct{…}`
 
@@ -16845,8 +16751,6 @@ List Session Thread Events
 
     - `Error BetaManagedAgentsSessionErrorEventErrorUnion`
 
-      An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
-
       - `type BetaManagedAgentsUnknownError struct{…}`
 
         An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
@@ -17132,8 +17036,6 @@ List Session Thread Events
       format: date-time
 
     - `StopReason BetaManagedAgentsSessionStatusIdleEventStopReasonUnion`
-
-      The agent completed its turn naturally and is ready for the next user message.
 
       - `type BetaManagedAgentsSessionEndTurn struct{…}`
 
@@ -17492,8 +17394,6 @@ List Session Thread Events
       Public sthr_ ID of the thread that went idle.
 
     - `StopReason BetaManagedAgentsSessionThreadStatusIdleEventStopReasonUnion`
-
-      The agent completed its turn naturally and is ready for the next user message.
 
       - `type BetaManagedAgentsSessionEndTurn struct{…}`
 
@@ -19265,8 +19165,6 @@ Stream Session Thread Events
 
     - `Error BetaManagedAgentsSessionErrorEventErrorUnion`
 
-      An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
-
       - `type BetaManagedAgentsUnknownError struct{…}`
 
         An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
@@ -19552,8 +19450,6 @@ Stream Session Thread Events
       format: date-time
 
     - `StopReason BetaManagedAgentsSessionStatusIdleEventStopReasonUnion`
-
-      The agent completed its turn naturally and is ready for the next user message.
 
       - `type BetaManagedAgentsSessionEndTurn struct{…}`
 
@@ -19912,8 +19808,6 @@ Stream Session Thread Events
       Public sthr_ ID of the thread that went idle.
 
     - `StopReason BetaManagedAgentsSessionThreadStatusIdleEventStopReasonUnion`
-
-      The agent completed its turn naturally and is ready for the next user message.
 
       - `type BetaManagedAgentsSessionEndTurn struct{…}`
 
@@ -29284,8 +29178,6 @@ Create Credential
 
         - `TokenEndpointAuth BetaManagedAgentsMCPOAuthRefreshParamsTokenEndpointAuthUnionResp`
 
-          Token endpoint requires no client authentication.
-
           - `type BetaManagedAgentsTokenEndpointAuthNoneParamResp struct{…}`
 
             Token endpoint requires no client authentication.
@@ -29561,8 +29453,6 @@ Create Credential
           Token endpoint URL used to refresh the access token.
 
         - `TokenEndpointAuth BetaManagedAgentsMCPOAuthRefreshResponseTokenEndpointAuthUnion`
-
-          Token endpoint requires no client authentication.
 
           - `type BetaManagedAgentsTokenEndpointAuthNoneResponse struct{…}`
 
@@ -29908,8 +29798,6 @@ List Credentials
 
         - `TokenEndpointAuth BetaManagedAgentsMCPOAuthRefreshResponseTokenEndpointAuthUnion`
 
-          Token endpoint requires no client authentication.
-
           - `type BetaManagedAgentsTokenEndpointAuthNoneResponse struct{…}`
 
             Token endpoint requires no client authentication.
@@ -30241,8 +30129,6 @@ Get Credential
 
         - `TokenEndpointAuth BetaManagedAgentsMCPOAuthRefreshResponseTokenEndpointAuthUnion`
 
-          Token endpoint requires no client authentication.
-
           - `type BetaManagedAgentsTokenEndpointAuthNoneResponse struct{…}`
 
             Token endpoint requires no client authentication.
@@ -30454,8 +30340,6 @@ Update Credential
           maxLength: 8192
 
         - `TokenEndpointAuth BetaManagedAgentsMCPOAuthRefreshUpdateParamsTokenEndpointAuthUnionResp Optional`
-
-          Updated HTTP Basic authentication parameters for the token endpoint.
 
           - `type BetaManagedAgentsTokenEndpointAuthBasicUpdateParamResp struct{…}`
 
@@ -30702,8 +30586,6 @@ Update Credential
           Token endpoint URL used to refresh the access token.
 
         - `TokenEndpointAuth BetaManagedAgentsMCPOAuthRefreshResponseTokenEndpointAuthUnion`
-
-          Token endpoint requires no client authentication.
 
           - `type BetaManagedAgentsTokenEndpointAuthNoneResponse struct{…}`
 
@@ -31206,8 +31088,6 @@ Archive Credential
           Token endpoint URL used to refresh the access token.
 
         - `TokenEndpointAuth BetaManagedAgentsMCPOAuthRefreshResponseTokenEndpointAuthUnion`
-
-          Token endpoint requires no client authentication.
 
           - `type BetaManagedAgentsTokenEndpointAuthNoneResponse struct{…}`
 
@@ -31750,3 +31630,159 @@ Create a memory store
       - `const AnthropicBetaStructuredOutputs2025_11_13 AnthropicBeta = "structured-outputs-2025-11-13"`
 
       - `const AnthropicBetaTaskBudgets2026_03_13 AnthropicBeta = "task-budgets-2026-03-13"`
+
+      - `const AnthropicBetaThinkingDisplayUpdates2026_08_18 AnthropicBeta = "thinking-display-updates-2026-08-18"`
+
+      - `const AnthropicBetaCEUserManagement2026_07_13 AnthropicBeta = "ce-user-management-2026-07-13"`
+
+      - `const AnthropicBetaMidConversationOutputConfig2026_07_01 AnthropicBeta = "mid-conversation-output-config-2026-07-01"`
+
+      - `const AnthropicBetaThinkingBindingControls2026_08_01 AnthropicBeta = "thinking-binding-controls-2026-08-01"`
+
+      - `const AnthropicBetaMidConversationSystemClearAt2026_08_21 AnthropicBeta = "mid-conversation-system-clear-at-2026-08-21"`
+
+  - `WorkspaceID param.Field[string] Optional`
+
+    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `type BetaManagedAgentsMemoryStore struct{…}`
+
+  A `memory_store`: a named container for agent memories, scoped to a workspace. Attach a store to a session via `resources[]` to mount it as a directory the agent can read and write.
+
+  - `Type BetaManagedAgentsMemoryStoreType`
+
+  - `ID string`
+
+    Unique identifier for the memory store (a `memstore_...` tagged ID). Use this when attaching the store to a session, or in the `{memory_store_id}` path parameter of subsequent calls.
+
+  - `CreatedAt Time`
+
+    A timestamp in RFC 3339 format
+
+    format: date-time
+
+  - `Name string`
+
+    Human-readable name for the store. 1–255 characters. The store's mount-path slug under `/mnt/memory/` is derived from this name.
+
+  - `UpdatedAt Time`
+
+    A timestamp in RFC 3339 format
+
+    format: date-time
+
+  - `ArchivedAt Time Optional`
+
+    A timestamp in RFC 3339 format
+
+    format: date-time
+
+  - `Description string Optional`
+
+    Free-text description of what the store contains, up to 1024 characters. Included in the agent's system prompt when the store is attached, so word it to be useful to the agent. Empty string when unset.
+
+  - `Metadata map[string, string] Optional`
+
+    Arbitrary key-value tags for your own bookkeeping (such as the end user a store belongs to). Up to 16 pairs; keys 1–64 characters; values up to 512 characters. Returned on retrieve/list but not filterable.
+
+#### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+
+	"github.com/anthropics/anthropic-sdk-go"
+	"github.com/anthropics/anthropic-sdk-go/option"
+)
+
+func main() {
+	client := anthropic.NewClient(
+		option.WithAPIKey("my-anthropic-api-key"),
+	)
+	betaManagedAgentsMemoryStore, err := client.Beta.MemoryStores.New(context.TODO(), anthropic.BetaMemoryStoreNewParams{
+		Name: "x",
+	})
+	if err != nil {
+		panic(err.Error())
+	}
+	fmt.Printf("%+v\n", betaManagedAgentsMemoryStore.ID)
+}
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "id",
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "name": "name",
+  "type": "memory_store",
+  "updated_at": "2019-12-27T18:11:19.117Z",
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "description": "description",
+  "metadata": {
+    "foo": "string"
+  }
+}
+```
+
+### List memory stores
+
+`client.Beta.MemoryStores.List(ctx, params) (*PageCursor[BetaManagedAgentsMemoryStore], error)`
+
+**GET** `/v1/memory_stores`
+
+List memory stores
+
+#### Parameters
+
+- `params BetaMemoryStoreListParams`
+
+  - `CreatedAtGte param.Field[Time] Optional`
+
+    Query param: Return only stores whose `created_at` is at or after this time (inclusive). Sent on the wire as `created_at[gte]`.
+
+    format: date-time
+
+  - `CreatedAtLte param.Field[Time] Optional`
+
+    Query param: Return only stores whose `created_at` is at or before this time (inclusive). Sent on the wire as `created_at[lte]`.
+
+    format: date-time
+
+  - `IncludeArchived param.Field[bool] Optional`
+
+    Query param: When `true`, archived stores are included in the results. Defaults to `false` (archived stores are excluded).
+
+  - `Limit param.Field[int64] Optional`
+
+    Query param: Maximum number of stores to return per page. Must be between 1 and 100. Defaults to 20 when omitted.
+
+    format: int32
+
+  - `Page param.Field[string] Optional`
+
+    Query param: Opaque pagination cursor (a `page_...` value). Pass the `next_page` value from a previous response to fetch the next page; omit for the first page.
+
+  - `Betas param.Field[[]AnthropicBeta] Optional`
+
+    Header param: Optional header to specify the beta version(s) you want to use.
+
+    - `string`
+
+    - `type AnthropicBeta string`
+
+      - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
+
+      - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
+
+      - `const AnthropicBetaComputerUse2024_10_22 AnthropicBeta = "computer-use-2024-10-22"`
+
+      - `const AnthropicBetaComputerUse2025_01_24 AnthropicBeta = "computer-use-2025-01-24"`

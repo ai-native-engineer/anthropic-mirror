@@ -427,8 +427,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `Caller ToolUseBlockParamCallerUnionResp Optional`
 
-            Tool invocation directly from the model.
-
             - `type DirectCaller struct{…}`
 
               Tool invocation directly from the model.
@@ -680,8 +678,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `Caller ServerToolUseBlockParamCallerUnionResp Optional`
 
-            Tool invocation directly from the model.
-
             - `type DirectCaller struct{…}`
 
               Tool invocation directly from the model.
@@ -737,8 +733,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
             Create a cache control breakpoint at this content block.
 
           - `Caller WebSearchToolResultBlockParamCallerUnionResp Optional`
-
-            Tool invocation directly from the model.
 
             - `type DirectCaller struct{…}`
 
@@ -806,8 +800,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `Caller WebFetchToolResultBlockParamCallerUnionResp Optional`
 
-            Tool invocation directly from the model.
-
             - `type DirectCaller struct{…}`
 
               Tool invocation directly from the model.
@@ -823,8 +815,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
           - `Type CodeExecutionToolResult`
 
           - `Content CodeExecutionToolResultBlockParamContentUnionResp`
-
-            Code execution result with encrypted stdout for PFC + web_search results.
 
             - `type CodeExecutionToolResultErrorParamResp struct{…}`
 
@@ -3014,8 +3004,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `Caller ToolUseBlockCallerUnion`
 
-        Tool invocation directly from the model.
-
         default: {"type":"direct"}
 
         - `type DirectCaller struct{…}`
@@ -3066,8 +3054,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `Caller ServerToolUseBlockCallerUnion`
 
-        Tool invocation directly from the model.
-
         default: {"type":"direct"}
 
         - `type DirectCaller struct{…}`
@@ -3105,8 +3091,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         default: web_search_tool_result
 
       - `Caller WebSearchToolResultBlockCallerUnion`
-
-        Tool invocation directly from the model.
 
         default: {"type":"direct"}
 
@@ -3167,8 +3151,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         default: web_fetch_tool_result
 
       - `Caller WebFetchToolResultBlockCallerUnion`
-
-        Tool invocation directly from the model.
 
         default: {"type":"direct"}
 
@@ -3275,8 +3257,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         default: code_execution_tool_result
 
       - `Content CodeExecutionToolResultBlockContentUnion`
-
-        Code execution result with encrypted stdout for PFC + web_search results.
 
         - `type CodeExecutionToolResultError struct{…}`
 
@@ -3882,8 +3862,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
       default: content_block_start
 
     - `ContentBlock ContentBlockStartEventContentBlockUnion`
-
-      Response model for a file uploaded to the container.
 
       - `type TextBlock struct{…}`
 

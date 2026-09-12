@@ -1,5 +1,13 @@
 <!-- source: https://claude.com/docs/claude-tag/admins/federated-access/limits -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 This page collects the fixed limits of Federated cloud access in one place.
 
 ##  Where federated connections work
@@ -9,6 +17,7 @@ Federated connections are available to Claude in Slack channels, where it acts u
 ##  Identity token
 
 | Limit | Value |
+| --- | --- |
 | Token lifetime | 10 minutes. Tokens can’t be revoked before they expire. When you remove a gateway, Claude stops using it at once; when you remove a cloud role or authorization server, within about a minute (current behavior, may change). A token issued before the removal stays valid until it expires. |
 | Signing algorithm | ES256 only. |
 | Claims | See the [identity token reference](https://claude.com/docs/claude-tag/admins/federated-access/token-reference#claims); verifiers must ignore claims they don’t recognize. |
@@ -16,6 +25,7 @@ Federated connections are available to Claude in Slack channels, where it acts u
 ##  Gateways
 
 | Limit | Value |
+| --- | --- |
 | Registered addresses per organization | 5, counting gateways and authorization-server token endpoints together. |
 | Token reuse | Claude reuses one token for a session’s requests to the same gateway for about five minutes, half the token’s lifetime, or until the gateway answers 401, and then requests a new one (current behavior, may change). A gateway sees the same `jti` on many requests. |
 | Gateway address | An HTTPS host name only, with no path, port, query, or trailing slash. The host name needs a domain, like `gateway.example.com`, uses only letters, numbers, hyphens, and dots, and has at most 253 characters (current behavior, may change). The console rejects an IP address, a private-network name, an Anthropic-owned host, or a host cloud providers use for token exchange, and names the reason. The connection check also refuses a host name that resolves to a private address. |
@@ -27,6 +37,7 @@ Federated connections are available to Claude in Slack channels, where it acts u
 ##  AWS roles
 
 | Limit | Value |
+| --- | --- |
 | **Role ARN** | A commercial-partition IAM role, `arn:aws:iam::<account>:role/<name>`. AWS GovCloud and AWS China roles aren’t supported. |
 | **Allowed AWS hosts** | Hosts ending in `.amazonaws.com` only, for example `s3.us-east-1.amazonaws.com` or `*.amazonaws.com`. |
 | Role session | 1 hour. The exchange doesn’t ask for a longer session, so raising the role’s maximum session duration has no effect. Claude reuses one session’s credentials for the same agent until shortly before they expire, or until AWS answers a request with 403 (current behavior, may change). |
@@ -36,6 +47,7 @@ Federated connections are available to Claude in Slack channels, where it acts u
 ##  Google Cloud identities
 
 | Limit | Value |
+| --- | --- |
 | **Workload identity provider** | The full resource name of a provider in a workload identity pool under a numeric project, `//iam.googleapis.com/projects/<number>/locations/global/workloadIdentityPools/<pool>/providers/<provider>`. Workforce identity pools aren’t supported. |
 | **Service account to act as** | Optional. A service account, `<name>@<project>.iam.gserviceaccount.com`. Default compute and App Engine service accounts aren’t accepted. Leave it empty to call Google Cloud as the federated identity itself. |
 | **Allowed Google hosts** | `googleapis.com`, a subdomain of it, or a subdomain of `clients6.google.com`. |
@@ -62,6 +74,7 @@ On services not listed above, reads such as `getIamPolicy`, `testIamPermissions`
 ##  Authorization servers
 
 | Limit | Value |
+| --- | --- |
 | **Token endpoint** | A full HTTPS URL of at most 256 characters (current behavior, may change), with an optional path and no port, query, fragment, user name, password, spaces, or special characters. The same host rules as a gateway address apply, and a trailing slash is dropped. |
 | Token audience | Your authorization server’s issuer identifier as you entered it (an HTTPS URL on the same host as the token endpoint, with the same address rules), or the token endpoint URL exactly when you left the issuer identifier empty. It can’t be changed after the server is connected. |
 | **Resource** | Optional. An absolute URI with no fragment, at most 256 characters with no spaces (current behavior, may change). |
@@ -75,6 +88,8 @@ On services not listed above, reads such as `getIamPolicy`, `testIamPermissions`
 ##  Testing
 
 The console’s connection check is the only way to have Anthropic send a token to your gateway before Claude does. There is no way to request a test token for your own use. To test end to end, follow the Verify step on each connection page.
+
+##  Related resources
 
 * [Identity token reference](https://claude.com/docs/claude-tag/admins/federated-access/token-reference): claims, issuer, keys, and rotation
 * [Connect a gateway](https://claude.com/docs/claude-tag/admins/federated-access/connect-a-gateway)

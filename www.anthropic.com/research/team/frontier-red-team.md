@@ -54,3 +54,5 @@ DateCategoryTitle
   Measuring LLMs’ ability to develop exploits](https://www.anthropic.com/research/exploit-evals)
 
 [See more](#)
+
+Frontier Red Team Research \ Anthropic

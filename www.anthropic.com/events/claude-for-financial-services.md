@@ -150,7 +150,7 @@ No items found.
 
 ## Agenda
 
-* Jul 15
+* 15 Jul
 
 Day 1Day 2Day 3Day 3
 

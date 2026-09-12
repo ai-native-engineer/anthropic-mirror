@@ -346,6 +346,14 @@ Oct 8, 2026
 
 [Learn more about this webinar](https://www.anthropic.com/webinars/ai-as-an-engineering-leadership-multiplier)
 
+Claude Tag on-call: A New Teammate in Your Incident Channel
+
+Sep 24, 2026
+
+2026-09-24
+
+[Learn more about this webinar](https://www.anthropic.com/webinars/claude-tag-on-call-a-new-teammate-in-your-incident-channel)
+
 How to Roadmap With Decisions Rather Than Dates
 
 Sep 21, 2026
@@ -361,14 +369,6 @@ Sep 18, 2026
 2026-09-18
 
 [Learn more about this webinar](https://www.anthropic.com/webinars/enterprise-readiness-a-cisos-guide-to-deploying-claude)
-
-Scaling Claude with Cost Controls
-
-Sep 15, 2026
-
-2026-09-15
-
-[Learn more about this webinar](https://www.anthropic.com/webinars/scaling-claude-with-cost-controls-sept-2026)
 
 [Show more](https://www.anthropic.com/events?e45d281a_page=2)
 

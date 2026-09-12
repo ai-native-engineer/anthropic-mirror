@@ -427,8 +427,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `Caller BetaToolUseBlockParamCallerUnionResp Optional`
 
-            Tool invocation directly from the model.
-
             - `type BetaDirectCaller struct{…}`
 
               Tool invocation directly from the model.
@@ -682,8 +680,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `Caller BetaServerToolUseBlockParamCallerUnionResp Optional`
 
-            Tool invocation directly from the model.
-
             - `type BetaDirectCaller struct{…}`
 
               Tool invocation directly from the model.
@@ -739,8 +735,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
             Create a cache control breakpoint at this content block.
 
           - `Caller BetaWebSearchToolResultBlockParamCallerUnionResp Optional`
-
-            Tool invocation directly from the model.
 
             - `type BetaDirectCaller struct{…}`
 
@@ -807,8 +801,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
             Create a cache control breakpoint at this content block.
 
           - `Caller BetaWebFetchToolResultBlockParamCallerUnionResp Optional`
-
-            Tool invocation directly from the model.
 
             - `type BetaDirectCaller struct{…}`
 
@@ -877,8 +869,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
           - `Type CodeExecutionToolResult`
 
           - `Content BetaCodeExecutionToolResultBlockParamContentUnionResp`
-
-            Code execution result with encrypted stdout for PFC + web_search results.
 
             - `type BetaCodeExecutionToolResultErrorParamResp struct{…}`
 
@@ -1201,11 +1191,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `Tool BetaRequestToolAdditionBlockToolUnion`
 
-            Reference to a single tool the caller declared directly in
-            `tools[]`. Does not accept the composed `{server}_{name}` form the
-            server assigns to MCP-resolved tools — use `mcp_tool_reference` or
-            `mcp_toolset_reference` for those.
-
             - `type BetaToolChangeToolReference struct{…}`
 
               Reference to a single tool the caller declared directly in
@@ -1253,11 +1238,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
           - `Type ToolRemoval`
 
           - `Tool BetaRequestToolRemovalBlockToolUnion`
-
-            Reference to a single tool the caller declared directly in
-            `tools[]`. Does not accept the composed `{server}_{name}` form the
-            server assigns to MCP-resolved tools — use `mcp_tool_reference` or
-            `mcp_toolset_reference` for those.
 
             - `type BetaToolChangeToolReference struct{…}`
 
@@ -3933,8 +3913,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `Caller BetaToolUseBlockCallerUnion Optional`
 
-        Tool invocation directly from the model.
-
         - `type BetaDirectCaller struct{…}`
 
           Tool invocation directly from the model.
@@ -3997,8 +3975,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `Caller BetaServerToolUseBlockCallerUnion Optional`
 
-        Tool invocation directly from the model.
-
         - `type BetaDirectCaller struct{…}`
 
           Tool invocation directly from the model.
@@ -4056,8 +4032,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
       - `Caller BetaWebSearchToolResultBlockCallerUnion Optional`
-
-        Tool invocation directly from the model.
 
         - `type BetaDirectCaller struct{…}`
 
@@ -4163,8 +4137,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `Caller BetaWebFetchToolResultBlockCallerUnion Optional`
 
-        Tool invocation directly from the model.
-
         - `type BetaDirectCaller struct{…}`
 
           Tool invocation directly from the model.
@@ -4242,8 +4214,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         default: code_execution_tool_result
 
       - `Content BetaCodeExecutionToolResultBlockContentUnion`
-
-        Code execution result with encrypted stdout for PFC + web_search results.
 
         - `type BetaCodeExecutionToolResultError struct{…}`
 
@@ -5536,8 +5506,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
       default: content_block_start
 
     - `ContentBlock BetaRawContentBlockStartEventContentBlockUnion`
-
-      Response model for a file uploaded to the container.
 
       - `type BetaTextBlock struct{…}`
 

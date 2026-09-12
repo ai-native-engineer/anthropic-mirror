@@ -49,3 +49,5 @@ The frontier threats red teaming research agenda is likely to be useful for othe
 **Anthropic is building up our frontier threats red teaming research team.** This team will experiment with future capabilities to understand coming risks and build scalable evaluations and mitigations. You can learn more about this work and how to apply to join the team [here](https://jobs.lever.co/Anthropic/8f565d59-8831-443a-b72a-cb9ef8ae06b2). We are looking for particularly mission-driven technical researchers who can rapidly prototype across our infrastructure.
 
 **We are also briefing government and labs on the details of what we have found.** We are open to sharing our present and future findings with appropriate audiences and are piloting a responsible disclosure process between stakeholders in the community to report risks and mitigations. We are particularly interested in supporting other groups – especially labs or new third party evaluation organizations – to do more of this work. If you are one of these stakeholders and are interested, please contact us.
+
+Frontier threats red teaming for AI safety \ Anthropic

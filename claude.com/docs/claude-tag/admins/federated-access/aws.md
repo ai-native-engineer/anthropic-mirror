@@ -1,8 +1,18 @@
 <!-- source: https://claude.com/docs/claude-tag/admins/federated-access/aws -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 AWS roles are connected at [`claude.ai/admin-settings/claude-tag`](https://claude.ai/admin-settings/claude-tag): open **Federated cloud access** in the left navigation and use the **Cloud roles** section. Connecting a role needs an organization Owner, or an admin with full Claude Tag management permission.
 
 With an AWS role connection, Claude signs in to an IAM role in your AWS account with a short-lived identity token and calls AWS with the role’s permissions. No access key is stored in Claude. The token names your organization and the [agent](https://claude.com/docs/claude-tag/concepts/agent-identity) making the request (Claude’s identity in one Slack channel), and your role’s trust policy decides which tokens to accept. If someone else manages your AWS account, give them the values from the console and the trust policy below; the console steps need a Claude Tag admin.
+
+##  Before you begin
 
 * You’re an organization Owner, or an admin with full Claude Tag management permission.
 * You can create an IAM identity provider and an IAM role in an AWS account in the standard AWS partition. Roles in AWS GovCloud (US) and AWS China can’t be connected.
@@ -13,6 +23,7 @@ With an AWS role connection, Claude signs in to an IAM role in your AWS account 
 In **Cloud roles**, click **Connect an AWS role** and copy the **Issuer**, **Audience**, and **Subject prefix** rows from the **Set the role’s trust policy to accept these values** card. Then click **Cancel**; you connect the role after creating it in AWS.
 
 | Value | What it is |
+| --- | --- |
 | Issuer | `https://identity.anthropic.com/agents`. The URL of the identity provider you create in AWS, including the `/agents` path. |
 | Audience | `sts.amazonaws.com`. The same for every organization, so it can’t identify yours. |
 | Subject prefix | `wimse://identity.anthropic.com/org/<your organization ID>/agent/`. Every token’s subject starts with this prefix and ends with one agent’s ID. The trust policy must require at least this prefix. |
@@ -31,6 +42,7 @@ Create the role with this trust policy
 
 Create an IAM role with the trust policy below. Replace the account ID with yours (the rest of the provider ARN is the same for every account), and replace the `sub` value with your **Subject prefix** followed by `*`.
 
+```
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -51,6 +63,7 @@ Create an IAM role with the trust policy below. Replace the account ID with your
     }
   ]
 }
+```
 
 Keep both conditions. Because every organization’s tokens come from the same issuer with the same audience, the `sub` condition is the only thing that limits the role to your organization; see [Authorize on the subject](https://claude.com/docs/claude-tag/admins/federated-access/token-reference#authorize-on-the-subject). The wildcard replaces only the agent ID at the end. Never put a wildcard before `/agent/`. `StringEquals` on the prefix never matches, so keep the prefix condition under `StringLike`. Both condition keys start with `identity.anthropic.com/agents:` (the issuer without `https://`).The prefix condition is the minimum, and it admits every agent in your organization. Where your use case allows, pin the role to specific agents instead, which is the strongest form: use `StringEquals` on `identity.anthropic.com/agents:sub` with one full subject, or a JSON array of full subjects. The console doesn’t show agent IDs, so you learn a subject from CloudTrail after a first sign-in under the prefix condition. Agent IDs change when a Slack channel is deleted and recreated, so update the policy when that happens.
 
@@ -58,7 +71,7 @@ Keep both conditions. Because every organization’s tokens come from the same i
 
 Attach permissions
 
-Attach a least-privilege permissions policy to the role. For the check under [Verify the connection](#verify-the-connection), the role needs `s3:ListBucket` on the example bucket. Each sign-in gives Claude temporary credentials that last 1 hour, the AWS default. Claude doesn’t ask for a different length, and the role’s maximum session duration setting doesn’t change this. To cut off access before they expire, use the role’s **Revoke active sessions** option in IAM or change its permissions.
+Attach a least-privilege permissions policy to the role for the work Claude will do. The check under [Verify the connection](#verify-the-connection) needs no permissions. Each sign-in gives Claude temporary credentials that last 1 hour, the AWS default. Claude doesn’t ask for a different length, and the role’s maximum session duration setting doesn’t change this. To cut off access before they expire, use the role’s **Revoke active sessions** option in IAM or change its permissions.
 
 ##  Connect the role in the console
 
@@ -99,18 +112,26 @@ The **Cloud roles** table has **Role**, **Access bundle**, **Allowed hosts**, **
 Claude uses the role in channels whose scope has the bundle attached. [Attach the bundle to a workspace or channel](https://claude.com/docs/claude-tag/admins/attach-to-scope#attach-the-bundle) if it isn’t attached already.
 Claude also needs to know what the role is for. Add a line like this to the scope’s [custom instructions](https://claude.com/docs/claude-tag/admins/attach-to-scope#add-custom-instructions):
 
+```
 Use the AWS CLI to read the S3 bucket example-reports in us-west-2. AWS access is already set up.
+```
 
 Claude calls AWS with `curl`, an AWS SDK, or the AWS CLI, as with an [AWS SigV4 credential](https://claude.com/docs/claude-tag/admins/connections/custom#aws-sigv4). [Agent Proxy](https://claude.com/docs/claude-tag/concepts/agent-identity#agent-proxy) signs each request at the network boundary with the role’s temporary credentials, so the sandbox never holds them.
 New threads pick up the connection on their own. In a thread already running, ask Claude to use AWS. If Claude still can’t, send [`@Claude !restart`](https://claude.com/docs/claude-tag/users/commands#restart-a-stuck-or-wrong-context-session) at the channel’s top level (not inside a thread) to start a fresh session with your organization’s current configuration.
 
 ##  Verify the connection
 
-In a channel whose workspace or channel has the bundle attached, start a new thread and ask Claude to make a small read (replace `example-reports` with a bucket the role can read):
+In a channel whose workspace or channel has the bundle attached, start a new thread and ask Claude to run a connectivity check. The check is Claude’s own request to `sts.amazonaws.com`, so keep `*.amazonaws.com` under the connection’s **Allowed hosts** for this check, or add `sts.amazonaws.com` if you already narrowed the list. The sign-in itself needs no entry there. After the check passes, remove `sts.amazonaws.com` again if you added it, or narrow the wildcard. While it is listed, Claude can send any STS request signed with the role’s credentials. If the role is allowed to assume another role, the credentials AWS returns are readable in Claude’s sandbox. The call needs no permissions policy on the role. Send Claude this prompt:
 
-@Claude list the objects in the S3 bucket example-reports and tell me how many there are.
+```
+@Claude Connectivity check for this channel's AWS connection. Please run exactly:
 
-Then check CloudTrail in the AWS account for an `AssumeRoleWithWebIdentity` event on your role whose identity provider names `identity.anthropic.com/agents`. Claude signs in at the global STS endpoint, `sts.amazonaws.com`, so the event is recorded in the US East (N. Virginia) region; look there or in a multi-region trail, and allow a few minutes for it to appear. The role session name is an opaque ID for the Claude session that signed in. Claude may reuse one sign-in’s credentials for most of the hour across threads in the same channel, so not every request produces a sign-in event. After AWS denies a request, Claude signs in again on the next one.
+curl -sS -o /tmp/resp.txt -w '%{http_code}' 'https://sts.amazonaws.com/?Action=GetCallerIdentity&Version=2011-06-15'
+
+and tell me the HTTP status code it prints and, only if it is not 200, the first 200 characters of /tmp/resp.txt.
+```
+
+A status of 200 means the sign-in worked. Then check CloudTrail in the AWS account for an `AssumeRoleWithWebIdentity` event on your role whose identity provider names `identity.anthropic.com/agents`. Claude signs in at the global STS endpoint, `sts.amazonaws.com`, so the event is recorded in the US East (N. Virginia) region; look there or in a multi-region trail, and allow a few minutes for it to appear. The role session name is an opaque ID for the Claude session that signed in. Claude may reuse one sign-in’s credentials for most of the hour across threads in the same channel, so not every request produces a sign-in event. After AWS denies a request, Claude signs in again on the next one.
 If Claude reports that the request was refused, CloudTrail usually shows why.
 
 * No sign-in event at all means the request never reached AWS, most often because the host isn’t in the connection’s **Allowed AWS hosts**.
@@ -129,6 +150,8 @@ Two messages come up while connecting:
 * **“Enter a role ARN like `arn:aws:iam::123456789012:role/ClaudeTag`”**: the **Role ARN** field rejected the value, most often because the ARN is in the AWS GovCloud (US) or AWS China partition, which can’t be connected.
 
 For other dialog messages, see [Troubleshoot federated cloud access](https://claude.com/docs/claude-tag/admins/federated-access/troubleshooting).
+
+##  Related resources
 
 * [Give Claude access](https://claude.com/docs/claude-tag/admins/add-connections): the Access bundle and connection model
 * [Attach a bundle to a scope](https://claude.com/docs/claude-tag/admins/attach-to-scope): where a role connection applies

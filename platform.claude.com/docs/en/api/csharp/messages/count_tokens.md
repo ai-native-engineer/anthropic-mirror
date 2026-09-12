@@ -417,8 +417,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
           - `Caller Caller`
 
-            Tool invocation directly from the model.
-
             - `class DirectCaller:`
 
               Tool invocation directly from the model.
@@ -672,8 +670,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
           - `Caller Caller`
 
-            Tool invocation directly from the model.
-
             - `class DirectCaller:`
 
               Tool invocation directly from the model.
@@ -729,8 +725,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
             Create a cache control breakpoint at this content block.
 
           - `Caller Caller`
-
-            Tool invocation directly from the model.
 
             - `class DirectCaller:`
 
@@ -798,8 +792,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
           - `Caller Caller`
 
-            Tool invocation directly from the model.
-
             - `class DirectCaller:`
 
               Tool invocation directly from the model.
@@ -815,8 +807,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
           - `JsonElement Type = "code_execution_tool_result"`
 
           - `required CodeExecutionToolResultBlockParamContent Content`
-
-            Code execution result with encrypted stdout for PFC + web_search results.
 
             - `class CodeExecutionToolResultErrorParam:`
 

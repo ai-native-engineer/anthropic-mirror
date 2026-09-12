@@ -119,3 +119,5 @@ We've also been learning from dozens of our customers across the nonprofit secto
 ## **Getting started**
 
 To learn more about Claude for Nonprofits and to access the AI Fluency for Nonprofits course, get started [here](http://claude.com/solutions/nonprofits).
+
+Introducing Claude for Nonprofits \ Anthropic

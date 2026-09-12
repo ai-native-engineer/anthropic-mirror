@@ -27,6 +27,4 @@ As we have [stated](https://www.anthropic.com/policy-on-the-ai-exponential) [pub
 
 We apologize for this disruption to our customers. We believe this is a misunderstanding and are working to restore access as soon as possible.
 
-### Results from the first Anthropic Public Record
-
-[Read more](/news/anthropic-public-record)
+Statement on the directive to suspend Fable 5 access \ Anthropic

@@ -7,4 +7,3 @@ This generated page exceeded GitHub's Markdown render limit. Its complete conten
 - [Part 1](list.parts/part-001.md)
 - [Part 2](list.parts/part-002.md)
 - [Part 3](list.parts/part-003.md)
-- [Part 4](list.parts/part-004.md)

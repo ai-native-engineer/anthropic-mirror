@@ -16,7 +16,7 @@ Below are a set of strategies and recommendations for adapting to model transiti
 These strategies aren’t perfect and can only go so far toward preserving or replicating the unique experience of interacting with a particular model, which we recognize is intrinsically important to many users. We’re taking **[other early steps](https://www.anthropic.com/research/deprecation-commitments)** toward ensuring model preservation post-retirement, and someday aim to make past models publicly available again in some form.
 
 * [Model Safety Bug Bounty Program](https://support.claude.com/en/articles/12119250-model-safety-bug-bounty-program)
+* [Release notes](https://support.claude.com/en/articles/12138966-release-notes)
 * [Models, usage, and limits in Claude Code](https://support.claude.com/en/articles/14552983-models-usage-and-limits-in-claude-code)
-* [Set a default model for your organization](https://support.claude.com/en/articles/15330088-set-a-default-model-for-your-organization)
 * [Covered Models](https://support.claude.com/en/articles/15425695-covered-models)
-* [Preserved thinking: changing how the Messages API handles thinking blocks to protect against distillation](https://support.claude.com/en/articles/16761192-preserved-thinking-changing-how-the-messages-api-handles-thinking-blocks-to-protect-against-distillation)
+* [How Claude marks AI-generated content](https://support.claude.com/en/articles/16266773-how-claude-marks-ai-generated-content)

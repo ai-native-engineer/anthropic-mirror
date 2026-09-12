@@ -1,5 +1,13 @@
 <!-- source: https://claude.com/docs/claude-tag/admins/federated-access/overview -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 Federated connections are managed at [`claude.ai/admin-settings/claude-tag`](https://claude.ai/admin-settings/claude-tag): open **Federated cloud access** in the left navigation. Connecting a gateway, cloud role, or authorization server needs an organization Owner, or an admin with full Claude Tag management permission.
 
 In Slack channels, Claude Tag acts under its own [agent identity](https://claude.com/docs/claude-tag/concepts/agent-identity) rather than as any person. Federated cloud access lets that identity prove itself to your systems with a short-lived, signed identity token instead of a credential you store in Claude. Federated cloud access is in public beta.
@@ -36,6 +44,7 @@ Anthropic stores no long-lived credential for your systems, and each call carrie
 To cut off access, remove the connection in the console. These lifetimes then apply:
 
 | What | How long it lasts |
+| --- | --- |
 | A removed connection | Claude stops using a removed gateway at once, and a removed cloud role or authorization server within about a minute |
 | An identity token already issued | 10 minutes from when it was issued |
 | AWS credentials already exchanged | 1 hour, the role session length |
@@ -44,12 +53,16 @@ To cut off access, remove the connection in the console. These lifetimes then ap
 
 Anthropic doesn’t review your gateway, trust policy, or authorization server. When you connect a gateway, the console offers a connection check that confirms the gateway rejects a token whose subject isn’t your organization. The other connection types have no check in the console, so you verify them yourself with the steps on each setup page.
 
+##  Before you begin
+
 * **Federated cloud access** appears in the console’s left navigation. It’s missing for organizations whose compliance configuration excludes federated cloud access.
 * An organization Owner, or an admin with full Claude Tag management permission, makes the connection in the console.
 * Your cloud or gateway administrator configures the system on your side: the gateway operator, your AWS or Google Cloud IAM administrator, or your authorization server’s operator. Each setup page lists the values they configure.
 * An [Access bundle](https://claude.com/docs/claude-tag/admins/add-connections) is attached to the [scope](https://claude.com/docs/claude-tag/concepts/glossary#scope) of the channels where Claude should use the connection. A connection can be in only one bundle, so to use a connection in several places, attach that bundle to each scope.
 
 Federated connections work in Slack channels, where Claude acts under your organization’s agent identity. They don’t work in direct messages, which run under [the individual’s own account](https://claude.com/docs/claude-tag/concepts/agent-identity#direct-message-channels).
+
+##  Related resources
 
 * [How agent identity works](https://claude.com/docs/claude-tag/concepts/agent-identity): the identity these tokens represent, and how Agent Proxy attaches credentials
 * [Connect a gateway](https://claude.com/docs/claude-tag/admins/federated-access/connect-a-gateway): verify the token at a service you run

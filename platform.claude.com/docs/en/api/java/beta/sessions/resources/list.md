@@ -129,8 +129,6 @@ List Session Resources
 
 - `class BetaManagedAgentsSessionResource: union`
 
-  A memory store attached to an agent session.
-
   - `class BetaManagedAgentsGitHubRepositoryResource:`
 
     - `Type type`

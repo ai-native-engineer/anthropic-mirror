@@ -26,9 +26,6 @@ DateCategoryTitle
   Ask Claude about the Anthropic Economic Index](https://www.anthropic.com/news/anthropic-economic-index-connector)
 * [Jan 15, 2026Economics
 
-  Anthropic Economic Index: New building blocks for understanding AI use](https://www.anthropic.com/research/economic-index-primitives)
-* [Jan 15, 2026Economics
-
   Anthropic Economic Index report: Economic primitives](https://www.anthropic.com/research/anthropic-economic-index-january-2026-report)
 * [Nov 5, 2025Economics
 
@@ -36,18 +33,6 @@ DateCategoryTitle
 * [Sep 15, 2025Economics
 
   Anthropic Economic Index report: Uneven geographic and enterprise AI adoption](https://www.anthropic.com/research/anthropic-economic-index-september-2025-report)
-* [Sep 15, 2025Economics
-
-  Anthropic Economic Index: Tracking AI’s role in the US and global economy](https://www.anthropic.com/research/economic-index-geography)
-* [Apr 28, 2025Societal Impacts
-
-  Anthropic Economic Index: AI’s impact on software development](https://www.anthropic.com/research/impact-software-development)
-* [Mar 27, 2025Societal Impacts
-
-  Anthropic Economic Index: Insights from Claude 3.7 Sonnet](https://www.anthropic.com/news/anthropic-economic-index-insights-from-claude-sonnet-3-7)
-* [Feb 10, 2025Societal Impacts
-
-  The Anthropic Economic Index](https://www.anthropic.com/news/the-anthropic-economic-index)
 
 ## Announcements
 

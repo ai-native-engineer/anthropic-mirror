@@ -79,10 +79,10 @@ Trusted Financial Data from Zacks Investment Research
 
 [Add Zacks Data in Claude (opens in new tab)](https://claude.ai/directory/2823d140-e557-491a-a7fc-bc95b67c2ce2 "Add in Claude")
 
-![](https://www.google.com/s2/favicons?domain=pitchbook.com&sz=96)
+![](https://www.google.com/s2/favicons?domain=vibeprospecting.ai&sz=96)
 
-### [PitchBook Premium](https://claude.com/connectors/pitchbook)
+### [Vibe Prospecting](https://claude.com/connectors/vibeprospecting)
 
-PitchBook data, embedded in the way you work.
+Find and enrich company and contact data in Claude for prospecting, lead generation, recruiting, and CRM enrichment across 150M+ companies and 800M+ contacts
 
-[Add PitchBook Premium in Claude (opens in new tab)](https://claude.ai/directory/79c545e3-8878-4557-bcbb-3add11c86890 "Add in Claude")
+[Add Vibe Prospecting in Claude (opens in new tab)](https://claude.ai/directory/1bdcb159-b6f0-4f13-bc08-fdb40b007828 "Add in Claude")

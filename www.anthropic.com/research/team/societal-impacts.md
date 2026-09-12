@@ -24,7 +24,15 @@ Though the Societal Impacts team is technical, they often pick research question
 
 We invited Claude.ai users to share how they use AI, what they dream it could make possible, and what they fear it might do. Nearly 81,000 people participated—the largest and most multilingual qualitative study of its kind. Here's what we found.](https://www.anthropic.com/81k-interviews)](https://www.anthropic.com/81k-interviews)
 
-[Societal ImpactsFeb 18, 2026
+[Societal ImpactsAug 26, 2026
+
+#### Enabling independent research on how people use Claude
+
+We ran a pilot giving external researchers access to aggregate, real-world Claude usage data. In this post, we share high-level results and what we learned running this pilot.](https://www.anthropic.com/research/enabling-independent-research)[Societal ImpactsJul 13, 2026
+
+#### Claude’s values across models and languages
+
+New research into how the values expressed by Claude vary across the top 20 languages on Claude.ai.](https://www.anthropic.com/research/claude-values-models-languages)[Societal ImpactsFeb 18, 2026
 
 #### Measuring AI agent autonomy in practice
 
@@ -32,15 +40,7 @@ How much autonomy do people grant agents? How does that change as people gain ex
 
 #### Introducing Anthropic Interviewer: What 1,250 professionals told us about working with AI
 
-We built an interview tool called Anthropic Interviewer. Powered by Claude, Anthropic Interviewer runs detailed interviews automatically and at unprecedented scale.](https://www.anthropic.com/research/anthropic-interviewer)[Societal ImpactsDec 2, 2025
-
-#### How AI is transforming work at Anthropic
-
-We surveyed Anthropic engineers and researchers, conducted in-depth qualitative interviews, and studied internal Claude Code usage data to find out how AI use is changing how we do our jobs.](https://www.anthropic.com/research/how-ai-is-transforming-work-at-anthropic)[Societal ImpactsApr 21, 2025
-
-#### Values in the wild: Discovering and analyzing values in real-world language model interactions
-
-What values does Claude actually express during real conversations? Analyzing 700,000 interactions, this paper creates the first large-scale empirical taxonomy of AI values.](https://www.anthropic.com/research/values-wild)
+We built an interview tool called Anthropic Interviewer. Powered by Claude, Anthropic Interviewer runs detailed interviews automatically and at unprecedented scale.](https://www.anthropic.com/research/anthropic-interviewer)
 
 ## Publications
 
@@ -68,7 +68,7 @@ DateCategoryTitle
   How AI is transforming work at Anthropic](https://www.anthropic.com/research/how-ai-is-transforming-work-at-anthropic)
 * [Aug 27, 2025Societal Impacts
 
-  Anthropic Education Report: How educators use Claude](https://www.anthropic.com/news/anthropic-education-report-how-educators-use-claude)
+  Anthropic Education Report: How educators use Claude](https://www.anthropic.com/research/anthropic-education-report-how-educators-use-claude)
 * [Jun 27, 2025Societal Impacts
 
   How people use Claude for support, advice, and companionship](https://www.anthropic.com/news/how-people-use-claude-for-support-advice-and-companionship)
@@ -86,5 +86,3 @@ DateCategoryTitle
 Join the Research team
 
 [See open roles](https://www.anthropic.com/jobs)
-
-Societal Impacts Research \ Anthropic

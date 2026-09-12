@@ -106,7 +106,7 @@ You can hear more from our hosts below:
 
 ## Applications and timeline
 
-[Fellowship applications](https://anthropic.com/claude-corps/fellow) are open today, and will close on July 17th for the first cohort of 100, which begins in October 2026. Applications are open on a rolling basis for the next two cohorts, which begin in January 2027 and August 2027. Anyone over 18 with under two years of full-time work experience is welcome to apply, regardless of educational background. The only requirements are that you’re authorized to work in the US, are comfortable working with Claude, and are willing to relocate if necessary. (Relocation support is available as needed.)
+[Fellowship applications](https://anthropic.com/claude-corps/fellow) are open today, and will close on July 17th for the first cohort of 100, which begins in October 2026. Applications are open on a rolling basis for the next two cohorts, which begin in February 2027 and August 2027. Anyone over 18 with under two years of full-time work experience is welcome to apply, regardless of educational background. The only requirements are that you’re authorized to work in the US, are comfortable working with Claude, and are willing to relocate if necessary. (Relocation support is available as needed.)
 
 [Host organization applications](https://anthropic.com/claude-corps/host) are also open today for all cohort start dates. For more information about criteria for hosting and what’s involved, see the [Claude Corps website](https://anthropic.com/claude-corps).
 

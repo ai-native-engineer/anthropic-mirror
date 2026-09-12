@@ -1,9 +1,19 @@
 <!-- source: https://claude.com/docs/claude-tag/admins/federated-access/gcp -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 Google Cloud identities are connected at [`claude.ai/admin-settings/claude-tag`](https://claude.ai/admin-settings/claude-tag): open **Federated cloud access** in the left navigation and use the **Cloud roles** section. Connecting an identity needs an organization Owner, or an admin with full Claude Tag management permission.
 
 With a Google Cloud identity connection, Claude exchanges a short-lived identity token at a workload identity pool you create and calls Google Cloud APIs with the result. No service account key is stored in Claude. The token names your organization and the [agent](https://claude.com/docs/claude-tag/concepts/agent-identity) making the request (Claude’s identity in one Slack channel), and your pool’s attribute condition decides which tokens to accept. If someone else manages your Google Cloud project, give them the values from Claude’s admin settings and the settings below; the console steps need a Claude Tag admin.
 Before you start, decide whether Claude acts as the federated identity itself, with roles granted to it directly, or as a service account you create. Both forms are covered below.
+
+##  Before you begin
 
 * You’re an organization Owner, or an admin with full Claude Tag management permission.
 * You can create a workload identity pool and provider in a Google Cloud project (any project; it doesn’t have to own the resources) and grant IAM roles on the resources Claude will use. Use a workload identity pool; workforce identity pools aren’t supported.
@@ -15,6 +25,7 @@ Before you start, decide whether Claude acts as the federated identity itself, w
 In **Cloud roles**, click **Connect a Google Cloud identity** and copy the **Issuer** and **Subject prefix** rows from the **Set the workload identity provider to accept these values** card (the **JWKS URL** row isn’t needed, because Google reads the keys from the issuer). Then click **Cancel**; you connect the identity after setting up Google Cloud.
 
 | Value | What it is |
+| --- | --- |
 | Issuer | `https://identity.anthropic.com/agents`. The issuer URL of the provider you create in the pool. |
 | Subject prefix | `wimse://identity.anthropic.com/org/<your organization ID>/agent/`. Every token’s subject starts with this prefix and ends with one agent’s ID. The organization ID between `/org/` and `/agent/` is also the value of the token’s `tenant` claim. |
 
@@ -23,6 +34,7 @@ In **Cloud roles**, click **Connect a Google Cloud identity** and copy the **Iss
 Create a workload identity pool and an OpenID Connect (OIDC) provider in it with these settings. Replace `<your organization ID>` with the ID from your **Subject prefix**.
 
 | Setting | Value |
+| --- | --- |
 | Issuer URL | `https://identity.anthropic.com/agents` |
 | Allowed audiences | Leave at Google’s default, the provider’s own resource name, which Google accepts with or without a leading `https:`. Claude sends the name exactly as you enter it in Claude’s admin settings, so if you pin allowed audiences instead, pin that same spelling. |
 | Attribute mapping | `google.subject` = `assertion.sub`. You can also map `attribute.org` = `assertion.tenant`, which lets you grant roles to all of your organization’s agents as one principal set in [Grant access](#grant-access). |
@@ -41,7 +53,9 @@ Choose one of the two forms. The console step “Name the service account, or le
 Grant IAM roles on each resource directly to the federated identity. To grant a role to one channel’s agent, use the agent’s full subject, unescaped, for example `principal://iam.googleapis.com/projects/123456789/locations/global/workloadIdentityPools/claude/subject/wimse://identity.anthropic.com/org/<your organization ID>/agent/<agent ID>`.
 To grant a role to all of your organization’s agents at once, map `attribute.org` from `assertion.tenant` as described under [Create the pool and provider in Google Cloud](#create-the-pool-and-provider-in-google-cloud), and use the principal set
 
+```
 principalSet://iam.googleapis.com/projects/123456789/locations/global/workloadIdentityPools/claude/attribute.org/<your organization ID>
+```
 
 with your project number, pool ID, and organization ID.
 Grant only what Claude needs, and grant nothing to the pool-wide principal set (`principalSet://…/workloadIdentityPools/claude/*`). In this form, don’t grant the federated identity any permission that mints credentials, such as `iam.serviceAccounts.getAccessToken`, `iam.serviceAccounts.signJwt`, or service account key creation, because Claude could then obtain a Google credential that works outside Claude. (The form with a service account grants one such permission on purpose, on one service account.)
@@ -107,18 +121,26 @@ The **Cloud roles** table has **Role**, **Access bundle**, **Allowed hosts**, **
 Claude uses the identity in channels whose scope has the bundle attached. [Attach the bundle to a workspace or channel](https://claude.com/docs/claude-tag/admins/attach-to-scope#attach-the-bundle) if it isn’t attached already.
 Claude also needs to know what the identity is for. Add a line like this to the scope’s [custom instructions](https://claude.com/docs/claude-tag/admins/attach-to-scope#add-custom-instructions):
 
+```
 Use the Cloud Storage JSON API at storage.googleapis.com to read the bucket example-reports. Google Cloud access is already set up.
+```
 
 [Agent Proxy](https://claude.com/docs/claude-tag/concepts/agent-identity#agent-proxy) exchanges the token and attaches the resulting Google credential to each request at the network boundary, so the sandbox never holds it.
 New threads pick up the connection on their own. In a thread already running, ask Claude to use Google Cloud. If Claude still can’t, send [`@Claude !restart`](https://claude.com/docs/claude-tag/users/commands#restart-a-stuck-or-wrong-context-session) at the channel’s top level (not inside a thread) to start a fresh session with your organization’s current configuration.
 
 ##  Verify the connection
 
-In a channel whose workspace or channel has the bundle attached, start a new thread and ask Claude to make a small read (replace `example-reports` with a bucket the identity can read):
+In a channel whose workspace or channel has the bundle attached, start a new thread and ask Claude to run a connectivity check. The check reads a bucket’s metadata, so the identity needs the `storage.buckets.get` permission on the bucket, and `storage.googleapis.com` must be under the connection’s **Allowed hosts**. Send Claude this prompt, replacing `example-reports` with a bucket the identity can read:
 
-@Claude list the objects in the Cloud Storage bucket example-reports and tell me how many there are.
+```
+@Claude Connectivity check for this channel's Google Cloud connection. Please run exactly:
 
-Claude’s reply tells you whether the read worked. For log evidence, enable Data Access audit logs beforehand for the Security Token Service API, for Cloud Storage, and, with a service account, for the IAM Service Account Credentials API, because Google keeps them off by default. The Security Token Service entry records each token exchange, with Google’s reason when it refuses one, which Claude’s own error doesn’t show. The Cloud Storage entry shows the caller as the service account, or as the federated identity with the agent’s full subject.
+curl -sS -o /tmp/resp.txt -w '%{http_code}' https://storage.googleapis.com/storage/v1/b/example-reports
+
+and tell me the HTTP status code it prints, then paste the contents of /tmp/resp.txt.
+```
+
+A status of 200 with a JSON body whose `kind` is `storage#bucket` means the token exchange and the API call both worked. For log evidence, enable Data Access audit logs beforehand for the Security Token Service API, for Cloud Storage, and, with a service account, for the IAM Service Account Credentials API, because Google keeps them off by default. The Security Token Service entry records each token exchange, with Google’s reason when it refuses one, which Claude’s own error doesn’t show. The Cloud Storage entry shows the caller as the service account, or as the federated identity with the agent’s full subject.
 If Claude reports that the request was refused, the two most common causes are these:
 
 * A token refused by your provider usually means the attribute condition didn’t accept it. Check the organization ID in the condition, then the issuer URL and the allowed audience.
@@ -135,6 +157,8 @@ Two messages come up while connecting:
 * **A rejected Workload identity provider or Service account to act as value**: the value doesn’t match the form the field describes, usually because the resource name carries the project ID instead of the project number, or the service account is a default one.
 
 For other dialog messages, see [Troubleshoot federated cloud access](https://claude.com/docs/claude-tag/admins/federated-access/troubleshooting).
+
+##  Related resources
 
 * [Give Claude access](https://claude.com/docs/claude-tag/admins/add-connections): the Access bundle and connection model
 * [Attach a bundle to a scope](https://claude.com/docs/claude-tag/admins/attach-to-scope): where an identity connection applies

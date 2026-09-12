@@ -103,3 +103,5 @@ Written by Russell Coleman. Special thanks to Matt Bell, Paul Chen, Jake Eaton, 
 ## Get the developer newsletter
 
 Product updates, how-tos, community spotlights, and more. Delivered monthly to your inbox.
+
+Eval awareness in Claude Opus 4.6’s BrowseComp performance \ Anthropic

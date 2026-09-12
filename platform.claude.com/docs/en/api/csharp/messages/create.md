@@ -429,8 +429,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `Caller Caller`
 
-            Tool invocation directly from the model.
-
             - `class DirectCaller:`
 
               Tool invocation directly from the model.
@@ -684,8 +682,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `Caller Caller`
 
-            Tool invocation directly from the model.
-
             - `class DirectCaller:`
 
               Tool invocation directly from the model.
@@ -741,8 +737,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
             Create a cache control breakpoint at this content block.
 
           - `Caller Caller`
-
-            Tool invocation directly from the model.
 
             - `class DirectCaller:`
 
@@ -810,8 +804,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `Caller Caller`
 
-            Tool invocation directly from the model.
-
             - `class DirectCaller:`
 
               Tool invocation directly from the model.
@@ -827,8 +819,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
           - `JsonElement Type = "code_execution_tool_result"`
 
           - `required CodeExecutionToolResultBlockParamContent Content`
-
-            Code execution result with encrypted stdout for PFC + web_search results.
 
             - `class CodeExecutionToolResultErrorParam:`
 
@@ -3000,8 +2990,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `required Caller Caller`
 
-        Tool invocation directly from the model.
-
         - `class DirectCaller:`
 
           Tool invocation directly from the model.
@@ -3048,8 +3036,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `required Caller Caller`
 
-        Tool invocation directly from the model.
-
         - `class DirectCaller:`
 
           Tool invocation directly from the model.
@@ -3083,8 +3069,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
       - `JsonElement Type = "web_search_tool_result"`
 
       - `required Caller Caller`
-
-        Tool invocation directly from the model.
 
         - `class DirectCaller:`
 
@@ -3137,8 +3121,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
       - `JsonElement Type = "web_fetch_tool_result"`
 
       - `required Caller Caller`
-
-        Tool invocation directly from the model.
 
         - `class DirectCaller:`
 
@@ -3233,8 +3215,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
       - `JsonElement Type = "code_execution_tool_result"`
 
       - `required CodeExecutionToolResultBlockContent Content`
-
-        Code execution result with encrypted stdout for PFC + web_search results.
 
         - `class CodeExecutionToolResultError:`
 
@@ -3782,8 +3762,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
     - `JsonElement Type = "content_block_start"`
 
     - `required ContentBlock ContentBlock`
-
-      Response model for a file uploaded to the container.
 
       - `class TextBlock:`
 

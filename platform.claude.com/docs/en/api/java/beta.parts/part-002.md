@@ -3,98 +3,6 @@
 
 <!-- chunk-start -->
 
-                  - `Optional<List<String>> blockedDomains`
-
-                  - `Optional<BetaManagedAgentsUserLocation> userLocation`
-
-                    Approximate user location for search result localization.
-
-                    - `JsonValue type = "approximate"`
-
-                      Location precision. Only "approximate" is supported.
-
-                    - `Optional<String> city`
-
-                      City name.
-
-                      minLength: 1, maxLength: 255
-
-                    - `Optional<String> country`
-
-                      Two-letter ISO 3166-1 country code, uppercase.
-
-                    - `Optional<String> region`
-
-                      Region or state name.
-
-                      minLength: 1, maxLength: 255
-
-                    - `Optional<String> timezone`
-
-                      IANA timezone identifier, e.g. "America/Los_Angeles".
-
-                      minLength: 1, maxLength: 255
-
-              - `BetaManagedAgentsAgentToolsetDefaultConfig defaultConfig`
-
-                Resolved default configuration for agent tools.
-
-                - `boolean enabled`
-
-                - `PermissionPolicy permissionPolicy`
-
-                  Permission policy for tool execution.
-
-                  - `class BetaManagedAgentsAlwaysAllowPolicy:`
-
-                    Tool calls are automatically approved without user confirmation.
-
-                  - `class BetaManagedAgentsAlwaysAskPolicy:`
-
-                    Tool calls require user confirmation before execution.
-
-                  - `class BetaManagedAgentsAutoPolicy:`
-
-                    The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
-
-            - `class BetaManagedAgentsMcpToolset:`
-
-              - `Type type`
-
-              - `List<BetaManagedAgentsMcpToolConfig> configs`
-
-                - `boolean enabled`
-
-                - `String name`
-
-                - `PermissionPolicy permissionPolicy`
-
-                  Permission policy for tool execution.
-
-                  - `class BetaManagedAgentsAlwaysAllowPolicy:`
-
-                    Tool calls are automatically approved without user confirmation.
-
-                  - `class BetaManagedAgentsAlwaysAskPolicy:`
-
-                    Tool calls require user confirmation before execution.
-
-                  - `class BetaManagedAgentsAutoPolicy:`
-
-                    The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
-
-              - `BetaManagedAgentsMcpToolsetDefaultConfig defaultConfig`
-
-                Resolved default configuration for all tools from an MCP server.
-
-                - `boolean enabled`
-
-                - `PermissionPolicy permissionPolicy`
-
-                  Permission policy for tool execution.
-
-                  - `class BetaManagedAgentsAlwaysAllowPolicy:`
-
                     Tool calls are automatically approved without user confirmation.
 
                   - `class BetaManagedAgentsAlwaysAskPolicy:`
@@ -1550,8 +1458,6 @@ List Events
 
     - `Error error`
 
-      An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
-
       - `class BetaManagedAgentsUnknownError:`
 
         An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
@@ -1837,8 +1743,6 @@ List Events
       format: date-time
 
     - `StopReason stopReason`
-
-      The agent completed its turn naturally and is ready for the next user message.
 
       - `class BetaManagedAgentsSessionEndTurn:`
 
@@ -2197,8 +2101,6 @@ List Events
       Public sthr_ ID of the thread that went idle.
 
     - `StopReason stopReason`
-
-      The agent completed its turn naturally and is ready for the next user message.
 
       - `class BetaManagedAgentsSessionEndTurn:`
 
@@ -4920,8 +4822,6 @@ Stream Events
 
     - `Error error`
 
-      An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
-
       - `class BetaManagedAgentsUnknownError:`
 
         An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
@@ -5207,8 +5107,6 @@ Stream Events
       format: date-time
 
     - `StopReason stopReason`
-
-      The agent completed its turn naturally and is ready for the next user message.
 
       - `class BetaManagedAgentsSessionEndTurn:`
 
@@ -5567,8 +5465,6 @@ Stream Events
       Public sthr_ ID of the thread that went idle.
 
     - `StopReason stopReason`
-
-      The agent completed its turn naturally and is ready for the next user message.
 
       - `class BetaManagedAgentsSessionEndTurn:`
 
@@ -6817,8 +6713,6 @@ List Session Resources
 #### Returns
 
 - `class BetaManagedAgentsSessionResource: union`
-
-  A memory store attached to an agent session.
 
   - `class BetaManagedAgentsGitHubRepositoryResource:`
 
@@ -11223,8 +11117,6 @@ List Session Thread Events
 
     - `Error error`
 
-      An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
-
       - `class BetaManagedAgentsUnknownError:`
 
         An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
@@ -11510,8 +11402,6 @@ List Session Thread Events
       format: date-time
 
     - `StopReason stopReason`
-
-      The agent completed its turn naturally and is ready for the next user message.
 
       - `class BetaManagedAgentsSessionEndTurn:`
 
@@ -11870,8 +11760,6 @@ List Session Thread Events
       Public sthr_ ID of the thread that went idle.
 
     - `StopReason stopReason`
-
-      The agent completed its turn naturally and is ready for the next user message.
 
       - `class BetaManagedAgentsSessionEndTurn:`
 
@@ -13619,8 +13507,6 @@ Stream Session Thread Events
 
     - `Error error`
 
-      An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
-
       - `class BetaManagedAgentsUnknownError:`
 
         An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
@@ -13906,8 +13792,6 @@ Stream Session Thread Events
       format: date-time
 
     - `StopReason stopReason`
-
-      The agent completed its turn naturally and is ready for the next user message.
 
       - `class BetaManagedAgentsSessionEndTurn:`
 
@@ -14266,8 +14150,6 @@ Stream Session Thread Events
       Public sthr_ ID of the thread that went idle.
 
     - `StopReason stopReason`
-
-      The agent completed its turn naturally and is ready for the next user message.
 
       - `class BetaManagedAgentsSessionEndTurn:`
 
@@ -23478,8 +23360,6 @@ Create Credential
 
         - `TokenEndpointAuth tokenEndpointAuth`
 
-          Token endpoint requires no client authentication.
-
           - `class BetaManagedAgentsTokenEndpointAuthNoneParam:`
 
             Token endpoint requires no client authentication.
@@ -23651,8 +23531,6 @@ Create Credential
           Token endpoint URL used to refresh the access token.
 
         - `TokenEndpointAuth tokenEndpointAuth`
-
-          Token endpoint requires no client authentication.
 
           - `class BetaManagedAgentsTokenEndpointAuthNoneResponse:`
 
@@ -23983,8 +23861,6 @@ List Credentials
 
         - `TokenEndpointAuth tokenEndpointAuth`
 
-          Token endpoint requires no client authentication.
-
           - `class BetaManagedAgentsTokenEndpointAuthNoneResponse:`
 
             Token endpoint requires no client authentication.
@@ -24298,8 +24174,6 @@ Get Credential
 
         - `TokenEndpointAuth tokenEndpointAuth`
 
-          Token endpoint requires no client authentication.
-
           - `class BetaManagedAgentsTokenEndpointAuthNoneResponse:`
 
             Token endpoint requires no client authentication.
@@ -24600,8 +24474,6 @@ Update Credential
 
         - `Optional<TokenEndpointAuth> tokenEndpointAuth`
 
-          Updated HTTP Basic authentication parameters for the token endpoint.
-
           - `class BetaManagedAgentsTokenEndpointAuthBasicUpdateParam:`
 
             Updated HTTP Basic authentication parameters for the token endpoint.
@@ -24743,8 +24615,6 @@ Update Credential
           Token endpoint URL used to refresh the access token.
 
         - `TokenEndpointAuth tokenEndpointAuth`
-
-          Token endpoint requires no client authentication.
 
           - `class BetaManagedAgentsTokenEndpointAuthNoneResponse:`
 
@@ -25215,8 +25085,6 @@ Archive Credential
           Token endpoint URL used to refresh the access token.
 
         - `TokenEndpointAuth tokenEndpointAuth`
-
-          Token endpoint requires no client authentication.
 
           - `class BetaManagedAgentsTokenEndpointAuthNoneResponse:`
 
@@ -32931,8 +32799,6 @@ Create a Dream
 
   - `Model model`
 
-    Model identifier and configuration applied to every pipeline stage.
-
     - `String`
 
     - `class BetaDreamModelConfigParam:`
@@ -32958,8 +32824,6 @@ Create a Dream
     minLength: 1, maxLength: 4096
 
   - `Optional<BetaOutputBehavior> outputBehavior`
-
-    The default destination: the job creates a new output memory store as a clone of the memory_store input and writes the consolidated memories into it. The input store is never mutated.
 
 #### Returns
 
@@ -33038,8 +32902,6 @@ Create a Dream
       - `FAST("fast")`
 
   - `BetaOutputBehavior outputBehavior`
-
-    The default destination: the job creates a new output memory store as a clone of the memory_store input and writes the consolidated memories into it. The input store is never mutated.
 
     - `class BetaOutputBehaviorCreateNew:`
 
@@ -33402,8 +33264,6 @@ List Dreams
 
   - `BetaOutputBehavior outputBehavior`
 
-    The default destination: the job creates a new output memory store as a clone of the memory_store input and writes the consolidated memories into it. The input store is never mutated.
-
     - `class BetaOutputBehaviorCreateNew:`
 
       The default destination: the job creates a new output memory store as a clone of the memory_store input and writes the consolidated memories into it. The input store is never mutated.
@@ -33728,8 +33588,6 @@ Get a Dream
 
   - `BetaOutputBehavior outputBehavior`
 
-    The default destination: the job creates a new output memory store as a clone of the memory_store input and writes the consolidated memories into it. The input store is never mutated.
-
     - `class BetaOutputBehaviorCreateNew:`
 
       The default destination: the job creates a new output memory store as a clone of the memory_store input and writes the consolidated memories into it. The input store is never mutated.
@@ -34049,8 +33907,6 @@ Cancel a Dream
 
   - `BetaOutputBehavior outputBehavior`
 
-    The default destination: the job creates a new output memory store as a clone of the memory_store input and writes the consolidated memories into it. The input store is never mutated.
-
     - `class BetaOutputBehaviorCreateNew:`
 
       The default destination: the job creates a new output memory store as a clone of the memory_store input and writes the consolidated memories into it. The input store is never mutated.
@@ -34369,8 +34225,6 @@ Archive a Dream
       - `FAST("fast")`
 
   - `BetaOutputBehavior outputBehavior`
-
-    The default destination: the job creates a new output memory store as a clone of the memory_store input and writes the consolidated memories into it. The input store is never mutated.
 
     - `class BetaOutputBehaviorCreateNew:`
 
@@ -36756,3 +36610,251 @@ Retrieve information about a single API key in your organization, looked up by i
   - `Optional<String> workspaceId`
 
     **Deprecated**: Use `scope` instead. `workspace_id` is `null` both for an API key in the default Workspace and for a principal-bound API key that has no Workspace.
+
+    Deprecated: use `scope` instead. ID of the Workspace associated with the API key, or `null` if the API key belongs to the default Workspace. Also `null` for a principal-bound API key that has no Workspace; `scope` tells the two apart.
+
+#### Example
+
+```java
+package com.anthropic.example;
+
+import com.anthropic.client.AnthropicClient;
+import com.anthropic.client.okhttp.AnthropicOkHttpClient;
+import com.anthropic.models.beta.organization.apikeys.ApiKeyRetrieveParams;
+import com.anthropic.models.beta.organization.apikeys.BetaApiKey;
+
+public final class Main {
+    private Main() {}
+
+    public static void main(String[] args) {
+        AnthropicClient client = AnthropicOkHttpClient.fromEnv();
+
+        BetaApiKey betaApiKey = client.beta().organization().apiKeys().retrieve("api_key_id");
+    }
+}
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "apikey_01Rj2N8SVvo6BePZj99NhmiT",
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "created_by": {
+    "id": "user_01WCz1FkmYMm4gnmykNKUu3Q",
+    "type": "user"
+  },
+  "expires_at": "2024-10-30T23:58:27.427722Z",
+  "name": "Developer Key",
+  "partial_key_hint": "sk-ant-api03-R2D...igAA",
+  "principal": {
+    "type": "user_actor",
+    "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
+  },
+  "scope": {
+    "type": "workspace",
+    "workspace_id": "wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ"
+  },
+  "status": "active",
+  "type": "api_key",
+  "workspace_id": "wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ"
+}
+```
+
+### Update API Key
+
+`BetaApiKey beta().organization().apiKeys().update(params = ApiKeyUpdateParams.none(), requestOptions = RequestOptions.none())`
+
+**POST** `/v1/organizations/api_keys/{api_key_id}`
+
+Update API Key
+
+#### Parameters
+
+- `ApiKeyUpdateParams params`
+
+  - `Optional<String> apiKeyId`
+
+    ID of the API key.
+
+  - `Optional<String> name`
+
+    Name of the API key.
+
+    maxLength: 500, minLength: 1
+
+  - `Optional<Status> status`
+
+    Status of the API key.
+
+    - `ACTIVE("active")`
+
+    - `ARCHIVED("archived")`
+
+    - `INACTIVE("inactive")`
+
+#### Returns
+
+- `class BetaApiKey:`
+
+  - `JsonValue type = "api_key"`
+
+    Object type.
+
+    For API Keys, this is always `"api_key"`.
+
+  - `String id`
+
+    ID of the API key.
+
+  - `LocalDateTime createdAt`
+
+    RFC 3339 datetime string indicating when the API Key was created.
+
+    format: date-time
+
+  - `Optional<BetaApiKeyCreatedBy> createdBy`
+
+    The ID and type of the actor that created the API key, or `null` when the
+    creator is not recorded (legacy, workload-identity-federated, or
+    system-created keys).
+
+    - `Type type`
+
+      Type of the actor that created the object.
+
+      - `SERVICE_ACCOUNT("service_account")`
+
+      - `USER("user")`
+
+    - `String id`
+
+      ID of the actor that created the object.
+
+  - `Optional<LocalDateTime> expiresAt`
+
+    RFC 3339 datetime string indicating when the API Key expires, or `null` if it never expires.
+
+    format: date-time
+
+  - `String name`
+
+    Name of the API key.
+
+  - `Optional<String> partialKeyHint`
+
+    Partially redacted hint for the API key.
+
+  - `Optional<Principal> principal`
+
+    The principal the API key acts as (a User or a Service Account), or `null` if the API key is not bound to a principal.
+
+    - `class BetaApiKeyUserActor:`
+
+      - `JsonValue type = "user_actor"`
+
+        Principal type. Always `"user_actor"` for a User.
+
+      - `String userId`
+
+        ID of the User the API key acts as.
+
+    - `class BetaApiKeyServiceAccountActor:`
+
+      - `JsonValue type = "service_account_actor"`
+
+        Principal type. Always `"service_account_actor"` for a Service Account.
+
+      - `String serviceAccountId`
+
+        ID of the Service Account the API key acts as.
+
+  - `Scope scope`
+
+    Where the API key belongs: its Workspace (`{"type": "workspace", "workspace_id": "wrkspc_..."}`, with the Workspace's real ID even when it is the organization's default Workspace), or the organization (`{"type": "organization"}`) for a principal-bound API key that has no Workspace.
+
+    - `class BetaApiKeyOrganizationScope:`
+
+      - `JsonValue type = "organization"`
+
+        Scope type. Always `"organization"`: the API key has no Workspace. Only a principal-bound API key can have this scope.
+
+    - `class BetaApiKeyWorkspaceScope:`
+
+      - `JsonValue type = "workspace"`
+
+        Scope type. Always `"workspace"`: the API key belongs to one Workspace.
+
+      - `String workspaceId`
+
+        ID of the Workspace the API key belongs to. Unlike the deprecated top-level `workspace_id`, this is the Workspace's real ID even for the organization's default Workspace.
+
+  - `Status status`
+
+    Status of the API key.
+
+    - `ACTIVE("active")`
+
+    - `ARCHIVED("archived")`
+
+    - `EXPIRED("expired")`
+
+    - `INACTIVE("inactive")`
+
+  - `Optional<String> workspaceId`
+
+    **Deprecated**: Use `scope` instead. `workspace_id` is `null` both for an API key in the default Workspace and for a principal-bound API key that has no Workspace.
+
+    Deprecated: use `scope` instead. ID of the Workspace associated with the API key, or `null` if the API key belongs to the default Workspace. Also `null` for a principal-bound API key that has no Workspace; `scope` tells the two apart.
+
+#### Example
+
+```java
+package com.anthropic.example;
+
+import com.anthropic.client.AnthropicClient;
+import com.anthropic.client.okhttp.AnthropicOkHttpClient;
+import com.anthropic.models.beta.organization.apikeys.ApiKeyUpdateParams;
+import com.anthropic.models.beta.organization.apikeys.BetaApiKey;
+
+public final class Main {
+    private Main() {}
+
+    public static void main(String[] args) {
+        AnthropicClient client = AnthropicOkHttpClient.fromEnv();
+
+        BetaApiKey betaApiKey = client.beta().organization().apiKeys().update("api_key_id");
+    }
+}
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "apikey_01Rj2N8SVvo6BePZj99NhmiT",
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "created_by": {
+    "id": "user_01WCz1FkmYMm4gnmykNKUu3Q",
+    "type": "user"
+  },
+  "expires_at": "2024-10-30T23:58:27.427722Z",
+  "name": "Developer Key",
+  "partial_key_hint": "sk-ant-api03-R2D...igAA",
+  "principal": {
+    "type": "user_actor",
+    "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
+  },
+  "scope": {
+    "type": "workspace",
+    "workspace_id": "wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ"
+  },
+  "status": "active",
+  "type": "api_key",
+  "workspace_id": "wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ"
+}
+```
+
+## Beta › Organization › External Keys
+
+### Create External Key

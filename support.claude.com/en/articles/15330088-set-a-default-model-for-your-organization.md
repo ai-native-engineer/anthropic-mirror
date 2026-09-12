@@ -45,7 +45,7 @@ The organization default applies to every member. To set it:
 3. If you select “Choose a specific model,” choose a model from the list. Only models enabled under **Model access** on the same page can be selected.
 4. Click “Save changes.”
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2514722139/d05c94072a41ea9090ecf386c53e/c32ee31d-954a-4551-a2da-91677fbd0b6f?expires=1789086600&signature=12abb2a9199d8496437930a7b9f6b6ac9f65beec37397710019495a85ee441d5&req=diUmEs58n4BcUPMW1HO4zelOdztAJU5BfdGVZ664dGHX17FIFKMFWe4mW%2BwF%0AIqjo%2BH98flLhdUjKSis%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2514722139/d05c94072a41ea9090ecf386c53e/c32ee31d-954a-4551-a2da-91677fbd0b6f?expires=1789086600&signature=12abb2a9199d8496437930a7b9f6b6ac9f65beec37397710019495a85ee441d5&req=diUmEs58n4BcUPMW1HO4zelOdztAJU5BfdGVZ664dGHX17FIFKMFWe4mW%2BwF%0AIqjo%2BH98flLhdUjKSis%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2514722139/d05c94072a41ea9090ecf386c53e/c32ee31d-954a-4551-a2da-91677fbd0b6f?expires=1789173900&signature=045e9335a5c25e6dfc1d3d0e38a3835a6dd7e9b856106682789bdfbb8675c753&req=diUmEs58n4BcUPMW1HO4zelOdztBKktOfdGVZ664dGGZm4%2F95DUM1798TIo7%0A0a5XoENUgohn4EBuBS8%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2514722139/d05c94072a41ea9090ecf386c53e/c32ee31d-954a-4551-a2da-91677fbd0b6f?expires=1789173900&signature=045e9335a5c25e6dfc1d3d0e38a3835a6dd7e9b856106682789bdfbb8675c753&req=diUmEs58n4BcUPMW1HO4zelOdztBKktOfdGVZ664dGGZm4%2F95DUM1798TIo7%0A0a5XoENUgohn4EBuBS8%3D%0A)
 
 ---
 

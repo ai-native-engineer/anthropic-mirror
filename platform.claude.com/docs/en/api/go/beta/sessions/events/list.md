@@ -897,8 +897,6 @@ List Events
 
     - `Error BetaManagedAgentsSessionErrorEventErrorUnion`
 
-      An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
-
       - `type BetaManagedAgentsUnknownError struct{…}`
 
         An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
@@ -1184,8 +1182,6 @@ List Events
       format: date-time
 
     - `StopReason BetaManagedAgentsSessionStatusIdleEventStopReasonUnion`
-
-      The agent completed its turn naturally and is ready for the next user message.
 
       - `type BetaManagedAgentsSessionEndTurn struct{…}`
 
@@ -1544,8 +1540,6 @@ List Events
       Public sthr_ ID of the thread that went idle.
 
     - `StopReason BetaManagedAgentsSessionThreadStatusIdleEventStopReasonUnion`
-
-      The agent completed its turn naturally and is ready for the next user message.
 
       - `type BetaManagedAgentsSessionEndTurn struct{…}`
 

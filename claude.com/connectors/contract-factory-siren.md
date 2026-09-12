@@ -54,18 +54,18 @@ Search, edit and get insights on your Box content
 
 [Add Box in Claude (opens in new tab)](https://claude.ai/directory/a5380429-c773-4180-b642-301418240c8c "Add in Claude")
 
-![](https://www.google.com/s2/favicons?domain=thomsonreuters.com&sz=96)
+![](https://www.google.com/s2/favicons?domain=salesforce.com&sz=96)
 
-### [CoCounsel Legal](https://claude.com/connectors/cocounsel-legal)
+### [Salesforce - Beta](https://claude.com/connectors/salesforce-headless-360)
 
-Thomson Reuters CoCounsel Legal, in Claude
+Sell, serve, and operate at scale with Salesforce.
 
-[Add CoCounsel Legal in Claude (opens in new tab)](https://claude.ai/directory/084ce5af-6b81-471a-a754-d1a50d3f61a1 "Add in Claude")
+[Add Salesforce - Beta in Claude (opens in new tab)](https://claude.ai/directory/a352dbf6-c732-43d4-84c1-0bbb389d3921 "Add in Claude")
 
-![](https://www.google.com/s2/favicons?domain=zapier.com&sz=96)
+![](https://cdn.prod.website-files.com/69d3ac38e8e442c9fce520b4/6a0742ee5d1bde6d18668e0b_Frame.png)
 
-### [Zapier](https://claude.com/connectors/zapier)
+### [General Legal](https://claude.com/connectors/general-legal)
 
-Automate workflows across thousands of apps via conversation
+Submit contracts for attorney review, answer their questions, and get redlined documents back — without leaving Claude.
 
-[Add Zapier in Claude (opens in new tab)](https://claude.ai/directory/1f6f271e-3d29-4241-b35e-8abe6def4891 "Add in Claude")
+[Add General Legal in Claude (opens in new tab)](https://claude.ai/directory/dba73da3-6015-4b3e-8acc-0ff38e2c511b "Add in Claude")

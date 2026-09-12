@@ -12,7 +12,7 @@ The tables below compare the feature set of Claude Desktop on third-party (3P) t
 
 ##  Key differences
 
-**Configuration.** Claude Enterprise uses a web-based admin console. Claude Desktop on 3P is configured via [MDM](https://claude.com/docs/third-party/claude-desktop/mdm) (Jamf, Intune, Group Policy) or a [bootstrap server](https://claude.com/docs/third-party/claude-desktop/bootstrap); organizations in the admin console beta can instead manage it from **Organization settings** on claude.ai.
+**Configuration.** Both are administered from the web-based [admin console](https://claude.com/docs/third-party/claude-desktop/admin-console) in **Organization settings** on claude.ai. Claude Desktop on 3P can also be configured through [MDM](https://claude.com/docs/third-party/claude-desktop/mdm) (Jamf, Intune, Group Policy) or a [bootstrap server](https://claude.com/docs/third-party/claude-desktop/bootstrap).
 **Telemetry.** Claude Desktop on 3P sends usage and debugging metrics only, and these can be fully disabled via managed configuration. Claude Enterprise does not offer telemetry toggles. See [Telemetry and egress](https://claude.com/docs/third-party/claude-desktop/telemetry).
 **Inference.** Claude Desktop on 3P routes all inference through the provider you configure, and data handling at the inference endpoint depends on that provider. For Google Cloud’s Agent Platform and Amazon Bedrock, data handling is governed by Google Cloud and Amazon Bedrock respectively. For Microsoft Foundry, Anthropic operates the Claude models and handles conversation data as an independent processor for Microsoft. See [Data handling by provider](https://claude.com/docs/third-party/claude-desktop/overview#data-handling-by-provider) on the Overview page for each provider’s data path.
 **Pricing.** Claude Desktop on 3P is token-based consumption billed by your cloud provider, with no seat licensing.
@@ -22,17 +22,19 @@ The tables below compare the feature set of Claude Desktop on third-party (3P) t
 
 | Feature | Claude Enterprise | Claude Desktop on 3P |
 | --- | --- | --- |
-| Chat | ✓ | ✓ (admin opt-in) |
+| Chat | ✓ | ✓ |
 | Cowork | ✓ | ✓ |
 | Code | ✓ | ✓ |
-| Auto mode (Code) | ✓ | ✓ (admin opt-in) |
-| Automatically approve / Skip all approvals (Cowork) | — ¶ | ✓ (admin opt-in) |
+| Auto mode (Code) | ✓ | ✓ |
+| [SSH remote Code sessions](https://claude.com/docs/third-party/claude-desktop/ssh-remote-sessions) | ✓ | ✓ |
+| Automatically approve / Skip all approvals (Cowork) | — ¶ | ✓ |
 | Projects | ✓ | ✓ |
 | Code execution for analysis | ✓ | ✓ |
 | Web search | ✓ | ✓ § |
 | File access, upload, and export | ✓ | ✓ |
 | Local MCP | ✓ | ✓ |
 | Remote MCP | ✓ | ✓ |
+| [Microsoft 365](https://claude.com/docs/third-party/claude-desktop/connectors-m365) and [GitHub](https://claude.com/docs/third-party/claude-desktop/connectors-github) connectors | ✓ | ✓ |
 | Skills, plugins, and hooks | ✓ | ✓ |
 | Artifacts | ✓ | ✓ |
 | Memory | ✓ | ✓ † |
@@ -61,12 +63,14 @@ The tables below compare the feature set of Claude Desktop on third-party (3P) t
 | Skills, hooks, and plugins distribution | ✓ | ✓ |
 | MCP server allowlist | ✓ | ✓ |
 | Feature toggles (web search, local MCP, etc.) | ✓ | ✓ |
-| Auto-updates | ✓ | ✓ (configurable) |
-| Per-user spend caps | ✓ (differentiated) | ✓ (blanket only) |
+| Auto-updates | ✓ | ✓ |
+| Per-user usage caps | ✓ | ✓ |
+| [Data retention policies](https://claude.com/docs/third-party/claude-desktop/configuration#chatsessionretentiondays) | ✓ | ✓ |
 | Compliance API | ✓ | — ‡ |
 | Analytics API | ✓ | — ‡ |
 | OpenTelemetry export | ✓ | ✓ |
-| User management via UI | ✓ | — |
-| RBAC | ✓ | via MDM |
+| User management via UI | ✓ | ✓ ◊ |
+| RBAC | ✓ | ✓ ◊ |
 
 ‡ Many of these capabilities can be achieved via OpenTelemetry export to your own collector. See [Monitoring](https://claude.com/docs/cowork/monitoring).
+◊ With the [Enterprise Admin Console](https://claude.com/docs/third-party/claude-desktop/admin-console), administrators add users and groups, connect single sign-on and SCIM, assign administrator roles, and set per-group permission policies from **Organization settings** on claude.ai. Deployments configured through MDM or a bootstrap server manage access through those channels.

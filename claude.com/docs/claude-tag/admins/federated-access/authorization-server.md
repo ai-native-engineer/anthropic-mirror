@@ -1,10 +1,20 @@
 <!-- source: https://claude.com/docs/claude-tag/admins/federated-access/authorization-server -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 Authorization servers are connected at [`claude.ai/admin-settings/claude-tag`](https://claude.ai/admin-settings/claude-tag): open **Federated cloud access** in the left navigation and use the **Authorization servers** section. Connecting a server needs an organization Owner, or an admin with full Claude Tag management permission.
 
 With an authorization server connection, Claude presents a short-lived identity token to an OAuth 2.0 authorization server you run, receives one of your access tokens in return, and calls your APIs with it. No long-lived credential for your systems is stored in Claude, and [Agent Proxy](https://claude.com/docs/claude-tag/concepts/agent-identity#agent-proxy) holds each access token only until it expires. The identity token names your organization and the [agent](https://claude.com/docs/claude-tag/concepts/agent-identity) making the request (Claude’s identity in one Slack channel), and your server decides whether to issue a token for it.
 Choose this when you run an authorization server that issues tokens for your APIs. If your own service will verify the identity token on every request instead, [connect a gateway](https://claude.com/docs/claude-tag/admins/federated-access/connect-a-gateway). If a vendor’s API gave you a private key to sign assertions with (Salesforce, for example), use the [OAuth 2.0 JWT bearer](https://claude.com/docs/claude-tag/admins/connections/custom#oauth-2-0-jwt-bearer) credential type instead; the console labels this page’s connection **Authorization server**.
 Two terms recur on this page. The **subject check** is what your server does to every identity token, confirming it belongs to your organization. The **connection check** is the probe the console runs when a gateway is connected; it doesn’t run for token endpoints.
+
+##  Before you begin
 
 * You’re an organization Owner, or an admin with full Claude Tag management permission.
 * Your authorization server’s token endpoint is reachable from the internet over HTTPS at an address with a domain name, such as `https://auth.example.com/oauth2/token`. The console accepts an address that:
@@ -21,6 +31,7 @@ Two terms recur on this page. The **subject check** is what your server does to 
 In **Authorization servers**, click **Connect an authorization server**, enter your token endpoint in the **Token endpoint** field, enter your authorization server’s issuer identifier in the **Issuer URL** field (or leave it empty if your server requires the token endpoint URL as the audience), and copy the **Issuer**, **JWKS URL**, **Audience**, and **Subject prefix** rows from the **Set your authorization server to accept these values** card. Then click **Cancel**; you register the endpoint after configuring the server.
 
 | Value | What to configure |
+| --- | --- |
 | Issuer | `https://identity.anthropic.com/agents`, matched exactly. The OpenID Connect (OIDC) discovery document is at `https://identity.anthropic.com/agents/.well-known/openid-configuration`. |
 | JWKS URL | The JSON Web Key Set (JWKS) named by `jwks_uri` in the discovery document, `https://identity.anthropic.com/agents/jwks.json`. Accept ES256 only. Select the key by `kid`, and refetch the JWKS on an unknown `kid` before rejecting the token. |
 | Audience | Your authorization server’s issuer identifier, as you enter it in the **Issuer URL** field when you connect the server, for example `https://auth.example.com`. It must be an HTTPS URL on the same host as the token endpoint. If your server requires the token endpoint URL as the audience instead, leave **Issuer URL** empty and the audience is the token endpoint address as the console stores it (the host lowercased, a bare trailing slash dropped, the rest kept as entered). Either way, copy the **Audience** row into your verifier rather than typing it. The `aud` claim is a JSON array with one element. Accept only this exact value, not any address on your host. |
@@ -32,7 +43,9 @@ In **Authorization servers**, click **Connect an authorization server**, enter y
 
 Claude sends a standard JWT bearer grant ([RFC 7523](https://www.rfc-editor.org/rfc/rfc7523)) to the token endpoint as an HTTPS `POST` with `Content-Type: application/x-www-form-urlencoded` and `Accept: application/json`. The form body contains these fields:
 
+```
 grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer&assertion=<identity token>[&resource=<resource>][&scope=<scopes>]
+```
 
 The `resource` ([RFC 8707](https://www.rfc-editor.org/rfc/rfc8707)) and `scope` fields are present only if you set them when connecting the server. No `client_id` or `client_secret` is sent. Register one client for Anthropic’s issuer that accepts this grant without client authentication; the subject check is what keeps other organizations out. The request doesn’t follow redirects, and the exchange must complete within about 10 seconds.
 Your server must:
@@ -79,7 +92,9 @@ The **Authorization servers** table lists each server by its **Token endpoint**,
 Claude uses the connection in channels whose scope has the bundle attached. [Attach the bundle to a workspace or channel](https://claude.com/docs/claude-tag/admins/attach-to-scope#attach-the-bundle) if it isn’t attached already.
 Claude also needs to know what the APIs are for. Add a line like this to the scope’s [custom instructions](https://claude.com/docs/claude-tag/admins/attach-to-scope#add-custom-instructions):
 
+```
 The internal orders API is at https://api.example.com; see GET /openapi.json for what it offers. Authentication is already set up.
+```
 
 The exchange happens in Agent Proxy, outside Claude’s sandbox, so neither the identity token nor your access token is visible to Claude, and Claude can’t perform the exchange itself.
 New threads pick up the connection on their own. In a thread already running, ask Claude to use the API and name its host. If Claude still can’t, send [`@Claude !restart`](https://claude.com/docs/claude-tag/users/commands#restart-a-stuck-or-wrong-context-session) at the channel’s top level (not inside a thread) to start a fresh session with your organization’s current configuration.
@@ -88,7 +103,9 @@ New threads pick up the connection on their own. In a thread already running, as
 
 In a channel whose workspace or channel has the bundle attached, start a new thread and ask Claude to make a small read:
 
+```
 @Claude call GET /openapi.json on https://api.example.com and tell me what the API offers.
+```
 
 Then check your authorization server’s logs for a JWT bearer grant whose token has your **Subject prefix**, and your API’s logs for a request carrying the access token it issued. If the grant was refused, your server’s own error is the reason; Claude sees only that the request failed. See [Troubleshoot federated cloud access](https://claude.com/docs/claude-tag/admins/federated-access/troubleshooting) for the errors Claude shows.
 
@@ -107,6 +124,8 @@ Five messages come up while connecting:
 * **“That address is already connected as a gateway. Enter your authorization server’s own addresses, or remove the gateway first.”**: the token endpoint, or the **Issuer URL** value, is the address of a gateway connected in one of your Access bundles. Enter the server’s own addresses, or delete that gateway’s connection from its bundle first.
 
 For other dialog messages, see [Troubleshoot federated cloud access](https://claude.com/docs/claude-tag/admins/federated-access/troubleshooting).
+
+##  Related resources
 
 * [Give Claude access](https://claude.com/docs/claude-tag/admins/add-connections): the Access bundle and connection model
 * [Attach a bundle to a scope](https://claude.com/docs/claude-tag/admins/attach-to-scope): where a connection applies

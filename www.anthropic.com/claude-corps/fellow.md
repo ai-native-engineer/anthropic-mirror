@@ -22,7 +22,7 @@ Fellows are full-time CodePath employees with full benefits. CodePath handles pa
 
 ### How big is the program?
 
-Cohort 1 places approximately 100 fellows at host organizations across the United States starting in October 2026. The full program places 1,000 fellows across three cohorts, with the remaining 900 fellows starting in cohorts that begin in January 2027 and August 2027.
+Cohort 1 places approximately 100 fellows at host organizations across the United States starting in October 2026. The full program places 1,000 fellows across three cohorts, with the remaining 900 fellows starting in cohorts that begin in February 2027 and August 2027.
 
 ### What kinds of organizations host fellows?
 
@@ -162,7 +162,7 @@ We do our best to place fellows locally when both the fellow and the host prefer
 
 ### When does the fellowship start?
 
-Cohort 1 begins October 19, 2026 with virtual training. During the week of November 2nd, all fellows and host org representatives will attend base camp in San Francisco. After that, fellows will work from their host org location. Cohort 2 will begin in January 2027 and cohort 3 will begin in August 2027.
+Cohort 1 begins October 19, 2026 with virtual training. During the week of November 2nd, all fellows and host org representatives will attend base camp in San Francisco. After that, fellows will work from their host org location. Cohort 2 will begin in February 2027 and cohort 3 will begin in August 2027.
 
 ### What is base camp?
 

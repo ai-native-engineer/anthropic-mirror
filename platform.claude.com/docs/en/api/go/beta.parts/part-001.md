@@ -1605,8 +1605,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `Caller BetaToolUseBlockParamCallerUnionResp Optional`
 
-            Tool invocation directly from the model.
-
             - `type BetaDirectCaller struct{…}`
 
               Tool invocation directly from the model.
@@ -1860,8 +1858,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `Caller BetaServerToolUseBlockParamCallerUnionResp Optional`
 
-            Tool invocation directly from the model.
-
             - `type BetaDirectCaller struct{…}`
 
               Tool invocation directly from the model.
@@ -1917,8 +1913,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
             Create a cache control breakpoint at this content block.
 
           - `Caller BetaWebSearchToolResultBlockParamCallerUnionResp Optional`
-
-            Tool invocation directly from the model.
 
             - `type BetaDirectCaller struct{…}`
 
@@ -1985,8 +1979,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
             Create a cache control breakpoint at this content block.
 
           - `Caller BetaWebFetchToolResultBlockParamCallerUnionResp Optional`
-
-            Tool invocation directly from the model.
 
             - `type BetaDirectCaller struct{…}`
 
@@ -2055,8 +2047,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
           - `Type CodeExecutionToolResult`
 
           - `Content BetaCodeExecutionToolResultBlockParamContentUnionResp`
-
-            Code execution result with encrypted stdout for PFC + web_search results.
 
             - `type BetaCodeExecutionToolResultErrorParamResp struct{…}`
 
@@ -2379,11 +2369,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `Tool BetaRequestToolAdditionBlockToolUnion`
 
-            Reference to a single tool the caller declared directly in
-            `tools[]`. Does not accept the composed `{server}_{name}` form the
-            server assigns to MCP-resolved tools — use `mcp_tool_reference` or
-            `mcp_toolset_reference` for those.
-
             - `type BetaToolChangeToolReference struct{…}`
 
               Reference to a single tool the caller declared directly in
@@ -2431,11 +2416,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
           - `Type ToolRemoval`
 
           - `Tool BetaRequestToolRemovalBlockToolUnion`
-
-            Reference to a single tool the caller declared directly in
-            `tools[]`. Does not accept the composed `{server}_{name}` form the
-            server assigns to MCP-resolved tools — use `mcp_tool_reference` or
-            `mcp_toolset_reference` for those.
 
             - `type BetaToolChangeToolReference struct{…}`
 
@@ -5111,8 +5091,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `Caller BetaToolUseBlockCallerUnion Optional`
 
-        Tool invocation directly from the model.
-
         - `type BetaDirectCaller struct{…}`
 
           Tool invocation directly from the model.
@@ -5175,8 +5153,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `Caller BetaServerToolUseBlockCallerUnion Optional`
 
-        Tool invocation directly from the model.
-
         - `type BetaDirectCaller struct{…}`
 
           Tool invocation directly from the model.
@@ -5234,8 +5210,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
       - `Caller BetaWebSearchToolResultBlockCallerUnion Optional`
-
-        Tool invocation directly from the model.
 
         - `type BetaDirectCaller struct{…}`
 
@@ -5341,8 +5315,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `Caller BetaWebFetchToolResultBlockCallerUnion Optional`
 
-        Tool invocation directly from the model.
-
         - `type BetaDirectCaller struct{…}`
 
           Tool invocation directly from the model.
@@ -5420,8 +5392,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         default: code_execution_tool_result
 
       - `Content BetaCodeExecutionToolResultBlockContentUnion`
-
-        Code execution result with encrypted stdout for PFC + web_search results.
 
         - `type BetaCodeExecutionToolResultError struct{…}`
 
@@ -6715,8 +6685,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `ContentBlock BetaRawContentBlockStartEventContentBlockUnion`
 
-      Response model for a file uploaded to the container.
-
       - `type BetaTextBlock struct{…}`
 
       - `type BetaThinkingBlock struct{…}`
@@ -7417,8 +7385,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
           - `Caller BetaToolUseBlockParamCallerUnionResp Optional`
 
-            Tool invocation directly from the model.
-
             - `type BetaDirectCaller struct{…}`
 
               Tool invocation directly from the model.
@@ -7672,8 +7638,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
           - `Caller BetaServerToolUseBlockParamCallerUnionResp Optional`
 
-            Tool invocation directly from the model.
-
             - `type BetaDirectCaller struct{…}`
 
               Tool invocation directly from the model.
@@ -7729,8 +7693,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
             Create a cache control breakpoint at this content block.
 
           - `Caller BetaWebSearchToolResultBlockParamCallerUnionResp Optional`
-
-            Tool invocation directly from the model.
 
             - `type BetaDirectCaller struct{…}`
 
@@ -7797,8 +7759,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
             Create a cache control breakpoint at this content block.
 
           - `Caller BetaWebFetchToolResultBlockParamCallerUnionResp Optional`
-
-            Tool invocation directly from the model.
 
             - `type BetaDirectCaller struct{…}`
 
@@ -7867,8 +7827,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
           - `Type CodeExecutionToolResult`
 
           - `Content BetaCodeExecutionToolResultBlockParamContentUnionResp`
-
-            Code execution result with encrypted stdout for PFC + web_search results.
 
             - `type BetaCodeExecutionToolResultErrorParamResp struct{…}`
 
@@ -8191,11 +8149,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
           - `Tool BetaRequestToolAdditionBlockToolUnion`
 
-            Reference to a single tool the caller declared directly in
-            `tools[]`. Does not accept the composed `{server}_{name}` form the
-            server assigns to MCP-resolved tools — use `mcp_tool_reference` or
-            `mcp_toolset_reference` for those.
-
             - `type BetaToolChangeToolReference struct{…}`
 
               Reference to a single tool the caller declared directly in
@@ -8243,11 +8196,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
           - `Type ToolRemoval`
 
           - `Tool BetaRequestToolRemovalBlockToolUnion`
-
-            Reference to a single tool the caller declared directly in
-            `tools[]`. Does not accept the composed `{server}_{name}` form the
-            server assigns to MCP-resolved tools — use `mcp_tool_reference` or
-            `mcp_toolset_reference` for those.
 
             - `type BetaToolChangeToolReference struct{…}`
 
@@ -10992,8 +10940,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `Caller BetaToolUseBlockParamCallerUnionResp Optional`
 
-                Tool invocation directly from the model.
-
                 - `type BetaDirectCaller struct{…}`
 
                   Tool invocation directly from the model.
@@ -11247,8 +11193,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `Caller BetaServerToolUseBlockParamCallerUnionResp Optional`
 
-                Tool invocation directly from the model.
-
                 - `type BetaDirectCaller struct{…}`
 
                   Tool invocation directly from the model.
@@ -11304,8 +11248,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
                 Create a cache control breakpoint at this content block.
 
               - `Caller BetaWebSearchToolResultBlockParamCallerUnionResp Optional`
-
-                Tool invocation directly from the model.
 
                 - `type BetaDirectCaller struct{…}`
 
@@ -11372,8 +11314,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
                 Create a cache control breakpoint at this content block.
 
               - `Caller BetaWebFetchToolResultBlockParamCallerUnionResp Optional`
-
-                Tool invocation directly from the model.
 
                 - `type BetaDirectCaller struct{…}`
 
@@ -11442,8 +11382,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
               - `Type CodeExecutionToolResult`
 
               - `Content BetaCodeExecutionToolResultBlockParamContentUnionResp`
-
-                Code execution result with encrypted stdout for PFC + web_search results.
 
                 - `type BetaCodeExecutionToolResultErrorParamResp struct{…}`
 
@@ -11766,11 +11704,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `Tool BetaRequestToolAdditionBlockToolUnion`
 
-                Reference to a single tool the caller declared directly in
-                `tools[]`. Does not accept the composed `{server}_{name}` form the
-                server assigns to MCP-resolved tools — use `mcp_tool_reference` or
-                `mcp_toolset_reference` for those.
-
                 - `type BetaToolChangeToolReference struct{…}`
 
                   Reference to a single tool the caller declared directly in
@@ -11818,11 +11751,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
               - `Type ToolRemoval`
 
               - `Tool BetaRequestToolRemovalBlockToolUnion`
-
-                Reference to a single tool the caller declared directly in
-                `tools[]`. Does not accept the composed `{server}_{name}` form the
-                server assigns to MCP-resolved tools — use `mcp_tool_reference` or
-                `mcp_toolset_reference` for those.
 
                 - `type BetaToolChangeToolReference struct{…}`
 
@@ -16173,8 +16101,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `Caller BetaToolUseBlockCallerUnion Optional`
 
-              Tool invocation directly from the model.
-
               - `type BetaDirectCaller struct{…}`
 
                 Tool invocation directly from the model.
@@ -16237,8 +16163,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `Caller BetaServerToolUseBlockCallerUnion Optional`
 
-              Tool invocation directly from the model.
-
               - `type BetaDirectCaller struct{…}`
 
                 Tool invocation directly from the model.
@@ -16296,8 +16220,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
             - `Caller BetaWebSearchToolResultBlockCallerUnion Optional`
-
-              Tool invocation directly from the model.
 
               - `type BetaDirectCaller struct{…}`
 
@@ -16403,8 +16325,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `Caller BetaWebFetchToolResultBlockCallerUnion Optional`
 
-              Tool invocation directly from the model.
-
               - `type BetaDirectCaller struct{…}`
 
                 Tool invocation directly from the model.
@@ -16482,8 +16402,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
               default: code_execution_tool_result
 
             - `Content BetaCodeExecutionToolResultBlockContentUnion`
-
-              Code execution result with encrypted stdout for PFC + web_search results.
 
               - `type BetaCodeExecutionToolResultError struct{…}`
 
@@ -29336,3 +29254,83 @@ Create Session
               - `Configs []BetaManagedAgentsAgentToolConfigUnion`
 
                 - `type BetaManagedAgentsBashToolConfig struct{…}`
+
+                  Configuration for the bash tool.
+
+                  - `Type Bash`
+
+                  - `Enabled bool`
+
+                  - `Name Bash`
+
+                  - `PermissionPolicy BetaManagedAgentsBashToolConfigPermissionPolicyUnion`
+
+                    Permission policy for tool execution.
+
+                    - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
+
+                      Tool calls are automatically approved without user confirmation.
+
+                      - `Type BetaManagedAgentsAlwaysAllowPolicyType`
+
+                    - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
+
+                      Tool calls require user confirmation before execution.
+
+                      - `Type BetaManagedAgentsAlwaysAskPolicyType`
+
+                    - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+                      - `Type Auto`
+
+                - `type BetaManagedAgentsEditToolConfig struct{…}`
+
+                  Configuration for the edit tool.
+
+                  - `Type Edit`
+
+                  - `Enabled bool`
+
+                  - `Name Edit`
+
+                  - `PermissionPolicy BetaManagedAgentsEditToolConfigPermissionPolicyUnion`
+
+                    Permission policy for tool execution.
+
+                    - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
+
+                      Tool calls are automatically approved without user confirmation.
+
+                    - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
+
+                      Tool calls require user confirmation before execution.
+
+                    - `type BetaManagedAgentsAutoPolicy struct{…}`
+
+                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
+
+                - `type BetaManagedAgentsReadToolConfig struct{…}`
+
+                  Configuration for the read tool.
+
+                  - `Type Read`
+
+                  - `Enabled bool`
+
+                  - `Name Read`
+
+                  - `PermissionPolicy BetaManagedAgentsReadToolConfigPermissionPolicyUnion`
+
+                    Permission policy for tool execution.
+
+                    - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
+
+                      Tool calls are automatically approved without user confirmation.
+
+                    - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
+
+                      Tool calls require user confirmation before execution.
+
+                    - `type BetaManagedAgentsAutoPolicy struct{…}`

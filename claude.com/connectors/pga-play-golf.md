@@ -37,14 +37,6 @@ Sell, serve, and operate at scale with Salesforce.
 
 [Add Salesforce - Beta in Claude (opens in new tab)](https://claude.ai/directory/a352dbf6-c732-43d4-84c1-0bbb389d3921 "Add in Claude")
 
-![](https://www.google.com/s2/favicons?domain=vibeprospecting.ai&sz=96)
-
-### [Vibe Prospecting](https://claude.com/connectors/vibeprospecting)
-
-Find and enrich company and contact data in Claude for prospecting, lead generation, recruiting, and CRM enrichment across 150M+ companies and 800M+ contacts
-
-[Add Vibe Prospecting in Claude (opens in new tab)](https://claude.ai/directory/1bdcb159-b6f0-4f13-bc08-fdb40b007828 "Add in Claude")
-
 ![](https://compass.maryland.gov/assets/compass-icon.png)
 
 ### [Maryland Community Compass](https://claude.com/connectors/maryland-compass)
@@ -54,6 +46,14 @@ New
 Maryland's neighborhood development data platform.
 
 [Add Maryland Community Compass in Claude (opens in new tab)](https://claude.ai/directory/68edb405-8774-419f-b9d8-32f0a95229dd "Add in Claude")
+
+![](https://www.google.com/s2/favicons?domain=vibeprospecting.ai&sz=96)
+
+### [Vibe Prospecting](https://claude.com/connectors/vibeprospecting)
+
+Find and enrich company and contact data in Claude for prospecting, lead generation, recruiting, and CRM enrichment across 150M+ companies and 800M+ contacts
+
+[Add Vibe Prospecting in Claude (opens in new tab)](https://claude.ai/directory/1bdcb159-b6f0-4f13-bc08-fdb40b007828 "Add in Claude")
 
 ![](https://storage.googleapis.com/assets.mobbin.com/claude.ai/logo.svg)
 

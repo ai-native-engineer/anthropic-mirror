@@ -534,8 +534,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `Optional<Caller> caller`
 
-            Tool invocation directly from the model.
-
             - `class BetaDirectCaller:`
 
               Tool invocation directly from the model.
@@ -791,8 +789,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `Optional<Caller> caller`
 
-            Tool invocation directly from the model.
-
             - `class BetaDirectCaller:`
 
               Tool invocation directly from the model.
@@ -848,8 +844,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
             Create a cache control breakpoint at this content block.
 
           - `Optional<Caller> caller`
-
-            Tool invocation directly from the model.
 
             - `class BetaDirectCaller:`
 
@@ -916,8 +910,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
             Create a cache control breakpoint at this content block.
 
           - `Optional<Caller> caller`
-
-            Tool invocation directly from the model.
 
             - `class BetaDirectCaller:`
 
@@ -986,8 +978,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
           - `JsonValue type = "code_execution_tool_result"`
 
           - `BetaCodeExecutionToolResultBlockParamContent content`
-
-            Code execution result with encrypted stdout for PFC + web_search results.
 
             - `class BetaCodeExecutionToolResultErrorParam:`
 
@@ -1310,11 +1300,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `Tool tool`
 
-            Reference to a single tool the caller declared directly in
-            `tools[]`. Does not accept the composed `{server}_{name}` form the
-            server assigns to MCP-resolved tools — use `mcp_tool_reference` or
-            `mcp_toolset_reference` for those.
-
             - `class BetaToolChangeToolReference:`
 
               Reference to a single tool the caller declared directly in
@@ -1362,11 +1347,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
           - `JsonValue type = "tool_removal"`
 
           - `Tool tool`
-
-            Reference to a single tool the caller declared directly in
-            `tools[]`. Does not accept the composed `{server}_{name}` form the
-            server assigns to MCP-resolved tools — use `mcp_tool_reference` or
-            `mcp_toolset_reference` for those.
 
             - `class BetaToolChangeToolReference:`
 
@@ -3908,8 +3888,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `Optional<Caller> caller`
 
-        Tool invocation directly from the model.
-
         - `class BetaDirectCaller:`
 
           Tool invocation directly from the model.
@@ -3970,8 +3948,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `Optional<Caller> caller`
 
-        Tool invocation directly from the model.
-
         - `class BetaDirectCaller:`
 
           Tool invocation directly from the model.
@@ -4023,8 +3999,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
       - `Optional<Caller> caller`
-
-        Tool invocation directly from the model.
 
         - `class BetaDirectCaller:`
 
@@ -4120,8 +4094,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `Optional<Caller> caller`
 
-        Tool invocation directly from the model.
-
         - `class BetaDirectCaller:`
 
           Tool invocation directly from the model.
@@ -4189,8 +4161,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
       - `JsonValue type = "code_execution_tool_result"`
 
       - `BetaCodeExecutionToolResultBlockContent content`
-
-        Code execution result with encrypted stdout for PFC + web_search results.
 
         - `class BetaCodeExecutionToolResultError:`
 
@@ -5401,8 +5371,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `ContentBlock contentBlock`
 
-      Response model for a file uploaded to the container.
-
       - `class BetaTextBlock:`
 
       - `class BetaThinkingBlock:`
@@ -6180,8 +6148,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
           - `Optional<Caller> caller`
 
-            Tool invocation directly from the model.
-
             - `class BetaDirectCaller:`
 
               Tool invocation directly from the model.
@@ -6437,8 +6403,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
           - `Optional<Caller> caller`
 
-            Tool invocation directly from the model.
-
             - `class BetaDirectCaller:`
 
               Tool invocation directly from the model.
@@ -6494,8 +6458,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
             Create a cache control breakpoint at this content block.
 
           - `Optional<Caller> caller`
-
-            Tool invocation directly from the model.
 
             - `class BetaDirectCaller:`
 
@@ -6562,8 +6524,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
             Create a cache control breakpoint at this content block.
 
           - `Optional<Caller> caller`
-
-            Tool invocation directly from the model.
 
             - `class BetaDirectCaller:`
 
@@ -6632,8 +6592,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
           - `JsonValue type = "code_execution_tool_result"`
 
           - `BetaCodeExecutionToolResultBlockParamContent content`
-
-            Code execution result with encrypted stdout for PFC + web_search results.
 
             - `class BetaCodeExecutionToolResultErrorParam:`
 
@@ -6956,11 +6914,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
           - `Tool tool`
 
-            Reference to a single tool the caller declared directly in
-            `tools[]`. Does not accept the composed `{server}_{name}` form the
-            server assigns to MCP-resolved tools — use `mcp_tool_reference` or
-            `mcp_toolset_reference` for those.
-
             - `class BetaToolChangeToolReference:`
 
               Reference to a single tool the caller declared directly in
@@ -7008,11 +6961,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
           - `JsonValue type = "tool_removal"`
 
           - `Tool tool`
-
-            Reference to a single tool the caller declared directly in
-            `tools[]`. Does not accept the composed `{server}_{name}` form the
-            server assigns to MCP-resolved tools — use `mcp_tool_reference` or
-            `mcp_toolset_reference` for those.
 
             - `class BetaToolChangeToolReference:`
 
@@ -10437,14 +10385,6 @@ public final class Main {
 
 - `class BetaBrowserStateChange: union`
 
-  A tab this call's execution opened that remains open at its end —
-  the creation delta of the `tabs` inventory, not an event log.
-
-  Carries only the `tab_id`; the tab's `title` and `url` live on its
-  `tabs` entry, which must include the same `tab_id`. A tab opened
-  during a failed call gets no deferred `tab_opened`; it simply appears
-  in the next result's `tabs` inventory.
-
   - `class BetaBrowserStateChangeTabOpened:`
 
     A tab this call's execution opened that remains open at its end —
@@ -12415,8 +12355,6 @@ public final class Main {
 
   - `BetaCodeExecutionToolResultBlockContent content`
 
-    Code execution result with encrypted stdout for PFC + web_search results.
-
     - `class BetaCodeExecutionToolResultError:`
 
       - `JsonValue type = "code_execution_tool_result_error"`
@@ -12473,8 +12411,6 @@ public final class Main {
 
 - `class BetaCodeExecutionToolResultBlockContent: union`
 
-  Code execution result with encrypted stdout for PFC + web_search results.
-
   - `class BetaCodeExecutionToolResultError:`
 
     - `JsonValue type = "code_execution_tool_result_error"`
@@ -12530,8 +12466,6 @@ public final class Main {
   - `JsonValue type = "code_execution_tool_result"`
 
   - `BetaCodeExecutionToolResultBlockParamContent content`
-
-    Code execution result with encrypted stdout for PFC + web_search results.
 
     - `class BetaCodeExecutionToolResultErrorParam:`
 
@@ -12609,8 +12543,6 @@ public final class Main {
 ### Beta Code Execution Tool Result Block Param Content
 
 - `class BetaCodeExecutionToolResultBlockParamContent: union`
-
-  Code execution result with encrypted stdout for PFC + web_search results.
 
   - `class BetaCodeExecutionToolResultErrorParam:`
 
@@ -13705,8 +13637,6 @@ public final class Main {
 
 - `class BetaContentBlock: union`
 
-  Response model for a file uploaded to the container.
-
   - `class BetaTextBlock:`
 
     - `JsonValue type = "text"`
@@ -13883,8 +13813,6 @@ public final class Main {
 
     - `Optional<Caller> caller`
 
-      Tool invocation directly from the model.
-
       - `class BetaDirectCaller:`
 
         Tool invocation directly from the model.
@@ -13945,8 +13873,6 @@ public final class Main {
 
     - `Optional<Caller> caller`
 
-      Tool invocation directly from the model.
-
       - `class BetaDirectCaller:`
 
         Tool invocation directly from the model.
@@ -13998,8 +13924,6 @@ public final class Main {
       pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
     - `Optional<Caller> caller`
-
-      Tool invocation directly from the model.
 
       - `class BetaDirectCaller:`
 
@@ -14095,8 +14019,6 @@ public final class Main {
 
     - `Optional<Caller> caller`
 
-      Tool invocation directly from the model.
-
       - `class BetaDirectCaller:`
 
         Tool invocation directly from the model.
@@ -14164,8 +14086,6 @@ public final class Main {
     - `JsonValue type = "code_execution_tool_result"`
 
     - `BetaCodeExecutionToolResultBlockContent content`
-
-      Code execution result with encrypted stdout for PFC + web_search results.
 
       - `class BetaCodeExecutionToolResultError:`
 
@@ -14571,8 +14491,6 @@ public final class Main {
 
 - `class BetaContentBlockParam: union`
 
-  Regular text content.
-
   - `class BetaTextBlockParam:`
 
     - `JsonValue type = "text"`
@@ -14912,8 +14830,6 @@ public final class Main {
 
     - `Optional<Caller> caller`
 
-      Tool invocation directly from the model.
-
       - `class BetaDirectCaller:`
 
         Tool invocation directly from the model.
@@ -15169,8 +15085,6 @@ public final class Main {
 
     - `Optional<Caller> caller`
 
-      Tool invocation directly from the model.
-
       - `class BetaDirectCaller:`
 
         Tool invocation directly from the model.
@@ -15226,8 +15140,6 @@ public final class Main {
       Create a cache control breakpoint at this content block.
 
     - `Optional<Caller> caller`
-
-      Tool invocation directly from the model.
 
       - `class BetaDirectCaller:`
 
@@ -15294,8 +15206,6 @@ public final class Main {
       Create a cache control breakpoint at this content block.
 
     - `Optional<Caller> caller`
-
-      Tool invocation directly from the model.
 
       - `class BetaDirectCaller:`
 
@@ -15364,8 +15274,6 @@ public final class Main {
     - `JsonValue type = "code_execution_tool_result"`
 
     - `BetaCodeExecutionToolResultBlockParamContent content`
-
-      Code execution result with encrypted stdout for PFC + web_search results.
 
       - `class BetaCodeExecutionToolResultErrorParam:`
 
@@ -15688,11 +15596,6 @@ public final class Main {
 
     - `Tool tool`
 
-      Reference to a single tool the caller declared directly in
-      `tools[]`. Does not accept the composed `{server}_{name}` form the
-      server assigns to MCP-resolved tools — use `mcp_tool_reference` or
-      `mcp_toolset_reference` for those.
-
       - `class BetaToolChangeToolReference:`
 
         Reference to a single tool the caller declared directly in
@@ -15740,11 +15643,6 @@ public final class Main {
     - `JsonValue type = "tool_removal"`
 
     - `Tool tool`
-
-      Reference to a single tool the caller declared directly in
-      `tools[]`. Does not accept the composed `{server}_{name}` form the
-      server assigns to MCP-resolved tools — use `mcp_tool_reference` or
-      `mcp_toolset_reference` for those.
 
       - `class BetaToolChangeToolReference:`
 
@@ -18659,8 +18557,6 @@ public final class Main {
 
       - `Optional<Caller> caller`
 
-        Tool invocation directly from the model.
-
         - `class BetaDirectCaller:`
 
           Tool invocation directly from the model.
@@ -18721,8 +18617,6 @@ public final class Main {
 
       - `Optional<Caller> caller`
 
-        Tool invocation directly from the model.
-
         - `class BetaDirectCaller:`
 
           Tool invocation directly from the model.
@@ -18774,8 +18668,6 @@ public final class Main {
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
       - `Optional<Caller> caller`
-
-        Tool invocation directly from the model.
 
         - `class BetaDirectCaller:`
 
@@ -18871,8 +18763,6 @@ public final class Main {
 
       - `Optional<Caller> caller`
 
-        Tool invocation directly from the model.
-
         - `class BetaDirectCaller:`
 
           Tool invocation directly from the model.
@@ -18940,8 +18830,6 @@ public final class Main {
       - `JsonValue type = "code_execution_tool_result"`
 
       - `BetaCodeExecutionToolResultBlockContent content`
-
-        Code execution result with encrypted stdout for PFC + web_search results.
 
         - `class BetaCodeExecutionToolResultError:`
 
@@ -20848,8 +20736,6 @@ public final class Main {
 
         - `Optional<Caller> caller`
 
-          Tool invocation directly from the model.
-
           - `class BetaDirectCaller:`
 
             Tool invocation directly from the model.
@@ -21105,8 +20991,6 @@ public final class Main {
 
         - `Optional<Caller> caller`
 
-          Tool invocation directly from the model.
-
           - `class BetaDirectCaller:`
 
             Tool invocation directly from the model.
@@ -21162,8 +21046,6 @@ public final class Main {
           Create a cache control breakpoint at this content block.
 
         - `Optional<Caller> caller`
-
-          Tool invocation directly from the model.
 
           - `class BetaDirectCaller:`
 
@@ -21230,8 +21112,6 @@ public final class Main {
           Create a cache control breakpoint at this content block.
 
         - `Optional<Caller> caller`
-
-          Tool invocation directly from the model.
 
           - `class BetaDirectCaller:`
 
@@ -21300,8 +21180,6 @@ public final class Main {
         - `JsonValue type = "code_execution_tool_result"`
 
         - `BetaCodeExecutionToolResultBlockParamContent content`
-
-          Code execution result with encrypted stdout for PFC + web_search results.
 
           - `class BetaCodeExecutionToolResultErrorParam:`
 
@@ -21624,11 +21502,6 @@ public final class Main {
 
         - `Tool tool`
 
-          Reference to a single tool the caller declared directly in
-          `tools[]`. Does not accept the composed `{server}_{name}` form the
-          server assigns to MCP-resolved tools — use `mcp_tool_reference` or
-          `mcp_toolset_reference` for those.
-
           - `class BetaToolChangeToolReference:`
 
             Reference to a single tool the caller declared directly in
@@ -21676,11 +21549,6 @@ public final class Main {
         - `JsonValue type = "tool_removal"`
 
         - `Tool tool`
-
-          Reference to a single tool the caller declared directly in
-          `tools[]`. Does not accept the composed `{server}_{name}` form the
-          server assigns to MCP-resolved tools — use `mcp_tool_reference` or
-          `mcp_toolset_reference` for those.
 
           - `class BetaToolChangeToolReference:`
 
@@ -22301,8 +22169,6 @@ public final class Main {
 
   - `ContentBlock contentBlock`
 
-    Response model for a file uploaded to the container.
-
     - `class BetaTextBlock:`
 
       - `JsonValue type = "text"`
@@ -22479,8 +22345,6 @@ public final class Main {
 
       - `Optional<Caller> caller`
 
-        Tool invocation directly from the model.
-
         - `class BetaDirectCaller:`
 
           Tool invocation directly from the model.
@@ -22541,8 +22405,6 @@ public final class Main {
 
       - `Optional<Caller> caller`
 
-        Tool invocation directly from the model.
-
         - `class BetaDirectCaller:`
 
           Tool invocation directly from the model.
@@ -22594,8 +22456,6 @@ public final class Main {
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
       - `Optional<Caller> caller`
-
-        Tool invocation directly from the model.
 
         - `class BetaDirectCaller:`
 
@@ -22691,8 +22551,6 @@ public final class Main {
 
       - `Optional<Caller> caller`
 
-        Tool invocation directly from the model.
-
         - `class BetaDirectCaller:`
 
           Tool invocation directly from the model.
@@ -22760,8 +22618,6 @@ public final class Main {
       - `JsonValue type = "code_execution_tool_result"`
 
       - `BetaCodeExecutionToolResultBlockContent content`
-
-        Code execution result with encrypted stdout for PFC + web_search results.
 
         - `class BetaCodeExecutionToolResultError:`
 
@@ -24082,8 +23938,6 @@ public final class Main {
 
         - `Optional<Caller> caller`
 
-          Tool invocation directly from the model.
-
           - `class BetaDirectCaller:`
 
             Tool invocation directly from the model.
@@ -24144,8 +23998,6 @@ public final class Main {
 
         - `Optional<Caller> caller`
 
-          Tool invocation directly from the model.
-
           - `class BetaDirectCaller:`
 
             Tool invocation directly from the model.
@@ -24197,8 +24049,6 @@ public final class Main {
           pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
         - `Optional<Caller> caller`
-
-          Tool invocation directly from the model.
 
           - `class BetaDirectCaller:`
 
@@ -24294,8 +24144,6 @@ public final class Main {
 
         - `Optional<Caller> caller`
 
-          Tool invocation directly from the model.
-
           - `class BetaDirectCaller:`
 
             Tool invocation directly from the model.
@@ -24363,8 +24211,6 @@ public final class Main {
         - `JsonValue type = "code_execution_tool_result"`
 
         - `BetaCodeExecutionToolResultBlockContent content`
-
-          Code execution result with encrypted stdout for PFC + web_search results.
 
           - `class BetaCodeExecutionToolResultError:`
 
@@ -25678,8 +25524,6 @@ public final class Main {
 
           - `Optional<Caller> caller`
 
-            Tool invocation directly from the model.
-
             - `class BetaDirectCaller:`
 
               Tool invocation directly from the model.
@@ -25740,8 +25584,6 @@ public final class Main {
 
           - `Optional<Caller> caller`
 
-            Tool invocation directly from the model.
-
             - `class BetaDirectCaller:`
 
               Tool invocation directly from the model.
@@ -25793,8 +25635,6 @@ public final class Main {
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
           - `Optional<Caller> caller`
-
-            Tool invocation directly from the model.
 
             - `class BetaDirectCaller:`
 
@@ -25890,8 +25730,6 @@ public final class Main {
 
           - `Optional<Caller> caller`
 
-            Tool invocation directly from the model.
-
             - `class BetaDirectCaller:`
 
               Tool invocation directly from the model.
@@ -25959,8 +25797,6 @@ public final class Main {
           - `JsonValue type = "code_execution_tool_result"`
 
           - `BetaCodeExecutionToolResultBlockContent content`
-
-            Code execution result with encrypted stdout for PFC + web_search results.
 
             - `class BetaCodeExecutionToolResultError:`
 
@@ -27163,8 +26999,6 @@ public final class Main {
 
     - `ContentBlock contentBlock`
 
-      Response model for a file uploaded to the container.
-
       - `class BetaTextBlock:`
 
       - `class BetaThinkingBlock:`
@@ -27882,11 +27716,6 @@ public final class Main {
 
   - `Tool tool`
 
-    Reference to a single tool the caller declared directly in
-    `tools[]`. Does not accept the composed `{server}_{name}` form the
-    server assigns to MCP-resolved tools — use `mcp_tool_reference` or
-    `mcp_toolset_reference` for those.
-
     - `class BetaToolChangeToolReference:`
 
       Reference to a single tool the caller declared directly in
@@ -27953,11 +27782,6 @@ public final class Main {
   - `JsonValue type = "tool_removal"`
 
   - `Tool tool`
-
-    Reference to a single tool the caller declared directly in
-    `tools[]`. Does not accept the composed `{server}_{name}` form the
-    server assigns to MCP-resolved tools — use `mcp_tool_reference` or
-    `mcp_toolset_reference` for those.
 
     - `class BetaToolChangeToolReference:`
 
@@ -28251,8 +28075,6 @@ public final class Main {
 
   - `Optional<Caller> caller`
 
-    Tool invocation directly from the model.
-
     - `class BetaDirectCaller:`
 
       Tool invocation directly from the model.
@@ -28329,8 +28151,6 @@ public final class Main {
       - `TTL_1H("1h")`
 
   - `Optional<Caller> caller`
-
-    Tool invocation directly from the model.
 
     - `class BetaDirectCaller:`
 
@@ -31173,8 +30993,6 @@ public final class Main {
 
 - `class BetaToolUnion: union`
 
-  Code execution tool with REPL state persistence (daemon mode + gVisor checkpoint).
-
   - `class BetaTool:`
 
     - `Optional<Type> type`
@@ -33085,8 +32903,6 @@ public final class Main {
 
   - `Optional<Caller> caller`
 
-    Tool invocation directly from the model.
-
     - `class BetaDirectCaller:`
 
       Tool invocation directly from the model.
@@ -33155,8 +32971,6 @@ public final class Main {
       - `TTL_1H("1h")`
 
   - `Optional<Caller> caller`
-
-    Tool invocation directly from the model.
 
     - `class BetaDirectCaller:`
 
@@ -34357,3 +34171,270 @@ public final class Main {
         - `MAX_USES_EXCEEDED("max_uses_exceeded")`
 
         - `UNAVAILABLE("unavailable")`
+
+        - `CONTENT_TOO_LARGE("content_too_large")`
+
+    - `class BetaWebFetchBlock:`
+
+      - `JsonValue type = "web_fetch_result"`
+
+      - `BetaDocumentBlock content`
+
+        - `JsonValue type = "document"`
+
+        - `Optional<BetaCitationConfig> citations`
+
+          Citation configuration for the document
+
+          - `boolean enabled`
+
+        - `Source source`
+
+          - `class BetaBase64PdfSource:`
+
+            - `JsonValue type = "base64"`
+
+            - `String data`
+
+              format: byte
+
+            - `JsonValue mediaType = "application/pdf"`
+
+          - `class BetaPlainTextSource:`
+
+            - `JsonValue type = "text"`
+
+            - `String data`
+
+            - `JsonValue mediaType = "text/plain"`
+
+        - `Optional<String> title`
+
+          The title of the document
+
+      - `Optional<String> retrievedAt`
+
+        ISO 8601 timestamp when the content was retrieved
+
+      - `String url`
+
+        Fetched content URL
+
+  - `String toolUseId`
+
+    pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+  - `Optional<Caller> caller`
+
+    - `class BetaDirectCaller:`
+
+      Tool invocation directly from the model.
+
+      - `JsonValue type = "direct"`
+
+    - `class BetaServerToolCaller:`
+
+      Tool invocation generated by a server-side tool.
+
+      - `JsonValue type = "code_execution_20250825"`
+
+      - `String toolId`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+    - `class BetaServerToolCaller20260120:`
+
+      - `JsonValue type = "code_execution_20260120"`
+
+      - `String toolId`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+### Beta Web Fetch Tool Result Block Param
+
+- `class BetaWebFetchToolResultBlockParam:`
+
+  - `JsonValue type = "web_fetch_tool_result"`
+
+  - `Content content`
+
+    - `class BetaWebFetchToolResultErrorBlockParam:`
+
+      - `JsonValue type = "web_fetch_tool_result_error"`
+
+      - `BetaWebFetchToolResultErrorCode errorCode`
+
+        - `INVALID_TOOL_INPUT("invalid_tool_input")`
+
+        - `URL_TOO_LONG("url_too_long")`
+
+        - `URL_NOT_ALLOWED("url_not_allowed")`
+
+        - `URL_NOT_IN_PRIOR_CONTEXT("url_not_in_prior_context")`
+
+        - `URL_NOT_ACCESSIBLE("url_not_accessible")`
+
+        - `UNSUPPORTED_CONTENT_TYPE("unsupported_content_type")`
+
+        - `TOO_MANY_REQUESTS("too_many_requests")`
+
+        - `MAX_USES_EXCEEDED("max_uses_exceeded")`
+
+        - `UNAVAILABLE("unavailable")`
+
+        - `CONTENT_TOO_LARGE("content_too_large")`
+
+    - `class BetaWebFetchBlockParam:`
+
+      - `JsonValue type = "web_fetch_result"`
+
+      - `BetaRequestDocumentBlock content`
+
+        - `JsonValue type = "document"`
+
+        - `Source source`
+
+          - `class BetaBase64PdfSource:`
+
+            - `JsonValue type = "base64"`
+
+            - `String data`
+
+              format: byte
+
+            - `JsonValue mediaType = "application/pdf"`
+
+          - `class BetaPlainTextSource:`
+
+            - `JsonValue type = "text"`
+
+            - `String data`
+
+            - `JsonValue mediaType = "text/plain"`
+
+          - `class BetaContentBlockSource:`
+
+            - `JsonValue type = "content"`
+
+            - `Content content`
+
+              - `String`
+
+              - `List<BetaContentBlockSourceContent>`
+
+                - `class BetaTextBlockParam:`
+
+                  - `JsonValue type = "text"`
+
+                  - `String text`
+
+                    minLength: 1
+
+                  - `Optional<BetaCacheControlEphemeral> cacheControl`
+
+                    Create a cache control breakpoint at this content block.
+
+                    - `JsonValue type = "ephemeral"`
+
+                    - `Optional<Ttl> ttl`
+
+                      The time-to-live for the cache control breakpoint.
+
+                      This may be one the following values:
+
+                      - `5m`: 5 minutes
+                      - `1h`: 1 hour
+
+                      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+                      - `TTL_5M("5m")`
+
+                      - `TTL_1H("1h")`
+
+                  - `Optional<List<BetaTextCitationParam>> citations`
+
+                    - `class BetaCitationCharLocationParam:`
+
+                      - `JsonValue type = "char_location"`
+
+                      - `String citedText`
+
+                      - `long documentIndex`
+
+                        minimum: 0
+
+                      - `Optional<String> documentTitle`
+
+                        maxLength: 500, minLength: 1
+
+                      - `long endCharIndex`
+
+                      - `long startCharIndex`
+
+                        minimum: 0
+
+                    - `class BetaCitationPageLocationParam:`
+
+                      - `JsonValue type = "page_location"`
+
+                      - `String citedText`
+
+                      - `long documentIndex`
+
+                        minimum: 0
+
+                      - `Optional<String> documentTitle`
+
+                        maxLength: 500, minLength: 1
+
+                      - `long endPageNumber`
+
+                      - `long startPageNumber`
+
+                        minimum: 1
+
+                    - `class BetaCitationContentBlockLocationParam:`
+
+                      - `JsonValue type = "content_block_location"`
+
+                      - `String citedText`
+
+                        The full text of the cited block range, concatenated.
+
+                        Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
+
+                      - `long documentIndex`
+
+                        minimum: 0
+
+                      - `Optional<String> documentTitle`
+
+                        maxLength: 500, minLength: 1
+
+                      - `long endBlockIndex`
+
+                        Exclusive 0-based end index of the cited block range in the source's `content` array.
+
+                        Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
+
+                      - `long startBlockIndex`
+
+                        0-based index of the first cited block in the source's `content` array.
+
+                        minimum: 0
+
+                    - `class BetaCitationWebSearchResultLocationParam:`
+
+                      - `JsonValue type = "web_search_result_location"`
+
+                      - `String citedText`
+
+                      - `String encryptedIndex`
+
+                      - `Optional<String> title`
+
+                        maxLength: 512, minLength: 1
+
+                      - `String url`
+
+                        minLength: 1

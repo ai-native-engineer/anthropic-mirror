@@ -155,7 +155,7 @@ No items found.
 
 ## Agenda
 
-* May 5
+* 5 May
 
 Day 1Day 2Day 3Day 3
 

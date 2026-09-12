@@ -30,3 +30,5 @@ In practice, this means:
 Our sales and [support](https://support.claude.com/en/) teams are standing by to answer any questions you may have.
 
 We are deeply grateful to our users, and to the industry peers, policymakers, veterans, and members of the public who have voiced their support in recent days. Thank you. Above all else, our priorities are to protect our customers from any disruption caused by these extraordinary events and to work with the Department of War to ensure a smooth transition—for them, for our troops, and for American military operations.
+
+Statement on the comments from Secretary of War Pete Hegseth \ Anthropic

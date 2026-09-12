@@ -424,8 +424,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `caller: Optional[Caller]`
 
-              Tool invocation directly from the model.
-
               - `class BetaDirectCaller: …`
 
                 Tool invocation directly from the model.
@@ -488,8 +486,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `caller: Optional[Caller]`
 
-              Tool invocation directly from the model.
-
               - `class BetaDirectCaller: …`
 
                 Tool invocation directly from the model.
@@ -547,8 +543,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
             - `caller: Optional[Caller]`
-
-              Tool invocation directly from the model.
 
               - `class BetaDirectCaller: …`
 
@@ -654,8 +648,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `caller: Optional[Caller]`
 
-              Tool invocation directly from the model.
-
               - `class BetaDirectCaller: …`
 
                 Tool invocation directly from the model.
@@ -733,8 +725,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
               default: code_execution_tool_result
 
             - `content: BetaCodeExecutionToolResultBlockContent`
-
-              Code execution result with encrypted stdout for PFC + web_search results.
 
               - `class BetaCodeExecutionToolResultError: …`
 

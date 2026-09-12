@@ -18,13 +18,41 @@ Claude supports the following authentication types for remote MCP servers. The s
 | --- | --- | --- |
 | `oauth_dcr` | OAuth 2.0 with Dynamic Client Registration ([RFC 7591](https://www.rfc-editor.org/rfc/rfc7591)) | Supported out of the box |
 | `oauth_cimd` | OAuth 2.0 with [Client ID Metadata Document](https://modelcontextprotocol.io/specification/2025-11-25/basic/authorization#client-id-metadata-documents) | Supported out of the box |
-| `oauth_anthropic_creds` | OAuth 2.0 with Anthropic-held client credentials | Contact `mcp-review@anthropic.com` |
-| `custom_connection` | Custom URL or credentials supplied at connection time (for example, Snowflake-style) | Contact `mcp-review@anthropic.com` |
+| `oauth_anthropic_creds` | OAuth 2.0 with [Anthropic-held client credentials](#anthropic-held-client-credentials) | Contact `mcp-review@anthropic.com` |
+| `custom_connection` | Custom URL or OAuth client credentials [entered at connection time](#credentials-entered-at-connection-time) | Contact `mcp-review@anthropic.com` |
 | `static_headers` | Fixed credential (API key or bearer token) entered by an organization administrator as a request header when adding the connector | Beta |
 | `none` | No authentication (authless server) | Supported. An optional partial-auth mode is experimental. |
 
+If your server URL varies per customer, read [Servers with per-customer URLs](#servers-with-per-customer-urls) before you pick a type.
 Static bearer tokens and API keys are supported in beta through request headers (`static_headers`). An organization administrator enters the credential once when adding the connector, and Claude sends it on every request. The credential is shared by the organization rather than pasted per user. Standard header names such as `authorization` and `x-api-key` work for every connector; Anthropic reviews and approves any other header name before administrators can save the connector. See [Authenticating with request headers](https://claude.com/docs/connectors/custom/remote-mcp#authenticating-with-request-headers) for what administrators see and how to document the expected header for them.
 Tokens or API keys passed in the connector URL (for example, `?token=`, `?apiKey=`, or `?userToken=` query parameters) are **not recommended**. A credential in a URL is a security vulnerability: URLs are routinely recorded in server logs, proxies, and browsing history, so a query-string credential is easy to leak. The MCP authorization specification explicitly [prohibits access tokens in the URI query string](https://modelcontextprotocol.io/specification/2025-11-25/basic/authorization#token-requirements). Use OAuth or [request headers](https://claude.com/docs/connectors/custom/remote-mcp#authenticating-with-request-headers) instead.
+
+##  Servers with per-customer URLs
+
+The submission portal’s **Connection** step asks how users reach your server. There are three choices:
+
+* **Universal URL**: every user connects to the same URL.
+* **Multiple URLs**: you list a fixed set of labeled URLs, such as one per region. Users pick one when they connect.
+* **URL pattern**: you give an anchored regular expression that every customer’s URL must match, such as `^https://[a-z0-9-]+\.mcp\.example\.com/mcp$`. Each user enters their own URL when they connect, and Claude accepts it only if it matches.
+
+Keep the host part of a URL pattern lowercase, because Claude lowercases the host of the URL the user enters before checking it.
+Listings with **Multiple URLs** or a **URL pattern** take longer to review.
+You choose the URL option and the authentication type separately, but the URL option limits which authentication types work. Request headers (`static_headers`) are set up by the organization administrator who adds the connector and aren’t covered by this table.
+
+| Type | Universal URL | Multiple URLs | URL pattern |
+| --- | --- | --- | --- |
+| `oauth_dcr` | Yes | Yes | Yes |
+| `oauth_cimd` | Yes | Yes | Yes |
+| `oauth_anthropic_creds` | Yes | Yes | No |
+| `custom_connection` | Yes | No | Yes |
+| `none` | Yes | Yes | Yes |
+
+Anthropic-held client credentials are tied to exact server URLs, and a URL pattern matches URLs Anthropic doesn’t know in advance. Credentials entered at connection time can’t be combined with **Multiple URLs**.
+For a URL pattern, use these in order of preference:
+
+1. Client ID Metadata Document (CIMD). Every customer’s authorization server must advertise both CIMD values listed in [DCR and CIMD details](#dcr-and-cimd-details).
+2. [Dynamic Client Registration](#dcr-and-cimd-details) (DCR). Every customer’s authorization server must expose a `registration_endpoint`.
+3. [Credentials entered at connection time](#credentials-entered-at-connection-time), if your customers’ authorization servers support neither. Each customer then has to create an OAuth client for Claude themselves.
 
 ##  Anthropic-held client credentials
 
@@ -38,7 +66,24 @@ A pure machine-to-machine `client_credentials` grant—where a server-to-server 
 
 This gives you a stable, registered OAuth client without requiring DCR or CIMD on your end, while keeping the user-consent step. Anthropic stores your credentials securely and uses them only for token exchange on behalf of consenting users; they are shared across the hosted Claude surfaces (Claude.ai web, Desktop, mobile, and Cowork). Claude Code runs its own OAuth flow on the user’s machine and identifies itself with its own [Client ID Metadata Document](#callback-urls), so it does not use Anthropic-held credentials. Claude Managed Agents uses a separate credential set.
 Anthropic-held credentials are bound to the authorization server that issued them. If you migrate to a new authorization server, email `mcp-review@anthropic.com` with the new `client_id` and `client_secret` before cutting over. CIMD-based connectors don’t have this constraint — a CIMD `client_id` is a self-hosted URL, so it works against any authorization server that fetches it.
+
+Anthropic-held credentials are also tied to exact server URLs. They can’t be used with a URL pattern, where each customer enters their own server URL. See [Servers with per-customer URLs](#servers-with-per-customer-urls) for the alternatives.
+
 To use this flow, email `mcp-review@anthropic.com` with your `client_id` and secret.
+
+##  Credentials entered at connection time
+
+`custom_connection` (**Custom URL or credentials at connection time** in the submission portal) asks each customer for the OAuth client that Claude should use, instead of Claude registering one or Anthropic holding one.
+Each customer must be able to create an OAuth client in your product, which usually means an administrator sets up the connector for their organization. If your customers can’t create OAuth clients, use CIMD or DCR instead.
+When a user adds your connector, Claude shows a form with these fields:
+
+* **Server URL**, if your listing uses a URL pattern. Claude accepts the URL only if it matches the pattern.
+* **OAuth client ID** and **OAuth client secret**. You choose which of the two to ask for, and whether each is required or optional.
+
+The form links to pages you supply: one for where the customer finds their server URL, and one for how they get the credentials. The credentials page must explain how a customer creates an OAuth client for Claude in your product and registers the redirect URI `https://claude.ai/api/mcp/auth_callback`.
+If a user leaves an optional client secret blank, Claude uses the client ID as a public client. If a user leaves an optional client ID blank, Claude falls back to the same order as any other listing: Anthropic-held credentials for that URL if Anthropic holds any, then CIMD, then DCR. See [DCR and CIMD details](#dcr-and-cimd-details).
+If you later stop asking for credentials, connections already made with user-entered credentials keep using them. An organization gets the new behavior only once no one in it still has the connector. The next person to add it starts fresh.
+To use this flow, email `mcp-review@anthropic.com` with which fields you need, whether each is required, and the page each one should link to.
 
 ##  DCR and CIMD details
 
@@ -46,8 +91,9 @@ If your authorization server does **not** expose a `registration_endpoint` (i.e.
 
 * Expose a `registration_endpoint`
 * Support CIMD instead. Claude selects CIMD only when your authorization server metadata advertises **both** `"client_id_metadata_document_supported": true` **and** `"none"` in `token_endpoint_auth_methods_supported` — the second is required because Claude’s CIMD client authenticates as a public client at your token endpoint. If either is missing, Claude falls back to DCR. See [lazy authentication](https://claude.com/docs/connectors/building/lazy-authentication#identify-the-client-with-cimd) for a worked CIMD example.
-* Switch to `oauth_anthropic_creds`
+* Switch to `oauth_anthropic_creds`, if your listing doesn’t use a URL pattern
 
+If your server URL varies per customer and DCR isn’t available, CIMD is the recommended path. Every customer’s authorization server must advertise both values above. Otherwise Claude falls back to DCR for that customer, which needs a `registration_endpoint`.
 For servers expecting high traffic from the directory, prefer **CIMD or `oauth_anthropic_creds` over DCR**. DCR causes Claude to register a new client on every fresh connection, which can result in very large numbers of registered clients on your authorization server. CIMD and Anthropic-held credentials avoid the registration call entirely.
 Claude includes a [PKCE](https://datatracker.ietf.org/doc/html/rfc7636) `code_challenge` with `code_challenge_method=S256` on every authorization request, regardless of which registration mechanism it uses. Your authorization server must support S256 PKCE, and the [MCP authorization spec](https://modelcontextprotocol.io/specification/2025-11-25/basic/authorization#authorization-code-protection) requires it to advertise `"code_challenge_methods_supported": ["S256"]` in its metadata so spec-compliant clients can verify support before starting the flow.
 To control which scopes Claude requests, include a `scope` parameter in the `WWW-Authenticate` header on your `401` response. If you don’t, Claude requests the scopes your protected resource metadata advertises in `scopes_supported`. Claude also appends `offline_access` when your authorization server metadata lists it in `scopes_supported`, to obtain a refresh token. See [lazy authentication](https://claude.com/docs/connectors/building/lazy-authentication#return-401-not-a-tool-error) for the canonical `401` shape.
@@ -70,7 +116,7 @@ Whichever way Claude finds the document:
 * The metadata’s `authorization_servers` field must list your authorization server’s issuer URL. If you list more than one, Claude uses the first entry and does not fall back to later entries — list your primary issuer first.
 * Your authorization server must serve its own discovery metadata — [RFC 8414](https://www.rfc-editor.org/rfc/rfc8414) authorization server metadata or [OpenID Connect Discovery 1.0](https://openid.net/specs/openid-connect-discovery-1_0.html) — at its `/.well-known/` paths, and that host must also be reachable from Anthropic’s [published egress range](https://platform.claude.com/docs/en/api/ip-addresses). Discovery requests to the authorization server come from the same IP range as requests to your MCP server, so a WAF in front of your identity provider can break the flow even when your MCP server is reachable.
 
-If your authorization server is Microsoft Entra ID, you must also register the MCP server URL as an Application ID URI on your Entra app registration, or the token request fails with `AADSTS9010010`. See [the troubleshooting entry](https://claude.com/docs/connectors/building/troubleshooting#microsoft-entra-id-rejects-the-resource-value) for the fix.
+If your authorization server is Microsoft Entra ID, you must also register the MCP server URL as an Application ID URI on your Entra app registration, or the token request fails with `AADSTS9010010`. By default, Entra accepts that URL as an Application ID URI only when it’s on a domain your tenant has verified (see [Microsoft’s identifier URI restrictions](https://learn.microsoft.com/en-us/entra/identity-platform/identifier-uri-restrictions)), so an MCP server on a platform hostname such as `*.azurewebsites.net` needs a custom domain first. See [the troubleshooting entry](https://claude.com/docs/connectors/building/troubleshooting#microsoft-entra-id-rejects-the-resource-value) for the fix.
 
 If you control both hosts, an alternative is to serve the MCP endpoint and the authorization server behind a single custom domain that can route both `/.well-known/*` and your MCP path.
 
@@ -106,7 +152,7 @@ Your `/token` endpoint must accept `Content-Type: application/x-www-form-urlenco
 
 Organizations using SSO can also connect their users to your server without an interactive OAuth consent step, using an identity assertion signed by their identity provider. See [Enterprise Managed Auth](https://claude.com/docs/connectors/building/enterprise-managed-auth) for what your authorization server needs to support.
 
-Directory connectors use a **single shared OAuth application per connector**. There is no per-org OAuth client for directory connectors — enterprise customers connect to the same OAuth app as everyone else, and access is scoped by the user’s own permissions on your service. Custom connectors are different: an admin can supply their own OAuth client credentials when adding the connector, which scopes the OAuth client to that organization. See [custom connectors](#custom-connectors).
+Most directory connectors use a **single shared OAuth application per connector**. Enterprise customers connect to the same OAuth app as everyone else, and access is scoped by the user’s own permissions on your service. For a listing that asks for [credentials entered at connection time](#credentials-entered-at-connection-time), each customer supplies its own OAuth client instead. Custom connectors are different: an admin can supply their own OAuth client credentials when adding the connector, which scopes the OAuth client to that organization. See [custom connectors](#custom-connectors).
 
 ##  Custom connectors
 

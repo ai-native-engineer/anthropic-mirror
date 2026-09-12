@@ -1,5 +1,13 @@
 <!-- source: https://claude.com/docs/claude-tag/concepts/personal-connectors -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 Personal connectors are the tools you add to your own claude.ai account, like your calendar or your email. When a task you ask for in a Slack channel needs one of your own tools, Claude can offer to use your connector for it.
 Connector use in channels is available to a limited number of organizations. If Claude never offers to use your connectors in a channel, connector use in channels may not be available to your organization, and the channel works with admin-attached connections as described in [how agent identity works](https://claude.com/docs/claude-tag/concepts/agent-identity).
 
@@ -38,6 +46,8 @@ To stop a task that’s using your connectors, select **Stop** under the message
 Results stay visible in the channel. What Claude posts back to a channel thread is readable by everyone there, like any other work Claude does in a channel. Claude’s detailed work on a task you approved lives in a session only you can open. The work runs with your permissions and is recorded under your name.
 Other people can’t use your connectors. Requests other people make to Claude in your task’s thread run with the channel’s own access, not with yours.
 While Claude works on your connector task, it is designed to take direction from you and to treat what other people post in the thread as information for the task rather than as instructions.
+
+##  Related resources
 
 * [How agent identity works](https://claude.com/docs/claude-tag/concepts/agent-identity): whose identity and access Claude uses in channels and DMs
 * [Connectors](https://claude.com/docs/connectors/overview): set up and manage connectors on your claude.ai account

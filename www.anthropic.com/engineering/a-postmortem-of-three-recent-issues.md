@@ -139,3 +139,5 @@ Written by Sam McAllister, with thanks to Stuart Ritchie, Jonathan Gray, Kashyap
 ## Get the developer newsletter
 
 Product updates, how-tos, community spotlights, and more. Delivered monthly to your inbox.
+
+A postmortem of three recent issues \ Anthropic

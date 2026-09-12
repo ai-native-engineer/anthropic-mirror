@@ -434,8 +434,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `Caller Caller`
 
-            Tool invocation directly from the model.
-
             - `class BetaDirectCaller:`
 
               Tool invocation directly from the model.
@@ -691,8 +689,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `Caller Caller`
 
-            Tool invocation directly from the model.
-
             - `class BetaDirectCaller:`
 
               Tool invocation directly from the model.
@@ -748,8 +744,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
             Create a cache control breakpoint at this content block.
 
           - `Caller Caller`
-
-            Tool invocation directly from the model.
 
             - `class BetaDirectCaller:`
 
@@ -816,8 +810,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
             Create a cache control breakpoint at this content block.
 
           - `Caller Caller`
-
-            Tool invocation directly from the model.
 
             - `class BetaDirectCaller:`
 
@@ -886,8 +878,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
           - `JsonElement Type = "code_execution_tool_result"`
 
           - `required BetaCodeExecutionToolResultBlockParamContent Content`
-
-            Code execution result with encrypted stdout for PFC + web_search results.
 
             - `class BetaCodeExecutionToolResultErrorParam:`
 
@@ -1210,11 +1200,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `required Tool Tool`
 
-            Reference to a single tool the caller declared directly in
-            `tools[]`. Does not accept the composed `{server}_{name}` form the
-            server assigns to MCP-resolved tools — use `mcp_tool_reference` or
-            `mcp_toolset_reference` for those.
-
             - `class BetaToolChangeToolReference:`
 
               Reference to a single tool the caller declared directly in
@@ -1262,11 +1247,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
           - `JsonElement Type = "tool_removal"`
 
           - `required Tool Tool`
-
-            Reference to a single tool the caller declared directly in
-            `tools[]`. Does not accept the composed `{server}_{name}` form the
-            server assigns to MCP-resolved tools — use `mcp_tool_reference` or
-            `mcp_toolset_reference` for those.
 
             - `class BetaToolChangeToolReference:`
 
@@ -3912,8 +3892,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `Caller Caller`
 
-        Tool invocation directly from the model.
-
         - `class BetaDirectCaller:`
 
           Tool invocation directly from the model.
@@ -3974,8 +3952,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `Caller Caller`
 
-        Tool invocation directly from the model.
-
         - `class BetaDirectCaller:`
 
           Tool invocation directly from the model.
@@ -4027,8 +4003,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
       - `Caller Caller`
-
-        Tool invocation directly from the model.
 
         - `class BetaDirectCaller:`
 
@@ -4124,8 +4098,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `Caller Caller`
 
-        Tool invocation directly from the model.
-
         - `class BetaDirectCaller:`
 
           Tool invocation directly from the model.
@@ -4193,8 +4165,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
       - `JsonElement Type = "code_execution_tool_result"`
 
       - `required BetaCodeExecutionToolResultBlockContent Content`
-
-        Code execution result with encrypted stdout for PFC + web_search results.
 
         - `class BetaCodeExecutionToolResultError:`
 
@@ -5405,8 +5375,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `required ContentBlock ContentBlock`
 
-      Response model for a file uploaded to the container.
-
       - `class BetaTextBlock:`
 
       - `class BetaThinkingBlock:`
@@ -6081,8 +6049,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
           - `Caller Caller`
 
-            Tool invocation directly from the model.
-
             - `class BetaDirectCaller:`
 
               Tool invocation directly from the model.
@@ -6338,8 +6304,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
           - `Caller Caller`
 
-            Tool invocation directly from the model.
-
             - `class BetaDirectCaller:`
 
               Tool invocation directly from the model.
@@ -6395,8 +6359,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
             Create a cache control breakpoint at this content block.
 
           - `Caller Caller`
-
-            Tool invocation directly from the model.
 
             - `class BetaDirectCaller:`
 
@@ -6463,8 +6425,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
             Create a cache control breakpoint at this content block.
 
           - `Caller Caller`
-
-            Tool invocation directly from the model.
 
             - `class BetaDirectCaller:`
 
@@ -6533,8 +6493,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
           - `JsonElement Type = "code_execution_tool_result"`
 
           - `required BetaCodeExecutionToolResultBlockParamContent Content`
-
-            Code execution result with encrypted stdout for PFC + web_search results.
 
             - `class BetaCodeExecutionToolResultErrorParam:`
 
@@ -6857,11 +6815,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
           - `required Tool Tool`
 
-            Reference to a single tool the caller declared directly in
-            `tools[]`. Does not accept the composed `{server}_{name}` form the
-            server assigns to MCP-resolved tools — use `mcp_tool_reference` or
-            `mcp_toolset_reference` for those.
-
             - `class BetaToolChangeToolReference:`
 
               Reference to a single tool the caller declared directly in
@@ -6909,11 +6862,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
           - `JsonElement Type = "tool_removal"`
 
           - `required Tool Tool`
-
-            Reference to a single tool the caller declared directly in
-            `tools[]`. Does not accept the composed `{server}_{name}` form the
-            server assigns to MCP-resolved tools — use `mcp_tool_reference` or
-            `mcp_toolset_reference` for those.
 
             - `class BetaToolChangeToolReference:`
 
@@ -10439,14 +10387,6 @@ Console.WriteLine(betaMessageTokensCount);
 
 - `class BetaBrowserStateChange: union`
 
-  A tab this call's execution opened that remains open at its end —
-  the creation delta of the `tabs` inventory, not an event log.
-
-  Carries only the `tab_id`; the tab's `title` and `url` live on its
-  `tabs` entry, which must include the same `tab_id`. A tab opened
-  during a failed call gets no deferred `tab_opened`; it simply appears
-  in the next result's `tabs` inventory.
-
   - `class BetaBrowserStateChangeTabOpened:`
 
     A tab this call's execution opened that remains open at its end —
@@ -12417,8 +12357,6 @@ Console.WriteLine(betaMessageTokensCount);
 
   - `required BetaCodeExecutionToolResultBlockContent Content`
 
-    Code execution result with encrypted stdout for PFC + web_search results.
-
     - `class BetaCodeExecutionToolResultError:`
 
       - `JsonElement Type = "code_execution_tool_result_error"`
@@ -12475,8 +12413,6 @@ Console.WriteLine(betaMessageTokensCount);
 
 - `class BetaCodeExecutionToolResultBlockContent: union`
 
-  Code execution result with encrypted stdout for PFC + web_search results.
-
   - `class BetaCodeExecutionToolResultError:`
 
     - `JsonElement Type = "code_execution_tool_result_error"`
@@ -12532,8 +12468,6 @@ Console.WriteLine(betaMessageTokensCount);
   - `JsonElement Type = "code_execution_tool_result"`
 
   - `required BetaCodeExecutionToolResultBlockParamContent Content`
-
-    Code execution result with encrypted stdout for PFC + web_search results.
 
     - `class BetaCodeExecutionToolResultErrorParam:`
 
@@ -12611,8 +12545,6 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Code Execution Tool Result Block Param Content
 
 - `class BetaCodeExecutionToolResultBlockParamContent: union`
-
-  Code execution result with encrypted stdout for PFC + web_search results.
 
   - `class BetaCodeExecutionToolResultErrorParam:`
 
@@ -13707,8 +13639,6 @@ Console.WriteLine(betaMessageTokensCount);
 
 - `class BetaContentBlock: union`
 
-  Response model for a file uploaded to the container.
-
   - `class BetaTextBlock:`
 
     - `JsonElement Type = "text"`
@@ -13885,8 +13815,6 @@ Console.WriteLine(betaMessageTokensCount);
 
     - `Caller Caller`
 
-      Tool invocation directly from the model.
-
       - `class BetaDirectCaller:`
 
         Tool invocation directly from the model.
@@ -13947,8 +13875,6 @@ Console.WriteLine(betaMessageTokensCount);
 
     - `Caller Caller`
 
-      Tool invocation directly from the model.
-
       - `class BetaDirectCaller:`
 
         Tool invocation directly from the model.
@@ -14000,8 +13926,6 @@ Console.WriteLine(betaMessageTokensCount);
       pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
     - `Caller Caller`
-
-      Tool invocation directly from the model.
 
       - `class BetaDirectCaller:`
 
@@ -14097,8 +14021,6 @@ Console.WriteLine(betaMessageTokensCount);
 
     - `Caller Caller`
 
-      Tool invocation directly from the model.
-
       - `class BetaDirectCaller:`
 
         Tool invocation directly from the model.
@@ -14166,8 +14088,6 @@ Console.WriteLine(betaMessageTokensCount);
     - `JsonElement Type = "code_execution_tool_result"`
 
     - `required BetaCodeExecutionToolResultBlockContent Content`
-
-      Code execution result with encrypted stdout for PFC + web_search results.
 
       - `class BetaCodeExecutionToolResultError:`
 
@@ -14573,8 +14493,6 @@ Console.WriteLine(betaMessageTokensCount);
 
 - `class BetaContentBlockParam: union`
 
-  Regular text content.
-
   - `class BetaTextBlockParam:`
 
     - `JsonElement Type = "text"`
@@ -14914,8 +14832,6 @@ Console.WriteLine(betaMessageTokensCount);
 
     - `Caller Caller`
 
-      Tool invocation directly from the model.
-
       - `class BetaDirectCaller:`
 
         Tool invocation directly from the model.
@@ -15171,8 +15087,6 @@ Console.WriteLine(betaMessageTokensCount);
 
     - `Caller Caller`
 
-      Tool invocation directly from the model.
-
       - `class BetaDirectCaller:`
 
         Tool invocation directly from the model.
@@ -15228,8 +15142,6 @@ Console.WriteLine(betaMessageTokensCount);
       Create a cache control breakpoint at this content block.
 
     - `Caller Caller`
-
-      Tool invocation directly from the model.
 
       - `class BetaDirectCaller:`
 
@@ -15296,8 +15208,6 @@ Console.WriteLine(betaMessageTokensCount);
       Create a cache control breakpoint at this content block.
 
     - `Caller Caller`
-
-      Tool invocation directly from the model.
 
       - `class BetaDirectCaller:`
 
@@ -15366,8 +15276,6 @@ Console.WriteLine(betaMessageTokensCount);
     - `JsonElement Type = "code_execution_tool_result"`
 
     - `required BetaCodeExecutionToolResultBlockParamContent Content`
-
-      Code execution result with encrypted stdout for PFC + web_search results.
 
       - `class BetaCodeExecutionToolResultErrorParam:`
 
@@ -15690,11 +15598,6 @@ Console.WriteLine(betaMessageTokensCount);
 
     - `required Tool Tool`
 
-      Reference to a single tool the caller declared directly in
-      `tools[]`. Does not accept the composed `{server}_{name}` form the
-      server assigns to MCP-resolved tools — use `mcp_tool_reference` or
-      `mcp_toolset_reference` for those.
-
       - `class BetaToolChangeToolReference:`
 
         Reference to a single tool the caller declared directly in
@@ -15742,11 +15645,6 @@ Console.WriteLine(betaMessageTokensCount);
     - `JsonElement Type = "tool_removal"`
 
     - `required Tool Tool`
-
-      Reference to a single tool the caller declared directly in
-      `tools[]`. Does not accept the composed `{server}_{name}` form the
-      server assigns to MCP-resolved tools — use `mcp_tool_reference` or
-      `mcp_toolset_reference` for those.
 
       - `class BetaToolChangeToolReference:`
 
@@ -18661,8 +18559,6 @@ Console.WriteLine(betaMessageTokensCount);
 
       - `Caller Caller`
 
-        Tool invocation directly from the model.
-
         - `class BetaDirectCaller:`
 
           Tool invocation directly from the model.
@@ -18723,8 +18619,6 @@ Console.WriteLine(betaMessageTokensCount);
 
       - `Caller Caller`
 
-        Tool invocation directly from the model.
-
         - `class BetaDirectCaller:`
 
           Tool invocation directly from the model.
@@ -18776,8 +18670,6 @@ Console.WriteLine(betaMessageTokensCount);
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
       - `Caller Caller`
-
-        Tool invocation directly from the model.
 
         - `class BetaDirectCaller:`
 
@@ -18873,8 +18765,6 @@ Console.WriteLine(betaMessageTokensCount);
 
       - `Caller Caller`
 
-        Tool invocation directly from the model.
-
         - `class BetaDirectCaller:`
 
           Tool invocation directly from the model.
@@ -18942,8 +18832,6 @@ Console.WriteLine(betaMessageTokensCount);
       - `JsonElement Type = "code_execution_tool_result"`
 
       - `required BetaCodeExecutionToolResultBlockContent Content`
-
-        Code execution result with encrypted stdout for PFC + web_search results.
 
         - `class BetaCodeExecutionToolResultError:`
 
@@ -20850,8 +20738,6 @@ Console.WriteLine(betaMessageTokensCount);
 
         - `Caller Caller`
 
-          Tool invocation directly from the model.
-
           - `class BetaDirectCaller:`
 
             Tool invocation directly from the model.
@@ -21107,8 +20993,6 @@ Console.WriteLine(betaMessageTokensCount);
 
         - `Caller Caller`
 
-          Tool invocation directly from the model.
-
           - `class BetaDirectCaller:`
 
             Tool invocation directly from the model.
@@ -21164,8 +21048,6 @@ Console.WriteLine(betaMessageTokensCount);
           Create a cache control breakpoint at this content block.
 
         - `Caller Caller`
-
-          Tool invocation directly from the model.
 
           - `class BetaDirectCaller:`
 
@@ -21232,8 +21114,6 @@ Console.WriteLine(betaMessageTokensCount);
           Create a cache control breakpoint at this content block.
 
         - `Caller Caller`
-
-          Tool invocation directly from the model.
 
           - `class BetaDirectCaller:`
 
@@ -21302,8 +21182,6 @@ Console.WriteLine(betaMessageTokensCount);
         - `JsonElement Type = "code_execution_tool_result"`
 
         - `required BetaCodeExecutionToolResultBlockParamContent Content`
-
-          Code execution result with encrypted stdout for PFC + web_search results.
 
           - `class BetaCodeExecutionToolResultErrorParam:`
 
@@ -21626,11 +21504,6 @@ Console.WriteLine(betaMessageTokensCount);
 
         - `required Tool Tool`
 
-          Reference to a single tool the caller declared directly in
-          `tools[]`. Does not accept the composed `{server}_{name}` form the
-          server assigns to MCP-resolved tools — use `mcp_tool_reference` or
-          `mcp_toolset_reference` for those.
-
           - `class BetaToolChangeToolReference:`
 
             Reference to a single tool the caller declared directly in
@@ -21678,11 +21551,6 @@ Console.WriteLine(betaMessageTokensCount);
         - `JsonElement Type = "tool_removal"`
 
         - `required Tool Tool`
-
-          Reference to a single tool the caller declared directly in
-          `tools[]`. Does not accept the composed `{server}_{name}` form the
-          server assigns to MCP-resolved tools — use `mcp_tool_reference` or
-          `mcp_toolset_reference` for those.
 
           - `class BetaToolChangeToolReference:`
 
@@ -22303,8 +22171,6 @@ Console.WriteLine(betaMessageTokensCount);
 
   - `required ContentBlock ContentBlock`
 
-    Response model for a file uploaded to the container.
-
     - `class BetaTextBlock:`
 
       - `JsonElement Type = "text"`
@@ -22481,8 +22347,6 @@ Console.WriteLine(betaMessageTokensCount);
 
       - `Caller Caller`
 
-        Tool invocation directly from the model.
-
         - `class BetaDirectCaller:`
 
           Tool invocation directly from the model.
@@ -22543,8 +22407,6 @@ Console.WriteLine(betaMessageTokensCount);
 
       - `Caller Caller`
 
-        Tool invocation directly from the model.
-
         - `class BetaDirectCaller:`
 
           Tool invocation directly from the model.
@@ -22596,8 +22458,6 @@ Console.WriteLine(betaMessageTokensCount);
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
       - `Caller Caller`
-
-        Tool invocation directly from the model.
 
         - `class BetaDirectCaller:`
 
@@ -22693,8 +22553,6 @@ Console.WriteLine(betaMessageTokensCount);
 
       - `Caller Caller`
 
-        Tool invocation directly from the model.
-
         - `class BetaDirectCaller:`
 
           Tool invocation directly from the model.
@@ -22762,8 +22620,6 @@ Console.WriteLine(betaMessageTokensCount);
       - `JsonElement Type = "code_execution_tool_result"`
 
       - `required BetaCodeExecutionToolResultBlockContent Content`
-
-        Code execution result with encrypted stdout for PFC + web_search results.
 
         - `class BetaCodeExecutionToolResultError:`
 
@@ -24084,8 +23940,6 @@ Console.WriteLine(betaMessageTokensCount);
 
         - `Caller Caller`
 
-          Tool invocation directly from the model.
-
           - `class BetaDirectCaller:`
 
             Tool invocation directly from the model.
@@ -24146,8 +24000,6 @@ Console.WriteLine(betaMessageTokensCount);
 
         - `Caller Caller`
 
-          Tool invocation directly from the model.
-
           - `class BetaDirectCaller:`
 
             Tool invocation directly from the model.
@@ -24199,8 +24051,6 @@ Console.WriteLine(betaMessageTokensCount);
           pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
         - `Caller Caller`
-
-          Tool invocation directly from the model.
 
           - `class BetaDirectCaller:`
 
@@ -24296,8 +24146,6 @@ Console.WriteLine(betaMessageTokensCount);
 
         - `Caller Caller`
 
-          Tool invocation directly from the model.
-
           - `class BetaDirectCaller:`
 
             Tool invocation directly from the model.
@@ -24365,8 +24213,6 @@ Console.WriteLine(betaMessageTokensCount);
         - `JsonElement Type = "code_execution_tool_result"`
 
         - `required BetaCodeExecutionToolResultBlockContent Content`
-
-          Code execution result with encrypted stdout for PFC + web_search results.
 
           - `class BetaCodeExecutionToolResultError:`
 
@@ -25680,8 +25526,6 @@ Console.WriteLine(betaMessageTokensCount);
 
           - `Caller Caller`
 
-            Tool invocation directly from the model.
-
             - `class BetaDirectCaller:`
 
               Tool invocation directly from the model.
@@ -25742,8 +25586,6 @@ Console.WriteLine(betaMessageTokensCount);
 
           - `Caller Caller`
 
-            Tool invocation directly from the model.
-
             - `class BetaDirectCaller:`
 
               Tool invocation directly from the model.
@@ -25795,8 +25637,6 @@ Console.WriteLine(betaMessageTokensCount);
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
           - `Caller Caller`
-
-            Tool invocation directly from the model.
 
             - `class BetaDirectCaller:`
 
@@ -25892,8 +25732,6 @@ Console.WriteLine(betaMessageTokensCount);
 
           - `Caller Caller`
 
-            Tool invocation directly from the model.
-
             - `class BetaDirectCaller:`
 
               Tool invocation directly from the model.
@@ -25961,8 +25799,6 @@ Console.WriteLine(betaMessageTokensCount);
           - `JsonElement Type = "code_execution_tool_result"`
 
           - `required BetaCodeExecutionToolResultBlockContent Content`
-
-            Code execution result with encrypted stdout for PFC + web_search results.
 
             - `class BetaCodeExecutionToolResultError:`
 
@@ -27165,8 +27001,6 @@ Console.WriteLine(betaMessageTokensCount);
 
     - `required ContentBlock ContentBlock`
 
-      Response model for a file uploaded to the container.
-
       - `class BetaTextBlock:`
 
       - `class BetaThinkingBlock:`
@@ -27884,11 +27718,6 @@ Console.WriteLine(betaMessageTokensCount);
 
   - `required Tool Tool`
 
-    Reference to a single tool the caller declared directly in
-    `tools[]`. Does not accept the composed `{server}_{name}` form the
-    server assigns to MCP-resolved tools — use `mcp_tool_reference` or
-    `mcp_toolset_reference` for those.
-
     - `class BetaToolChangeToolReference:`
 
       Reference to a single tool the caller declared directly in
@@ -27955,11 +27784,6 @@ Console.WriteLine(betaMessageTokensCount);
   - `JsonElement Type = "tool_removal"`
 
   - `required Tool Tool`
-
-    Reference to a single tool the caller declared directly in
-    `tools[]`. Does not accept the composed `{server}_{name}` form the
-    server assigns to MCP-resolved tools — use `mcp_tool_reference` or
-    `mcp_toolset_reference` for those.
 
     - `class BetaToolChangeToolReference:`
 
@@ -28253,8 +28077,6 @@ Console.WriteLine(betaMessageTokensCount);
 
   - `Caller Caller`
 
-    Tool invocation directly from the model.
-
     - `class BetaDirectCaller:`
 
       Tool invocation directly from the model.
@@ -28331,8 +28153,6 @@ Console.WriteLine(betaMessageTokensCount);
       - `Ttl1h("1h")`
 
   - `Caller Caller`
-
-    Tool invocation directly from the model.
 
     - `class BetaDirectCaller:`
 
@@ -31175,8 +30995,6 @@ Console.WriteLine(betaMessageTokensCount);
 
 - `class BetaToolUnion: union`
 
-  Code execution tool with REPL state persistence (daemon mode + gVisor checkpoint).
-
   - `class BetaTool:`
 
     - `Type? Type`
@@ -33087,8 +32905,6 @@ Console.WriteLine(betaMessageTokensCount);
 
   - `Caller Caller`
 
-    Tool invocation directly from the model.
-
     - `class BetaDirectCaller:`
 
       Tool invocation directly from the model.
@@ -33157,8 +32973,6 @@ Console.WriteLine(betaMessageTokensCount);
       - `Ttl1h("1h")`
 
   - `Caller Caller`
-
-    Tool invocation directly from the model.
 
     - `class BetaDirectCaller:`
 
@@ -34165,3 +33979,261 @@ Console.WriteLine(betaMessageTokensCount);
   - `JsonElement Type = "web_fetch_20260309"`
 
   - `JsonElement Name = "web_fetch"`
+
+    Name of the tool.
+
+    This is how the tool will be called by the model and in `tool_use` blocks.
+
+  - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
+    - `Direct("direct")`
+
+    - `CodeExecution20250825("code_execution_20250825")`
+
+    - `CodeExecution20260120("code_execution_20260120")`
+
+    - `CodeExecution20260521("code_execution_20260521")`
+
+  - `IReadOnlyList<string>? AllowedDomains`
+
+    List of domains to allow fetching from
+
+  - `IReadOnlyList<string>? BlockedDomains`
+
+    List of domains to block fetching from
+
+  - `BetaCacheControlEphemeral? CacheControl`
+
+    Create a cache control breakpoint at this content block.
+
+    - `JsonElement Type = "ephemeral"`
+
+    - `Ttl Ttl`
+
+      The time-to-live for the cache control breakpoint.
+
+      This may be one the following values:
+
+      - `5m`: 5 minutes
+      - `1h`: 1 hour
+
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+      - `Ttl5m("5m")`
+
+      - `Ttl1h("1h")`
+
+  - `BetaCitationsConfigParam? Citations`
+
+    Citations configuration for fetched documents. Citations are disabled by default.
+
+    - `bool Enabled`
+
+  - `bool DeferLoading`
+
+    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+  - `long? MaxContentTokens`
+
+    Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
+
+    exclusiveMinimum: 0
+
+  - `long? MaxUses`
+
+    Maximum number of times the tool can be used in the API request.
+
+    exclusiveMinimum: 0
+
+  - `bool Strict`
+
+    When true, guarantees schema validation on tool names and inputs
+
+  - `bool UseCache`
+
+    Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
+
+### Beta Web Fetch Tool 20260318
+
+- `class BetaWebFetchTool20260318:`
+
+  - `JsonElement Type = "web_fetch_20260318"`
+
+  - `JsonElement Name = "web_fetch"`
+
+    Name of the tool.
+
+    This is how the tool will be called by the model and in `tool_use` blocks.
+
+  - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
+    - `Direct("direct")`
+
+    - `CodeExecution20250825("code_execution_20250825")`
+
+    - `CodeExecution20260120("code_execution_20260120")`
+
+    - `CodeExecution20260521("code_execution_20260521")`
+
+  - `IReadOnlyList<string>? AllowedDomains`
+
+    List of domains to allow fetching from
+
+  - `IReadOnlyList<string>? BlockedDomains`
+
+    List of domains to block fetching from
+
+  - `BetaCacheControlEphemeral? CacheControl`
+
+    Create a cache control breakpoint at this content block.
+
+    - `JsonElement Type = "ephemeral"`
+
+    - `Ttl Ttl`
+
+      The time-to-live for the cache control breakpoint.
+
+      This may be one the following values:
+
+      - `5m`: 5 minutes
+      - `1h`: 1 hour
+
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+      - `Ttl5m("5m")`
+
+      - `Ttl1h("1h")`
+
+  - `BetaCitationsConfigParam? Citations`
+
+    Citations configuration for fetched documents. Citations are disabled by default.
+
+    - `bool Enabled`
+
+  - `bool DeferLoading`
+
+    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+  - `long? MaxContentTokens`
+
+    Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
+
+    exclusiveMinimum: 0
+
+  - `long? MaxUses`
+
+    Maximum number of times the tool can be used in the API request.
+
+    exclusiveMinimum: 0
+
+  - `ResponseInclusion ResponseInclusion`
+
+    How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
+
+    - `Full("full")`
+
+    - `Excluded("excluded")`
+
+  - `bool Strict`
+
+    When true, guarantees schema validation on tool names and inputs
+
+  - `bool UseCache`
+
+    Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
+
+### Beta Web Fetch Tool Result Block
+
+- `class BetaWebFetchToolResultBlock:`
+
+  - `JsonElement Type = "web_fetch_tool_result"`
+
+  - `required Content Content`
+
+    - `class BetaWebFetchToolResultErrorBlock:`
+
+      - `JsonElement Type = "web_fetch_tool_result_error"`
+
+      - `required BetaWebFetchToolResultErrorCode ErrorCode`
+
+        - `InvalidToolInput("invalid_tool_input")`
+
+        - `UrlTooLong("url_too_long")`
+
+        - `UrlNotAllowed("url_not_allowed")`
+
+        - `UrlNotInPriorContext("url_not_in_prior_context")`
+
+        - `UrlNotAccessible("url_not_accessible")`
+
+        - `UnsupportedContentType("unsupported_content_type")`
+
+        - `TooManyRequests("too_many_requests")`
+
+        - `MaxUsesExceeded("max_uses_exceeded")`
+
+        - `Unavailable("unavailable")`
+
+        - `ContentTooLarge("content_too_large")`
+
+    - `class BetaWebFetchBlock:`
+
+      - `JsonElement Type = "web_fetch_result"`
+
+      - `required BetaDocumentBlock Content`
+
+        - `JsonElement Type = "document"`
+
+        - `required BetaCitationConfig? Citations`
+
+          Citation configuration for the document
+
+          - `required bool Enabled`
+
+        - `required Source Source`
+
+          - `class BetaBase64PdfSource:`
+
+            - `JsonElement Type = "base64"`
+
+            - `required string Data`
+
+              format: byte
+
+            - `JsonElement MediaType = "application/pdf"`
+
+          - `class BetaPlainTextSource:`
+
+            - `JsonElement Type = "text"`
+
+            - `required string Data`
+
+            - `JsonElement MediaType = "text/plain"`
+
+        - `required string? Title`
+
+          The title of the document
+
+      - `required string? RetrievedAt`
+
+        ISO 8601 timestamp when the content was retrieved
+
+      - `required string Url`
+
+        Fetched content URL
+
+  - `required string ToolUseID`
+
+    pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+  - `Caller Caller`
+
+    - `class BetaDirectCaller:`
+
+      Tool invocation directly from the model.
+
+      - `JsonElement Type = "direct"`
+
+    - `class BetaServerToolCaller:`
+
+      Tool invocation generated by a server-side tool.

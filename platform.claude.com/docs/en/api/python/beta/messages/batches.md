@@ -449,8 +449,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `caller: Optional[Caller]`
 
-              Tool invocation directly from the model.
-
               - `class BetaDirectCaller: …`
 
                 Tool invocation directly from the model.
@@ -706,8 +704,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `caller: Optional[Caller]`
 
-              Tool invocation directly from the model.
-
               - `class BetaDirectCaller: …`
 
                 Tool invocation directly from the model.
@@ -763,8 +759,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
               Create a cache control breakpoint at this content block.
 
             - `caller: Optional[Caller]`
-
-              Tool invocation directly from the model.
 
               - `class BetaDirectCaller: …`
 
@@ -831,8 +825,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
               Create a cache control breakpoint at this content block.
 
             - `caller: Optional[Caller]`
-
-              Tool invocation directly from the model.
 
               - `class BetaDirectCaller: …`
 
@@ -901,8 +893,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
             - `type: Literal["code_execution_tool_result"]`
 
             - `content: BetaCodeExecutionToolResultBlockParamContent`
-
-              Code execution result with encrypted stdout for PFC + web_search results.
 
               - `class BetaCodeExecutionToolResultErrorParam: …`
 
@@ -1225,11 +1215,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `tool: Tool`
 
-              Reference to a single tool the caller declared directly in
-              `tools[]`. Does not accept the composed `{server}_{name}` form the
-              server assigns to MCP-resolved tools — use `mcp_tool_reference` or
-              `mcp_toolset_reference` for those.
-
               - `class BetaToolChangeToolReference: …`
 
                 Reference to a single tool the caller declared directly in
@@ -1277,11 +1262,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
             - `type: Literal["tool_removal"]`
 
             - `tool: Tool`
-
-              Reference to a single tool the caller declared directly in
-              `tools[]`. Does not accept the composed `{server}_{name}` form the
-              server assigns to MCP-resolved tools — use `mcp_tool_reference` or
-              `mcp_toolset_reference` for those.
 
               - `class BetaToolChangeToolReference: …`
 
@@ -5519,8 +5499,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `caller: Optional[Caller]`
 
-              Tool invocation directly from the model.
-
               - `class BetaDirectCaller: …`
 
                 Tool invocation directly from the model.
@@ -5583,8 +5561,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `caller: Optional[Caller]`
 
-              Tool invocation directly from the model.
-
               - `class BetaDirectCaller: …`
 
                 Tool invocation directly from the model.
@@ -5642,8 +5618,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
             - `caller: Optional[Caller]`
-
-              Tool invocation directly from the model.
 
               - `class BetaDirectCaller: …`
 
@@ -5749,8 +5723,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `caller: Optional[Caller]`
 
-              Tool invocation directly from the model.
-
               - `class BetaDirectCaller: …`
 
                 Tool invocation directly from the model.
@@ -5828,8 +5800,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
               default: code_execution_tool_result
 
             - `content: BetaCodeExecutionToolResultBlockContent`
-
-              Code execution result with encrypted stdout for PFC + web_search results.
 
               - `class BetaCodeExecutionToolResultError: …`
 
@@ -7684,8 +7654,6 @@ for batch in client.beta.messages.batches.results(
 
             - `caller: Optional[Caller]`
 
-              Tool invocation directly from the model.
-
               - `class BetaDirectCaller: …`
 
                 Tool invocation directly from the model.
@@ -7748,8 +7716,6 @@ for batch in client.beta.messages.batches.results(
 
             - `caller: Optional[Caller]`
 
-              Tool invocation directly from the model.
-
               - `class BetaDirectCaller: …`
 
                 Tool invocation directly from the model.
@@ -7807,8 +7773,6 @@ for batch in client.beta.messages.batches.results(
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
             - `caller: Optional[Caller]`
-
-              Tool invocation directly from the model.
 
               - `class BetaDirectCaller: …`
 
@@ -7914,8 +7878,6 @@ for batch in client.beta.messages.batches.results(
 
             - `caller: Optional[Caller]`
 
-              Tool invocation directly from the model.
-
               - `class BetaDirectCaller: …`
 
                 Tool invocation directly from the model.
@@ -7993,8 +7955,6 @@ for batch in client.beta.messages.batches.results(
               default: code_execution_tool_result
 
             - `content: BetaCodeExecutionToolResultBlockContent`
-
-              Code execution result with encrypted stdout for PFC + web_search results.
 
               - `class BetaCodeExecutionToolResultError: …`
 
@@ -9612,8 +9572,6 @@ for batch in client.beta.messages.batches.results(
 
           - `caller: Optional[Caller]`
 
-            Tool invocation directly from the model.
-
             - `class BetaDirectCaller: …`
 
               Tool invocation directly from the model.
@@ -9676,8 +9634,6 @@ for batch in client.beta.messages.batches.results(
 
           - `caller: Optional[Caller]`
 
-            Tool invocation directly from the model.
-
             - `class BetaDirectCaller: …`
 
               Tool invocation directly from the model.
@@ -9735,8 +9691,6 @@ for batch in client.beta.messages.batches.results(
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
           - `caller: Optional[Caller]`
-
-            Tool invocation directly from the model.
 
             - `class BetaDirectCaller: …`
 
@@ -9842,8 +9796,6 @@ for batch in client.beta.messages.batches.results(
 
           - `caller: Optional[Caller]`
 
-            Tool invocation directly from the model.
-
             - `class BetaDirectCaller: …`
 
               Tool invocation directly from the model.
@@ -9921,8 +9873,6 @@ for batch in client.beta.messages.batches.results(
             default: code_execution_tool_result
 
           - `content: BetaCodeExecutionToolResultBlockContent`
-
-            Code execution result with encrypted stdout for PFC + web_search results.
 
             - `class BetaCodeExecutionToolResultError: …`
 
@@ -11492,8 +11442,6 @@ for batch in client.beta.messages.batches.results(
 
         - `caller: Optional[Caller]`
 
-          Tool invocation directly from the model.
-
           - `class BetaDirectCaller: …`
 
             Tool invocation directly from the model.
@@ -11556,8 +11504,6 @@ for batch in client.beta.messages.batches.results(
 
         - `caller: Optional[Caller]`
 
-          Tool invocation directly from the model.
-
           - `class BetaDirectCaller: …`
 
             Tool invocation directly from the model.
@@ -11615,8 +11561,6 @@ for batch in client.beta.messages.batches.results(
           pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
         - `caller: Optional[Caller]`
-
-          Tool invocation directly from the model.
 
           - `class BetaDirectCaller: …`
 
@@ -11722,8 +11666,6 @@ for batch in client.beta.messages.batches.results(
 
         - `caller: Optional[Caller]`
 
-          Tool invocation directly from the model.
-
           - `class BetaDirectCaller: …`
 
             Tool invocation directly from the model.
@@ -11801,8 +11743,6 @@ for batch in client.beta.messages.batches.results(
           default: code_execution_tool_result
 
         - `content: BetaCodeExecutionToolResultBlockContent`
-
-          Code execution result with encrypted stdout for PFC + web_search results.
 
           - `class BetaCodeExecutionToolResultError: …`
 

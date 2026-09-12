@@ -3320,7 +3320,7 @@ Docs
 
 [Docs](https://claude.com/docs/claude-science/overview)Docs
 
-## FAQs
+## FAQ
 
 ### Is Claude Science a new model?
 

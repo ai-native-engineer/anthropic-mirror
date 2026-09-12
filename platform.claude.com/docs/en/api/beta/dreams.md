@@ -139,8 +139,6 @@ Create a Dream
 
 - `model: string or BetaDreamModelConfigParam`
 
-  Model identifier and configuration applied to every pipeline stage.
-
   - `string`
 
   - `BetaDreamModelConfigParam object`
@@ -166,8 +164,6 @@ Create a Dream
   minLength: 1, maxLength: 4096
 
 - `output_behavior: optional BetaOutputBehavior`
-
-  The default destination: the job creates a new output memory store as a clone of the memory_store input and writes the consolidated memories into it. The input store is never mutated.
 
   - `BetaOutputBehaviorCreateNew object`
 
@@ -262,8 +258,6 @@ Create a Dream
       - `"fast"`
 
   - `output_behavior: BetaOutputBehavior`
-
-    The default destination: the job creates a new output memory store as a clone of the memory_store input and writes the consolidated memories into it. The input store is never mutated.
 
     - `BetaOutputBehaviorCreateNew object`
 
@@ -620,8 +614,6 @@ List Dreams
 
   - `output_behavior: BetaOutputBehavior`
 
-    The default destination: the job creates a new output memory store as a clone of the memory_store input and writes the consolidated memories into it. The input store is never mutated.
-
     - `BetaOutputBehaviorCreateNew object`
 
       The default destination: the job creates a new output memory store as a clone of the memory_store input and writes the consolidated memories into it. The input store is never mutated.
@@ -938,8 +930,6 @@ Get a Dream
 
   - `output_behavior: BetaOutputBehavior`
 
-    The default destination: the job creates a new output memory store as a clone of the memory_store input and writes the consolidated memories into it. The input store is never mutated.
-
     - `BetaOutputBehaviorCreateNew object`
 
       The default destination: the job creates a new output memory store as a clone of the memory_store input and writes the consolidated memories into it. The input store is never mutated.
@@ -1248,8 +1238,6 @@ Cancel a Dream
       - `"fast"`
 
   - `output_behavior: BetaOutputBehavior`
-
-    The default destination: the job creates a new output memory store as a clone of the memory_store input and writes the consolidated memories into it. The input store is never mutated.
 
     - `BetaOutputBehaviorCreateNew object`
 
@@ -1561,8 +1549,6 @@ Archive a Dream
 
   - `output_behavior: BetaOutputBehavior`
 
-    The default destination: the job creates a new output memory store as a clone of the memory_store input and writes the consolidated memories into it. The input store is never mutated.
-
     - `BetaOutputBehaviorCreateNew object`
 
       The default destination: the job creates a new output memory store as a clone of the memory_store input and writes the consolidated memories into it. The input store is never mutated.
@@ -1763,8 +1749,6 @@ curl https://api.anthropic.com/v1/dreams/$DREAM_ID/archive \
 
   - `output_behavior: BetaOutputBehavior`
 
-    The default destination: the job creates a new output memory store as a clone of the memory_store input and writes the consolidated memories into it. The input store is never mutated.
-
     - `BetaOutputBehaviorCreateNew object`
 
       The default destination: the job creates a new output memory store as a clone of the memory_store input and writes the consolidated memories into it. The input store is never mutated.
@@ -1844,8 +1828,6 @@ curl https://api.anthropic.com/v1/dreams/$DREAM_ID/archive \
 ### Beta Dream Input
 
 - `BetaDreamInput = BetaDreamMemoryStoreInput or BetaDreamSessionsInput`
-
-  An input memory store the dream reads from. The dream never mutates this store unless it is also the destination: with output_behavior {type: "update_existing"} the job consolidates this store in place.
 
   - `BetaDreamMemoryStoreInput object`
 
@@ -1997,8 +1979,6 @@ curl https://api.anthropic.com/v1/dreams/$DREAM_ID/archive \
 
 - `BetaDreamingError = BetaInvalidRequestError or BetaAuthenticationError or BetaBillingError or 7 more`
 
-  The `output_behavior.memory_store_id` target is still held by a prior `{type: "update_existing"}` dream — one that is `pending` or `running`, or was canceled with its final writes still landing. Rarely the named dream has just finished (`completed`/`failed`) and its execution is still closing; an immediate retry then almost always succeeds. The message names the holding dream when the server can identify it (rarely omitted); poll it to a terminal state or cancel it, then retry. Carried with `x-should-retry: false`.
-
   - `BetaInvalidRequestError object`
 
     - `type: "invalid_request_error"`
@@ -2102,8 +2082,6 @@ curl https://api.anthropic.com/v1/dreams/$DREAM_ID/archive \
 ### Beta Output Behavior
 
 - `BetaOutputBehavior = BetaOutputBehaviorCreateNew or BetaOutputBehaviorUpdateExisting`
-
-  The default destination: the job creates a new output memory store as a clone of the memory_store input and writes the consolidated memories into it. The input store is never mutated.
 
   - `BetaOutputBehaviorCreateNew object`
 

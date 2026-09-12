@@ -326,8 +326,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `Caller ToolUseBlockCallerUnion`
 
-              Tool invocation directly from the model.
-
               default: {"type":"direct"}
 
               - `type DirectCaller struct{…}`
@@ -378,8 +376,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `Caller ServerToolUseBlockCallerUnion`
 
-              Tool invocation directly from the model.
-
               default: {"type":"direct"}
 
               - `type DirectCaller struct{…}`
@@ -417,8 +413,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
               default: web_search_tool_result
 
             - `Caller WebSearchToolResultBlockCallerUnion`
-
-              Tool invocation directly from the model.
 
               default: {"type":"direct"}
 
@@ -479,8 +473,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
               default: web_fetch_tool_result
 
             - `Caller WebFetchToolResultBlockCallerUnion`
-
-              Tool invocation directly from the model.
 
               default: {"type":"direct"}
 
@@ -587,8 +579,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
               default: code_execution_tool_result
 
             - `Content CodeExecutionToolResultBlockContentUnion`
-
-              Code execution result with encrypted stdout for PFC + web_search results.
 
               - `type CodeExecutionToolResultError struct{…}`
 

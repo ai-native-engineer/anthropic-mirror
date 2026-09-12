@@ -1572,8 +1572,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `caller: Optional[Caller]`
 
-          Tool invocation directly from the model.
-
           - `class BetaDirectCaller: …`
 
             Tool invocation directly from the model.
@@ -1829,8 +1827,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `caller: Optional[Caller]`
 
-          Tool invocation directly from the model.
-
           - `class BetaDirectCaller: …`
 
             Tool invocation directly from the model.
@@ -1886,8 +1882,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
           Create a cache control breakpoint at this content block.
 
         - `caller: Optional[Caller]`
-
-          Tool invocation directly from the model.
 
           - `class BetaDirectCaller: …`
 
@@ -1954,8 +1948,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
           Create a cache control breakpoint at this content block.
 
         - `caller: Optional[Caller]`
-
-          Tool invocation directly from the model.
 
           - `class BetaDirectCaller: …`
 
@@ -2024,8 +2016,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         - `type: Literal["code_execution_tool_result"]`
 
         - `content: BetaCodeExecutionToolResultBlockParamContent`
-
-          Code execution result with encrypted stdout for PFC + web_search results.
 
           - `class BetaCodeExecutionToolResultErrorParam: …`
 
@@ -2348,11 +2338,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `tool: Tool`
 
-          Reference to a single tool the caller declared directly in
-          `tools[]`. Does not accept the composed `{server}_{name}` form the
-          server assigns to MCP-resolved tools — use `mcp_tool_reference` or
-          `mcp_toolset_reference` for those.
-
           - `class BetaToolChangeToolReference: …`
 
             Reference to a single tool the caller declared directly in
@@ -2400,11 +2385,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         - `type: Literal["tool_removal"]`
 
         - `tool: Tool`
-
-          Reference to a single tool the caller declared directly in
-          `tools[]`. Does not accept the composed `{server}_{name}` form the
-          server assigns to MCP-resolved tools — use `mcp_tool_reference` or
-          `mcp_toolset_reference` for those.
 
           - `class BetaToolChangeToolReference: …`
 
@@ -5360,8 +5340,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `caller: Optional[Caller]`
 
-        Tool invocation directly from the model.
-
         - `class BetaDirectCaller: …`
 
           Tool invocation directly from the model.
@@ -5424,8 +5402,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `caller: Optional[Caller]`
 
-        Tool invocation directly from the model.
-
         - `class BetaDirectCaller: …`
 
           Tool invocation directly from the model.
@@ -5483,8 +5459,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
       - `caller: Optional[Caller]`
-
-        Tool invocation directly from the model.
 
         - `class BetaDirectCaller: …`
 
@@ -5590,8 +5564,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `caller: Optional[Caller]`
 
-        Tool invocation directly from the model.
-
         - `class BetaDirectCaller: …`
 
           Tool invocation directly from the model.
@@ -5669,8 +5641,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         default: code_execution_tool_result
 
       - `content: BetaCodeExecutionToolResultBlockContent`
-
-        Code execution result with encrypted stdout for PFC + web_search results.
 
         - `class BetaCodeExecutionToolResultError: …`
 
@@ -6994,8 +6964,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `content_block: ContentBlock`
 
-      Response model for a file uploaded to the container.
-
       - `class BetaTextBlock: …`
 
       - `class BetaThinkingBlock: …`
@@ -7684,8 +7652,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `caller: Optional[Caller]`
 
-          Tool invocation directly from the model.
-
           - `class BetaDirectCaller: …`
 
             Tool invocation directly from the model.
@@ -7941,8 +7907,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `caller: Optional[Caller]`
 
-          Tool invocation directly from the model.
-
           - `class BetaDirectCaller: …`
 
             Tool invocation directly from the model.
@@ -7998,8 +7962,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
           Create a cache control breakpoint at this content block.
 
         - `caller: Optional[Caller]`
-
-          Tool invocation directly from the model.
 
           - `class BetaDirectCaller: …`
 
@@ -8066,8 +8028,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
           Create a cache control breakpoint at this content block.
 
         - `caller: Optional[Caller]`
-
-          Tool invocation directly from the model.
 
           - `class BetaDirectCaller: …`
 
@@ -8136,8 +8096,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
         - `type: Literal["code_execution_tool_result"]`
 
         - `content: BetaCodeExecutionToolResultBlockParamContent`
-
-          Code execution result with encrypted stdout for PFC + web_search results.
 
           - `class BetaCodeExecutionToolResultErrorParam: …`
 
@@ -8460,11 +8418,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `tool: Tool`
 
-          Reference to a single tool the caller declared directly in
-          `tools[]`. Does not accept the composed `{server}_{name}` form the
-          server assigns to MCP-resolved tools — use `mcp_tool_reference` or
-          `mcp_toolset_reference` for those.
-
           - `class BetaToolChangeToolReference: …`
 
             Reference to a single tool the caller declared directly in
@@ -8512,11 +8465,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
         - `type: Literal["tool_removal"]`
 
         - `tool: Tool`
-
-          Reference to a single tool the caller declared directly in
-          `tools[]`. Does not accept the composed `{server}_{name}` form the
-          server assigns to MCP-resolved tools — use `mcp_tool_reference` or
-          `mcp_toolset_reference` for those.
 
           - `class BetaToolChangeToolReference: …`
 
@@ -11513,8 +11461,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `caller: Optional[Caller]`
 
-              Tool invocation directly from the model.
-
               - `class BetaDirectCaller: …`
 
                 Tool invocation directly from the model.
@@ -11770,8 +11716,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `caller: Optional[Caller]`
 
-              Tool invocation directly from the model.
-
               - `class BetaDirectCaller: …`
 
                 Tool invocation directly from the model.
@@ -11827,8 +11771,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
               Create a cache control breakpoint at this content block.
 
             - `caller: Optional[Caller]`
-
-              Tool invocation directly from the model.
 
               - `class BetaDirectCaller: …`
 
@@ -11895,8 +11837,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
               Create a cache control breakpoint at this content block.
 
             - `caller: Optional[Caller]`
-
-              Tool invocation directly from the model.
 
               - `class BetaDirectCaller: …`
 
@@ -11965,8 +11905,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
             - `type: Literal["code_execution_tool_result"]`
 
             - `content: BetaCodeExecutionToolResultBlockParamContent`
-
-              Code execution result with encrypted stdout for PFC + web_search results.
 
               - `class BetaCodeExecutionToolResultErrorParam: …`
 
@@ -12289,11 +12227,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `tool: Tool`
 
-              Reference to a single tool the caller declared directly in
-              `tools[]`. Does not accept the composed `{server}_{name}` form the
-              server assigns to MCP-resolved tools — use `mcp_tool_reference` or
-              `mcp_toolset_reference` for those.
-
               - `class BetaToolChangeToolReference: …`
 
                 Reference to a single tool the caller declared directly in
@@ -12341,11 +12274,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
             - `type: Literal["tool_removal"]`
 
             - `tool: Tool`
-
-              Reference to a single tool the caller declared directly in
-              `tools[]`. Does not accept the composed `{server}_{name}` form the
-              server assigns to MCP-resolved tools — use `mcp_tool_reference` or
-              `mcp_toolset_reference` for those.
 
               - `class BetaToolChangeToolReference: …`
 
@@ -16583,8 +16511,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `caller: Optional[Caller]`
 
-              Tool invocation directly from the model.
-
               - `class BetaDirectCaller: …`
 
                 Tool invocation directly from the model.
@@ -16647,8 +16573,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `caller: Optional[Caller]`
 
-              Tool invocation directly from the model.
-
               - `class BetaDirectCaller: …`
 
                 Tool invocation directly from the model.
@@ -16706,8 +16630,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
             - `caller: Optional[Caller]`
-
-              Tool invocation directly from the model.
 
               - `class BetaDirectCaller: …`
 
@@ -16813,8 +16735,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `caller: Optional[Caller]`
 
-              Tool invocation directly from the model.
-
               - `class BetaDirectCaller: …`
 
                 Tool invocation directly from the model.
@@ -16892,8 +16812,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
               default: code_execution_tool_result
 
             - `content: BetaCodeExecutionToolResultBlockContent`
-
-              Code execution result with encrypted stdout for PFC + web_search results.
 
               - `class BetaCodeExecutionToolResultError: …`
 
@@ -35130,3 +35048,88 @@ Archive Session
     - `mcp_servers: List[BetaManagedAgentsMCPServerURLDefinition]`
 
       - `type: Literal["url"]`
+
+      - `name: str`
+
+      - `url: str`
+
+    - `model: BetaManagedAgentsModelConfig`
+
+      Model identifier and configuration.
+
+      - `id: BetaManagedAgentsModel`
+
+        The model that will power your agent.
+
+        See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `Literal["claude-fable-5-1", "claude-sonnet-5", "claude-fable-5", 11 more]`
+
+          The model that will power your agent.
+
+          See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `claude-fable-5-1` - Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+          - `claude-sonnet-5` - High-performance model for coding and agents
+          - `claude-fable-5` - Next generation of intelligence for the hardest knowledge work and coding problems
+          - `claude-opus-5` - Powerful intelligence for long-running agents and coding
+          - `claude-opus-4-8` - Powerful intelligence for long-running agents and coding
+          - `claude-opus-4-7` - Powerful intelligence for long-running agents and coding
+          - `claude-opus-4-6` - Powerful intelligence for long-running agents and coding
+          - `claude-sonnet-4-6` - Best combination of speed and intelligence
+          - `claude-haiku-4-5` - Fastest model with near-frontier intelligence
+          - `claude-haiku-4-5-20251001` - Fastest model with near-frontier intelligence
+          - `claude-opus-4-5` - Powerful intelligence for long-running agents and coding
+          - `claude-opus-4-5-20251101` - Powerful intelligence for long-running agents and coding
+          - `claude-sonnet-4-5` - High-performance model for agents and coding
+          - `claude-sonnet-4-5-20250929` - High-performance model for agents and coding
+
+          - `"claude-fable-5-1"`
+
+            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+          - `"claude-sonnet-5"`
+
+            High-performance model for coding and agents
+
+          - `"claude-fable-5"`
+
+            Next generation of intelligence for the hardest knowledge work and coding problems
+
+          - `"claude-opus-5"`
+
+            Powerful intelligence for long-running agents and coding
+
+          - `"claude-opus-4-8"`
+
+            Powerful intelligence for long-running agents and coding
+
+          - `"claude-opus-4-7"`
+
+            Powerful intelligence for long-running agents and coding
+
+          - `"claude-opus-4-6"`
+
+            Powerful intelligence for long-running agents and coding
+
+          - `"claude-sonnet-4-6"`
+
+            Best combination of speed and intelligence
+
+          - `"claude-haiku-4-5"`
+
+            Fastest model with near-frontier intelligence
+
+          - `"claude-haiku-4-5-20251001"`
+
+            Fastest model with near-frontier intelligence
+
+          - `"claude-opus-4-5"`
+
+            Powerful intelligence for long-running agents and coding
+
+          - `"claude-opus-4-5-20251101"`
+
+            Powerful intelligence for long-running agents and coding
+
+          - `"claude-sonnet-4-5"`
