@@ -90,8 +90,6 @@ Watch sessions
 
 Add to calendar
 
-![]()
-
 ## AWS Summit London
 
 Add to calendar

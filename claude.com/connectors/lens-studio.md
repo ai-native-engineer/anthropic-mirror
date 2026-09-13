@@ -2,7 +2,7 @@
 
 [Skip to main content](#main-content)
 
-More[Documentation (opens in new tab)](https://developers.snap.com/lens-studio/features/lens-studio-ai/overview)[Support (opens in new tab)](https://ar.snap.com/lens-studio)
+More[Documentation (opens in new tab)](https://developers.snap.com/lens-studio/features/lens-studio-ai/overview)[Support (opens in new tab)](https://ar.snap.com/lens-studio)[Privacy policy (opens in new tab)](https://values.snap.com/privacy/privacy-policy)
 
 \*\*Important: Launch Lens Studio 5.15 or later before installing this extension. The extension requires an active Lens Studio session to connect properly.\*\*
 

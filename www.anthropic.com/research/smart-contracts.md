@@ -477,5 +477,3 @@ We are sharing the first complete computer-checked proof of Fermat’s Last Theo
 ## Subscribe to the Frontier Red Team newsletter
 
 Get updates on our latest red-teaming research and findings.
-
-AI agents find smart contract exploits \ Anthropic

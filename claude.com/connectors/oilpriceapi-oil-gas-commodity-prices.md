@@ -2,7 +2,7 @@
 
 [Skip to main content](#main-content)
 
-More[Documentation (opens in new tab)](https://github.com/OilpriceAPI/mcp-server#readme)[Support (opens in new tab)](https://oilpriceapi.com/mcp)
+More[Documentation (opens in new tab)](https://github.com/OilpriceAPI/mcp-server#readme)[Support (opens in new tab)](https://oilpriceapi.com/mcp)[Privacy policy (opens in new tab)](https://www.oilpriceapi.com/privacy)
 
 The energy commodity MCP server. Live spot prices for Brent, WTI, natural gas, diesel, gasoline and 70+ commodities, plus historical data, futures curves, refining spreads, rig counts, OPEC production, price alerts and multi-commodity market briefs. Works instantly in demo mode (no API key) with a limited commodity set; a free API key from oilpriceapi.com unlocks everything.
 

@@ -33,6 +33,16 @@ Search, read, and upload files instantly
 
 [Add Google Drive in Claude (opens in new tab)](https://claude.ai/directory/b89f7865-a755-4f86-8062-c3bd651740ce "Add in Claude")
 
+![](https://www.google.com/s2/favicons?domain=brightdeck.ai&sz=96)
+
+### [Brightdeck](https://claude.com/connectors/brightdeck-ai)
+
+Trending
+
+Create presentations and slides, compatible with PowerPoint
+
+[Add Brightdeck in Claude (opens in new tab)](https://claude.ai/directory/c0a11a21-c9c7-4b10-9118-629035443c7b "Add in Claude")
+
 ![](https://agent.enrichlabs.ai/avatars/helena.png)
 
 ### [Helena by Enrich Labs](https://claude.com/connectors/helena-by-enrich-labs)
@@ -43,14 +53,6 @@ Your AI marketer for paid ads, SEO, email, social, and analytics
 
 [Add Helena by Enrich Labs in Claude (opens in new tab)](https://claude.ai/directory/0da6abdc-62c3-4272-940b-898189371a48 "Add in Claude")
 
-![](https://raw.githubusercontent.com/Perspective-AI/mcp/main/icon.png)
-
-### [Perspective AI](https://claude.com/connectors/perspective-ai)
-
-An AI Concierge that turns forms into conversations
-
-[Add Perspective AI in Claude (opens in new tab)](https://claude.ai/directory/ac16a66e-c876-4447-a723-cfa55a3bce1b "Add in Claude")
-
 ![](https://www.google.com/s2/favicons?domain=supabase.com&sz=96)
 
 ### [Supabase](https://claude.com/connectors/supabase)
@@ -59,6 +61,14 @@ Manage databases, authentication, and storage
 
 [Add Supabase in Claude (opens in new tab)](https://claude.ai/directory/11ca66fc-1e98-49d5-ab9b-7cb4672a8f10 "Add in Claude")
 
+![](https://raw.githubusercontent.com/Perspective-AI/mcp/main/icon.png)
+
+### [Perspective AI](https://claude.com/connectors/perspective-ai)
+
+An AI Concierge that turns forms into conversations
+
+[Add Perspective AI in Claude (opens in new tab)](https://claude.ai/directory/ac16a66e-c876-4447-a723-cfa55a3bce1b "Add in Claude")
+
 ![](https://www.google.com/s2/favicons?domain=monday.com&sz=96)
 
 ### [monday.com](https://claude.com/connectors/monday)
@@ -66,11 +76,3 @@ Manage databases, authentication, and storage
 Manage projects, tasks, portfolios, boards, workflows, milestones, dependencies, forms and dashboards with monday.com project management & CRM.
 
 [Add monday.com in Claude (opens in new tab)](https://claude.ai/directory/49e0f9ba-7d45-4fb6-b098-55eec956fbc6 "Add in Claude")
-
-![](https://www.google.com/s2/favicons?domain=shopify.com&sz=96)
-
-### [Shopify](https://claude.com/connectors/shopify)
-
-Build, manage, and analyze your Shopify store
-
-[Add Shopify in Claude (opens in new tab)](https://claude.ai/directory/80917cb7-3071-4fca-b053-a4262d356c60 "Add in Claude")

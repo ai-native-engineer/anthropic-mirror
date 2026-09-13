@@ -2,7 +2,7 @@
 
 [Skip to main content](#main-content)
 
-More[Documentation (opens in new tab)](https://github.com/dynatrace-oss/dynatrace-mcp#readme)[Support (opens in new tab)](https://github.com/dynatrace-oss/dynatrace-mcp)
+More[Documentation (opens in new tab)](https://github.com/dynatrace-oss/dynatrace-mcp#readme)[Support (opens in new tab)](https://github.com/dynatrace-oss/dynatrace-mcp)[Privacy policy (opens in new tab)](https://www.dynatrace.com/company/trust-center/privacy/)
 
 ⚠️ This package is deprecated and no longer maintained. For local development (VS Code, Cursor, Claude Code, IntelliJ, …), migrate to Dynatrace-for-AI + dtctl: https://github.com/Dynatrace/dynatrace-for-ai/. For agent-to-agent use cases (Atlassian Rovo, GitHub Coding Agent, …), use the Dynatrace Remote MCP Server: https://www.dynatrace.com/hub/detail/dynatrace-mcp-server/
 

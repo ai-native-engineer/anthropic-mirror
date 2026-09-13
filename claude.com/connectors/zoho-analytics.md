@@ -2,7 +2,7 @@
 
 [Skip to main content](#main-content)
 
-More[Documentation (opens in new tab)](https://www.zoho.com/analytics/api/v2/zoho-analytics-mcp-server.html)[Support (opens in new tab)](https://github.com/zoho/analytics-mcp-server)
+More[Documentation (opens in new tab)](https://www.zoho.com/analytics/api/v2/zoho-analytics-mcp-server.html)[Support (opens in new tab)](https://github.com/zoho/analytics-mcp-server)[Privacy policy (opens in new tab)](https://www.zoho.com/privacy.html)
 
 The Zoho Analytics MCP Server (Beta) implements the Model Context Protocol (MCP), a standardized interface that enables AI models to interact seamlessly with applications. This middleware solution bridges the connection between AI agents and Zoho Analytics, providing powerful data analysis capabilities through a unified interface.
 

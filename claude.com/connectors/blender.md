@@ -2,7 +2,7 @@
 
 [Skip to main content](#main-content)
 
-More[Support (opens in new tab)](https://www.blender.org/lab/mcp-server/)
+More[Support (opens in new tab)](https://www.blender.org/lab/mcp-server/)[Privacy policy (opens in new tab)](https://www.blender.org/privacy-policy/)
 
 Blender MCP offers a natural language interface with Blender's Python API, improving access to documentation, and allowing users to explore and understand complex setups.
 

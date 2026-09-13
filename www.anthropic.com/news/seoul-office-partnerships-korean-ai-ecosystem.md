@@ -45,5 +45,3 @@ This week, we co-hosted [Claude Build Day](https://luma.com/ht1jlnwy) with BASS 
 Our Seoul office—led by [KiYoung Choi](https://www.anthropic.com/news/kiyoung-choi-representative-director-anthropic-korea), who brings three decades of experience leading technology businesses across Korea—is now open and hiring across a range of roles. To learn more about joining the team, visit our [careers page](https://www.anthropic.com/careers).
 
 *Updated June 18 to add details on MOU with the Korean government.*
-
-Anthropic opens Seoul office \ Anthropic

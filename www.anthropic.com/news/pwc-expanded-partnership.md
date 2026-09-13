@@ -72,5 +72,3 @@ Claude is already available in ChatPwC—the firm's internal AI assistant—and 
 PwC clients can contact their account team to discuss deployment options. Enterprises can visit our [Enterprise page](https://www.anthropic.com/enterprise) to learn more about Claude. Claude is the only frontier model available on all three of the world's most prominent cloud services, including Amazon Bedrock, Google Cloud Vertex AI, and Microsoft Azure.
 
 [Learn more here](https://www.pwc.com/us/en/technology/alliances/anthropic.html).
-
-PwC deploys Claude across its business \ Anthropic

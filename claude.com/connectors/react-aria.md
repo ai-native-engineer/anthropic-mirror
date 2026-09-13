@@ -2,7 +2,7 @@
 
 [Skip to main content](#main-content)
 
-More[Documentation (opens in new tab)](https://react-aria.adobe.com/ai.html)[Support (opens in new tab)](https://react-aria.adobe.com/)
+More[Documentation (opens in new tab)](https://react-aria.adobe.com/ai.html)[Support (opens in new tab)](https://react-aria.adobe.com/)[Privacy policy (opens in new tab)](https://www.adobe.com/privacy/policy.html)
 
 Provides tools for browsing the React Aria documentation. Uses the React Aria documentation content available at https://react-aria.adobe.com.
 

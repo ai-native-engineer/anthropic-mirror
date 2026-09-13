@@ -2,7 +2,7 @@
 
 [Skip to main content](#main-content)
 
-More[Support (opens in new tab)](https://cap.cloud.sap/)
+More[Support (opens in new tab)](https://cap.cloud.sap/)[Privacy policy (opens in new tab)](https://www.sap.com/about/legal/privacy.html)
 
 AI-assisted development of SAP Cloud Application Programming Model (CAP) projects. Enables searching CDS models and CAP documentation.
 

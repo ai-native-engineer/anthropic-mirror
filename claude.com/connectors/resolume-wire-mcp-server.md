@@ -2,7 +2,7 @@
 
 [Skip to main content](#main-content)
 
-More[Documentation (opens in new tab)](https://resolume.com/support)[Support (opens in new tab)](https://resolume.com)
+More[Documentation (opens in new tab)](https://resolume.com/support)[Support (opens in new tab)](https://resolume.com)[Privacy policy (opens in new tab)](https://resolume.com/privacy)
 
 The official Resolume MCP server lets AI assistants control Wire in real time. Use it to build and manage your node-based patches through natural language. Requires Resolume Wire 7.26+
 

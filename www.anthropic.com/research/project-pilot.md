@@ -123,5 +123,3 @@ We are sharing the first complete computer-checked proof of Fermat’s Last Theo
 ## Subscribe to the Frontier Red Team newsletter
 
 Get updates on our latest red-teaming research and findings.
-
-Project Pilot: Can AI models fly drones? \ Anthropic

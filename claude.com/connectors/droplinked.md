@@ -2,7 +2,7 @@
 
 [Skip to main content](#main-content)
 
-More[Support (opens in new tab)](https://droplinked.com)
+More[Support (opens in new tab)](https://droplinked.com)[Privacy policy (opens in new tab)](https://droplinked.com/privacy)
 
 Discover and verify products across droplinked's KYB-attested merchant network. Read-only agentic-commerce discovery.
 

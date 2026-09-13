@@ -71,5 +71,3 @@ Claude Mythos Preview will be available to participants of Project Glasswing at 
 ## Red-teaming and evaluations
 
 Our Frontier Red Team has published an [extensive writeup](https://red.anthropic.com/2026/mythos-preview) detailing how the model discovers, reproduces, and patches real-world vulnerabilities, and the full evaluation methodology, capability results, and safety testing are available in the [Claude Mythos Preview system card](https://www.anthropic.com/claude-mythos-preview-system-card).
-
-Project Glasswing \ Anthropic

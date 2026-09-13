@@ -2,7 +2,7 @@
 
 [Skip to main content](#main-content)
 
-More[Documentation (opens in new tab)](https://github.com/AutomoxCommunity/automox-mcp#readme)[Support (opens in new tab)](https://github.com/AutomoxCommunity/automox-mcp)
+More[Documentation (opens in new tab)](https://github.com/AutomoxCommunity/automox-mcp#readme)[Support (opens in new tab)](https://github.com/AutomoxCommunity/automox-mcp)[Privacy policy (opens in new tab)](https://www.automox.com/legal/automox-mcp-server-privacy-policy)
 
 The official Automox MCP server, packaged as a Claude Desktop Extension. Connects Claude to your Automox environment so you can manage devices, check compliance posture, run policies, prepare for Patch Tuesday, browse the worklet catalog, drive Splashtop remote-control sessions, and more — all by asking. Exposes 133 MCP tools across 18 domains (devices, policies, patches, groups, webhooks, worklets, vulnerability sync, audit, reports, Splashtop remote control, and more), 14 MCP resources (including interactive MCP App UIs for compliance triage, patch-approval review, policy blast-radius review, remediation-apply review, and RBAC access certification), and 6 workflow prompts (audit\_policy, investigate\_device, onboard\_group, patch\_tuesday, security\_posture, triage\_failure). Read-only mode and modular tool loading are supported via optional configuration.
 

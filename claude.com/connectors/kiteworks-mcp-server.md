@@ -2,7 +2,7 @@
 
 [Skip to main content](#main-content)
 
-More[Documentation (opens in new tab)](https://developer.kiteworks.com/mcp-landing-page.htm)[Support (opens in new tab)](https://github.com/kiteworks/mcp)
+More[Documentation (opens in new tab)](https://developer.kiteworks.com/mcp-landing-page.htm)[Support (opens in new tab)](https://github.com/kiteworks/mcp)[Privacy policy (opens in new tab)](https://www.kiteworks.com/privacy-policy)
 
 The Kiteworks MCP Server enables Large Language Model (LLM) applications to securely interact with your Kiteworks instance through the Model Context Protocol (MCP). It provides AI assistants with the ability to manage files, folders, and user information within your Kiteworks environment while maintaining enterprise-grade security.
 

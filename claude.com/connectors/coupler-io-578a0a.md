@@ -2,7 +2,7 @@
 
 [Skip to main content](#main-content)
 
-More[Documentation (opens in new tab)](https://rw.rw/couplerio/mcp)[Support (opens in new tab)](https://coupler.io)
+More[Documentation (opens in new tab)](https://rw.rw/couplerio/mcp)[Support (opens in new tab)](https://coupler.io)[Privacy policy (opens in new tab)](https://coupler.io/privacy-policy)
 
 Key features:
 

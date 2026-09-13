@@ -2,7 +2,7 @@
 
 [Skip to main content](#main-content)
 
-More[Support (opens in new tab)](https://github.com/nulab/backlog-mcp-server)
+More[Support (opens in new tab)](https://github.com/nulab/backlog-mcp-server)[Privacy policy (opens in new tab)](https://nulab.com/privacy/)
 
 Backlog MCP Server connects Claude to Nulab's Backlog — a project management, issue tracking, and Git/SVN platform used by teams worldwide. Manage projects, issues, comments, wikis, and version-control activity directly from your conversations.
 

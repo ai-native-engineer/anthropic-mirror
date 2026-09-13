@@ -2,7 +2,7 @@
 
 [Skip to main content](#main-content)
 
-More[Documentation (opens in new tab)](https://developer.smartbear.com/smartbear-mcp)[Support (opens in new tab)](https://smartbear.com/ai/mcp-server)
+More[Documentation (opens in new tab)](https://developer.smartbear.com/smartbear-mcp)[Support (opens in new tab)](https://smartbear.com/ai/mcp-server)[Privacy policy (opens in new tab)](https://smartbear.com/privacy/)
 
 MCP server for AI access to SmartBear tools, including BugSnag, PactFlow, QMetry, Reflect, Swagger, Zephyr and QTM4J.
 

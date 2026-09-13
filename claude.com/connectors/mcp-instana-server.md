@@ -2,7 +2,7 @@
 
 [Skip to main content](#main-content)
 
-More[Support (opens in new tab)](https://www.ibm.com/docs/en/instana-observability)
+More[Support (opens in new tab)](https://www.ibm.com/docs/en/instana-observability)[Privacy policy (opens in new tab)](https://github.com/instana/mcp-instana/blob/main/docs/PRIVACY.md)
 
 MCP Instana Server for Observability
 

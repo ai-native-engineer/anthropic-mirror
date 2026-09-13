@@ -6,7 +6,7 @@ Connector URL`https://mcp.aftership.com/channels`
 
 More[Documentation (opens in new tab)](https://www.aftership.com/docs/channels-mcp/what-is-mcp)[Support (opens in new tab)](https://support.aftership.com/en/feed)[Privacy policy (opens in new tab)](https://www.aftership.com/legal/privacy)
 
-Bring your multi-channel commerce operation into Claude. AfterShip Channels lets you publish DTC or Amazon products to your TikTok Shop, keep inventory, orders, and fulfillment in sync with your store, and track how each TikTok Shop is performing — turning AfterShip Channels into a native part of your AI workflow. Get more done across your selling channels with less manual work and fewer tool switches.
+Bring your multi-channel commerce and affiliate operations into Claude. AfterShip Channels lets you publish DTC or Amazon products to your TikTok Shop, keep inventory, orders, and fulfillment in sync, and track how each TikTok Shop is performing. Discover relevant creators and influencers for affiliate promotion, find the right partners for your products and video content, and prepare creator outreach — all as a native part of your AI workflow. Get more done across your selling channels with less manual work and fewer tool switches.
 
 ## Tools
 
@@ -68,12 +68,10 @@ SEO and competitor analysis with live search data: keyword research, rank tracki
 
 [Add OpenRush in Claude (opens in new tab)](https://claude.ai/directory/9af032f3-e69f-4789-b456-1e2f276eb2c8 "Add in Claude")
 
-![](https://www.google.com/s2/favicons?domain=cargurus.com&sz=96)
+![](https://www.google.com/s2/favicons?domain=idealista.com&sz=96)
 
-### [CarGurus](https://claude.com/connectors/cargurus)
+### [idealista](https://claude.com/connectors/idealista)
 
-New
+Find properties to buy or rent
 
-Find, buy, and research cars
-
-[Add CarGurus in Claude (opens in new tab)](https://claude.ai/directory/f78c2d49-167a-4299-9b23-94197eb4b649 "Add in Claude")
+[Add idealista in Claude (opens in new tab)](https://claude.ai/directory/a93a736f-6b7a-46d3-849a-48f75534183a "Add in Claude")

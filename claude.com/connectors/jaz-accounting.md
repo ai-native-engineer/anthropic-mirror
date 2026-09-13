@@ -2,7 +2,7 @@
 
 [Skip to main content](#main-content)
 
-More[Documentation (opens in new tab)](https://github.com/teamtinvio/jaz-ai/blob/main/README.md)[Support (opens in new tab)](https://jaz.ai)
+More[Documentation (opens in new tab)](https://github.com/teamtinvio/jaz-ai/blob/main/README.md)[Support (opens in new tab)](https://jaz.ai)[Privacy policy (opens in new tab)](https://jaz.ai/legal)
 
 Built for accountants, finance teams, and the businesses they serve. IFRS-first, multi-currency, multi-user by default. The 358 operations listed here are all reachable, but this extension does not load them all at once: it lists 3 meta-tools and loads the operations you need on demand, so it costs about 600 tokens of context instead of 78KB. Ask the agent "what can you do?" for the full map.
 

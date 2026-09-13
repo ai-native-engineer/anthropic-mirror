@@ -2,7 +2,7 @@
 
 [Skip to main content](#main-content)
 
-More[Documentation (opens in new tab)](https://docs.tomba.io/llm/local-mcp/introduction)[Support (opens in new tab)](https://tomba.io)
+More[Documentation (opens in new tab)](https://docs.tomba.io/llm/local-mcp/introduction)[Support (opens in new tab)](https://tomba.io)[Privacy policy (opens in new tab)](https://tomba.io/privacy-policy)
 
 This MCP server integrates with the Tomba.io API to provide tools for finding and verifying email addresses, enriching contact information, and discovering phone numbers. It offers a variety of tools, resources, and prompts to help users leverage Tomba's capabilities for lead generation, email verification, and contact enrichment.
 

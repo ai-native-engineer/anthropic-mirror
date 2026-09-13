@@ -2,7 +2,7 @@
 
 [Skip to main content](#main-content)
 
-More[Documentation (opens in new tab)](https://github.com/Quinbook/quinbook-mcp#readme)[Support (opens in new tab)](https://github.com/Quinbook/quinbook-mcp)
+More[Documentation (opens in new tab)](https://github.com/Quinbook/quinbook-mcp#readme)[Support (opens in new tab)](https://github.com/Quinbook/quinbook-mcp)[Privacy policy (opens in new tab)](https://quinbook.com/de/privacy)
 
 MCP server exposing the quinbook API. Read tools for slots, orders, coupons and contacts; write tools for cart, order lifecycle and contacts that execute immediately (the bundled skills require confirming with the user first). OAuth login with your own quinbook credentials; multi-tenant via me\_switch\_company.
 

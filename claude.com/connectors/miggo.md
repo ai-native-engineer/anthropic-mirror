@@ -2,7 +2,7 @@
 
 [Skip to main content](#main-content)
 
-More[Documentation (opens in new tab)](https://github.com/miggo-io/miggo-mcp#readme)[Support (opens in new tab)](https://github.com/miggo-io/miggo-mcp)
+More[Documentation (opens in new tab)](https://github.com/miggo-io/miggo-mcp#readme)[Support (opens in new tab)](https://github.com/miggo-io/miggo-mcp)[Privacy policy (opens in new tab)](https://www.miggo.io/privacy-policy)
 
 Connect Claude to your Miggo security environment. This extension provides 25 tools to explore and analyze your application security posture including services, endpoints, vulnerabilities, findings, dependencies, and third-party integrations. Use natural language to assess risk, investigate threats, onboard security teams, and prioritize remediation across your entire environment.
 

@@ -73,6 +73,16 @@ Send messages, create canvases, and fetch Slack data
 
 [Add Slack in Claude (opens in new tab)](https://claude.ai/directory/597f662f-36de-437e-836e-5a81013cbfbe "Add in Claude")
 
+![](https://www.google.com/s2/favicons?domain=brightdeck.ai&sz=96)
+
+### [Brightdeck](https://claude.com/connectors/brightdeck-ai)
+
+Trending
+
+Create presentations and slides, compatible with PowerPoint
+
+[Add Brightdeck in Claude (opens in new tab)](https://claude.ai/directory/c0a11a21-c9c7-4b10-9118-629035443c7b "Add in Claude")
+
 ![](https://www.google.com/s2/favicons?domain=asana.com&sz=96)
 
 ### [Asana](https://claude.com/connectors/asana)
@@ -80,13 +90,3 @@ Send messages, create canvases, and fetch Slack data
 Connect to Asana to coordinate tasks, projects, and goals
 
 [Add Asana in Claude (opens in new tab)](https://claude.ai/directory/41aefcf3-a829-45eb-8cee-d90b93912f57 "Add in Claude")
-
-![](https://agent.enrichlabs.ai/avatars/helena.png)
-
-### [Helena by Enrich Labs](https://claude.com/connectors/helena-by-enrich-labs)
-
-Trending
-
-Your AI marketer for paid ads, SEO, email, social, and analytics
-
-[Add Helena by Enrich Labs in Claude (opens in new tab)](https://claude.ai/directory/0da6abdc-62c3-4272-940b-898189371a48 "Add in Claude")

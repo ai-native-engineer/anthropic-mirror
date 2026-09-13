@@ -2,7 +2,7 @@
 
 [Skip to main content](#main-content)
 
-More[Documentation (opens in new tab)](https://www.sketch.com/docs/mcp-server/)[Support (opens in new tab)](https://sketch.com)
+More[Documentation (opens in new tab)](https://www.sketch.com/docs/mcp-server/)[Support (opens in new tab)](https://sketch.com)[Privacy policy (opens in new tab)](https://www.sketch.com/privacy/)
 
 With Sketch's MCP server, you can explore, edit and export your designs with Claude.
 

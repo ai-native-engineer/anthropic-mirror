@@ -2,7 +2,7 @@
 
 [Skip to main content](#main-content)
 
-More[Documentation (opens in new tab)](https://lyrenth.com/docs/integrations)[Support (opens in new tab)](https://lyrenth.com)
+More[Documentation (opens in new tab)](https://lyrenth.com/docs/integrations)[Support (opens in new tab)](https://lyrenth.com)[Privacy policy (opens in new tab)](https://www.lyrenth.com/privacy)
 
 Lyrenth turns any public URL into an AIDocument: clean Markdown plus title, description, and structure, with navigation and boilerplate stripped. Each read carries a provenance header showing the token count and how much smaller it is than the raw page.
 

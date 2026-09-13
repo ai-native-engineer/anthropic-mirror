@@ -56,10 +56,10 @@ Access bioRxiv and medRxiv preprint data
 
 [Add bioRxiv in Claude (opens in new tab)](https://claude.ai/directory/7f750eb6-c3cb-47d7-9269-d35c43fe9925 "Add in Claude")
 
-![](https://storage.googleapis.com/media-assets-299d7136-cb52-d546-ee02-34bc1307c35f/mcp-directory/icons/chembl.png)
+![](https://www.google.com/s2/favicons?domain=amass.tech&sz=96)
 
-### [ChEMBL](https://claude.com/connectors/chembl)
+### [Amass Connector](https://claude.com/connectors/amass)
 
-Access the ChEMBL Database
+Life sciences intelligence, unified — publications, trials, drugs, genes, regulatory approvals, and patents in one cross-linked connector
 
-[Add ChEMBL in Claude (opens in new tab)](https://claude.ai/directory/711ccc94-754b-4659-903d-d61b29dd781e "Add in Claude")
+[Add Amass Connector in Claude (opens in new tab)](https://claude.ai/directory/6cc00fbf-8b71-47d0-850f-c35013276b97 "Add in Claude")

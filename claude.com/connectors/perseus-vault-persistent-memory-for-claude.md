@@ -2,7 +2,7 @@
 
 [Skip to main content](#main-content)
 
-More[Documentation (opens in new tab)](https://github.com/Perseus-Computing-LLC/perseus-vault#readme)[Support (opens in new tab)](https://perseus.observer/perseus-vault/)
+More[Documentation (opens in new tab)](https://github.com/Perseus-Computing-LLC/perseus-vault#readme)[Support (opens in new tab)](https://perseus.observer/perseus-vault/)[Privacy policy (opens in new tab)](https://github.com/Perseus-Computing-LLC/perseus-vault#privacy-policy)
 
 Perseus Vault gives Claude durable memory across sessions. It is a single Rust binary with an embedded SQLite database — no Docker, no Postgres, no cloud. Features include:
 

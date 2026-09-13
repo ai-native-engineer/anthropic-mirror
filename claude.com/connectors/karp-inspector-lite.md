@@ -2,6 +2,8 @@
 
 [Skip to main content](#main-content)
 
+More[Privacy policy (opens in new tab)](https://github.com/souldriver007/karp-inspector-lite/blob/main/PRIVACY.md)
+
 Semantic codebase search for Claude Desktop. Find code by meaning, not just keywords. Zero API keys, zero setup.
 
 ## Tools

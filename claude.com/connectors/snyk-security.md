@@ -2,7 +2,7 @@
 
 [Skip to main content](#main-content)
 
-More[Documentation (opens in new tab)](https://docs.snyk.io/)[Support (opens in new tab)](https://snyk.io)
+More[Documentation (opens in new tab)](https://docs.snyk.io/)[Support (opens in new tab)](https://snyk.io)[Privacy policy (opens in new tab)](https://snyk.io/policies/privacy/)
 
 Snyk MCP enables AI assistants to perform comprehensive security scanning on code, dependencies, infrastructure, and containers. Integrate Snyk's security capabilities directly into your AI-assisted development workflow to proactively identify and fix vulnerabilities during code generation and review.
 

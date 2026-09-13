@@ -2,7 +2,7 @@
 
 [Skip to main content](#main-content)
 
-More[Documentation (opens in new tab)](https://github.com/Bidsketch/signwell-mcp#readme)[Support (opens in new tab)](https://github.com/Bidsketch/signwell-mcp#readme)
+More[Documentation (opens in new tab)](https://github.com/Bidsketch/signwell-mcp#readme)[Support (opens in new tab)](https://github.com/Bidsketch/signwell-mcp#readme)[Privacy policy (opens in new tab)](https://www.signwell.com/privacy/)
 
 Model Context Protocol server that orchestrates SignWell's e-signature workflows — create, send, track, and manage documents and templates.
 

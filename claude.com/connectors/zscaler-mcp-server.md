@@ -2,7 +2,7 @@
 
 [Skip to main content](#main-content)
 
-More[Documentation (opens in new tab)](https://github.com/zscaler/zscaler-mcp-server)[Support (opens in new tab)](https://www.zscaler.com)
+More[Documentation (opens in new tab)](https://github.com/zscaler/zscaler-mcp-server)[Support (opens in new tab)](https://www.zscaler.com)[Privacy policy (opens in new tab)](https://www.zscaler.com/privacy/overview)
 
 Zscaler MCP Server is a Model Context Protocol (MCP) server for managing Zscaler products with LLMs (Claude, ChatGPT, Gemini, etc.). It exposes hundreds of tools across the Zscaler services. Read-only operations are available by default; create / update / delete tools require explicit allowlisting via the 'Enable Write Tools' and 'Write Tools Allowlist' settings below, and destructive operations additionally require an in-session HMAC confirmation token.
 

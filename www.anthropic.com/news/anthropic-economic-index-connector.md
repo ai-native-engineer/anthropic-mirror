@@ -22,5 +22,3 @@ You’ll get answers grounded directly in the Index data.
 Getting started takes about a minute. In claude.ai, open the connectors menu, find the Anthropic Economic Index in the directory, and enable it—it works in any conversation with any Claude model, and there's nothing to install. From there, just ask questions the way you'd ask a colleague: start broad (“What does the Index say about my industry?”), then drill into specifics, and ask Claude to show you the underlying data behind any answer.
 
 As always, the Index reflects patterns in Claude usage rather than the labor market as a whole, and Claude will point you back to the source data and its limitations as you explore. You can find the connector in claude.ai today, and the full datasets remain freely available on our website.
-
-The Anthropic Economic Index connector \ Anthropic

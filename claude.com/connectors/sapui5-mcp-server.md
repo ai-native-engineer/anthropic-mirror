@@ -2,7 +2,7 @@
 
 [Skip to main content](#main-content)
 
-More[Support (opens in new tab)](https://ui5.sap.com/)
+More[Support (opens in new tab)](https://ui5.sap.com/)[Privacy policy (opens in new tab)](https://www.sap.com/about/legal/privacy.html)
 
 MCP server for SAPUI5/OpenUI5 development. Create and validate apps, access API docs, and get development guidelines.
 

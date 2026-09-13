@@ -58,7 +58,7 @@ Hybrid (on-site + remote)On-siteRemote — nearshoreRemote — same timezone
 
 Services OfferedAll
 
-AI Readiness & Governance Assessment / DesignAI Strategy & RoadmapBuild Prototype / POCClaude Consumption / FinOps OptimisationClaude Training SessionsConnectors, plugins and API integrationsCustomer-Facing AI Product BuildIndustry Solution Accelerator DeploymentInternal Agentic Platform BuildManaged AI OperationsOngoing Cowork / Claude Code Scaled User SupportPlatform Migration to ClaudeProcess RedesignRollout & ActivationSustained Adoption / CoE ProgramUse-Case Portfolio & Business Case
+AI Readiness & Governance Assessment / DesignAI Strategy & RoadmapBuild Prototype / POCClaude Consumption / FinOps OptimisationClaude Training SessionsConnectors, plugins and API integrationsCustomer-Facing AI Product BuildIndustry Solution Accelerator DeploymentInternal Agentic Platform BuildJumpstart for SMBManaged AI OperationsOngoing Cowork / Claude Code Scaled User SupportPlatform Migration to ClaudeProcess RedesignRollout & ActivationSustained Adoption / CoE ProgramUse-Case Portfolio & Business Case
 
 Clear all
 

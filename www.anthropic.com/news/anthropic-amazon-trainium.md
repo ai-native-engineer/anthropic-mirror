@@ -29,5 +29,3 @@ By leveraging AWS’s robust security features and compliance certifications, or
 Together with AWS, we’re laying the technological foundation—from silicon to software—that will power the next generation of AI research and development. By combining Anthropic’s expertise in frontier AI systems with AWS’s world-class infrastructure, we’re building a secure, enterprise-ready platform that gives organizations of all sizes access to the forefront of AI technology.
 
 If you're interested in using Claude in Amazon Bedrock, you can get started at [aws.amazon.com/bedrock/claude/](http://aws.amazon.com/bedrock/claude/).
-
-Powering the next generation of AI development with AWS \ Anthropic

@@ -2,7 +2,7 @@
 
 [Skip to main content](#main-content)
 
-More[Documentation (opens in new tab)](https://ipgeolocation.io/documentation.html)[Support (opens in new tab)](https://ipgeolocation.io)
+More[Documentation (opens in new tab)](https://ipgeolocation.io/documentation.html)[Support (opens in new tab)](https://ipgeolocation.io)[Privacy policy (opens in new tab)](https://ipgeolocation.io/privacy.html)
 
 Official MCP server from ipgeolocation.io. Provides 16 tools for IP geolocation, IP security, abuse contact lookup, ASN data, timezone lookups and conversions, astronomy data, and user-agent parsing. Supports free and paid API plans. Bulk operations use a default cap of 1,000 items per request in this MCP server.
 

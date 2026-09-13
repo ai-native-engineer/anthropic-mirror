@@ -2,7 +2,7 @@
 
 [Skip to main content](#main-content)
 
-More[Support (opens in new tab)](https://help.sap.com/docs/MDK)
+More[Support (opens in new tab)](https://help.sap.com/docs/MDK)[Privacy policy (opens in new tab)](https://www.sap.com/about/legal/privacy.html)
 
 AI-assisted development of SAP Mobile Development Kit (MDK) applications. Create, validate, migrate, and deploy cross-platform mobile apps.
 

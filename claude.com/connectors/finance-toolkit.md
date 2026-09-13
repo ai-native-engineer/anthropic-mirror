@@ -2,7 +2,7 @@
 
 [Skip to main content](#main-content)
 
-More[Documentation (opens in new tab)](https://www.jeroenbouma.com/projects/financetoolkit/mcp)[Support (opens in new tab)](https://www.jeroenbouma.com/projects/financetoolkit/mcp)
+More[Documentation (opens in new tab)](https://www.jeroenbouma.com/projects/financetoolkit/mcp)[Support (opens in new tab)](https://www.jeroenbouma.com/projects/financetoolkit/mcp)[Privacy policy (opens in new tab)](https://site.financialmodelingprep.com/privacy-policy)
 
 The Finance Toolkit gives AI assistants access to 200+ financial metrics calculated transparently from raw financial statements. This includes financial statements, historical prices, analyst estimates, 80+ fundamental ratios, 30+ technical indicators, 20+ risk and performance metrics, and 50+ macro and fixed income indicators.
 

@@ -43,13 +43,15 @@ Search, read, and upload files instantly
 
 [Add Google Drive in Claude (opens in new tab)](https://claude.ai/directory/b89f7865-a755-4f86-8062-c3bd651740ce "Add in Claude")
 
-![](https://raw.githubusercontent.com/Perspective-AI/mcp/main/icon.png)
+![](https://www.google.com/s2/favicons?domain=brightdeck.ai&sz=96)
 
-### [Perspective AI](https://claude.com/connectors/perspective-ai)
+### [Brightdeck](https://claude.com/connectors/brightdeck-ai)
 
-An AI Concierge that turns forms into conversations
+Trending
 
-[Add Perspective AI in Claude (opens in new tab)](https://claude.ai/directory/ac16a66e-c876-4447-a723-cfa55a3bce1b "Add in Claude")
+Create presentations and slides, compatible with PowerPoint
+
+[Add Brightdeck in Claude (opens in new tab)](https://claude.ai/directory/c0a11a21-c9c7-4b10-9118-629035443c7b "Add in Claude")
 
 ![](https://www.google.com/s2/favicons?domain=supabase.com&sz=96)
 
@@ -59,13 +61,13 @@ Manage databases, authentication, and storage
 
 [Add Supabase in Claude (opens in new tab)](https://claude.ai/directory/11ca66fc-1e98-49d5-ab9b-7cb4672a8f10 "Add in Claude")
 
-![](https://www.google.com/s2/favicons?domain=salesforce.com&sz=96)
+![](https://raw.githubusercontent.com/Perspective-AI/mcp/main/icon.png)
 
-### [Salesforce - Beta](https://claude.com/connectors/salesforce-headless-360)
+### [Perspective AI](https://claude.com/connectors/perspective-ai)
 
-Sell, serve, and operate at scale with Salesforce.
+An AI Concierge that turns forms into conversations
 
-[Add Salesforce - Beta in Claude (opens in new tab)](https://claude.ai/directory/a352dbf6-c732-43d4-84c1-0bbb389d3921 "Add in Claude")
+[Add Perspective AI in Claude (opens in new tab)](https://claude.ai/directory/ac16a66e-c876-4447-a723-cfa55a3bce1b "Add in Claude")
 
 ![](https://cdn.prod.website-files.com/69d3ac38e8e442c9fce520b4/6a0742ee5d1bde6d18668e0b_Frame.png)
 
@@ -75,10 +77,10 @@ Submit contracts for attorney review, answer their questions, and get redlined d
 
 [Add General Legal in Claude (opens in new tab)](https://claude.ai/directory/dba73da3-6015-4b3e-8acc-0ff38e2c511b "Add in Claude")
 
-![](https://www.google.com/s2/favicons?domain=windsor.ai&sz=96)
+![](https://www.google.com/s2/favicons?domain=salesforce.com&sz=96)
 
-### [Windsor.ai](https://claude.com/connectors/windsor-ai)
+### [Salesforce - Beta](https://claude.com/connectors/salesforce-headless-360)
 
-Connect Meta Ads, Google Ads, TikTok Ads, LinkedIn Ads + 320 more
+Sell, serve, and operate at scale with Salesforce.
 
-[Add Windsor.ai in Claude (opens in new tab)](https://claude.ai/directory/360c0c31-4bb6-42ca-8e50-5da0a100a68e "Add in Claude")
+[Add Salesforce - Beta in Claude (opens in new tab)](https://claude.ai/directory/a352dbf6-c732-43d4-84c1-0bbb389d3921 "Add in Claude")

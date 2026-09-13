@@ -2,6 +2,8 @@
 
 [Skip to main content](#main-content)
 
+More[Privacy policy (opens in new tab)](https://github.com/thecombatwombat/replicant-mcp/blob/master/PRIVACY.md)
+
 Replicant MCP provides 14 tools across 6 categories for complete Android development automation. Build and test with Gradle, manage emulators and devices via ADB, automate UI interactions through accessibility services, capture screenshots, and analyze logcat output — all through natural conversation with Claude.
 
 ## Tools

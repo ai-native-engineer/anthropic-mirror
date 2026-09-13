@@ -2,7 +2,7 @@
 
 [Skip to main content](#main-content)
 
-More[Documentation (opens in new tab)](https://github.com/SpikeyCoder/website-auditor-mcp)[Support (opens in new tab)](https://website-auditor.io)
+More[Documentation (opens in new tab)](https://github.com/SpikeyCoder/website-auditor-mcp)[Support (opens in new tab)](https://website-auditor.io)[Privacy policy (opens in new tab)](https://website-auditor.io/privacy)
 
 Website Auditor checks and monitors how a website shows up in AI assistants (ChatGPT, Perplexity, Claude, Gemini) alongside a standard technical audit (SEO, security headers, broken links, performance). It returns an AI-visibility score, what changed over time, competitor comparisons, and specific fixes. Try it with no API key: get\_sample\_audit returns a complete sample report in the exact shape a real audit returns, with nothing to set up. Auditing your own site needs a Website Auditor subscription ($10/month; eligible new customers get a 7-day free trial — payment method required, no charge until the trial ends); check\_upgrade\_status reports your standing with any valid key.
 

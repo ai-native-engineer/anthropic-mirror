@@ -2,6 +2,8 @@
 
 [Skip to main content](#main-content)
 
+More[Privacy policy (opens in new tab)](https://github.com/revolut-engineering/revolut-x-api/blob/master/PRIVACY.md)
+
 Check balances, view orders, analyze markets, and backtest trading strategies on Revolut X. All through natural language in Claude.
 
 ## Tools

@@ -2,7 +2,7 @@
 
 [Skip to main content](#main-content)
 
-More[Documentation (opens in new tab)](https://github.com/SocketDev/socket-mcp?tab=readme-ov-file#socket-mcp-server)[Support (opens in new tab)](https://github.com/SocketDev/socket-mcp)
+More[Documentation (opens in new tab)](https://github.com/SocketDev/socket-mcp?tab=readme-ov-file#socket-mcp-server)[Support (opens in new tab)](https://github.com/SocketDev/socket-mcp)[Privacy policy (opens in new tab)](https://socket.dev/privacy)
 
 \_\_Secure your code by default.\_\_
 

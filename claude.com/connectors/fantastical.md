@@ -2,7 +2,7 @@
 
 [Skip to main content](#main-content)
 
-More[Support (opens in new tab)](https://flexibits.com)
+More[Support (opens in new tab)](https://flexibits.com)[Privacy policy (opens in new tab)](https://flexibits.com/privacy)
 
 Read events and tasks, create new items, make basic edits, and delete items from Fantastical for Mac.
 

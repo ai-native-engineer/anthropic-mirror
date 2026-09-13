@@ -2,7 +2,7 @@
 
 [Skip to main content](#main-content)
 
-More[Support (opens in new tab)](https://qase.io)
+More[Support (opens in new tab)](https://qase.io)[Privacy policy (opens in new tab)](https://qase.io/privacy)
 
 Comprehensive integration with the Qase Test Management Platform. Manage test cases, runs, plans, suites, environments, and milestones.
 

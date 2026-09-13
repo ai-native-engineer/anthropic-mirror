@@ -2,6 +2,8 @@
 
 [Skip to main content](#main-content)
 
+More[Privacy policy (opens in new tab)](https://www.denodo.com/en/privacy-notice)
+
 This extension connects Claude Desktop to a running Denodo MCP Server, enabling AI-powered querying of Denodo Virtual DataPort databases. Supports three authentication modes: (1) Basic Auth with username and password; (2) OAuth bearer token — paste a static JWT, optionally with automatic refresh via a refresh token grant; (3) OAuth Authorization Code flow — a browser window opens for you to log in, and the connector handles token refresh silently from then on (uses PKCE for public clients). Requires a Denodo MCP Server (v9, build 20260317 or later) running and accessible.
 
 ## Tools

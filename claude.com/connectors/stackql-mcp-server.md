@@ -2,7 +2,7 @@
 
 [Skip to main content](#main-content)
 
-More[Documentation (opens in new tab)](https://stackql.io/docs)[Support (opens in new tab)](https://stackql.io)
+More[Documentation (opens in new tab)](https://stackql.io/docs)[Support (opens in new tab)](https://stackql.io)[Privacy policy (opens in new tab)](https://stackql.io/privacy)
 
 SQL-native query and provisioning engine for cloud infrastructure, served over MCP via 'stackql mcp'. Multiplatform bundle: contains the darwin, linux and windows binaries; the host selects via platform\_overrides.
 

@@ -854,9 +854,9 @@ Apply](https://job-boards.greenhouse.io/anthropic/jobs/5392007008)
 
 ## Finance
 
-53 Open Roles
+52 Open Roles
 
-53 Open Roles
+52 Open Roles
 
 [Accounting, Revenue Internal Controls
 
@@ -878,11 +878,7 @@ Apply](https://job-boards.greenhouse.io/anthropic/jobs/5358146008)[Corporate Dev
 
 San Francisco, CA
 
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5358110008)[Data Science, Finance & Strategy
-
-San Francisco, CA
-
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5184585008)[Director, Compute Infrastructure Procurement Operations
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/5358110008)[Director, Compute Infrastructure Procurement Operations
 
 San Francisco, CA | New York City, NY
 
@@ -1090,9 +1086,9 @@ Apply](https://job-boards.greenhouse.io/anthropic/jobs/5286348008)
 
 ## Legal
 
-17 Open Roles
+14 Open Roles
 
-17 Open Roles
+14 Open Roles
 
 [Commercial Counsel, GTM
 
@@ -1146,19 +1142,7 @@ Apply](https://job-boards.greenhouse.io/anthropic/jobs/5409299008)[Research Coun
 
 San Francisco, CA | New York City, NY
 
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5413418008)[Safety & Security Counsel
-
-San Francisco, CA
-
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5398641008)[Safety & Security Counsel, EMEA
-
-London, UK
-
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5398653008)[Safety & Security Counsel, EMEA
-
-Dublin, IE
-
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5398659008)[Sanctions Compliance Lead
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/5413418008)[Sanctions Compliance Lead
 
 San Francisco, CA | New York City, NY | Washington, DC
 
@@ -1442,15 +1426,19 @@ Apply](https://job-boards.greenhouse.io/anthropic/jobs/5417967008)
 
 ## Safeguards (Trust & Safety)
 
-42 Open Roles
+43 Open Roles
 
-42 Open Roles
+43 Open Roles
 
 [Cyber Evaluations Engineer
 
 San Francisco, CA | Washington, DC
 
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5406367008)[Engineering Manager, Safeguards
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/5406367008)[Enforcement Operations Lead, Cloud Partners
+
+San Francisco, CA | New York City, NY | Washington, DC
+
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/5417758008)[Engineering Manager, Safeguards
 
 London, UK
 
@@ -1464,11 +1452,11 @@ San Francisco, CA
 
 Apply](https://job-boards.greenhouse.io/anthropic/jobs/5407418008)[Head of Vulnerability Disclosure & Security Community
 
-New York City, NY; Remote-Friendly (Travel-Required) | San Francisco, CA | Washington, DC
+San Francisco, CA | New York City, NY | Washington, DC
 
 Apply](https://job-boards.greenhouse.io/anthropic/jobs/5397699008)[Policy Design Manager, Conventional Weapons
 
-Remote-Friendly (Travel-Required) | San Francisco, CA | New York City, NY; Washington, DC
+San Francisco, CA | New York City, NY | Washington, DC
 
 Apply](https://job-boards.greenhouse.io/anthropic/jobs/5392184008)[Product Policy Manager, Product Risk
 
@@ -1488,59 +1476,59 @@ San Francisco, CA
 
 Apply](https://job-boards.greenhouse.io/anthropic/jobs/5066977008)[Safeguards Enforcement Analyst, Access Controls & Identity
 
-Remote-Friendly, United States; San Francisco, CA | New York City, NY | Washington, DC
+San Francisco, CA | New York City, NY | Washington, DC
 
 Apply](https://job-boards.greenhouse.io/anthropic/jobs/5319626008)[Safeguards Enforcement Analyst, Account Takeover & Credential Abuse
 
-Remote-Friendly, United States; San Francisco, CA | New York City, NY | Washington, DC
+San Francisco, CA | New York City, NY | Washington, DC
 
 Apply](https://job-boards.greenhouse.io/anthropic/jobs/5319624008)[Safeguards Enforcement Analyst, Age-Appropriate Design
 
-Remote-Friendly, United States; San Francisco, CA | New York City, NY | Washington, DC
+San Francisco, CA | New York City, NY | Washington, DC
 
 Apply](https://job-boards.greenhouse.io/anthropic/jobs/5311234008)[Safeguards Enforcement Analyst, Bio Harms
 
-Remote-Friendly, United States; San Francisco, CA | New York City, NY | Washington, DC
+San Francisco, CA | New York City, NY | Washington, DC
 
 Apply](https://job-boards.greenhouse.io/anthropic/jobs/5319696008)[Safeguards Enforcement Analyst, Chem & Explosives Harms
 
-Remote-Friendly, United States; San Francisco, CA | New York City, NY | Washington, DC
+San Francisco, CA | New York City, NY | Washington, DC
 
 Apply](https://job-boards.greenhouse.io/anthropic/jobs/5319700008)[Safeguards Enforcement Analyst, Child Safety
 
-Remote-Friendly, United States; San Francisco, CA | New York City, NY | Washington, DC
+San Francisco, CA | New York City, NY | Washington, DC
 
 Apply](https://job-boards.greenhouse.io/anthropic/jobs/5311237008)[Safeguards Enforcement Analyst, Conventional Weapons
 
-New York City, NY; Remote-Friendly (Travel-Required) | San Francisco, CA | Washington, DC
+San Francisco, CA | New York City, NY | Washington, DC
 
 Apply](https://job-boards.greenhouse.io/anthropic/jobs/5410006008)[Safeguards Enforcement Analyst, Cyber Harm
 
-Remote-Friendly, United States; San Francisco, CA | New York City, NY | Washington, DC
+San Francisco, CA | New York City, NY | Washington, DC
 
 Apply](https://job-boards.greenhouse.io/anthropic/jobs/5311159008)[Safeguards Enforcement Analyst, Integrity & Authenticity
 
-Remote-Friendly, United States; San Francisco, CA | New York City, NY | Washington, DC
+San Francisco, CA | New York City, NY | Washington, DC
 
 Apply](https://job-boards.greenhouse.io/anthropic/jobs/5311149008)[Safeguards Enforcement Analyst, Safety Evaluations
 
-Remote-Friendly (Travel-Required) | San Francisco, CA | Washington, DC; San Francisco, CA | New York City, NY
+San Francisco, CA | New York City, NY | Washington, DC
 
 Apply](https://job-boards.greenhouse.io/anthropic/jobs/5137183008)[Safeguards Enforcement Analyst, User Well-being
 
-Remote-Friendly, United States; San Francisco, CA | New York City, NY | Washington, DC
+San Francisco, CA | New York City, NY | Washington, DC
 
 Apply](https://job-boards.greenhouse.io/anthropic/jobs/5374778008)[Safeguards Enforcement Analyst, Violence & Extremism
 
-Remote-Friendly, United States; San Francisco, CA | New York City, NY | Washington, DC
+San Francisco, CA | New York City, NY | Washington, DC
 
 Apply](https://job-boards.greenhouse.io/anthropic/jobs/5343907008)[Safeguards Enforcement Lead, Cyber Harms
 
-Remote-Friendly (Travel-Required) | Washington, DC; San Francisco, CA | New York City, NY
+San Francisco, CA | New York City, NY | Washington, DC
 
 Apply](https://job-boards.greenhouse.io/anthropic/jobs/5403775008)[Safeguards Enforcement Lead, User Well-Being
 
-New York City, NY; Remote-Friendly (Travel-Required) | San Francisco, CA | Washington, DC
+San Francisco, CA | New York City, NY | Washington, DC
 
 Apply](https://job-boards.greenhouse.io/anthropic/jobs/5410004008)[Safeguards Policy Analyst, Cyber Harms
 
@@ -1618,9 +1606,9 @@ Apply](https://job-boards.greenhouse.io/anthropic/jobs/5074937008)
 
 ## Sales
 
-112 Open Roles
+113 Open Roles
 
-112 Open Roles
+113 Open Roles
 
 [Enterprise Account Executive, Automotive
 
@@ -2062,7 +2050,11 @@ Apply](https://job-boards.greenhouse.io/anthropic/jobs/5390935008)[Strategy & Op
 
 San Francisco, CA | New York City, NY
 
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5284500008)[Technical Program Manager, Revenue Operations
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/5284500008)[Technical Architect
+
+Remote-Friendly (Travel-Required) | San Francisco, CA | Seattle, WA | New York City, NY
+
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/5421566008)[Technical Program Manager, Revenue Operations
 
 Remote-Friendly (Travel-Required) | San Francisco, CA | Seattle, WA | New York City, NY
 

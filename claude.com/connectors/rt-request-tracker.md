@@ -2,7 +2,7 @@
 
 [Skip to main content](#main-content)
 
-More[Documentation (opens in new tab)](https://github.com/bestpractical/mcp-server-rt#readme)[Support (opens in new tab)](https://github.com/bestpractical/mcp-server-rt)
+More[Documentation (opens in new tab)](https://github.com/bestpractical/mcp-server-rt#readme)[Support (opens in new tab)](https://github.com/bestpractical/mcp-server-rt)[Privacy policy (opens in new tab)](https://requesttracker.com/privacy-policy/)
 
 Connects Claude to a live RT (Request Tracker) instance via the REST2 API. Supports searching tickets with TicketSQL, reading ticket details and history, creating and updating tickets (including custom fields, custom roles, links, and date fields), adding comments and replies, and looking up queues and users.
 

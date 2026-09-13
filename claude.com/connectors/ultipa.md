@@ -2,7 +2,7 @@
 
 [Skip to main content](#main-content)
 
-More[Documentation (opens in new tab)](https://github.com/ultipa/gqldb-mcp#readme)[Support (opens in new tab)](https://github.com/ultipa/gqldb-mcp)
+More[Documentation (opens in new tab)](https://github.com/ultipa/gqldb-mcp#readme)[Support (opens in new tab)](https://github.com/ultipa/gqldb-mcp)[Privacy policy (opens in new tab)](https://www.ultipa.com/legal/privacy)
 
 Model Context Protocol server for Ultipa Cloud and any self-managed Ultipa GQLDB instance. Provision and operate instances, run GQL queries and graph algorithms, manage backups and firewall rules, and view metrics and billing — all through natural language.
 

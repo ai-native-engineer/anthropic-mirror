@@ -56,7 +56,7 @@ Sell, serve, and operate at scale with Salesforce.
 
 ### [Maryland Community Compass](https://claude.com/connectors/maryland-compass)
 
-New
+Trending
 
 Maryland's neighborhood development data platform.
 

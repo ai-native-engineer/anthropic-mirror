@@ -29,3 +29,5 @@ As the pace of AI advances accelerates, the national security stakes of AI are g
 ## What comes next?
 
 These [policy frameworks](https://www.anthropic.com/policy-on-the-ai-exponential/aaif) are just a starting point. Our donation to Public First Action is one way in which we’re trying to raise the salience of this urgent policy debate.
+
+Donating another $20 million to Public First Action \ Anthropic

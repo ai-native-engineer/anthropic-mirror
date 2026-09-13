@@ -41,3 +41,5 @@ Any organization that is bringing Claude to market is eligible to join the Claud
 > We are enabling clients to scale AI with confidence—built on robust governance, security, and trust by design. Our dedicated Anthropic Center of Excellence accelerates readiness and capability-building, aligned with Infosys’ AI-first value approach. With teams applying Claude Code in real-world delivery, we are helping clients unlock AI value across industries.
 
 01 / 04
+
+$100 million for the Claude Partner Network \ Anthropic

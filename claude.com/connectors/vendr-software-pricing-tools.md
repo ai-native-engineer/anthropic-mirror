@@ -2,7 +2,7 @@
 
 [Skip to main content](#main-content)
 
-More[Support (opens in new tab)](https://vendr.com)
+More[Support (opens in new tab)](https://vendr.com)[Privacy policy (opens in new tab)](https://www.vendr.com/legal/privacy-policy)
 
 Model Context Protocol tools for Vendr software pricing insights. Get price estimates, company information, and product catalog data.
 

@@ -2,7 +2,7 @@
 
 [Skip to main content](#main-content)
 
-More[Documentation (opens in new tab)](https://github.com/Airmail/airmail-mcp#readme)[Support (opens in new tab)](https://airmailapp.com)
+More[Documentation (opens in new tab)](https://github.com/Airmail/airmail-mcp#readme)[Support (opens in new tab)](https://airmailapp.com)[Privacy policy (opens in new tab)](https://airmailapp.com/privacy)
 
 Airmail MCP connects Claude to the Airmail email client for macOS. Read, search, compose, and organize emails. Manage calendars and reminders. Search contacts. The bridge connects locally to Airmail on your Mac. Data retrieved by AI tools is processed by your chosen AI provider.
 

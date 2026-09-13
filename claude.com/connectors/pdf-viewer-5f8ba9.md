@@ -2,7 +2,7 @@
 
 [Skip to main content](#main-content)
 
-More[Support (opens in new tab)](https://github.com/modelcontextprotocol/ext-apps/tree/main/examples/pdf-server)
+More[Support (opens in new tab)](https://github.com/modelcontextprotocol/ext-apps/tree/main/examples/pdf-server)[Privacy policy (opens in new tab)](https://www.anthropic.com/privacy)
 
 Read, annotate, and interact with PDF files — interactive viewer with search, navigation, annotations, form filling, and text extraction
 

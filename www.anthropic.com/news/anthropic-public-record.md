@@ -157,3 +157,5 @@ The direction AI takes should not be set only by the companies building it. The 
 **Reporting conventions:** All percentages in this report are weighted. Unless noted otherwise, percentages use the full segment as the denominator (respondents who answered "don't know" or skipped remain in the base). "Worried" on the fears battery is the top four boxes of a five-point worry scale. "As good or better" on the capability battery is the top three boxes of a five-point performance scale. "Integrated users" are respondents who report using AI one or more times daily for work and one or more times daily for personal purposes (unweighted n=2,717). Party affiliation groups include leaners.
 
 **Limitations:** Anthropic Public Record captures what Americans believed about AI in late 2025. We are treating it as a baseline.
+
+Results from first Anthropic Public Record \ Anthropic

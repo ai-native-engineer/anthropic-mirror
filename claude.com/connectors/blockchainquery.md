@@ -2,7 +2,7 @@
 
 [Skip to main content](#main-content)
 
-More[Documentation (opens in new tab)](https://github.com/pokt-network/blockchain-query-mcp#readme)[Support (opens in new tab)](https://api.pocket.network)
+More[Documentation (opens in new tab)](https://github.com/pokt-network/blockchain-query-mcp#readme)[Support (opens in new tab)](https://api.pocket.network)[Privacy policy (opens in new tab)](https://pocket.network/blockchainquery-privacy)
 
 BlockchainQuery gives Claude real-time access to blockchain data across 60+ networks through Pocket Network's decentralized RPC gateway. Query balances, transactions, blocks, smart contracts, token metadata, staking positions, governance proposals, and domain resolution — all without API keys or authentication.
 

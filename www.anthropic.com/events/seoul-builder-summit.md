@@ -92,8 +92,6 @@ Watch sessions
 
 Add to calendar
 
-![]()
-
 ## Seoul Builder Summit
 
 Add to calendar

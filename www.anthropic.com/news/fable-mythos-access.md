@@ -26,5 +26,3 @@ We are complying with the government’s legal directive and are removing access
 As we have [stated](https://www.anthropic.com/policy-on-the-ai-exponential) [publicly](https://darioamodei.com/post/policy-on-the-ai-exponential), we believe the government should have the ability to block unsafe deployments, as part of a statutory process that is transparent, fair, clear, and grounded in technical facts. This action does not adhere to those principles.
 
 We apologize for this disruption to our customers. We believe this is a misunderstanding and are working to restore access as soon as possible.
-
-Statement on the directive to suspend Fable 5 access \ Anthropic

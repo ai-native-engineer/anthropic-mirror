@@ -2,7 +2,7 @@
 
 [Skip to main content](#main-content)
 
-More[Documentation (opens in new tab)](https://support.anthropic.com/en/collections/4078531-claude-ai)[Support (opens in new tab)](https://www.anthropic.com)
+More[Documentation (opens in new tab)](https://support.anthropic.com/en/collections/4078531-claude-ai)[Support (opens in new tab)](https://www.anthropic.com)[Privacy policy (opens in new tab)](https://www.microsoft.com/en-us/privacy/privacystatement)
 
 This extension allows Claude to interact with Microsoft PowerPoint on macOS, enabling presentation creation, slide management, and content editing.
 

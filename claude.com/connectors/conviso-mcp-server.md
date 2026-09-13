@@ -2,7 +2,7 @@
 
 [Skip to main content](#main-content)
 
-More[Documentation (opens in new tab)](https://github.com/convisoappsec/conviso-mcp#readme)[Support (opens in new tab)](https://github.com/convisoappsec/conviso-mcp)
+More[Documentation (opens in new tab)](https://github.com/convisoappsec/conviso-mcp#readme)[Support (opens in new tab)](https://github.com/convisoappsec/conviso-mcp)[Privacy policy (opens in new tab)](https://www.iubenda.com/privacy-policy/55589285)
 
 This MCP server exposes the Conviso Platform to MCP clients. It provides read tools for companies, projects, issues, assets, tickets, requirements, applications, scan histories, SBOM/supply-chain components, AI-pentest artifacts/executions and threat-model artifacts, plus write tools: a generic allowlisted mutation engine (list/describe/execute) and curated shortcuts for the most common writes (change issue status, create vulnerabilities/projects/assets/tickets, run DAST, trigger AI-pentest).
 

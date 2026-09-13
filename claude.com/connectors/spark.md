@@ -2,7 +2,7 @@
 
 [Skip to main content](#main-content)
 
-More[Documentation (opens in new tab)](https://github.com/readdle/spark-claude-extension#readme)[Support (opens in new tab)](https://sparkmailapp.com)
+More[Documentation (opens in new tab)](https://github.com/readdle/spark-claude-extension#readme)[Support (opens in new tab)](https://sparkmailapp.com)[Privacy policy (opens in new tab)](https://sparkmailapp.com/privacy)
 
 Connect Claude to Spark on macOS or Windows to give your agent access to your emails. Ask about your inbox, then let Claude do the work — read threads, organize your inbox, and draft replies without leaving the conversation.
 

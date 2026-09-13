@@ -44,6 +44,16 @@ Search, create, autofill, and export Canva designs
 
 [Add Canva in Claude (opens in new tab)](https://claude.ai/directory/eb9240f2-e1c1-43c1-828f-0fda40c22e4c "Add in Claude")
 
+![](https://www.google.com/s2/favicons?domain=brightdeck.ai&sz=96)
+
+### [Brightdeck](https://claude.com/connectors/brightdeck-ai)
+
+Trending
+
+Create presentations and slides, compatible with PowerPoint
+
+[Add Brightdeck in Claude (opens in new tab)](https://claude.ai/directory/c0a11a21-c9c7-4b10-9118-629035443c7b "Add in Claude")
+
 ![](https://agent.enrichlabs.ai/avatars/helena.png)
 
 ### [Helena by Enrich Labs](https://claude.com/connectors/helena-by-enrich-labs)
@@ -69,14 +79,6 @@ An AI Concierge that turns forms into conversations
 Ideate, create, and deliver with Adobe pro tools
 
 [Add Adobe for creativity in Claude (opens in new tab)](https://claude.ai/directory/22854937-9510-4b57-9230-62c820102d8f "Add in Claude")
-
-![](https://cdn.b12.io/branding/b12-logo-purple.png)
-
-### [Website Generator by B12](https://claude.com/connectors/website-generator-by-b12)
-
-Build a website or web app in minutes! Generate, design, write code, and create copy for your website. Powered by B12. Contact: hello@b12.io
-
-[Add Website Generator by B12 in Claude (opens in new tab)](https://claude.ai/directory/e25b319d-9c6a-4baa-90a3-0bb8eb5e25b0 "Add in Claude")
 
 ![](https://www.google.com/s2/favicons?domain=monday.com&sz=96)
 

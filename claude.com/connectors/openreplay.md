@@ -2,7 +2,7 @@
 
 [Skip to main content](#main-content)
 
-More[Support (opens in new tab)](https://openreplay.com)
+More[Support (opens in new tab)](https://openreplay.com)[Privacy policy (opens in new tab)](https://openreplay.com/legal/privacy/)
 
 Query your OpenReplay data using natural language. Search and replay user sessions, and build interactive cards to track trends, explore web analytics, map user journeys, catch drop-offs with funnels, and monitor web vitals, errors, and slow queries.
 

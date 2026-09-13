@@ -2,7 +2,7 @@
 
 [Skip to main content](#main-content)
 
-More[Documentation (opens in new tab)](https://tableau.github.io/tableau-mcp/)[Support (opens in new tab)](https://github.com/tableau/tableau-mcp)
+More[Documentation (opens in new tab)](https://tableau.github.io/tableau-mcp/)[Support (opens in new tab)](https://github.com/tableau/tableau-mcp)[Privacy policy (opens in new tab)](https://www.tableau.com/legal/privacy)
 
 Helping agents see and understand data.
 

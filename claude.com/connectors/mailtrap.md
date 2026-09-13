@@ -2,7 +2,7 @@
 
 [Skip to main content](#main-content)
 
-More[Documentation (opens in new tab)](https://github.com/mailtrap/mailtrap-mcp#readme)[Support (opens in new tab)](https://mailtrap.io)
+More[Documentation (opens in new tab)](https://github.com/mailtrap/mailtrap-mcp#readme)[Support (opens in new tab)](https://mailtrap.io)[Privacy policy (opens in new tab)](https://mailtrap.io/privacy-policy)
 
 \*\*[Mailtrap.io](https://mailtrap.io)\*\* is a comprehensive email platform that helps developers and teams test, debug, and deliver emails safely. It provides both email testing (sandbox) and email delivery services.
 

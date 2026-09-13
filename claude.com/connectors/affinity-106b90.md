@@ -2,6 +2,8 @@
 
 [Skip to main content](#main-content)
 
+More[Privacy policy (opens in new tab)](https://www.canva.com/policies/privacy-policy/)
+
 The Affinity MCP server saves you time by automating repetitive tasks, or creating entirely new Affinity tools and workflows, that can be saved and reused when you need them.
 
 Key capabilities:

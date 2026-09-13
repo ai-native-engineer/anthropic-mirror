@@ -2,7 +2,7 @@
 
 [Skip to main content](#main-content)
 
-More[Documentation (opens in new tab)](https://porkbun.com/api/json/v3/documentation)[Support (opens in new tab)](https://porkbun.com/api/json/v3/documentation)
+More[Documentation (opens in new tab)](https://porkbun.com/api/json/v3/documentation)[Support (opens in new tab)](https://porkbun.com/api/json/v3/documentation)[Privacy policy (opens in new tab)](https://porkbun.com/legal/agreement/privacy_policy)
 
 The official Porkbun MCP server exposes the Porkbun v3 API as native tools for AI agents. Register, renew, and transfer domains; manage DNS and DNSSEC records; retrieve SSL bundles; configure nameservers, glue, URL forwarding, and domain contacts; provision and deploy Secure Static Hosting; and subscribe to signed webhooks — all from your assistant.
 

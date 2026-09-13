@@ -94,8 +94,6 @@ Watch sessions
 
 Add to calendar
 
-![]()
-
 ## AWS Summit NYC
 
 Add to calendar

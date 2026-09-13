@@ -2,7 +2,7 @@
 
 [Skip to main content](#main-content)
 
-More[Documentation (opens in new tab)](https://docs.localfalcon.com/)[Support (opens in new tab)](https://www.localfalcon.com)
+More[Documentation (opens in new tab)](https://docs.localfalcon.com/)[Support (opens in new tab)](https://www.localfalcon.com)[Privacy policy (opens in new tab)](https://www.localfalcon.com/privacy-policy)
 
 An MCP server for the Local Falcon AI Visibility and local SEO platform. Connect Claude to your Local Falcon account to track how businesses appear across AI search results and traditional map platforms.
 

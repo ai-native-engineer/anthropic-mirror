@@ -2,7 +2,7 @@
 
 [Skip to main content](#main-content)
 
-More[Support (opens in new tab)](https://github.com/apius-tech/Palo-MCP)
+More[Support (opens in new tab)](https://github.com/apius-tech/Palo-MCP)[Privacy policy (opens in new tab)](https://github.com/apius-tech/Palo-MCP#privacy)
 
 Control Palo Alto Networks PA-Series firewalls and Panorama with AI. 117 tools across 16 modules: security policies, NAT, objects, VPN, logs, WildFire, GlobalProtect, decryption, and more. Supports staged commits and read-only inspection. For multi-firewall setups use the CLI mode — see github.com/apius-tech/Palo-MCP.
 

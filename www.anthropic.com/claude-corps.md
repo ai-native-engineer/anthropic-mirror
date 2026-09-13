@@ -164,3 +164,5 @@ Frequently asked questions
 Our partners
 
 [![CodePath](https://cdn.sanity.io/images/4zrzovbb/website/f1827b53dab9803d01836dcfd304f898cfc4834a-995x89.webp)](https://www.codepath.org/)[![Social Finance](https://cdn.sanity.io/images/4zrzovbb/website/9cb161324608348ea7a5d763c57eca3abe3f1fd4-1142x239.webp)](https://socialfinance.org/)
+
+Claude Corps \ Anthropic

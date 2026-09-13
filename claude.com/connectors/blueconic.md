@@ -2,7 +2,7 @@
 
 [Skip to main content](#main-content)
 
-More[Documentation (opens in new tab)](https://support.blueconic.com/en/articles/415706-blueconic-mcp-client-for-ai-coding-assistants)[Support (opens in new tab)](https://www.blueconic.com)
+More[Documentation (opens in new tab)](https://support.blueconic.com/en/articles/415706-blueconic-mcp-client-for-ai-coding-assistants)[Support (opens in new tab)](https://www.blueconic.com)[Privacy policy (opens in new tab)](https://www.blueconic.com/privacy-policy)
 
 BlueConic MCP runs locally, loads your tenant's OpenAPI specification at startup, and exposes BlueConic's read-only GET endpoints as MCP tools. The same codebase also works with Cursor, VS Code, and other stdio-based MCP clients.
 

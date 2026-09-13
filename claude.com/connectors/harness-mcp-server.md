@@ -2,7 +2,7 @@
 
 [Skip to main content](#main-content)
 
-More[Documentation (opens in new tab)](https://github.com/harness/mcp-server#readme)[Support (opens in new tab)](https://github.com/harness/mcp-server#readme)
+More[Documentation (opens in new tab)](https://github.com/harness/mcp-server#readme)[Support (opens in new tab)](https://github.com/harness/mcp-server#readme)[Privacy policy (opens in new tab)](https://www.harness.io/privacy)
 
 The Harness MCP Server gives MCP-compatible clients access to Harness platform workflows through consolidated tools, resources, and prompts. It supports local stdio usage and can be bundled as a Node-based MCPB extension.
 

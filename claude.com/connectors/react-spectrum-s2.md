@@ -2,7 +2,7 @@
 
 [Skip to main content](#main-content)
 
-More[Documentation (opens in new tab)](https://react-spectrum.adobe.com/ai.html)[Support (opens in new tab)](https://react-spectrum.adobe.com/)
+More[Documentation (opens in new tab)](https://react-spectrum.adobe.com/ai.html)[Support (opens in new tab)](https://react-spectrum.adobe.com/)[Privacy policy (opens in new tab)](https://www.adobe.com/privacy/policy.html)
 
 Provides tools for browsing the React Spectrum (S2) documentation, including listing and reading pages, searching for available icons and illustrations, and looking up available styling token values. Uses the React Spectrum documentation content available at https://react-spectrum.adobe.com.
 

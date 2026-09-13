@@ -10,24 +10,23 @@ Access your Wrike workspace directly from Claude to plan, prioritise, update and
 
 ## Tools
 
-* wrike\_get\_tasks
-* wrike\_create\_task
-* wrike\_update\_task
-* wrike\_search\_tasks
-* wrike\_batch\_update\_tasks
-* wrike\_get\_task\_comments
-* wrike\_get\_folder\_project
-* wrike\_search\_folder\_project
-* wrike\_create\_folder\_project
-* wrike\_update\_folder\_project
-* wrike\_get\_spaces
-* wrike\_get\_contacts
-* wrike\_get\_my\_contact\_id
-* wrike\_get\_custom\_fields
-* wrike\_search\_custom\_types
-* wrike\_get\_workflows
-* wrike\_get\_approvals
-* wrike\_convert\_numeric\_id
+* create\_item\_comment
+* get\_item\_comments
+* get\_item\_details
+* get\_my\_inbox
+* get\_users
+* search\_customitemtypes
+* search\_item\_customfields
+* search\_items
+* search\_users
+* search\_workflows
+* get\_approvals
+* search\_approvals
+* create\_project\_folder\_item
+* create\_task\_item
+* get\_items\_children
+* update\_items
+* search\_spaces
 
 Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 

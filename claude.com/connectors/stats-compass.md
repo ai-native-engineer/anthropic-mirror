@@ -2,6 +2,8 @@
 
 [Skip to main content](#main-content)
 
+More[Privacy policy (opens in new tab)](https://statscompass.io/privacy.html)
+
 Multiple data science tools for data loading, cleaning, visualization, and ML workflows
 
 ## Related connectors

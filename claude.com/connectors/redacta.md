@@ -2,7 +2,7 @@
 
 [Skip to main content](#main-content)
 
-More[Documentation (opens in new tab)](https://github.com/nickjlamb/redacta/tree/main/mcp-server)[Support (opens in new tab)](https://www.pharmatools.ai/redacta)
+More[Documentation (opens in new tab)](https://github.com/nickjlamb/redacta/tree/main/mcp-server)[Support (opens in new tab)](https://www.pharmatools.ai/redacta)[Privacy policy (opens in new tab)](https://www.pharmatools.ai/privacy-policy)
 
 Redacta replaces patient identifiers and personal data (NHS numbers with Modulus-11 validation, names, dates of birth, MRNs, emails, phones, postcodes, plus general PII like URLs, IPs, payment cards and account numbers) with labelled tokens, so text can be safely shared or processed by AI. It includes a HIPAA Safe Harbor mode and is fully reversible via a token map. All processing happens locally in the server process — it makes no network calls and stores nothing.
 

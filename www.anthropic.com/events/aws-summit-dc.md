@@ -92,8 +92,6 @@ Watch sessions
 
 Add to calendar
 
-![]()
-
 ## AWS Summit DC
 
 Add to calendar

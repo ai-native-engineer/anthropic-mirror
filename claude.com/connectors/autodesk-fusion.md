@@ -2,7 +2,7 @@
 
 [Skip to main content](#main-content)
 
-More[Documentation (opens in new tab)](https://help.autodesk.com/view/ADSKMCP/ENU/?guid=ADSKMCP_FusionDesktopMcp_autodesk_fusion_mcp_server_html)[Support (opens in new tab)](https://www.autodesk.com/products/fusion-360)
+More[Documentation (opens in new tab)](https://help.autodesk.com/view/ADSKMCP/ENU/?guid=ADSKMCP_FusionDesktopMcp_autodesk_fusion_mcp_server_html)[Support (opens in new tab)](https://www.autodesk.com/products/fusion-360)[Privacy policy (opens in new tab)](https://www.autodesk.com/company/legal-notices-trademarks/privacy-statement)
 
 The Fusion MCP server connects Claude to a live Autodesk Fusion session, allowing Claude to send tool requests and perform real-time modeling and command-based operations directly in Fusion.
 

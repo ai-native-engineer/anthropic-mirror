@@ -2,7 +2,7 @@
 
 [Skip to main content](#main-content)
 
-More[Documentation (opens in new tab)](https://cloudinary.com/documentation/cloudinary_llm_mcp)[Support (opens in new tab)](https://github.com/cloudinary/asset-management-mcp)
+More[Documentation (opens in new tab)](https://cloudinary.com/documentation/cloudinary_llm_mcp)[Support (opens in new tab)](https://github.com/cloudinary/asset-management-mcp)[Privacy policy (opens in new tab)](https://cloudinary.com/privacy)
 
 A comprehensive MCP server for managing your Cloudinary assets. Upload, organize, search, and transform images, videos, and files with AI-powered tools.
 

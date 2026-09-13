@@ -243,5 +243,3 @@ We’ll send all three agreements after a host organization has been selected fo
 This FAQ will be updated throughout 2026-2027 to reflect the latest details.
 
 Hosts can [submit questions](https://form.typeform.com/to/GieGX8Yc) that are specific to your organization's needs.
-
-Claude Corps hosts FAQ \ Anthropic

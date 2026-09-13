@@ -2,7 +2,7 @@
 
 [Skip to main content](#main-content)
 
-More[Documentation (opens in new tab)](https://github.com/smartlink-basics/flitiq-mcp#readme)[Support (opens in new tab)](https://flitiq.com)
+More[Documentation (opens in new tab)](https://github.com/smartlink-basics/flitiq-mcp#readme)[Support (opens in new tab)](https://flitiq.com)[Privacy policy (opens in new tab)](https://flitiq.com/privacy)
 
 FlitIQ is an FMCSA carrier intelligence tool used by brokers, shippers, and 3PLs to vet motor carriers before they book a load. This MCP plugin gives Claude access to the same data the FlitIQ web and iOS apps use: carrier identity, CSA BASIC scores, real insurance carrier names and policy detail (BIPD primary/excess, cargo, trust), recent inspections, recent crashes, and per-docket operating authority. Pro and Team subscribers can also save carriers to their pipeline directly from a Claude conversation. Per-carrier lookups only — no bulk export or list-all-carriers operation.
 

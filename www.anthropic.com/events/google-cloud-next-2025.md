@@ -1,10 +1,16 @@
 <!-- source: https://www.anthropic.com/events/google-cloud-next-2025 -->
 
+[Skip to main content](#main)[Skip to footer](#footer)
+
 April
 
 7
 
+-
+
 11
+
+,
 
 2025
 
@@ -13,6 +19,14 @@ April
 Las Vegas, NV — United States | Booth #1540
 
 At Anthropic, we develop large-scale AI systems, and our research teams help us to create safer, steerable, and more reliable models.
+
+[Watch sessions](#event-sessions)Watch sessions
+
+Watch sessions
+
+[Events](https://www.anthropic.com/events)
+
+・
 
 Google Cloud Next 2025
 
@@ -22,11 +36,21 @@ Apr
 
 7
 
+-
+
 10
+
+,
 
 2025
 
 07 Apr 2025
+
+-
+
+9:00 am
+
+-
 
 5:00 pm
 
@@ -36,7 +60,37 @@ Las Vegas, NV — United States | Booth #1540
 
 At Anthropic, we develop large-scale AI systems, and our research teams help us to create safer, steerable, and more reliable models.
 
+[Register now](#)Register now
+
+Register now
+
+[Register](#register)Register
+
+Register
+
+[Learn more](#intro)Learn more
+
+Learn more
+
+[Stay connected](#stay-connected)Stay connected
+
+Stay connected
+
+[Watch livestream](#livestream-live)Watch livestream
+
+Watch livestream
+
+[Watch sessions](#event-sessions)Watch sessions
+
+Watch sessions
+
+## Watch the livestream
+
+Add to calendar
+
 ## Google Cloud Next 2025
+
+Add to calendar
 
 ### Anthropic and Google Cloud
 
@@ -52,20 +106,54 @@ The combination of Claude on Google Cloud’s Vertex AI creates a powerful found
 
 ‍[Learn more](https://www.anthropic.com/google-cloud-vertex-ai) about Claude on Vertex AI.
 
+No items found.
+
+## Register to attend
+
 Thank you for your interest in Google Cloud Next 2025
 
 Applications for this event are now closed. We invite you to tune into the livestream on Apr 07, 2025 at 9:00am . The livestream will take place right here on this page.
 
+Not able to submit the form? Try loading it directly
+
+[here](#)
+
+.
+
+## Book meeting
+
 Stay connected to get the latest from Anthropic’s presence at Google Cloud Next 2025 and more
+
+## Thank you for contacting us
+
+Got it! If you haven’t yet, you can [get started on the Build Plan](https://console.anthropic.com/settings/plans) and begin using Claude via the API and Workbench now.
+
+## Join the livestream
+
+Add to calendar
+
+## Speakers
+
+No items found.
+
+No items found.
+
+## Agenda
 
 * 9 Apr
 * 10 Apr
 
+Day 1Day 2Day 3Day 3
+
 ### April
 
+###
+
 ### 9
 
 ### 9
+
+###
 
 ### April
 
@@ -73,7 +161,17 @@ Stay connected to get the latest from Anthropic’s presence at Google Cloud Nex
 
 Join product leaders from Google Cloud, Anthropic, Oracle, Databricks, and SAP as they dive into the five essential strategies that every enterprise needs for AI success. You’ll hear firsthand accounts of how organizations are leveraging AI and data to drive real world results and how you can bring these strategies to life in your organization.
 
+Wednesday
+
+,
+
 Apr 9
+
+,
+
+9:00 am
+
+-
 
 11:45 am
 
@@ -87,9 +185,17 @@ Mandalay Bay Ballroom D
 
 Engage with leaders from Anthropic and Google Cloud on the essential elements for enterprise AI success in production. You’ll hear about real-world production use cases utilizing the powerful combination of Anthropic’s Claude on Vertex AI for fast development and scalable deployments.
 
+Wednesday
+
+,
+
 Apr 9
 
+,
+
 2:30 pm
+
+-
 
 3:15 pm
 
@@ -101,9 +207,17 @@ Mandalay Bay Ballroom D
 
 Discover how you can use Anthropic's Claude models on Vertex AI to create innovative solutions. This session offers insights into the AI landscape, its impact on software development, and practical guidance on integrating AI technologies into your workflows.
 
+Wednesday
+
+,
+
 Apr 9
 
+,
+
 2:45 pm
+
+-
 
 3:30 pm
 
@@ -115,9 +229,17 @@ Expo Breakout 1
 
 Learn more about Claude’s advanced reasoning capabilities, prompt engineering techniques, and empirical evaluations. We’ll also delve into best practices for prompt engineering, and how to optimize agents to advance Retrieval-Augmented Generation (RAG) within your Google Cloud environment.
 
+Wednesday
+
+,
+
 Apr 9
 
+,
+
 4:00 pm
+
+-
 
 4:45 pm
 
@@ -129,11 +251,23 @@ Expo Breakout 3
 
 ### 09 April 2025
 
+### —
+
+### Wednesday
+
+9:00 am
+
+-
+
 11:45 am
 
 PST
 
 ### The Enterprise AI Playbook: Five Must-Have Strategies
+
+9:00 am
+
+-
 
 11:45 am
 
@@ -147,6 +281,8 @@ Mandalay Bay Ballroom F
 
 2:30 pm
 
+-
+
 3:15 pm
 
 PST
@@ -156,6 +292,8 @@ PST
 Mandalay Bay Ballroom D
 
 2:30 pm
+
+-
 
 3:15 pm
 
@@ -171,6 +309,8 @@ Mandalay Bay Ballroom D
 
 2:45 pm
 
+-
+
 3:30 pm
 
 PST
@@ -178,6 +318,8 @@ PST
 ### Leverage Anthropic’s Claude models for AI’s evolving landscape
 
 2:45 pm
+
+-
 
 3:30 pm
 
@@ -191,6 +333,8 @@ Expo Breakout 1
 
 4:00 pm
 
+-
+
 4:45 pm
 
 PST
@@ -198,6 +342,8 @@ PST
 ### Deep Dive into Claude Models: Unlocking potential on Google Cloud
 
 4:00 pm
+
+-
 
 4:45 pm
 
@@ -211,15 +357,25 @@ Expo Breakout 3
 
 ### April
 
+###
+
 ### 10
 
 #### Claude 4 on AWS: Architecting Enterprise AI
 
 Join this discussion on how startups can thoughtfully leverage foundation models like Claude on Vertex AI. Learn practical strategies for identifying high-impact AI use cases, avoiding common pitfalls, and building responsible AI-powered products.
 
+Wednesday
+
+,
+
 Apr 9
 
+,
+
 9:15 am
+
+-
 
 10:00 am
 
@@ -231,9 +387,15 @@ See how Replit is using Claude on Google Cloud's Vertex AI to transform software
 
 Thursday
 
+,
+
 Apr 10
 
+,
+
 11:45 am
+
+-
 
 12:30 pm
 
@@ -249,9 +411,15 @@ Explore the intersection of computer use capabilities and the broader challenge 
 
 Thursday
 
+,
+
 Apr 10
 
+,
+
 5:00 pm
+
+-
 
 5:20 pm
 
@@ -265,9 +433,15 @@ Discover Google's latest developments in GKE that enable unprecedented scale and
 
 Thursday
 
+,
+
 Apr 10
 
+,
+
 5:15 pm
+
+-
 
 6:00 pm
 
@@ -277,9 +451,13 @@ South Seas B
 
 ### Apr 10
 
+### —
+
 ### Thursday
 
 9:15 am
+
+-
 
 10:00 am
 
@@ -288,6 +466,8 @@ PST
 ### Claude 4 on AWS: Architecting Enterprise AI
 
 9:15 am
+
+-
 
 10:00 am
 
@@ -299,6 +479,8 @@ Join this discussion on how startups can thoughtfully leverage foundation models
 
 11:45 am
 
+-
+
 12:30 pm
 
 PST
@@ -306,6 +488,8 @@ PST
 ### A Conversation with Replit + Anthropic: Empowering the Next Billion Creators with Claude
 
 11:45 am
+
+-
 
 12:30 pm
 
@@ -319,6 +503,8 @@ Mandalay Bay G, Level 2
 
 5:00 pm
 
+-
+
 5:20 pm
 
 PST
@@ -326,6 +512,8 @@ PST
 ### Building Effective Agents
 
 5:00 pm
+
+-
 
 5:20 pm
 
@@ -341,6 +529,8 @@ Expo North Theater #1849
 
 5:15 pm
 
+-
+
 6:00 pm
 
 PST
@@ -348,6 +538,8 @@ PST
 ### How Anthropic is pushing the computing limits of AI at scale with GKE
 
 5:15 pm
+
+-
 
 6:00 pm
 
@@ -359,14 +551,74 @@ Discover Google's latest developments in GKE that enable unprecedented scale and
 
 South Seas B
 
+###
+
+###
+
+###
+
+Agenda details coming soon.
+
+###
+
+### —
+
+###
+
+Agenda details coming soon.
+
+###
+
+###
+
+###
+
+Agenda details coming soon.
+
+###
+
+### —
+
+###
+
+Agenda details coming soon.
+
+## Venue
+
+### Name
+
 Mandalay Bay Conference Center
 
 [Website](https://mandalaybay.mgmresorts.com)
+
+### Address
 
 3950 S Las Vegas Blvd
 
 Las Vegas, NV 89119
 
+### Open doors
+
+## Why attend?
+
+No items found.
+
+### Resources
+
+Access cutting-edge research, connect with our community, and stay informed about the latest developments in responsible AI.
+
 ![](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/67ed6827b32f4c4cdd41ad4c_Nodes-International.svg)
 
+### Discover meetups, workshops, online events, and more
+
+[Browse all events](https://www.anthropic.com/events)Browse all events
+
+Browse all events
+
 ![](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/67ed7c68550b3c546d56e070_Desktop.svg)
+
+### Get expert insight on the latest innovation in the industry
+
+[View all webinars](https://www.anthropic.com/events#webinars)View all webinars
+
+View all webinars

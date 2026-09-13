@@ -2,7 +2,7 @@
 
 [Skip to main content](#main-content)
 
-More[Documentation (opens in new tab)](https://resolume.com/support/en/7.26.0/mcp-servers)[Support (opens in new tab)](https://resolume.com)
+More[Documentation (opens in new tab)](https://resolume.com/support/en/7.26.0/mcp-servers)[Support (opens in new tab)](https://resolume.com)[Privacy policy (opens in new tab)](https://resolume.com/privacy)
 
 The official Resolume MCP server lets AI assistants control Arena in real time. Use it to build and manage your compositions. You can load sources, apply or remove effects. Add and remove layers, columns, groups — all through natural language. Requires Resolume Arena 7.26+
 

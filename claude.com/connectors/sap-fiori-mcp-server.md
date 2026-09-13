@@ -2,7 +2,7 @@
 
 [Skip to main content](#main-content)
 
-More[Support (opens in new tab)](https://experience.sap.com/fiori-design/)
+More[Support (opens in new tab)](https://experience.sap.com/fiori-design/)[Privacy policy (opens in new tab)](https://www.sap.com/about/legal/privacy.html)
 
 Generate and adapt SAP Fiori elements applications with AI coding assistants. Supports List Report, Object Page, and Flexible Column layouts.
 

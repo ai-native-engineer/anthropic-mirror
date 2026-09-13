@@ -2,7 +2,7 @@
 
 [Skip to main content](#main-content)
 
-More[Support (opens in new tab)](https://docling.ai)
+More[Support (opens in new tab)](https://docling.ai)[Privacy policy (opens in new tab)](https://github.com/docling-project/docling-mcp/blob/main/docs/PRIVACY.md)
 
 Docling MCP Server - Document processing and analysis with remote API and local conversion support
 

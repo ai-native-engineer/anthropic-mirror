@@ -2,7 +2,7 @@
 
 [Skip to main content](#main-content)
 
-More[Documentation (opens in new tab)](https://github.com/microsoft/clarity-mcp-server)[Support (opens in new tab)](https://clarity.microsoft.com)
+More[Documentation (opens in new tab)](https://github.com/microsoft/clarity-mcp-server)[Support (opens in new tab)](https://clarity.microsoft.com)[Privacy policy (opens in new tab)](https://clarity.microsoft.com/privacy)
 
 This extension enables integration between AI systems and Microsoft Clarity, providing access to project analytics, documentation, and session recordings.
 

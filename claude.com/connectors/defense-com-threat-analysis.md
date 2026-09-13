@@ -2,7 +2,7 @@
 
 [Skip to main content](#main-content)
 
-More[Documentation (opens in new tab)](https://help.defense.com/)[Support (opens in new tab)](https://www.defense.com)
+More[Documentation (opens in new tab)](https://help.defense.com/)[Support (opens in new tab)](https://www.defense.com)[Privacy policy (opens in new tab)](https://www.defense.com/privacy)
 
 Connect Claude to your Defense.com portal to query open threats, security issues, and remediation status. Filter by risk level, source type, assignee, or keyword. View team workload and assignments. Includes interactive security training sessions. Supports 200+ source type aliases for natural language queries like 'show me pentest findings' or 'get m365 threats'.
 

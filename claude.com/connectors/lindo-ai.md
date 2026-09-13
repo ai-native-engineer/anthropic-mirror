@@ -2,7 +2,7 @@
 
 [Skip to main content](#main-content)
 
-More[Documentation (opens in new tab)](https://docs.lindo.ai/)[Support (opens in new tab)](https://lindo.ai)
+More[Documentation (opens in new tab)](https://docs.lindo.ai/)[Support (opens in new tab)](https://lindo.ai)[Privacy policy (opens in new tab)](https://lindo.ai/privacy)
 
 Lindo AI is a website builder platform for agencies. This extension lets you create websites, pages, and blog posts using AI directly from Claude. You can also manage clients, assign websites, generate magic login links, and allocate credits — all without leaving the conversation.
 

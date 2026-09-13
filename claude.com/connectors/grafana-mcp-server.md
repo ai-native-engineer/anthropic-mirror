@@ -2,7 +2,7 @@
 
 [Skip to main content](#main-content)
 
-More[Documentation (opens in new tab)](https://github.com/grafana/mcp-grafana/blob/main/README.md)[Support (opens in new tab)](https://github.com/grafana/mcp-grafana)
+More[Documentation (opens in new tab)](https://github.com/grafana/mcp-grafana/blob/main/README.md)[Support (opens in new tab)](https://github.com/grafana/mcp-grafana)[Privacy policy (opens in new tab)](https://grafana.com/legal/privacy-policy/)
 
 A comprehensive Model Context Protocol (MCP) server for Grafana that provides:
 

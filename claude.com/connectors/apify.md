@@ -2,7 +2,7 @@
 
 [Skip to main content](#main-content)
 
-More[Support (opens in new tab)](https://apify.com/)
+More[Support (opens in new tab)](https://apify.com/)[Privacy policy (opens in new tab)](https://docs.apify.com/legal)
 
 Apify is the world's largest marketplace of tools for web scraping, crawling, data extraction, and web automation. Get structured data from social media, e-commerce, search engines, maps, travel sites, or any other website.
 

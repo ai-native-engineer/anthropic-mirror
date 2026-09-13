@@ -27,5 +27,3 @@ Starting today, customers can use Claude 3 Haiku through our [API](https://www.a
 [2] Each Supreme Court case is estimated at 10K tokens each. [Source](https://www.supremecourt.gov/opinions/slipopinion/23).
 
 [3] Each image is estimated at 1.6K tokens.
-
-Claude 3 Haiku: our fastest model yet \ Anthropic

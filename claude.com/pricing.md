@@ -728,5 +728,3 @@ You can cancel anytime, and your plan stays active until the end of your current
 * Sales-assisted Enterprise: Reach out to your Anthropic Contact or our Sales team to discuss cancellation.
 
 Canceling doesn't delete your data. Your chats, projects, and files stay with your account, though some features aren't available on the Free plan. For Pro and Max, your account moves to the Free plan once the period ends. For step-by-step help, see [how to cancel a Pro or Max plan](https://support.claude.com/en/articles/8325617-how-do-i-cancel-my-paid-claude-subscription) or [cancel a Team plan](https://support.claude.com/en/articles/9267323-cancel-your-organization-s-team-plan-subscription).
-
-Plans & Pricing | Claude by Anthropic

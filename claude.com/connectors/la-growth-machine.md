@@ -2,7 +2,7 @@
 
 [Skip to main content](#main-content)
 
-More[Support (opens in new tab)](https://lagrowthmachine.com)
+More[Support (opens in new tab)](https://lagrowthmachine.com)[Privacy policy (opens in new tab)](https://lagrowthmachine.com/privacy-policy/)
 
 La Growth Machine (LGM) is a multichannel sales outreach platform. This extension gives Claude direct access to your LGM data: list campaigns, analyze performance, explore leads, read conversations, and save AI-generated preferences. No coding required — just install, enter your API key, and start asking Claude about your outreach.
 

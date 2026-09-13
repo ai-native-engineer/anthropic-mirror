@@ -2,7 +2,7 @@
 
 [Skip to main content](#main-content)
 
-More[Documentation (opens in new tab)](https://developers.avanquest.com/)[Support (opens in new tab)](https://developers.avanquest.com)
+More[Documentation (opens in new tab)](https://developers.avanquest.com/)[Support (opens in new tab)](https://developers.avanquest.com)[Privacy policy (opens in new tab)](https://developers.avanquest.com/privacy-policy)
 
 MCP server enabling Claude Desktop to access powerful PDF tools via the Avanquest PDF API. Features include converting PDFs to multiple formats and back, merging and splitting files, compression, page editing, password protection, watermarking, and advanced analysis of tags, forms, signatures, and attachments.
 

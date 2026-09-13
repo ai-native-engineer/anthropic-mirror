@@ -32,14 +32,6 @@ Only use connectors from developers you trust. Anthropic does not control which 
 
 ## Related connectors
 
-![](https://www.google.com/s2/favicons?domain=box.com&sz=96)
-
-### [Box](https://claude.com/connectors/box)
-
-Search, edit and get insights on your Box content
-
-[Add Box in Claude (opens in new tab)](https://claude.ai/directory/a5380429-c773-4180-b642-301418240c8c "Add in Claude")
-
 ![](https://cdn.prod.website-files.com/69d3ac38e8e442c9fce520b4/6a0742ee5d1bde6d18668e0b_Frame.png)
 
 ### [General Legal](https://claude.com/connectors/general-legal)
@@ -48,13 +40,13 @@ Submit contracts for attorney review, answer their questions, and get redlined d
 
 [Add General Legal in Claude (opens in new tab)](https://claude.ai/directory/dba73da3-6015-4b3e-8acc-0ff38e2c511b "Add in Claude")
 
-![](https://www.google.com/s2/favicons?domain=thomsonreuters.com&sz=96)
+![](https://www.google.com/s2/favicons?domain=box.com&sz=96)
 
-### [CoCounsel Legal](https://claude.com/connectors/cocounsel-legal)
+### [Box](https://claude.com/connectors/box)
 
-Thomson Reuters CoCounsel Legal, in Claude
+Search, edit and get insights on your Box content
 
-[Add CoCounsel Legal in Claude (opens in new tab)](https://claude.ai/directory/084ce5af-6b81-471a-a754-d1a50d3f61a1 "Add in Claude")
+[Add Box in Claude (opens in new tab)](https://claude.ai/directory/a5380429-c773-4180-b642-301418240c8c "Add in Claude")
 
 ![](https://www.docusign.com/favicon.ico)
 
@@ -71,6 +63,14 @@ Intelligent, secure contract management by Docusign
 Search, organize, and take action on your Dropbox content
 
 [Add Dropbox in Claude (opens in new tab)](https://claude.ai/directory/1e4280cc-037c-47f0-9873-56bea1871bdb "Add in Claude")
+
+![](https://www.google.com/s2/favicons?domain=thomsonreuters.com&sz=96)
+
+### [CoCounsel Legal](https://claude.com/connectors/cocounsel-legal)
+
+Thomson Reuters CoCounsel Legal, in Claude
+
+[Add CoCounsel Legal in Claude (opens in new tab)](https://claude.ai/directory/084ce5af-6b81-471a-a754-d1a50d3f61a1 "Add in Claude")
 
 ![](https://assets.bbhub.io/bna/sites/18/2026/07/Bloomberg-Law-Favicon-Connector.png)
 

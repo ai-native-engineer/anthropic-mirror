@@ -2,7 +2,7 @@
 
 [Skip to main content](#main-content)
 
-More[Support (opens in new tab)](https://github.com/Flux159/mcp-server-kubernetes)
+More[Support (opens in new tab)](https://github.com/Flux159/mcp-server-kubernetes)[Privacy policy (opens in new tab)](https://www.linuxfoundation.org/legal/privacy-policy)
 
 MCP Server that can connect to a Kubernetes cluster and manage it.
 

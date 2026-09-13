@@ -2,7 +2,7 @@
 
 [Skip to main content](#main-content)
 
-More[Documentation (opens in new tab)](https://docs.litmus.io/litmus-mcp-server)[Support (opens in new tab)](https://litmus.io)
+More[Documentation (opens in new tab)](https://docs.litmus.io/litmus-mcp-server)[Support (opens in new tab)](https://litmus.io)[Privacy policy (opens in new tab)](https://litmus.io/privacy-policy)
 
 Gives Claude access to your Litmus Edge deployment: browse DeviceHub devices and tags, read real-time and historical process data, manage Digital Twins, inspect system health, and reach the full Litmus SDK surface. This extension bridges Claude Desktop to a Litmus MCP Server you run on your own network (see https://github.com/litmusautomation/litmus-mcp-server); your credentials are stored in the operating system keychain and sent only to that server.
 

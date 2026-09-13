@@ -28,5 +28,3 @@ We've designed our approach to address a key challenge in AI governance: the pro
 In keeping with our commitment to raising the bar on transparency, we'll continuously expand our reporting to reflect evolving best practices as AI capabilities advance and new challenges emerge.
 
 We invite you to explore the [Transparency Hub](https://www.anthropic.com/transparency) and see firsthand how we're working to build AI systems worthy of trust. We welcome your feedback at transparency@anthropic.com.
-
-Introducing Anthropic's Transparency Hub \ Anthropic

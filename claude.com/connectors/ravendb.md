@@ -2,7 +2,7 @@
 
 [Skip to main content](#main-content)
 
-More[Documentation (opens in new tab)](https://github.com/ravendb/ravendb-mcp)[Support (opens in new tab)](https://ravendb.net)
+More[Documentation (opens in new tab)](https://github.com/ravendb/ravendb-mcp)[Support (opens in new tab)](https://ravendb.net)[Privacy policy (opens in new tab)](https://github.com/ravendb/ravendb-mcp/blob/main/PRIVACY.md)
 
 A local, read-only MCP diagnostics server for RavenDB. Point it at a cluster and your AI agent can inspect cluster, database, index, task, storage, and performance state, plus logs, support packages, and read-only data, across 21 read-only tools. Connection-string secrets are masked in the returned JSON.
 

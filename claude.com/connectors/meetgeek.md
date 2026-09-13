@@ -2,7 +2,7 @@
 
 [Skip to main content](#main-content)
 
-More[Documentation (opens in new tab)](https://github.com/meetgeekai/meetgeek-mcp-server/tree/main)[Support (opens in new tab)](https://meetgeek.ai/)
+More[Documentation (opens in new tab)](https://github.com/meetgeekai/meetgeek-mcp-server/tree/main)[Support (opens in new tab)](https://meetgeek.ai/)[Privacy policy (opens in new tab)](https://meetgeek.ai/privacy-policy)
 
 MeetGeek MCP Server provides programmatic access to MeetGeek.ai’s meeting intelligence capabilities through a structured API interface. Built on top of the official MeetGeek API, it enables developers and organizations to integrate meeting data and AI-generated insights directly into their internal tools, workflows, and applications.
 

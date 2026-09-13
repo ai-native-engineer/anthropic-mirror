@@ -2,7 +2,7 @@
 
 [Skip to main content](#main-content)
 
-More[Documentation (opens in new tab)](https://developer.vybit.net/api-reference)[Support (opens in new tab)](https://developer.vybit.net)
+More[Documentation (opens in new tab)](https://developer.vybit.net/api-reference)[Support (opens in new tab)](https://developer.vybit.net)[Privacy policy (opens in new tab)](https://vybit.net/privacy)
 
 Integrates Claude with the Vybit notification platform. Create and manage notification endpoints (vybits), trigger push notifications with custom sounds, browse and subscribe to public vybits, manage access permissions, view notification logs, and monitor API usage.
 

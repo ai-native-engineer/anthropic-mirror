@@ -2,7 +2,7 @@
 
 [Skip to main content](#main-content)
 
-More[Documentation (opens in new tab)](https://github.com/wonderwhy-er/DesktopCommanderMCP/blob/main/FAQ.md)[Support (opens in new tab)](https://github.com/wonderwhy-er/DesktopCommanderMCP)
+More[Documentation (opens in new tab)](https://github.com/wonderwhy-er/DesktopCommanderMCP/blob/main/FAQ.md)[Support (opens in new tab)](https://github.com/wonderwhy-er/DesktopCommanderMCP)[Privacy policy (opens in new tab)](https://legal.desktopcommander.app/privacy_desktop_commander_mcp)
 
 Combine local filesystem access with full terminal control to handle technical tasks through natural language. Desktop Commander empowers you to build, explore, and automate - from organizing repositories to creating complete applications:
 

@@ -2,7 +2,7 @@
 
 [Skip to main content](#main-content)
 
-More[Documentation (opens in new tab)](https://www.busymac.com/docs/busycal/70624-mcp)[Support (opens in new tab)](https://www.busymac.com/busycal/)
+More[Documentation (opens in new tab)](https://www.busymac.com/docs/busycal/70624-mcp)[Support (opens in new tab)](https://www.busymac.com/busycal/)[Privacy policy (opens in new tab)](https://www.busymac.com/privacy)
 
 Search events and tasks, check your availability, find free time, and create or update calendar items — all through BusyCal on your Mac.
 
