@@ -62,7 +62,7 @@ To remove instructions entirely, clear the text area and click “Save changes.�
 
 **Domain context.** “Our team works in healthcare claims processing. When users mention ‘claims,’ they’re referring to insurance claims, not legal claims.”
 
-**Referral guidance.** “When users ask about HR policies, direct them to [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#670f152706040a024904080a) rather than giving specific policy advice.”
+**Referral guidance.** “When users ask about HR policies, direct them to [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#9df5efddfcfef0f8b3fef2f0) rather than giving specific policy advice.”
 
 **Data handling reminders.** “Don’t include customer names, account numbers, or other personally identifiable information in responses or generated artifacts.”
 

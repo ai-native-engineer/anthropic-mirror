@@ -25,16 +25,6 @@ Only use connectors from developers you trust. Anthropic does not control which 
 
 ## Related connectors
 
-![](https://www.google.com/s2/favicons?domain=pinelabs.com&sz=96)
-
-### [Pine Labs Payments Assistant](https://claude.com/connectors/pine-labs-payments-assistant)
-
-Trending
-
-Query your Pine Labs payments data in plain language — orders, transactions, settlements, subscriptions and success rates, plus integration help for developers.
-
-[Add Pine Labs Payments Assistant in Claude (opens in new tab)](https://claude.ai/directory/b20c4865-4ef3-4a57-8f8f-7e36f4fe4e89 "Add in Claude")
-
 ![](https://www.google.com/s2/favicons?domain=stripe.com&sz=96)
 
 ### [Stripe](https://claude.com/connectors/stripe)
@@ -59,6 +49,14 @@ Trusted Financial Data from Zacks Investment Research
 
 [Add Zacks Data in Claude (opens in new tab)](https://claude.ai/directory/2823d140-e557-491a-a7fc-bc95b67c2ce2 "Add in Claude")
 
+![](https://www.google.com/s2/favicons?domain=spglobal.com&sz=96)
+
+### [S&P - Deterministic Retrieval](https://claude.com/connectors/s-p-global)
+
+Deterministic access to S&P Global data
+
+[Add S&P - Deterministic Retrieval in Claude (opens in new tab)](https://claude.ai/directory/d965405c-3467-4046-b5b3-e8fb8ed235eb "Add in Claude")
+
 ![](https://www.google.com/s2/favicons?domain=vibeprospecting.ai&sz=96)
 
 ### [Vibe Prospecting](https://claude.com/connectors/vibeprospecting)
@@ -67,10 +65,10 @@ Find and enrich company and contact data in Claude for prospecting, lead generat
 
 [Add Vibe Prospecting in Claude (opens in new tab)](https://claude.ai/directory/1bdcb159-b6f0-4f13-bc08-fdb40b007828 "Add in Claude")
 
-![](https://www.google.com/s2/favicons?domain=spglobal.com&sz=96)
+![](https://www.google.com/s2/favicons?domain=pitchbook.com&sz=96)
 
-### [S&P - Deterministic Retrieval](https://claude.com/connectors/s-p-global)
+### [PitchBook Premium](https://claude.com/connectors/pitchbook)
 
-Deterministic access to S&P Global data
+PitchBook data, embedded in the way you work.
 
-[Add S&P - Deterministic Retrieval in Claude (opens in new tab)](https://claude.ai/directory/d965405c-3467-4046-b5b3-e8fb8ed235eb "Add in Claude")
+[Add PitchBook Premium in Claude (opens in new tab)](https://claude.ai/directory/79c545e3-8878-4557-bcbb-3add11c86890 "Add in Claude")

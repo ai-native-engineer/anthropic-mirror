@@ -7,6 +7,7 @@ work through comment threads, and fill templates in your document’s
 styles.
 
 Claude for Word is generally available to Pro, Max, Team,
+and Enterprise plans.
 
 With Claude for Word, you can:
 
@@ -34,18 +35,40 @@ Claude for Word runs on the following Word builds.
   build 15202.10000 or later
 * Word on Mac, version 16.61, build 22040100 or later
 
+Go to the [Claude for Microsoft 365 listing on Microsoft AppSource](https://marketplace.microsoft.com/en-us/product/office/WA200010725?tab=Overview).
+
+Sign in
+
 Open Word, activate the add-in, and sign in with your Claude
 account.
 
 Organization admins can deploy Claude for Word through the Microsoft
 365 Admin Center.
 
+Go to Settings, Integrated apps, Add-ins.
+
+Search for “Claude for Microsoft 365” in Microsoft AppSource.
+
+Assign the add-in to your organization or to specific users or
+groups. Share [Microsoft’s deployment guide](https://learn.microsoft.com/en-us/microsoft-365/admin/manage/manage-deployment-of-add-ins)
+with your team for activation steps.
+
+After deployment, users can activate the Claude add-in from Tools,
+Add-ins on Mac or Home, Add-ins on Windows, sign in, and start working.
+
+Organizations that have disabled “Let users access the Office Store” may
+find that admin-deployed add-ins don’t appear for users. To work around
+this, deploy using the manifest XML file described below.
+
 ###  Deploy with a custom manifest
 
 For IT administrators deploying to multiple users when the Office Store
 is disabled:
 
+Download the manifest
+
 Download the [custom manifest XML file](https://pivot.claude.ai/manifest-word.xml)
+and save it to a secure location.
 
 Open the Admin Center
 
@@ -62,11 +85,19 @@ Assign users
 Choose entire organization, specific users, specific groups, or just
 yourself for admin testing.
 
+5
+
 Review settings and select “Deploy”. The add-in is available within
 minutes. Full organization rollout can take up to 24 hours.
 
 After deployment, users see Claude in Word’s Home ribbon and sign in
 with their Claude credentials on first use.
+
+If your organization routes AI traffic through Amazon Bedrock, Google Cloud
+Vertex AI, Azure AI Foundry, or an LLM gateway, your admin can deploy
+the add-in without individual Claude accounts. See
+
+##  Key features
 
 ###  Read and understand documents
 
@@ -79,6 +110,8 @@ numbering, defined terms, cross-references, and standard contract
 structures. Verify that outputs match your specific requirements and
 your firm’s standard positions.
 
+Example prompts:
+
 * “What’s the liability cap and is it mutual?”
 * “Summarize the key commercial terms in this agreement.”
 * “What assumptions drive the revenue forecast in section 3?”
@@ -89,6 +122,7 @@ Select a passage and tell Claude what to change. Claude edits only the
 selection while preserving surrounding styles, numbering, and
 formatting. New text inherits the paragraph style, font, and numbering
 of the surrounding content.
+Example prompts:
 
 * “Tighten this paragraph and drop the passive voice.”
 * “Rewrite this clause to make the indemnification mutual.”
@@ -101,6 +135,7 @@ revisions. The original text is visible as a deletion and the new text
 as an insertion, all reviewable in Word’s native review pane. Review
 every edit before accepting it, and undo with Word’s standard Ctrl+Z
 on Windows or Cmd+Z on Mac if you want to revert.
+Example prompts:
 
 * “Rewrite section 4.2 to cap damages at 12 months of fees, and make it
   mutual.”
@@ -112,6 +147,7 @@ Claude reads comment threads in your document, understands what text
 each thread is anchored to, and can work through them one by one. For
 each comment, Claude edits the anchored passage and replies to the
 thread with a note explaining what it did.
+Example prompts:
 
 * “Work through my open comments.”
 * “Address the comment on the liability section.”
@@ -121,6 +157,7 @@ thread with a note explaining what it did.
 When a counterparty returns a document with tracked changes, Claude can
 read and summarize what they changed. Ask Claude to group changes by
 severity or flag the ones worth pushing back on.
+Example prompts:
 
 * “Summarize what the other side changed and flag anything that’s worth
   discussing.”
@@ -132,6 +169,7 @@ Draft sections in your document’s heading and paragraph styles. Claude
 uses your template’s formatting when generating content, so new
 headings, bullets, and table entries match what’s already there. Tables
 populate in place without reflowing layout or changing column widths.
+Example prompts:
 
 * “Draft the Key Risks section with four risks in the template’s style.”
 * “Populate the summary table with revenue, gross margin, and net
@@ -142,13 +180,22 @@ populate in place without reflowing layout or changing column widths.
 Find every provision or passage in your document that touches a
 specific theme. Claude returns thematic matches, not just keyword hits,
 and each result navigates to the relevant location on click.
+Example prompts:
 
 * “Find every provision touching data retention.”
 * “Where does this agreement address termination?”
 
+##  Connectors and Skills
+
 Claude for Word supports connectors for pulling external context into
 your document, and Skills for applying reusable task recipes. See
+[Connectors and Skills](https://claude.com/docs/office-agents/connectors-and-skills) for
+details.
 
+##  Set persistent instructions
+
+Open Settings in the add-in sidebar and use the Instructions field to
+set preferences that
 apply to every conversation in Word. Instructions are useful for tone
 and style conventions such as “use formal tone” or “follow APA citation
 style”, document structure preferences, or recurring context about your
@@ -160,16 +207,48 @@ Claude for Word shares context with Claude for Excel, PowerPoint, and
 Outlook, so a single conversation can span your open document,
 workbook, deck, and inbox. See
 
+##  Context and session management
+
 The add-in handles long sessions for you so a single conversation can
 span an entire workflow.
+
+* **Auto-compaction**: longer conversations are automatically compacted
+  into new conversations to avoid running out of context. See
+  [Understanding usage and length limits](https://support.claude.com/en/articles/11647753-understanding-usage-and-length-limits).
 
 Your use of Claude for Word is associated with your existing Claude
 account and is subject to the same usage limits.
 
+##  Models available
+
+Claude for M365 offers a curated subset of the Claude models: the ones
+that work best for Office tasks, so the list you see in the add-in can
+be shorter than what you see in Claude.ai. Your organization’s model
+access settings also apply, and a model appears here only if your role
+permits it. See
+[Manage model access for your organization](https://support.claude.com/en/articles/15694740-manage-model-access-for-your-organization)
+for how those settings interact with each product. If you connect
+through Amazon Bedrock, Google Cloud Vertex AI, Azure AI Foundry, or an
+LLM gateway, the available models come from that platform and your
+admin’s configuration instead of your Claude.ai model access settings.
+See [Use Claude for M365 with third-party platforms](https://claude.com/docs/office-agents/third-party-platforms)
+for details.
+
+Inputs and outputs are deleted on the backend within 30 days of receipt
+or generation, except in cases outlined in
+Data is cached for a number of hours after deletion so users can access
 context in recently closed documents.
+Conversations are not stored on Anthropic’s servers, are not synced
+across devices, and can be cleared from Settings at any time.
+Reinstalling the add-in or switching between Claude add-ins does not
+remove it. See [Data storage and retention](https://claude.com/docs/office-agents/data-storage)
+for where it sits on disk and how long it is kept.
 Claude for Word does not inherit custom data retention settings your
 organization might have set. Activity is not included in Enterprise
+audit logs. For Enterprise organizations with the
 enabled, Claude for Word sessions are included in the Compliance API.
+This coverage is in public beta and requires no additional setup: the
+same Compliance Access Keys apply.
 Claude reads the content of your currently open document, including
 text, comments, tracked changes, footnotes, tables, and bookmarks. It
 only accesses the document you have open in Word. For highly sensitive
@@ -183,6 +262,8 @@ Claude for Word is not recommended for:
 * Documents containing highly sensitive or privileged data without
   proper controls.
 
+###  Unsupported versions
+
 The add-in does not run on these Word versions.
 
 * Word 2016 and 2019 perpetual or volume license.
@@ -191,6 +272,8 @@ The add-in does not run on these Word versions.
 * Microsoft 365 Word builds older than Version 2205 on Windows or
   version 16.61 on Mac.
 * Legacy `.doc` files. Save as `.docx` first.
+
+##  Prompt injection risk
 
 Only use Claude for Word with trusted documents. Documents from external
 sources such as downloaded templates, counterparty files, or files
@@ -210,7 +293,11 @@ scenarios where Claude for Word can be manipulated to:
 * Perform destructive actions without verification when allowed to act
   unsupervised.
 
+When Claude proposes a risky operation, you are asked to confirm before
 it runs. Review confirmations carefully, especially for content from
+external sources.
+
+##  Best practices
 
 Follow these guidelines to use Claude for Word safely and effectively.
 

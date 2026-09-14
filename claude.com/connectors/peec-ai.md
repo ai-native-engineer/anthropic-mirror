@@ -35,8 +35,6 @@ Search, read, and upload files instantly
 
 ### [Brightdeck](https://claude.com/connectors/brightdeck-ai)
 
-Trending
-
 Create presentations and slides, compatible with PowerPoint
 
 [Add Brightdeck in Claude (opens in new tab)](https://claude.ai/directory/c0a11a21-c9c7-4b10-9118-629035443c7b "Add in Claude")

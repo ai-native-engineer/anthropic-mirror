@@ -61,10 +61,10 @@ Enhance responses with scholarly research and citations
 
 [Add Scholar Gateway in Claude (opens in new tab)](https://claude.ai/directory/ff091334-0f12-4d0e-a973-c00467dd3818 "Add in Claude")
 
-![](https://www.google.com/s2/favicons?domain=amass.tech&sz=96)
+![](https://storage.googleapis.com/media-assets-299d7136-cb52-d546-ee02-34bc1307c35f/mcp-directory/icons/chembl.png)
 
-### [Amass Connector](https://claude.com/connectors/amass)
+### [ChEMBL](https://claude.com/connectors/chembl)
 
-Life sciences intelligence, unified — publications, trials, drugs, genes, regulatory approvals, and patents in one cross-linked connector
+Access the ChEMBL Database
 
-[Add Amass Connector in Claude (opens in new tab)](https://claude.ai/directory/6cc00fbf-8b71-47d0-850f-c35013276b97 "Add in Claude")
+[Add ChEMBL in Claude (opens in new tab)](https://claude.ai/directory/711ccc94-754b-4659-903d-d61b29dd781e "Add in Claude")

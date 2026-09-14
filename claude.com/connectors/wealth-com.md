@@ -4,7 +4,7 @@
 
 Connector URL`https://mcp.wealth.com/mcp`
 
-More[Documentation (opens in new tab)](https://wealth.docsend.com/view/s/dtv5zszjtyhy8qtf)[Support (opens in new tab)](mailto:support@wealth.com)[Privacy policy (opens in new tab)](https://www.wealth.com/legal-policies/#privacy-content)
+More[Documentation (opens in new tab)](https://developer.wealth.com/mcp)[Support (opens in new tab)](mailto:support@wealth.com)[Privacy policy (opens in new tab)](https://www.wealth.com/legal-policies/#privacy-content)
 
 Wealth.com brings estate-planning intelligence into Claude for financial advisors and their teams.
 
@@ -53,8 +53,6 @@ Search, read, and upload files instantly
 ![](https://www.google.com/s2/favicons?domain=brightdeck.ai&sz=96)
 
 ### [Brightdeck](https://claude.com/connectors/brightdeck-ai)
-
-Trending
 
 Create presentations and slides, compatible with PowerPoint
 

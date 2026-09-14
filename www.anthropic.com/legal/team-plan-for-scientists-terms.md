@@ -57,3 +57,5 @@ Except where required by applicable law, amounts charged under the Plan are non-
 ## 9. Changes and general
 
 Anthropic may modify, suspend, or end the Promotion or these Promotional Terms at any time, including to correct errors. If Anthropic ends the Promotion, accounts already on Promotional Pricing keep it for the remainder of their Promotional Period, subject to Sections 6 and 7. The Promotion is void where prohibited. The Terms apply in full to the Plan.
+
+Claude Team plan for scientists — Promotional Offer Terms and Conditions \ Anthropic

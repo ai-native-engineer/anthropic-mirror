@@ -6,6 +6,7 @@ relationships, debug errors, and build or populate models, all without
 leaving Excel.
 
 Claude for Excel is generally available to Pro, Max, Team,
+and Enterprise plans.
 
 With Claude for Excel, you can:
 
@@ -27,11 +28,25 @@ Claude for Excel runs on the following Excel builds.
 * Excel on Windows with a Microsoft 365 subscription, build 16.0.13127.20296 or later
 * Excel on Mac, version 16.46 or later, build 21011600 or later
 
+Go to the [Claude for Microsoft 365 listing on Microsoft AppSource](https://marketplace.microsoft.com/en-us/product/office/WA200010725?tab=Overview).
+
+Sign in
+
 Open Excel, activate the add-in, and sign in with your Claude account.
 
 Organization admins can deploy Claude for Excel through the Microsoft 365
 Admin Center.
 
+Go to Settings, Integrated apps, Add-ins.
+
+Search for “Claude for Microsoft 365” in Microsoft AppSource.
+
+Assign the add-in to your organization or to specific users or
+groups. Share [Microsoft’s deployment guide](https://learn.microsoft.com/en-us/microsoft-365/admin/manage/manage-deployment-of-add-ins)
+with your team for activation steps.
+
+After deployment, users can activate the Claude add-in from Tools,
+Add-ins on Mac or Home, Add-ins on Windows, sign in, and start working.
 For environments where “Let users access the Office Store” is disabled,
 deploy using the custom manifest XML file instead. Download the
 [Excel manifest XML file](https://pivot.claude.ai/manifest-excel.xml),
@@ -40,11 +55,18 @@ then follow
 for the upload steps. The flow is identical apart from which manifest
 file you upload in Step 1.
 
+If your organization routes AI traffic through Amazon Bedrock, Google Cloud
+Vertex AI, Azure AI Foundry, or an LLM gateway, your admin can deploy
+the add-in without individual Claude accounts. See
+
+##  Key features
+
 ###  Understand complex models
 
 Ask Claude to trace assumptions, explain formulas, or walk through how a
 number was derived. Answers include cell-level citations you can click
 to navigate to the referenced cell.
+Example prompts:
 
 * “Walk me through how the revenue number in cell C42 is calculated.”
 * “What assumptions drive the gross margin forecast?”
@@ -53,6 +75,7 @@ to navigate to the referenced cell.
 
 Claude updates cell values while keeping formula relationships intact,
 so downstream cells recompute correctly.
+Example prompts:
 
 * “Change the discount rate to 8% and update dependent calculations.”
 * “Flex the growth rate from 5% to 10% and show me the impact on terminal
@@ -62,6 +85,7 @@ so downstream cells recompute correctly.
 
 Populate an existing template or generate a new model from a natural
 language description.
+Example prompts:
 
 * “Populate this LBO template with a $500M purchase price and 6x
   leverage.”
@@ -70,6 +94,7 @@ language description.
 ###  Debug errors
 
 Locate the root cause of calculation errors and suggest fixes.
+Example prompts:
 
 * “Find the source of the #REF! error in the summary tab.”
 * “Trace why cell H15 is returning #DIV/0.”
@@ -80,9 +105,17 @@ Claude can sort, filter, edit pivot tables, apply conditional
 formatting, and create data validation dropdowns. Ask for these
 directly.
 
+##  Connectors and Skills
+
 Claude for Excel supports connectors for pulling external context into
 your workbook, and Skills for applying reusable task recipes. See
+[Connectors and Skills](https://claude.com/docs/office-agents/connectors-and-skills) for
+details.
 
+##  Set persistent instructions
+
+Open Settings in the add-in sidebar and use the Instructions field to
+set preferences that
 apply to every conversation in Excel. Instructions are useful for
 formatting conventions such as “format numbers with thousand separators”
 or “always bold column headers”, currency or locale preferences, or
@@ -94,19 +127,50 @@ Claude for Excel shares context with Claude for PowerPoint, Word, and
 Outlook, so a single conversation can span your open workbook,
 presentation, document, and inbox. See
 
+##  Context and session management
+
 The add-in handles long sessions and protects against accidental
 overwrites for you.
 
+* **Auto-compaction**: longer conversations are automatically compacted
+  into new conversations to avoid running out of context. See
+  [Understanding usage and length limits](https://support.claude.com/en/articles/11647753-understanding-usage-and-length-limits).
 * **Overwrite protection**: Claude warns you before overwriting existing
   data to avoid accidental data loss.
 
 Your use of Claude for Excel is associated with your existing Claude
 account and is subject to the same usage limits.
 
+##  Models available
+
+Claude for M365 offers a curated subset of the Claude models: the ones
+that work best for Office tasks, so the list you see in the add-in can
+be shorter than what you see in Claude.ai. Your organization’s model
+access settings also apply, and a model appears here only if your role
+permits it. See
+[Manage model access for your organization](https://support.claude.com/en/articles/15694740-manage-model-access-for-your-organization)
+for how those settings interact with each product. If you connect
+through Amazon Bedrock, Google Cloud Vertex AI, Azure AI Foundry, or an
+LLM gateway, the available models come from that platform and your
+admin’s configuration instead of your Claude.ai model access settings.
+See [Use Claude for M365 with third-party platforms](https://claude.com/docs/office-agents/third-party-platforms)
+for details.
+
+Inputs and outputs are deleted on the backend within 30 days of receipt
+or generation, except in cases outlined in
+Data is cached for a number of hours after deletion so users can access
 context in recently closed workbooks.
+Conversations are not stored on Anthropic’s servers, are not synced
+across devices, and can be cleared from Settings at any time.
+Reinstalling the add-in or switching between Claude add-ins does not
+remove it. See [Data storage and retention](https://claude.com/docs/office-agents/data-storage)
+for where it sits on disk and how long it is kept.
 Claude for Excel does not inherit custom data retention settings your
 organization might have set. Activity is not included in Enterprise
+audit logs. For Enterprise organizations with the
 enabled, Claude for Excel sessions are included in the Compliance API.
+This coverage is in public beta and requires no additional setup: the
+same Compliance Access Keys apply.
 
 Claude for Excel is not recommended for:
 
@@ -120,6 +184,8 @@ Unsupported capabilities:
 * Data tables.
 * Macros and VBA operations.
 
+###  Unsupported versions
+
 The add-in does not run on these Excel versions.
 
 * Excel 2016 and 2019 perpetual or volume license.
@@ -127,6 +193,8 @@ The add-in does not run on these Excel versions.
   does not provide.
 * Excel on Android.
 * Older builds of Microsoft 365 Excel below the SharedRuntime threshold.
+
+##  Prompt injection risk
 
 Only use Claude for Excel with trusted spreadsheets. Files from external
 sources can contain hidden instructions that manipulate the add-in into
@@ -138,7 +206,11 @@ taking unintended actions. Testing has identified scenarios where Claude for
 Excel can be manipulated to extract sensitive information, modify
 critical data, or perform destructive actions if allowed to act without
 verification.
+When Claude proposes a risky operation, you are asked to confirm before
 it runs. Review confirmations carefully, especially for files from
+external sources.
+
+##  Best practices
 
 Follow these guidelines to use Claude for Excel safely and effectively.
 

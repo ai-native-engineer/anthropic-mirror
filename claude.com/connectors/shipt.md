@@ -51,6 +51,16 @@ Schedule post, analyze & manage social media with AI
 
 [Add Metricool Social Media Management in Claude (opens in new tab)](https://claude.ai/directory/70ba6d62-7e98-4ef4-9073-d161d900a95f "Add in Claude")
 
+![](https://www.google.com/s2/favicons?domain=cargurus.com&sz=96)
+
+### [CarGurus](https://claude.com/connectors/cargurus)
+
+New
+
+Find, buy, and research cars
+
+[Add CarGurus in Claude (opens in new tab)](https://claude.ai/directory/f78c2d49-167a-4299-9b23-94197eb4b649 "Add in Claude")
+
 ![](https://www.google.com/s2/favicons?domain=openrush.com&sz=96)
 
 ### [OpenRush](https://claude.com/connectors/openrush)
@@ -58,11 +68,3 @@ Schedule post, analyze & manage social media with AI
 SEO and competitor analysis with live search data: keyword research, rank tracking, gap analysis, and site audits
 
 [Add OpenRush in Claude (opens in new tab)](https://claude.ai/directory/9af032f3-e69f-4789-b456-1e2f276eb2c8 "Add in Claude")
-
-![](https://www.google.com/s2/favicons?domain=idealista.com&sz=96)
-
-### [idealista](https://claude.com/connectors/idealista)
-
-Find properties to buy or rent
-
-[Add idealista in Claude (opens in new tab)](https://claude.ai/directory/a93a736f-6b7a-46d3-849a-48f75534183a "Add in Claude")

@@ -2,7 +2,7 @@
 
 [Skip to main content](#main-content)
 
-More[Support (opens in new tab)](https://www.ableton.com/)
+More[Support (opens in new tab)](https://www.ableton.com/)[Privacy policy (opens in new tab)](https://www.ableton.com/en/privacy-policy/)
 
 Ask Claude questions about Ableton Live, Push, Move, Note, Cloud, Link and Max for Live. Claude will search through product manuals, official release notes, knowledge base articles, and video tutorial transcripts to find relevant answers.
 

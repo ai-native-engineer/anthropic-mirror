@@ -152,5 +152,3 @@ We are sharing the first complete computer-checked proof of Fermat’s Last Theo
 ## Subscribe to the Frontier Red Team newsletter
 
 Get updates on our latest red-teaming research and findings.
-
-Finding bugs with Claude and property-based testing \ Anthropic

@@ -30,14 +30,6 @@ Only use connectors from developers you trust. Anthropic does not control which 
 
 ## Related connectors
 
-![](https://www.google.com/s2/favicons?domain=accuweather.com&sz=96)
-
-### [AccuWeather®](https://claude.com/connectors/accuweather)
-
-Hyper-local forecasts & alerts
-
-[Add AccuWeather® in Claude (opens in new tab)](https://claude.ai/directory/111502a6-f2e8-45ee-bcf7-a7d325367723 "Add in Claude")
-
 ![](https://www.rome2rio.com/favicon.ico)
 
 ### [Rome2Rio](https://claude.com/connectors/rome2rio)
@@ -45,6 +37,14 @@ Hyper-local forecasts & alerts
 Discover how to get anywhere
 
 [Add Rome2Rio in Claude (opens in new tab)](https://claude.ai/directory/0c84f0ce-49ad-468f-babb-3efab67f5aeb "Add in Claude")
+
+![](https://www.google.com/s2/favicons?domain=accuweather.com&sz=96)
+
+### [AccuWeather®](https://claude.com/connectors/accuweather)
+
+Hyper-local forecasts & alerts
+
+[Add AccuWeather® in Claude (opens in new tab)](https://claude.ai/directory/111502a6-f2e8-45ee-bcf7-a7d325367723 "Add in Claude")
 
 ![](https://www.google.com/s2/favicons?domain=novasol.com&sz=96)
 

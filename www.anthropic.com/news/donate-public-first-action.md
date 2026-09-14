@@ -34,5 +34,3 @@ The organization will work with Republicans, Democrats, and Independents who sha
 These policies aren’t partisan. Nor are they for the benefit of Anthropic as an AI developer—effective AI governance means *more* scrutiny of companies like ours, not less. They’re also not an attempt to hold back smaller or less well-resourced developers: our view is that transparency regulation, for example, should apply only to companies developing the most powerful (and most dangerous) AI models.
 
 The companies building AI have a responsibility to help ensure the technology serves the public good, not just their own interests. Our contribution to Public First Action is part of our commitment to governance that enables AI’s transformative potential and helps proportionately manage its risks.
-
-Anthropic is donating $20 million to Public First Action \ Anthropic

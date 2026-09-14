@@ -6,7 +6,7 @@ Feb 16, 2026
 
 ![Anthropic opens Bengaluru office and announces new partnerships across India     ](https://www-cdn.anthropic.com/images/4zrzovbb/website/ffc0d7957a232518519f13c0d64896921ea215e2-1000x1000.svg)
 
-India is the second-largest market for [Claude.ai](http://claude.ai/redirect/website.v1.1dcae2ce-ee3f-4085-aa48-9ee57262e969), home to a developer community doing some of the most technically intense AI work we see anywhere. [Nearly half of Claude usage](https://www.anthropic.com/research/india-brief-economic-index) in India comprises computer and mathematical tasks: building applications, modernizing systems, and shipping production software.
+India is the second-largest market for [Claude.ai](http://claude.ai/redirect/website.v1.76ac1a36-9afb-4ace-8f70-be146fca546f), home to a developer community doing some of the most technically intense AI work we see anywhere. [Nearly half of Claude usage](https://www.anthropic.com/research/india-brief-economic-index) in India comprises computer and mathematical tasks: building applications, modernizing systems, and shipping production software.
 
 Today, as we officially open our Bengaluru office, we’re announcing partnerships across enterprise, education, and agriculture that deepen our commitment to India across a range of sectors.
 
@@ -53,3 +53,5 @@ The Indian Ministry of Statistics and Programme Implementation (MoSPI), with the
 These partnerships will grow in the coming months and years through our expanded presence in India. Our new Bengaluru office—Anthropic’s second in Asia after [Tokyo](https://www.anthropic.com/news/opening-our-tokyo-office)—has officially opened. Led by Managing Director of India [Irina Ghose](https://www.anthropic.com/news/anthropic-appoints-irina-ghose-as-managing-director-of-india?ref=blog.selectfromuser.com), an enterprise and startup technology leader, the office will focus on hiring local talent across a wide array of roles.
 
 For information about career opportunities at our Bengaluru office, visit our [careers page](https://www.anthropic.com/careers).
+
+Anthropic opens Bengaluru office \ Anthropic

@@ -27,18 +27,40 @@ Claude for PowerPoint runs on the following PowerPoint builds.
 * PowerPoint on Windows with a Microsoft 365 subscription, build 16.0.13127.20296 or later
 * PowerPoint on Mac, version 16.46 or later
 
+Go to the [Claude for Microsoft 365 listing on Microsoft AppSource](https://marketplace.microsoft.com/en-us/product/office/WA200010725?tab=Overview).
+
+Sign in
+
 Open PowerPoint, activate the add-in, and sign in with your Claude
 account.
 
 Organization admins can deploy Claude for PowerPoint through the
 Microsoft 365 Admin Center.
 
+Go to Settings, Integrated apps, Add-ins.
+
+Search for “Claude for Microsoft 365” in Microsoft AppSource.
+
+Assign the add-in to your organization or to specific users or
+groups. Share [Microsoft’s deployment guide](https://learn.microsoft.com/en-us/microsoft-365/admin/manage/manage-deployment-of-add-ins)
+with your team for activation steps.
+
+After deployment, users can activate the Claude add-in from Tools,
+Add-ins on Mac or Home, Add-ins on Windows, sign in, and start working.
+
+Organizations that have disabled “Let users access the Office Store” may
+find that admin-deployed add-ins don’t appear for users. To work around
+this, deploy using the manifest XML file described below.
+
 ###  Deploy with a custom manifest
 
 For IT administrators deploying to multiple users when the Office Store
 is disabled:
 
+Download the manifest
+
 Download the [custom manifest XML file](https://pivot.claude.ai/manifest-powerpoint.xml)
+and save it to a secure location.
 
 Open the Admin Center
 
@@ -55,11 +77,19 @@ Assign users
 Choose entire organization, specific users, specific groups, or just
 yourself for admin testing.
 
+5
+
 Review settings and select “Deploy”. The add-in is available within
 minutes. Full organization rollout can take up to 24 hours.
 
 After deployment, users see Claude in PowerPoint’s Home ribbon and sign
 in with their Claude credentials on first use.
+
+If your organization routes AI traffic through Amazon Bedrock, Google Cloud
+Vertex AI, Azure AI Foundry, or an LLM gateway, your admin can deploy
+the add-in without individual Claude accounts. See
+
+##  Key features
 
 ###  Build from templates
 
@@ -67,6 +97,7 @@ Start with a client or corporate template already loaded. Describe what
 you need, and Claude generates slides using the correct layouts, fonts,
 and colors from the slide master. Claude reads your deck’s template and
 respects its formatting rules.
+Example prompts:
 
 * “Create a market sizing section, 3 slides covering TAM, SAM, SOM with
   supporting visuals.”
@@ -76,6 +107,7 @@ respects its formatting rules.
 
 Select a slide and tell Claude what to change. Claude makes edits while
 preserving formatting and surrounding context.
+Example prompts:
 
 * “Simplify the text on this slide.”
 * “Add a chart showing the quarterly trend.”
@@ -85,6 +117,7 @@ preserving formatting and surrounding context.
 
 Open a blank deck and describe your goal. Claude builds a draft with
 logical structure and professional defaults, which you can refine.
+Example prompts:
 
 * “Create a 10-slide deck walking through our market entry hypotheses.”
 * “Build an internal project update presentation with timeline and next
@@ -95,6 +128,7 @@ logical structure and professional defaults, which you can refine.
 Convert bullet points into professional visuals such as diagrams, process
 flows, or editable native PowerPoint charts. Claude produces visuals you
 can edit directly, not static images.
+Example prompts:
 
 * “Turn these bullets into a process flow diagram.”
 * “Create a bar chart comparing Q1 to Q4 performance.”
@@ -105,9 +139,17 @@ Claude reads the slide master, layouts, fonts, and color scheme in your
 deck and uses them when generating or editing slides. It aims to
 maintain template compliance without introducing off-brand elements.
 
+##  Connectors and Skills
+
 Claude for PowerPoint supports connectors for pulling external context
 into your deck, and Skills for applying reusable task recipes. See
+[Connectors and Skills](https://claude.com/docs/office-agents/connectors-and-skills) for
+details.
 
+##  Set persistent instructions
+
+Open Settings in the add-in sidebar and use the Instructions field to
+set preferences that
 apply to every conversation in PowerPoint. Instructions are useful for
 brand guidelines such as “always use one-line bullets” or “use the blue
 accent color for highlights”, preferred slide structure, or recurring
@@ -119,15 +161,45 @@ Claude for PowerPoint shares context with Claude for Excel, Word, and
 Outlook, so a single conversation can span your open deck, workbook,
 document, and inbox. See
 
+##  Context and session management
+
 The add-in handles long sessions for you so a single conversation can
 span an entire workflow.
+
+* **Auto-compaction**: longer conversations are automatically compacted
+  into new conversations to avoid running out of context. See
+  [Understanding usage and length limits](https://support.claude.com/en/articles/11647753-understanding-usage-and-length-limits).
 
 Your use of Claude for PowerPoint is associated with your existing
 Claude account and is subject to the same usage limits.
 
+##  Models available
+
+Claude for M365 offers a curated subset of the Claude models: the ones
+that work best for Office tasks, so the list you see in the add-in can
+be shorter than what you see in Claude.ai. Your organization’s model
+access settings also apply, and a model appears here only if your role
+permits it. See
+[Manage model access for your organization](https://support.claude.com/en/articles/15694740-manage-model-access-for-your-organization)
+for how those settings interact with each product. If you connect
+through Amazon Bedrock, Google Cloud Vertex AI, Azure AI Foundry, or an
+LLM gateway, the available models come from that platform and your
+admin’s configuration instead of your Claude.ai model access settings.
+See [Use Claude for M365 with third-party platforms](https://claude.com/docs/office-agents/third-party-platforms)
+for details.
+
+Inputs and outputs are deleted on the backend within 30 days of receipt
+or generation, except in cases outlined in
+Data is cached for a number of hours after deletion so users can access
 context in recently closed presentations.
+Conversations are not stored on Anthropic’s servers, are not synced
+across devices, and can be cleared from Settings at any time.
+Reinstalling the add-in or switching between Claude add-ins does not
+remove it. See [Data storage and retention](https://claude.com/docs/office-agents/data-storage)
+for where it sits on disk and how long it is kept.
 Claude for PowerPoint does not inherit custom data retention settings
 your organization might have set. Activity is not included in Enterprise
+audit logs. For Enterprise organizations with the
 enabled, Claude for PowerPoint sessions are included in the Compliance
 API. This coverage is in public beta and requires no additional setup:
 the same Compliance Access Keys apply.
@@ -139,6 +211,8 @@ Claude for PowerPoint is not recommended for:
   proper controls.
 * Replacing your judgment on design and narrative flow.
 
+###  Unsupported versions
+
 The add-in does not run on these PowerPoint versions.
 
 * PowerPoint 2016 and 2019 perpetual or volume license.
@@ -146,6 +220,8 @@ The add-in does not run on these PowerPoint versions.
 * PowerPoint on Android.
 * Older builds of Microsoft 365 PowerPoint below the SharedRuntime
   threshold.
+
+##  Prompt injection risk
 
 Only use Claude for PowerPoint with trusted files. Files from external
 sources can contain hidden instructions that manipulate the add-in into
@@ -157,7 +233,11 @@ Claude into taking unintended actions. Testing has identified scenarios
 where Claude for PowerPoint can be manipulated to extract sensitive
 information, modify critical data, or perform destructive actions if
 allowed to act without verification.
+When Claude proposes a risky operation, you are asked to confirm before
 it runs. Review confirmations carefully, especially for files from
+external sources.
+
+##  Best practices
 
 Follow these guidelines to use Claude for PowerPoint safely and
 effectively.

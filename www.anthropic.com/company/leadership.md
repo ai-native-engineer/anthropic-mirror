@@ -163,5 +163,3 @@ Chief Product Officer
 Ami Vora leads Anthropic’s product organization, translating each leap in Claude’s capabilities into experiences millions of people around the world rely on.
 
 Read full bio
-
-Leadership at Anthropic \ Anthropic

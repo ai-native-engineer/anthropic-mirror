@@ -55,14 +55,6 @@ Access your company's SharePoint, OneDrive, Outlook, and Teams directly in Claud
 
 [Add Microsoft 365 in Claude (opens in new tab)](https://claude.ai/directory/ce0c9cda-5ea5-44c5-9cf2-40810dfa6582 "Add in Claude")
 
-![](https://www.google.com/s2/favicons?domain=atlassian.com&sz=96)
-
-### [Atlassian Rovo](https://claude.com/connectors/atlassian)
-
-Access Jira & Confluence from Claude
-
-[Add Atlassian Rovo in Claude (opens in new tab)](https://claude.ai/directory/11ba10d9-477b-4988-bd1c-90a7fa680dc1 "Add in Claude")
-
 ![](https://www.notion.so/images/notion-logo-block-main.svg)
 
 ### [Notion](https://claude.com/connectors/notion)
@@ -70,6 +62,14 @@ Access Jira & Confluence from Claude
 Connect your Notion workspace to search, update, and power workflows across tools
 
 [Add Notion in Claude (opens in new tab)](https://claude.ai/directory/69f3a300-cc60-48c4-b237-dfac56530dbf "Add in Claude")
+
+![](https://www.google.com/s2/favicons?domain=atlassian.com&sz=96)
+
+### [Atlassian Rovo](https://claude.com/connectors/atlassian)
+
+Access Jira & Confluence from Claude
+
+[Add Atlassian Rovo in Claude (opens in new tab)](https://claude.ai/directory/11ba10d9-477b-4988-bd1c-90a7fa680dc1 "Add in Claude")
 
 ![](https://www.google.com/s2/favicons?domain=slack.com&sz=96)
 

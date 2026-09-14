@@ -66,10 +66,10 @@ Find UI & UX design references
 
 [Add Mobbin in Claude (opens in new tab)](https://claude.ai/directory/705ad993-53e3-4be6-b32c-cc9cff5225f6 "Add in Claude")
 
-![](https://www.google.com/s2/favicons?domain=learningcommons.org&sz=96)
+![](https://www.articulate.com/favicon.ico)
 
-### [Learning Commons](https://claude.com/connectors/learning-commons-knowledge-graph)
+### [Articulate](https://claude.com/connectors/articulate)
 
-K-12 standards, skills, and learning progressions
+Build interactive training right from Claude
 
-[Add Learning Commons in Claude (opens in new tab)](https://claude.ai/directory/6e94f5fc-5dc8-4f0a-9fcf-741bcab4e034 "Add in Claude")
+[Add Articulate in Claude (opens in new tab)](https://claude.ai/directory/93ea6e24-abcf-48de-a227-7a97e4392192 "Add in Claude")

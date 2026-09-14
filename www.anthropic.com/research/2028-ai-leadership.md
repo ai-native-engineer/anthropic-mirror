@@ -200,5 +200,3 @@ We present an alignment assessment of four incidents in which Claude models gain
 We are sharing the first complete computer-checked proof of Fermat’s Last Theorem. Claude worked largely autonomously over 11 days to write the proof in the Lean programming language.
 
 [Read more](https://www.anthropic.com/research/formalizing-fermats-last-theorem)
-
-2028: Two scenarios for global AI leadership \ Anthropic

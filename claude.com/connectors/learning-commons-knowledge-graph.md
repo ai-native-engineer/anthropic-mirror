@@ -58,10 +58,10 @@ Find UI & UX design references
 
 [Add Mobbin in Claude (opens in new tab)](https://claude.ai/directory/705ad993-53e3-4be6-b32c-cc9cff5225f6 "Add in Claude")
 
-![](https://jotform.com/assets/img/portal/jotformAppsLogo.png)
+![](https://www.articulate.com/favicon.ico)
 
-### [Jotform Apps](https://claude.com/connectors/jotform-apps)
+### [Articulate](https://claude.com/connectors/articulate)
 
-Build and manage no-code apps
+Build interactive training right from Claude
 
-[Add Jotform Apps in Claude (opens in new tab)](https://claude.ai/directory/47f4bce8-bac1-4872-be7e-b296a1e6f707 "Add in Claude")
+[Add Articulate in Claude (opens in new tab)](https://claude.ai/directory/93ea6e24-abcf-48de-a227-7a97e4392192 "Add in Claude")

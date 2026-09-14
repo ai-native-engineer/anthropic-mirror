@@ -46,5 +46,3 @@ Our enterprise customers—particularly those in regulated industries like finan
 We’re very intentional about where we’ll add capacity—partnering with democratic countries whose legal and regulatory frameworks support investments of this scale, and where the supply chain on which our compute depends—hardware, networking, and facilities—will be secure.
 
 Finally, we recently made a [commitment](https://www.anthropic.com/news/covering-electricity-price-increases) to cover any consumer electricity price increases caused by our data centers in the US. As part of our international expansion, we’re exploring ways to extend that commitment to new jurisdictions, as well as partnering with local leaders to invest back into the communities that host our facilities.
-
-Higher usage limits and a SpaceX compute deal \ Anthropic

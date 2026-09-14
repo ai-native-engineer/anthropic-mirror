@@ -7,6 +7,7 @@ flow, in-house legal teams running counterparty negotiations, and
 consultants tracking multiple client threads.
 
 Claude for Outlook is currently in beta and available to Pro, Max, Team,
+and Enterprise plans.
 
 With Claude for Outlook, you can:
 
@@ -58,6 +59,8 @@ Deploy the add-in to your organization or to specific people. See
 [Microsoft’s deployment guide](https://learn.microsoft.com/en-us/microsoft-365/admin/manage/manage-deployment-of-add-ins)
 for assignment options.
 
+5
+
 Grant Microsoft Graph consent
 
 Complete the [Microsoft Graph admin consent](#grant-microsoft-graph-consent)
@@ -68,13 +71,20 @@ Claude button in the message ribbon, and sign in with their Claude
 credentials. Pinning the task pane keeps it open as you move between
 messages.
 
+Organizations that have disabled “Let users access the Office Store” may
+find that admin-deployed add-ins don’t appear for users. To work around
+this, deploy using the manifest XML file described below.
+
 ###  Install from a manifest file
 
 If your organization blocks the Microsoft Store, an IT administrator can
 deploy the add-in by uploading its manifest file directly.
 
+Download the manifest
+
 Download the
 [Claude for Outlook manifest](https://pivot.claude.ai/manifest-outlook.xml)
+and save it to a secure location.
 
 to Settings, then Integrated apps.
 
@@ -88,6 +98,8 @@ Assign people
 
 Choose your deployment scope: the entire organization, specific
 people, specific groups, or just yourself for testing.
+
+5
 
 Review the settings and select Deploy. The add-in appears within
 minutes for most people. Full organization rollout can take up to 24
@@ -357,6 +369,8 @@ export are not available. Claude for Outlook does not inherit custom
 data retention settings your organization may have configured and is not
 included in Enterprise audit logs. For Enterprise organizations with the
 enabled, Claude for Outlook sessions are included in the Compliance API.
+This coverage is in public beta and requires no additional setup: the
+same Compliance Access Keys apply.
 
 ##  Prompt injection risks
 

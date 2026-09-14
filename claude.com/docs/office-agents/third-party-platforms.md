@@ -1,13 +1,5 @@
 <!-- source: https://claude.com/docs/office-agents/third-party-platforms -->
 
-> ## Documentation Index
->
-> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
->
-> Use this file to discover all available pages before exploring further.
-
-[Skip to main content](#content-area)
-
 Organizations using Amazon Bedrock, Google Cloud Vertex AI, Azure AI
 Foundry, or an LLM gateway can deploy Claude’s Office add-ins without
 requiring individual Claude accounts. The add-in connects through your
@@ -288,8 +280,6 @@ available on the Outlook surface.
 
 After the wizard generates your manifest files:
 
-1
-
 Upload the manifest
 
 Open the Microsoft 365 Admin Center and go to Settings, Integrated
@@ -297,16 +287,12 @@ apps, Upload custom apps. Select “Office Add-in” as the app type,
 then upload the `manifest.xml` file. If you are deploying Outlook,
 repeat this step with `manifest-outlook.xml` as a second custom app.
 
-2
-
 Choose who gets the add-in
 
 If all users share the same configuration, select “Entire
 organization”. If you wrote per-user attributes, assign to “Specific
 users/groups” matching exactly who was configured. Others would open
 the add-in with no configuration.
-
-3
 
 Finish deployment
 
@@ -426,21 +412,15 @@ select “Log in” again.
 Use these steps if your IT team told you to sign in with your Claude
 account and your organization’s settings are served by Anthropic.
 
-1
-
 Open the add-in
 
 Open Excel, PowerPoint, Word, or Outlook and launch the Claude add-in.
-
-2
 
 Log in with your Claude account
 
 On the sign-in screen, select “Log in”, then approve the sign-in in
 the browser window that opens. The task pane reloads when the
 sign-in is accepted.
-
-3
 
 Review the connection and connect
 
@@ -454,13 +434,9 @@ signing in”. Select Reload in that pane.
 
 ###  LLM gateway
 
-1
-
 Open the add-in
 
 Open Excel, PowerPoint, Word, or Outlook and launch the Claude add-in.
-
-2
 
 Select your connection mode
 
@@ -468,8 +444,6 @@ On the sign-in screen, select “Cloud provider or gateway”. Then
 choose your connection: Gateway, Vertex, Bedrock, or Azure. Contact
 your IT team for connection details if you’re unsure which one to
 select.
-
-3
 
 Enter your credentials
 
@@ -480,8 +454,6 @@ provided. By default the add-in sends the token in the `x-api-key`
 header with every request. If your admin set
 `gateway_auth_header: authorization` in the manifest, the add-in
 sends `Authorization: Bearer <token>` instead.
-
-4
 
 Connect
 
@@ -503,13 +475,9 @@ LLM gateway request flow: the add-in calls your gateway, which routes to your ch
 
 ###  Bedrock, Vertex AI, or Foundry direct
 
-1
-
 Open the add-in
 
 Open Excel, PowerPoint, Word, or Outlook and launch the Claude add-in.
-
-2
 
 Authenticate
 
@@ -524,8 +492,6 @@ pre-filled the Azure resource name and API key. If your admin enabled
 keyless sign-in, the add-in uses your Microsoft work account and no
 key is involved. Otherwise, enter the values your IT team provided
 and select Connect.
-
-3
 
 Start working
 
