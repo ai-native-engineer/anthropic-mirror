@@ -17,15 +17,19 @@ Delete a memory
 
 - `memoryID: string`
 
+  The ID of the memory to delete (`mem_...`).
+
 - `params: MemoryDeleteParams`
 
   - `memory_store_id: string`
 
-    Path param: Path parameter memory_store_id
+    Path param: The ID of the memory store that holds the memory (`memstore_...`).
 
   - `expected_content_sha256?: string`
 
-    Query param: Query parameter for expected_content_sha256
+    Query param: Delete the memory only if its current `content_sha256` equals this value, given as 64 lowercase hexadecimal characters. Omit it to delete unconditionally.
+
+    If the hashes differ, the request fails with HTTP status 409 and nothing is deleted.
 
   - `betas?: Array<AnthropicBeta>`
 
@@ -33,7 +37,7 @@ Delete a memory
 
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 42 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 45 more`
 
       - `"message-batches-2024-09-24"`
 
@@ -125,6 +129,12 @@ Delete a memory
 
       - `"mid-conversation-system-clear-at-2026-08-21"`
 
+      - `"compact-2026-09-04"`
+
+      - `"inline-tools-2026-09-15"`
+
+      - `"mcp-client-2026-09-15"`
+
   - `workspace_id?: string`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -133,7 +143,7 @@ Delete a memory
 
 ## Returns
 
-- `BetaManagedAgentsDeletedMemory`
+- `interface BetaManagedAgentsDeletedMemory`
 
   Tombstone returned by [Delete a memory](/docs/en/api/beta/memory_stores/memories/delete). Deleting a memory does not erase its version history: its versions remain listable via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list) while they are retained (each version is kept for at least the version retention period after it was written, unless the store itself is deleted).
 

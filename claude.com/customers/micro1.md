@@ -4,31 +4,21 @@ Case study | Claude Platform
 
 # micro1 transforms technical recruiting with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c1c45b6b966afc685cf34e_cs-logo-micro1-light-theme.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c1c46030418e834f58d8e4_cs-logo-micro1-dark-theme.svg)
+![micro1 logo](https://assets.claude.com/b1bad452489c0ab55beeb4cbeb4b05543378b7bb.svg)
 
 Industry:
-
-Recruiting
+:   Recruiting
 
 Company size:
-
-Small
+:   Small
 
 Product:
-
-Claude Platform
+:   Claude Platform
 
 Location:
-
-North America
+:   North America
 
 3,000+ interviews
 
@@ -37,42 +27,6 @@ conducted daily by AI
 85% reduction
 
 in recruitment costs vs traditional methods
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
 
 micro1 uses Claude to conduct thousands of AI-powered technical interviews daily, helping companies evaluate global talent while providing candidates with an unbiased, lower pressure interview experience.
 
@@ -125,44 +79,12 @@ micro1 envisions a future where every qualified candidate gets a fair chance, re
 
 micro1 aims to transform lives by democratizing access to opportunities. By combining Claude's AI capabilities with their commitment to fair evaluation, micro1 works to create a future where exceptional talent never goes undiscovered. Together with Anthropic, they're not just changing how companies hire—they're changing who gets the chance to be hired in the first place.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[![Fountain](https://assets.claude.com/b71e514bd0b898b54389212058f29c0dfcf6b27f.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### Fountain accelerates frontline workforce hiring and management with Claude](https://claude.com/customers/fountain)[![Skillfully](https://assets.claude.com/4d045f8f15c950f0b55087335dd918f70f8db501.svg)
 
-[Next](#)Next
+### Skillfully transforms hiring through AI-powered skill simulations with Claude](https://claude.com/customers/skillfully)[![Braintrust](https://assets.claude.com/e902bcd557abee20fb67ab82f79395b90141b73c.svg)
 
-Video caption
+### Braintrust revolutionizes talent acquisition and career growth with Claude](https://claude.com/customers/braintrust)
 
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[Fountain accelerates frontline workforce hiring and management with Claude](https://claude.com/customers/fountain)Fountain accelerates frontline workforce hiring and management with Claude
-
-Fountain accelerates frontline workforce hiring and management with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/fountain)Customer story
-
-[Skillfully transforms hiring through AI-powered skill simulations with Claude](https://claude.com/customers/skillfully)Skillfully transforms hiring through AI-powered skill simulations with Claude
-
-Skillfully transforms hiring through AI-powered skill simulations with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/skillfully)Customer story
-
-[Braintrust revolutionizes talent acquisition and career growth with Claude](https://claude.com/customers/braintrust)Braintrust revolutionizes talent acquisition and career growth with Claude
-
-Braintrust revolutionizes talent acquisition and career growth with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/braintrust)Customer story
+micro1 Claude Platform (API) case study | Claude by Anthropic

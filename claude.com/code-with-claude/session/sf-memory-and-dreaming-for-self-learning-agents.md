@@ -4,44 +4,32 @@
 
 How memory and dreaming turn Claude Managed Agents into self-learning systems. This session walks through design considerations for memory architectures and how dreaming verifies and enriches memory between sessions.
 
-Details
+## Details
 
 City
-
-San Francisco, USA
+:   San Francisco, USA
 
 Date
-
-May 6, 2026
+:   May 6, 2026
 
 Time
-
-10:30AM – 11:00AM
+:   10:30AM – 11:00AM
 
 Speaker(s)
+:   Mahesh Murag
 
-Mahesh Murag
+    Member of Technical Staff,
 
-Member of Technical Staff,
-
-Anthropic
+    Anthropic
 
 ## Watch recording
 
-[Play video](#)Play video
+![Memory and dreaming for self-learning agents](https://assets.claude.com/1f8b3202a671f38037f70de8ccb20374b7985af0.jpg?w=1600&auto=format)
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69fdf456e463868480fc8c1e_designing-memory-systems.webp)
-
-Anthropic's developer conference, recorded
+## Anthropic's developer conference, recorded
 
 Keynotes, demos, and conversations with the teams behind Claude. Recorded at Code w/ Claude 2026 San Francisco and ready to replay.
 
-Browse recordings
+[Browse recordings](https://claude.com/code-with-claude/san-francisco)
 
-[Learn more](https://claude.com/code-with-claude/san-francisco)Learn more
-
-[Homepage](https://claude.com/code-with-claude)Homepage
-
-© [year] Anthropic PBC
-
-[PRIVACY POLICY](https://www.anthropic.com/legal/privacy)[CODE OF CONDUCT](https://claude.com/code-with-claude/code-of-conduct)
+Memory and dreaming for self-learning agents | Session | Code w/ Claude 2026

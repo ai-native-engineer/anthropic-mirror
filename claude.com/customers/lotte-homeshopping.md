@@ -4,31 +4,21 @@ Case study | Claude Platform
 
 # Lotte Homeshopping improves QA efficiency and partner satisfaction with Claude and Sendbird
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![Lotte Homeshopping logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c30634bdc56f553501cbbb_cs-logo-lotte-homeshopping-light-theme.svg)![Lotte Homeshopping logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c306375e5b5883845dfe59_cs-logo-lotte-homeshopping-dark-theme.svg)
+![Lotte Homeshopping logo](https://assets.claude.com/7c2bbc64653fb2667e3d24831f70772a4ceb4450.svg)
 
 Industry:
-
-Ecommerce
+:   Ecommerce
 
 Company size:
-
-Large
+:   Large
 
 Product:
-
-Claude Platform
+:   Claude Platform
 
 Location:
-
-Asia Pacific
+:   Asia Pacific
 
 53 questions
 
@@ -37,42 +27,6 @@ processed daily through Moni
 30-40%
 
 reduction in partner inquiries to QA staff
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
 
 Lotte Homeshopping uses Claude to power Moni, their AI assistant that streamlines quality assurance processes and provides 24/7 support to partners, reducing response times and improving satisfaction across their retail network.
 
@@ -125,52 +79,12 @@ Lotte Homeshopping is moving beyond traditional retail automation with an expans
 
 This bold expansion leverages Claude's intelligence and Sendbird's infrastructure to reimagine retail operations across the enterprise. Oh Ju-young concluded, "We're just beginning to explore the possibilities. The combination of Claude and Sendbird is opening doors we hadn't even considered before."
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[![Reversia](https://assets.claude.com/86b324fdb04166c3b115b1cf48071e52e83d08cf.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### Reversia translates e-commerce stores across 110+ languages with Claude](https://claude.com/customers/reversia)[![Rakuten](https://assets.claude.com/5463fa5a44d12868ceec5ae30bfc8c412cafdeae.svg)
 
-[Next](#)Next
+### Inside Rakuten's plan to turn every employee into a builder with Claude Managed Agents](https://claude.com/customers/rakuten-qa)[![Rakuten](https://assets.claude.com/5463fa5a44d12868ceec5ae30bfc8c412cafdeae.svg)
 
-Video caption
+### Rakuten accelerates development with Claude Code](https://claude.com/customers/rakuten)[![Shopify](https://assets.claude.com/33de1bc0b1b2c92e879e513e3c14ec213c311ff1.svg)
 
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[Reversia translates e-commerce stores across 110+ languages with Claude](https://claude.com/customers/reversia)Reversia translates e-commerce stores across 110+ languages with Claude
-
-Reversia translates e-commerce stores across 110+ languages with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/reversia)Customer story
-
-[Inside Rakuten's plan to turn every employee into a builder with Claude Managed Agents](https://claude.com/customers/rakuten-qa)Inside Rakuten's plan to turn every employee into a builder with Claude Managed Agents
-
-Inside Rakuten's plan to turn every employee into a builder with Claude Managed Agents
-
-Customer story
-
-[Customer story](https://claude.com/customers/rakuten-qa)Customer story
-
-[Rakuten accelerates development with Claude Code](https://claude.com/customers/rakuten)Rakuten accelerates development with Claude Code
-
-Rakuten accelerates development with Claude Code
-
-Customer story
-
-[Customer story](https://claude.com/customers/rakuten)Customer story
-
-[How Shopify uses Anthropic’s Claude on Google Cloud to supercharge Sidekick](https://claude.com/customers/shopify)How Shopify uses Anthropic’s Claude on Google Cloud to supercharge Sidekick
-
-How Shopify uses Anthropic’s Claude on Google Cloud to supercharge Sidekick
-
-Customer story
-
-[Customer story](https://claude.com/customers/shopify)Customer story
+### How Shopify uses Anthropic’s Claude on Google Cloud to supercharge Sidekick](https://claude.com/customers/shopify)

@@ -1,5 +1,7 @@
 <!-- source: https://claude.com/blog/common-workflow-patterns-for-ai-agents-and-when-to-use-them -->
 
+Explore here
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2260bfc90348429f9c3_cd9cf56a7f049285b7c1c8786c0a600cf3d7f317-1000x1000.svg)
 
 # Common workflow patterns for AI agents—and when to use them

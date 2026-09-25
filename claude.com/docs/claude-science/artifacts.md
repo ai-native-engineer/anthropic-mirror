@@ -12,13 +12,13 @@ An artifact is a file Claude saves into the project: a figure, processed dataset
 
 ##  Working with artifacts
 
-Click a linked file in the conversation to open it in a tab beside the chat. HTML artifacts have zoom controls, including fit to width; images zoom up to their native resolution. Open **Files** in the sidebar for a searchable grid of every artifact in the project. From an artifact’s menu you can: Open, Open beside session, **View in context**, **Provenance**, Versions, **Copy link**, **Star**, **Rename**, **Download**, or **Delete**. Renaming doesn’t break links. **Delete** removes all versions permanently.
-Files you attach or drop into the composer are listed under **Your uploads**.
+Click a linked file or a figure in the conversation to open it in a tab beside the chat. Ctrl/Cmd-click opens it full screen. HTML artifacts have zoom controls, including fit to width; images zoom up to their native resolution. Open **Files** in the sidebar for a searchable grid of every artifact in the project. From an artifact’s menu you can: Open, Open beside session, **View in context**, **Provenance**, Versions, **Copy link**, **Star**, **Rename**, **Download**, or **Delete**. Renaming doesn’t break links. **Delete** removes all versions permanently.
+Files you attach or drop into the composer, and images you paste into it, are listed under **Your uploads**.
 To copy artifacts outside the app, use **Download** for a single file, or open the project’s folder under ~/.claude-science and copy the files directly.
 
 ##  Versions
 
-When Claude saves the same filename again in the same session, the artifact gains a new version. You can also edit text-based artifacts (Markdown, code, plain text) directly: click **Edit content**, make changes, and **Save** to create a new version. Images, PDFs, HTML, and tables can’t be edited in place.
+When Claude saves the same filename again in the same session, the artifact gains a new version. You can also edit text-based artifacts (Markdown, code, plain text) directly: click **Edit content**, make changes, and **Save** to create a new version. In a Markdown file, you can click a plain-text cell in the body of a table and type, and the app saves the change as a new version. Images, PDFs, HTML, and table files such as CSV can’t be edited in place.
 When an artifact file is open, a version stepper and a diff toggle appear. In diff mode, you can choose which earlier version to compare against; the previous version is the default. Older versions are read-only; to restore one, ask Claude to save it again. Links Claude puts in the conversation point to the specific version that existed at the time.
 
 ##  Provenance

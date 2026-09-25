@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/ai-fluency-framework-foundations/why-do-we-need-ai-fluency -->
 
-Lesson 2 of 14 · AI Fluency: Framework & FoundationsWhy do we need AI Fluency?
+Lesson 2 of 14 · AI Fluency: Framework and foundationsWhy do we need AI Fluency?
 
-3. /[AI Fluency: Framework & Foundations](https://academy.claude.com/courses/ai-fluency-framework-foundations)
+3. /[AI Fluency: Framework and foundations](https://academy.claude.com/courses/ai-fluency-framework-foundations)
 
-[AI Fluency: Framework & Foundations](https://academy.claude.com/courses/ai-fluency-framework-foundations)
+[AI Fluency: Framework and foundations](https://academy.claude.com/courses/ai-fluency-framework-foundations)
 
 # Why do we need AI Fluency?
 
@@ -33,7 +33,7 @@ introduce three ways people engage with AI:
 
 [Previous lessonIntroduction to AI Fluency](https://academy.claude.com/courses/ai-fluency-framework-foundations/introduction-to-ai-fluency)[Next lessonThe 4D Framework](https://academy.claude.com/courses/ai-fluency-framework-foundations/the-4d-framework)
 
-Lesson 2 of 14 · AI Fluency: Framework & FoundationsWhy do we need AI Fluency?
+Lesson 2 of 14 · AI Fluency: Framework and foundationsWhy do we need AI Fluency?
 
 Introduction to AI Fluency
 

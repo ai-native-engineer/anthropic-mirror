@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/building-effective-human-agent-teams/course-quiz -->
 
-Quiz 1 of 1 · Building Effective Human Agent Teams (Beta)Course quiz
+Quiz 1 of 1 · Building effective human-agent teams (beta)Course quiz
 
-3. /[Building Effective Human Agent Teams (Beta)](https://academy.claude.com/courses/building-effective-human-agent-teams)
+3. /[Building effective human-agent teams (beta)](https://academy.claude.com/courses/building-effective-human-agent-teams)
 
-[Building Effective Human Agent Teams (Beta)](https://academy.claude.com/courses/building-effective-human-agent-teams)
+[Building effective human-agent teams (beta)](https://academy.claude.com/courses/building-effective-human-agent-teams)
 
 # Course quiz
 
@@ -12,7 +12,7 @@ Quiz4 min
 
 [Previous lessonSome practical ways to get started](https://academy.claude.com/courses/building-effective-human-agent-teams/practical-ways-to-get-started)[Up nextCompletion badge](https://academy.claude.com/courses/building-effective-human-agent-teams/badge)
 
-Quiz 1 of 1 · Building Effective Human Agent Teams (Beta)Course quiz
+Quiz 1 of 1 · Building effective human-agent teams (beta)Course quiz
 
 The shift to multiplayer
 

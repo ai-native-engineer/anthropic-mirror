@@ -202,19 +202,7 @@ EDT
 
 ### The Agentic Evolution
 
--
-
-EDT
-
-### The Agentic Evolution
-
 Claude is the frontier model behind much of the agentic shift in software development and, now, in enterprise knowledge work. Anthropic's Applied AI team shares what they're seeing on the ground: the capability trends that changed what's possible, the patterns emerging across industries, and what separates the enterprises in production from the ones still piloting.
-
--
-
-EDT
-
-### Effective Context Engineering for AI Agents
 
 -
 

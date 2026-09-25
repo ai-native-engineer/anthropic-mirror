@@ -4,33 +4,21 @@ Case study | Claude Cowork
 
 # How Brainlabs gave 1k+ marketers at its media agency an AI coworker with Claude Cowork and skills
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a10b2c64ec0843006d9968b_logo_brainlabs-light-mode.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a10b2d4179a46a1609d518f_logo_brainlabs-dark-mode.svg)
+![Brainlabs logo](https://assets.claude.com/d92b8010aba1c9960148a55a8b4e05f31dcfa96a.svg)
 
 Industry:
-
-Professional services
+:   Professional services
 
 Company size:
-
-Large
+:   Large
 
 Product:
-
-[Claude Cowork](https://claude.com/product/cowork)
-
-[Claude Enterprise](https://claude.com/solutions/enterprise)
+:   [Claude Cowork](https://claude.com/product/cowork)[Claude Enterprise](https://claude.com/solutions/enterprise)
 
 Location:
-
-North America
+:   North America
 
 ~400 Skills
 
@@ -53,65 +41,21 @@ in North America
 
 ## The challenge
 
-How to create Skills
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/691e12491e60b22e092c4065_og_how-to-create-skills-key-steps-limitations-and-examples.jpg)
-
-Follow our step-by-step guide to write custom skills that extend Claude's capabilities with real examples and practical patterns.
-
-Read more
-
-[Read more](https://claude.com/blog/how-to-create-skills-key-steps-limitations-and-examples)Read more
-
-How to create Skills
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Follow our step-by-step guide to write custom skills that extend Claude's capabilities with real examples and practical patterns.
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-How to create Skills
-
-Follow our step-by-step guide to write custom skills that extend Claude's capabilities with real examples and practical patterns.
-
 ## Scaling repeatable work across a large agency
 
 An agency at Brainlabs's size produces a steady cadence of campaign work with dozens of recurring workflows. The company's roughly 1,000 strategists, media planners, data scientists, and creative leads spend significant chunks of their day on repeatable work: drafting creative briefs, QA-ing media plans, pulling client reporting, summarizing campaign data. Across that many people, every team rebuilding the same things by hand starts to add up fast.
 
 For Brainlabs's CTO Ben Vincent, the principle was simple. "If you're doing something more than three times, you should try to automate it," Vincent said. The company's CEO Dan Gilbert wanted that principle applied across the whole business, not just the engineering org. The original target was to have Claude live across the entire workforce in a week.
 
+How to create Skills
+
+![How to create Skills](https://assets.claude.com/597f5f4383bc4f65ab162f9b1a712d5347dcec9a.jpg)
+
+Follow our step-by-step guide to write custom skills that extend Claude's capabilities with real examples and practical patterns.
+
+[Read more](https://claude.com/blog/how-to-create-skills-key-steps-limitations-and-examples)
+
 ## The solution
-
-Skills explained
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/691422974acd1cc3d6467e3a_og_skills-explained.jpg)
-
-Where do Skills fit in the Claude stack alongside prompts, Projects, MCP, and subagents? Learn what tool to use when—and how they work together.
-
-Read more
-
-[Read more](https://claude.com/blog/skills-explained)Read more
-
-Skills explained
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Where do Skills fit in the Claude stack alongside prompts, Projects, MCP, and subagents? Learn what tool to use when—and how they work together.
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Skills explained
-
-Where do Skills fit in the Claude stack alongside prompts, Projects, MCP, and subagents? Learn what tool to use when—and how they work together.
 
 ## An authoring layer for skills
 
@@ -131,21 +75,17 @@ The newest addition sits on top of all of this. Brainlabs is one of the early cu
 
 The team has put the agent to work on its own projects, including managing the Cowork rollout itself. The team is also evaluating the Claude Agent SDK for more complex server-side agents that would sit alongside the Notion-hosted ones.
 
-"If you're doing something more than three times, you should try to automate it."
+Skills explained
 
-Ben Vincent
+![Skills explained](https://assets.claude.com/2c1a10b16f371961f69f0cc86318a5e89137faf3.jpg)
 
-CTO, Brainlabs
+Where do Skills fit in the Claude stack alongside prompts, Projects, MCP, and subagents? Learn what tool to use when—and how they work together.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[Read more](https://claude.com/blog/skills-explained)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+> "If you're doing something more than three times, you should try to automate it."
 
-[Next](#)Next
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+Ben VincentCTO, Brainlabs
 
 ## The outcome
 
@@ -161,42 +101,16 @@ Vincent uses Cowork as his own ideation tool. “I have a bunch of random ideas 
 
 For Vincent, this is the foundation, not the finish line. "I think it's going to go so far beyond where we are now," Vincent said. "We're going to have a bunch of agents hosted in a variety of places, which will expand our team's capabilities for the deep strategic work that grows our clients' businesses.”
 
-“Now I can write the idea down in Cowork, and Claude will go investigate, build me a document, and I have all the information I need.”
+> “Now I can write the idea down in Cowork, and Claude will go investigate, build me a document, and I have all the information I need.”
 
-Ben Vincent
+Ben VincentCTO, Brainlabs
 
-CTO, Brainlabs
+[![Caylent](https://assets.claude.com/b224ee1fa1757f5331b381ded249b619b03c957e.svg)
 
-## Related stories
+### Caylent turns months of migration work into days with Claude Agent SDK](https://claude.com/customers/caylent)[![BLA Studios](https://assets.claude.com/01af34a075be06353de94d0a7df2e25c668c9a15.svg)
 
-[Caylent turns months of migration work into days with Claude Agent SDK](https://claude.com/customers/caylent)Caylent turns months of migration work into days with Claude Agent SDK
+### How can a two-person fabrication studio make room for problems it’s never solved before?](https://claude.com/customers/bla-studios)[![LG CNS](https://assets.claude.com/61ca6aa185bfb470e18a6189b462ea0618039fca.png)
 
-Caylent turns months of migration work into days with Claude Agent SDK
+### LG CNS modernizes 20-year-old enterprise systems with Claude](https://claude.com/customers/lg-cns)[![Blank Metal](https://assets.claude.com/31d5dea773d37ce4626bd3710c924b455d46bcc0.svg)
 
-Customer story
-
-[Customer story](https://claude.com/customers/caylent)Customer story
-
-[How can a two-person fabrication studio make room for problems it’s never solved before?](https://claude.com/customers/bla-studios)How can a two-person fabrication studio make room for problems it’s never solved before?
-
-How can a two-person fabrication studio make room for problems it’s never solved before?
-
-Customer story
-
-[Customer story](https://claude.com/customers/bla-studios)Customer story
-
-[LG CNS modernizes 20-year-old enterprise systems with Claude](https://claude.com/customers/lg-cns)LG CNS modernizes 20-year-old enterprise systems with Claude
-
-LG CNS modernizes 20-year-old enterprise systems with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/lg-cns)Customer story
-
-[How Blank Metal, a lean professional services firm, runs on Claude Cowork](https://claude.com/customers/blank-metal-qa)How Blank Metal, a lean professional services firm, runs on Claude Cowork
-
-How Blank Metal, a lean professional services firm, runs on Claude Cowork
-
-Customer story
-
-[Customer story](https://claude.com/customers/blank-metal-qa)Customer story
+### How Blank Metal, a lean professional services firm, runs on Claude Cowork](https://claude.com/customers/blank-metal-qa)

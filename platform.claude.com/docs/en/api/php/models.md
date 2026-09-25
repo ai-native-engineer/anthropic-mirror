@@ -35,15 +35,21 @@ The Models API response can be used to determine which models are available for 
 
   default: 20
 
+- `workspaceID?:optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 - `betas?:optional list<AnthropicBeta>`
+
+  **Deprecated**: Deprecated. This parameter will be removed from this method in a future release. To use beta features, call the beta models methods (`client.beta.models`) instead.
 
   Optional header to specify the beta version(s) you want to use.
 
-- `workspaceID?:optional string`
-
 ### Returns
 
-- `ModelInfo`
+- `class ModelInfo`
 
   - `"model" type`
 
@@ -192,15 +198,21 @@ The Models API response can be used to determine information about a specific mo
 
   Model identifier or alias.
 
+- `workspaceID?:optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 - `betas?:optional list<AnthropicBeta>`
+
+  **Deprecated**: Deprecated. This parameter will be removed from this method in a future release. To use beta features, call the beta models methods (`client.beta.models`) instead.
 
   Optional header to specify the beta version(s) you want to use.
 
-- `workspaceID?:optional string`
-
 ### Returns
 
-- `ModelInfo`
+- `class ModelInfo`
 
   - `"model" type`
 
@@ -328,7 +340,7 @@ var_dump($modelInfo);
 
 ### Capability Support
 
-- `CapabilitySupport`
+- `class CapabilitySupport`
 
   - `bool supported`
 
@@ -336,7 +348,7 @@ var_dump($modelInfo);
 
 ### Context Management Capability
 
-- `ContextManagementCapability`
+- `class ContextManagementCapability`
 
   - `?CapabilitySupport clearThinking20251015`
 
@@ -356,7 +368,7 @@ var_dump($modelInfo);
 
 ### Effort Capability
 
-- `EffortCapability`
+- `class EffortCapability`
 
   - `CapabilitySupport high`
 
@@ -384,7 +396,7 @@ var_dump($modelInfo);
 
 ### Model Capabilities
 
-- `ModelCapabilities`
+- `class ModelCapabilities`
 
   - `CapabilitySupport batch`
 
@@ -424,7 +436,7 @@ var_dump($modelInfo);
 
 ### Model Info
 
-- `ModelInfo`
+- `class ModelInfo`
 
   - `"model" type`
 
@@ -458,7 +470,7 @@ var_dump($modelInfo);
 
 ### Thinking Capability
 
-- `ThinkingCapability`
+- `class ThinkingCapability`
 
   - `bool supported`
 
@@ -470,7 +482,7 @@ var_dump($modelInfo);
 
 ### Thinking Types
 
-- `ThinkingTypes`
+- `class ThinkingTypes`
 
   - `CapabilitySupport adaptive`
 

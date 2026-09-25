@@ -10,6 +10,10 @@ The Anthropic Institute exists to understand and shape the consequences of power
 
 ## Projects
 
+[### Illuminating the Frontier
+
+Anthropic is sharing new measurements that would give the public visibility into frontier AI development.](https://www.anthropic.com/institute/measuring-pace-of-ai-development)
+
 [### Scenarios for our Economic Future
 
 Anthropic’s Economics team is sharing a new model of how AI may affect economic growth, jobs, wages, and more by 2030. The model lets you explore the scenarios, tell us what you think will happen, and see how your answers compare to +10,000 Americans.](https://www.anthropic.com/institute/econ-scenarios)
@@ -26,11 +30,11 @@ We invited Claude.ai users to share how they use AI, what they dream it could ma
 
 The Anthropic Economic Index reveals the shape of AI adoption across the world. Here, you can explore the data behind our research to understand how people are using Claude across every US state and hundreds of occupations.](https://www.anthropic.com/economic-index)
 
-01 / 04
+01 / 05
 
-![Scenarios for our Economic Future](https://cdn.sanity.io/images/4zrzovbb/website/fccf43cf4e36b0c26b4215861d909aadabbc32ce-1920x1080.png?w=1600&q=85)
+![Illuminating the Frontier](https://cdn.sanity.io/images/4zrzovbb/website/ea88529c5e54d0902230bdc1f4e37908759bc142-1920x1080.jpg?w=1600&q=85)
 
-## Problems we're working on
+## Problems we’re working on
 
 ![](https://cdn.sanity.io/images/4zrzovbb/website/bb6355e1d0a6c63d3b7a751531778fe66412c1f8-447x328.svg?w=600)
 

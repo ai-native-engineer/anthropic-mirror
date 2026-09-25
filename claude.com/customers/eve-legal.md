@@ -4,33 +4,21 @@ Case study | Claude Platform
 
 # Eve Legal helps plaintiff law firms settle cases 60 days faster with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69ebbdde1a3d17f2d9e91607_eve-light-mode.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69ebbde617bb08ba0d0157b8_eve-dark-mode.svg)
+![Eve Legal logo](https://assets.claude.com/f1efc487a08ab700dd2f0a0d09e717745da3e2d0.svg)
 
 Industry:
-
-Legal
+:   Legal
 
 Company size:
-
-Startup
+:   Startup
 
 Product:
-
-[Claude Platform](https://claude.com/platform/api)
-
-[Claude Code](https://claude.com/product/claude-code)
+:   [Claude Platform](https://claude.com/platform/api)[Claude Code](https://claude.com/product/claude-code)
 
 Location:
-
-North America
+:   North America
 
 60 days faster settlement times
 
@@ -54,65 +42,25 @@ with its internal Claude-powered developer tool
 
 ## The challenge
 
-Claude for Statrtups
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a0cb8c1f8c5c525e8c554b3_problem-solvers-padded-200kb.jpg)
-
-Join the founders building on Claude. Access community and resources to accelerate your growth.
-
-Read more
-
-[Read more](https://claude.com/programs/startups)Read more
-
-Claude for Statrtups
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Join the founders building on Claude. Access community and resources to accelerate your growth.
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Claude for Statrtups
-
-Join the founders building on Claude. Access community and resources to accelerate your growth.
-
 ## Contingency law runs on hours nobody bills
 
 Most plaintiff firms don't work on retainer. They typically take cases on contingency and get paid only when a case settles, so every hour spent on manual casework is an hour the firm absorbs itself until an outcome. The casework can often be demanding. For example, for personal injury attorneys, a single case file arrives as anywhere from 2,000 to 100,000 pages of unstructured records, which a paralegal previously analyzed line by line to build a medical chronology. It includes the ledger of a client’s injuries, the treatment timeline, what it cost, and what came after, all before any can go out.
 
 That labor puts a hard ceiling on how many cases a firm can take, and clients’ cases that don't justify the hours often go unrepresented. Software previously built for the industry typically focused on tracking the labor as opposed to actually taking on the labor. Eve was started to take on all of the heavy manual labor that the legal profession entails," said Jay Madheswaran, CEO & Co-Founder of Eve.
 
+Claude for Statrtups
+
+![Claude for Statrtups ](https://assets.claude.com/516bf8e49c81e551455b1e24a0fc3678725df957.jpg)
+
+Join the founders building on Claude. Access community and resources to accelerate your growth.
+
+[Read more](https://claude.com/programs/startups)
+
 ## The solution
-
-Choosing the right Claude model
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69c2dd485d80024bc14f48c6_choosing%20model.jpeg)
-
-Learn when to use Haiku, Sonnet, or Opus to get better results and stay inside your rate limit. A practical guide to picking the right Claude model.
-
-Choosing the right Claude model
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Learn when to use Haiku, Sonnet, or Opus to get better results and stay inside your rate limit. A practical guide to picking the right Claude model.
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Choosing the right Claude model
-
-Learn when to use Haiku, Sonnet, or Opus to get better results and stay inside your rate limit. A practical guide to picking the right Claude model.
 
 ## A 400-suite benchmark where Claude keeps coming out on top
 
-For Eve, taking on that labor started with a decision about how central AI would be."We went all-in on AI from the start," Madheswaran said. "It's not, 'How can an attorney work with AI to do this task?' Instead, Eve created a new world where attorneys ask, 'What work do I need to approve that Eve has already done for me?'"
+For Eve, taking on that labor started with a decision about how central AI would be. "We went all-in on AI from the start," Madheswaran said. "It's not, 'How can an attorney work with AI to do this task?' Instead, Eve created a new world where attorneys ask, 'What work do I need to approve that Eve has already done for me?'"
 
 Eve evaluates model candidates against a proprietary benchmark it calls PlaintiffBench: around 420 test suites run against every model the company uses. "We are only willing to move forward on a model when we have confidence in those benchmarks," said Matt Noe, Co-founder and Chief Product Officer.
 
@@ -128,21 +76,15 @@ Eve built the infrastructure around the models itself. The harness reaches Claud
 
 Eve turns the same tooling on itself, building Claude Code into every engineering workflow, including Wall-E, its internal developer productivity system. When a support ticket or production incident hits Slack, Wall-E spins up an isolated environment where Claude agent loops debug the issue and open a merge request, cutting triage from three to four hours down to minutes. Even the finance team runs on it: Claude-built dashboards flag when the cost of a workflow, like writing a demand draft, creeps up week over week.
 
-"Faithfulness and grounding on long documents is another dimension where we measure models, and Claude always stands at the top."
+Choosing the right Claude model
 
-Matt Noe,
+![Choosing the right Claude model](https://assets.claude.com/7388619b452db0af26c78442a275c86c5ebe3124.jpg)
 
-Co-founder and Chief Product Officer, Eve
+Learn when to use Haiku, Sonnet, or Opus to get better results and stay inside your rate limit. A practical guide to picking the right Claude model.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+> "Faithfulness and grounding on long documents is another dimension where we measure models, and Claude always stands at the top."
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+Matt Noe,Co-founder and Chief Product Officer, Eve
 
 ## The outcome
 
@@ -154,42 +96,16 @@ The platform processes more than 12.5 million documents a month. The capacity Ev
 
 None of it is left to chance: a dedicated AI outcomes team guides every new firm through its first 90 days, automating 80% of the work the firm previously did manually. Last month, Eve expanded from managing cases to optimizing firms: attorney workloads, case prioritization, and revenue projections. Next on the roadmap are deeper agentic workflows, multi-step drafting, and agents that learn from a firm's feedback on everything from writing style to case strategy. "Personalizing it per case, per lawyer, and per organization," Noe said. "Those are all the areas where we are pushing towards."
 
-"When you wake up, you're approving legal work that has been done overnight."
+> "When you wake up, you're approving legal work that has been done overnight."
 
-Jay Madheswaran,
+Jay Madheswaran, CEO & Co-Founder of Eve
 
-CEO & Co-Founder of Eve
+[![Spellbook](https://assets.claude.com/6d8c2b327807c9a9dc5b911946df64b7a0cbda3c.svg)
 
-## Related stories
+### Spellbook runs 530,000 contract reviews a month with Claude](https://claude.com/customers/spellbook)[![EvenUp](https://assets.claude.com/466446f5f59635a264efe3e688a42b51c0e88976.svg)
 
-[Spellbook runs 530,000 contract reviews a month with Claude](https://claude.com/customers/spellbook)Spellbook runs 530,000 contract reviews a month with Claude
+### EvenUp cuts document drafting from 15 hours to 15 minutes with Claude](https://claude.com/customers/evenup)[![GC AI](https://assets.claude.com/bf75981f3c09a3118604def848ab045ebfd0bfb5.svg)
 
-Spellbook runs 530,000 contract reviews a month with Claude
+### GC AI powers legal workflows for 1,500 companies, saving lawyers 14 hours a week with Claude](https://claude.com/customers/gc-ai)[![Thomson Reuters](https://assets.claude.com/3c80d8dc7dbf6556d1137977873dee26eaffae1d.svg)
 
-Customer story
-
-[Customer story](https://claude.com/customers/spellbook)Customer story
-
-[EvenUp cuts document drafting from 15 hours to 15 minutes with Claude](https://claude.com/customers/evenup)EvenUp cuts document drafting from 15 hours to 15 minutes with Claude
-
-EvenUp cuts document drafting from 15 hours to 15 minutes with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/evenup)Customer story
-
-[GC AI powers legal workflows for 1,500 companies, saving lawyers 14 hours a week with Claude](https://claude.com/customers/gc-ai)GC AI powers legal workflows for 1,500 companies, saving lawyers 14 hours a week with Claude
-
-GC AI powers legal workflows for 1,500 companies, saving lawyers 14 hours a week with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/gc-ai)Customer story
-
-[Thomson Reuters CTO on piloting Cowork with Claude Enterprise](https://claude.com/customers/thomson-reuters-qa)Thomson Reuters CTO on piloting Cowork with Claude Enterprise
-
-Thomson Reuters CTO on piloting Cowork with Claude Enterprise
-
-Customer story
-
-[Customer story](https://claude.com/customers/thomson-reuters-qa)Customer story
+### Thomson Reuters CTO on piloting Cowork with Claude Enterprise](https://claude.com/customers/thomson-reuters-qa)

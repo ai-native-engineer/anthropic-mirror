@@ -30,25 +30,25 @@ Working closely with the Anthropic Policy and Safeguards teams, Societal Impacts
 
 [## Scenarios for our Economic Future
 
-[Anthropic’s Economics team is sharing a new model of how AI may affect economic growth, jobs, wages, and more by 2030. The model lets you explore the scenarios, tell us what you think will happen, and see how your answers compare to +10,000 Americans.](https://www.anthropic.com/institute/econ-scenarios)](https://www.anthropic.com/institute/econ-scenarios)
+Anthropic’s Economics team is sharing a new model of how AI may affect economic growth, jobs, wages, and more by 2030. The model lets you explore the scenarios, tell us what you think will happen, and see how your answers compare to +10,000 Americans.](https://www.anthropic.com/institute/econ-scenarios)
 
-[AlignmentSep 9, 2026
+[ScienceSep 23, 2026
 
-#### An alignment assessment of recent cybersecurity incidents
+#### Claude discovers a novel enzyme system with CRISPR-like repeats
 
-We present an alignment assessment of four incidents in which Claude models gained unauthorized access to real third-party systems.](https://www.anthropic.com/research/alignment-assessment-cybersecurity-incidents)[ScienceSep 4, 2026
+We’re announcing a new life sciences research group and laboratory at Anthropic. This post introduces the team behind this work and shares early results in which Claude discovered a novel enzyme system with properties reminiscent of CRISPR, with only high-level direction from our scientists.](https://www.anthropic.com/news/claude-discovers-novel-enzyme-system)[Sep 17, 2026
+
+#### Measurements for understanding the pace of AI development inside frontier labs
+
+Today, the world can’t see what’s going on inside AI labs. Anthropic is proposing new metrics that would give the public visibility into frontier AI development.](https://www.anthropic.com/institute/measuring-pace-of-ai-development)[ScienceSep 4, 2026
 
 #### Formalizing Fermat's Last Theorem
 
-We are sharing the first complete computer-checked proof of Fermat’s Last Theorem. Claude worked largely autonomously over 11 days to write the proof in the Lean programming language.](https://www.anthropic.com/research/formalizing-fermats-last-theorem)[ScienceAug 10, 2026
+We are sharing the first complete computer-checked proof of Fermat’s Last Theorem. Claude worked largely autonomously over 11 days to write the proof in the Lean programming language.](https://www.anthropic.com/research/formalizing-fermats-last-theorem)[AlignmentSep 9, 2026
 
-#### Learning more about Claude's mathematical capabilities
+#### An alignment assessment of recent cybersecurity incidents
 
-An unreleased research version of Claude has made strides on a problem related to the Riemann hypothesis.](https://www.anthropic.com/research/riemann-zeta)[ScienceAug 18, 2026
-
-#### How Claude is accelerating protein design and analytical chemistry
-
-In this post, we share two results that show how Claude can help life scientists increase the pace of their research.](https://www.anthropic.com/research/Claude-accelerates-protein-design)
+We present an alignment assessment of four incidents in which Claude models gained unauthorized access to real third-party systems.](https://www.anthropic.com/research/alignment-assessment-cybersecurity-incidents)
 
 ## Publications
 
@@ -56,6 +56,12 @@ Search
 
 DateCategoryTitle
 
+* [Sep 24, 2026Economics
+
+  Project Swap: What happens when agents trade for us?](https://www.anthropic.com/research/project-swap)
+* [Sep 17, 2026Science
+
+  How Claude is uplifting biomolecular modeling](https://www.anthropic.com/research/claude-uplifts-biomolecular-modeling)
 * [Sep 10, 2026Frontier Red Team
 
   Measuring tactical intelligence targeting and conventional weapons capabilities of AI models](https://www.anthropic.com/research/intelligence-targeting-conventional-weapons-capabilities)
@@ -80,12 +86,6 @@ DateCategoryTitle
 * [Aug 12, 2026Economics
 
   Reviewing the evidence on worker retraining programs](https://www.anthropic.com/research/reviewing-the-evidence-on-worker-retraining-programs)
-* [Aug 10, 2026Science
-
-  Learning more about Claude's mathematical capabilities](https://www.anthropic.com/research/riemann-zeta)
-* [Jul 28, 2026Frontier Red Team
-
-  Discovering cryptographic weaknesses with Claude](https://www.anthropic.com/research/discovering-cryptographic-weaknesses)
 
 [See more](#)
 

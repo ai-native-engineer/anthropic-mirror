@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/ai-capabilities-and-limitations/intro-to-ai-capabilities-and-limitations -->
 
-Lesson 1 of 13 · AI Capabilities and LimitationsIntro to AI Capabilities and Limitations
+Lesson 1 of 13 · AI capabilities and limitationsIntro to AI Capabilities and Limitations
 
-3. /[AI Capabilities and Limitations](https://academy.claude.com/courses/ai-capabilities-and-limitations)
+3. /[AI capabilities and limitations](https://academy.claude.com/courses/ai-capabilities-and-limitations)
 
-[AI Capabilities and Limitations](https://academy.claude.com/courses/ai-capabilities-and-limitations)
+[AI capabilities and limitations](https://academy.claude.com/courses/ai-capabilities-and-limitations)
 
 # Intro to AI Capabilities and Limitations
 
@@ -75,7 +75,7 @@ Before the four properties, we need to draw a line around what "AI" means in thi
 
 [Next lessonWhat We Mean by AI](https://academy.claude.com/courses/ai-capabilities-and-limitations/what-we-mean-by-ai)
 
-Lesson 1 of 13 · AI Capabilities and LimitationsIntro to AI Capabilities and Limitations
+Lesson 1 of 13 · AI capabilities and limitationsIntro to AI Capabilities and Limitations
 
 Getting started
 

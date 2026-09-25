@@ -2,7 +2,7 @@
 
 [Courses](https://academy.claude.com/courses)
 
-# Deploying Claude Enterprise with Confidence: The five decisions that shape your rollout
+# Deploying Claude Enterprise with confidence: The five decisions that shape your rollout
 
 Make the five decisions that shape how Claude works for your organization — Structure & Identity, Access, Governance, Spend, Visibility — and record them in the rollout plan you keep.
 
@@ -10,7 +10,7 @@ Make the five decisions that shape how Claude works for your organization — St
 
 [Start course](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence/five-decisions-and-the-frame)[Sign in to save progress](https://academy.claude.com/login?returnTo=%2Fcourses%2Fdeploying-claude-enterprise-with-confidence)
 
-14 lessons · 1 quizDeploying Claude Enterprise with Confidence: The five decisions that shape your rollout
+14 lessons · 1 quizDeploying Claude Enterprise with confidence: The five decisions that shape your rollout
 
 What you’ll learnBy the end of this course, you’ll be able to
 

@@ -4,31 +4,21 @@ Case study | Claude Platform
 
 # You.com enhances search and productivity with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![you.com logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68bb602434e203b30322f4b4_you.com-light-theme.svg)![you.com logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68bb60271517e616c26aa2a8_you.com-dark-theme.svg)
+![you.com logo](https://assets.claude.com/a63a99214658ce838af5a27dc2402dbc5cbc96d3.svg)
 
 Industry:
-
-Software
+:   Software
 
 Company size:
-
-Small
+:   Small
 
 Product:
-
-Claude Platform
+:   Claude Platform
 
 Location:
-
-North America
+:   North America
 
 1000% revenue
 
@@ -37,42 +27,6 @@ increase over the last year
 1 billion
 
 lifetime queries hit
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
 
 You.com, a powerful productivity engine, helps millions of knowledge workers and businesses conduct research, solve complex problems, and automate workflows with AI agents. By leveraging large language models (LLMs), including Claude, You.com offers users a platform that provides comprehensive answers and automates complex tasks.
 
@@ -107,9 +61,7 @@ The platform's coding assistance feature, powered by Claude, helps developers wi
 
 McCann emphasizes the impact of integrating Claude across these features, saying, "The reasoning, agentic capabilities, tool use, and overall answer quality for many users has increased so much."
 
-![You.com product screenshot 1](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68baf05c842996ca886cbe31_e317cd9826af557f643674e8db096d0818a739b1-1920x1038.jpeg)
-
-![You.com product screenshot 1](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68baf05c842996ca886cbe34_3a16c945f200988ad7c5b8ddae72b7b5e1698975-1920x1203.jpeg)
+![You.com product screenshot 1](https://assets.claude.com/3781abea66fd13378a8c7a6bea1627e136f6af2a.jpg)![You.com product screenshot 1](https://assets.claude.com/7289fc701c35229a6fb42bf5c6477ccace012a9f.jpg)
 
 ## Driving growth and user satisfaction
 
@@ -125,52 +77,14 @@ You.com plans to enhance its platform with the latest AI capabilities, focusing 
 
 McCann envisions a future where AI can lower barriers to entry and enable more people to quickly turn ideas into reality, saying, "I think the time to execution will drop for many things—using AI is like having access to designers, engineers, PMs, CFOs, etc. This will provide more equal access to knowledge and experience, allowing more people to go from an idea to a business or product much faster."
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[![Supermetrics](https://assets.claude.com/3ac4171a81008be0340e5c3d8ccb46571c3edfb3.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### Supermetrics lets marketers manage ad campaigns from a conversation with Claude](https://claude.com/customers/supermetrics)[![Atlassian](https://assets.claude.com/4870b3d6c0253cea01b100c98ad2030b8e4f8ce1.svg)
 
-[Next](#)Next
+### How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-Video caption
+### Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-[Next](#)Next
+### How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-Customer story
-
-[Customer story](https://claude.com/customers/atlassian)Customer story
-
-[Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)Rocket Money on building agents that fix their own code
-
-Rocket Money on building agents that fix their own code
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money-qa)Customer story
-
-[How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)How Rocket Money built its personal finance agent with Claude
-
-How Rocket Money built its personal finance agent with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money)Customer story
-
-[How Notion ships and scales agents with Claude Managed Agents](https://claude.com/customers/notion-qa)How Notion ships and scales agents with Claude Managed Agents
-
-How Notion ships and scales agents with Claude Managed Agents
-
-Customer story
-
-[Customer story](https://claude.com/customers/notion-qa)Customer story
+You.com Claude Platform (API) case study | Claude by Anthropic

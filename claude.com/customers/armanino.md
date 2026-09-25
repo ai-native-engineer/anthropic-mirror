@@ -4,31 +4,21 @@ Case study | Claude Platform
 
 # Armanino builds AI-powered accounting tools with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![Armanino logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c1ea7eea0ce664c26cfc93_cs-logo-armanino-light-theme.svg)![Armanino logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c1ea79e2077e23affdaf56_cs-logo-armanino-dark-theme.svg)
+![Armanino logo](https://assets.claude.com/86bbc33b91b1485814782287bbef4636225637fc.svg)
 
 Industry:
-
-Professional services
+:   Professional services
 
 Company size:
-
-Small
+:   Small
 
 Product:
-
-Claude Platform
+:   Claude Platform
 
 Location:
-
-North America
+:   North America
 
 65% reduction
 
@@ -37,42 +27,6 @@ in time spent on manual writing tasks
 2 weeks
 
 from idea to production for new AI-powered tools
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
 
 Armanino, one of the largest accounting firms in the United States, uses Claude on Amazon Bedrock to transform its accounting and consulting services with AI. By integrating AI into its workflows, Armanino is significantly reducing manual tasks, improving client communication, and accelerating innovation across its audit, tax, and consulting practices. These improvements have allowed Armanino to deliver faster and spend more time on high valued items that benefit their clients. Some of these benefits include estimated time savings in audits such as:
 
@@ -108,7 +62,7 @@ The new tool leverages Claude to automatically generate formal notes explaining 
 
 "We're able to provide Claude a small prompt and it gives us a really nice personalized text, about three to four sentences, that delivers exactly what we need from the client in order to fulfill this request," Maliq adds.
 
-![Armanino product screenshot](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68baf0530663eb8c1d77928e_275220b016230ded6c2241c588036363a2c186bd-2880x1620.jpeg)
+![Armanino product screenshot](https://assets.claude.com/f4b3d2d998396f23c5dbae3a3c5ce23588e5e3dd.jpg)
 
 ## Significant time savings and improved confidence
 
@@ -131,52 +85,14 @@ With its innovative use of Claude and focus on solving real-world problems for b
 
 — AJ Yawn, Partner in Charge, Product & Innovation, Armanino LLP
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[![Caylent](https://assets.claude.com/b224ee1fa1757f5331b381ded249b619b03c957e.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### Caylent turns months of migration work into days with Claude Agent SDK](https://claude.com/customers/caylent)[![BLA Studios](https://assets.claude.com/01af34a075be06353de94d0a7df2e25c668c9a15.svg)
 
-[Next](#)Next
+### How can a two-person fabrication studio make room for problems it’s never solved before?](https://claude.com/customers/bla-studios)[![LG CNS](https://assets.claude.com/61ca6aa185bfb470e18a6189b462ea0618039fca.png)
 
-Video caption
+### LG CNS modernizes 20-year-old enterprise systems with Claude](https://claude.com/customers/lg-cns)[![Blank Metal](https://assets.claude.com/31d5dea773d37ce4626bd3710c924b455d46bcc0.svg)
 
-[Next](#)Next
+### How Blank Metal, a lean professional services firm, runs on Claude Cowork](https://claude.com/customers/blank-metal-qa)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[Caylent turns months of migration work into days with Claude Agent SDK](https://claude.com/customers/caylent)Caylent turns months of migration work into days with Claude Agent SDK
-
-Caylent turns months of migration work into days with Claude Agent SDK
-
-Customer story
-
-[Customer story](https://claude.com/customers/caylent)Customer story
-
-[How can a two-person fabrication studio make room for problems it’s never solved before?](https://claude.com/customers/bla-studios)How can a two-person fabrication studio make room for problems it’s never solved before?
-
-How can a two-person fabrication studio make room for problems it’s never solved before?
-
-Customer story
-
-[Customer story](https://claude.com/customers/bla-studios)Customer story
-
-[LG CNS modernizes 20-year-old enterprise systems with Claude](https://claude.com/customers/lg-cns)LG CNS modernizes 20-year-old enterprise systems with Claude
-
-LG CNS modernizes 20-year-old enterprise systems with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/lg-cns)Customer story
-
-[How Blank Metal, a lean professional services firm, runs on Claude Cowork](https://claude.com/customers/blank-metal-qa)How Blank Metal, a lean professional services firm, runs on Claude Cowork
-
-How Blank Metal, a lean professional services firm, runs on Claude Cowork
-
-Customer story
-
-[Customer story](https://claude.com/customers/blank-metal-qa)Customer story
+Armanino Claude Platform (API) case study | Claude by Anthropic

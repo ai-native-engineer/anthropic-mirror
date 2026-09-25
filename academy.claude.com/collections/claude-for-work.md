@@ -12,15 +12,15 @@ Resources for working with Claude in your organization. Learn the everyday tools
 
 ### Get started in Claude Cowork in three steps
 
-The three setup steps before your first task: open the desktop app, run the guided setup, and point Cowork at where the work lives.
+The three setup steps before your first task: open Claude, run the guided setup, and point Cowork at where the work lives.
 
 Tutorial·4 min](https://academy.claude.com/tutorials/get-started-in-claude-cowork-in-three-steps)[![](https://academy.claude.com/assets/v1/thumbnail.light-b9qlnr3z.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-mpd67del.png)
 
-### Navigating the Claude desktop app: Chat, Claude Cowork, Claude Code
+### Navigating the Claude desktop app
 
-The Claude desktop app gives you three ways to work with Claude: Chat, Claude Cowork, and Claude Code — from quick questions to complex research to building software.
+Learn what changes when you use Claude in the desktop app, and what it can do across your computer and tools.
 
-Tutorial·10 min](https://academy.claude.com/tutorials/navigating-the-claude-desktop-app)[![](https://academy.claude.com/assets/v1/thumbnail.light-bb0g5i6x.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-j090lkdj.png)
+Tutorial·6 min](https://academy.claude.com/tutorials/navigating-the-claude-desktop-app)[![](https://academy.claude.com/assets/v1/thumbnail.light-bb0g5i6x.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-j090lkdj.png)
 
 ### Choosing the right Claude model: Haiku, Sonnet, Opus, or Fable
 
@@ -38,7 +38,7 @@ Course·13 lessons · 1 quiz·2.5 hr](https://academy.claude.com/courses/claude-
 
 Delegate multi-step work to Claude in Cowork: set up workspaces, give context, run task loops, and use plugins for research, documents, and browser tasks.
 
-Course·14 lessons · 1 quiz·2.5 hr](https://academy.claude.com/courses/introduction-to-claude-cowork)[### AI Fluency: Framework & Foundations
+Course·14 lessons · 1 quiz·2.5 hr](https://academy.claude.com/courses/introduction-to-claude-cowork)[### AI Fluency: Framework and foundations
 
 Learn to collaborate with AI effectively, efficiently, ethically, and safely using the 4D framework: Delegation, Description, Discernment, and Diligence.
 

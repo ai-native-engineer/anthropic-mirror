@@ -4,31 +4,21 @@ Case study | Claude Platform
 
 # ASAPP brings human-level AI to customer service with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![ASAPP logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5a7ac4f44dfc9a773324a_Asapp_light.svg)![ASAPP logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5a7a7e5f775cb92a70e5f_Asapp_dark.svg)
+![ASAPP logo](https://assets.claude.com/30f90140fdaef1cb2b882c21a0d8d67d62805b58.svg)
 
 Industry:
-
-Software
+:   Software
 
 Company size:
-
-Small
+:   Small
 
 Product:
-
-Claude Platform
+:   Claude Platform
 
 Location:
-
-North America
+:   North America
 
 25-40% improvement
 
@@ -37,42 +27,6 @@ in core business metrics vs other AI models
 61 languages
 
 supported without additional training
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
 
 ASAPP leverages Claude to power AI-driven customer service solutions—enabling businesses to deliver efficient, personalized help that enhances the customer support experience.
 
@@ -109,7 +63,7 @@ The experience represents a fundamental shift in automated service for end custo
 
 Customers quickly transition from terse, command-like interactions to full, natural conversations within just a few exchanges. The platform maintains context throughout conversations, meaning customers don't have to repeat information. The interaction quality is so convincing that customers often ask mid-conversation if they're speaking with a real person, and saying "thank you" to GenerativeAgent at the end.
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68baf055083d412553d64973_0352700fd514041d8b6d9686d3ce2e76ede454ae-1920x977.jpeg)
+![](https://assets.claude.com/6341bf3f104922fe1b4ed6ffa714f55b29b5a47f.jpg)
 
 ## The future of AI-powered customer service
 
@@ -117,52 +71,12 @@ While technology advances rapidly, ASAPP recognizes that organizational adoption
 
 Through their partnership with Anthropic, ASAPP isn't just automating interactions, but entirely reimagining them. Their vision is a future where customer service roles evolve to focus on higher-leverage, uniquely human skills while AI handles routine conversations with unprecedented efficiency and humanity. As each natural, trust-building interaction demonstrates, they're not just transforming technology—they're transforming how millions of people experience customer service.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[![Supermetrics](https://assets.claude.com/3ac4171a81008be0340e5c3d8ccb46571c3edfb3.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### Supermetrics lets marketers manage ad campaigns from a conversation with Claude](https://claude.com/customers/supermetrics)[![Atlassian](https://assets.claude.com/4870b3d6c0253cea01b100c98ad2030b8e4f8ce1.svg)
 
-[Next](#)Next
+### How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-Video caption
+### Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-Customer story
-
-[Customer story](https://claude.com/customers/atlassian)Customer story
-
-[Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)Rocket Money on building agents that fix their own code
-
-Rocket Money on building agents that fix their own code
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money-qa)Customer story
-
-[How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)How Rocket Money built its personal finance agent with Claude
-
-How Rocket Money built its personal finance agent with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money)Customer story
-
-[How Notion ships and scales agents with Claude Managed Agents](https://claude.com/customers/notion-qa)How Notion ships and scales agents with Claude Managed Agents
-
-How Notion ships and scales agents with Claude Managed Agents
-
-Customer story
-
-[Customer story](https://claude.com/customers/notion-qa)Customer story
+### How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)

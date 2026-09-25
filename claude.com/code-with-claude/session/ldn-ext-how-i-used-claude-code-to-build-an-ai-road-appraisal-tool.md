@@ -4,38 +4,28 @@
 
 Transport engineer in Kampala. Road appraisal takes weeks/$10Ks. Built TARA: dashcam footage to complete economic appraisal in 5min/$6. Solo in 6 days for hackathon, won Keep Thinking Prize from ~500 submissions. Three-channel workflow.
 
-Details
+## Details
 
 City
-
-London, UK
+:   London, UK
 
 Date
-
-20 May 2026
+:   20 May 2026
 
 Time
-
-10:00 – 10:30
+:   10:00 – 10:30
 
 Speaker(s)
+:   Philip Kyeyune Kazibwe
 
-Philip Kyeyune Kazibwe
+    Head of Transport,
 
-Head of Transport,
+    Centre for Infrastructure
 
-Centre for Infrastructure
-
-Anthropic's developer conference, recorded
+## Anthropic's developer conference, recorded
 
 Keynotes, demos, and conversations with the teams behind Claude. Recorded at Code w/ Claude 2026 San Francisco and ready to replay.
 
-Browse recordings
+[Browse recordings](https://claude.com/code-with-claude/london)
 
-[Learn more](https://claude.com/code-with-claude/london)Learn more
-
-[Homepage](https://claude.com/code-with-claude)Homepage
-
-© [year] Anthropic PBC
-
-[PRIVACY POLICY](https://www.anthropic.com/legal/privacy)[CODE OF CONDUCT](https://claude.com/code-with-claude/code-of-conduct)
+How I used Claude Code to build an AI road appraisal tool | Session | Code w/ Claude 2026

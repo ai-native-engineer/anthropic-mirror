@@ -4,21 +4,23 @@
 title: Cloud environment setup
 url: https://platform.claude.com/docs/en/managed-agents/environments
 description: Customize cloud sandboxes for your sessions.
+featureMetadata:
+  topic:
+    title: Managed Agents
+    url: https://platform.claude.com/docs/en/managed-agents/overview
+  status: beta
+  betaHeader: managed-agents-2026-04-01
 ---
 
 Environments define the sandbox configuration where your agent runs. You create an environment once, then reference its ID each time you start a session. Multiple sessions can share the same environment, but each session gets its own isolated sandbox (a fresh Linux container).
 
 This page covers `type: cloud` environments. To run sandboxes on your own infrastructure, see [Self-hosted sandboxes](https://platform.claude.com/docs/en/managed-agents/self-hosted-sandboxes).
 
-<Note>
-  Managed Agents API requests require the `managed-agents-2026-04-01` beta header, except memory store endpoints, which use `agent-memory-2026-07-22` instead. The SDK sets the correct beta header automatically. See [Beta headers](https://platform.claude.com/docs/en/api/beta-headers#endpoint-specific-headers).
-</Note>
-
 ## Create an environment
 
 <CodeGroup defaultLanguage="CLI">
   ```bash cURL
-  environment=$(curl -fsS https://api.anthropic.com/v1/environments \
+  curl -fsS https://api.anthropic.com/v1/environments \
     -H "x-api-key: $ANTHROPIC_API_KEY" \
     -H "anthropic-version: 2023-06-01" \
     -H "anthropic-beta: managed-agents-2026-04-01" \
@@ -32,10 +34,6 @@ This page covers `type: cloud` environments. To run sandboxes on your own infras
     }
   }
   EOF
-  )
-  environment_id=$(jq -r '.id' <<< "$environment")
-
-  echo "Environment ID: $environment_id"
   ```
 
   <MultiFileExample language="cli" label="CLI">
@@ -45,6 +43,7 @@ This page covers `type: cloud` environments. To run sandboxes on your own infras
 
     <File filename="environment.yaml">
       ```yaml
+      # yaml-language-server: $schema=https://platform.claude.com/schemas/ant/beta/environment.json
       name: python-dev
       config:
         type: cloud
@@ -138,6 +137,10 @@ This page covers `type: cloud` environments. To run sandboxes on your own infras
 
   puts "Environment ID: #{environment.id}"
   ```
+
+  <ForLanguage tab="CLI">
+    [`ant apply`](https://platform.claude.com/docs/en/cli-sdks-libraries/cli/apply) creates the environment from `environment.yaml`, prints its ID, and records it in `claude-lock.json`. Commit `claude-lock.json` so the next `ant apply` updates this environment instead of trying to create it again.
+  </ForLanguage>
 </CodeGroup>
 
 Use a unique, descriptive `name` so you can tell environments apart.
@@ -146,20 +149,19 @@ Use a unique, descriptive `name` so you can tell environments apart.
 
 Pass the environment ID as a string when [creating a session](https://platform.claude.com/docs/en/managed-agents/sessions).
 
-<CodeGroup defaultLanguage="CLI">
+<CodeGroup>
   ```bash cURL
-  session=$(curl -fsS https://api.anthropic.com/v1/sessions \
+  curl -fsS https://api.anthropic.com/v1/sessions \
     -H "x-api-key: $ANTHROPIC_API_KEY" \
     -H "anthropic-version: 2023-06-01" \
     -H "anthropic-beta: managed-agents-2026-04-01" \
     -H "content-type: application/json" \
     --data @- <<EOF
   {
-    "agent": "$agent_id",
-    "environment_id": "$environment_id"
+    "agent": "$AGENT_ID",
+    "environment_id": "$ENVIRONMENT_ID"
   }
   EOF
-  )
   ```
 
   ```bash CLI
@@ -230,7 +232,7 @@ The `packages` field pre-installs packages into the sandbox before the agent sta
 
 <CodeGroup defaultLanguage="CLI">
   ```bash cURL
-  environment=$(curl -fsS https://api.anthropic.com/v1/environments \
+  curl -fsS https://api.anthropic.com/v1/environments \
     -H "x-api-key: $ANTHROPIC_API_KEY" \
     -H "anthropic-version: 2023-06-01" \
     -H "anthropic-beta: managed-agents-2026-04-01" \
@@ -248,7 +250,6 @@ The `packages` field pre-installs packages into the sandbox before the agent sta
     }
   }
   EOF
-  )
   ```
 
   <MultiFileExample language="cli" label="CLI">
@@ -258,6 +259,7 @@ The `packages` field pre-installs packages into the sandbox before the agent sta
 
     <File filename="environment.yaml">
       ```yaml
+      # yaml-language-server: $schema=https://platform.claude.com/schemas/ant/beta/environment.json
       name: data-analysis
       config:
         type: cloud
@@ -436,6 +438,7 @@ The following example creates an environment with `limited` networking:
 
     <File filename="environment.yaml">
       ```yaml
+      # yaml-language-server: $schema=https://platform.claude.com/schemas/ant/beta/environment.json
       name: api-access
       config:
         type: cloud
@@ -583,28 +586,28 @@ When using `limited` networking:
 
 ## Manage environments
 
-<CodeGroup defaultLanguage="CLI">
+<CodeGroup>
   ```bash cURL
   # List environments
-  environments=$(curl -fsS https://api.anthropic.com/v1/environments \
+  curl -fsS https://api.anthropic.com/v1/environments \
     -H "x-api-key: $ANTHROPIC_API_KEY" \
     -H "anthropic-version: 2023-06-01" \
-    -H "anthropic-beta: managed-agents-2026-04-01")
+    -H "anthropic-beta: managed-agents-2026-04-01"
 
   # Retrieve a specific environment
-  env=$(curl -fsS "https://api.anthropic.com/v1/environments/$environment_id" \
+  curl -fsS "https://api.anthropic.com/v1/environments/$ENVIRONMENT_ID" \
     -H "x-api-key: $ANTHROPIC_API_KEY" \
     -H "anthropic-version: 2023-06-01" \
-    -H "anthropic-beta: managed-agents-2026-04-01")
+    -H "anthropic-beta: managed-agents-2026-04-01"
 
   # Archive an environment (read-only, existing sessions continue)
-  curl -fsS -X POST "https://api.anthropic.com/v1/environments/$environment_id/archive" \
+  curl -fsS -X POST "https://api.anthropic.com/v1/environments/$ENVIRONMENT_ID/archive" \
     -H "x-api-key: $ANTHROPIC_API_KEY" \
     -H "anthropic-version: 2023-06-01" \
     -H "anthropic-beta: managed-agents-2026-04-01"
 
   # Delete an environment (only if no sessions reference it)
-  curl -fsS -X DELETE "https://api.anthropic.com/v1/environments/$environment_id" \
+  curl -fsS -X DELETE "https://api.anthropic.com/v1/environments/$ENVIRONMENT_ID" \
     -H "x-api-key: $ANTHROPIC_API_KEY" \
     -H "anthropic-version: 2023-06-01" \
     -H "anthropic-beta: managed-agents-2026-04-01"

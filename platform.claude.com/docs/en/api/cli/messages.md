@@ -84,7 +84,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
   There is a limit of 100,000 messages in a single request.
 
-- `--model: "claude-fable-5-1" or "claude-mythos-5-1" or "claude-sonnet-5" or 14 more or string`
+- `--model: "claude-fable-5-1" or "claude-opus-5-5" or "claude-mythos-5-1" or 15 more or string`
 
   Body param: The model that will complete your prompt.
 
@@ -97,6 +97,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 - `--container: optional ContainerParams or string`
 
   Body param: Container identifier for reuse across requests.
+
+- `--diagnostics: optional object`
+
+  Body param: Request-level diagnostics. Currently carries the previous response
+  id for prompt-cache divergence reporting.
 
 - `--inference-geo: optional string`
 
@@ -218,7 +223,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
 - `--temperature: optional number`
 
-  **Deprecated**: Deprecated. Models released after Claude Opus 4.6 do not support setting temperature. A value of 1.0 of will be accepted for backwards compatibility, all other values will be rejected with a 400 error.
+  **Deprecated**: Deprecated. Models released after Claude Opus 4.6 do not support setting temperature. A value of 1.0 will be accepted for backwards compatibility, all other values will be rejected with a 400 error.
 
   Body param: Amount of randomness injected into the response.
 
@@ -939,7 +944,56 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `file_id: string`
 
-  - `model: "claude-fable-5-1" or "claude-mythos-5-1" or "claude-sonnet-5" or 14 more or string`
+  - `diagnostics: object`
+
+    Request-level diagnostics: why the prompt cache could not fully reuse
+    the prefix of the request named by `diagnostics.previous_message_id`.
+
+    - `cache_miss_reason: CacheMissModelChanged or CacheMissSystemChanged or CacheMissToolsChanged or 3 more`
+
+      Explains why the prompt cache could not fully reuse the prefix from the request identified by `diagnostics.previous_message_id`. `null` means diagnosis is still pending — the response was serialized before the background comparison completed.
+
+      - `cache_miss_model_changed: object`
+
+        - `type: "model_changed"`
+
+        - `cache_missed_input_tokens: number`
+
+          Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+      - `cache_miss_system_changed: object`
+
+        - `type: "system_changed"`
+
+        - `cache_missed_input_tokens: number`
+
+          Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+      - `cache_miss_tools_changed: object`
+
+        - `type: "tools_changed"`
+
+        - `cache_missed_input_tokens: number`
+
+          Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+      - `cache_miss_messages_changed: object`
+
+        - `type: "messages_changed"`
+
+        - `cache_missed_input_tokens: number`
+
+          Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+      - `cache_miss_previous_message_not_found: object`
+
+        - `type: "previous_message_not_found"`
+
+      - `cache_miss_unavailable: object`
+
+        - `type: "unavailable"`
+
+  - `model: "claude-fable-5-1" or "claude-opus-5-5" or "claude-mythos-5-1" or 15 more or string`
 
     The model that will complete your prompt.
 
@@ -948,6 +1002,10 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
     - `"claude-fable-5-1"`
 
       Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+    - `"claude-opus-5-5"`
+
+      Powerful intelligence for coding, knowledge work, and long-running agents
 
     - `"claude-mythos-5-1"`
 
@@ -1248,7 +1306,12 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         [{"type": "text", "text": "B)"}]
         ```
 
-      - `model: "claude-fable-5-1" or "claude-mythos-5-1" or "claude-sonnet-5" or 14 more or string`
+      - `diagnostics: object`
+
+        Request-level diagnostics: why the prompt cache could not fully reuse
+        the prefix of the request named by `diagnostics.previous_message_id`.
+
+      - `model: "claude-fable-5-1" or "claude-opus-5-5" or "claude-mythos-5-1" or 15 more or string`
 
         The model that will complete your prompt.
 
@@ -1799,6 +1862,12 @@ ant messages create \
       "type": "text"
     }
   ],
+  "diagnostics": {
+    "cache_miss_reason": {
+      "cache_missed_input_tokens": 0,
+      "type": "model_changed"
+    }
+  },
   "model": "claude-opus-5",
   "role": "assistant",
   "stop_details": {
@@ -1896,7 +1965,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
   There is a limit of 100,000 messages in a single request.
 
-- `--model: "claude-fable-5-1" or "claude-mythos-5-1" or "claude-sonnet-5" or 14 more or string`
+- `--model: "claude-fable-5-1" or "claude-opus-5-5" or "claude-mythos-5-1" or 15 more or string`
 
   Body param: The model that will complete your prompt.
 
@@ -3933,6 +4002,102 @@ ant messages count-tokens \
     The number of input tokens used to create the 5 minute cache entry.
 
     minimum: 0
+
+### Cache Miss Messages Changed
+
+- `cache_miss_messages_changed: object`
+
+  - `type: "messages_changed"`
+
+  - `cache_missed_input_tokens: number`
+
+    Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+### Cache Miss Model Changed
+
+- `cache_miss_model_changed: object`
+
+  - `type: "model_changed"`
+
+  - `cache_missed_input_tokens: number`
+
+    Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+### Cache Miss Previous Message Not Found
+
+- `cache_miss_previous_message_not_found: object`
+
+  - `type: "previous_message_not_found"`
+
+### Cache Miss Reason
+
+- `cache_miss_reason: CacheMissModelChanged or CacheMissSystemChanged or CacheMissToolsChanged or 3 more`
+
+  - `cache_miss_model_changed: object`
+
+    - `type: "model_changed"`
+
+    - `cache_missed_input_tokens: number`
+
+      Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+  - `cache_miss_system_changed: object`
+
+    - `type: "system_changed"`
+
+    - `cache_missed_input_tokens: number`
+
+      Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+  - `cache_miss_tools_changed: object`
+
+    - `type: "tools_changed"`
+
+    - `cache_missed_input_tokens: number`
+
+      Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+  - `cache_miss_messages_changed: object`
+
+    - `type: "messages_changed"`
+
+    - `cache_missed_input_tokens: number`
+
+      Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+  - `cache_miss_previous_message_not_found: object`
+
+    - `type: "previous_message_not_found"`
+
+  - `cache_miss_unavailable: object`
+
+    - `type: "unavailable"`
+
+### Cache Miss System Changed
+
+- `cache_miss_system_changed: object`
+
+  - `type: "system_changed"`
+
+  - `cache_missed_input_tokens: number`
+
+    Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+### Cache Miss Tools Changed
+
+- `cache_miss_tools_changed: object`
+
+  - `type: "tools_changed"`
+
+  - `cache_missed_input_tokens: number`
+
+    Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+### Cache Miss Unavailable
+
+- `cache_miss_unavailable: object`
+
+  - `type: "unavailable"`
 
 ### Citation Char Location
 
@@ -8039,6 +8204,70 @@ ant messages count-tokens \
 
         - `"error"`
 
+### Diagnostics
+
+- `diagnostics: object`
+
+  Request-level diagnostics: why the prompt cache could not fully reuse
+  the prefix of the request named by `diagnostics.previous_message_id`.
+
+  - `cache_miss_reason: CacheMissModelChanged or CacheMissSystemChanged or CacheMissToolsChanged or 3 more`
+
+    Explains why the prompt cache could not fully reuse the prefix from the request identified by `diagnostics.previous_message_id`. `null` means diagnosis is still pending — the response was serialized before the background comparison completed.
+
+    - `cache_miss_model_changed: object`
+
+      - `type: "model_changed"`
+
+      - `cache_missed_input_tokens: number`
+
+        Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+    - `cache_miss_system_changed: object`
+
+      - `type: "system_changed"`
+
+      - `cache_missed_input_tokens: number`
+
+        Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+    - `cache_miss_tools_changed: object`
+
+      - `type: "tools_changed"`
+
+      - `cache_missed_input_tokens: number`
+
+        Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+    - `cache_miss_messages_changed: object`
+
+      - `type: "messages_changed"`
+
+      - `cache_missed_input_tokens: number`
+
+        Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+    - `cache_miss_previous_message_not_found: object`
+
+      - `type: "previous_message_not_found"`
+
+    - `cache_miss_unavailable: object`
+
+      - `type: "unavailable"`
+
+### Diagnostics Param
+
+- `diagnostics_param: object`
+
+  Request-level diagnostics. Currently carries the previous response
+  id for prompt-cache divergence reporting.
+
+  - `previous_message_id: optional string`
+
+    The `id` (`msg_...`) from this client's previous /v1/messages response. The server compares that request's prompt fingerprint against this one and returns `diagnostics.cache_miss_reason` when the prompt-cache prefix could not be reused. Pass `null` on the first turn to opt in without a prior message to compare.
+
+    maxLength: 256
+
 ### Direct Caller
 
 - `direct_caller: object`
@@ -9275,7 +9504,56 @@ ant messages count-tokens \
 
       - `file_id: string`
 
-  - `model: "claude-fable-5-1" or "claude-mythos-5-1" or "claude-sonnet-5" or 14 more or string`
+  - `diagnostics: object`
+
+    Request-level diagnostics: why the prompt cache could not fully reuse
+    the prefix of the request named by `diagnostics.previous_message_id`.
+
+    - `cache_miss_reason: CacheMissModelChanged or CacheMissSystemChanged or CacheMissToolsChanged or 3 more`
+
+      Explains why the prompt cache could not fully reuse the prefix from the request identified by `diagnostics.previous_message_id`. `null` means diagnosis is still pending — the response was serialized before the background comparison completed.
+
+      - `cache_miss_model_changed: object`
+
+        - `type: "model_changed"`
+
+        - `cache_missed_input_tokens: number`
+
+          Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+      - `cache_miss_system_changed: object`
+
+        - `type: "system_changed"`
+
+        - `cache_missed_input_tokens: number`
+
+          Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+      - `cache_miss_tools_changed: object`
+
+        - `type: "tools_changed"`
+
+        - `cache_missed_input_tokens: number`
+
+          Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+      - `cache_miss_messages_changed: object`
+
+        - `type: "messages_changed"`
+
+        - `cache_missed_input_tokens: number`
+
+          Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+      - `cache_miss_previous_message_not_found: object`
+
+        - `type: "previous_message_not_found"`
+
+      - `cache_miss_unavailable: object`
+
+        - `type: "unavailable"`
+
+  - `model: "claude-fable-5-1" or "claude-opus-5-5" or "claude-mythos-5-1" or 15 more or string`
 
     The model that will complete your prompt.
 
@@ -9284,6 +9562,10 @@ ant messages count-tokens \
     - `"claude-fable-5-1"`
 
       Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+    - `"claude-opus-5-5"`
+
+      Powerful intelligence for coding, knowledge work, and long-running agents
 
     - `"claude-mythos-5-1"`
 
@@ -10845,6 +11127,97 @@ ant messages count-tokens \
 
       When true, guarantees schema validation on tool names and inputs
 
+    - `url_sources: optional object`
+
+      Which sources contribute to the set of URLs web fetch may fetch.
+
+      Each key is a tagged variant: `user_input` is `all` or `none`; the
+      two tool filters are `all`, `none`, `only` (only the named tools'
+      results) or `except` (every result but the named tools'). A named tool
+      must be declared in this request's `tools[]`.
+
+      - `client_tool_results: optional WebFetchURLSourceAll or WebFetchURLSourceNone or WebFetchURLSourceOnly or WebFetchURLSourceExcept`
+
+        Which client tools' results contribute fetchable URLs: "all", "none", or an only or except list of client tool names from tools[].
+
+        - `web_fetch_url_source_all: object`
+
+          The `url_sources` variant under which a source contributes in
+          full: every result of the tool filter's source, or all user input.
+
+          - `type: "all"`
+
+        - `web_fetch_url_source_none: object`
+
+          The `url_sources` variant under which a source contributes nothing:
+          no result of the tool filter's source, or no user input.
+
+          - `type: "none"`
+
+        - `web_fetch_url_source_only: object`
+
+          The tool filter variant under which only the named tools' results
+          contribute.
+
+          - `type: "only"`
+
+          - `tools: array of WebFetchURLSourceToolReference`
+
+            - `type: "tool_reference"`
+
+            - `name: string`
+
+        - `web_fetch_url_source_except: object`
+
+          The tool filter variant under which every result but the named
+          tools' contributes.
+
+          - `type: "except"`
+
+          - `tools: array of WebFetchURLSourceToolReference`
+
+            - `type: "tool_reference"`
+
+            - `name: string`
+
+      - `server_tool_results: optional WebFetchURLSourceAll or WebFetchURLSourceNone or WebFetchURLSourceOnly or WebFetchURLSourceExcept`
+
+        Which server tools' results contribute fetchable URLs: "all", "none", or an only or except list of server tool names from tools[]; only web_search and web_fetch results ever contribute.
+
+        - `web_fetch_url_source_all: object`
+
+          The `url_sources` variant under which a source contributes in
+          full: every result of the tool filter's source, or all user input.
+
+        - `web_fetch_url_source_none: object`
+
+          The `url_sources` variant under which a source contributes nothing:
+          no result of the tool filter's source, or no user input.
+
+        - `web_fetch_url_source_only: object`
+
+          The tool filter variant under which only the named tools' results
+          contribute.
+
+        - `web_fetch_url_source_except: object`
+
+          The tool filter variant under which every result but the named
+          tools' contributes.
+
+      - `user_input: optional WebFetchURLSourceAll or WebFetchURLSourceNone`
+
+        Whether URLs in user messages are fetchable: "all" or "none".
+
+        - `web_fetch_url_source_all: object`
+
+          The `url_sources` variant under which a source contributes in
+          full: every result of the tool filter's source, or all user input.
+
+        - `web_fetch_url_source_none: object`
+
+          The `url_sources` variant under which a source contributes nothing:
+          no result of the tool filter's source, or no user input.
+
   - `web_search_tool_20260209: object`
 
     - `type: "web_search_20260209"`
@@ -11005,6 +11378,27 @@ ant messages count-tokens \
 
       When true, guarantees schema validation on tool names and inputs
 
+    - `url_sources: optional object`
+
+      Which sources contribute to the set of URLs web fetch may fetch.
+
+      Each key is a tagged variant: `user_input` is `all` or `none`; the
+      two tool filters are `all`, `none`, `only` (only the named tools'
+      results) or `except` (every result but the named tools'). A named tool
+      must be declared in this request's `tools[]`.
+
+      - `client_tool_results: optional WebFetchURLSourceAll or WebFetchURLSourceNone or WebFetchURLSourceOnly or WebFetchURLSourceExcept`
+
+        Which client tools' results contribute fetchable URLs: "all", "none", or an only or except list of client tool names from tools[].
+
+      - `server_tool_results: optional WebFetchURLSourceAll or WebFetchURLSourceNone or WebFetchURLSourceOnly or WebFetchURLSourceExcept`
+
+        Which server tools' results contribute fetchable URLs: "all", "none", or an only or except list of server tool names from tools[]; only web_search and web_fetch results ever contribute.
+
+      - `user_input: optional WebFetchURLSourceAll or WebFetchURLSourceNone`
+
+        Whether URLs in user messages are fetchable: "all" or "none".
+
   - `web_fetch_tool_20260309: object`
 
     Web fetch tool with use_cache parameter for bypassing cached content.
@@ -11077,6 +11471,27 @@ ant messages count-tokens \
     - `strict: optional boolean`
 
       When true, guarantees schema validation on tool names and inputs
+
+    - `url_sources: optional object`
+
+      Which sources contribute to the set of URLs web fetch may fetch.
+
+      Each key is a tagged variant: `user_input` is `all` or `none`; the
+      two tool filters are `all`, `none`, `only` (only the named tools'
+      results) or `except` (every result but the named tools'). A named tool
+      must be declared in this request's `tools[]`.
+
+      - `client_tool_results: optional WebFetchURLSourceAll or WebFetchURLSourceNone or WebFetchURLSourceOnly or WebFetchURLSourceExcept`
+
+        Which client tools' results contribute fetchable URLs: "all", "none", or an only or except list of client tool names from tools[].
+
+      - `server_tool_results: optional WebFetchURLSourceAll or WebFetchURLSourceNone or WebFetchURLSourceOnly or WebFetchURLSourceExcept`
+
+        Which server tools' results contribute fetchable URLs: "all", "none", or an only or except list of server tool names from tools[]; only web_search and web_fetch results ever contribute.
+
+      - `user_input: optional WebFetchURLSourceAll or WebFetchURLSourceNone`
+
+        Whether URLs in user messages are fetchable: "all" or "none".
 
     - `use_cache: optional boolean`
 
@@ -11257,6 +11672,27 @@ ant messages count-tokens \
     - `strict: optional boolean`
 
       When true, guarantees schema validation on tool names and inputs
+
+    - `url_sources: optional object`
+
+      Which sources contribute to the set of URLs web fetch may fetch.
+
+      Each key is a tagged variant: `user_input` is `all` or `none`; the
+      two tool filters are `all`, `none`, `only` (only the named tools'
+      results) or `except` (every result but the named tools'). A named tool
+      must be declared in this request's `tools[]`.
+
+      - `client_tool_results: optional WebFetchURLSourceAll or WebFetchURLSourceNone or WebFetchURLSourceOnly or WebFetchURLSourceExcept`
+
+        Which client tools' results contribute fetchable URLs: "all", "none", or an only or except list of client tool names from tools[].
+
+      - `server_tool_results: optional WebFetchURLSourceAll or WebFetchURLSourceNone or WebFetchURLSourceOnly or WebFetchURLSourceExcept`
+
+        Which server tools' results contribute fetchable URLs: "all", "none", or an only or except list of server tool names from tools[]; only web_search and web_fetch results ever contribute.
+
+      - `user_input: optional WebFetchURLSourceAll or WebFetchURLSourceNone`
+
+        Whether URLs in user messages are fetchable: "all" or "none".
 
     - `use_cache: optional boolean`
 
@@ -14612,7 +15048,56 @@ ant messages count-tokens \
 
         - `file_id: string`
 
-    - `model: "claude-fable-5-1" or "claude-mythos-5-1" or "claude-sonnet-5" or 14 more or string`
+    - `diagnostics: object`
+
+      Request-level diagnostics: why the prompt cache could not fully reuse
+      the prefix of the request named by `diagnostics.previous_message_id`.
+
+      - `cache_miss_reason: CacheMissModelChanged or CacheMissSystemChanged or CacheMissToolsChanged or 3 more`
+
+        Explains why the prompt cache could not fully reuse the prefix from the request identified by `diagnostics.previous_message_id`. `null` means diagnosis is still pending — the response was serialized before the background comparison completed.
+
+        - `cache_miss_model_changed: object`
+
+          - `type: "model_changed"`
+
+          - `cache_missed_input_tokens: number`
+
+            Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+        - `cache_miss_system_changed: object`
+
+          - `type: "system_changed"`
+
+          - `cache_missed_input_tokens: number`
+
+            Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+        - `cache_miss_tools_changed: object`
+
+          - `type: "tools_changed"`
+
+          - `cache_missed_input_tokens: number`
+
+            Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+        - `cache_miss_messages_changed: object`
+
+          - `type: "messages_changed"`
+
+          - `cache_missed_input_tokens: number`
+
+            Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+        - `cache_miss_previous_message_not_found: object`
+
+          - `type: "previous_message_not_found"`
+
+        - `cache_miss_unavailable: object`
+
+          - `type: "unavailable"`
+
+    - `model: "claude-fable-5-1" or "claude-opus-5-5" or "claude-mythos-5-1" or 15 more or string`
 
       The model that will complete your prompt.
 
@@ -14621,6 +15106,10 @@ ant messages count-tokens \
       - `"claude-fable-5-1"`
 
         Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+      - `"claude-opus-5-5"`
+
+        Powerful intelligence for coding, knowledge work, and long-running agents
 
       - `"claude-mythos-5-1"`
 
@@ -15567,7 +16056,56 @@ ant messages count-tokens \
 
           - `file_id: string`
 
-      - `model: "claude-fable-5-1" or "claude-mythos-5-1" or "claude-sonnet-5" or 14 more or string`
+      - `diagnostics: object`
+
+        Request-level diagnostics: why the prompt cache could not fully reuse
+        the prefix of the request named by `diagnostics.previous_message_id`.
+
+        - `cache_miss_reason: CacheMissModelChanged or CacheMissSystemChanged or CacheMissToolsChanged or 3 more`
+
+          Explains why the prompt cache could not fully reuse the prefix from the request identified by `diagnostics.previous_message_id`. `null` means diagnosis is still pending — the response was serialized before the background comparison completed.
+
+          - `cache_miss_model_changed: object`
+
+            - `type: "model_changed"`
+
+            - `cache_missed_input_tokens: number`
+
+              Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+          - `cache_miss_system_changed: object`
+
+            - `type: "system_changed"`
+
+            - `cache_missed_input_tokens: number`
+
+              Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+          - `cache_miss_tools_changed: object`
+
+            - `type: "tools_changed"`
+
+            - `cache_missed_input_tokens: number`
+
+              Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+          - `cache_miss_messages_changed: object`
+
+            - `type: "messages_changed"`
+
+            - `cache_missed_input_tokens: number`
+
+              Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+          - `cache_miss_previous_message_not_found: object`
+
+            - `type: "previous_message_not_found"`
+
+          - `cache_miss_unavailable: object`
+
+            - `type: "unavailable"`
+
+      - `model: "claude-fable-5-1" or "claude-opus-5-5" or "claude-mythos-5-1" or 15 more or string`
 
         The model that will complete your prompt.
 
@@ -15576,6 +16114,10 @@ ant messages count-tokens \
         - `"claude-fable-5-1"`
 
           Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+        - `"claude-opus-5-5"`
+
+          Powerful intelligence for coding, knowledge work, and long-running agents
 
         - `"claude-mythos-5-1"`
 
@@ -20395,6 +20937,97 @@ ant messages count-tokens \
 
       When true, guarantees schema validation on tool names and inputs
 
+    - `url_sources: optional object`
+
+      Which sources contribute to the set of URLs web fetch may fetch.
+
+      Each key is a tagged variant: `user_input` is `all` or `none`; the
+      two tool filters are `all`, `none`, `only` (only the named tools'
+      results) or `except` (every result but the named tools'). A named tool
+      must be declared in this request's `tools[]`.
+
+      - `client_tool_results: optional WebFetchURLSourceAll or WebFetchURLSourceNone or WebFetchURLSourceOnly or WebFetchURLSourceExcept`
+
+        Which client tools' results contribute fetchable URLs: "all", "none", or an only or except list of client tool names from tools[].
+
+        - `web_fetch_url_source_all: object`
+
+          The `url_sources` variant under which a source contributes in
+          full: every result of the tool filter's source, or all user input.
+
+          - `type: "all"`
+
+        - `web_fetch_url_source_none: object`
+
+          The `url_sources` variant under which a source contributes nothing:
+          no result of the tool filter's source, or no user input.
+
+          - `type: "none"`
+
+        - `web_fetch_url_source_only: object`
+
+          The tool filter variant under which only the named tools' results
+          contribute.
+
+          - `type: "only"`
+
+          - `tools: array of WebFetchURLSourceToolReference`
+
+            - `type: "tool_reference"`
+
+            - `name: string`
+
+        - `web_fetch_url_source_except: object`
+
+          The tool filter variant under which every result but the named
+          tools' contributes.
+
+          - `type: "except"`
+
+          - `tools: array of WebFetchURLSourceToolReference`
+
+            - `type: "tool_reference"`
+
+            - `name: string`
+
+      - `server_tool_results: optional WebFetchURLSourceAll or WebFetchURLSourceNone or WebFetchURLSourceOnly or WebFetchURLSourceExcept`
+
+        Which server tools' results contribute fetchable URLs: "all", "none", or an only or except list of server tool names from tools[]; only web_search and web_fetch results ever contribute.
+
+        - `web_fetch_url_source_all: object`
+
+          The `url_sources` variant under which a source contributes in
+          full: every result of the tool filter's source, or all user input.
+
+        - `web_fetch_url_source_none: object`
+
+          The `url_sources` variant under which a source contributes nothing:
+          no result of the tool filter's source, or no user input.
+
+        - `web_fetch_url_source_only: object`
+
+          The tool filter variant under which only the named tools' results
+          contribute.
+
+        - `web_fetch_url_source_except: object`
+
+          The tool filter variant under which every result but the named
+          tools' contributes.
+
+      - `user_input: optional WebFetchURLSourceAll or WebFetchURLSourceNone`
+
+        Whether URLs in user messages are fetchable: "all" or "none".
+
+        - `web_fetch_url_source_all: object`
+
+          The `url_sources` variant under which a source contributes in
+          full: every result of the tool filter's source, or all user input.
+
+        - `web_fetch_url_source_none: object`
+
+          The `url_sources` variant under which a source contributes nothing:
+          no result of the tool filter's source, or no user input.
+
   - `web_search_tool_20260209: object`
 
     - `type: "web_search_20260209"`
@@ -20555,6 +21188,27 @@ ant messages count-tokens \
 
       When true, guarantees schema validation on tool names and inputs
 
+    - `url_sources: optional object`
+
+      Which sources contribute to the set of URLs web fetch may fetch.
+
+      Each key is a tagged variant: `user_input` is `all` or `none`; the
+      two tool filters are `all`, `none`, `only` (only the named tools'
+      results) or `except` (every result but the named tools'). A named tool
+      must be declared in this request's `tools[]`.
+
+      - `client_tool_results: optional WebFetchURLSourceAll or WebFetchURLSourceNone or WebFetchURLSourceOnly or WebFetchURLSourceExcept`
+
+        Which client tools' results contribute fetchable URLs: "all", "none", or an only or except list of client tool names from tools[].
+
+      - `server_tool_results: optional WebFetchURLSourceAll or WebFetchURLSourceNone or WebFetchURLSourceOnly or WebFetchURLSourceExcept`
+
+        Which server tools' results contribute fetchable URLs: "all", "none", or an only or except list of server tool names from tools[]; only web_search and web_fetch results ever contribute.
+
+      - `user_input: optional WebFetchURLSourceAll or WebFetchURLSourceNone`
+
+        Whether URLs in user messages are fetchable: "all" or "none".
+
   - `web_fetch_tool_20260309: object`
 
     Web fetch tool with use_cache parameter for bypassing cached content.
@@ -20627,6 +21281,27 @@ ant messages count-tokens \
     - `strict: optional boolean`
 
       When true, guarantees schema validation on tool names and inputs
+
+    - `url_sources: optional object`
+
+      Which sources contribute to the set of URLs web fetch may fetch.
+
+      Each key is a tagged variant: `user_input` is `all` or `none`; the
+      two tool filters are `all`, `none`, `only` (only the named tools'
+      results) or `except` (every result but the named tools'). A named tool
+      must be declared in this request's `tools[]`.
+
+      - `client_tool_results: optional WebFetchURLSourceAll or WebFetchURLSourceNone or WebFetchURLSourceOnly or WebFetchURLSourceExcept`
+
+        Which client tools' results contribute fetchable URLs: "all", "none", or an only or except list of client tool names from tools[].
+
+      - `server_tool_results: optional WebFetchURLSourceAll or WebFetchURLSourceNone or WebFetchURLSourceOnly or WebFetchURLSourceExcept`
+
+        Which server tools' results contribute fetchable URLs: "all", "none", or an only or except list of server tool names from tools[]; only web_search and web_fetch results ever contribute.
+
+      - `user_input: optional WebFetchURLSourceAll or WebFetchURLSourceNone`
+
+        Whether URLs in user messages are fetchable: "all" or "none".
 
     - `use_cache: optional boolean`
 
@@ -20807,6 +21482,27 @@ ant messages count-tokens \
     - `strict: optional boolean`
 
       When true, guarantees schema validation on tool names and inputs
+
+    - `url_sources: optional object`
+
+      Which sources contribute to the set of URLs web fetch may fetch.
+
+      Each key is a tagged variant: `user_input` is `all` or `none`; the
+      two tool filters are `all`, `none`, `only` (only the named tools'
+      results) or `except` (every result but the named tools'). A named tool
+      must be declared in this request's `tools[]`.
+
+      - `client_tool_results: optional WebFetchURLSourceAll or WebFetchURLSourceNone or WebFetchURLSourceOnly or WebFetchURLSourceExcept`
+
+        Which client tools' results contribute fetchable URLs: "all", "none", or an only or except list of client tool names from tools[].
+
+      - `server_tool_results: optional WebFetchURLSourceAll or WebFetchURLSourceNone or WebFetchURLSourceOnly or WebFetchURLSourceExcept`
+
+        Which server tools' results contribute fetchable URLs: "all", "none", or an only or except list of server tool names from tools[]; only web_search and web_fetch results ever contribute.
+
+      - `user_input: optional WebFetchURLSourceAll or WebFetchURLSourceNone`
+
+        Whether URLs in user messages are fetchable: "all" or "none".
 
     - `use_cache: optional boolean`
 
@@ -21599,6 +22295,97 @@ ant messages count-tokens \
 
     When true, guarantees schema validation on tool names and inputs
 
+  - `url_sources: optional object`
+
+    Which sources contribute to the set of URLs web fetch may fetch.
+
+    Each key is a tagged variant: `user_input` is `all` or `none`; the
+    two tool filters are `all`, `none`, `only` (only the named tools'
+    results) or `except` (every result but the named tools'). A named tool
+    must be declared in this request's `tools[]`.
+
+    - `client_tool_results: optional WebFetchURLSourceAll or WebFetchURLSourceNone or WebFetchURLSourceOnly or WebFetchURLSourceExcept`
+
+      Which client tools' results contribute fetchable URLs: "all", "none", or an only or except list of client tool names from tools[].
+
+      - `web_fetch_url_source_all: object`
+
+        The `url_sources` variant under which a source contributes in
+        full: every result of the tool filter's source, or all user input.
+
+        - `type: "all"`
+
+      - `web_fetch_url_source_none: object`
+
+        The `url_sources` variant under which a source contributes nothing:
+        no result of the tool filter's source, or no user input.
+
+        - `type: "none"`
+
+      - `web_fetch_url_source_only: object`
+
+        The tool filter variant under which only the named tools' results
+        contribute.
+
+        - `type: "only"`
+
+        - `tools: array of WebFetchURLSourceToolReference`
+
+          - `type: "tool_reference"`
+
+          - `name: string`
+
+      - `web_fetch_url_source_except: object`
+
+        The tool filter variant under which every result but the named
+        tools' contributes.
+
+        - `type: "except"`
+
+        - `tools: array of WebFetchURLSourceToolReference`
+
+          - `type: "tool_reference"`
+
+          - `name: string`
+
+    - `server_tool_results: optional WebFetchURLSourceAll or WebFetchURLSourceNone or WebFetchURLSourceOnly or WebFetchURLSourceExcept`
+
+      Which server tools' results contribute fetchable URLs: "all", "none", or an only or except list of server tool names from tools[]; only web_search and web_fetch results ever contribute.
+
+      - `web_fetch_url_source_all: object`
+
+        The `url_sources` variant under which a source contributes in
+        full: every result of the tool filter's source, or all user input.
+
+      - `web_fetch_url_source_none: object`
+
+        The `url_sources` variant under which a source contributes nothing:
+        no result of the tool filter's source, or no user input.
+
+      - `web_fetch_url_source_only: object`
+
+        The tool filter variant under which only the named tools' results
+        contribute.
+
+      - `web_fetch_url_source_except: object`
+
+        The tool filter variant under which every result but the named
+        tools' contributes.
+
+    - `user_input: optional WebFetchURLSourceAll or WebFetchURLSourceNone`
+
+      Whether URLs in user messages are fetchable: "all" or "none".
+
+      - `web_fetch_url_source_all: object`
+
+        The `url_sources` variant under which a source contributes in
+        full: every result of the tool filter's source, or all user input.
+
+      - `web_fetch_url_source_none: object`
+
+        The `url_sources` variant under which a source contributes nothing:
+        no result of the tool filter's source, or no user input.
+
 ### Web Fetch Tool 20260209
 
 - `web_fetch_tool_20260209: object`
@@ -21675,6 +22462,97 @@ ant messages count-tokens \
   - `strict: optional boolean`
 
     When true, guarantees schema validation on tool names and inputs
+
+  - `url_sources: optional object`
+
+    Which sources contribute to the set of URLs web fetch may fetch.
+
+    Each key is a tagged variant: `user_input` is `all` or `none`; the
+    two tool filters are `all`, `none`, `only` (only the named tools'
+    results) or `except` (every result but the named tools'). A named tool
+    must be declared in this request's `tools[]`.
+
+    - `client_tool_results: optional WebFetchURLSourceAll or WebFetchURLSourceNone or WebFetchURLSourceOnly or WebFetchURLSourceExcept`
+
+      Which client tools' results contribute fetchable URLs: "all", "none", or an only or except list of client tool names from tools[].
+
+      - `web_fetch_url_source_all: object`
+
+        The `url_sources` variant under which a source contributes in
+        full: every result of the tool filter's source, or all user input.
+
+        - `type: "all"`
+
+      - `web_fetch_url_source_none: object`
+
+        The `url_sources` variant under which a source contributes nothing:
+        no result of the tool filter's source, or no user input.
+
+        - `type: "none"`
+
+      - `web_fetch_url_source_only: object`
+
+        The tool filter variant under which only the named tools' results
+        contribute.
+
+        - `type: "only"`
+
+        - `tools: array of WebFetchURLSourceToolReference`
+
+          - `type: "tool_reference"`
+
+          - `name: string`
+
+      - `web_fetch_url_source_except: object`
+
+        The tool filter variant under which every result but the named
+        tools' contributes.
+
+        - `type: "except"`
+
+        - `tools: array of WebFetchURLSourceToolReference`
+
+          - `type: "tool_reference"`
+
+          - `name: string`
+
+    - `server_tool_results: optional WebFetchURLSourceAll or WebFetchURLSourceNone or WebFetchURLSourceOnly or WebFetchURLSourceExcept`
+
+      Which server tools' results contribute fetchable URLs: "all", "none", or an only or except list of server tool names from tools[]; only web_search and web_fetch results ever contribute.
+
+      - `web_fetch_url_source_all: object`
+
+        The `url_sources` variant under which a source contributes in
+        full: every result of the tool filter's source, or all user input.
+
+      - `web_fetch_url_source_none: object`
+
+        The `url_sources` variant under which a source contributes nothing:
+        no result of the tool filter's source, or no user input.
+
+      - `web_fetch_url_source_only: object`
+
+        The tool filter variant under which only the named tools' results
+        contribute.
+
+      - `web_fetch_url_source_except: object`
+
+        The tool filter variant under which every result but the named
+        tools' contributes.
+
+    - `user_input: optional WebFetchURLSourceAll or WebFetchURLSourceNone`
+
+      Whether URLs in user messages are fetchable: "all" or "none".
+
+      - `web_fetch_url_source_all: object`
+
+        The `url_sources` variant under which a source contributes in
+        full: every result of the tool filter's source, or all user input.
+
+      - `web_fetch_url_source_none: object`
+
+        The `url_sources` variant under which a source contributes nothing:
+        no result of the tool filter's source, or no user input.
 
 ### Web Fetch Tool 20260309
 
@@ -21754,6 +22632,97 @@ ant messages count-tokens \
   - `strict: optional boolean`
 
     When true, guarantees schema validation on tool names and inputs
+
+  - `url_sources: optional object`
+
+    Which sources contribute to the set of URLs web fetch may fetch.
+
+    Each key is a tagged variant: `user_input` is `all` or `none`; the
+    two tool filters are `all`, `none`, `only` (only the named tools'
+    results) or `except` (every result but the named tools'). A named tool
+    must be declared in this request's `tools[]`.
+
+    - `client_tool_results: optional WebFetchURLSourceAll or WebFetchURLSourceNone or WebFetchURLSourceOnly or WebFetchURLSourceExcept`
+
+      Which client tools' results contribute fetchable URLs: "all", "none", or an only or except list of client tool names from tools[].
+
+      - `web_fetch_url_source_all: object`
+
+        The `url_sources` variant under which a source contributes in
+        full: every result of the tool filter's source, or all user input.
+
+        - `type: "all"`
+
+      - `web_fetch_url_source_none: object`
+
+        The `url_sources` variant under which a source contributes nothing:
+        no result of the tool filter's source, or no user input.
+
+        - `type: "none"`
+
+      - `web_fetch_url_source_only: object`
+
+        The tool filter variant under which only the named tools' results
+        contribute.
+
+        - `type: "only"`
+
+        - `tools: array of WebFetchURLSourceToolReference`
+
+          - `type: "tool_reference"`
+
+          - `name: string`
+
+      - `web_fetch_url_source_except: object`
+
+        The tool filter variant under which every result but the named
+        tools' contributes.
+
+        - `type: "except"`
+
+        - `tools: array of WebFetchURLSourceToolReference`
+
+          - `type: "tool_reference"`
+
+          - `name: string`
+
+    - `server_tool_results: optional WebFetchURLSourceAll or WebFetchURLSourceNone or WebFetchURLSourceOnly or WebFetchURLSourceExcept`
+
+      Which server tools' results contribute fetchable URLs: "all", "none", or an only or except list of server tool names from tools[]; only web_search and web_fetch results ever contribute.
+
+      - `web_fetch_url_source_all: object`
+
+        The `url_sources` variant under which a source contributes in
+        full: every result of the tool filter's source, or all user input.
+
+      - `web_fetch_url_source_none: object`
+
+        The `url_sources` variant under which a source contributes nothing:
+        no result of the tool filter's source, or no user input.
+
+      - `web_fetch_url_source_only: object`
+
+        The tool filter variant under which only the named tools' results
+        contribute.
+
+      - `web_fetch_url_source_except: object`
+
+        The tool filter variant under which every result but the named
+        tools' contributes.
+
+    - `user_input: optional WebFetchURLSourceAll or WebFetchURLSourceNone`
+
+      Whether URLs in user messages are fetchable: "all" or "none".
+
+      - `web_fetch_url_source_all: object`
+
+        The `url_sources` variant under which a source contributes in
+        full: every result of the tool filter's source, or all user input.
+
+      - `web_fetch_url_source_none: object`
+
+        The `url_sources` variant under which a source contributes nothing:
+        no result of the tool filter's source, or no user input.
 
   - `use_cache: optional boolean`
 
@@ -21843,6 +22812,97 @@ ant messages count-tokens \
   - `strict: optional boolean`
 
     When true, guarantees schema validation on tool names and inputs
+
+  - `url_sources: optional object`
+
+    Which sources contribute to the set of URLs web fetch may fetch.
+
+    Each key is a tagged variant: `user_input` is `all` or `none`; the
+    two tool filters are `all`, `none`, `only` (only the named tools'
+    results) or `except` (every result but the named tools'). A named tool
+    must be declared in this request's `tools[]`.
+
+    - `client_tool_results: optional WebFetchURLSourceAll or WebFetchURLSourceNone or WebFetchURLSourceOnly or WebFetchURLSourceExcept`
+
+      Which client tools' results contribute fetchable URLs: "all", "none", or an only or except list of client tool names from tools[].
+
+      - `web_fetch_url_source_all: object`
+
+        The `url_sources` variant under which a source contributes in
+        full: every result of the tool filter's source, or all user input.
+
+        - `type: "all"`
+
+      - `web_fetch_url_source_none: object`
+
+        The `url_sources` variant under which a source contributes nothing:
+        no result of the tool filter's source, or no user input.
+
+        - `type: "none"`
+
+      - `web_fetch_url_source_only: object`
+
+        The tool filter variant under which only the named tools' results
+        contribute.
+
+        - `type: "only"`
+
+        - `tools: array of WebFetchURLSourceToolReference`
+
+          - `type: "tool_reference"`
+
+          - `name: string`
+
+      - `web_fetch_url_source_except: object`
+
+        The tool filter variant under which every result but the named
+        tools' contributes.
+
+        - `type: "except"`
+
+        - `tools: array of WebFetchURLSourceToolReference`
+
+          - `type: "tool_reference"`
+
+          - `name: string`
+
+    - `server_tool_results: optional WebFetchURLSourceAll or WebFetchURLSourceNone or WebFetchURLSourceOnly or WebFetchURLSourceExcept`
+
+      Which server tools' results contribute fetchable URLs: "all", "none", or an only or except list of server tool names from tools[]; only web_search and web_fetch results ever contribute.
+
+      - `web_fetch_url_source_all: object`
+
+        The `url_sources` variant under which a source contributes in
+        full: every result of the tool filter's source, or all user input.
+
+      - `web_fetch_url_source_none: object`
+
+        The `url_sources` variant under which a source contributes nothing:
+        no result of the tool filter's source, or no user input.
+
+      - `web_fetch_url_source_only: object`
+
+        The tool filter variant under which only the named tools' results
+        contribute.
+
+      - `web_fetch_url_source_except: object`
+
+        The tool filter variant under which every result but the named
+        tools' contributes.
+
+    - `user_input: optional WebFetchURLSourceAll or WebFetchURLSourceNone`
+
+      Whether URLs in user messages are fetchable: "all" or "none".
+
+      - `web_fetch_url_source_all: object`
+
+        The `url_sources` variant under which a source contributes in
+        full: every result of the tool filter's source, or all user input.
+
+      - `web_fetch_url_source_none: object`
+
+        The `url_sources` variant under which a source contributes nothing:
+        no result of the tool filter's source, or no user input.
 
   - `use_cache: optional boolean`
 
@@ -22421,6 +23481,158 @@ ant messages count-tokens \
   - `"unavailable"`
 
   - `"content_too_large"`
+
+### Web Fetch URL Source All
+
+- `web_fetch_url_source_all: object`
+
+  The `url_sources` variant under which a source contributes in
+  full: every result of the tool filter's source, or all user input.
+
+  - `type: "all"`
+
+### Web Fetch URL Source Except
+
+- `web_fetch_url_source_except: object`
+
+  The tool filter variant under which every result but the named
+  tools' contributes.
+
+  - `type: "except"`
+
+  - `tools: array of WebFetchURLSourceToolReference`
+
+    - `type: "tool_reference"`
+
+    - `name: string`
+
+### Web Fetch URL Source None
+
+- `web_fetch_url_source_none: object`
+
+  The `url_sources` variant under which a source contributes nothing:
+  no result of the tool filter's source, or no user input.
+
+  - `type: "none"`
+
+### Web Fetch URL Source Only
+
+- `web_fetch_url_source_only: object`
+
+  The tool filter variant under which only the named tools' results
+  contribute.
+
+  - `type: "only"`
+
+  - `tools: array of WebFetchURLSourceToolReference`
+
+    - `type: "tool_reference"`
+
+    - `name: string`
+
+### Web Fetch URL Source Tool Reference
+
+- `web_fetch_url_source_tool_reference: object`
+
+  One entry of a tool filter's `tools`: it must name a tool declared
+  in this request's `tools[]`.
+
+  - `type: "tool_reference"`
+
+  - `name: string`
+
+### Web Fetch URL Sources
+
+- `web_fetch_url_sources: object`
+
+  Which sources contribute to the set of URLs web fetch may fetch.
+
+  Each key is a tagged variant: `user_input` is `all` or `none`; the
+  two tool filters are `all`, `none`, `only` (only the named tools'
+  results) or `except` (every result but the named tools'). A named tool
+  must be declared in this request's `tools[]`.
+
+  - `client_tool_results: optional WebFetchURLSourceAll or WebFetchURLSourceNone or WebFetchURLSourceOnly or WebFetchURLSourceExcept`
+
+    Which client tools' results contribute fetchable URLs: "all", "none", or an only or except list of client tool names from tools[].
+
+    - `web_fetch_url_source_all: object`
+
+      The `url_sources` variant under which a source contributes in
+      full: every result of the tool filter's source, or all user input.
+
+      - `type: "all"`
+
+    - `web_fetch_url_source_none: object`
+
+      The `url_sources` variant under which a source contributes nothing:
+      no result of the tool filter's source, or no user input.
+
+      - `type: "none"`
+
+    - `web_fetch_url_source_only: object`
+
+      The tool filter variant under which only the named tools' results
+      contribute.
+
+      - `type: "only"`
+
+      - `tools: array of WebFetchURLSourceToolReference`
+
+        - `type: "tool_reference"`
+
+        - `name: string`
+
+    - `web_fetch_url_source_except: object`
+
+      The tool filter variant under which every result but the named
+      tools' contributes.
+
+      - `type: "except"`
+
+      - `tools: array of WebFetchURLSourceToolReference`
+
+        - `type: "tool_reference"`
+
+        - `name: string`
+
+  - `server_tool_results: optional WebFetchURLSourceAll or WebFetchURLSourceNone or WebFetchURLSourceOnly or WebFetchURLSourceExcept`
+
+    Which server tools' results contribute fetchable URLs: "all", "none", or an only or except list of server tool names from tools[]; only web_search and web_fetch results ever contribute.
+
+    - `web_fetch_url_source_all: object`
+
+      The `url_sources` variant under which a source contributes in
+      full: every result of the tool filter's source, or all user input.
+
+    - `web_fetch_url_source_none: object`
+
+      The `url_sources` variant under which a source contributes nothing:
+      no result of the tool filter's source, or no user input.
+
+    - `web_fetch_url_source_only: object`
+
+      The tool filter variant under which only the named tools' results
+      contribute.
+
+    - `web_fetch_url_source_except: object`
+
+      The tool filter variant under which every result but the named
+      tools' contributes.
+
+  - `user_input: optional WebFetchURLSourceAll or WebFetchURLSourceNone`
+
+    Whether URLs in user messages are fetchable: "all" or "none".
+
+    - `web_fetch_url_source_all: object`
+
+      The `url_sources` variant under which a source contributes in
+      full: every result of the tool filter's source, or all user input.
+
+    - `web_fetch_url_source_none: object`
+
+      The `url_sources` variant under which a source contributes nothing:
+      no result of the tool filter's source, or no user input.
 
 ### Web Search Result Block
 
@@ -24458,7 +25670,56 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `file_id: string`
 
-        - `model: "claude-fable-5-1" or "claude-mythos-5-1" or "claude-sonnet-5" or 14 more or string`
+        - `diagnostics: object`
+
+          Request-level diagnostics: why the prompt cache could not fully reuse
+          the prefix of the request named by `diagnostics.previous_message_id`.
+
+          - `cache_miss_reason: CacheMissModelChanged or CacheMissSystemChanged or CacheMissToolsChanged or 3 more`
+
+            Explains why the prompt cache could not fully reuse the prefix from the request identified by `diagnostics.previous_message_id`. `null` means diagnosis is still pending — the response was serialized before the background comparison completed.
+
+            - `cache_miss_model_changed: object`
+
+              - `type: "model_changed"`
+
+              - `cache_missed_input_tokens: number`
+
+                Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+            - `cache_miss_system_changed: object`
+
+              - `type: "system_changed"`
+
+              - `cache_missed_input_tokens: number`
+
+                Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+            - `cache_miss_tools_changed: object`
+
+              - `type: "tools_changed"`
+
+              - `cache_missed_input_tokens: number`
+
+                Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+            - `cache_miss_messages_changed: object`
+
+              - `type: "messages_changed"`
+
+              - `cache_missed_input_tokens: number`
+
+                Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+            - `cache_miss_previous_message_not_found: object`
+
+              - `type: "previous_message_not_found"`
+
+            - `cache_miss_unavailable: object`
+
+              - `type: "unavailable"`
+
+        - `model: "claude-fable-5-1" or "claude-opus-5-5" or "claude-mythos-5-1" or 15 more or string`
 
           The model that will complete your prompt.
 
@@ -24467,6 +25728,10 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
           - `"claude-fable-5-1"`
 
             Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+          - `"claude-opus-5-5"`
+
+            Powerful intelligence for coding, knowledge work, and long-running agents
 
           - `"claude-mythos-5-1"`
 

@@ -1,5 +1,7 @@
 <!-- source: https://claude.com/contact-sales/vc-partner -->
 
+Explore here
+
 Note:
 
 Eligibility is determined at Anthropic’s sole discretion. We consider multiple factors when evaluating VC partners, including but not limited to fund performance and market traction, maturity and scope of the fund’s AI investment strategy, and existing Claude adoption and integration among portfolio companies. Anthropic reserves the right to modify these criteria or reject any application without providing specific reasons for such determination.

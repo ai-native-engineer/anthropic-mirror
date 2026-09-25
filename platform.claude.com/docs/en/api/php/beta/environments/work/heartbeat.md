@@ -35,7 +35,7 @@ Record a heartbeat for a work item to maintain the lease.
 
 ## Returns
 
-- `SelfHostedWorkHeartbeatResponse`
+- `class SelfHostedWorkHeartbeatResponse`
 
   - `"work_heartbeat" type`
 

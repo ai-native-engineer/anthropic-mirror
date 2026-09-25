@@ -27,6 +27,10 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
   - `Optional<String> workspaceId`
 
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
   - `long maxTokens`
 
     The maximum number of tokens to generate before stopping.
@@ -96,7 +100,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `List<ContentBlockParam>`
 
-        - `class TextBlockParam:`
+        - `class TextBlockParam`
 
           - `JsonValue type = "text"`
 
@@ -127,7 +131,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `Optional<List<TextCitationParam>> citations`
 
-            - `class CitationCharLocationParam:`
+            - `class CitationCharLocationParam`
 
               - `JsonValue type = "char_location"`
 
@@ -147,7 +151,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 minimum: 0
 
-            - `class CitationPageLocationParam:`
+            - `class CitationPageLocationParam`
 
               - `JsonValue type = "page_location"`
 
@@ -167,7 +171,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 minimum: 1
 
-            - `class CitationContentBlockLocationParam:`
+            - `class CitationContentBlockLocationParam`
 
               - `JsonValue type = "content_block_location"`
 
@@ -197,7 +201,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 minimum: 0
 
-            - `class CitationWebSearchResultLocationParam:`
+            - `class CitationWebSearchResultLocationParam`
 
               - `JsonValue type = "web_search_result_location"`
 
@@ -213,7 +217,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 minLength: 1
 
-            - `class CitationSearchResultLocationParam:`
+            - `class CitationSearchResultLocationParam`
 
               - `JsonValue type = "search_result_location"`
 
@@ -247,13 +251,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `Optional<String> title`
 
-        - `class ImageBlockParam:`
+        - `class ImageBlockParam`
 
           - `JsonValue type = "image"`
 
           - `Source source`
 
-            - `class Base64ImageSource:`
+            - `class Base64ImageSource`
 
               - `JsonValue type = "base64"`
 
@@ -271,13 +275,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 - `IMAGE_WEBP("image/webp")`
 
-            - `class UrlImageSource:`
+            - `class UrlImageSource`
 
               - `JsonValue type = "url"`
 
               - `String url`
 
-            - `class FileImageSource:`
+            - `class FileImageSource`
 
               - `JsonValue type = "file"`
 
@@ -299,13 +303,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `ERROR("error")`
 
-        - `class DocumentBlockParam:`
+        - `class DocumentBlockParam`
 
           - `JsonValue type = "document"`
 
           - `Source source`
 
-            - `class Base64PdfSource:`
+            - `class Base64PdfSource`
 
               - `JsonValue type = "base64"`
 
@@ -315,7 +319,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `JsonValue mediaType = "application/pdf"`
 
-            - `class PlainTextSource:`
+            - `class PlainTextSource`
 
               - `JsonValue type = "text"`
 
@@ -323,7 +327,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `JsonValue mediaType = "text/plain"`
 
-            - `class ContentBlockSource:`
+            - `class ContentBlockSource`
 
               - `JsonValue type = "content"`
 
@@ -333,17 +337,17 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 - `List<ContentBlockSourceContent>`
 
-                  - `class TextBlockParam:`
+                  - `class TextBlockParam`
 
-                  - `class ImageBlockParam:`
+                  - `class ImageBlockParam`
 
-            - `class UrlPdfSource:`
+            - `class UrlPdfSource`
 
               - `JsonValue type = "url"`
 
               - `String url`
 
-            - `class FileDocumentSource:`
+            - `class FileDocumentSource`
 
               - `JsonValue type = "file"`
 
@@ -365,7 +369,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             maxLength: 500, minLength: 1
 
-        - `class SearchResultBlockParam:`
+        - `class SearchResultBlockParam`
 
           - `JsonValue type = "search_result"`
 
@@ -393,7 +397,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `Optional<CitationsConfigParam> citations`
 
-        - `class ThinkingBlockParam:`
+        - `class ThinkingBlockParam`
 
           - `JsonValue type = "thinking"`
 
@@ -407,7 +411,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             The `thinking` text of this block as returned by the API.
 
-        - `class RedactedThinkingBlockParam:`
+        - `class RedactedThinkingBlockParam`
 
           - `JsonValue type = "redacted_thinking"`
 
@@ -415,7 +419,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             The `data` value of this redacted thinking block, exactly as returned by the API in a previous response. Opaque and encrypted; pass it back unchanged.
 
-        - `class ToolUseBlockParam:`
+        - `class ToolUseBlockParam`
 
           - `JsonValue type = "tool_use"`
 
@@ -435,13 +439,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `Optional<Caller> caller`
 
-            - `class DirectCaller:`
+            - `class DirectCaller`
 
               Tool invocation directly from the model.
 
               - `JsonValue type = "direct"`
 
-            - `class ServerToolCaller:`
+            - `class ServerToolCaller`
 
               Tool invocation generated by a server-side tool.
 
@@ -451,7 +455,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-            - `class ServerToolCaller20260120:`
+            - `class ServerToolCaller20260120`
 
               - `JsonValue type = "code_execution_20260120"`
 
@@ -465,7 +469,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
 
-        - `class ToolResultBlockParam:`
+        - `class ToolResultBlockParam`
 
           - `JsonValue type = "tool_result"`
 
@@ -483,15 +487,15 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `List<Block>`
 
-              - `class TextBlockParam:`
+              - `class TextBlockParam`
 
-              - `class ImageBlockParam:`
+              - `class ImageBlockParam`
 
-              - `class SearchResultBlockParam:`
+              - `class SearchResultBlockParam`
 
-              - `class DocumentBlockParam:`
+              - `class DocumentBlockParam`
 
-              - `class ToolReferenceBlockParam:`
+              - `class ToolReferenceBlockParam`
 
                 Tool reference block that can be included in tool_result content.
 
@@ -505,7 +509,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                   Create a cache control breakpoint at this content block.
 
-              - `class BrowserStateBlockParam:`
+              - `class BrowserStateBlockParam`
 
                 The caller's browser state after a browser toolset member call —
                 the full inventory of open tabs, which tab is active, and any side
@@ -555,7 +559,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                   maxItems: 200, minItems: 1
 
-                  - `class BrowserStateChangeTabOpened:`
+                  - `class BrowserStateChangeTabOpened`
 
                     A tab this call's execution opened that remains open at its end —
                     the creation delta of the `tabs` inventory, not an event log.
@@ -573,7 +577,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                       maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-                  - `class BrowserStateChangeDownloadStarted:`
+                  - `class BrowserStateChangeDownloadStarted`
 
                     A file download that started during this call.
 
@@ -591,7 +595,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                       maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-                  - `class BrowserStateChangeDownloadCompleted:`
+                  - `class BrowserStateChangeDownloadCompleted`
 
                     A file download that finished during this call, reported with the
                     same `download_id` as its `download_started` — or without a prior
@@ -624,7 +628,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                       minimum: 0
 
-                  - `class BrowserStateChangeDownloadFailed:`
+                  - `class BrowserStateChangeDownloadFailed`
 
                     A file download that failed — or was cancelled — during this call.
 
@@ -656,7 +660,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
 
-        - `class ServerToolUseBlockParam:`
+        - `class ServerToolUseBlockParam`
 
           - `JsonValue type = "server_tool_use"`
 
@@ -688,17 +692,17 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `Optional<Caller> caller`
 
-            - `class DirectCaller:`
+            - `class DirectCaller`
 
               Tool invocation directly from the model.
 
-            - `class ServerToolCaller:`
+            - `class ServerToolCaller`
 
               Tool invocation generated by a server-side tool.
 
-            - `class ServerToolCaller20260120:`
+            - `class ServerToolCaller20260120`
 
-        - `class WebSearchToolResultBlockParam:`
+        - `class WebSearchToolResultBlockParam`
 
           - `JsonValue type = "web_search_tool_result"`
 
@@ -716,7 +720,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `Optional<String> pageAge`
 
-            - `class WebSearchToolRequestError:`
+            - `class WebSearchToolRequestError`
 
               - `JsonValue type = "web_search_tool_result_error"`
 
@@ -744,23 +748,23 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `Optional<Caller> caller`
 
-            - `class DirectCaller:`
+            - `class DirectCaller`
 
               Tool invocation directly from the model.
 
-            - `class ServerToolCaller:`
+            - `class ServerToolCaller`
 
               Tool invocation generated by a server-side tool.
 
-            - `class ServerToolCaller20260120:`
+            - `class ServerToolCaller20260120`
 
-        - `class WebFetchToolResultBlockParam:`
+        - `class WebFetchToolResultBlockParam`
 
           - `JsonValue type = "web_fetch_tool_result"`
 
           - `Content content`
 
-            - `class WebFetchToolResultErrorBlockParam:`
+            - `class WebFetchToolResultErrorBlockParam`
 
               - `JsonValue type = "web_fetch_tool_result_error"`
 
@@ -786,7 +790,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 - `CONTENT_TOO_LARGE("content_too_large")`
 
-            - `class WebFetchBlockParam:`
+            - `class WebFetchBlockParam`
 
               - `JsonValue type = "web_fetch_result"`
 
@@ -810,23 +814,23 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `Optional<Caller> caller`
 
-            - `class DirectCaller:`
+            - `class DirectCaller`
 
               Tool invocation directly from the model.
 
-            - `class ServerToolCaller:`
+            - `class ServerToolCaller`
 
               Tool invocation generated by a server-side tool.
 
-            - `class ServerToolCaller20260120:`
+            - `class ServerToolCaller20260120`
 
-        - `class CodeExecutionToolResultBlockParam:`
+        - `class CodeExecutionToolResultBlockParam`
 
           - `JsonValue type = "code_execution_tool_result"`
 
           - `CodeExecutionToolResultBlockParamContent content`
 
-            - `class CodeExecutionToolResultErrorParam:`
+            - `class CodeExecutionToolResultErrorParam`
 
               - `JsonValue type = "code_execution_tool_result_error"`
 
@@ -840,7 +844,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 - `EXECUTION_TIME_EXCEEDED("execution_time_exceeded")`
 
-            - `class CodeExecutionResultBlockParam:`
+            - `class CodeExecutionResultBlockParam`
 
               - `JsonValue type = "code_execution_result"`
 
@@ -856,7 +860,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `String stdout`
 
-            - `class EncryptedCodeExecutionResultBlockParam:`
+            - `class EncryptedCodeExecutionResultBlockParam`
 
               Code execution result with encrypted stdout for PFC + web_search results.
 
@@ -882,13 +886,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             Create a cache control breakpoint at this content block.
 
-        - `class BashCodeExecutionToolResultBlockParam:`
+        - `class BashCodeExecutionToolResultBlockParam`
 
           - `JsonValue type = "bash_code_execution_tool_result"`
 
           - `Content content`
 
-            - `class BashCodeExecutionToolResultErrorParam:`
+            - `class BashCodeExecutionToolResultErrorParam`
 
               - `JsonValue type = "bash_code_execution_tool_result_error"`
 
@@ -904,7 +908,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 - `OUTPUT_FILE_TOO_LARGE("output_file_too_large")`
 
-            - `class BashCodeExecutionResultBlockParam:`
+            - `class BashCodeExecutionResultBlockParam`
 
               - `JsonValue type = "bash_code_execution_result"`
 
@@ -928,13 +932,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             Create a cache control breakpoint at this content block.
 
-        - `class TextEditorCodeExecutionToolResultBlockParam:`
+        - `class TextEditorCodeExecutionToolResultBlockParam`
 
           - `JsonValue type = "text_editor_code_execution_tool_result"`
 
           - `Content content`
 
-            - `class TextEditorCodeExecutionToolResultErrorParam:`
+            - `class TextEditorCodeExecutionToolResultErrorParam`
 
               - `JsonValue type = "text_editor_code_execution_tool_result_error"`
 
@@ -952,7 +956,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `Optional<String> errorMessage`
 
-            - `class TextEditorCodeExecutionViewResultBlockParam:`
+            - `class TextEditorCodeExecutionViewResultBlockParam`
 
               - `JsonValue type = "text_editor_code_execution_view_result"`
 
@@ -972,13 +976,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `Optional<Long> totalLines`
 
-            - `class TextEditorCodeExecutionCreateResultBlockParam:`
+            - `class TextEditorCodeExecutionCreateResultBlockParam`
 
               - `JsonValue type = "text_editor_code_execution_create_result"`
 
               - `boolean isFileUpdate`
 
-            - `class TextEditorCodeExecutionStrReplaceResultBlockParam:`
+            - `class TextEditorCodeExecutionStrReplaceResultBlockParam`
 
               - `JsonValue type = "text_editor_code_execution_str_replace_result"`
 
@@ -1000,13 +1004,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             Create a cache control breakpoint at this content block.
 
-        - `class ToolSearchToolResultBlockParam:`
+        - `class ToolSearchToolResultBlockParam`
 
           - `JsonValue type = "tool_search_tool_result"`
 
           - `Content content`
 
-            - `class ToolSearchToolResultErrorParam:`
+            - `class ToolSearchToolResultErrorParam`
 
               - `JsonValue type = "tool_search_tool_result_error"`
 
@@ -1022,7 +1026,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `Optional<String> errorMessage`
 
-            - `class ToolSearchToolSearchResultBlockParam:`
+            - `class ToolSearchToolSearchResultBlockParam`
 
               - `JsonValue type = "tool_search_tool_search_result"`
 
@@ -1046,7 +1050,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             Create a cache control breakpoint at this content block.
 
-        - `class ContainerUploadBlockParam:`
+        - `class ContainerUploadBlockParam`
 
           A content block that represents a file to be uploaded to the container
           Files uploaded via this block will be available in the container's input directory.
@@ -1080,6 +1084,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
   - `Optional<MessageCreateParamsContainer> container`
 
     Container identifier for reuse across requests.
+
+  - `Optional<DiagnosticsParam> diagnostics`
+
+    Request-level diagnostics. Currently carries the previous response
+    id for prompt-cache divergence reporting.
 
   - `Optional<String> inferenceGeo`
 
@@ -1209,7 +1218,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     See our [guide](https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview) for more details.
 
-    - `class Tool:`
+    - `class Tool`
 
       - `Optional<Type> type`
 
@@ -1267,7 +1276,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         When true, guarantees schema validation on tool names and inputs
 
-    - `class ToolBash20250124:`
+    - `class ToolBash20250124`
 
       - `JsonValue type = "bash_20250124"`
 
@@ -1301,7 +1310,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         When true, guarantees schema validation on tool names and inputs
 
-    - `class CodeExecutionTool20250522:`
+    - `class CodeExecutionTool20250522`
 
       - `JsonValue type = "code_execution_20250522"`
 
@@ -1333,7 +1342,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         When true, guarantees schema validation on tool names and inputs
 
-    - `class CodeExecutionTool20250825:`
+    - `class CodeExecutionTool20250825`
 
       - `JsonValue type = "code_execution_20250825"`
 
@@ -1365,7 +1374,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         When true, guarantees schema validation on tool names and inputs
 
-    - `class CodeExecutionTool20260120:`
+    - `class CodeExecutionTool20260120`
 
       Code execution tool with REPL state persistence (daemon mode + gVisor checkpoint).
 
@@ -1399,7 +1408,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         When true, guarantees schema validation on tool names and inputs
 
-    - `class CodeExecutionTool20260521:`
+    - `class CodeExecutionTool20260521`
 
       Code execution tool with REPL state persistence.
 
@@ -1433,7 +1442,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         When true, guarantees schema validation on tool names and inputs
 
-    - `class BrowserToolset20260801:`
+    - `class BrowserToolset20260801`
 
       The browser toolset: a single `tools[]` entry (carrying no
       `name`) that declares the browser tool family. The model is served
@@ -1827,7 +1836,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-    - `class MemoryTool20250818:`
+    - `class MemoryTool20250818`
 
       - `JsonValue type = "memory_20250818"`
 
@@ -1861,7 +1870,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         When true, guarantees schema validation on tool names and inputs
 
-    - `class ComputerToolset20260801:`
+    - `class ComputerToolset20260801`
 
       The computer toolset: a single `tools[]` entry (carrying no
       `name`) that declares the computer tool family. The model is
@@ -2091,7 +2100,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-    - `class ToolTextEditor20250124:`
+    - `class ToolTextEditor20250124`
 
       - `JsonValue type = "text_editor_20250124"`
 
@@ -2125,7 +2134,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         When true, guarantees schema validation on tool names and inputs
 
-    - `class ToolTextEditor20250429:`
+    - `class ToolTextEditor20250429`
 
       - `JsonValue type = "text_editor_20250429"`
 
@@ -2159,7 +2168,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         When true, guarantees schema validation on tool names and inputs
 
-    - `class ToolTextEditor20250728:`
+    - `class ToolTextEditor20250728`
 
       - `JsonValue type = "text_editor_20250728"`
 
@@ -2199,7 +2208,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         When true, guarantees schema validation on tool names and inputs
 
-    - `class WebSearchTool20250305:`
+    - `class WebSearchTool20250305`
 
       - `JsonValue type = "web_search_20250305"`
 
@@ -2275,7 +2284,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           maxLength: 255, minLength: 1
 
-    - `class WebFetchTool20250910:`
+    - `class WebFetchTool20250910`
 
       - `JsonValue type = "web_fetch_20250910"`
 
@@ -2331,7 +2340,98 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         When true, guarantees schema validation on tool names and inputs
 
-    - `class WebSearchTool20260209:`
+      - `Optional<WebFetchUrlSources> urlSources`
+
+        Which sources contribute to the set of URLs web fetch may fetch.
+
+        Each key is a tagged variant: `user_input` is `all` or `none`; the
+        two tool filters are `all`, `none`, `only` (only the named tools'
+        results) or `except` (every result but the named tools'). A named tool
+        must be declared in this request's `tools[]`.
+
+        - `Optional<ClientToolResults> clientToolResults`
+
+          Which client tools' results contribute fetchable URLs: "all", "none", or an only or except list of client tool names from tools[].
+
+          - `class WebFetchUrlSourceAll`
+
+            The `url_sources` variant under which a source contributes in
+            full: every result of the tool filter's source, or all user input.
+
+            - `JsonValue type = "all"`
+
+          - `class WebFetchUrlSourceNone`
+
+            The `url_sources` variant under which a source contributes nothing:
+            no result of the tool filter's source, or no user input.
+
+            - `JsonValue type = "none"`
+
+          - `class WebFetchUrlSourceOnly`
+
+            The tool filter variant under which only the named tools' results
+            contribute.
+
+            - `JsonValue type = "only"`
+
+            - `List<WebFetchUrlSourceToolReference> tools`
+
+              - `JsonValue type = "tool_reference"`
+
+              - `String name`
+
+          - `class WebFetchUrlSourceExcept`
+
+            The tool filter variant under which every result but the named
+            tools' contributes.
+
+            - `JsonValue type = "except"`
+
+            - `List<WebFetchUrlSourceToolReference> tools`
+
+              - `JsonValue type = "tool_reference"`
+
+              - `String name`
+
+        - `Optional<ServerToolResults> serverToolResults`
+
+          Which server tools' results contribute fetchable URLs: "all", "none", or an only or except list of server tool names from tools[]; only web_search and web_fetch results ever contribute.
+
+          - `class WebFetchUrlSourceAll`
+
+            The `url_sources` variant under which a source contributes in
+            full: every result of the tool filter's source, or all user input.
+
+          - `class WebFetchUrlSourceNone`
+
+            The `url_sources` variant under which a source contributes nothing:
+            no result of the tool filter's source, or no user input.
+
+          - `class WebFetchUrlSourceOnly`
+
+            The tool filter variant under which only the named tools' results
+            contribute.
+
+          - `class WebFetchUrlSourceExcept`
+
+            The tool filter variant under which every result but the named
+            tools' contributes.
+
+        - `Optional<UserInput> userInput`
+
+          Whether URLs in user messages are fetchable: "all" or "none".
+
+          - `class WebFetchUrlSourceAll`
+
+            The `url_sources` variant under which a source contributes in
+            full: every result of the tool filter's source, or all user input.
+
+          - `class WebFetchUrlSourceNone`
+
+            The `url_sources` variant under which a source contributes nothing:
+            no result of the tool filter's source, or no user input.
+
+    - `class WebSearchTool20260209`
 
       - `JsonValue type = "web_search_20260209"`
 
@@ -2381,7 +2481,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         Parameters for the user's location. Used to provide more relevant search results.
 
-    - `class WebFetchTool20260209:`
+    - `class WebFetchTool20260209`
 
       - `JsonValue type = "web_fetch_20260209"`
 
@@ -2437,7 +2537,16 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         When true, guarantees schema validation on tool names and inputs
 
-    - `class WebFetchTool20260309:`
+      - `Optional<WebFetchUrlSources> urlSources`
+
+        Which sources contribute to the set of URLs web fetch may fetch.
+
+        Each key is a tagged variant: `user_input` is `all` or `none`; the
+        two tool filters are `all`, `none`, `only` (only the named tools'
+        results) or `except` (every result but the named tools'). A named tool
+        must be declared in this request's `tools[]`.
+
+    - `class WebFetchTool20260309`
 
       Web fetch tool with use_cache parameter for bypassing cached content.
 
@@ -2495,11 +2604,20 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         When true, guarantees schema validation on tool names and inputs
 
+      - `Optional<WebFetchUrlSources> urlSources`
+
+        Which sources contribute to the set of URLs web fetch may fetch.
+
+        Each key is a tagged variant: `user_input` is `all` or `none`; the
+        two tool filters are `all`, `none`, `only` (only the named tools'
+        results) or `except` (every result but the named tools'). A named tool
+        must be declared in this request's `tools[]`.
+
       - `Optional<Boolean> useCache`
 
         Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
 
-    - `class WebSearchTool20260318:`
+    - `class WebSearchTool20260318`
 
       - `JsonValue type = "web_search_20260318"`
 
@@ -2557,7 +2675,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         Parameters for the user's location. Used to provide more relevant search results.
 
-    - `class WebFetchTool20260318:`
+    - `class WebFetchTool20260318`
 
       - `JsonValue type = "web_fetch_20260318"`
 
@@ -2621,11 +2739,20 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         When true, guarantees schema validation on tool names and inputs
 
+      - `Optional<WebFetchUrlSources> urlSources`
+
+        Which sources contribute to the set of URLs web fetch may fetch.
+
+        Each key is a tagged variant: `user_input` is `all` or `none`; the
+        two tool filters are `all`, `none`, `only` (only the named tools'
+        results) or `except` (every result but the named tools'). A named tool
+        must be declared in this request's `tools[]`.
+
       - `Optional<Boolean> useCache`
 
         Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
 
-    - `class ToolSearchToolBm25_20251119:`
+    - `class ToolSearchToolBm25_20251119`
 
       - `Type type`
 
@@ -2661,7 +2788,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         When true, guarantees schema validation on tool names and inputs
 
-    - `class ToolSearchToolRegex20251119:`
+    - `class ToolSearchToolRegex20251119`
 
       - `Type type`
 
@@ -2699,7 +2826,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
   - `Optional<Double> temperature`
 
-    **Deprecated**: Deprecated. Models released after Claude Opus 4.6 do not support setting temperature. A value of 1.0 of will be accepted for backwards compatibility, all other values will be rejected with a 400 error.
+    **Deprecated**: Deprecated. Models released after Claude Opus 4.6 do not support setting temperature. A value of 1.0 will be accepted for backwards compatibility, all other values will be rejected with a 400 error.
 
     Amount of randomness injected into the response.
 
@@ -2735,7 +2862,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
 ## Returns
 
-- `class Message:`
+- `class Message`
 
   - `JsonValue type = "message"`
 
@@ -2816,7 +2943,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
     [{"type": "text", "text": "B)"}]
     ```
 
-    - `class TextBlock:`
+    - `class TextBlock`
 
       - `JsonValue type = "text"`
 
@@ -2826,7 +2953,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
 
-        - `class CitationCharLocation:`
+        - `class CitationCharLocation`
 
           - `JsonValue type = "char_location"`
 
@@ -2846,7 +2973,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             minimum: 0
 
-        - `class CitationPageLocation:`
+        - `class CitationPageLocation`
 
           - `JsonValue type = "page_location"`
 
@@ -2866,7 +2993,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             minimum: 1
 
-        - `class CitationContentBlockLocation:`
+        - `class CitationContentBlockLocation`
 
           - `JsonValue type = "content_block_location"`
 
@@ -2896,7 +3023,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             minimum: 0
 
-        - `class CitationsWebSearchResultLocation:`
+        - `class CitationsWebSearchResultLocation`
 
           - `JsonValue type = "web_search_result_location"`
 
@@ -2910,7 +3037,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `String url`
 
-        - `class CitationsSearchResultLocation:`
+        - `class CitationsSearchResultLocation`
 
           - `JsonValue type = "search_result_location"`
 
@@ -2948,7 +3075,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         minLength: 0
 
-    - `class ThinkingBlock:`
+    - `class ThinkingBlock`
 
       - `JsonValue type = "thinking"`
 
@@ -2964,7 +3091,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         The text of Claude's thinking process for this block.
 
-    - `class RedactedThinkingBlock:`
+    - `class RedactedThinkingBlock`
 
       - `JsonValue type = "redacted_thinking"`
 
@@ -2976,7 +3103,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking#redacted-thinking-blocks) for details.
 
-    - `class ToolUseBlock:`
+    - `class ToolUseBlock`
 
       - `JsonValue type = "tool_use"`
 
@@ -2986,13 +3113,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `Caller caller`
 
-        - `class DirectCaller:`
+        - `class DirectCaller`
 
           Tool invocation directly from the model.
 
           - `JsonValue type = "direct"`
 
-        - `class ServerToolCaller:`
+        - `class ServerToolCaller`
 
           Tool invocation generated by a server-side tool.
 
@@ -3002,7 +3129,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-        - `class ServerToolCaller20260120:`
+        - `class ServerToolCaller20260120`
 
           - `JsonValue type = "code_execution_20260120"`
 
@@ -3022,7 +3149,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
 
-    - `class ServerToolUseBlock:`
+    - `class ServerToolUseBlock`
 
       - `JsonValue type = "server_tool_use"`
 
@@ -3032,15 +3159,15 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `Caller caller`
 
-        - `class DirectCaller:`
+        - `class DirectCaller`
 
           Tool invocation directly from the model.
 
-        - `class ServerToolCaller:`
+        - `class ServerToolCaller`
 
           Tool invocation generated by a server-side tool.
 
-        - `class ServerToolCaller20260120:`
+        - `class ServerToolCaller20260120`
 
       - `Input input`
 
@@ -3060,25 +3187,25 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `TOOL_SEARCH_TOOL_BM25("tool_search_tool_bm25")`
 
-    - `class WebSearchToolResultBlock:`
+    - `class WebSearchToolResultBlock`
 
       - `JsonValue type = "web_search_tool_result"`
 
       - `Caller caller`
 
-        - `class DirectCaller:`
+        - `class DirectCaller`
 
           Tool invocation directly from the model.
 
-        - `class ServerToolCaller:`
+        - `class ServerToolCaller`
 
           Tool invocation generated by a server-side tool.
 
-        - `class ServerToolCaller20260120:`
+        - `class ServerToolCaller20260120`
 
       - `WebSearchToolResultBlockContent content`
 
-        - `class WebSearchToolResultError:`
+        - `class WebSearchToolResultError`
 
           - `JsonValue type = "web_search_tool_result_error"`
 
@@ -3112,25 +3239,25 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-    - `class WebFetchToolResultBlock:`
+    - `class WebFetchToolResultBlock`
 
       - `JsonValue type = "web_fetch_tool_result"`
 
       - `Caller caller`
 
-        - `class DirectCaller:`
+        - `class DirectCaller`
 
           Tool invocation directly from the model.
 
-        - `class ServerToolCaller:`
+        - `class ServerToolCaller`
 
           Tool invocation generated by a server-side tool.
 
-        - `class ServerToolCaller20260120:`
+        - `class ServerToolCaller20260120`
 
       - `Content content`
 
-        - `class WebFetchToolResultErrorBlock:`
+        - `class WebFetchToolResultErrorBlock`
 
           - `JsonValue type = "web_fetch_tool_result_error"`
 
@@ -3156,7 +3283,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `CONTENT_TOO_LARGE("content_too_large")`
 
-        - `class WebFetchBlock:`
+        - `class WebFetchBlock`
 
           - `JsonValue type = "web_fetch_result"`
 
@@ -3172,7 +3299,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `Source source`
 
-              - `class Base64PdfSource:`
+              - `class Base64PdfSource`
 
                 - `JsonValue type = "base64"`
 
@@ -3182,7 +3309,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 - `JsonValue mediaType = "application/pdf"`
 
-              - `class PlainTextSource:`
+              - `class PlainTextSource`
 
                 - `JsonValue type = "text"`
 
@@ -3206,13 +3333,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-    - `class CodeExecutionToolResultBlock:`
+    - `class CodeExecutionToolResultBlock`
 
       - `JsonValue type = "code_execution_tool_result"`
 
       - `CodeExecutionToolResultBlockContent content`
 
-        - `class CodeExecutionToolResultError:`
+        - `class CodeExecutionToolResultError`
 
           - `JsonValue type = "code_execution_tool_result_error"`
 
@@ -3226,7 +3353,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `EXECUTION_TIME_EXCEEDED("execution_time_exceeded")`
 
-        - `class CodeExecutionResultBlock:`
+        - `class CodeExecutionResultBlock`
 
           - `JsonValue type = "code_execution_result"`
 
@@ -3242,7 +3369,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `String stdout`
 
-        - `class EncryptedCodeExecutionResultBlock:`
+        - `class EncryptedCodeExecutionResultBlock`
 
           Code execution result with encrypted stdout for PFC + web_search results.
 
@@ -3264,13 +3391,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-    - `class BashCodeExecutionToolResultBlock:`
+    - `class BashCodeExecutionToolResultBlock`
 
       - `JsonValue type = "bash_code_execution_tool_result"`
 
       - `Content content`
 
-        - `class BashCodeExecutionToolResultError:`
+        - `class BashCodeExecutionToolResultError`
 
           - `JsonValue type = "bash_code_execution_tool_result_error"`
 
@@ -3286,7 +3413,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `OUTPUT_FILE_TOO_LARGE("output_file_too_large")`
 
-        - `class BashCodeExecutionResultBlock:`
+        - `class BashCodeExecutionResultBlock`
 
           - `JsonValue type = "bash_code_execution_result"`
 
@@ -3306,13 +3433,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-    - `class TextEditorCodeExecutionToolResultBlock:`
+    - `class TextEditorCodeExecutionToolResultBlock`
 
       - `JsonValue type = "text_editor_code_execution_tool_result"`
 
       - `Content content`
 
-        - `class TextEditorCodeExecutionToolResultError:`
+        - `class TextEditorCodeExecutionToolResultError`
 
           - `JsonValue type = "text_editor_code_execution_tool_result_error"`
 
@@ -3330,7 +3457,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `Optional<String> errorMessage`
 
-        - `class TextEditorCodeExecutionViewResultBlock:`
+        - `class TextEditorCodeExecutionViewResultBlock`
 
           - `JsonValue type = "text_editor_code_execution_view_result"`
 
@@ -3350,13 +3477,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `Optional<Long> totalLines`
 
-        - `class TextEditorCodeExecutionCreateResultBlock:`
+        - `class TextEditorCodeExecutionCreateResultBlock`
 
           - `JsonValue type = "text_editor_code_execution_create_result"`
 
           - `boolean isFileUpdate`
 
-        - `class TextEditorCodeExecutionStrReplaceResultBlock:`
+        - `class TextEditorCodeExecutionStrReplaceResultBlock`
 
           - `JsonValue type = "text_editor_code_execution_str_replace_result"`
 
@@ -3374,13 +3501,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-    - `class ToolSearchToolResultBlock:`
+    - `class ToolSearchToolResultBlock`
 
       - `JsonValue type = "tool_search_tool_result"`
 
       - `Content content`
 
-        - `class ToolSearchToolResultError:`
+        - `class ToolSearchToolResultError`
 
           - `JsonValue type = "tool_search_tool_result_error"`
 
@@ -3396,7 +3523,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `Optional<String> errorMessage`
 
-        - `class ToolSearchToolSearchResultBlock:`
+        - `class ToolSearchToolSearchResultBlock`
 
           - `JsonValue type = "tool_search_tool_search_result"`
 
@@ -3412,13 +3539,62 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-    - `class ContainerUploadBlock:`
+    - `class ContainerUploadBlock`
 
       Response model for a file uploaded to the container.
 
       - `JsonValue type = "container_upload"`
 
       - `String fileId`
+
+  - `Optional<Diagnostics> diagnostics`
+
+    Request-level diagnostics: why the prompt cache could not fully reuse
+    the prefix of the request named by `diagnostics.previous_message_id`.
+
+    - `Optional<CacheMissReason> cacheMissReason`
+
+      Explains why the prompt cache could not fully reuse the prefix from the request identified by `diagnostics.previous_message_id`. `null` means diagnosis is still pending — the response was serialized before the background comparison completed.
+
+      - `class CacheMissModelChanged`
+
+        - `JsonValue type = "model_changed"`
+
+        - `long cacheMissedInputTokens`
+
+          Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+      - `class CacheMissSystemChanged`
+
+        - `JsonValue type = "system_changed"`
+
+        - `long cacheMissedInputTokens`
+
+          Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+      - `class CacheMissToolsChanged`
+
+        - `JsonValue type = "tools_changed"`
+
+        - `long cacheMissedInputTokens`
+
+          Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+      - `class CacheMissMessagesChanged`
+
+        - `JsonValue type = "messages_changed"`
+
+        - `long cacheMissedInputTokens`
+
+          Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+      - `class CacheMissPreviousMessageNotFound`
+
+        - `JsonValue type = "previous_message_not_found"`
+
+      - `class CacheMissUnavailable`
+
+        - `JsonValue type = "unavailable"`
 
   - `Model model`
 
@@ -3429,6 +3605,10 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
     - `CLAUDE_FABLE_5_1("claude-fable-5-1")`
 
       Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+    - `CLAUDE_OPUS_5_5("claude-opus-5-5")`
+
+      Powerful intelligence for coding, knowledge work, and long-running agents
 
     - `CLAUDE_MYTHOS_5_1("claude-mythos-5-1")`
 
@@ -3678,13 +3858,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
 - `class RawMessageStreamEvent: union`
 
-  - `class RawMessageStartEvent:`
+  - `class RawMessageStartEvent`
 
     - `JsonValue type = "message_start"`
 
     - `Message message`
 
-  - `class RawMessageDeltaEvent:`
+  - `class RawMessageDeltaEvent`
 
     - `JsonValue type = "message_delta"`
 
@@ -3749,79 +3929,79 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         The number of server tool requests.
 
-  - `class RawMessageStopEvent:`
+  - `class RawMessageStopEvent`
 
     - `JsonValue type = "message_stop"`
 
-  - `class RawContentBlockStartEvent:`
+  - `class RawContentBlockStartEvent`
 
     - `JsonValue type = "content_block_start"`
 
     - `ContentBlock contentBlock`
 
-      - `class TextBlock:`
+      - `class TextBlock`
 
-      - `class ThinkingBlock:`
+      - `class ThinkingBlock`
 
-      - `class RedactedThinkingBlock:`
+      - `class RedactedThinkingBlock`
 
-      - `class ToolUseBlock:`
+      - `class ToolUseBlock`
 
-      - `class ServerToolUseBlock:`
+      - `class ServerToolUseBlock`
 
-      - `class WebSearchToolResultBlock:`
+      - `class WebSearchToolResultBlock`
 
-      - `class WebFetchToolResultBlock:`
+      - `class WebFetchToolResultBlock`
 
-      - `class CodeExecutionToolResultBlock:`
+      - `class CodeExecutionToolResultBlock`
 
-      - `class BashCodeExecutionToolResultBlock:`
+      - `class BashCodeExecutionToolResultBlock`
 
-      - `class TextEditorCodeExecutionToolResultBlock:`
+      - `class TextEditorCodeExecutionToolResultBlock`
 
-      - `class ToolSearchToolResultBlock:`
+      - `class ToolSearchToolResultBlock`
 
-      - `class ContainerUploadBlock:`
+      - `class ContainerUploadBlock`
 
         Response model for a file uploaded to the container.
 
     - `long index`
 
-  - `class RawContentBlockDeltaEvent:`
+  - `class RawContentBlockDeltaEvent`
 
     - `JsonValue type = "content_block_delta"`
 
     - `RawContentBlockDelta delta`
 
-      - `class TextDelta:`
+      - `class TextDelta`
 
         - `JsonValue type = "text_delta"`
 
         - `String text`
 
-      - `class InputJsonDelta:`
+      - `class InputJsonDelta`
 
         - `JsonValue type = "input_json_delta"`
 
         - `String partialJson`
 
-      - `class CitationsDelta:`
+      - `class CitationsDelta`
 
         - `JsonValue type = "citations_delta"`
 
         - `Citation citation`
 
-          - `class CitationCharLocation:`
+          - `class CitationCharLocation`
 
-          - `class CitationPageLocation:`
+          - `class CitationPageLocation`
 
-          - `class CitationContentBlockLocation:`
+          - `class CitationContentBlockLocation`
 
-          - `class CitationsWebSearchResultLocation:`
+          - `class CitationsWebSearchResultLocation`
 
-          - `class CitationsSearchResultLocation:`
+          - `class CitationsSearchResultLocation`
 
-      - `class ThinkingDelta:`
+      - `class ThinkingDelta`
 
         - `JsonValue type = "thinking_delta"`
 
@@ -3829,7 +4009,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           The incremental `thinking` text for this content block. Concatenate the `thinking` values of successive `thinking_delta` events to assemble the block's full `thinking` value.
 
-      - `class SignatureDelta:`
+      - `class SignatureDelta`
 
         - `JsonValue type = "signature_delta"`
 
@@ -3839,7 +4019,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `long index`
 
-  - `class RawContentBlockStopEvent:`
+  - `class RawContentBlockStopEvent`
 
     - `JsonValue type = "content_block_stop"`
 
@@ -3905,6 +4085,12 @@ public final class Main {
       "type": "text"
     }
   ],
+  "diagnostics": {
+    "cache_miss_reason": {
+      "cache_missed_input_tokens": 0,
+      "type": "model_changed"
+    }
+  },
   "model": "claude-opus-5",
   "role": "assistant",
   "stop_details": {

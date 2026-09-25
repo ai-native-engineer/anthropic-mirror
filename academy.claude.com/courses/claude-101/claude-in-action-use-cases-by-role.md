@@ -75,7 +75,7 @@ These examples are just the beginning. Visit the [Use Case Gallery(opens in new 
 
 ## What's next[](#whats-next)
 
-In our final module, you'll meet a few more ways to work with Claude — including Claude Code, Claude Tag, Claude Design, Claude for Microsoft 365, and Claude in Chrome — each tailored to where the work actually happens.
+In our final module, you'll meet a few more ways to work with Claude — including Claude Code, Claude Tag, Claude Design (which also works right inside your conversations), Claude for Microsoft 365, and Claude in Chrome — each tailored to where the work actually happens.
 
 [Previous lessonResearch for deep dives](https://academy.claude.com/courses/claude-101/research-mode-for-deep-dives)[Next lessonOther ways to work with Claude](https://academy.claude.com/courses/claude-101/other-ways-to-work-with-claude)
 

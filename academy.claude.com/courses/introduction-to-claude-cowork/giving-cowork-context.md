@@ -18,7 +18,7 @@ In this lessonBy the end, you’ll be able to
 
 ## Onboard your new collaborator[](#onboard-your-new-collaborator)
 
-In Chat, memory builds itself — turn it on and Claude learns from your conversations automatically. Cowork works differently. The context that carries from task to task is mostly the context you set up: **global instructions**, which apply to every Cowork session, and **projects**, where Claude builds memory automatically from the conversations you have inside them. Most people start with global instructions and add projects as recurring work surfaces.
+Claude remembers things from your conversations on its own, and that memory applies in Cowork tasks too. The context that reliably carries from task to task, though, is the context you set up deliberately: **global instructions**, which apply to every Cowork session, and **projects**, where Claude builds memory automatically from the conversations you have inside them. Most people start with global instructions and add projects as recurring work surfaces.
 
 ## Global instructions: the brief that applies to every session[](#global-instructions-the-brief-that-applies-to-every-session)
 
@@ -26,9 +26,8 @@ Global instructions are a standing brief. You write them once, in Settings, and 
 
 To set them up:
 
-1. Open the Claude desktop app and go to **Settings → Cowork**.
-2. Click **Edit** next to **Global instructions**.
-3. Write your brief and save.
+1. Open **Settings** in Claude and find **Global instructions** (called **Instructions for Claude** in some versions of the app).
+2. Write your brief and save.
 
 What to put in it: who you are and what you do; the shorthand and acronyms you use (so Claude doesn't have to ask what "the QBR deck" is); and how you like output delivered (format, length, tone, etc.). The interactive below shows a few worked examples based on different roles.
 
@@ -61,9 +60,9 @@ There are three ways to create a project, depending on where the materials alrea
 
 * **From scratch** — start empty, add instructions and context as you go.
 * **From an existing folder on your computer** — point the project at a folder you already work out of. The folder becomes the project's working directory.
-* **From a Chat project** — if you've been using projects in Chat, you can transition the instructions and knowledge over to Cowork. This only works one-way: changes you make in Cowork don't sync back to Chat.
+* **From an existing project** — if you've already built up a project in your conversations with Claude, start from it so its instructions and knowledge carry over.
 
-To create one, click **Projects** in the Cowork sidebar, then **New project**, and choose whichever option makes the setup easiest for you. You can change the working folder, instructions, and connectors at any time.
+To create one, click **Projects** in the sidebar, then **New project**, and choose whichever option makes the setup easiest for you. You can change the working folder, instructions, and connectors at any time.
 
 ## Try it now[](#try-it-now)
 

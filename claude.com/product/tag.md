@@ -1,10 +1,12 @@
 <!-- source: https://claude.com/product/tag -->
 
+Explore here
+
 @Claude beta
 
 # Tag Claude in Slack
 
-[@Claude](https://anthropic.enterprise.slack.com/team/U08SSLN6TTL) reads threads, understands full context, and reacts in real time so your team moves forward together. Bring Claude into your channel.
+@Claude reads threads, understands full context, and reacts in real time so your team moves forward together. Bring Claude into your channel.
 
 Add to Slack
 
@@ -20,7 +22,7 @@ Available in beta for Claude Enterprise and Team customers in Slack.
 
 [](https://assets.claude.ai/brand/videos/tag/tag-supercut.webm)
 
-![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6aa4447556ab772d5b05745c_firecrawl-logo-light-theme.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6aa4447ede59e9d8a4c84546_firecrawl-logo-dark-theme.svg)
+![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6ab2c8bb3466f0c993603d8a_6ab2c6e911264eab20be06e2_startups-wordmark-firecrawl-light.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6ab2c8bb3466f0c993603da7_6ab2c6ea2a0f7493d7d5b089_startups-wordmark-firecrawl-dark.svg)
 
 “Rather than using AI on my computer or in my own IDE, I can now do work out in the open in a public Slack channel with my teammates, and we can actually more effectively collaborate on tasks together.”
 
@@ -333,7 +335,7 @@ Read more
 
 ![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6aa01f7e645f7fe4aabfb7a4_asana-logo-light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6aa01f851118c8688fe503ab_asana-logo-dark.svg)
 
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68bf6f1fdcf6881c9918dd0e_Linear_Logo_0%202%20(1).svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68bf6f187456bf5ca9c27129_Linear_Logo_0%201%20(1).svg)
+![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6ab2c8bd3466f0c993603ed0_6ab2c6ea1b9635a4a50e11a6_startups-wordmark-linear-light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6ab2c8bd3466f0c993603ed3_6ab2c6eab5afe149426a3f08_startups-wordmark-linear-dark.svg)
 
 ![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5a84a22074cc407a84848_Atlassian_light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5a84a22074cc407a84848_Atlassian_light.svg)
 

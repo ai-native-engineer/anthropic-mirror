@@ -4,35 +4,21 @@ Case study | Claude Platform
 
 # Gradial scales enterprise marketing execution with Claude Opus 4.7
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69efc2e6abac81539e6d870b_logo_gradial-light-mode.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69efc2ed9346d8d82a8b2821_logo_gradial-dark-mode.svg)
+![Gradial logo](https://assets.claude.com/eb5d3fc2d4b39e9f28b5cfe2aa45f863b71fd066.svg)
 
 Industry:
-
-Software
+:   Software
 
 Company size:
-
-Startup
+:   Startup
 
 Product:
-
-[Claude Platform](https://claude.com/platform/api)
-
-[Claude Cowork](https://claude.com/product/cowork)
-
-[Claude Code](https://claude.com/product/claude-code)
+:   [Claude Platform](https://claude.com/platform/api)[Claude Cowork](https://claude.com/product/cowork)[Claude Code](https://claude.com/product/claude-code)
 
 Location:
-
-North America
+:   North America
 
 300+ hours of bulk content operations now take less than 10 hours
 
@@ -53,65 +39,21 @@ with Gradial using Opus 4.7 for one technology customer
 
 ## The challenge
 
-Introducing Claude Opus 4.7
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69e7f860f59eb387a9633881_96ea2509a90e527642c822303e56296a07bcfce4-1920x1080.webp)
-
-Opus 4.7 is a notable improvement on Opus 4.6 in advanced software engineering, with particular gains on the most difficult tasks.
-
-Read more
-
-[Read more](https://www.anthropic.com/news/claude-opus-4-7)Read more
-
-Introducing Claude Opus 4.7
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Opus 4.7 is a notable improvement on Opus 4.6 in advanced software engineering, with particular gains on the most difficult tasks.
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Introducing Claude Opus 4.7
-
-Opus 4.7 is a notable improvement on Opus 4.6 in advanced software engineering, with particular gains on the most difficult tasks.
-
 ## Executing marketing workflows at enterprise scale
 
 Enterprise marketing workflows are highly bespoke, multiplayer, and multidimensional, with fragmented context and many governance requirements. Between a marketing brief and a live campaign, enterprise teams face 20-plus operational steps: brief building, authoring, design, QA, asset tagging, stakeholder approval chains, and coordination across fragmented tools and agencies. This messy web can stretch campaign execution timelines to weeks and make the marketer experience challenging. "Enterprise marketing teams don't have a creation problem,” said Anish Chadalavada, co-founder of Gradial. “They have an execution problem. And existing software tools don’t understand or integrate with the workflow context needed to solve it."
 
 When Gradial launched, the team built its architecture and agent harness as multi-model from the start, with an orchestration engine that routes each task to the best-fit model for that customer’s context. Some tasks need strong reasoning and instruction-following, some need speed, some need memory. But the biggest challenge was orchestrating tasks where the model needed to simultaneously follow conditional instructions precisely, maintain governance across long workflows, and author content within complex design systems. “Enterprises need a true agent harness for marketing that orchestrates across complex workflows at scale,” Chadalavada said.
 
+Introducing Claude Opus 4.7
+
+![Introducing Claude Opus 4.7](https://assets.claude.com/8f53ced47c279491a8187467424cba10156184d9.jpg)
+
+Opus 4.7 is a notable improvement on Opus 4.6 in advanced software engineering, with particular gains on the most difficult tasks.
+
+[Read more](https://www.anthropic.com/news/claude-opus-4-7)
+
 ## The solution
-
-Claude Code
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698f525504b02eec936ac51b_68c469d41149ace562bfd24d_og-claude-product-claude-code.jpeg)
-
-Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
-
-Read more
-
-[Read more](https://claude.com/product/claude-code)Read more
-
-Claude Code
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Claude Code
-
-Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
 
 ## Improving long context reasoning with Claude Opus 4.7
 
@@ -131,21 +73,17 @@ For QA and governance, Claude helps perform brand compliance checks, accessibili
 
 Gradial deploys Claude directly and through different cloud providers, integrated into the larger execution harness the team built around it. This harness includes the orchestration engine that decomposes marketing jobs into subtasks and routes them to the best model, a knowledge graph that stores each customer's brand and workflow context, integration connectors and skills for enterprise marketing systems, and governance layers that check every output.
 
-"Workloads that weren't feasible previously became possible."
+Claude Code
 
-Doug Tallmadge
+![Claude Code](https://assets.claude.com/38e8385d1c5f9c0f71c486994e22fc5861a4522d.jpg)
 
-Co-founder and CEO, Gradial
+Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[Read more](https://claude.com/product/claude-code)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+> "Workloads that weren't feasible previously became possible."
 
-[Next](#)Next
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+Doug TallmadgeCo-founder and CEO, Gradial
 
 ## The outcome
 
@@ -161,42 +99,18 @@ Internally, Claude has also changed how Gradial operates as a company. Claude Co
 
 Gradial is expanding Claude's role across its execution stack, particularly in campaign execution, cross-channel content optimization, and Generative Engine Optimization, where the company helps brands structure web content for both human visitors and the AI models that reference it, with execution built in. "The broader direction is toward more intelligent execution," Chadalavada said. "Today, a marketer assigns a job and Gradial executes it. Tomorrow, marketers lay out the strategy and vision, and agents proactively execute it, recommend optimizations, and make improvements continuously."
 
-"The better the model's reasoning, the more complex the tasks we can automate."
+> "The better the model's reasoning, the more complex the tasks we can automate."
 
-Doug Tallmadge
+Doug TallmadgeCo-founder and CEO, Gradial
 
-Co-founder and CEO, Gradial
+[![Supermetrics](https://assets.claude.com/3ac4171a81008be0340e5c3d8ccb46571c3edfb3.svg)
 
-## Related stories
+### Supermetrics lets marketers manage ad campaigns from a conversation with Claude](https://claude.com/customers/supermetrics)[![Atlassian](https://assets.claude.com/4870b3d6c0253cea01b100c98ad2030b8e4f8ce1.svg)
 
-[How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)How Atlassian builds AI agents teams can trust with Claude and Google Cloud
+### How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-How Atlassian builds AI agents teams can trust with Claude and Google Cloud
+### Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-Customer story
+### How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)
 
-[Customer story](https://claude.com/customers/atlassian)Customer story
-
-[Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)Rocket Money on building agents that fix their own code
-
-Rocket Money on building agents that fix their own code
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money-qa)Customer story
-
-[How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)How Rocket Money built its personal finance agent with Claude
-
-How Rocket Money built its personal finance agent with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money)Customer story
-
-[How Notion ships and scales agents with Claude Managed Agents](https://claude.com/customers/notion-qa)How Notion ships and scales agents with Claude Managed Agents
-
-How Notion ships and scales agents with Claude Managed Agents
-
-Customer story
-
-[Customer story](https://claude.com/customers/notion-qa)Customer story
+Gradial Claude Platform (API) case study | Claude by Anthropic

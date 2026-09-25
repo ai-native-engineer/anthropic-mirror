@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/building-effective-human-agent-teams/why-multiplayer-ai-matters -->
 
-Lesson 1 of 5 · Building Effective Human Agent Teams (Beta)Why multiplayer AI matters
+Lesson 1 of 5 · Building effective human-agent teams (beta)Why multiplayer AI matters
 
-3. /[Building Effective Human Agent Teams (Beta)](https://academy.claude.com/courses/building-effective-human-agent-teams)
+3. /[Building effective human-agent teams (beta)](https://academy.claude.com/courses/building-effective-human-agent-teams)
 
-[Building Effective Human Agent Teams (Beta)](https://academy.claude.com/courses/building-effective-human-agent-teams)
+[Building effective human-agent teams (beta)](https://academy.claude.com/courses/building-effective-human-agent-teams)
 
 # Why multiplayer AI matters
 
@@ -62,7 +62,7 @@ Next: what a multiplayer agent is made of, part by part.
 
 [Next lessonHow is a multiplayer agent different from traditional AI tools?](https://academy.claude.com/courses/building-effective-human-agent-teams/how-multiplayer-agents-differ)
 
-Lesson 1 of 5 · Building Effective Human Agent Teams (Beta)Why multiplayer AI matters
+Lesson 1 of 5 · Building effective human-agent teams (beta)Why multiplayer AI matters
 
 The shift to multiplayer
 

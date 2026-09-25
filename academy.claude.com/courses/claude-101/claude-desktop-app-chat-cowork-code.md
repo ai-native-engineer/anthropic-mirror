@@ -58,7 +58,7 @@ Working agentically with Claude is a new way of working for many people. Instead
 **Reach for this when:**
 
 * **The task has several steps you'd normally do in sequence.** Pull the figures, compare them, draft the summary, format the doc. Handed off, that's one instruction, not four errands.
-* **The output is a real deliverable.** A Word doc, a spreadsheet, a deck, a formatted PDF — saved where you need it, not pasted into a chat window for you to reassemble.
+* **The output is finished files, where you need them.** A batch of renamed files, a spreadsheet saved into the right folder, a formatted PDF on your desktop — delivered to your file system, not handed back for you to file away. (A deck or doc on its own doesn't need a hand-off: on paid plans you can make those as artifacts in any conversation — see the "Creating with artifacts" lesson.)
 * **The work spans your tools.** Meeting notes in one place, the thread in Slack, last quarter's numbers in a spreadsheet. Set up a Friday roll-up as a scheduled task and Claude gathers all three itself every time it runs — nothing for you to round up first.
 * **It should happen on a schedule, or while you're doing something else.** A Friday review of what shipped. A Monday briefing that preps you for your next meeting.
 
@@ -112,7 +112,7 @@ You won't pick a tab first — you'll notice what kind of work is in front of yo
 ## Lesson reflection[](#lesson-reflection)
 
 * Think about how you used Claude this week. Which requests were turn-by-turn thinking, and which were really whole tasks you fed in one question at a time because that's the habit?
-* Take the task you'd most like off your plate. Is it multi-step, does it end in a real file, does it span your tools? If yes to any, it's a hand-off — write down the outcome you'd describe to Claude, not the first question you'd ask.
+* Take the task you'd most like off your plate. Is it multi-step, does it need files saved and organized on your computer, does it span your tools? If yes to any, it's a hand-off — write down the outcome you'd describe to Claude, not the first question you'd ask.
 
 ## What's next[](#whats-next)
 

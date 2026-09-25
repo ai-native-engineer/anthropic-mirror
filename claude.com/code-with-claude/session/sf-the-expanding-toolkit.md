@@ -4,44 +4,32 @@
 
 Over the last year, capabilities that used to require heavy scaffolding have moved into the model: reliable tool use, context management, writing and running code, computer use, and more. This session walks through these capabilities, shows what changed between model generations, and demonstrates how they compose into agents that finish work instead of just starting it.
 
-Details
+## Details
 
 City
-
-San Francisco, USA
+:   San Francisco, USA
 
 Date
-
-May 6, 2026
+:   May 6, 2026
 
 Time
-
-11:15AM – 11:45AM
+:   11:15AM – 11:45AM
 
 Speaker(s)
+:   Lucas Gonzalez
 
-Lucas Gonzalez
+    Member of Technical Staff,
 
-Member of Technical Staff,
-
-Anthropic
+    Anthropic
 
 ## Watch recording
 
-[Play video](#)Play video
+![The expanding toolkit](https://assets.claude.com/449b35928c065dd8395960f16b269d1a6839fbc0.jpg?w=1600&auto=format)
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69fdf35b3ece741832c28348_the-expanding-toolkit.webp)
-
-Anthropic's developer conference, recorded
+## Anthropic's developer conference, recorded
 
 Keynotes, demos, and conversations with the teams behind Claude. Recorded at Code w/ Claude 2026 San Francisco and ready to replay.
 
-Browse recordings
+[Browse recordings](https://claude.com/code-with-claude/san-francisco)
 
-[Learn more](https://claude.com/code-with-claude/san-francisco)Learn more
-
-[Homepage](https://claude.com/code-with-claude)Homepage
-
-© [year] Anthropic PBC
-
-[PRIVACY POLICY](https://www.anthropic.com/legal/privacy)[CODE OF CONDUCT](https://claude.com/code-with-claude/code-of-conduct)
+The expanding toolkit | Session | Code w/ Claude 2026

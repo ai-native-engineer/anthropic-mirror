@@ -7,7 +7,7 @@ url: https://platform.claude.com/docs/en/api/beta/organization/rbac_groups/updat
 
 # Update RBAC Group
 
-**POST** `/v1/organizations/rbac_groups/{group_id}`
+**POST** `/v1/organizations/rbac_groups/{rbac_group_id}`
 
 Update an RBAC Group's name. Groups provisioned by an identity provider (source type `"scim"`) cannot be modified via the API while an organization in the tenant uses SCIM provisioning.
 
@@ -15,7 +15,7 @@ The RBAC Groups API is available to Claude Enterprise organizations only.
 
 ## Path parameters
 
-- `group_id: string`
+- `rbac_group_id: string`
 
   ID of the RBAC Group.
 
@@ -53,7 +53,7 @@ The RBAC Groups API is available to Claude Enterprise organizations only.
 
     Name of the RBAC Group. Not uniqueness-enforced.
 
-  - `roles: array of string or null`
+  - `role_ids: array of string or null`
 
     RBAC Role IDs attached to this RBAC Group. Role attachment is managed in the admin settings and is read-only on this API. `null` means role data was temporarily unavailable — retry to distinguish from an empty list.
 
@@ -71,13 +71,18 @@ The RBAC Groups API is available to Claude Enterprise organizations only.
 
     format: date-time
 
+  - `roles: array of string or null`
+
+    **Deprecated**: Use `role_ids` instead; `roles` always has the same value.
+
+    Deprecated: use `role_ids` instead. IDs of the RBAC Roles attached to this RBAC Group; always the same value as `role_ids`, `null` included.
+
 ## Example
 
 ```bash
-curl https://api.anthropic.com/v1/organizations/rbac_groups/$GROUP_ID \
+curl https://api.anthropic.com/v1/organizations/rbac_groups/$RBAC_GROUP_ID \
     -H 'Content-Type: application/json' \
     -H 'anthropic-version: 2023-06-01' \
-    -H 'anthropic-beta: ce-user-management-2026-07-13' \
     -H "X-Api-Key: $ANTHROPIC_API_KEY" \
     -d '{
           "name": "Engineering"
@@ -91,6 +96,9 @@ curl https://api.anthropic.com/v1/organizations/rbac_groups/$GROUP_ID \
   "id": "rbac_group_012rppKaSVsmTo6NqRDXQXNF",
   "created_at": "2024-10-30T23:58:27.427722Z",
   "name": "Engineering",
+  "role_ids": [
+    "rbac_role_016J8xVtKpDq3Wy9ZmN2hR4s"
+  ],
   "roles": [
     "rbac_role_016J8xVtKpDq3Wy9ZmN2hR4s"
   ],

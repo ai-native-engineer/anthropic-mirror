@@ -24,13 +24,13 @@ Your thinking partner for big ambitions: work through a problem, pressure-test a
 
 Learn to use Claude for everyday work, from your first conversation and effective prompting to projects, artifacts, skills, and connected tools.
 
-Course·13 lessons · 1 quiz·2.5 hr](https://academy.claude.com/courses/claude-101)[![](https://academy.claude.com/assets/v1/thumbnail.light-iznp6akh.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-hh3at4r1.png)
+Course·13 lessons · 1 quiz·2.5 hr](https://academy.claude.com/courses/claude-101)[![](https://academy.claude.com/assets/v1/thumbnail.light-khg817wt.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-h1zlg9b3.png)
 
-### Getting started with Claude.ai
+### Getting started with Claude
 
-Learn how to maximize your Claude.ai experience through effective prompting, document uploads, search functionality, customization options, and advanced features like extended thinking and research mode.
+What Claude can do, how to write your first prompt, and how to set up a task with your own files and tools.
 
-Tutorial·5 min](https://academy.claude.com/tutorials/getting-started-with-claude-ai)[![](https://academy.claude.com/assets/v1/thumbnail.light-ofwck6bq.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-09in3lr8.png)
+Tutorial·5 min](https://academy.claude.com/tutorials/getting-started-with-claude)[![](https://academy.claude.com/assets/v1/thumbnail.light-ofwck6bq.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-09in3lr8.png)
 
 ### Intro to Projects
 

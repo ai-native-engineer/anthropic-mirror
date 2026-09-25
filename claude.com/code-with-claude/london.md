@@ -8,176 +8,28 @@ London
 
 That's a wrap on London. Watch the recordings and catch everything you missed.
 
-Watch recordings
+## Watch recordings
 
 Pick a track and watch the talks, as fresh as the day they were presented.
 
-Thank you! Your submission has been received!
+Search
 
-Oops! Something went wrong while submitting the form.
+SESSION TRACK
 
-[Watch recording](https://claude.com/code-with-claude/session/ldn-opening-keynote)Watch recording
+ResearchClaude PlatformClaude Code
 
-[Play video](#)Play video
+Showing 9 of 24 recordings
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a10d40a2751238ea0648361_london-keynote.webp)
+* [![](https://assets.claude.com/98602063a3a180a175cb64a72cc6093856fc3b7d.jpg?w=720&auto=format)Opening keynoteAngela Jiang, AnthropicBoris Cherny, AnthropicCat Wu, AnthropicKatelyn Lesse, AnthropicLisa Crofoot, Anthropic](https://claude.com/code-with-claude/session/ldn-opening-keynote)
+* [![](https://assets.claude.com/8e6d0f415a4b6bb7afcb1a2cb4926dd901a1f260.jpg?w=720&auto=format)What's new in Claude CodeRalph Ramos, Anthropic](https://claude.com/code-with-claude/session/ldn-whats-new-in-claude-code)
+* [![](https://assets.claude.com/8b39a0e4137ee984f553970e30c307129c719a10.jpg?w=720&auto=format)Memory and dreaming for self-learning agentsRavi Trivedi, Anthropic](https://claude.com/code-with-claude/session/ldn-memory-and-dreaming-for-self-learning-agents)
+* [![](https://assets.claude.com/12396b0e852e5512c66aaf4825224a86c599d2c4.jpg?w=720&auto=format)Picking the right modelLucas Smedley, Anthropic](https://claude.com/code-with-claude/session/ldn-picking-the-right-model)
+* [![](https://assets.claude.com/2812c560b8695cc89aab4cba9594b465f354fb11.jpg?w=720&auto=format)Coding is no longer the constraint: Scaling devex to teams and agents at SpotifyNiklas Gustavsson, Spotify](https://claude.com/code-with-claude/session/ldn-coding-is-no-longer-the-constraint-scaling-devex-to-teams-and-agents-at-spotify)
+* [![](https://assets.claude.com/ec1227452561159f497813e7fc081a6d6ca4831b.jpg?w=720&auto=format)Designing with Claude: From prompt to productionDan Cary, Anthropic](https://claude.com/code-with-claude/session/ldn-designing-with-claude-from-prompt-to-production)
+* [![](https://assets.claude.com/80c887c8d8deb292c4a8fac51937891883668eb7.jpg?w=720&auto=format)Beyond the basics with Claude CodeDaisy Hollman, Anthropic](https://claude.com/code-with-claude/session/ldn-beyond-the-basics-with-claude-code)
+* [![](https://assets.claude.com/2a1d58208ee070a685464d6b0edb4ef818a05d6a.jpg?w=720&auto=format)How to get to production faster with Claude Managed AgentsMichael Cohen, AnthropicHarrison Stall, Anthropic](https://claude.com/code-with-claude/session/ldn-how-to-get-to-production-faster-with-claude-managed-agents)
+* [![](https://assets.claude.com/91b648f81781b026582f8e41898c599e877c2a64.jpg?w=720&auto=format)From one person to 80: Scaling a hypergrowth engineering org with Claude CodeGabriel Grinberg, Base44Yoav Orlev, Base44](https://claude.com/code-with-claude/session/ldn-from-one-person-to-80-scaling-a-hypergrowth-engineering-org-with-claude-code)
 
-Opening keynote
+View more
 
-Angela Jiang
-
-, Anthropic
-
-Boris Cherny
-
-, Anthropic
-
-Cat Wu
-
-, Anthropic
-
-Katelyn Lesse
-
-, Anthropic
-
-Lisa Crofoot
-
-, Anthropic
-
-[Watch recording](https://claude.com/code-with-claude/session/ldn-whats-new-in-claude-code)Watch recording
-
-[Play video](#)Play video
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a10d3fa0f333b1e49370007_whats-new-in-claude-code.webp)
-
-What's new in Claude Code
-
-Ralph Ramos
-
-, Anthropic
-
-Claude Code
-
-[Watch recording](https://claude.com/code-with-claude/session/ldn-memory-and-dreaming-for-self-learning-agents)Watch recording
-
-[Play video](#)Play video
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a10d3eb326b38c32451d791_memory-and-dreaming-for-self-learning.webp)
-
-Memory and dreaming for self-learning agents
-
-Ravi Trivedi
-
-, Anthropic
-
-Claude Platform
-
-[Watch recording](https://claude.com/code-with-claude/session/ldn-picking-the-right-model)Watch recording
-
-[Play video](#)Play video
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a10d3db070dabd1a31f03b2_picking-the-right-model.webp)
-
-Picking the right model
-
-Lucas Smedley
-
-, Anthropic
-
-Research
-
-[Watch recording](https://claude.com/code-with-claude/session/ldn-coding-is-no-longer-the-constraint-scaling-devex-to-teams-and-agents-at-spotify)Watch recording
-
-[Play video](#)Play video
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a10d3caaf97b942e920df43_coding-is-no-longer-the-constraint.webp)
-
-Coding is no longer the constraint: Scaling devex to teams and agents at Spotify
-
-Niklas Gustavsson
-
-, Spotify
-
-Research
-
-[Watch recording](https://claude.com/code-with-claude/session/ldn-designing-with-claude-from-prompt-to-production)Watch recording
-
-[Play video](#)Play video
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a10d3b9355d70e504e7da3f_designing-with-claude.webp)
-
-Designing with Claude: From prompt to production
-
-Dan Cary
-
-, Anthropic
-
-Research
-
-[Watch recording](https://claude.com/code-with-claude/session/ldn-beyond-the-basics-with-claude-code)Watch recording
-
-[Play video](#)Play video
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a10d3ac2cc3e848cc1dd144_beyond-the-basics-with-claude-code.webp)
-
-Beyond the basics with Claude Code
-
-Daisy Hollman
-
-, Anthropic
-
-Claude Code
-
-[Watch recording](https://claude.com/code-with-claude/session/ldn-how-to-get-to-production-faster-with-claude-managed-agents)Watch recording
-
-[Play video](#)Play video
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a10d39b1f2190a1d3a59a95_how-to-get-to-production-faster.webp)
-
-How to get to production faster with Claude Managed Agents
-
-Michael Cohen
-
-, Anthropic
-
-Harrison Stall
-
-, Anthropic
-
-Claude Code
-
-[Watch recording](https://claude.com/code-with-claude/session/ldn-from-one-person-to-80-scaling-a-hypergrowth-engineering-org-with-claude-code)Watch recording
-
-[Play video](#)Play video
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a10d383137fb994e391c29a_from-one-person-to-80.webp)
-
-From one person to 80: Scaling a hypergrowth engineering org with Claude Code
-
-Gabriel Grinberg
-
-, Base44
-
-Yoav Orlev
-
-, Base44
-
-Claude Code
-
-[View more](https://claude.com/code-with-claude/london?b80f3fd9_page=2)
-
-1 / 3
-
-No recordings for those filters
-
-Try another search or clear some of your filters.
-
-Clear all filters
-
-[Attend virtually](#)Attend virtually
-
-[Homepage](https://claude.com/code-with-claude)Homepage
-
-© [year] Anthropic PBC
-
-[PRIVACY POLICY](https://www.anthropic.com/legal/privacy)[CODE OF CONDUCT](https://claude.com/code-with-claude/code-of-conduct)
+Code with Claude London — May 19, 2026

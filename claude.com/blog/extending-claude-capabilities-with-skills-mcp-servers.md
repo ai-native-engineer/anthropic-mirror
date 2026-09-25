@@ -1,5 +1,7 @@
 <!-- source: https://claude.com/blog/extending-claude-capabilities-with-skills-mcp-servers -->
 
+Explore here
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22b1ef956a6d81cfd9c_653e7474811cf768b6b0f628e253f98c60e2747e-1000x1000.svg)
 
 # Extending Claude’s capabilities with skills and MCP servers

@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/ai-fluency-framework-foundations/additional-activities -->
 
-Lesson 14 of 14 · AI Fluency: Framework & FoundationsAdditional activities
+Lesson 14 of 14 · AI Fluency: Framework and foundationsAdditional activities
 
-3. /[AI Fluency: Framework & Foundations](https://academy.claude.com/courses/ai-fluency-framework-foundations)
+3. /[AI Fluency: Framework and foundations](https://academy.claude.com/courses/ai-fluency-framework-foundations)
 
-[AI Fluency: Framework & Foundations](https://academy.claude.com/courses/ai-fluency-framework-foundations)
+[AI Fluency: Framework and foundations](https://academy.claude.com/courses/ai-fluency-framework-foundations)
 
 # Additional activities
 
@@ -103,7 +103,7 @@ Continue developing your Description and Discernment skills through these activi
 
 [Previous lessonCourse quiz](https://academy.claude.com/courses/ai-fluency-framework-foundations/certificate-of-completion)[Up nextCompletion badge](https://academy.claude.com/courses/ai-fluency-framework-foundations/badge)
 
-Lesson 14 of 14 · AI Fluency: Framework & FoundationsAdditional activities
+Lesson 14 of 14 · AI Fluency: Framework and foundationsAdditional activities
 
 Introduction to AI Fluency
 

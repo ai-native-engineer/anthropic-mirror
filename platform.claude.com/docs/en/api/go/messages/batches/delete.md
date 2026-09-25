@@ -33,7 +33,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
 ## Returns
 
-- `type DeletedMessageBatch struct{…}`
+- `type DeletedMessageBatch`
 
   - `Type MessageBatchDeleted`
 

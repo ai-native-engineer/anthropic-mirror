@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/building-effective-human-agent-teams/practical-ways-to-get-started -->
 
-Lesson 5 of 5 · Building Effective Human Agent Teams (Beta)Some practical ways to get started
+Lesson 5 of 5 · Building effective human-agent teams (beta)Some practical ways to get started
 
-3. /[Building Effective Human Agent Teams (Beta)](https://academy.claude.com/courses/building-effective-human-agent-teams)
+3. /[Building effective human-agent teams (beta)](https://academy.claude.com/courses/building-effective-human-agent-teams)
 
-[Building Effective Human Agent Teams (Beta)](https://academy.claude.com/courses/building-effective-human-agent-teams)
+[Building effective human-agent teams (beta)](https://academy.claude.com/courses/building-effective-human-agent-teams)
 
 # Some practical ways to get started
 
@@ -65,7 +65,7 @@ Congratulations, you've explored what it takes to build a healthy human-agent te
 
 [Previous lessonOrganizational checklist](https://academy.claude.com/courses/building-effective-human-agent-teams/organizational-checklist)[Next lessonCourse quiz](https://academy.claude.com/courses/building-effective-human-agent-teams/course-quiz)
 
-Lesson 5 of 5 · Building Effective Human Agent Teams (Beta)Some practical ways to get started
+Lesson 5 of 5 · Building effective human-agent teams (beta)Some practical ways to get started
 
 The shift to multiplayer
 

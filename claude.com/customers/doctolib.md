@@ -4,31 +4,21 @@ Case study | Claude Code
 
 # Doctolib accelerates developer productivity with Claude Code
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690b8ab0e22bbf222ab60d41_Doctolib%20Light.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690b8ab6a29dbfe073d83f31_Doctolib%20Dark.svg)
+![Doctolib logo](https://assets.claude.com/e866bdafb33a0e502620dc9a86c61f7fbc475fd3.svg)
 
 Industry:
-
-Healthcare
+:   Healthcare
 
 Company size:
-
-Large
+:   Large
 
 Product:
-
-Claude Code
+:   Claude Code
 
 Location:
-
-Europe
+:   Europe
 
 Hours instead of weeks
 
@@ -37,42 +27,6 @@ to migrate and replace legacy testing infrastructure
 Self-service onboarding
 
 to unfamiliar codebases and technology stacks
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
 
 Since 2013, Doctolib has been transforming healthcare across Europe, serving 420,000 health professionals and 90 million patients. The platform provides practitioners with an operating system that streamlines workflows through electronic health records, diagnostic support, prescription management, and AI-powered clinical solutions. Patient management tools handle scheduling, teleconsultation, and practice operations. For patients, Doctolib simplifies access to care with secure, proactive health management.
 
@@ -124,58 +78,16 @@ Doctolib plans to expand autonomous coding agents in Q1, moving from tickets dir
 
 "We want to help shape the roadmap of Claude Code and explore what's possible with autonomous agents," said Tanay.
 
-"Engineers can now contribute to areas outside their expertise much faster. This fundamentally changes our development velocity."
+> "Engineers can now contribute to areas outside their expertise much faster. This fundamentally changes our development velocity."
 
-Julien Tanay
+Julien TanayStaff Engineer, Doctolib
 
-Staff Engineer, Doctolib
+[![League](https://assets.claude.com/7360d174acf8827f869d92d50d49e0add1c58c2c.png)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### How League went all in on Claude in a regulated industry](https://claude.com/customers/league-qa)[![League](https://assets.claude.com/7360d174acf8827f869d92d50d49e0add1c58c2c.png)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### League cuts product development cycle times in half with Claude](https://claude.com/customers/league)[![Arkana Labs](https://assets.claude.com/825b44bd9f2704f71fd53f5125cb92c31b32bd73.svg)
 
-[Next](#)Next
+### How can a medical lab keep patients at the center of its work while the caseload keeps growing?](https://claude.com/customers/arkana-labs)[![Zingage](https://assets.claude.com/7a6b9b092d1ec61d938402cc6744e4d94ed2564a.svg)
 
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[How League went all in on Claude in a regulated industry](https://claude.com/customers/league-qa)How League went all in on Claude in a regulated industry
-
-How League went all in on Claude in a regulated industry
-
-Customer story
-
-[Customer story](https://claude.com/customers/league-qa)Customer story
-
-[League cuts product development cycle times in half with Claude](https://claude.com/customers/league) League cuts product development cycle times in half with Claude
-
-League cuts product development cycle times in half with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/league)Customer story
-
-[How can a medical lab keep patients at the center of its work while the caseload keeps growing?](https://claude.com/customers/arkana-labs)How can a medical lab keep patients at the center of its work while the caseload keeps growing?
-
-How can a medical lab keep patients at the center of its work while the caseload keeps growing?
-
-Customer story
-
-[Customer story](https://claude.com/customers/arkana-labs)Customer story
-
-[How Zingage automates care coordination for 400+ home care agencies with Claude](https://claude.com/customers/zingage)How Zingage automates care coordination for 400+ home care agencies with Claude
-
-How Zingage automates care coordination for 400+ home care agencies with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/zingage)Customer story
+### How Zingage automates care coordination for 400+ home care agencies with Claude](https://claude.com/customers/zingage)

@@ -4,31 +4,21 @@ Case study | Claude Platform
 
 # L'Oréal advances conversational analytics with Claude
 
-Try Claude
+[Contact sales](https://claude.com/contact-sales)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6aa01fd9c3a4170a4fe203b6_loreal-logo-light.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6aa01fdfc3a4170a4fe209ef_loreal-logo-dark.svg)
+![L'Oreal logo](https://assets.claude.com/4e6032e43573d2aac0260633c76ee859d566326a.svg)
 
 Industry:
-
-Ecommerce
+:   Ecommerce
 
 Company size:
-
-Large
+:   Large
 
 Product:
-
-Claude Platform
+:   Claude Platform
 
 Location:
-
-Europe
+:   Europe
 
 44,000 monthly users
 
@@ -37,42 +27,6 @@ across L'Oréal's AI platform with 2.5 million messages per month
 15+ specialized agents
 
 orchestrated by Claude for data insights
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
 
 [L'Oréal](https://www.loreal.com) is the world's largest cosmetics and beauty company, operating in over 150 countries with a portfolio of 37+ international brands across skincare, haircare, makeup, and fragrance. The company is positioning itself as a Beauty Tech leader, combining cutting-edge research and innovation with AI, data, and digital capabilities.
 
@@ -117,58 +71,16 @@ L'Oréal's internal AI platform has achieved broad adoption, with 15,000 daily u
 
 Looking ahead, L'Oréal sees agentic AI as still in early stages within the company. "The rise of Agentic is starting to be built and we count on Anthropic models to put us at the forefront of Beauty Tech," said Menard. The company plans to expand its agentic capabilities and deepen its partnership with Anthropic to maintain its position as a Beauty Tech leader in the competitive cosmetics industry.
 
-The rise of Agentic is starting to be built and we count on Anthropic models to put us at the forefront of Beauty Tech
+> The rise of Agentic is starting to be built and we count on Anthropic models to put us at the forefront of Beauty Tech
 
-Thomas Menard
+Thomas Menard Head of Agentic Platform and LAB, L'Oréal
 
-Head of Agentic Platform and LAB, L'Oréal
+[![Reversia](https://assets.claude.com/86b324fdb04166c3b115b1cf48071e52e83d08cf.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### Reversia translates e-commerce stores across 110+ languages with Claude](https://claude.com/customers/reversia)[![Rakuten](https://assets.claude.com/5463fa5a44d12868ceec5ae30bfc8c412cafdeae.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### Inside Rakuten's plan to turn every employee into a builder with Claude Managed Agents](https://claude.com/customers/rakuten-qa)[![Rakuten](https://assets.claude.com/5463fa5a44d12868ceec5ae30bfc8c412cafdeae.svg)
 
-[Next](#)Next
+### Rakuten accelerates development with Claude Code](https://claude.com/customers/rakuten)[![Shopify](https://assets.claude.com/33de1bc0b1b2c92e879e513e3c14ec213c311ff1.svg)
 
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[Reversia translates e-commerce stores across 110+ languages with Claude](https://claude.com/customers/reversia)Reversia translates e-commerce stores across 110+ languages with Claude
-
-Reversia translates e-commerce stores across 110+ languages with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/reversia)Customer story
-
-[Inside Rakuten's plan to turn every employee into a builder with Claude Managed Agents](https://claude.com/customers/rakuten-qa)Inside Rakuten's plan to turn every employee into a builder with Claude Managed Agents
-
-Inside Rakuten's plan to turn every employee into a builder with Claude Managed Agents
-
-Customer story
-
-[Customer story](https://claude.com/customers/rakuten-qa)Customer story
-
-[Rakuten accelerates development with Claude Code](https://claude.com/customers/rakuten)Rakuten accelerates development with Claude Code
-
-Rakuten accelerates development with Claude Code
-
-Customer story
-
-[Customer story](https://claude.com/customers/rakuten)Customer story
-
-[How Shopify uses Anthropic’s Claude on Google Cloud to supercharge Sidekick](https://claude.com/customers/shopify)How Shopify uses Anthropic’s Claude on Google Cloud to supercharge Sidekick
-
-How Shopify uses Anthropic’s Claude on Google Cloud to supercharge Sidekick
-
-Customer story
-
-[Customer story](https://claude.com/customers/shopify)Customer story
+### How Shopify uses Anthropic’s Claude on Google Cloud to supercharge Sidekick](https://claude.com/customers/shopify)

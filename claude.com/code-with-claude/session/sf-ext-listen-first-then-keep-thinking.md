@@ -4,38 +4,26 @@
 
 A personal injury lawyer with zero coding background won the Claude Code Global hackathon, then took CrossBeam — an AI permit review system — to production city pilots. Every feature traces to a recorded conversation with a domain expert. The "listen first" method for knowing what to build.
 
-Details
+## Details
 
 City
-
-San Francisco, USA
+:   San Francisco, USA
 
 Date
-
-May 7, 2026
+:   May 7, 2026
 
 Time
-
-02:05PM – 02:35PM
+:   02:05PM – 02:35PM
 
 Speaker(s)
+:   Mike Brown
 
-Mike Brown
+    Founder,
 
-Founder,
+    CrossBeam
 
-CrossBeam
-
-Anthropic's developer conference, recorded
+## Anthropic's developer conference, recorded
 
 Keynotes, demos, and conversations with the teams behind Claude. Recorded at Code w/ Claude 2026 San Francisco and ready to replay.
 
-Browse recordings
-
-[Learn more](https://claude.com/code-with-claude/san-francisco)Learn more
-
-[Homepage](https://claude.com/code-with-claude)Homepage
-
-© [year] Anthropic PBC
-
-[PRIVACY POLICY](https://www.anthropic.com/legal/privacy)[CODE OF CONDUCT](https://claude.com/code-with-claude/code-of-conduct)
+[Browse recordings](https://claude.com/code-with-claude/san-francisco)

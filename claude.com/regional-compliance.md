@@ -30,7 +30,7 @@ Anthropic's safety-first approach to AI extends to how we protect and process yo
 
 Meet your regional data residency and compliance requirements with Claude. Choose where your data is stored and processed. Available on AWS Bedrock, GCP Vertex, and Microsoft Foundry.
 
-## Claude's regional availability
+## Claude’s regional availability
 
 Region
 
@@ -60,8 +60,6 @@ Microsoft Foundry
 
 [Specifications](https://platform.claude.com/docs/en/build-with-claude/claude-in-microsoft-foundry)
 
-Coming 2026
-
 Canada
 
 AWS Bedrock
@@ -75,8 +73,6 @@ GCP Vertex
 Microsoft Foundry
 
 [Specifications](https://platform.claude.com/docs/en/build-with-claude/claude-in-microsoft-foundry)
-
-Coming 2026
 
 Europe
 
@@ -92,7 +88,7 @@ Microsoft Foundry
 
 [Specifications](https://platform.claude.com/docs/en/build-with-claude/claude-in-microsoft-foundry)
 
-Coming 2026
+Coming soon
 
 United States
 
@@ -217,7 +213,7 @@ Global endpoints dynamically route requests to regions with available capacity, 
 
 ### How does regional deployment affect model performance and capabilities?
 
-Regional deployment provides access to the same frontier Claude models (Sonnet 4.5, Opus 4.5, and Haiku 4.5) with the same intelligence and performance. All platforms support fundamental capabilities including vision, tool use, and extended context windows. Some advanced features may vary by platform—check the feature support documentation for AWS Bedrock, GCP Vertex, and Microsoft Foundry—or reach out to our sales team—to confirm specific capabilities for your needs.
+Regional deployment provides access to the same frontier Claude models (Sonnet 5, Opus 5, and Haiku 4.5) with the same intelligence and performance. All platforms support fundamental capabilities including vision, tool use, and extended context windows. Some advanced features may vary by platform—check the feature support documentation for AWS Bedrock, GCP Vertex, and Microsoft Foundry—or reach out to our sales team—to confirm specific capabilities for your needs.
 
 [Prev](#)Prev
 

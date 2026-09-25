@@ -23,7 +23,7 @@ Create Deployment
 
     - `string`
 
-    - `BetaManagedAgentsAgentParams`
+    - `interface BetaManagedAgentsAgentParams`
 
       Specification for an Agent. Provide a specific `version` or use the short-form `agent="agent_id"` for the most recent version
 
@@ -51,7 +51,7 @@ Create Deployment
 
     Body param: Events to send to each session immediately after creation. At least 1, maximum 50.
 
-    - `BetaManagedAgentsUserMessageEventParams`
+    - `interface BetaManagedAgentsUserMessageEventParams`
 
       Parameters for sending a user message to the session.
 
@@ -61,7 +61,7 @@ Create Deployment
 
         Array of content blocks for the user message.
 
-        - `BetaManagedAgentsTextBlock`
+        - `interface BetaManagedAgentsTextBlock`
 
           Regular text content.
 
@@ -73,7 +73,7 @@ Create Deployment
 
             minLength: 1
 
-        - `BetaManagedAgentsImageBlock`
+        - `interface BetaManagedAgentsImageBlock`
 
           Image content specified directly as base64 data or as a reference via a URL.
 
@@ -83,7 +83,7 @@ Create Deployment
 
             Union type for image source variants.
 
-            - `BetaManagedAgentsBase64ImageSource`
+            - `interface BetaManagedAgentsBase64ImageSource`
 
               Base64-encoded image data.
 
@@ -101,7 +101,7 @@ Create Deployment
 
                 minLength: 1
 
-            - `BetaManagedAgentsURLImageSource`
+            - `interface BetaManagedAgentsURLImageSource`
 
               Image referenced by URL.
 
@@ -113,7 +113,7 @@ Create Deployment
 
                 minLength: 1
 
-            - `BetaManagedAgentsFileImageSource`
+            - `interface BetaManagedAgentsFileImageSource`
 
               Image referenced by file ID.
 
@@ -125,7 +125,7 @@ Create Deployment
 
                 minLength: 1
 
-        - `BetaManagedAgentsDocumentBlock`
+        - `interface BetaManagedAgentsDocumentBlock`
 
           Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
@@ -135,7 +135,7 @@ Create Deployment
 
             Union type for document source variants.
 
-            - `BetaManagedAgentsBase64DocumentSource`
+            - `interface BetaManagedAgentsBase64DocumentSource`
 
               Base64-encoded document data.
 
@@ -153,7 +153,7 @@ Create Deployment
 
                 minLength: 1
 
-            - `BetaManagedAgentsPlainTextDocumentSource`
+            - `interface BetaManagedAgentsPlainTextDocumentSource`
 
               Plain text document content.
 
@@ -169,7 +169,7 @@ Create Deployment
 
                 MIME type of the text content. Must be "text/plain".
 
-            - `BetaManagedAgentsURLDocumentSource`
+            - `interface BetaManagedAgentsURLDocumentSource`
 
               Document referenced by URL.
 
@@ -181,7 +181,7 @@ Create Deployment
 
                 minLength: 1
 
-            - `BetaManagedAgentsFileDocumentSource`
+            - `interface BetaManagedAgentsFileDocumentSource`
 
               Document referenced by file ID.
 
@@ -201,13 +201,13 @@ Create Deployment
 
             The title of the document.
 
-        - `BetaManagedAgentsRedactedBlock`
+        - `interface BetaManagedAgentsRedactedBlock`
 
           Placeholder for content withheld by Anthropic model policy.
 
           - `type: "redacted"`
 
-    - `BetaManagedAgentsUserDefineOutcomeEventParams`
+    - `interface BetaManagedAgentsUserDefineOutcomeEventParams`
 
       Parameters for defining an outcome the agent should work toward. The agent begins work on receipt.
 
@@ -221,7 +221,7 @@ Create Deployment
 
         Rubric for grading the quality of an outcome.
 
-        - `BetaManagedAgentsFileRubricParams`
+        - `interface BetaManagedAgentsFileRubricParams`
 
           Rubric referenced by a file uploaded via the Files API.
 
@@ -231,7 +231,7 @@ Create Deployment
 
             ID of the rubric file.
 
-        - `BetaManagedAgentsTextRubricParams`
+        - `interface BetaManagedAgentsTextRubricParams`
 
           Rubric content provided inline as text.
 
@@ -249,7 +249,7 @@ Create Deployment
 
         format: int32
 
-    - `BetaManagedAgentsSystemMessageEventParams`
+    - `interface BetaManagedAgentsSystemMessageEventParams`
 
       Privileged context for the accompanying turn and all subsequent turns, appended to the session's system context as a `role: "system"` turn rather than replacing the top-level system prompt. At most one per request: it must be the final event and immediately follow the `user.message`, `user.tool_result`, or `user.custom_tool_result` it accompanies. Only supported on models that accept mid-conversation system messages.
 
@@ -305,7 +305,7 @@ Create Deployment
 
     Body param: Resources (e.g. repositories, files) to mount into each session's container. Maximum 500.
 
-    - `BetaManagedAgentsGitHubRepositoryResourceParams`
+    - `interface BetaManagedAgentsGitHubRepositoryResourceParams`
 
       Mount a GitHub repository into the session's container.
 
@@ -327,7 +327,7 @@ Create Deployment
 
         Branch or commit to check out. Defaults to the repository's default branch.
 
-        - `BetaManagedAgentsBranchCheckout`
+        - `interface BetaManagedAgentsBranchCheckout`
 
           - `type: "branch"`
 
@@ -337,7 +337,7 @@ Create Deployment
 
             minLength: 1, maxLength: 255
 
-        - `BetaManagedAgentsCommitCheckout`
+        - `interface BetaManagedAgentsCommitCheckout`
 
           - `type: "commit"`
 
@@ -353,7 +353,7 @@ Create Deployment
 
         minLength: 1, maxLength: 4096
 
-    - `BetaManagedAgentsFileResourceParams`
+    - `interface BetaManagedAgentsFileResourceParams`
 
       Mount a file uploaded via the Files API into the session.
 
@@ -371,7 +371,7 @@ Create Deployment
 
         minLength: 1, maxLength: 4096
 
-    - `BetaManagedAgentsMemoryStoreResourceParam`
+    - `interface BetaManagedAgentsMemoryStoreResourceParam`
 
       Parameters for attaching a memory store to an agent session.
 
@@ -423,7 +423,7 @@ Create Deployment
 
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 42 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 45 more`
 
       - `"message-batches-2024-09-24"`
 
@@ -515,6 +515,12 @@ Create Deployment
 
       - `"mid-conversation-system-clear-at-2026-08-21"`
 
+      - `"compact-2026-09-04"`
+
+      - `"inline-tools-2026-09-15"`
+
+      - `"mcp-client-2026-09-15"`
+
   - `workspace_id?: string`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -523,7 +529,7 @@ Create Deployment
 
 ## Returns
 
-- `BetaManagedAgentsDeployment`
+- `interface BetaManagedAgentsDeployment`
 
   A deployment is a configured instance of an agent — it binds the agent to everything needed to run it autonomously: an environment, credentials, initial events, and an optional schedule.
 
@@ -569,7 +575,7 @@ Create Deployment
 
     Events sent to each session immediately after creation.
 
-    - `BetaManagedAgentsDeploymentUserMessageEvent`
+    - `interface BetaManagedAgentsDeploymentUserMessageEvent`
 
       A user message sent to the session.
 
@@ -579,7 +585,7 @@ Create Deployment
 
         Array of content blocks for the user message.
 
-        - `BetaManagedAgentsTextBlock`
+        - `interface BetaManagedAgentsTextBlock`
 
           Regular text content.
 
@@ -591,7 +597,7 @@ Create Deployment
 
             minLength: 1
 
-        - `BetaManagedAgentsImageBlock`
+        - `interface BetaManagedAgentsImageBlock`
 
           Image content specified directly as base64 data or as a reference via a URL.
 
@@ -601,7 +607,7 @@ Create Deployment
 
             Union type for image source variants.
 
-            - `BetaManagedAgentsBase64ImageSource`
+            - `interface BetaManagedAgentsBase64ImageSource`
 
               Base64-encoded image data.
 
@@ -619,7 +625,7 @@ Create Deployment
 
                 minLength: 1
 
-            - `BetaManagedAgentsURLImageSource`
+            - `interface BetaManagedAgentsURLImageSource`
 
               Image referenced by URL.
 
@@ -631,7 +637,7 @@ Create Deployment
 
                 minLength: 1
 
-            - `BetaManagedAgentsFileImageSource`
+            - `interface BetaManagedAgentsFileImageSource`
 
               Image referenced by file ID.
 
@@ -643,7 +649,7 @@ Create Deployment
 
                 minLength: 1
 
-        - `BetaManagedAgentsDocumentBlock`
+        - `interface BetaManagedAgentsDocumentBlock`
 
           Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
@@ -653,7 +659,7 @@ Create Deployment
 
             Union type for document source variants.
 
-            - `BetaManagedAgentsBase64DocumentSource`
+            - `interface BetaManagedAgentsBase64DocumentSource`
 
               Base64-encoded document data.
 
@@ -671,7 +677,7 @@ Create Deployment
 
                 minLength: 1
 
-            - `BetaManagedAgentsPlainTextDocumentSource`
+            - `interface BetaManagedAgentsPlainTextDocumentSource`
 
               Plain text document content.
 
@@ -687,7 +693,7 @@ Create Deployment
 
                 MIME type of the text content. Must be "text/plain".
 
-            - `BetaManagedAgentsURLDocumentSource`
+            - `interface BetaManagedAgentsURLDocumentSource`
 
               Document referenced by URL.
 
@@ -699,7 +705,7 @@ Create Deployment
 
                 minLength: 1
 
-            - `BetaManagedAgentsFileDocumentSource`
+            - `interface BetaManagedAgentsFileDocumentSource`
 
               Document referenced by file ID.
 
@@ -719,13 +725,13 @@ Create Deployment
 
             The title of the document.
 
-        - `BetaManagedAgentsRedactedBlock`
+        - `interface BetaManagedAgentsRedactedBlock`
 
           Placeholder for content withheld by Anthropic model policy.
 
           - `type: "redacted"`
 
-    - `BetaManagedAgentsDeploymentUserDefineOutcomeEvent`
+    - `interface BetaManagedAgentsDeploymentUserDefineOutcomeEvent`
 
       An outcome the agent should work toward. The agent begins work on receipt.
 
@@ -739,7 +745,7 @@ Create Deployment
 
         Rubric for grading the quality of an outcome.
 
-        - `BetaManagedAgentsFileRubric`
+        - `interface BetaManagedAgentsFileRubric`
 
           Rubric referenced by a file uploaded via the Files API.
 
@@ -749,7 +755,7 @@ Create Deployment
 
             ID of the rubric file.
 
-        - `BetaManagedAgentsTextRubric`
+        - `interface BetaManagedAgentsTextRubric`
 
           Rubric content provided inline as text.
 
@@ -765,7 +771,7 @@ Create Deployment
 
         format: int32
 
-    - `BetaManagedAgentsDeploymentSystemMessageEvent`
+    - `interface BetaManagedAgentsDeploymentSystemMessageEvent`
 
       Privileged context for the accompanying turn and all subsequent turns, appended to the session's system context as a `role: "system"` turn rather than replacing the top-level system prompt.
 
@@ -795,13 +801,13 @@ Create Deployment
 
     Why a deployment is paused. Non-null exactly when `status` is `paused`.
 
-    - `BetaManagedAgentsManualDeploymentPausedReason`
+    - `interface BetaManagedAgentsManualDeploymentPausedReason`
 
       The caller invoked the pause endpoint on the deployment.
 
       - `type: "manual"`
 
-    - `BetaManagedAgentsErrorDeploymentPausedReason`
+    - `interface BetaManagedAgentsErrorDeploymentPausedReason`
 
       A scheduled fire recorded a failed run whose error auto-pauses the deployment.
 
@@ -811,85 +817,85 @@ Create Deployment
 
         The error that triggered an auto-pause. Matches the failed run's `error.type`.
 
-        - `BetaManagedAgentsEnvironmentArchivedDeploymentPausedReasonError`
+        - `interface BetaManagedAgentsEnvironmentArchivedDeploymentPausedReasonError`
 
           The deployment's environment was archived.
 
           - `type: "environment_archived_error"`
 
-        - `BetaManagedAgentsAgentArchivedDeploymentPausedReasonError`
+        - `interface BetaManagedAgentsAgentArchivedDeploymentPausedReasonError`
 
           The deployment's agent was archived.
 
           - `type: "agent_archived_error"`
 
-        - `BetaManagedAgentsEnvironmentNotFoundDeploymentPausedReasonError`
+        - `interface BetaManagedAgentsEnvironmentNotFoundDeploymentPausedReasonError`
 
           The deployment's environment no longer exists.
 
           - `type: "environment_not_found_error"`
 
-        - `BetaManagedAgentsVaultNotFoundDeploymentPausedReasonError`
+        - `interface BetaManagedAgentsVaultNotFoundDeploymentPausedReasonError`
 
           A vault referenced by the deployment no longer exists.
 
           - `type: "vault_not_found_error"`
 
-        - `BetaManagedAgentsFileNotFoundDeploymentPausedReasonError`
+        - `interface BetaManagedAgentsFileNotFoundDeploymentPausedReasonError`
 
           A file resource referenced by the deployment no longer exists.
 
           - `type: "file_not_found_error"`
 
-        - `BetaManagedAgentsSessionResourceNotFoundDeploymentPausedReasonError`
+        - `interface BetaManagedAgentsSessionResourceNotFoundDeploymentPausedReasonError`
 
           A referenced resource no longer exists and its kind was not reported.
 
           - `type: "session_resource_not_found_error"`
 
-        - `BetaManagedAgentsWorkspaceArchivedDeploymentPausedReasonError`
+        - `interface BetaManagedAgentsWorkspaceArchivedDeploymentPausedReasonError`
 
           The deployment's workspace was archived.
 
           - `type: "workspace_archived_error"`
 
-        - `BetaManagedAgentsOrganizationDisabledDeploymentPausedReasonError`
+        - `interface BetaManagedAgentsOrganizationDisabledDeploymentPausedReasonError`
 
           The deployment's organization is disabled.
 
           - `type: "organization_disabled_error"`
 
-        - `BetaManagedAgentsMemoryStoreArchivedDeploymentPausedReasonError`
+        - `interface BetaManagedAgentsMemoryStoreArchivedDeploymentPausedReasonError`
 
           A memory store referenced by the deployment is archived.
 
           - `type: "memory_store_archived_error"`
 
-        - `BetaManagedAgentsSkillNotFoundDeploymentPausedReasonError`
+        - `interface BetaManagedAgentsSkillNotFoundDeploymentPausedReasonError`
 
           A skill referenced by the deployment's agent no longer exists.
 
           - `type: "skill_not_found_error"`
 
-        - `BetaManagedAgentsVaultArchivedDeploymentPausedReasonError`
+        - `interface BetaManagedAgentsVaultArchivedDeploymentPausedReasonError`
 
           A vault referenced by the deployment is archived.
 
           - `type: "vault_archived_error"`
 
-        - `BetaManagedAgentsUnknownDeploymentPausedReasonError`
+        - `interface BetaManagedAgentsUnknownDeploymentPausedReasonError`
 
           An unrecognized error auto-paused the deployment. A fallback variant; matches a run whose `error.type` is `unknown_error`.
 
           - `type: "unknown_error"`
 
-        - `BetaManagedAgentsSelfHostedResourcesUnsupportedDeploymentPausedReasonError`
+        - `interface BetaManagedAgentsSelfHostedResourcesUnsupportedDeploymentPausedReasonError`
 
           The deployment configures resources, but its environment is self-hosted and cannot mount them.
 
           - `type: "self_hosted_resources_unsupported_error"`
 
-        - `BetaManagedAgentsMCPEgressBlockedDeploymentPausedReasonError`
+        - `interface BetaManagedAgentsMCPEgressBlockedDeploymentPausedReasonError`
 
           An MCP server host used by the deployment's agent is blocked by the environment's network policy.
 
@@ -899,7 +905,7 @@ Create Deployment
 
     Resources attached to sessions created from this deployment. Echoes the input minus write-only credentials.
 
-    - `BetaManagedAgentsGitHubRepositoryResourceConfig`
+    - `interface BetaManagedAgentsGitHubRepositoryResourceConfig`
 
       A GitHub repository mounted into each session's container. The authorization token is write-only and never returned.
 
@@ -913,7 +919,7 @@ Create Deployment
 
         Branch or commit to check out. Defaults to the repository's default branch.
 
-        - `BetaManagedAgentsBranchCheckout`
+        - `interface BetaManagedAgentsBranchCheckout`
 
           - `type: "branch"`
 
@@ -923,7 +929,7 @@ Create Deployment
 
             minLength: 1, maxLength: 255
 
-        - `BetaManagedAgentsCommitCheckout`
+        - `interface BetaManagedAgentsCommitCheckout`
 
           - `type: "commit"`
 
@@ -937,7 +943,7 @@ Create Deployment
 
         Mount path in the container. Defaults to `/workspace/<repo-name>`.
 
-    - `BetaManagedAgentsFileResourceConfig`
+    - `interface BetaManagedAgentsFileResourceConfig`
 
       A file mounted into each session's container.
 
@@ -951,7 +957,7 @@ Create Deployment
 
         Mount path in the container. Defaults to `/mnt/session/uploads/<file_id>`.
 
-    - `BetaManagedAgentsMemoryStoreResourceConfig`
+    - `interface BetaManagedAgentsMemoryStoreResourceConfig`
 
       A memory store attached to each session created from this deployment.
 
@@ -1007,7 +1013,11 @@ Create Deployment
 
     - `"active"`
 
+      The deployment is active and can run sessions. Archived deployments also report this status; check `archived_at` to distinguish them.
+
     - `"paused"`
+
+      The deployment is paused. Autonomous triggers are suppressed; manual runs are still permitted.
 
   - `updated_at: string`
 

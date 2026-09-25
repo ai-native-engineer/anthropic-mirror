@@ -4,31 +4,21 @@ Case study | Claude Platform
 
 # Scribd, Inc. boosts content discovery and engagement with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![Scribd logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c1dc04294e05b14386518d_cs-logo-scribd-light-theme.svg)![Scribd logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c1dc0b249a3aba94a368e2_cs-logo-scribd-dark-theme.svg)
+![Scribd logo](https://assets.claude.com/9083a46f35805787f12a6edb922945dd977c8d22.svg)
 
 Industry:
-
-Entertainment
+:   Entertainment
 
 Company size:
-
-Medium
+:   Medium
 
 Product:
-
-Claude Platform
+:   Claude Platform
 
 Location:
-
-North America
+:   North America
 
 70% of content
 
@@ -37,42 +27,6 @@ improved with AI-generated metadata
 7% increase
 
 in user sign-ups and subscriptions
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
 
 Scribd, Inc. uses Claude to generate high-quality metadata for millions of user-uploaded documents, improving content discoverability and driving user engagement across its global platforms.
 
@@ -110,7 +64,7 @@ For an enterprise like Scribd, Inc., trust and reliability were crucial factors.
 
 The impact of implementing Claude-generated metadata has been significant for Scribd. By adding AI-generated descriptions to document pages, the company saw a substantial increase in users who view content and ultimately sign up as subscribers.
 
-![Scribd product screenshot](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68baf0519c5c04fdb33785f1_f45367f4416f3bbe4891b141e9dd05cb28fe5152-2880x1620.jpeg)
+![Scribd product screenshot](https://assets.claude.com/7a55ce4198685ace351601abd45790b2659b8324.jpg)
 
 "Having the content right there at first glance gives the user more context about the particular document versus having to read through the whole thing," Neola says. "We saw a 7% increase in the users who are viewing it that ultimately come to the site and then sign up and become subscribers."
 
@@ -124,52 +78,14 @@ As Scribd, Inc. continues to refine and expand its use of AI-generated metadata,
 
 With Claude's ability to process and enhance millions of documents efficiently, Scribd, Inc. is well-positioned to continue improving content discovery and user engagement across its global platforms, making it easier than ever for users to find the information they need.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[![StubHub](https://assets.claude.com/d3451a4bfe1c5af7f56f76ab8237c3bab7dd7a9d.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### StubHub transforms live event ticketing with Claude](https://claude.com/customers/stubhub)[![Audience Strategies](https://assets.claude.com/3413dcb9640e98c9dd678f02077d38ea6f0b7b34.png)
 
-[Next](#)Next
+### Audience Strategies expands the electronic music industry's policy influence with Claude](https://claude.com/customers/audience-strategies)[![Orange](https://assets.claude.com/c97f28a41e222c81bda3ab8af5ed81dbfb385756.png)
 
-Video caption
+### Orange localizes manga at an unprecedented scale with Claude](https://claude.com/customers/orange)[![WRTN](https://assets.claude.com/c3f8213b72f494f94cf99ec6d2abf77e5129ef74.svg)
 
-[Next](#)Next
+### WRTN pioneers AI entertainment and storytelling across Asia with Claude](https://claude.com/customers/wrtn)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[StubHub transforms live event ticketing with Claude](https://claude.com/customers/stubhub)StubHub transforms live event ticketing with Claude
-
-StubHub transforms live event ticketing with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/stubhub)Customer story
-
-[Audience Strategies expands the electronic music industry's policy influence with Claude](https://claude.com/customers/audience-strategies)Audience Strategies expands the electronic music industry's policy influence with Claude
-
-Audience Strategies expands the electronic music industry's policy influence with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/audience-strategies)Customer story
-
-[Orange localizes manga at an unprecedented scale with Claude](https://claude.com/customers/orange)Orange localizes manga at an unprecedented scale with Claude
-
-Orange localizes manga at an unprecedented scale with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/orange)Customer story
-
-[WRTN pioneers AI entertainment and storytelling across Asia with Claude](https://claude.com/customers/wrtn)WRTN pioneers AI entertainment and storytelling across Asia with Claude
-
-WRTN pioneers AI entertainment and storytelling across Asia with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/wrtn)Customer story
+Scribd Claude Platform (API) case study | Claude by Anthropic

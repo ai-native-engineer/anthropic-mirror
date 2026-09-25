@@ -23,7 +23,7 @@ When you reach your plan’s usage limit with usage credits enabled:
 
 ---
 
-## Enabling usage credits
+## Enable usage credits
 
 To enable usage credits on your paid Claude plan:
 
@@ -36,7 +36,7 @@ To enable usage credits on your paid Claude plan:
 7. You’ll then need to prepay to cover usage beyond your plan limits. Click “Add funds,” enter the amount you want to purchase in the modal, then click “Purchase.”
 8. You can also enable auto-reload to automatically make a purchase when your balance falls below a threshold you set:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1805819785/5e203c38e6ba3f76bfd1dab0d5ce/fe062e7c-18cb-48cc-a7e2-754ac6e6c4be?expires=1789345800&signature=f2ed51dd2602faf3ffa3f93c3cc4829b0342c26f1b70e3d081638dbdcf879e07&req=dSgnE8F%2FlIZXXPMW1HO4zYj2ARuaofUwopE7m38YdfcgDe%2Fbl1J5kfzkwD6R%0AR%2FYD6wDmVfqOKOvnNb4%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1805819785/5e203c38e6ba3f76bfd1dab0d5ce/fe062e7c-18cb-48cc-a7e2-754ac6e6c4be?expires=1789345800&signature=f2ed51dd2602faf3ffa3f93c3cc4829b0342c26f1b70e3d081638dbdcf879e07&req=dSgnE8F%2FlIZXXPMW1HO4zYj2ARuaofUwopE7m38YdfcgDe%2Fbl1J5kfzkwD6R%0AR%2FYD6wDmVfqOKOvnNb4%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1805819785/5e203c38e6ba3f76bfd1dab0d5ce/fe062e7c-18cb-48cc-a7e2-754ac6e6c4be?expires=1790424000&signature=0bd7ac2b2db80884d5dedc1744b8f4f448d71685cbe34f326ac5c7f7732a8a26&req=dSgnE8F%2FlIZXXPMW3nq%2BgZ83oo%2BP7M9tAXn0xflyUDmDwR9IP5UxTz7FvE2I%0AnXxQkbfGwu4TdrYThFu9PtSNG1A%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1805819785/5e203c38e6ba3f76bfd1dab0d5ce/fe062e7c-18cb-48cc-a7e2-754ac6e6c4be?expires=1790424000&signature=0bd7ac2b2db80884d5dedc1744b8f4f448d71685cbe34f326ac5c7f7732a8a26&req=dSgnE8F%2FlIZXXPMW3nq%2BgZ83oo%2BP7M9tAXn0xflyUDmDwR9IP5UxTz7FvE2I%0AnXxQkbfGwu4TdrYThFu9PtSNG1A%3D%0A)
 
 **Note:** There is a daily redemption limit of $2000.
 
@@ -60,9 +60,9 @@ Price and plans are subject to change at Anthropic's discretion.
 
 ---
 
-## Managing your usage credits
+## Manage your usage credits
 
-### Monitoring usage and costs
+### Monitor usage and costs
 
 Track your usage credits through:
 
@@ -124,8 +124,8 @@ Yes, you’ll see a clear notification when approaching and reaching your includ
 
 In most cases, usage credits do not expire. However, in certain jurisdictions such as Japan, usage credits expire six months after purchase starting September 10, 2026. You'll receive an email notification seven days before your credits expire, and you can view expiration dates on the Usage page in Settings.
 
+* [How do I pay for my Claude API usage?](https://support.claude.com/en/articles/8977456-how-do-i-pay-for-my-claude-api-usage)
 * [How am I billed for my Enterprise plan?](https://support.claude.com/en/articles/11526368-how-am-i-billed-for-my-enterprise-plan)
-* [How do usage and length limits work?](https://support.claude.com/en/articles/11647753-how-do-usage-and-length-limits-work)
 * [Manage usage credits for Team and seat-based Enterprise plans](https://support.claude.com/en/articles/12005970-manage-usage-credits-for-team-and-seat-based-enterprise-plans)
 * [Buy usage bundles](https://support.claude.com/en/articles/14246112-buy-usage-bundles)
 * [Claude Fable models on your plan](https://support.claude.com/en/articles/15424964-claude-fable-models-on-your-plan)

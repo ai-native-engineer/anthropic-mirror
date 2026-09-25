@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence/owners-and-intake -->
 
-Lesson 2 of 14 · Deploying Claude Enterprise with Confidence: The five decisions that shape your rolloutOwners and intake
+Lesson 2 of 14 · Deploying Claude Enterprise with confidence: The five decisions that shape your rolloutOwners and intake
 
-3. /[Deploying Claude Enterprise with Confidence: The five decisions that shape your rollout](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence)
+3. /[Deploying Claude Enterprise with confidence: The five decisions that shape your rollout](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence)
 
-[Deploying Claude Enterprise with Confidence: The five decisions that shape your rollout](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence)
+[Deploying Claude Enterprise with confidence: The five decisions that shape your rollout](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence)
 
 # Owners and intake
 
@@ -71,7 +71,7 @@ In the next lesson, you lay down the last of the groundwork: where you’ll work
 
 [Previous lessonFive decisions and the frame](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence/five-decisions-and-the-frame)[Next lessonPrerequisites](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence/prerequisites)
 
-Lesson 2 of 14 · Deploying Claude Enterprise with Confidence: The five decisions that shape your rolloutOwners and intake
+Lesson 2 of 14 · Deploying Claude Enterprise with confidence: The five decisions that shape your rolloutOwners and intake
 
 The plan
 

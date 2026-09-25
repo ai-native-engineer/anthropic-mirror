@@ -4,31 +4,21 @@ Case study | Claude Platform
 
 # Tome uncovers strategic insights for sales teams with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![Tome logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c1e9bd006883cd51940722_cs-logo-tome-light-theme.svg)![Tome logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c1e9c83d540bd7d3b6b31a_cs-logo-tome-dark-theme.svg)
+![Tome logo](https://assets.claude.com/3196b290d7ea7f8591be2852a96a9f6afa1e61b7.svg)
 
 Industry:
-
-Software
+:   Software
 
 Company size:
-
-Small
+:   Small
 
 Product:
-
-Claude Platform
+:   Claude Platform
 
 Location:
-
-North America
+:   North America
 
 Hours saved
 
@@ -37,42 +27,6 @@ researching accounts daily
 Improved conversion
 
 rates for emails and calls
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
 
 Tome uses Claude for their AI sales assistant to quickly synthesize vast amounts of information and uncover key strategic insights about target accounts. With Claude, Tome enables sales reps to:
 
@@ -97,7 +51,7 @@ Tome pulls data from a company's sales and marketing stack alongside external so
 
 "We need to understand the owners' strategic priorities and initiatives, how our product relates to them, and the usual approaches to potential clients," said Ves. "But you can imagine that this is a process that takes in the order of a few hours if you have to do it manually, in the depth that you would go for your important clients."
 
-![Tome product screenshot](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68baf050b13ef6ddd28685c2_b2b9b04ae63a8a5d37ae71f24783482314735742-1920x1080.jpeg)
+![Tome product screenshot](https://assets.claude.com/4cc0f1270c540cdba282f443791a4141b57c0f22.jpg)
 
 ## Claude outperforms in accuracy, context, and coherence
 
@@ -119,52 +73,12 @@ Tome sees an opportunity to close the loop between research, strategy, and execu
 
 Tome is pioneering a new approach that delivers real value to sales teams by focusing on extracting and synthesizing insights rather than just generating content. They're moving beyond simple intent signals like job changes or website visits to uncover true strategic alignment between companies and products. With their sales domain expertise, technical excellence, and Claude's advanced capabilities, Tome is poised to transform modern sales teams—making them more strategic, efficient, and ultimately more successful in delivering value to their customers.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[![Supermetrics](https://assets.claude.com/3ac4171a81008be0340e5c3d8ccb46571c3edfb3.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### Supermetrics lets marketers manage ad campaigns from a conversation with Claude](https://claude.com/customers/supermetrics)[![Atlassian](https://assets.claude.com/4870b3d6c0253cea01b100c98ad2030b8e4f8ce1.svg)
 
-[Next](#)Next
+### How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-Video caption
+### Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-Customer story
-
-[Customer story](https://claude.com/customers/atlassian)Customer story
-
-[Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)Rocket Money on building agents that fix their own code
-
-Rocket Money on building agents that fix their own code
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money-qa)Customer story
-
-[How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)How Rocket Money built its personal finance agent with Claude
-
-How Rocket Money built its personal finance agent with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money)Customer story
-
-[How Notion ships and scales agents with Claude Managed Agents](https://claude.com/customers/notion-qa)How Notion ships and scales agents with Claude Managed Agents
-
-How Notion ships and scales agents with Claude Managed Agents
-
-Customer story
-
-[Customer story](https://claude.com/customers/notion-qa)Customer story
+### How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)

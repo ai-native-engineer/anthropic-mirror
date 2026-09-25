@@ -4,44 +4,32 @@
 
 Cut cost, manage context, boost intelligence. In this session, we'll show you how to put our latest platform capabilities to work. Through live demos you'll see what great prompt caching looks like, learn to keep context lean for long-running agents with tool search, programmatic tool calling, and compaction, and use the advisor strategy for a cost-effective intelligence boost. Together, they're a set of patterns you can apply to your agents today to get more from every token.
 
-Details
+## Details
 
 City
-
-San Francisco, USA
+:   San Francisco, USA
 
 Date
-
-May 6, 2026
+:   May 6, 2026
 
 Time
-
-04:50PM – 05:20PM
+:   04:50PM – 05:20PM
 
 Speaker(s)
+:   Brad Abrams
 
-Brad Abrams
+    Product Management Lead, Claude Platform,
 
-Product Management Lead, Claude Platform,
-
-Anthropic
+    Anthropic
 
 ## Watch recording
 
-[Play video](#)Play video
+![Getting more out of the Claude Platform](https://assets.claude.com/89ffc5f8a53d544965f2343a62b950e2c6a19d7a.jpg?w=1600&auto=format)
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69fc9d78af12bf85fa1659d6_claude-platform-deep-dive.webp)
-
-Anthropic's developer conference, recorded
+## Anthropic's developer conference, recorded
 
 Keynotes, demos, and conversations with the teams behind Claude. Recorded at Code w/ Claude 2026 San Francisco and ready to replay.
 
-Browse recordings
+[Browse recordings](https://claude.com/code-with-claude/san-francisco)
 
-[Learn more](https://claude.com/code-with-claude/san-francisco)Learn more
-
-[Homepage](https://claude.com/code-with-claude)Homepage
-
-© [year] Anthropic PBC
-
-[PRIVACY POLICY](https://www.anthropic.com/legal/privacy)[CODE OF CONDUCT](https://claude.com/code-with-claude/code-of-conduct)
+Getting more out of the Claude Platform | Session | Code w/ Claude 2026

@@ -4,33 +4,34 @@
 title: Scheduled deployments
 url: https://platform.claude.com/docs/en/managed-agents/scheduled-deployments
 description: "Create and manage deployments with the Claude API: run an agent on a recurring cron schedule and inspect its run history."
+featureMetadata:
+  topic:
+    title: Managed Agents
+    url: https://platform.claude.com/docs/en/managed-agents/overview
+  status: beta
+  betaHeader: managed-agents-2026-04-01
 ---
 
 A **scheduled deployment** allows an [agent](https://platform.claude.com/docs/en/managed-agents/agent-setup) to start [sessions](https://platform.claude.com/docs/en/managed-agents/sessions) autonomously, enabling task completion over a predictable cadence. You create and manage deployments with the Deployments API, part of the Claude API.
 
 For the launch context and examples of what teams run on schedules, see [scheduled deployments and vaults in Claude Managed Agents](https://claude.com/blog/whats-new-in-claude-managed-agents) on the blog.
 
-<Note>
-  All Managed Agents API requests require the `managed-agents-2026-04-01` beta header. The SDK sets the beta header automatically.
-</Note>
-
 ## Create a scheduled deployment
 
 When creating a deployment, you pass the [session configurations](https://platform.claude.com/docs/en/managed-agents/sessions) required for execution, in addition to a `schedule`.
 
 * Deployments require [agent configuration](https://platform.claude.com/docs/en/managed-agents/agent-setup) and [environment configuration](https://platform.claude.com/docs/en/managed-agents/environments), and optionally accept [files](https://platform.claude.com/docs/en/managed-agents/files), [GitHub](https://platform.claude.com/docs/en/managed-agents/github), [memory stores](https://platform.claude.com/docs/en/managed-agents/memory), and [vaults](https://platform.claude.com/docs/en/managed-agents/vaults). A deployment that targets a [self-hosted environment](https://platform.claude.com/docs/en/managed-agents/self-hosted-sandboxes#use-memory-stores) can attach memory stores; `file` and `github_repository` resources require a cloud environment. The Claude Console deployment form does not currently offer memory stores for self-hosted environments; attach them through the API or an SDK instead.
-* Deployments also require at least one initial event, a `user.message` or `user.define_outcome`, that starts each session's work.
+* Deployments also require at least one initial event, a `user.message` or `user.define_outcome`, that starts each session's work. In a deployment file for `ant apply`, the text below the frontmatter becomes that `user.message`.
 * In the `schedule`, you define a cron `expression` and a `timezone`. Maximum granularity supported is at the minute level.
 
 <CodeGroup defaultLanguage="CLI">
   ```bash cURL
-  DEPLOYMENT_ID=$(
-    curl --fail-with-body -sS "https://api.anthropic.com/v1/deployments?beta=true" \
-      -H "x-api-key: $ANTHROPIC_API_KEY" \
-      -H "anthropic-version: 2023-06-01" \
-      -H "anthropic-beta: managed-agents-2026-04-01" \
-      -H "content-type: application/json" \
-      -d @- <<EOF | jq -er '.id'
+  curl --fail-with-body -sS "https://api.anthropic.com/v1/deployments?beta=true" \
+    -H "x-api-key: $ANTHROPIC_API_KEY" \
+    -H "anthropic-version: 2023-06-01" \
+    -H "anthropic-beta: managed-agents-2026-04-01" \
+    -H "content-type: application/json" \
+    -d @- <<EOF
   {
     "name": "Weekly compliance scan",
     "agent": "$AGENT_ID",
@@ -45,26 +46,29 @@ When creating a deployment, you pass the [session configurations](https://platfo
     }
   }
   EOF
-  )
   ```
 
-  ```bash CLI
-  DEPLOYMENT_ID=$(ant beta:deployments create <<YAML | jq -er '.id'
-  name: Weekly compliance scan
-  agent: $AGENT_ID
-  environment_id: $ENVIRONMENT_ID
-  initial_events:
-    - type: user.message
-      content:
-        - type: text
-          text: Run the weekly compliance scan.
-  schedule:
-    type: cron
-    expression: "0 20 * * 5"
-    timezone: America/New_York
-  YAML
-  )
-  ```
+  <MultiFileExample language="cli" label="CLI">
+    ```bash CLI
+    ant apply deployment.md
+    ```
+
+    <File filename="deployment.md">
+      ```markdown
+      ---
+      name: Weekly compliance scan
+      agent: agent_011CYm1BLqPXpQRk5khsSXrs
+      environment_id: env_01595EKxaaTTGwwY3kyXdtbs
+      schedule:
+        type: cron
+        expression: "0 20 * * 5"
+        timezone: America/New_York
+      ---
+
+      Run the weekly compliance scan.
+      ```
+    </File>
+  </MultiFileExample>
 
   ```python Python
   deployment = client.beta.deployments.create(
@@ -221,6 +225,10 @@ When creating a deployment, you pass the [session configurations](https://platfo
     }
   )
   ```
+
+  <ForLanguage tab="CLI">
+    [`ant apply`](https://platform.claude.com/docs/en/cli-sdks-libraries/cli/apply) prints the new deployment's ID and records it in `claude-lock.json`. To see the deployment object, run `ant beta:deployments retrieve`.
+  </ForLanguage>
 </CodeGroup>
 
 The response includes a deployment object with a populated `schedule.upcoming_runs_at` with the next upcoming fire times, to confirm your schedule was set correctly.
@@ -292,7 +300,7 @@ Successful deployments generate active sessions, and a successful deployment run
 
 List all deployment runs for a deployment as follows:
 
-<CodeGroup defaultLanguage="CLI">
+<CodeGroup>
   ```bash cURL
   curl --fail-with-body -sS "https://api.anthropic.com/v1/deployment_runs?beta=true&deployment_id=$DEPLOYMENT_ID" \
     -H "x-api-key: $ANTHROPIC_API_KEY" \
@@ -381,7 +389,7 @@ List all deployment runs for a deployment as follows:
 
 You can additionally filter on deployment runs with errors:
 
-<CodeGroup defaultLanguage="CLI">
+<CodeGroup>
   ```bash cURL
   curl --fail-with-body -sS "https://api.anthropic.com/v1/deployment_runs?beta=true&deployment_id=$DEPLOYMENT_ID&has_error=true" \
     -H "x-api-key: $ANTHROPIC_API_KEY" \
@@ -491,7 +499,7 @@ Each lifecycle change emits a [webhook event](https://platform.claude.com/docs/e
 
 **Pause** suppresses scheduled triggers on a go-forward basis; running sessions from a prior deployment run continue to execute. Manual runs through the `run` endpoint are still allowed while paused. Pausing sets `paused_reason` to `{"type": "manual"}`; unpausing clears it.
 
-<CodeGroup defaultLanguage="CLI">
+<CodeGroup>
   ```bash cURL
   curl --fail-with-body -sS -X POST "https://api.anthropic.com/v1/deployments/$DEPLOYMENT_ID/pause?beta=true" \
     -H "x-api-key: $ANTHROPIC_API_KEY" \
@@ -536,7 +544,7 @@ Each lifecycle change emits a [webhook event](https://platform.claude.com/docs/e
 
 **Unpause** resumes the schedule from the next scheduled occurrence. Missed triggers are not backfilled.
 
-<CodeGroup defaultLanguage="CLI">
+<CodeGroup>
   ```bash cURL
   curl --fail-with-body -sS -X POST "https://api.anthropic.com/v1/deployments/$DEPLOYMENT_ID/unpause?beta=true" \
     -H "x-api-key: $ANTHROPIC_API_KEY" \
@@ -581,7 +589,7 @@ Each lifecycle change emits a [webhook event](https://platform.claude.com/docs/e
 
 **Archive**, unlike **pause**, is terminal: the schedule terminates and the deployment cannot be modified.
 
-<CodeGroup defaultLanguage="CLI">
+<CodeGroup>
   ```bash cURL
   curl --fail-with-body -sS -X POST "https://api.anthropic.com/v1/deployments/$DEPLOYMENT_ID/archive?beta=true" \
     -H "x-api-key: $ANTHROPIC_API_KEY" \
@@ -634,7 +642,7 @@ If a deployment's agent has been archived, the deployment is automatically archi
 
 To run a deployment outside its schedule, call the [`run` endpoint](https://platform.claude.com/docs/en/api/beta/deployments/run). This creates a session immediately and writes a deployment run with `trigger_context.type: "manual"`. This allows you to test a deployment before committing to the schedule.
 
-<CodeGroup defaultLanguage="CLI">
+<CodeGroup>
   ```bash cURL
   curl --fail-with-body -sS -X POST "https://api.anthropic.com/v1/deployments/$DEPLOYMENT_ID/run?beta=true" \
     -H "x-api-key: $ANTHROPIC_API_KEY" \

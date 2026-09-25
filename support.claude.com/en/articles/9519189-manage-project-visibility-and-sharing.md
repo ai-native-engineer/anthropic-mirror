@@ -1,6 +1,6 @@
 <!-- source: https://support.claude.com/en/articles/9519189-manage-project-visibility-and-sharing -->
 
-Project visibility and sharing features are available to users on Team or Enterprise plans. This article assumes that public projects are enabled for your organization. For more information, see **[How can I disable public projects?](https://support.claude.com/en/articles/9927533-how-can-i-disable-public-projects)**
+Project visibility and sharing features are available to users on Team or Enterprise plans. This article assumes that public projects and project sharing are enabled for your organization. Admins can turn either off. For more information, see **[Control project sharing for your organization](https://support.claude.com/en/articles/9927533)**.
 
 Sharing a project with a group requires an Enterprise plan and is currently in beta.
 
@@ -11,21 +11,15 @@ When creating a project on a Team or Enterprise plan, you can choose between two
 * **Public:** Everyone in your organization can view and use the project.
 * **Private:** Only invited members can view and use the project.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1740370991/2b6b16e5deff094e073a5b4bb0ea/63197103-24c0-41e5-aebd-9b8f431837bb?expires=1789345800&signature=aec92c27b1f57b24729095fe05a5fbc0d73f28d4ea2f494f6d23c99ff40644a9&req=dScjFsp5nYhWWPMW1HO4zd3a2VUnIIuvHK95%2FTFaPylmNgcShVN19NduBwfF%0AHIFEcIe38o0Sc42I7%2F4%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1740370991/2b6b16e5deff094e073a5b4bb0ea/63197103-24c0-41e5-aebd-9b8f431837bb?expires=1789345800&signature=aec92c27b1f57b24729095fe05a5fbc0d73f28d4ea2f494f6d23c99ff40644a9&req=dScjFsp5nYhWWPMW1HO4zd3a2VUnIIuvHK95%2FTFaPylmNgcShVN19NduBwfF%0AHIFEcIe38o0Sc42I7%2F4%3D%0A)
-
 ## What are public projects?
 
-If you choose to share a project with the rest of your organization upon creation, this means that any other member of your team can find it by browsing or searching the [Team tab in the Projects section](https://claude.ai/projects?category=team), and use it to start a chat. Even if a project is public, your chats within that project will be private and inaccessible to other members of your organization unless you manually share them.
+If you choose to share a project with the rest of your organization upon creation, this means that any other member of your team can find it by browsing or searching the **[Organization tab in the Projects section](https://claude.ai/projects?category=team)**, and use it to start a chat. Even if a project is public, your chats within that project will be private and inaccessible to other members of your organization unless you manually share them.
 
 ### Can I change a project from public to private?
 
-Yes, you can switch the visibility of a project you created as public to private at any time by opening the project and clicking the “Share” button to the right of the project name:
+Yes, you can switch the visibility of a project you created as public to private at any time by opening the project and clicking the “Share” button to the right of the project name.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1740370987/5d5db997e6b42e627ffa62fddf75/4823906b-9535-4a19-b89e-a1003f1e6e68?expires=1789345800&signature=878cad737b5ef490c769011d017b81390c3c98e09fadbe660a1d15e95a702078&req=dScjFsp5nYhXXvMW1HO4zUiDoiD0hQMhE8Kp5wh0MSA8E86Gf2jQ1gmAfmk4%0AvlaRHB0iPOf0BU8S4qM%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1740370987/5d5db997e6b42e627ffa62fddf75/4823906b-9535-4a19-b89e-a1003f1e6e68?expires=1789345800&signature=878cad737b5ef490c769011d017b81390c3c98e09fadbe660a1d15e95a702078&req=dScjFsp5nYhXXvMW1HO4zUiDoiD0hQMhE8Kp5wh0MSA8E86Gf2jQ1gmAfmk4%0AvlaRHB0iPOf0BU8S4qM%3D%0A)
-
-Click “Everyone at [your organization]” under **General access** and select “Only people invited” to change the project from public to private:
-
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1740370988/386407facbf3e73d2f5538623a18/69d8ffcd-e1ca-470f-a219-5b88704e41f2?expires=1789345800&signature=d249b225a0b595ab99a1c908ef24022d0920ff5dbb776f96862b9f09ca543d0b&req=dScjFsp5nYhXUfMW1HO4zckCIfthZiesl3XeGelDRW0Q%2BICn6ptYmtIdbxjO%0AQOJFWB2ivWbWHuA0y30%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1740370988/386407facbf3e73d2f5538623a18/69d8ffcd-e1ca-470f-a219-5b88704e41f2?expires=1789345800&signature=d249b225a0b595ab99a1c908ef24022d0920ff5dbb776f96862b9f09ca543d0b&req=dScjFsp5nYhXUfMW1HO4zckCIfthZiesl3XeGelDRW0Q%2BICn6ptYmtIdbxjO%0AQOJFWB2ivWbWHuA0y30%3D%0A)
+Click “Everyone at [your organization]” under **General access** and select “Only people invited” to change the project from public to private.
 
 ## What are private projects?
 
@@ -33,13 +27,9 @@ Choosing “Only people invited” keeps your project private so that you are th
 
 ### Can I change a project from private to public?
 
-Yes, you can switch the visibility of a project you created as private to public at any time by opening the project and clicking the “Share” button to the right of the project name:
+Yes, you can switch the visibility of a project you created as private to public at any time by opening the project and clicking the “Share” button to the right of the project name.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1740370989/f829dcd8bdd88e944322f678323f/9d25eff1-6df3-40be-82eb-ba7fe09187e8?expires=1789345800&signature=66799373caf5bdb09768d3a555d5d2f260acdb1ee13c006d62e494a99cfc0a3f&req=dScjFsp5nYhXUPMW1HO4zaSEGlqfTr0F2JrJefVtywmmJQsMAnKfnolb5w%2B8%0AQoOMXF%2FDj8IxwqC%2FV7Y%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1740370989/f829dcd8bdd88e944322f678323f/9d25eff1-6df3-40be-82eb-ba7fe09187e8?expires=1789345800&signature=66799373caf5bdb09768d3a555d5d2f260acdb1ee13c006d62e494a99cfc0a3f&req=dScjFsp5nYhXUPMW1HO4zaSEGlqfTr0F2JrJefVtywmmJQsMAnKfnolb5w%2B8%0AQoOMXF%2FDj8IxwqC%2FV7Y%3D%0A)
-
-Click “Only people invited” under General access and select “Everyone at [your organization]” to change the project from private to public:
-
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1740370990/d173fbc6f030780d30c6d7b8e204/7e47b9d1-89fe-4607-8b5b-f7b06e7ad0d6?expires=1789345800&signature=e4c60af250d15b7748ebef6bfc1a25f78fbd5ce5bbb35be70c1a8484d94f4c89&req=dScjFsp5nYhWWfMW1HO4zT7Q08G4uQkeAmYRPrgMBZnKPVyMOpFjjmzk4mig%0AT1QQE8zhq17O0ip6GtU%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1740370990/d173fbc6f030780d30c6d7b8e204/7e47b9d1-89fe-4607-8b5b-f7b06e7ad0d6?expires=1789345800&signature=e4c60af250d15b7748ebef6bfc1a25f78fbd5ce5bbb35be70c1a8484d94f4c89&req=dScjFsp5nYhWWfMW1HO4zT7Q08G4uQkeAmYRPrgMBZnKPVyMOpFjjmzk4mig%0AT1QQE8zhq17O0ip6GtU%3D%0A)
+Click “Only people invited” under General access and select “Everyone at [your organization]” to change the project from private to public.
 
 ## Add and remove access to private projects
 
@@ -101,6 +91,17 @@ Projects that have been shared with you will appear in a "Shared with you" tab o
 
 Archiving a project doesn't reset its sharing permissions or remove members. All members, permission levels, and project knowledge are preserved, and everything is restored exactly as it was when you unarchive the project. To revoke someone's access, remove them in the project's sharing settings before or after archiving.
 
+## If you can't share projects
+
+Owners can turn off project sharing for your organization. On Enterprise plans, they can also turn it off for specific roles. When sharing is off for you:
+
+* You can still open a project's “Share” menu, but you'll see "Project sharing is turned off by your administrator." You can't add new users or groups.
+* You can still change or remove existing access.
+* Projects that are already shared stay shared, and users who already have access keep it.
+* Public projects become private, so people who only had access because a project was public lose it. They stay private if your admin turns sharing back on.
+
+Contact your admin if you need to share a project.
+
 ## Share and unshare chats
 
 Chats within a project are not shared by default.
@@ -125,6 +126,6 @@ The chat snapshot includes all messages that were sent prior to sharing the chat
 
 * [What are projects?](https://support.claude.com/en/articles/9517075-what-are-projects)
 * [How can I create and manage projects?](https://support.claude.com/en/articles/9519177-how-can-i-create-and-manage-projects)
-* [Disable public projects for your organization](https://support.claude.com/en/articles/9927533-disable-public-projects-for-your-organization)
+* [Control project sharing for your organization](https://support.claude.com/en/articles/9927533-control-project-sharing-for-your-organization)
 * [Share and unshare chats](https://support.claude.com/en/articles/10593882-share-and-unshare-chats)
 * [What happens to a user's data when they are removed from a Team or Enterprise organization?](https://support.claude.com/en/articles/12053672-what-happens-to-a-user-s-data-when-they-are-removed-from-a-team-or-enterprise-organization)

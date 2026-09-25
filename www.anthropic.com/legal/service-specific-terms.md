@@ -24,7 +24,7 @@ Anthropic may offer Services that allow Customer to fine-tune or conduct other f
 
 Customer may elect (in its sole discretion) to participate in the Development Partner Program by enabling the permissive data opt-in setting for the Services (**“Development Partner Mode”**). If Customer enables Development Partner Mode, Anthropic may use the data that Customer submits to the Services (e.g., Customer Content) in connection with Anthropic’s products and services, including to train models.
 
-## **F. Covered Models**
+## F. Covered Models
 
 Anthropic may designate certain models available through the Services as “Covered Models”, which are subject to the following supplemental terms to the Agreement, including the DPA:
 

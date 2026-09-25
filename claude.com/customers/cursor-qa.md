@@ -4,33 +4,21 @@ Q&A | Claude Platform
 
 # A conversation with Cursor on building coding agents for professional developers
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-[Play video](#)Play video
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a28accb336596a020952082_YouTube%20Thumbnail_Cursor_200kb.jpg)
+![Video thumbnail](https://assets.claude.com/35263bf572b1ea343eafabd13f3535e5c772f6fd.jpg)
 
 Industry:
-
-Software
+:   Software
 
 Company size:
-
-Large
+:   Large
 
 Product:
-
-[Claude Code](https://claude.com/product/claude-code)
+:   [Claude Code](https://claude.com/product/claude-code)
 
 Location:
-
-North America
+:   North America
 
 60% of the Fortune 500
 
@@ -40,33 +28,13 @@ builds software with Cursor
 
 in two years
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a0cb8c1f8c5c525e8c554b3_problem-solvers-padded-200kb.jpg)
+![Problem Solvers landing page](https://assets.claude.com/516bf8e49c81e551455b1e24a0fc3678725df957.jpg)
 
 The most driven founders are problem solvers. Watch their unscripted conversations with the Anthropic engineers.
 
-Read more
+[Read more](https://claude.com/problem-solvers)
 
-[Read more](https://claude.com/problem-solvers)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-The most driven founders are problem solvers. Watch their unscripted conversations with the Anthropic engineers.
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-The most driven founders are problem solvers. Watch their unscripted conversations with the Anthropic engineers.
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a28ae750a5981a9f2a00cc5_Screenshot%202026-06-09%20at%204.39.21%E2%80%AFPM_4mb.jpg)
+![](https://assets.claude.com/bcef56f06975ec56f0a57f21859c05c6e681da14.jpg)
 
 "We started working on Cursor at the end of 2022, and the premise was that eventually all of software was going to flow through models." —Michael Truell, Cursor co-founder
 
@@ -84,13 +52,11 @@ The most driven founders are problem solvers. Watch their unscripted conversatio
 
 **Truell:** We started working on Cursor at the end of 2022, and the premise was that eventually all of software was going to flow through models. We were a very scrappy team back then, and we were using some other models by default. A couple of folks went and really went deep on evaluating the various models in the market, through offline evals, through internal dogfooding, and then also through A/B tests. They came back surprised. Sonnet 3.5 was this big jump, and so we moved quickly on it. That was the start of a multi-year run of improvements with each model since.
 
-"Over the last 12 months, the models have gotten capable enough to do longer and longer range work, which has been really consequential for us."
+> "Over the last 12 months, the models have gotten capable enough to do longer and longer range work, which has been really consequential for us."
 
-Michael Truell
+Michael Truell Co-founder, Cursor
 
-Co-founder, Cursor
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a28af6112c7ce11a06c31de_Screenshot%202026-06-09%20at%204.41.12%E2%80%AFPM_4mb.jpg)
+![](https://assets.claude.com/c59bbbff1fc956b21017d4acac31c27c4a7d24f8.jpg)
 
 "Each model release is a moment where new things become possible in the product." —Michael Truell, Cursor co-founder
 
@@ -114,41 +80,19 @@ Over the last 12 months, the models have gotten capable enough to do longer and 
 
 AI agents
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698f5244ff22e3ab8e64404d_68c469d3872afd7941c5e6f2_og-claude-agents.jpeg)
+![AI agents](https://assets.claude.com/bdc16daf5e533d3c67f77bbbed786c7d7e693dce.jpg)
 
 Build powerful AI agents that reason through complex problems and execute tasks autonomously with reliable results.
 
-Read more
+[Read more](https://claude.com/solutions/agents)
 
-[Read more](https://claude.com/solutions/agents)Read more
+> "Two years ago, we were 15 people in a room, and now we're 700 people and serve over 60% of the Fortune 500."
 
-AI agents
+Michael Truell Co-founder, Cursor
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+![](https://assets.claude.com/e8d8f96ffb4c0f7056b92aa85b8af6d3876817ee.jpg)
 
-[Next](#)Next
-
-Build powerful AI agents that reason through complex problems and execute tasks autonomously with reliable results.
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-AI agents
-
-Build powerful AI agents that reason through complex problems and execute tasks autonomously with reliable results.
-
-"Two years ago, we were 15 people in a room, and now we're 700 people and serve over 60% of the Fortune 500."
-
-Michael Truell
-
-Co-founder, Cursor
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a28afa7b02b7048588749d0_Screenshot%202026-06-09%20at%204.40.15%E2%80%AFPM_4mb.jpg)
-
-"The biggest trend we're excited about is coding agents that can run for hours or days productively and really work *with* you." —Michael Truell, Cursor co-founder
+"The biggest trend we're excited about is coding agents that can run for hours or days productively and really work with you." —Michael Truell, Cursor co-founder
 
 ## Coding has changed faster than almost any other kind of work. Where do you think this goes next?
 
@@ -160,62 +104,16 @@ Co-founder, Cursor
 
 Choosing the right Claude model
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69c2dd485d80024bc14f48c6_choosing%20model.jpeg)
+![Choosing the right Claude model](https://assets.claude.com/7388619b452db0af26c78442a275c86c5ebe3124.jpg)
 
 Learn when to use Haiku, Sonnet, or Opus to get better results and stay inside your rate limit. A practical guide to picking the right Claude model.
 
-Choosing the right Claude model
+[![Supermetrics](https://assets.claude.com/3ac4171a81008be0340e5c3d8ccb46571c3edfb3.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### Supermetrics lets marketers manage ad campaigns from a conversation with Claude](https://claude.com/customers/supermetrics)[![Atlassian](https://assets.claude.com/4870b3d6c0253cea01b100c98ad2030b8e4f8ce1.svg)
 
-[Next](#)Next
+### How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-Learn when to use Haiku, Sonnet, or Opus to get better results and stay inside your rate limit. A practical guide to picking the right Claude model.
+### Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Choosing the right Claude model
-
-Learn when to use Haiku, Sonnet, or Opus to get better results and stay inside your rate limit. A practical guide to picking the right Claude model.
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-Customer story
-
-[Customer story](https://claude.com/customers/atlassian)Customer story
-
-[Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)Rocket Money on building agents that fix their own code
-
-Rocket Money on building agents that fix their own code
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money-qa)Customer story
-
-[How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)How Rocket Money built its personal finance agent with Claude
-
-How Rocket Money built its personal finance agent with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money)Customer story
-
-[How Notion ships and scales agents with Claude Managed Agents](https://claude.com/customers/notion-qa)How Notion ships and scales agents with Claude Managed Agents
-
-How Notion ships and scales agents with Claude Managed Agents
-
-Customer story
-
-[Customer story](https://claude.com/customers/notion-qa)Customer story
+### How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)

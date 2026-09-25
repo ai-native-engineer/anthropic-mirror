@@ -14,24 +14,73 @@ First, a Primary Owner, Owner, Admin, or someone with a custom role with analyti
 
 Claude then reads a sample of transcripts in that scope, groups them into workstreams and types of outputs, attaches spend to each group, and writes up what it found. Every chart is interactive. Click a workstream to open the sessions inside it, ranked by cost, each with a one-paragraph summary, the product used, the date, and the output type. You can filter by subcategory and download the report as HTML with drilldowns intact.
 
+Sessions that Claude identifies as involving restricted topics, including personal conversations, are used only for aggregate analysis and don’t include summaries (see **[Privacy guardrails](#h_7b22bb48c1)**). Personal conversations also don’t include individual sessions or names. Admins can delete any report (see **[Delete smart reports](#h_765fe12f41)**).
+
+## Information included in smart reports
+
 Each report includes the following sections:
 
-* **Workstreams:** shows what the group used Claude for most, by sessions and by spend, side by side.
-* **Deliverables produced:** groups sessions by the type of output that was produced. For example, analysis, documentation, content drafts, and code.
-* **Cost per session by type of output:** shows the average spend per session for each kind of output so you can see what's cheap or expensive to produce.
-* **Task outcomes:** shows what each session produced.
-* **Most common frictions:** shows what got in the way, by category. For example, a connector that wasn’t set up, output that didn’t match the ask, approval or sign-in gating, tool failures, or rework loops.
-* **Inefficiencies:** counts sessions that produced nothing usable and sessions that were personal or off-topic, with their cost (shown only as an aggregate count and cost, with no summaries or drilldown).
-* **Reusable skills and workflows to build:** identifies repeated patterns that could be packaged as a shared skill so the whole team gets the same result faster. For example, turning call notes into follow-ups, building account briefs, and drafting QBR outlines. Each card includes a suggested prompt you can copy to set up the skill.
-* **Most expensive sessions:** lists where spend concentrates.
-* **Complex, autonomous work:** showssessions scoring highest on task complexity, time saved, how long Claude worked on its own, and the expertise required.
-* **Answers to custom questions:** before running a smart report, you can select specific pre-built templates to steer the analysis towards those questions, and customize those questions to your specific requirements. If you added custom questions, the answers appear in their own section with the sessions that informed them.
+### Workstreams
 
-Personal conversations appear only in aggregate, with no summaries, individual sessions, or names. Admins can delete any report (see **[Delete smart reports](#h_765fe12f41)**).
+Workstreams shows what the group used Claude for most, by sessions and by spend, side by side.
+
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2671030907/7b62b605189fe8e9474a20c1eaf2/image.png?expires=1790424000&signature=76b5adb84457efdf77f6b3225bd9cf4a1bc2c516de948b58637817e4070af785&req=diYgF8l9nYhfXvMW3nq%2BgYjLrMqCQn42dDmueNPeNxzFWkjfdqnv4MmGO5Nc%0APOeBhGWmsqTWVakHGCqOBrVGiwQ%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2671030907/7b62b605189fe8e9474a20c1eaf2/image.png?expires=1790424000&signature=76b5adb84457efdf77f6b3225bd9cf4a1bc2c516de948b58637817e4070af785&req=diYgF8l9nYhfXvMW3nq%2BgYjLrMqCQn42dDmueNPeNxzFWkjfdqnv4MmGO5Nc%0APOeBhGWmsqTWVakHGCqOBrVGiwQ%3D%0A)
+
+### Deliverables produced
+
+Deliverables produced groups sessions by the type of output that was produced. For example, analysis, documentation, content drafts, and code.
+
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2671035220/2a582bc047a6ba46e7dbd6f05d9f/e17881ac-874c-4747-94ca-8679e0301455?expires=1790424000&signature=664a80a6073414d6bab19df98143f91d78088656c261ebdab499330ad10dcedd&req=diYgF8l9mINdWfMW3nq%2BgarkVpAdy556sp7D4nw4%2FNU%2F9LJsVdNcuzITDKde%0Ag%2FF%2BAAeaokJJfcVVoinDR5gt3JA%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2671035220/2a582bc047a6ba46e7dbd6f05d9f/e17881ac-874c-4747-94ca-8679e0301455?expires=1790424000&signature=664a80a6073414d6bab19df98143f91d78088656c261ebdab499330ad10dcedd&req=diYgF8l9mINdWfMW3nq%2BgarkVpAdy556sp7D4nw4%2FNU%2F9LJsVdNcuzITDKde%0Ag%2FF%2BAAeaokJJfcVVoinDR5gt3JA%3D%0A)
+
+### Cost per session by type of output
+
+Cost per session by type of outputshows the average spend per session for each kind of output so you can see what's cheap or expensive to produce.
+
+### Task outcomes
+
+Task outcomesshows what each session produced.
+
+### Most common frictions
+
+Most common frictions shows what got in the way, by category. For example, a connector that wasn’t set up, output that didn’t match the ask, approval or sign-in gating, tool failures, or rework loops.
+
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2671052365/b69f22b75729e5587563e7ab6830/b1647659-a7ea-403b-89fc-0b150ee97675?expires=1790424000&signature=a57d5ffb161b54a8fada1797ff7dbdf763176e99987b2cddc6a942dd68476c84&req=diYgF8l7n4JZXPMW3nq%2BgelfR%2BcWV2Ly7MzUYunlzgRUaW5BdTYx7%2FkT5iHO%0Atg50O3wxOHwSVIU180XDuBzfxtI%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2671052365/b69f22b75729e5587563e7ab6830/b1647659-a7ea-403b-89fc-0b150ee97675?expires=1790424000&signature=a57d5ffb161b54a8fada1797ff7dbdf763176e99987b2cddc6a942dd68476c84&req=diYgF8l7n4JZXPMW3nq%2BgelfR%2BcWV2Ly7MzUYunlzgRUaW5BdTYx7%2FkT5iHO%0Atg50O3wxOHwSVIU180XDuBzfxtI%3D%0A)
+
+Click into a category to see more information:
+
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2671053199/b68936dd5d590c5fbcbbc092b332/5ec247b2-cd67-4f3f-97b5-23479b87a5c6?expires=1790424000&signature=b9a908c838ccc48826c7d4b946372e24014ba2e7a4684835c310165258003503&req=diYgF8l7noBWUPMW3nq%2BgWyn0a4cxmOSfBDXzS32B3CyvGpVC%2FLmwz%2F2R%2FMv%0AnpIpzVAQ0jGYgflt2y37xLamEMI%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2671053199/b68936dd5d590c5fbcbbc092b332/5ec247b2-cd67-4f3f-97b5-23479b87a5c6?expires=1790424000&signature=b9a908c838ccc48826c7d4b946372e24014ba2e7a4684835c310165258003503&req=diYgF8l7noBWUPMW3nq%2BgWyn0a4cxmOSfBDXzS32B3CyvGpVC%2FLmwz%2F2R%2FMv%0AnpIpzVAQ0jGYgflt2y37xLamEMI%3D%0A)
+
+### Inefficiencies
+
+Inefficiencies counts sessions that produced nothing usable and sessions that were personal or off-topic, with their cost (shown only as an aggregate count and cost, with no summaries or drilldown).
+
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2671036122/90dc848a7adf371a872bd89a2f5e/de86945b-ccfe-4e0f-892d-abacc475c5c4?expires=1790424000&signature=cdeadcd6ad3cd5c655b0bcfefaf76384133eedc7f122f6133bac78b9f8b44adb&req=diYgF8l9m4BdW%2FMW3nq%2BgeoSslrzi4ZFEvdxx0rcKdEwZGSogwsczXlW0ydT%0AKLKHsitDaGRPiDLs%2FcOQVzV0BL4%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2671036122/90dc848a7adf371a872bd89a2f5e/de86945b-ccfe-4e0f-892d-abacc475c5c4?expires=1790424000&signature=cdeadcd6ad3cd5c655b0bcfefaf76384133eedc7f122f6133bac78b9f8b44adb&req=diYgF8l9m4BdW%2FMW3nq%2BgeoSslrzi4ZFEvdxx0rcKdEwZGSogwsczXlW0ydT%0AKLKHsitDaGRPiDLs%2FcOQVzV0BL4%3D%0A)
+
+### Reusable skills and workflows to build
+
+Reusable skills and workflows to build identifies repeated patterns that could be packaged as a shared skill so the whole team gets the same result faster. For example, turning call notes into follow-ups, building account briefs, and drafting QBR outlines. Each card includes a suggested prompt you can copy to set up the skill.
+
+### Most expensive sessions
+
+Most expensive sessions lists where spend concentrates.
+
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2671032083/2b075387a4a3473f884a8ba26436/image.png?expires=1790424000&signature=69294a2fcd3efc19a6638a7444b2ec18bbc321b2aca3f7f9562d50290fad471c&req=diYgF8l9n4FXWvMW3nq%2BgQL8lhi0YFsYgpeDH9GO2SdIwMdXPTInELpmxi%2Fi%0AdWh%2Fs6nmQcufrI7KHRRFSi0vVZE%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2671032083/2b075387a4a3473f884a8ba26436/image.png?expires=1790424000&signature=69294a2fcd3efc19a6638a7444b2ec18bbc321b2aca3f7f9562d50290fad471c&req=diYgF8l9n4FXWvMW3nq%2BgQL8lhi0YFsYgpeDH9GO2SdIwMdXPTInELpmxi%2Fi%0AdWh%2Fs6nmQcufrI7KHRRFSi0vVZE%3D%0A)
+
+### Complex, autonomous work
+
+Complex, autonomous work showssessions scoring highest on task complexity, time saved, how long Claude worked on its own, and the expertise required.
+
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2671031695/3781b98c5cb9cdc069439aa3d9ab/image.png?expires=1790424000&signature=bf2d4f1083a84333985c507d02bda2b4ce448e0fa917f98af9e3b26418c37ed8&req=diYgF8l9nIdWXPMW3nq%2BgWLYAa4d0m73QAyRMc0VtCR9vK14K1drKCSeMpd1%0A%2FTfrdPFXKkM97zwiGvcxnbySZHY%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2671031695/3781b98c5cb9cdc069439aa3d9ab/image.png?expires=1790424000&signature=bf2d4f1083a84333985c507d02bda2b4ce448e0fa917f98af9e3b26418c37ed8&req=diYgF8l9nIdWXPMW3nq%2BgWLYAa4d0m73QAyRMc0VtCR9vK14K1drKCSeMpd1%0A%2FTfrdPFXKkM97zwiGvcxnbySZHY%3D%0A)
+
+### Answers to custom questions
+
+Before running a smart report, you can select specific pre-built templates to steer the analysis towards those questions, and customize those questions to your specific requirements. If you added custom questions, the answers appear in their own section with the sessions that informed them. You can't ask questions about restricted topics (see **[Privacy guardrails](#h_7b22bb48c1)**).
 
 ## Before you begin
 
-You'll need Owner or Primary Owner access to your Enterprise organization to enable smart reports. Once they're enabled, Primary Owners, Owners, Admins, and custom roles with analytics view access can create and view reports.
+* **Role required to enable smart reports for your Enterprise organization:** Primary Owner or Owner
+* **Role required to create and view reports:** Primary Owner, Owner, Admin, or a custom role with Analytics view access
+* **Role required to delegate access to smart reports to specific team leads or department heads without making them admins:** Primary Owner, Owner, or a custom role with both Analytics and Identity & Access permissions
 
 ## Enable smart reports for your organization
 
@@ -47,6 +96,8 @@ An Owner or Primary Owner can take the following steps to enable smart reports f
 
 After you've successfully completed these steps, smart reports are enabled for your Enterprise organization.
 
+You can manage access to let team leads or department heads run smart reports without making them admins. Learn how to **[let team members run smart reports for specific groups](https://support.claude.com/en/articles/16948886)**.
+
 ## Scope smart reports to specific teams
 
 Smart reports are more useful when they’re scoped to a functional team rather than the whole organization. For example, you can scope your report to sales, finance, marketing, or engineering. Team-level reports produce clusters specific enough to act on and keep the analysis on spend and adoption: what kinds of tasks, which surfaces and connectors, what it costs.
@@ -58,7 +109,7 @@ You can scope by:
 
 ## Create a smart report
 
-Once smart reports have been turned on for your organization, Primary Owners, Owners, Admins, and custom roles with analytics view access can create and view reports.
+Once smart reports have been turned on for your organization, Primary Owners, Owners, Admins, and custom roles with analytics view access can create and view reports. Delegates with scoped access can also create and view reports, limited to the groups, departments, or cost centers assigned to them. See **[Let team members run smart reports for specific groups](https://support.claude.com/en/articles/16948886)**.
 
 To create a smart report:
 
@@ -137,8 +188,25 @@ To delete a smart report:
 * **Share examples.** Point the rest of the team to sessions that produced a complete pipeline digest or a batch of account briefs so they can follow the same pattern.
 * **Bring evidence to renewals.** Walk into a budget conversation with a per-team view of adoption, cost, and output instead of a blended usage number.
 
-* [Get started with Claude for Education at your university (for Owners/Admins)](https://support.claude.com/en/articles/11139094-get-started-with-claude-for-education-at-your-university-for-owners-admins)
-* [Use Claude Cowork on Team and Enterprise plans](https://support.claude.com/en/articles/13455879-use-claude-cowork-on-team-and-enterprise-plans)
-* [Okta SSO setup](https://support.claude.com/en/articles/13917894-okta-sso-setup)
-* [Ping Identity SSO setup](https://support.claude.com/en/articles/13917902-ping-identity-sso-setup)
+## Privacy guardrails
+
+Smart reports have two guardrails for restricted topics. Both are always on, and you can't turn them off:
+
+* **You can’t ask custom questions on restricted topics.** This applies to template questions you customize and to questions you write yourself.
+* **Sessions that Claude identifies as involving restricted topics are used only for aggregate analysis.** The report doesn't show a session summary for them.
+
+Restricted topics are:
+
+* **Protected characteristics:** race, ethnicity, national origin, religion, gender identity, age, disability, immigration status
+* **Health and medical:** physical or mental health, pregnancy, medical leave, medication, therapy, substance use
+* **Union activity:** organizing, collective bargaining, coworkers discussing pay or working conditions
+* **Harassment, whistleblower, or legal:** harassment or discrimination complaints, whistleblower reports, privileged legal content about the workplace
+* **Political or religious views**
+* **Personal life:** family, relationships, personal finances, personal legal troubles, other non-work life
+* **Sentiment about people:** feelings about a specific named person, or that person's morale
+
+* [View usage analytics for Team and Enterprise plans](https://support.claude.com/en/articles/12883420-view-usage-analytics-for-team-and-enterprise-plans)
+* [Claude Code on Console to Enterprise migration](https://support.claude.com/en/articles/14128775-claude-code-on-console-to-enterprise-migration)
 * [Set up SCIM in Claude for Government](https://support.claude.com/en/articles/14503643-set-up-scim-in-claude-for-government)
+* [Claude Enterprise consumption guide](https://support.claude.com/en/articles/14782391-claude-enterprise-consumption-guide)
+* [Let team members run smart reports for specific groups](https://support.claude.com/en/articles/16948886-let-team-members-run-smart-reports-for-specific-groups)

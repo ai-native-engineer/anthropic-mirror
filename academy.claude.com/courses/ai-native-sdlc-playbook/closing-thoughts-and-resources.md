@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/ai-native-sdlc-playbook/closing-thoughts-and-resources -->
 
-Lesson 14 of 14 · The AI-Native SDLC PlaybookClosing thoughts and resources
+Lesson 14 of 14 · The AI-native SDLC playbookClosing thoughts and resources
 
-3. /[The AI-Native SDLC Playbook](https://academy.claude.com/courses/ai-native-sdlc-playbook)
+3. /[The AI-native SDLC playbook](https://academy.claude.com/courses/ai-native-sdlc-playbook)
 
-[The AI-Native SDLC Playbook](https://academy.claude.com/courses/ai-native-sdlc-playbook)
+[The AI-native SDLC playbook](https://academy.claude.com/courses/ai-native-sdlc-playbook)
 
 # Closing thoughts and resources
 
@@ -37,7 +37,7 @@ The documentation below is what a platform team needs to set up the controls des
 
 [Previous lessonClosing the loop on metrics](https://academy.claude.com/courses/ai-native-sdlc-playbook/closing-the-loop-on-metrics)[Up nextCourse complete](https://academy.claude.com/courses/ai-native-sdlc-playbook/complete)
 
-Lesson 14 of 14 · The AI-Native SDLC PlaybookClosing thoughts and resources
+Lesson 14 of 14 · The AI-native SDLC playbookClosing thoughts and resources
 
 Introduction
 

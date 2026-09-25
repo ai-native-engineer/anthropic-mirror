@@ -59,9 +59,13 @@ List Deployment Runs
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ### Returns
 
-- `BetaManagedAgentsDeploymentRun`
+- `class BetaManagedAgentsDeploymentRun`
 
   - `Type type`
 
@@ -161,15 +165,21 @@ Get Deployment Run
 
 - `deploymentRunID: string`
 
+  Unique identifier of the deployment run.
+
 - `betas?:optional list<AnthropicBeta>`
 
   Optional header to specify the beta version(s) you want to use.
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ### Returns
 
-- `BetaManagedAgentsDeploymentRun`
+- `class BetaManagedAgentsDeploymentRun`
 
   - `Type type`
 
@@ -248,7 +258,7 @@ var_dump($betaManagedAgentsDeploymentRun);
 
 ### Beta Managed Agents Agent Archived Run Error
 
-- `BetaManagedAgentsAgentArchivedRunError`
+- `class BetaManagedAgentsAgentArchivedRunError`
 
   - `Type type`
 
@@ -258,7 +268,7 @@ var_dump($betaManagedAgentsDeploymentRun);
 
 ### Beta Managed Agents Deployment Run
 
-- `BetaManagedAgentsDeploymentRun`
+- `class BetaManagedAgentsDeploymentRun`
 
   - `Type type`
 
@@ -292,7 +302,7 @@ var_dump($betaManagedAgentsDeploymentRun);
 
 ### Beta Managed Agents Environment Archived Run Error
 
-- `BetaManagedAgentsEnvironmentArchivedRunError`
+- `class BetaManagedAgentsEnvironmentArchivedRunError`
 
   - `Type type`
 
@@ -302,7 +312,7 @@ var_dump($betaManagedAgentsDeploymentRun);
 
 ### Beta Managed Agents Environment Not Found Run Error
 
-- `BetaManagedAgentsEnvironmentNotFoundRunError`
+- `class BetaManagedAgentsEnvironmentNotFoundRunError`
 
   - `Type type`
 
@@ -312,7 +322,7 @@ var_dump($betaManagedAgentsDeploymentRun);
 
 ### Beta Managed Agents File Not Found Run Error
 
-- `BetaManagedAgentsFileNotFoundRunError`
+- `class BetaManagedAgentsFileNotFoundRunError`
 
   - `Type type`
 
@@ -322,13 +332,13 @@ var_dump($betaManagedAgentsDeploymentRun);
 
 ### Beta Managed Agents Manual Trigger Context
 
-- `BetaManagedAgentsManualTriggerContext`
+- `class BetaManagedAgentsManualTriggerContext`
 
   - `Type type`
 
 ### Beta Managed Agents MCP Egress Blocked Run Error
 
-- `BetaManagedAgentsMCPEgressBlockedRunError`
+- `class BetaManagedAgentsMCPEgressBlockedRunError`
 
   - `Type type`
 
@@ -338,7 +348,7 @@ var_dump($betaManagedAgentsDeploymentRun);
 
 ### Beta Managed Agents Memory Store Archived Run Error
 
-- `BetaManagedAgentsMemoryStoreArchivedRunError`
+- `class BetaManagedAgentsMemoryStoreArchivedRunError`
 
   - `Type type`
 
@@ -348,7 +358,7 @@ var_dump($betaManagedAgentsDeploymentRun);
 
 ### Beta Managed Agents Organization Disabled Run Error
 
-- `BetaManagedAgentsOrganizationDisabledRunError`
+- `class BetaManagedAgentsOrganizationDisabledRunError`
 
   - `Type type`
 
@@ -358,7 +368,7 @@ var_dump($betaManagedAgentsDeploymentRun);
 
 ### Beta Managed Agents Schedule Trigger Context
 
-- `BetaManagedAgentsScheduleTriggerContext`
+- `class BetaManagedAgentsScheduleTriggerContext`
 
   - `Type type`
 
@@ -368,7 +378,7 @@ var_dump($betaManagedAgentsDeploymentRun);
 
 ### Beta Managed Agents Self Hosted Resources Unsupported Run Error
 
-- `BetaManagedAgentsSelfHostedResourcesUnsupportedRunError`
+- `class BetaManagedAgentsSelfHostedResourcesUnsupportedRunError`
 
   - `Type type`
 
@@ -378,7 +388,7 @@ var_dump($betaManagedAgentsDeploymentRun);
 
 ### Beta Managed Agents Session Creation Rejected Run Error
 
-- `BetaManagedAgentsSessionCreationRejectedRunError`
+- `class BetaManagedAgentsSessionCreationRejectedRunError`
 
   - `Type type`
 
@@ -388,7 +398,7 @@ var_dump($betaManagedAgentsDeploymentRun);
 
 ### Beta Managed Agents Session Rate Limited Run Error
 
-- `BetaManagedAgentsSessionRateLimitedRunError`
+- `class BetaManagedAgentsSessionRateLimitedRunError`
 
   - `Type type`
 
@@ -398,7 +408,7 @@ var_dump($betaManagedAgentsDeploymentRun);
 
 ### Beta Managed Agents Session Resource Not Found Run Error
 
-- `BetaManagedAgentsSessionResourceNotFoundRunError`
+- `class BetaManagedAgentsSessionResourceNotFoundRunError`
 
   - `Type type`
 
@@ -408,7 +418,7 @@ var_dump($betaManagedAgentsDeploymentRun);
 
 ### Beta Managed Agents Skill Not Found Run Error
 
-- `BetaManagedAgentsSkillNotFoundRunError`
+- `class BetaManagedAgentsSkillNotFoundRunError`
 
   - `Type type`
 
@@ -418,9 +428,9 @@ var_dump($betaManagedAgentsDeploymentRun);
 
 ### Beta Managed Agents Trigger Context
 
-- `BetaManagedAgentsTriggerContext`
+- `class BetaManagedAgentsTriggerContext`
 
-  - `BetaManagedAgentsScheduleTriggerContext`
+  - `class BetaManagedAgentsScheduleTriggerContext`
 
     - `Type type`
 
@@ -428,21 +438,25 @@ var_dump($betaManagedAgentsDeploymentRun);
 
       A timestamp in RFC 3339 format
 
-  - `BetaManagedAgentsManualTriggerContext`
+  - `class BetaManagedAgentsManualTriggerContext`
 
     - `Type type`
 
 ### Beta Managed Agents Trigger Type
 
-- `BetaManagedAgentsTriggerType`
+- `enum BetaManagedAgentsTriggerType`
 
   - `"schedule"`
 
+    The run was fired by the deployment's cron schedule.
+
   - `"manual"`
+
+    The run was started manually by creating a session directly against the deployment.
 
 ### Beta Managed Agents Unknown Run Error
 
-- `BetaManagedAgentsUnknownRunError`
+- `class BetaManagedAgentsUnknownRunError`
 
   - `Type type`
 
@@ -452,7 +466,7 @@ var_dump($betaManagedAgentsDeploymentRun);
 
 ### Beta Managed Agents Vault Archived Run Error
 
-- `BetaManagedAgentsVaultArchivedRunError`
+- `class BetaManagedAgentsVaultArchivedRunError`
 
   - `Type type`
 
@@ -462,7 +476,7 @@ var_dump($betaManagedAgentsDeploymentRun);
 
 ### Beta Managed Agents Vault Not Found Run Error
 
-- `BetaManagedAgentsVaultNotFoundRunError`
+- `class BetaManagedAgentsVaultNotFoundRunError`
 
   - `Type type`
 
@@ -472,7 +486,7 @@ var_dump($betaManagedAgentsDeploymentRun);
 
 ### Beta Managed Agents Workspace Archived Run Error
 
-- `BetaManagedAgentsWorkspaceArchivedRunError`
+- `class BetaManagedAgentsWorkspaceArchivedRunError`
 
   - `Type type`
 

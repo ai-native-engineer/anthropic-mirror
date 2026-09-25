@@ -4,35 +4,24 @@ Case study | Claude Code
 
 # LG CNS modernizes 20-year-old enterprise systems with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a4fc121f28f7c3e0b3bc1b8_logo_lg2-light-mode.png)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a4fc124c395704f7f63d30a_logo_lg2-dark-mode.png)
+![LG CNS logo](https://assets.claude.com/61ca6aa185bfb470e18a6189b462ea0618039fca.png)
 
 Industry:
-
-Professional services
+:   Professional services
 
 Company size:
-
-Large
+:   Large
 
 Product:
-
-[Claude Code](https://claude.com/product/claude-code)
+:   [Claude Code](https://claude.com/product/claude-code)
 
 Partner:
-
-AWS
+:   AWS
 
 Location:
-
-Asia Pacific
+:   Asia Pacific
 
 99.1% API conversion completion
 
@@ -54,28 +43,6 @@ LG CNS is the IT services and digital transformation arm of LG Group, with appro
 
 ## The challenge
 
-Claude on Amazon Bedrock
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69eaf379756a2219fdd60403_Screenshot%202026-04-23%20at%209.36.06%E2%80%AFPM.png)
-
-Build innovative AI applications with safer systems from Anthropic, supported by secure infrastructure from AWS.
-
-Claude on Amazon Bedrock
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Build innovative AI applications with safer systems from Anthropic, supported by secure infrastructure from AWS.
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Claude on Amazon Bedrock
-
-Build innovative AI applications with safer systems from Anthropic, supported by secure infrastructure from AWS.
-
 ## The modernization projects that never get started
 
 The migration requests landing at LG CNS follow a pattern. Customers need stored procedures over 10,000 lines long moved to a modern database, or Oracle Forms screens rebuilt in React. Many need to retire MiPlatform, proprietary UI platforms that dominated Korean enterprise IT two decades ago and have now reached end of service.
@@ -86,33 +53,13 @@ One engagement made the bind concrete. A Korean construction company ran its pro
 
 Conventional delivery would have taken at least twice the available time and money, at an estimated cost of several billion Korean won. Offshore development did not change the math: dozens of developers writing in parallel against a poorly documented codebase makes consistency harder, not easier. Without a different approach, the project was not going to start.
 
+Claude on Amazon Bedrock
+
+![Claude on Amazon Bedrock](https://assets.claude.com/3bf99530eb5387631c2eb5a95f92a81c5020c4ef.png)
+
+Build innovative AI applications with safer systems from Anthropic, supported by secure infrastructure from AWS.
+
 ## The solution
-
-Claude Code
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698f525504b02eec936ac51b_68c469d41149ace562bfd24d_og-claude-product-claude-code.jpeg)
-
-Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
-
-Read more
-
-[Read more](https://claude.com/product/claude-code)Read more
-
-Claude Code
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Claude Code
-
-Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
 
 ## A software factory built around Claude Code
 
@@ -136,21 +83,17 @@ The team still treats decomposition and context chaining as core strategy. At en
 
 The design philosophy is deliberately restrained. "Trust the model," Bae advised. "Building an overly thick harness to prevent every possible failure constrains the model's performance and increases token consumption." Instead, LG CNS uses a thin, multi-layered harness, with lightweight layers for validation, context scoping, and quality checks that preserve Claude's ability to reason while providing the stability enterprise projects require.
 
-"The ROI is not simply that we did it faster. The ROI is that we made a previously difficult-to-start project possible."
+Claude Code
 
-Hyosup Bae
+![Claude Code](https://assets.claude.com/38e8385d1c5f9c0f71c486994e22fc5861a4522d.jpg)
 
-Director and Head of Build Center, LG CNS
+Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[Read more](https://claude.com/product/claude-code)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+> "The ROI is not simply that we did it faster. The ROI is that we made a previously difficult-to-start project possible."
 
-[Next](#)Next
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+Hyosup BaeDirector and Head of Build Center, LG CNS
 
 ## The outcome
 
@@ -170,42 +113,16 @@ LG CNS plans to develop LG CNS Build Factory into a rigorous, verifiable moderni
 
 "The model gets more capable, the harness becomes more sophisticated, and as the two evolve together, the quality and scale of modernization outcomes we can deliver to customers will continue to improve," Bae said.
 
-"The model gets more capable, the harness becomes more sophisticated, and as the two evolve together, the quality and scale of modernization outcomes we can deliver to customers will continue to improve."
+> "The model gets more capable, the harness becomes more sophisticated, and as the two evolve together, the quality and scale of modernization outcomes we can deliver to customers will continue to improve."
 
-Hyosup Bae
+Hyosup Bae Director and Head of Build Center, LG CNS
 
-Director and Head of Build Center, LG CNS
+[![Caylent](https://assets.claude.com/b224ee1fa1757f5331b381ded249b619b03c957e.svg)
 
-## Related stories
+### Caylent turns months of migration work into days with Claude Agent SDK](https://claude.com/customers/caylent)[![BLA Studios](https://assets.claude.com/01af34a075be06353de94d0a7df2e25c668c9a15.svg)
 
-[Caylent turns months of migration work into days with Claude Agent SDK](https://claude.com/customers/caylent)Caylent turns months of migration work into days with Claude Agent SDK
+### How can a two-person fabrication studio make room for problems it’s never solved before?](https://claude.com/customers/bla-studios)[![Blank Metal](https://assets.claude.com/31d5dea773d37ce4626bd3710c924b455d46bcc0.svg)
 
-Caylent turns months of migration work into days with Claude Agent SDK
+### How Blank Metal, a lean professional services firm, runs on Claude Cowork](https://claude.com/customers/blank-metal-qa)[![Quantium](https://assets.claude.com/0e6b8d1ab806b1a949b793cce5bc3b294fe8d88c.svg)
 
-Customer story
-
-[Customer story](https://claude.com/customers/caylent)Customer story
-
-[How can a two-person fabrication studio make room for problems it’s never solved before?](https://claude.com/customers/bla-studios)How can a two-person fabrication studio make room for problems it’s never solved before?
-
-How can a two-person fabrication studio make room for problems it’s never solved before?
-
-Customer story
-
-[Customer story](https://claude.com/customers/bla-studios)Customer story
-
-[How Blank Metal, a lean professional services firm, runs on Claude Cowork](https://claude.com/customers/blank-metal-qa)How Blank Metal, a lean professional services firm, runs on Claude Cowork
-
-How Blank Metal, a lean professional services firm, runs on Claude Cowork
-
-Customer story
-
-[Customer story](https://claude.com/customers/blank-metal-qa)Customer story
-
-[Quantium scales Claude across Australia's largest enterprises](https://claude.com/customers/quantium-qa)Quantium scales Claude across Australia's largest enterprises
-
-Quantium scales Claude across Australia's largest enterprises
-
-Customer story
-
-[Customer story](https://claude.com/customers/quantium-qa)Customer story
+### Quantium scales Claude across Australia's largest enterprises](https://claude.com/customers/quantium-qa)

@@ -8,6 +8,49 @@
 
 [Skip to main content](#content-area)
 
+2026.09.22.1
+
+* Fixed members whose browser sign-in is refused, for example because their account was deactivated, seeing an “Invalid redirect uri” error instead of the page that explains why they can’t sign in.
+* Changed web sign-in for tenant administrators and Primary Owners: the **Choose sign-in** page is gone, **Email me a sign-in link** is now under the form where you enter your work email, and **Continue** takes you straight to single sign-on when your tenant has it set up.
+* Changed sign-in for Claude Desktop: signing in right after another app sign-in in the same browser now goes through your identity provider, and you may be asked which account to use.
+* Changed the model picker in Claude Desktop: a model that needs a newer version of the app no longer appears until the app is updated.
+* Updated the device sign-in approval page to name the application that asked to sign in and to warn when the request came from a different network address than your browser.
+* Updated the **Require approval for each command** and **Require approval for each fetch** help text on the Config page: with these settings off, Chat and Cowork fetch pages and run shell commands without asking, which for Chat’s shell commands is new since Claude Desktop 2.110.0.
+* Improved what a browser sign-in shows when it expires or is not completed: a page that says what happened and where to sign in again, instead of a line of error text.
+* Improved how the Admin Console handles brief faults: a page, or part of one, that can’t load now says so and offers a way to try again.
+* Added a confirmation step before revoking a SCIM token, deleting a connector or removing a group mapping in the Admin Console.
+* Added the **Let members add their own connectors** setting under Config > Integrations at the tenant, organization, and group levels, off by default; turning it on lets members add connectors of their own in Claude Desktop.
+* Added a **Copy user email addresses** button to the Users page: it opens a page where organization owners and tenant admins can copy the email addresses of everyone in an organization who has not been deactivated, separated by commas or, for Outlook, by semicolons.
+
+2026.09.16.1
+
+* Fixed members not being reactivated after they are re-enabled in your identity provider.
+* Changed SCIM provisioning to reject requests to deactivate an organization’s primary owner or a tenant’s last admin until ownership is transferred or another admin is added.
+* Changed SCIM provisioning to return an error that says what to do first when an identity provider deactivates or changes the email address of a member who is not yet linked to their directory entry.
+* Changed sign-in for accounts outside any organization that still held a Primary Owner role without being a tenant admin: they now sign in like any other member.
+* Changed sign-in: a network that starts sign-ins unusually fast is briefly told to try again.
+* Added a check of the Issuer against what your identity provider publishes when you save OIDC single sign-on.
+* Added a Test sign-in button to the Single sign-on settings on the tenant portal’s Identity and access page, so a tenant admin can check their own sign-in through their identity provider.
+* Added **Sign out everywhere** to each member’s row menu on the Users page, which ends all of that member’s sessions; the Compliance API records it as `user.sessions_revoked`.
+* Added the option to enforce settings whose values are hidden after saving, such as Telemetry headers, from the Admin Console.
+* Added the **Claude Desktop home** setting on the Config page, which sets Chat, Advanced file analysis, and Cowork in Claude Desktop together. It needs Claude Desktop 1.52386.0 or later.
+
+2026.09.15.1
+
+* Fixed directory provisioning (SCIM) rejecting some of the user updates that Microsoft Entra ID sends by default.
+* Changed what removing a tenant admin does for someone who is not yet in an organization: they can no longer request an emailed sign-in link and are placed by the sign-in routing rules at their next single sign-on, like any other member.
+* Changed where Claude Desktop looks for Anthropic’s published model catalog (model names, descriptions and effort options): starting with the first Claude Desktop release that supports the setting, the app asks your Claude for Government host for it instead of `downloads.claude.ai`, and keeps using the catalog it already has when the host has no copy.
+* Improved how service updates are applied so that answers still being generated when an update begins have longer to finish.
+* Added more checks of your identity provider’s signing certificate when you save SAML single sign-on.
+* Added the “Let members create skills” setting under Config > Integrations, on by default: turning it off stops members from creating or uploading skills of their own in Claude Desktop.
+
+2026.09.11.1
+
+* (breaking) Changed the **Telemetry endpoint** setting on the Config page to check its host name more strictly when you save; an address that is already saved stays until the setting is next changed.
+* Changed plugin uploads to ask for the Runs code confirmation when a plugin’s `settings.json` sets anything other than its default agent or a `$schema` reference, such as a status line.
+* Added tenant-level Compliance API keys: tenant administrators can create, list, and revoke them on the tenant portal’s **Compliance API keys** page under Settings, and a tenant-level key returns the events of every organization in the tenant together with tenant-level activity.
+* Improved accessibility in the Admin Console for people who use the operating system’s reduce motion setting or a screen reader.
+
 2026.09.10.1
 
 * Fixed importing Claude for Government Web chats into Claude Desktop failing with “This account doesn’t match your organization” for members of tenants that use directory provisioning (SCIM) now but did not on Claude for Government Web.

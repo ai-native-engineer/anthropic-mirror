@@ -1,0 +1,84 @@
+<!-- source: https://claude.com/marketplace/connectors/salesflare -->
+
+Connector URL`https://mcp.salesflare.com/mcp`
+
+More[Documentation (opens in new tab)](https://howto.salesflare.com/)[Support (opens in new tab)](mailto:support@salesflare.com)[Privacy policy (opens in new tab)](https://salesflare.com/privacy)
+
+Salesflare connects Claude to your Salesflare CRM, so you can find, summarize, and update sales data without switching tools.
+
+Use it to look up accounts, contacts, opportunities, tasks, notes, meetings, and customer interactions; summarize relationship history; identify deals that need follow-up; create or update CRM records; and prepare better outreach based on real CRM context.
+
+Salesflare is a simple yet powerful CRM for small and medium-sized B2B businesses. It helps teams track leads automatically, follow up consistently, manage visual sales pipelines, collaborate on customer relationships, and reduce manual CRM admin. The connector brings that CRM context into Claude so sales teams can work faster while staying grounded in their actual Salesflare data.
+
+This connector can read and write CRM data according to the permissions of the connected Salesflare user.
+
+## Tools
+
+* create\_account
+* create\_contact
+* create\_opportunity
+* create\_task
+* get\_account\_feed
+* list\_accounts
+* list\_contacts
+* list\_opportunities
+* list\_pipelines
+* list\_tags
+* list\_tasks
+* list\_users
+* update\_account
+* update\_contact
+* update\_opportunity
+* update\_task
+
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
+
+## Related connectors
+
+![](https://assets.claude.com/a8994e05e594a562449127d44e0fe86c31d8e41c.svg?w=128&fit=max&auto=format)
+
+### [Google Drive](https://claude.com/marketplace/connectors/google-drive)
+
+Search, read, and upload files instantly
+
+[Add Google Drive in Claude (opens in new tab)](https://claude.ai/directory/b89f7865-a755-4f86-8062-c3bd651740ce "Add in Claude")
+
+![](https://assets.claude.com/53ca8822f4c024f9b358b1e44148a1dc3c616dbe.svg?w=128&fit=max&auto=format)
+
+### [Gmail](https://claude.com/marketplace/connectors/gmail)
+
+Draft replies, summarize threads, & search your inbox
+
+[Add Gmail in Claude (opens in new tab)](https://claude.ai/directory/2701e52f-b826-4aaf-8b25-11f2a97c98b0 "Add in Claude")
+
+![](https://assets.claude.com/646945a1897f9146e5221ee6ace82001a2e52f4d.svg?w=128&fit=max&auto=format)
+
+### [Google Calendar](https://claude.com/marketplace/connectors/google-calendar)
+
+Manage your schedule and coordinate meetings effortlessly
+
+[Add Google Calendar in Claude (opens in new tab)](https://claude.ai/directory/2a838eaa-f7b4-4bc2-bd47-c326f3c813c5 "Add in Claude")
+
+![](https://assets.claude.com/20c8443aa72ae4e4d77f923e6c33314713f965e8.svg?w=128&fit=max&auto=format)
+
+### [Microsoft 365](https://claude.com/marketplace/connectors/microsoft-365)
+
+Access your company's SharePoint, OneDrive, Outlook, and Teams directly in Claude
+
+[Add Microsoft 365 in Claude (opens in new tab)](https://claude.ai/directory/ce0c9cda-5ea5-44c5-9cf2-40810dfa6582 "Add in Claude")
+
+![](https://assets.claude.com/517cb0a746dcf968ce8efda7613b69101b536a52.svg?w=128&fit=max&auto=format)
+
+### [Notion](https://claude.com/marketplace/connectors/notion)
+
+Connect your Notion workspace to search, update, and power workflows across tools
+
+[Add Notion in Claude (opens in new tab)](https://claude.ai/directory/69f3a300-cc60-48c4-b237-dfac56530dbf "Add in Claude")
+
+![](https://assets.claude.com/bdf25f3db0bfe9b74855f504c31bd8522659edae.svg?w=128&fit=max&auto=format)
+
+### [Slack](https://claude.com/marketplace/connectors/slack)
+
+Send messages, create canvases, and fetch Slack data
+
+[Add Slack in Claude (opens in new tab)](https://claude.ai/directory/597f662f-36de-437e-836e-5a81013cbfbe "Add in Claude")

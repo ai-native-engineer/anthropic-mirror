@@ -11,7 +11,7 @@ url: https://platform.claude.com/docs/en/api/php/beta
 
 ### Anthropic Beta
 
-- `AnthropicBeta`
+- `enum AnthropicBeta`
 
   - `"message-batches-2024-09-24"`
 
@@ -103,9 +103,15 @@ url: https://platform.claude.com/docs/en/api/php/beta
 
   - `"mid-conversation-system-clear-at-2026-08-21"`
 
+  - `"compact-2026-09-04"`
+
+  - `"inline-tools-2026-09-15"`
+
+  - `"mcp-client-2026-09-15"`
+
 ### Beta API Error
 
-- `BetaAPIError`
+- `class BetaAPIError`
 
   - `"api_error" type`
 
@@ -113,7 +119,7 @@ url: https://platform.claude.com/docs/en/api/php/beta
 
 ### Beta Authentication Error
 
-- `BetaAuthenticationError`
+- `class BetaAuthenticationError`
 
   - `"authentication_error" type`
 
@@ -121,7 +127,7 @@ url: https://platform.claude.com/docs/en/api/php/beta
 
 ### Beta Billing Error
 
-- `BetaBillingError`
+- `class BetaBillingError`
 
   - `"billing_error" type`
 
@@ -129,61 +135,61 @@ url: https://platform.claude.com/docs/en/api/php/beta
 
 ### Beta Currency
 
-- `BetaCurrency`
+- `enum BetaCurrency`
 
 ### Beta Error
 
-- `BetaError`
+- `class BetaError`
 
-  - `BetaInvalidRequestError`
+  - `class BetaInvalidRequestError`
 
     - `"invalid_request_error" type`
 
     - `string message`
 
-  - `BetaAuthenticationError`
+  - `class BetaAuthenticationError`
 
     - `"authentication_error" type`
 
     - `string message`
 
-  - `BetaBillingError`
+  - `class BetaBillingError`
 
     - `"billing_error" type`
 
     - `string message`
 
-  - `BetaPermissionError`
+  - `class BetaPermissionError`
 
     - `"permission_error" type`
 
     - `string message`
 
-  - `BetaNotFoundError`
+  - `class BetaNotFoundError`
 
     - `"not_found_error" type`
 
     - `string message`
 
-  - `BetaRateLimitError`
+  - `class BetaRateLimitError`
 
     - `"rate_limit_error" type`
 
     - `string message`
 
-  - `BetaGatewayTimeoutError`
+  - `class BetaGatewayTimeoutError`
 
     - `"timeout_error" type`
 
     - `string message`
 
-  - `BetaAPIError`
+  - `class BetaAPIError`
 
     - `"api_error" type`
 
     - `string message`
 
-  - `BetaOverloadedError`
+  - `class BetaOverloadedError`
 
     - `"overloaded_error" type`
 
@@ -191,7 +197,7 @@ url: https://platform.claude.com/docs/en/api/php/beta
 
 ### Beta Error Response
 
-- `BetaErrorResponse`
+- `class BetaErrorResponse`
 
   - `"error" type`
 
@@ -201,7 +207,7 @@ url: https://platform.claude.com/docs/en/api/php/beta
 
 ### Beta Gateway Timeout Error
 
-- `BetaGatewayTimeoutError`
+- `class BetaGatewayTimeoutError`
 
   - `"timeout_error" type`
 
@@ -209,7 +215,7 @@ url: https://platform.claude.com/docs/en/api/php/beta
 
 ### Beta Invalid Request Error
 
-- `BetaInvalidRequestError`
+- `class BetaInvalidRequestError`
 
   - `"invalid_request_error" type`
 
@@ -217,7 +223,7 @@ url: https://platform.claude.com/docs/en/api/php/beta
 
 ### Beta Monetary Amount
 
-- `BetaMonetaryAmount`
+- `class BetaMonetaryAmount`
 
   - `string amount`
 
@@ -229,7 +235,7 @@ url: https://platform.claude.com/docs/en/api/php/beta
 
 ### Beta Not Found Error
 
-- `BetaNotFoundError`
+- `class BetaNotFoundError`
 
   - `"not_found_error" type`
 
@@ -237,7 +243,7 @@ url: https://platform.claude.com/docs/en/api/php/beta
 
 ### Beta Overloaded Error
 
-- `BetaOverloadedError`
+- `class BetaOverloadedError`
 
   - `"overloaded_error" type`
 
@@ -245,7 +251,7 @@ url: https://platform.claude.com/docs/en/api/php/beta
 
 ### Beta Permission Error
 
-- `BetaPermissionError`
+- `class BetaPermissionError`
 
   - `"permission_error" type`
 
@@ -253,7 +259,7 @@ url: https://platform.claude.com/docs/en/api/php/beta
 
 ### Beta Rate Limit Error
 
-- `BetaRateLimitError`
+- `class BetaRateLimitError`
 
   - `"rate_limit_error" type`
 
@@ -295,9 +301,13 @@ The Models API response can be used to determine which models are available for 
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaModelInfo`
+- `class BetaModelInfo`
 
   - `"model" type`
 
@@ -371,6 +381,12 @@ var_dump($page);
           "supported": true
         },
         "code_execution": {
+          "supported": true
+        },
+        "compaction": {
+          "summarize": {
+            "supported": true
+          },
           "supported": true
         },
         "context_management": {
@@ -459,9 +475,13 @@ The Models API response can be used to determine information about a specific mo
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaModelInfo`
+- `class BetaModelInfo`
 
   - `"model" type`
 
@@ -533,6 +553,12 @@ var_dump($betaModelInfo);
     "code_execution": {
       "supported": true
     },
+    "compaction": {
+      "summarize": {
+        "supported": true
+      },
+      "supported": true
+    },
     "context_management": {
       "clear_thinking_20251015": {
         "supported": true
@@ -596,7 +622,7 @@ var_dump($betaModelInfo);
 
 ### Create a Message
 
-`$client->beta->messages->create(int maxTokens, list<BetaMessageParam> messages, Model model, ?BetaCacheControlEphemeral cacheControl, ?Container container, ?BetaContextManagementConfig contextManagement, ?BetaDiagnosticsParam diagnostics, ?FallbackCreditToken fallbackCreditToken, ?BetaFallbacksParam fallbacks, ?string inferenceGeo, ?list<BetaRequestMCPServerURLDefinition> mcpServers, ?BetaMetadata metadata, ?BetaOutputConfig outputConfig, ?BetaJSONOutputFormat outputFormat, ?ServiceTier serviceTier, ?Speed speed, ?list<string> stopSequences, ?System system, ?float temperature, ?BetaThinkingConfigParam thinking, ?BetaToolChoice toolChoice, ?list<BetaToolUnion> tools, ?int topK, ?float topP, ?list<AnthropicBeta> betas, ?string userProfileID, ?string workspaceID): BetaMessage`
+`$client->beta->messages->create(int maxTokens, list<BetaMessageParam> messages, Model model, ?BetaCacheControlEphemeral cacheControl, ?BetaCompactionConfig compaction, ?Container container, ?BetaContextManagementConfig contextManagement, ?BetaDiagnosticsParam diagnostics, ?FallbackCreditToken fallbackCreditToken, ?BetaFallbacksParam fallbacks, ?string inferenceGeo, ?list<BetaRequestMCPServerURLDefinition> mcpServers, ?BetaMetadata metadata, ?BetaOutputConfig outputConfig, ?BetaJSONOutputFormat outputFormat, ?ServiceTier serviceTier, ?Speed speed, ?list<string> stopSequences, ?System system, ?float temperature, ?BetaThinkingConfigParam thinking, ?BetaToolChoice toolChoice, ?list<BetaToolUnion> tools, ?int topK, ?float topP, ?list<AnthropicBeta> betas, ?string userProfileID, ?string workspaceID): BetaMessage`
 
 **POST** `/v1/messages`
 
@@ -678,6 +704,17 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 - `cacheControl?:optional BetaCacheControlEphemeral`
 
   Top-level cache control automatically applies a cache_control marker to the last cacheable block in the request.
+
+- `compaction?:optional BetaCompactionConfig`
+
+  Compact the whole conversation and return a signed `compaction` block,
+  alone, that a later request sends back first in `messages`, in place of
+  the messages it summarizes. There is no trigger and no pause flag: sending
+  the parameter compacts, and nothing is sampled after the block.
+
+  The summarization prompt is the server's own unless `instructions` are
+  given, which then replace it for this request; a value that is empty or
+  only whitespace counts as absent.
 
 - `container?:optional Container`
 
@@ -853,6 +890,10 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 - `outputFormat?:optional BetaJSONOutputFormat`
 
   **Deprecated**
@@ -863,7 +904,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
 - `temperature?:optional float`
 
-  **Deprecated**: Deprecated. Models released after Claude Opus 4.6 do not support setting temperature. A value of 1.0 of will be accepted for backwards compatibility, all other values will be rejected with a 400 error.
+  **Deprecated**: Deprecated. Models released after Claude Opus 4.6 do not support setting temperature. A value of 1.0 will be accepted for backwards compatibility, all other values will be rejected with a 400 error.
 
   Amount of randomness injected into the response.
 
@@ -893,7 +934,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
 #### Returns
 
-- `BetaMessage`
+- `class BetaMessage`
 
   - `"message" type`
 
@@ -948,8 +989,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
   - `?BetaDiagnostics diagnostics`
 
-    Response envelope for request-level diagnostics. Present (possibly
-    null) whenever the caller supplied `diagnostics` on the request.
+    Request-level diagnostics: why the prompt cache could not fully reuse
+    the prefix of the request named by `diagnostics.previous_message_id`.
 
   - `Model model`
 
@@ -1001,33 +1042,39 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     Total input tokens in a request is the summation of `input_tokens`, `cache_creation_input_tokens`, and `cache_read_input_tokens`.
 
-  - `?list<BetaThinkingDroppedInputTransformation> inputTransformations`
+  - `?list<BetaInputTransformation> inputTransformations`
 
-    Changes the API made to the request's input before showing it to the model:
-    one entry per change, in request order. Today the only entry type is
-    `thinking_dropped` — a `thinking`, `redacted_thinking` or `connector_text`
-    block from the request's `messages` that was removed from the prompt instead
-    of being shown to the model because it failed a binding check. More entry
-    types may be added over time; ignore types you do not recognize.
+    Changes the API made to the request's input before showing it to the model,
+    and blocks that failed a binding check but were left unchanged: one entry per
+    block, in request order. Two entry types today. `thinking_dropped` — a
+    `thinking`, `redacted_thinking` or `connector_text` block from the request's
+    `messages` that was removed from the prompt instead of being shown to the
+    model because it failed a binding check. `thinking_mismatch_allowed` — a
+    `thinking` or `redacted_thinking` block that failed the conversation check
+    (the conversation before it differs from the one it was created in, or it
+    carries no record of one on a model that requires it) and was shown to the
+    model all the same, because that check is not enforced for this request.
+    More entry types may be added over time; ignore types you do not recognize.
 
     Requires `anthropic-beta: thinking-binding-controls-2026-08-01`. Present on
     every such response from a model that supports extended thinking, as `[]`
-    when nothing was changed; without the beta, blocks are removed all the same
-    but nothing is reported. Removed blocks contribute nothing to
-    `usage.input_tokens`. When streaming, the array is final in `message_start`;
-    the final `message_delta` event carries it only when a server-side model
-    fallback happened mid-stream, in which case it holds the serving model's
-    entries and replaces the one in `message_start`.
+    when there is no entry to report; without the beta, blocks are removed or
+    left in place all the same but nothing is reported. Removed blocks contribute
+    nothing to `usage.input_tokens`; blocks left in place count as sent. When
+    streaming, the array is final in `message_start`; the final `message_delta`
+    event carries it only when a server-side model fallback happened mid-stream,
+    in which case it holds the serving model's entries and replaces the one in
+    `message_start`.
 
-- `BetaRawMessageStreamEvent`
+- `class BetaRawMessageStreamEvent`
 
-  - `BetaRawMessageStartEvent`
+  - `class BetaRawMessageStartEvent`
 
     - `"message_start" type`
 
     - `BetaMessage message`
 
-  - `BetaRawMessageDeltaEvent`
+  - `class BetaRawMessageDeltaEvent`
 
     - `"message_delta" type`
 
@@ -1049,29 +1096,35 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       Total input tokens in a request is the summation of `input_tokens`, `cache_creation_input_tokens`, and `cache_read_input_tokens`.
 
-    - `?list<BetaThinkingDroppedInputTransformation> inputTransformations`
+    - `?list<BetaInputTransformation> inputTransformations`
 
-      Changes the API made to the request's input before showing it to the model:
-      one entry per change, in request order. Today the only entry type is
-      `thinking_dropped` — a `thinking`, `redacted_thinking` or `connector_text`
-      block from the request's `messages` that was removed from the prompt instead
-      of being shown to the model because it failed a binding check. More entry
-      types may be added over time; ignore types you do not recognize.
+      Changes the API made to the request's input before showing it to the model,
+      and blocks that failed a binding check but were left unchanged: one entry per
+      block, in request order. Two entry types today. `thinking_dropped` — a
+      `thinking`, `redacted_thinking` or `connector_text` block from the request's
+      `messages` that was removed from the prompt instead of being shown to the
+      model because it failed a binding check. `thinking_mismatch_allowed` — a
+      `thinking` or `redacted_thinking` block that failed the conversation check
+      (the conversation before it differs from the one it was created in, or it
+      carries no record of one on a model that requires it) and was shown to the
+      model all the same, because that check is not enforced for this request.
+      More entry types may be added over time; ignore types you do not recognize.
 
       Requires `anthropic-beta: thinking-binding-controls-2026-08-01`. Present on
       every such response from a model that supports extended thinking, as `[]`
-      when nothing was changed; without the beta, blocks are removed all the same
-      but nothing is reported. Removed blocks contribute nothing to
-      `usage.input_tokens`. When streaming, the array is final in `message_start`;
-      the final `message_delta` event carries it only when a server-side model
-      fallback happened mid-stream, in which case it holds the serving model's
-      entries and replaces the one in `message_start`.
+      when there is no entry to report; without the beta, blocks are removed or
+      left in place all the same but nothing is reported. Removed blocks contribute
+      nothing to `usage.input_tokens`; blocks left in place count as sent. When
+      streaming, the array is final in `message_start`; the final `message_delta`
+      event carries it only when a server-side model fallback happened mid-stream,
+      in which case it holds the serving model's entries and replaces the one in
+      `message_start`.
 
-  - `BetaRawMessageStopEvent`
+  - `class BetaRawMessageStopEvent`
 
     - `"message_stop" type`
 
-  - `BetaRawContentBlockStartEvent`
+  - `class BetaRawContentBlockStartEvent`
 
     - `"content_block_start" type`
 
@@ -1079,7 +1132,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `int index`
 
-  - `BetaRawContentBlockDeltaEvent`
+  - `class BetaRawContentBlockDeltaEvent`
 
     - `"content_block_delta" type`
 
@@ -1087,7 +1140,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `int index`
 
-  - `BetaRawContentBlockStopEvent`
+  - `class BetaRawContentBlockStopEvent`
 
     - `"content_block_stop" type`
 
@@ -1114,6 +1167,7 @@ $betaMessage = $client->beta->messages->create(
   ],
   model: Model::CLAUDE_OPUS_5,
   cacheControl: ['type' => 'ephemeral', 'ttl' => '5m'],
+  compaction: ['type' => 'summarize', 'instructions' => 'instructions'],
   container: [
     'id' => 'id',
     'skills' => [
@@ -1321,7 +1375,7 @@ var_dump($betaMessage);
 
 ### Count tokens in a Message
 
-`$client->beta->messages->countTokens(list<BetaMessageParam> messages, Model model, ?BetaCacheControlEphemeral cacheControl, ?BetaContextManagementConfig contextManagement, ?list<BetaRequestMCPServerURLDefinition> mcpServers, ?BetaOutputConfig outputConfig, ?BetaJSONOutputFormat outputFormat, ?Speed speed, ?System system, ?BetaThinkingConfigParam thinking, ?BetaToolChoice toolChoice, ?list<Tool> tools, ?list<AnthropicBeta> betas, ?string userProfileID, ?string workspaceID): BetaMessageTokensCount`
+`$client->beta->messages->countTokens(list<BetaMessageParam> messages, Model model, ?BetaCacheControlEphemeral cacheControl, ?BetaCompactionConfig compaction, ?BetaContextManagementConfig contextManagement, ?list<BetaRequestMCPServerURLDefinition> mcpServers, ?BetaOutputConfig outputConfig, ?BetaJSONOutputFormat outputFormat, ?Speed speed, ?System system, ?BetaThinkingConfigParam thinking, ?BetaToolChoice toolChoice, ?list<Tool> tools, ?list<AnthropicBeta> betas, ?string userProfileID, ?string workspaceID): BetaMessageTokensCount`
 
 **POST** `/v1/messages/count_tokens`
 
@@ -1393,6 +1447,17 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 - `cacheControl?:optional BetaCacheControlEphemeral`
 
   Top-level cache control automatically applies a cache_control marker to the last cacheable block in the request.
+
+- `compaction?:optional BetaCompactionConfig`
+
+  Compact the whole conversation and return a signed `compaction` block,
+  alone, that a later request sends back first in `messages`, in place of
+  the messages it summarizes. There is no trigger and no pause flag: sending
+  the parameter compacts, and nothing is sampled after the block.
+
+  The summarization prompt is the server's own unless `instructions` are
+  given, which then replace it for this request; a value that is empty or
+  only whitespace counts as absent.
 
 - `contextManagement?:optional BetaContextManagementConfig`
 
@@ -1504,6 +1569,10 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 - `outputFormat?:optional BetaJSONOutputFormat`
 
   **Deprecated**
@@ -1514,7 +1583,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
 #### Returns
 
-- `BetaMessageTokensCount`
+- `class BetaMessageTokensCount`
 
   - `?BetaCountTokensContextManagementResponse contextManagement`
 
@@ -1544,6 +1613,7 @@ $betaMessageTokensCount = $client->beta->messages->countTokens(
   ],
   model: Model::CLAUDE_OPUS_5,
   cacheControl: ['type' => 'ephemeral', 'ttl' => '5m'],
+  compaction: ['type' => 'summarize', 'instructions' => 'instructions'],
   contextManagement: [
     'edits' => [
       [
@@ -1664,9 +1734,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `MessageBatch`
+- `class MessageBatch`
 
   - `"message_batch" type`
 
@@ -1743,6 +1817,9 @@ $betaMessageBatch = $client->beta->messages->batches->create(
         ],
         'model' => Model::CLAUDE_OPUS_5,
         'cacheControl' => ['type' => 'ephemeral', 'ttl' => '5m'],
+        'compaction' => [
+          'type' => 'summarize', 'instructions' => 'instructions'
+        ],
         'container' => [
           'id' => 'id',
           'skills' => [
@@ -1893,9 +1970,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `MessageBatch`
+- `class MessageBatch`
 
   - `"message_batch" type`
 
@@ -2022,9 +2103,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `MessageBatch`
+- `class MessageBatch`
 
   - `"message_batch" type`
 
@@ -2150,9 +2235,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `MessageBatch`
+- `class MessageBatch`
 
   - `"message_batch" type`
 
@@ -2269,9 +2358,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `DeletedMessageBatch`
+- `class DeletedMessageBatch`
 
   - `"message_batch_deleted" type`
 
@@ -2334,9 +2427,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `MessageBatchIndividualResponse`
+- `class MessageBatchIndividualResponse`
 
   - `string customID`
 
@@ -2426,9 +2523,13 @@ Create Agent
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaManagedAgentsAgent`
+- `class BetaManagedAgentsAgent`
 
   - `Type type`
 
@@ -2635,9 +2736,13 @@ List Agents
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaManagedAgentsAgent`
+- `class BetaManagedAgentsAgent`
 
   - `Type type`
 
@@ -2797,6 +2902,8 @@ Get Agent
 
 - `agentID: string`
 
+  Unique identifier of the agent to retrieve.
+
 - `version?:optional int`
 
   Agent version. Omit for the most recent version. Must be at least 1 if specified.
@@ -2807,9 +2914,13 @@ Get Agent
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaManagedAgentsAgent`
+- `class BetaManagedAgentsAgent`
 
   - `Type type`
 
@@ -2961,6 +3072,8 @@ Update Agent
 
 - `agentID: string`
 
+  Unique identifier of the agent to update.
+
 - `description?:optional string`
 
   Description. Omit to preserve; send empty string or null to clear.
@@ -3007,9 +3120,13 @@ Update Agent
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaManagedAgentsAgent`
+- `class BetaManagedAgentsAgent`
 
   - `Type type`
 
@@ -3199,15 +3316,21 @@ Archive Agent
 
 - `agentID: string`
 
+  Unique identifier of the agent to archive.
+
 - `betas?:optional list<AnthropicBeta>`
 
   Optional header to specify the beta version(s) you want to use.
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaManagedAgentsAgent`
+- `class BetaManagedAgentsAgent`
 
   - `Type type`
 
@@ -3360,6 +3483,8 @@ List Agent Versions
 
 - `agentID: string`
 
+  Agent ID to list versions for.
+
 - `limit?:optional int`
 
   Maximum results per page. Default 20, maximum 100.
@@ -3374,9 +3499,13 @@ List Agent Versions
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaManagedAgentsAgent`
+- `class BetaManagedAgentsAgent`
 
   - `Type type`
 
@@ -3560,9 +3689,13 @@ Create a new environment with the specified configuration.
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaEnvironment`
+- `class BetaEnvironment`
 
   - `"environment" type`
 
@@ -3724,9 +3857,13 @@ List environments with pagination support.
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaEnvironment`
+- `class BetaEnvironment`
 
   - `"environment" type`
 
@@ -3860,9 +3997,13 @@ Retrieve a specific environment by ID.
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaEnvironment`
+- `class BetaEnvironment`
 
   - `"environment" type`
 
@@ -4009,9 +4150,13 @@ Update an existing environment's configuration.
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaEnvironment`
+- `class BetaEnvironment`
 
   - `"environment" type`
 
@@ -4160,9 +4305,13 @@ Delete an environment by ID. Returns a confirmation of the deletion.
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaEnvironmentDeleteResponse`
+- `class BetaEnvironmentDeleteResponse`
 
   - `Type type`
 
@@ -4217,9 +4366,13 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaEnvironment`
+- `class BetaEnvironment`
 
   - `"environment" type`
 
@@ -4352,9 +4505,13 @@ Retrieve detailed information about a specific work item.
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `SelfHostedWork`
+- `class SelfHostedWork`
 
   - `"work" type`
 
@@ -4484,7 +4641,7 @@ Long poll for work items in the queue.
 
 #### Returns
 
-- `SelfHostedWork`
+- `class SelfHostedWork`
 
   - `"work" type`
 
@@ -4605,7 +4762,7 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
 
 #### Returns
 
-- `SelfHostedWork`
+- `class SelfHostedWork`
 
   - `"work" type`
 
@@ -4732,7 +4889,7 @@ Record a heartbeat for a work item to maintain the lease.
 
 #### Returns
 
-- `SelfHostedWorkHeartbeatResponse`
+- `class SelfHostedWorkHeartbeatResponse`
 
   - `"work_heartbeat" type`
 
@@ -4818,9 +4975,13 @@ Stop a work item, initiating graceful or forced shutdown.
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `SelfHostedWork`
+- `class SelfHostedWork`
 
   - `"work" type`
 
@@ -4949,7 +5110,7 @@ List work items in an environment.
 
 #### Returns
 
-- `SelfHostedWork`
+- `class SelfHostedWork`
 
   - `"work" type`
 
@@ -5078,9 +5239,13 @@ Update work item metadata with merge semantics.
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `SelfHostedWork`
+- `class SelfHostedWork`
 
   - `"work" type`
 
@@ -5197,9 +5362,13 @@ Get statistics about the work queue for an environment.
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `SelfHostedWorkQueueStats`
+- `class SelfHostedWorkQueueStats`
 
   - `"work_queue_stats" type`
 
@@ -5301,9 +5470,13 @@ Create Session
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaManagedAgentsSession`
+- `class BetaManagedAgentsSession`
 
   - `Type type`
 
@@ -5662,9 +5835,13 @@ List Sessions
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaManagedAgentsSession`
+- `class BetaManagedAgentsSession`
 
   - `Type type`
 
@@ -5970,9 +6147,13 @@ Get Session
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaManagedAgentsSession`
+- `class BetaManagedAgentsSession`
 
   - `Type type`
 
@@ -6280,9 +6461,13 @@ Update Session
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaManagedAgentsSession`
+- `class BetaManagedAgentsSession`
 
   - `Type type`
 
@@ -6602,9 +6787,13 @@ Delete Session
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaManagedAgentsDeletedSession`
+- `class BetaManagedAgentsDeletedSession`
 
   - `Type type`
 
@@ -6655,9 +6844,13 @@ Archive Session
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaManagedAgentsSession`
+- `class BetaManagedAgentsSession`
 
   - `Type type`
 
@@ -6959,8 +7152,6 @@ List Events
 
 - `limit?:optional int`
 
-  Query parameter for limit
-
 - `order?:optional Order`
 
   Sort direction for results, ordered by the event's `processed_at`. Defaults to `asc` (chronological).
@@ -6979,11 +7170,15 @@ List Events
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `ManagedAgentsSessionEvent`
+- `class ManagedAgentsSessionEvent`
 
-  - `ManagedAgentsUserMessageEvent`
+  - `class ManagedAgentsUserMessageEvent`
 
     - `Type type`
 
@@ -6999,7 +7194,7 @@ List Events
 
       A timestamp in RFC 3339 format
 
-  - `ManagedAgentsUserInterruptEvent`
+  - `class ManagedAgentsUserInterruptEvent`
 
     - `Type type`
 
@@ -7015,7 +7210,7 @@ List Events
 
       If absent, interrupts every non-archived thread in a multiagent session (or the primary alone in a single-agent session). If present, interrupts only the named thread.
 
-  - `ManagedAgentsUserToolConfirmationEvent`
+  - `class ManagedAgentsUserToolConfirmationEvent`
 
     - `Type type`
 
@@ -7041,9 +7236,9 @@ List Events
 
     - `?string sessionThreadID`
 
-      When set, the confirmation routes to this subagent's thread rather than the primary. Echo this from the `session_thread_id` on the `agent.tool_use` or `agent.mcp_tool_use` event that prompted the approval.
+      Set by the server to the subagent thread this confirmation was routed to. Omitted when it was routed to the primary thread.
 
-  - `ManagedAgentsUserCustomToolResultEvent`
+  - `class ManagedAgentsUserCustomToolResultEvent`
 
     - `Type type`
 
@@ -7069,9 +7264,9 @@ List Events
 
     - `?string sessionThreadID`
 
-      Routes this result to a subagent thread. Copy from the `agent.custom_tool_use` event's `session_thread_id`.
+      Set by the server to the subagent thread this result was routed to. Omitted when it was routed to the primary thread.
 
-  - `ManagedAgentsAgentCustomToolUseEvent`
+  - `class ManagedAgentsAgentCustomToolUseEvent`
 
     - `Type type`
 
@@ -7093,9 +7288,9 @@ List Events
 
     - `?string sessionThreadID`
 
-      When set, this event was cross-posted from a subagent's thread to surface its custom tool use on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.custom_tool_result` event to route the result back.
+      When set, this event was cross-posted from a subagent's thread to surface its custom tool use on the primary thread's stream. Empty on the thread's own events. Informational only: the server routes the matching `user.custom_tool_result` by `custom_tool_use_id`, so clients do not send it back.
 
-  - `ManagedAgentsAgentMessageEvent`
+  - `class ManagedAgentsAgentMessageEvent`
 
     - `Type type`
 
@@ -7111,7 +7306,7 @@ List Events
 
       A timestamp in RFC 3339 format
 
-  - `ManagedAgentsAgentThinkingEvent`
+  - `class ManagedAgentsAgentThinkingEvent`
 
     - `Type type`
 
@@ -7123,7 +7318,7 @@ List Events
 
       A timestamp in RFC 3339 format
 
-  - `ManagedAgentsAgentMCPToolUseEvent`
+  - `class ManagedAgentsAgentMCPToolUseEvent`
 
     - `Type type`
 
@@ -7147,7 +7342,7 @@ List Events
 
       A timestamp in RFC 3339 format
 
-    - `?EvaluatedPermission evaluatedPermission`
+    - `?ManagedAgentsAgentEvaluatedPermission evaluatedPermission`
 
       AgentEvaluatedPermission enum
 
@@ -7157,9 +7352,9 @@ List Events
 
     - `?string sessionThreadID`
 
-      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
+      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Informational only: the server routes the matching `user.tool_confirmation` by `tool_use_id`, so clients do not send it back.
 
-  - `ManagedAgentsAgentMCPToolResultEvent`
+  - `class ManagedAgentsAgentMCPToolResultEvent`
 
     - `Type type`
 
@@ -7183,7 +7378,7 @@ List Events
 
       Whether the tool execution resulted in an error.
 
-  - `ManagedAgentsAgentToolUseEvent`
+  - `class ManagedAgentsAgentToolUseEvent`
 
     - `Type type`
 
@@ -7203,7 +7398,7 @@ List Events
 
       A timestamp in RFC 3339 format
 
-    - `?EvaluatedPermission evaluatedPermission`
+    - `?ManagedAgentsAgentEvaluatedPermission evaluatedPermission`
 
       AgentEvaluatedPermission enum
 
@@ -7213,9 +7408,9 @@ List Events
 
     - `?string sessionThreadID`
 
-      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
+      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Informational only: the server routes the matching `user.tool_confirmation` or `user.tool_result` by `tool_use_id`, so clients do not send it back.
 
-  - `ManagedAgentsAgentToolResultEvent`
+  - `class ManagedAgentsAgentToolResultEvent`
 
     - `Type type`
 
@@ -7239,7 +7434,7 @@ List Events
 
       Whether the tool execution resulted in an error.
 
-  - `ManagedAgentsAgentThreadMessageReceivedEvent`
+  - `class ManagedAgentsAgentThreadMessageReceivedEvent`
 
     - `Type type`
 
@@ -7263,7 +7458,7 @@ List Events
 
       Name of the callable agent this message came from. Absent when received from the primary agent.
 
-  - `ManagedAgentsAgentThreadMessageSentEvent`
+  - `class ManagedAgentsAgentThreadMessageSentEvent`
 
     - `Type type`
 
@@ -7287,7 +7482,7 @@ List Events
 
       Name of the callable agent this message was sent to. Absent when sent to the primary agent.
 
-  - `ManagedAgentsAgentThreadContextCompactedEvent`
+  - `class ManagedAgentsAgentThreadContextCompactedEvent`
 
     - `Type type`
 
@@ -7299,7 +7494,7 @@ List Events
 
       A timestamp in RFC 3339 format
 
-  - `ManagedAgentsSessionErrorEvent`
+  - `class ManagedAgentsSessionErrorEvent`
 
     - `Type type`
 
@@ -7313,7 +7508,7 @@ List Events
 
       A timestamp in RFC 3339 format
 
-  - `ManagedAgentsSessionStatusRescheduledEvent`
+  - `class ManagedAgentsSessionStatusRescheduledEvent`
 
     - `Type type`
 
@@ -7325,7 +7520,7 @@ List Events
 
       A timestamp in RFC 3339 format
 
-  - `ManagedAgentsSessionStatusRunningEvent`
+  - `class ManagedAgentsSessionStatusRunningEvent`
 
     - `Type type`
 
@@ -7337,7 +7532,7 @@ List Events
 
       A timestamp in RFC 3339 format
 
-  - `ManagedAgentsSessionStatusIdleEvent`
+  - `class ManagedAgentsSessionStatusIdleEvent`
 
     - `Type type`
 
@@ -7351,7 +7546,7 @@ List Events
 
     - `StopReason stopReason`
 
-  - `ManagedAgentsSessionStatusTerminatedEvent`
+  - `class ManagedAgentsSessionStatusTerminatedEvent`
 
     - `Type type`
 
@@ -7363,7 +7558,7 @@ List Events
 
       A timestamp in RFC 3339 format
 
-  - `ManagedAgentsSessionThreadCreatedEvent`
+  - `class ManagedAgentsSessionThreadCreatedEvent`
 
     - `Type type`
 
@@ -7383,7 +7578,7 @@ List Events
 
       Public `sthr_` ID of the newly created thread.
 
-  - `ManagedAgentsSpanOutcomeEvaluationStartEvent`
+  - `class ManagedAgentsSpanOutcomeEvaluationStartEvent`
 
     - `Type type`
 
@@ -7403,7 +7598,7 @@ List Events
 
       A timestamp in RFC 3339 format
 
-  - `ManagedAgentsSpanOutcomeEvaluationEndEvent`
+  - `class ManagedAgentsSpanOutcomeEvaluationEndEvent`
 
     - `Type type`
 
@@ -7439,7 +7634,7 @@ List Events
 
       Token usage for a single model request.
 
-  - `ManagedAgentsSpanModelRequestStartEvent`
+  - `class ManagedAgentsSpanModelRequestStartEvent`
 
     - `Type type`
 
@@ -7451,7 +7646,7 @@ List Events
 
       A timestamp in RFC 3339 format
 
-  - `ManagedAgentsSpanModelRequestEndEvent`
+  - `class ManagedAgentsSpanModelRequestEndEvent`
 
     - `Type type`
 
@@ -7475,7 +7670,7 @@ List Events
 
       A timestamp in RFC 3339 format
 
-  - `ManagedAgentsSpanOutcomeEvaluationOngoingEvent`
+  - `class ManagedAgentsSpanOutcomeEvaluationOngoingEvent`
 
     - `Type type`
 
@@ -7495,7 +7690,7 @@ List Events
 
       A timestamp in RFC 3339 format
 
-  - `ManagedAgentsUserDefineOutcomeEvent`
+  - `class ManagedAgentsUserDefineOutcomeEvent`
 
     - `Type type`
 
@@ -7523,7 +7718,7 @@ List Events
 
       Rubric for grading the quality of an outcome.
 
-  - `ManagedAgentsSessionDeletedEvent`
+  - `class ManagedAgentsSessionDeletedEvent`
 
     - `Type type`
 
@@ -7535,7 +7730,7 @@ List Events
 
       A timestamp in RFC 3339 format
 
-  - `ManagedAgentsSessionThreadStatusRunningEvent`
+  - `class ManagedAgentsSessionThreadStatusRunningEvent`
 
     - `Type type`
 
@@ -7555,7 +7750,7 @@ List Events
 
       Public sthr_ ID of the thread that started running.
 
-  - `ManagedAgentsSessionThreadStatusIdleEvent`
+  - `class ManagedAgentsSessionThreadStatusIdleEvent`
 
     - `Type type`
 
@@ -7577,7 +7772,7 @@ List Events
 
     - `StopReason stopReason`
 
-  - `ManagedAgentsSessionThreadStatusTerminatedEvent`
+  - `class ManagedAgentsSessionThreadStatusTerminatedEvent`
 
     - `Type type`
 
@@ -7597,7 +7792,7 @@ List Events
 
       Public sthr_ ID of the thread that terminated.
 
-  - `BetaManagedAgentsUserToolResultEvent`
+  - `class BetaManagedAgentsUserToolResultEvent`
 
     - `Type type`
 
@@ -7623,9 +7818,9 @@ List Events
 
     - `?string sessionThreadID`
 
-      Routes this result to a subagent thread. Copy from the `agent.tool_use` event's `session_thread_id`.
+      Set by the server to the subagent thread this result was routed to. Omitted when it was routed to the primary thread.
 
-  - `ManagedAgentsSessionThreadStatusRescheduledEvent`
+  - `class ManagedAgentsSessionThreadStatusRescheduledEvent`
 
     - `Type type`
 
@@ -7645,7 +7840,7 @@ List Events
 
       Public sthr_ ID of the thread that is retrying.
 
-  - `BetaManagedAgentsSessionUpdatedEvent`
+  - `class BetaManagedAgentsSessionUpdatedEvent`
 
     - `Type type`
 
@@ -7673,7 +7868,7 @@ List Events
 
       The session's new title. Present only when the update changed it.
 
-  - `BetaManagedAgentsSystemMessageEvent`
+  - `class BetaManagedAgentsSystemMessageEvent`
 
     - `Type type`
 
@@ -7689,7 +7884,7 @@ List Events
 
       A timestamp in RFC 3339 format
 
-  - `BetaManagedAgentsSessionUsageEvent`
+  - `class BetaManagedAgentsSessionUsageEvent`
 
     - `Type type`
 
@@ -7789,9 +7984,13 @@ Send Events
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `ManagedAgentsSendSessionEvents`
+- `class ManagedAgentsSendSessionEvents`
 
   - `?list<Data> data`
 
@@ -7863,11 +8062,15 @@ Stream Events
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `ManagedAgentsStreamSessionEvents`
+- `class ManagedAgentsStreamSessionEvents`
 
-  - `ManagedAgentsUserMessageEvent`
+  - `class ManagedAgentsUserMessageEvent`
 
     - `Type type`
 
@@ -7883,7 +8086,7 @@ Stream Events
 
       A timestamp in RFC 3339 format
 
-  - `ManagedAgentsUserInterruptEvent`
+  - `class ManagedAgentsUserInterruptEvent`
 
     - `Type type`
 
@@ -7899,7 +8102,7 @@ Stream Events
 
       If absent, interrupts every non-archived thread in a multiagent session (or the primary alone in a single-agent session). If present, interrupts only the named thread.
 
-  - `ManagedAgentsUserToolConfirmationEvent`
+  - `class ManagedAgentsUserToolConfirmationEvent`
 
     - `Type type`
 
@@ -7925,9 +8128,9 @@ Stream Events
 
     - `?string sessionThreadID`
 
-      When set, the confirmation routes to this subagent's thread rather than the primary. Echo this from the `session_thread_id` on the `agent.tool_use` or `agent.mcp_tool_use` event that prompted the approval.
+      Set by the server to the subagent thread this confirmation was routed to. Omitted when it was routed to the primary thread.
 
-  - `ManagedAgentsUserCustomToolResultEvent`
+  - `class ManagedAgentsUserCustomToolResultEvent`
 
     - `Type type`
 
@@ -7953,9 +8156,9 @@ Stream Events
 
     - `?string sessionThreadID`
 
-      Routes this result to a subagent thread. Copy from the `agent.custom_tool_use` event's `session_thread_id`.
+      Set by the server to the subagent thread this result was routed to. Omitted when it was routed to the primary thread.
 
-  - `ManagedAgentsAgentCustomToolUseEvent`
+  - `class ManagedAgentsAgentCustomToolUseEvent`
 
     - `Type type`
 
@@ -7977,9 +8180,9 @@ Stream Events
 
     - `?string sessionThreadID`
 
-      When set, this event was cross-posted from a subagent's thread to surface its custom tool use on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.custom_tool_result` event to route the result back.
+      When set, this event was cross-posted from a subagent's thread to surface its custom tool use on the primary thread's stream. Empty on the thread's own events. Informational only: the server routes the matching `user.custom_tool_result` by `custom_tool_use_id`, so clients do not send it back.
 
-  - `ManagedAgentsAgentMessageEvent`
+  - `class ManagedAgentsAgentMessageEvent`
 
     - `Type type`
 
@@ -7995,7 +8198,7 @@ Stream Events
 
       A timestamp in RFC 3339 format
 
-  - `ManagedAgentsAgentThinkingEvent`
+  - `class ManagedAgentsAgentThinkingEvent`
 
     - `Type type`
 
@@ -8007,7 +8210,7 @@ Stream Events
 
       A timestamp in RFC 3339 format
 
-  - `ManagedAgentsAgentMCPToolUseEvent`
+  - `class ManagedAgentsAgentMCPToolUseEvent`
 
     - `Type type`
 
@@ -8031,7 +8234,7 @@ Stream Events
 
       A timestamp in RFC 3339 format
 
-    - `?EvaluatedPermission evaluatedPermission`
+    - `?ManagedAgentsAgentEvaluatedPermission evaluatedPermission`
 
       AgentEvaluatedPermission enum
 
@@ -8041,9 +8244,9 @@ Stream Events
 
     - `?string sessionThreadID`
 
-      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
+      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Informational only: the server routes the matching `user.tool_confirmation` by `tool_use_id`, so clients do not send it back.
 
-  - `ManagedAgentsAgentMCPToolResultEvent`
+  - `class ManagedAgentsAgentMCPToolResultEvent`
 
     - `Type type`
 
@@ -8067,7 +8270,7 @@ Stream Events
 
       Whether the tool execution resulted in an error.
 
-  - `ManagedAgentsAgentToolUseEvent`
+  - `class ManagedAgentsAgentToolUseEvent`
 
     - `Type type`
 
@@ -8087,7 +8290,7 @@ Stream Events
 
       A timestamp in RFC 3339 format
 
-    - `?EvaluatedPermission evaluatedPermission`
+    - `?ManagedAgentsAgentEvaluatedPermission evaluatedPermission`
 
       AgentEvaluatedPermission enum
 
@@ -8097,9 +8300,9 @@ Stream Events
 
     - `?string sessionThreadID`
 
-      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
+      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Informational only: the server routes the matching `user.tool_confirmation` or `user.tool_result` by `tool_use_id`, so clients do not send it back.
 
-  - `ManagedAgentsAgentToolResultEvent`
+  - `class ManagedAgentsAgentToolResultEvent`
 
     - `Type type`
 
@@ -8123,7 +8326,7 @@ Stream Events
 
       Whether the tool execution resulted in an error.
 
-  - `ManagedAgentsAgentThreadMessageReceivedEvent`
+  - `class ManagedAgentsAgentThreadMessageReceivedEvent`
 
     - `Type type`
 
@@ -8147,7 +8350,7 @@ Stream Events
 
       Name of the callable agent this message came from. Absent when received from the primary agent.
 
-  - `ManagedAgentsAgentThreadMessageSentEvent`
+  - `class ManagedAgentsAgentThreadMessageSentEvent`
 
     - `Type type`
 
@@ -8171,7 +8374,7 @@ Stream Events
 
       Name of the callable agent this message was sent to. Absent when sent to the primary agent.
 
-  - `ManagedAgentsAgentThreadContextCompactedEvent`
+  - `class ManagedAgentsAgentThreadContextCompactedEvent`
 
     - `Type type`
 
@@ -8183,7 +8386,7 @@ Stream Events
 
       A timestamp in RFC 3339 format
 
-  - `ManagedAgentsSessionErrorEvent`
+  - `class ManagedAgentsSessionErrorEvent`
 
     - `Type type`
 
@@ -8197,7 +8400,7 @@ Stream Events
 
       A timestamp in RFC 3339 format
 
-  - `ManagedAgentsSessionStatusRescheduledEvent`
+  - `class ManagedAgentsSessionStatusRescheduledEvent`
 
     - `Type type`
 
@@ -8209,7 +8412,7 @@ Stream Events
 
       A timestamp in RFC 3339 format
 
-  - `ManagedAgentsSessionStatusRunningEvent`
+  - `class ManagedAgentsSessionStatusRunningEvent`
 
     - `Type type`
 
@@ -8221,7 +8424,7 @@ Stream Events
 
       A timestamp in RFC 3339 format
 
-  - `ManagedAgentsSessionStatusIdleEvent`
+  - `class ManagedAgentsSessionStatusIdleEvent`
 
     - `Type type`
 
@@ -8235,7 +8438,7 @@ Stream Events
 
     - `StopReason stopReason`
 
-  - `ManagedAgentsSessionStatusTerminatedEvent`
+  - `class ManagedAgentsSessionStatusTerminatedEvent`
 
     - `Type type`
 
@@ -8247,7 +8450,7 @@ Stream Events
 
       A timestamp in RFC 3339 format
 
-  - `ManagedAgentsSessionThreadCreatedEvent`
+  - `class ManagedAgentsSessionThreadCreatedEvent`
 
     - `Type type`
 
@@ -8267,7 +8470,7 @@ Stream Events
 
       Public `sthr_` ID of the newly created thread.
 
-  - `ManagedAgentsSpanOutcomeEvaluationStartEvent`
+  - `class ManagedAgentsSpanOutcomeEvaluationStartEvent`
 
     - `Type type`
 
@@ -8287,7 +8490,7 @@ Stream Events
 
       A timestamp in RFC 3339 format
 
-  - `ManagedAgentsSpanOutcomeEvaluationEndEvent`
+  - `class ManagedAgentsSpanOutcomeEvaluationEndEvent`
 
     - `Type type`
 
@@ -8323,7 +8526,7 @@ Stream Events
 
       Token usage for a single model request.
 
-  - `ManagedAgentsSpanModelRequestStartEvent`
+  - `class ManagedAgentsSpanModelRequestStartEvent`
 
     - `Type type`
 
@@ -8335,7 +8538,7 @@ Stream Events
 
       A timestamp in RFC 3339 format
 
-  - `ManagedAgentsSpanModelRequestEndEvent`
+  - `class ManagedAgentsSpanModelRequestEndEvent`
 
     - `Type type`
 
@@ -8359,7 +8562,7 @@ Stream Events
 
       A timestamp in RFC 3339 format
 
-  - `ManagedAgentsSpanOutcomeEvaluationOngoingEvent`
+  - `class ManagedAgentsSpanOutcomeEvaluationOngoingEvent`
 
     - `Type type`
 
@@ -8379,7 +8582,7 @@ Stream Events
 
       A timestamp in RFC 3339 format
 
-  - `ManagedAgentsUserDefineOutcomeEvent`
+  - `class ManagedAgentsUserDefineOutcomeEvent`
 
     - `Type type`
 
@@ -8407,7 +8610,7 @@ Stream Events
 
       Rubric for grading the quality of an outcome.
 
-  - `ManagedAgentsSessionDeletedEvent`
+  - `class ManagedAgentsSessionDeletedEvent`
 
     - `Type type`
 
@@ -8419,7 +8622,7 @@ Stream Events
 
       A timestamp in RFC 3339 format
 
-  - `ManagedAgentsSessionThreadStatusRunningEvent`
+  - `class ManagedAgentsSessionThreadStatusRunningEvent`
 
     - `Type type`
 
@@ -8439,7 +8642,7 @@ Stream Events
 
       Public sthr_ ID of the thread that started running.
 
-  - `ManagedAgentsSessionThreadStatusIdleEvent`
+  - `class ManagedAgentsSessionThreadStatusIdleEvent`
 
     - `Type type`
 
@@ -8461,7 +8664,7 @@ Stream Events
 
     - `StopReason stopReason`
 
-  - `ManagedAgentsSessionThreadStatusTerminatedEvent`
+  - `class ManagedAgentsSessionThreadStatusTerminatedEvent`
 
     - `Type type`
 
@@ -8481,7 +8684,7 @@ Stream Events
 
       Public sthr_ ID of the thread that terminated.
 
-  - `BetaManagedAgentsUserToolResultEvent`
+  - `class BetaManagedAgentsUserToolResultEvent`
 
     - `Type type`
 
@@ -8507,9 +8710,9 @@ Stream Events
 
     - `?string sessionThreadID`
 
-      Routes this result to a subagent thread. Copy from the `agent.tool_use` event's `session_thread_id`.
+      Set by the server to the subagent thread this result was routed to. Omitted when it was routed to the primary thread.
 
-  - `ManagedAgentsSessionThreadStatusRescheduledEvent`
+  - `class ManagedAgentsSessionThreadStatusRescheduledEvent`
 
     - `Type type`
 
@@ -8529,7 +8732,7 @@ Stream Events
 
       Public sthr_ ID of the thread that is retrying.
 
-  - `BetaManagedAgentsSessionUpdatedEvent`
+  - `class BetaManagedAgentsSessionUpdatedEvent`
 
     - `Type type`
 
@@ -8557,7 +8760,7 @@ Stream Events
 
       The session's new title. Present only when the update changed it.
 
-  - `BetaManagedAgentsStartEvent`
+  - `class BetaManagedAgentsStartEvent`
 
     - `Type type`
 
@@ -8565,7 +8768,7 @@ Stream Events
 
       The previewed event's type and id. The event type determines which delta types the preview's event_delta events carry: agent.message events stream content_delta fragments; agent.thinking previews are start-only — no deltas follow, and the buffered agent.thinking with the same id concludes them.
 
-  - `BetaManagedAgentsDeltaEvent`
+  - `class BetaManagedAgentsDeltaEvent`
 
     - `Type type`
 
@@ -8577,7 +8780,7 @@ Stream Events
 
       The id of the event being previewed. Matches event.id on the corresponding event_start and the buffered event that reconciles the preview.
 
-  - `BetaManagedAgentsSystemMessageEvent`
+  - `class BetaManagedAgentsSystemMessageEvent`
 
     - `Type type`
 
@@ -8593,7 +8796,7 @@ Stream Events
 
       A timestamp in RFC 3339 format
 
-  - `BetaManagedAgentsSessionUsageEvent`
+  - `class BetaManagedAgentsSessionUsageEvent`
 
     - `Type type`
 
@@ -8682,9 +8885,13 @@ Add Session Resource
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `ManagedAgentsFileResource`
+- `class ManagedAgentsFileResource`
 
   - `Type type`
 
@@ -8762,11 +8969,15 @@ List Session Resources
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `ManagedAgentsSessionResource`
+- `class ManagedAgentsSessionResource`
 
-  - `ManagedAgentsGitHubRepositoryResource`
+  - `class ManagedAgentsGitHubRepositoryResource`
 
     - `Type type`
 
@@ -8786,7 +8997,7 @@ List Session Resources
 
     - `?Checkout checkout`
 
-  - `ManagedAgentsFileResource`
+  - `class ManagedAgentsFileResource`
 
     - `Type type`
 
@@ -8804,7 +9015,7 @@ List Session Resources
 
       A timestamp in RFC 3339 format
 
-  - `ManagedAgentsMemoryStoreResource`
+  - `class ManagedAgentsMemoryStoreResource`
 
     - `Type type`
 
@@ -8902,11 +9113,15 @@ Get Session Resource
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `ResourceGetResponse`
+- `class ResourceGetResponse`
 
-  - `ManagedAgentsGitHubRepositoryResource`
+  - `class ManagedAgentsGitHubRepositoryResource`
 
     - `Type type`
 
@@ -8926,7 +9141,7 @@ Get Session Resource
 
     - `?Checkout checkout`
 
-  - `ManagedAgentsFileResource`
+  - `class ManagedAgentsFileResource`
 
     - `Type type`
 
@@ -8944,7 +9159,7 @@ Get Session Resource
 
       A timestamp in RFC 3339 format
 
-  - `ManagedAgentsMemoryStoreResource`
+  - `class ManagedAgentsMemoryStoreResource`
 
     - `Type type`
 
@@ -9032,11 +9247,15 @@ Update Session Resource
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `ResourceUpdateResponse`
+- `class ResourceUpdateResponse`
 
-  - `ManagedAgentsGitHubRepositoryResource`
+  - `class ManagedAgentsGitHubRepositoryResource`
 
     - `Type type`
 
@@ -9056,7 +9275,7 @@ Update Session Resource
 
     - `?Checkout checkout`
 
-  - `ManagedAgentsFileResource`
+  - `class ManagedAgentsFileResource`
 
     - `Type type`
 
@@ -9074,7 +9293,7 @@ Update Session Resource
 
       A timestamp in RFC 3339 format
 
-  - `ManagedAgentsMemoryStoreResource`
+  - `class ManagedAgentsMemoryStoreResource`
 
     - `Type type`
 
@@ -9159,9 +9378,13 @@ Delete Session Resource
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `ManagedAgentsDeleteSessionResource`
+- `class ManagedAgentsDeleteSessionResource`
 
   - `Type type`
 
@@ -9227,9 +9450,13 @@ List Session Threads
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `ManagedAgentsSessionThread`
+- `class ManagedAgentsSessionThread`
 
   - `Type type`
 
@@ -9239,7 +9466,7 @@ List Session Threads
 
   - `Agent agent`
 
-    The resolved agent a session thread runs: a saved-agent snapshot, the platform advisor entry, or an inline-defined (ephemeral) agent snapshot.
+    The resolved agent a `session_thread` runs.
 
   - `?\Datetime archivedAt`
 
@@ -9407,9 +9634,13 @@ Get Session Thread
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `ManagedAgentsSessionThread`
+- `class ManagedAgentsSessionThread`
 
   - `Type type`
 
@@ -9419,7 +9650,7 @@ Get Session Thread
 
   - `Agent agent`
 
-    The resolved agent a session thread runs: a saved-agent snapshot, the platform advisor entry, or an inline-defined (ephemeral) agent snapshot.
+    The resolved agent a `session_thread` runs.
 
   - `?\Datetime archivedAt`
 
@@ -9581,9 +9812,13 @@ Archive Session Thread
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `ManagedAgentsSessionThread`
+- `class ManagedAgentsSessionThread`
 
   - `Type type`
 
@@ -9593,7 +9828,7 @@ Archive Session Thread
 
   - `Agent agent`
 
-    The resolved agent a session thread runs: a saved-agent snapshot, the platform advisor entry, or an inline-defined (ephemeral) agent snapshot.
+    The resolved agent a `session_thread` runs.
 
   - `?\Datetime archivedAt`
 
@@ -9753,11 +9988,7 @@ List Session Thread Events
 
 - `limit?:optional int`
 
-  Query parameter for limit
-
 - `page?:optional string`
-
-  Query parameter for page
 
 - `betas?:optional list<AnthropicBeta>`
 
@@ -9765,11 +9996,15 @@ List Session Thread Events
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `ManagedAgentsSessionEvent`
+- `class ManagedAgentsSessionEvent`
 
-  - `ManagedAgentsUserMessageEvent`
+  - `class ManagedAgentsUserMessageEvent`
 
     - `Type type`
 
@@ -9785,7 +10020,7 @@ List Session Thread Events
 
       A timestamp in RFC 3339 format
 
-  - `ManagedAgentsUserInterruptEvent`
+  - `class ManagedAgentsUserInterruptEvent`
 
     - `Type type`
 
@@ -9801,7 +10036,7 @@ List Session Thread Events
 
       If absent, interrupts every non-archived thread in a multiagent session (or the primary alone in a single-agent session). If present, interrupts only the named thread.
 
-  - `ManagedAgentsUserToolConfirmationEvent`
+  - `class ManagedAgentsUserToolConfirmationEvent`
 
     - `Type type`
 
@@ -9827,9 +10062,9 @@ List Session Thread Events
 
     - `?string sessionThreadID`
 
-      When set, the confirmation routes to this subagent's thread rather than the primary. Echo this from the `session_thread_id` on the `agent.tool_use` or `agent.mcp_tool_use` event that prompted the approval.
+      Set by the server to the subagent thread this confirmation was routed to. Omitted when it was routed to the primary thread.
 
-  - `ManagedAgentsUserCustomToolResultEvent`
+  - `class ManagedAgentsUserCustomToolResultEvent`
 
     - `Type type`
 
@@ -9855,9 +10090,9 @@ List Session Thread Events
 
     - `?string sessionThreadID`
 
-      Routes this result to a subagent thread. Copy from the `agent.custom_tool_use` event's `session_thread_id`.
+      Set by the server to the subagent thread this result was routed to. Omitted when it was routed to the primary thread.
 
-  - `ManagedAgentsAgentCustomToolUseEvent`
+  - `class ManagedAgentsAgentCustomToolUseEvent`
 
     - `Type type`
 
@@ -9879,9 +10114,9 @@ List Session Thread Events
 
     - `?string sessionThreadID`
 
-      When set, this event was cross-posted from a subagent's thread to surface its custom tool use on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.custom_tool_result` event to route the result back.
+      When set, this event was cross-posted from a subagent's thread to surface its custom tool use on the primary thread's stream. Empty on the thread's own events. Informational only: the server routes the matching `user.custom_tool_result` by `custom_tool_use_id`, so clients do not send it back.
 
-  - `ManagedAgentsAgentMessageEvent`
+  - `class ManagedAgentsAgentMessageEvent`
 
     - `Type type`
 
@@ -9897,7 +10132,7 @@ List Session Thread Events
 
       A timestamp in RFC 3339 format
 
-  - `ManagedAgentsAgentThinkingEvent`
+  - `class ManagedAgentsAgentThinkingEvent`
 
     - `Type type`
 
@@ -9909,7 +10144,7 @@ List Session Thread Events
 
       A timestamp in RFC 3339 format
 
-  - `ManagedAgentsAgentMCPToolUseEvent`
+  - `class ManagedAgentsAgentMCPToolUseEvent`
 
     - `Type type`
 
@@ -9933,7 +10168,7 @@ List Session Thread Events
 
       A timestamp in RFC 3339 format
 
-    - `?EvaluatedPermission evaluatedPermission`
+    - `?ManagedAgentsAgentEvaluatedPermission evaluatedPermission`
 
       AgentEvaluatedPermission enum
 
@@ -9943,9 +10178,9 @@ List Session Thread Events
 
     - `?string sessionThreadID`
 
-      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
+      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Informational only: the server routes the matching `user.tool_confirmation` by `tool_use_id`, so clients do not send it back.
 
-  - `ManagedAgentsAgentMCPToolResultEvent`
+  - `class ManagedAgentsAgentMCPToolResultEvent`
 
     - `Type type`
 
@@ -9969,7 +10204,7 @@ List Session Thread Events
 
       Whether the tool execution resulted in an error.
 
-  - `ManagedAgentsAgentToolUseEvent`
+  - `class ManagedAgentsAgentToolUseEvent`
 
     - `Type type`
 
@@ -9989,7 +10224,7 @@ List Session Thread Events
 
       A timestamp in RFC 3339 format
 
-    - `?EvaluatedPermission evaluatedPermission`
+    - `?ManagedAgentsAgentEvaluatedPermission evaluatedPermission`
 
       AgentEvaluatedPermission enum
 
@@ -9999,9 +10234,9 @@ List Session Thread Events
 
     - `?string sessionThreadID`
 
-      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
+      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Informational only: the server routes the matching `user.tool_confirmation` or `user.tool_result` by `tool_use_id`, so clients do not send it back.
 
-  - `ManagedAgentsAgentToolResultEvent`
+  - `class ManagedAgentsAgentToolResultEvent`
 
     - `Type type`
 
@@ -10025,7 +10260,7 @@ List Session Thread Events
 
       Whether the tool execution resulted in an error.
 
-  - `ManagedAgentsAgentThreadMessageReceivedEvent`
+  - `class ManagedAgentsAgentThreadMessageReceivedEvent`
 
     - `Type type`
 
@@ -10049,7 +10284,7 @@ List Session Thread Events
 
       Name of the callable agent this message came from. Absent when received from the primary agent.
 
-  - `ManagedAgentsAgentThreadMessageSentEvent`
+  - `class ManagedAgentsAgentThreadMessageSentEvent`
 
     - `Type type`
 
@@ -10073,7 +10308,7 @@ List Session Thread Events
 
       Name of the callable agent this message was sent to. Absent when sent to the primary agent.
 
-  - `ManagedAgentsAgentThreadContextCompactedEvent`
+  - `class ManagedAgentsAgentThreadContextCompactedEvent`
 
     - `Type type`
 
@@ -10085,7 +10320,7 @@ List Session Thread Events
 
       A timestamp in RFC 3339 format
 
-  - `ManagedAgentsSessionErrorEvent`
+  - `class ManagedAgentsSessionErrorEvent`
 
     - `Type type`
 
@@ -10099,7 +10334,7 @@ List Session Thread Events
 
       A timestamp in RFC 3339 format
 
-  - `ManagedAgentsSessionStatusRescheduledEvent`
+  - `class ManagedAgentsSessionStatusRescheduledEvent`
 
     - `Type type`
 
@@ -10111,7 +10346,7 @@ List Session Thread Events
 
       A timestamp in RFC 3339 format
 
-  - `ManagedAgentsSessionStatusRunningEvent`
+  - `class ManagedAgentsSessionStatusRunningEvent`
 
     - `Type type`
 
@@ -10123,7 +10358,7 @@ List Session Thread Events
 
       A timestamp in RFC 3339 format
 
-  - `ManagedAgentsSessionStatusIdleEvent`
+  - `class ManagedAgentsSessionStatusIdleEvent`
 
     - `Type type`
 
@@ -10137,7 +10372,7 @@ List Session Thread Events
 
     - `StopReason stopReason`
 
-  - `ManagedAgentsSessionStatusTerminatedEvent`
+  - `class ManagedAgentsSessionStatusTerminatedEvent`
 
     - `Type type`
 
@@ -10149,7 +10384,7 @@ List Session Thread Events
 
       A timestamp in RFC 3339 format
 
-  - `ManagedAgentsSessionThreadCreatedEvent`
+  - `class ManagedAgentsSessionThreadCreatedEvent`
 
     - `Type type`
 
@@ -10169,7 +10404,7 @@ List Session Thread Events
 
       Public `sthr_` ID of the newly created thread.
 
-  - `ManagedAgentsSpanOutcomeEvaluationStartEvent`
+  - `class ManagedAgentsSpanOutcomeEvaluationStartEvent`
 
     - `Type type`
 
@@ -10189,7 +10424,7 @@ List Session Thread Events
 
       A timestamp in RFC 3339 format
 
-  - `ManagedAgentsSpanOutcomeEvaluationEndEvent`
+  - `class ManagedAgentsSpanOutcomeEvaluationEndEvent`
 
     - `Type type`
 
@@ -10225,7 +10460,7 @@ List Session Thread Events
 
       Token usage for a single model request.
 
-  - `ManagedAgentsSpanModelRequestStartEvent`
+  - `class ManagedAgentsSpanModelRequestStartEvent`
 
     - `Type type`
 
@@ -10237,7 +10472,7 @@ List Session Thread Events
 
       A timestamp in RFC 3339 format
 
-  - `ManagedAgentsSpanModelRequestEndEvent`
+  - `class ManagedAgentsSpanModelRequestEndEvent`
 
     - `Type type`
 
@@ -10261,7 +10496,7 @@ List Session Thread Events
 
       A timestamp in RFC 3339 format
 
-  - `ManagedAgentsSpanOutcomeEvaluationOngoingEvent`
+  - `class ManagedAgentsSpanOutcomeEvaluationOngoingEvent`
 
     - `Type type`
 
@@ -10281,7 +10516,7 @@ List Session Thread Events
 
       A timestamp in RFC 3339 format
 
-  - `ManagedAgentsUserDefineOutcomeEvent`
+  - `class ManagedAgentsUserDefineOutcomeEvent`
 
     - `Type type`
 
@@ -10309,7 +10544,7 @@ List Session Thread Events
 
       Rubric for grading the quality of an outcome.
 
-  - `ManagedAgentsSessionDeletedEvent`
+  - `class ManagedAgentsSessionDeletedEvent`
 
     - `Type type`
 
@@ -10321,7 +10556,7 @@ List Session Thread Events
 
       A timestamp in RFC 3339 format
 
-  - `ManagedAgentsSessionThreadStatusRunningEvent`
+  - `class ManagedAgentsSessionThreadStatusRunningEvent`
 
     - `Type type`
 
@@ -10341,7 +10576,7 @@ List Session Thread Events
 
       Public sthr_ ID of the thread that started running.
 
-  - `ManagedAgentsSessionThreadStatusIdleEvent`
+  - `class ManagedAgentsSessionThreadStatusIdleEvent`
 
     - `Type type`
 
@@ -10363,7 +10598,7 @@ List Session Thread Events
 
     - `StopReason stopReason`
 
-  - `ManagedAgentsSessionThreadStatusTerminatedEvent`
+  - `class ManagedAgentsSessionThreadStatusTerminatedEvent`
 
     - `Type type`
 
@@ -10383,7 +10618,7 @@ List Session Thread Events
 
       Public sthr_ ID of the thread that terminated.
 
-  - `BetaManagedAgentsUserToolResultEvent`
+  - `class BetaManagedAgentsUserToolResultEvent`
 
     - `Type type`
 
@@ -10409,9 +10644,9 @@ List Session Thread Events
 
     - `?string sessionThreadID`
 
-      Routes this result to a subagent thread. Copy from the `agent.tool_use` event's `session_thread_id`.
+      Set by the server to the subagent thread this result was routed to. Omitted when it was routed to the primary thread.
 
-  - `ManagedAgentsSessionThreadStatusRescheduledEvent`
+  - `class ManagedAgentsSessionThreadStatusRescheduledEvent`
 
     - `Type type`
 
@@ -10431,7 +10666,7 @@ List Session Thread Events
 
       Public sthr_ ID of the thread that is retrying.
 
-  - `BetaManagedAgentsSessionUpdatedEvent`
+  - `class BetaManagedAgentsSessionUpdatedEvent`
 
     - `Type type`
 
@@ -10459,7 +10694,7 @@ List Session Thread Events
 
       The session's new title. Present only when the update changed it.
 
-  - `BetaManagedAgentsSystemMessageEvent`
+  - `class BetaManagedAgentsSystemMessageEvent`
 
     - `Type type`
 
@@ -10475,7 +10710,7 @@ List Session Thread Events
 
       A timestamp in RFC 3339 format
 
-  - `BetaManagedAgentsSessionUsageEvent`
+  - `class BetaManagedAgentsSessionUsageEvent`
 
     - `Type type`
 
@@ -10561,11 +10796,15 @@ Stream Session Thread Events
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `ManagedAgentsStreamSessionThreadEvents`
+- `class ManagedAgentsStreamSessionThreadEvents`
 
-  - `ManagedAgentsUserMessageEvent`
+  - `class ManagedAgentsUserMessageEvent`
 
     - `Type type`
 
@@ -10581,7 +10820,7 @@ Stream Session Thread Events
 
       A timestamp in RFC 3339 format
 
-  - `ManagedAgentsUserInterruptEvent`
+  - `class ManagedAgentsUserInterruptEvent`
 
     - `Type type`
 
@@ -10597,7 +10836,7 @@ Stream Session Thread Events
 
       If absent, interrupts every non-archived thread in a multiagent session (or the primary alone in a single-agent session). If present, interrupts only the named thread.
 
-  - `ManagedAgentsUserToolConfirmationEvent`
+  - `class ManagedAgentsUserToolConfirmationEvent`
 
     - `Type type`
 
@@ -10623,9 +10862,9 @@ Stream Session Thread Events
 
     - `?string sessionThreadID`
 
-      When set, the confirmation routes to this subagent's thread rather than the primary. Echo this from the `session_thread_id` on the `agent.tool_use` or `agent.mcp_tool_use` event that prompted the approval.
+      Set by the server to the subagent thread this confirmation was routed to. Omitted when it was routed to the primary thread.
 
-  - `ManagedAgentsUserCustomToolResultEvent`
+  - `class ManagedAgentsUserCustomToolResultEvent`
 
     - `Type type`
 
@@ -10651,9 +10890,9 @@ Stream Session Thread Events
 
     - `?string sessionThreadID`
 
-      Routes this result to a subagent thread. Copy from the `agent.custom_tool_use` event's `session_thread_id`.
+      Set by the server to the subagent thread this result was routed to. Omitted when it was routed to the primary thread.
 
-  - `ManagedAgentsAgentCustomToolUseEvent`
+  - `class ManagedAgentsAgentCustomToolUseEvent`
 
     - `Type type`
 
@@ -10675,9 +10914,9 @@ Stream Session Thread Events
 
     - `?string sessionThreadID`
 
-      When set, this event was cross-posted from a subagent's thread to surface its custom tool use on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.custom_tool_result` event to route the result back.
+      When set, this event was cross-posted from a subagent's thread to surface its custom tool use on the primary thread's stream. Empty on the thread's own events. Informational only: the server routes the matching `user.custom_tool_result` by `custom_tool_use_id`, so clients do not send it back.
 
-  - `ManagedAgentsAgentMessageEvent`
+  - `class ManagedAgentsAgentMessageEvent`
 
     - `Type type`
 
@@ -10693,7 +10932,7 @@ Stream Session Thread Events
 
       A timestamp in RFC 3339 format
 
-  - `ManagedAgentsAgentThinkingEvent`
+  - `class ManagedAgentsAgentThinkingEvent`
 
     - `Type type`
 
@@ -10705,7 +10944,7 @@ Stream Session Thread Events
 
       A timestamp in RFC 3339 format
 
-  - `ManagedAgentsAgentMCPToolUseEvent`
+  - `class ManagedAgentsAgentMCPToolUseEvent`
 
     - `Type type`
 
@@ -10729,7 +10968,7 @@ Stream Session Thread Events
 
       A timestamp in RFC 3339 format
 
-    - `?EvaluatedPermission evaluatedPermission`
+    - `?ManagedAgentsAgentEvaluatedPermission evaluatedPermission`
 
       AgentEvaluatedPermission enum
 
@@ -10739,9 +10978,9 @@ Stream Session Thread Events
 
     - `?string sessionThreadID`
 
-      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
+      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Informational only: the server routes the matching `user.tool_confirmation` by `tool_use_id`, so clients do not send it back.
 
-  - `ManagedAgentsAgentMCPToolResultEvent`
+  - `class ManagedAgentsAgentMCPToolResultEvent`
 
     - `Type type`
 
@@ -10765,7 +11004,7 @@ Stream Session Thread Events
 
       Whether the tool execution resulted in an error.
 
-  - `ManagedAgentsAgentToolUseEvent`
+  - `class ManagedAgentsAgentToolUseEvent`
 
     - `Type type`
 
@@ -10785,7 +11024,7 @@ Stream Session Thread Events
 
       A timestamp in RFC 3339 format
 
-    - `?EvaluatedPermission evaluatedPermission`
+    - `?ManagedAgentsAgentEvaluatedPermission evaluatedPermission`
 
       AgentEvaluatedPermission enum
 
@@ -10795,9 +11034,9 @@ Stream Session Thread Events
 
     - `?string sessionThreadID`
 
-      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
+      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Informational only: the server routes the matching `user.tool_confirmation` or `user.tool_result` by `tool_use_id`, so clients do not send it back.
 
-  - `ManagedAgentsAgentToolResultEvent`
+  - `class ManagedAgentsAgentToolResultEvent`
 
     - `Type type`
 
@@ -10821,7 +11060,7 @@ Stream Session Thread Events
 
       Whether the tool execution resulted in an error.
 
-  - `ManagedAgentsAgentThreadMessageReceivedEvent`
+  - `class ManagedAgentsAgentThreadMessageReceivedEvent`
 
     - `Type type`
 
@@ -10845,7 +11084,7 @@ Stream Session Thread Events
 
       Name of the callable agent this message came from. Absent when received from the primary agent.
 
-  - `ManagedAgentsAgentThreadMessageSentEvent`
+  - `class ManagedAgentsAgentThreadMessageSentEvent`
 
     - `Type type`
 
@@ -10869,7 +11108,7 @@ Stream Session Thread Events
 
       Name of the callable agent this message was sent to. Absent when sent to the primary agent.
 
-  - `ManagedAgentsAgentThreadContextCompactedEvent`
+  - `class ManagedAgentsAgentThreadContextCompactedEvent`
 
     - `Type type`
 
@@ -10881,7 +11120,7 @@ Stream Session Thread Events
 
       A timestamp in RFC 3339 format
 
-  - `ManagedAgentsSessionErrorEvent`
+  - `class ManagedAgentsSessionErrorEvent`
 
     - `Type type`
 
@@ -10895,7 +11134,7 @@ Stream Session Thread Events
 
       A timestamp in RFC 3339 format
 
-  - `ManagedAgentsSessionStatusRescheduledEvent`
+  - `class ManagedAgentsSessionStatusRescheduledEvent`
 
     - `Type type`
 
@@ -10907,7 +11146,7 @@ Stream Session Thread Events
 
       A timestamp in RFC 3339 format
 
-  - `ManagedAgentsSessionStatusRunningEvent`
+  - `class ManagedAgentsSessionStatusRunningEvent`
 
     - `Type type`
 
@@ -10919,7 +11158,7 @@ Stream Session Thread Events
 
       A timestamp in RFC 3339 format
 
-  - `ManagedAgentsSessionStatusIdleEvent`
+  - `class ManagedAgentsSessionStatusIdleEvent`
 
     - `Type type`
 
@@ -10933,7 +11172,7 @@ Stream Session Thread Events
 
     - `StopReason stopReason`
 
-  - `ManagedAgentsSessionStatusTerminatedEvent`
+  - `class ManagedAgentsSessionStatusTerminatedEvent`
 
     - `Type type`
 
@@ -10945,7 +11184,7 @@ Stream Session Thread Events
 
       A timestamp in RFC 3339 format
 
-  - `ManagedAgentsSessionThreadCreatedEvent`
+  - `class ManagedAgentsSessionThreadCreatedEvent`
 
     - `Type type`
 
@@ -10965,7 +11204,7 @@ Stream Session Thread Events
 
       Public `sthr_` ID of the newly created thread.
 
-  - `ManagedAgentsSpanOutcomeEvaluationStartEvent`
+  - `class ManagedAgentsSpanOutcomeEvaluationStartEvent`
 
     - `Type type`
 
@@ -10985,7 +11224,7 @@ Stream Session Thread Events
 
       A timestamp in RFC 3339 format
 
-  - `ManagedAgentsSpanOutcomeEvaluationEndEvent`
+  - `class ManagedAgentsSpanOutcomeEvaluationEndEvent`
 
     - `Type type`
 
@@ -11021,7 +11260,7 @@ Stream Session Thread Events
 
       Token usage for a single model request.
 
-  - `ManagedAgentsSpanModelRequestStartEvent`
+  - `class ManagedAgentsSpanModelRequestStartEvent`
 
     - `Type type`
 
@@ -11033,7 +11272,7 @@ Stream Session Thread Events
 
       A timestamp in RFC 3339 format
 
-  - `ManagedAgentsSpanModelRequestEndEvent`
+  - `class ManagedAgentsSpanModelRequestEndEvent`
 
     - `Type type`
 
@@ -11057,7 +11296,7 @@ Stream Session Thread Events
 
       A timestamp in RFC 3339 format
 
-  - `ManagedAgentsSpanOutcomeEvaluationOngoingEvent`
+  - `class ManagedAgentsSpanOutcomeEvaluationOngoingEvent`
 
     - `Type type`
 
@@ -11077,7 +11316,7 @@ Stream Session Thread Events
 
       A timestamp in RFC 3339 format
 
-  - `ManagedAgentsUserDefineOutcomeEvent`
+  - `class ManagedAgentsUserDefineOutcomeEvent`
 
     - `Type type`
 
@@ -11105,7 +11344,7 @@ Stream Session Thread Events
 
       Rubric for grading the quality of an outcome.
 
-  - `ManagedAgentsSessionDeletedEvent`
+  - `class ManagedAgentsSessionDeletedEvent`
 
     - `Type type`
 
@@ -11117,7 +11356,7 @@ Stream Session Thread Events
 
       A timestamp in RFC 3339 format
 
-  - `ManagedAgentsSessionThreadStatusRunningEvent`
+  - `class ManagedAgentsSessionThreadStatusRunningEvent`
 
     - `Type type`
 
@@ -11137,7 +11376,7 @@ Stream Session Thread Events
 
       Public sthr_ ID of the thread that started running.
 
-  - `ManagedAgentsSessionThreadStatusIdleEvent`
+  - `class ManagedAgentsSessionThreadStatusIdleEvent`
 
     - `Type type`
 
@@ -11159,7 +11398,7 @@ Stream Session Thread Events
 
     - `StopReason stopReason`
 
-  - `ManagedAgentsSessionThreadStatusTerminatedEvent`
+  - `class ManagedAgentsSessionThreadStatusTerminatedEvent`
 
     - `Type type`
 
@@ -11179,7 +11418,7 @@ Stream Session Thread Events
 
       Public sthr_ ID of the thread that terminated.
 
-  - `BetaManagedAgentsUserToolResultEvent`
+  - `class BetaManagedAgentsUserToolResultEvent`
 
     - `Type type`
 
@@ -11205,9 +11444,9 @@ Stream Session Thread Events
 
     - `?string sessionThreadID`
 
-      Routes this result to a subagent thread. Copy from the `agent.tool_use` event's `session_thread_id`.
+      Set by the server to the subagent thread this result was routed to. Omitted when it was routed to the primary thread.
 
-  - `ManagedAgentsSessionThreadStatusRescheduledEvent`
+  - `class ManagedAgentsSessionThreadStatusRescheduledEvent`
 
     - `Type type`
 
@@ -11227,7 +11466,7 @@ Stream Session Thread Events
 
       Public sthr_ ID of the thread that is retrying.
 
-  - `BetaManagedAgentsSessionUpdatedEvent`
+  - `class BetaManagedAgentsSessionUpdatedEvent`
 
     - `Type type`
 
@@ -11255,7 +11494,7 @@ Stream Session Thread Events
 
       The session's new title. Present only when the update changed it.
 
-  - `BetaManagedAgentsStartEvent`
+  - `class BetaManagedAgentsStartEvent`
 
     - `Type type`
 
@@ -11263,7 +11502,7 @@ Stream Session Thread Events
 
       The previewed event's type and id. The event type determines which delta types the preview's event_delta events carry: agent.message events stream content_delta fragments; agent.thinking previews are start-only — no deltas follow, and the buffered agent.thinking with the same id concludes them.
 
-  - `BetaManagedAgentsDeltaEvent`
+  - `class BetaManagedAgentsDeltaEvent`
 
     - `Type type`
 
@@ -11275,7 +11514,7 @@ Stream Session Thread Events
 
       The id of the event being previewed. Matches event.id on the corresponding event_start and the buffered event that reconciles the preview.
 
-  - `BetaManagedAgentsSystemMessageEvent`
+  - `class BetaManagedAgentsSystemMessageEvent`
 
     - `Type type`
 
@@ -11291,7 +11530,7 @@ Stream Session Thread Events
 
       A timestamp in RFC 3339 format
 
-  - `BetaManagedAgentsSessionUsageEvent`
+  - `class BetaManagedAgentsSessionUsageEvent`
 
     - `Type type`
 
@@ -11410,9 +11649,13 @@ Create Deployment
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaManagedAgentsDeployment`
+- `class BetaManagedAgentsDeployment`
 
   - `Type type`
 
@@ -11636,9 +11879,13 @@ List Deployments
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaManagedAgentsDeployment`
+- `class BetaManagedAgentsDeployment`
 
   - `Type type`
 
@@ -11814,15 +12061,21 @@ Get Deployment
 
 - `deploymentID: string`
 
+  Unique identifier of the deployment.
+
 - `betas?:optional list<AnthropicBeta>`
 
   Optional header to specify the beta version(s) you want to use.
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaManagedAgentsDeployment`
+- `class BetaManagedAgentsDeployment`
 
   - `Type type`
 
@@ -11987,6 +12240,8 @@ Update Deployment
 
 - `deploymentID: string`
 
+  Unique identifier of the deployment to update.
+
 - `agent?:optional Agent`
 
   Agent to deploy. Accepts the `agent` ID string, which re-pins to the latest version, or an `agent` object with both id and version specified. Omit to preserve. Cannot be cleared.
@@ -12033,9 +12288,13 @@ Update Deployment
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaManagedAgentsDeployment`
+- `class BetaManagedAgentsDeployment`
 
   - `Type type`
 
@@ -12228,15 +12487,21 @@ Archive Deployment
 
 - `deploymentID: string`
 
+  Unique identifier of the deployment to archive.
+
 - `betas?:optional list<AnthropicBeta>`
 
   Optional header to specify the beta version(s) you want to use.
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaManagedAgentsDeployment`
+- `class BetaManagedAgentsDeployment`
 
   - `Type type`
 
@@ -12401,15 +12666,21 @@ Run Deployment Now
 
 - `deploymentID: string`
 
+  Unique identifier of the deployment to run.
+
 - `betas?:optional list<AnthropicBeta>`
 
   Optional header to specify the beta version(s) you want to use.
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaManagedAgentsDeploymentRun`
+- `class BetaManagedAgentsDeploymentRun`
 
   - `Type type`
 
@@ -12496,15 +12767,21 @@ Pause Deployment
 
 - `deploymentID: string`
 
+  Unique identifier of the deployment to pause.
+
 - `betas?:optional list<AnthropicBeta>`
 
   Optional header to specify the beta version(s) you want to use.
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaManagedAgentsDeployment`
+- `class BetaManagedAgentsDeployment`
 
   - `Type type`
 
@@ -12669,15 +12946,21 @@ Unpause Deployment
 
 - `deploymentID: string`
 
+  Unique identifier of the deployment to unpause.
+
 - `betas?:optional list<AnthropicBeta>`
 
   Optional header to specify the beta version(s) you want to use.
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaManagedAgentsDeployment`
+- `class BetaManagedAgentsDeployment`
 
   - `Type type`
 
@@ -12884,9 +13167,13 @@ List Deployment Runs
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaManagedAgentsDeploymentRun`
+- `class BetaManagedAgentsDeploymentRun`
 
   - `Type type`
 
@@ -12986,15 +13273,21 @@ Get Deployment Run
 
 - `deploymentRunID: string`
 
+  Unique identifier of the deployment run.
+
 - `betas?:optional list<AnthropicBeta>`
 
   Optional header to specify the beta version(s) you want to use.
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaManagedAgentsDeploymentRun`
+- `class BetaManagedAgentsDeploymentRun`
 
   - `Type type`
 
@@ -13095,9 +13388,13 @@ Create Vault
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaManagedAgentsVault`
+- `class BetaManagedAgentsVault`
 
   - `Type type`
 
@@ -13188,9 +13485,13 @@ List Vaults
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaManagedAgentsVault`
+- `class BetaManagedAgentsVault`
 
   - `Type type`
 
@@ -13271,15 +13572,21 @@ Get Vault
 
 - `vaultID: string`
 
+  Unique identifier of the vault to retrieve.
+
 - `betas?:optional list<AnthropicBeta>`
 
   Optional header to specify the beta version(s) you want to use.
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaManagedAgentsVault`
+- `class BetaManagedAgentsVault`
 
   - `Type type`
 
@@ -13353,6 +13660,8 @@ Update Vault
 
 - `vaultID: string`
 
+  Unique identifier of the vault to update.
+
 - `displayName?:optional string`
 
   Updated human-readable name for the vault. 1-255 characters.
@@ -13367,9 +13676,13 @@ Update Vault
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaManagedAgentsVault`
+- `class BetaManagedAgentsVault`
 
   - `Type type`
 
@@ -13445,15 +13758,21 @@ Delete Vault
 
 - `vaultID: string`
 
+  Unique identifier of the vault to delete.
+
 - `betas?:optional list<AnthropicBeta>`
 
   Optional header to specify the beta version(s) you want to use.
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaManagedAgentsDeletedVault`
+- `class BetaManagedAgentsDeletedVault`
 
   - `Type type`
 
@@ -13500,15 +13819,21 @@ Archive Vault
 
 - `vaultID: string`
 
+  Unique identifier of the vault to archive.
+
 - `betas?:optional list<AnthropicBeta>`
 
   Optional header to specify the beta version(s) you want to use.
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaManagedAgentsVault`
+- `class BetaManagedAgentsVault`
 
   - `Type type`
 
@@ -13584,6 +13909,8 @@ Create Credential
 
 - `vaultID: string`
 
+  Identifier of the vault to create the credential in.
+
 - `auth: Auth`
 
   Authentication details for creating a credential.
@@ -13602,9 +13929,13 @@ Create Credential
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `ManagedAgentsCredential`
+- `class ManagedAgentsCredential`
 
   - `Type type`
 
@@ -13698,6 +14029,8 @@ List Credentials
 
 - `vaultID: string`
 
+  Identifier of the vault to list credentials for.
+
 - `includeArchived?:optional bool`
 
   Whether to include archived credentials in the results.
@@ -13716,9 +14049,13 @@ List Credentials
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `ManagedAgentsCredential`
+- `class ManagedAgentsCredential`
 
   - `Type type`
 
@@ -13813,7 +14150,11 @@ Get Credential
 
 - `vaultID: string`
 
+  Identifier of the vault containing the credential.
+
 - `credentialID: string`
+
+  Unique identifier of the credential to retrieve.
 
 - `betas?:optional list<AnthropicBeta>`
 
@@ -13821,9 +14162,13 @@ Get Credential
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `ManagedAgentsCredential`
+- `class ManagedAgentsCredential`
 
   - `Type type`
 
@@ -13911,7 +14256,11 @@ Update Credential
 
 - `vaultID: string`
 
+  Identifier of the vault containing the credential.
+
 - `credentialID: string`
+
+  Unique identifier of the credential to update.
 
 - `auth?:optional Auth`
 
@@ -13931,9 +14280,13 @@ Update Credential
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `ManagedAgentsCredential`
+- `class ManagedAgentsCredential`
 
   - `Type type`
 
@@ -14035,7 +14388,11 @@ Delete Credential
 
 - `vaultID: string`
 
+  Identifier of the vault containing the credential.
+
 - `credentialID: string`
+
+  Unique identifier of the credential to delete.
 
 - `betas?:optional list<AnthropicBeta>`
 
@@ -14043,9 +14400,13 @@ Delete Credential
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `ManagedAgentsDeletedCredential`
+- `class ManagedAgentsDeletedCredential`
 
   - `Type type`
 
@@ -14097,7 +14458,11 @@ Archive Credential
 
 - `vaultID: string`
 
+  Identifier of the vault containing the credential.
+
 - `credentialID: string`
+
+  Unique identifier of the credential to archive.
 
 - `betas?:optional list<AnthropicBeta>`
 
@@ -14105,9 +14470,13 @@ Archive Credential
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `ManagedAgentsCredential`
+- `class ManagedAgentsCredential`
 
   - `Type type`
 
@@ -14195,7 +14564,11 @@ Validate Credential
 
 - `vaultID: string`
 
+  Identifier of the vault containing the credential.
+
 - `credentialID: string`
+
+  Unique identifier of the credential to validate.
 
 - `betas?:optional list<AnthropicBeta>`
 
@@ -14203,9 +14576,13 @@ Validate Credential
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `ManagedAgentsCredentialValidation`
+- `class ManagedAgentsCredentialValidation`
 
   - `Type type`
 
@@ -14321,9 +14698,13 @@ Create a memory store
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaManagedAgentsMemoryStore`
+- `class BetaManagedAgentsMemoryStore`
 
   - `Type type`
 
@@ -14428,9 +14809,13 @@ List memory stores
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaManagedAgentsMemoryStore`
+- `class BetaManagedAgentsMemoryStore`
 
   - `Type type`
 
@@ -14518,15 +14903,21 @@ Retrieve a memory store
 
 - `memoryStoreID: string`
 
+  ID of the memory store to retrieve (a `memstore_...` identifier). Required. Enumerate IDs via `GET /v1/memory_stores`.
+
 - `betas?:optional list<AnthropicBeta>`
 
   Optional header to specify the beta version(s) you want to use.
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaManagedAgentsMemoryStore`
+- `class BetaManagedAgentsMemoryStore`
 
   - `Type type`
 
@@ -14605,6 +14996,8 @@ Update a memory store
 
 - `memoryStoreID: string`
 
+  ID of the memory store to update (a `memstore_...` identifier). Required. Enumerate IDs via `GET /v1/memory_stores`. Updating an archived store returns 400.
+
 - `description?:optional string`
 
   New description for the store, up to 1024 characters. Pass an empty string to clear it.
@@ -14623,9 +15016,13 @@ Update a memory store
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaManagedAgentsMemoryStore`
+- `class BetaManagedAgentsMemoryStore`
 
   - `Type type`
 
@@ -14707,15 +15104,21 @@ Delete a memory store
 
 - `memoryStoreID: string`
 
+  ID of the memory store to permanently delete (a `memstore_...` identifier). Required. Deletion cascades to all memories and memory versions in the store and cannot be undone.
+
 - `betas?:optional list<AnthropicBeta>`
 
   Optional header to specify the beta version(s) you want to use.
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaManagedAgentsDeletedMemoryStore`
+- `class BetaManagedAgentsDeletedMemoryStore`
 
   - `Type type`
 
@@ -14762,15 +15165,21 @@ Archive a memory store
 
 - `memoryStoreID: string`
 
+  ID of the memory store to archive (a `memstore_...` identifier). Required. Archiving is one-way and idempotent; archived stores cannot be unarchived. Enumerate IDs via `GET /v1/memory_stores`.
+
 - `betas?:optional list<AnthropicBeta>`
 
   Optional header to specify the beta version(s) you want to use.
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaManagedAgentsMemoryStore`
+- `class BetaManagedAgentsMemoryStore`
 
   - `Type type`
 
@@ -14851,6 +15260,8 @@ Create a memory
 
 - `memoryStoreID: string`
 
+  The ID of the memory store to create the memory in (`memstore_...`).
+
 - `content: string`
 
   UTF-8 text content for the new memory. Maximum 100 kB (102,400 bytes). Required; pass `""` explicitly to create an empty memory.
@@ -14861,7 +15272,7 @@ Create a memory
 
 - `view?:optional ManagedAgentsMemoryView`
 
-  Query parameter for view
+  Selects which projection of a `memory` or `memory_version` the server returns. `basic` returns the object with `content` set to `null`; `full` populates `content`. When omitted, the default is endpoint-specific: retrieve operations default to `full`; list, create, and update operations default to `basic`. Listing with `view=full` caps `limit` at 20.
 
 - `betas?:optional list<AnthropicBeta>`
 
@@ -14869,9 +15280,13 @@ Create a memory
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `ManagedAgentsMemory`
+- `class ManagedAgentsMemory`
 
   - `Type type`
 
@@ -14961,6 +15376,8 @@ List memories
 
 - `memoryStoreID: string`
 
+  The ID of the memory store to list memories from (`memstore_...`).
+
 - `depth?:optional int`
 
   `0` (or omitted) returns all descendants below `path_prefix` (recursive). `1` returns immediate children only; deeper entries roll up as `memory_prefix` items. `depth=1` behaves like `ls`; omitting `depth` behaves like `find`.
@@ -14987,11 +15404,15 @@ List memories
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `ManagedAgentsMemoryListItem`
+- `class ManagedAgentsMemoryListItem`
 
-  - `ManagedAgentsMemory`
+  - `class ManagedAgentsMemory`
 
     - `Type type`
 
@@ -15031,7 +15452,7 @@ List memories
 
       The memory's UTF-8 text content. Populated when `view=full`; `null` when `view=basic`. Maximum 100 kB (102,400 bytes).
 
-  - `ManagedAgentsMemoryPrefix`
+  - `class ManagedAgentsMemoryPrefix`
 
     - `Type type`
 
@@ -15096,11 +15517,15 @@ Retrieve a memory
 
 - `memoryStoreID: string`
 
+  The ID of the memory store that holds the memory (`memstore_...`).
+
 - `memoryID: string`
+
+  The ID of the memory to retrieve (`mem_...`).
 
 - `view?:optional ManagedAgentsMemoryView`
 
-  Query parameter for view
+  Selects which projection of a `memory` or `memory_version` the server returns. `basic` returns the object with `content` set to `null`; `full` populates `content`. When omitted, the default is endpoint-specific: retrieve operations default to `full`; list, create, and update operations default to `basic`. Listing with `view=full` caps `limit` at 20.
 
 - `betas?:optional list<AnthropicBeta>`
 
@@ -15108,9 +15533,13 @@ Retrieve a memory
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `ManagedAgentsMemory`
+- `class ManagedAgentsMemory`
 
   - `Type type`
 
@@ -15199,11 +15628,15 @@ Update a memory
 
 - `memoryStoreID: string`
 
+  The ID of the memory store that holds the memory (`memstore_...`).
+
 - `memoryID: string`
+
+  The ID of the memory to update (`mem_...`).
 
 - `view?:optional ManagedAgentsMemoryView`
 
-  Query parameter for view
+  Selects which projection of a `memory` or `memory_version` the server returns. `basic` returns the object with `content` set to `null`; `full` populates `content`. When omitted, the default is endpoint-specific: retrieve operations default to `full`; list, create, and update operations default to `basic`. Listing with `view=full` caps `limit` at 20.
 
 - `content?:optional string`
 
@@ -15223,9 +15656,13 @@ Update a memory
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `ManagedAgentsMemory`
+- `class ManagedAgentsMemory`
 
   - `Type type`
 
@@ -15319,11 +15756,17 @@ Delete a memory
 
 - `memoryStoreID: string`
 
+  The ID of the memory store that holds the memory (`memstore_...`).
+
 - `memoryID: string`
+
+  The ID of the memory to delete (`mem_...`).
 
 - `expectedContentSha256?:optional string`
 
-  Query parameter for expected_content_sha256
+  Delete the memory only if its current `content_sha256` equals this value, given as 64 lowercase hexadecimal characters. Omit it to delete unconditionally.
+
+  If the hashes differ, the request fails with HTTP status 409 and nothing is deleted.
 
 - `betas?:optional list<AnthropicBeta>`
 
@@ -15331,9 +15774,13 @@ Delete a memory
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `ManagedAgentsDeletedMemory`
+- `class ManagedAgentsDeletedMemory`
 
   - `Type type`
 
@@ -15384,9 +15831,11 @@ List memory versions
 
 - `memoryStoreID: string`
 
+  The ID of the memory store whose version history to list (`memstore_...`).
+
 - `apiKeyID?:optional string`
 
-  Query parameter for api_key_id
+  Return only versions written with the API key that has this ID.
 
 - `createdAtGte?:optional \Datetime`
 
@@ -15398,31 +15847,33 @@ List memory versions
 
 - `limit?:optional int`
 
-  Query parameter for limit
+  The maximum number of versions to return per page. Defaults to 20.
 
 - `memoryID?:optional string`
 
-  Query parameter for memory_id
+  Return only versions of the memory with this ID (`mem_...`).
+
+  The filter still works after the memory is deleted. The results then include the version whose `operation` is `deleted`.
 
 - `operation?:optional ManagedAgentsMemoryVersionOperation`
 
-  Query parameter for operation
+  Return only versions that record this kind of change.
 
 - `page?:optional string`
 
-  Query parameter for page
+  The `next_page` value from a previous response, to get the next page. Omit it to get the first page.
 
 - `serviceAccountID?:optional string`
 
-  Query parameter for service_account_id
+  Return only versions written by the service account with this ID (`svac_...`).
 
 - `sessionID?:optional string`
 
-  Query parameter for session_id
+  Return only versions written by the session with this ID.
 
 - `view?:optional ManagedAgentsMemoryView`
 
-  Query parameter for view
+  Selects which projection of a `memory` or `memory_version` the server returns. `basic` returns the object with `content` set to `null`; `full` populates `content`. When omitted, the default is endpoint-specific: retrieve operations default to `full`; list, create, and update operations default to `basic`. Listing with `view=full` caps `limit` at 20.
 
 - `betas?:optional list<AnthropicBeta>`
 
@@ -15430,9 +15881,13 @@ List memory versions
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `ManagedAgentsMemoryVersion`
+- `class ManagedAgentsMemoryVersion`
 
   - `Type type`
 
@@ -15470,7 +15925,7 @@ List memory versions
 
   - `?ManagedAgentsActor createdBy`
 
-    Identifies who performed a write or redact operation. Captured at write time on the `memory_version` row. The API key that created a session is not recorded on agent writes; attribution answers who made the write, not who is ultimately responsible. Look up session provenance separately via the [Sessions API](/docs/en/api/beta/sessions/retrieve).
+    Identifies who performed an operation. Recorded when the operation happens and not updated afterwards, so the ID may refer to a user, service account, API key, or session that has since been deleted.
 
   - `?string path`
 
@@ -15482,7 +15937,7 @@ List memory versions
 
   - `?ManagedAgentsActor redactedBy`
 
-    Identifies who performed a write or redact operation. Captured at write time on the `memory_version` row. The API key that created a session is not recorded on agent writes; attribution answers who made the write, not who is ultimately responsible. Look up session provenance separately via the [Sessions API](/docs/en/api/beta/sessions/retrieve).
+    Identifies who performed an operation. Recorded when the operation happens and not updated afterwards, so the ID may refer to a user, service account, API key, or session that has since been deleted.
 
 #### Example
 
@@ -15555,11 +16010,15 @@ Retrieve a memory version
 
 - `memoryStoreID: string`
 
+  The ID of the memory store that holds the version (`memstore_...`).
+
 - `memoryVersionID: string`
+
+  The ID of the memory version to retrieve (`memver_...`).
 
 - `view?:optional ManagedAgentsMemoryView`
 
-  Query parameter for view
+  Selects which projection of a `memory` or `memory_version` the server returns. `basic` returns the object with `content` set to `null`; `full` populates `content`. When omitted, the default is endpoint-specific: retrieve operations default to `full`; list, create, and update operations default to `basic`. Listing with `view=full` caps `limit` at 20.
 
 - `betas?:optional list<AnthropicBeta>`
 
@@ -15567,9 +16026,13 @@ Retrieve a memory version
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `ManagedAgentsMemoryVersion`
+- `class ManagedAgentsMemoryVersion`
 
   - `Type type`
 
@@ -15607,7 +16070,7 @@ Retrieve a memory version
 
   - `?ManagedAgentsActor createdBy`
 
-    Identifies who performed a write or redact operation. Captured at write time on the `memory_version` row. The API key that created a session is not recorded on agent writes; attribution answers who made the write, not who is ultimately responsible. Look up session provenance separately via the [Sessions API](/docs/en/api/beta/sessions/retrieve).
+    Identifies who performed an operation. Recorded when the operation happens and not updated afterwards, so the ID may refer to a user, service account, API key, or session that has since been deleted.
 
   - `?string path`
 
@@ -15619,7 +16082,7 @@ Retrieve a memory version
 
   - `?ManagedAgentsActor redactedBy`
 
-    Identifies who performed a write or redact operation. Captured at write time on the `memory_version` row. The API key that created a session is not recorded on agent writes; attribution answers who made the write, not who is ultimately responsible. Look up session provenance separately via the [Sessions API](/docs/en/api/beta/sessions/retrieve).
+    Identifies who performed an operation. Recorded when the operation happens and not updated afterwards, so the ID may refer to a user, service account, API key, or session that has since been deleted.
 
 #### Example
 
@@ -15683,7 +16146,11 @@ Redact a memory version
 
 - `memoryStoreID: string`
 
+  The ID of the memory store that holds the version (`memstore_...`).
+
 - `memoryVersionID: string`
+
+  The ID of the memory version to redact (`memver_...`).
 
 - `betas?:optional list<AnthropicBeta>`
 
@@ -15691,9 +16158,13 @@ Redact a memory version
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `ManagedAgentsMemoryVersion`
+- `class ManagedAgentsMemoryVersion`
 
   - `Type type`
 
@@ -15731,7 +16202,7 @@ Redact a memory version
 
   - `?ManagedAgentsActor createdBy`
 
-    Identifies who performed a write or redact operation. Captured at write time on the `memory_version` row. The API key that created a session is not recorded on agent writes; attribution answers who made the write, not who is ultimately responsible. Look up session provenance separately via the [Sessions API](/docs/en/api/beta/sessions/retrieve).
+    Identifies who performed an operation. Recorded when the operation happens and not updated afterwards, so the ID may refer to a user, service account, API key, or session that has since been deleted.
 
   - `?string path`
 
@@ -15743,7 +16214,7 @@ Redact a memory version
 
   - `?ManagedAgentsActor redactedBy`
 
-    Identifies who performed a write or redact operation. Captured at write time on the `memory_version` row. The API key that created a session is not recorded on agent writes; attribution answers who made the write, not who is ultimately responsible. Look up session provenance separately via the [Sessions API](/docs/en/api/beta/sessions/retrieve).
+    Identifies who performed an operation. Recorded when the operation happens and not updated afterwards, so the ID may refer to a user, service account, API key, or session that has since been deleted.
 
 #### Example
 
@@ -15820,9 +16291,13 @@ Upload File
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaFileMetadata`
+- `class BetaFileMetadata`
 
   - `"file" type`
 
@@ -15938,9 +16413,13 @@ List Files
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaFileMetadata`
+- `class BetaFileMetadata`
 
   - `"file" type`
 
@@ -16047,6 +16526,10 @@ Download File
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `mixed`
@@ -16089,9 +16572,13 @@ Get File Metadata
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaFileMetadata`
+- `class BetaFileMetadata`
 
   - `"file" type`
 
@@ -16190,9 +16677,13 @@ Delete File
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaDeletedFile`
+- `class BetaDeletedFile`
 
   - `?Type type`
 
@@ -16261,9 +16752,13 @@ Create Skill
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaSkill`
+- `class BetaSkill`
 
   - `"skill" type`
 
@@ -16382,9 +16877,13 @@ List Skills
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaSkill`
+- `class BetaSkill`
 
   - `"skill" type`
 
@@ -16490,9 +16989,13 @@ Get Skill
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaSkill`
+- `class BetaSkill`
 
   - `"skill" type`
 
@@ -16591,9 +17094,13 @@ Delete Skill
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaDeletedSkill`
+- `class BetaDeletedSkill`
 
   - `"skill_deleted" type`
 
@@ -16664,9 +17171,13 @@ Create Skill Version
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `SkillVersion`
+- `class SkillVersion`
 
   - `"skill_version" type`
 
@@ -16770,9 +17281,13 @@ List Skill Versions
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `SkillVersion`
+- `class SkillVersion`
 
   - `"skill_version" type`
 
@@ -16874,6 +17389,10 @@ Download a skill version's content as a zip archive.
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
 - `mixed`
@@ -16925,9 +17444,13 @@ Get Skill Version
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `SkillVersion`
+- `class SkillVersion`
 
   - `"skill_version" type`
 
@@ -17023,9 +17546,13 @@ Delete Skill Version
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `DeletedSkillVersion`
+- `class DeletedSkillVersion`
 
   - `"skill_version_deleted" type`
 
@@ -17070,7 +17597,7 @@ var_dump($betaDeletedSkillVersion);
 
 ### Create User Profile
 
-`$client->beta->userProfiles->create(?AccessType accessType, ?string externalID, ?BetaUserProfileExternalUserDetailsParams externalUserDetails, ?\Datetime externalUserOnboardedAt, ?array<string,string> metadata, ?string name, ?list<AnthropicBeta> betas): BetaUserProfile`
+`$client->beta->userProfiles->create(?AccessType accessType, ?string externalID, ?BetaUserProfileExternalUserDetailsParams externalUserDetails, ?\Datetime externalUserOnboardedAt, ?array<string,string> metadata, ?string name, ?list<AnthropicBeta> betas, ?string workspaceID): BetaUserProfile`
 
 **POST** `/v1/user_profiles`
 
@@ -17106,9 +17633,15 @@ Create User Profile
 
   Optional header to specify the beta version(s) you want to use.
 
+- `workspaceID?:optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaUserProfile`
+- `class BetaUserProfile`
 
   - `Type type`
 
@@ -17179,6 +17712,7 @@ $betaUserProfile = $client->beta->userProfiles->create(
   metadata: [],
   name: 'x',
   betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+  workspaceID: 'wrkspc_011CZkZaBF1tNoB5wlCeusgy',
 );
 
 var_dump($betaUserProfile);
@@ -17216,7 +17750,7 @@ var_dump($betaUserProfile);
 
 ### List User Profiles
 
-`$client->beta->userProfiles->list(?int limit, ?Order order, ?OrderBy orderBy, ?string page, ?list<AnthropicBeta> betas): PageCursor<BetaUserProfile>`
+`$client->beta->userProfiles->list(?int limit, ?Order order, ?OrderBy orderBy, ?string page, ?list<AnthropicBeta> betas, ?string workspaceID): PageCursor<BetaUserProfile>`
 
 **GET** `/v1/user_profiles`
 
@@ -17226,27 +17760,35 @@ List User Profiles
 
 - `limit?:optional int`
 
-  Query parameter for limit
+  The maximum number of user profiles to return, from 1 to 100. Defaults to 20.
 
 - `order?:optional Order`
 
-  Query parameter for order
+  The sort direction, applied to the field that `order_by` selects. Defaults to `desc`.
 
 - `orderBy?:optional OrderBy`
 
-  Query parameter for order_by
+  The field to sort user profiles by, in the direction that `order` sets. Defaults to `created_at`.
 
 - `page?:optional string`
 
-  Query parameter for page
+  The cursor for the page to return, taken from `next_page` in a previous response.
+
+  Leave it out to get the first page.
 
 - `betas?:optional list<AnthropicBeta>`
 
   Optional header to specify the beta version(s) you want to use.
 
+- `workspaceID?:optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaUserProfile`
+- `class BetaUserProfile`
 
   - `Type type`
 
@@ -17307,6 +17849,7 @@ $page = $client->beta->userProfiles->list(
   orderBy: 'created_at',
   page: 'page',
   betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+  workspaceID: 'wrkspc_011CZkZaBF1tNoB5wlCeusgy',
 );
 
 var_dump($page);
@@ -17349,7 +17892,7 @@ var_dump($page);
 
 ### Get User Profile
 
-`$client->beta->userProfiles->retrieve(string userProfileID, ?list<AnthropicBeta> betas): BetaUserProfile`
+`$client->beta->userProfiles->retrieve(string userProfileID, ?list<AnthropicBeta> betas, ?string workspaceID): BetaUserProfile`
 
 **GET** `/v1/user_profiles/{user_profile_id}`
 
@@ -17359,13 +17902,21 @@ Get User Profile
 
 - `userProfileID: string`
 
+  The ID of the user profile to get (`uprof_...`).
+
 - `betas?:optional list<AnthropicBeta>`
 
   Optional header to specify the beta version(s) you want to use.
 
+- `workspaceID?:optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaUserProfile`
+- `class BetaUserProfile`
 
   - `Type type`
 
@@ -17423,6 +17974,7 @@ $client = new Client(apiKey: 'my-anthropic-api-key');
 $betaUserProfile = $client->beta->userProfiles->retrieve(
   'uprof_011CZkZCu8hGbp5mYRQgUmz9',
   betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+  workspaceID: 'wrkspc_011CZkZaBF1tNoB5wlCeusgy',
 );
 
 var_dump($betaUserProfile);
@@ -17460,7 +18012,7 @@ var_dump($betaUserProfile);
 
 ### Update User Profile
 
-`$client->beta->userProfiles->update(string userProfileID, ?AccessType accessType, ?string externalID, ?BetaUserProfileExternalUserDetailsParams externalUserDetails, ?\Datetime externalUserOnboardedAt, ?array<string,string> metadata, ?string name, ?list<AnthropicBeta> betas): BetaUserProfile`
+`$client->beta->userProfiles->update(string userProfileID, ?AccessType accessType, ?string externalID, ?BetaUserProfileExternalUserDetailsParams externalUserDetails, ?\Datetime externalUserOnboardedAt, ?array<string,string> metadata, ?string name, ?list<AnthropicBeta> betas, ?string workspaceID): BetaUserProfile`
 
 **POST** `/v1/user_profiles/{user_profile_id}`
 
@@ -17469,6 +18021,8 @@ Update User Profile
 #### Parameters
 
 - `userProfileID: string`
+
+  The ID of the user profile to update (`uprof_...`).
 
 - `accessType?:optional AccessType`
 
@@ -17498,9 +18052,15 @@ Update User Profile
 
   Optional header to specify the beta version(s) you want to use.
 
+- `workspaceID?:optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaUserProfile`
+- `class BetaUserProfile`
 
   - `Type type`
 
@@ -17572,6 +18132,7 @@ $betaUserProfile = $client->beta->userProfiles->update(
   metadata: ['foo' => 'string'],
   name: 'x',
   betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+  workspaceID: 'wrkspc_011CZkZaBF1tNoB5wlCeusgy',
 );
 
 var_dump($betaUserProfile);
@@ -17609,7 +18170,7 @@ var_dump($betaUserProfile);
 
 ### Create Enrollment URL
 
-`$client->beta->userProfiles->createEnrollmentURL(string userProfileID, ?list<AnthropicBeta> betas): BetaUserProfileEnrollmentURL`
+`$client->beta->userProfiles->createEnrollmentURL(string userProfileID, ?list<AnthropicBeta> betas, ?string workspaceID): BetaUserProfileEnrollmentURL`
 
 **POST** `/v1/user_profiles/{user_profile_id}/enrollment_url`
 
@@ -17619,13 +18180,21 @@ Create Enrollment URL
 
 - `userProfileID: string`
 
+  The ID of the user profile to create an enrollment URL for (`uprof_...`).
+
 - `betas?:optional list<AnthropicBeta>`
 
   Optional header to specify the beta version(s) you want to use.
 
+- `workspaceID?:optional string`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaUserProfileEnrollmentURL`
+- `class BetaUserProfileEnrollmentURL`
 
   - `Type type`
 
@@ -17654,6 +18223,7 @@ $betaUserProfileEnrollmentURL = $client
   ->createEnrollmentURL(
   'uprof_011CZkZCu8hGbp5mYRQgUmz9',
   betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+  workspaceID: 'wrkspc_011CZkZaBF1tNoB5wlCeusgy',
 );
 
 var_dump($betaUserProfileEnrollmentURL);
@@ -17677,17 +18247,35 @@ var_dump($betaUserProfileEnrollmentURL);
 
 **POST** `/v1/dreams`
 
-Create a Dream
+Start an asynchronous job that uses past sessions to produce a reorganized version of a memory store and get back the dream to poll for the result.
+
+By default the dream writes its result to a new memory store and doesn't change the input memory store. The response has `status` set to `pending` and an empty `outputs` array. Poll the dream until `status` is `completed`, `failed`, or `canceled`.
+
+See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#create-a-dream) to learn more about creating dreams.
 
 #### Parameters
 
 - `inputs: list<BetaDreamInput>`
 
+  The memory store and sessions for the dream to read, as exactly one `memory_store` entry and exactly one `sessions` entry.
+
 - `model: Model`
+
+  The model that runs a dream, given as a model ID or as an object with `id` and `speed`.
+
+  In the object form, `speed` can only be `standard`.
+
+  The [limits table in the Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#limits) lists the supported models.
 
 - `instructions?:optional string`
 
+  Guidance that steers how the dream reads the sessions and organizes the output memory store, from 1 to 4,096 characters.
+
+  See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#steer-with-instructions) for what kinds of instructions work well.
+
 - `outputBehavior?:optional BetaOutputBehavior`
+
+  Which memory store a dream writes its result to. Defaults to `create_new` when left out of a create request.
 
 - `betas?:optional list<AnthropicBeta>`
 
@@ -17695,13 +18283,19 @@ Create a Dream
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaDream`
+- `class BetaDream`
 
   - `Type type`
 
   - `string id`
+
+    The unique ID of the dream (`drm_...`).
 
   - `?\Datetime archivedAt`
 
@@ -17721,25 +18315,53 @@ Create a Dream
 
   - `list<BetaDreamInput> inputs`
 
+    The sources that the dream reads, from the request that created it.
+
   - `?string instructions`
+
+    The guidance given when the dream was created, or `null` if none was given.
 
   - `BetaDreamModelConfig model`
 
-    Model identifier and configuration applied to every pipeline stage. Same wire shape as the Agents API ModelConfig.
+    The model that runs a dream, from the request that created it.
+
+    The dream uses this model for all of its work. The response always gives the model as an object, even if the request gave only a model ID.
 
   - `BetaOutputBehavior outputBehavior`
 
+    Which memory store a dream writes its result to. Defaults to `create_new` when left out of a create request.
+
   - `list<BetaDreamOutput> outputs`
+
+    The memory store that holds the dream's result, as a one-item array, or an empty array until the dream records that memory store.
+
+    The array is empty while the dream is `pending` and for a short time after it starts `running`. It can stay empty if the dream fails or is canceled before then. The memory store holds the complete result only once `status` is `completed`.
+
+    See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#use-the-output) for how to review and use the result.
 
   - `?string sessionID`
 
+    The ID of the session that runs the dream (`sesn_...`), or `null` if that session hasn't started.
+
+    Stream that session's events to follow what the dream reads and writes.
+
+    See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#watch-the-pipeline-run) for how to watch a running dream.
+
   - `BetaDreamStatus status`
 
-    Lifecycle status of a Dream.
+    Where a dream is in its lifecycle.
+
+    `completed`, `failed`, and `canceled` are final: once a dream has one of these statuses, its status doesn't change again.
+
+    See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#lifecycle) for what each status means.
 
   - `BetaDreamUsage usage`
 
-    Cumulative token usage for the dream across every pipeline stage.
+    The tokens that a dream has used so far.
+
+    The counts are zero while the dream is `pending` and update while it is `running`. They can keep changing after a cancel.
+
+    See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#billing) for how dreams are billed. See the [prompt caching guide](https://platform.claude.com/docs/en/build-with-claude/prompt-caching#tracking-cache-performance) for how the input token counts add up.
 
 #### Example
 
@@ -17812,33 +18434,41 @@ var_dump($betaDream);
 
 **GET** `/v1/dreams`
 
-List Dreams
+List the dreams in the workspace, newest first.
+
+Archived dreams are left out unless `include_archived` is `true`.
+
+See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#list-dreams) for how to page through dreams.
 
 #### Parameters
 
 - `createdAtGt?:optional \Datetime`
 
-  Return dreams with `created_at` strictly after this timestamp (exclusive lower bound, RFC 3339). Unset applies no lower bound.
+  Return only dreams created after this time (exclusive), in RFC 3339.
 
 - `createdAtLt?:optional \Datetime`
 
-  Return dreams with `created_at` strictly before this timestamp (exclusive upper bound, RFC 3339). Unset applies no upper bound.
+  Return only dreams created before this time (exclusive), in RFC 3339.
 
 - `includeArchived?:optional bool`
 
-  Query parameter for include_archived
+  Whether to include archived dreams. Defaults to `false`.
 
 - `limit?:optional int`
 
-  Query parameter for limit
+  The maximum number of dreams to return, from 1 to 100. Defaults to 20.
 
 - `page?:optional string`
 
-  Query parameter for page
+  The cursor for the page to return, taken from `next_page` in a previous response.
+
+  Leave it out to get the first page.
 
 - `statuses?:optional list<BetaDreamStatus>`
 
-  Filter by lifecycle status. Repeat the parameter to match any of multiple statuses. Empty applies no status filter.
+  Return only dreams that have one of these statuses.
+
+  Repeat the parameter to give more than one status. Leave it out to return dreams of every status.
 
 - `betas?:optional list<AnthropicBeta>`
 
@@ -17846,13 +18476,19 @@ List Dreams
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaDream`
+- `class BetaDream`
 
   - `Type type`
 
   - `string id`
+
+    The unique ID of the dream (`drm_...`).
 
   - `?\Datetime archivedAt`
 
@@ -17872,25 +18508,53 @@ List Dreams
 
   - `list<BetaDreamInput> inputs`
 
+    The sources that the dream reads, from the request that created it.
+
   - `?string instructions`
+
+    The guidance given when the dream was created, or `null` if none was given.
 
   - `BetaDreamModelConfig model`
 
-    Model identifier and configuration applied to every pipeline stage. Same wire shape as the Agents API ModelConfig.
+    The model that runs a dream, from the request that created it.
+
+    The dream uses this model for all of its work. The response always gives the model as an object, even if the request gave only a model ID.
 
   - `BetaOutputBehavior outputBehavior`
 
+    Which memory store a dream writes its result to. Defaults to `create_new` when left out of a create request.
+
   - `list<BetaDreamOutput> outputs`
+
+    The memory store that holds the dream's result, as a one-item array, or an empty array until the dream records that memory store.
+
+    The array is empty while the dream is `pending` and for a short time after it starts `running`. It can stay empty if the dream fails or is canceled before then. The memory store holds the complete result only once `status` is `completed`.
+
+    See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#use-the-output) for how to review and use the result.
 
   - `?string sessionID`
 
+    The ID of the session that runs the dream (`sesn_...`), or `null` if that session hasn't started.
+
+    Stream that session's events to follow what the dream reads and writes.
+
+    See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#watch-the-pipeline-run) for how to watch a running dream.
+
   - `BetaDreamStatus status`
 
-    Lifecycle status of a Dream.
+    Where a dream is in its lifecycle.
+
+    `completed`, `failed`, and `canceled` are final: once a dream has one of these statuses, its status doesn't change again.
+
+    See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#lifecycle) for what each status means.
 
   - `BetaDreamUsage usage`
 
-    Cumulative token usage for the dream across every pipeline stage.
+    The tokens that a dream has used so far.
+
+    The counts are zero while the dream is `pending` and update while it is `running`. They can keep changing after a cancel.
+
+    See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#billing) for how dreams are billed. See the [prompt caching guide](https://platform.claude.com/docs/en/build-with-claude/prompt-caching#tracking-cache-performance) for how the input token counts add up.
 
 #### Example
 
@@ -17970,11 +18634,17 @@ var_dump($page);
 
 **GET** `/v1/dreams/{dream_id}`
 
-Get a Dream
+Get a dream by ID to check its status, output memory store, and token usage.
+
+Archived dreams are returned too.
+
+See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#track-progress) for how to poll a dream and what each status means.
 
 #### Parameters
 
 - `dreamID: string`
+
+  The ID of the dream to get (`drm_...`).
 
 - `betas?:optional list<AnthropicBeta>`
 
@@ -17982,13 +18652,19 @@ Get a Dream
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaDream`
+- `class BetaDream`
 
   - `Type type`
 
   - `string id`
+
+    The unique ID of the dream (`drm_...`).
 
   - `?\Datetime archivedAt`
 
@@ -18008,25 +18684,53 @@ Get a Dream
 
   - `list<BetaDreamInput> inputs`
 
+    The sources that the dream reads, from the request that created it.
+
   - `?string instructions`
+
+    The guidance given when the dream was created, or `null` if none was given.
 
   - `BetaDreamModelConfig model`
 
-    Model identifier and configuration applied to every pipeline stage. Same wire shape as the Agents API ModelConfig.
+    The model that runs a dream, from the request that created it.
+
+    The dream uses this model for all of its work. The response always gives the model as an object, even if the request gave only a model ID.
 
   - `BetaOutputBehavior outputBehavior`
 
+    Which memory store a dream writes its result to. Defaults to `create_new` when left out of a create request.
+
   - `list<BetaDreamOutput> outputs`
+
+    The memory store that holds the dream's result, as a one-item array, or an empty array until the dream records that memory store.
+
+    The array is empty while the dream is `pending` and for a short time after it starts `running`. It can stay empty if the dream fails or is canceled before then. The memory store holds the complete result only once `status` is `completed`.
+
+    See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#use-the-output) for how to review and use the result.
 
   - `?string sessionID`
 
+    The ID of the session that runs the dream (`sesn_...`), or `null` if that session hasn't started.
+
+    Stream that session's events to follow what the dream reads and writes.
+
+    See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#watch-the-pipeline-run) for how to watch a running dream.
+
   - `BetaDreamStatus status`
 
-    Lifecycle status of a Dream.
+    Where a dream is in its lifecycle.
+
+    `completed`, `failed`, and `canceled` are final: once a dream has one of these statuses, its status doesn't change again.
+
+    See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#lifecycle) for what each status means.
 
   - `BetaDreamUsage usage`
 
-    Cumulative token usage for the dream across every pipeline stage.
+    The tokens that a dream has used so far.
+
+    The counts are zero while the dream is `pending` and update while it is `running`. They can keep changing after a cancel.
+
+    See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#billing) for how dreams are billed. See the [prompt caching guide](https://platform.claude.com/docs/en/build-with-claude/prompt-caching#tracking-cache-performance) for how the input token counts add up.
 
 #### Example
 
@@ -18096,11 +18800,17 @@ var_dump($betaDream);
 
 **POST** `/v1/dreams/{dream_id}/cancel`
 
-Cancel a Dream
+Stop a `pending` or `running` dream.
+
+The response shows `status` as `canceled`, unless the dream reached `completed` or `failed` first. `usage` can keep changing after the response. Canceling a `canceled` dream returns it unchanged. Canceling a `completed` or `failed` dream returns a 400 error.
+
+See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#cancel-a-dream) to learn more about canceling dreams.
 
 #### Parameters
 
 - `dreamID: string`
+
+  The ID of the dream to cancel (`drm_...`).
 
 - `betas?:optional list<AnthropicBeta>`
 
@@ -18108,13 +18818,19 @@ Cancel a Dream
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaDream`
+- `class BetaDream`
 
   - `Type type`
 
   - `string id`
+
+    The unique ID of the dream (`drm_...`).
 
   - `?\Datetime archivedAt`
 
@@ -18134,25 +18850,53 @@ Cancel a Dream
 
   - `list<BetaDreamInput> inputs`
 
+    The sources that the dream reads, from the request that created it.
+
   - `?string instructions`
+
+    The guidance given when the dream was created, or `null` if none was given.
 
   - `BetaDreamModelConfig model`
 
-    Model identifier and configuration applied to every pipeline stage. Same wire shape as the Agents API ModelConfig.
+    The model that runs a dream, from the request that created it.
+
+    The dream uses this model for all of its work. The response always gives the model as an object, even if the request gave only a model ID.
 
   - `BetaOutputBehavior outputBehavior`
 
+    Which memory store a dream writes its result to. Defaults to `create_new` when left out of a create request.
+
   - `list<BetaDreamOutput> outputs`
+
+    The memory store that holds the dream's result, as a one-item array, or an empty array until the dream records that memory store.
+
+    The array is empty while the dream is `pending` and for a short time after it starts `running`. It can stay empty if the dream fails or is canceled before then. The memory store holds the complete result only once `status` is `completed`.
+
+    See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#use-the-output) for how to review and use the result.
 
   - `?string sessionID`
 
+    The ID of the session that runs the dream (`sesn_...`), or `null` if that session hasn't started.
+
+    Stream that session's events to follow what the dream reads and writes.
+
+    See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#watch-the-pipeline-run) for how to watch a running dream.
+
   - `BetaDreamStatus status`
 
-    Lifecycle status of a Dream.
+    Where a dream is in its lifecycle.
+
+    `completed`, `failed`, and `canceled` are final: once a dream has one of these statuses, its status doesn't change again.
+
+    See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#lifecycle) for what each status means.
 
   - `BetaDreamUsage usage`
 
-    Cumulative token usage for the dream across every pipeline stage.
+    The tokens that a dream has used so far.
+
+    The counts are zero while the dream is `pending` and update while it is `running`. They can keep changing after a cancel.
+
+    See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#billing) for how dreams are billed. See the [prompt caching guide](https://platform.claude.com/docs/en/build-with-claude/prompt-caching#tracking-cache-performance) for how the input token counts add up.
 
 #### Example
 
@@ -18222,11 +18966,17 @@ var_dump($betaDream);
 
 **POST** `/v1/dreams/{dream_id}/archive`
 
-Archive a Dream
+Hide a `completed`, `failed`, or `canceled` dream from the default list of dreams.
+
+Archiving a `pending` or `running` dream returns a 400 error, so cancel it first. Archiving an archived dream returns it unchanged. An archived dream can still be fetched by ID. Archiving can't be undone.
+
+See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#archive-a-dream) to learn more about archiving dreams.
 
 #### Parameters
 
 - `dreamID: string`
+
+  The ID of the dream to archive (`drm_...`).
 
 - `betas?:optional list<AnthropicBeta>`
 
@@ -18234,13 +18984,19 @@ Archive a Dream
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaDream`
+- `class BetaDream`
 
   - `Type type`
 
   - `string id`
+
+    The unique ID of the dream (`drm_...`).
 
   - `?\Datetime archivedAt`
 
@@ -18260,25 +19016,53 @@ Archive a Dream
 
   - `list<BetaDreamInput> inputs`
 
+    The sources that the dream reads, from the request that created it.
+
   - `?string instructions`
+
+    The guidance given when the dream was created, or `null` if none was given.
 
   - `BetaDreamModelConfig model`
 
-    Model identifier and configuration applied to every pipeline stage. Same wire shape as the Agents API ModelConfig.
+    The model that runs a dream, from the request that created it.
+
+    The dream uses this model for all of its work. The response always gives the model as an object, even if the request gave only a model ID.
 
   - `BetaOutputBehavior outputBehavior`
 
+    Which memory store a dream writes its result to. Defaults to `create_new` when left out of a create request.
+
   - `list<BetaDreamOutput> outputs`
+
+    The memory store that holds the dream's result, as a one-item array, or an empty array until the dream records that memory store.
+
+    The array is empty while the dream is `pending` and for a short time after it starts `running`. It can stay empty if the dream fails or is canceled before then. The memory store holds the complete result only once `status` is `completed`.
+
+    See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#use-the-output) for how to review and use the result.
 
   - `?string sessionID`
 
+    The ID of the session that runs the dream (`sesn_...`), or `null` if that session hasn't started.
+
+    Stream that session's events to follow what the dream reads and writes.
+
+    See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#watch-the-pipeline-run) for how to watch a running dream.
+
   - `BetaDreamStatus status`
 
-    Lifecycle status of a Dream.
+    Where a dream is in its lifecycle.
+
+    `completed`, `failed`, and `canceled` are final: once a dream has one of these statuses, its status doesn't change again.
+
+    See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#lifecycle) for what each status means.
 
   - `BetaDreamUsage usage`
 
-    Cumulative token usage for the dream across every pipeline stage.
+    The tokens that a dream has used so far.
+
+    The counts are zero while the dream is `pending` and update while it is `running`. They can keep changing after a cancel.
+
+    See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#billing) for how dreams are billed. See the [prompt caching guide](https://platform.claude.com/docs/en/build-with-claude/prompt-caching#tracking-cache-performance) for how the input token counts add up.
 
 #### Example
 
@@ -18366,9 +19150,13 @@ Creates a tunnel. Creation allocates a fresh hostname and provisions the tunnel;
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaTunnel`
+- `class BetaTunnel`
 
   - `"tunnel" type`
 
@@ -18437,15 +19225,21 @@ Fetches a tunnel by ID.
 
 - `tunnelID: string`
 
+  ID of the tunnel (`tnl_...`).
+
 - `betas?:optional list<AnthropicBeta>`
 
   Optional header to specify the beta version(s) you want to use.
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaTunnel`
+- `class BetaTunnel`
 
   - `"tunnel" type`
 
@@ -18530,9 +19324,13 @@ Lists tunnels. Results are ordered by creation time, newest first; archived tunn
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaTunnel`
+- `class BetaTunnel`
 
   - `"tunnel" type`
 
@@ -18608,15 +19406,21 @@ Archives a tunnel. Archival is irreversible: every non-archived certificate on t
 
 - `tunnelID: string`
 
+  ID of the tunnel (`tnl_...`).
+
 - `betas?:optional list<AnthropicBeta>`
 
   Optional header to specify the beta version(s) you want to use.
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaTunnel`
+- `class BetaTunnel`
 
   - `"tunnel" type`
 
@@ -18685,15 +19489,21 @@ Reveals a tunnel's connector token. The value is fetched live on each call; Anth
 
 - `tunnelID: string`
 
+  ID of the tunnel (`tnl_...`).
+
 - `betas?:optional list<AnthropicBeta>`
 
   Optional header to specify the beta version(s) you want to use.
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaTunnelToken`
+- `class BetaTunnelToken`
 
   - `"tunnel_token" type`
 
@@ -18747,6 +19557,8 @@ Rotates a tunnel's connector token. Rotation invalidates the current token for n
 
 - `tunnelID: string`
 
+  ID of the tunnel (`tnl_...`).
+
 - `reason?:optional string`
 
   Optional free-text reason for the rotation, recorded for audit.
@@ -18757,9 +19569,13 @@ Rotates a tunnel's connector token. Rotation invalidates the current token for n
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `BetaTunnelToken`
+- `class BetaTunnelToken`
 
   - `"tunnel_token" type`
 
@@ -18816,6 +19632,8 @@ Registers a public CA certificate on a tunnel. Anthropic verifies the gateway's 
 
 - `tunnelID: string`
 
+  ID of the tunnel (`tnl_...`).
+
 - `caCertificatePEM: string`
 
   PEM-encoded X.509 CA certificate. Must contain exactly one certificate and no private-key material. Maximum 8KB.
@@ -18826,9 +19644,13 @@ Registers a public CA certificate on a tunnel. Anthropic verifies the gateway's 
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `TunnelCertificate`
+- `class TunnelCertificate`
 
   - `"tunnel_certificate" type`
 
@@ -18903,7 +19725,11 @@ Fetches a tunnel certificate by ID.
 
 - `tunnelID: string`
 
+  ID of the tunnel (`tnl_...`).
+
 - `certificateID: string`
+
+  ID of the certificate (`tcrt_...`).
 
 - `betas?:optional list<AnthropicBeta>`
 
@@ -18911,9 +19737,13 @@ Fetches a tunnel certificate by ID.
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `TunnelCertificate`
+- `class TunnelCertificate`
 
   - `"tunnel_certificate" type`
 
@@ -18988,6 +19818,8 @@ Lists the certificates registered on a tunnel. Archived certificates are exclude
 
 - `tunnelID: string`
 
+  ID of the tunnel (`tnl_...`).
+
 - `includeArchived?:optional bool`
 
   Whether to include archived certificates in the results. Defaults to false.
@@ -19006,9 +19838,13 @@ Lists the certificates registered on a tunnel. Archived certificates are exclude
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `TunnelCertificate`
+- `class TunnelCertificate`
 
   - `"tunnel_certificate" type`
 
@@ -19090,7 +19926,11 @@ Archives a tunnel certificate, removing it from the set Anthropic trusts for the
 
 - `tunnelID: string`
 
+  ID of the tunnel (`tnl_...`).
+
 - `certificateID: string`
+
+  ID of the certificate to archive (`tcrt_...`).
 
 - `betas?:optional list<AnthropicBeta>`
 
@@ -19098,9 +19938,13 @@ Archives a tunnel certificate, removing it from the set Anthropic trusts for the
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `TunnelCertificate`
+- `class TunnelCertificate`
 
   - `"tunnel_certificate" type`
 
@@ -19173,7 +20017,7 @@ Retrieve information about the organization associated with the authenticated AP
 
 #### Returns
 
-- `BetaOrganization`
+- `class BetaOrganization`
 
   - `"organization" type`
 
@@ -19255,7 +20099,7 @@ List API Keys
 
 #### Returns
 
-- `APIKey`
+- `class APIKey`
 
   - `"api_key" type`
 
@@ -19378,7 +20222,7 @@ Retrieve information about a single API key in your organization, looked up by i
 
 #### Returns
 
-- `APIKey`
+- `class APIKey`
 
   - `"api_key" type`
 
@@ -19495,7 +20339,7 @@ Update API Key
 
 #### Returns
 
-- `APIKey`
+- `class APIKey`
 
   - `"api_key" type`
 
@@ -19616,7 +20460,7 @@ Create an external key config owned by the caller's organization.
 
 #### Returns
 
-- `ExternalKey`
+- `class ExternalKey`
 
   - `"external_key" type`
 
@@ -19714,7 +20558,7 @@ Results are ordered by creation time (newest first). Use the
 
 #### Returns
 
-- `ExternalKey`
+- `class ExternalKey`
 
   - `"external_key" type`
 
@@ -19799,7 +20643,7 @@ Retrieve a single external key config in the caller's organization by ID.
 
 #### Returns
 
-- `ExternalKey`
+- `class ExternalKey`
 
   - `"external_key" type`
 
@@ -19897,7 +20741,7 @@ encrypted data requires the original key identity to decrypt.
 
 #### Returns
 
-- `ExternalKey`
+- `class ExternalKey`
 
   - `"external_key" type`
 
@@ -19989,7 +20833,7 @@ The request is rejected if any workspace still references this config.
 
 #### Returns
 
-- `ExternalKeyDeleteResponse`
+- `class ExternalKeyDeleteResponse`
 
   - `"external_key_deleted" type`
 
@@ -20043,7 +20887,7 @@ message if it failed or timed out.
 
 #### Returns
 
-- `ExternalKeyValidateResponse`
+- `class ExternalKeyValidateResponse`
 
   - `"external_key_validation" type`
 
@@ -20131,7 +20975,7 @@ matched as the JWT's `iss` claim and is not fetched.
 
 #### Returns
 
-- `BetaFederationIssuer`
+- `class BetaFederationIssuer`
 
   - `"federation_issuer" type`
 
@@ -20291,7 +21135,7 @@ Archived issuers are excluded unless `include_archived=true`.
 
 #### Returns
 
-- `BetaFederationIssuer`
+- `class BetaFederationIssuer`
 
   - `"federation_issuer" type`
 
@@ -20431,7 +21275,7 @@ Retrieve a federation issuer by its ID (`fdis_...`).
 
 #### Returns
 
-- `BetaFederationIssuer`
+- `class BetaFederationIssuer`
 
   - `"federation_issuer" type`
 
@@ -20599,7 +21443,7 @@ session.
 
 #### Returns
 
-- `BetaFederationIssuer`
+- `class BetaFederationIssuer`
 
   - `"federation_issuer" type`
 
@@ -20752,7 +21596,7 @@ issuer cannot be changed), or recreate them against another issuer.
 
 #### Returns
 
-- `BetaFederationIssuer`
+- `class BetaFederationIssuer`
 
   - `"federation_issuer" type`
 
@@ -20941,7 +21785,7 @@ manage rules whose `oauth_scope` is `workspace:developer` or
 
 #### Returns
 
-- `BetaFederationRule`
+- `class BetaFederationRule`
 
   - `"federation_rule" type`
 
@@ -21139,7 +21983,7 @@ unless `include_archived=true`.
 
 #### Returns
 
-- `BetaFederationRule`
+- `class BetaFederationRule`
 
   - `"federation_rule" type`
 
@@ -21308,7 +22152,7 @@ Retrieve a federation rule by its ID (`fdrl_...`).
 
 #### Returns
 
-- `BetaFederationRule`
+- `class BetaFederationRule`
 
   - `"federation_rule" type`
 
@@ -21524,7 +22368,7 @@ Console session.
 
 #### Returns
 
-- `BetaFederationRule`
+- `class BetaFederationRule`
 
   - `"federation_rule" type`
 
@@ -21711,7 +22555,7 @@ other scopes require a Console session.
 
 #### Returns
 
-- `BetaFederationRule`
+- `class BetaFederationRule`
 
   - `"federation_rule" type`
 
@@ -21886,7 +22730,7 @@ other scopes require a Console session.
 
 #### Returns
 
-- `BetaFederationRuleWorkspace`
+- `class BetaFederationRuleWorkspace`
 
   - `"federation_rule_workspace" type`
 
@@ -21985,7 +22829,7 @@ rules with `applies_to_all_workspaces` or a legacy single
 
 #### Returns
 
-- `BetaFederationRuleWorkspace`
+- `class BetaFederationRuleWorkspace`
 
   - `"federation_rule_workspace" type`
 
@@ -22077,7 +22921,7 @@ Console session.
 
 #### Returns
 
-- `WorkspaceRemoveResponse`
+- `class WorkspaceRemoveResponse`
 
   - `"federation_rule_workspace_deleted" type`
 
@@ -22147,7 +22991,7 @@ On plans that draw members from a finite pool of purchased seats, the invite aut
 
 #### Returns
 
-- `OrganizationInvite`
+- `class OrganizationInvite`
 
   - `"invite" type`
 
@@ -22263,7 +23107,7 @@ List the organization's invites.
 
 #### Returns
 
-- `OrganizationInvite`
+- `class OrganizationInvite`
 
   - `"invite" type`
 
@@ -22365,7 +23209,7 @@ Retrieve an invite by ID.
 
 #### Returns
 
-- `OrganizationInvite`
+- `class OrganizationInvite`
 
   - `"invite" type`
 
@@ -22455,7 +23299,7 @@ Delete a pending invite.
 
 #### Returns
 
-- `InviteDeleteResponse`
+- `class InviteDeleteResponse`
 
   - `"invite_deleted" type`
 
@@ -22530,7 +23374,7 @@ accounts.
 
 #### Returns
 
-- `ServiceAccount`
+- `class ServiceAccount`
 
   - `"service_account" type`
 
@@ -22649,7 +23493,7 @@ archived service accounts.
 
 #### Returns
 
-- `ServiceAccount`
+- `class ServiceAccount`
 
   - `"service_account" type`
 
@@ -22757,7 +23601,7 @@ Retrieve a service account by its ID (`svac_...`).
 
 #### Returns
 
-- `ServiceAccount`
+- `class ServiceAccount`
 
   - `"service_account" type`
 
@@ -22870,7 +23714,7 @@ interactive credential (a user OAuth token or a Console session).
 
 #### Returns
 
-- `ServiceAccount`
+- `class ServiceAccount`
 
   - `"service_account" type`
 
@@ -22978,7 +23822,7 @@ those rules first or change their target to another service account.
 
 #### Returns
 
-- `ServiceAccount`
+- `class ServiceAccount`
 
   - `"service_account" type`
 
@@ -23095,7 +23939,7 @@ rejected.
 
 #### Returns
 
-- `ServiceAccountWorkspaceMember`
+- `class ServiceAccountWorkspaceMember`
 
   - `"service_account_workspace_member" type`
 
@@ -23202,7 +24046,7 @@ page to recover.
 
 #### Returns
 
-- `ServiceAccountWorkspaceMember`
+- `class ServiceAccountWorkspaceMember`
 
   - `"service_account_workspace_member" type`
 
@@ -23297,7 +24141,7 @@ to the implicit `workspace_user` membership. Archived workspaces return
 
 #### Returns
 
-- `WorkspaceRemoveResponse`
+- `class WorkspaceRemoveResponse`
 
   - `"service_account_workspace_member_deleted" type`
 
@@ -23377,7 +24221,7 @@ List the organization's members.
 
 #### Returns
 
-- `OrganizationUser`
+- `class OrganizationUser`
 
   - `"user" type`
 
@@ -23461,7 +24305,7 @@ Retrieve a member of the organization by user ID.
 
 #### Returns
 
-- `OrganizationUser`
+- `class OrganizationUser`
 
   - `"user" type`
 
@@ -23538,7 +24382,7 @@ Update a member's organization role.
 
 #### Returns
 
-- `OrganizationUser`
+- `class OrganizationUser`
 
   - `"user" type`
 
@@ -23611,7 +24455,7 @@ Remove a member from the organization.
 
 #### Returns
 
-- `UserRemoveResponse`
+- `class UserRemoveResponse`
 
   - `"user_deleted" type`
 
@@ -23682,7 +24526,7 @@ List Workspaces
 
 #### Returns
 
-- `Workspace`
+- `class Workspace`
 
   - `"workspace" type`
 
@@ -23774,8 +24618,8 @@ var_dump($page);
       "created_at": "2024-10-30T23:58:27.427722Z",
       "data_residency": {
         "allowed_inference_geos": "unrestricted",
-        "default_inference_geo": "default_inference_geo",
-        "workspace_geo": "workspace_geo"
+        "default_inference_geo": "global",
+        "workspace_geo": "us"
       },
       "display_color": "#6C5BB9",
       "external_key_id": "ekey_01SDCCSbTxrXDpWc1phhtcfK",
@@ -23839,7 +24683,7 @@ Create Workspace
 
 #### Returns
 
-- `Workspace`
+- `class Workspace`
 
   - `"workspace" type`
 
@@ -23938,8 +24782,8 @@ var_dump($betaWorkspace);
   "created_at": "2024-10-30T23:58:27.427722Z",
   "data_residency": {
     "allowed_inference_geos": "unrestricted",
-    "default_inference_geo": "default_inference_geo",
-    "workspace_geo": "workspace_geo"
+    "default_inference_geo": "global",
+    "workspace_geo": "us"
   },
   "display_color": "#6C5BB9",
   "external_key_id": "ekey_01SDCCSbTxrXDpWc1phhtcfK",
@@ -23968,7 +24812,7 @@ Get Workspace
 
 #### Returns
 
-- `Workspace`
+- `class Workspace`
 
   - `"workspace" type`
 
@@ -24058,8 +24902,8 @@ var_dump($betaWorkspace);
   "created_at": "2024-10-30T23:58:27.427722Z",
   "data_residency": {
     "allowed_inference_geos": "unrestricted",
-    "default_inference_geo": "default_inference_geo",
-    "workspace_geo": "workspace_geo"
+    "default_inference_geo": "global",
+    "workspace_geo": "us"
   },
   "display_color": "#6C5BB9",
   "external_key_id": "ekey_01SDCCSbTxrXDpWc1phhtcfK",
@@ -24116,7 +24960,7 @@ Update Workspace
 
 #### Returns
 
-- `Workspace`
+- `class Workspace`
 
   - `"workspace" type`
 
@@ -24213,8 +25057,8 @@ var_dump($betaWorkspace);
   "created_at": "2024-10-30T23:58:27.427722Z",
   "data_residency": {
     "allowed_inference_geos": "unrestricted",
-    "default_inference_geo": "default_inference_geo",
-    "workspace_geo": "workspace_geo"
+    "default_inference_geo": "global",
+    "workspace_geo": "us"
   },
   "display_color": "#6C5BB9",
   "external_key_id": "ekey_01SDCCSbTxrXDpWc1phhtcfK",
@@ -24241,7 +25085,7 @@ Archive Workspace
 
 #### Returns
 
-- `Workspace`
+- `class Workspace`
 
   - `"workspace" type`
 
@@ -24331,8 +25175,8 @@ var_dump($betaWorkspace);
   "created_at": "2024-10-30T23:58:27.427722Z",
   "data_residency": {
     "allowed_inference_geos": "unrestricted",
-    "default_inference_geo": "default_inference_geo",
-    "workspace_geo": "workspace_geo"
+    "default_inference_geo": "global",
+    "workspace_geo": "us"
   },
   "display_color": "#6C5BB9",
   "external_key_id": "ekey_01SDCCSbTxrXDpWc1phhtcfK",
@@ -24349,15 +25193,17 @@ var_dump($betaWorkspace);
 
 ### List Workspace Rate Limits
 
-`$client->beta->organization->workspaces->rateLimits->list(string workspaceID, ?GroupType groupType, ?int limit, ?string page): PageCursor<BetaWorkspaceRateLimit>`
+`$client->beta->organization->workspaces->rateLimits->list(string workspaceID, ?GroupType groupType, ?bool includeInherited, ?int limit, ?string page): PageCursor<BetaWorkspaceRateLimit>`
 
 **GET** `/v1/organizations/workspaces/{workspace_id}/rate_limits`
 
-List rate-limit overrides configured for a workspace.
+List a workspace's rate limits.
 
-Returns only the groups and limiter types that have a workspace-level
-override. Groups without overrides inherit the organization limits and
-are not listed; use `GET /v1/organizations/rate_limits` to see those.
+By default, returns only the groups and limiter types that have a
+workspace-level override. With `include_inherited=true`, returns every
+group with organization-level limits the workspace can see, listing for
+each the values it inherits from the organization as well as its own
+overrides. Each value's `source` says which it is.
 
 When `limit` is omitted, every matching entry is returned in a single
 page; when `limit` truncates the result, follow `next_page` to fetch
@@ -24373,6 +25219,12 @@ the remaining entries.
 
   Filter by group type.
 
+- `includeInherited?:optional bool`
+
+  Also list the limiter values the workspace inherits from the organization, including groups with no workspace-level override.
+
+  default: false
+
 - `limit?:optional int`
 
   Maximum number of items to return per page. Ranges from `1` to `1000`.
@@ -24385,19 +25237,19 @@ the remaining entries.
 
 #### Returns
 
-- `BetaWorkspaceRateLimit`
+- `class BetaWorkspaceRateLimit`
 
   - `"workspace_rate_limit" type`
 
     Object type. Always `workspace_rate_limit` for workspace rate-limit entries.
 
-  - `GroupType groupType`
+  - `Group group`
 
-    The kind of rate-limit group this entry represents. `model_group` entries apply to a family of models (listed in `models`); other values apply to an API-surface category and have `models` set to `null`.
+    The rate-limit group this entry's limits apply to. Its `type` equals `group_type`.
 
   - `list<BetaWorkspaceRateLimitValue> limits`
 
-    The limiter values overridden for this group in this workspace. Limiter types without a workspace override are omitted and inherit the organization value.
+    The workspace's limiter values for this group. By default only the limiter types with a workspace-level override are listed. With `include_inherited` set to `true`, the limiter types the workspace inherits from the organization are listed too, each marked by `source`.
 
   - `?list<string> models`
 
@@ -24405,11 +25257,17 @@ the remaining entries.
 
   - `string rateLimitID`
 
-    The `id` of the RateLimit group this override applies to.
+    The `id` of the organization's RateLimit entry this entry applies to.
 
   - `string workspaceID`
 
-    ID of the Workspace this override applies to.
+    ID of the Workspace this entry applies to.
+
+  - `GroupType groupType`
+
+    **Deprecated**: Use `group.type` instead. `group_type` is still returned and always equals `group.type`.
+
+    Deprecated: use `group.type` instead. The kind of rate-limit group this entry represents. `model_group` entries apply to a family of models (listed in `models`); other values apply to an API-surface category and have `models` set to `null`. Always equal to `group.type`.
 
 #### Example
 
@@ -24421,7 +25279,11 @@ require_once dirname(__DIR__) . '/vendor/autoload.php';
 $client = new Client(apiKey: 'my-anthropic-api-key');
 
 $page = $client->beta->organization->workspaces->rateLimits->list(
-  'workspace_id', groupType: 'batch', limit: 1, page: 'page'
+  'workspace_id',
+  groupType: 'batch',
+  includeInherited: true,
+  limit: 1,
+  page: 'page',
 );
 
 var_dump($page);
@@ -24433,10 +25295,18 @@ var_dump($page);
 {
   "data": [
     {
+      "group": {
+        "id": "id",
+        "display_name": "display_name",
+        "type": "model_group"
+      },
       "group_type": "batch",
       "limits": [
         {
           "org_limit": 0,
+          "source": {
+            "type": "workspace"
+          },
           "type": "type",
           "value": 0
         }
@@ -24487,7 +25357,7 @@ List Workspace Members
 
 #### Returns
 
-- `WorkspaceMember`
+- `class WorkspaceMember`
 
   - `"workspace_member" type`
 
@@ -24565,7 +25435,7 @@ Create Workspace Member
 
 #### Returns
 
-- `WorkspaceMember`
+- `class WorkspaceMember`
 
   - `"workspace_member" type`
 
@@ -24634,7 +25504,7 @@ Get Workspace Member
 
 #### Returns
 
-- `WorkspaceMember`
+- `class WorkspaceMember`
 
   - `"workspace_member" type`
 
@@ -24708,7 +25578,7 @@ Update Workspace Member
 
 #### Returns
 
-- `WorkspaceMember`
+- `class WorkspaceMember`
 
   - `"workspace_member" type`
 
@@ -24777,7 +25647,7 @@ Delete Workspace Member
 
 #### Returns
 
-- `MemberRemoveResponse`
+- `class MemberRemoveResponse`
 
   - `"workspace_member_deleted" type`
 
@@ -24860,7 +25730,7 @@ omitted from the results.
 
 #### Returns
 
-- `ServiceAccountWorkspaceMember`
+- `class ServiceAccountWorkspaceMember`
 
   - `"service_account_workspace_member" type`
 
@@ -24960,7 +25830,7 @@ accounts cannot be added and are rejected.
 
 #### Returns
 
-- `ServiceAccountWorkspaceMember`
+- `class ServiceAccountWorkspaceMember`
 
   - `"service_account_workspace_member" type`
 
@@ -25054,7 +25924,7 @@ account returns 404.
 
 #### Returns
 
-- `ServiceAccountWorkspaceMember`
+- `class ServiceAccountWorkspaceMember`
 
   - `"service_account_workspace_member" type`
 
@@ -25151,7 +26021,7 @@ rejected.
 
 #### Returns
 
-- `ServiceAccountWorkspaceMember`
+- `class ServiceAccountWorkspaceMember`
 
   - `"service_account_workspace_member" type`
 
@@ -25244,7 +26114,7 @@ membership. Archived workspaces return 400.
 
 #### Returns
 
-- `ServiceAccountRemoveResponse`
+- `class ServiceAccountRemoveResponse`
 
   - `"service_account_workspace_member_deleted" type`
 
@@ -25329,7 +26199,7 @@ the remaining entries.
 
 #### Returns
 
-- `OrganizationRateLimit`
+- `class OrganizationRateLimit`
 
   - `"rate_limit" type`
 
@@ -25337,11 +26207,11 @@ the remaining entries.
 
   - `string id`
 
-    Stable identifier for this rate-limit group within the organization.
+    Identifier of this rate-limit entry. It is stable within the organization and differs between organizations; the group's own identifier is `group.id`.
 
-  - `GroupType groupType`
+  - `Group group`
 
-    The kind of rate-limit group this entry represents. `model_group` entries apply to a family of models (listed in `models`); other values apply to an API-surface category and have `models` set to `null`.
+    The rate-limit group this entry's limits apply to. Its `type` equals `group_type`.
 
   - `list<OrganizationRateLimitValue> limits`
 
@@ -25350,6 +26220,12 @@ the remaining entries.
   - `?list<string> models`
 
     Model names this entry's limits apply to, including aliases. `null` when `group_type` is not `"model_group"`.
+
+  - `GroupType groupType`
+
+    **Deprecated**: Use `group.type` instead. `group_type` is still returned and always equals `group.type`.
+
+    Deprecated: use `group.type` instead. The kind of rate-limit group this entry represents. `model_group` entries apply to a family of models (listed in `models`); other values apply to an API-surface category and have `models` set to `null`. Always equal to `group.type`.
 
 #### Example
 
@@ -25374,6 +26250,11 @@ var_dump($page);
   "data": [
     {
       "id": "id",
+      "group": {
+        "id": "id",
+        "display_name": "display_name",
+        "type": "model_group"
+      },
       "group_type": "batch",
       "limits": [
         {
@@ -25408,7 +26289,7 @@ organization reads the state inherited from the parent's configuration.
 
 #### Returns
 
-- `ComplianceSettings`
+- `class ComplianceSettings`
 
   - `"compliance_settings" type`
 
@@ -25474,7 +26355,7 @@ compliance settings.
 
 #### Returns
 
-- `ComplianceSettings`
+- `class ComplianceSettings`
 
   - `"compliance_settings" type`
 

@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/ai-native-sdlc-playbook/introduction -->
 
-Lesson 1 of 14 · The AI-Native SDLC PlaybookIntroduction
+Lesson 1 of 14 · The AI-native SDLC playbookIntroduction
 
-3. /[The AI-Native SDLC Playbook](https://academy.claude.com/courses/ai-native-sdlc-playbook)
+3. /[The AI-native SDLC playbook](https://academy.claude.com/courses/ai-native-sdlc-playbook)
 
-[The AI-Native SDLC Playbook](https://academy.claude.com/courses/ai-native-sdlc-playbook)
+[The AI-native SDLC playbook](https://academy.claude.com/courses/ai-native-sdlc-playbook)
 
 # Introduction
 
@@ -87,7 +87,7 @@ At first, you prompt each step by hand, with the end state being a loop in which
 
 [Next lessonCapture as intent.md](https://academy.claude.com/courses/ai-native-sdlc-playbook/capture-intent)
 
-Lesson 1 of 14 · The AI-Native SDLC PlaybookIntroduction
+Lesson 1 of 14 · The AI-native SDLC playbookIntroduction
 
 Introduction
 

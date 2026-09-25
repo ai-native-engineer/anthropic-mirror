@@ -91,7 +91,7 @@ The shared snapshot is removed and the link stops working.
 Not yet. Sharing with specific people is available on claude.ai on the web. You can open a chat shared with you on any device.
 
 * [Manage project visibility and sharing](https://support.claude.com/en/articles/9519189-manage-project-visibility-and-sharing)
-* [Publish and share artifacts](https://support.claude.com/en/articles/9547008-publish-and-share-artifacts)
+* [Share artifacts](https://support.claude.com/en/articles/9547008-share-artifacts)
 * [Share and unshare chats](https://support.claude.com/en/articles/10593882-share-and-unshare-chats)
-* [Use analytics chat to ask Claude about usage](https://support.claude.com/en/articles/14729354-use-analytics-chat-to-ask-claude-about-usage)
 * [Public links for shared chats](https://support.claude.com/en/articles/16762437-public-links-for-shared-chats)
+* [Artifacts admin guide for Team and Enterprise plans](https://support.claude.com/en/articles/16994751-artifacts-admin-guide-for-team-and-enterprise-plans)

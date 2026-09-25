@@ -42,7 +42,7 @@ You’ll use it two ways: a **daily** mode that sorts your morning in step 2, an
 
 1. **In Customize → Plugins**, open the [Legal plugin(opens in new tab)](https://claude.ai/desktop/customize/plugins/new?marketplace=https%3A%2F%2Fgithub.com%2Fanthropics%2Fknowledge-work-plugins&plugin=legal) and install it — it comes with the `/brief` skill, built on how a working legal team uses it.
 2. **In Customize → Connectors**, connect the tools the skill draws on — your inbox, calendar, task tracker, chat, and wherever your reviews and decisions are stored. The skill reads across all of them.
-3. **In the Cowork chat bar**, pick a working folder Claude can read, edit, and save to, so every brief lands somewhere you can find it later.
+3. **In the chat bar**, pick a place Claude can read, edit, and save to (a working folder in the desktop app, or a project), so every brief lands somewhere you can find it later.
 
 With the plugin installed and your sources connected, tell Claude to tailor `/brief` to your team — where your decisions live, how your reviews are structured, and the format you read fastest:
 

@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/model-context-protocol-advanced-topics/roots-walkthrough -->
 
-Lesson 6 of 11 · Model Context Protocol: Advanced TopicsRoots walkthrough
+Lesson 6 of 11 · Model Context Protocol: Advanced topicsRoots walkthrough
 
-3. /[Model Context Protocol: Advanced Topics](https://academy.claude.com/courses/model-context-protocol-advanced-topics)
+3. /[Model Context Protocol: Advanced topics](https://academy.claude.com/courses/model-context-protocol-advanced-topics)
 
-[Model Context Protocol: Advanced Topics](https://academy.claude.com/courses/model-context-protocol-advanced-topics)
+[Model Context Protocol: Advanced topics](https://academy.claude.com/courses/model-context-protocol-advanced-topics)
 
 # Roots walkthrough
 
@@ -12,7 +12,7 @@ Lesson 615 min
 
 [Previous lessonRoots](https://academy.claude.com/courses/model-context-protocol-advanced-topics/roots)[Next lessonJSON message types](https://academy.claude.com/courses/model-context-protocol-advanced-topics/json-message-types)
 
-Lesson 6 of 11 · Model Context Protocol: Advanced TopicsRoots walkthrough
+Lesson 6 of 11 · Model Context Protocol: Advanced topicsRoots walkthrough
 
 Core MCP features
 

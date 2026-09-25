@@ -29,6 +29,10 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
   - `Optional<String> workspaceId`
 
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
   - `long maxTokens`
 
     The maximum number of tokens to generate before stopping.
@@ -98,7 +102,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `List<ContentBlockParam>`
 
-        - `class TextBlockParam:`
+        - `class TextBlockParam`
 
           - `JsonValue type = "text"`
 
@@ -129,7 +133,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `Optional<List<TextCitationParam>> citations`
 
-            - `class CitationCharLocationParam:`
+            - `class CitationCharLocationParam`
 
               - `JsonValue type = "char_location"`
 
@@ -149,7 +153,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 minimum: 0
 
-            - `class CitationPageLocationParam:`
+            - `class CitationPageLocationParam`
 
               - `JsonValue type = "page_location"`
 
@@ -169,7 +173,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 minimum: 1
 
-            - `class CitationContentBlockLocationParam:`
+            - `class CitationContentBlockLocationParam`
 
               - `JsonValue type = "content_block_location"`
 
@@ -199,7 +203,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 minimum: 0
 
-            - `class CitationWebSearchResultLocationParam:`
+            - `class CitationWebSearchResultLocationParam`
 
               - `JsonValue type = "web_search_result_location"`
 
@@ -215,7 +219,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 minLength: 1
 
-            - `class CitationSearchResultLocationParam:`
+            - `class CitationSearchResultLocationParam`
 
               - `JsonValue type = "search_result_location"`
 
@@ -249,13 +253,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `Optional<String> title`
 
-        - `class ImageBlockParam:`
+        - `class ImageBlockParam`
 
           - `JsonValue type = "image"`
 
           - `Source source`
 
-            - `class Base64ImageSource:`
+            - `class Base64ImageSource`
 
               - `JsonValue type = "base64"`
 
@@ -273,13 +277,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 - `IMAGE_WEBP("image/webp")`
 
-            - `class UrlImageSource:`
+            - `class UrlImageSource`
 
               - `JsonValue type = "url"`
 
               - `String url`
 
-            - `class FileImageSource:`
+            - `class FileImageSource`
 
               - `JsonValue type = "file"`
 
@@ -301,13 +305,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `ERROR("error")`
 
-        - `class DocumentBlockParam:`
+        - `class DocumentBlockParam`
 
           - `JsonValue type = "document"`
 
           - `Source source`
 
-            - `class Base64PdfSource:`
+            - `class Base64PdfSource`
 
               - `JsonValue type = "base64"`
 
@@ -317,7 +321,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `JsonValue mediaType = "application/pdf"`
 
-            - `class PlainTextSource:`
+            - `class PlainTextSource`
 
               - `JsonValue type = "text"`
 
@@ -325,7 +329,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `JsonValue mediaType = "text/plain"`
 
-            - `class ContentBlockSource:`
+            - `class ContentBlockSource`
 
               - `JsonValue type = "content"`
 
@@ -335,17 +339,17 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 - `List<ContentBlockSourceContent>`
 
-                  - `class TextBlockParam:`
+                  - `class TextBlockParam`
 
-                  - `class ImageBlockParam:`
+                  - `class ImageBlockParam`
 
-            - `class UrlPdfSource:`
+            - `class UrlPdfSource`
 
               - `JsonValue type = "url"`
 
               - `String url`
 
-            - `class FileDocumentSource:`
+            - `class FileDocumentSource`
 
               - `JsonValue type = "file"`
 
@@ -367,7 +371,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             maxLength: 500, minLength: 1
 
-        - `class SearchResultBlockParam:`
+        - `class SearchResultBlockParam`
 
           - `JsonValue type = "search_result"`
 
@@ -395,7 +399,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `Optional<CitationsConfigParam> citations`
 
-        - `class ThinkingBlockParam:`
+        - `class ThinkingBlockParam`
 
           - `JsonValue type = "thinking"`
 
@@ -409,7 +413,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             The `thinking` text of this block as returned by the API.
 
-        - `class RedactedThinkingBlockParam:`
+        - `class RedactedThinkingBlockParam`
 
           - `JsonValue type = "redacted_thinking"`
 
@@ -417,7 +421,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             The `data` value of this redacted thinking block, exactly as returned by the API in a previous response. Opaque and encrypted; pass it back unchanged.
 
-        - `class ToolUseBlockParam:`
+        - `class ToolUseBlockParam`
 
           - `JsonValue type = "tool_use"`
 
@@ -437,13 +441,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `Optional<Caller> caller`
 
-            - `class DirectCaller:`
+            - `class DirectCaller`
 
               Tool invocation directly from the model.
 
               - `JsonValue type = "direct"`
 
-            - `class ServerToolCaller:`
+            - `class ServerToolCaller`
 
               Tool invocation generated by a server-side tool.
 
@@ -453,7 +457,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-            - `class ServerToolCaller20260120:`
+            - `class ServerToolCaller20260120`
 
               - `JsonValue type = "code_execution_20260120"`
 
@@ -467,7 +471,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
 
-        - `class ToolResultBlockParam:`
+        - `class ToolResultBlockParam`
 
           - `JsonValue type = "tool_result"`
 
@@ -485,15 +489,15 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `List<Block>`
 
-              - `class TextBlockParam:`
+              - `class TextBlockParam`
 
-              - `class ImageBlockParam:`
+              - `class ImageBlockParam`
 
-              - `class SearchResultBlockParam:`
+              - `class SearchResultBlockParam`
 
-              - `class DocumentBlockParam:`
+              - `class DocumentBlockParam`
 
-              - `class ToolReferenceBlockParam:`
+              - `class ToolReferenceBlockParam`
 
                 Tool reference block that can be included in tool_result content.
 
@@ -507,7 +511,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                   Create a cache control breakpoint at this content block.
 
-              - `class BrowserStateBlockParam:`
+              - `class BrowserStateBlockParam`
 
                 The caller's browser state after a browser toolset member call —
                 the full inventory of open tabs, which tab is active, and any side
@@ -557,7 +561,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                   maxItems: 200, minItems: 1
 
-                  - `class BrowserStateChangeTabOpened:`
+                  - `class BrowserStateChangeTabOpened`
 
                     A tab this call's execution opened that remains open at its end —
                     the creation delta of the `tabs` inventory, not an event log.
@@ -575,7 +579,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                       maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-                  - `class BrowserStateChangeDownloadStarted:`
+                  - `class BrowserStateChangeDownloadStarted`
 
                     A file download that started during this call.
 
@@ -593,7 +597,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                       maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-                  - `class BrowserStateChangeDownloadCompleted:`
+                  - `class BrowserStateChangeDownloadCompleted`
 
                     A file download that finished during this call, reported with the
                     same `download_id` as its `download_started` — or without a prior
@@ -626,7 +630,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                       minimum: 0
 
-                  - `class BrowserStateChangeDownloadFailed:`
+                  - `class BrowserStateChangeDownloadFailed`
 
                     A file download that failed — or was cancelled — during this call.
 
@@ -658,7 +662,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
 
-        - `class ServerToolUseBlockParam:`
+        - `class ServerToolUseBlockParam`
 
           - `JsonValue type = "server_tool_use"`
 
@@ -690,17 +694,17 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `Optional<Caller> caller`
 
-            - `class DirectCaller:`
+            - `class DirectCaller`
 
               Tool invocation directly from the model.
 
-            - `class ServerToolCaller:`
+            - `class ServerToolCaller`
 
               Tool invocation generated by a server-side tool.
 
-            - `class ServerToolCaller20260120:`
+            - `class ServerToolCaller20260120`
 
-        - `class WebSearchToolResultBlockParam:`
+        - `class WebSearchToolResultBlockParam`
 
           - `JsonValue type = "web_search_tool_result"`
 
@@ -718,7 +722,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `Optional<String> pageAge`
 
-            - `class WebSearchToolRequestError:`
+            - `class WebSearchToolRequestError`
 
               - `JsonValue type = "web_search_tool_result_error"`
 
@@ -746,23 +750,23 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `Optional<Caller> caller`
 
-            - `class DirectCaller:`
+            - `class DirectCaller`
 
               Tool invocation directly from the model.
 
-            - `class ServerToolCaller:`
+            - `class ServerToolCaller`
 
               Tool invocation generated by a server-side tool.
 
-            - `class ServerToolCaller20260120:`
+            - `class ServerToolCaller20260120`
 
-        - `class WebFetchToolResultBlockParam:`
+        - `class WebFetchToolResultBlockParam`
 
           - `JsonValue type = "web_fetch_tool_result"`
 
           - `Content content`
 
-            - `class WebFetchToolResultErrorBlockParam:`
+            - `class WebFetchToolResultErrorBlockParam`
 
               - `JsonValue type = "web_fetch_tool_result_error"`
 
@@ -788,7 +792,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 - `CONTENT_TOO_LARGE("content_too_large")`
 
-            - `class WebFetchBlockParam:`
+            - `class WebFetchBlockParam`
 
               - `JsonValue type = "web_fetch_result"`
 
@@ -812,23 +816,23 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `Optional<Caller> caller`
 
-            - `class DirectCaller:`
+            - `class DirectCaller`
 
               Tool invocation directly from the model.
 
-            - `class ServerToolCaller:`
+            - `class ServerToolCaller`
 
               Tool invocation generated by a server-side tool.
 
-            - `class ServerToolCaller20260120:`
+            - `class ServerToolCaller20260120`
 
-        - `class CodeExecutionToolResultBlockParam:`
+        - `class CodeExecutionToolResultBlockParam`
 
           - `JsonValue type = "code_execution_tool_result"`
 
           - `CodeExecutionToolResultBlockParamContent content`
 
-            - `class CodeExecutionToolResultErrorParam:`
+            - `class CodeExecutionToolResultErrorParam`
 
               - `JsonValue type = "code_execution_tool_result_error"`
 
@@ -842,7 +846,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 - `EXECUTION_TIME_EXCEEDED("execution_time_exceeded")`
 
-            - `class CodeExecutionResultBlockParam:`
+            - `class CodeExecutionResultBlockParam`
 
               - `JsonValue type = "code_execution_result"`
 
@@ -858,7 +862,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `String stdout`
 
-            - `class EncryptedCodeExecutionResultBlockParam:`
+            - `class EncryptedCodeExecutionResultBlockParam`
 
               Code execution result with encrypted stdout for PFC + web_search results.
 
@@ -884,13 +888,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             Create a cache control breakpoint at this content block.
 
-        - `class BashCodeExecutionToolResultBlockParam:`
+        - `class BashCodeExecutionToolResultBlockParam`
 
           - `JsonValue type = "bash_code_execution_tool_result"`
 
           - `Content content`
 
-            - `class BashCodeExecutionToolResultErrorParam:`
+            - `class BashCodeExecutionToolResultErrorParam`
 
               - `JsonValue type = "bash_code_execution_tool_result_error"`
 
@@ -906,7 +910,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 - `OUTPUT_FILE_TOO_LARGE("output_file_too_large")`
 
-            - `class BashCodeExecutionResultBlockParam:`
+            - `class BashCodeExecutionResultBlockParam`
 
               - `JsonValue type = "bash_code_execution_result"`
 
@@ -930,13 +934,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             Create a cache control breakpoint at this content block.
 
-        - `class TextEditorCodeExecutionToolResultBlockParam:`
+        - `class TextEditorCodeExecutionToolResultBlockParam`
 
           - `JsonValue type = "text_editor_code_execution_tool_result"`
 
           - `Content content`
 
-            - `class TextEditorCodeExecutionToolResultErrorParam:`
+            - `class TextEditorCodeExecutionToolResultErrorParam`
 
               - `JsonValue type = "text_editor_code_execution_tool_result_error"`
 
@@ -954,7 +958,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `Optional<String> errorMessage`
 
-            - `class TextEditorCodeExecutionViewResultBlockParam:`
+            - `class TextEditorCodeExecutionViewResultBlockParam`
 
               - `JsonValue type = "text_editor_code_execution_view_result"`
 
@@ -974,13 +978,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `Optional<Long> totalLines`
 
-            - `class TextEditorCodeExecutionCreateResultBlockParam:`
+            - `class TextEditorCodeExecutionCreateResultBlockParam`
 
               - `JsonValue type = "text_editor_code_execution_create_result"`
 
               - `boolean isFileUpdate`
 
-            - `class TextEditorCodeExecutionStrReplaceResultBlockParam:`
+            - `class TextEditorCodeExecutionStrReplaceResultBlockParam`
 
               - `JsonValue type = "text_editor_code_execution_str_replace_result"`
 
@@ -1002,13 +1006,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             Create a cache control breakpoint at this content block.
 
-        - `class ToolSearchToolResultBlockParam:`
+        - `class ToolSearchToolResultBlockParam`
 
           - `JsonValue type = "tool_search_tool_result"`
 
           - `Content content`
 
-            - `class ToolSearchToolResultErrorParam:`
+            - `class ToolSearchToolResultErrorParam`
 
               - `JsonValue type = "tool_search_tool_result_error"`
 
@@ -1024,7 +1028,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `Optional<String> errorMessage`
 
-            - `class ToolSearchToolSearchResultBlockParam:`
+            - `class ToolSearchToolSearchResultBlockParam`
 
               - `JsonValue type = "tool_search_tool_search_result"`
 
@@ -1048,7 +1052,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             Create a cache control breakpoint at this content block.
 
-        - `class ContainerUploadBlockParam:`
+        - `class ContainerUploadBlockParam`
 
           A content block that represents a file to be uploaded to the container
           Files uploaded via this block will be available in the container's input directory.
@@ -1082,6 +1086,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
   - `Optional<MessageCreateParamsContainer> container`
 
     Container identifier for reuse across requests.
+
+  - `Optional<DiagnosticsParam> diagnostics`
+
+    Request-level diagnostics. Currently carries the previous response
+    id for prompt-cache divergence reporting.
 
   - `Optional<String> inferenceGeo`
 
@@ -1211,7 +1220,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     See our [guide](https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview) for more details.
 
-    - `class Tool:`
+    - `class Tool`
 
       - `Optional<Type> type`
 
@@ -1269,7 +1278,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         When true, guarantees schema validation on tool names and inputs
 
-    - `class ToolBash20250124:`
+    - `class ToolBash20250124`
 
       - `JsonValue type = "bash_20250124"`
 
@@ -1303,7 +1312,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         When true, guarantees schema validation on tool names and inputs
 
-    - `class CodeExecutionTool20250522:`
+    - `class CodeExecutionTool20250522`
 
       - `JsonValue type = "code_execution_20250522"`
 
@@ -1335,7 +1344,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         When true, guarantees schema validation on tool names and inputs
 
-    - `class CodeExecutionTool20250825:`
+    - `class CodeExecutionTool20250825`
 
       - `JsonValue type = "code_execution_20250825"`
 
@@ -1367,7 +1376,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         When true, guarantees schema validation on tool names and inputs
 
-    - `class CodeExecutionTool20260120:`
+    - `class CodeExecutionTool20260120`
 
       Code execution tool with REPL state persistence (daemon mode + gVisor checkpoint).
 
@@ -1401,7 +1410,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         When true, guarantees schema validation on tool names and inputs
 
-    - `class CodeExecutionTool20260521:`
+    - `class CodeExecutionTool20260521`
 
       Code execution tool with REPL state persistence.
 
@@ -1435,7 +1444,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         When true, guarantees schema validation on tool names and inputs
 
-    - `class BrowserToolset20260801:`
+    - `class BrowserToolset20260801`
 
       The browser toolset: a single `tools[]` entry (carrying no
       `name`) that declares the browser tool family. The model is served
@@ -1829,7 +1838,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-    - `class MemoryTool20250818:`
+    - `class MemoryTool20250818`
 
       - `JsonValue type = "memory_20250818"`
 
@@ -1863,7 +1872,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         When true, guarantees schema validation on tool names and inputs
 
-    - `class ComputerToolset20260801:`
+    - `class ComputerToolset20260801`
 
       The computer toolset: a single `tools[]` entry (carrying no
       `name`) that declares the computer tool family. The model is
@@ -2093,7 +2102,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-    - `class ToolTextEditor20250124:`
+    - `class ToolTextEditor20250124`
 
       - `JsonValue type = "text_editor_20250124"`
 
@@ -2127,7 +2136,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         When true, guarantees schema validation on tool names and inputs
 
-    - `class ToolTextEditor20250429:`
+    - `class ToolTextEditor20250429`
 
       - `JsonValue type = "text_editor_20250429"`
 
@@ -2161,7 +2170,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         When true, guarantees schema validation on tool names and inputs
 
-    - `class ToolTextEditor20250728:`
+    - `class ToolTextEditor20250728`
 
       - `JsonValue type = "text_editor_20250728"`
 
@@ -2201,7 +2210,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         When true, guarantees schema validation on tool names and inputs
 
-    - `class WebSearchTool20250305:`
+    - `class WebSearchTool20250305`
 
       - `JsonValue type = "web_search_20250305"`
 
@@ -2277,7 +2286,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           maxLength: 255, minLength: 1
 
-    - `class WebFetchTool20250910:`
+    - `class WebFetchTool20250910`
 
       - `JsonValue type = "web_fetch_20250910"`
 
@@ -2333,7 +2342,98 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         When true, guarantees schema validation on tool names and inputs
 
-    - `class WebSearchTool20260209:`
+      - `Optional<WebFetchUrlSources> urlSources`
+
+        Which sources contribute to the set of URLs web fetch may fetch.
+
+        Each key is a tagged variant: `user_input` is `all` or `none`; the
+        two tool filters are `all`, `none`, `only` (only the named tools'
+        results) or `except` (every result but the named tools'). A named tool
+        must be declared in this request's `tools[]`.
+
+        - `Optional<ClientToolResults> clientToolResults`
+
+          Which client tools' results contribute fetchable URLs: "all", "none", or an only or except list of client tool names from tools[].
+
+          - `class WebFetchUrlSourceAll`
+
+            The `url_sources` variant under which a source contributes in
+            full: every result of the tool filter's source, or all user input.
+
+            - `JsonValue type = "all"`
+
+          - `class WebFetchUrlSourceNone`
+
+            The `url_sources` variant under which a source contributes nothing:
+            no result of the tool filter's source, or no user input.
+
+            - `JsonValue type = "none"`
+
+          - `class WebFetchUrlSourceOnly`
+
+            The tool filter variant under which only the named tools' results
+            contribute.
+
+            - `JsonValue type = "only"`
+
+            - `List<WebFetchUrlSourceToolReference> tools`
+
+              - `JsonValue type = "tool_reference"`
+
+              - `String name`
+
+          - `class WebFetchUrlSourceExcept`
+
+            The tool filter variant under which every result but the named
+            tools' contributes.
+
+            - `JsonValue type = "except"`
+
+            - `List<WebFetchUrlSourceToolReference> tools`
+
+              - `JsonValue type = "tool_reference"`
+
+              - `String name`
+
+        - `Optional<ServerToolResults> serverToolResults`
+
+          Which server tools' results contribute fetchable URLs: "all", "none", or an only or except list of server tool names from tools[]; only web_search and web_fetch results ever contribute.
+
+          - `class WebFetchUrlSourceAll`
+
+            The `url_sources` variant under which a source contributes in
+            full: every result of the tool filter's source, or all user input.
+
+          - `class WebFetchUrlSourceNone`
+
+            The `url_sources` variant under which a source contributes nothing:
+            no result of the tool filter's source, or no user input.
+
+          - `class WebFetchUrlSourceOnly`
+
+            The tool filter variant under which only the named tools' results
+            contribute.
+
+          - `class WebFetchUrlSourceExcept`
+
+            The tool filter variant under which every result but the named
+            tools' contributes.
+
+        - `Optional<UserInput> userInput`
+
+          Whether URLs in user messages are fetchable: "all" or "none".
+
+          - `class WebFetchUrlSourceAll`
+
+            The `url_sources` variant under which a source contributes in
+            full: every result of the tool filter's source, or all user input.
+
+          - `class WebFetchUrlSourceNone`
+
+            The `url_sources` variant under which a source contributes nothing:
+            no result of the tool filter's source, or no user input.
+
+    - `class WebSearchTool20260209`
 
       - `JsonValue type = "web_search_20260209"`
 
@@ -2383,7 +2483,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         Parameters for the user's location. Used to provide more relevant search results.
 
-    - `class WebFetchTool20260209:`
+    - `class WebFetchTool20260209`
 
       - `JsonValue type = "web_fetch_20260209"`
 
@@ -2439,7 +2539,16 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         When true, guarantees schema validation on tool names and inputs
 
-    - `class WebFetchTool20260309:`
+      - `Optional<WebFetchUrlSources> urlSources`
+
+        Which sources contribute to the set of URLs web fetch may fetch.
+
+        Each key is a tagged variant: `user_input` is `all` or `none`; the
+        two tool filters are `all`, `none`, `only` (only the named tools'
+        results) or `except` (every result but the named tools'). A named tool
+        must be declared in this request's `tools[]`.
+
+    - `class WebFetchTool20260309`
 
       Web fetch tool with use_cache parameter for bypassing cached content.
 
@@ -2497,11 +2606,20 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         When true, guarantees schema validation on tool names and inputs
 
+      - `Optional<WebFetchUrlSources> urlSources`
+
+        Which sources contribute to the set of URLs web fetch may fetch.
+
+        Each key is a tagged variant: `user_input` is `all` or `none`; the
+        two tool filters are `all`, `none`, `only` (only the named tools'
+        results) or `except` (every result but the named tools'). A named tool
+        must be declared in this request's `tools[]`.
+
       - `Optional<Boolean> useCache`
 
         Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
 
-    - `class WebSearchTool20260318:`
+    - `class WebSearchTool20260318`
 
       - `JsonValue type = "web_search_20260318"`
 
@@ -2559,7 +2677,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         Parameters for the user's location. Used to provide more relevant search results.
 
-    - `class WebFetchTool20260318:`
+    - `class WebFetchTool20260318`
 
       - `JsonValue type = "web_fetch_20260318"`
 
@@ -2623,11 +2741,20 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         When true, guarantees schema validation on tool names and inputs
 
+      - `Optional<WebFetchUrlSources> urlSources`
+
+        Which sources contribute to the set of URLs web fetch may fetch.
+
+        Each key is a tagged variant: `user_input` is `all` or `none`; the
+        two tool filters are `all`, `none`, `only` (only the named tools'
+        results) or `except` (every result but the named tools'). A named tool
+        must be declared in this request's `tools[]`.
+
       - `Optional<Boolean> useCache`
 
         Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
 
-    - `class ToolSearchToolBm25_20251119:`
+    - `class ToolSearchToolBm25_20251119`
 
       - `Type type`
 
@@ -2663,7 +2790,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         When true, guarantees schema validation on tool names and inputs
 
-    - `class ToolSearchToolRegex20251119:`
+    - `class ToolSearchToolRegex20251119`
 
       - `Type type`
 
@@ -2701,7 +2828,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
   - `Optional<Double> temperature`
 
-    **Deprecated**: Deprecated. Models released after Claude Opus 4.6 do not support setting temperature. A value of 1.0 of will be accepted for backwards compatibility, all other values will be rejected with a 400 error.
+    **Deprecated**: Deprecated. Models released after Claude Opus 4.6 do not support setting temperature. A value of 1.0 will be accepted for backwards compatibility, all other values will be rejected with a 400 error.
 
     Amount of randomness injected into the response.
 
@@ -2737,7 +2864,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
 ### Returns
 
-- `class Message:`
+- `class Message`
 
   - `JsonValue type = "message"`
 
@@ -2818,7 +2945,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
     [{"type": "text", "text": "B)"}]
     ```
 
-    - `class TextBlock:`
+    - `class TextBlock`
 
       - `JsonValue type = "text"`
 
@@ -2828,7 +2955,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
 
-        - `class CitationCharLocation:`
+        - `class CitationCharLocation`
 
           - `JsonValue type = "char_location"`
 
@@ -2848,7 +2975,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             minimum: 0
 
-        - `class CitationPageLocation:`
+        - `class CitationPageLocation`
 
           - `JsonValue type = "page_location"`
 
@@ -2868,7 +2995,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             minimum: 1
 
-        - `class CitationContentBlockLocation:`
+        - `class CitationContentBlockLocation`
 
           - `JsonValue type = "content_block_location"`
 
@@ -2898,7 +3025,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             minimum: 0
 
-        - `class CitationsWebSearchResultLocation:`
+        - `class CitationsWebSearchResultLocation`
 
           - `JsonValue type = "web_search_result_location"`
 
@@ -2912,7 +3039,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `String url`
 
-        - `class CitationsSearchResultLocation:`
+        - `class CitationsSearchResultLocation`
 
           - `JsonValue type = "search_result_location"`
 
@@ -2950,7 +3077,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         minLength: 0
 
-    - `class ThinkingBlock:`
+    - `class ThinkingBlock`
 
       - `JsonValue type = "thinking"`
 
@@ -2966,7 +3093,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         The text of Claude's thinking process for this block.
 
-    - `class RedactedThinkingBlock:`
+    - `class RedactedThinkingBlock`
 
       - `JsonValue type = "redacted_thinking"`
 
@@ -2978,7 +3105,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking#redacted-thinking-blocks) for details.
 
-    - `class ToolUseBlock:`
+    - `class ToolUseBlock`
 
       - `JsonValue type = "tool_use"`
 
@@ -2988,13 +3115,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `Caller caller`
 
-        - `class DirectCaller:`
+        - `class DirectCaller`
 
           Tool invocation directly from the model.
 
           - `JsonValue type = "direct"`
 
-        - `class ServerToolCaller:`
+        - `class ServerToolCaller`
 
           Tool invocation generated by a server-side tool.
 
@@ -3004,7 +3131,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-        - `class ServerToolCaller20260120:`
+        - `class ServerToolCaller20260120`
 
           - `JsonValue type = "code_execution_20260120"`
 
@@ -3024,7 +3151,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
 
-    - `class ServerToolUseBlock:`
+    - `class ServerToolUseBlock`
 
       - `JsonValue type = "server_tool_use"`
 
@@ -3034,15 +3161,15 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `Caller caller`
 
-        - `class DirectCaller:`
+        - `class DirectCaller`
 
           Tool invocation directly from the model.
 
-        - `class ServerToolCaller:`
+        - `class ServerToolCaller`
 
           Tool invocation generated by a server-side tool.
 
-        - `class ServerToolCaller20260120:`
+        - `class ServerToolCaller20260120`
 
       - `Input input`
 
@@ -3062,25 +3189,25 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `TOOL_SEARCH_TOOL_BM25("tool_search_tool_bm25")`
 
-    - `class WebSearchToolResultBlock:`
+    - `class WebSearchToolResultBlock`
 
       - `JsonValue type = "web_search_tool_result"`
 
       - `Caller caller`
 
-        - `class DirectCaller:`
+        - `class DirectCaller`
 
           Tool invocation directly from the model.
 
-        - `class ServerToolCaller:`
+        - `class ServerToolCaller`
 
           Tool invocation generated by a server-side tool.
 
-        - `class ServerToolCaller20260120:`
+        - `class ServerToolCaller20260120`
 
       - `WebSearchToolResultBlockContent content`
 
-        - `class WebSearchToolResultError:`
+        - `class WebSearchToolResultError`
 
           - `JsonValue type = "web_search_tool_result_error"`
 
@@ -3114,25 +3241,25 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-    - `class WebFetchToolResultBlock:`
+    - `class WebFetchToolResultBlock`
 
       - `JsonValue type = "web_fetch_tool_result"`
 
       - `Caller caller`
 
-        - `class DirectCaller:`
+        - `class DirectCaller`
 
           Tool invocation directly from the model.
 
-        - `class ServerToolCaller:`
+        - `class ServerToolCaller`
 
           Tool invocation generated by a server-side tool.
 
-        - `class ServerToolCaller20260120:`
+        - `class ServerToolCaller20260120`
 
       - `Content content`
 
-        - `class WebFetchToolResultErrorBlock:`
+        - `class WebFetchToolResultErrorBlock`
 
           - `JsonValue type = "web_fetch_tool_result_error"`
 
@@ -3158,7 +3285,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `CONTENT_TOO_LARGE("content_too_large")`
 
-        - `class WebFetchBlock:`
+        - `class WebFetchBlock`
 
           - `JsonValue type = "web_fetch_result"`
 
@@ -3174,7 +3301,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `Source source`
 
-              - `class Base64PdfSource:`
+              - `class Base64PdfSource`
 
                 - `JsonValue type = "base64"`
 
@@ -3184,7 +3311,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 - `JsonValue mediaType = "application/pdf"`
 
-              - `class PlainTextSource:`
+              - `class PlainTextSource`
 
                 - `JsonValue type = "text"`
 
@@ -3208,13 +3335,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-    - `class CodeExecutionToolResultBlock:`
+    - `class CodeExecutionToolResultBlock`
 
       - `JsonValue type = "code_execution_tool_result"`
 
       - `CodeExecutionToolResultBlockContent content`
 
-        - `class CodeExecutionToolResultError:`
+        - `class CodeExecutionToolResultError`
 
           - `JsonValue type = "code_execution_tool_result_error"`
 
@@ -3228,7 +3355,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `EXECUTION_TIME_EXCEEDED("execution_time_exceeded")`
 
-        - `class CodeExecutionResultBlock:`
+        - `class CodeExecutionResultBlock`
 
           - `JsonValue type = "code_execution_result"`
 
@@ -3244,7 +3371,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `String stdout`
 
-        - `class EncryptedCodeExecutionResultBlock:`
+        - `class EncryptedCodeExecutionResultBlock`
 
           Code execution result with encrypted stdout for PFC + web_search results.
 
@@ -3266,13 +3393,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-    - `class BashCodeExecutionToolResultBlock:`
+    - `class BashCodeExecutionToolResultBlock`
 
       - `JsonValue type = "bash_code_execution_tool_result"`
 
       - `Content content`
 
-        - `class BashCodeExecutionToolResultError:`
+        - `class BashCodeExecutionToolResultError`
 
           - `JsonValue type = "bash_code_execution_tool_result_error"`
 
@@ -3288,7 +3415,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `OUTPUT_FILE_TOO_LARGE("output_file_too_large")`
 
-        - `class BashCodeExecutionResultBlock:`
+        - `class BashCodeExecutionResultBlock`
 
           - `JsonValue type = "bash_code_execution_result"`
 
@@ -3308,13 +3435,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-    - `class TextEditorCodeExecutionToolResultBlock:`
+    - `class TextEditorCodeExecutionToolResultBlock`
 
       - `JsonValue type = "text_editor_code_execution_tool_result"`
 
       - `Content content`
 
-        - `class TextEditorCodeExecutionToolResultError:`
+        - `class TextEditorCodeExecutionToolResultError`
 
           - `JsonValue type = "text_editor_code_execution_tool_result_error"`
 
@@ -3332,7 +3459,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `Optional<String> errorMessage`
 
-        - `class TextEditorCodeExecutionViewResultBlock:`
+        - `class TextEditorCodeExecutionViewResultBlock`
 
           - `JsonValue type = "text_editor_code_execution_view_result"`
 
@@ -3352,13 +3479,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `Optional<Long> totalLines`
 
-        - `class TextEditorCodeExecutionCreateResultBlock:`
+        - `class TextEditorCodeExecutionCreateResultBlock`
 
           - `JsonValue type = "text_editor_code_execution_create_result"`
 
           - `boolean isFileUpdate`
 
-        - `class TextEditorCodeExecutionStrReplaceResultBlock:`
+        - `class TextEditorCodeExecutionStrReplaceResultBlock`
 
           - `JsonValue type = "text_editor_code_execution_str_replace_result"`
 
@@ -3376,13 +3503,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-    - `class ToolSearchToolResultBlock:`
+    - `class ToolSearchToolResultBlock`
 
       - `JsonValue type = "tool_search_tool_result"`
 
       - `Content content`
 
-        - `class ToolSearchToolResultError:`
+        - `class ToolSearchToolResultError`
 
           - `JsonValue type = "tool_search_tool_result_error"`
 
@@ -3398,7 +3525,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `Optional<String> errorMessage`
 
-        - `class ToolSearchToolSearchResultBlock:`
+        - `class ToolSearchToolSearchResultBlock`
 
           - `JsonValue type = "tool_search_tool_search_result"`
 
@@ -3414,13 +3541,62 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-    - `class ContainerUploadBlock:`
+    - `class ContainerUploadBlock`
 
       Response model for a file uploaded to the container.
 
       - `JsonValue type = "container_upload"`
 
       - `String fileId`
+
+  - `Optional<Diagnostics> diagnostics`
+
+    Request-level diagnostics: why the prompt cache could not fully reuse
+    the prefix of the request named by `diagnostics.previous_message_id`.
+
+    - `Optional<CacheMissReason> cacheMissReason`
+
+      Explains why the prompt cache could not fully reuse the prefix from the request identified by `diagnostics.previous_message_id`. `null` means diagnosis is still pending — the response was serialized before the background comparison completed.
+
+      - `class CacheMissModelChanged`
+
+        - `JsonValue type = "model_changed"`
+
+        - `long cacheMissedInputTokens`
+
+          Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+      - `class CacheMissSystemChanged`
+
+        - `JsonValue type = "system_changed"`
+
+        - `long cacheMissedInputTokens`
+
+          Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+      - `class CacheMissToolsChanged`
+
+        - `JsonValue type = "tools_changed"`
+
+        - `long cacheMissedInputTokens`
+
+          Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+      - `class CacheMissMessagesChanged`
+
+        - `JsonValue type = "messages_changed"`
+
+        - `long cacheMissedInputTokens`
+
+          Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+      - `class CacheMissPreviousMessageNotFound`
+
+        - `JsonValue type = "previous_message_not_found"`
+
+      - `class CacheMissUnavailable`
+
+        - `JsonValue type = "unavailable"`
 
   - `Model model`
 
@@ -3431,6 +3607,10 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
     - `CLAUDE_FABLE_5_1("claude-fable-5-1")`
 
       Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+    - `CLAUDE_OPUS_5_5("claude-opus-5-5")`
+
+      Powerful intelligence for coding, knowledge work, and long-running agents
 
     - `CLAUDE_MYTHOS_5_1("claude-mythos-5-1")`
 
@@ -3680,13 +3860,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
 - `class RawMessageStreamEvent: union`
 
-  - `class RawMessageStartEvent:`
+  - `class RawMessageStartEvent`
 
     - `JsonValue type = "message_start"`
 
     - `Message message`
 
-  - `class RawMessageDeltaEvent:`
+  - `class RawMessageDeltaEvent`
 
     - `JsonValue type = "message_delta"`
 
@@ -3751,79 +3931,79 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         The number of server tool requests.
 
-  - `class RawMessageStopEvent:`
+  - `class RawMessageStopEvent`
 
     - `JsonValue type = "message_stop"`
 
-  - `class RawContentBlockStartEvent:`
+  - `class RawContentBlockStartEvent`
 
     - `JsonValue type = "content_block_start"`
 
     - `ContentBlock contentBlock`
 
-      - `class TextBlock:`
+      - `class TextBlock`
 
-      - `class ThinkingBlock:`
+      - `class ThinkingBlock`
 
-      - `class RedactedThinkingBlock:`
+      - `class RedactedThinkingBlock`
 
-      - `class ToolUseBlock:`
+      - `class ToolUseBlock`
 
-      - `class ServerToolUseBlock:`
+      - `class ServerToolUseBlock`
 
-      - `class WebSearchToolResultBlock:`
+      - `class WebSearchToolResultBlock`
 
-      - `class WebFetchToolResultBlock:`
+      - `class WebFetchToolResultBlock`
 
-      - `class CodeExecutionToolResultBlock:`
+      - `class CodeExecutionToolResultBlock`
 
-      - `class BashCodeExecutionToolResultBlock:`
+      - `class BashCodeExecutionToolResultBlock`
 
-      - `class TextEditorCodeExecutionToolResultBlock:`
+      - `class TextEditorCodeExecutionToolResultBlock`
 
-      - `class ToolSearchToolResultBlock:`
+      - `class ToolSearchToolResultBlock`
 
-      - `class ContainerUploadBlock:`
+      - `class ContainerUploadBlock`
 
         Response model for a file uploaded to the container.
 
     - `long index`
 
-  - `class RawContentBlockDeltaEvent:`
+  - `class RawContentBlockDeltaEvent`
 
     - `JsonValue type = "content_block_delta"`
 
     - `RawContentBlockDelta delta`
 
-      - `class TextDelta:`
+      - `class TextDelta`
 
         - `JsonValue type = "text_delta"`
 
         - `String text`
 
-      - `class InputJsonDelta:`
+      - `class InputJsonDelta`
 
         - `JsonValue type = "input_json_delta"`
 
         - `String partialJson`
 
-      - `class CitationsDelta:`
+      - `class CitationsDelta`
 
         - `JsonValue type = "citations_delta"`
 
         - `Citation citation`
 
-          - `class CitationCharLocation:`
+          - `class CitationCharLocation`
 
-          - `class CitationPageLocation:`
+          - `class CitationPageLocation`
 
-          - `class CitationContentBlockLocation:`
+          - `class CitationContentBlockLocation`
 
-          - `class CitationsWebSearchResultLocation:`
+          - `class CitationsWebSearchResultLocation`
 
-          - `class CitationsSearchResultLocation:`
+          - `class CitationsSearchResultLocation`
 
-      - `class ThinkingDelta:`
+      - `class ThinkingDelta`
 
         - `JsonValue type = "thinking_delta"`
 
@@ -3831,7 +4011,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           The incremental `thinking` text for this content block. Concatenate the `thinking` values of successive `thinking_delta` events to assemble the block's full `thinking` value.
 
-      - `class SignatureDelta:`
+      - `class SignatureDelta`
 
         - `JsonValue type = "signature_delta"`
 
@@ -3841,7 +4021,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `long index`
 
-  - `class RawContentBlockStopEvent:`
+  - `class RawContentBlockStopEvent`
 
     - `JsonValue type = "content_block_stop"`
 
@@ -3907,6 +4087,12 @@ public final class Main {
       "type": "text"
     }
   ],
+  "diagnostics": {
+    "cache_miss_reason": {
+      "cache_missed_input_tokens": 0,
+      "type": "model_changed"
+    }
+  },
   "model": "claude-opus-5",
   "role": "assistant",
   "stop_details": {
@@ -3960,6 +4146,10 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
     The user profile ID to attribute this request to. Use when acting on behalf of a party other than your organization. Requires the `user-profiles` beta header.
 
   - `Optional<String> workspaceId`
+
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
   - `List<MessageParam> messages`
 
@@ -4018,7 +4208,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       - `List<ContentBlockParam>`
 
-        - `class TextBlockParam:`
+        - `class TextBlockParam`
 
           - `JsonValue type = "text"`
 
@@ -4049,7 +4239,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
           - `Optional<List<TextCitationParam>> citations`
 
-            - `class CitationCharLocationParam:`
+            - `class CitationCharLocationParam`
 
               - `JsonValue type = "char_location"`
 
@@ -4069,7 +4259,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 minimum: 0
 
-            - `class CitationPageLocationParam:`
+            - `class CitationPageLocationParam`
 
               - `JsonValue type = "page_location"`
 
@@ -4089,7 +4279,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 minimum: 1
 
-            - `class CitationContentBlockLocationParam:`
+            - `class CitationContentBlockLocationParam`
 
               - `JsonValue type = "content_block_location"`
 
@@ -4119,7 +4309,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 minimum: 0
 
-            - `class CitationWebSearchResultLocationParam:`
+            - `class CitationWebSearchResultLocationParam`
 
               - `JsonValue type = "web_search_result_location"`
 
@@ -4135,7 +4325,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 minLength: 1
 
-            - `class CitationSearchResultLocationParam:`
+            - `class CitationSearchResultLocationParam`
 
               - `JsonValue type = "search_result_location"`
 
@@ -4169,13 +4359,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `Optional<String> title`
 
-        - `class ImageBlockParam:`
+        - `class ImageBlockParam`
 
           - `JsonValue type = "image"`
 
           - `Source source`
 
-            - `class Base64ImageSource:`
+            - `class Base64ImageSource`
 
               - `JsonValue type = "base64"`
 
@@ -4193,13 +4383,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 - `IMAGE_WEBP("image/webp")`
 
-            - `class UrlImageSource:`
+            - `class UrlImageSource`
 
               - `JsonValue type = "url"`
 
               - `String url`
 
-            - `class FileImageSource:`
+            - `class FileImageSource`
 
               - `JsonValue type = "file"`
 
@@ -4221,13 +4411,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `ERROR("error")`
 
-        - `class DocumentBlockParam:`
+        - `class DocumentBlockParam`
 
           - `JsonValue type = "document"`
 
           - `Source source`
 
-            - `class Base64PdfSource:`
+            - `class Base64PdfSource`
 
               - `JsonValue type = "base64"`
 
@@ -4237,7 +4427,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `JsonValue mediaType = "application/pdf"`
 
-            - `class PlainTextSource:`
+            - `class PlainTextSource`
 
               - `JsonValue type = "text"`
 
@@ -4245,7 +4435,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `JsonValue mediaType = "text/plain"`
 
-            - `class ContentBlockSource:`
+            - `class ContentBlockSource`
 
               - `JsonValue type = "content"`
 
@@ -4255,17 +4445,17 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 - `List<ContentBlockSourceContent>`
 
-                  - `class TextBlockParam:`
+                  - `class TextBlockParam`
 
-                  - `class ImageBlockParam:`
+                  - `class ImageBlockParam`
 
-            - `class UrlPdfSource:`
+            - `class UrlPdfSource`
 
               - `JsonValue type = "url"`
 
               - `String url`
 
-            - `class FileDocumentSource:`
+            - `class FileDocumentSource`
 
               - `JsonValue type = "file"`
 
@@ -4287,7 +4477,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             maxLength: 500, minLength: 1
 
-        - `class SearchResultBlockParam:`
+        - `class SearchResultBlockParam`
 
           - `JsonValue type = "search_result"`
 
@@ -4315,7 +4505,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
           - `Optional<CitationsConfigParam> citations`
 
-        - `class ThinkingBlockParam:`
+        - `class ThinkingBlockParam`
 
           - `JsonValue type = "thinking"`
 
@@ -4329,7 +4519,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             The `thinking` text of this block as returned by the API.
 
-        - `class RedactedThinkingBlockParam:`
+        - `class RedactedThinkingBlockParam`
 
           - `JsonValue type = "redacted_thinking"`
 
@@ -4337,7 +4527,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             The `data` value of this redacted thinking block, exactly as returned by the API in a previous response. Opaque and encrypted; pass it back unchanged.
 
-        - `class ToolUseBlockParam:`
+        - `class ToolUseBlockParam`
 
           - `JsonValue type = "tool_use"`
 
@@ -4357,13 +4547,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
           - `Optional<Caller> caller`
 
-            - `class DirectCaller:`
+            - `class DirectCaller`
 
               Tool invocation directly from the model.
 
               - `JsonValue type = "direct"`
 
-            - `class ServerToolCaller:`
+            - `class ServerToolCaller`
 
               Tool invocation generated by a server-side tool.
 
@@ -4373,7 +4563,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-            - `class ServerToolCaller20260120:`
+            - `class ServerToolCaller20260120`
 
               - `JsonValue type = "code_execution_20260120"`
 
@@ -4387,7 +4577,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
 
-        - `class ToolResultBlockParam:`
+        - `class ToolResultBlockParam`
 
           - `JsonValue type = "tool_result"`
 
@@ -4405,15 +4595,15 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             - `List<Block>`
 
-              - `class TextBlockParam:`
+              - `class TextBlockParam`
 
-              - `class ImageBlockParam:`
+              - `class ImageBlockParam`
 
-              - `class SearchResultBlockParam:`
+              - `class SearchResultBlockParam`
 
-              - `class DocumentBlockParam:`
+              - `class DocumentBlockParam`
 
-              - `class ToolReferenceBlockParam:`
+              - `class ToolReferenceBlockParam`
 
                 Tool reference block that can be included in tool_result content.
 
@@ -4427,7 +4617,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                   Create a cache control breakpoint at this content block.
 
-              - `class BrowserStateBlockParam:`
+              - `class BrowserStateBlockParam`
 
                 The caller's browser state after a browser toolset member call —
                 the full inventory of open tabs, which tab is active, and any side
@@ -4477,7 +4667,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                   maxItems: 200, minItems: 1
 
-                  - `class BrowserStateChangeTabOpened:`
+                  - `class BrowserStateChangeTabOpened`
 
                     A tab this call's execution opened that remains open at its end —
                     the creation delta of the `tabs` inventory, not an event log.
@@ -4495,7 +4685,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                       maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-                  - `class BrowserStateChangeDownloadStarted:`
+                  - `class BrowserStateChangeDownloadStarted`
 
                     A file download that started during this call.
 
@@ -4513,7 +4703,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                       maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-                  - `class BrowserStateChangeDownloadCompleted:`
+                  - `class BrowserStateChangeDownloadCompleted`
 
                     A file download that finished during this call, reported with the
                     same `download_id` as its `download_started` — or without a prior
@@ -4546,7 +4736,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                       minimum: 0
 
-                  - `class BrowserStateChangeDownloadFailed:`
+                  - `class BrowserStateChangeDownloadFailed`
 
                     A file download that failed — or was cancelled — during this call.
 
@@ -4578,7 +4768,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
 
-        - `class ServerToolUseBlockParam:`
+        - `class ServerToolUseBlockParam`
 
           - `JsonValue type = "server_tool_use"`
 
@@ -4610,17 +4800,17 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
           - `Optional<Caller> caller`
 
-            - `class DirectCaller:`
+            - `class DirectCaller`
 
               Tool invocation directly from the model.
 
-            - `class ServerToolCaller:`
+            - `class ServerToolCaller`
 
               Tool invocation generated by a server-side tool.
 
-            - `class ServerToolCaller20260120:`
+            - `class ServerToolCaller20260120`
 
-        - `class WebSearchToolResultBlockParam:`
+        - `class WebSearchToolResultBlockParam`
 
           - `JsonValue type = "web_search_tool_result"`
 
@@ -4638,7 +4828,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `Optional<String> pageAge`
 
-            - `class WebSearchToolRequestError:`
+            - `class WebSearchToolRequestError`
 
               - `JsonValue type = "web_search_tool_result_error"`
 
@@ -4666,23 +4856,23 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
           - `Optional<Caller> caller`
 
-            - `class DirectCaller:`
+            - `class DirectCaller`
 
               Tool invocation directly from the model.
 
-            - `class ServerToolCaller:`
+            - `class ServerToolCaller`
 
               Tool invocation generated by a server-side tool.
 
-            - `class ServerToolCaller20260120:`
+            - `class ServerToolCaller20260120`
 
-        - `class WebFetchToolResultBlockParam:`
+        - `class WebFetchToolResultBlockParam`
 
           - `JsonValue type = "web_fetch_tool_result"`
 
           - `Content content`
 
-            - `class WebFetchToolResultErrorBlockParam:`
+            - `class WebFetchToolResultErrorBlockParam`
 
               - `JsonValue type = "web_fetch_tool_result_error"`
 
@@ -4708,7 +4898,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 - `CONTENT_TOO_LARGE("content_too_large")`
 
-            - `class WebFetchBlockParam:`
+            - `class WebFetchBlockParam`
 
               - `JsonValue type = "web_fetch_result"`
 
@@ -4732,23 +4922,23 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
           - `Optional<Caller> caller`
 
-            - `class DirectCaller:`
+            - `class DirectCaller`
 
               Tool invocation directly from the model.
 
-            - `class ServerToolCaller:`
+            - `class ServerToolCaller`
 
               Tool invocation generated by a server-side tool.
 
-            - `class ServerToolCaller20260120:`
+            - `class ServerToolCaller20260120`
 
-        - `class CodeExecutionToolResultBlockParam:`
+        - `class CodeExecutionToolResultBlockParam`
 
           - `JsonValue type = "code_execution_tool_result"`
 
           - `CodeExecutionToolResultBlockParamContent content`
 
-            - `class CodeExecutionToolResultErrorParam:`
+            - `class CodeExecutionToolResultErrorParam`
 
               - `JsonValue type = "code_execution_tool_result_error"`
 
@@ -4762,7 +4952,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 - `EXECUTION_TIME_EXCEEDED("execution_time_exceeded")`
 
-            - `class CodeExecutionResultBlockParam:`
+            - `class CodeExecutionResultBlockParam`
 
               - `JsonValue type = "code_execution_result"`
 
@@ -4778,7 +4968,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `String stdout`
 
-            - `class EncryptedCodeExecutionResultBlockParam:`
+            - `class EncryptedCodeExecutionResultBlockParam`
 
               Code execution result with encrypted stdout for PFC + web_search results.
 
@@ -4804,13 +4994,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             Create a cache control breakpoint at this content block.
 
-        - `class BashCodeExecutionToolResultBlockParam:`
+        - `class BashCodeExecutionToolResultBlockParam`
 
           - `JsonValue type = "bash_code_execution_tool_result"`
 
           - `Content content`
 
-            - `class BashCodeExecutionToolResultErrorParam:`
+            - `class BashCodeExecutionToolResultErrorParam`
 
               - `JsonValue type = "bash_code_execution_tool_result_error"`
 
@@ -4826,7 +5016,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 - `OUTPUT_FILE_TOO_LARGE("output_file_too_large")`
 
-            - `class BashCodeExecutionResultBlockParam:`
+            - `class BashCodeExecutionResultBlockParam`
 
               - `JsonValue type = "bash_code_execution_result"`
 
@@ -4850,13 +5040,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             Create a cache control breakpoint at this content block.
 
-        - `class TextEditorCodeExecutionToolResultBlockParam:`
+        - `class TextEditorCodeExecutionToolResultBlockParam`
 
           - `JsonValue type = "text_editor_code_execution_tool_result"`
 
           - `Content content`
 
-            - `class TextEditorCodeExecutionToolResultErrorParam:`
+            - `class TextEditorCodeExecutionToolResultErrorParam`
 
               - `JsonValue type = "text_editor_code_execution_tool_result_error"`
 
@@ -4874,7 +5064,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `Optional<String> errorMessage`
 
-            - `class TextEditorCodeExecutionViewResultBlockParam:`
+            - `class TextEditorCodeExecutionViewResultBlockParam`
 
               - `JsonValue type = "text_editor_code_execution_view_result"`
 
@@ -4894,13 +5084,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `Optional<Long> totalLines`
 
-            - `class TextEditorCodeExecutionCreateResultBlockParam:`
+            - `class TextEditorCodeExecutionCreateResultBlockParam`
 
               - `JsonValue type = "text_editor_code_execution_create_result"`
 
               - `boolean isFileUpdate`
 
-            - `class TextEditorCodeExecutionStrReplaceResultBlockParam:`
+            - `class TextEditorCodeExecutionStrReplaceResultBlockParam`
 
               - `JsonValue type = "text_editor_code_execution_str_replace_result"`
 
@@ -4922,13 +5112,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             Create a cache control breakpoint at this content block.
 
-        - `class ToolSearchToolResultBlockParam:`
+        - `class ToolSearchToolResultBlockParam`
 
           - `JsonValue type = "tool_search_tool_result"`
 
           - `Content content`
 
-            - `class ToolSearchToolResultErrorParam:`
+            - `class ToolSearchToolResultErrorParam`
 
               - `JsonValue type = "tool_search_tool_result_error"`
 
@@ -4944,7 +5134,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `Optional<String> errorMessage`
 
-            - `class ToolSearchToolSearchResultBlockParam:`
+            - `class ToolSearchToolSearchResultBlockParam`
 
               - `JsonValue type = "tool_search_tool_search_result"`
 
@@ -4968,7 +5158,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             Create a cache control breakpoint at this content block.
 
-        - `class ContainerUploadBlockParam:`
+        - `class ContainerUploadBlockParam`
 
           A content block that represents a file to be uploaded to the container
           Files uploaded via this block will be available in the container's input directory.
@@ -5101,7 +5291,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     See our [guide](https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview) for more details.
 
-    - `class Tool:`
+    - `class Tool`
 
       - `Optional<Type> type`
 
@@ -5159,7 +5349,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         When true, guarantees schema validation on tool names and inputs
 
-    - `class ToolBash20250124:`
+    - `class ToolBash20250124`
 
       - `JsonValue type = "bash_20250124"`
 
@@ -5193,7 +5383,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         When true, guarantees schema validation on tool names and inputs
 
-    - `class CodeExecutionTool20250522:`
+    - `class CodeExecutionTool20250522`
 
       - `JsonValue type = "code_execution_20250522"`
 
@@ -5225,7 +5415,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         When true, guarantees schema validation on tool names and inputs
 
-    - `class CodeExecutionTool20250825:`
+    - `class CodeExecutionTool20250825`
 
       - `JsonValue type = "code_execution_20250825"`
 
@@ -5257,7 +5447,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         When true, guarantees schema validation on tool names and inputs
 
-    - `class CodeExecutionTool20260120:`
+    - `class CodeExecutionTool20260120`
 
       Code execution tool with REPL state persistence (daemon mode + gVisor checkpoint).
 
@@ -5291,7 +5481,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         When true, guarantees schema validation on tool names and inputs
 
-    - `class CodeExecutionTool20260521:`
+    - `class CodeExecutionTool20260521`
 
       Code execution tool with REPL state persistence.
 
@@ -5325,7 +5515,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         When true, guarantees schema validation on tool names and inputs
 
-    - `class BrowserToolset20260801:`
+    - `class BrowserToolset20260801`
 
       The browser toolset: a single `tools[]` entry (carrying no
       `name`) that declares the browser tool family. The model is served
@@ -5719,7 +5909,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-    - `class MemoryTool20250818:`
+    - `class MemoryTool20250818`
 
       - `JsonValue type = "memory_20250818"`
 
@@ -5753,7 +5943,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         When true, guarantees schema validation on tool names and inputs
 
-    - `class ComputerToolset20260801:`
+    - `class ComputerToolset20260801`
 
       The computer toolset: a single `tools[]` entry (carrying no
       `name`) that declares the computer tool family. The model is
@@ -5983,7 +6173,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-    - `class ToolTextEditor20250124:`
+    - `class ToolTextEditor20250124`
 
       - `JsonValue type = "text_editor_20250124"`
 
@@ -6017,7 +6207,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         When true, guarantees schema validation on tool names and inputs
 
-    - `class ToolTextEditor20250429:`
+    - `class ToolTextEditor20250429`
 
       - `JsonValue type = "text_editor_20250429"`
 
@@ -6051,7 +6241,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         When true, guarantees schema validation on tool names and inputs
 
-    - `class ToolTextEditor20250728:`
+    - `class ToolTextEditor20250728`
 
       - `JsonValue type = "text_editor_20250728"`
 
@@ -6091,7 +6281,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         When true, guarantees schema validation on tool names and inputs
 
-    - `class WebSearchTool20250305:`
+    - `class WebSearchTool20250305`
 
       - `JsonValue type = "web_search_20250305"`
 
@@ -6167,7 +6357,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
           maxLength: 255, minLength: 1
 
-    - `class WebFetchTool20250910:`
+    - `class WebFetchTool20250910`
 
       - `JsonValue type = "web_fetch_20250910"`
 
@@ -6223,7 +6413,98 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         When true, guarantees schema validation on tool names and inputs
 
-    - `class WebSearchTool20260209:`
+      - `Optional<WebFetchUrlSources> urlSources`
+
+        Which sources contribute to the set of URLs web fetch may fetch.
+
+        Each key is a tagged variant: `user_input` is `all` or `none`; the
+        two tool filters are `all`, `none`, `only` (only the named tools'
+        results) or `except` (every result but the named tools'). A named tool
+        must be declared in this request's `tools[]`.
+
+        - `Optional<ClientToolResults> clientToolResults`
+
+          Which client tools' results contribute fetchable URLs: "all", "none", or an only or except list of client tool names from tools[].
+
+          - `class WebFetchUrlSourceAll`
+
+            The `url_sources` variant under which a source contributes in
+            full: every result of the tool filter's source, or all user input.
+
+            - `JsonValue type = "all"`
+
+          - `class WebFetchUrlSourceNone`
+
+            The `url_sources` variant under which a source contributes nothing:
+            no result of the tool filter's source, or no user input.
+
+            - `JsonValue type = "none"`
+
+          - `class WebFetchUrlSourceOnly`
+
+            The tool filter variant under which only the named tools' results
+            contribute.
+
+            - `JsonValue type = "only"`
+
+            - `List<WebFetchUrlSourceToolReference> tools`
+
+              - `JsonValue type = "tool_reference"`
+
+              - `String name`
+
+          - `class WebFetchUrlSourceExcept`
+
+            The tool filter variant under which every result but the named
+            tools' contributes.
+
+            - `JsonValue type = "except"`
+
+            - `List<WebFetchUrlSourceToolReference> tools`
+
+              - `JsonValue type = "tool_reference"`
+
+              - `String name`
+
+        - `Optional<ServerToolResults> serverToolResults`
+
+          Which server tools' results contribute fetchable URLs: "all", "none", or an only or except list of server tool names from tools[]; only web_search and web_fetch results ever contribute.
+
+          - `class WebFetchUrlSourceAll`
+
+            The `url_sources` variant under which a source contributes in
+            full: every result of the tool filter's source, or all user input.
+
+          - `class WebFetchUrlSourceNone`
+
+            The `url_sources` variant under which a source contributes nothing:
+            no result of the tool filter's source, or no user input.
+
+          - `class WebFetchUrlSourceOnly`
+
+            The tool filter variant under which only the named tools' results
+            contribute.
+
+          - `class WebFetchUrlSourceExcept`
+
+            The tool filter variant under which every result but the named
+            tools' contributes.
+
+        - `Optional<UserInput> userInput`
+
+          Whether URLs in user messages are fetchable: "all" or "none".
+
+          - `class WebFetchUrlSourceAll`
+
+            The `url_sources` variant under which a source contributes in
+            full: every result of the tool filter's source, or all user input.
+
+          - `class WebFetchUrlSourceNone`
+
+            The `url_sources` variant under which a source contributes nothing:
+            no result of the tool filter's source, or no user input.
+
+    - `class WebSearchTool20260209`
 
       - `JsonValue type = "web_search_20260209"`
 
@@ -6273,7 +6554,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         Parameters for the user's location. Used to provide more relevant search results.
 
-    - `class WebFetchTool20260209:`
+    - `class WebFetchTool20260209`
 
       - `JsonValue type = "web_fetch_20260209"`
 
@@ -6329,7 +6610,16 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         When true, guarantees schema validation on tool names and inputs
 
-    - `class WebFetchTool20260309:`
+      - `Optional<WebFetchUrlSources> urlSources`
+
+        Which sources contribute to the set of URLs web fetch may fetch.
+
+        Each key is a tagged variant: `user_input` is `all` or `none`; the
+        two tool filters are `all`, `none`, `only` (only the named tools'
+        results) or `except` (every result but the named tools'). A named tool
+        must be declared in this request's `tools[]`.
+
+    - `class WebFetchTool20260309`
 
       Web fetch tool with use_cache parameter for bypassing cached content.
 
@@ -6387,11 +6677,20 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         When true, guarantees schema validation on tool names and inputs
 
+      - `Optional<WebFetchUrlSources> urlSources`
+
+        Which sources contribute to the set of URLs web fetch may fetch.
+
+        Each key is a tagged variant: `user_input` is `all` or `none`; the
+        two tool filters are `all`, `none`, `only` (only the named tools'
+        results) or `except` (every result but the named tools'). A named tool
+        must be declared in this request's `tools[]`.
+
       - `Optional<Boolean> useCache`
 
         Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
 
-    - `class WebSearchTool20260318:`
+    - `class WebSearchTool20260318`
 
       - `JsonValue type = "web_search_20260318"`
 
@@ -6449,7 +6748,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         Parameters for the user's location. Used to provide more relevant search results.
 
-    - `class WebFetchTool20260318:`
+    - `class WebFetchTool20260318`
 
       - `JsonValue type = "web_fetch_20260318"`
 
@@ -6513,11 +6812,20 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         When true, guarantees schema validation on tool names and inputs
 
+      - `Optional<WebFetchUrlSources> urlSources`
+
+        Which sources contribute to the set of URLs web fetch may fetch.
+
+        Each key is a tagged variant: `user_input` is `all` or `none`; the
+        two tool filters are `all`, `none`, `only` (only the named tools'
+        results) or `except` (every result but the named tools'). A named tool
+        must be declared in this request's `tools[]`.
+
       - `Optional<Boolean> useCache`
 
         Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
 
-    - `class ToolSearchToolBm25_20251119:`
+    - `class ToolSearchToolBm25_20251119`
 
       - `Type type`
 
@@ -6553,7 +6861,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         When true, guarantees schema validation on tool names and inputs
 
-    - `class ToolSearchToolRegex20251119:`
+    - `class ToolSearchToolRegex20251119`
 
       - `Type type`
 
@@ -6591,7 +6899,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
 ### Returns
 
-- `class MessageTokensCount:`
+- `class MessageTokensCount`
 
   - `long inputTokens`
 
@@ -6635,7 +6943,7 @@ public final class Main {
 
 ### Base64 Image Source
 
-- `class Base64ImageSource:`
+- `class Base64ImageSource`
 
   - `JsonValue type = "base64"`
 
@@ -6655,7 +6963,7 @@ public final class Main {
 
 ### Base64 PDF Source
 
-- `class Base64PdfSource:`
+- `class Base64PdfSource`
 
   - `JsonValue type = "base64"`
 
@@ -6667,7 +6975,7 @@ public final class Main {
 
 ### Bash Code Execution Output Block
 
-- `class BashCodeExecutionOutputBlock:`
+- `class BashCodeExecutionOutputBlock`
 
   - `JsonValue type = "bash_code_execution_output"`
 
@@ -6675,7 +6983,7 @@ public final class Main {
 
 ### Bash Code Execution Output Block Param
 
-- `class BashCodeExecutionOutputBlockParam:`
+- `class BashCodeExecutionOutputBlockParam`
 
   - `JsonValue type = "bash_code_execution_output"`
 
@@ -6683,7 +6991,7 @@ public final class Main {
 
 ### Bash Code Execution Result Block
 
-- `class BashCodeExecutionResultBlock:`
+- `class BashCodeExecutionResultBlock`
 
   - `JsonValue type = "bash_code_execution_result"`
 
@@ -6701,7 +7009,7 @@ public final class Main {
 
 ### Bash Code Execution Result Block Param
 
-- `class BashCodeExecutionResultBlockParam:`
+- `class BashCodeExecutionResultBlockParam`
 
   - `JsonValue type = "bash_code_execution_result"`
 
@@ -6719,13 +7027,13 @@ public final class Main {
 
 ### Bash Code Execution Tool Result Block
 
-- `class BashCodeExecutionToolResultBlock:`
+- `class BashCodeExecutionToolResultBlock`
 
   - `JsonValue type = "bash_code_execution_tool_result"`
 
   - `Content content`
 
-    - `class BashCodeExecutionToolResultError:`
+    - `class BashCodeExecutionToolResultError`
 
       - `JsonValue type = "bash_code_execution_tool_result_error"`
 
@@ -6741,7 +7049,7 @@ public final class Main {
 
         - `OUTPUT_FILE_TOO_LARGE("output_file_too_large")`
 
-    - `class BashCodeExecutionResultBlock:`
+    - `class BashCodeExecutionResultBlock`
 
       - `JsonValue type = "bash_code_execution_result"`
 
@@ -6763,13 +7071,13 @@ public final class Main {
 
 ### Bash Code Execution Tool Result Block Param
 
-- `class BashCodeExecutionToolResultBlockParam:`
+- `class BashCodeExecutionToolResultBlockParam`
 
   - `JsonValue type = "bash_code_execution_tool_result"`
 
   - `Content content`
 
-    - `class BashCodeExecutionToolResultErrorParam:`
+    - `class BashCodeExecutionToolResultErrorParam`
 
       - `JsonValue type = "bash_code_execution_tool_result_error"`
 
@@ -6785,7 +7093,7 @@ public final class Main {
 
         - `OUTPUT_FILE_TOO_LARGE("output_file_too_large")`
 
-    - `class BashCodeExecutionResultBlockParam:`
+    - `class BashCodeExecutionResultBlockParam`
 
       - `JsonValue type = "bash_code_execution_result"`
 
@@ -6828,7 +7136,7 @@ public final class Main {
 
 ### Bash Code Execution Tool Result Error
 
-- `class BashCodeExecutionToolResultError:`
+- `class BashCodeExecutionToolResultError`
 
   - `JsonValue type = "bash_code_execution_tool_result_error"`
 
@@ -6846,7 +7154,7 @@ public final class Main {
 
 ### Bash Code Execution Tool Result Error Code
 
-- `enum BashCodeExecutionToolResultErrorCode:`
+- `enum BashCodeExecutionToolResultErrorCode`
 
   - `INVALID_TOOL_INPUT("invalid_tool_input")`
 
@@ -6860,7 +7168,7 @@ public final class Main {
 
 ### Bash Code Execution Tool Result Error Param
 
-- `class BashCodeExecutionToolResultErrorParam:`
+- `class BashCodeExecutionToolResultErrorParam`
 
   - `JsonValue type = "bash_code_execution_tool_result_error"`
 
@@ -6878,7 +7186,7 @@ public final class Main {
 
 ### Browser Close Tab Config
 
-- `class BrowserCloseTabConfig:`
+- `class BrowserCloseTabConfig`
 
   `close_tab`'s config overrides.
 
@@ -6892,7 +7200,7 @@ public final class Main {
 
 ### Browser Double Click Config
 
-- `class BrowserDoubleClickConfig:`
+- `class BrowserDoubleClickConfig`
 
   `double_click`'s config overrides.
 
@@ -6906,7 +7214,7 @@ public final class Main {
 
 ### Browser File Upload Config
 
-- `class BrowserFileUploadConfig:`
+- `class BrowserFileUploadConfig`
 
   `file_upload`'s config overrides.
 
@@ -6920,7 +7228,7 @@ public final class Main {
 
 ### Browser Find Config
 
-- `class BrowserFindConfig:`
+- `class BrowserFindConfig`
 
   `find`'s config overrides.
 
@@ -6934,7 +7242,7 @@ public final class Main {
 
 ### Browser Form Input Config
 
-- `class BrowserFormInputConfig:`
+- `class BrowserFormInputConfig`
 
   `form_input`'s config overrides.
 
@@ -6948,7 +7256,7 @@ public final class Main {
 
 ### Browser Get Page Text Config
 
-- `class BrowserGetPageTextConfig:`
+- `class BrowserGetPageTextConfig`
 
   `get_page_text`'s config overrides.
 
@@ -6962,7 +7270,7 @@ public final class Main {
 
 ### Browser Hold Key Config
 
-- `class BrowserHoldKeyConfig:`
+- `class BrowserHoldKeyConfig`
 
   `hold_key`'s config overrides.
 
@@ -6976,7 +7284,7 @@ public final class Main {
 
 ### Browser Hover Config
 
-- `class BrowserHoverConfig:`
+- `class BrowserHoverConfig`
 
   `hover`'s config overrides.
 
@@ -6990,7 +7298,7 @@ public final class Main {
 
 ### Browser Javascript Exec Config
 
-- `class BrowserJavascriptExecConfig:`
+- `class BrowserJavascriptExecConfig`
 
   `javascript_exec`'s config overrides.
 
@@ -7004,7 +7312,7 @@ public final class Main {
 
 ### Browser Key Config
 
-- `class BrowserKeyConfig:`
+- `class BrowserKeyConfig`
 
   `key`'s config overrides.
 
@@ -7018,7 +7326,7 @@ public final class Main {
 
 ### Browser Left Click Config
 
-- `class BrowserLeftClickConfig:`
+- `class BrowserLeftClickConfig`
 
   `left_click`'s config overrides.
 
@@ -7032,7 +7340,7 @@ public final class Main {
 
 ### Browser Left Click Drag Config
 
-- `class BrowserLeftClickDragConfig:`
+- `class BrowserLeftClickDragConfig`
 
   `left_click_drag`'s config overrides.
 
@@ -7046,7 +7354,7 @@ public final class Main {
 
 ### Browser Left Mouse Down Config
 
-- `class BrowserLeftMouseDownConfig:`
+- `class BrowserLeftMouseDownConfig`
 
   `left_mouse_down`'s config overrides.
 
@@ -7060,7 +7368,7 @@ public final class Main {
 
 ### Browser Left Mouse Up Config
 
-- `class BrowserLeftMouseUpConfig:`
+- `class BrowserLeftMouseUpConfig`
 
   `left_mouse_up`'s config overrides.
 
@@ -7074,7 +7382,7 @@ public final class Main {
 
 ### Browser List Tabs Config
 
-- `class BrowserListTabsConfig:`
+- `class BrowserListTabsConfig`
 
   `list_tabs`'s config overrides.
 
@@ -7088,7 +7396,7 @@ public final class Main {
 
 ### Browser Middle Click Config
 
-- `class BrowserMiddleClickConfig:`
+- `class BrowserMiddleClickConfig`
 
   `middle_click`'s config overrides.
 
@@ -7102,7 +7410,7 @@ public final class Main {
 
 ### Browser Mouse Move Config
 
-- `class BrowserMouseMoveConfig:`
+- `class BrowserMouseMoveConfig`
 
   `mouse_move`'s config overrides.
 
@@ -7116,7 +7424,7 @@ public final class Main {
 
 ### Browser Navigate Config
 
-- `class BrowserNavigateConfig:`
+- `class BrowserNavigateConfig`
 
   `navigate`'s config overrides.
 
@@ -7130,7 +7438,7 @@ public final class Main {
 
 ### Browser New Tab Config
 
-- `class BrowserNewTabConfig:`
+- `class BrowserNewTabConfig`
 
   `new_tab`'s config overrides.
 
@@ -7144,7 +7452,7 @@ public final class Main {
 
 ### Browser Read Console Config
 
-- `class BrowserReadConsoleConfig:`
+- `class BrowserReadConsoleConfig`
 
   `read_console`'s config overrides.
 
@@ -7158,7 +7466,7 @@ public final class Main {
 
 ### Browser Read Network Config
 
-- `class BrowserReadNetworkConfig:`
+- `class BrowserReadNetworkConfig`
 
   `read_network`'s config overrides.
 
@@ -7172,7 +7480,7 @@ public final class Main {
 
 ### Browser Read Page Config
 
-- `class BrowserReadPageConfig:`
+- `class BrowserReadPageConfig`
 
   `read_page`'s config overrides.
 
@@ -7186,7 +7494,7 @@ public final class Main {
 
 ### Browser Right Click Config
 
-- `class BrowserRightClickConfig:`
+- `class BrowserRightClickConfig`
 
   `right_click`'s config overrides.
 
@@ -7200,7 +7508,7 @@ public final class Main {
 
 ### Browser Screenshot Config
 
-- `class BrowserScreenshotConfig:`
+- `class BrowserScreenshotConfig`
 
   `screenshot`'s config overrides.
 
@@ -7214,7 +7522,7 @@ public final class Main {
 
 ### Browser Scroll Config
 
-- `class BrowserScrollConfig:`
+- `class BrowserScrollConfig`
 
   `scroll`'s config overrides.
 
@@ -7228,7 +7536,7 @@ public final class Main {
 
 ### Browser Scroll To Config
 
-- `class BrowserScrollToConfig:`
+- `class BrowserScrollToConfig`
 
   `scroll_to`'s config overrides.
 
@@ -7242,7 +7550,7 @@ public final class Main {
 
 ### Browser State Block Param
 
-- `class BrowserStateBlockParam:`
+- `class BrowserStateBlockParam`
 
   The caller's browser state after a browser toolset member call —
   the full inventory of open tabs, which tab is active, and any side
@@ -7309,7 +7617,7 @@ public final class Main {
 
     maxItems: 200, minItems: 1
 
-    - `class BrowserStateChangeTabOpened:`
+    - `class BrowserStateChangeTabOpened`
 
       A tab this call's execution opened that remains open at its end —
       the creation delta of the `tabs` inventory, not an event log.
@@ -7327,7 +7635,7 @@ public final class Main {
 
         maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-    - `class BrowserStateChangeDownloadStarted:`
+    - `class BrowserStateChangeDownloadStarted`
 
       A file download that started during this call.
 
@@ -7345,7 +7653,7 @@ public final class Main {
 
         maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-    - `class BrowserStateChangeDownloadCompleted:`
+    - `class BrowserStateChangeDownloadCompleted`
 
       A file download that finished during this call, reported with the
       same `download_id` as its `download_started` — or without a prior
@@ -7378,7 +7686,7 @@ public final class Main {
 
         minimum: 0
 
-    - `class BrowserStateChangeDownloadFailed:`
+    - `class BrowserStateChangeDownloadFailed`
 
       A file download that failed — or was cancelled — during this call.
 
@@ -7406,7 +7714,7 @@ public final class Main {
 
 - `class BrowserStateChange: union`
 
-  - `class BrowserStateChangeTabOpened:`
+  - `class BrowserStateChangeTabOpened`
 
     A tab this call's execution opened that remains open at its end —
     the creation delta of the `tabs` inventory, not an event log.
@@ -7424,7 +7732,7 @@ public final class Main {
 
       maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-  - `class BrowserStateChangeDownloadStarted:`
+  - `class BrowserStateChangeDownloadStarted`
 
     A file download that started during this call.
 
@@ -7442,7 +7750,7 @@ public final class Main {
 
       maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-  - `class BrowserStateChangeDownloadCompleted:`
+  - `class BrowserStateChangeDownloadCompleted`
 
     A file download that finished during this call, reported with the
     same `download_id` as its `download_started` — or without a prior
@@ -7475,7 +7783,7 @@ public final class Main {
 
       minimum: 0
 
-  - `class BrowserStateChangeDownloadFailed:`
+  - `class BrowserStateChangeDownloadFailed`
 
     A file download that failed — or was cancelled — during this call.
 
@@ -7501,7 +7809,7 @@ public final class Main {
 
 ### Browser State Change Download Completed
 
-- `class BrowserStateChangeDownloadCompleted:`
+- `class BrowserStateChangeDownloadCompleted`
 
   A file download that finished during this call, reported with the
   same `download_id` as its `download_started` — or without a prior
@@ -7536,7 +7844,7 @@ public final class Main {
 
 ### Browser State Change Download Failed
 
-- `class BrowserStateChangeDownloadFailed:`
+- `class BrowserStateChangeDownloadFailed`
 
   A file download that failed — or was cancelled — during this call.
 
@@ -7562,7 +7870,7 @@ public final class Main {
 
 ### Browser State Change Download Started
 
-- `class BrowserStateChangeDownloadStarted:`
+- `class BrowserStateChangeDownloadStarted`
 
   A file download that started during this call.
 
@@ -7582,7 +7890,7 @@ public final class Main {
 
 ### Browser State Change Tab Opened
 
-- `class BrowserStateChangeTabOpened:`
+- `class BrowserStateChangeTabOpened`
 
   A tab this call's execution opened that remains open at its end —
   the creation delta of the `tabs` inventory, not an event log.
@@ -7602,7 +7910,7 @@ public final class Main {
 
 ### Browser State Tab Entry
 
-- `class BrowserStateTabEntry:`
+- `class BrowserStateTabEntry`
 
   One open browser tab reported in a `browser_state` block's `tabs`
   inventory.
@@ -7637,7 +7945,7 @@ public final class Main {
 
 ### Browser Switch Tab Config
 
-- `class BrowserSwitchTabConfig:`
+- `class BrowserSwitchTabConfig`
 
   `switch_tab`'s config overrides.
 
@@ -7651,7 +7959,7 @@ public final class Main {
 
 ### Browser Toolset 20260801
 
-- `class BrowserToolset20260801:`
+- `class BrowserToolset20260801`
 
   The browser toolset: a single `tools[]` entry (carrying no
   `name`) that declares the browser tool family. The model is served
@@ -8064,7 +8372,7 @@ public final class Main {
 
 ### Browser Toolset Configs
 
-- `class BrowserToolsetConfigs:`
+- `class BrowserToolsetConfigs`
 
   Per-member configuration for `browser_toolset_20260801`: one
   optional field per member tool, keyed by the member name — the same
@@ -8447,7 +8755,7 @@ public final class Main {
 
 ### Browser Triple Click Config
 
-- `class BrowserTripleClickConfig:`
+- `class BrowserTripleClickConfig`
 
   `triple_click`'s config overrides.
 
@@ -8461,7 +8769,7 @@ public final class Main {
 
 ### Browser Type Config
 
-- `class BrowserTypeConfig:`
+- `class BrowserTypeConfig`
 
   `type`'s config overrides.
 
@@ -8475,7 +8783,7 @@ public final class Main {
 
 ### Browser Wait Config
 
-- `class BrowserWaitConfig:`
+- `class BrowserWaitConfig`
 
   `wait`'s config overrides.
 
@@ -8489,7 +8797,7 @@ public final class Main {
 
 ### Browser Zoom Config
 
-- `class BrowserZoomConfig:`
+- `class BrowserZoomConfig`
 
   `zoom`'s config overrides.
 
@@ -8503,7 +8811,7 @@ public final class Main {
 
 ### Cache Control Ephemeral
 
-- `class CacheControlEphemeral:`
+- `class CacheControlEphemeral`
 
   - `JsonValue type = "ephemeral"`
 
@@ -8524,7 +8832,7 @@ public final class Main {
 
 ### Cache Creation
 
-- `class CacheCreation:`
+- `class CacheCreation`
 
   - `long ephemeral1hInputTokens`
 
@@ -8538,9 +8846,105 @@ public final class Main {
 
     minimum: 0
 
+### Cache Miss Messages Changed
+
+- `class CacheMissMessagesChanged`
+
+  - `JsonValue type = "messages_changed"`
+
+  - `long cacheMissedInputTokens`
+
+    Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+### Cache Miss Model Changed
+
+- `class CacheMissModelChanged`
+
+  - `JsonValue type = "model_changed"`
+
+  - `long cacheMissedInputTokens`
+
+    Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+### Cache Miss Previous Message Not Found
+
+- `class CacheMissPreviousMessageNotFound`
+
+  - `JsonValue type = "previous_message_not_found"`
+
+### Cache Miss Reason
+
+- `class CacheMissReason: union`
+
+  - `class CacheMissModelChanged`
+
+    - `JsonValue type = "model_changed"`
+
+    - `long cacheMissedInputTokens`
+
+      Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+  - `class CacheMissSystemChanged`
+
+    - `JsonValue type = "system_changed"`
+
+    - `long cacheMissedInputTokens`
+
+      Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+  - `class CacheMissToolsChanged`
+
+    - `JsonValue type = "tools_changed"`
+
+    - `long cacheMissedInputTokens`
+
+      Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+  - `class CacheMissMessagesChanged`
+
+    - `JsonValue type = "messages_changed"`
+
+    - `long cacheMissedInputTokens`
+
+      Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+  - `class CacheMissPreviousMessageNotFound`
+
+    - `JsonValue type = "previous_message_not_found"`
+
+  - `class CacheMissUnavailable`
+
+    - `JsonValue type = "unavailable"`
+
+### Cache Miss System Changed
+
+- `class CacheMissSystemChanged`
+
+  - `JsonValue type = "system_changed"`
+
+  - `long cacheMissedInputTokens`
+
+    Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+### Cache Miss Tools Changed
+
+- `class CacheMissToolsChanged`
+
+  - `JsonValue type = "tools_changed"`
+
+  - `long cacheMissedInputTokens`
+
+    Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+### Cache Miss Unavailable
+
+- `class CacheMissUnavailable`
+
+  - `JsonValue type = "unavailable"`
+
 ### Citation Char Location
 
-- `class CitationCharLocation:`
+- `class CitationCharLocation`
 
   - `JsonValue type = "char_location"`
 
@@ -8562,7 +8966,7 @@ public final class Main {
 
 ### Citation Char Location Param
 
-- `class CitationCharLocationParam:`
+- `class CitationCharLocationParam`
 
   - `JsonValue type = "char_location"`
 
@@ -8584,7 +8988,7 @@ public final class Main {
 
 ### Citation Content Block Location
 
-- `class CitationContentBlockLocation:`
+- `class CitationContentBlockLocation`
 
   - `JsonValue type = "content_block_location"`
 
@@ -8616,7 +9020,7 @@ public final class Main {
 
 ### Citation Content Block Location Param
 
-- `class CitationContentBlockLocationParam:`
+- `class CitationContentBlockLocationParam`
 
   - `JsonValue type = "content_block_location"`
 
@@ -8648,7 +9052,7 @@ public final class Main {
 
 ### Citation Page Location
 
-- `class CitationPageLocation:`
+- `class CitationPageLocation`
 
   - `JsonValue type = "page_location"`
 
@@ -8670,7 +9074,7 @@ public final class Main {
 
 ### Citation Page Location Param
 
-- `class CitationPageLocationParam:`
+- `class CitationPageLocationParam`
 
   - `JsonValue type = "page_location"`
 
@@ -8692,7 +9096,7 @@ public final class Main {
 
 ### Citation Search Result Location Param
 
-- `class CitationSearchResultLocationParam:`
+- `class CitationSearchResultLocationParam`
 
   - `JsonValue type = "search_result_location"`
 
@@ -8728,7 +9132,7 @@ public final class Main {
 
 ### Citation Web Search Result Location Param
 
-- `class CitationWebSearchResultLocationParam:`
+- `class CitationWebSearchResultLocationParam`
 
   - `JsonValue type = "web_search_result_location"`
 
@@ -8746,25 +9150,25 @@ public final class Main {
 
 ### Citations Config
 
-- `class CitationsConfig:`
+- `class CitationsConfig`
 
   - `boolean enabled`
 
 ### Citations Config Param
 
-- `class CitationsConfigParam:`
+- `class CitationsConfigParam`
 
   - `Optional<Boolean> enabled`
 
 ### Citations Delta
 
-- `class CitationsDelta:`
+- `class CitationsDelta`
 
   - `JsonValue type = "citations_delta"`
 
   - `Citation citation`
 
-    - `class CitationCharLocation:`
+    - `class CitationCharLocation`
 
       - `JsonValue type = "char_location"`
 
@@ -8784,7 +9188,7 @@ public final class Main {
 
         minimum: 0
 
-    - `class CitationPageLocation:`
+    - `class CitationPageLocation`
 
       - `JsonValue type = "page_location"`
 
@@ -8804,7 +9208,7 @@ public final class Main {
 
         minimum: 1
 
-    - `class CitationContentBlockLocation:`
+    - `class CitationContentBlockLocation`
 
       - `JsonValue type = "content_block_location"`
 
@@ -8834,7 +9238,7 @@ public final class Main {
 
         minimum: 0
 
-    - `class CitationsWebSearchResultLocation:`
+    - `class CitationsWebSearchResultLocation`
 
       - `JsonValue type = "web_search_result_location"`
 
@@ -8848,7 +9252,7 @@ public final class Main {
 
       - `String url`
 
-    - `class CitationsSearchResultLocation:`
+    - `class CitationsSearchResultLocation`
 
       - `JsonValue type = "search_result_location"`
 
@@ -8884,7 +9288,7 @@ public final class Main {
 
 ### Citations Search Result Location
 
-- `class CitationsSearchResultLocation:`
+- `class CitationsSearchResultLocation`
 
   - `JsonValue type = "search_result_location"`
 
@@ -8920,7 +9324,7 @@ public final class Main {
 
 ### Citations Web Search Result Location
 
-- `class CitationsWebSearchResultLocation:`
+- `class CitationsWebSearchResultLocation`
 
   - `JsonValue type = "web_search_result_location"`
 
@@ -8936,7 +9340,7 @@ public final class Main {
 
 ### Code Execution Output Block
 
-- `class CodeExecutionOutputBlock:`
+- `class CodeExecutionOutputBlock`
 
   - `JsonValue type = "code_execution_output"`
 
@@ -8944,7 +9348,7 @@ public final class Main {
 
 ### Code Execution Output Block Param
 
-- `class CodeExecutionOutputBlockParam:`
+- `class CodeExecutionOutputBlockParam`
 
   - `JsonValue type = "code_execution_output"`
 
@@ -8952,7 +9356,7 @@ public final class Main {
 
 ### Code Execution Result Block
 
-- `class CodeExecutionResultBlock:`
+- `class CodeExecutionResultBlock`
 
   - `JsonValue type = "code_execution_result"`
 
@@ -8970,7 +9374,7 @@ public final class Main {
 
 ### Code Execution Result Block Param
 
-- `class CodeExecutionResultBlockParam:`
+- `class CodeExecutionResultBlockParam`
 
   - `JsonValue type = "code_execution_result"`
 
@@ -8988,7 +9392,7 @@ public final class Main {
 
 ### Code Execution Tool 20250522
 
-- `class CodeExecutionTool20250522:`
+- `class CodeExecutionTool20250522`
 
   - `JsonValue type = "code_execution_20250522"`
 
@@ -9039,7 +9443,7 @@ public final class Main {
 
 ### Code Execution Tool 20250825
 
-- `class CodeExecutionTool20250825:`
+- `class CodeExecutionTool20250825`
 
   - `JsonValue type = "code_execution_20250825"`
 
@@ -9090,7 +9494,7 @@ public final class Main {
 
 ### Code Execution Tool 20260120
 
-- `class CodeExecutionTool20260120:`
+- `class CodeExecutionTool20260120`
 
   Code execution tool with REPL state persistence (daemon mode + gVisor checkpoint).
 
@@ -9143,7 +9547,7 @@ public final class Main {
 
 ### Code Execution Tool 20260521
 
-- `class CodeExecutionTool20260521:`
+- `class CodeExecutionTool20260521`
 
   Code execution tool with REPL state persistence.
 
@@ -9196,13 +9600,13 @@ public final class Main {
 
 ### Code Execution Tool Result Block
 
-- `class CodeExecutionToolResultBlock:`
+- `class CodeExecutionToolResultBlock`
 
   - `JsonValue type = "code_execution_tool_result"`
 
   - `CodeExecutionToolResultBlockContent content`
 
-    - `class CodeExecutionToolResultError:`
+    - `class CodeExecutionToolResultError`
 
       - `JsonValue type = "code_execution_tool_result_error"`
 
@@ -9216,7 +9620,7 @@ public final class Main {
 
         - `EXECUTION_TIME_EXCEEDED("execution_time_exceeded")`
 
-    - `class CodeExecutionResultBlock:`
+    - `class CodeExecutionResultBlock`
 
       - `JsonValue type = "code_execution_result"`
 
@@ -9232,7 +9636,7 @@ public final class Main {
 
       - `String stdout`
 
-    - `class EncryptedCodeExecutionResultBlock:`
+    - `class EncryptedCodeExecutionResultBlock`
 
       Code execution result with encrypted stdout for PFC + web_search results.
 
@@ -9258,7 +9662,7 @@ public final class Main {
 
 - `class CodeExecutionToolResultBlockContent: union`
 
-  - `class CodeExecutionToolResultError:`
+  - `class CodeExecutionToolResultError`
 
     - `JsonValue type = "code_execution_tool_result_error"`
 
@@ -9272,7 +9676,7 @@ public final class Main {
 
       - `EXECUTION_TIME_EXCEEDED("execution_time_exceeded")`
 
-  - `class CodeExecutionResultBlock:`
+  - `class CodeExecutionResultBlock`
 
     - `JsonValue type = "code_execution_result"`
 
@@ -9288,7 +9692,7 @@ public final class Main {
 
     - `String stdout`
 
-  - `class EncryptedCodeExecutionResultBlock:`
+  - `class EncryptedCodeExecutionResultBlock`
 
     Code execution result with encrypted stdout for PFC + web_search results.
 
@@ -9308,13 +9712,13 @@ public final class Main {
 
 ### Code Execution Tool Result Block Param
 
-- `class CodeExecutionToolResultBlockParam:`
+- `class CodeExecutionToolResultBlockParam`
 
   - `JsonValue type = "code_execution_tool_result"`
 
   - `CodeExecutionToolResultBlockParamContent content`
 
-    - `class CodeExecutionToolResultErrorParam:`
+    - `class CodeExecutionToolResultErrorParam`
 
       - `JsonValue type = "code_execution_tool_result_error"`
 
@@ -9328,7 +9732,7 @@ public final class Main {
 
         - `EXECUTION_TIME_EXCEEDED("execution_time_exceeded")`
 
-    - `class CodeExecutionResultBlockParam:`
+    - `class CodeExecutionResultBlockParam`
 
       - `JsonValue type = "code_execution_result"`
 
@@ -9344,7 +9748,7 @@ public final class Main {
 
       - `String stdout`
 
-    - `class EncryptedCodeExecutionResultBlockParam:`
+    - `class EncryptedCodeExecutionResultBlockParam`
 
       Code execution result with encrypted stdout for PFC + web_search results.
 
@@ -9391,7 +9795,7 @@ public final class Main {
 
 - `class CodeExecutionToolResultBlockParamContent: union`
 
-  - `class CodeExecutionToolResultErrorParam:`
+  - `class CodeExecutionToolResultErrorParam`
 
     - `JsonValue type = "code_execution_tool_result_error"`
 
@@ -9405,7 +9809,7 @@ public final class Main {
 
       - `EXECUTION_TIME_EXCEEDED("execution_time_exceeded")`
 
-  - `class CodeExecutionResultBlockParam:`
+  - `class CodeExecutionResultBlockParam`
 
     - `JsonValue type = "code_execution_result"`
 
@@ -9421,7 +9825,7 @@ public final class Main {
 
     - `String stdout`
 
-  - `class EncryptedCodeExecutionResultBlockParam:`
+  - `class EncryptedCodeExecutionResultBlockParam`
 
     Code execution result with encrypted stdout for PFC + web_search results.
 
@@ -9441,7 +9845,7 @@ public final class Main {
 
 ### Code Execution Tool Result Error
 
-- `class CodeExecutionToolResultError:`
+- `class CodeExecutionToolResultError`
 
   - `JsonValue type = "code_execution_tool_result_error"`
 
@@ -9457,7 +9861,7 @@ public final class Main {
 
 ### Code Execution Tool Result Error Code
 
-- `enum CodeExecutionToolResultErrorCode:`
+- `enum CodeExecutionToolResultErrorCode`
 
   - `INVALID_TOOL_INPUT("invalid_tool_input")`
 
@@ -9469,7 +9873,7 @@ public final class Main {
 
 ### Code Execution Tool Result Error Param
 
-- `class CodeExecutionToolResultErrorParam:`
+- `class CodeExecutionToolResultErrorParam`
 
   - `JsonValue type = "code_execution_tool_result_error"`
 
@@ -9485,7 +9889,7 @@ public final class Main {
 
 ### Computer Cursor Position Config
 
-- `class ComputerCursorPositionConfig:`
+- `class ComputerCursorPositionConfig`
 
   `cursor_position`'s config overrides.
 
@@ -9499,7 +9903,7 @@ public final class Main {
 
 ### Computer Double Click Config
 
-- `class ComputerDoubleClickConfig:`
+- `class ComputerDoubleClickConfig`
 
   `double_click`'s config overrides.
 
@@ -9513,7 +9917,7 @@ public final class Main {
 
 ### Computer Hold Key Config
 
-- `class ComputerHoldKeyConfig:`
+- `class ComputerHoldKeyConfig`
 
   `hold_key`'s config overrides.
 
@@ -9527,7 +9931,7 @@ public final class Main {
 
 ### Computer Key Config
 
-- `class ComputerKeyConfig:`
+- `class ComputerKeyConfig`
 
   `key`'s config overrides.
 
@@ -9541,7 +9945,7 @@ public final class Main {
 
 ### Computer Left Click Config
 
-- `class ComputerLeftClickConfig:`
+- `class ComputerLeftClickConfig`
 
   `left_click`'s config overrides.
 
@@ -9555,7 +9959,7 @@ public final class Main {
 
 ### Computer Left Click Drag Config
 
-- `class ComputerLeftClickDragConfig:`
+- `class ComputerLeftClickDragConfig`
 
   `left_click_drag`'s config overrides.
 
@@ -9569,7 +9973,7 @@ public final class Main {
 
 ### Computer Left Mouse Down Config
 
-- `class ComputerLeftMouseDownConfig:`
+- `class ComputerLeftMouseDownConfig`
 
   `left_mouse_down`'s config overrides.
 
@@ -9583,7 +9987,7 @@ public final class Main {
 
 ### Computer Left Mouse Up Config
 
-- `class ComputerLeftMouseUpConfig:`
+- `class ComputerLeftMouseUpConfig`
 
   `left_mouse_up`'s config overrides.
 
@@ -9597,7 +10001,7 @@ public final class Main {
 
 ### Computer Middle Click Config
 
-- `class ComputerMiddleClickConfig:`
+- `class ComputerMiddleClickConfig`
 
   `middle_click`'s config overrides.
 
@@ -9611,7 +10015,7 @@ public final class Main {
 
 ### Computer Mouse Move Config
 
-- `class ComputerMouseMoveConfig:`
+- `class ComputerMouseMoveConfig`
 
   `mouse_move`'s config overrides.
 
@@ -9625,7 +10029,7 @@ public final class Main {
 
 ### Computer Right Click Config
 
-- `class ComputerRightClickConfig:`
+- `class ComputerRightClickConfig`
 
   `right_click`'s config overrides.
 
@@ -9639,7 +10043,7 @@ public final class Main {
 
 ### Computer Screenshot Config
 
-- `class ComputerScreenshotConfig:`
+- `class ComputerScreenshotConfig`
 
   `screenshot`'s config overrides.
 
@@ -9653,7 +10057,7 @@ public final class Main {
 
 ### Computer Scroll Config
 
-- `class ComputerScrollConfig:`
+- `class ComputerScrollConfig`
 
   `scroll`'s config overrides.
 
@@ -9667,7 +10071,7 @@ public final class Main {
 
 ### Computer Toolset 20260801
 
-- `class ComputerToolset20260801:`
+- `class ComputerToolset20260801`
 
   The computer toolset: a single `tools[]` entry (carrying no
   `name`) that declares the computer tool family. The model is
@@ -9916,7 +10320,7 @@ public final class Main {
 
 ### Computer Toolset Configs
 
-- `class ComputerToolsetConfigs:`
+- `class ComputerToolsetConfigs`
 
   Per-member configuration for `computer_toolset_20260801`: one
   optional field per member tool, keyed by the member name — the same
@@ -10131,7 +10535,7 @@ public final class Main {
 
 ### Computer Triple Click Config
 
-- `class ComputerTripleClickConfig:`
+- `class ComputerTripleClickConfig`
 
   `triple_click`'s config overrides.
 
@@ -10145,7 +10549,7 @@ public final class Main {
 
 ### Computer Type Config
 
-- `class ComputerTypeConfig:`
+- `class ComputerTypeConfig`
 
   `type`'s config overrides.
 
@@ -10159,7 +10563,7 @@ public final class Main {
 
 ### Computer Wait Config
 
-- `class ComputerWaitConfig:`
+- `class ComputerWaitConfig`
 
   `wait`'s config overrides.
 
@@ -10173,7 +10577,7 @@ public final class Main {
 
 ### Computer Zoom Config
 
-- `class ComputerZoomConfig:`
+- `class ComputerZoomConfig`
 
   `zoom`'s config overrides.
 
@@ -10187,7 +10591,7 @@ public final class Main {
 
 ### Container
 
-- `class Container:`
+- `class Container`
 
   Information about the container used in the request (for the code execution tool)
 
@@ -10227,7 +10631,7 @@ public final class Main {
 
 ### Container Params
 
-- `class ContainerParams:`
+- `class ContainerParams`
 
   Container parameters with skills to be loaded.
 
@@ -10263,7 +10667,7 @@ public final class Main {
 
 ### Container Skill
 
-- `class ContainerSkill:`
+- `class ContainerSkill`
 
   A skill that was loaded in a container (response model).
 
@@ -10289,7 +10693,7 @@ public final class Main {
 
 ### Container Upload Block
 
-- `class ContainerUploadBlock:`
+- `class ContainerUploadBlock`
 
   Response model for a file uploaded to the container.
 
@@ -10299,7 +10703,7 @@ public final class Main {
 
 ### Container Upload Block Param
 
-- `class ContainerUploadBlockParam:`
+- `class ContainerUploadBlockParam`
 
   A content block that represents a file to be uploaded to the container
   Files uploaded via this block will be available in the container's input directory.
@@ -10333,7 +10737,7 @@ public final class Main {
 
 - `class ContentBlock: union`
 
-  - `class TextBlock:`
+  - `class TextBlock`
 
     - `JsonValue type = "text"`
 
@@ -10343,7 +10747,7 @@ public final class Main {
 
       The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
 
-      - `class CitationCharLocation:`
+      - `class CitationCharLocation`
 
         - `JsonValue type = "char_location"`
 
@@ -10363,7 +10767,7 @@ public final class Main {
 
           minimum: 0
 
-      - `class CitationPageLocation:`
+      - `class CitationPageLocation`
 
         - `JsonValue type = "page_location"`
 
@@ -10383,7 +10787,7 @@ public final class Main {
 
           minimum: 1
 
-      - `class CitationContentBlockLocation:`
+      - `class CitationContentBlockLocation`
 
         - `JsonValue type = "content_block_location"`
 
@@ -10413,7 +10817,7 @@ public final class Main {
 
           minimum: 0
 
-      - `class CitationsWebSearchResultLocation:`
+      - `class CitationsWebSearchResultLocation`
 
         - `JsonValue type = "web_search_result_location"`
 
@@ -10427,7 +10831,7 @@ public final class Main {
 
         - `String url`
 
-      - `class CitationsSearchResultLocation:`
+      - `class CitationsSearchResultLocation`
 
         - `JsonValue type = "search_result_location"`
 
@@ -10465,7 +10869,7 @@ public final class Main {
 
       minLength: 0
 
-  - `class ThinkingBlock:`
+  - `class ThinkingBlock`
 
     - `JsonValue type = "thinking"`
 
@@ -10481,7 +10885,7 @@ public final class Main {
 
       The text of Claude's thinking process for this block.
 
-  - `class RedactedThinkingBlock:`
+  - `class RedactedThinkingBlock`
 
     - `JsonValue type = "redacted_thinking"`
 
@@ -10493,7 +10897,7 @@ public final class Main {
 
       See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking#redacted-thinking-blocks) for details.
 
-  - `class ToolUseBlock:`
+  - `class ToolUseBlock`
 
     - `JsonValue type = "tool_use"`
 
@@ -10503,13 +10907,13 @@ public final class Main {
 
     - `Caller caller`
 
-      - `class DirectCaller:`
+      - `class DirectCaller`
 
         Tool invocation directly from the model.
 
         - `JsonValue type = "direct"`
 
-      - `class ServerToolCaller:`
+      - `class ServerToolCaller`
 
         Tool invocation generated by a server-side tool.
 
@@ -10519,7 +10923,7 @@ public final class Main {
 
           pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-      - `class ServerToolCaller20260120:`
+      - `class ServerToolCaller20260120`
 
         - `JsonValue type = "code_execution_20260120"`
 
@@ -10539,7 +10943,7 @@ public final class Main {
 
       maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
 
-  - `class ServerToolUseBlock:`
+  - `class ServerToolUseBlock`
 
     - `JsonValue type = "server_tool_use"`
 
@@ -10549,15 +10953,15 @@ public final class Main {
 
     - `Caller caller`
 
-      - `class DirectCaller:`
+      - `class DirectCaller`
 
         Tool invocation directly from the model.
 
-      - `class ServerToolCaller:`
+      - `class ServerToolCaller`
 
         Tool invocation generated by a server-side tool.
 
-      - `class ServerToolCaller20260120:`
+      - `class ServerToolCaller20260120`
 
     - `Input input`
 
@@ -10577,25 +10981,25 @@ public final class Main {
 
       - `TOOL_SEARCH_TOOL_BM25("tool_search_tool_bm25")`
 
-  - `class WebSearchToolResultBlock:`
+  - `class WebSearchToolResultBlock`
 
     - `JsonValue type = "web_search_tool_result"`
 
     - `Caller caller`
 
-      - `class DirectCaller:`
+      - `class DirectCaller`
 
         Tool invocation directly from the model.
 
-      - `class ServerToolCaller:`
+      - `class ServerToolCaller`
 
         Tool invocation generated by a server-side tool.
 
-      - `class ServerToolCaller20260120:`
+      - `class ServerToolCaller20260120`
 
     - `WebSearchToolResultBlockContent content`
 
-      - `class WebSearchToolResultError:`
+      - `class WebSearchToolResultError`
 
         - `JsonValue type = "web_search_tool_result_error"`
 
@@ -10629,25 +11033,25 @@ public final class Main {
 
       pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-  - `class WebFetchToolResultBlock:`
+  - `class WebFetchToolResultBlock`
 
     - `JsonValue type = "web_fetch_tool_result"`
 
     - `Caller caller`
 
-      - `class DirectCaller:`
+      - `class DirectCaller`
 
         Tool invocation directly from the model.
 
-      - `class ServerToolCaller:`
+      - `class ServerToolCaller`
 
         Tool invocation generated by a server-side tool.
 
-      - `class ServerToolCaller20260120:`
+      - `class ServerToolCaller20260120`
 
     - `Content content`
 
-      - `class WebFetchToolResultErrorBlock:`
+      - `class WebFetchToolResultErrorBlock`
 
         - `JsonValue type = "web_fetch_tool_result_error"`
 
@@ -10673,7 +11077,7 @@ public final class Main {
 
           - `CONTENT_TOO_LARGE("content_too_large")`
 
-      - `class WebFetchBlock:`
+      - `class WebFetchBlock`
 
         - `JsonValue type = "web_fetch_result"`
 
@@ -10689,7 +11093,7 @@ public final class Main {
 
           - `Source source`
 
-            - `class Base64PdfSource:`
+            - `class Base64PdfSource`
 
               - `JsonValue type = "base64"`
 
@@ -10699,7 +11103,7 @@ public final class Main {
 
               - `JsonValue mediaType = "application/pdf"`
 
-            - `class PlainTextSource:`
+            - `class PlainTextSource`
 
               - `JsonValue type = "text"`
 
@@ -10723,13 +11127,13 @@ public final class Main {
 
       pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-  - `class CodeExecutionToolResultBlock:`
+  - `class CodeExecutionToolResultBlock`
 
     - `JsonValue type = "code_execution_tool_result"`
 
     - `CodeExecutionToolResultBlockContent content`
 
-      - `class CodeExecutionToolResultError:`
+      - `class CodeExecutionToolResultError`
 
         - `JsonValue type = "code_execution_tool_result_error"`
 
@@ -10743,7 +11147,7 @@ public final class Main {
 
           - `EXECUTION_TIME_EXCEEDED("execution_time_exceeded")`
 
-      - `class CodeExecutionResultBlock:`
+      - `class CodeExecutionResultBlock`
 
         - `JsonValue type = "code_execution_result"`
 
@@ -10759,7 +11163,7 @@ public final class Main {
 
         - `String stdout`
 
-      - `class EncryptedCodeExecutionResultBlock:`
+      - `class EncryptedCodeExecutionResultBlock`
 
         Code execution result with encrypted stdout for PFC + web_search results.
 
@@ -10781,13 +11185,13 @@ public final class Main {
 
       pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-  - `class BashCodeExecutionToolResultBlock:`
+  - `class BashCodeExecutionToolResultBlock`
 
     - `JsonValue type = "bash_code_execution_tool_result"`
 
     - `Content content`
 
-      - `class BashCodeExecutionToolResultError:`
+      - `class BashCodeExecutionToolResultError`
 
         - `JsonValue type = "bash_code_execution_tool_result_error"`
 
@@ -10803,7 +11207,7 @@ public final class Main {
 
           - `OUTPUT_FILE_TOO_LARGE("output_file_too_large")`
 
-      - `class BashCodeExecutionResultBlock:`
+      - `class BashCodeExecutionResultBlock`
 
         - `JsonValue type = "bash_code_execution_result"`
 
@@ -10823,13 +11227,13 @@ public final class Main {
 
       pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-  - `class TextEditorCodeExecutionToolResultBlock:`
+  - `class TextEditorCodeExecutionToolResultBlock`
 
     - `JsonValue type = "text_editor_code_execution_tool_result"`
 
     - `Content content`
 
-      - `class TextEditorCodeExecutionToolResultError:`
+      - `class TextEditorCodeExecutionToolResultError`
 
         - `JsonValue type = "text_editor_code_execution_tool_result_error"`
 
@@ -10847,7 +11251,7 @@ public final class Main {
 
         - `Optional<String> errorMessage`
 
-      - `class TextEditorCodeExecutionViewResultBlock:`
+      - `class TextEditorCodeExecutionViewResultBlock`
 
         - `JsonValue type = "text_editor_code_execution_view_result"`
 
@@ -10867,13 +11271,13 @@ public final class Main {
 
         - `Optional<Long> totalLines`
 
-      - `class TextEditorCodeExecutionCreateResultBlock:`
+      - `class TextEditorCodeExecutionCreateResultBlock`
 
         - `JsonValue type = "text_editor_code_execution_create_result"`
 
         - `boolean isFileUpdate`
 
-      - `class TextEditorCodeExecutionStrReplaceResultBlock:`
+      - `class TextEditorCodeExecutionStrReplaceResultBlock`
 
         - `JsonValue type = "text_editor_code_execution_str_replace_result"`
 
@@ -10891,13 +11295,13 @@ public final class Main {
 
       pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-  - `class ToolSearchToolResultBlock:`
+  - `class ToolSearchToolResultBlock`
 
     - `JsonValue type = "tool_search_tool_result"`
 
     - `Content content`
 
-      - `class ToolSearchToolResultError:`
+      - `class ToolSearchToolResultError`
 
         - `JsonValue type = "tool_search_tool_result_error"`
 
@@ -10913,7 +11317,7 @@ public final class Main {
 
         - `Optional<String> errorMessage`
 
-      - `class ToolSearchToolSearchResultBlock:`
+      - `class ToolSearchToolSearchResultBlock`
 
         - `JsonValue type = "tool_search_tool_search_result"`
 
@@ -10929,7 +11333,7 @@ public final class Main {
 
       pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-  - `class ContainerUploadBlock:`
+  - `class ContainerUploadBlock`
 
     Response model for a file uploaded to the container.
 
@@ -10941,7 +11345,7 @@ public final class Main {
 
 - `class ContentBlockParam: union`
 
-  - `class TextBlockParam:`
+  - `class TextBlockParam`
 
     - `JsonValue type = "text"`
 
@@ -10972,7 +11376,7 @@ public final class Main {
 
     - `Optional<List<TextCitationParam>> citations`
 
-      - `class CitationCharLocationParam:`
+      - `class CitationCharLocationParam`
 
         - `JsonValue type = "char_location"`
 
@@ -10992,7 +11396,7 @@ public final class Main {
 
           minimum: 0
 
-      - `class CitationPageLocationParam:`
+      - `class CitationPageLocationParam`
 
         - `JsonValue type = "page_location"`
 
@@ -11012,7 +11416,7 @@ public final class Main {
 
           minimum: 1
 
-      - `class CitationContentBlockLocationParam:`
+      - `class CitationContentBlockLocationParam`
 
         - `JsonValue type = "content_block_location"`
 
@@ -11042,7 +11446,7 @@ public final class Main {
 
           minimum: 0
 
-      - `class CitationWebSearchResultLocationParam:`
+      - `class CitationWebSearchResultLocationParam`
 
         - `JsonValue type = "web_search_result_location"`
 
@@ -11058,7 +11462,7 @@ public final class Main {
 
           minLength: 1
 
-      - `class CitationSearchResultLocationParam:`
+      - `class CitationSearchResultLocationParam`
 
         - `JsonValue type = "search_result_location"`
 
@@ -11092,13 +11496,13 @@ public final class Main {
 
         - `Optional<String> title`
 
-  - `class ImageBlockParam:`
+  - `class ImageBlockParam`
 
     - `JsonValue type = "image"`
 
     - `Source source`
 
-      - `class Base64ImageSource:`
+      - `class Base64ImageSource`
 
         - `JsonValue type = "base64"`
 
@@ -11116,13 +11520,13 @@ public final class Main {
 
           - `IMAGE_WEBP("image/webp")`
 
-      - `class UrlImageSource:`
+      - `class UrlImageSource`
 
         - `JsonValue type = "url"`
 
         - `String url`
 
-      - `class FileImageSource:`
+      - `class FileImageSource`
 
         - `JsonValue type = "file"`
 
@@ -11144,13 +11548,13 @@ public final class Main {
 
         - `ERROR("error")`
 
-  - `class DocumentBlockParam:`
+  - `class DocumentBlockParam`
 
     - `JsonValue type = "document"`
 
     - `Source source`
 
-      - `class Base64PdfSource:`
+      - `class Base64PdfSource`
 
         - `JsonValue type = "base64"`
 
@@ -11160,7 +11564,7 @@ public final class Main {
 
         - `JsonValue mediaType = "application/pdf"`
 
-      - `class PlainTextSource:`
+      - `class PlainTextSource`
 
         - `JsonValue type = "text"`
 
@@ -11168,7 +11572,7 @@ public final class Main {
 
         - `JsonValue mediaType = "text/plain"`
 
-      - `class ContentBlockSource:`
+      - `class ContentBlockSource`
 
         - `JsonValue type = "content"`
 
@@ -11178,17 +11582,17 @@ public final class Main {
 
           - `List<ContentBlockSourceContent>`
 
-            - `class TextBlockParam:`
+            - `class TextBlockParam`
 
-            - `class ImageBlockParam:`
+            - `class ImageBlockParam`
 
-      - `class UrlPdfSource:`
+      - `class UrlPdfSource`
 
         - `JsonValue type = "url"`
 
         - `String url`
 
-      - `class FileDocumentSource:`
+      - `class FileDocumentSource`
 
         - `JsonValue type = "file"`
 
@@ -11210,7 +11614,7 @@ public final class Main {
 
       maxLength: 500, minLength: 1
 
-  - `class SearchResultBlockParam:`
+  - `class SearchResultBlockParam`
 
     - `JsonValue type = "search_result"`
 
@@ -11238,7 +11642,7 @@ public final class Main {
 
     - `Optional<CitationsConfigParam> citations`
 
-  - `class ThinkingBlockParam:`
+  - `class ThinkingBlockParam`
 
     - `JsonValue type = "thinking"`
 
@@ -11252,7 +11656,7 @@ public final class Main {
 
       The `thinking` text of this block as returned by the API.
 
-  - `class RedactedThinkingBlockParam:`
+  - `class RedactedThinkingBlockParam`
 
     - `JsonValue type = "redacted_thinking"`
 
@@ -11260,7 +11664,7 @@ public final class Main {
 
       The `data` value of this redacted thinking block, exactly as returned by the API in a previous response. Opaque and encrypted; pass it back unchanged.
 
-  - `class ToolUseBlockParam:`
+  - `class ToolUseBlockParam`
 
     - `JsonValue type = "tool_use"`
 
@@ -11280,13 +11684,13 @@ public final class Main {
 
     - `Optional<Caller> caller`
 
-      - `class DirectCaller:`
+      - `class DirectCaller`
 
         Tool invocation directly from the model.
 
         - `JsonValue type = "direct"`
 
-      - `class ServerToolCaller:`
+      - `class ServerToolCaller`
 
         Tool invocation generated by a server-side tool.
 
@@ -11296,7 +11700,7 @@ public final class Main {
 
           pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-      - `class ServerToolCaller20260120:`
+      - `class ServerToolCaller20260120`
 
         - `JsonValue type = "code_execution_20260120"`
 
@@ -11310,7 +11714,7 @@ public final class Main {
 
       maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
 
-  - `class ToolResultBlockParam:`
+  - `class ToolResultBlockParam`
 
     - `JsonValue type = "tool_result"`
 
@@ -11328,15 +11732,15 @@ public final class Main {
 
       - `List<Block>`
 
-        - `class TextBlockParam:`
+        - `class TextBlockParam`
 
-        - `class ImageBlockParam:`
+        - `class ImageBlockParam`
 
-        - `class SearchResultBlockParam:`
+        - `class SearchResultBlockParam`
 
-        - `class DocumentBlockParam:`
+        - `class DocumentBlockParam`
 
-        - `class ToolReferenceBlockParam:`
+        - `class ToolReferenceBlockParam`
 
           Tool reference block that can be included in tool_result content.
 
@@ -11350,7 +11754,7 @@ public final class Main {
 
             Create a cache control breakpoint at this content block.
 
-        - `class BrowserStateBlockParam:`
+        - `class BrowserStateBlockParam`
 
           The caller's browser state after a browser toolset member call —
           the full inventory of open tabs, which tab is active, and any side
@@ -11400,7 +11804,7 @@ public final class Main {
 
             maxItems: 200, minItems: 1
 
-            - `class BrowserStateChangeTabOpened:`
+            - `class BrowserStateChangeTabOpened`
 
               A tab this call's execution opened that remains open at its end —
               the creation delta of the `tabs` inventory, not an event log.
@@ -11418,7 +11822,7 @@ public final class Main {
 
                 maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-            - `class BrowserStateChangeDownloadStarted:`
+            - `class BrowserStateChangeDownloadStarted`
 
               A file download that started during this call.
 
@@ -11436,7 +11840,7 @@ public final class Main {
 
                 maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-            - `class BrowserStateChangeDownloadCompleted:`
+            - `class BrowserStateChangeDownloadCompleted`
 
               A file download that finished during this call, reported with the
               same `download_id` as its `download_started` — or without a prior
@@ -11469,7 +11873,7 @@ public final class Main {
 
                 minimum: 0
 
-            - `class BrowserStateChangeDownloadFailed:`
+            - `class BrowserStateChangeDownloadFailed`
 
               A file download that failed — or was cancelled — during this call.
 
@@ -11501,7 +11905,7 @@ public final class Main {
 
       maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
 
-  - `class ServerToolUseBlockParam:`
+  - `class ServerToolUseBlockParam`
 
     - `JsonValue type = "server_tool_use"`
 
@@ -11533,17 +11937,17 @@ public final class Main {
 
     - `Optional<Caller> caller`
 
-      - `class DirectCaller:`
+      - `class DirectCaller`
 
         Tool invocation directly from the model.
 
-      - `class ServerToolCaller:`
+      - `class ServerToolCaller`
 
         Tool invocation generated by a server-side tool.
 
-      - `class ServerToolCaller20260120:`
+      - `class ServerToolCaller20260120`
 
-  - `class WebSearchToolResultBlockParam:`
+  - `class WebSearchToolResultBlockParam`
 
     - `JsonValue type = "web_search_tool_result"`
 
@@ -11561,7 +11965,7 @@ public final class Main {
 
         - `Optional<String> pageAge`
 
-      - `class WebSearchToolRequestError:`
+      - `class WebSearchToolRequestError`
 
         - `JsonValue type = "web_search_tool_result_error"`
 
@@ -11589,23 +11993,23 @@ public final class Main {
 
     - `Optional<Caller> caller`
 
-      - `class DirectCaller:`
+      - `class DirectCaller`
 
         Tool invocation directly from the model.
 
-      - `class ServerToolCaller:`
+      - `class ServerToolCaller`
 
         Tool invocation generated by a server-side tool.
 
-      - `class ServerToolCaller20260120:`
+      - `class ServerToolCaller20260120`
 
-  - `class WebFetchToolResultBlockParam:`
+  - `class WebFetchToolResultBlockParam`
 
     - `JsonValue type = "web_fetch_tool_result"`
 
     - `Content content`
 
-      - `class WebFetchToolResultErrorBlockParam:`
+      - `class WebFetchToolResultErrorBlockParam`
 
         - `JsonValue type = "web_fetch_tool_result_error"`
 
@@ -11631,7 +12035,7 @@ public final class Main {
 
           - `CONTENT_TOO_LARGE("content_too_large")`
 
-      - `class WebFetchBlockParam:`
+      - `class WebFetchBlockParam`
 
         - `JsonValue type = "web_fetch_result"`
 
@@ -11655,23 +12059,23 @@ public final class Main {
 
     - `Optional<Caller> caller`
 
-      - `class DirectCaller:`
+      - `class DirectCaller`
 
         Tool invocation directly from the model.
 
-      - `class ServerToolCaller:`
+      - `class ServerToolCaller`
 
         Tool invocation generated by a server-side tool.
 
-      - `class ServerToolCaller20260120:`
+      - `class ServerToolCaller20260120`
 
-  - `class CodeExecutionToolResultBlockParam:`
+  - `class CodeExecutionToolResultBlockParam`
 
     - `JsonValue type = "code_execution_tool_result"`
 
     - `CodeExecutionToolResultBlockParamContent content`
 
-      - `class CodeExecutionToolResultErrorParam:`
+      - `class CodeExecutionToolResultErrorParam`
 
         - `JsonValue type = "code_execution_tool_result_error"`
 
@@ -11685,7 +12089,7 @@ public final class Main {
 
           - `EXECUTION_TIME_EXCEEDED("execution_time_exceeded")`
 
-      - `class CodeExecutionResultBlockParam:`
+      - `class CodeExecutionResultBlockParam`
 
         - `JsonValue type = "code_execution_result"`
 
@@ -11701,7 +12105,7 @@ public final class Main {
 
         - `String stdout`
 
-      - `class EncryptedCodeExecutionResultBlockParam:`
+      - `class EncryptedCodeExecutionResultBlockParam`
 
         Code execution result with encrypted stdout for PFC + web_search results.
 
@@ -11727,13 +12131,13 @@ public final class Main {
 
       Create a cache control breakpoint at this content block.
 
-  - `class BashCodeExecutionToolResultBlockParam:`
+  - `class BashCodeExecutionToolResultBlockParam`
 
     - `JsonValue type = "bash_code_execution_tool_result"`
 
     - `Content content`
 
-      - `class BashCodeExecutionToolResultErrorParam:`
+      - `class BashCodeExecutionToolResultErrorParam`
 
         - `JsonValue type = "bash_code_execution_tool_result_error"`
 
@@ -11749,7 +12153,7 @@ public final class Main {
 
           - `OUTPUT_FILE_TOO_LARGE("output_file_too_large")`
 
-      - `class BashCodeExecutionResultBlockParam:`
+      - `class BashCodeExecutionResultBlockParam`
 
         - `JsonValue type = "bash_code_execution_result"`
 
@@ -11773,13 +12177,13 @@ public final class Main {
 
       Create a cache control breakpoint at this content block.
 
-  - `class TextEditorCodeExecutionToolResultBlockParam:`
+  - `class TextEditorCodeExecutionToolResultBlockParam`
 
     - `JsonValue type = "text_editor_code_execution_tool_result"`
 
     - `Content content`
 
-      - `class TextEditorCodeExecutionToolResultErrorParam:`
+      - `class TextEditorCodeExecutionToolResultErrorParam`
 
         - `JsonValue type = "text_editor_code_execution_tool_result_error"`
 
@@ -11797,7 +12201,7 @@ public final class Main {
 
         - `Optional<String> errorMessage`
 
-      - `class TextEditorCodeExecutionViewResultBlockParam:`
+      - `class TextEditorCodeExecutionViewResultBlockParam`
 
         - `JsonValue type = "text_editor_code_execution_view_result"`
 
@@ -11817,13 +12221,13 @@ public final class Main {
 
         - `Optional<Long> totalLines`
 
-      - `class TextEditorCodeExecutionCreateResultBlockParam:`
+      - `class TextEditorCodeExecutionCreateResultBlockParam`
 
         - `JsonValue type = "text_editor_code_execution_create_result"`
 
         - `boolean isFileUpdate`
 
-      - `class TextEditorCodeExecutionStrReplaceResultBlockParam:`
+      - `class TextEditorCodeExecutionStrReplaceResultBlockParam`
 
         - `JsonValue type = "text_editor_code_execution_str_replace_result"`
 
@@ -11845,13 +12249,13 @@ public final class Main {
 
       Create a cache control breakpoint at this content block.
 
-  - `class ToolSearchToolResultBlockParam:`
+  - `class ToolSearchToolResultBlockParam`
 
     - `JsonValue type = "tool_search_tool_result"`
 
     - `Content content`
 
-      - `class ToolSearchToolResultErrorParam:`
+      - `class ToolSearchToolResultErrorParam`
 
         - `JsonValue type = "tool_search_tool_result_error"`
 
@@ -11867,7 +12271,7 @@ public final class Main {
 
         - `Optional<String> errorMessage`
 
-      - `class ToolSearchToolSearchResultBlockParam:`
+      - `class ToolSearchToolSearchResultBlockParam`
 
         - `JsonValue type = "tool_search_tool_search_result"`
 
@@ -11891,7 +12295,7 @@ public final class Main {
 
       Create a cache control breakpoint at this content block.
 
-  - `class ContainerUploadBlockParam:`
+  - `class ContainerUploadBlockParam`
 
     A content block that represents a file to be uploaded to the container
     Files uploaded via this block will be available in the container's input directory.
@@ -11906,7 +12310,7 @@ public final class Main {
 
 ### Content Block Source
 
-- `class ContentBlockSource:`
+- `class ContentBlockSource`
 
   - `JsonValue type = "content"`
 
@@ -11916,7 +12320,7 @@ public final class Main {
 
     - `List<ContentBlockSourceContent>`
 
-      - `class TextBlockParam:`
+      - `class TextBlockParam`
 
         - `JsonValue type = "text"`
 
@@ -11947,7 +12351,7 @@ public final class Main {
 
         - `Optional<List<TextCitationParam>> citations`
 
-          - `class CitationCharLocationParam:`
+          - `class CitationCharLocationParam`
 
             - `JsonValue type = "char_location"`
 
@@ -11967,7 +12371,7 @@ public final class Main {
 
               minimum: 0
 
-          - `class CitationPageLocationParam:`
+          - `class CitationPageLocationParam`
 
             - `JsonValue type = "page_location"`
 
@@ -11987,7 +12391,7 @@ public final class Main {
 
               minimum: 1
 
-          - `class CitationContentBlockLocationParam:`
+          - `class CitationContentBlockLocationParam`
 
             - `JsonValue type = "content_block_location"`
 
@@ -12017,7 +12421,7 @@ public final class Main {
 
               minimum: 0
 
-          - `class CitationWebSearchResultLocationParam:`
+          - `class CitationWebSearchResultLocationParam`
 
             - `JsonValue type = "web_search_result_location"`
 
@@ -12033,7 +12437,7 @@ public final class Main {
 
               minLength: 1
 
-          - `class CitationSearchResultLocationParam:`
+          - `class CitationSearchResultLocationParam`
 
             - `JsonValue type = "search_result_location"`
 
@@ -12067,13 +12471,13 @@ public final class Main {
 
             - `Optional<String> title`
 
-      - `class ImageBlockParam:`
+      - `class ImageBlockParam`
 
         - `JsonValue type = "image"`
 
         - `Source source`
 
-          - `class Base64ImageSource:`
+          - `class Base64ImageSource`
 
             - `JsonValue type = "base64"`
 
@@ -12091,13 +12495,13 @@ public final class Main {
 
               - `IMAGE_WEBP("image/webp")`
 
-          - `class UrlImageSource:`
+          - `class UrlImageSource`
 
             - `JsonValue type = "url"`
 
             - `String url`
 
-          - `class FileImageSource:`
+          - `class FileImageSource`
 
             - `JsonValue type = "file"`
 
@@ -12123,7 +12527,7 @@ public final class Main {
 
 - `class ContentBlockSourceContent: union`
 
-  - `class TextBlockParam:`
+  - `class TextBlockParam`
 
     - `JsonValue type = "text"`
 
@@ -12154,7 +12558,7 @@ public final class Main {
 
     - `Optional<List<TextCitationParam>> citations`
 
-      - `class CitationCharLocationParam:`
+      - `class CitationCharLocationParam`
 
         - `JsonValue type = "char_location"`
 
@@ -12174,7 +12578,7 @@ public final class Main {
 
           minimum: 0
 
-      - `class CitationPageLocationParam:`
+      - `class CitationPageLocationParam`
 
         - `JsonValue type = "page_location"`
 
@@ -12194,7 +12598,7 @@ public final class Main {
 
           minimum: 1
 
-      - `class CitationContentBlockLocationParam:`
+      - `class CitationContentBlockLocationParam`
 
         - `JsonValue type = "content_block_location"`
 
@@ -12224,7 +12628,7 @@ public final class Main {
 
           minimum: 0
 
-      - `class CitationWebSearchResultLocationParam:`
+      - `class CitationWebSearchResultLocationParam`
 
         - `JsonValue type = "web_search_result_location"`
 
@@ -12240,7 +12644,7 @@ public final class Main {
 
           minLength: 1
 
-      - `class CitationSearchResultLocationParam:`
+      - `class CitationSearchResultLocationParam`
 
         - `JsonValue type = "search_result_location"`
 
@@ -12274,13 +12678,13 @@ public final class Main {
 
         - `Optional<String> title`
 
-  - `class ImageBlockParam:`
+  - `class ImageBlockParam`
 
     - `JsonValue type = "image"`
 
     - `Source source`
 
-      - `class Base64ImageSource:`
+      - `class Base64ImageSource`
 
         - `JsonValue type = "base64"`
 
@@ -12298,13 +12702,13 @@ public final class Main {
 
           - `IMAGE_WEBP("image/webp")`
 
-      - `class UrlImageSource:`
+      - `class UrlImageSource`
 
         - `JsonValue type = "url"`
 
         - `String url`
 
-      - `class FileImageSource:`
+      - `class FileImageSource`
 
         - `JsonValue type = "file"`
 
@@ -12326,9 +12730,73 @@ public final class Main {
 
         - `ERROR("error")`
 
+### Diagnostics
+
+- `class Diagnostics`
+
+  Request-level diagnostics: why the prompt cache could not fully reuse
+  the prefix of the request named by `diagnostics.previous_message_id`.
+
+  - `Optional<CacheMissReason> cacheMissReason`
+
+    Explains why the prompt cache could not fully reuse the prefix from the request identified by `diagnostics.previous_message_id`. `null` means diagnosis is still pending — the response was serialized before the background comparison completed.
+
+    - `class CacheMissModelChanged`
+
+      - `JsonValue type = "model_changed"`
+
+      - `long cacheMissedInputTokens`
+
+        Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+    - `class CacheMissSystemChanged`
+
+      - `JsonValue type = "system_changed"`
+
+      - `long cacheMissedInputTokens`
+
+        Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+    - `class CacheMissToolsChanged`
+
+      - `JsonValue type = "tools_changed"`
+
+      - `long cacheMissedInputTokens`
+
+        Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+    - `class CacheMissMessagesChanged`
+
+      - `JsonValue type = "messages_changed"`
+
+      - `long cacheMissedInputTokens`
+
+        Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+    - `class CacheMissPreviousMessageNotFound`
+
+      - `JsonValue type = "previous_message_not_found"`
+
+    - `class CacheMissUnavailable`
+
+      - `JsonValue type = "unavailable"`
+
+### Diagnostics Param
+
+- `class DiagnosticsParam`
+
+  Request-level diagnostics. Currently carries the previous response
+  id for prompt-cache divergence reporting.
+
+  - `Optional<String> previousMessageId`
+
+    The `id` (`msg_...`) from this client's previous /v1/messages response. The server compares that request's prompt fingerprint against this one and returns `diagnostics.cache_miss_reason` when the prompt-cache prefix could not be reused. Pass `null` on the first turn to opt in without a prior message to compare.
+
+    maxLength: 256
+
 ### Direct Caller
 
-- `class DirectCaller:`
+- `class DirectCaller`
 
   Tool invocation directly from the model.
 
@@ -12336,7 +12804,7 @@ public final class Main {
 
 ### Document Block
 
-- `class DocumentBlock:`
+- `class DocumentBlock`
 
   - `JsonValue type = "document"`
 
@@ -12348,7 +12816,7 @@ public final class Main {
 
   - `Source source`
 
-    - `class Base64PdfSource:`
+    - `class Base64PdfSource`
 
       - `JsonValue type = "base64"`
 
@@ -12358,7 +12826,7 @@ public final class Main {
 
       - `JsonValue mediaType = "application/pdf"`
 
-    - `class PlainTextSource:`
+    - `class PlainTextSource`
 
       - `JsonValue type = "text"`
 
@@ -12372,13 +12840,13 @@ public final class Main {
 
 ### Document Block Param
 
-- `class DocumentBlockParam:`
+- `class DocumentBlockParam`
 
   - `JsonValue type = "document"`
 
   - `Source source`
 
-    - `class Base64PdfSource:`
+    - `class Base64PdfSource`
 
       - `JsonValue type = "base64"`
 
@@ -12388,7 +12856,7 @@ public final class Main {
 
       - `JsonValue mediaType = "application/pdf"`
 
-    - `class PlainTextSource:`
+    - `class PlainTextSource`
 
       - `JsonValue type = "text"`
 
@@ -12396,7 +12864,7 @@ public final class Main {
 
       - `JsonValue mediaType = "text/plain"`
 
-    - `class ContentBlockSource:`
+    - `class ContentBlockSource`
 
       - `JsonValue type = "content"`
 
@@ -12406,7 +12874,7 @@ public final class Main {
 
         - `List<ContentBlockSourceContent>`
 
-          - `class TextBlockParam:`
+          - `class TextBlockParam`
 
             - `JsonValue type = "text"`
 
@@ -12437,7 +12905,7 @@ public final class Main {
 
             - `Optional<List<TextCitationParam>> citations`
 
-              - `class CitationCharLocationParam:`
+              - `class CitationCharLocationParam`
 
                 - `JsonValue type = "char_location"`
 
@@ -12457,7 +12925,7 @@ public final class Main {
 
                   minimum: 0
 
-              - `class CitationPageLocationParam:`
+              - `class CitationPageLocationParam`
 
                 - `JsonValue type = "page_location"`
 
@@ -12477,7 +12945,7 @@ public final class Main {
 
                   minimum: 1
 
-              - `class CitationContentBlockLocationParam:`
+              - `class CitationContentBlockLocationParam`
 
                 - `JsonValue type = "content_block_location"`
 
@@ -12507,7 +12975,7 @@ public final class Main {
 
                   minimum: 0
 
-              - `class CitationWebSearchResultLocationParam:`
+              - `class CitationWebSearchResultLocationParam`
 
                 - `JsonValue type = "web_search_result_location"`
 
@@ -12523,7 +12991,7 @@ public final class Main {
 
                   minLength: 1
 
-              - `class CitationSearchResultLocationParam:`
+              - `class CitationSearchResultLocationParam`
 
                 - `JsonValue type = "search_result_location"`
 
@@ -12557,13 +13025,13 @@ public final class Main {
 
                 - `Optional<String> title`
 
-          - `class ImageBlockParam:`
+          - `class ImageBlockParam`
 
             - `JsonValue type = "image"`
 
             - `Source source`
 
-              - `class Base64ImageSource:`
+              - `class Base64ImageSource`
 
                 - `JsonValue type = "base64"`
 
@@ -12581,13 +13049,13 @@ public final class Main {
 
                   - `IMAGE_WEBP("image/webp")`
 
-              - `class UrlImageSource:`
+              - `class UrlImageSource`
 
                 - `JsonValue type = "url"`
 
                 - `String url`
 
-              - `class FileImageSource:`
+              - `class FileImageSource`
 
                 - `JsonValue type = "file"`
 
@@ -12609,13 +13077,13 @@ public final class Main {
 
                 - `ERROR("error")`
 
-    - `class UrlPdfSource:`
+    - `class UrlPdfSource`
 
       - `JsonValue type = "url"`
 
       - `String url`
 
-    - `class FileDocumentSource:`
+    - `class FileDocumentSource`
 
       - `JsonValue type = "file"`
 
@@ -12639,7 +13107,7 @@ public final class Main {
 
 ### Encrypted Code Execution Result Block
 
-- `class EncryptedCodeExecutionResultBlock:`
+- `class EncryptedCodeExecutionResultBlock`
 
   Code execution result with encrypted stdout for PFC + web_search results.
 
@@ -12659,7 +13127,7 @@ public final class Main {
 
 ### Encrypted Code Execution Result Block Param
 
-- `class EncryptedCodeExecutionResultBlockParam:`
+- `class EncryptedCodeExecutionResultBlockParam`
 
   Code execution result with encrypted stdout for PFC + web_search results.
 
@@ -12679,7 +13147,7 @@ public final class Main {
 
 ### File Document Source
 
-- `class FileDocumentSource:`
+- `class FileDocumentSource`
 
   - `JsonValue type = "file"`
 
@@ -12687,7 +13155,7 @@ public final class Main {
 
 ### File Image Source
 
-- `class FileImageSource:`
+- `class FileImageSource`
 
   - `JsonValue type = "file"`
 
@@ -12695,13 +13163,13 @@ public final class Main {
 
 ### Image Block Param
 
-- `class ImageBlockParam:`
+- `class ImageBlockParam`
 
   - `JsonValue type = "image"`
 
   - `Source source`
 
-    - `class Base64ImageSource:`
+    - `class Base64ImageSource`
 
       - `JsonValue type = "base64"`
 
@@ -12719,13 +13187,13 @@ public final class Main {
 
         - `IMAGE_WEBP("image/webp")`
 
-    - `class UrlImageSource:`
+    - `class UrlImageSource`
 
       - `JsonValue type = "url"`
 
       - `String url`
 
-    - `class FileImageSource:`
+    - `class FileImageSource`
 
       - `JsonValue type = "file"`
 
@@ -12766,7 +13234,7 @@ public final class Main {
 
 ### Image Transformations Param
 
-- `class ImageTransformationsParam:`
+- `class ImageTransformationsParam`
 
   Configures the transformations the server applies to this image before the model observes it. Each key names a condition the server transforms images for; its value selects the transformation applied. Omitted keys keep their default behavior, and an empty object is equivalent to omitting the field.
 
@@ -12780,7 +13248,7 @@ public final class Main {
 
 ### Input JSON Delta
 
-- `class InputJsonDelta:`
+- `class InputJsonDelta`
 
   - `JsonValue type = "input_json_delta"`
 
@@ -12788,7 +13256,7 @@ public final class Main {
 
 ### JSON Output Format
 
-- `class JsonOutputFormat:`
+- `class JsonOutputFormat`
 
   - `JsonValue type = "json_schema"`
 
@@ -12798,7 +13266,7 @@ public final class Main {
 
 ### Memory Tool 20250818
 
-- `class MemoryTool20250818:`
+- `class MemoryTool20250818`
 
   - `JsonValue type = "memory_20250818"`
 
@@ -12851,7 +13319,7 @@ public final class Main {
 
 ### Message
 
-- `class Message:`
+- `class Message`
 
   - `JsonValue type = "message"`
 
@@ -12932,7 +13400,7 @@ public final class Main {
     [{"type": "text", "text": "B)"}]
     ```
 
-    - `class TextBlock:`
+    - `class TextBlock`
 
       - `JsonValue type = "text"`
 
@@ -12942,7 +13410,7 @@ public final class Main {
 
         The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
 
-        - `class CitationCharLocation:`
+        - `class CitationCharLocation`
 
           - `JsonValue type = "char_location"`
 
@@ -12962,7 +13430,7 @@ public final class Main {
 
             minimum: 0
 
-        - `class CitationPageLocation:`
+        - `class CitationPageLocation`
 
           - `JsonValue type = "page_location"`
 
@@ -12982,7 +13450,7 @@ public final class Main {
 
             minimum: 1
 
-        - `class CitationContentBlockLocation:`
+        - `class CitationContentBlockLocation`
 
           - `JsonValue type = "content_block_location"`
 
@@ -13012,7 +13480,7 @@ public final class Main {
 
             minimum: 0
 
-        - `class CitationsWebSearchResultLocation:`
+        - `class CitationsWebSearchResultLocation`
 
           - `JsonValue type = "web_search_result_location"`
 
@@ -13026,7 +13494,7 @@ public final class Main {
 
           - `String url`
 
-        - `class CitationsSearchResultLocation:`
+        - `class CitationsSearchResultLocation`
 
           - `JsonValue type = "search_result_location"`
 
@@ -13064,7 +13532,7 @@ public final class Main {
 
         minLength: 0
 
-    - `class ThinkingBlock:`
+    - `class ThinkingBlock`
 
       - `JsonValue type = "thinking"`
 
@@ -13080,7 +13548,7 @@ public final class Main {
 
         The text of Claude's thinking process for this block.
 
-    - `class RedactedThinkingBlock:`
+    - `class RedactedThinkingBlock`
 
       - `JsonValue type = "redacted_thinking"`
 
@@ -13092,7 +13560,7 @@ public final class Main {
 
         See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking#redacted-thinking-blocks) for details.
 
-    - `class ToolUseBlock:`
+    - `class ToolUseBlock`
 
       - `JsonValue type = "tool_use"`
 
@@ -13102,13 +13570,13 @@ public final class Main {
 
       - `Caller caller`
 
-        - `class DirectCaller:`
+        - `class DirectCaller`
 
           Tool invocation directly from the model.
 
           - `JsonValue type = "direct"`
 
-        - `class ServerToolCaller:`
+        - `class ServerToolCaller`
 
           Tool invocation generated by a server-side tool.
 
@@ -13118,7 +13586,7 @@ public final class Main {
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-        - `class ServerToolCaller20260120:`
+        - `class ServerToolCaller20260120`
 
           - `JsonValue type = "code_execution_20260120"`
 
@@ -13138,7 +13606,7 @@ public final class Main {
 
         maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
 
-    - `class ServerToolUseBlock:`
+    - `class ServerToolUseBlock`
 
       - `JsonValue type = "server_tool_use"`
 
@@ -13148,15 +13616,15 @@ public final class Main {
 
       - `Caller caller`
 
-        - `class DirectCaller:`
+        - `class DirectCaller`
 
           Tool invocation directly from the model.
 
-        - `class ServerToolCaller:`
+        - `class ServerToolCaller`
 
           Tool invocation generated by a server-side tool.
 
-        - `class ServerToolCaller20260120:`
+        - `class ServerToolCaller20260120`
 
       - `Input input`
 
@@ -13176,25 +13644,25 @@ public final class Main {
 
         - `TOOL_SEARCH_TOOL_BM25("tool_search_tool_bm25")`
 
-    - `class WebSearchToolResultBlock:`
+    - `class WebSearchToolResultBlock`
 
       - `JsonValue type = "web_search_tool_result"`
 
       - `Caller caller`
 
-        - `class DirectCaller:`
+        - `class DirectCaller`
 
           Tool invocation directly from the model.
 
-        - `class ServerToolCaller:`
+        - `class ServerToolCaller`
 
           Tool invocation generated by a server-side tool.
 
-        - `class ServerToolCaller20260120:`
+        - `class ServerToolCaller20260120`
 
       - `WebSearchToolResultBlockContent content`
 
-        - `class WebSearchToolResultError:`
+        - `class WebSearchToolResultError`
 
           - `JsonValue type = "web_search_tool_result_error"`
 
@@ -13228,25 +13696,25 @@ public final class Main {
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-    - `class WebFetchToolResultBlock:`
+    - `class WebFetchToolResultBlock`
 
       - `JsonValue type = "web_fetch_tool_result"`
 
       - `Caller caller`
 
-        - `class DirectCaller:`
+        - `class DirectCaller`
 
           Tool invocation directly from the model.
 
-        - `class ServerToolCaller:`
+        - `class ServerToolCaller`
 
           Tool invocation generated by a server-side tool.
 
-        - `class ServerToolCaller20260120:`
+        - `class ServerToolCaller20260120`
 
       - `Content content`
 
-        - `class WebFetchToolResultErrorBlock:`
+        - `class WebFetchToolResultErrorBlock`
 
           - `JsonValue type = "web_fetch_tool_result_error"`
 
@@ -13272,7 +13740,7 @@ public final class Main {
 
             - `CONTENT_TOO_LARGE("content_too_large")`
 
-        - `class WebFetchBlock:`
+        - `class WebFetchBlock`
 
           - `JsonValue type = "web_fetch_result"`
 
@@ -13288,7 +13756,7 @@ public final class Main {
 
             - `Source source`
 
-              - `class Base64PdfSource:`
+              - `class Base64PdfSource`
 
                 - `JsonValue type = "base64"`
 
@@ -13298,7 +13766,7 @@ public final class Main {
 
                 - `JsonValue mediaType = "application/pdf"`
 
-              - `class PlainTextSource:`
+              - `class PlainTextSource`
 
                 - `JsonValue type = "text"`
 
@@ -13322,13 +13790,13 @@ public final class Main {
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-    - `class CodeExecutionToolResultBlock:`
+    - `class CodeExecutionToolResultBlock`
 
       - `JsonValue type = "code_execution_tool_result"`
 
       - `CodeExecutionToolResultBlockContent content`
 
-        - `class CodeExecutionToolResultError:`
+        - `class CodeExecutionToolResultError`
 
           - `JsonValue type = "code_execution_tool_result_error"`
 
@@ -13342,7 +13810,7 @@ public final class Main {
 
             - `EXECUTION_TIME_EXCEEDED("execution_time_exceeded")`
 
-        - `class CodeExecutionResultBlock:`
+        - `class CodeExecutionResultBlock`
 
           - `JsonValue type = "code_execution_result"`
 
@@ -13358,7 +13826,7 @@ public final class Main {
 
           - `String stdout`
 
-        - `class EncryptedCodeExecutionResultBlock:`
+        - `class EncryptedCodeExecutionResultBlock`
 
           Code execution result with encrypted stdout for PFC + web_search results.
 
@@ -13380,13 +13848,13 @@ public final class Main {
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-    - `class BashCodeExecutionToolResultBlock:`
+    - `class BashCodeExecutionToolResultBlock`
 
       - `JsonValue type = "bash_code_execution_tool_result"`
 
       - `Content content`
 
-        - `class BashCodeExecutionToolResultError:`
+        - `class BashCodeExecutionToolResultError`
 
           - `JsonValue type = "bash_code_execution_tool_result_error"`
 
@@ -13402,7 +13870,7 @@ public final class Main {
 
             - `OUTPUT_FILE_TOO_LARGE("output_file_too_large")`
 
-        - `class BashCodeExecutionResultBlock:`
+        - `class BashCodeExecutionResultBlock`
 
           - `JsonValue type = "bash_code_execution_result"`
 
@@ -13422,13 +13890,13 @@ public final class Main {
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-    - `class TextEditorCodeExecutionToolResultBlock:`
+    - `class TextEditorCodeExecutionToolResultBlock`
 
       - `JsonValue type = "text_editor_code_execution_tool_result"`
 
       - `Content content`
 
-        - `class TextEditorCodeExecutionToolResultError:`
+        - `class TextEditorCodeExecutionToolResultError`
 
           - `JsonValue type = "text_editor_code_execution_tool_result_error"`
 
@@ -13446,7 +13914,7 @@ public final class Main {
 
           - `Optional<String> errorMessage`
 
-        - `class TextEditorCodeExecutionViewResultBlock:`
+        - `class TextEditorCodeExecutionViewResultBlock`
 
           - `JsonValue type = "text_editor_code_execution_view_result"`
 
@@ -13466,13 +13934,13 @@ public final class Main {
 
           - `Optional<Long> totalLines`
 
-        - `class TextEditorCodeExecutionCreateResultBlock:`
+        - `class TextEditorCodeExecutionCreateResultBlock`
 
           - `JsonValue type = "text_editor_code_execution_create_result"`
 
           - `boolean isFileUpdate`
 
-        - `class TextEditorCodeExecutionStrReplaceResultBlock:`
+        - `class TextEditorCodeExecutionStrReplaceResultBlock`
 
           - `JsonValue type = "text_editor_code_execution_str_replace_result"`
 
@@ -13490,13 +13958,13 @@ public final class Main {
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-    - `class ToolSearchToolResultBlock:`
+    - `class ToolSearchToolResultBlock`
 
       - `JsonValue type = "tool_search_tool_result"`
 
       - `Content content`
 
-        - `class ToolSearchToolResultError:`
+        - `class ToolSearchToolResultError`
 
           - `JsonValue type = "tool_search_tool_result_error"`
 
@@ -13512,7 +13980,7 @@ public final class Main {
 
           - `Optional<String> errorMessage`
 
-        - `class ToolSearchToolSearchResultBlock:`
+        - `class ToolSearchToolSearchResultBlock`
 
           - `JsonValue type = "tool_search_tool_search_result"`
 
@@ -13528,13 +13996,62 @@ public final class Main {
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-    - `class ContainerUploadBlock:`
+    - `class ContainerUploadBlock`
 
       Response model for a file uploaded to the container.
 
       - `JsonValue type = "container_upload"`
 
       - `String fileId`
+
+  - `Optional<Diagnostics> diagnostics`
+
+    Request-level diagnostics: why the prompt cache could not fully reuse
+    the prefix of the request named by `diagnostics.previous_message_id`.
+
+    - `Optional<CacheMissReason> cacheMissReason`
+
+      Explains why the prompt cache could not fully reuse the prefix from the request identified by `diagnostics.previous_message_id`. `null` means diagnosis is still pending — the response was serialized before the background comparison completed.
+
+      - `class CacheMissModelChanged`
+
+        - `JsonValue type = "model_changed"`
+
+        - `long cacheMissedInputTokens`
+
+          Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+      - `class CacheMissSystemChanged`
+
+        - `JsonValue type = "system_changed"`
+
+        - `long cacheMissedInputTokens`
+
+          Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+      - `class CacheMissToolsChanged`
+
+        - `JsonValue type = "tools_changed"`
+
+        - `long cacheMissedInputTokens`
+
+          Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+      - `class CacheMissMessagesChanged`
+
+        - `JsonValue type = "messages_changed"`
+
+        - `long cacheMissedInputTokens`
+
+          Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+      - `class CacheMissPreviousMessageNotFound`
+
+        - `JsonValue type = "previous_message_not_found"`
+
+      - `class CacheMissUnavailable`
+
+        - `JsonValue type = "unavailable"`
 
   - `Model model`
 
@@ -13545,6 +14062,10 @@ public final class Main {
     - `CLAUDE_FABLE_5_1("claude-fable-5-1")`
 
       Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+    - `CLAUDE_OPUS_5_5("claude-opus-5-5")`
+
+      Powerful intelligence for coding, knowledge work, and long-running agents
 
     - `CLAUDE_MYTHOS_5_1("claude-mythos-5-1")`
 
@@ -13796,7 +14317,7 @@ public final class Main {
 
 - `class MessageCountTokensTool: union`
 
-  - `class Tool:`
+  - `class Tool`
 
     - `Optional<Type> type`
 
@@ -13871,7 +14392,7 @@ public final class Main {
 
       When true, guarantees schema validation on tool names and inputs
 
-  - `class ToolBash20250124:`
+  - `class ToolBash20250124`
 
     - `JsonValue type = "bash_20250124"`
 
@@ -13905,7 +14426,7 @@ public final class Main {
 
       When true, guarantees schema validation on tool names and inputs
 
-  - `class CodeExecutionTool20250522:`
+  - `class CodeExecutionTool20250522`
 
     - `JsonValue type = "code_execution_20250522"`
 
@@ -13937,7 +14458,7 @@ public final class Main {
 
       When true, guarantees schema validation on tool names and inputs
 
-  - `class CodeExecutionTool20250825:`
+  - `class CodeExecutionTool20250825`
 
     - `JsonValue type = "code_execution_20250825"`
 
@@ -13969,7 +14490,7 @@ public final class Main {
 
       When true, guarantees schema validation on tool names and inputs
 
-  - `class CodeExecutionTool20260120:`
+  - `class CodeExecutionTool20260120`
 
     Code execution tool with REPL state persistence (daemon mode + gVisor checkpoint).
 
@@ -14003,7 +14524,7 @@ public final class Main {
 
       When true, guarantees schema validation on tool names and inputs
 
-  - `class CodeExecutionTool20260521:`
+  - `class CodeExecutionTool20260521`
 
     Code execution tool with REPL state persistence.
 
@@ -14037,7 +14558,7 @@ public final class Main {
 
       When true, guarantees schema validation on tool names and inputs
 
-  - `class BrowserToolset20260801:`
+  - `class BrowserToolset20260801`
 
     The browser toolset: a single `tools[]` entry (carrying no
     `name`) that declares the browser tool family. The model is served
@@ -14431,7 +14952,7 @@ public final class Main {
 
           Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-  - `class MemoryTool20250818:`
+  - `class MemoryTool20250818`
 
     - `JsonValue type = "memory_20250818"`
 
@@ -14465,7 +14986,7 @@ public final class Main {
 
       When true, guarantees schema validation on tool names and inputs
 
-  - `class ComputerToolset20260801:`
+  - `class ComputerToolset20260801`
 
     The computer toolset: a single `tools[]` entry (carrying no
     `name`) that declares the computer tool family. The model is
@@ -14695,7 +15216,7 @@ public final class Main {
 
           Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-  - `class ToolTextEditor20250124:`
+  - `class ToolTextEditor20250124`
 
     - `JsonValue type = "text_editor_20250124"`
 
@@ -14729,7 +15250,7 @@ public final class Main {
 
       When true, guarantees schema validation on tool names and inputs
 
-  - `class ToolTextEditor20250429:`
+  - `class ToolTextEditor20250429`
 
     - `JsonValue type = "text_editor_20250429"`
 
@@ -14763,7 +15284,7 @@ public final class Main {
 
       When true, guarantees schema validation on tool names and inputs
 
-  - `class ToolTextEditor20250728:`
+  - `class ToolTextEditor20250728`
 
     - `JsonValue type = "text_editor_20250728"`
 
@@ -14803,7 +15324,7 @@ public final class Main {
 
       When true, guarantees schema validation on tool names and inputs
 
-  - `class WebSearchTool20250305:`
+  - `class WebSearchTool20250305`
 
     - `JsonValue type = "web_search_20250305"`
 
@@ -14879,7 +15400,7 @@ public final class Main {
 
         maxLength: 255, minLength: 1
 
-  - `class WebFetchTool20250910:`
+  - `class WebFetchTool20250910`
 
     - `JsonValue type = "web_fetch_20250910"`
 
@@ -14937,7 +15458,98 @@ public final class Main {
 
       When true, guarantees schema validation on tool names and inputs
 
-  - `class WebSearchTool20260209:`
+    - `Optional<WebFetchUrlSources> urlSources`
+
+      Which sources contribute to the set of URLs web fetch may fetch.
+
+      Each key is a tagged variant: `user_input` is `all` or `none`; the
+      two tool filters are `all`, `none`, `only` (only the named tools'
+      results) or `except` (every result but the named tools'). A named tool
+      must be declared in this request's `tools[]`.
+
+      - `Optional<ClientToolResults> clientToolResults`
+
+        Which client tools' results contribute fetchable URLs: "all", "none", or an only or except list of client tool names from tools[].
+
+        - `class WebFetchUrlSourceAll`
+
+          The `url_sources` variant under which a source contributes in
+          full: every result of the tool filter's source, or all user input.
+
+          - `JsonValue type = "all"`
+
+        - `class WebFetchUrlSourceNone`
+
+          The `url_sources` variant under which a source contributes nothing:
+          no result of the tool filter's source, or no user input.
+
+          - `JsonValue type = "none"`
+
+        - `class WebFetchUrlSourceOnly`
+
+          The tool filter variant under which only the named tools' results
+          contribute.
+
+          - `JsonValue type = "only"`
+
+          - `List<WebFetchUrlSourceToolReference> tools`
+
+            - `JsonValue type = "tool_reference"`
+
+            - `String name`
+
+        - `class WebFetchUrlSourceExcept`
+
+          The tool filter variant under which every result but the named
+          tools' contributes.
+
+          - `JsonValue type = "except"`
+
+          - `List<WebFetchUrlSourceToolReference> tools`
+
+            - `JsonValue type = "tool_reference"`
+
+            - `String name`
+
+      - `Optional<ServerToolResults> serverToolResults`
+
+        Which server tools' results contribute fetchable URLs: "all", "none", or an only or except list of server tool names from tools[]; only web_search and web_fetch results ever contribute.
+
+        - `class WebFetchUrlSourceAll`
+
+          The `url_sources` variant under which a source contributes in
+          full: every result of the tool filter's source, or all user input.
+
+        - `class WebFetchUrlSourceNone`
+
+          The `url_sources` variant under which a source contributes nothing:
+          no result of the tool filter's source, or no user input.
+
+        - `class WebFetchUrlSourceOnly`
+
+          The tool filter variant under which only the named tools' results
+          contribute.
+
+        - `class WebFetchUrlSourceExcept`
+
+          The tool filter variant under which every result but the named
+          tools' contributes.
+
+      - `Optional<UserInput> userInput`
+
+        Whether URLs in user messages are fetchable: "all" or "none".
+
+        - `class WebFetchUrlSourceAll`
+
+          The `url_sources` variant under which a source contributes in
+          full: every result of the tool filter's source, or all user input.
+
+        - `class WebFetchUrlSourceNone`
+
+          The `url_sources` variant under which a source contributes nothing:
+          no result of the tool filter's source, or no user input.
+
+  - `class WebSearchTool20260209`
 
     - `JsonValue type = "web_search_20260209"`
 
@@ -14987,7 +15599,7 @@ public final class Main {
 
       Parameters for the user's location. Used to provide more relevant search results.
 
-  - `class WebFetchTool20260209:`
+  - `class WebFetchTool20260209`
 
     - `JsonValue type = "web_fetch_20260209"`
 
@@ -15043,7 +15655,16 @@ public final class Main {
 
       When true, guarantees schema validation on tool names and inputs
 
-  - `class WebFetchTool20260309:`
+    - `Optional<WebFetchUrlSources> urlSources`
+
+      Which sources contribute to the set of URLs web fetch may fetch.
+
+      Each key is a tagged variant: `user_input` is `all` or `none`; the
+      two tool filters are `all`, `none`, `only` (only the named tools'
+      results) or `except` (every result but the named tools'). A named tool
+      must be declared in this request's `tools[]`.
+
+  - `class WebFetchTool20260309`
 
     Web fetch tool with use_cache parameter for bypassing cached content.
 
@@ -15101,11 +15722,20 @@ public final class Main {
 
       When true, guarantees schema validation on tool names and inputs
 
+    - `Optional<WebFetchUrlSources> urlSources`
+
+      Which sources contribute to the set of URLs web fetch may fetch.
+
+      Each key is a tagged variant: `user_input` is `all` or `none`; the
+      two tool filters are `all`, `none`, `only` (only the named tools'
+      results) or `except` (every result but the named tools'). A named tool
+      must be declared in this request's `tools[]`.
+
     - `Optional<Boolean> useCache`
 
       Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
 
-  - `class WebSearchTool20260318:`
+  - `class WebSearchTool20260318`
 
     - `JsonValue type = "web_search_20260318"`
 
@@ -15163,7 +15793,7 @@ public final class Main {
 
       Parameters for the user's location. Used to provide more relevant search results.
 
-  - `class WebFetchTool20260318:`
+  - `class WebFetchTool20260318`
 
     - `JsonValue type = "web_fetch_20260318"`
 
@@ -15227,11 +15857,20 @@ public final class Main {
 
       When true, guarantees schema validation on tool names and inputs
 
+    - `Optional<WebFetchUrlSources> urlSources`
+
+      Which sources contribute to the set of URLs web fetch may fetch.
+
+      Each key is a tagged variant: `user_input` is `all` or `none`; the
+      two tool filters are `all`, `none`, `only` (only the named tools'
+      results) or `except` (every result but the named tools'). A named tool
+      must be declared in this request's `tools[]`.
+
     - `Optional<Boolean> useCache`
 
       Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
 
-  - `class ToolSearchToolBm25_20251119:`
+  - `class ToolSearchToolBm25_20251119`
 
     - `Type type`
 
@@ -15267,7 +15906,7 @@ public final class Main {
 
       When true, guarantees schema validation on tool names and inputs
 
-  - `class ToolSearchToolRegex20251119:`
+  - `class ToolSearchToolRegex20251119`
 
     - `Type type`
 
@@ -15309,7 +15948,7 @@ public final class Main {
 
   Container identifier for reuse across requests.
 
-  - `class ContainerParams:`
+  - `class ContainerParams`
 
     Container parameters with skills to be loaded.
 
@@ -15347,7 +15986,7 @@ public final class Main {
 
 ### Message Delta Usage
 
-- `class MessageDeltaUsage:`
+- `class MessageDeltaUsage`
 
   - `Optional<Long> cacheCreationInputTokens`
 
@@ -15411,7 +16050,7 @@ public final class Main {
 
 ### Message Param
 
-- `class MessageParam:`
+- `class MessageParam`
 
   - `Content content`
 
@@ -15419,7 +16058,7 @@ public final class Main {
 
     - `List<ContentBlockParam>`
 
-      - `class TextBlockParam:`
+      - `class TextBlockParam`
 
         - `JsonValue type = "text"`
 
@@ -15450,7 +16089,7 @@ public final class Main {
 
         - `Optional<List<TextCitationParam>> citations`
 
-          - `class CitationCharLocationParam:`
+          - `class CitationCharLocationParam`
 
             - `JsonValue type = "char_location"`
 
@@ -15470,7 +16109,7 @@ public final class Main {
 
               minimum: 0
 
-          - `class CitationPageLocationParam:`
+          - `class CitationPageLocationParam`
 
             - `JsonValue type = "page_location"`
 
@@ -15490,7 +16129,7 @@ public final class Main {
 
               minimum: 1
 
-          - `class CitationContentBlockLocationParam:`
+          - `class CitationContentBlockLocationParam`
 
             - `JsonValue type = "content_block_location"`
 
@@ -15520,7 +16159,7 @@ public final class Main {
 
               minimum: 0
 
-          - `class CitationWebSearchResultLocationParam:`
+          - `class CitationWebSearchResultLocationParam`
 
             - `JsonValue type = "web_search_result_location"`
 
@@ -15536,7 +16175,7 @@ public final class Main {
 
               minLength: 1
 
-          - `class CitationSearchResultLocationParam:`
+          - `class CitationSearchResultLocationParam`
 
             - `JsonValue type = "search_result_location"`
 
@@ -15570,13 +16209,13 @@ public final class Main {
 
             - `Optional<String> title`
 
-      - `class ImageBlockParam:`
+      - `class ImageBlockParam`
 
         - `JsonValue type = "image"`
 
         - `Source source`
 
-          - `class Base64ImageSource:`
+          - `class Base64ImageSource`
 
             - `JsonValue type = "base64"`
 
@@ -15594,13 +16233,13 @@ public final class Main {
 
               - `IMAGE_WEBP("image/webp")`
 
-          - `class UrlImageSource:`
+          - `class UrlImageSource`
 
             - `JsonValue type = "url"`
 
             - `String url`
 
-          - `class FileImageSource:`
+          - `class FileImageSource`
 
             - `JsonValue type = "file"`
 
@@ -15622,13 +16261,13 @@ public final class Main {
 
             - `ERROR("error")`
 
-      - `class DocumentBlockParam:`
+      - `class DocumentBlockParam`
 
         - `JsonValue type = "document"`
 
         - `Source source`
 
-          - `class Base64PdfSource:`
+          - `class Base64PdfSource`
 
             - `JsonValue type = "base64"`
 
@@ -15638,7 +16277,7 @@ public final class Main {
 
             - `JsonValue mediaType = "application/pdf"`
 
-          - `class PlainTextSource:`
+          - `class PlainTextSource`
 
             - `JsonValue type = "text"`
 
@@ -15646,7 +16285,7 @@ public final class Main {
 
             - `JsonValue mediaType = "text/plain"`
 
-          - `class ContentBlockSource:`
+          - `class ContentBlockSource`
 
             - `JsonValue type = "content"`
 
@@ -15656,17 +16295,17 @@ public final class Main {
 
               - `List<ContentBlockSourceContent>`
 
-                - `class TextBlockParam:`
+                - `class TextBlockParam`
 
-                - `class ImageBlockParam:`
+                - `class ImageBlockParam`
 
-          - `class UrlPdfSource:`
+          - `class UrlPdfSource`
 
             - `JsonValue type = "url"`
 
             - `String url`
 
-          - `class FileDocumentSource:`
+          - `class FileDocumentSource`
 
             - `JsonValue type = "file"`
 
@@ -15688,7 +16327,7 @@ public final class Main {
 
           maxLength: 500, minLength: 1
 
-      - `class SearchResultBlockParam:`
+      - `class SearchResultBlockParam`
 
         - `JsonValue type = "search_result"`
 
@@ -15716,7 +16355,7 @@ public final class Main {
 
         - `Optional<CitationsConfigParam> citations`
 
-      - `class ThinkingBlockParam:`
+      - `class ThinkingBlockParam`
 
         - `JsonValue type = "thinking"`
 
@@ -15730,7 +16369,7 @@ public final class Main {
 
           The `thinking` text of this block as returned by the API.
 
-      - `class RedactedThinkingBlockParam:`
+      - `class RedactedThinkingBlockParam`
 
         - `JsonValue type = "redacted_thinking"`
 
@@ -15738,7 +16377,7 @@ public final class Main {
 
           The `data` value of this redacted thinking block, exactly as returned by the API in a previous response. Opaque and encrypted; pass it back unchanged.
 
-      - `class ToolUseBlockParam:`
+      - `class ToolUseBlockParam`
 
         - `JsonValue type = "tool_use"`
 
@@ -15758,13 +16397,13 @@ public final class Main {
 
         - `Optional<Caller> caller`
 
-          - `class DirectCaller:`
+          - `class DirectCaller`
 
             Tool invocation directly from the model.
 
             - `JsonValue type = "direct"`
 
-          - `class ServerToolCaller:`
+          - `class ServerToolCaller`
 
             Tool invocation generated by a server-side tool.
 
@@ -15774,7 +16413,7 @@ public final class Main {
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `class ServerToolCaller20260120:`
+          - `class ServerToolCaller20260120`
 
             - `JsonValue type = "code_execution_20260120"`
 
@@ -15788,7 +16427,7 @@ public final class Main {
 
           maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
 
-      - `class ToolResultBlockParam:`
+      - `class ToolResultBlockParam`
 
         - `JsonValue type = "tool_result"`
 
@@ -15806,15 +16445,15 @@ public final class Main {
 
           - `List<Block>`
 
-            - `class TextBlockParam:`
+            - `class TextBlockParam`
 
-            - `class ImageBlockParam:`
+            - `class ImageBlockParam`
 
-            - `class SearchResultBlockParam:`
+            - `class SearchResultBlockParam`
 
-            - `class DocumentBlockParam:`
+            - `class DocumentBlockParam`
 
-            - `class ToolReferenceBlockParam:`
+            - `class ToolReferenceBlockParam`
 
               Tool reference block that can be included in tool_result content.
 
@@ -15828,7 +16467,7 @@ public final class Main {
 
                 Create a cache control breakpoint at this content block.
 
-            - `class BrowserStateBlockParam:`
+            - `class BrowserStateBlockParam`
 
               The caller's browser state after a browser toolset member call —
               the full inventory of open tabs, which tab is active, and any side
@@ -15878,7 +16517,7 @@ public final class Main {
 
                 maxItems: 200, minItems: 1
 
-                - `class BrowserStateChangeTabOpened:`
+                - `class BrowserStateChangeTabOpened`
 
                   A tab this call's execution opened that remains open at its end —
                   the creation delta of the `tabs` inventory, not an event log.
@@ -15896,7 +16535,7 @@ public final class Main {
 
                     maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-                - `class BrowserStateChangeDownloadStarted:`
+                - `class BrowserStateChangeDownloadStarted`
 
                   A file download that started during this call.
 
@@ -15914,7 +16553,7 @@ public final class Main {
 
                     maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-                - `class BrowserStateChangeDownloadCompleted:`
+                - `class BrowserStateChangeDownloadCompleted`
 
                   A file download that finished during this call, reported with the
                   same `download_id` as its `download_started` — or without a prior
@@ -15947,7 +16586,7 @@ public final class Main {
 
                     minimum: 0
 
-                - `class BrowserStateChangeDownloadFailed:`
+                - `class BrowserStateChangeDownloadFailed`
 
                   A file download that failed — or was cancelled — during this call.
 
@@ -15979,7 +16618,7 @@ public final class Main {
 
           maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
 
-      - `class ServerToolUseBlockParam:`
+      - `class ServerToolUseBlockParam`
 
         - `JsonValue type = "server_tool_use"`
 
@@ -16011,17 +16650,17 @@ public final class Main {
 
         - `Optional<Caller> caller`
 
-          - `class DirectCaller:`
+          - `class DirectCaller`
 
             Tool invocation directly from the model.
 
-          - `class ServerToolCaller:`
+          - `class ServerToolCaller`
 
             Tool invocation generated by a server-side tool.
 
-          - `class ServerToolCaller20260120:`
+          - `class ServerToolCaller20260120`
 
-      - `class WebSearchToolResultBlockParam:`
+      - `class WebSearchToolResultBlockParam`
 
         - `JsonValue type = "web_search_tool_result"`
 
@@ -16039,7 +16678,7 @@ public final class Main {
 
             - `Optional<String> pageAge`
 
-          - `class WebSearchToolRequestError:`
+          - `class WebSearchToolRequestError`
 
             - `JsonValue type = "web_search_tool_result_error"`
 
@@ -16067,23 +16706,23 @@ public final class Main {
 
         - `Optional<Caller> caller`
 
-          - `class DirectCaller:`
+          - `class DirectCaller`
 
             Tool invocation directly from the model.
 
-          - `class ServerToolCaller:`
+          - `class ServerToolCaller`
 
             Tool invocation generated by a server-side tool.
 
-          - `class ServerToolCaller20260120:`
+          - `class ServerToolCaller20260120`
 
-      - `class WebFetchToolResultBlockParam:`
+      - `class WebFetchToolResultBlockParam`
 
         - `JsonValue type = "web_fetch_tool_result"`
 
         - `Content content`
 
-          - `class WebFetchToolResultErrorBlockParam:`
+          - `class WebFetchToolResultErrorBlockParam`
 
             - `JsonValue type = "web_fetch_tool_result_error"`
 
@@ -16109,7 +16748,7 @@ public final class Main {
 
               - `CONTENT_TOO_LARGE("content_too_large")`
 
-          - `class WebFetchBlockParam:`
+          - `class WebFetchBlockParam`
 
             - `JsonValue type = "web_fetch_result"`
 
@@ -16133,23 +16772,23 @@ public final class Main {
 
         - `Optional<Caller> caller`
 
-          - `class DirectCaller:`
+          - `class DirectCaller`
 
             Tool invocation directly from the model.
 
-          - `class ServerToolCaller:`
+          - `class ServerToolCaller`
 
             Tool invocation generated by a server-side tool.
 
-          - `class ServerToolCaller20260120:`
+          - `class ServerToolCaller20260120`
 
-      - `class CodeExecutionToolResultBlockParam:`
+      - `class CodeExecutionToolResultBlockParam`
 
         - `JsonValue type = "code_execution_tool_result"`
 
         - `CodeExecutionToolResultBlockParamContent content`
 
-          - `class CodeExecutionToolResultErrorParam:`
+          - `class CodeExecutionToolResultErrorParam`
 
             - `JsonValue type = "code_execution_tool_result_error"`
 
@@ -16163,7 +16802,7 @@ public final class Main {
 
               - `EXECUTION_TIME_EXCEEDED("execution_time_exceeded")`
 
-          - `class CodeExecutionResultBlockParam:`
+          - `class CodeExecutionResultBlockParam`
 
             - `JsonValue type = "code_execution_result"`
 
@@ -16179,7 +16818,7 @@ public final class Main {
 
             - `String stdout`
 
-          - `class EncryptedCodeExecutionResultBlockParam:`
+          - `class EncryptedCodeExecutionResultBlockParam`
 
             Code execution result with encrypted stdout for PFC + web_search results.
 
@@ -16205,13 +16844,13 @@ public final class Main {
 
           Create a cache control breakpoint at this content block.
 
-      - `class BashCodeExecutionToolResultBlockParam:`
+      - `class BashCodeExecutionToolResultBlockParam`
 
         - `JsonValue type = "bash_code_execution_tool_result"`
 
         - `Content content`
 
-          - `class BashCodeExecutionToolResultErrorParam:`
+          - `class BashCodeExecutionToolResultErrorParam`
 
             - `JsonValue type = "bash_code_execution_tool_result_error"`
 
@@ -16227,7 +16866,7 @@ public final class Main {
 
               - `OUTPUT_FILE_TOO_LARGE("output_file_too_large")`
 
-          - `class BashCodeExecutionResultBlockParam:`
+          - `class BashCodeExecutionResultBlockParam`
 
             - `JsonValue type = "bash_code_execution_result"`
 
@@ -16251,13 +16890,13 @@ public final class Main {
 
           Create a cache control breakpoint at this content block.
 
-      - `class TextEditorCodeExecutionToolResultBlockParam:`
+      - `class TextEditorCodeExecutionToolResultBlockParam`
 
         - `JsonValue type = "text_editor_code_execution_tool_result"`
 
         - `Content content`
 
-          - `class TextEditorCodeExecutionToolResultErrorParam:`
+          - `class TextEditorCodeExecutionToolResultErrorParam`
 
             - `JsonValue type = "text_editor_code_execution_tool_result_error"`
 
@@ -16275,7 +16914,7 @@ public final class Main {
 
             - `Optional<String> errorMessage`
 
-          - `class TextEditorCodeExecutionViewResultBlockParam:`
+          - `class TextEditorCodeExecutionViewResultBlockParam`
 
             - `JsonValue type = "text_editor_code_execution_view_result"`
 
@@ -16295,13 +16934,13 @@ public final class Main {
 
             - `Optional<Long> totalLines`
 
-          - `class TextEditorCodeExecutionCreateResultBlockParam:`
+          - `class TextEditorCodeExecutionCreateResultBlockParam`
 
             - `JsonValue type = "text_editor_code_execution_create_result"`
 
             - `boolean isFileUpdate`
 
-          - `class TextEditorCodeExecutionStrReplaceResultBlockParam:`
+          - `class TextEditorCodeExecutionStrReplaceResultBlockParam`
 
             - `JsonValue type = "text_editor_code_execution_str_replace_result"`
 
@@ -16323,13 +16962,13 @@ public final class Main {
 
           Create a cache control breakpoint at this content block.
 
-      - `class ToolSearchToolResultBlockParam:`
+      - `class ToolSearchToolResultBlockParam`
 
         - `JsonValue type = "tool_search_tool_result"`
 
         - `Content content`
 
-          - `class ToolSearchToolResultErrorParam:`
+          - `class ToolSearchToolResultErrorParam`
 
             - `JsonValue type = "tool_search_tool_result_error"`
 
@@ -16345,7 +16984,7 @@ public final class Main {
 
             - `Optional<String> errorMessage`
 
-          - `class ToolSearchToolSearchResultBlockParam:`
+          - `class ToolSearchToolSearchResultBlockParam`
 
             - `JsonValue type = "tool_search_tool_search_result"`
 
@@ -16369,7 +17008,7 @@ public final class Main {
 
           Create a cache control breakpoint at this content block.
 
-      - `class ContainerUploadBlockParam:`
+      - `class ContainerUploadBlockParam`
 
         A content block that represents a file to be uploaded to the container
         Files uploaded via this block will be available in the container's input directory.
@@ -16392,7 +17031,7 @@ public final class Main {
 
 ### Message Tokens Count
 
-- `class MessageTokensCount:`
+- `class MessageTokensCount`
 
   - `long inputTokens`
 
@@ -16400,7 +17039,7 @@ public final class Main {
 
 ### Metadata
 
-- `class Metadata:`
+- `class Metadata`
 
   - `Optional<String> userId`
 
@@ -16412,7 +17051,7 @@ public final class Main {
 
 ### Model
 
-- `enum Model:`
+- `enum Model`
 
   The model that will complete your prompt.
 
@@ -16421,6 +17060,10 @@ public final class Main {
   - `CLAUDE_FABLE_5_1("claude-fable-5-1")`
 
     Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+  - `CLAUDE_OPUS_5_5("claude-opus-5-5")`
+
+    Powerful intelligence for coding, knowledge work, and long-running agents
 
   - `CLAUDE_MYTHOS_5_1("claude-mythos-5-1")`
 
@@ -16488,7 +17131,7 @@ public final class Main {
 
 ### Output Config
 
-- `class OutputConfig:`
+- `class OutputConfig`
 
   - `Optional<Effort> effort`
 
@@ -16516,7 +17159,7 @@ public final class Main {
 
 ### Output Tokens Details
 
-- `class OutputTokensDetails:`
+- `class OutputTokensDetails`
 
   - `long thinkingTokens`
 
@@ -16533,7 +17176,7 @@ public final class Main {
 
 ### Plain Text Source
 
-- `class PlainTextSource:`
+- `class PlainTextSource`
 
   - `JsonValue type = "text"`
 
@@ -16545,25 +17188,25 @@ public final class Main {
 
 - `class RawContentBlockDelta: union`
 
-  - `class TextDelta:`
+  - `class TextDelta`
 
     - `JsonValue type = "text_delta"`
 
     - `String text`
 
-  - `class InputJsonDelta:`
+  - `class InputJsonDelta`
 
     - `JsonValue type = "input_json_delta"`
 
     - `String partialJson`
 
-  - `class CitationsDelta:`
+  - `class CitationsDelta`
 
     - `JsonValue type = "citations_delta"`
 
     - `Citation citation`
 
-      - `class CitationCharLocation:`
+      - `class CitationCharLocation`
 
         - `JsonValue type = "char_location"`
 
@@ -16583,7 +17226,7 @@ public final class Main {
 
           minimum: 0
 
-      - `class CitationPageLocation:`
+      - `class CitationPageLocation`
 
         - `JsonValue type = "page_location"`
 
@@ -16603,7 +17246,7 @@ public final class Main {
 
           minimum: 1
 
-      - `class CitationContentBlockLocation:`
+      - `class CitationContentBlockLocation`
 
         - `JsonValue type = "content_block_location"`
 
@@ -16633,7 +17276,7 @@ public final class Main {
 
           minimum: 0
 
-      - `class CitationsWebSearchResultLocation:`
+      - `class CitationsWebSearchResultLocation`
 
         - `JsonValue type = "web_search_result_location"`
 
@@ -16647,7 +17290,7 @@ public final class Main {
 
         - `String url`
 
-      - `class CitationsSearchResultLocation:`
+      - `class CitationsSearchResultLocation`
 
         - `JsonValue type = "search_result_location"`
 
@@ -16681,7 +17324,7 @@ public final class Main {
 
         - `Optional<String> title`
 
-  - `class ThinkingDelta:`
+  - `class ThinkingDelta`
 
     - `JsonValue type = "thinking_delta"`
 
@@ -16689,7 +17332,7 @@ public final class Main {
 
       The incremental `thinking` text for this content block. Concatenate the `thinking` values of successive `thinking_delta` events to assemble the block's full `thinking` value.
 
-  - `class SignatureDelta:`
+  - `class SignatureDelta`
 
     - `JsonValue type = "signature_delta"`
 
@@ -16699,31 +17342,31 @@ public final class Main {
 
 ### Raw Content Block Delta Event
 
-- `class RawContentBlockDeltaEvent:`
+- `class RawContentBlockDeltaEvent`
 
   - `JsonValue type = "content_block_delta"`
 
   - `RawContentBlockDelta delta`
 
-    - `class TextDelta:`
+    - `class TextDelta`
 
       - `JsonValue type = "text_delta"`
 
       - `String text`
 
-    - `class InputJsonDelta:`
+    - `class InputJsonDelta`
 
       - `JsonValue type = "input_json_delta"`
 
       - `String partialJson`
 
-    - `class CitationsDelta:`
+    - `class CitationsDelta`
 
       - `JsonValue type = "citations_delta"`
 
       - `Citation citation`
 
-        - `class CitationCharLocation:`
+        - `class CitationCharLocation`
 
           - `JsonValue type = "char_location"`
 
@@ -16743,7 +17386,7 @@ public final class Main {
 
             minimum: 0
 
-        - `class CitationPageLocation:`
+        - `class CitationPageLocation`
 
           - `JsonValue type = "page_location"`
 
@@ -16763,7 +17406,7 @@ public final class Main {
 
             minimum: 1
 
-        - `class CitationContentBlockLocation:`
+        - `class CitationContentBlockLocation`
 
           - `JsonValue type = "content_block_location"`
 
@@ -16793,7 +17436,7 @@ public final class Main {
 
             minimum: 0
 
-        - `class CitationsWebSearchResultLocation:`
+        - `class CitationsWebSearchResultLocation`
 
           - `JsonValue type = "web_search_result_location"`
 
@@ -16807,7 +17450,7 @@ public final class Main {
 
           - `String url`
 
-        - `class CitationsSearchResultLocation:`
+        - `class CitationsSearchResultLocation`
 
           - `JsonValue type = "search_result_location"`
 
@@ -16841,7 +17484,7 @@ public final class Main {
 
           - `Optional<String> title`
 
-    - `class ThinkingDelta:`
+    - `class ThinkingDelta`
 
       - `JsonValue type = "thinking_delta"`
 
@@ -16849,7 +17492,7 @@ public final class Main {
 
         The incremental `thinking` text for this content block. Concatenate the `thinking` values of successive `thinking_delta` events to assemble the block's full `thinking` value.
 
-    - `class SignatureDelta:`
+    - `class SignatureDelta`
 
       - `JsonValue type = "signature_delta"`
 
@@ -16861,13 +17504,13 @@ public final class Main {
 
 ### Raw Content Block Start Event
 
-- `class RawContentBlockStartEvent:`
+- `class RawContentBlockStartEvent`
 
   - `JsonValue type = "content_block_start"`
 
   - `ContentBlock contentBlock`
 
-    - `class TextBlock:`
+    - `class TextBlock`
 
       - `JsonValue type = "text"`
 
@@ -16877,7 +17520,7 @@ public final class Main {
 
         The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
 
-        - `class CitationCharLocation:`
+        - `class CitationCharLocation`
 
           - `JsonValue type = "char_location"`
 
@@ -16897,7 +17540,7 @@ public final class Main {
 
             minimum: 0
 
-        - `class CitationPageLocation:`
+        - `class CitationPageLocation`
 
           - `JsonValue type = "page_location"`
 
@@ -16917,7 +17560,7 @@ public final class Main {
 
             minimum: 1
 
-        - `class CitationContentBlockLocation:`
+        - `class CitationContentBlockLocation`
 
           - `JsonValue type = "content_block_location"`
 
@@ -16947,7 +17590,7 @@ public final class Main {
 
             minimum: 0
 
-        - `class CitationsWebSearchResultLocation:`
+        - `class CitationsWebSearchResultLocation`
 
           - `JsonValue type = "web_search_result_location"`
 
@@ -16961,7 +17604,7 @@ public final class Main {
 
           - `String url`
 
-        - `class CitationsSearchResultLocation:`
+        - `class CitationsSearchResultLocation`
 
           - `JsonValue type = "search_result_location"`
 
@@ -16999,7 +17642,7 @@ public final class Main {
 
         minLength: 0
 
-    - `class ThinkingBlock:`
+    - `class ThinkingBlock`
 
       - `JsonValue type = "thinking"`
 
@@ -17015,7 +17658,7 @@ public final class Main {
 
         The text of Claude's thinking process for this block.
 
-    - `class RedactedThinkingBlock:`
+    - `class RedactedThinkingBlock`
 
       - `JsonValue type = "redacted_thinking"`
 
@@ -17027,7 +17670,7 @@ public final class Main {
 
         See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking#redacted-thinking-blocks) for details.
 
-    - `class ToolUseBlock:`
+    - `class ToolUseBlock`
 
       - `JsonValue type = "tool_use"`
 
@@ -17037,13 +17680,13 @@ public final class Main {
 
       - `Caller caller`
 
-        - `class DirectCaller:`
+        - `class DirectCaller`
 
           Tool invocation directly from the model.
 
           - `JsonValue type = "direct"`
 
-        - `class ServerToolCaller:`
+        - `class ServerToolCaller`
 
           Tool invocation generated by a server-side tool.
 
@@ -17053,7 +17696,7 @@ public final class Main {
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-        - `class ServerToolCaller20260120:`
+        - `class ServerToolCaller20260120`
 
           - `JsonValue type = "code_execution_20260120"`
 
@@ -17073,7 +17716,7 @@ public final class Main {
 
         maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
 
-    - `class ServerToolUseBlock:`
+    - `class ServerToolUseBlock`
 
       - `JsonValue type = "server_tool_use"`
 
@@ -17083,15 +17726,15 @@ public final class Main {
 
       - `Caller caller`
 
-        - `class DirectCaller:`
+        - `class DirectCaller`
 
           Tool invocation directly from the model.
 
-        - `class ServerToolCaller:`
+        - `class ServerToolCaller`
 
           Tool invocation generated by a server-side tool.
 
-        - `class ServerToolCaller20260120:`
+        - `class ServerToolCaller20260120`
 
       - `Input input`
 
@@ -17111,25 +17754,25 @@ public final class Main {
 
         - `TOOL_SEARCH_TOOL_BM25("tool_search_tool_bm25")`
 
-    - `class WebSearchToolResultBlock:`
+    - `class WebSearchToolResultBlock`
 
       - `JsonValue type = "web_search_tool_result"`
 
       - `Caller caller`
 
-        - `class DirectCaller:`
+        - `class DirectCaller`
 
           Tool invocation directly from the model.
 
-        - `class ServerToolCaller:`
+        - `class ServerToolCaller`
 
           Tool invocation generated by a server-side tool.
 
-        - `class ServerToolCaller20260120:`
+        - `class ServerToolCaller20260120`
 
       - `WebSearchToolResultBlockContent content`
 
-        - `class WebSearchToolResultError:`
+        - `class WebSearchToolResultError`
 
           - `JsonValue type = "web_search_tool_result_error"`
 
@@ -17163,25 +17806,25 @@ public final class Main {
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-    - `class WebFetchToolResultBlock:`
+    - `class WebFetchToolResultBlock`
 
       - `JsonValue type = "web_fetch_tool_result"`
 
       - `Caller caller`
 
-        - `class DirectCaller:`
+        - `class DirectCaller`
 
           Tool invocation directly from the model.
 
-        - `class ServerToolCaller:`
+        - `class ServerToolCaller`
 
           Tool invocation generated by a server-side tool.
 
-        - `class ServerToolCaller20260120:`
+        - `class ServerToolCaller20260120`
 
       - `Content content`
 
-        - `class WebFetchToolResultErrorBlock:`
+        - `class WebFetchToolResultErrorBlock`
 
           - `JsonValue type = "web_fetch_tool_result_error"`
 
@@ -17207,7 +17850,7 @@ public final class Main {
 
             - `CONTENT_TOO_LARGE("content_too_large")`
 
-        - `class WebFetchBlock:`
+        - `class WebFetchBlock`
 
           - `JsonValue type = "web_fetch_result"`
 
@@ -17223,7 +17866,7 @@ public final class Main {
 
             - `Source source`
 
-              - `class Base64PdfSource:`
+              - `class Base64PdfSource`
 
                 - `JsonValue type = "base64"`
 
@@ -17233,7 +17876,7 @@ public final class Main {
 
                 - `JsonValue mediaType = "application/pdf"`
 
-              - `class PlainTextSource:`
+              - `class PlainTextSource`
 
                 - `JsonValue type = "text"`
 
@@ -17257,13 +17900,13 @@ public final class Main {
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-    - `class CodeExecutionToolResultBlock:`
+    - `class CodeExecutionToolResultBlock`
 
       - `JsonValue type = "code_execution_tool_result"`
 
       - `CodeExecutionToolResultBlockContent content`
 
-        - `class CodeExecutionToolResultError:`
+        - `class CodeExecutionToolResultError`
 
           - `JsonValue type = "code_execution_tool_result_error"`
 
@@ -17277,7 +17920,7 @@ public final class Main {
 
             - `EXECUTION_TIME_EXCEEDED("execution_time_exceeded")`
 
-        - `class CodeExecutionResultBlock:`
+        - `class CodeExecutionResultBlock`
 
           - `JsonValue type = "code_execution_result"`
 
@@ -17293,7 +17936,7 @@ public final class Main {
 
           - `String stdout`
 
-        - `class EncryptedCodeExecutionResultBlock:`
+        - `class EncryptedCodeExecutionResultBlock`
 
           Code execution result with encrypted stdout for PFC + web_search results.
 
@@ -17315,13 +17958,13 @@ public final class Main {
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-    - `class BashCodeExecutionToolResultBlock:`
+    - `class BashCodeExecutionToolResultBlock`
 
       - `JsonValue type = "bash_code_execution_tool_result"`
 
       - `Content content`
 
-        - `class BashCodeExecutionToolResultError:`
+        - `class BashCodeExecutionToolResultError`
 
           - `JsonValue type = "bash_code_execution_tool_result_error"`
 
@@ -17337,7 +17980,7 @@ public final class Main {
 
             - `OUTPUT_FILE_TOO_LARGE("output_file_too_large")`
 
-        - `class BashCodeExecutionResultBlock:`
+        - `class BashCodeExecutionResultBlock`
 
           - `JsonValue type = "bash_code_execution_result"`
 
@@ -17357,13 +18000,13 @@ public final class Main {
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-    - `class TextEditorCodeExecutionToolResultBlock:`
+    - `class TextEditorCodeExecutionToolResultBlock`
 
       - `JsonValue type = "text_editor_code_execution_tool_result"`
 
       - `Content content`
 
-        - `class TextEditorCodeExecutionToolResultError:`
+        - `class TextEditorCodeExecutionToolResultError`
 
           - `JsonValue type = "text_editor_code_execution_tool_result_error"`
 
@@ -17381,7 +18024,7 @@ public final class Main {
 
           - `Optional<String> errorMessage`
 
-        - `class TextEditorCodeExecutionViewResultBlock:`
+        - `class TextEditorCodeExecutionViewResultBlock`
 
           - `JsonValue type = "text_editor_code_execution_view_result"`
 
@@ -17401,13 +18044,13 @@ public final class Main {
 
           - `Optional<Long> totalLines`
 
-        - `class TextEditorCodeExecutionCreateResultBlock:`
+        - `class TextEditorCodeExecutionCreateResultBlock`
 
           - `JsonValue type = "text_editor_code_execution_create_result"`
 
           - `boolean isFileUpdate`
 
-        - `class TextEditorCodeExecutionStrReplaceResultBlock:`
+        - `class TextEditorCodeExecutionStrReplaceResultBlock`
 
           - `JsonValue type = "text_editor_code_execution_str_replace_result"`
 
@@ -17425,13 +18068,13 @@ public final class Main {
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-    - `class ToolSearchToolResultBlock:`
+    - `class ToolSearchToolResultBlock`
 
       - `JsonValue type = "tool_search_tool_result"`
 
       - `Content content`
 
-        - `class ToolSearchToolResultError:`
+        - `class ToolSearchToolResultError`
 
           - `JsonValue type = "tool_search_tool_result_error"`
 
@@ -17447,7 +18090,7 @@ public final class Main {
 
           - `Optional<String> errorMessage`
 
-        - `class ToolSearchToolSearchResultBlock:`
+        - `class ToolSearchToolSearchResultBlock`
 
           - `JsonValue type = "tool_search_tool_search_result"`
 
@@ -17463,7 +18106,7 @@ public final class Main {
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-    - `class ContainerUploadBlock:`
+    - `class ContainerUploadBlock`
 
       Response model for a file uploaded to the container.
 
@@ -17475,7 +18118,7 @@ public final class Main {
 
 ### Raw Content Block Stop Event
 
-- `class RawContentBlockStopEvent:`
+- `class RawContentBlockStopEvent`
 
   - `JsonValue type = "content_block_stop"`
 
@@ -17483,7 +18126,7 @@ public final class Main {
 
 ### Raw Message Delta Event
 
-- `class RawMessageDeltaEvent:`
+- `class RawMessageDeltaEvent`
 
   - `JsonValue type = "message_delta"`
 
@@ -17655,7 +18298,7 @@ public final class Main {
 
 ### Raw Message Start Event
 
-- `class RawMessageStartEvent:`
+- `class RawMessageStartEvent`
 
   - `JsonValue type = "message_start"`
 
@@ -17740,7 +18383,7 @@ public final class Main {
       [{"type": "text", "text": "B)"}]
       ```
 
-      - `class TextBlock:`
+      - `class TextBlock`
 
         - `JsonValue type = "text"`
 
@@ -17750,7 +18393,7 @@ public final class Main {
 
           The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
 
-          - `class CitationCharLocation:`
+          - `class CitationCharLocation`
 
             - `JsonValue type = "char_location"`
 
@@ -17770,7 +18413,7 @@ public final class Main {
 
               minimum: 0
 
-          - `class CitationPageLocation:`
+          - `class CitationPageLocation`
 
             - `JsonValue type = "page_location"`
 
@@ -17790,7 +18433,7 @@ public final class Main {
 
               minimum: 1
 
-          - `class CitationContentBlockLocation:`
+          - `class CitationContentBlockLocation`
 
             - `JsonValue type = "content_block_location"`
 
@@ -17820,7 +18463,7 @@ public final class Main {
 
               minimum: 0
 
-          - `class CitationsWebSearchResultLocation:`
+          - `class CitationsWebSearchResultLocation`
 
             - `JsonValue type = "web_search_result_location"`
 
@@ -17834,7 +18477,7 @@ public final class Main {
 
             - `String url`
 
-          - `class CitationsSearchResultLocation:`
+          - `class CitationsSearchResultLocation`
 
             - `JsonValue type = "search_result_location"`
 
@@ -17872,7 +18515,7 @@ public final class Main {
 
           minLength: 0
 
-      - `class ThinkingBlock:`
+      - `class ThinkingBlock`
 
         - `JsonValue type = "thinking"`
 
@@ -17888,7 +18531,7 @@ public final class Main {
 
           The text of Claude's thinking process for this block.
 
-      - `class RedactedThinkingBlock:`
+      - `class RedactedThinkingBlock`
 
         - `JsonValue type = "redacted_thinking"`
 
@@ -17900,7 +18543,7 @@ public final class Main {
 
           See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking#redacted-thinking-blocks) for details.
 
-      - `class ToolUseBlock:`
+      - `class ToolUseBlock`
 
         - `JsonValue type = "tool_use"`
 
@@ -17910,13 +18553,13 @@ public final class Main {
 
         - `Caller caller`
 
-          - `class DirectCaller:`
+          - `class DirectCaller`
 
             Tool invocation directly from the model.
 
             - `JsonValue type = "direct"`
 
-          - `class ServerToolCaller:`
+          - `class ServerToolCaller`
 
             Tool invocation generated by a server-side tool.
 
@@ -17926,7 +18569,7 @@ public final class Main {
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `class ServerToolCaller20260120:`
+          - `class ServerToolCaller20260120`
 
             - `JsonValue type = "code_execution_20260120"`
 
@@ -17946,7 +18589,7 @@ public final class Main {
 
           maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
 
-      - `class ServerToolUseBlock:`
+      - `class ServerToolUseBlock`
 
         - `JsonValue type = "server_tool_use"`
 
@@ -17956,15 +18599,15 @@ public final class Main {
 
         - `Caller caller`
 
-          - `class DirectCaller:`
+          - `class DirectCaller`
 
             Tool invocation directly from the model.
 
-          - `class ServerToolCaller:`
+          - `class ServerToolCaller`
 
             Tool invocation generated by a server-side tool.
 
-          - `class ServerToolCaller20260120:`
+          - `class ServerToolCaller20260120`
 
         - `Input input`
 
@@ -17984,25 +18627,25 @@ public final class Main {
 
           - `TOOL_SEARCH_TOOL_BM25("tool_search_tool_bm25")`
 
-      - `class WebSearchToolResultBlock:`
+      - `class WebSearchToolResultBlock`
 
         - `JsonValue type = "web_search_tool_result"`
 
         - `Caller caller`
 
-          - `class DirectCaller:`
+          - `class DirectCaller`
 
             Tool invocation directly from the model.
 
-          - `class ServerToolCaller:`
+          - `class ServerToolCaller`
 
             Tool invocation generated by a server-side tool.
 
-          - `class ServerToolCaller20260120:`
+          - `class ServerToolCaller20260120`
 
         - `WebSearchToolResultBlockContent content`
 
-          - `class WebSearchToolResultError:`
+          - `class WebSearchToolResultError`
 
             - `JsonValue type = "web_search_tool_result_error"`
 
@@ -18036,25 +18679,25 @@ public final class Main {
 
           pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-      - `class WebFetchToolResultBlock:`
+      - `class WebFetchToolResultBlock`
 
         - `JsonValue type = "web_fetch_tool_result"`
 
         - `Caller caller`
 
-          - `class DirectCaller:`
+          - `class DirectCaller`
 
             Tool invocation directly from the model.
 
-          - `class ServerToolCaller:`
+          - `class ServerToolCaller`
 
             Tool invocation generated by a server-side tool.
 
-          - `class ServerToolCaller20260120:`
+          - `class ServerToolCaller20260120`
 
         - `Content content`
 
-          - `class WebFetchToolResultErrorBlock:`
+          - `class WebFetchToolResultErrorBlock`
 
             - `JsonValue type = "web_fetch_tool_result_error"`
 
@@ -18080,7 +18723,7 @@ public final class Main {
 
               - `CONTENT_TOO_LARGE("content_too_large")`
 
-          - `class WebFetchBlock:`
+          - `class WebFetchBlock`
 
             - `JsonValue type = "web_fetch_result"`
 
@@ -18096,7 +18739,7 @@ public final class Main {
 
               - `Source source`
 
-                - `class Base64PdfSource:`
+                - `class Base64PdfSource`
 
                   - `JsonValue type = "base64"`
 
@@ -18106,7 +18749,7 @@ public final class Main {
 
                   - `JsonValue mediaType = "application/pdf"`
 
-                - `class PlainTextSource:`
+                - `class PlainTextSource`
 
                   - `JsonValue type = "text"`
 
@@ -18130,13 +18773,13 @@ public final class Main {
 
           pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-      - `class CodeExecutionToolResultBlock:`
+      - `class CodeExecutionToolResultBlock`
 
         - `JsonValue type = "code_execution_tool_result"`
 
         - `CodeExecutionToolResultBlockContent content`
 
-          - `class CodeExecutionToolResultError:`
+          - `class CodeExecutionToolResultError`
 
             - `JsonValue type = "code_execution_tool_result_error"`
 
@@ -18150,7 +18793,7 @@ public final class Main {
 
               - `EXECUTION_TIME_EXCEEDED("execution_time_exceeded")`
 
-          - `class CodeExecutionResultBlock:`
+          - `class CodeExecutionResultBlock`
 
             - `JsonValue type = "code_execution_result"`
 
@@ -18166,7 +18809,7 @@ public final class Main {
 
             - `String stdout`
 
-          - `class EncryptedCodeExecutionResultBlock:`
+          - `class EncryptedCodeExecutionResultBlock`
 
             Code execution result with encrypted stdout for PFC + web_search results.
 
@@ -18188,13 +18831,13 @@ public final class Main {
 
           pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-      - `class BashCodeExecutionToolResultBlock:`
+      - `class BashCodeExecutionToolResultBlock`
 
         - `JsonValue type = "bash_code_execution_tool_result"`
 
         - `Content content`
 
-          - `class BashCodeExecutionToolResultError:`
+          - `class BashCodeExecutionToolResultError`
 
             - `JsonValue type = "bash_code_execution_tool_result_error"`
 
@@ -18210,7 +18853,7 @@ public final class Main {
 
               - `OUTPUT_FILE_TOO_LARGE("output_file_too_large")`
 
-          - `class BashCodeExecutionResultBlock:`
+          - `class BashCodeExecutionResultBlock`
 
             - `JsonValue type = "bash_code_execution_result"`
 
@@ -18230,13 +18873,13 @@ public final class Main {
 
           pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-      - `class TextEditorCodeExecutionToolResultBlock:`
+      - `class TextEditorCodeExecutionToolResultBlock`
 
         - `JsonValue type = "text_editor_code_execution_tool_result"`
 
         - `Content content`
 
-          - `class TextEditorCodeExecutionToolResultError:`
+          - `class TextEditorCodeExecutionToolResultError`
 
             - `JsonValue type = "text_editor_code_execution_tool_result_error"`
 
@@ -18254,7 +18897,7 @@ public final class Main {
 
             - `Optional<String> errorMessage`
 
-          - `class TextEditorCodeExecutionViewResultBlock:`
+          - `class TextEditorCodeExecutionViewResultBlock`
 
             - `JsonValue type = "text_editor_code_execution_view_result"`
 
@@ -18274,13 +18917,13 @@ public final class Main {
 
             - `Optional<Long> totalLines`
 
-          - `class TextEditorCodeExecutionCreateResultBlock:`
+          - `class TextEditorCodeExecutionCreateResultBlock`
 
             - `JsonValue type = "text_editor_code_execution_create_result"`
 
             - `boolean isFileUpdate`
 
-          - `class TextEditorCodeExecutionStrReplaceResultBlock:`
+          - `class TextEditorCodeExecutionStrReplaceResultBlock`
 
             - `JsonValue type = "text_editor_code_execution_str_replace_result"`
 
@@ -18298,13 +18941,13 @@ public final class Main {
 
           pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-      - `class ToolSearchToolResultBlock:`
+      - `class ToolSearchToolResultBlock`
 
         - `JsonValue type = "tool_search_tool_result"`
 
         - `Content content`
 
-          - `class ToolSearchToolResultError:`
+          - `class ToolSearchToolResultError`
 
             - `JsonValue type = "tool_search_tool_result_error"`
 
@@ -18320,7 +18963,7 @@ public final class Main {
 
             - `Optional<String> errorMessage`
 
-          - `class ToolSearchToolSearchResultBlock:`
+          - `class ToolSearchToolSearchResultBlock`
 
             - `JsonValue type = "tool_search_tool_search_result"`
 
@@ -18336,13 +18979,62 @@ public final class Main {
 
           pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-      - `class ContainerUploadBlock:`
+      - `class ContainerUploadBlock`
 
         Response model for a file uploaded to the container.
 
         - `JsonValue type = "container_upload"`
 
         - `String fileId`
+
+    - `Optional<Diagnostics> diagnostics`
+
+      Request-level diagnostics: why the prompt cache could not fully reuse
+      the prefix of the request named by `diagnostics.previous_message_id`.
+
+      - `Optional<CacheMissReason> cacheMissReason`
+
+        Explains why the prompt cache could not fully reuse the prefix from the request identified by `diagnostics.previous_message_id`. `null` means diagnosis is still pending — the response was serialized before the background comparison completed.
+
+        - `class CacheMissModelChanged`
+
+          - `JsonValue type = "model_changed"`
+
+          - `long cacheMissedInputTokens`
+
+            Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+        - `class CacheMissSystemChanged`
+
+          - `JsonValue type = "system_changed"`
+
+          - `long cacheMissedInputTokens`
+
+            Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+        - `class CacheMissToolsChanged`
+
+          - `JsonValue type = "tools_changed"`
+
+          - `long cacheMissedInputTokens`
+
+            Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+        - `class CacheMissMessagesChanged`
+
+          - `JsonValue type = "messages_changed"`
+
+          - `long cacheMissedInputTokens`
+
+            Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+        - `class CacheMissPreviousMessageNotFound`
+
+          - `JsonValue type = "previous_message_not_found"`
+
+        - `class CacheMissUnavailable`
+
+          - `JsonValue type = "unavailable"`
 
     - `Model model`
 
@@ -18353,6 +19045,10 @@ public final class Main {
       - `CLAUDE_FABLE_5_1("claude-fable-5-1")`
 
         Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+      - `CLAUDE_OPUS_5_5("claude-opus-5-5")`
+
+        Powerful intelligence for coding, knowledge work, and long-running agents
 
       - `CLAUDE_MYTHOS_5_1("claude-mythos-5-1")`
 
@@ -18602,7 +19298,7 @@ public final class Main {
 
 ### Raw Message Stop Event
 
-- `class RawMessageStopEvent:`
+- `class RawMessageStopEvent`
 
   - `JsonValue type = "message_stop"`
 
@@ -18610,7 +19306,7 @@ public final class Main {
 
 - `class RawMessageStreamEvent: union`
 
-  - `class RawMessageStartEvent:`
+  - `class RawMessageStartEvent`
 
     - `JsonValue type = "message_start"`
 
@@ -18695,7 +19391,7 @@ public final class Main {
         [{"type": "text", "text": "B)"}]
         ```
 
-        - `class TextBlock:`
+        - `class TextBlock`
 
           - `JsonValue type = "text"`
 
@@ -18705,7 +19401,7 @@ public final class Main {
 
             The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
 
-            - `class CitationCharLocation:`
+            - `class CitationCharLocation`
 
               - `JsonValue type = "char_location"`
 
@@ -18725,7 +19421,7 @@ public final class Main {
 
                 minimum: 0
 
-            - `class CitationPageLocation:`
+            - `class CitationPageLocation`
 
               - `JsonValue type = "page_location"`
 
@@ -18745,7 +19441,7 @@ public final class Main {
 
                 minimum: 1
 
-            - `class CitationContentBlockLocation:`
+            - `class CitationContentBlockLocation`
 
               - `JsonValue type = "content_block_location"`
 
@@ -18775,7 +19471,7 @@ public final class Main {
 
                 minimum: 0
 
-            - `class CitationsWebSearchResultLocation:`
+            - `class CitationsWebSearchResultLocation`
 
               - `JsonValue type = "web_search_result_location"`
 
@@ -18789,7 +19485,7 @@ public final class Main {
 
               - `String url`
 
-            - `class CitationsSearchResultLocation:`
+            - `class CitationsSearchResultLocation`
 
               - `JsonValue type = "search_result_location"`
 
@@ -18827,7 +19523,7 @@ public final class Main {
 
             minLength: 0
 
-        - `class ThinkingBlock:`
+        - `class ThinkingBlock`
 
           - `JsonValue type = "thinking"`
 
@@ -18843,7 +19539,7 @@ public final class Main {
 
             The text of Claude's thinking process for this block.
 
-        - `class RedactedThinkingBlock:`
+        - `class RedactedThinkingBlock`
 
           - `JsonValue type = "redacted_thinking"`
 
@@ -18855,7 +19551,7 @@ public final class Main {
 
             See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking#redacted-thinking-blocks) for details.
 
-        - `class ToolUseBlock:`
+        - `class ToolUseBlock`
 
           - `JsonValue type = "tool_use"`
 
@@ -18865,13 +19561,13 @@ public final class Main {
 
           - `Caller caller`
 
-            - `class DirectCaller:`
+            - `class DirectCaller`
 
               Tool invocation directly from the model.
 
               - `JsonValue type = "direct"`
 
-            - `class ServerToolCaller:`
+            - `class ServerToolCaller`
 
               Tool invocation generated by a server-side tool.
 
@@ -18881,7 +19577,7 @@ public final class Main {
 
                 pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-            - `class ServerToolCaller20260120:`
+            - `class ServerToolCaller20260120`
 
               - `JsonValue type = "code_execution_20260120"`
 
@@ -18901,7 +19597,7 @@ public final class Main {
 
             maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
 
-        - `class ServerToolUseBlock:`
+        - `class ServerToolUseBlock`
 
           - `JsonValue type = "server_tool_use"`
 
@@ -18911,15 +19607,15 @@ public final class Main {
 
           - `Caller caller`
 
-            - `class DirectCaller:`
+            - `class DirectCaller`
 
               Tool invocation directly from the model.
 
-            - `class ServerToolCaller:`
+            - `class ServerToolCaller`
 
               Tool invocation generated by a server-side tool.
 
-            - `class ServerToolCaller20260120:`
+            - `class ServerToolCaller20260120`
 
           - `Input input`
 
@@ -18939,25 +19635,25 @@ public final class Main {
 
             - `TOOL_SEARCH_TOOL_BM25("tool_search_tool_bm25")`
 
-        - `class WebSearchToolResultBlock:`
+        - `class WebSearchToolResultBlock`
 
           - `JsonValue type = "web_search_tool_result"`
 
           - `Caller caller`
 
-            - `class DirectCaller:`
+            - `class DirectCaller`
 
               Tool invocation directly from the model.
 
-            - `class ServerToolCaller:`
+            - `class ServerToolCaller`
 
               Tool invocation generated by a server-side tool.
 
-            - `class ServerToolCaller20260120:`
+            - `class ServerToolCaller20260120`
 
           - `WebSearchToolResultBlockContent content`
 
-            - `class WebSearchToolResultError:`
+            - `class WebSearchToolResultError`
 
               - `JsonValue type = "web_search_tool_result_error"`
 
@@ -18991,25 +19687,25 @@ public final class Main {
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-        - `class WebFetchToolResultBlock:`
+        - `class WebFetchToolResultBlock`
 
           - `JsonValue type = "web_fetch_tool_result"`
 
           - `Caller caller`
 
-            - `class DirectCaller:`
+            - `class DirectCaller`
 
               Tool invocation directly from the model.
 
-            - `class ServerToolCaller:`
+            - `class ServerToolCaller`
 
               Tool invocation generated by a server-side tool.
 
-            - `class ServerToolCaller20260120:`
+            - `class ServerToolCaller20260120`
 
           - `Content content`
 
-            - `class WebFetchToolResultErrorBlock:`
+            - `class WebFetchToolResultErrorBlock`
 
               - `JsonValue type = "web_fetch_tool_result_error"`
 
@@ -19035,7 +19731,7 @@ public final class Main {
 
                 - `CONTENT_TOO_LARGE("content_too_large")`
 
-            - `class WebFetchBlock:`
+            - `class WebFetchBlock`
 
               - `JsonValue type = "web_fetch_result"`
 
@@ -19051,7 +19747,7 @@ public final class Main {
 
                 - `Source source`
 
-                  - `class Base64PdfSource:`
+                  - `class Base64PdfSource`
 
                     - `JsonValue type = "base64"`
 
@@ -19061,7 +19757,7 @@ public final class Main {
 
                     - `JsonValue mediaType = "application/pdf"`
 
-                  - `class PlainTextSource:`
+                  - `class PlainTextSource`
 
                     - `JsonValue type = "text"`
 
@@ -19085,13 +19781,13 @@ public final class Main {
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-        - `class CodeExecutionToolResultBlock:`
+        - `class CodeExecutionToolResultBlock`
 
           - `JsonValue type = "code_execution_tool_result"`
 
           - `CodeExecutionToolResultBlockContent content`
 
-            - `class CodeExecutionToolResultError:`
+            - `class CodeExecutionToolResultError`
 
               - `JsonValue type = "code_execution_tool_result_error"`
 
@@ -19105,7 +19801,7 @@ public final class Main {
 
                 - `EXECUTION_TIME_EXCEEDED("execution_time_exceeded")`
 
-            - `class CodeExecutionResultBlock:`
+            - `class CodeExecutionResultBlock`
 
               - `JsonValue type = "code_execution_result"`
 
@@ -19121,7 +19817,7 @@ public final class Main {
 
               - `String stdout`
 
-            - `class EncryptedCodeExecutionResultBlock:`
+            - `class EncryptedCodeExecutionResultBlock`
 
               Code execution result with encrypted stdout for PFC + web_search results.
 
@@ -19143,13 +19839,13 @@ public final class Main {
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-        - `class BashCodeExecutionToolResultBlock:`
+        - `class BashCodeExecutionToolResultBlock`
 
           - `JsonValue type = "bash_code_execution_tool_result"`
 
           - `Content content`
 
-            - `class BashCodeExecutionToolResultError:`
+            - `class BashCodeExecutionToolResultError`
 
               - `JsonValue type = "bash_code_execution_tool_result_error"`
 
@@ -19165,7 +19861,7 @@ public final class Main {
 
                 - `OUTPUT_FILE_TOO_LARGE("output_file_too_large")`
 
-            - `class BashCodeExecutionResultBlock:`
+            - `class BashCodeExecutionResultBlock`
 
               - `JsonValue type = "bash_code_execution_result"`
 
@@ -19185,13 +19881,13 @@ public final class Main {
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-        - `class TextEditorCodeExecutionToolResultBlock:`
+        - `class TextEditorCodeExecutionToolResultBlock`
 
           - `JsonValue type = "text_editor_code_execution_tool_result"`
 
           - `Content content`
 
-            - `class TextEditorCodeExecutionToolResultError:`
+            - `class TextEditorCodeExecutionToolResultError`
 
               - `JsonValue type = "text_editor_code_execution_tool_result_error"`
 
@@ -19209,7 +19905,7 @@ public final class Main {
 
               - `Optional<String> errorMessage`
 
-            - `class TextEditorCodeExecutionViewResultBlock:`
+            - `class TextEditorCodeExecutionViewResultBlock`
 
               - `JsonValue type = "text_editor_code_execution_view_result"`
 
@@ -19229,13 +19925,13 @@ public final class Main {
 
               - `Optional<Long> totalLines`
 
-            - `class TextEditorCodeExecutionCreateResultBlock:`
+            - `class TextEditorCodeExecutionCreateResultBlock`
 
               - `JsonValue type = "text_editor_code_execution_create_result"`
 
               - `boolean isFileUpdate`
 
-            - `class TextEditorCodeExecutionStrReplaceResultBlock:`
+            - `class TextEditorCodeExecutionStrReplaceResultBlock`
 
               - `JsonValue type = "text_editor_code_execution_str_replace_result"`
 
@@ -19253,13 +19949,13 @@ public final class Main {
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-        - `class ToolSearchToolResultBlock:`
+        - `class ToolSearchToolResultBlock`
 
           - `JsonValue type = "tool_search_tool_result"`
 
           - `Content content`
 
-            - `class ToolSearchToolResultError:`
+            - `class ToolSearchToolResultError`
 
               - `JsonValue type = "tool_search_tool_result_error"`
 
@@ -19275,7 +19971,7 @@ public final class Main {
 
               - `Optional<String> errorMessage`
 
-            - `class ToolSearchToolSearchResultBlock:`
+            - `class ToolSearchToolSearchResultBlock`
 
               - `JsonValue type = "tool_search_tool_search_result"`
 
@@ -19291,13 +19987,62 @@ public final class Main {
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-        - `class ContainerUploadBlock:`
+        - `class ContainerUploadBlock`
 
           Response model for a file uploaded to the container.
 
           - `JsonValue type = "container_upload"`
 
           - `String fileId`
+
+      - `Optional<Diagnostics> diagnostics`
+
+        Request-level diagnostics: why the prompt cache could not fully reuse
+        the prefix of the request named by `diagnostics.previous_message_id`.
+
+        - `Optional<CacheMissReason> cacheMissReason`
+
+          Explains why the prompt cache could not fully reuse the prefix from the request identified by `diagnostics.previous_message_id`. `null` means diagnosis is still pending — the response was serialized before the background comparison completed.
+
+          - `class CacheMissModelChanged`
+
+            - `JsonValue type = "model_changed"`
+
+            - `long cacheMissedInputTokens`
+
+              Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+          - `class CacheMissSystemChanged`
+
+            - `JsonValue type = "system_changed"`
+
+            - `long cacheMissedInputTokens`
+
+              Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+          - `class CacheMissToolsChanged`
+
+            - `JsonValue type = "tools_changed"`
+
+            - `long cacheMissedInputTokens`
+
+              Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+          - `class CacheMissMessagesChanged`
+
+            - `JsonValue type = "messages_changed"`
+
+            - `long cacheMissedInputTokens`
+
+              Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+          - `class CacheMissPreviousMessageNotFound`
+
+            - `JsonValue type = "previous_message_not_found"`
+
+          - `class CacheMissUnavailable`
+
+            - `JsonValue type = "unavailable"`
 
       - `Model model`
 
@@ -19308,6 +20053,10 @@ public final class Main {
         - `CLAUDE_FABLE_5_1("claude-fable-5-1")`
 
           Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+        - `CLAUDE_OPUS_5_5("claude-opus-5-5")`
+
+          Powerful intelligence for coding, knowledge work, and long-running agents
 
         - `CLAUDE_MYTHOS_5_1("claude-mythos-5-1")`
 
@@ -19555,7 +20304,7 @@ public final class Main {
 
           - `BATCH("batch")`
 
-  - `class RawMessageDeltaEvent:`
+  - `class RawMessageDeltaEvent`
 
     - `JsonValue type = "message_delta"`
 
@@ -19620,79 +20369,79 @@ public final class Main {
 
         The number of server tool requests.
 
-  - `class RawMessageStopEvent:`
+  - `class RawMessageStopEvent`
 
     - `JsonValue type = "message_stop"`
 
-  - `class RawContentBlockStartEvent:`
+  - `class RawContentBlockStartEvent`
 
     - `JsonValue type = "content_block_start"`
 
     - `ContentBlock contentBlock`
 
-      - `class TextBlock:`
+      - `class TextBlock`
 
-      - `class ThinkingBlock:`
+      - `class ThinkingBlock`
 
-      - `class RedactedThinkingBlock:`
+      - `class RedactedThinkingBlock`
 
-      - `class ToolUseBlock:`
+      - `class ToolUseBlock`
 
-      - `class ServerToolUseBlock:`
+      - `class ServerToolUseBlock`
 
-      - `class WebSearchToolResultBlock:`
+      - `class WebSearchToolResultBlock`
 
-      - `class WebFetchToolResultBlock:`
+      - `class WebFetchToolResultBlock`
 
-      - `class CodeExecutionToolResultBlock:`
+      - `class CodeExecutionToolResultBlock`
 
-      - `class BashCodeExecutionToolResultBlock:`
+      - `class BashCodeExecutionToolResultBlock`
 
-      - `class TextEditorCodeExecutionToolResultBlock:`
+      - `class TextEditorCodeExecutionToolResultBlock`
 
-      - `class ToolSearchToolResultBlock:`
+      - `class ToolSearchToolResultBlock`
 
-      - `class ContainerUploadBlock:`
+      - `class ContainerUploadBlock`
 
         Response model for a file uploaded to the container.
 
     - `long index`
 
-  - `class RawContentBlockDeltaEvent:`
+  - `class RawContentBlockDeltaEvent`
 
     - `JsonValue type = "content_block_delta"`
 
     - `RawContentBlockDelta delta`
 
-      - `class TextDelta:`
+      - `class TextDelta`
 
         - `JsonValue type = "text_delta"`
 
         - `String text`
 
-      - `class InputJsonDelta:`
+      - `class InputJsonDelta`
 
         - `JsonValue type = "input_json_delta"`
 
         - `String partialJson`
 
-      - `class CitationsDelta:`
+      - `class CitationsDelta`
 
         - `JsonValue type = "citations_delta"`
 
         - `Citation citation`
 
-          - `class CitationCharLocation:`
+          - `class CitationCharLocation`
 
-          - `class CitationPageLocation:`
+          - `class CitationPageLocation`
 
-          - `class CitationContentBlockLocation:`
+          - `class CitationContentBlockLocation`
 
-          - `class CitationsWebSearchResultLocation:`
+          - `class CitationsWebSearchResultLocation`
 
-          - `class CitationsSearchResultLocation:`
+          - `class CitationsSearchResultLocation`
 
-      - `class ThinkingDelta:`
+      - `class ThinkingDelta`
 
         - `JsonValue type = "thinking_delta"`
 
@@ -19700,7 +20449,7 @@ public final class Main {
 
           The incremental `thinking` text for this content block. Concatenate the `thinking` values of successive `thinking_delta` events to assemble the block's full `thinking` value.
 
-      - `class SignatureDelta:`
+      - `class SignatureDelta`
 
         - `JsonValue type = "signature_delta"`
 
@@ -19710,7 +20459,7 @@ public final class Main {
 
     - `long index`
 
-  - `class RawContentBlockStopEvent:`
+  - `class RawContentBlockStopEvent`
 
     - `JsonValue type = "content_block_stop"`
 
@@ -19718,7 +20467,7 @@ public final class Main {
 
 ### Redacted Thinking Block
 
-- `class RedactedThinkingBlock:`
+- `class RedactedThinkingBlock`
 
   - `JsonValue type = "redacted_thinking"`
 
@@ -19732,7 +20481,7 @@ public final class Main {
 
 ### Redacted Thinking Block Param
 
-- `class RedactedThinkingBlockParam:`
+- `class RedactedThinkingBlockParam`
 
   - `JsonValue type = "redacted_thinking"`
 
@@ -19742,7 +20491,7 @@ public final class Main {
 
 ### Refusal Stop Details
 
-- `class RefusalStopDetails:`
+- `class RefusalStopDetails`
 
   Structured information about a refusal.
 
@@ -19780,7 +20529,7 @@ public final class Main {
 
 ### Search Result Block Param
 
-- `class SearchResultBlockParam:`
+- `class SearchResultBlockParam`
 
   - `JsonValue type = "search_result"`
 
@@ -19815,7 +20564,7 @@ public final class Main {
 
     - `Optional<List<TextCitationParam>> citations`
 
-      - `class CitationCharLocationParam:`
+      - `class CitationCharLocationParam`
 
         - `JsonValue type = "char_location"`
 
@@ -19835,7 +20584,7 @@ public final class Main {
 
           minimum: 0
 
-      - `class CitationPageLocationParam:`
+      - `class CitationPageLocationParam`
 
         - `JsonValue type = "page_location"`
 
@@ -19855,7 +20604,7 @@ public final class Main {
 
           minimum: 1
 
-      - `class CitationContentBlockLocationParam:`
+      - `class CitationContentBlockLocationParam`
 
         - `JsonValue type = "content_block_location"`
 
@@ -19885,7 +20634,7 @@ public final class Main {
 
           minimum: 0
 
-      - `class CitationWebSearchResultLocationParam:`
+      - `class CitationWebSearchResultLocationParam`
 
         - `JsonValue type = "web_search_result_location"`
 
@@ -19901,7 +20650,7 @@ public final class Main {
 
           minLength: 1
 
-      - `class CitationSearchResultLocationParam:`
+      - `class CitationSearchResultLocationParam`
 
         - `JsonValue type = "search_result_location"`
 
@@ -19949,7 +20698,7 @@ public final class Main {
 
 ### Server Tool Caller
 
-- `class ServerToolCaller:`
+- `class ServerToolCaller`
 
   Tool invocation generated by a server-side tool.
 
@@ -19961,7 +20710,7 @@ public final class Main {
 
 ### Server Tool Caller 20260120
 
-- `class ServerToolCaller20260120:`
+- `class ServerToolCaller20260120`
 
   - `JsonValue type = "code_execution_20260120"`
 
@@ -19971,7 +20720,7 @@ public final class Main {
 
 ### Server Tool Usage
 
-- `class ServerToolUsage:`
+- `class ServerToolUsage`
 
   - `long webFetchRequests`
 
@@ -19987,7 +20736,7 @@ public final class Main {
 
 ### Server Tool Use Block
 
-- `class ServerToolUseBlock:`
+- `class ServerToolUseBlock`
 
   - `JsonValue type = "server_tool_use"`
 
@@ -19997,13 +20746,13 @@ public final class Main {
 
   - `Caller caller`
 
-    - `class DirectCaller:`
+    - `class DirectCaller`
 
       Tool invocation directly from the model.
 
       - `JsonValue type = "direct"`
 
-    - `class ServerToolCaller:`
+    - `class ServerToolCaller`
 
       Tool invocation generated by a server-side tool.
 
@@ -20013,7 +20762,7 @@ public final class Main {
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-    - `class ServerToolCaller20260120:`
+    - `class ServerToolCaller20260120`
 
       - `JsonValue type = "code_execution_20260120"`
 
@@ -20041,7 +20790,7 @@ public final class Main {
 
 ### Server Tool Use Block Param
 
-- `class ServerToolUseBlockParam:`
+- `class ServerToolUseBlockParam`
 
   - `JsonValue type = "server_tool_use"`
 
@@ -20090,13 +20839,13 @@ public final class Main {
 
   - `Optional<Caller> caller`
 
-    - `class DirectCaller:`
+    - `class DirectCaller`
 
       Tool invocation directly from the model.
 
       - `JsonValue type = "direct"`
 
-    - `class ServerToolCaller:`
+    - `class ServerToolCaller`
 
       Tool invocation generated by a server-side tool.
 
@@ -20106,7 +20855,7 @@ public final class Main {
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-    - `class ServerToolCaller20260120:`
+    - `class ServerToolCaller20260120`
 
       - `JsonValue type = "code_execution_20260120"`
 
@@ -20116,7 +20865,7 @@ public final class Main {
 
 ### Signature Delta
 
-- `class SignatureDelta:`
+- `class SignatureDelta`
 
   - `JsonValue type = "signature_delta"`
 
@@ -20126,7 +20875,7 @@ public final class Main {
 
 ### Skill Params
 
-- `class SkillParams:`
+- `class SkillParams`
 
   Specification for a skill to be loaded in a container (request model).
 
@@ -20152,7 +20901,7 @@ public final class Main {
 
 ### Stop Reason
 
-- `enum StopReason:`
+- `enum StopReason`
 
   - `END_TURN("end_turn")`
 
@@ -20170,7 +20919,7 @@ public final class Main {
 
 ### Text Block
 
-- `class TextBlock:`
+- `class TextBlock`
 
   - `JsonValue type = "text"`
 
@@ -20180,7 +20929,7 @@ public final class Main {
 
     The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
 
-    - `class CitationCharLocation:`
+    - `class CitationCharLocation`
 
       - `JsonValue type = "char_location"`
 
@@ -20200,7 +20949,7 @@ public final class Main {
 
         minimum: 0
 
-    - `class CitationPageLocation:`
+    - `class CitationPageLocation`
 
       - `JsonValue type = "page_location"`
 
@@ -20220,7 +20969,7 @@ public final class Main {
 
         minimum: 1
 
-    - `class CitationContentBlockLocation:`
+    - `class CitationContentBlockLocation`
 
       - `JsonValue type = "content_block_location"`
 
@@ -20250,7 +20999,7 @@ public final class Main {
 
         minimum: 0
 
-    - `class CitationsWebSearchResultLocation:`
+    - `class CitationsWebSearchResultLocation`
 
       - `JsonValue type = "web_search_result_location"`
 
@@ -20264,7 +21013,7 @@ public final class Main {
 
       - `String url`
 
-    - `class CitationsSearchResultLocation:`
+    - `class CitationsSearchResultLocation`
 
       - `JsonValue type = "search_result_location"`
 
@@ -20304,7 +21053,7 @@ public final class Main {
 
 ### Text Block Param
 
-- `class TextBlockParam:`
+- `class TextBlockParam`
 
   - `JsonValue type = "text"`
 
@@ -20335,7 +21084,7 @@ public final class Main {
 
   - `Optional<List<TextCitationParam>> citations`
 
-    - `class CitationCharLocationParam:`
+    - `class CitationCharLocationParam`
 
       - `JsonValue type = "char_location"`
 
@@ -20355,7 +21104,7 @@ public final class Main {
 
         minimum: 0
 
-    - `class CitationPageLocationParam:`
+    - `class CitationPageLocationParam`
 
       - `JsonValue type = "page_location"`
 
@@ -20375,7 +21124,7 @@ public final class Main {
 
         minimum: 1
 
-    - `class CitationContentBlockLocationParam:`
+    - `class CitationContentBlockLocationParam`
 
       - `JsonValue type = "content_block_location"`
 
@@ -20405,7 +21154,7 @@ public final class Main {
 
         minimum: 0
 
-    - `class CitationWebSearchResultLocationParam:`
+    - `class CitationWebSearchResultLocationParam`
 
       - `JsonValue type = "web_search_result_location"`
 
@@ -20421,7 +21170,7 @@ public final class Main {
 
         minLength: 1
 
-    - `class CitationSearchResultLocationParam:`
+    - `class CitationSearchResultLocationParam`
 
       - `JsonValue type = "search_result_location"`
 
@@ -20459,7 +21208,7 @@ public final class Main {
 
 - `class TextCitation: union`
 
-  - `class CitationCharLocation:`
+  - `class CitationCharLocation`
 
     - `JsonValue type = "char_location"`
 
@@ -20479,7 +21228,7 @@ public final class Main {
 
       minimum: 0
 
-  - `class CitationPageLocation:`
+  - `class CitationPageLocation`
 
     - `JsonValue type = "page_location"`
 
@@ -20499,7 +21248,7 @@ public final class Main {
 
       minimum: 1
 
-  - `class CitationContentBlockLocation:`
+  - `class CitationContentBlockLocation`
 
     - `JsonValue type = "content_block_location"`
 
@@ -20529,7 +21278,7 @@ public final class Main {
 
       minimum: 0
 
-  - `class CitationsWebSearchResultLocation:`
+  - `class CitationsWebSearchResultLocation`
 
     - `JsonValue type = "web_search_result_location"`
 
@@ -20543,7 +21292,7 @@ public final class Main {
 
     - `String url`
 
-  - `class CitationsSearchResultLocation:`
+  - `class CitationsSearchResultLocation`
 
     - `JsonValue type = "search_result_location"`
 
@@ -20581,7 +21330,7 @@ public final class Main {
 
 - `class TextCitationParam: union`
 
-  - `class CitationCharLocationParam:`
+  - `class CitationCharLocationParam`
 
     - `JsonValue type = "char_location"`
 
@@ -20601,7 +21350,7 @@ public final class Main {
 
       minimum: 0
 
-  - `class CitationPageLocationParam:`
+  - `class CitationPageLocationParam`
 
     - `JsonValue type = "page_location"`
 
@@ -20621,7 +21370,7 @@ public final class Main {
 
       minimum: 1
 
-  - `class CitationContentBlockLocationParam:`
+  - `class CitationContentBlockLocationParam`
 
     - `JsonValue type = "content_block_location"`
 
@@ -20651,7 +21400,7 @@ public final class Main {
 
       minimum: 0
 
-  - `class CitationWebSearchResultLocationParam:`
+  - `class CitationWebSearchResultLocationParam`
 
     - `JsonValue type = "web_search_result_location"`
 
@@ -20667,7 +21416,7 @@ public final class Main {
 
       minLength: 1
 
-  - `class CitationSearchResultLocationParam:`
+  - `class CitationSearchResultLocationParam`
 
     - `JsonValue type = "search_result_location"`
 
@@ -20703,7 +21452,7 @@ public final class Main {
 
 ### Text Delta
 
-- `class TextDelta:`
+- `class TextDelta`
 
   - `JsonValue type = "text_delta"`
 
@@ -20711,7 +21460,7 @@ public final class Main {
 
 ### Text Editor Code Execution Create Result Block
 
-- `class TextEditorCodeExecutionCreateResultBlock:`
+- `class TextEditorCodeExecutionCreateResultBlock`
 
   - `JsonValue type = "text_editor_code_execution_create_result"`
 
@@ -20719,7 +21468,7 @@ public final class Main {
 
 ### Text Editor Code Execution Create Result Block Param
 
-- `class TextEditorCodeExecutionCreateResultBlockParam:`
+- `class TextEditorCodeExecutionCreateResultBlockParam`
 
   - `JsonValue type = "text_editor_code_execution_create_result"`
 
@@ -20727,7 +21476,7 @@ public final class Main {
 
 ### Text Editor Code Execution Str Replace Result Block
 
-- `class TextEditorCodeExecutionStrReplaceResultBlock:`
+- `class TextEditorCodeExecutionStrReplaceResultBlock`
 
   - `JsonValue type = "text_editor_code_execution_str_replace_result"`
 
@@ -20743,7 +21492,7 @@ public final class Main {
 
 ### Text Editor Code Execution Str Replace Result Block Param
 
-- `class TextEditorCodeExecutionStrReplaceResultBlockParam:`
+- `class TextEditorCodeExecutionStrReplaceResultBlockParam`
 
   - `JsonValue type = "text_editor_code_execution_str_replace_result"`
 
@@ -20759,13 +21508,13 @@ public final class Main {
 
 ### Text Editor Code Execution Tool Result Block
 
-- `class TextEditorCodeExecutionToolResultBlock:`
+- `class TextEditorCodeExecutionToolResultBlock`
 
   - `JsonValue type = "text_editor_code_execution_tool_result"`
 
   - `Content content`
 
-    - `class TextEditorCodeExecutionToolResultError:`
+    - `class TextEditorCodeExecutionToolResultError`
 
       - `JsonValue type = "text_editor_code_execution_tool_result_error"`
 
@@ -20783,7 +21532,7 @@ public final class Main {
 
       - `Optional<String> errorMessage`
 
-    - `class TextEditorCodeExecutionViewResultBlock:`
+    - `class TextEditorCodeExecutionViewResultBlock`
 
       - `JsonValue type = "text_editor_code_execution_view_result"`
 
@@ -20803,13 +21552,13 @@ public final class Main {
 
       - `Optional<Long> totalLines`
 
-    - `class TextEditorCodeExecutionCreateResultBlock:`
+    - `class TextEditorCodeExecutionCreateResultBlock`
 
       - `JsonValue type = "text_editor_code_execution_create_result"`
 
       - `boolean isFileUpdate`
 
-    - `class TextEditorCodeExecutionStrReplaceResultBlock:`
+    - `class TextEditorCodeExecutionStrReplaceResultBlock`
 
       - `JsonValue type = "text_editor_code_execution_str_replace_result"`
 
@@ -20829,13 +21578,13 @@ public final class Main {
 
 ### Text Editor Code Execution Tool Result Block Param
 
-- `class TextEditorCodeExecutionToolResultBlockParam:`
+- `class TextEditorCodeExecutionToolResultBlockParam`
 
   - `JsonValue type = "text_editor_code_execution_tool_result"`
 
   - `Content content`
 
-    - `class TextEditorCodeExecutionToolResultErrorParam:`
+    - `class TextEditorCodeExecutionToolResultErrorParam`
 
       - `JsonValue type = "text_editor_code_execution_tool_result_error"`
 
@@ -20853,7 +21602,7 @@ public final class Main {
 
       - `Optional<String> errorMessage`
 
-    - `class TextEditorCodeExecutionViewResultBlockParam:`
+    - `class TextEditorCodeExecutionViewResultBlockParam`
 
       - `JsonValue type = "text_editor_code_execution_view_result"`
 
@@ -20873,13 +21622,13 @@ public final class Main {
 
       - `Optional<Long> totalLines`
 
-    - `class TextEditorCodeExecutionCreateResultBlockParam:`
+    - `class TextEditorCodeExecutionCreateResultBlockParam`
 
       - `JsonValue type = "text_editor_code_execution_create_result"`
 
       - `boolean isFileUpdate`
 
-    - `class TextEditorCodeExecutionStrReplaceResultBlockParam:`
+    - `class TextEditorCodeExecutionStrReplaceResultBlockParam`
 
       - `JsonValue type = "text_editor_code_execution_str_replace_result"`
 
@@ -20920,7 +21669,7 @@ public final class Main {
 
 ### Text Editor Code Execution Tool Result Error
 
-- `class TextEditorCodeExecutionToolResultError:`
+- `class TextEditorCodeExecutionToolResultError`
 
   - `JsonValue type = "text_editor_code_execution_tool_result_error"`
 
@@ -20940,7 +21689,7 @@ public final class Main {
 
 ### Text Editor Code Execution Tool Result Error Code
 
-- `enum TextEditorCodeExecutionToolResultErrorCode:`
+- `enum TextEditorCodeExecutionToolResultErrorCode`
 
   - `INVALID_TOOL_INPUT("invalid_tool_input")`
 
@@ -20954,7 +21703,7 @@ public final class Main {
 
 ### Text Editor Code Execution Tool Result Error Param
 
-- `class TextEditorCodeExecutionToolResultErrorParam:`
+- `class TextEditorCodeExecutionToolResultErrorParam`
 
   - `JsonValue type = "text_editor_code_execution_tool_result_error"`
 
@@ -20974,7 +21723,7 @@ public final class Main {
 
 ### Text Editor Code Execution View Result Block
 
-- `class TextEditorCodeExecutionViewResultBlock:`
+- `class TextEditorCodeExecutionViewResultBlock`
 
   - `JsonValue type = "text_editor_code_execution_view_result"`
 
@@ -20996,7 +21745,7 @@ public final class Main {
 
 ### Text Editor Code Execution View Result Block Param
 
-- `class TextEditorCodeExecutionViewResultBlockParam:`
+- `class TextEditorCodeExecutionViewResultBlockParam`
 
   - `JsonValue type = "text_editor_code_execution_view_result"`
 
@@ -21018,7 +21767,7 @@ public final class Main {
 
 ### Thinking Block
 
-- `class ThinkingBlock:`
+- `class ThinkingBlock`
 
   - `JsonValue type = "thinking"`
 
@@ -21036,7 +21785,7 @@ public final class Main {
 
 ### Thinking Block Param
 
-- `class ThinkingBlockParam:`
+- `class ThinkingBlockParam`
 
   - `JsonValue type = "thinking"`
 
@@ -21052,7 +21801,7 @@ public final class Main {
 
 ### Thinking Config Adaptive
 
-- `class ThinkingConfigAdaptive:`
+- `class ThinkingConfigAdaptive`
 
   - `JsonValue type = "adaptive"`
 
@@ -21066,13 +21815,13 @@ public final class Main {
 
 ### Thinking Config Disabled
 
-- `class ThinkingConfigDisabled:`
+- `class ThinkingConfigDisabled`
 
   - `JsonValue type = "disabled"`
 
 ### Thinking Config Enabled
 
-- `class ThinkingConfigEnabled:`
+- `class ThinkingConfigEnabled`
 
   - `JsonValue type = "enabled"`
 
@@ -21104,7 +21853,7 @@ public final class Main {
 
   See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
 
-  - `class ThinkingConfigEnabled:`
+  - `class ThinkingConfigEnabled`
 
     - `JsonValue type = "enabled"`
 
@@ -21126,11 +21875,11 @@ public final class Main {
 
       - `OMITTED("omitted")`
 
-  - `class ThinkingConfigDisabled:`
+  - `class ThinkingConfigDisabled`
 
     - `JsonValue type = "disabled"`
 
-  - `class ThinkingConfigAdaptive:`
+  - `class ThinkingConfigAdaptive`
 
     - `JsonValue type = "adaptive"`
 
@@ -21144,7 +21893,7 @@ public final class Main {
 
 ### Thinking Delta
 
-- `class ThinkingDelta:`
+- `class ThinkingDelta`
 
   - `JsonValue type = "thinking_delta"`
 
@@ -21154,7 +21903,7 @@ public final class Main {
 
 ### Tool
 
-- `class Tool:`
+- `class Tool`
 
   - `Optional<Type> type`
 
@@ -21231,7 +21980,7 @@ public final class Main {
 
 ### Tool Bash 20250124
 
-- `class ToolBash20250124:`
+- `class ToolBash20250124`
 
   - `JsonValue type = "bash_20250124"`
 
@@ -21288,7 +22037,7 @@ public final class Main {
 
   How the model should use the provided tools. The model can use a specific tool, any available tool, decide by itself, or not use tools at all.
 
-  - `class ToolChoiceAuto:`
+  - `class ToolChoiceAuto`
 
     The model will automatically decide whether to use tools.
 
@@ -21300,7 +22049,7 @@ public final class Main {
 
       Defaults to `false`. If set to `true`, the model will output at most one tool use.
 
-  - `class ToolChoiceAny:`
+  - `class ToolChoiceAny`
 
     The model will use any available tools.
 
@@ -21312,7 +22061,7 @@ public final class Main {
 
       Defaults to `false`. If set to `true`, the model will output exactly one tool use.
 
-  - `class ToolChoiceTool:`
+  - `class ToolChoiceTool`
 
     The model will use the specified tool with `tool_choice.name`.
 
@@ -21328,7 +22077,7 @@ public final class Main {
 
       Defaults to `false`. If set to `true`, the model will output exactly one tool use.
 
-  - `class ToolChoiceNone:`
+  - `class ToolChoiceNone`
 
     The model will not be allowed to use tools.
 
@@ -21336,7 +22085,7 @@ public final class Main {
 
 ### Tool Choice Any
 
-- `class ToolChoiceAny:`
+- `class ToolChoiceAny`
 
   The model will use any available tools.
 
@@ -21350,7 +22099,7 @@ public final class Main {
 
 ### Tool Choice Auto
 
-- `class ToolChoiceAuto:`
+- `class ToolChoiceAuto`
 
   The model will automatically decide whether to use tools.
 
@@ -21364,7 +22113,7 @@ public final class Main {
 
 ### Tool Choice None
 
-- `class ToolChoiceNone:`
+- `class ToolChoiceNone`
 
   The model will not be allowed to use tools.
 
@@ -21372,7 +22121,7 @@ public final class Main {
 
 ### Tool Choice Tool
 
-- `class ToolChoiceTool:`
+- `class ToolChoiceTool`
 
   The model will use the specified tool with `tool_choice.name`.
 
@@ -21390,7 +22139,7 @@ public final class Main {
 
 ### Tool Reference Block
 
-- `class ToolReferenceBlock:`
+- `class ToolReferenceBlock`
 
   - `JsonValue type = "tool_reference"`
 
@@ -21400,7 +22149,7 @@ public final class Main {
 
 ### Tool Reference Block Param
 
-- `class ToolReferenceBlockParam:`
+- `class ToolReferenceBlockParam`
 
   Tool reference block that can be included in tool_result content.
 
@@ -21433,7 +22182,7 @@ public final class Main {
 
 ### Tool Result Block Param
 
-- `class ToolResultBlockParam:`
+- `class ToolResultBlockParam`
 
   - `JsonValue type = "tool_result"`
 
@@ -21468,7 +22217,7 @@ public final class Main {
 
     - `List<Block>`
 
-      - `class TextBlockParam:`
+      - `class TextBlockParam`
 
         - `JsonValue type = "text"`
 
@@ -21482,7 +22231,7 @@ public final class Main {
 
         - `Optional<List<TextCitationParam>> citations`
 
-          - `class CitationCharLocationParam:`
+          - `class CitationCharLocationParam`
 
             - `JsonValue type = "char_location"`
 
@@ -21502,7 +22251,7 @@ public final class Main {
 
               minimum: 0
 
-          - `class CitationPageLocationParam:`
+          - `class CitationPageLocationParam`
 
             - `JsonValue type = "page_location"`
 
@@ -21522,7 +22271,7 @@ public final class Main {
 
               minimum: 1
 
-          - `class CitationContentBlockLocationParam:`
+          - `class CitationContentBlockLocationParam`
 
             - `JsonValue type = "content_block_location"`
 
@@ -21552,7 +22301,7 @@ public final class Main {
 
               minimum: 0
 
-          - `class CitationWebSearchResultLocationParam:`
+          - `class CitationWebSearchResultLocationParam`
 
             - `JsonValue type = "web_search_result_location"`
 
@@ -21568,7 +22317,7 @@ public final class Main {
 
               minLength: 1
 
-          - `class CitationSearchResultLocationParam:`
+          - `class CitationSearchResultLocationParam`
 
             - `JsonValue type = "search_result_location"`
 
@@ -21602,13 +22351,13 @@ public final class Main {
 
             - `Optional<String> title`
 
-      - `class ImageBlockParam:`
+      - `class ImageBlockParam`
 
         - `JsonValue type = "image"`
 
         - `Source source`
 
-          - `class Base64ImageSource:`
+          - `class Base64ImageSource`
 
             - `JsonValue type = "base64"`
 
@@ -21626,13 +22375,13 @@ public final class Main {
 
               - `IMAGE_WEBP("image/webp")`
 
-          - `class UrlImageSource:`
+          - `class UrlImageSource`
 
             - `JsonValue type = "url"`
 
             - `String url`
 
-          - `class FileImageSource:`
+          - `class FileImageSource`
 
             - `JsonValue type = "file"`
 
@@ -21654,7 +22403,7 @@ public final class Main {
 
             - `ERROR("error")`
 
-      - `class SearchResultBlockParam:`
+      - `class SearchResultBlockParam`
 
         - `JsonValue type = "search_result"`
 
@@ -21684,13 +22433,13 @@ public final class Main {
 
           - `Optional<Boolean> enabled`
 
-      - `class DocumentBlockParam:`
+      - `class DocumentBlockParam`
 
         - `JsonValue type = "document"`
 
         - `Source source`
 
-          - `class Base64PdfSource:`
+          - `class Base64PdfSource`
 
             - `JsonValue type = "base64"`
 
@@ -21700,7 +22449,7 @@ public final class Main {
 
             - `JsonValue mediaType = "application/pdf"`
 
-          - `class PlainTextSource:`
+          - `class PlainTextSource`
 
             - `JsonValue type = "text"`
 
@@ -21708,7 +22457,7 @@ public final class Main {
 
             - `JsonValue mediaType = "text/plain"`
 
-          - `class ContentBlockSource:`
+          - `class ContentBlockSource`
 
             - `JsonValue type = "content"`
 
@@ -21718,17 +22467,17 @@ public final class Main {
 
               - `List<ContentBlockSourceContent>`
 
-                - `class TextBlockParam:`
+                - `class TextBlockParam`
 
-                - `class ImageBlockParam:`
+                - `class ImageBlockParam`
 
-          - `class UrlPdfSource:`
+          - `class UrlPdfSource`
 
             - `JsonValue type = "url"`
 
             - `String url`
 
-          - `class FileDocumentSource:`
+          - `class FileDocumentSource`
 
             - `JsonValue type = "file"`
 
@@ -21748,7 +22497,7 @@ public final class Main {
 
           maxLength: 500, minLength: 1
 
-      - `class ToolReferenceBlockParam:`
+      - `class ToolReferenceBlockParam`
 
         Tool reference block that can be included in tool_result content.
 
@@ -21762,7 +22511,7 @@ public final class Main {
 
           Create a cache control breakpoint at this content block.
 
-      - `class BrowserStateBlockParam:`
+      - `class BrowserStateBlockParam`
 
         The caller's browser state after a browser toolset member call —
         the full inventory of open tabs, which tab is active, and any side
@@ -21812,7 +22561,7 @@ public final class Main {
 
           maxItems: 200, minItems: 1
 
-          - `class BrowserStateChangeTabOpened:`
+          - `class BrowserStateChangeTabOpened`
 
             A tab this call's execution opened that remains open at its end —
             the creation delta of the `tabs` inventory, not an event log.
@@ -21830,7 +22579,7 @@ public final class Main {
 
               maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-          - `class BrowserStateChangeDownloadStarted:`
+          - `class BrowserStateChangeDownloadStarted`
 
             A file download that started during this call.
 
@@ -21848,7 +22597,7 @@ public final class Main {
 
               maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-          - `class BrowserStateChangeDownloadCompleted:`
+          - `class BrowserStateChangeDownloadCompleted`
 
             A file download that finished during this call, reported with the
             same `download_id` as its `download_started` — or without a prior
@@ -21881,7 +22630,7 @@ public final class Main {
 
               minimum: 0
 
-          - `class BrowserStateChangeDownloadFailed:`
+          - `class BrowserStateChangeDownloadFailed`
 
             A file download that failed — or was cancelled — during this call.
 
@@ -21915,7 +22664,7 @@ public final class Main {
 
 ### Tool Search Tool Bm25 20251119
 
-- `class ToolSearchToolBm25_20251119:`
+- `class ToolSearchToolBm25_20251119`
 
   - `Type type`
 
@@ -21970,7 +22719,7 @@ public final class Main {
 
 ### Tool Search Tool Regex 20251119
 
-- `class ToolSearchToolRegex20251119:`
+- `class ToolSearchToolRegex20251119`
 
   - `Type type`
 
@@ -22025,13 +22774,13 @@ public final class Main {
 
 ### Tool Search Tool Result Block
 
-- `class ToolSearchToolResultBlock:`
+- `class ToolSearchToolResultBlock`
 
   - `JsonValue type = "tool_search_tool_result"`
 
   - `Content content`
 
-    - `class ToolSearchToolResultError:`
+    - `class ToolSearchToolResultError`
 
       - `JsonValue type = "tool_search_tool_result_error"`
 
@@ -22047,7 +22796,7 @@ public final class Main {
 
       - `Optional<String> errorMessage`
 
-    - `class ToolSearchToolSearchResultBlock:`
+    - `class ToolSearchToolSearchResultBlock`
 
       - `JsonValue type = "tool_search_tool_search_result"`
 
@@ -22065,13 +22814,13 @@ public final class Main {
 
 ### Tool Search Tool Result Block Param
 
-- `class ToolSearchToolResultBlockParam:`
+- `class ToolSearchToolResultBlockParam`
 
   - `JsonValue type = "tool_search_tool_result"`
 
   - `Content content`
 
-    - `class ToolSearchToolResultErrorParam:`
+    - `class ToolSearchToolResultErrorParam`
 
       - `JsonValue type = "tool_search_tool_result_error"`
 
@@ -22087,7 +22836,7 @@ public final class Main {
 
       - `Optional<String> errorMessage`
 
-    - `class ToolSearchToolSearchResultBlockParam:`
+    - `class ToolSearchToolSearchResultBlockParam`
 
       - `JsonValue type = "tool_search_tool_search_result"`
 
@@ -22130,7 +22879,7 @@ public final class Main {
 
 ### Tool Search Tool Result Error
 
-- `class ToolSearchToolResultError:`
+- `class ToolSearchToolResultError`
 
   - `JsonValue type = "tool_search_tool_result_error"`
 
@@ -22148,7 +22897,7 @@ public final class Main {
 
 ### Tool Search Tool Result Error Code
 
-- `enum ToolSearchToolResultErrorCode:`
+- `enum ToolSearchToolResultErrorCode`
 
   - `INVALID_TOOL_INPUT("invalid_tool_input")`
 
@@ -22160,7 +22909,7 @@ public final class Main {
 
 ### Tool Search Tool Result Error Param
 
-- `class ToolSearchToolResultErrorParam:`
+- `class ToolSearchToolResultErrorParam`
 
   - `JsonValue type = "tool_search_tool_result_error"`
 
@@ -22178,7 +22927,7 @@ public final class Main {
 
 ### Tool Search Tool Search Result Block
 
-- `class ToolSearchToolSearchResultBlock:`
+- `class ToolSearchToolSearchResultBlock`
 
   - `JsonValue type = "tool_search_tool_search_result"`
 
@@ -22192,7 +22941,7 @@ public final class Main {
 
 ### Tool Search Tool Search Result Block Param
 
-- `class ToolSearchToolSearchResultBlockParam:`
+- `class ToolSearchToolSearchResultBlockParam`
 
   - `JsonValue type = "tool_search_tool_search_result"`
 
@@ -22227,7 +22976,7 @@ public final class Main {
 
 ### Tool Text Editor 20250124
 
-- `class ToolTextEditor20250124:`
+- `class ToolTextEditor20250124`
 
   - `JsonValue type = "text_editor_20250124"`
 
@@ -22280,7 +23029,7 @@ public final class Main {
 
 ### Tool Text Editor 20250429
 
-- `class ToolTextEditor20250429:`
+- `class ToolTextEditor20250429`
 
   - `JsonValue type = "text_editor_20250429"`
 
@@ -22333,7 +23082,7 @@ public final class Main {
 
 ### Tool Text Editor 20250728
 
-- `class ToolTextEditor20250728:`
+- `class ToolTextEditor20250728`
 
   - `JsonValue type = "text_editor_20250728"`
 
@@ -22394,7 +23143,7 @@ public final class Main {
 
 - `class ToolUnion: union`
 
-  - `class Tool:`
+  - `class Tool`
 
     - `Optional<Type> type`
 
@@ -22469,7 +23218,7 @@ public final class Main {
 
       When true, guarantees schema validation on tool names and inputs
 
-  - `class ToolBash20250124:`
+  - `class ToolBash20250124`
 
     - `JsonValue type = "bash_20250124"`
 
@@ -22503,7 +23252,7 @@ public final class Main {
 
       When true, guarantees schema validation on tool names and inputs
 
-  - `class CodeExecutionTool20250522:`
+  - `class CodeExecutionTool20250522`
 
     - `JsonValue type = "code_execution_20250522"`
 
@@ -22535,7 +23284,7 @@ public final class Main {
 
       When true, guarantees schema validation on tool names and inputs
 
-  - `class CodeExecutionTool20250825:`
+  - `class CodeExecutionTool20250825`
 
     - `JsonValue type = "code_execution_20250825"`
 
@@ -22567,7 +23316,7 @@ public final class Main {
 
       When true, guarantees schema validation on tool names and inputs
 
-  - `class CodeExecutionTool20260120:`
+  - `class CodeExecutionTool20260120`
 
     Code execution tool with REPL state persistence (daemon mode + gVisor checkpoint).
 
@@ -22601,7 +23350,7 @@ public final class Main {
 
       When true, guarantees schema validation on tool names and inputs
 
-  - `class CodeExecutionTool20260521:`
+  - `class CodeExecutionTool20260521`
 
     Code execution tool with REPL state persistence.
 
@@ -22635,7 +23384,7 @@ public final class Main {
 
       When true, guarantees schema validation on tool names and inputs
 
-  - `class BrowserToolset20260801:`
+  - `class BrowserToolset20260801`
 
     The browser toolset: a single `tools[]` entry (carrying no
     `name`) that declares the browser tool family. The model is served
@@ -23029,7 +23778,7 @@ public final class Main {
 
           Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-  - `class MemoryTool20250818:`
+  - `class MemoryTool20250818`
 
     - `JsonValue type = "memory_20250818"`
 
@@ -23063,7 +23812,7 @@ public final class Main {
 
       When true, guarantees schema validation on tool names and inputs
 
-  - `class ComputerToolset20260801:`
+  - `class ComputerToolset20260801`
 
     The computer toolset: a single `tools[]` entry (carrying no
     `name`) that declares the computer tool family. The model is
@@ -23293,7 +24042,7 @@ public final class Main {
 
           Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-  - `class ToolTextEditor20250124:`
+  - `class ToolTextEditor20250124`
 
     - `JsonValue type = "text_editor_20250124"`
 
@@ -23327,7 +24076,7 @@ public final class Main {
 
       When true, guarantees schema validation on tool names and inputs
 
-  - `class ToolTextEditor20250429:`
+  - `class ToolTextEditor20250429`
 
     - `JsonValue type = "text_editor_20250429"`
 
@@ -23361,7 +24110,7 @@ public final class Main {
 
       When true, guarantees schema validation on tool names and inputs
 
-  - `class ToolTextEditor20250728:`
+  - `class ToolTextEditor20250728`
 
     - `JsonValue type = "text_editor_20250728"`
 
@@ -23401,7 +24150,7 @@ public final class Main {
 
       When true, guarantees schema validation on tool names and inputs
 
-  - `class WebSearchTool20250305:`
+  - `class WebSearchTool20250305`
 
     - `JsonValue type = "web_search_20250305"`
 
@@ -23477,7 +24226,7 @@ public final class Main {
 
         maxLength: 255, minLength: 1
 
-  - `class WebFetchTool20250910:`
+  - `class WebFetchTool20250910`
 
     - `JsonValue type = "web_fetch_20250910"`
 
@@ -23535,7 +24284,98 @@ public final class Main {
 
       When true, guarantees schema validation on tool names and inputs
 
-  - `class WebSearchTool20260209:`
+    - `Optional<WebFetchUrlSources> urlSources`
+
+      Which sources contribute to the set of URLs web fetch may fetch.
+
+      Each key is a tagged variant: `user_input` is `all` or `none`; the
+      two tool filters are `all`, `none`, `only` (only the named tools'
+      results) or `except` (every result but the named tools'). A named tool
+      must be declared in this request's `tools[]`.
+
+      - `Optional<ClientToolResults> clientToolResults`
+
+        Which client tools' results contribute fetchable URLs: "all", "none", or an only or except list of client tool names from tools[].
+
+        - `class WebFetchUrlSourceAll`
+
+          The `url_sources` variant under which a source contributes in
+          full: every result of the tool filter's source, or all user input.
+
+          - `JsonValue type = "all"`
+
+        - `class WebFetchUrlSourceNone`
+
+          The `url_sources` variant under which a source contributes nothing:
+          no result of the tool filter's source, or no user input.
+
+          - `JsonValue type = "none"`
+
+        - `class WebFetchUrlSourceOnly`
+
+          The tool filter variant under which only the named tools' results
+          contribute.
+
+          - `JsonValue type = "only"`
+
+          - `List<WebFetchUrlSourceToolReference> tools`
+
+            - `JsonValue type = "tool_reference"`
+
+            - `String name`
+
+        - `class WebFetchUrlSourceExcept`
+
+          The tool filter variant under which every result but the named
+          tools' contributes.
+
+          - `JsonValue type = "except"`
+
+          - `List<WebFetchUrlSourceToolReference> tools`
+
+            - `JsonValue type = "tool_reference"`
+
+            - `String name`
+
+      - `Optional<ServerToolResults> serverToolResults`
+
+        Which server tools' results contribute fetchable URLs: "all", "none", or an only or except list of server tool names from tools[]; only web_search and web_fetch results ever contribute.
+
+        - `class WebFetchUrlSourceAll`
+
+          The `url_sources` variant under which a source contributes in
+          full: every result of the tool filter's source, or all user input.
+
+        - `class WebFetchUrlSourceNone`
+
+          The `url_sources` variant under which a source contributes nothing:
+          no result of the tool filter's source, or no user input.
+
+        - `class WebFetchUrlSourceOnly`
+
+          The tool filter variant under which only the named tools' results
+          contribute.
+
+        - `class WebFetchUrlSourceExcept`
+
+          The tool filter variant under which every result but the named
+          tools' contributes.
+
+      - `Optional<UserInput> userInput`
+
+        Whether URLs in user messages are fetchable: "all" or "none".
+
+        - `class WebFetchUrlSourceAll`
+
+          The `url_sources` variant under which a source contributes in
+          full: every result of the tool filter's source, or all user input.
+
+        - `class WebFetchUrlSourceNone`
+
+          The `url_sources` variant under which a source contributes nothing:
+          no result of the tool filter's source, or no user input.
+
+  - `class WebSearchTool20260209`
 
     - `JsonValue type = "web_search_20260209"`
 
@@ -23585,7 +24425,7 @@ public final class Main {
 
       Parameters for the user's location. Used to provide more relevant search results.
 
-  - `class WebFetchTool20260209:`
+  - `class WebFetchTool20260209`
 
     - `JsonValue type = "web_fetch_20260209"`
 
@@ -23641,7 +24481,16 @@ public final class Main {
 
       When true, guarantees schema validation on tool names and inputs
 
-  - `class WebFetchTool20260309:`
+    - `Optional<WebFetchUrlSources> urlSources`
+
+      Which sources contribute to the set of URLs web fetch may fetch.
+
+      Each key is a tagged variant: `user_input` is `all` or `none`; the
+      two tool filters are `all`, `none`, `only` (only the named tools'
+      results) or `except` (every result but the named tools'). A named tool
+      must be declared in this request's `tools[]`.
+
+  - `class WebFetchTool20260309`
 
     Web fetch tool with use_cache parameter for bypassing cached content.
 
@@ -23699,11 +24548,20 @@ public final class Main {
 
       When true, guarantees schema validation on tool names and inputs
 
+    - `Optional<WebFetchUrlSources> urlSources`
+
+      Which sources contribute to the set of URLs web fetch may fetch.
+
+      Each key is a tagged variant: `user_input` is `all` or `none`; the
+      two tool filters are `all`, `none`, `only` (only the named tools'
+      results) or `except` (every result but the named tools'). A named tool
+      must be declared in this request's `tools[]`.
+
     - `Optional<Boolean> useCache`
 
       Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
 
-  - `class WebSearchTool20260318:`
+  - `class WebSearchTool20260318`
 
     - `JsonValue type = "web_search_20260318"`
 
@@ -23761,7 +24619,7 @@ public final class Main {
 
       Parameters for the user's location. Used to provide more relevant search results.
 
-  - `class WebFetchTool20260318:`
+  - `class WebFetchTool20260318`
 
     - `JsonValue type = "web_fetch_20260318"`
 
@@ -23825,11 +24683,20 @@ public final class Main {
 
       When true, guarantees schema validation on tool names and inputs
 
+    - `Optional<WebFetchUrlSources> urlSources`
+
+      Which sources contribute to the set of URLs web fetch may fetch.
+
+      Each key is a tagged variant: `user_input` is `all` or `none`; the
+      two tool filters are `all`, `none`, `only` (only the named tools'
+      results) or `except` (every result but the named tools'). A named tool
+      must be declared in this request's `tools[]`.
+
     - `Optional<Boolean> useCache`
 
       Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
 
-  - `class ToolSearchToolBm25_20251119:`
+  - `class ToolSearchToolBm25_20251119`
 
     - `Type type`
 
@@ -23865,7 +24732,7 @@ public final class Main {
 
       When true, guarantees schema validation on tool names and inputs
 
-  - `class ToolSearchToolRegex20251119:`
+  - `class ToolSearchToolRegex20251119`
 
     - `Type type`
 
@@ -23903,7 +24770,7 @@ public final class Main {
 
 ### Tool Use Block
 
-- `class ToolUseBlock:`
+- `class ToolUseBlock`
 
   - `JsonValue type = "tool_use"`
 
@@ -23913,13 +24780,13 @@ public final class Main {
 
   - `Caller caller`
 
-    - `class DirectCaller:`
+    - `class DirectCaller`
 
       Tool invocation directly from the model.
 
       - `JsonValue type = "direct"`
 
-    - `class ServerToolCaller:`
+    - `class ServerToolCaller`
 
       Tool invocation generated by a server-side tool.
 
@@ -23929,7 +24796,7 @@ public final class Main {
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-    - `class ServerToolCaller20260120:`
+    - `class ServerToolCaller20260120`
 
       - `JsonValue type = "code_execution_20260120"`
 
@@ -23951,7 +24818,7 @@ public final class Main {
 
 ### Tool Use Block Param
 
-- `class ToolUseBlockParam:`
+- `class ToolUseBlockParam`
 
   - `JsonValue type = "tool_use"`
 
@@ -23988,13 +24855,13 @@ public final class Main {
 
   - `Optional<Caller> caller`
 
-    - `class DirectCaller:`
+    - `class DirectCaller`
 
       Tool invocation directly from the model.
 
       - `JsonValue type = "direct"`
 
-    - `class ServerToolCaller:`
+    - `class ServerToolCaller`
 
       Tool invocation generated by a server-side tool.
 
@@ -24004,7 +24871,7 @@ public final class Main {
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-    - `class ServerToolCaller20260120:`
+    - `class ServerToolCaller20260120`
 
       - `JsonValue type = "code_execution_20260120"`
 
@@ -24020,7 +24887,7 @@ public final class Main {
 
 ### URL Image Source
 
-- `class UrlImageSource:`
+- `class UrlImageSource`
 
   - `JsonValue type = "url"`
 
@@ -24028,7 +24895,7 @@ public final class Main {
 
 ### URL PDF Source
 
-- `class UrlPdfSource:`
+- `class UrlPdfSource`
 
   - `JsonValue type = "url"`
 
@@ -24036,7 +24903,7 @@ public final class Main {
 
 ### Usage
 
-- `class Usage:`
+- `class Usage`
 
   - `Optional<CacheCreation> cacheCreation`
 
@@ -24132,7 +24999,7 @@ public final class Main {
 
 ### User Location
 
-- `class UserLocation:`
+- `class UserLocation`
 
   - `JsonValue type = "approximate"`
 
@@ -24162,7 +25029,7 @@ public final class Main {
 
 ### Web Fetch Block
 
-- `class WebFetchBlock:`
+- `class WebFetchBlock`
 
   - `JsonValue type = "web_fetch_result"`
 
@@ -24178,7 +25045,7 @@ public final class Main {
 
     - `Source source`
 
-      - `class Base64PdfSource:`
+      - `class Base64PdfSource`
 
         - `JsonValue type = "base64"`
 
@@ -24188,7 +25055,7 @@ public final class Main {
 
         - `JsonValue mediaType = "application/pdf"`
 
-      - `class PlainTextSource:`
+      - `class PlainTextSource`
 
         - `JsonValue type = "text"`
 
@@ -24210,7 +25077,7 @@ public final class Main {
 
 ### Web Fetch Block Param
 
-- `class WebFetchBlockParam:`
+- `class WebFetchBlockParam`
 
   - `JsonValue type = "web_fetch_result"`
 
@@ -24220,7 +25087,7 @@ public final class Main {
 
     - `Source source`
 
-      - `class Base64PdfSource:`
+      - `class Base64PdfSource`
 
         - `JsonValue type = "base64"`
 
@@ -24230,7 +25097,7 @@ public final class Main {
 
         - `JsonValue mediaType = "application/pdf"`
 
-      - `class PlainTextSource:`
+      - `class PlainTextSource`
 
         - `JsonValue type = "text"`
 
@@ -24238,7 +25105,7 @@ public final class Main {
 
         - `JsonValue mediaType = "text/plain"`
 
-      - `class ContentBlockSource:`
+      - `class ContentBlockSource`
 
         - `JsonValue type = "content"`
 
@@ -24248,7 +25115,7 @@ public final class Main {
 
           - `List<ContentBlockSourceContent>`
 
-            - `class TextBlockParam:`
+            - `class TextBlockParam`
 
               - `JsonValue type = "text"`
 
@@ -24279,7 +25146,7 @@ public final class Main {
 
               - `Optional<List<TextCitationParam>> citations`
 
-                - `class CitationCharLocationParam:`
+                - `class CitationCharLocationParam`
 
                   - `JsonValue type = "char_location"`
 
@@ -24299,7 +25166,7 @@ public final class Main {
 
                     minimum: 0
 
-                - `class CitationPageLocationParam:`
+                - `class CitationPageLocationParam`
 
                   - `JsonValue type = "page_location"`
 
@@ -24319,7 +25186,7 @@ public final class Main {
 
                     minimum: 1
 
-                - `class CitationContentBlockLocationParam:`
+                - `class CitationContentBlockLocationParam`
 
                   - `JsonValue type = "content_block_location"`
 
@@ -24349,7 +25216,7 @@ public final class Main {
 
                     minimum: 0
 
-                - `class CitationWebSearchResultLocationParam:`
+                - `class CitationWebSearchResultLocationParam`
 
                   - `JsonValue type = "web_search_result_location"`
 
@@ -24365,7 +25232,7 @@ public final class Main {
 
                     minLength: 1
 
-                - `class CitationSearchResultLocationParam:`
+                - `class CitationSearchResultLocationParam`
 
                   - `JsonValue type = "search_result_location"`
 
@@ -24399,13 +25266,13 @@ public final class Main {
 
                   - `Optional<String> title`
 
-            - `class ImageBlockParam:`
+            - `class ImageBlockParam`
 
               - `JsonValue type = "image"`
 
               - `Source source`
 
-                - `class Base64ImageSource:`
+                - `class Base64ImageSource`
 
                   - `JsonValue type = "base64"`
 
@@ -24423,13 +25290,13 @@ public final class Main {
 
                     - `IMAGE_WEBP("image/webp")`
 
-                - `class UrlImageSource:`
+                - `class UrlImageSource`
 
                   - `JsonValue type = "url"`
 
                   - `String url`
 
-                - `class FileImageSource:`
+                - `class FileImageSource`
 
                   - `JsonValue type = "file"`
 
@@ -24451,13 +25318,13 @@ public final class Main {
 
                   - `ERROR("error")`
 
-      - `class UrlPdfSource:`
+      - `class UrlPdfSource`
 
         - `JsonValue type = "url"`
 
         - `String url`
 
-      - `class FileDocumentSource:`
+      - `class FileDocumentSource`
 
         - `JsonValue type = "file"`
 
@@ -24489,7 +25356,7 @@ public final class Main {
 
 ### Web Fetch Tool 20250910
 
-- `class WebFetchTool20250910:`
+- `class WebFetchTool20250910`
 
   - `JsonValue type = "web_fetch_20250910"`
 
@@ -24564,9 +25431,100 @@ public final class Main {
 
     When true, guarantees schema validation on tool names and inputs
 
+  - `Optional<WebFetchUrlSources> urlSources`
+
+    Which sources contribute to the set of URLs web fetch may fetch.
+
+    Each key is a tagged variant: `user_input` is `all` or `none`; the
+    two tool filters are `all`, `none`, `only` (only the named tools'
+    results) or `except` (every result but the named tools'). A named tool
+    must be declared in this request's `tools[]`.
+
+    - `Optional<ClientToolResults> clientToolResults`
+
+      Which client tools' results contribute fetchable URLs: "all", "none", or an only or except list of client tool names from tools[].
+
+      - `class WebFetchUrlSourceAll`
+
+        The `url_sources` variant under which a source contributes in
+        full: every result of the tool filter's source, or all user input.
+
+        - `JsonValue type = "all"`
+
+      - `class WebFetchUrlSourceNone`
+
+        The `url_sources` variant under which a source contributes nothing:
+        no result of the tool filter's source, or no user input.
+
+        - `JsonValue type = "none"`
+
+      - `class WebFetchUrlSourceOnly`
+
+        The tool filter variant under which only the named tools' results
+        contribute.
+
+        - `JsonValue type = "only"`
+
+        - `List<WebFetchUrlSourceToolReference> tools`
+
+          - `JsonValue type = "tool_reference"`
+
+          - `String name`
+
+      - `class WebFetchUrlSourceExcept`
+
+        The tool filter variant under which every result but the named
+        tools' contributes.
+
+        - `JsonValue type = "except"`
+
+        - `List<WebFetchUrlSourceToolReference> tools`
+
+          - `JsonValue type = "tool_reference"`
+
+          - `String name`
+
+    - `Optional<ServerToolResults> serverToolResults`
+
+      Which server tools' results contribute fetchable URLs: "all", "none", or an only or except list of server tool names from tools[]; only web_search and web_fetch results ever contribute.
+
+      - `class WebFetchUrlSourceAll`
+
+        The `url_sources` variant under which a source contributes in
+        full: every result of the tool filter's source, or all user input.
+
+      - `class WebFetchUrlSourceNone`
+
+        The `url_sources` variant under which a source contributes nothing:
+        no result of the tool filter's source, or no user input.
+
+      - `class WebFetchUrlSourceOnly`
+
+        The tool filter variant under which only the named tools' results
+        contribute.
+
+      - `class WebFetchUrlSourceExcept`
+
+        The tool filter variant under which every result but the named
+        tools' contributes.
+
+    - `Optional<UserInput> userInput`
+
+      Whether URLs in user messages are fetchable: "all" or "none".
+
+      - `class WebFetchUrlSourceAll`
+
+        The `url_sources` variant under which a source contributes in
+        full: every result of the tool filter's source, or all user input.
+
+      - `class WebFetchUrlSourceNone`
+
+        The `url_sources` variant under which a source contributes nothing:
+        no result of the tool filter's source, or no user input.
+
 ### Web Fetch Tool 20260209
 
-- `class WebFetchTool20260209:`
+- `class WebFetchTool20260209`
 
   - `JsonValue type = "web_fetch_20260209"`
 
@@ -24641,9 +25599,100 @@ public final class Main {
 
     When true, guarantees schema validation on tool names and inputs
 
+  - `Optional<WebFetchUrlSources> urlSources`
+
+    Which sources contribute to the set of URLs web fetch may fetch.
+
+    Each key is a tagged variant: `user_input` is `all` or `none`; the
+    two tool filters are `all`, `none`, `only` (only the named tools'
+    results) or `except` (every result but the named tools'). A named tool
+    must be declared in this request's `tools[]`.
+
+    - `Optional<ClientToolResults> clientToolResults`
+
+      Which client tools' results contribute fetchable URLs: "all", "none", or an only or except list of client tool names from tools[].
+
+      - `class WebFetchUrlSourceAll`
+
+        The `url_sources` variant under which a source contributes in
+        full: every result of the tool filter's source, or all user input.
+
+        - `JsonValue type = "all"`
+
+      - `class WebFetchUrlSourceNone`
+
+        The `url_sources` variant under which a source contributes nothing:
+        no result of the tool filter's source, or no user input.
+
+        - `JsonValue type = "none"`
+
+      - `class WebFetchUrlSourceOnly`
+
+        The tool filter variant under which only the named tools' results
+        contribute.
+
+        - `JsonValue type = "only"`
+
+        - `List<WebFetchUrlSourceToolReference> tools`
+
+          - `JsonValue type = "tool_reference"`
+
+          - `String name`
+
+      - `class WebFetchUrlSourceExcept`
+
+        The tool filter variant under which every result but the named
+        tools' contributes.
+
+        - `JsonValue type = "except"`
+
+        - `List<WebFetchUrlSourceToolReference> tools`
+
+          - `JsonValue type = "tool_reference"`
+
+          - `String name`
+
+    - `Optional<ServerToolResults> serverToolResults`
+
+      Which server tools' results contribute fetchable URLs: "all", "none", or an only or except list of server tool names from tools[]; only web_search and web_fetch results ever contribute.
+
+      - `class WebFetchUrlSourceAll`
+
+        The `url_sources` variant under which a source contributes in
+        full: every result of the tool filter's source, or all user input.
+
+      - `class WebFetchUrlSourceNone`
+
+        The `url_sources` variant under which a source contributes nothing:
+        no result of the tool filter's source, or no user input.
+
+      - `class WebFetchUrlSourceOnly`
+
+        The tool filter variant under which only the named tools' results
+        contribute.
+
+      - `class WebFetchUrlSourceExcept`
+
+        The tool filter variant under which every result but the named
+        tools' contributes.
+
+    - `Optional<UserInput> userInput`
+
+      Whether URLs in user messages are fetchable: "all" or "none".
+
+      - `class WebFetchUrlSourceAll`
+
+        The `url_sources` variant under which a source contributes in
+        full: every result of the tool filter's source, or all user input.
+
+      - `class WebFetchUrlSourceNone`
+
+        The `url_sources` variant under which a source contributes nothing:
+        no result of the tool filter's source, or no user input.
+
 ### Web Fetch Tool 20260309
 
-- `class WebFetchTool20260309:`
+- `class WebFetchTool20260309`
 
   Web fetch tool with use_cache parameter for bypassing cached content.
 
@@ -24720,13 +25769,104 @@ public final class Main {
 
     When true, guarantees schema validation on tool names and inputs
 
+  - `Optional<WebFetchUrlSources> urlSources`
+
+    Which sources contribute to the set of URLs web fetch may fetch.
+
+    Each key is a tagged variant: `user_input` is `all` or `none`; the
+    two tool filters are `all`, `none`, `only` (only the named tools'
+    results) or `except` (every result but the named tools'). A named tool
+    must be declared in this request's `tools[]`.
+
+    - `Optional<ClientToolResults> clientToolResults`
+
+      Which client tools' results contribute fetchable URLs: "all", "none", or an only or except list of client tool names from tools[].
+
+      - `class WebFetchUrlSourceAll`
+
+        The `url_sources` variant under which a source contributes in
+        full: every result of the tool filter's source, or all user input.
+
+        - `JsonValue type = "all"`
+
+      - `class WebFetchUrlSourceNone`
+
+        The `url_sources` variant under which a source contributes nothing:
+        no result of the tool filter's source, or no user input.
+
+        - `JsonValue type = "none"`
+
+      - `class WebFetchUrlSourceOnly`
+
+        The tool filter variant under which only the named tools' results
+        contribute.
+
+        - `JsonValue type = "only"`
+
+        - `List<WebFetchUrlSourceToolReference> tools`
+
+          - `JsonValue type = "tool_reference"`
+
+          - `String name`
+
+      - `class WebFetchUrlSourceExcept`
+
+        The tool filter variant under which every result but the named
+        tools' contributes.
+
+        - `JsonValue type = "except"`
+
+        - `List<WebFetchUrlSourceToolReference> tools`
+
+          - `JsonValue type = "tool_reference"`
+
+          - `String name`
+
+    - `Optional<ServerToolResults> serverToolResults`
+
+      Which server tools' results contribute fetchable URLs: "all", "none", or an only or except list of server tool names from tools[]; only web_search and web_fetch results ever contribute.
+
+      - `class WebFetchUrlSourceAll`
+
+        The `url_sources` variant under which a source contributes in
+        full: every result of the tool filter's source, or all user input.
+
+      - `class WebFetchUrlSourceNone`
+
+        The `url_sources` variant under which a source contributes nothing:
+        no result of the tool filter's source, or no user input.
+
+      - `class WebFetchUrlSourceOnly`
+
+        The tool filter variant under which only the named tools' results
+        contribute.
+
+      - `class WebFetchUrlSourceExcept`
+
+        The tool filter variant under which every result but the named
+        tools' contributes.
+
+    - `Optional<UserInput> userInput`
+
+      Whether URLs in user messages are fetchable: "all" or "none".
+
+      - `class WebFetchUrlSourceAll`
+
+        The `url_sources` variant under which a source contributes in
+        full: every result of the tool filter's source, or all user input.
+
+      - `class WebFetchUrlSourceNone`
+
+        The `url_sources` variant under which a source contributes nothing:
+        no result of the tool filter's source, or no user input.
+
   - `Optional<Boolean> useCache`
 
     Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
 
 ### Web Fetch Tool 20260318
 
-- `class WebFetchTool20260318:`
+- `class WebFetchTool20260318`
 
   - `JsonValue type = "web_fetch_20260318"`
 
@@ -24809,25 +25949,116 @@ public final class Main {
 
     When true, guarantees schema validation on tool names and inputs
 
+  - `Optional<WebFetchUrlSources> urlSources`
+
+    Which sources contribute to the set of URLs web fetch may fetch.
+
+    Each key is a tagged variant: `user_input` is `all` or `none`; the
+    two tool filters are `all`, `none`, `only` (only the named tools'
+    results) or `except` (every result but the named tools'). A named tool
+    must be declared in this request's `tools[]`.
+
+    - `Optional<ClientToolResults> clientToolResults`
+
+      Which client tools' results contribute fetchable URLs: "all", "none", or an only or except list of client tool names from tools[].
+
+      - `class WebFetchUrlSourceAll`
+
+        The `url_sources` variant under which a source contributes in
+        full: every result of the tool filter's source, or all user input.
+
+        - `JsonValue type = "all"`
+
+      - `class WebFetchUrlSourceNone`
+
+        The `url_sources` variant under which a source contributes nothing:
+        no result of the tool filter's source, or no user input.
+
+        - `JsonValue type = "none"`
+
+      - `class WebFetchUrlSourceOnly`
+
+        The tool filter variant under which only the named tools' results
+        contribute.
+
+        - `JsonValue type = "only"`
+
+        - `List<WebFetchUrlSourceToolReference> tools`
+
+          - `JsonValue type = "tool_reference"`
+
+          - `String name`
+
+      - `class WebFetchUrlSourceExcept`
+
+        The tool filter variant under which every result but the named
+        tools' contributes.
+
+        - `JsonValue type = "except"`
+
+        - `List<WebFetchUrlSourceToolReference> tools`
+
+          - `JsonValue type = "tool_reference"`
+
+          - `String name`
+
+    - `Optional<ServerToolResults> serverToolResults`
+
+      Which server tools' results contribute fetchable URLs: "all", "none", or an only or except list of server tool names from tools[]; only web_search and web_fetch results ever contribute.
+
+      - `class WebFetchUrlSourceAll`
+
+        The `url_sources` variant under which a source contributes in
+        full: every result of the tool filter's source, or all user input.
+
+      - `class WebFetchUrlSourceNone`
+
+        The `url_sources` variant under which a source contributes nothing:
+        no result of the tool filter's source, or no user input.
+
+      - `class WebFetchUrlSourceOnly`
+
+        The tool filter variant under which only the named tools' results
+        contribute.
+
+      - `class WebFetchUrlSourceExcept`
+
+        The tool filter variant under which every result but the named
+        tools' contributes.
+
+    - `Optional<UserInput> userInput`
+
+      Whether URLs in user messages are fetchable: "all" or "none".
+
+      - `class WebFetchUrlSourceAll`
+
+        The `url_sources` variant under which a source contributes in
+        full: every result of the tool filter's source, or all user input.
+
+      - `class WebFetchUrlSourceNone`
+
+        The `url_sources` variant under which a source contributes nothing:
+        no result of the tool filter's source, or no user input.
+
   - `Optional<Boolean> useCache`
 
     Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
 
 ### Web Fetch Tool Result Block
 
-- `class WebFetchToolResultBlock:`
+- `class WebFetchToolResultBlock`
 
   - `JsonValue type = "web_fetch_tool_result"`
 
   - `Caller caller`
 
-    - `class DirectCaller:`
+    - `class DirectCaller`
 
       Tool invocation directly from the model.
 
       - `JsonValue type = "direct"`
 
-    - `class ServerToolCaller:`
+    - `class ServerToolCaller`
 
       Tool invocation generated by a server-side tool.
 
@@ -24837,7 +26068,7 @@ public final class Main {
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-    - `class ServerToolCaller20260120:`
+    - `class ServerToolCaller20260120`
 
       - `JsonValue type = "code_execution_20260120"`
 
@@ -24847,7 +26078,7 @@ public final class Main {
 
   - `Content content`
 
-    - `class WebFetchToolResultErrorBlock:`
+    - `class WebFetchToolResultErrorBlock`
 
       - `JsonValue type = "web_fetch_tool_result_error"`
 
@@ -24873,7 +26104,7 @@ public final class Main {
 
         - `CONTENT_TOO_LARGE("content_too_large")`
 
-    - `class WebFetchBlock:`
+    - `class WebFetchBlock`
 
       - `JsonValue type = "web_fetch_result"`
 
@@ -24889,7 +26120,7 @@ public final class Main {
 
         - `Source source`
 
-          - `class Base64PdfSource:`
+          - `class Base64PdfSource`
 
             - `JsonValue type = "base64"`
 
@@ -24899,7 +26130,7 @@ public final class Main {
 
             - `JsonValue mediaType = "application/pdf"`
 
-          - `class PlainTextSource:`
+          - `class PlainTextSource`
 
             - `JsonValue type = "text"`
 
@@ -24925,13 +26156,13 @@ public final class Main {
 
 ### Web Fetch Tool Result Block Param
 
-- `class WebFetchToolResultBlockParam:`
+- `class WebFetchToolResultBlockParam`
 
   - `JsonValue type = "web_fetch_tool_result"`
 
   - `Content content`
 
-    - `class WebFetchToolResultErrorBlockParam:`
+    - `class WebFetchToolResultErrorBlockParam`
 
       - `JsonValue type = "web_fetch_tool_result_error"`
 
@@ -24957,7 +26188,7 @@ public final class Main {
 
         - `CONTENT_TOO_LARGE("content_too_large")`
 
-    - `class WebFetchBlockParam:`
+    - `class WebFetchBlockParam`
 
       - `JsonValue type = "web_fetch_result"`
 
@@ -24967,7 +26198,7 @@ public final class Main {
 
         - `Source source`
 
-          - `class Base64PdfSource:`
+          - `class Base64PdfSource`
 
             - `JsonValue type = "base64"`
 
@@ -24977,7 +26208,7 @@ public final class Main {
 
             - `JsonValue mediaType = "application/pdf"`
 
-          - `class PlainTextSource:`
+          - `class PlainTextSource`
 
             - `JsonValue type = "text"`
 
@@ -24985,7 +26216,7 @@ public final class Main {
 
             - `JsonValue mediaType = "text/plain"`
 
-          - `class ContentBlockSource:`
+          - `class ContentBlockSource`
 
             - `JsonValue type = "content"`
 
@@ -24995,7 +26226,7 @@ public final class Main {
 
               - `List<ContentBlockSourceContent>`
 
-                - `class TextBlockParam:`
+                - `class TextBlockParam`
 
                   - `JsonValue type = "text"`
 
@@ -25026,7 +26257,7 @@ public final class Main {
 
                   - `Optional<List<TextCitationParam>> citations`
 
-                    - `class CitationCharLocationParam:`
+                    - `class CitationCharLocationParam`
 
                       - `JsonValue type = "char_location"`
 
@@ -25046,7 +26277,7 @@ public final class Main {
 
                         minimum: 0
 
-                    - `class CitationPageLocationParam:`
+                    - `class CitationPageLocationParam`
 
                       - `JsonValue type = "page_location"`
 
@@ -25066,7 +26297,7 @@ public final class Main {
 
                         minimum: 1
 
-                    - `class CitationContentBlockLocationParam:`
+                    - `class CitationContentBlockLocationParam`
 
                       - `JsonValue type = "content_block_location"`
 
@@ -25096,7 +26327,7 @@ public final class Main {
 
                         minimum: 0
 
-                    - `class CitationWebSearchResultLocationParam:`
+                    - `class CitationWebSearchResultLocationParam`
 
                       - `JsonValue type = "web_search_result_location"`
 
@@ -25112,7 +26343,7 @@ public final class Main {
 
                         minLength: 1
 
-                    - `class CitationSearchResultLocationParam:`
+                    - `class CitationSearchResultLocationParam`
 
                       - `JsonValue type = "search_result_location"`
 
@@ -25146,13 +26377,13 @@ public final class Main {
 
                       - `Optional<String> title`
 
-                - `class ImageBlockParam:`
+                - `class ImageBlockParam`
 
                   - `JsonValue type = "image"`
 
                   - `Source source`
 
-                    - `class Base64ImageSource:`
+                    - `class Base64ImageSource`
 
                       - `JsonValue type = "base64"`
 
@@ -25170,13 +26401,13 @@ public final class Main {
 
                         - `IMAGE_WEBP("image/webp")`
 
-                    - `class UrlImageSource:`
+                    - `class UrlImageSource`
 
                       - `JsonValue type = "url"`
 
                       - `String url`
 
-                    - `class FileImageSource:`
+                    - `class FileImageSource`
 
                       - `JsonValue type = "file"`
 
@@ -25198,13 +26429,13 @@ public final class Main {
 
                       - `ERROR("error")`
 
-          - `class UrlPdfSource:`
+          - `class UrlPdfSource`
 
             - `JsonValue type = "url"`
 
             - `String url`
 
-          - `class FileDocumentSource:`
+          - `class FileDocumentSource`
 
             - `JsonValue type = "file"`
 
@@ -25244,13 +26475,13 @@ public final class Main {
 
   - `Optional<Caller> caller`
 
-    - `class DirectCaller:`
+    - `class DirectCaller`
 
       Tool invocation directly from the model.
 
       - `JsonValue type = "direct"`
 
-    - `class ServerToolCaller:`
+    - `class ServerToolCaller`
 
       Tool invocation generated by a server-side tool.
 
@@ -25260,7 +26491,7 @@ public final class Main {
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-    - `class ServerToolCaller20260120:`
+    - `class ServerToolCaller20260120`
 
       - `JsonValue type = "code_execution_20260120"`
 
@@ -25270,7 +26501,7 @@ public final class Main {
 
 ### Web Fetch Tool Result Error Block
 
-- `class WebFetchToolResultErrorBlock:`
+- `class WebFetchToolResultErrorBlock`
 
   - `JsonValue type = "web_fetch_tool_result_error"`
 
@@ -25298,7 +26529,7 @@ public final class Main {
 
 ### Web Fetch Tool Result Error Block Param
 
-- `class WebFetchToolResultErrorBlockParam:`
+- `class WebFetchToolResultErrorBlockParam`
 
   - `JsonValue type = "web_fetch_tool_result_error"`
 
@@ -25326,7 +26557,7 @@ public final class Main {
 
 ### Web Fetch Tool Result Error Code
 
-- `enum WebFetchToolResultErrorCode:`
+- `enum WebFetchToolResultErrorCode`
 
   - `INVALID_TOOL_INPUT("invalid_tool_input")`
 
@@ -25348,9 +26579,161 @@ public final class Main {
 
   - `CONTENT_TOO_LARGE("content_too_large")`
 
+### Web Fetch URL Source All
+
+- `class WebFetchUrlSourceAll`
+
+  The `url_sources` variant under which a source contributes in
+  full: every result of the tool filter's source, or all user input.
+
+  - `JsonValue type = "all"`
+
+### Web Fetch URL Source Except
+
+- `class WebFetchUrlSourceExcept`
+
+  The tool filter variant under which every result but the named
+  tools' contributes.
+
+  - `JsonValue type = "except"`
+
+  - `List<WebFetchUrlSourceToolReference> tools`
+
+    - `JsonValue type = "tool_reference"`
+
+    - `String name`
+
+### Web Fetch URL Source None
+
+- `class WebFetchUrlSourceNone`
+
+  The `url_sources` variant under which a source contributes nothing:
+  no result of the tool filter's source, or no user input.
+
+  - `JsonValue type = "none"`
+
+### Web Fetch URL Source Only
+
+- `class WebFetchUrlSourceOnly`
+
+  The tool filter variant under which only the named tools' results
+  contribute.
+
+  - `JsonValue type = "only"`
+
+  - `List<WebFetchUrlSourceToolReference> tools`
+
+    - `JsonValue type = "tool_reference"`
+
+    - `String name`
+
+### Web Fetch URL Source Tool Reference
+
+- `class WebFetchUrlSourceToolReference`
+
+  One entry of a tool filter's `tools`: it must name a tool declared
+  in this request's `tools[]`.
+
+  - `JsonValue type = "tool_reference"`
+
+  - `String name`
+
+### Web Fetch URL Sources
+
+- `class WebFetchUrlSources`
+
+  Which sources contribute to the set of URLs web fetch may fetch.
+
+  Each key is a tagged variant: `user_input` is `all` or `none`; the
+  two tool filters are `all`, `none`, `only` (only the named tools'
+  results) or `except` (every result but the named tools'). A named tool
+  must be declared in this request's `tools[]`.
+
+  - `Optional<ClientToolResults> clientToolResults`
+
+    Which client tools' results contribute fetchable URLs: "all", "none", or an only or except list of client tool names from tools[].
+
+    - `class WebFetchUrlSourceAll`
+
+      The `url_sources` variant under which a source contributes in
+      full: every result of the tool filter's source, or all user input.
+
+      - `JsonValue type = "all"`
+
+    - `class WebFetchUrlSourceNone`
+
+      The `url_sources` variant under which a source contributes nothing:
+      no result of the tool filter's source, or no user input.
+
+      - `JsonValue type = "none"`
+
+    - `class WebFetchUrlSourceOnly`
+
+      The tool filter variant under which only the named tools' results
+      contribute.
+
+      - `JsonValue type = "only"`
+
+      - `List<WebFetchUrlSourceToolReference> tools`
+
+        - `JsonValue type = "tool_reference"`
+
+        - `String name`
+
+    - `class WebFetchUrlSourceExcept`
+
+      The tool filter variant under which every result but the named
+      tools' contributes.
+
+      - `JsonValue type = "except"`
+
+      - `List<WebFetchUrlSourceToolReference> tools`
+
+        - `JsonValue type = "tool_reference"`
+
+        - `String name`
+
+  - `Optional<ServerToolResults> serverToolResults`
+
+    Which server tools' results contribute fetchable URLs: "all", "none", or an only or except list of server tool names from tools[]; only web_search and web_fetch results ever contribute.
+
+    - `class WebFetchUrlSourceAll`
+
+      The `url_sources` variant under which a source contributes in
+      full: every result of the tool filter's source, or all user input.
+
+    - `class WebFetchUrlSourceNone`
+
+      The `url_sources` variant under which a source contributes nothing:
+      no result of the tool filter's source, or no user input.
+
+    - `class WebFetchUrlSourceOnly`
+
+      The tool filter variant under which only the named tools' results
+      contribute.
+
+    - `class WebFetchUrlSourceExcept`
+
+      The tool filter variant under which every result but the named
+      tools' contributes.
+
+  - `Optional<UserInput> userInput`
+
+    Whether URLs in user messages are fetchable: "all" or "none".
+
+    - `class WebFetchUrlSourceAll`
+
+      The `url_sources` variant under which a source contributes in
+      full: every result of the tool filter's source, or all user input.
+
+    - `class WebFetchUrlSourceNone`
+
+      The `url_sources` variant under which a source contributes nothing:
+      no result of the tool filter's source, or no user input.
+
 ### Web Search Result Block
 
-- `class WebSearchResultBlock:`
+- `class WebSearchResultBlock`
 
   - `JsonValue type = "web_search_result"`
 
@@ -25364,7 +26747,7 @@ public final class Main {
 
 ### Web Search Result Block Param
 
-- `class WebSearchResultBlockParam:`
+- `class WebSearchResultBlockParam`
 
   - `JsonValue type = "web_search_result"`
 
@@ -25378,7 +26761,7 @@ public final class Main {
 
 ### Web Search Tool 20250305
 
-- `class WebSearchTool20250305:`
+- `class WebSearchTool20250305`
 
   - `JsonValue type = "web_search_20250305"`
 
@@ -25473,7 +26856,7 @@ public final class Main {
 
 ### Web Search Tool 20260209
 
-- `class WebSearchTool20260209:`
+- `class WebSearchTool20260209`
 
   - `JsonValue type = "web_search_20260209"`
 
@@ -25568,7 +26951,7 @@ public final class Main {
 
 ### Web Search Tool 20260318
 
-- `class WebSearchTool20260318:`
+- `class WebSearchTool20260318`
 
   - `JsonValue type = "web_search_20260318"`
 
@@ -25671,7 +27054,7 @@ public final class Main {
 
 ### Web Search Tool Request Error
 
-- `class WebSearchToolRequestError:`
+- `class WebSearchToolRequestError`
 
   - `JsonValue type = "web_search_tool_result_error"`
 
@@ -25691,19 +27074,19 @@ public final class Main {
 
 ### Web Search Tool Result Block
 
-- `class WebSearchToolResultBlock:`
+- `class WebSearchToolResultBlock`
 
   - `JsonValue type = "web_search_tool_result"`
 
   - `Caller caller`
 
-    - `class DirectCaller:`
+    - `class DirectCaller`
 
       Tool invocation directly from the model.
 
       - `JsonValue type = "direct"`
 
-    - `class ServerToolCaller:`
+    - `class ServerToolCaller`
 
       Tool invocation generated by a server-side tool.
 
@@ -25713,7 +27096,7 @@ public final class Main {
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-    - `class ServerToolCaller20260120:`
+    - `class ServerToolCaller20260120`
 
       - `JsonValue type = "code_execution_20260120"`
 
@@ -25723,7 +27106,7 @@ public final class Main {
 
   - `WebSearchToolResultBlockContent content`
 
-    - `class WebSearchToolResultError:`
+    - `class WebSearchToolResultError`
 
       - `JsonValue type = "web_search_tool_result_error"`
 
@@ -25761,7 +27144,7 @@ public final class Main {
 
 - `class WebSearchToolResultBlockContent: union`
 
-  - `class WebSearchToolResultError:`
+  - `class WebSearchToolResultError`
 
     - `JsonValue type = "web_search_tool_result_error"`
 
@@ -25793,7 +27176,7 @@ public final class Main {
 
 ### Web Search Tool Result Block Param
 
-- `class WebSearchToolResultBlockParam:`
+- `class WebSearchToolResultBlockParam`
 
   - `JsonValue type = "web_search_tool_result"`
 
@@ -25811,7 +27194,7 @@ public final class Main {
 
       - `Optional<String> pageAge`
 
-    - `class WebSearchToolRequestError:`
+    - `class WebSearchToolRequestError`
 
       - `JsonValue type = "web_search_tool_result_error"`
 
@@ -25856,13 +27239,13 @@ public final class Main {
 
   - `Optional<Caller> caller`
 
-    - `class DirectCaller:`
+    - `class DirectCaller`
 
       Tool invocation directly from the model.
 
       - `JsonValue type = "direct"`
 
-    - `class ServerToolCaller:`
+    - `class ServerToolCaller`
 
       Tool invocation generated by a server-side tool.
 
@@ -25872,7 +27255,7 @@ public final class Main {
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-    - `class ServerToolCaller20260120:`
+    - `class ServerToolCaller20260120`
 
       - `JsonValue type = "code_execution_20260120"`
 
@@ -25896,7 +27279,7 @@ public final class Main {
 
     - `Optional<String> pageAge`
 
-  - `class WebSearchToolRequestError:`
+  - `class WebSearchToolRequestError`
 
     - `JsonValue type = "web_search_tool_result_error"`
 
@@ -25916,7 +27299,7 @@ public final class Main {
 
 ### Web Search Tool Result Error
 
-- `class WebSearchToolResultError:`
+- `class WebSearchToolResultError`
 
   - `JsonValue type = "web_search_tool_result_error"`
 
@@ -25936,7 +27319,7 @@ public final class Main {
 
 ### Web Search Tool Result Error Code
 
-- `enum WebSearchToolResultErrorCode:`
+- `enum WebSearchToolResultErrorCode`
 
   - `INVALID_TOOL_INPUT("invalid_tool_input")`
 
@@ -25973,6 +27356,10 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
     The user profile ID to attribute the requests in this batch to. Use when acting on behalf of a party other than your organization. Requires the `user-profiles` beta header. Applies to every request in the batch; an individual request whose `user_profile_id` body field conflicts with this header is errored.
 
   - `Optional<String> workspaceId`
+
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
   - `List<Request> requests`
 
@@ -26063,7 +27450,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           - `List<ContentBlockParam>`
 
-            - `class TextBlockParam:`
+            - `class TextBlockParam`
 
               - `JsonValue type = "text"`
 
@@ -26094,7 +27481,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `Optional<List<TextCitationParam>> citations`
 
-                - `class CitationCharLocationParam:`
+                - `class CitationCharLocationParam`
 
                   - `JsonValue type = "char_location"`
 
@@ -26114,7 +27501,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     minimum: 0
 
-                - `class CitationPageLocationParam:`
+                - `class CitationPageLocationParam`
 
                   - `JsonValue type = "page_location"`
 
@@ -26134,7 +27521,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     minimum: 1
 
-                - `class CitationContentBlockLocationParam:`
+                - `class CitationContentBlockLocationParam`
 
                   - `JsonValue type = "content_block_location"`
 
@@ -26164,7 +27551,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     minimum: 0
 
-                - `class CitationWebSearchResultLocationParam:`
+                - `class CitationWebSearchResultLocationParam`
 
                   - `JsonValue type = "web_search_result_location"`
 
@@ -26180,7 +27567,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     minLength: 1
 
-                - `class CitationSearchResultLocationParam:`
+                - `class CitationSearchResultLocationParam`
 
                   - `JsonValue type = "search_result_location"`
 
@@ -26214,13 +27601,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `Optional<String> title`
 
-            - `class ImageBlockParam:`
+            - `class ImageBlockParam`
 
               - `JsonValue type = "image"`
 
               - `Source source`
 
-                - `class Base64ImageSource:`
+                - `class Base64ImageSource`
 
                   - `JsonValue type = "base64"`
 
@@ -26238,13 +27625,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     - `IMAGE_WEBP("image/webp")`
 
-                - `class UrlImageSource:`
+                - `class UrlImageSource`
 
                   - `JsonValue type = "url"`
 
                   - `String url`
 
-                - `class FileImageSource:`
+                - `class FileImageSource`
 
                   - `JsonValue type = "file"`
 
@@ -26266,13 +27653,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `ERROR("error")`
 
-            - `class DocumentBlockParam:`
+            - `class DocumentBlockParam`
 
               - `JsonValue type = "document"`
 
               - `Source source`
 
-                - `class Base64PdfSource:`
+                - `class Base64PdfSource`
 
                   - `JsonValue type = "base64"`
 
@@ -26282,7 +27669,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `JsonValue mediaType = "application/pdf"`
 
-                - `class PlainTextSource:`
+                - `class PlainTextSource`
 
                   - `JsonValue type = "text"`
 
@@ -26290,7 +27677,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `JsonValue mediaType = "text/plain"`
 
-                - `class ContentBlockSource:`
+                - `class ContentBlockSource`
 
                   - `JsonValue type = "content"`
 
@@ -26300,17 +27687,17 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     - `List<ContentBlockSourceContent>`
 
-                      - `class TextBlockParam:`
+                      - `class TextBlockParam`
 
-                      - `class ImageBlockParam:`
+                      - `class ImageBlockParam`
 
-                - `class UrlPdfSource:`
+                - `class UrlPdfSource`
 
                   - `JsonValue type = "url"`
 
                   - `String url`
 
-                - `class FileDocumentSource:`
+                - `class FileDocumentSource`
 
                   - `JsonValue type = "file"`
 
@@ -26332,7 +27719,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 maxLength: 500, minLength: 1
 
-            - `class SearchResultBlockParam:`
+            - `class SearchResultBlockParam`
 
               - `JsonValue type = "search_result"`
 
@@ -26360,7 +27747,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `Optional<CitationsConfigParam> citations`
 
-            - `class ThinkingBlockParam:`
+            - `class ThinkingBlockParam`
 
               - `JsonValue type = "thinking"`
 
@@ -26374,7 +27761,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 The `thinking` text of this block as returned by the API.
 
-            - `class RedactedThinkingBlockParam:`
+            - `class RedactedThinkingBlockParam`
 
               - `JsonValue type = "redacted_thinking"`
 
@@ -26382,7 +27769,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 The `data` value of this redacted thinking block, exactly as returned by the API in a previous response. Opaque and encrypted; pass it back unchanged.
 
-            - `class ToolUseBlockParam:`
+            - `class ToolUseBlockParam`
 
               - `JsonValue type = "tool_use"`
 
@@ -26402,13 +27789,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `Optional<Caller> caller`
 
-                - `class DirectCaller:`
+                - `class DirectCaller`
 
                   Tool invocation directly from the model.
 
                   - `JsonValue type = "direct"`
 
-                - `class ServerToolCaller:`
+                - `class ServerToolCaller`
 
                   Tool invocation generated by a server-side tool.
 
@@ -26418,7 +27805,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-                - `class ServerToolCaller20260120:`
+                - `class ServerToolCaller20260120`
 
                   - `JsonValue type = "code_execution_20260120"`
 
@@ -26432,7 +27819,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
 
-            - `class ToolResultBlockParam:`
+            - `class ToolResultBlockParam`
 
               - `JsonValue type = "tool_result"`
 
@@ -26450,15 +27837,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `List<Block>`
 
-                  - `class TextBlockParam:`
+                  - `class TextBlockParam`
 
-                  - `class ImageBlockParam:`
+                  - `class ImageBlockParam`
 
-                  - `class SearchResultBlockParam:`
+                  - `class SearchResultBlockParam`
 
-                  - `class DocumentBlockParam:`
+                  - `class DocumentBlockParam`
 
-                  - `class ToolReferenceBlockParam:`
+                  - `class ToolReferenceBlockParam`
 
                     Tool reference block that can be included in tool_result content.
 
@@ -26472,7 +27859,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                       Create a cache control breakpoint at this content block.
 
-                  - `class BrowserStateBlockParam:`
+                  - `class BrowserStateBlockParam`
 
                     The caller's browser state after a browser toolset member call —
                     the full inventory of open tabs, which tab is active, and any side
@@ -26522,7 +27909,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                       maxItems: 200, minItems: 1
 
-                      - `class BrowserStateChangeTabOpened:`
+                      - `class BrowserStateChangeTabOpened`
 
                         A tab this call's execution opened that remains open at its end —
                         the creation delta of the `tabs` inventory, not an event log.
@@ -26540,7 +27927,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-                      - `class BrowserStateChangeDownloadStarted:`
+                      - `class BrowserStateChangeDownloadStarted`
 
                         A file download that started during this call.
 
@@ -26558,7 +27945,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-                      - `class BrowserStateChangeDownloadCompleted:`
+                      - `class BrowserStateChangeDownloadCompleted`
 
                         A file download that finished during this call, reported with the
                         same `download_id` as its `download_started` — or without a prior
@@ -26591,7 +27978,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           minimum: 0
 
-                      - `class BrowserStateChangeDownloadFailed:`
+                      - `class BrowserStateChangeDownloadFailed`
 
                         A file download that failed — or was cancelled — during this call.
 
@@ -26623,7 +28010,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
 
-            - `class ServerToolUseBlockParam:`
+            - `class ServerToolUseBlockParam`
 
               - `JsonValue type = "server_tool_use"`
 
@@ -26655,17 +28042,17 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `Optional<Caller> caller`
 
-                - `class DirectCaller:`
+                - `class DirectCaller`
 
                   Tool invocation directly from the model.
 
-                - `class ServerToolCaller:`
+                - `class ServerToolCaller`
 
                   Tool invocation generated by a server-side tool.
 
-                - `class ServerToolCaller20260120:`
+                - `class ServerToolCaller20260120`
 
-            - `class WebSearchToolResultBlockParam:`
+            - `class WebSearchToolResultBlockParam`
 
               - `JsonValue type = "web_search_tool_result"`
 
@@ -26683,7 +28070,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `Optional<String> pageAge`
 
-                - `class WebSearchToolRequestError:`
+                - `class WebSearchToolRequestError`
 
                   - `JsonValue type = "web_search_tool_result_error"`
 
@@ -26711,23 +28098,23 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `Optional<Caller> caller`
 
-                - `class DirectCaller:`
+                - `class DirectCaller`
 
                   Tool invocation directly from the model.
 
-                - `class ServerToolCaller:`
+                - `class ServerToolCaller`
 
                   Tool invocation generated by a server-side tool.
 
-                - `class ServerToolCaller20260120:`
+                - `class ServerToolCaller20260120`
 
-            - `class WebFetchToolResultBlockParam:`
+            - `class WebFetchToolResultBlockParam`
 
               - `JsonValue type = "web_fetch_tool_result"`
 
               - `Content content`
 
-                - `class WebFetchToolResultErrorBlockParam:`
+                - `class WebFetchToolResultErrorBlockParam`
 
                   - `JsonValue type = "web_fetch_tool_result_error"`
 
@@ -26753,7 +28140,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     - `CONTENT_TOO_LARGE("content_too_large")`
 
-                - `class WebFetchBlockParam:`
+                - `class WebFetchBlockParam`
 
                   - `JsonValue type = "web_fetch_result"`
 
@@ -26777,23 +28164,23 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `Optional<Caller> caller`
 
-                - `class DirectCaller:`
+                - `class DirectCaller`
 
                   Tool invocation directly from the model.
 
-                - `class ServerToolCaller:`
+                - `class ServerToolCaller`
 
                   Tool invocation generated by a server-side tool.
 
-                - `class ServerToolCaller20260120:`
+                - `class ServerToolCaller20260120`
 
-            - `class CodeExecutionToolResultBlockParam:`
+            - `class CodeExecutionToolResultBlockParam`
 
               - `JsonValue type = "code_execution_tool_result"`
 
               - `CodeExecutionToolResultBlockParamContent content`
 
-                - `class CodeExecutionToolResultErrorParam:`
+                - `class CodeExecutionToolResultErrorParam`
 
                   - `JsonValue type = "code_execution_tool_result_error"`
 
@@ -26807,7 +28194,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     - `EXECUTION_TIME_EXCEEDED("execution_time_exceeded")`
 
-                - `class CodeExecutionResultBlockParam:`
+                - `class CodeExecutionResultBlockParam`
 
                   - `JsonValue type = "code_execution_result"`
 
@@ -26823,7 +28210,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `String stdout`
 
-                - `class EncryptedCodeExecutionResultBlockParam:`
+                - `class EncryptedCodeExecutionResultBlockParam`
 
                   Code execution result with encrypted stdout for PFC + web_search results.
 
@@ -26849,13 +28236,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 Create a cache control breakpoint at this content block.
 
-            - `class BashCodeExecutionToolResultBlockParam:`
+            - `class BashCodeExecutionToolResultBlockParam`
 
               - `JsonValue type = "bash_code_execution_tool_result"`
 
               - `Content content`
 
-                - `class BashCodeExecutionToolResultErrorParam:`
+                - `class BashCodeExecutionToolResultErrorParam`
 
                   - `JsonValue type = "bash_code_execution_tool_result_error"`
 
@@ -26871,7 +28258,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     - `OUTPUT_FILE_TOO_LARGE("output_file_too_large")`
 
-                - `class BashCodeExecutionResultBlockParam:`
+                - `class BashCodeExecutionResultBlockParam`
 
                   - `JsonValue type = "bash_code_execution_result"`
 
@@ -26895,13 +28282,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 Create a cache control breakpoint at this content block.
 
-            - `class TextEditorCodeExecutionToolResultBlockParam:`
+            - `class TextEditorCodeExecutionToolResultBlockParam`
 
               - `JsonValue type = "text_editor_code_execution_tool_result"`
 
               - `Content content`
 
-                - `class TextEditorCodeExecutionToolResultErrorParam:`
+                - `class TextEditorCodeExecutionToolResultErrorParam`
 
                   - `JsonValue type = "text_editor_code_execution_tool_result_error"`
 
@@ -26919,7 +28306,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `Optional<String> errorMessage`
 
-                - `class TextEditorCodeExecutionViewResultBlockParam:`
+                - `class TextEditorCodeExecutionViewResultBlockParam`
 
                   - `JsonValue type = "text_editor_code_execution_view_result"`
 
@@ -26939,13 +28326,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `Optional<Long> totalLines`
 
-                - `class TextEditorCodeExecutionCreateResultBlockParam:`
+                - `class TextEditorCodeExecutionCreateResultBlockParam`
 
                   - `JsonValue type = "text_editor_code_execution_create_result"`
 
                   - `boolean isFileUpdate`
 
-                - `class TextEditorCodeExecutionStrReplaceResultBlockParam:`
+                - `class TextEditorCodeExecutionStrReplaceResultBlockParam`
 
                   - `JsonValue type = "text_editor_code_execution_str_replace_result"`
 
@@ -26967,13 +28354,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 Create a cache control breakpoint at this content block.
 
-            - `class ToolSearchToolResultBlockParam:`
+            - `class ToolSearchToolResultBlockParam`
 
               - `JsonValue type = "tool_search_tool_result"`
 
               - `Content content`
 
-                - `class ToolSearchToolResultErrorParam:`
+                - `class ToolSearchToolResultErrorParam`
 
                   - `JsonValue type = "tool_search_tool_result_error"`
 
@@ -26989,7 +28376,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `Optional<String> errorMessage`
 
-                - `class ToolSearchToolSearchResultBlockParam:`
+                - `class ToolSearchToolSearchResultBlockParam`
 
                   - `JsonValue type = "tool_search_tool_search_result"`
 
@@ -27013,7 +28400,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 Create a cache control breakpoint at this content block.
 
-            - `class ContainerUploadBlockParam:`
+            - `class ContainerUploadBlockParam`
 
               A content block that represents a file to be uploaded to the container
               Files uploaded via this block will be available in the container's input directory.
@@ -27043,6 +28430,10 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
         - `CLAUDE_FABLE_5_1("claude-fable-5-1")`
 
           Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+        - `CLAUDE_OPUS_5_5("claude-opus-5-5")`
+
+          Powerful intelligence for coding, knowledge work, and long-running agents
 
         - `CLAUDE_MYTHOS_5_1("claude-mythos-5-1")`
 
@@ -27116,7 +28507,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         Container identifier for reuse across requests.
 
-        - `class ContainerParams:`
+        - `class ContainerParams`
 
           Container parameters with skills to be loaded.
 
@@ -27151,6 +28542,17 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
               maxLength: 64, minLength: 1
 
         - `String`
+
+      - `Optional<DiagnosticsParam> diagnostics`
+
+        Request-level diagnostics. Currently carries the previous response
+        id for prompt-cache divergence reporting.
+
+        - `Optional<String> previousMessageId`
+
+          The `id` (`msg_...`) from this client's previous /v1/messages response. The server compares that request's prompt fingerprint against this one and returns `diagnostics.cache_miss_reason` when the prompt-cache prefix could not be reused. Pass `null` on the first turn to opt in without a prior message to compare.
+
+          maxLength: 256
 
       - `Optional<String> inferenceGeo`
 
@@ -27250,7 +28652,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
 
-        - `class ThinkingConfigEnabled:`
+        - `class ThinkingConfigEnabled`
 
           - `JsonValue type = "enabled"`
 
@@ -27272,11 +28674,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `OMITTED("omitted")`
 
-        - `class ThinkingConfigDisabled:`
+        - `class ThinkingConfigDisabled`
 
           - `JsonValue type = "disabled"`
 
-        - `class ThinkingConfigAdaptive:`
+        - `class ThinkingConfigAdaptive`
 
           - `JsonValue type = "adaptive"`
 
@@ -27292,7 +28694,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         How the model should use the provided tools. The model can use a specific tool, any available tool, decide by itself, or not use tools at all.
 
-        - `class ToolChoiceAuto:`
+        - `class ToolChoiceAuto`
 
           The model will automatically decide whether to use tools.
 
@@ -27304,7 +28706,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             Defaults to `false`. If set to `true`, the model will output at most one tool use.
 
-        - `class ToolChoiceAny:`
+        - `class ToolChoiceAny`
 
           The model will use any available tools.
 
@@ -27316,7 +28718,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             Defaults to `false`. If set to `true`, the model will output exactly one tool use.
 
-        - `class ToolChoiceTool:`
+        - `class ToolChoiceTool`
 
           The model will use the specified tool with `tool_choice.name`.
 
@@ -27332,7 +28734,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             Defaults to `false`. If set to `true`, the model will output exactly one tool use.
 
-        - `class ToolChoiceNone:`
+        - `class ToolChoiceNone`
 
           The model will not be allowed to use tools.
 
@@ -27402,7 +28804,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         See our [guide](https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview) for more details.
 
-        - `class Tool:`
+        - `class Tool`
 
           - `Optional<Type> type`
 
@@ -27460,7 +28862,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             When true, guarantees schema validation on tool names and inputs
 
-        - `class ToolBash20250124:`
+        - `class ToolBash20250124`
 
           - `JsonValue type = "bash_20250124"`
 
@@ -27494,7 +28896,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             When true, guarantees schema validation on tool names and inputs
 
-        - `class CodeExecutionTool20250522:`
+        - `class CodeExecutionTool20250522`
 
           - `JsonValue type = "code_execution_20250522"`
 
@@ -27526,7 +28928,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             When true, guarantees schema validation on tool names and inputs
 
-        - `class CodeExecutionTool20250825:`
+        - `class CodeExecutionTool20250825`
 
           - `JsonValue type = "code_execution_20250825"`
 
@@ -27558,7 +28960,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             When true, guarantees schema validation on tool names and inputs
 
-        - `class CodeExecutionTool20260120:`
+        - `class CodeExecutionTool20260120`
 
           Code execution tool with REPL state persistence (daemon mode + gVisor checkpoint).
 
@@ -27592,7 +28994,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             When true, guarantees schema validation on tool names and inputs
 
-        - `class CodeExecutionTool20260521:`
+        - `class CodeExecutionTool20260521`
 
           Code execution tool with REPL state persistence.
 
@@ -27626,7 +29028,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             When true, guarantees schema validation on tool names and inputs
 
-        - `class BrowserToolset20260801:`
+        - `class BrowserToolset20260801`
 
           The browser toolset: a single `tools[]` entry (carrying no
           `name`) that declares the browser tool family. The model is served
@@ -28020,7 +29422,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-        - `class MemoryTool20250818:`
+        - `class MemoryTool20250818`
 
           - `JsonValue type = "memory_20250818"`
 
@@ -28054,7 +29456,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             When true, guarantees schema validation on tool names and inputs
 
-        - `class ComputerToolset20260801:`
+        - `class ComputerToolset20260801`
 
           The computer toolset: a single `tools[]` entry (carrying no
           `name`) that declares the computer tool family. The model is
@@ -28284,7 +29686,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-        - `class ToolTextEditor20250124:`
+        - `class ToolTextEditor20250124`
 
           - `JsonValue type = "text_editor_20250124"`
 
@@ -28318,7 +29720,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             When true, guarantees schema validation on tool names and inputs
 
-        - `class ToolTextEditor20250429:`
+        - `class ToolTextEditor20250429`
 
           - `JsonValue type = "text_editor_20250429"`
 
@@ -28352,7 +29754,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             When true, guarantees schema validation on tool names and inputs
 
-        - `class ToolTextEditor20250728:`
+        - `class ToolTextEditor20250728`
 
           - `JsonValue type = "text_editor_20250728"`
 
@@ -28392,7 +29794,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             When true, guarantees schema validation on tool names and inputs
 
-        - `class WebSearchTool20250305:`
+        - `class WebSearchTool20250305`
 
           - `JsonValue type = "web_search_20250305"`
 
@@ -28468,7 +29870,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               maxLength: 255, minLength: 1
 
-        - `class WebFetchTool20250910:`
+        - `class WebFetchTool20250910`
 
           - `JsonValue type = "web_fetch_20250910"`
 
@@ -28524,7 +29926,98 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             When true, guarantees schema validation on tool names and inputs
 
-        - `class WebSearchTool20260209:`
+          - `Optional<WebFetchUrlSources> urlSources`
+
+            Which sources contribute to the set of URLs web fetch may fetch.
+
+            Each key is a tagged variant: `user_input` is `all` or `none`; the
+            two tool filters are `all`, `none`, `only` (only the named tools'
+            results) or `except` (every result but the named tools'). A named tool
+            must be declared in this request's `tools[]`.
+
+            - `Optional<ClientToolResults> clientToolResults`
+
+              Which client tools' results contribute fetchable URLs: "all", "none", or an only or except list of client tool names from tools[].
+
+              - `class WebFetchUrlSourceAll`
+
+                The `url_sources` variant under which a source contributes in
+                full: every result of the tool filter's source, or all user input.
+
+                - `JsonValue type = "all"`
+
+              - `class WebFetchUrlSourceNone`
+
+                The `url_sources` variant under which a source contributes nothing:
+                no result of the tool filter's source, or no user input.
+
+                - `JsonValue type = "none"`
+
+              - `class WebFetchUrlSourceOnly`
+
+                The tool filter variant under which only the named tools' results
+                contribute.
+
+                - `JsonValue type = "only"`
+
+                - `List<WebFetchUrlSourceToolReference> tools`
+
+                  - `JsonValue type = "tool_reference"`
+
+                  - `String name`
+
+              - `class WebFetchUrlSourceExcept`
+
+                The tool filter variant under which every result but the named
+                tools' contributes.
+
+                - `JsonValue type = "except"`
+
+                - `List<WebFetchUrlSourceToolReference> tools`
+
+                  - `JsonValue type = "tool_reference"`
+
+                  - `String name`
+
+            - `Optional<ServerToolResults> serverToolResults`
+
+              Which server tools' results contribute fetchable URLs: "all", "none", or an only or except list of server tool names from tools[]; only web_search and web_fetch results ever contribute.
+
+              - `class WebFetchUrlSourceAll`
+
+                The `url_sources` variant under which a source contributes in
+                full: every result of the tool filter's source, or all user input.
+
+              - `class WebFetchUrlSourceNone`
+
+                The `url_sources` variant under which a source contributes nothing:
+                no result of the tool filter's source, or no user input.
+
+              - `class WebFetchUrlSourceOnly`
+
+                The tool filter variant under which only the named tools' results
+                contribute.
+
+              - `class WebFetchUrlSourceExcept`
+
+                The tool filter variant under which every result but the named
+                tools' contributes.
+
+            - `Optional<UserInput> userInput`
+
+              Whether URLs in user messages are fetchable: "all" or "none".
+
+              - `class WebFetchUrlSourceAll`
+
+                The `url_sources` variant under which a source contributes in
+                full: every result of the tool filter's source, or all user input.
+
+              - `class WebFetchUrlSourceNone`
+
+                The `url_sources` variant under which a source contributes nothing:
+                no result of the tool filter's source, or no user input.
+
+        - `class WebSearchTool20260209`
 
           - `JsonValue type = "web_search_20260209"`
 
@@ -28574,7 +30067,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             Parameters for the user's location. Used to provide more relevant search results.
 
-        - `class WebFetchTool20260209:`
+        - `class WebFetchTool20260209`
 
           - `JsonValue type = "web_fetch_20260209"`
 
@@ -28630,7 +30123,16 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             When true, guarantees schema validation on tool names and inputs
 
-        - `class WebFetchTool20260309:`
+          - `Optional<WebFetchUrlSources> urlSources`
+
+            Which sources contribute to the set of URLs web fetch may fetch.
+
+            Each key is a tagged variant: `user_input` is `all` or `none`; the
+            two tool filters are `all`, `none`, `only` (only the named tools'
+            results) or `except` (every result but the named tools'). A named tool
+            must be declared in this request's `tools[]`.
+
+        - `class WebFetchTool20260309`
 
           Web fetch tool with use_cache parameter for bypassing cached content.
 
@@ -28688,11 +30190,20 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             When true, guarantees schema validation on tool names and inputs
 
+          - `Optional<WebFetchUrlSources> urlSources`
+
+            Which sources contribute to the set of URLs web fetch may fetch.
+
+            Each key is a tagged variant: `user_input` is `all` or `none`; the
+            two tool filters are `all`, `none`, `only` (only the named tools'
+            results) or `except` (every result but the named tools'). A named tool
+            must be declared in this request's `tools[]`.
+
           - `Optional<Boolean> useCache`
 
             Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
 
-        - `class WebSearchTool20260318:`
+        - `class WebSearchTool20260318`
 
           - `JsonValue type = "web_search_20260318"`
 
@@ -28750,7 +30261,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             Parameters for the user's location. Used to provide more relevant search results.
 
-        - `class WebFetchTool20260318:`
+        - `class WebFetchTool20260318`
 
           - `JsonValue type = "web_fetch_20260318"`
 
@@ -28814,11 +30325,20 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             When true, guarantees schema validation on tool names and inputs
 
+          - `Optional<WebFetchUrlSources> urlSources`
+
+            Which sources contribute to the set of URLs web fetch may fetch.
+
+            Each key is a tagged variant: `user_input` is `all` or `none`; the
+            two tool filters are `all`, `none`, `only` (only the named tools'
+            results) or `except` (every result but the named tools'). A named tool
+            must be declared in this request's `tools[]`.
+
           - `Optional<Boolean> useCache`
 
             Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
 
-        - `class ToolSearchToolBm25_20251119:`
+        - `class ToolSearchToolBm25_20251119`
 
           - `Type type`
 
@@ -28854,7 +30374,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             When true, guarantees schema validation on tool names and inputs
 
-        - `class ToolSearchToolRegex20251119:`
+        - `class ToolSearchToolRegex20251119`
 
           - `Type type`
 
@@ -28892,7 +30412,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `Optional<Double> temperature`
 
-        **Deprecated**: Deprecated. Models released after Claude Opus 4.6 do not support setting temperature. A value of 1.0 of will be accepted for backwards compatibility, all other values will be rejected with a 400 error.
+        **Deprecated**: Deprecated. Models released after Claude Opus 4.6 do not support setting temperature. A value of 1.0 will be accepted for backwards compatibility, all other values will be rejected with a 400 error.
 
         Amount of randomness injected into the response.
 
@@ -28928,7 +30448,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
 #### Returns
 
-- `class MessageBatch:`
+- `class MessageBatch`
 
   - `JsonValue type = "message_batch"`
 
@@ -29099,9 +30619,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   - `Optional<String> workspaceId`
 
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `class MessageBatch:`
+- `class MessageBatch`
 
   - `JsonValue type = "message_batch"`
 
@@ -29273,9 +30797,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   - `Optional<String> workspaceId`
 
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `class MessageBatch:`
+- `class MessageBatch`
 
   - `JsonValue type = "message_batch"`
 
@@ -29444,9 +30972,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   - `Optional<String> workspaceId`
 
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `class MessageBatch:`
+- `class MessageBatch`
 
   - `JsonValue type = "message_batch"`
 
@@ -29608,9 +31140,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   - `Optional<String> workspaceId`
 
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `class DeletedMessageBatch:`
+- `class DeletedMessageBatch`
 
   - `JsonValue type = "message_batch_deleted"`
 
@@ -29674,9 +31210,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   - `Optional<String> workspaceId`
 
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `class MessageBatchIndividualResponse:`
+- `class MessageBatchIndividualResponse`
 
   This is a single line in the response `.jsonl` file and does not represent the response as a whole.
 
@@ -29692,7 +31232,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     Contains a Message output if processing was successful, an error response if processing failed, or the reason why processing was not attempted, such as cancellation or expiration.
 
-    - `class MessageBatchSucceededResult:`
+    - `class MessageBatchSucceededResult`
 
       - `JsonValue type = "succeeded"`
 
@@ -29777,7 +31317,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
           [{"type": "text", "text": "B)"}]
           ```
 
-          - `class TextBlock:`
+          - `class TextBlock`
 
             - `JsonValue type = "text"`
 
@@ -29787,7 +31327,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
 
-              - `class CitationCharLocation:`
+              - `class CitationCharLocation`
 
                 - `JsonValue type = "char_location"`
 
@@ -29807,7 +31347,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   minimum: 0
 
-              - `class CitationPageLocation:`
+              - `class CitationPageLocation`
 
                 - `JsonValue type = "page_location"`
 
@@ -29827,7 +31367,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   minimum: 1
 
-              - `class CitationContentBlockLocation:`
+              - `class CitationContentBlockLocation`
 
                 - `JsonValue type = "content_block_location"`
 
@@ -29857,7 +31397,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   minimum: 0
 
-              - `class CitationsWebSearchResultLocation:`
+              - `class CitationsWebSearchResultLocation`
 
                 - `JsonValue type = "web_search_result_location"`
 
@@ -29871,7 +31411,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `String url`
 
-              - `class CitationsSearchResultLocation:`
+              - `class CitationsSearchResultLocation`
 
                 - `JsonValue type = "search_result_location"`
 
@@ -29909,7 +31449,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               minLength: 0
 
-          - `class ThinkingBlock:`
+          - `class ThinkingBlock`
 
             - `JsonValue type = "thinking"`
 
@@ -29925,7 +31465,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               The text of Claude's thinking process for this block.
 
-          - `class RedactedThinkingBlock:`
+          - `class RedactedThinkingBlock`
 
             - `JsonValue type = "redacted_thinking"`
 
@@ -29937,7 +31477,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking#redacted-thinking-blocks) for details.
 
-          - `class ToolUseBlock:`
+          - `class ToolUseBlock`
 
             - `JsonValue type = "tool_use"`
 
@@ -29947,13 +31487,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `Caller caller`
 
-              - `class DirectCaller:`
+              - `class DirectCaller`
 
                 Tool invocation directly from the model.
 
                 - `JsonValue type = "direct"`
 
-              - `class ServerToolCaller:`
+              - `class ServerToolCaller`
 
                 Tool invocation generated by a server-side tool.
 
@@ -29963,7 +31503,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-              - `class ServerToolCaller20260120:`
+              - `class ServerToolCaller20260120`
 
                 - `JsonValue type = "code_execution_20260120"`
 
@@ -29983,7 +31523,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
 
-          - `class ServerToolUseBlock:`
+          - `class ServerToolUseBlock`
 
             - `JsonValue type = "server_tool_use"`
 
@@ -29993,15 +31533,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `Caller caller`
 
-              - `class DirectCaller:`
+              - `class DirectCaller`
 
                 Tool invocation directly from the model.
 
-              - `class ServerToolCaller:`
+              - `class ServerToolCaller`
 
                 Tool invocation generated by a server-side tool.
 
-              - `class ServerToolCaller20260120:`
+              - `class ServerToolCaller20260120`
 
             - `Input input`
 
@@ -30021,25 +31561,25 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `TOOL_SEARCH_TOOL_BM25("tool_search_tool_bm25")`
 
-          - `class WebSearchToolResultBlock:`
+          - `class WebSearchToolResultBlock`
 
             - `JsonValue type = "web_search_tool_result"`
 
             - `Caller caller`
 
-              - `class DirectCaller:`
+              - `class DirectCaller`
 
                 Tool invocation directly from the model.
 
-              - `class ServerToolCaller:`
+              - `class ServerToolCaller`
 
                 Tool invocation generated by a server-side tool.
 
-              - `class ServerToolCaller20260120:`
+              - `class ServerToolCaller20260120`
 
             - `WebSearchToolResultBlockContent content`
 
-              - `class WebSearchToolResultError:`
+              - `class WebSearchToolResultError`
 
                 - `JsonValue type = "web_search_tool_result_error"`
 
@@ -30073,25 +31613,25 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `class WebFetchToolResultBlock:`
+          - `class WebFetchToolResultBlock`
 
             - `JsonValue type = "web_fetch_tool_result"`
 
             - `Caller caller`
 
-              - `class DirectCaller:`
+              - `class DirectCaller`
 
                 Tool invocation directly from the model.
 
-              - `class ServerToolCaller:`
+              - `class ServerToolCaller`
 
                 Tool invocation generated by a server-side tool.
 
-              - `class ServerToolCaller20260120:`
+              - `class ServerToolCaller20260120`
 
             - `Content content`
 
-              - `class WebFetchToolResultErrorBlock:`
+              - `class WebFetchToolResultErrorBlock`
 
                 - `JsonValue type = "web_fetch_tool_result_error"`
 
@@ -30117,7 +31657,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `CONTENT_TOO_LARGE("content_too_large")`
 
-              - `class WebFetchBlock:`
+              - `class WebFetchBlock`
 
                 - `JsonValue type = "web_fetch_result"`
 
@@ -30133,7 +31673,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `Source source`
 
-                    - `class Base64PdfSource:`
+                    - `class Base64PdfSource`
 
                       - `JsonValue type = "base64"`
 
@@ -30143,7 +31683,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                       - `JsonValue mediaType = "application/pdf"`
 
-                    - `class PlainTextSource:`
+                    - `class PlainTextSource`
 
                       - `JsonValue type = "text"`
 
@@ -30167,13 +31707,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `class CodeExecutionToolResultBlock:`
+          - `class CodeExecutionToolResultBlock`
 
             - `JsonValue type = "code_execution_tool_result"`
 
             - `CodeExecutionToolResultBlockContent content`
 
-              - `class CodeExecutionToolResultError:`
+              - `class CodeExecutionToolResultError`
 
                 - `JsonValue type = "code_execution_tool_result_error"`
 
@@ -30187,7 +31727,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `EXECUTION_TIME_EXCEEDED("execution_time_exceeded")`
 
-              - `class CodeExecutionResultBlock:`
+              - `class CodeExecutionResultBlock`
 
                 - `JsonValue type = "code_execution_result"`
 
@@ -30203,7 +31743,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `String stdout`
 
-              - `class EncryptedCodeExecutionResultBlock:`
+              - `class EncryptedCodeExecutionResultBlock`
 
                 Code execution result with encrypted stdout for PFC + web_search results.
 
@@ -30225,13 +31765,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `class BashCodeExecutionToolResultBlock:`
+          - `class BashCodeExecutionToolResultBlock`
 
             - `JsonValue type = "bash_code_execution_tool_result"`
 
             - `Content content`
 
-              - `class BashCodeExecutionToolResultError:`
+              - `class BashCodeExecutionToolResultError`
 
                 - `JsonValue type = "bash_code_execution_tool_result_error"`
 
@@ -30247,7 +31787,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `OUTPUT_FILE_TOO_LARGE("output_file_too_large")`
 
-              - `class BashCodeExecutionResultBlock:`
+              - `class BashCodeExecutionResultBlock`
 
                 - `JsonValue type = "bash_code_execution_result"`
 
@@ -30267,13 +31807,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `class TextEditorCodeExecutionToolResultBlock:`
+          - `class TextEditorCodeExecutionToolResultBlock`
 
             - `JsonValue type = "text_editor_code_execution_tool_result"`
 
             - `Content content`
 
-              - `class TextEditorCodeExecutionToolResultError:`
+              - `class TextEditorCodeExecutionToolResultError`
 
                 - `JsonValue type = "text_editor_code_execution_tool_result_error"`
 
@@ -30291,7 +31831,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `Optional<String> errorMessage`
 
-              - `class TextEditorCodeExecutionViewResultBlock:`
+              - `class TextEditorCodeExecutionViewResultBlock`
 
                 - `JsonValue type = "text_editor_code_execution_view_result"`
 
@@ -30311,13 +31851,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `Optional<Long> totalLines`
 
-              - `class TextEditorCodeExecutionCreateResultBlock:`
+              - `class TextEditorCodeExecutionCreateResultBlock`
 
                 - `JsonValue type = "text_editor_code_execution_create_result"`
 
                 - `boolean isFileUpdate`
 
-              - `class TextEditorCodeExecutionStrReplaceResultBlock:`
+              - `class TextEditorCodeExecutionStrReplaceResultBlock`
 
                 - `JsonValue type = "text_editor_code_execution_str_replace_result"`
 
@@ -30335,13 +31875,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `class ToolSearchToolResultBlock:`
+          - `class ToolSearchToolResultBlock`
 
             - `JsonValue type = "tool_search_tool_result"`
 
             - `Content content`
 
-              - `class ToolSearchToolResultError:`
+              - `class ToolSearchToolResultError`
 
                 - `JsonValue type = "tool_search_tool_result_error"`
 
@@ -30357,7 +31897,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `Optional<String> errorMessage`
 
-              - `class ToolSearchToolSearchResultBlock:`
+              - `class ToolSearchToolSearchResultBlock`
 
                 - `JsonValue type = "tool_search_tool_search_result"`
 
@@ -30373,13 +31913,62 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `class ContainerUploadBlock:`
+          - `class ContainerUploadBlock`
 
             Response model for a file uploaded to the container.
 
             - `JsonValue type = "container_upload"`
 
             - `String fileId`
+
+        - `Optional<Diagnostics> diagnostics`
+
+          Request-level diagnostics: why the prompt cache could not fully reuse
+          the prefix of the request named by `diagnostics.previous_message_id`.
+
+          - `Optional<CacheMissReason> cacheMissReason`
+
+            Explains why the prompt cache could not fully reuse the prefix from the request identified by `diagnostics.previous_message_id`. `null` means diagnosis is still pending — the response was serialized before the background comparison completed.
+
+            - `class CacheMissModelChanged`
+
+              - `JsonValue type = "model_changed"`
+
+              - `long cacheMissedInputTokens`
+
+                Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+            - `class CacheMissSystemChanged`
+
+              - `JsonValue type = "system_changed"`
+
+              - `long cacheMissedInputTokens`
+
+                Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+            - `class CacheMissToolsChanged`
+
+              - `JsonValue type = "tools_changed"`
+
+              - `long cacheMissedInputTokens`
+
+                Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+            - `class CacheMissMessagesChanged`
+
+              - `JsonValue type = "messages_changed"`
+
+              - `long cacheMissedInputTokens`
+
+                Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+            - `class CacheMissPreviousMessageNotFound`
+
+              - `JsonValue type = "previous_message_not_found"`
+
+            - `class CacheMissUnavailable`
+
+              - `JsonValue type = "unavailable"`
 
         - `Model model`
 
@@ -30390,6 +31979,10 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
           - `CLAUDE_FABLE_5_1("claude-fable-5-1")`
 
             Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+          - `CLAUDE_OPUS_5_5("claude-opus-5-5")`
+
+            Powerful intelligence for coding, knowledge work, and long-running agents
 
           - `CLAUDE_MYTHOS_5_1("claude-mythos-5-1")`
 
@@ -30637,7 +32230,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `BATCH("batch")`
 
-    - `class MessageBatchErroredResult:`
+    - `class MessageBatchErroredResult`
 
       - `JsonValue type = "errored"`
 
@@ -30647,55 +32240,55 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `ErrorObject error`
 
-          - `class InvalidRequestError:`
+          - `class InvalidRequestError`
 
             - `JsonValue type = "invalid_request_error"`
 
             - `String message`
 
-          - `class AuthenticationError:`
+          - `class AuthenticationError`
 
             - `JsonValue type = "authentication_error"`
 
             - `String message`
 
-          - `class BillingError:`
+          - `class BillingError`
 
             - `JsonValue type = "billing_error"`
 
             - `String message`
 
-          - `class PermissionError:`
+          - `class PermissionError`
 
             - `JsonValue type = "permission_error"`
 
             - `String message`
 
-          - `class NotFoundError:`
+          - `class NotFoundError`
 
             - `JsonValue type = "not_found_error"`
 
             - `String message`
 
-          - `class RateLimitError:`
+          - `class RateLimitError`
 
             - `JsonValue type = "rate_limit_error"`
 
             - `String message`
 
-          - `class GatewayTimeoutError:`
+          - `class GatewayTimeoutError`
 
             - `JsonValue type = "timeout_error"`
 
             - `String message`
 
-          - `class ApiErrorObject:`
+          - `class ApiErrorObject`
 
             - `JsonValue type = "api_error"`
 
             - `String message`
 
-          - `class OverloadedError:`
+          - `class OverloadedError`
 
             - `JsonValue type = "overloaded_error"`
 
@@ -30703,11 +32296,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `Optional<String> requestId`
 
-    - `class MessageBatchCanceledResult:`
+    - `class MessageBatchCanceledResult`
 
       - `JsonValue type = "canceled"`
 
-    - `class MessageBatchExpiredResult:`
+    - `class MessageBatchExpiredResult`
 
       - `JsonValue type = "expired"`
 

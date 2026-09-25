@@ -4,44 +4,34 @@
 
 Built rubric-driven replayable eval system from real user projects giving quality/cost/latency/error/token signals in <6 hours per model change. Evolved into dev flywheel powered by real user dissatisfaction signals.
 
-Details
+## Details
 
 City
-
-San Francisco, USA
+:   San Francisco, USA
 
 Date
-
-May 7, 2026
+:   May 7, 2026
 
 Time
-
-11:30AM – 12:00PM
+:   11:30AM – 12:00PM
 
 Speaker(s)
+:   Yikai Zhu
 
-Yikai Zhu
+    Software Engineer,
 
-Software Engineer,
+    Descript
 
-Descript
+    Ajay Arasanipalai
 
-Ajay Arasanipalai
+    AI Researcher,
 
-AI Researcher,
+    Descript
 
-Descript
-
-Anthropic's developer conference, recorded
+## Anthropic's developer conference, recorded
 
 Keynotes, demos, and conversations with the teams behind Claude. Recorded at Code w/ Claude 2026 San Francisco and ready to replay.
 
-Browse recordings
+[Browse recordings](https://claude.com/code-with-claude/san-francisco)
 
-[Learn more](https://claude.com/code-with-claude/san-francisco)Learn more
-
-[Homepage](https://claude.com/code-with-claude)Homepage
-
-© [year] Anthropic PBC
-
-[PRIVACY POLICY](https://www.anthropic.com/legal/privacy)[CODE OF CONDUCT](https://claude.com/code-with-claude/code-of-conduct)
+Evals for subjective, stateful agents | Session | Code w/ Claude 2026

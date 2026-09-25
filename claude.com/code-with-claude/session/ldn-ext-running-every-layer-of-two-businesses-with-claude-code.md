@@ -4,38 +4,26 @@
 
 Claude Code across every function of two businesses: scoping, proposals, agentic products, security scans, newsletters, market research, pushing code to production. Not a deep dive on one feature; practical look at Claude as operating system.
 
-Details
+## Details
 
 City
-
-London, UK
+:   London, UK
 
 Date
-
-20 May 2026
+:   20 May 2026
 
 Time
-
-15:35 – 16:05
+:   15:35 – 16:05
 
 Speaker(s)
+:   Kevin Collins
 
-Kevin Collins
+    Founder,
 
-Founder,
+    echofold.ai / fractium.ai
 
-echofold.ai / fractium.ai
-
-Anthropic's developer conference, recorded
+## Anthropic's developer conference, recorded
 
 Keynotes, demos, and conversations with the teams behind Claude. Recorded at Code w/ Claude 2026 San Francisco and ready to replay.
 
-Browse recordings
-
-[Learn more](https://claude.com/code-with-claude/london)Learn more
-
-[Homepage](https://claude.com/code-with-claude)Homepage
-
-© [year] Anthropic PBC
-
-[PRIVACY POLICY](https://www.anthropic.com/legal/privacy)[CODE OF CONDUCT](https://claude.com/code-with-claude/code-of-conduct)
+[Browse recordings](https://claude.com/code-with-claude/london)

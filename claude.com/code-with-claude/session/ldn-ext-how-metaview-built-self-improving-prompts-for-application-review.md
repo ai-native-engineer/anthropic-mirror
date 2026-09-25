@@ -4,44 +4,32 @@
 
 At Metaview, we help recruiters sift through thousands of resumes a day. Most evaluation systems set the criteria upfront and rebuild every time preferences change. We built one that learns from every decision recruiters make and evolves with them.
 
-Details
+## Details
 
 City
-
-London, UK
+:   London, UK
 
 Date
-
-20 May 2026
+:   20 May 2026
 
 Time
-
-14:05 – 14:35
+:   14:05 – 14:35
 
 Speaker(s)
+:   Nick Mayhew
 
-Nick Mayhew
+    Product Engineer,
 
-Product Engineer,
-
-Metaview
+    Metaview
 
 ## Watch recording
 
-[Play video](#)Play video
+![How Metaview built self-improving prompts for application review](https://i.ytimg.com/vi/A3rmSUp6Dxg/maxresdefault.jpg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Anthropic's developer conference, recorded
+## Anthropic's developer conference, recorded
 
 Keynotes, demos, and conversations with the teams behind Claude. Recorded at Code w/ Claude 2026 San Francisco and ready to replay.
 
-Browse recordings
+[Browse recordings](https://claude.com/code-with-claude/london)
 
-[Learn more](https://claude.com/code-with-claude/london)Learn more
-
-[Homepage](https://claude.com/code-with-claude)Homepage
-
-© [year] Anthropic PBC
-
-[PRIVACY POLICY](https://www.anthropic.com/legal/privacy)[CODE OF CONDUCT](https://claude.com/code-with-claude/code-of-conduct)
+How Metaview built self-improving prompts for application review | Session | Code w/ Claude 2026

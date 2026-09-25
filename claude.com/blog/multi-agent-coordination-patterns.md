@@ -1,5 +1,7 @@
 <!-- source: https://claude.com/blog/multi-agent-coordination-patterns -->
 
+Explore here
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22562f020146c9ec973_f8f4644253bde2f901550431b871b6dcf91e5d9d-1000x1000.svg)
 
 # Multi-agent coordination patterns: Five approaches and when to use them

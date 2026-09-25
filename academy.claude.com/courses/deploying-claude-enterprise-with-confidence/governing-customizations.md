@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence/governing-customizations -->
 
-Lesson 8 of 14 · Deploying Claude Enterprise with Confidence: The five decisions that shape your rolloutGoverning customizations
+Lesson 8 of 14 · Deploying Claude Enterprise with confidence: The five decisions that shape your rolloutGoverning customizations
 
-3. /[Deploying Claude Enterprise with Confidence: The five decisions that shape your rollout](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence)
+3. /[Deploying Claude Enterprise with confidence: The five decisions that shape your rollout](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence)
 
-[Deploying Claude Enterprise with Confidence: The five decisions that shape your rollout](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence)
+[Deploying Claude Enterprise with confidence: The five decisions that shape your rollout](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence)
 
 # Governing customizations
 
@@ -134,7 +134,7 @@ Members can now build and share within the bounds you set. The next module, Spen
 
 [Previous lessonConnectors](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence/connectors)[Next lessonSpend caps](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence/spend-caps)
 
-Lesson 8 of 14 · Deploying Claude Enterprise with Confidence: The five decisions that shape your rolloutGoverning customizations
+Lesson 8 of 14 · Deploying Claude Enterprise with confidence: The five decisions that shape your rolloutGoverning customizations
 
 The plan
 

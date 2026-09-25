@@ -4,31 +4,21 @@ Case study | Claude Platform
 
 # Sourcegraph enhances the intelligence and speed of their AI-powered coding assistant with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![Sourcegraph logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5adbbc56b42302c22e057_sourcegraph_light.svg)![Sourcegraph logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5b5e9000806e93902a96b_sourcegraph_dark.svg)
+![Sourcegraph logo](https://assets.claude.com/4c92243e3dd5b307a7ddc1b4ef279a0839b7f3e1.svg)
 
 Industry:
-
-Software
+:   Software
 
 Company size:
-
-Small
+:   Small
 
 Product:
-
-Claude Platform
+:   Claude Platform
 
 Location:
-
-North America
+:   North America
 
 75% increase
 
@@ -37,42 +27,6 @@ in code insert rate
 2x speed
 
 improvement over previous model
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
 
 Sourcegraph’s AI coding assistant, Cody, uses Claude 3 Sonnet as the default large language model for the free plan, delivering suggestions twice as fast with increased accuracy for developers.
 
@@ -86,7 +40,7 @@ From its initial release, Cody has allowed developers to select Claude as the la
 
 “Claude 3 models excel at following instructions, generating production-ready code without requiring manual intervention or code snippets,” says Philipp Spiess, Software Engineer at Sourcegraph. “We’re confident that it effectively meets developers’ needs and propels their projects forward.”
 
-![App screen in the Sourcegraph platform](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68baf05b0d34bf3c72640e6f_fc97a3d875ed8314630ad40dfe8e35a04f8aa319-1568x882.png)
+![App screen in the Sourcegraph platform](https://assets.claude.com/e42d8641e00b7bce58a3f5d10214e9a5a1fc5329.png)
 
 ## Improving developer workflows with the Claude 3 model family
 
@@ -96,7 +50,7 @@ Claude 3 Sonnet serves as the default model for the free version of Cody, with i
 
 The Claude 3 model family is integral to Cody’s chat and custom command features. Developers can ask questions and receive answers related to their entire codebase, which helps quickly resolve issues and understand complex code interactions. They can also request Cody to perform specific tasks, such as refactoring code or generating documentation, with the custom commands feature. With the near-perfect recall accuracy of Claude 3 Opus, Cody gives developers even better results because it can understand large amounts of code context without missing key information.
 
-![App screen in the Sourcegraph platform](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68baf05b0d34bf3c72640e68_363b03799e5077e2f14ba6761d6a9299fb95062e-1738x882.png)
+![App screen in the Sourcegraph platform](https://assets.claude.com/363b03799e5077e2f14ba6761d6a9299fb95062e.png)
 
 “We’ve decided to use Claude as our default chat model in Cody,” says Liu. “It’s fantastic at incorporating the context we provide into accurate answers about a user’s private codebase and writing code that fits within the context of your code. The family of models, from Opus to Haiku, provides several great points along the frontier of speed and intelligence that power multiple Cody features.”
 
@@ -110,52 +64,12 @@ Sourcegraph plans to expand Cody’s capabilities even further. The company has 
 
 These advancements will help solidify Cody as an essential tool in a developer’s repository, and Anthropic is working closely with Sourcegraph to make these upgrades possible. “We’re very happy with our partnership with Anthropic,” says Liu. “The team has been absolutely a delight to work with—super helpful and super sharp. We’re looking forward to continuing to build with Claude to push the frontier of AI coding capabilities.”
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[![Supermetrics](https://assets.claude.com/3ac4171a81008be0340e5c3d8ccb46571c3edfb3.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### Supermetrics lets marketers manage ad campaigns from a conversation with Claude](https://claude.com/customers/supermetrics)[![Atlassian](https://assets.claude.com/4870b3d6c0253cea01b100c98ad2030b8e4f8ce1.svg)
 
-[Next](#)Next
+### How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-Video caption
+### Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-Customer story
-
-[Customer story](https://claude.com/customers/atlassian)Customer story
-
-[Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)Rocket Money on building agents that fix their own code
-
-Rocket Money on building agents that fix their own code
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money-qa)Customer story
-
-[How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)How Rocket Money built its personal finance agent with Claude
-
-How Rocket Money built its personal finance agent with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money)Customer story
-
-[How Notion ships and scales agents with Claude Managed Agents](https://claude.com/customers/notion-qa)How Notion ships and scales agents with Claude Managed Agents
-
-How Notion ships and scales agents with Claude Managed Agents
-
-Customer story
-
-[Customer story](https://claude.com/customers/notion-qa)Customer story
+### How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)

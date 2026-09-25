@@ -131,11 +131,21 @@ The Models API response can be used to determine which models are available for 
 
     - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
+    - `COMPACT_2026_09_04("compact-2026-09-04")`
+
+    - `INLINE_TOOLS_2026_09_15("inline-tools-2026-09-15")`
+
+    - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
+
   - `Optional<String> workspaceId`
+
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
 ### Returns
 
-- `class BetaModelInfo:`
+- `class BetaModelInfo`
 
   - `JsonValue type = "model"`
 
@@ -170,6 +180,20 @@ The Models API response can be used to determine which models are available for 
     - `BetaCapabilitySupport codeExecution`
 
       Whether the model supports code execution tools.
+
+    - `Optional<BetaCompactionCapability> compaction`
+
+      Compaction capability details: whether the model accepts the top-level
+      `compaction` request parameter, with one entry per supported
+      `compaction.type` value.
+
+      - `BetaCapabilitySupport summarize`
+
+        Whether the summarize compaction type is supported.
+
+      - `boolean supported`
+
+        Whether this capability is supported by the model.
 
     - `BetaContextManagementCapability contextManagement`
 
@@ -308,6 +332,12 @@ public final class Main {
           "supported": true
         },
         "code_execution": {
+          "supported": true
+        },
+        "compaction": {
+          "summarize": {
+            "supported": true
+          },
           "supported": true
         },
         "context_management": {
@@ -486,11 +516,21 @@ The Models API response can be used to determine information about a specific mo
 
     - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
+    - `COMPACT_2026_09_04("compact-2026-09-04")`
+
+    - `INLINE_TOOLS_2026_09_15("inline-tools-2026-09-15")`
+
+    - `MCP_CLIENT_2026_09_15("mcp-client-2026-09-15")`
+
   - `Optional<String> workspaceId`
+
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
 ### Returns
 
-- `class BetaModelInfo:`
+- `class BetaModelInfo`
 
   - `JsonValue type = "model"`
 
@@ -525,6 +565,20 @@ The Models API response can be used to determine information about a specific mo
     - `BetaCapabilitySupport codeExecution`
 
       Whether the model supports code execution tools.
+
+    - `Optional<BetaCompactionCapability> compaction`
+
+      Compaction capability details: whether the model accepts the top-level
+      `compaction` request parameter, with one entry per supported
+      `compaction.type` value.
+
+      - `BetaCapabilitySupport summarize`
+
+        Whether the summarize compaction type is supported.
+
+      - `boolean supported`
+
+        Whether this capability is supported by the model.
 
     - `BetaContextManagementCapability contextManagement`
 
@@ -663,6 +717,12 @@ public final class Main {
     "code_execution": {
       "supported": true
     },
+    "compaction": {
+      "summarize": {
+        "supported": true
+      },
+      "supported": true
+    },
     "context_management": {
       "clear_thinking_20251015": {
         "supported": true
@@ -726,7 +786,7 @@ public final class Main {
 
 ### Beta Capability Support
 
-- `class BetaCapabilitySupport:`
+- `class BetaCapabilitySupport`
 
   Indicates whether a capability is supported.
 
@@ -734,9 +794,29 @@ public final class Main {
 
     Whether this capability is supported by the model.
 
+### Beta Compaction Capability
+
+- `class BetaCompactionCapability`
+
+  Compaction capability details: whether the model accepts the top-level
+  `compaction` request parameter, with one entry per supported
+  `compaction.type` value.
+
+  - `BetaCapabilitySupport summarize`
+
+    Whether the summarize compaction type is supported.
+
+    - `boolean supported`
+
+      Whether this capability is supported by the model.
+
+  - `boolean supported`
+
+    Whether this capability is supported by the model.
+
 ### Beta Context Management Capability
 
-- `class BetaContextManagementCapability:`
+- `class BetaContextManagementCapability`
 
   Context management capability details.
 
@@ -762,7 +842,7 @@ public final class Main {
 
 ### Beta Effort Capability
 
-- `class BetaEffortCapability:`
+- `class BetaEffortCapability`
 
   Effort (reasoning_effort) capability details.
 
@@ -796,7 +876,7 @@ public final class Main {
 
 ### Beta Model Capabilities
 
-- `class BetaModelCapabilities:`
+- `class BetaModelCapabilities`
 
   Model capability information.
 
@@ -815,6 +895,20 @@ public final class Main {
   - `BetaCapabilitySupport codeExecution`
 
     Whether the model supports code execution tools.
+
+  - `Optional<BetaCompactionCapability> compaction`
+
+    Compaction capability details: whether the model accepts the top-level
+    `compaction` request parameter, with one entry per supported
+    `compaction.type` value.
+
+    - `BetaCapabilitySupport summarize`
+
+      Whether the summarize compaction type is supported.
+
+    - `boolean supported`
+
+      Whether this capability is supported by the model.
 
   - `BetaContextManagementCapability contextManagement`
 
@@ -898,7 +992,7 @@ public final class Main {
 
 ### Beta Model Info
 
-- `class BetaModelInfo:`
+- `class BetaModelInfo`
 
   - `JsonValue type = "model"`
 
@@ -933,6 +1027,20 @@ public final class Main {
     - `BetaCapabilitySupport codeExecution`
 
       Whether the model supports code execution tools.
+
+    - `Optional<BetaCompactionCapability> compaction`
+
+      Compaction capability details: whether the model accepts the top-level
+      `compaction` request parameter, with one entry per supported
+      `compaction.type` value.
+
+      - `BetaCapabilitySupport summarize`
+
+        Whether the summarize compaction type is supported.
+
+      - `boolean supported`
+
+        Whether this capability is supported by the model.
 
     - `BetaContextManagementCapability contextManagement`
 
@@ -1034,7 +1142,7 @@ public final class Main {
 
 ### Beta Thinking Capability
 
-- `class BetaThinkingCapability:`
+- `class BetaThinkingCapability`
 
   Thinking capability details.
 
@@ -1060,7 +1168,7 @@ public final class Main {
 
 ### Beta Thinking Types
 
-- `class BetaThinkingTypes:`
+- `class BetaThinkingTypes`
 
   Supported thinking type configurations.
 

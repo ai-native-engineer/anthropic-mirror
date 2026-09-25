@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/ai-fluency-for-k-12-educators/course-quiz -->
 
-Quiz 1 of 1 · AI Fluency for pK–12 EducatorsCourse Quiz
+Quiz 1 of 1 · AI Fluency for pK–12 educatorsCourse Quiz
 
-3. /[AI Fluency for pK–12 Educators](https://academy.claude.com/courses/ai-fluency-for-k-12-educators)
+3. /[AI Fluency for pK–12 educators](https://academy.claude.com/courses/ai-fluency-for-k-12-educators)
 
-[AI Fluency for pK–12 Educators](https://academy.claude.com/courses/ai-fluency-for-k-12-educators)
+[AI Fluency for pK–12 educators](https://academy.claude.com/courses/ai-fluency-for-k-12-educators)
 
 # Course Quiz
 
@@ -14,7 +14,7 @@ You've reached the final quiz for AI Fluency for pK–12 Educators. Its 8 questi
 
 [Previous lessonClosure and enrichment](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/closure-and-enrichment)[Up nextCompletion badge](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/badge)
 
-Quiz 1 of 1 · AI Fluency for pK–12 EducatorsCourse Quiz
+Quiz 1 of 1 · AI Fluency for pK–12 educatorsCourse Quiz
 
 How this course was made
 

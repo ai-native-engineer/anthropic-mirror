@@ -74,7 +74,7 @@ Confine a credential to one channel in three steps:
 2. Keep the channel private. A bundle on a public channel [grants its access to anyone who joins](https://claude.com/docs/claude-tag/admins/attach-to-scope#attach-to-a-channel).
 3. Check the channel’s **Connectors**, **Repositories**, and **Plugins** sections on the [Slack tab in admin settings](https://claude.com/docs/claude-tag/admins/attach-to-scope). They list the access the channel gets, including rows inherited from the workspace or from Default Slack access, each with an origin line naming where it comes from.
 
-Claude [doesn’t operate in externally shared channels](https://claude.com/docs/claude-tag/admins/restrict-access#externally-shared-channels), so a channel shared with another company never has a session to isolate.
+Claude doesn’t work in a channel shared with another company through [Slack Connect](https://claude.com/docs/claude-tag/admins/restrict-access#slack-connect-channels), so no access bundle’s credentials reach one.
 Isolating a credential doesn’t isolate what Claude knows. What it learns in a public channel becomes [workspace memory](https://claude.com/docs/claude-tag/users/memory) that sessions in the workspace’s other channels can read, and it can [search public channels by keyword](https://claude.com/docs/claude-tag/admins/restrict-access#controls-that-aren%E2%80%99t-available) without being added to them, the same way any workspace member can.
 
 ##  Artifact visibility

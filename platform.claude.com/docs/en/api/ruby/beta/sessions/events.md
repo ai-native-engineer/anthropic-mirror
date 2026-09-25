@@ -45,8 +45,6 @@ List Events
 
 - `limit: Integer`
 
-  Query parameter for limit
-
   format: int32
 
 - `order: :asc | :desc`
@@ -71,7 +69,7 @@ List Events
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 42 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 45 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -163,11 +161,21 @@ List Events
 
     - `:"mid-conversation-system-clear-at-2026-08-21"`
 
+    - `:"compact-2026-09-04"`
+
+    - `:"inline-tools-2026-09-15"`
+
+    - `:"mcp-client-2026-09-15"`
+
 - `workspace_id: String`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
 ### Returns
 
-- `BetaManagedAgentsSessionEvent = BetaManagedAgentsUserMessageEvent | BetaManagedAgentsUserInterruptEvent | BetaManagedAgentsUserToolConfirmationEvent | 32 more`
+- `type BetaManagedAgentsSessionEvent = BetaManagedAgentsUserMessageEvent | BetaManagedAgentsUserInterruptEvent | BetaManagedAgentsUserToolConfirmationEvent | 32 more`
 
   Union type for all event types in a session.
 
@@ -393,7 +401,7 @@ List Events
 
     - `session_thread_id: String`
 
-      When set, the confirmation routes to this subagent's thread rather than the primary. Echo this from the `session_thread_id` on the `agent.tool_use` or `agent.mcp_tool_use` event that prompted the approval.
+      Set by the server to the subagent thread this confirmation was routed to. Omitted when it was routed to the primary thread.
 
   - `class BetaManagedAgentsUserCustomToolResultEvent`
 
@@ -475,7 +483,7 @@ List Events
 
     - `session_thread_id: String`
 
-      Routes this result to a subagent thread. Copy from the `agent.custom_tool_use` event's `session_thread_id`.
+      Set by the server to the subagent thread this result was routed to. Omitted when it was routed to the primary thread.
 
   - `class BetaManagedAgentsAgentCustomToolUseEvent`
 
@@ -503,7 +511,7 @@ List Events
 
     - `session_thread_id: String`
 
-      When set, this event was cross-posted from a subagent's thread to surface its custom tool use on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.custom_tool_result` event to route the result back.
+      When set, this event was cross-posted from a subagent's thread to surface its custom tool use on the primary thread's stream. Empty on the thread's own events. Informational only: the server routes the matching `user.custom_tool_result` by `custom_tool_use_id`, so clients do not send it back.
 
   - `class BetaManagedAgentsAgentMessageEvent`
 
@@ -577,7 +585,7 @@ List Events
 
       format: date-time
 
-    - `evaluated_permission: :allow | :ask | :deny`
+    - `evaluated_permission: BetaManagedAgentsAgentEvaluatedPermission`
 
       AgentEvaluatedPermission enum
 
@@ -645,7 +653,7 @@ List Events
 
     - `session_thread_id: String`
 
-      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
+      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Informational only: the server routes the matching `user.tool_confirmation` by `tool_use_id`, so clients do not send it back.
 
   - `class BetaManagedAgentsAgentMCPToolResultEvent`
 
@@ -715,15 +723,9 @@ List Events
 
       format: date-time
 
-    - `evaluated_permission: :allow | :ask | :deny`
+    - `evaluated_permission: BetaManagedAgentsAgentEvaluatedPermission`
 
       AgentEvaluatedPermission enum
-
-      - `:allow`
-
-      - `:ask`
-
-      - `:deny`
 
     - `evaluation: BetaManagedAgentsAgentToolEvaluation`
 
@@ -731,7 +733,7 @@ List Events
 
     - `session_thread_id: String`
 
-      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
+      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Informational only: the server routes the matching `user.tool_confirmation` or `user.tool_result` by `tool_use_id`, so clients do not send it back.
 
   - `class BetaManagedAgentsAgentToolResultEvent`
 
@@ -1623,7 +1625,7 @@ List Events
 
     - `session_thread_id: String`
 
-      Routes this result to a subagent thread. Copy from the `agent.tool_use` event's `session_thread_id`.
+      Set by the server to the subagent thread this result was routed to. Omitted when it was routed to the primary thread.
 
   - `class BetaManagedAgentsSessionThreadStatusRescheduledEvent`
 
@@ -1693,11 +1695,15 @@ List Events
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-          - `BetaManagedAgentsModel = :"claude-fable-5-1" | :"claude-sonnet-5" | :"claude-fable-5" | 11 more`
+          - `BetaManagedAgentsModel = :"claude-opus-5-5" | :"claude-fable-5-1" | :"claude-sonnet-5" | 12 more`
 
             The model that will power your agent.
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+            - `:"claude-opus-5-5"`
+
+              Powerful intelligence for coding, knowledge work, and long-running agents
 
             - `:"claude-fable-5-1"`
 
@@ -2821,7 +2827,7 @@ Send Events
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 42 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 45 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -2913,7 +2919,17 @@ Send Events
 
     - `:"mid-conversation-system-clear-at-2026-08-21"`
 
+    - `:"compact-2026-09-04"`
+
+    - `:"inline-tools-2026-09-15"`
+
+    - `:"mcp-client-2026-09-15"`
+
 - `workspace_id: String`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
 ### Returns
 
@@ -3147,7 +3163,7 @@ Send Events
 
       - `session_thread_id: String`
 
-        When set, the confirmation routes to this subagent's thread rather than the primary. Echo this from the `session_thread_id` on the `agent.tool_use` or `agent.mcp_tool_use` event that prompted the approval.
+        Set by the server to the subagent thread this confirmation was routed to. Omitted when it was routed to the primary thread.
 
     - `class BetaManagedAgentsUserCustomToolResultEvent`
 
@@ -3229,7 +3245,7 @@ Send Events
 
       - `session_thread_id: String`
 
-        Routes this result to a subagent thread. Copy from the `agent.custom_tool_use` event's `session_thread_id`.
+        Set by the server to the subagent thread this result was routed to. Omitted when it was routed to the primary thread.
 
     - `class BetaManagedAgentsUserDefineOutcomeEvent`
 
@@ -3331,7 +3347,7 @@ Send Events
 
       - `session_thread_id: String`
 
-        Routes this result to a subagent thread. Copy from the `agent.tool_use` event's `session_thread_id`.
+        Set by the server to the subagent thread this result was routed to. Omitted when it was routed to the primary thread.
 
     - `class BetaManagedAgentsSystemMessageEvent`
 
@@ -3422,7 +3438,7 @@ Stream Events
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 42 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 45 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -3514,11 +3530,21 @@ Stream Events
 
     - `:"mid-conversation-system-clear-at-2026-08-21"`
 
+    - `:"compact-2026-09-04"`
+
+    - `:"inline-tools-2026-09-15"`
+
+    - `:"mcp-client-2026-09-15"`
+
 - `workspace_id: String`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
 ### Returns
 
-- `BetaManagedAgentsStreamSessionEvents = BetaManagedAgentsUserMessageEvent | BetaManagedAgentsUserInterruptEvent | BetaManagedAgentsUserToolConfirmationEvent | 34 more`
+- `type BetaManagedAgentsStreamSessionEvents = BetaManagedAgentsUserMessageEvent | BetaManagedAgentsUserInterruptEvent | BetaManagedAgentsUserToolConfirmationEvent | 34 more`
 
   Server-sent event in the session stream.
 
@@ -3744,7 +3770,7 @@ Stream Events
 
     - `session_thread_id: String`
 
-      When set, the confirmation routes to this subagent's thread rather than the primary. Echo this from the `session_thread_id` on the `agent.tool_use` or `agent.mcp_tool_use` event that prompted the approval.
+      Set by the server to the subagent thread this confirmation was routed to. Omitted when it was routed to the primary thread.
 
   - `class BetaManagedAgentsUserCustomToolResultEvent`
 
@@ -3826,7 +3852,7 @@ Stream Events
 
     - `session_thread_id: String`
 
-      Routes this result to a subagent thread. Copy from the `agent.custom_tool_use` event's `session_thread_id`.
+      Set by the server to the subagent thread this result was routed to. Omitted when it was routed to the primary thread.
 
   - `class BetaManagedAgentsAgentCustomToolUseEvent`
 
@@ -3854,7 +3880,7 @@ Stream Events
 
     - `session_thread_id: String`
 
-      When set, this event was cross-posted from a subagent's thread to surface its custom tool use on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.custom_tool_result` event to route the result back.
+      When set, this event was cross-posted from a subagent's thread to surface its custom tool use on the primary thread's stream. Empty on the thread's own events. Informational only: the server routes the matching `user.custom_tool_result` by `custom_tool_use_id`, so clients do not send it back.
 
   - `class BetaManagedAgentsAgentMessageEvent`
 
@@ -3928,7 +3954,7 @@ Stream Events
 
       format: date-time
 
-    - `evaluated_permission: :allow | :ask | :deny`
+    - `evaluated_permission: BetaManagedAgentsAgentEvaluatedPermission`
 
       AgentEvaluatedPermission enum
 
@@ -3996,7 +4022,7 @@ Stream Events
 
     - `session_thread_id: String`
 
-      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
+      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Informational only: the server routes the matching `user.tool_confirmation` by `tool_use_id`, so clients do not send it back.
 
   - `class BetaManagedAgentsAgentMCPToolResultEvent`
 
@@ -4066,15 +4092,9 @@ Stream Events
 
       format: date-time
 
-    - `evaluated_permission: :allow | :ask | :deny`
+    - `evaluated_permission: BetaManagedAgentsAgentEvaluatedPermission`
 
       AgentEvaluatedPermission enum
-
-      - `:allow`
-
-      - `:ask`
-
-      - `:deny`
 
     - `evaluation: BetaManagedAgentsAgentToolEvaluation`
 
@@ -4082,7 +4102,7 @@ Stream Events
 
     - `session_thread_id: String`
 
-      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
+      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Informational only: the server routes the matching `user.tool_confirmation` or `user.tool_result` by `tool_use_id`, so clients do not send it back.
 
   - `class BetaManagedAgentsAgentToolResultEvent`
 
@@ -4974,7 +4994,7 @@ Stream Events
 
     - `session_thread_id: String`
 
-      Routes this result to a subagent thread. Copy from the `agent.tool_use` event's `session_thread_id`.
+      Set by the server to the subagent thread this result was routed to. Omitted when it was routed to the primary thread.
 
   - `class BetaManagedAgentsSessionThreadStatusRescheduledEvent`
 
@@ -5044,11 +5064,15 @@ Stream Events
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-          - `BetaManagedAgentsModel = :"claude-fable-5-1" | :"claude-sonnet-5" | :"claude-fable-5" | 11 more`
+          - `BetaManagedAgentsModel = :"claude-opus-5-5" | :"claude-fable-5-1" | :"claude-sonnet-5" | 12 more`
 
             The model that will power your agent.
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+            - `:"claude-opus-5-5"`
+
+              Powerful intelligence for coding, knowledge work, and long-running agents
 
             - `:"claude-fable-5-1"`
 
@@ -5832,7 +5856,7 @@ puts(beta_managed_agents_stream_session_events)
 
 ### Beta Managed Agents Agent Auto Evaluated Permission
 
-- `BetaManagedAgentsAgentAutoEvaluatedPermission = BetaManagedAgentsAgentAutoEvaluatedPermissionAllow | BetaManagedAgentsAgentAutoEvaluatedPermissionAsk | BetaManagedAgentsAgentAutoEvaluatedPermissionDeny`
+- `type BetaManagedAgentsAgentAutoEvaluatedPermission = BetaManagedAgentsAgentAutoEvaluatedPermissionAllow | BetaManagedAgentsAgentAutoEvaluatedPermissionAsk | BetaManagedAgentsAgentAutoEvaluatedPermissionDeny`
 
   The server's per-invocation judgement under the auto permission policy. Its type always equals the event's top-level evaluated_permission. Open union: clients must tolerate unknown variants.
 
@@ -5930,7 +5954,19 @@ puts(beta_managed_agents_stream_session_events)
 
   - `session_thread_id: String`
 
-    When set, this event was cross-posted from a subagent's thread to surface its custom tool use on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.custom_tool_result` event to route the result back.
+    When set, this event was cross-posted from a subagent's thread to surface its custom tool use on the primary thread's stream. Empty on the thread's own events. Informational only: the server routes the matching `user.custom_tool_result` by `custom_tool_use_id`, so clients do not send it back.
+
+### Beta Managed Agents Agent Evaluated Permission
+
+- `type BetaManagedAgentsAgentEvaluatedPermission = :allow | :ask | :deny`
+
+  AgentEvaluatedPermission enum
+
+  - `:allow`
+
+  - `:ask`
+
+  - `:deny`
 
 ### Beta Managed Agents Agent MCP Tool Result Event
 
@@ -6170,7 +6206,7 @@ puts(beta_managed_agents_stream_session_events)
 
     format: date-time
 
-  - `evaluated_permission: :allow | :ask | :deny`
+  - `evaluated_permission: BetaManagedAgentsAgentEvaluatedPermission`
 
     AgentEvaluatedPermission enum
 
@@ -6238,7 +6274,7 @@ puts(beta_managed_agents_stream_session_events)
 
   - `session_thread_id: String`
 
-    When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
+    When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Informational only: the server routes the matching `user.tool_confirmation` by `tool_use_id`, so clients do not send it back.
 
 ### Beta Managed Agents Agent Message Event
 
@@ -6670,7 +6706,7 @@ puts(beta_managed_agents_stream_session_events)
 
 ### Beta Managed Agents Agent Tool Evaluation
 
-- `BetaManagedAgentsAgentToolEvaluation = BetaManagedAgentsAgentToolEvaluationAlwaysAllow | BetaManagedAgentsAgentToolEvaluationAlwaysAsk | BetaManagedAgentsAgentToolEvaluationAuto`
+- `type BetaManagedAgentsAgentToolEvaluation = BetaManagedAgentsAgentToolEvaluationAlwaysAllow | BetaManagedAgentsAgentToolEvaluationAlwaysAsk | BetaManagedAgentsAgentToolEvaluationAuto`
 
   Names the resolved permission_policy that produced evaluated_permission, and under auto carries the judgement. Open union: clients must tolerate unknown variants.
 
@@ -7018,7 +7054,7 @@ puts(beta_managed_agents_stream_session_events)
 
     format: date-time
 
-  - `evaluated_permission: :allow | :ask | :deny`
+  - `evaluated_permission: BetaManagedAgentsAgentEvaluatedPermission`
 
     AgentEvaluatedPermission enum
 
@@ -7086,7 +7122,7 @@ puts(beta_managed_agents_stream_session_events)
 
   - `session_thread_id: String`
 
-    When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
+    When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Informational only: the server routes the matching `user.tool_confirmation` or `user.tool_result` by `tool_use_id`, so clients do not send it back.
 
 ### Beta Managed Agents Base64 Document Source
 
@@ -7284,7 +7320,7 @@ puts(beta_managed_agents_stream_session_events)
 
 ### Beta Managed Agents Event Params
 
-- `BetaManagedAgentsEventParams = BetaManagedAgentsUserMessageEventParams | BetaManagedAgentsUserInterruptEventParams | BetaManagedAgentsUserToolConfirmationEventParams | 4 more`
+- `type BetaManagedAgentsEventParams = BetaManagedAgentsUserMessageEventParams | BetaManagedAgentsUserInterruptEventParams | BetaManagedAgentsUserToolConfirmationEventParams | 4 more`
 
   Union type for event parameters that can be sent to a session.
 
@@ -8276,7 +8312,7 @@ puts(beta_managed_agents_stream_session_events)
 
       - `session_thread_id: String`
 
-        When set, the confirmation routes to this subagent's thread rather than the primary. Echo this from the `session_thread_id` on the `agent.tool_use` or `agent.mcp_tool_use` event that prompted the approval.
+        Set by the server to the subagent thread this confirmation was routed to. Omitted when it was routed to the primary thread.
 
     - `class BetaManagedAgentsUserCustomToolResultEvent`
 
@@ -8358,7 +8394,7 @@ puts(beta_managed_agents_stream_session_events)
 
       - `session_thread_id: String`
 
-        Routes this result to a subagent thread. Copy from the `agent.custom_tool_use` event's `session_thread_id`.
+        Set by the server to the subagent thread this result was routed to. Omitted when it was routed to the primary thread.
 
     - `class BetaManagedAgentsUserDefineOutcomeEvent`
 
@@ -8460,7 +8496,7 @@ puts(beta_managed_agents_stream_session_events)
 
       - `session_thread_id: String`
 
-        Routes this result to a subagent thread. Copy from the `agent.tool_use` event's `session_thread_id`.
+        Set by the server to the subagent thread this result was routed to. Omitted when it was routed to the primary thread.
 
     - `class BetaManagedAgentsSystemMessageEvent`
 
@@ -8776,7 +8812,7 @@ puts(beta_managed_agents_stream_session_events)
 
 ### Beta Managed Agents Session Event
 
-- `BetaManagedAgentsSessionEvent = BetaManagedAgentsUserMessageEvent | BetaManagedAgentsUserInterruptEvent | BetaManagedAgentsUserToolConfirmationEvent | 32 more`
+- `type BetaManagedAgentsSessionEvent = BetaManagedAgentsUserMessageEvent | BetaManagedAgentsUserInterruptEvent | BetaManagedAgentsUserToolConfirmationEvent | 32 more`
 
   Union type for all event types in a session.
 
@@ -9002,7 +9038,7 @@ puts(beta_managed_agents_stream_session_events)
 
     - `session_thread_id: String`
 
-      When set, the confirmation routes to this subagent's thread rather than the primary. Echo this from the `session_thread_id` on the `agent.tool_use` or `agent.mcp_tool_use` event that prompted the approval.
+      Set by the server to the subagent thread this confirmation was routed to. Omitted when it was routed to the primary thread.
 
   - `class BetaManagedAgentsUserCustomToolResultEvent`
 
@@ -9084,7 +9120,7 @@ puts(beta_managed_agents_stream_session_events)
 
     - `session_thread_id: String`
 
-      Routes this result to a subagent thread. Copy from the `agent.custom_tool_use` event's `session_thread_id`.
+      Set by the server to the subagent thread this result was routed to. Omitted when it was routed to the primary thread.
 
   - `class BetaManagedAgentsAgentCustomToolUseEvent`
 
@@ -9112,7 +9148,7 @@ puts(beta_managed_agents_stream_session_events)
 
     - `session_thread_id: String`
 
-      When set, this event was cross-posted from a subagent's thread to surface its custom tool use on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.custom_tool_result` event to route the result back.
+      When set, this event was cross-posted from a subagent's thread to surface its custom tool use on the primary thread's stream. Empty on the thread's own events. Informational only: the server routes the matching `user.custom_tool_result` by `custom_tool_use_id`, so clients do not send it back.
 
   - `class BetaManagedAgentsAgentMessageEvent`
 
@@ -9186,7 +9222,7 @@ puts(beta_managed_agents_stream_session_events)
 
       format: date-time
 
-    - `evaluated_permission: :allow | :ask | :deny`
+    - `evaluated_permission: BetaManagedAgentsAgentEvaluatedPermission`
 
       AgentEvaluatedPermission enum
 
@@ -9254,7 +9290,7 @@ puts(beta_managed_agents_stream_session_events)
 
     - `session_thread_id: String`
 
-      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
+      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Informational only: the server routes the matching `user.tool_confirmation` by `tool_use_id`, so clients do not send it back.
 
   - `class BetaManagedAgentsAgentMCPToolResultEvent`
 
@@ -9324,15 +9360,9 @@ puts(beta_managed_agents_stream_session_events)
 
       format: date-time
 
-    - `evaluated_permission: :allow | :ask | :deny`
+    - `evaluated_permission: BetaManagedAgentsAgentEvaluatedPermission`
 
       AgentEvaluatedPermission enum
-
-      - `:allow`
-
-      - `:ask`
-
-      - `:deny`
 
     - `evaluation: BetaManagedAgentsAgentToolEvaluation`
 
@@ -9340,7 +9370,7 @@ puts(beta_managed_agents_stream_session_events)
 
     - `session_thread_id: String`
 
-      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
+      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Informational only: the server routes the matching `user.tool_confirmation` or `user.tool_result` by `tool_use_id`, so clients do not send it back.
 
   - `class BetaManagedAgentsAgentToolResultEvent`
 
@@ -10232,7 +10262,7 @@ puts(beta_managed_agents_stream_session_events)
 
     - `session_thread_id: String`
 
-      Routes this result to a subagent thread. Copy from the `agent.tool_use` event's `session_thread_id`.
+      Set by the server to the subagent thread this result was routed to. Omitted when it was routed to the primary thread.
 
   - `class BetaManagedAgentsSessionThreadStatusRescheduledEvent`
 
@@ -10302,11 +10332,15 @@ puts(beta_managed_agents_stream_session_events)
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-          - `BetaManagedAgentsModel = :"claude-fable-5-1" | :"claude-sonnet-5" | :"claude-fable-5" | 11 more`
+          - `BetaManagedAgentsModel = :"claude-opus-5-5" | :"claude-fable-5-1" | :"claude-sonnet-5" | 12 more`
 
             The model that will power your agent.
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+            - `:"claude-opus-5-5"`
+
+              Powerful intelligence for coding, knowledge work, and long-running agents
 
             - `:"claude-fable-5-1"`
 
@@ -11614,7 +11648,7 @@ puts(beta_managed_agents_stream_session_events)
 
 ### Beta Managed Agents Stream Session Events
 
-- `BetaManagedAgentsStreamSessionEvents = BetaManagedAgentsUserMessageEvent | BetaManagedAgentsUserInterruptEvent | BetaManagedAgentsUserToolConfirmationEvent | 34 more`
+- `type BetaManagedAgentsStreamSessionEvents = BetaManagedAgentsUserMessageEvent | BetaManagedAgentsUserInterruptEvent | BetaManagedAgentsUserToolConfirmationEvent | 34 more`
 
   Server-sent event in the session stream.
 
@@ -11840,7 +11874,7 @@ puts(beta_managed_agents_stream_session_events)
 
     - `session_thread_id: String`
 
-      When set, the confirmation routes to this subagent's thread rather than the primary. Echo this from the `session_thread_id` on the `agent.tool_use` or `agent.mcp_tool_use` event that prompted the approval.
+      Set by the server to the subagent thread this confirmation was routed to. Omitted when it was routed to the primary thread.
 
   - `class BetaManagedAgentsUserCustomToolResultEvent`
 
@@ -11922,7 +11956,7 @@ puts(beta_managed_agents_stream_session_events)
 
     - `session_thread_id: String`
 
-      Routes this result to a subagent thread. Copy from the `agent.custom_tool_use` event's `session_thread_id`.
+      Set by the server to the subagent thread this result was routed to. Omitted when it was routed to the primary thread.
 
   - `class BetaManagedAgentsAgentCustomToolUseEvent`
 
@@ -11950,7 +11984,7 @@ puts(beta_managed_agents_stream_session_events)
 
     - `session_thread_id: String`
 
-      When set, this event was cross-posted from a subagent's thread to surface its custom tool use on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.custom_tool_result` event to route the result back.
+      When set, this event was cross-posted from a subagent's thread to surface its custom tool use on the primary thread's stream. Empty on the thread's own events. Informational only: the server routes the matching `user.custom_tool_result` by `custom_tool_use_id`, so clients do not send it back.
 
   - `class BetaManagedAgentsAgentMessageEvent`
 
@@ -12024,7 +12058,7 @@ puts(beta_managed_agents_stream_session_events)
 
       format: date-time
 
-    - `evaluated_permission: :allow | :ask | :deny`
+    - `evaluated_permission: BetaManagedAgentsAgentEvaluatedPermission`
 
       AgentEvaluatedPermission enum
 
@@ -12092,7 +12126,7 @@ puts(beta_managed_agents_stream_session_events)
 
     - `session_thread_id: String`
 
-      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
+      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Informational only: the server routes the matching `user.tool_confirmation` by `tool_use_id`, so clients do not send it back.
 
   - `class BetaManagedAgentsAgentMCPToolResultEvent`
 
@@ -12162,15 +12196,9 @@ puts(beta_managed_agents_stream_session_events)
 
       format: date-time
 
-    - `evaluated_permission: :allow | :ask | :deny`
+    - `evaluated_permission: BetaManagedAgentsAgentEvaluatedPermission`
 
       AgentEvaluatedPermission enum
-
-      - `:allow`
-
-      - `:ask`
-
-      - `:deny`
 
     - `evaluation: BetaManagedAgentsAgentToolEvaluation`
 
@@ -12178,7 +12206,7 @@ puts(beta_managed_agents_stream_session_events)
 
     - `session_thread_id: String`
 
-      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
+      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Informational only: the server routes the matching `user.tool_confirmation` or `user.tool_result` by `tool_use_id`, so clients do not send it back.
 
   - `class BetaManagedAgentsAgentToolResultEvent`
 
@@ -13070,7 +13098,7 @@ puts(beta_managed_agents_stream_session_events)
 
     - `session_thread_id: String`
 
-      Routes this result to a subagent thread. Copy from the `agent.tool_use` event's `session_thread_id`.
+      Set by the server to the subagent thread this result was routed to. Omitted when it was routed to the primary thread.
 
   - `class BetaManagedAgentsSessionThreadStatusRescheduledEvent`
 
@@ -13140,11 +13168,15 @@ puts(beta_managed_agents_stream_session_events)
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-          - `BetaManagedAgentsModel = :"claude-fable-5-1" | :"claude-sonnet-5" | :"claude-fable-5" | 11 more`
+          - `BetaManagedAgentsModel = :"claude-opus-5-5" | :"claude-fable-5-1" | :"claude-sonnet-5" | 12 more`
 
             The model that will power your agent.
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+            - `:"claude-opus-5-5"`
+
+              Powerful intelligence for coding, knowledge work, and long-running agents
 
             - `:"claude-fable-5-1"`
 
@@ -14228,7 +14260,7 @@ puts(beta_managed_agents_stream_session_events)
 
   - `session_thread_id: String`
 
-    Routes this result to a subagent thread. Copy from the `agent.custom_tool_use` event's `session_thread_id`.
+    Set by the server to the subagent thread this result was routed to. Omitted when it was routed to the primary thread.
 
 ### Beta Managed Agents User Custom Tool Result Event Params
 
@@ -14928,7 +14960,7 @@ puts(beta_managed_agents_stream_session_events)
 
   - `session_thread_id: String`
 
-    When set, the confirmation routes to this subagent's thread rather than the primary. Echo this from the `session_thread_id` on the `agent.tool_use` or `agent.mcp_tool_use` event that prompted the approval.
+    Set by the server to the subagent thread this confirmation was routed to. Omitted when it was routed to the primary thread.
 
 ### Beta Managed Agents User Tool Confirmation Event Params
 

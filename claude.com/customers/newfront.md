@@ -4,31 +4,21 @@ Case study | Claude Platform
 
 # Newfront modernizes insurance experiences with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![Newfront logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c1c16a4de3906007873ff8_cs-logo-newfront-light-theme.svg)![Newfront logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c1c16dbe59e07298cd58c6_cs-logo-newfront-dark-theme.svg)
+![Newfront logo](https://assets.claude.com/ee4d2ca80e3847343a478b6079f86d87f5b9816b.svg)
 
 Industry:
-
-Insurance
+:   Insurance
 
 Company size:
-
-Small
+:   Small
 
 Product:
-
-Claude Platform
+:   Claude Platform
 
 Location:
-
-North America
+:   North America
 
 60% cost savings
 
@@ -37,42 +27,6 @@ in document processing through automation
 12 out of 20
 
 complex insurance questions answered correctly
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
 
 Newfront, a modern insurance platform serving 20% of US startups with unicorn status, uses Claude to automate tedious insurance tasks and provide instant support, making insurance more accessible and efficient for everyone.
 
@@ -96,7 +50,7 @@ Newfront's journey to Claude began with a search for the ideal AI to help power 
 
 This initial success convinced Newfront to expand Claude's role across their platform. Today, they maintain a flexible approach, choosing the right AI for each specific challenge while leveraging Claude for their most complex natural language needs.
 
-![Newfront Product Screen](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68baf04f4d4e8061ef25260e_9e96bbed6e589600e7b906f78cd567ad8b3a308f-1920x1173.png)
+![Newfront Product Screen](https://assets.claude.com/5b3f759931b53b63947e0387b36c0cf4944a7f6c.png)
 
 ## How Claude transforms insurance work
 
@@ -118,28 +72,6 @@ Newfront sees AI as key to making insurance work better for everyone. Wintrob sa
 
 Newfront envisions a future where technology eliminates the administrative burden from insurance, allowing professionals to focus entirely on strategic guidance and complex problem-solving. Their AI-powered platform is already showing how this future might look: one where employees understand their benefits, businesses manage risk effectively, and insurance professionals focus on meaningful work. By combining Claude's capabilities with human expertise, Newfront is making insurance more accessible, efficient, and transparent for everyone involved.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[![DXC](https://assets.claude.com/a6cc538462d716535ab150bb67609835002f2376.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[DXC brings Claude to the insurance backbone running billions of policies](https://claude.com/customers/dxc)DXC brings Claude to the insurance backbone running billions of policies
-
-DXC brings Claude to the insurance backbone running billions of policies
-
-Customer story
-
-[Customer story](https://claude.com/customers/dxc)Customer story
+### DXC brings Claude to the insurance backbone running billions of policies](https://claude.com/customers/dxc)

@@ -4,56 +4,46 @@
 
 Every AI-native founder is betting on two things at once: the product they're building and where the models will be in six months. Sit in on a discussion with Varun (Clay), Madhav (Emergent), and Shain (CFO Silvia) on the calls that defined their companies and how they're deciding what to ship next as the frontier keeps moving.
 
-Details
+## Details
 
 City
-
-San Francisco, USA
+:   San Francisco, USA
 
 Date
-
-May 7, 2026
+:   May 7, 2026
 
 Time
-
-11:30AM – 12:00PM
+:   11:30AM – 12:00PM
 
 Speaker(s)
+:   Varun Anand
 
-Varun Anand
+    Co-founder & CCO,
 
-Co-founder & CCO,
+    Clay
 
-Clay
+    Madhav Jha
 
-Madhav Jha
+    Co-founder & CTO,
 
-Co-founder & CTO,
+    Emergent
 
-Emergent
+    Shain Noor
 
-Shain Noor
+    Co-founder & CTO,
 
-Co-founder & CTO,
+    CFO Silvia (ProCap Financial)
 
-CFO Silvia (ProCap Financial)
+    Lauren Reeder
 
-Lauren Reeder
+    Partner,
 
-Partner,
+    Sequoia Capital
 
-Sequoia Capital
-
-Anthropic's developer conference, recorded
+## Anthropic's developer conference, recorded
 
 Keynotes, demos, and conversations with the teams behind Claude. Recorded at Code w/ Claude 2026 San Francisco and ready to replay.
 
-Browse recordings
+[Browse recordings](https://claude.com/code-with-claude/san-francisco)
 
-[Learn more](https://claude.com/code-with-claude/san-francisco)Learn more
-
-[Homepage](https://claude.com/code-with-claude)Homepage
-
-© [year] Anthropic PBC
-
-[PRIVACY POLICY](https://www.anthropic.com/legal/privacy)[CODE OF CONDUCT](https://claude.com/code-with-claude/code-of-conduct)
+Building AI-native: What three founders bet on and what they'd change | Session | Code w/ Claude 2026

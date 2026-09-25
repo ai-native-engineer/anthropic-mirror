@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/ai-fluency-framework-foundations/a-closer-look-at-description -->
 
-Lesson 8 of 14 · AI Fluency: Framework & FoundationsA closer look at Description
+Lesson 8 of 14 · AI Fluency: Framework and foundationsA closer look at Description
 
-3. /[AI Fluency: Framework & Foundations](https://academy.claude.com/courses/ai-fluency-framework-foundations)
+3. /[AI Fluency: Framework and foundations](https://academy.claude.com/courses/ai-fluency-framework-foundations)
 
-[AI Fluency: Framework & Foundations](https://academy.claude.com/courses/ai-fluency-framework-foundations)
+[AI Fluency: Framework and foundations](https://academy.claude.com/courses/ai-fluency-framework-foundations)
 
 # A closer look at Description
 
@@ -70,7 +70,7 @@ In the next lesson, we'll take a deeper dive into effective prompting techniques
 
 [Previous lessonProject planning and Delegation](https://academy.claude.com/courses/ai-fluency-framework-foundations/project-planning-and-delegation)[Next lessonEffective prompting techniques](https://academy.claude.com/courses/ai-fluency-framework-foundations/effective-prompting-techniques)
 
-Lesson 8 of 14 · AI Fluency: Framework & FoundationsA closer look at Description
+Lesson 8 of 14 · AI Fluency: Framework and foundationsA closer look at Description
 
 Introduction to AI Fluency
 

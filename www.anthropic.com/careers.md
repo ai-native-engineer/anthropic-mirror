@@ -166,5 +166,3 @@ Most staff are in the Bay Area and come to the office regularly. Some live furth
 Want to help us build the future of safe AI?
 
 [Explore open roles](https://www.anthropic.com/careers/jobs)
-
-Careers \ Anthropic

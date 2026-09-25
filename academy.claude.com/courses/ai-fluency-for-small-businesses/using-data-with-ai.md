@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/ai-fluency-for-small-businesses/using-data-with-ai -->
 
-Lesson 6 of 9 · AI Fluency for Small BusinessesTransparent AI use
+Lesson 6 of 9 · AI Fluency for small businessesTransparent AI use
 
-3. /[AI Fluency for Small Businesses](https://academy.claude.com/courses/ai-fluency-for-small-businesses)
+3. /[AI Fluency for small businesses](https://academy.claude.com/courses/ai-fluency-for-small-businesses)
 
-[AI Fluency for Small Businesses](https://academy.claude.com/courses/ai-fluency-for-small-businesses)
+[AI Fluency for small businesses](https://academy.claude.com/courses/ai-fluency-for-small-businesses)
 
 # Transparent AI use
 
@@ -36,11 +36,11 @@ DelegationDecide what's worth handing to AI in the first place.
 
 DiligenceVerify, attribute, and own the final product.
 
-Decide what's right to hand off.Be thoughtful upfront: what's the right task, the right tool, and the right data to bring to AI — and what should stay with you?
+Decide what's right to hand off. Be thoughtful upfront: what's the right task, the right tool, and the right data to bring to AI — and what should stay with you?
 
 Hand offThe LoopValidate
 
-Own what comes back.Did AI get this right, and am I owning the result? Verify against what you know, be transparent about AI's role, and stand behind the output.
+Own what comes back. Did AI get this right, and am I owning the result? Verify against what you know, be transparent about AI's role, and stand behind the output.
 
 ## Key takeaways[](#key-takeaways)
 
@@ -84,7 +84,7 @@ In the next lesson, we'll put all four dimensions of the 4D Framework together t
 
 [Previous lessonRefining with AI](https://academy.claude.com/courses/ai-fluency-for-small-businesses/researching-with-ai)[Next lessonTying it all together](https://academy.claude.com/courses/ai-fluency-for-small-businesses/tying-it-all-together)
 
-Lesson 6 of 9 · AI Fluency for Small BusinessesTransparent AI use
+Lesson 6 of 9 · AI Fluency for small businessesTransparent AI use
 
 Introduction and AI Fluency framework
 

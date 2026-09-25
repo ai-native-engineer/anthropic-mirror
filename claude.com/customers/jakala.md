@@ -4,31 +4,21 @@ Case study | Claude Agent SDK
 
 # JAKALA brings production AI agents to enterprise clients across Europe with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a19c9b64163b9c9a70e5a2c_logo_jakala-light-mode%20(1).png)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a19c9b84d1c1fd8844ba654_logo_jakala-dark-mode%20(1).png)
+![Jakala logo](https://assets.claude.com/ca7463f74717f8d437ac4657dbb39dd1a7c0d086.png)
 
 Industry:
-
-Professional services
+:   Professional services
 
 Company size:
-
-Large
+:   Large
 
 Product:
-
-Claude Agent SDK
+:   Claude Agent SDK
 
 Location:
-
-EMEA
+:   EMEA
 
 ~70% reduction in time spent
 
@@ -51,32 +41,6 @@ on accounts running the hybrid agent model, down from 5-7 days
 
 ## The challenge
 
-Claude on Google Cloud
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69eaf379756a2219fdd60403_Screenshot%202026-04-23%20at%209.36.06%E2%80%AFPM.png)
-
-Build advanced AI agents with Claude on Google Cloud.
-
-Read more
-
-[Read more](https://claude.com/partners/google-cloud)Read more
-
-Claude on Google Cloud
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Build advanced AI agents with Claude on Google Cloud.
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Claude on Google Cloud
-
-Build advanced AI agents with Claude on Google Cloud.
-
 ## Industrializing AI delivery across regulated European industries
 
 For more than a decade, JAKALA had been developing hundreds of AI/ML models in-house, including propensity models, segmentation, marketing mix modeling, geospatial analytics, and recommendation systems. To scale that work into a single repeatable delivery model across regulated industries, the company needed a reasoning engine that enterprise customers could trust. "The bottleneck was not model availability," said Marco Di Dio Roccazzella, Global Managing Director of JAKALA's Data and AI Business Line. "It was model trustworthiness inside multi-step agentic workflows at enterprise scale."
@@ -85,29 +49,15 @@ External pressures compounded the internal one. Generative AI engines were displ
 
 These pressures showed up most concretely inside JAKALA's Activation business, which runs media, campaign, and engagement delivery for global clients. Senior planners on multi-market accounts were spending 40 to 60 percent of the week assembling data, building reports, and stress-testing hypotheses rather than making decisions. A complete optimization loop on a complex multi-channel account took 5 to 7 working days, including pulling data from 8 to 12 systems, hand-consolidating it in business intelligence tools, running scenarios, building a deck, and presenting it to the client. Each iteration set the upper limit on how fast ROI could improve. JAKALA wanted that time spent on client decisions instead.
 
+Claude on Google Cloud
+
+![Claude on Google Cloud](https://assets.claude.com/3bf99530eb5387631c2eb5a95f92a81c5020c4ef.png)
+
+Build advanced AI agents with Claude on Google Cloud.
+
+[Read more](https://claude.com/partners/google-cloud)
+
 ## The solution
-
-Claude on Amazon Bedrock
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69eaf379756a2219fdd60403_Screenshot%202026-04-23%20at%209.36.06%E2%80%AFPM.png)
-
-Build innovative AI applications with safer systems from Anthropic, supported by secure infrastructure from AWS.
-
-Claude on Amazon Bedrock
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Build innovative AI applications with safer systems from Anthropic, supported by secure infrastructure from AWS.
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Claude on Amazon Bedrock
-
-Build innovative AI applications with safer systems from Anthropic, supported by secure infrastructure from AWS.
 
 ## A reasoning core for the AI Factory
 
@@ -115,7 +65,7 @@ JAKALA evaluated leading frontier models against representative workloads: docum
 
 "The question was never which model wins," said Di Dio Roccazzella. "It was which model becomes the reasoning core of the AI Factory." The team graded each candidate on factual reliability, instruction-following across long agentic chains, latency and cost per task, and what they called "safe failure": whether the model would admit uncertainty rather than fabricate an answer.
 
-Three factors tipped the decision toward Claude. First, Claude reasoned well over the long, messy inputs that defined real client data across JAKALA's verticals. Second, the team saw markedly more consistent behavior from Claude inside the multi-step, tool-calling workflows production agents required. Third, Claude's safety and steerability posture matched the bar regulated clients set.  "Claude refuses cleanly, asks for clarification rather than guessing, and is auditable in the way our regulated clients in banking, insurance, and telco genuinely require," said Di Dio Roccazzella.
+Three factors tipped the decision toward Claude. First, Claude reasoned well over the long, messy inputs that defined real client data across JAKALA's verticals. Second, the team saw markedly more consistent behavior from Claude inside the multi-step, tool-calling workflows production agents required. Third, Claude's safety and steerability posture matched the bar regulated clients set. "Claude refuses cleanly, asks for clarification rather than guessing, and is auditable in the way our regulated clients in banking, insurance, and telco genuinely require," said Di Dio Roccazzella.
 
 For Guffanti, the moment of conviction was more concrete. JAKALA had set several frontier models the same assignment: handle a full week's media-performance analysis for a luxury cruise client, end-to-end, including tool calls into JAKALA's geo-intelligence engine. Only Claude's output cleared the senior strategy directors without revisions. "That was the signal," Guffanti recalled. "We were no longer talking about a generative tool. We were talking about a colleague."
 
@@ -127,21 +77,15 @@ Two proprietary products sit on this stack. JHexagon uses Claude Opus 4.6 to rea
 
 JAKALA accesses Claude through whichever surface matches each client's infrastructure: Claude on Amazon Bedrock, Claude on Google Cloud Agent Platform, or the Claude Platform directly with the API. "Most of our enterprise clients have already settled their AI procurement, security review, and data-governance frameworks around AWS or GCP," said Di Dio Roccazzella. "Going through Bedrock or Google’s Agent Platform meant we inherited those controls. In regulated verticals, this collapsed a process that historically took months into weeks."
 
-"Claude refuses cleanly, asks for clarification rather than guessing, and is auditable in the way our regulated clients in banking, insurance, and telco genuinely require."
+Claude on Amazon Bedrock
 
-Marco Di Dio Roccazzella
+![Claude on Amazon Bedrock](https://assets.claude.com/3bf99530eb5387631c2eb5a95f92a81c5020c4ef.png)
 
-Global Managing Director, JAKALA
+Build innovative AI applications with safer systems from Anthropic, supported by secure infrastructure from AWS.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+> "Claude refuses cleanly, asks for clarification rather than guessing, and is auditable in the way our regulated clients in banking, insurance, and telco genuinely require."
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+Marco Di Dio RoccazzellaGlobal Managing Director, JAKALA
 
 ## The outcome
 
@@ -159,42 +103,16 @@ Beyond marketing activation, JAKALA has begun extending the AI Factory model int
 
 "AI at JAKALA is not a pilot anymore," said Di Dio Roccazzella. "It is the default operating mode of the company. The roadmap is not about adding more AI to JAKALA. It is about making the AI Factory the reference operating model for enterprise AI transformation in Europe."
 
-"Going through Bedrock or Google’s Agent Platform meant we inherited those controls. In regulated verticals, this collapsed a process that historically took months into weeks."
+> "Going through Bedrock or Google’s Agent Platform meant we inherited those controls. In regulated verticals, this collapsed a process that historically took months into weeks."
 
-Marco Di Dio Roccazzella
+Marco Di Dio Roccazzella Global Managing Director, JAKALA
 
-Global Managing Director, JAKALA
+[![Caylent](https://assets.claude.com/b224ee1fa1757f5331b381ded249b619b03c957e.svg)
 
-## Related stories
+### Caylent turns months of migration work into days with Claude Agent SDK](https://claude.com/customers/caylent)[![BLA Studios](https://assets.claude.com/01af34a075be06353de94d0a7df2e25c668c9a15.svg)
 
-[Caylent turns months of migration work into days with Claude Agent SDK](https://claude.com/customers/caylent)Caylent turns months of migration work into days with Claude Agent SDK
+### How can a two-person fabrication studio make room for problems it’s never solved before?](https://claude.com/customers/bla-studios)[![LG CNS](https://assets.claude.com/61ca6aa185bfb470e18a6189b462ea0618039fca.png)
 
-Caylent turns months of migration work into days with Claude Agent SDK
+### LG CNS modernizes 20-year-old enterprise systems with Claude](https://claude.com/customers/lg-cns)[![Blank Metal](https://assets.claude.com/31d5dea773d37ce4626bd3710c924b455d46bcc0.svg)
 
-Customer story
-
-[Customer story](https://claude.com/customers/caylent)Customer story
-
-[How can a two-person fabrication studio make room for problems it’s never solved before?](https://claude.com/customers/bla-studios)How can a two-person fabrication studio make room for problems it’s never solved before?
-
-How can a two-person fabrication studio make room for problems it’s never solved before?
-
-Customer story
-
-[Customer story](https://claude.com/customers/bla-studios)Customer story
-
-[LG CNS modernizes 20-year-old enterprise systems with Claude](https://claude.com/customers/lg-cns)LG CNS modernizes 20-year-old enterprise systems with Claude
-
-LG CNS modernizes 20-year-old enterprise systems with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/lg-cns)Customer story
-
-[How Blank Metal, a lean professional services firm, runs on Claude Cowork](https://claude.com/customers/blank-metal-qa)How Blank Metal, a lean professional services firm, runs on Claude Cowork
-
-How Blank Metal, a lean professional services firm, runs on Claude Cowork
-
-Customer story
-
-[Customer story](https://claude.com/customers/blank-metal-qa)Customer story
+### How Blank Metal, a lean professional services firm, runs on Claude Cowork](https://claude.com/customers/blank-metal-qa)

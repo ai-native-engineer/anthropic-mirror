@@ -8,7 +8,7 @@ The Agent SDK spawns and supervises a `claude` CLI subprocess that owns a shell,
 
 This page covers self-hosting on your own infrastructure. For deployable Dockerfiles and Kubernetes manifests, see the [hosting cookbook](https://github.com/anthropics/claude-cookbooks/tree/main/claude_agent_sdk/hosting).
 
-If you do not need infrastructure control, custom isolation, or your own data plane, consider [Managed Agents](https://platform.claude.com/docs/en/managed-agents/overview) instead: a hosted REST API where Anthropic runs the agent and the sandbox, so your application sends events and streams back results with no hosting infrastructure to operate.
+If you don't need to run the agent loop itself on your own infrastructure, consider [Managed Agents](https://platform.claude.com/docs/en/managed-agents/overview) instead. Anthropic hosts the agent loop, and your application sends events and receives streamed results through the client SDKs or the REST API. Tool execution runs in an Anthropic-managed cloud sandbox or a [self-hosted sandbox](https://platform.claude.com/docs/en/managed-agents/self-hosted-sandboxes) on your own infrastructure.
 
 ## The subprocess model
 
@@ -129,7 +129,7 @@ The pattern hinges on resuming a session by ID with a shared store attached:
 
   declare const userInput: string;
   declare const sessionId: string;          // looked up from your database by user
-  declare const sessionStore: SessionStore; // S3, Redis, Postgres, or your own adapter
+  declare const sessionStore: SessionStore; // an object store, key-value store, database, or your own adapter
 
   for await (const message of query({
     prompt: userInput,
@@ -145,7 +145,7 @@ The pattern hinges on resuming a session by ID with a shared store attached:
 
   user_input: str = ...
   session_id: str = ...              # looked up from your database by user
-  session_store: SessionStore = ...  # S3, Redis, Postgres, or your own adapter
+  session_store: SessionStore = ...  # an object store, key-value store, database, or your own adapter
 
   async def main():
       async for message in query(
@@ -208,7 +208,7 @@ Work through these decisions before shipping a self-hosted agent.
 
 ### Session and state persistence
 
-Default local disk is lost on restart, scale-down, or a move to a different node. For any session a user expects to resume, mirror the transcript to durable storage with a [`SessionStore` adapter](/docs/en/agent-sdk/session-storage). See [Reference implementations](/docs/en/agent-sdk/session-storage#reference-implementations) for S3, Redis, and Postgres adapters and a conformance suite for your own.
+Default local disk is lost on restart, scale-down, or a move to a different node. For any session a user expects to resume, mirror the transcript to durable storage with a [`SessionStore` adapter](/docs/en/agent-sdk/session-storage). See [Reference implementations](/docs/en/agent-sdk/session-storage#reference-implementations) for example adapters for an object store, a key-value store, and a database, and a conformance suite for your own.
 
 Three things to know about how `SessionStore` behaves:
 

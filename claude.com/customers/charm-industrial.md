@@ -4,31 +4,21 @@ Case study | Claude Platform
 
 # Charm Industrial accelerates carbon removal operations with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![Charm Industrial logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c0db314b0bea3f575ad08e_cs-logo-charmindustrial-light-theme.svg)![Charm Industrial logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c0db3608436d0d569f619f_cs-logo-charmindustrial-dark-theme.svg)
+![Charm Industrial logo](https://assets.claude.com/8c7fcff37a870c1176eb4e8fce3cce0d7731cb4c.svg)
 
 Industry:
-
-Beneficial Deployments
+:   Beneficial Deployments
 
 Company size:
-
-Small
+:   Small
 
 Product:
-
-Claude Platform
+:   Claude Platform
 
 Location:
-
-North America
+:   North America
 
 3-6 months to days
 
@@ -37,42 +27,6 @@ carbon credit verification time
 Geological research
 
 and permitting acceleration
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
 
 Charm Industrial uses Claude to transform their carbon removal operations, from accelerating scientific research to automating verification processes critical to reversing climate change.
 
@@ -88,7 +42,7 @@ Charm Industrial removes carbon from the atmosphere by converting agricultural a
 
 Charm Industrial sells carbon removal credits—verified certificates that represent one ton of CO₂ permanently removed from the atmosphere—to companies seeking to offset their emissions. With customers like Stripe, JP Morgan and Google relying on these credits, Charm processes tens of thousands of data points across dozens of different systems and hundreds of components for every ton of carbon removed.
 
-![Charm Pyrolyzer](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68baf0540408ffa96cb56604_820e9c34a313f8d0f3afbe9a1bbccd039ed18dd5-7877x5177.jpeg)
+![Charm Pyrolyzer](https://assets.claude.com/678cb159a2bca54b6fc021f331fa4f2f4c1336e2.jpg)
 
 "We collect everything from meter readings on our pyrolyzers to truck scale tickets, all of which must be meticulously tracked and verified for carbon credit certification," said Kevin Niparko, Head of Product at Charm Industrial.
 
@@ -106,7 +60,7 @@ After evaluating multiple AI models, Charm chose Claude for what Niparko describ
 
 This balance proved critical for Charm's diverse use cases, from analyzing complex geological surveys to generating code for system migrations.
 
-![Charm Carbon Removal Process](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68baf0520408ffa96cb56593_a46ed380874d4d783e0b47f83da43d91aa7650de-2069x1170.jpeg)
+![Charm Carbon Removal Process](https://assets.claude.com/5ee364cf0a8ac5c8fa3ebd6cd9cb303eec1c226a.jpg)
 
 ## How Claude powers carbon removal at scale
 
@@ -134,52 +88,12 @@ As Charm expands their fleet of pyrolyzers and develops new carbon storage sites
 
 With Claude accelerating operations, Charm is demonstrating how AI can amplify human efforts to reverse climate change, allowing more companies to join the carbon removal movement and create measurable impact on our planet's future.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[![Mercy Corps](https://assets.claude.com/544995a85d67ef08fd67560f5758d5e28bc7a53f.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### Mercy Corps on what AI makes possible in humanitarian work](https://claude.com/customers/mercy-corps-qa)[![Mercy Corps](https://assets.claude.com/544995a85d67ef08fd67560f5758d5e28bc7a53f.svg)
 
-[Next](#)Next
+### Mercy Corps accelerates global humanitarian response to community feedback with Claude](https://claude.com/customers/mercy-corps)[![Epilepsy Foundation](https://assets.claude.com/446cc4df1be577720df85748fa3813fa0837e3b8.png)
 
-Video caption
+### The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude](https://claude.com/customers/epilepsy-foundation)[![Epilepsy Foundation](https://assets.claude.com/446cc4df1be577720df85748fa3813fa0837e3b8.png)
 
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[Mercy Corps on what AI makes possible in humanitarian work](https://claude.com/customers/mercy-corps-qa)Mercy Corps on what AI makes possible in humanitarian work
-
-Mercy Corps on what AI makes possible in humanitarian work
-
-Customer story
-
-[Customer story](https://claude.com/customers/mercy-corps-qa)Customer story
-
-[Mercy Corps accelerates global humanitarian response to community feedback with Claude](https://claude.com/customers/mercy-corps)Mercy Corps accelerates global humanitarian response to community feedback with Claude
-
-Mercy Corps accelerates global humanitarian response to community feedback with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/mercy-corps)Customer story
-
-[The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude](https://claude.com/customers/epilepsy-foundation)The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude
-
-The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/epilepsy-foundation)Customer story
-
-[How the Epilepsy Foundation uses Claude across the organization](https://claude.com/customers/epilepsy-foundation-qa)How the Epilepsy Foundation uses Claude across the organization
-
-How the Epilepsy Foundation uses Claude across the organization
-
-Customer story
-
-[Customer story](https://claude.com/customers/epilepsy-foundation-qa)Customer story
+### How the Epilepsy Foundation uses Claude across the organization](https://claude.com/customers/epilepsy-foundation-qa)

@@ -50,8 +50,8 @@ The following capabilities are default-off for Enterprise plans:
 
 * Skills and by dependency, Skill creation and Skill sharing (both public and within the organization)
 * Code execution and file creation
-* Interactive content in artifacts
-* Claude Design
+* Claude Design, Claude Slides, and Claude Docs (in Organization settings > Artifacts)
+* Standalone Claude Design at claude.ai/design
 * Claude in Chrome
 
 ### Per-user spend limits
@@ -109,6 +109,6 @@ On the start date, you'll be provisioned and able to use the new features by the
 
 * [What is the Enterprise plan?](https://support.claude.com/en/articles/9797531-what-is-the-enterprise-plan)
 * [How am I billed for my Enterprise plan?](https://support.claude.com/en/articles/11526368-how-am-i-billed-for-my-enterprise-plan)
+* [Use Claude Code with your Team or Enterprise plan](https://support.claude.com/en/articles/11845131-use-claude-code-with-your-team-or-enterprise-plan)
 * [View usage analytics for Team and Enterprise plans](https://support.claude.com/en/articles/12883420-view-usage-analytics-for-team-and-enterprise-plans)
-* [Find and join a Team or Enterprise organization](https://support.claude.com/en/articles/13566435-find-and-join-a-team-or-enterprise-organization)
 * [Claude Code on Console to Enterprise migration](https://support.claude.com/en/articles/14128775-claude-code-on-console-to-enterprise-migration)

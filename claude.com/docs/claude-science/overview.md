@@ -20,4 +20,3 @@ Claude can make mistakes. The reviewer reduces, but doesn’t eliminate, errors.
 * macOS 13 or later (Apple silicon or Intel), Windows 11 (x64), or Linux x64 on a glibc-based distribution.
 * About 5 GB of free disk space for the runtime and starter environments.
 * On Linux: socat, bubblewrap 0.8.0 or later, and unprivileged user namespaces permitted by the kernel.
-* On Windows: the Microsoft Visual C++ Redistributable (x64), which some features depend on and most PCs already have. If yours doesn’t, install the latest supported x64 version from [Microsoft’s download page](https://learn.microsoft.com/cpp/windows/latest-supported-vc-redist).

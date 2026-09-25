@@ -66,5 +66,5 @@ The Claude Console uses a role-based access system with six distinct roles: User
 * [How do I pay for my Claude API usage?](https://support.claude.com/en/articles/8977456-how-do-i-pay-for-my-claude-api-usage)
 * [Cost and Usage Reporting in the Claude Console](https://support.claude.com/en/articles/9534590-cost-and-usage-reporting-in-the-claude-console)
 * [Creating and managing Workspaces in the Claude Console](https://support.claude.com/en/articles/9796807-creating-and-managing-workspaces-in-the-claude-console)
+* [Claude Code FAQ](https://support.claude.com/en/articles/12386420-claude-code-faq)
 * [Claude Code on Console to Enterprise migration](https://support.claude.com/en/articles/14128775-claude-code-on-console-to-enterprise-migration)
-* [What is Claude Tag?](https://support.claude.com/en/articles/15594475-what-is-claude-tag)

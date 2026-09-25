@@ -1,24 +1,10 @@
 <!-- source: https://claude.com/programs/campus -->
 
-Applications now open
-
-[Next](#)Next
-
-The Claude Campus Ambassador program is back in session!
-
-Apply now
-
-[Apply now](https://form.typeform.com/to/ghysMPIY)Apply now
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6a8745e41671b0eab1db9aa8_card-celebration.avif)
+Explore here
 
 Supporting student builders
 
 Lead student-driven AI initiatives with support from Anthropic.
-
-Apply now
-
-[Apply now](https://form.typeform.com/to/ghysMPIY)Apply now
 
 ### For undergrads
 
@@ -121,8 +107,4 @@ This is a full school year program that runs from September 2026 to June 2027.
 
 [Next](#)Next
 
-Applications close 11:59pm PT on September 12
-
-Apply now
-
-[Apply now](https://form.typeform.com/to/ghysMPIY)Apply now
+The program is closed for Fall 2026

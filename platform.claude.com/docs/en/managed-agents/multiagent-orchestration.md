@@ -4,15 +4,17 @@
 title: Multiagent orchestration
 url: https://platform.claude.com/docs/en/managed-agents/multiagent-orchestration
 description: Coordinate multiple agents within a single session.
+featureMetadata:
+  topic:
+    title: Managed Agents
+    url: https://platform.claude.com/docs/en/managed-agents/overview
+  status: beta
+  betaHeader: managed-agents-2026-04-01
 ---
 
 Multiagent orchestration lets one agent coordinate with others to complete complex work. Agents can act in parallel with their own isolated context, which helps improve output quality and can also improve time to completion.
 
 Not sure a multiagent setup fits your problem? See [when to use multiagent systems (and when not to)](https://claude.com/blog/building-multi-agent-systems-when-and-how-to-use-them).
-
-<Note>
-  Managed Agents API requests require the `managed-agents-2026-04-01` beta header, except memory store endpoints, which use `agent-memory-2026-07-22` instead. The SDK sets the correct beta header automatically. See [Beta headers](https://platform.claude.com/docs/en/api/beta-headers#endpoint-specific-headers).
-</Note>
 
 ## How it works
 
@@ -46,7 +48,7 @@ When [defining your agent](https://platform.claude.com/docs/en/managed-agents/ag
     -d @- <<EOF
   {
     "name": "Engineering Lead",
-    "model": "claude-opus-5",
+    "model": "claude-opus-5-5",
     "system": "You coordinate engineering work. Delegate code review to the reviewer agent and test writing to the test agent.",
     "tools": [
       {
@@ -74,7 +76,7 @@ When [defining your agent](https://platform.claude.com/docs/en/managed-agents/ag
       ```markdown
       ---
       name: Engineering Lead
-      model: claude-opus-5
+      model: claude-opus-5-5
       tools:
         - type: agent_toolset_20260401
       multiagent:
@@ -114,7 +116,7 @@ When [defining your agent](https://platform.claude.com/docs/en/managed-agents/ag
   ```python Python
   coordinator = client.beta.agents.create(
       name="Engineering Lead",
-      model="claude-opus-5",
+      model="claude-opus-5-5",
       system="You coordinate engineering work. Delegate code review to the reviewer agent and test writing to the test agent.",
       tools=[
           {"type": "agent_toolset_20260401"},
@@ -132,7 +134,7 @@ When [defining your agent](https://platform.claude.com/docs/en/managed-agents/ag
   ```typescript TypeScript
   const coordinator = await client.beta.agents.create({
     name: "Engineering Lead",
-    model: "claude-opus-5",
+    model: "claude-opus-5-5",
     system:
       "You coordinate engineering work. Delegate code review to the reviewer agent and test writing to the test agent.",
     tools: [{ type: "agent_toolset_20260401" }],
@@ -150,7 +152,7 @@ When [defining your agent](https://platform.claude.com/docs/en/managed-agents/ag
   var coordinator = await client.Beta.Agents.Create(new()
   {
       Name = "Engineering Lead",
-      Model = BetaManagedAgentsModel.ClaudeOpus5,
+      Model = BetaManagedAgentsModel.ClaudeOpus5_5,
       System = "You coordinate engineering work. Delegate code review to the reviewer agent and test writing to the test agent.",
       Tools =
       [
@@ -170,7 +172,7 @@ When [defining your agent](https://platform.claude.com/docs/en/managed-agents/ag
   ```go Go
   coordinator, err := client.Beta.Agents.New(ctx, anthropic.BetaAgentNewParams{
   	Name:   "Engineering Lead",
-  	Model:  anthropic.BetaManagedAgentsModelConfigParams{ID: anthropic.BetaManagedAgentsModelClaudeOpus5},
+  	Model:  anthropic.BetaManagedAgentsModelConfigParams{ID: anthropic.BetaManagedAgentsModelClaudeOpus5_5},
   	System: anthropic.String("You coordinate engineering work. Delegate code review to the reviewer agent and test writing to the test agent."),
   	Tools: []anthropic.BetaAgentNewParamsToolUnion{{
   		OfAgentToolset20260401: &anthropic.BetaManagedAgentsAgentToolset20260401Params{
@@ -194,7 +196,7 @@ When [defining your agent](https://platform.claude.com/docs/en/managed-agents/ag
   var coordinator = client.beta().agents().create(
       AgentCreateParams.builder()
           .name("Engineering Lead")
-          .model(BetaManagedAgentsModel.CLAUDE_OPUS_5)
+          .model(BetaManagedAgentsModel.CLAUDE_OPUS_5_5)
           .system("You coordinate engineering work. Delegate code review to the reviewer agent and test writing to the test agent.")
           .addTool(
               BetaManagedAgentsAgentToolset20260401Params.builder()
@@ -219,7 +221,7 @@ When [defining your agent](https://platform.claude.com/docs/en/managed-agents/ag
   ```php PHP
   $coordinator = $client->beta->agents->create(
       name: 'Engineering Lead',
-      model: 'claude-opus-5',
+      model: 'claude-opus-5-5',
       system: 'You coordinate engineering work. Delegate code review to the reviewer agent and test writing to the test agent.',
       tools: [
           ['type' => 'agent_toolset_20260401'],
@@ -237,7 +239,7 @@ When [defining your agent](https://platform.claude.com/docs/en/managed-agents/ag
   ```ruby Ruby
   coordinator = client.beta.agents.create(
     name: "Engineering Lead",
-    model: "claude-opus-5",
+    model: "claude-opus-5-5",
     system: "You coordinate engineering work. Delegate code review to the reviewer agent and test writing to the test agent.",
     tools: [
       {type: "agent_toolset_20260401"}
@@ -285,7 +287,7 @@ curl -fsS https://api.anthropic.com/v1/agents \
     "multiagent": {
       "type": "coordinator",
       "agents": [
-        {"type": "advisor", "model": "claude-opus-5"}
+        {"type": "advisor", "model": "claude-opus-5-5"}
       ]
     }
   }'
@@ -417,7 +419,9 @@ MCP servers are agent-scoped (each agent definition declares its own servers and
 
 [Agent configuration overrides](https://platform.claude.com/docs/en/managed-agents/sessions#override-agent-configuration-for-a-session) at session creation can replace the coordinator's MCP servers and those of its `self` copies.
 
-<CodeGroup>
+Create the researcher, which declares the GitHub MCP server, and the coordinator that delegates to the researcher:
+
+<CodeGroup defaultLanguage="CLI">
   ```bash cURL
   research_agent_id=$(curl --fail-with-body -sS "$BASE/v1/agents" "${H[@]}" --data @- <<'EOF' | jq -er '.id'
   {
@@ -432,7 +436,7 @@ MCP servers are agent-scoped (each agent definition declares its own servers and
   coordinator_id=$(curl --fail-with-body -sS "$BASE/v1/agents" "${H[@]}" --data @- <<EOF | jq -er '.id'
   {
     "name": "coordinator",
-    "model": "claude-opus-5",
+    "model": "claude-opus-5-5",
     "tools": [{"type": "agent_toolset_20260401"}],
     "multiagent": {
       "type": "coordinator",
@@ -441,16 +445,6 @@ MCP servers are agent-scoped (each agent definition declares its own servers and
   }
   EOF
   )
-
-  session_id=$(curl --fail-with-body -sS "$BASE/v1/sessions" "${H[@]}" --data @- <<EOF | jq -er '.id'
-  {
-    "agent": "$coordinator_id",
-    "environment_id": "$environment_id",
-    "vault_ids": ["$vault_id"]
-  }
-  EOF
-  )
-  echo "$session_id"
   ```
 
   <MultiFileExample language="cli" label="CLI">
@@ -462,7 +456,7 @@ MCP servers are agent-scoped (each agent definition declares its own servers and
       ```markdown
       ---
       name: coordinator
-      model: claude-opus-5
+      model: claude-opus-5-5
       tools:
         - type: agent_toolset_20260401
       multiagent:
@@ -488,15 +482,6 @@ MCP servers are agent-scoped (each agent definition declares its own servers and
       ---
       ```
     </File>
-
-    ```bash CLI
-    session_id=$(ant beta:sessions create \
-      --agent "$coordinator_id" \
-      --environment-id "$environment_id" \
-      --vault-id "$vault_id" \
-      --transform id --raw-output)
-    echo "$session_id"
-    ```
   </MultiFileExample>
 
   ```python Python
@@ -511,20 +496,13 @@ MCP servers are agent-scoped (each agent definition declares its own servers and
 
   coordinator = client.beta.agents.create(
       name="coordinator",
-      model="claude-opus-5",
+      model="claude-opus-5-5",
       tools=[{"type": "agent_toolset_20260401"}],
       multiagent={
           "type": "coordinator",
           "agents": [{"type": "agent", "id": research_agent.id}],
       },
   )
-
-  session = client.beta.sessions.create(
-      agent=coordinator.id,
-      environment_id=environment.id,
-      vault_ids=[vault.id],
-  )
-  print(session.id)
   ```
 
   ```typescript TypeScript
@@ -539,20 +517,13 @@ MCP servers are agent-scoped (each agent definition declares its own servers and
 
   const coordinator = await client.beta.agents.create({
     name: "coordinator",
-    model: "claude-opus-5",
+    model: "claude-opus-5-5",
     tools: [{ type: "agent_toolset_20260401" }],
     multiagent: {
       type: "coordinator",
       agents: [{ type: "agent", id: researchAgent.id }],
     },
   });
-
-  const session = await client.beta.sessions.create({
-    agent: coordinator.id,
-    environment_id: environment.id,
-    vault_ids: [vault.id],
-  });
-  console.log(session.id);
   ```
 
   ```csharp C#
@@ -582,7 +553,7 @@ MCP servers are agent-scoped (each agent definition declares its own servers and
   var coordinator = await client.Beta.Agents.Create(new()
   {
       Name = "coordinator",
-      Model = BetaManagedAgentsModel.ClaudeOpus5,
+      Model = BetaManagedAgentsModel.ClaudeOpus5_5,
       Tools =
       [
           new BetaManagedAgentsAgentToolset20260401Params
@@ -603,14 +574,6 @@ MCP servers are agent-scoped (each agent definition declares its own servers and
           ],
       },
   });
-
-  var session = await client.Beta.Sessions.Create(new()
-  {
-      Agent = coordinator.ID,
-      EnvironmentID = environment.ID,
-      VaultIds = [vault.ID],
-  });
-  Console.WriteLine(session.ID);
   ```
 
   ```go Go
@@ -635,7 +598,7 @@ MCP servers are agent-scoped (each agent definition declares its own servers and
 
   coordinator, err := client.Beta.Agents.New(ctx, anthropic.BetaAgentNewParams{
   	Name:  "coordinator",
-  	Model: anthropic.BetaManagedAgentsModelConfigParams{ID: anthropic.BetaManagedAgentsModelClaudeOpus5},
+  	Model: anthropic.BetaManagedAgentsModelConfigParams{ID: anthropic.BetaManagedAgentsModelClaudeOpus5_5},
   	Tools: []anthropic.BetaAgentNewParamsToolUnion{{
   		OfAgentToolset20260401: &anthropic.BetaManagedAgentsAgentToolset20260401Params{
   			Type: anthropic.BetaManagedAgentsAgentToolset20260401ParamsTypeAgentToolset20260401,
@@ -654,18 +617,6 @@ MCP servers are agent-scoped (each agent definition declares its own servers and
   if err != nil {
   	panic(err)
   }
-
-  session, err := client.Beta.Sessions.New(ctx, anthropic.BetaSessionNewParams{
-  	Agent: anthropic.BetaSessionNewParamsAgentUnion{
-  		OfString: anthropic.String(coordinator.ID),
-  	},
-  	EnvironmentID: environment.ID,
-  	VaultIDs:      []string{vault.ID},
-  })
-  if err != nil {
-  	panic(err)
-  }
-  fmt.Println(session.ID)
   ```
 
   ```java Java
@@ -688,7 +639,7 @@ MCP servers are agent-scoped (each agent definition declares its own servers and
   var coordinator = client.beta().agents().create(
       AgentCreateParams.builder()
           .name("coordinator")
-          .model(BetaManagedAgentsModel.CLAUDE_OPUS_5)
+          .model(BetaManagedAgentsModel.CLAUDE_OPUS_5_5)
           .addTool(BetaManagedAgentsAgentToolset20260401Params.builder()
               .type(BetaManagedAgentsAgentToolset20260401Params.Type.AGENT_TOOLSET_20260401)
               .build())
@@ -701,13 +652,6 @@ MCP servers are agent-scoped (each agent definition declares its own servers and
               .build())
           .build()
   );
-
-  var session = client.beta().sessions().create(SessionCreateParams.builder()
-      .agent(coordinator.id())
-      .environmentId(environment.id())
-      .vaultIds(List.of(vault.id()))
-      .build());
-  IO.println(session.id());
   ```
 
   ```php PHP
@@ -724,7 +668,7 @@ MCP servers are agent-scoped (each agent definition declares its own servers and
 
   $coordinator = $client->beta->agents->create(
       name: 'coordinator',
-      model: 'claude-opus-5',
+      model: 'claude-opus-5-5',
       tools: [
           ['type' => 'agent_toolset_20260401'],
       ],
@@ -735,13 +679,6 @@ MCP servers are agent-scoped (each agent definition declares its own servers and
           ],
       ],
   );
-
-  $session = $client->beta->sessions->create(
-      agent: $coordinator->id,
-      environmentID: $environment->id,
-      vaultIDs: [$vault->id],
-  );
-  echo "{$session->id}\n";
   ```
 
   ```ruby Ruby
@@ -758,7 +695,7 @@ MCP servers are agent-scoped (each agent definition declares its own servers and
 
   coordinator = client.beta.agents.create(
     name: "coordinator",
-    model: "claude-opus-5",
+    model: "claude-opus-5-5",
     tools: [
       {type: "agent_toolset_20260401"}
     ],
@@ -769,7 +706,94 @@ MCP servers are agent-scoped (each agent definition declares its own servers and
       ]
     }
   )
+  ```
+</CodeGroup>
 
+Then create the session with the vault that holds the GitHub credential:
+
+<CodeGroup>
+  ```bash cURL
+  session_id=$(curl --fail-with-body -sS "$BASE/v1/sessions" "${H[@]}" --data @- <<EOF | jq -er '.id'
+  {
+    "agent": "$coordinator_id",
+    "environment_id": "$environment_id",
+    "vault_ids": ["$vault_id"]
+  }
+  EOF
+  )
+  echo "$session_id"
+  ```
+
+  ```bash CLI
+  session_id=$(ant beta:sessions create \
+    --agent "$coordinator_id" \
+    --environment-id "$environment_id" \
+    --vault-id "$vault_id" \
+    --transform id --raw-output)
+  echo "$session_id"
+  ```
+
+  ```python Python
+  session = client.beta.sessions.create(
+      agent=coordinator.id,
+      environment_id=environment.id,
+      vault_ids=[vault.id],
+  )
+  print(session.id)
+  ```
+
+  ```typescript TypeScript
+  const session = await client.beta.sessions.create({
+    agent: coordinator.id,
+    environment_id: environment.id,
+    vault_ids: [vault.id],
+  });
+  console.log(session.id);
+  ```
+
+  ```csharp C#
+  var session = await client.Beta.Sessions.Create(new()
+  {
+      Agent = coordinator.ID,
+      EnvironmentID = environment.ID,
+      VaultIds = [vault.ID],
+  });
+  Console.WriteLine(session.ID);
+  ```
+
+  ```go Go
+  session, err := client.Beta.Sessions.New(ctx, anthropic.BetaSessionNewParams{
+  	Agent: anthropic.BetaSessionNewParamsAgentUnion{
+  		OfString: anthropic.String(coordinator.ID),
+  	},
+  	EnvironmentID: environment.ID,
+  	VaultIDs:      []string{vault.ID},
+  })
+  if err != nil {
+  	panic(err)
+  }
+  fmt.Println(session.ID)
+  ```
+
+  ```java Java
+  var session = client.beta().sessions().create(SessionCreateParams.builder()
+      .agent(coordinator.id())
+      .environmentId(environment.id())
+      .vaultIds(List.of(vault.id()))
+      .build());
+  IO.println(session.id());
+  ```
+
+  ```php PHP
+  $session = $client->beta->sessions->create(
+      agent: $coordinator->id,
+      environmentID: $environment->id,
+      vaultIDs: [$vault->id],
+  );
+  echo "{$session->id}\n";
+  ```
+
+  ```ruby Ruby
   session = client.beta.sessions.create(
     agent: coordinator.id,
     environment_id: environment.id,
@@ -1215,15 +1239,17 @@ Each session thread has its own event stream at `/v1/sessions/{session_id}/threa
         session_id: session.id,
       });
 
-      for await (const event of stream) {
-        if (event.type === "agent.message") {
-          for (const block of event.content) {
-            if (block.type === "text") {
-              process.stdout.write(block.text);
+      loop: for await (const event of stream) {
+        switch (event.type) {
+          case "agent.message":
+            for (const block of event.content) {
+              if (block.type === "text") {
+                process.stdout.write(block.text);
+              }
             }
-          }
-        } else if (event.type === "session.thread_status_idle") {
-          break;
+            break;
+          case "session.thread_status_idle":
+            break loop;
         }
       }
       ```
@@ -1278,13 +1304,17 @@ Each session thread has its own event stream at `/v1/sessions/{session_id}/threa
           thread.id(),
           EventStreamParams.builder().sessionId(session.id()).build()
       )) {
+          loop:
           for (var event : (Iterable<BetaManagedAgentsStreamSessionThreadEvents>) streamResponse.stream()::iterator) {
-              if (event.isAgentMessage()) {
-                  for (var block : event.asAgentMessage().content()) {
-                      block.text().ifPresent(textBlock -> IO.print(textBlock.text()));
+              switch (event.type().value()) {
+                  case AGENT_MESSAGE -> {
+                      for (var block : event.asAgentMessage().content()) {
+                          block.text().ifPresent(textBlock -> IO.print(textBlock.text()));
+                      }
                   }
-              } else if (event.isSessionThreadStatusIdle()) {
-                  break;
+                  case SESSION_THREAD_STATUS_IDLE -> {
+                      break loop;
+                  }
               }
           }
       }
@@ -1297,26 +1327,28 @@ Each session thread has its own event stream at `/v1/sessions/{session_id}/threa
       );
 
       foreach ($stream as $event) {
-          if ($event->type === 'agent.message') {
-              foreach ($event->content as $block) {
-                  if ($block->type === 'text') {
-                      echo $block->text;
+          switch (true) {
+              case $event instanceof \Anthropic\Beta\Sessions\Events\ManagedAgentsAgentMessageEvent:
+                  foreach ($event->content as $block) {
+                      if ($block instanceof \Anthropic\Beta\Sessions\Events\ManagedAgentsTextBlock) {
+                          echo $block->text;
+                      }
                   }
-              }
-          } elseif ($event->type === 'session.thread_status_idle') {
-              break;
+                  break;
+              case $event instanceof \Anthropic\Beta\Sessions\Events\ManagedAgentsSessionThreadStatusIdleEvent:
+                  break 2;
           }
       }
       ```
 
       ```ruby Ruby
       client.beta.sessions.threads.events.stream_events(thread.id, session_id: session.id).each do |event|
-        case event.type
-        when :"agent.message"
+        case event
+        when Anthropic::Beta::Sessions::BetaManagedAgentsAgentMessageEvent
           event.content.each do |block|
-            print block.text if block.type == :text
+            print block.text if block.is_a?(Anthropic::Beta::Sessions::BetaManagedAgentsTextBlock)
           end
-        when :"session.thread_status_idle"
+        when Anthropic::Beta::Sessions::BetaManagedAgentsSessionThreadStatusIdleEvent
           break
         end
       end

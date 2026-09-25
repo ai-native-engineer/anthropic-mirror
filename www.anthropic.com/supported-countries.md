@@ -1,6 +1,6 @@
 <!-- source: https://www.anthropic.com/supported-countries -->
 
-# Supported countries & regions
+# Supported Regions Policy
 
 Commercial API access and Claude.ai.
 
@@ -45,6 +45,7 @@ Countries, regions, and territories where we currently offer commercial API acce
 * Chile
 * Colombia
 * Comoros
+* Congo, Democratic Republic of (DRC)
 * Congo (Brazzaville)
 * Costa Rica
 * Côte d'Ivoire
@@ -234,6 +235,7 @@ Countries, regions, and territories where we currently offer Claude.ai access:
 * Chile
 * Colombia
 * Comoros
+* Congo, Democratic Republic of (DRC)
 * Congo (Brazzaville)
 * Costa Rica
 * Côte d'Ivoire

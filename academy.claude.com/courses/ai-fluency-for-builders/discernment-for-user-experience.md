@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/ai-fluency-for-builders/discernment-for-user-experience -->
 
-Lesson 7 of 9 · AI Fluency for BuildersDiscernment for user experience
+Lesson 7 of 9 · AI Fluency for buildersDiscernment for user experience
 
-3. /[AI Fluency for Builders](https://academy.claude.com/courses/ai-fluency-for-builders)
+3. /[AI Fluency for builders](https://academy.claude.com/courses/ai-fluency-for-builders)
 
-[AI Fluency for Builders](https://academy.claude.com/courses/ai-fluency-for-builders)
+[AI Fluency for builders](https://academy.claude.com/courses/ai-fluency-for-builders)
 
 # Discernment for user experience
 
@@ -56,7 +56,7 @@ You’ve looked at your Clinic Wait Time Checker through both a code lens and a 
 
 [Previous lessonDiscernment for code](https://academy.claude.com/courses/ai-fluency-for-builders/discernment-for-code)[Next lessonStand behind what you build](https://academy.claude.com/courses/ai-fluency-for-builders/stand-behind-what-you-build)
 
-Lesson 7 of 9 · AI Fluency for BuildersDiscernment for user experience
+Lesson 7 of 9 · AI Fluency for buildersDiscernment for user experience
 
 Introduction and AI Fluency framework
 

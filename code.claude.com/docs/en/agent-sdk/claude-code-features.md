@@ -6,7 +6,7 @@
 
 The Agent SDK is built on the same foundation as Claude Code, which means your SDK agents have access to the same filesystem-based features: project instructions (`CLAUDE.md` and rules), skills, hooks, and more.
 
-When you omit `settingSources`, `query()` reads the same filesystem settings as the Claude Code CLI: user, project, and local settings, CLAUDE.md files, and `.claude/` skills, agents, and commands. To run without these, pass `settingSources: []`, which limits the agent to what you configure programmatically. Managed policy settings and the global `~/.claude.json` config are read regardless of this option. See [What settingSources does not control](#what-settingsources-does-not-control).
+When you omit `settingSources`, `query()` reads the same filesystem settings as the Claude Code CLI: user, project, and local settings, CLAUDE.md files, and `.claude/` skills, agents, and commands. To run without these, pass `settingSources: []`, which limits the agent to what you configure programmatically. Managed policy settings and the global `~/.claude.json` config are read regardless of this option. For more information, see [What settingSources does not control](#what-settingsources-does-not-control).
 
 ## Control filesystem settings with settingSources
 
@@ -97,7 +97,7 @@ The `cwd` option determines where the SDK looks for project-level inputs. Projec
 
 ## Project instructions (CLAUDE.md and rules)
 
-`CLAUDE.md` files and `.claude/rules/*.md` files give your agent persistent context about your project: coding conventions, build commands, architecture decisions, and instructions. When `settingSources` includes `"project"` (as in the example above), the SDK loads these files into context at session start. The agent then follows your project conventions without you repeating them in every prompt.
+`CLAUDE.md` files and `.claude/rules/*.md` files give your agent persistent context about your project: coding conventions, build commands, architecture decisions, and instructions. When `settingSources` includes `"project"`, as in the [`settingSources` example](#control-filesystem-settings-with-settingsources), the SDK loads these files into context at session start. The agent then follows your project conventions without you repeating them in every prompt.
 
 ### CLAUDE.md load locations
 
@@ -277,7 +277,7 @@ For full details on programmatic hooks, see [Control execution with hooks](/docs
 
 The Agent SDK gives you access to several ways to extend your agent's behavior. If you're unsure which to use, this table maps common goals to the right approach.
 
-| You want to...                                                                                    | Use                                           | SDK surface                                                                                                                                                    |
+| What you want to do                                                                               | Use                                           | SDK surface                                                                                                                                                    |
 | :------------------------------------------------------------------------------------------------ | :-------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Set project conventions your agent always follows                                                 | [CLAUDE.md](/docs/en/memory)                       | `settingSources: ["project"]` loads it automatically                                                                                                           |
 | Give the agent reference material it loads when relevant                                          | [Skills](/docs/en/agent-sdk/skills)                | `settingSources` + `skills` option                                                                                                                             |

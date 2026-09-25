@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/ai-fluency-for-small-businesses/the-4d-framework -->
 
-Lesson 2 of 9 · AI Fluency for Small BusinessesThe 4D Framework
+Lesson 2 of 9 · AI Fluency for small businessesThe 4D Framework
 
-3. /[AI Fluency for Small Businesses](https://academy.claude.com/courses/ai-fluency-for-small-businesses)
+3. /[AI Fluency for small businesses](https://academy.claude.com/courses/ai-fluency-for-small-businesses)
 
-[AI Fluency for Small Businesses](https://academy.claude.com/courses/ai-fluency-for-small-businesses)
+[AI Fluency for small businesses](https://academy.claude.com/courses/ai-fluency-for-small-businesses)
 
 # The 4D Framework
 
@@ -74,7 +74,7 @@ In the next lesson, we'll look at how generative AI works — what it can and ca
 
 [Previous lessonAI Fluency for small businesses](https://academy.claude.com/courses/ai-fluency-for-small-businesses/ai-fluency-for-small-businesses)[Next lessonAI capabilities and limitations](https://academy.claude.com/courses/ai-fluency-for-small-businesses/ai-capabilities-and-limits)
 
-Lesson 2 of 9 · AI Fluency for Small BusinessesThe 4D Framework
+Lesson 2 of 9 · AI Fluency for small businessesThe 4D Framework
 
 Introduction and AI Fluency framework
 

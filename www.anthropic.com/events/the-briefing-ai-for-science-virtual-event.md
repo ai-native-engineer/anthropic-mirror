@@ -133,7 +133,7 @@ No items found.
 
 Thank you for your interest in The Briefing: AI for Science
 
-Applications for this event are now closed. We invite you to tune into the livestream on Jun 30, 2026 at 10:00am PST. The livestream will take place right here on this page.
+Applications for this event are now closed. We invite you to tune into the livestream on June 30, 2026 at PST. The livestream will take place right here on this page.
 
 Not able to submit the form? Try loading it directly
 
@@ -286,18 +286,6 @@ PDT
 ### —
 
 ### Tuesday
-
-10:00 am
-
--
-
-11:40 am
-
-PDT
-
-### Keynote program
-
-Anthropic's vision on AI for Science, product demonstrations, and customer spotlights
 
 10:00 am
 

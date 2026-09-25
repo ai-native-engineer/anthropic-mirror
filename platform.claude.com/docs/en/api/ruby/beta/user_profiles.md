@@ -23,7 +23,11 @@ Create User Profile
 
   - `:application`
 
+    The user profile represents an individual end-user of a product that the platform builds on the API. New profiles get this value by default.
+
   - `:passthrough`
+
+    The user profile represents a company that the platform resells Claude access to.
 
 - `external_id: String`
 
@@ -41,9 +45,15 @@ Create User Profile
 
     - `:active`
 
+      The platform has neither restricted nor barred the account of the entity that the user profile represents.
+
     - `:suspended`
 
+      The platform has restricted the account of the entity that the user profile represents and may restore it.
+
     - `:blocked`
+
+      The platform has barred the account of the entity that the user profile represents.
 
   - `country: String`
 
@@ -107,7 +117,7 @@ Create User Profile
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 42 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 45 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -199,9 +209,25 @@ Create User Profile
 
     - `:"mid-conversation-system-clear-at-2026-08-21"`
 
+    - `:"compact-2026-09-04"`
+
+    - `:"inline-tools-2026-09-15"`
+
+    - `:"mcp-client-2026-09-15"`
+
+- `workspace_id: String`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ### Returns
 
 - `class BetaUserProfile`
+
+  A record of an entity that the platform serves through the API, such as an end-user of the platform's product or a company that the platform resells Claude access to.
+
+  A Messages, Message Batches or token counting request can send a profile's `id` in the `anthropic-user-profile-id` header to attribute the request to that entity.
 
   - `type: :user_profile`
 
@@ -247,7 +273,11 @@ Create User Profile
 
     - `:application`
 
+      The user profile represents an individual end-user of a product that the platform builds on the API. New profiles get this value by default.
+
     - `:passthrough`
+
+      The user profile represents a company that the platform resells Claude access to.
 
   - `external_id: String`
 
@@ -263,9 +293,15 @@ Create User Profile
 
       - `:active`
 
+        The platform has neither restricted nor barred the account of the entity that the user profile represents.
+
       - `:suspended`
 
+        The platform has restricted the account of the entity that the user profile represents and may restore it.
+
       - `:blocked`
+
+        The platform has barred the account of the entity that the user profile represents.
 
     - `country: String`
 
@@ -365,29 +401,39 @@ List User Profiles
 
 - `limit: Integer`
 
-  Query parameter for limit
+  The maximum number of user profiles to return, from 1 to 100. Defaults to 20.
 
   format: int32
 
 - `order: :asc | :desc`
 
-  Query parameter for order
+  The sort direction, applied to the field that `order_by` selects. Defaults to `desc`.
 
   - `:asc`
 
+    Oldest first when `order_by` is `created_at`, or names in ascending order when `order_by` is `name`.
+
   - `:desc`
+
+    Newest first when `order_by` is `created_at`, or names in descending order when `order_by` is `name`. This is the default.
 
 - `order_by: :created_at | :name`
 
-  Query parameter for order_by
+  The field to sort user profiles by, in the direction that `order` sets. Defaults to `created_at`.
 
   - `:created_at`
 
+    Sort by when each user profile was created. This is the default.
+
   - `:name`
+
+    Sort by `name`, ignoring the case of ASCII letters. Profiles without a name come last in either direction.
 
 - `page: String`
 
-  Query parameter for page
+  The cursor for the page to return, taken from `next_page` in a previous response.
+
+  Leave it out to get the first page.
 
 - `betas: Array[AnthropicBeta]`
 
@@ -395,7 +441,7 @@ List User Profiles
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 42 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 45 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -487,9 +533,25 @@ List User Profiles
 
     - `:"mid-conversation-system-clear-at-2026-08-21"`
 
+    - `:"compact-2026-09-04"`
+
+    - `:"inline-tools-2026-09-15"`
+
+    - `:"mcp-client-2026-09-15"`
+
+- `workspace_id: String`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ### Returns
 
 - `class BetaUserProfile`
+
+  A record of an entity that the platform serves through the API, such as an end-user of the platform's product or a company that the platform resells Claude access to.
+
+  A Messages, Message Batches or token counting request can send a profile's `id` in the `anthropic-user-profile-id` header to attribute the request to that entity.
 
   - `type: :user_profile`
 
@@ -535,7 +597,11 @@ List User Profiles
 
     - `:application`
 
+      The user profile represents an individual end-user of a product that the platform builds on the API. New profiles get this value by default.
+
     - `:passthrough`
+
+      The user profile represents a company that the platform resells Claude access to.
 
   - `external_id: String`
 
@@ -551,9 +617,15 @@ List User Profiles
 
       - `:active`
 
+        The platform has neither restricted nor barred the account of the entity that the user profile represents.
+
       - `:suspended`
 
+        The platform has restricted the account of the entity that the user profile represents and may restore it.
+
       - `:blocked`
+
+        The platform has barred the account of the entity that the user profile represents.
 
     - `country: String`
 
@@ -658,13 +730,15 @@ Get User Profile
 
 - `user_profile_id: String`
 
+  The ID of the user profile to get (`uprof_...`).
+
 - `betas: Array[AnthropicBeta]`
 
   Optional header to specify the beta version(s) you want to use.
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 42 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 45 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -756,9 +830,25 @@ Get User Profile
 
     - `:"mid-conversation-system-clear-at-2026-08-21"`
 
+    - `:"compact-2026-09-04"`
+
+    - `:"inline-tools-2026-09-15"`
+
+    - `:"mcp-client-2026-09-15"`
+
+- `workspace_id: String`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ### Returns
 
 - `class BetaUserProfile`
+
+  A record of an entity that the platform serves through the API, such as an end-user of the platform's product or a company that the platform resells Claude access to.
+
+  A Messages, Message Batches or token counting request can send a profile's `id` in the `anthropic-user-profile-id` header to attribute the request to that entity.
 
   - `type: :user_profile`
 
@@ -804,7 +894,11 @@ Get User Profile
 
     - `:application`
 
+      The user profile represents an individual end-user of a product that the platform builds on the API. New profiles get this value by default.
+
     - `:passthrough`
+
+      The user profile represents a company that the platform resells Claude access to.
 
   - `external_id: String`
 
@@ -820,9 +914,15 @@ Get User Profile
 
       - `:active`
 
+        The platform has neither restricted nor barred the account of the entity that the user profile represents.
+
       - `:suspended`
 
+        The platform has restricted the account of the entity that the user profile represents and may restore it.
+
       - `:blocked`
+
+        The platform has barred the account of the entity that the user profile represents.
 
     - `country: String`
 
@@ -922,13 +1022,19 @@ Update User Profile
 
 - `user_profile_id: String`
 
+  The ID of the user profile to update (`uprof_...`).
+
 - `access_type: :application | :passthrough`
 
   How the platform uses the API on behalf of the entity this profile represents. `application`: the platform sells a product that uses the API behind the scenes, and the profile represents an individual end-user of that product. `passthrough`: the platform resells raw inference, and the profile identifies the resold-to company.
 
   - `:application`
 
+    The user profile represents an individual end-user of a product that the platform builds on the API. New profiles get this value by default.
+
   - `:passthrough`
+
+    The user profile represents a company that the platform resells Claude access to.
 
 - `external_id: String`
 
@@ -946,9 +1052,15 @@ Update User Profile
 
     - `:active`
 
+      The platform has neither restricted nor barred the account of the entity that the user profile represents.
+
     - `:suspended`
 
+      The platform has restricted the account of the entity that the user profile represents and may restore it.
+
     - `:blocked`
+
+      The platform has barred the account of the entity that the user profile represents.
 
   - `country: String`
 
@@ -1012,7 +1124,7 @@ Update User Profile
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 42 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 45 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -1104,9 +1216,25 @@ Update User Profile
 
     - `:"mid-conversation-system-clear-at-2026-08-21"`
 
+    - `:"compact-2026-09-04"`
+
+    - `:"inline-tools-2026-09-15"`
+
+    - `:"mcp-client-2026-09-15"`
+
+- `workspace_id: String`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ### Returns
 
 - `class BetaUserProfile`
+
+  A record of an entity that the platform serves through the API, such as an end-user of the platform's product or a company that the platform resells Claude access to.
+
+  A Messages, Message Batches or token counting request can send a profile's `id` in the `anthropic-user-profile-id` header to attribute the request to that entity.
 
   - `type: :user_profile`
 
@@ -1152,7 +1280,11 @@ Update User Profile
 
     - `:application`
 
+      The user profile represents an individual end-user of a product that the platform builds on the API. New profiles get this value by default.
+
     - `:passthrough`
+
+      The user profile represents a company that the platform resells Claude access to.
 
   - `external_id: String`
 
@@ -1168,9 +1300,15 @@ Update User Profile
 
       - `:active`
 
+        The platform has neither restricted nor barred the account of the entity that the user profile represents.
+
       - `:suspended`
 
+        The platform has restricted the account of the entity that the user profile represents and may restore it.
+
       - `:blocked`
+
+        The platform has barred the account of the entity that the user profile represents.
 
     - `country: String`
 
@@ -1270,13 +1408,15 @@ Create Enrollment URL
 
 - `user_profile_id: String`
 
+  The ID of the user profile to create an enrollment URL for (`uprof_...`).
+
 - `betas: Array[AnthropicBeta]`
 
   Optional header to specify the beta version(s) you want to use.
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 42 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 45 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -1368,9 +1508,23 @@ Create Enrollment URL
 
     - `:"mid-conversation-system-clear-at-2026-08-21"`
 
+    - `:"compact-2026-09-04"`
+
+    - `:"inline-tools-2026-09-15"`
+
+    - `:"mcp-client-2026-09-15"`
+
+- `workspace_id: String`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ### Returns
 
 - `class BetaUserProfileEnrollmentURL`
+
+  A URL to give to the entity that a user profile represents, so that the entity can enroll for a trust grant.
 
   - `type: :enrollment_url`
 
@@ -1413,6 +1567,10 @@ puts(beta_user_profile_enrollment_url)
 ### Beta User Profile
 
 - `class BetaUserProfile`
+
+  A record of an entity that the platform serves through the API, such as an end-user of the platform's product or a company that the platform resells Claude access to.
+
+  A Messages, Message Batches or token counting request can send a profile's `id` in the `anthropic-user-profile-id` header to attribute the request to that entity.
 
   - `type: :user_profile`
 
@@ -1458,7 +1616,11 @@ puts(beta_user_profile_enrollment_url)
 
     - `:application`
 
+      The user profile represents an individual end-user of a product that the platform builds on the API. New profiles get this value by default.
+
     - `:passthrough`
+
+      The user profile represents a company that the platform resells Claude access to.
 
   - `external_id: String`
 
@@ -1474,9 +1636,15 @@ puts(beta_user_profile_enrollment_url)
 
       - `:active`
 
+        The platform has neither restricted nor barred the account of the entity that the user profile represents.
+
       - `:suspended`
 
+        The platform has restricted the account of the entity that the user profile represents and may restore it.
+
       - `:blocked`
+
+        The platform has barred the account of the entity that the user profile represents.
 
     - `country: String`
 
@@ -1526,6 +1694,8 @@ puts(beta_user_profile_enrollment_url)
 
 - `class BetaUserProfileEnrollmentURL`
 
+  A URL to give to the entity that a user profile represents, so that the entity can enroll for a trust grant.
+
   - `type: :enrollment_url`
 
     Object type. Always `enrollment_url`.
@@ -1552,9 +1722,15 @@ puts(beta_user_profile_enrollment_url)
 
     - `:active`
 
+      The platform has neither restricted nor barred the account of the entity that the user profile represents.
+
     - `:suspended`
 
+      The platform has restricted the account of the entity that the user profile represents and may restore it.
+
     - `:blocked`
+
+      The platform has barred the account of the entity that the user profile represents.
 
   - `country: String`
 
@@ -1600,9 +1776,15 @@ puts(beta_user_profile_enrollment_url)
 
     - `:active`
 
+      The platform has neither restricted nor barred the account of the entity that the user profile represents.
+
     - `:suspended`
 
+      The platform has restricted the account of the entity that the user profile represents and may restore it.
+
     - `:blocked`
+
+      The platform has barred the account of the entity that the user profile represents.
 
   - `country: String`
 
@@ -1647,6 +1829,8 @@ puts(beta_user_profile_enrollment_url)
 ### Beta User Profile Trust Grant
 
 - `class BetaUserProfileTrustGrant`
+
+  The status of one trust grant on a user profile, listed in the profile's `trust_grants` map under the grant's name.
 
   - `status: :active | :pending | :rejected`
 

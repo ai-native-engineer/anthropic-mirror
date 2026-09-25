@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/ai-native-sdlc-playbook/claude-md -->
 
-Lesson 5 of 14 · The AI-Native SDLC PlaybookThe CLAUDE.md
+Lesson 5 of 14 · The AI-native SDLC playbookThe CLAUDE.md
 
-3. /[The AI-Native SDLC Playbook](https://academy.claude.com/courses/ai-native-sdlc-playbook)
+3. /[The AI-native SDLC playbook](https://academy.claude.com/courses/ai-native-sdlc-playbook)
 
-[The AI-Native SDLC Playbook](https://academy.claude.com/courses/ai-native-sdlc-playbook)
+[The AI-native SDLC playbook](https://academy.claude.com/courses/ai-native-sdlc-playbook)
 
 # The CLAUDE.md
 
@@ -61,7 +61,7 @@ markdown
 
 [Previous lessonClaude Code plan mode as the default starting point](https://academy.claude.com/courses/ai-native-sdlc-playbook/plan-mode)[Next lessonSkills as institutional knowledge](https://academy.claude.com/courses/ai-native-sdlc-playbook/skills-as-institutional-knowledge)
 
-Lesson 5 of 14 · The AI-Native SDLC PlaybookThe CLAUDE.md
+Lesson 5 of 14 · The AI-native SDLC playbookThe CLAUDE.md
 
 Introduction
 

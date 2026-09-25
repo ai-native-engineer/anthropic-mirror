@@ -1,22 +1,22 @@
 <!-- source: https://support.claude.com/en/articles/15330088-set-a-default-model-for-your-organization -->
 
-This guide explains how to choose the Claude model that new conversations start on across your organization. You can set one default for your whole organization, or set different defaults for specific custom roles.
+This guide explains how to choose the Claude model that new conversations start on across your organization. You can set one default for your whole organization, or set different defaults for specific custom roles. You can also make every new conversation start on your default model and effort level, even after users pick a different model.
 
 Default model settings are available for Enterprise plan organizations. Primary Owners, Owners, and members whose custom role grants the Identity & Access permission can manage them in **[Organization settings > Models](https://claude.ai/admin-settings/models)**.
 
-You can also set the default effort level that new conversations start on, or leave it on Anthropic's recommended default effort. To control which models members can use and cap the effort level they can select, see **[Manage model access for your organization](https://support.claude.com/en/articles/15330089)**.
+You can also set the default effort level that new conversations start on, or leave it on Anthropic's recommended default effort. To control which models members can use and cap the effort level they can select, see **[Manage model access for your organization](https://support.claude.com/en/articles/15694740)**.
 
 ---
 
 ## How default models work
 
-When you set or change a default model, it replaces the model currently selected in each member’s model picker. New conversations in chat, Claude Cowork, Claude Code, and Office Agents then start on the model you’ve chosen.
+When you set or change a default model, it replaces the model currently selected in each member’s model picker. New conversations in chat, Cowork, Claude Code, Claude for Office, Claude Design, and Claude Science then start on the model you’ve chosen.
 
 **Note:** Not all models are available in every product. If the selected model is not available in the product, Anthropic’s recommendation is used as default.
 
-Members can still select a different model for any conversation. Claude remembers each member’s last selection, so their next conversation starts on whichever model they last used. When you update the default again, the new default replaces their selection.
+Users can still select a different model for any conversation. By default, Claude remembers each user's last selection, so their next conversation starts on whichever model they last used. When you update the default again, the new default replaces their selection. To have every new conversation start on the default instead, see **Always start new conversations on the default model** below.
 
-For example: you set the organization default to Claude Sonnet 4.6, and every member’s new conversations start on Sonnet 4.6. A member switches a conversation to Claude Opus 4.7, so their next conversations start on Opus 4.7. When you later change the organization default, the new default replaces their selection again.
+For example: you set the organization default to Claude Sonnet 4.6, and every member’s new conversations start on Sonnet 4.6. A member switches a conversation to Claude Opus 4.7, so their next conversations start on Opus 4.7. When you later change the organization default, the new default replaces their selection again. If you turn on **Always start with the default model and effort level**, their next chat starts on Sonnet 4.6 no matter which model they used last.
 
 You can set a default at two levels:
 
@@ -45,7 +45,7 @@ The organization default applies to every member. To set it:
 3. If you select “Choose a specific model,” choose a model from the list. Only models enabled under **Model access** on the same page can be selected.
 4. Click “Save changes.”
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2514722139/d05c94072a41ea9090ecf386c53e/c32ee31d-954a-4551-a2da-91677fbd0b6f?expires=1789345800&signature=f1c8ac22a0437b22ea94e8f463720f83c2f2c52971d7a85ea8a377b75be25b69&req=diUmEs58n4BcUPMW1HO4zelOdztDKU1PfdGVZ664dGGPMbIZZg7NOaMNahec%0ApeVoLR1h%2FBfWuWeRUiA%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2514722139/d05c94072a41ea9090ecf386c53e/c32ee31d-954a-4551-a2da-91677fbd0b6f?expires=1789345800&signature=f1c8ac22a0437b22ea94e8f463720f83c2f2c52971d7a85ea8a377b75be25b69&req=diUmEs58n4BcUPMW1HO4zelOdztDKU1PfdGVZ664dGGPMbIZZg7NOaMNahec%0ApeVoLR1h%2FBfWuWeRUiA%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2514722139/d05c94072a41ea9090ecf386c53e/c32ee31d-954a-4551-a2da-91677fbd0b6f?expires=1790297100&signature=dd8e211f0a74a64426812440fd929ad2b3b7d7f84867c515745a711c370fcaee&req=diUmEs58n4BcUPMW1HO4zelOdjJCJE9GfdGVZ664dGHLxhNJYPHuTWWnYFtA%0AVQmX%2BAtG5UwK%2F82pIjo%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2514722139/d05c94072a41ea9090ecf386c53e/c32ee31d-954a-4551-a2da-91677fbd0b6f?expires=1790297100&signature=dd8e211f0a74a64426812440fd929ad2b3b7d7f84867c515745a711c370fcaee&req=diUmEs58n4BcUPMW1HO4zelOdjJCJE9GfdGVZ664dGHLxhNJYPHuTWWnYFtA%0AVQmX%2BAtG5UwK%2F82pIjo%3D%0A)
 
 ---
 
@@ -64,13 +64,41 @@ The default effort level can't be higher than the organization's effort cap for 
 
 ---
 
+## Always start new chats on the default model (beta)
+
+By default, each user's next conversation starts on the model they last used. Turn on this setting to have every new conversation start on your organization's default model and default effort level instead.
+
+1. Navigate to **[Organization settings > Models](https://claude.ai/admin-settings/models)**.
+2. Turn on **Always start with the default model and effort level**.
+3. Click "Save."
+
+With this setting on:
+
+* Every new conversation starts on the default model at the default effort level.
+* Users can still change the model and effort level within a conversation. Their next conversation starts on the default again.
+* When the default model changes, new conversations move to the new default. For example, if you use Anthropic's recommended default and the recommendation moves to a newer model, every user's next conversation starts on the newer model.
+
+This setting applies in chat, Cowork, Claude Code, Claude for Office, Claude Design, and Claude Science.
+
+### For a custom role
+
+Custom roles that set their own default model have the same switch in the role editor.
+
+1. Navigate to **[Organization settings > Roles](https://claude.ai/admin-settings/roles)**.
+2. Click the role you want to edit.
+3. Select the “Models” tab and choose a default model for the role.
+4. Turn on **Always start with the default model and effort level**.
+5. Click "Save role."
+
+---
+
 ## Set a default model for a custom role
 
 Custom role defaults let you set different starting models for different teams. For example, you can keep most of your organization on the recommended default while a specific group starts on a different model.
 
 1. Navigate to **[Organization settings > Roles](https://claude.ai/admin-settings/roles)**.
 2. Click the role you want to edit, or create a new role.
-3. Select the **Models** tab, then under **Default model**, select a model. Roles are set to “None selected” unless you choose a specific model. Only models the role has access to can be selected.
+3. Select the **Models** tab, then under **Default model**, select a model. Roles are set to "Organization default" unless you choose a specific model. Only models the role has access to can be selected.
 4. Click “Save role” to save your changes.
 
 A role’s default model takes precedence over the organization default for members assigned to that role.
@@ -85,6 +113,23 @@ For details on creating roles and assigning them to groups, see **[Manage custom
 
 ---
 
+## Set the default effort level for a custom role
+
+The default effort level applies to new conversations on the role's default model. To set it:
+
+1. Navigate to **[Organization settings > Roles](https://claude.ai/admin-settings/roles)**.
+2. Click the role you want to edit, or create a new role.
+3. Select the **Models** tab, then under **Default model**, select a model. Roles are set to "Organization default" unless you choose a specific model. Only models the role has access to can be selected.
+4. Under **Default model**, select an option under the effort level dropdown list:
+
+   1. **Use Anthropic's recommended default effort:** Anthropic's recommended effort level for the default model, which updates automatically when recommendations change.
+   2. **Choose a level from the list.** Available effort levels differ depending on the model, and some models don't support effort level settings at all.
+5. Click "Save changes."
+
+The default effort level can't be higher than the organization's effort cap for the default model. If you lower that cap below the current default effort, the default effort is lowered to match.
+
+---
+
 ## Default model and Claude Code managed settings
 
 If your organization also configures Claude Code through `managed-settings.json`, the model setting there takes precedence. When model is set in managed settings, Claude Code CLI and IDE start on that model and ignore the default you set in **[Organization settings > Models](https://claude.ai/admin-settings/models)**.
@@ -93,8 +138,8 @@ If `managed-settings.json` specifies `availableModels` that doesn't contain the 
 
 Managed settings for models apply only to Claude Code CLI and IDE, not to Claude Code on web or desktop. For consistent behavior across all Claude Code surfaces, we recommend setting the default here alone. For more on managed settings, see **[Claude Code settings](https://code.claude.com/docs/en/settings#settings-files)**.
 
+* [Change the model, effort, and thinking settings](https://support.claude.com/en/articles/8664678-change-the-model-effort-and-thinking-settings)
 * [Manage custom roles on Enterprise plans](https://support.claude.com/en/articles/13930452-manage-custom-roles-on-enterprise-plans)
-* [Set up role-based permissions on Enterprise plans](https://support.claude.com/en/articles/13930458-set-up-role-based-permissions-on-enterprise-plans)
 * [Model availability in Claude for Government](https://support.claude.com/en/articles/14503794-model-availability-in-claude-for-government)
 * [Claude Enterprise consumption guide](https://support.claude.com/en/articles/14782391-claude-enterprise-consumption-guide)
 * [Manage model access for your organization](https://support.claude.com/en/articles/15694740-manage-model-access-for-your-organization)

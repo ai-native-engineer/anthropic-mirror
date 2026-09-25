@@ -195,7 +195,7 @@ Before moving on, consider:
 
 ## What's next[](#whats-next)
 
-In the next lesson, we'll learn how to create mini-apps with Artifacts — actual outputs that Claude build and you can share right away.
+In the next lesson, we'll learn about artifacts — the designs, decks, documents, and interactive pages Claude builds with you, saved so you can keep editing and sharing them.
 
 For more information on getting started with projects, visit the [Anthropic Help Center(opens in new tab)](https://support.claude.com/en/articles/9519177-how-can-i-create-and-manage-projects).
 

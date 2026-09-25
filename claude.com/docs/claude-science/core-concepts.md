@@ -27,9 +27,10 @@ A permission card appears in the conversation each time Claude needs a new kind 
 | Action | Card title | Scope options |
 | --- | --- | --- |
 | Read or write a folder | Access `<folder>` on your computer? | Read-only or Read & write; persists until revoked |
-| Run code | Run Python code? / Run a shell command? / Install packages? | Once or Always |
+| Run code | Run Python code? / Run a shell command? / Install packages? | Once, This conversation, This project, or Global |
 | Reach a network host | Connect to `<target>`? | Persists until revoked |
 | Use a connector tool | Use `<tool>`? | Once, This conversation, This project, or Global |
+| Use a saved credential | Credentials | Once, This conversation, This project, or Global |
 | Run a remote job | Run this job on `<host>`? / Start a Modal job? | Once, This conversation, This project, or Global |
 
 All standing grants are listed in Settings > Permissions and can be revoked there.

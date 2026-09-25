@@ -4,53 +4,17 @@ Q&A | DoorDash
 
 # Office Hours: Building the case for leaders who ship with DoorDash
 
-Try Claude
+[Office Hours with Boris Cherny](https://claude.com/office-hours)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
+![Video thumbnail](https://assets.claude.com/9048e040555fe26e2a9ee8a3efd9a86018f7cd76.jpg)
 
 Office Hours with Boris Cherny
 
-[Office Hours with Boris Cherny](https://claude.com/office-hours)Office Hours with Boris Cherny
-
-[Play video](#)Play video
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a7cbc2bbbce61d903da73cd_OfficeHours-YT-THUMBNAIL-DoorDash-A2.jpg)
-
-Office Hours with Boris Cherny
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a7ceba17e3c474c1e3f0fde_og_office-hours.webp)
+![Office Hours with Boris Cherny](https://assets.claude.com/9173e999ae52ee5dfc9111debd93828f096cf0cd.jpg)
 
 The best engineering teams are rethinking how they work with AI. Boris Cherny talks with technical leaders to uncover what's changing for their teams, from how they’re building with Claude Code to organization design, and the shifting workflows that come with it.
 
-Read more
-
-[Read more](https://claude.com/office-hours)Read more
-
-Office Hours with Boris Cherny
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-The best engineering teams are rethinking how they work with AI. Boris Cherny talks with technical leaders to uncover what's changing for their teams, from how they’re building with Claude Code to organization design, and the shifting workflows that come with it.
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Office Hours with Boris Cherny
-
-The best engineering teams are rethinking how they work with AI. Boris Cherny talks with technical leaders to uncover what's changing for their teams, from how they’re building with Claude Code to organization design, and the shifting workflows that come with it.
-
-[Prev](#)Prev
-
-[Next](#)Next
+[Read more](https://claude.com/office-hours)
 
 At [DoorDash](https://www.youtube.com/watch?v=hyqLNX3VExQ), Claude Code runs across the entire company, all 4,000 employees have Cowork, and co-founder and CTO Andy Fang is shipping production code again for the first time since the dorm room. Boris Cherny sat down with Andy to talk about giving everyone tokens to experiment, landing projects in 3 to 5x less time, and why leaders have to play with the tools themselves.
 
@@ -905,11 +869,9 @@ here. Thanks for having me. [music]
 
 **Andy:** I distinctly remember like, okay, I'm going to try to like code actual features in production. And I made it a goal for myself to not ask anyone for help and see how far I went. Unfortunately, at that point, I did not make it to shipping the code to production without help, because I wasn't able to get the agent to understand how to configure my local environment correctly. Then fast forward to, like, I think it's probably the beginning of this year, 2026, I did the same thing and it just worked. And I think, I mean, you've definitely seen this. I've heard you talk about this where like, there's really been an inflection point with the latest models of being able to just figure things out. Yeah. And I've gotten to a point where, like, I was shipping in five different languages to production. And I think it's just super powerful, and I think it's very hard to believe it until you actually force yourself to play with it.
 
-“It wasn’t until I was using Claude Code that I was shipping production code again. I had a major comeback.”
+> “It wasn’t until I was using Claude Code that I was shipping production code again. I had a major comeback.”
 
-Andy Fang
-
-Co-founder and CEO, DoorDash
+Andy Fang Co-founder and CEO, DoorDash
 
 ‍**Boris:** Funny. There's this thing that happens where you try something and you use an old model, and the product doesn't really work. Yeah, this doesn't work. And then you just, like, try again in a couple of months. It might just work. And this used to be like the worst idea before LLMs because it's sort of dysfunctional to take the same idea and then just, like, try it over and over again. It's like you should be learning, but actually now trying just that same exact idea with the newer model. Sometimes it just works.
 
@@ -955,37 +917,15 @@ And I think, there's other products where we shave the timelines by more than ha
 
 How Anthropic teams use Claude Code
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6905133b69fcac6a5cbadb2f_og_how-anthropic-teams-use-claude-code.jpg)
+![How Anthropic teams use Claude Code](https://assets.claude.com/1b3f54eec0c96a79b1a32faa26e694975cd21329.jpg)
 
 From debugging production issues to navigating unfamiliar codebases to building custom automation—here's how teams across Anthropic use Claude Code.
 
-Read more
+[Read more](https://claude.com/blog/how-anthropic-teams-use-claude-code)
 
-[Read more](https://claude.com/blog/how-anthropic-teams-use-claude-code)Read more
+> "The challenge I've posed to the entire team is like, try to get projects done in 3 to 5x less time."
 
-How Anthropic teams use Claude Code
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-From debugging production issues to navigating unfamiliar codebases to building custom automation—here's how teams across Anthropic use Claude Code.
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-How Anthropic teams use Claude Code
-
-From debugging production issues to navigating unfamiliar codebases to building custom automation—here's how teams across Anthropic use Claude Code.
-
-"The challenge I've posed to the entire team is like, try to get projects done in 3 to 5x less time."
-
-Andy Fang
-
-Co-founder and CEO, DoorDash
+Andy Fang Co-founder and CEO, DoorDash
 
 **Boris:** So what are some of the learnings from that from you know like experimenting and figuring out what are the pockets of adoption, what works to accelerate development, what doesn't work like what's like one surprising thing that works and one thing that doesn't?
 
@@ -1049,62 +989,18 @@ And then also encouraging people to share written artifacts. I'll say it again. 
 
 Claude Code
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698f525504b02eec936ac51b_68c469d41149ace562bfd24d_og-claude-product-claude-code.jpeg)
+![Claude Code](https://assets.claude.com/38e8385d1c5f9c0f71c486994e22fc5861a4522d.jpg)
 
 Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
 
-Claude Code
+[Read more](https://claude.com/product/claude-code)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[![Supermetrics](https://assets.claude.com/3ac4171a81008be0340e5c3d8ccb46571c3edfb3.svg)
 
-[Next](#)Next
+### Supermetrics lets marketers manage ad campaigns from a conversation with Claude](https://claude.com/customers/supermetrics)[![Atlassian](https://assets.claude.com/4870b3d6c0253cea01b100c98ad2030b8e4f8ce1.svg)
 
-Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
+### How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-Video caption
+### Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Claude Code
-
-Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-Customer story
-
-[Customer story](https://claude.com/customers/atlassian)Customer story
-
-[Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)Rocket Money on building agents that fix their own code
-
-Rocket Money on building agents that fix their own code
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money-qa)Customer story
-
-[How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)How Rocket Money built its personal finance agent with Claude
-
-How Rocket Money built its personal finance agent with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money)Customer story
-
-[How Notion ships and scales agents with Claude Managed Agents](https://claude.com/customers/notion-qa)How Notion ships and scales agents with Claude Managed Agents
-
-How Notion ships and scales agents with Claude Managed Agents
-
-Customer story
-
-[Customer story](https://claude.com/customers/notion-qa)Customer story
+### How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)

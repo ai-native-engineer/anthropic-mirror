@@ -1,5 +1,7 @@
 <!-- source: https://claude.com/blog/what-is-model-context-protocol -->
 
+Explore here
+
 ![](https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg)
 
 # What is Model Context Protocol? Connect AI to your world

@@ -4,35 +4,21 @@ Q&A | Claude Platform
 
 # MagicSchool on building a safety layer for millions of student conversations
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a0b7959f6481138607f2de6_logo_magicschool-light-mode%20(1).png)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a0b79661e044e7194e4e56d_logo_magicschool-dark-mode%20(1).png)
+![Magic School logo](https://assets.claude.com/cd32331aba30ee77bb8a9a4f6f769b3cf5819d14.png)
 
 Industry:
-
-Education
-
-Beneficial Deployments
+:   EducationBeneficial Deployments
 
 Company size:
-
-Small
+:   Small
 
 Product:
-
-[Claude Platform](https://claude.com/platform/api)
-
-[Claude Code](https://claude.com/product/claude-code)
+:   [Claude Platform](https://claude.com/platform/api)[Claude Code](https://claude.com/product/claude-code)
 
 Location:
-
-North America
+:   North America
 
 8 to 10 million student messages
 
@@ -44,35 +30,11 @@ use the MagicSchool platform across 13,000 schools and districts
 
 Case Study: MagicSchool transforms K-12 education for 7 million educators
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a0b7a5608aec6888cf76c81_Screenshot%202026-05-18%20at%201.44.55%E2%80%AFPM.png)
+![Case Study: MagicSchool transforms K-12 education for 7 million educators](https://assets.claude.com/5a0d6c45780823112f6367928b3eada848b7f7a9.png)
 
 With Claude, MagicSchool supports 13,000+ schools and districts and millions of students.
 
-Read more
-
-[Read more](https://claude.com/customers/magicschool)Read more
-
-Case Study: MagicSchool transforms K-12 education for 7 million educators
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-With Claude, MagicSchool supports 13,000+ schools and districts and millions of students.
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Case Study: MagicSchool transforms K-12 education for 7 million educators
-
-With Claude, MagicSchool supports 13,000+ schools and districts and millions of students.
-
-[Prev](#)Prev
-
-[Next](#)Next
+[Read more](https://claude.com/customers/magicschool)
 
 *Q&A with Keanon O'Keefe, Senior Product Manager, AI Trust, Safety, and Quality, and Chris Rohlfs, Staff Data Scientist, AI Trust, Safety, and Quality at MagicSchool*
 
@@ -104,11 +66,9 @@ With Claude, MagicSchool supports 13,000+ schools and districts and millions of 
 
 ‍
 
-"Our separate Claude-powered student AI tools provide a response directly to the student, which may include relevant resources or recommendations as appropriate."
+> "Our separate Claude-powered student AI tools provide a response directly to the student, which may include relevant resources or recommendations as appropriate."
 
-Keanon O'Keefe
-
-Senior Product Manager, AI Trust, Safety, and Quality
+Keanon O'KeefeSenior Product Manager, AI Trust, Safety, and Quality
 
 ## Anthropic: What is the impact when moderation tools flag too many false positives?
 
@@ -126,7 +86,7 @@ Our moderation tool has consistently been effective at identifying real signals 
 
 ## Anthropic: Walk us through what implementation actually looked like.
 
-**O'Keefe:** We already had the API integration in place for supporting our main application.  Next, we looked at prior conversations, developed a judge prompt that could help us effectively identify high-risk interactions and tested its performance. After just a few iterations of the prompt, we began to see a 3x reduction in false positives.
+**O'Keefe:** We already had the API integration in place for supporting our main application. Next, we looked at prior conversations, developed a judge prompt that could help us effectively identify high-risk interactions and tested its performance. After just a few iterations of the prompt, we began to see a 3x reduction in false positives.
 
 **Rohlfs:** Out of the box, Claude is solid, but our customized prompts are what get it to meet the needs of our user base. We've found Claude to be highly effective at sticking to the guidelines we set, and it's absolutely critical that we're crystal clear on exactly what we're looking for. We feel and appreciate Anthropic's leadership in API design. When Anthropic upgrades its models, we don't have to rearchitect how we talk to them. Everything just works the same way. That kind of stability matters a lot when you're running millions of classroom interactions a week.
 
@@ -140,84 +100,24 @@ Our moderation tool has consistently been effective at identifying real signals 
 
 Education
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698f5245ff22e3ab8e64405f_68c469d2d09b203c164ad8e6_og-claude-education.jpeg)
+![Education](https://assets.claude.com/b3e6d0547ee5dc0654c639ece4b89778e2edb536.jpg)
 
 Trusted, responsible AI tools for students and educators, from personalized learning to research assistance.
 
-Read more
+[Read more](https://claude.com/solutions/education)
 
-[Read more](https://claude.com/solutions/education)Read more
+> "MagicSchool and Anthropic share similar values and methodologies with advancing AI and its impact on people."
 
-Education
+Keanon O'KeefeSenior Product Manager, AI Trust, Safety, and Quality
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[![Mercy Corps](https://assets.claude.com/544995a85d67ef08fd67560f5758d5e28bc7a53f.svg)
 
-[Next](#)Next
+### Mercy Corps on what AI makes possible in humanitarian work](https://claude.com/customers/mercy-corps-qa)[![Mercy Corps](https://assets.claude.com/544995a85d67ef08fd67560f5758d5e28bc7a53f.svg)
 
-Trusted, responsible AI tools for students and educators, from personalized learning to research assistance.
+### Mercy Corps accelerates global humanitarian response to community feedback with Claude](https://claude.com/customers/mercy-corps)[![Epilepsy Foundation](https://assets.claude.com/446cc4df1be577720df85748fa3813fa0837e3b8.png)
 
-Video caption
+### The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude](https://claude.com/customers/epilepsy-foundation)[![Epilepsy Foundation](https://assets.claude.com/446cc4df1be577720df85748fa3813fa0837e3b8.png)
 
-[Next](#)Next
+### How the Epilepsy Foundation uses Claude across the organization](https://claude.com/customers/epilepsy-foundation-qa)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Education
-
-Trusted, responsible AI tools for students and educators, from personalized learning to research assistance.
-
-"MagicSchool and Anthropic share similar values and methodologies with advancing AI and its impact on people."
-
-Keanon O'Keefe
-
-Senior Product Manager, AI Trust, Safety, and Quality
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[Mercy Corps on what AI makes possible in humanitarian work](https://claude.com/customers/mercy-corps-qa)Mercy Corps on what AI makes possible in humanitarian work
-
-Mercy Corps on what AI makes possible in humanitarian work
-
-Customer story
-
-[Customer story](https://claude.com/customers/mercy-corps-qa)Customer story
-
-[Mercy Corps accelerates global humanitarian response to community feedback with Claude](https://claude.com/customers/mercy-corps)Mercy Corps accelerates global humanitarian response to community feedback with Claude
-
-Mercy Corps accelerates global humanitarian response to community feedback with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/mercy-corps)Customer story
-
-[The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude](https://claude.com/customers/epilepsy-foundation)The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude
-
-The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/epilepsy-foundation)Customer story
-
-[How the Epilepsy Foundation uses Claude across the organization](https://claude.com/customers/epilepsy-foundation-qa)How the Epilepsy Foundation uses Claude across the organization
-
-How the Epilepsy Foundation uses Claude across the organization
-
-Customer story
-
-[Customer story](https://claude.com/customers/epilepsy-foundation-qa)Customer story
+MagicSchool Q&A | Claude Platform (API) | Claude by Anthropic

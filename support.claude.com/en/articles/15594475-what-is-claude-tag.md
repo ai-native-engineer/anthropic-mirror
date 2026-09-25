@@ -61,9 +61,9 @@ Channels that include Slack guests have a separate **Allow Claude to respond to 
 
 ## Review memory and activity for Claude Tag
 
-Claude Tag keeps context per channel and per workspace. Admins can view, edit, and delete that memory.
+Claude Tag keeps context per channel and per workspace. Owners can view, edit, and delete that memory.
 
-An Audit view in **Organization settings > Claude Tag > Audit** lists every scheduled and one-time task across your organization in addition to all network calls made using Agent Identity. Each action is also traceable in the tool where it happened: posts come from the Claude app in Slack, and commits and pull requests show the Claude GitHub App as the author with a link back to the Slack thread that started them. In any channel, you can ask "@Claude what triggers do you have set up here?" to see and turn off standing work.
+An Activity page in **Organization settings > Claude Tag > Activity** lists every scheduled and one-time task across your organization in addition to all network calls made using Agent Identity. Only Owners can open this page. Each action is also traceable in the tool where it happened: posts come from the Claude app in Slack, and commits and pull requests show the Claude GitHub App as the author with a link back to the Slack thread that started them. In any channel, you can ask "@Claude what triggers do you have set up here?" to see and turn off standing work.
 
 ---
 
@@ -103,5 +103,4 @@ Only an organization's Primary Owner or Owner can set up Claude Tag's access and
 * [Use connectors to extend Claude's capabilities](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities)
 * [Use Claude’s chat search and memory to build on previous context](https://support.claude.com/en/articles/11817273-use-claude-s-chat-search-and-memory-to-build-on-previous-context)
 * [Claude Code on Console to Enterprise migration](https://support.claude.com/en/articles/14128775-claude-code-on-console-to-enterprise-migration)
-* [Restrict verified-domain connectors to your Enterprise](https://support.claude.com/en/articles/15402193-restrict-verified-domain-connectors-to-your-enterprise)
 * [Get started with 1Password for Claude](https://support.claude.com/en/articles/15936181-get-started-with-1password-for-claude)

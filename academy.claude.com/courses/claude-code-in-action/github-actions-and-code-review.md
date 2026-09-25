@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/claude-code-in-action/github-actions-and-code-review -->
 
-Lesson 7 of 9 · Claude Code in ActionGitHub Actions and Code Review
+Lesson 7 of 9 · Claude Code in actionGitHub Actions and Code Review
 
-3. /[Claude Code in Action](https://academy.claude.com/courses/claude-code-in-action)
+3. /[Claude Code in action](https://academy.claude.com/courses/claude-code-in-action)
 
-[Claude Code in Action](https://academy.claude.com/courses/claude-code-in-action)
+[Claude Code in action](https://academy.claude.com/courses/claude-code-in-action)
 
 # GitHub Actions and Code Review
 
@@ -55,16 +55,16 @@ Setup starts inside Claude Code. Run the `/install-github-app` command. You'll n
 
 The action itself is `anthropics/claude-code-action@v1`. Here are the inputs you'll actually use:
 
-* `anthropic_api_key` — optional.
-* `github_token` — defaults to `secrets.GITHUB_TOKEN`.
+* `anthropic_api_key` — required when the run calls the Claude API, unless you authenticate with `claude_code_oauth_token` (from a Claude subscription) or with workload identity federation (set up through a Claude Console service account, so no stored secret). Not used with the cloud providers below.
+* `github_token` — optional. Leave it out and the action authenticates as the Claude GitHub app you installed at setup. Pass a token only to override that.
 * `trigger_phrase` — what the action listens for in comments. Defaults to `@claude`.
-* `use_bedrock` / `use_vertex` — switch to those providers if you're on Bedrock or Vertex.
-* `prompt` — the instruction for the run.
+* `use_bedrock` / `use_vertex` / `use_foundry` — route the run through Amazon Bedrock, Google Cloud's Agent Platform, or Microsoft Foundry instead of the Claude API, signing in with your cloud account rather than an API key.
+* `prompt` — the instruction for an automated run. Set it and Claude runs on the event without waiting for a mention. Leave it out and the action waits for the trigger phrase.
 * `claude_args` — a string of CLI arguments passed straight through to Claude Code.
 
 ## A workflow that responds to @claude[](#a-workflow-that-responds-to-claude)
 
-Drop a workflow into `.github/workflows/claude.yaml` and it listens for `@claude` on PR comments and issue comments. The core step looks like this:
+Drop a workflow into `.github/workflows/claude.yaml` and it listens for `@claude` on PR comments and issue comments. Under the job's `permissions`, grant `id-token: write` so the action can sign in as the Claude GitHub app. The core step looks like this:
 
 yaml
 
@@ -72,9 +72,7 @@ yaml
 - uses: anthropics/claude-code-action@v1
   with:
     anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
-    github_token: ${{ secrets.GITHUB_TOKEN }}
     trigger_phrase: "@claude"
-    prompt: "Your instructions here"
     claude_args: "--max-turns 5 --model claude-sonnet-5"
 ```
 
@@ -105,7 +103,7 @@ Start with the managed service. Move to the action the moment you need Claude to
 
 [Previous lessonRoutines and headless](https://academy.claude.com/courses/claude-code-in-action/routines-and-headless)[Next lessonTrust it: Verifying unsupervised runs](https://academy.claude.com/courses/claude-code-in-action/trust-it-verifying-unsupervised-runs)
 
-Lesson 7 of 9 · Claude Code in ActionGitHub Actions and Code Review
+Lesson 7 of 9 · Claude Code in actionGitHub Actions and Code Review
 
 Steer the work
 

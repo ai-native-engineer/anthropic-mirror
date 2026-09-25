@@ -559,7 +559,11 @@ Create Deployment
 
     - `"active"`
 
+      The deployment is active and can run sessions. Archived deployments also report this status; check `archived_at` to distinguish them.
+
     - `"paused"`
+
+      The deployment is paused. Autonomous triggers are suppressed; manual runs are still permitted.
 
   - `updated_at: string`
 
@@ -1211,7 +1215,11 @@ List Deployments
 
       - `"active"`
 
+        The deployment is active and can run sessions. Archived deployments also report this status; check `archived_at` to distinguish them.
+
       - `"paused"`
+
+        The deployment is paused. Autonomous triggers are suppressed; manual runs are still permitted.
 
     - `updated_at: string`
 
@@ -1336,7 +1344,7 @@ Get Deployment
 
 - `--deployment-id: string`
 
-  Path parameter deployment_id
+  Unique identifier of the deployment.
 
 - `--beta: optional array of AnthropicBeta`
 
@@ -1834,7 +1842,11 @@ Get Deployment
 
     - `"active"`
 
+      The deployment is active and can run sessions. Archived deployments also report this status; check `archived_at` to distinguish them.
+
     - `"paused"`
+
+      The deployment is paused. Autonomous triggers are suppressed; manual runs are still permitted.
 
   - `updated_at: string`
 
@@ -1951,7 +1963,7 @@ Update Deployment
 
 - `--deployment-id: string`
 
-  Path param: Path parameter deployment_id
+  Path param: Unique identifier of the deployment to update.
 
 - `--agent: optional string or BetaManagedAgentsAgentParams`
 
@@ -2495,7 +2507,11 @@ Update Deployment
 
     - `"active"`
 
+      The deployment is active and can run sessions. Archived deployments also report this status; check `archived_at` to distinguish them.
+
     - `"paused"`
+
+      The deployment is paused. Autonomous triggers are suppressed; manual runs are still permitted.
 
   - `updated_at: string`
 
@@ -2612,7 +2628,7 @@ Archive Deployment
 
 - `--deployment-id: string`
 
-  Path parameter deployment_id
+  Unique identifier of the deployment to archive.
 
 - `--beta: optional array of AnthropicBeta`
 
@@ -3110,7 +3126,11 @@ Archive Deployment
 
     - `"active"`
 
+      The deployment is active and can run sessions. Archived deployments also report this status; check `archived_at` to distinguish them.
+
     - `"paused"`
+
+      The deployment is paused. Autonomous triggers are suppressed; manual runs are still permitted.
 
   - `updated_at: string`
 
@@ -3227,7 +3247,7 @@ Run Deployment Now
 
 - `--deployment-id: string`
 
-  Path parameter deployment_id
+  Unique identifier of the deployment to run.
 
 - `--beta: optional array of AnthropicBeta`
 
@@ -3508,7 +3528,7 @@ Pause Deployment
 
 - `--deployment-id: string`
 
-  Path parameter deployment_id
+  Unique identifier of the deployment to pause.
 
 - `--beta: optional array of AnthropicBeta`
 
@@ -4006,7 +4026,11 @@ Pause Deployment
 
     - `"active"`
 
+      The deployment is active and can run sessions. Archived deployments also report this status; check `archived_at` to distinguish them.
+
     - `"paused"`
+
+      The deployment is paused. Autonomous triggers are suppressed; manual runs are still permitted.
 
   - `updated_at: string`
 
@@ -4123,7 +4147,7 @@ Unpause Deployment
 
 - `--deployment-id: string`
 
-  Path parameter deployment_id
+  Unique identifier of the deployment to unpause.
 
 - `--beta: optional array of AnthropicBeta`
 
@@ -4621,7 +4645,11 @@ Unpause Deployment
 
     - `"active"`
 
+      The deployment is active and can run sessions. Archived deployments also report this status; check `archived_at` to distinguish them.
+
     - `"paused"`
+
+      The deployment is paused. Autonomous triggers are suppressed; manual runs are still permitted.
 
   - `updated_at: string`
 
@@ -5272,7 +5300,11 @@ ant beta:deployments unpause \
 
     - `"active"`
 
+      The deployment is active and can run sessions. Archived deployments also report this status; check `archived_at` to distinguish them.
+
     - `"paused"`
+
+      The deployment is paused. Autonomous triggers are suppressed; manual runs are still permitted.
 
   - `updated_at: string`
 
@@ -5948,7 +5980,11 @@ ant beta:deployments unpause \
 
   - `"active"`
 
+    The deployment is active and can run sessions. Archived deployments also report this status; check `archived_at` to distinguish them.
+
   - `"paused"`
+
+    The deployment is paused. Autonomous triggers are suppressed; manual runs are still permitted.
 
 ### Beta Managed Agents Deployment System Message Event
 

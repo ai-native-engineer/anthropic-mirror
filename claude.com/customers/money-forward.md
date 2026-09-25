@@ -4,35 +4,21 @@ Case study | Claude Code
 
 # Money Forward builds an AI-native engineering organization with Claude Code
 
-Try Claude
+[Try Claude Code](https://claude.com/product/claude-code)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-Try Claude Code
-
-[Try Claude Code](https://claude.com/product/claude-code)Try Claude Code
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6966d69fb23701983dd2ebe7_MoneyForward%20Light%20Mode.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6966d6a55e8e4e529da3d483_MoneyForward%20Dark%20Mode.svg)
+![Money Forward logo](https://assets.claude.com/4b6d511a3fbb31c233614e47b3e8ce6f8b3e448c.svg)
 
 Industry:
-
-Financial services
+:   Financial services
 
 Company size:
-
-Large
+:   Large
 
 Product:
-
-Claude Code
+:   Claude Code
 
 Location:
-
-Asia Pacific
+:   Asia Pacific
 
 80% of engineers
 
@@ -41,42 +27,6 @@ have adopted Claude Code as part of their daily workflow
 7 weekly hours saved
 
 per engineer according to an internal survey for early adopters
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
 
 [Money Forward](https://moneyforward.com), one of Japan's largest cloud-based financial software companies, serves more than 17 million individual users and 400,000 businesses with products spanning personal finance, accounting, payroll, and invoicing. Founded in 2012, the company is evolving from digital transformation to AI transformation, with the goal of becoming Japan's leading back-office AI company.
 
@@ -129,58 +79,16 @@ Money Forward plans to extend Claude Code across the full software development l
 
 "Speed is our core value and moat," said Tran Ba Vinh Son, Group Company CTO and Manager of MEPAR. "Developer productivity is therefore a business strategy: the faster we turn ideas into reliable products, the stronger our competitive position. Claude Code compresses cycle times, elevates code quality, and lets small teams ship bigger features with confidence. Our vision is an AI-assisted development model where Claude is an integral teammate across planning, implementation, testing, and operations. That's how we scale innovation across Money Forward."
 
-"I built Money Forward's entire MCP Server in three months using Claude Code. It implemented my plans and reviewed code—essentially acting as my only colleague on the project."
+> "I built Money Forward's entire MCP Server in three months using Claude Code. It implemented my plans and reviewed code—essentially acting as my only colleague on the project."
 
-Tamai Ayumi
+Tamai AyumiStaff Software Engineer, Money Forward
 
-Staff Software Engineer, Money Forward
+[![Qonto](https://assets.claude.com/cf9df71e319709f3b2abd4508f40680fa0bcce1e.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### How Qonto delegates financial admin for small businesses with Claude on Amazon Bedrock](https://claude.com/customers/qonto)[![Pictet](https://assets.claude.com/93f19b6d2b95f2f82e5c7e33938b43dbd537c62f.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### Pictet turns weeks of work into hours with Claude Code](https://claude.com/customers/pictet)[![Satispay](https://assets.claude.com/f87dce8ac96f2e8181e2ed5b000ef17e2278b034.png)
 
-[Next](#)Next
+### How Satispay's engineers write 75% of their code with Claude](https://claude.com/customers/satispay)[![OffDeal](https://assets.claude.com/0144c459af1814dfb5bd273db786703ffcf1cce6.svg)
 
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[How Qonto delegates financial admin for small businesses with Claude on Amazon Bedrock](https://claude.com/customers/qonto) How Qonto delegates financial admin for small businesses with Claude on Amazon Bedrock
-
-How Qonto delegates financial admin for small businesses with Claude on Amazon Bedrock
-
-Customer story
-
-[Customer story](https://claude.com/customers/qonto)Customer story
-
-[Pictet turns weeks of work into hours with Claude Code](https://claude.com/customers/pictet)Pictet turns weeks of work into hours with Claude Code
-
-Pictet turns weeks of work into hours with Claude Code
-
-Customer story
-
-[Customer story](https://claude.com/customers/pictet)Customer story
-
-[How Satispay's engineers write 75% of their code with Claude](https://claude.com/customers/satispay)How Satispay's engineers write 75% of their code with Claude
-
-How Satispay's engineers write 75% of their code with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/satispay)Customer story
-
-[OffDeal powers every stage of M&A advisory with one Claude-based agent](https://claude.com/customers/offdeal)OffDeal powers every stage of M&A advisory with one Claude-based agent
-
-OffDeal powers every stage of M&A advisory with one Claude-based agent
-
-Customer story
-
-[Customer story](https://claude.com/customers/offdeal)Customer story
+### OffDeal powers every stage of M&A advisory with one Claude-based agent](https://claude.com/customers/offdeal)

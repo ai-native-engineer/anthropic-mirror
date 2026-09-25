@@ -4,38 +4,28 @@
 
 Zero to shipped: getting Claude to produce coherent multi-character narratives with interlocking clues. Generation pipeline for print-ready PDF kits. Cross-border VAT compliance automated with Claude Code agent.
 
-Details
+## Details
 
 City
-
-London, UK
+:   London, UK
 
 Date
-
-20 May 2026
+:   20 May 2026
 
 Time
-
-14:50 – 15:20
+:   14:50 – 15:20
 
 Speaker(s)
+:   Michael Whelehan
 
-Michael Whelehan
+    Managing Director,
 
-Managing Director,
+    MW Tech Solutions
 
-MW Tech Solutions
-
-Anthropic's developer conference, recorded
+## Anthropic's developer conference, recorded
 
 Keynotes, demos, and conversations with the teams behind Claude. Recorded at Code w/ Claude 2026 San Francisco and ready to replay.
 
-Browse recordings
+[Browse recordings](https://claude.com/code-with-claude/london)
 
-[Learn more](https://claude.com/code-with-claude/london)Learn more
-
-[Homepage](https://claude.com/code-with-claude)Homepage
-
-© [year] Anthropic PBC
-
-[PRIVACY POLICY](https://www.anthropic.com/legal/privacy)[CODE OF CONDUCT](https://claude.com/code-with-claude/code-of-conduct)
+From idea to income: How I built an AI-powered murder mystery game business with Claude | Session | Code w/ Claude 2026

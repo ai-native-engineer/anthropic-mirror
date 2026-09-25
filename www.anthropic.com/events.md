@@ -74,6 +74,56 @@ October 14, 2026
 
 ![North America Illustrated Map](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/682558e8a957c5ef54c77cb2_events-header_north-america.svg)![South America Illustrated Map](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/682558e840a6776a7f4f0393_events-header_south-america.svg)![Europe Illustrated Map](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/682558e87eae34fbb99cfb3b_events-header_europe.svg)![Middle East Illustrated Map](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/682558e882ac8a8bb8f677fd_events-header_middle-east.svg)![Asia Illustrated Map](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/682558e8bbafe8194cf059ca_events-header_asia.svg)![ Illustrated Map Africa](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/682558e840a6776a7f4f0390_events-header_africa.svg)![Australia Illustrated Map](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/682558e8f55fd3be8776c2c1_events-header_australia.svg)
 
+Claude Founder House San Francisco
+
+・
+
+Terra Gallery
+
+Startup
+
+Oct 6, 2026
+
+[Learn more about this event](https://www.anthropic.com/events/claude-founder-house-san-francisco)
+
+Startup
+
+In-person
+
+past
+
+upcoming
+
+October 6, 2026
+
+![](https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg)
+
+![North America Illustrated Map](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/682558e8a957c5ef54c77cb2_events-header_north-america.svg)![South America Illustrated Map](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/682558e840a6776a7f4f0393_events-header_south-america.svg)![Europe Illustrated Map](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/682558e87eae34fbb99cfb3b_events-header_europe.svg)![Middle East Illustrated Map](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/682558e882ac8a8bb8f677fd_events-header_middle-east.svg)![Asia Illustrated Map](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/682558e8bbafe8194cf059ca_events-header_asia.svg)![ Illustrated Map Africa](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/682558e840a6776a7f4f0390_events-header_africa.svg)![Australia Illustrated Map](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/682558e8f55fd3be8776c2c1_events-header_australia.svg)
+
+Claude Camp for Customers
+
+・
+
+Anthropic
+
+Sep 23, 2026
+
+[Learn more about this event](https://www.anthropic.com/events/claude-camp-for-customers)
+
+Anthropic
+
+Virtual
+
+past
+
+upcoming
+
+September 23, 2026
+
+![](https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg)
+
+![North America Illustrated Map](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/682558e8a957c5ef54c77cb2_events-header_north-america.svg)![South America Illustrated Map](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/682558e840a6776a7f4f0393_events-header_south-america.svg)![Europe Illustrated Map](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/682558e87eae34fbb99cfb3b_events-header_europe.svg)![Middle East Illustrated Map](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/682558e882ac8a8bb8f677fd_events-header_middle-east.svg)![Asia Illustrated Map](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/682558e8bbafe8194cf059ca_events-header_asia.svg)![ Illustrated Map Africa](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/682558e840a6776a7f4f0390_events-header_africa.svg)![Australia Illustrated Map](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/682558e8f55fd3be8776c2c1_events-header_australia.svg)
+
 Claude Founder House London
 
 ・
@@ -93,6 +143,30 @@ past
 upcoming
 
 September 23, 2026
+
+![](https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg)
+
+![North America Illustrated Map](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/682558e8a957c5ef54c77cb2_events-header_north-america.svg)![South America Illustrated Map](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/682558e840a6776a7f4f0393_events-header_south-america.svg)![Europe Illustrated Map](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/682558e87eae34fbb99cfb3b_events-header_europe.svg)![Middle East Illustrated Map](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/682558e882ac8a8bb8f677fd_events-header_middle-east.svg)![Asia Illustrated Map](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/682558e8bbafe8194cf059ca_events-header_asia.svg)![ Illustrated Map Africa](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/682558e840a6776a7f4f0390_events-header_africa.svg)![Australia Illustrated Map](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/682558e8f55fd3be8776c2c1_events-header_australia.svg)
+
+The Briefing: AI for Global Benefit
+
+・
+
+Enterprise
+
+Sep 22, 2026
+
+[Learn more about this event](https://www.anthropic.com/events/the-briefing-ai-for-global-benefit-virtual-event)
+
+Enterprise
+
+Virtual
+
+past
+
+upcoming
+
+September 22, 2026
 
 ![](https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg)
 
@@ -218,82 +292,6 @@ upcoming
 
 June 17, 2026
 
-![](https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg)
-
-![North America Illustrated Map](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/682558e8a957c5ef54c77cb2_events-header_north-america.svg)![South America Illustrated Map](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/682558e840a6776a7f4f0393_events-header_south-america.svg)![Europe Illustrated Map](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/682558e87eae34fbb99cfb3b_events-header_europe.svg)![Middle East Illustrated Map](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/682558e882ac8a8bb8f677fd_events-header_middle-east.svg)![Asia Illustrated Map](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/682558e8bbafe8194cf059ca_events-header_asia.svg)![ Illustrated Map Africa](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/682558e840a6776a7f4f0390_events-header_africa.svg)![Australia Illustrated Map](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/682558e8f55fd3be8776c2c1_events-header_australia.svg)
-
-Anthropic at AWS Summit LA 2026
-
-・
-
-LA Convention Center
-
-Enterprise
-
-Jun 10, 2026
-
-[Learn more about this event](https://www.anthropic.com/events/anthropic-at-aws-summit-la-2026)
-
-Enterprise
-
-In-person
-
-past
-
-upcoming
-
-June 10, 2026
-
-![](https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg)
-
-![North America Illustrated Map](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/682558e8a957c5ef54c77cb2_events-header_north-america.svg)![South America Illustrated Map](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/682558e840a6776a7f4f0393_events-header_south-america.svg)![Europe Illustrated Map](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/682558e87eae34fbb99cfb3b_events-header_europe.svg)![Middle East Illustrated Map](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/682558e882ac8a8bb8f677fd_events-header_middle-east.svg)![Asia Illustrated Map](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/682558e8bbafe8194cf059ca_events-header_asia.svg)![ Illustrated Map Africa](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/682558e840a6776a7f4f0390_events-header_africa.svg)![Australia Illustrated Map](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/682558e8f55fd3be8776c2c1_events-header_australia.svg)
-
-Anthropic at AWS Summit Toronto 2026
-
-・
-
-Metro Toronto Convention Centre - South Building
-
-Enterprise
-
-Jun 3, 2026
-
-[Learn more about this event](https://www.anthropic.com/events/anthropic-at-aws-summit-toronto-2026)
-
-Enterprise
-
-In-person
-
-past
-
-upcoming
-
-June 3, 2026
-
-![](https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg)
-
-![North America Illustrated Map](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/682558e8a957c5ef54c77cb2_events-header_north-america.svg)![South America Illustrated Map](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/682558e840a6776a7f4f0393_events-header_south-america.svg)![Europe Illustrated Map](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/682558e87eae34fbb99cfb3b_events-header_europe.svg)![Middle East Illustrated Map](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/682558e882ac8a8bb8f677fd_events-header_middle-east.svg)![Asia Illustrated Map](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/682558e8bbafe8194cf059ca_events-header_asia.svg)![ Illustrated Map Africa](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/682558e840a6776a7f4f0390_events-header_africa.svg)![Australia Illustrated Map](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/682558e8f55fd3be8776c2c1_events-header_australia.svg)
-
-Code with Claude
-
-・
-
-Anthropic
-
-May 6, 2026
-
-[Learn more about this event](https://www.anthropic.com/events/code-with-claude)
-
-Anthropic
-
-In-person
-
-past
-
-upcoming
-
-May 6, 2026
-
 [Show more](https://www.anthropic.com/events?939688b5_page=2)
 
 1 / 3
@@ -311,6 +309,30 @@ Try adjusting your search criteria or clearing some filters to see more events.
 Thank you! Your submission has been received!
 
 Oops! Something went wrong while submitting the form.
+
+Configuring Claude: Guidance for Enterprise Admins
+
+Recurring
+
+[Learn more about this webinar](https://www.anthropic.com/webinars/configuring-claude-guidance-for-enterprise-admins)
+
+Controlling Cost and Maximizing Value: guidance for Enterprise admins
+
+Recurring
+
+[Learn more about this webinar](https://www.anthropic.com/webinars/controlling-cost-and-maximizing-value-guidance-for-enterprise-admins)
+
+Virtual Claude Workshop
+
+Recurring
+
+[Learn more about this webinar](https://www.anthropic.com/webinars/recurring-virtual-claude-workshop)
+
+Virtual Claude Code Workshop
+
+Recurring
+
+[Learn more about this webinar](https://www.anthropic.com/webinars/recurring-virtual-claude-code-workshop)
 
 Claude Code: Advanced
 
@@ -330,53 +352,29 @@ Recurring
 
 [Learn more about this webinar](https://www.anthropic.com/webinars/claude-code-foundations-series)
 
-DRI-ing Your Career
-
-Oct 13, 2026
-
-2026-10-13
-
-[Learn more about this webinar](https://www.anthropic.com/webinars/dri-ing-your-career)
-
-AI as an Engineering Leadership Multiplier
-
-Oct 8, 2026
-
-2026-10-08
-
-[Learn more about this webinar](https://www.anthropic.com/webinars/ai-as-an-engineering-leadership-multiplier)
-
 Claude Tag on-call: A New Teammate in Your Incident Channel
 
-Sep 24, 2026
+Oct 15, 2026
 
-2026-09-24
+2026-10-15
 
 [Learn more about this webinar](https://www.anthropic.com/webinars/claude-tag-on-call-a-new-teammate-in-your-incident-channel)
 
-How to Roadmap With Decisions Rather Than Dates
-
-Sep 21, 2026
-
-2026-09-21
-
-[Learn more about this webinar](https://www.anthropic.com/webinars/how-to-roadmap-with-decisions-rather-than-dates)
-
-Enterprise Readiness: A CISO's Guide to Deploying Claude
-
-Sep 18, 2026
-
-2026-09-18
-
-[Learn more about this webinar](https://www.anthropic.com/webinars/enterprise-readiness-a-cisos-guide-to-deploying-claude)
-
 [Show more](https://www.anthropic.com/events?e45d281a_page=2)
 
-1 / 12
+1 / 13
 
 ## Webinar series
 
-![](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/69a1dc44eefb48d107a8b8a9_60a35c504cedb3e3f581b211e4b8aef372ffe031-1000x1000.svg)
+![](https://cdn.prod.website-files.com/67ed58c92cfedc451ebbbca1/6aa88629f646aceeccdcb951_Node.png)
+
+1 webinars
+
+### Claude in Production: Executive Briefings
+
+[View series](https://www.anthropic.com/webinar-series/claude-at-the-frontier-executive-briefings)View series
+
+![](https://cdn.prod.website-files.com/67ed58c92cfedc451ebbbca1/6aa886fb409cf1cabf86154d_Object-Bulb.png)
 
 3 webinars
 

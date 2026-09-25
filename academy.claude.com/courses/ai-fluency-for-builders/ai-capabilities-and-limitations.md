@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/ai-fluency-for-builders/ai-capabilities-and-limitations -->
 
-Lesson 3 of 9 · AI Fluency for BuildersAI capabilities & limitations
+Lesson 3 of 9 · AI Fluency for buildersAI capabilities & limitations
 
-3. /[AI Fluency for Builders](https://academy.claude.com/courses/ai-fluency-for-builders)
+3. /[AI Fluency for builders](https://academy.claude.com/courses/ai-fluency-for-builders)
 
-[AI Fluency for Builders](https://academy.claude.com/courses/ai-fluency-for-builders)
+[AI Fluency for builders](https://academy.claude.com/courses/ai-fluency-for-builders)
 
 # AI capabilities & limitations
 
@@ -75,7 +75,7 @@ Now that you’ve tested AI’s edges firsthand, in the next lesson we go deep o
 
 [Previous lessonThe 4D Framework](https://academy.claude.com/courses/ai-fluency-for-builders/the-4d-framework)[Next lessonDelegation & the builder's toolkit](https://academy.claude.com/courses/ai-fluency-for-builders/delegation-the-builder-s-toolkit)
 
-Lesson 3 of 9 · AI Fluency for BuildersAI capabilities & limitations
+Lesson 3 of 9 · AI Fluency for buildersAI capabilities & limitations
 
 Introduction and AI Fluency framework
 

@@ -37,7 +37,15 @@ The Models API response can be used to determine which models are available for 
 
     maximum: 1000, minimum: 1
 
+  - `WorkspaceID param.Field[string] Optional`
+
+    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
   - `Betas param.Field[[]AnthropicBeta] Optional`
+
+    **Deprecated**: Deprecated. This parameter will be removed from this method in a future release. To use beta features, call the beta models methods (`client.beta.models`) instead.
 
     Header param: Optional header to specify the beta version(s) you want to use.
 
@@ -135,15 +143,15 @@ The Models API response can be used to determine which models are available for 
 
       - `const AnthropicBetaMidConversationSystemClearAt2026_08_21 AnthropicBeta = "mid-conversation-system-clear-at-2026-08-21"`
 
-  - `WorkspaceID param.Field[string] Optional`
+      - `const AnthropicBetaCompact2026_09_04 AnthropicBeta = "compact-2026-09-04"`
 
-    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+      - `const AnthropicBetaInlineTools2026_09_15 AnthropicBeta = "inline-tools-2026-09-15"`
 
-    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+      - `const AnthropicBetaMCPClient2026_09_15 AnthropicBeta = "mcp-client-2026-09-15"`
 
 ### Returns
 
-- `type ModelInfo struct{…}`
+- `type ModelInfo`
 
   - `Type Model`
 
@@ -399,7 +407,15 @@ The Models API response can be used to determine information about a specific mo
 
 - `query ModelGetParams`
 
+  - `WorkspaceID param.Field[string] Optional`
+
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
   - `Betas param.Field[[]AnthropicBeta] Optional`
+
+    **Deprecated**: Deprecated. This parameter will be removed from this method in a future release. To use beta features, call the beta models methods (`client.beta.models`) instead.
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -497,15 +513,15 @@ The Models API response can be used to determine information about a specific mo
 
       - `const AnthropicBetaMidConversationSystemClearAt2026_08_21 AnthropicBeta = "mid-conversation-system-clear-at-2026-08-21"`
 
-  - `WorkspaceID param.Field[string] Optional`
+      - `const AnthropicBetaCompact2026_09_04 AnthropicBeta = "compact-2026-09-04"`
 
-    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+      - `const AnthropicBetaInlineTools2026_09_15 AnthropicBeta = "inline-tools-2026-09-15"`
 
-    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+      - `const AnthropicBetaMCPClient2026_09_15 AnthropicBeta = "mcp-client-2026-09-15"`
 
 ### Returns
 
-- `type ModelInfo struct{…}`
+- `type ModelInfo`
 
   - `Type Model`
 
@@ -744,7 +760,7 @@ func main() {
 
 ### Capability Support
 
-- `type CapabilitySupport struct{…}`
+- `type CapabilitySupport`
 
   Indicates whether a capability is supported.
 
@@ -754,7 +770,7 @@ func main() {
 
 ### Context Management Capability
 
-- `type ContextManagementCapability struct{…}`
+- `type ContextManagementCapability`
 
   Context management capability details.
 
@@ -780,7 +796,7 @@ func main() {
 
 ### Effort Capability
 
-- `type EffortCapability struct{…}`
+- `type EffortCapability`
 
   Effort (reasoning_effort) capability details.
 
@@ -814,7 +830,7 @@ func main() {
 
 ### Model Capabilities
 
-- `type ModelCapabilities struct{…}`
+- `type ModelCapabilities`
 
   Model capability information.
 
@@ -916,7 +932,7 @@ func main() {
 
 ### Model Info
 
-- `type ModelInfo struct{…}`
+- `type ModelInfo`
 
   - `Type Model`
 
@@ -1050,7 +1066,7 @@ func main() {
 
 ### Thinking Capability
 
-- `type ThinkingCapability struct{…}`
+- `type ThinkingCapability`
 
   Thinking capability details.
 
@@ -1076,7 +1092,7 @@ func main() {
 
 ### Thinking Types
 
-- `type ThinkingTypes struct{…}`
+- `type ThinkingTypes`
 
   Supported thinking type configurations.
 

@@ -1,5 +1,7 @@
 <!-- source: https://claude.com/solutions/healthcare -->
 
+Explore here
+
 Claude Science beta
 
 [Next](#)Next
@@ -493,7 +495,7 @@ Coverage policies, coding systems, and clinical guidelines, all in one place.
 
 Explore connectors
 
-[Explore connectors](https://claude.com/archive/connectors)Explore connectors
+[Explore connectors](https://claude.com/connectors)Explore connectors
 
 ## Built for healthcare
 

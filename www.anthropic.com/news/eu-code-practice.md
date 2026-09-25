@@ -84,5 +84,3 @@ Over the nearly two years since we first published our Responsible Scaling Polic
 As an industry, we're still developing best practices for assessing the systemic risks identified in the Code. Different risks require different methodologies. Third-party organizations like the [Frontier Model Forum](https://www.frontiermodelforum.org/) play a critical role, establishing common safety practices and evaluation standards that evolve with the technology. These groups bridge industry and government, translating technical insights into actionable policy.
 
 We're committed to working with the EU AI Office and safety organizations to ensure the Code remains both robust and responsive to emerging technologies. This collaborative approach—combining regulatory frameworks with flexibility—will be essential for Europe to harness AI's benefits while competing effectively on the global stage.
-
-Anthropic to sign the EU Code of Practice \ Anthropic

@@ -16,9 +16,9 @@ Contact sales
 
 [](https://www-cdn.anthropic.com/27884c4362fe884eca5dba08fe5c7efb1bbf567a.mp4)
 
-55.8%
+66.4%
 
-Fable 5.1 leads on Terminal-Bench 4.0
+Opus 5.5 on Terminal-Bench 4.0
 
 ## 60x
 
@@ -28,7 +28,7 @@ faster code review feedback for an AI platform customer
 
 reduction in time to run tests for an enterprise software customer
 
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5a8066e04cba3dd0a8dde_augment%20code_light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5a80a8b51472408dce9b3_augment%20code_dark.svg)
+![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6ab2c8ba3466f0c993603d7b_6ab2c6e8c7f95095d8c9bba5_startups-wordmark-augment-code-light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6ab2c8bb3466f0c993603d8d_6ab2c6e8bcffe96ca440c809_startups-wordmark-augment-code-dark.svg)
 
 ![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5aaf1b161d57cbe7095b8_GitLab_light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5aaebe118de085a232f53_GitLab_dark.svg)
 
@@ -226,6 +226,42 @@ Remember to be thorough in your analysis and clear in your explanation. Your goa
 * Turn anyone into an AI developer with rich docs and tooling
 
 ## See why companies choose Claude
+
+![Deloitte Consulting LLP (Opus 5.5)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5aa4f49588bd5ac875956_deloitte_light.svg)![Deloitte Consulting LLP (Opus 5.5)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5aa491a800b9e0c37fe24_deloitte_dark.svg)
+
+“Even at its lowest effort setting, Claude Opus 5.5 caught 72% of known bugs in our code reviews to Opus 5’s 56% at high effort, with fewer false alarms and a fraction of the output. On US consulting analysis, low thinking effort matched its higher thinking settings on half the output and passed our quality checks. When more lower thinking efforts are deployed in production, that’s client-ready work delivered efficiently.”
+
+Carl Bennett, CIO
+
+![GitHub (Opus 5.5)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c2af789b88bae0a3066e7e_68068b75a6e0e851d2777dac_c2015d2dfa5c2c58d52308460cb2e395_github%201.svg)![GitHub (Opus 5.5)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c2af7caa82305768f2a598_68068b75a6e0e851d2777dac_c2015d2dfa5c2c58d52308460cb2e395_github%203.svg)
+
+“Developers want agents that can take on real software work and finish it. In our testing across GitHub Copilot CLI and VS Code, Claude Opus 5.5 used among the fewest tokens and steps we measured. In VS Code, it solved more terminal tasks than Opus 5 in less than half the steps. More than making individual tasks more efficient, it’s making developers’ bigger projects more achievable.”
+
+Mario Rodriguez, Chief Product Officer
+
+![Clio (Opus 5.5)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6ab27f82cd30d8963d03f5bc_clio-light.svg)![Clio (Opus 5.5)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6ab27f8a23529d9546ea88fa_clio-dark.svg)
+
+“I handed Claude Opus 5.5 a large engineering task across six of our repositories and let it run overnight, unattended. It stayed on task for over 18 hours defining how our services talk to each other and working out how each one should apply that. Compared with Opus 5, it hit milestones faster and required minimal reworking. Its code comments were short and useful instead of long and prose-heavy. I’m struggling to find anything negative to say.”
+
+Sean Heintz, Staff Software Developer
+
+![Lovable (Opus 5.5)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6ab2c8bd3466f0c993603ed7_6ab2c6eb2a0f7493d7d5b0ed_startups-wordmark-lovable-light.svg)![Lovable (Opus 5.5)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6ab2c8be3466f0c993603eef_6ab2c6ebbcffe96ca440c8d3_startups-wordmark-lovable-dark.svg)
+
+“For Lovable builders, Opus 5.5 means faster builds with the same quality, whether you’re starting from scratch or working on a live app. It gathers context once, makes fewer and more complete edits, and doesn’t get stuck retrying, finishing in a third to half fewer steps and using significantly fewer tokens along the way.”
+
+Fabian Hedin, CTO & Co-founder
+
+![Spotify (Opus 5.5)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a18b4fac9a204dd3aef4556_spotify-logo-black.svg)![Spotify (Opus 5.5)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a18b4f8664ebf9777fd1955_spotify-logo-white.svg)
+
+“With Claude Opus 5.5, we’ve seen a clear improvement in token efficiency across our internal evaluations, as we’ve been able to complete the same tasks both cheaper and faster.”
+
+Aleksandar Mitic, Senior Engineer
+
+![Optiver (Opus 5.5)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a2776f3765518e9a151fa9b_logo_optiver-light.svg)![Optiver (Opus 5.5)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a2776fed93e492e2711c1a3_logo_optiver-dark.svg)
+
+“We test models on real engineering and trading-desk work. On our agentic coding tasks, Claude Opus 5.5 matched Opus 5’s quality in about half the turns, time and output tokens, cutting the cost of that workload by 40 to 50%. It posted the highest score we’ve recorded on one desk’s trading-support suite, passing tasks earlier Claude models had failed, and topped all eight models on our analysis task.”
+
+Noyan Tokgozoglu, Global Head of AI Engineering
 
 ![Cognition (Fable 5.1)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a29deb8193497afd3b2cd24_brand-logo-cognition-black.svg)![Cognition (Fable 5.1)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a29deb952fed1bad85c342c_brand-logo-cognition-white.svg)
 

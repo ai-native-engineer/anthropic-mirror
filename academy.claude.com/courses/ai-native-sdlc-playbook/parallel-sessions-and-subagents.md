@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/ai-native-sdlc-playbook/parallel-sessions-and-subagents -->
 
-Lesson 7 of 14 · The AI-Native SDLC PlaybookParallel sessions and subagents
+Lesson 7 of 14 · The AI-native SDLC playbookParallel sessions and subagents
 
-3. /[The AI-Native SDLC Playbook](https://academy.claude.com/courses/ai-native-sdlc-playbook)
+3. /[The AI-native SDLC playbook](https://academy.claude.com/courses/ai-native-sdlc-playbook)
 
-[The AI-Native SDLC Playbook](https://academy.claude.com/courses/ai-native-sdlc-playbook)
+[The AI-native SDLC playbook](https://academy.claude.com/courses/ai-native-sdlc-playbook)
 
 # Parallel sessions and subagents
 
@@ -66,7 +66,7 @@ More sessions means more output, so the controls have to come from configuration
 
 [Previous lessonSkills as institutional knowledge](https://academy.claude.com/courses/ai-native-sdlc-playbook/skills-as-institutional-knowledge)[Next lessonGive Claude a feedback loop](https://academy.claude.com/courses/ai-native-sdlc-playbook/give-claude-a-feedback-loop)
 
-Lesson 7 of 14 · The AI-Native SDLC PlaybookParallel sessions and subagents
+Lesson 7 of 14 · The AI-native SDLC playbookParallel sessions and subagents
 
 Introduction
 

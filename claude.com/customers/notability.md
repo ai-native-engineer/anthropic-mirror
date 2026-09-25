@@ -4,31 +4,21 @@ Q&A | Claude Platform
 
 # How Notability built a study tool that improves with every Claude release
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68ffe769f703495a0fb59604_nb-primary-full-marketing.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68ffe76dfd86b6d4e80e72ba_nb-primary-full-marketing-dark.svg)
+![Notability logo](https://assets.claude.com/32e9ad87184db4cf2295416e1430c22809ea3a93.svg)
 
 Industry:
-
-Software
+:   Software
 
 Company size:
-
-Startup
+:   Startup
 
 Product:
-
-[Claude Platform](https://claude.com/platform/api)
+:   [Claude Platform](https://claude.com/platform/api)
 
 Location:
-
-North America
+:   North America
 
 220 million quiz questions
 
@@ -49,61 +39,21 @@ Notability is a digital note-taking app where millions of students and professio
 
 ## The challenge
 
-Education
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698f5245ff22e3ab8e64405f_68c469d2d09b203c164ad8e6_og-claude-education.jpeg)
-
-Trusted, responsible AI tools for students and educators, from personalized learning to research assistance.
-
-Read more
-
-[Read more](https://claude.com/solutions/education)Read more
-
-Education
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Trusted, responsible AI tools for students and educators, from personalized learning to research assistance.
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Education
-
-Trusted, responsible AI tools for students and educators, from personalized learning to research assistance.
-
 ## Notes that students never opened
 
 When students take notes in a paper notebook, a doc, or an app, most of those notes are written once and never revisited. "Most notes students take are one touch: they create them and never view them again," said Matt Todd, Senior Engineer at Notability. Studying has traditionally been the student's own project: flashcards built by hand, or review material found online that may not match what they learned in class, while the notes that cover the exam topics sit untouched.
 
 Students were already searching for a fix, bringing AI tools into their studying, and Notability saw the chance to close that loop where notes already lived. "It's the perfect context to get ready for exams," explained Marc Provost, Chief Product Officer at Notability. The goal was exam prep that asks nothing extra of students: nothing to assemble or organize beyond the notes they already had.
 
+Education
+
+![Education](https://assets.claude.com/b3e6d0547ee5dc0654c639ece4b89778e2edb536.jpg)
+
+Trusted, responsible AI tools for students and educators, from personalized learning to research assistance.
+
+[Read more](https://claude.com/solutions/education)
+
 ## The solution
-
-Choosing the right Claude model
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69c2dd485d80024bc14f48c6_choosing%20model.jpeg)
-
-Learn when to use Haiku, Sonnet, or Opus to get better results and stay inside your rate limit. A practical guide to picking the right Claude model.
-
-Choosing the right Claude model
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Learn when to use Haiku, Sonnet, or Opus to get better results and stay inside your rate limit. A practical guide to picking the right Claude model.
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Choosing the right Claude model
-
-Learn when to use Haiku, Sonnet, or Opus to get better results and stay inside your rate limit. A practical guide to picking the right Claude model.
 
 ## Study materials generated from a student's own notes
 
@@ -119,33 +69,15 @@ Learn runs on Claude Haiku 4.5 through the Claude Platform, with quiz questions 
 
 User reports have moved steadily in one direction: since Learn’s early releases, they have fallen from 33 per 10,000 questions to roughly 18, a drop of about 45%. "This is a good keystone indicator that user experience is improving with each new model," Todd said.
 
-"Claude performed much better than other models, for example, on generating questions that were accurate, challenging, and varied."
+Choosing the right Claude model
 
-Marc Provost,
+![Choosing the right Claude model](https://assets.claude.com/7388619b452db0af26c78442a275c86c5ebe3124.jpg)
 
-Chief Product Officer, Notability
+Learn when to use Haiku, Sonnet, or Opus to get better results and stay inside your rate limit. A practical guide to picking the right Claude model.
 
-Claude Enterprise
+> "Claude performed much better than other models, for example, on generating questions that were accurate, challenging, and varied."
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a4e8f1c4eb05b098011e591_claude%20ent%20marginalia.jpeg)
-
-Put Claude to work across your organization. Help everyone think deeper, do more, and build securely.
-
-Claude Enterprise
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Put Claude to work across your organization. Help everyone think deeper, do more, and build securely.
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Claude Enterprise
-
-Put Claude to work across your organization. Help everyone think deeper, do more, and build securely.
+Marc Provost, Chief Product Officer, Notability
 
 ## The outcome
 
@@ -159,42 +91,24 @@ Beyond the student-facing product, Notability has put Claude to work internally 
 
 Notability plans to continue investing in ways to make a student's own material work harder for them. The team is building a study flow built on three pillars: memorizing with spaced-repetition flashcard decks, practicing with multiple-choice quizzes, and testing with an exam mode that mixes multiple-choice, fill-in-the-blank, true or false, and mix and match questions into one exam. "Imagine being able to ask a question and get an answer grounded in everything you've ever written or saved," Wu said of a note-library chat the team is exploring. Provost's longer-term vision is a fully agentic version of Learn: "We want to look at notes and previous quizzes to generate the most personalized next step, whether it's a visualization to better explain a specific concept, a burst quiz to go over weaknesses, a quick two-minute explainer to review something on the go."
 
-"What used to live in one person's head or a buried Slack thread now lives in one place that Claude reads and writes as naturally as we do."
+Claude Enterprise
 
-Marc Provost,
+![Claude Enterprise](https://assets.claude.com/50a00469e498d2c960d9e45f1a4a37d2d7a92f2e.jpg)
 
-Chief Product Officer, Notability
+Put Claude to work across your organization. Help everyone think deeper, do more, and build securely.
 
-## Related stories
+[Read more](https://claude.com/solutions/enterprise)
 
-[How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)How Atlassian builds AI agents teams can trust with Claude and Google Cloud
+> "What used to live in one person's head or a buried Slack thread now lives in one place that Claude reads and writes as naturally as we do."
 
-How Atlassian builds AI agents teams can trust with Claude and Google Cloud
+Marc Provost, Chief Product Officer, Notability
 
-Customer story
+[![Supermetrics](https://assets.claude.com/3ac4171a81008be0340e5c3d8ccb46571c3edfb3.svg)
 
-[Customer story](https://claude.com/customers/atlassian)Customer story
+### Supermetrics lets marketers manage ad campaigns from a conversation with Claude](https://claude.com/customers/supermetrics)[![Atlassian](https://assets.claude.com/4870b3d6c0253cea01b100c98ad2030b8e4f8ce1.svg)
 
-[Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)Rocket Money on building agents that fix their own code
+### How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-Rocket Money on building agents that fix their own code
+### Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money-qa)Customer story
-
-[How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)How Rocket Money built its personal finance agent with Claude
-
-How Rocket Money built its personal finance agent with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money)Customer story
-
-[How Notion ships and scales agents with Claude Managed Agents](https://claude.com/customers/notion-qa)How Notion ships and scales agents with Claude Managed Agents
-
-How Notion ships and scales agents with Claude Managed Agents
-
-Customer story
-
-[Customer story](https://claude.com/customers/notion-qa)Customer story
+### How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)

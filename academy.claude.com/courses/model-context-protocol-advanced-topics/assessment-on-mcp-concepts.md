@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/model-context-protocol-advanced-topics/assessment-on-mcp-concepts -->
 
-Quiz 1 of 1 · Model Context Protocol: Advanced TopicsAssessment on MCP concepts
+Quiz 1 of 1 · Model Context Protocol: Advanced topicsAssessment on MCP concepts
 
-3. /[Model Context Protocol: Advanced Topics](https://academy.claude.com/courses/model-context-protocol-advanced-topics)
+3. /[Model Context Protocol: Advanced topics](https://academy.claude.com/courses/model-context-protocol-advanced-topics)
 
-[Model Context Protocol: Advanced Topics](https://academy.claude.com/courses/model-context-protocol-advanced-topics)
+[Model Context Protocol: Advanced topics](https://academy.claude.com/courses/model-context-protocol-advanced-topics)
 
 # Assessment on MCP concepts
 
@@ -12,7 +12,7 @@ Quiz8 min
 
 [Previous lessonState and the StreamableHTTP transport](https://academy.claude.com/courses/model-context-protocol-advanced-topics/state-and-the-streamablehttp-transport)[Up nextCompletion badge](https://academy.claude.com/courses/model-context-protocol-advanced-topics/badge)
 
-Quiz 1 of 1 · Model Context Protocol: Advanced TopicsAssessment on MCP concepts
+Quiz 1 of 1 · Model Context Protocol: Advanced topicsAssessment on MCP concepts
 
 Core MCP features
 

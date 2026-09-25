@@ -4,35 +4,24 @@ Case study | Claude Platform
 
 # Palo Alto Networks accelerates secure software development with Claude and Google Cloud
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![Palo Alto Networks logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68bf53e6bbf7c52e005a1176_palo-alto-ventures-light-mode.svg)![Palo Alto Networks logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68bf5812aa32ad62ff26a1a6_palo-alto-ventures-light-mode-1.svg)
+![Palo Alto Networks logo](https://assets.claude.com/f60d9d14dae95a9824f6bd1592a591e94f2a1c12.svg)
 
 Industry:
-
-Cybersecurity
+:   Cybersecurity
 
 Company size:
-
-Large
+:   Large
 
 Product:
-
-Claude Platform
+:   Claude Platform
 
 Partner:
-
-Google
+:   Google
 
 Location:
-
-North America
+:   North America
 
 20-30% increase
 
@@ -41,42 +30,6 @@ in feature development velocity
 3,500 developers
 
 onboarded and ramping up
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
 
 Palo Alto Networks, the world's largest cybersecurity company, uses Claude on Google Cloud to enhance developer productivity while maintaining their stringent security standards across their global engineering organization.
 
@@ -126,52 +79,12 @@ The company is already pioneering innovative uses of Claude, including an AI pos
 
 Palo Alto Networks is creating a new paradigm for secure, efficient software development by combining Claude's advanced AI capabilities with Google Cloud's enterprise-grade infrastructure and unified AI development platform. Their implementation shows how enterprises can leverage AI to transform development practices while maintaining high security standards. As they scale to thousands more developers, Palo Alto Networks is showing how AI can enhance human capabilities rather than replace them—enabling teams to build better, more secure software that protects organizations worldwide.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[![Vega Security](https://assets.claude.com/4e1839348313fbe4c8f3c96d6c7cbc95f53e13c6.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### Vega's cyber defense platform returns 67% of analysts' time with Claude](https://claude.com/customers/vega)[![Cyera](https://assets.claude.com/b8c564095d75d596cb49afa2791ea7b0909e958c.svg)
 
-[Next](#)Next
+### Cyera on making Claude Cowork the front door to 40 tools](https://claude.com/customers/cyera-qa)[![Cyera](https://assets.claude.com/b8c564095d75d596cb49afa2791ea7b0909e958c.svg)
 
-Video caption
+### Cyera scales agentic AI across 1,500 employees with Claude Enterprise](https://claude.com/customers/cyera)[![Kai](https://assets.claude.com/aff2397c0fd3708b6d0b23554c2ce5f81a3f7c56.svg)
 
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[Vega's cyber defense platform returns 67% of analysts' time with Claude](https://claude.com/customers/vega)Vega's cyber defense platform returns 67% of analysts' time with Claude
-
-Vega's cyber defense platform returns 67% of analysts' time with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/vega)Customer story
-
-[Cyera on making Claude Cowork the front door to 40 tools](https://claude.com/customers/cyera-qa)Cyera on making Claude Cowork the front door to 40 tools
-
-Cyera on making Claude Cowork the front door to 40 tools
-
-Customer story
-
-[Customer story](https://claude.com/customers/cyera-qa)Customer story
-
-[Cyera scales agentic AI across 1,500 employees with Claude Enterprise](https://claude.com/customers/cyera) Cyera scales agentic AI across 1,500 employees with Claude Enterprise
-
-Cyera scales agentic AI across 1,500 employees with Claude Enterprise
-
-Customer story
-
-[Customer story](https://claude.com/customers/cyera)Customer story
-
-[Kai delivers preemptive exposure management with Claude](https://claude.com/customers/kai) Kai delivers preemptive exposure management with Claude
-
-Kai delivers preemptive exposure management with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/kai)Customer story
+### Kai delivers preemptive exposure management with Claude](https://claude.com/customers/kai)

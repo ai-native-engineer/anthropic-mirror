@@ -4,44 +4,32 @@
 
 AI saves lawyers countless hours on research; AI helps developers reason through complex technical systems. Patent law is unique in demanding both simultaneously—researching across millions of documents while comprehending the technical intricacies of novel inventions. The result: a profession undergoing more radical change than any other, and a wealth engineering problems at the frontier of what’s possible with LLMs.
 
-Details
+## Details
 
 City
-
-London, UK
+:   London, UK
 
 Date
-
-20 May 2026
+:   20 May 2026
 
 Time
-
-15:35 – 16:05
+:   15:35 – 16:05
 
 Speaker(s)
+:   Olly Cobb
 
-Olly Cobb
+    Founding AI Engineer,
 
-Founding AI Engineer,
-
-Solve Intelligence
+    Solve Intelligence
 
 ## Watch recording
 
-[Play video](#)Play video
+![Where code meets court: AI at the legal-technical frontier](https://i.ytimg.com/vi/T8N0MED3IJo/maxresdefault.jpg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Anthropic's developer conference, recorded
+## Anthropic's developer conference, recorded
 
 Keynotes, demos, and conversations with the teams behind Claude. Recorded at Code w/ Claude 2026 San Francisco and ready to replay.
 
-Browse recordings
+[Browse recordings](https://claude.com/code-with-claude/london)
 
-[Learn more](https://claude.com/code-with-claude/london)Learn more
-
-[Homepage](https://claude.com/code-with-claude)Homepage
-
-© [year] Anthropic PBC
-
-[PRIVACY POLICY](https://www.anthropic.com/legal/privacy)[CODE OF CONDUCT](https://claude.com/code-with-claude/code-of-conduct)
+Where code meets court: AI at the legal-technical frontier | Session | Code w/ Claude 2026

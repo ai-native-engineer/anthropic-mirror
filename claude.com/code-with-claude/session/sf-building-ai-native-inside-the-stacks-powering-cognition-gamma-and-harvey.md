@@ -4,62 +4,50 @@
 
 Three teams building AI-native products — Cognition, Gamma, and Harvey — discuss the architectural decisions behind their stacks. The conversation covers multi-agent orchestration, MCP in production, autonomous agent design, and the tradeoffs each team has worked through along the way.
 
-Details
+## Details
 
 City
-
-San Francisco, USA
+:   San Francisco, USA
 
 Date
-
-May 6, 2026
+:   May 6, 2026
 
 Time
-
-02:35PM – 03:05PM
+:   02:35PM – 03:05PM
 
 Speaker(s)
+:   Deeni Fatiha
 
-Deeni Fatiha
+    Head of Product for AI,
 
-Head of Product for AI,
+    Gamma
 
-Gamma
+    Niko Grupen
 
-Niko Grupen
+    Head of Applied AI,
 
-Head of Applied AI,
+    Harvey
 
-Harvey
+    Walden Yan
 
-Walden Yan
+    Co-founder,
 
-Co-founder,
+    Cognition
 
-Cognition
+    Beth Robertson
 
-Beth Robertson
+    Head of Startups and Venture Partnerships,
 
-Head of Startups and Venture Partnerships,
-
-Anthropic
+    Anthropic
 
 ## Watch recording
 
-[Play video](#)Play video
+![Building AI-native: Inside the stacks powering Cognition, Gamma, and Harvey](https://assets.claude.com/fdf1e84665c2d8ccf57be0b1e5dd3bf06bbb8ac1.jpg?w=1600&auto=format)
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69fc9da3e6cc0ca608b80a83_building-ai-native.webp)
-
-Anthropic's developer conference, recorded
+## Anthropic's developer conference, recorded
 
 Keynotes, demos, and conversations with the teams behind Claude. Recorded at Code w/ Claude 2026 San Francisco and ready to replay.
 
-Browse recordings
+[Browse recordings](https://claude.com/code-with-claude/san-francisco)
 
-[Learn more](https://claude.com/code-with-claude/san-francisco)Learn more
-
-[Homepage](https://claude.com/code-with-claude)Homepage
-
-© [year] Anthropic PBC
-
-[PRIVACY POLICY](https://www.anthropic.com/legal/privacy)[CODE OF CONDUCT](https://claude.com/code-with-claude/code-of-conduct)
+Building AI-native: Inside the stacks powering Cognition, Gamma, and Harvey | Session | Code w/ Claude 2026

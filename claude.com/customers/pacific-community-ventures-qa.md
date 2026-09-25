@@ -4,47 +4,17 @@ Q&A | Claude
 
 # A conversation with Pacific Community Ventures on building AI for fair lending
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a4d5437e0a6d096150a027f_logo_pcv-light-mode.png)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a4d543b4dfd5746c3b7d611_logo_pcv-dark-mode.png)
+![Pacific Community Ventures logo](https://assets.claude.com/0acfed68612bcd41423a77fe911e509dfd8000af.png)
 
 Case Study
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a4d56cc4a5e8619c5fd016d_og_case-study-PCV.jpg)
+![Case Study](https://assets.claude.com/7bd78f3fc4499bf19803654bccce01dc433f426d.jpg)
 
 Pacific Community Ventures scales worker feedback 10x with Claude
 
-Read more
-
-[Read more](http://claude.com/customers/pacific-community-ventures)Read more
-
-Case Study
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Pacific Community Ventures scales worker feedback 10x with Claude
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Case Study
-
-Pacific Community Ventures scales worker feedback 10x with Claude
-
-[Prev](#)Prev
-
-[Next](#)Next
+[Read more](http://claude.com/customers/pacific-community-ventures)
 
 [Pacific Community Ventures](https://www.pacificcommunityventures.org/) (PCV) is a community development financial institution (CDFI) based in the Bay Area, a mission-driven lender that backs small business owners overlooked by traditional banks to create good jobs, with research and data work that reaches nationally. PCV uses Claude across that work, from a voice survey tool that gathers candid feedback from workers to an underwriting co-pilot in early development. Chief Data Officer Sachi Shenoy and CEO and President Bulbul Gupta sat down with Anthropic in June 2026 to talk about why a community lender is building its own AI rather than adopting the credit risk models built for traditional finance, the national data commons they are starting, and the mission that drives the work.
 
@@ -58,11 +28,9 @@ Pacific Community Ventures scales worker feedback 10x with Claude
 
 **Gupta:** On the research side, Claude helps us reach many more people, but the analysis is still done by humans on our team. Reaching more people is one thing. Deciding what their feedback actually means is the part that stays with us.
 
-"We've been developing a predictive financial model with AI to augment our underwriters' decisions, so we can get capital to the small business owners who need it faster."
+> "We've been developing a predictive financial model with AI to augment our underwriters' decisions, so we can get capital to the small business owners who need it faster."
 
-Sachi Shenoy
-
-Chief Data Officer, Pacific Community Ventures
+Sachi ShenoyChief Data Officer, Pacific Community Ventures
 
 ## You've been deliberate about not simply adopting the financial models built for traditional finance. Why?
 
@@ -80,37 +48,15 @@ Chief Data Officer, Pacific Community Ventures
 
 Nonprofits
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698f525504b02eec936ac514_692e248602b0e973666dc35b_og-nonprofit.jpeg)
+![Nonprofits](https://assets.claude.com/b46529adbd87da89ebb1e8191178d53278f93d1b.jpg)
 
 Turn limited resources into lasting impact. Generate grant proposals, track program outcomes, and free your team to focus on serving your community.
 
-Read more
+[Read more](https://claude.com/solutions/nonprofits)
 
-[Read more](https://claude.com/solutions/nonprofits)Read more
+> "Claude helps us reach many more people."
 
-Nonprofits
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Turn limited resources into lasting impact. Generate grant proposals, track program outcomes, and free your team to focus on serving your community.
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Nonprofits
-
-Turn limited resources into lasting impact. Generate grant proposals, track program outcomes, and free your team to focus on serving your community.
-
-"Claude helps us reach many more people."
-
-Bulbul Gupta
-
-President, Pacific Community Ventures
+Bulbul GuptaPresident, Pacific Community Ventures
 
 ## You take this work beyond PCV, too. Who else are you building for?
 
@@ -126,22 +72,4 @@ President, Pacific Community Ventures
 
 **Gupta:** The bigger thing we are building toward is a national financial model designed for underserved entrepreneurs and communities, built from the data of CDFIs across the country rather than borrowed from anyone else.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-No items found.
+Pacific Community Ventures Q&A | Claude | Claude by Anthropic

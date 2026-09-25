@@ -19,11 +19,11 @@ Validate Credential
 
   - `required string vaultID`
 
-    Path param: Path parameter vault_id
+    Path param: Identifier of the vault containing the credential.
 
   - `required string credentialID`
 
-    Path param: Path parameter credential_id
+    Path param: Unique identifier of the credential to validate.
 
   - `IReadOnlyList<AnthropicBeta> betas`
 
@@ -119,6 +119,12 @@ Validate Credential
 
     - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
+    - `Compact2026_09_04("compact-2026-09-04")`
+
+    - `InlineTools2026_09_15("inline-tools-2026-09-15")`
+
+    - `McpClient2026_09_15("mcp-client-2026-09-15")`
+
   - `string workspaceID`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -127,7 +133,7 @@ Validate Credential
 
 ## Returns
 
-- `class BetaManagedAgentsCredentialValidation:`
+- `class BetaManagedAgentsCredentialValidation`
 
   Result of live-probing a credential against its configured MCP server.
 
@@ -185,11 +191,19 @@ Validate Credential
 
       - `Succeeded("succeeded")`
 
+        The token endpoint returned a new access token.
+
       - `Failed("failed")`
+
+        The token endpoint returned an error response. See `http_response` for detail.
 
       - `ConnectError("connect_error")`
 
+        The token endpoint could not be reached (DNS, TLS, or connection error).
+
       - `NoRefreshToken("no_refresh_token")`
+
+        No refresh token is stored for the credential, so no exchange was attempted.
 
   - `required BetaManagedAgentsCredentialValidationStatus Status`
 
@@ -197,9 +211,15 @@ Validate Credential
 
     - `Valid("valid")`
 
+      The credential successfully authenticated against its MCP server.
+
     - `Invalid("invalid")`
 
+      The probe reached the MCP server and was rejected, and a refresh (if attempted) did not recover it.
+
     - `Unknown("unknown")`
+
+      The probe could not determine validity — for example, a transport error or a successful refresh that was not re-probed.
 
   - `required DateTimeOffset ValidatedAt`
 

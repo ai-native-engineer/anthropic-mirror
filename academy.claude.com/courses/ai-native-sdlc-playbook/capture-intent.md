@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/ai-native-sdlc-playbook/capture-intent -->
 
-Lesson 2 of 14 · The AI-Native SDLC PlaybookCapture as intent.md
+Lesson 2 of 14 · The AI-native SDLC playbookCapture as intent.md
 
-3. /[The AI-Native SDLC Playbook](https://academy.claude.com/courses/ai-native-sdlc-playbook)
+3. /[The AI-native SDLC playbook](https://academy.claude.com/courses/ai-native-sdlc-playbook)
 
-[The AI-Native SDLC Playbook](https://academy.claude.com/courses/ai-native-sdlc-playbook)
+[The AI-native SDLC playbook](https://academy.claude.com/courses/ai-native-sdlc-playbook)
 
 # Capture as intent.md
 
@@ -74,7 +74,7 @@ The evidence is the committed `intent.md`, which lists the author, the timestamp
 
 [Previous lessonIntroduction](https://academy.claude.com/courses/ai-native-sdlc-playbook/introduction)[Next lessonRequirements and design](https://academy.claude.com/courses/ai-native-sdlc-playbook/requirements-and-design)
 
-Lesson 2 of 14 · The AI-Native SDLC PlaybookCapture as intent.md
+Lesson 2 of 14 · The AI-native SDLC playbookCapture as intent.md
 
 Introduction
 

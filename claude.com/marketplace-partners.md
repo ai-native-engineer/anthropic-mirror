@@ -1,5 +1,7 @@
 <!-- source: https://claude.com/marketplace-partners -->
 
+Explore here
+
 Offer your solution on the Claude Marketplace
 
 Building a product powered by Claude? Register your interest to join the partner waitlist.

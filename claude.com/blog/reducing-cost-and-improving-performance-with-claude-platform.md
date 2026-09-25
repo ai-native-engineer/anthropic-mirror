@@ -1,5 +1,7 @@
 <!-- source: https://claude.com/blog/reducing-cost-and-improving-performance-with-claude-platform -->
 
+Explore here
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a0112e18cdd7f0b92d19e40_Hand-BuildingBricks.svg)
 
 # Reducing cost and improving performance with Claude Platform
@@ -28,6 +30,8 @@ Tuning prompt caching, instructions, and effort can reduce Claude's cost without
 * Author(s)
 
   Lance Martin
+
+***Update:*** *This blog article was originally published on September 8, 2026, including benchmarks reflecting the cost and performance of using Opus 5 and Sonnet 5. We’ve since re-run several of these benchmarks to incorporate or highlight Opus 5.5, which launched on September 22, 2026.*
 
 Performance and cost are often viewed as a trade-off: to spend less, you accept worse results. In practice, we've found that many applications using Claude Platform can cut costs without giving up performance with three fixes: maximize the prompt cache hit rate, remove anti-patterns from your prompts when upgrading to frontier Claude models, and calibrate effort to the task. We've put this guidance into the [`claude-api` skill](https://github.com/anthropics/skills/tree/main/skills/claude-api). In this article, we show how Claude Code with the `claude-api` can often find ways to reduce cost while maintaining or improving performance.
 
@@ -97,17 +101,19 @@ Prompts can accumulate instructions that patch model weaknesses. These instructi
 
 We've updated the `claude-api` skill with a new command that watches out for these anti-patterns. In Claude Code, run `/claude-api prompt-audit` against your prompts, skills, or tool descriptions. The audit covers anything in your working directory, including application code that calls the Claude API and Claude Code's own configuration (e.g., [CLAUDE.md](http://claude.md) or skills).
 
-For example, we tested a model migration from Opus 4.8 to Opus 5 on a customer support benchmark. We started from a clean prompt and planted one anti-pattern at a time (a retired thinking setting, a pair of contradictory refund rules, a manual scratchpad, "verify twice", "be maximally thorough", and a mandatory six-step procedure), giving six legacy prompts.
+For example, we tested a model migration from Opus 4.8 to Opus 5.5 on a customer support benchmark. We started from a clean prompt and planted one anti-pattern at a time (a retired thinking setting, a pair of contradictory refund rules, a manual scratchpad, "verify twice", "be maximally thorough", and a mandatory six-step procedure), giving six legacy prompts.
 
-We ran each on Opus 4.8, on Opus 5 with only the model ID changed, and on Opus 5 after running `/claude-api prompt-audit` once per prompt (Figure 3 shows the average across the six).
+We ran each on Opus 4.8, on Opus 5.5 with only the model ID changed, and on Opus 5.5 after running `/claude-api prompt-audit` once per prompt (Figure 3 shows the average across the six).
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a9f8f03f76b0fe7cad36789_image7.png)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6ab2a99ed2ca2fafb3d08f9f_image7.png)
 
-Figure 3. The effect of prompting anti-patterns during model migration from Opus 4.8 to Opus 5.
+Figure 3 | The effect of prompting anti-patterns during model migration from Opus 4.8 to Opus 5.5.
+
+The migration from Opus 4.8 to Opus 5.5 reduces cost by around 18%. This is because the Opus 5.5 [input tokens and prompt cache reads](https://platform.claude.com/docs/en/about-claude/pricing) are cheaper than Opus 4.8.
 
 With Opus 5, verification rituals ("*verify twice*") use unnecessary tokens by duplicating order lookup on every refund. Emphasis boosters ("*be maximally thorough*") became dozens of unneeded knowledge-base searches.
 
-Running `/claude-api prompt-audit` removed the anti-patterns, decreasing costs by 14.6% and increasing accuracy by 5.3% on average. Cost dropped because extra tool calls and duplicated reasoning were eliminated. Accuracy rose for three reasons. The retired thinking setting made the API reject every routing request outright. The contradictory refund rules led Opus 5 to withhold four refunds it owed while it asked the customer to confirm. And the manual scratchpad collided with Opus 5's built-in thinking: on three tickets it wrote the tool call inside its reasoning and never executed it.
+Running `/claude-api prompt-audit` removed the anti-patterns,  decreasing costs by an additional 9%. Cost dropped because extra tool calls and duplicated reasoning were eliminated. Accuracy rose by around 2 percentage points for three reasons. The retired thinking setting made the API reject every routing request outright. The contradictory refund rules led Opus 5.5 to withhold four refunds it owed while it asked the customer to confirm. And the manual scratchpad collided with Opus 5.5's built-in thinking: on three tickets it wrote the tool call inside its reasoning and never executed it.
 
 ## **Effort**
 
@@ -159,21 +165,19 @@ Prompt caching, instructions, and effort are common levers for reducing cost. Ou
 
 It then ranks the available savings, starting with prompt caching, trimming what each request carries (including a prompt-audit), bounding output, and [batching](https://platform.claude.com/docs/en/build-with-claude/batch-processing) unattended work. If you supply an evaluation, it goes further and computes cost and performance across effort levels and model choices.
 
-We ran this on four public benchmarks, starting with Sonnet 5 as a baseline (Figure 7):
+We ran this on four public benchmarks, starting with Opus 5.5 as a baseline (Figure 7):
 
-* **LegalBench (~58% lower cost):**  `cost-optimize` proposed caching a shared prefix across tasks, setting low effort, and processing tasks via the Batch API. Thinking tokens fell from 102,779 to 8,284, but pass rate stayed within noise and cost dropped by ~58%.
+* **LegalBench** (~67% lower cost): `cost-optimize` finds an opportunity to cache part of the prompt, sets low effort, and processes tasks via the lower cost [Batch API](https://platform.claude.com/docs/en/about-claude/pricing). Thinking tokens dropped by ~84%, accuracy moved by less than a point, and cost dropped by ~67%.
 
-* **tau2-bench retail (~73% lower cost):** By implementing prompt caching with explicit breakpoint placement, `cost-optimize` reduced spend by 73% while keeping pass rate flat.
+* **tau2-bench retail** (~73% lower cost): `cost-optimize` found that ~93% of the prompt could be cached, reducing spend by ~73% with no change in the pass rate.
 
-* **OfficeQA Pro (~52% lower cost):** `cost-optimize` added batch processing and document caching, which brought cost down from $136.20 to $64.87.
+* **OfficeQA Pro** (~72% lower cost): `cost-optimize` applied the [Batch API](https://platform.claude.com/docs/en/about-claude/pricing) and trimmed oversized documents to their most relevant sections, reducing cost by ~72% with no significant change in the score.
 
-* **SWE-bench Verified (~55% lower cost):** `cost-optimize` found that the default config already caches correctly. Savings came from setting effort to medium and constraining the agent’s output to just a few concise sentences. Median steps per task went from 29 to 17 and prompt tokens fell from 75.2M to 33.7M.
+* **SWE-bench Verified** (~24% lower cost): `cost-optimize` found that prompt caching was already applied, so savings came from setting effort to medium and constraining the agent's output to a few concise sentences. Together, these reduced cost ~24%.
 
-‍
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6ab2aa46027b5763ee3e5323_image3.png)
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a9f9120b5999192bd5d7463_d41ebc95.png)
-
-Figure 7. Cost and performance change across benchmarks with /claude-api cost-optimize.
+Figure 7 | Cost and performance change across benchmarks with /claude-api cost-optimize.
 
 ## **Getting started**
 

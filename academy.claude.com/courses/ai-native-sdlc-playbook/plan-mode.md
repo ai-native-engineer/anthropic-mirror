@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/ai-native-sdlc-playbook/plan-mode -->
 
-Lesson 4 of 14 · The AI-Native SDLC PlaybookClaude Code plan mode as the default starting point
+Lesson 4 of 14 · The AI-native SDLC playbookClaude Code plan mode as the default starting point
 
-3. /[The AI-Native SDLC Playbook](https://academy.claude.com/courses/ai-native-sdlc-playbook)
+3. /[The AI-native SDLC playbook](https://academy.claude.com/courses/ai-native-sdlc-playbook)
 
-[The AI-Native SDLC Playbook](https://academy.claude.com/courses/ai-native-sdlc-playbook)
+[The AI-native SDLC playbook](https://academy.claude.com/courses/ai-native-sdlc-playbook)
 
 # Claude Code plan mode as the default starting point
 
@@ -90,7 +90,7 @@ Both the legacy system and the AI-native Markdown-first system can coexist so lo
 
 [Previous lessonRequirements and design](https://academy.claude.com/courses/ai-native-sdlc-playbook/requirements-and-design)[Next lessonThe CLAUDE.md](https://academy.claude.com/courses/ai-native-sdlc-playbook/claude-md)
 
-Lesson 4 of 14 · The AI-Native SDLC PlaybookClaude Code plan mode as the default starting point
+Lesson 4 of 14 · The AI-native SDLC playbookClaude Code plan mode as the default starting point
 
 Introduction
 

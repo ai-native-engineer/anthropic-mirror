@@ -4,31 +4,21 @@ Case study | Claude Platform
 
 # Bito powers agentic AI tools for software development with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![Bito logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5a868318d2e33400f4646_Bito_light.svg)![Bito logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5a86c2ddf19006fe1a9bc_Bito_dark.svg)
+![Bito logo](https://assets.claude.com/55d2fa545e85bfc592ff817e97daa03fe9ffe704.svg)
 
 Industry:
-
-Software
+:   Software
 
 Company size:
-
-Small
+:   Small
 
 Product:
-
-Claude Platform
+:   Claude Platform
 
 Location:
-
-North America
+:   North America
 
 89% reduction
 
@@ -37,42 +27,6 @@ in pull request cycles
 $14 ROI
 
 for every $1 spent on AI code review
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
 
 Bito leverages Claude to create AI agents that transform how over 100,000 developers worldwide write, review, and ship code, revolutionizing software engineering workflows.
 
@@ -103,9 +57,7 @@ Bito uses Claude to transform engineering team workflows across their tools, inc
 * **Bito Wingman**: This coding agent takes meaningful action across the development ecosystem. Developers interact with a coding agent that can execute complicated commands and take action. From integrations with Jira and Confluence, Wingman can retrieve and understand scoped tasks then write or refactor code before compiling, reviewing, and testing. Claude 3.7 Sonnet provides this advanced reasoning capabilities.
 * **IDE Extensions**: Bito integrates Claude's capabilities into popular development environments like VS Code and JetBrains, ensuring AI assistance is available where developers need it without disrupting established workflows.
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68baf05e5545910afe2f4772_b5b87fd270c0f3bdbb3800e88228cfc9f00e5f53-1920x1013.png)
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68baf05e5545910afe2f4776_5eafdfc9dbd3ffab55ffd89ab77477094e256016-1920x1075.png)
+![](https://assets.claude.com/87c51b5d93074aa4021e93a990c50774044b1775.png)![](https://assets.claude.com/98d40853c84d0d2ddbc7c34114f44be3a9510933.png)
 
 ## Transforming software development for teams worldwide
 
@@ -119,52 +71,12 @@ Bito envisions AI transforming the coding experience. Goel said, "Bito Wingman p
 
 The ongoing partnership with Anthropic is crucial to this transformation. Goel said, "Anthropic's innovation and platform accessibility are crucial to Bito's mission to redefine developer productivity." Together, Bito and Anthropic aim to refine Claude's capabilities for software development, building a future where AI and human developers collaborate seamlessly to create better software faster than ever before.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[![Supermetrics](https://assets.claude.com/3ac4171a81008be0340e5c3d8ccb46571c3edfb3.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### Supermetrics lets marketers manage ad campaigns from a conversation with Claude](https://claude.com/customers/supermetrics)[![Atlassian](https://assets.claude.com/4870b3d6c0253cea01b100c98ad2030b8e4f8ce1.svg)
 
-[Next](#)Next
+### How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-Video caption
+### Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-Customer story
-
-[Customer story](https://claude.com/customers/atlassian)Customer story
-
-[Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)Rocket Money on building agents that fix their own code
-
-Rocket Money on building agents that fix their own code
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money-qa)Customer story
-
-[How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)How Rocket Money built its personal finance agent with Claude
-
-How Rocket Money built its personal finance agent with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money)Customer story
-
-[How Notion ships and scales agents with Claude Managed Agents](https://claude.com/customers/notion-qa)How Notion ships and scales agents with Claude Managed Agents
-
-How Notion ships and scales agents with Claude Managed Agents
-
-Customer story
-
-[Customer story](https://claude.com/customers/notion-qa)Customer story
+### How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)

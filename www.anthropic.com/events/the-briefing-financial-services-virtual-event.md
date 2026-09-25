@@ -127,7 +127,7 @@ No items found.
 
 Thank you for your interest in The Briefing: Financial Services
 
-Applications for this event are now closed. We invite you to tune into the livestream on May 05, 2026 at 11:00am EST. The livestream will take place right here on this page.
+Applications for this event are now closed. We invite you to tune into the livestream on May 5, 2026 at EST. The livestream will take place right here on this page.
 
 Not able to submit the form? Try loading it directly
 
@@ -198,18 +198,6 @@ EST
 ### —
 
 ### Tuesday
-
-11:00 am
-
--
-
-12:30 pm
-
-EST
-
-### Keynote program
-
-Anthropic's vision for AI in finance, product announcements and customer showcase
 
 11:00 am
 

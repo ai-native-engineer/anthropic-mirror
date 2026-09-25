@@ -19,29 +19,45 @@ List User Profiles
 
   - `limit?: number`
 
-    Query param: Query parameter for limit
+    Query param: The maximum number of user profiles to return, from 1 to 100. Defaults to 20.
 
     format: int32
 
   - `order?: "asc" | "desc"`
 
-    Query param: Query parameter for order
+    Query param: The sort direction, applied to the field that `order_by` selects. Defaults to `desc`.
+
+    - `asc` - Oldest first when `order_by` is `created_at`, or names in ascending order when `order_by` is `name`.
+    - `desc` - Newest first when `order_by` is `created_at`, or names in descending order when `order_by` is `name`. This is the default.
 
     - `"asc"`
 
+      Oldest first when `order_by` is `created_at`, or names in ascending order when `order_by` is `name`.
+
     - `"desc"`
+
+      Newest first when `order_by` is `created_at`, or names in descending order when `order_by` is `name`. This is the default.
 
   - `order_by?: "created_at" | "name"`
 
-    Query param: Query parameter for order_by
+    Query param: The field to sort user profiles by, in the direction that `order` sets. Defaults to `created_at`.
+
+    - `created_at` - Sort by when each user profile was created. This is the default.
+    - `name` - Sort by `name`, ignoring the case of ASCII letters. Profiles without a name come last in either direction.
 
     - `"created_at"`
 
+      Sort by when each user profile was created. This is the default.
+
     - `"name"`
+
+      Sort by `name`, ignoring the case of ASCII letters. Profiles without a name come last in either direction.
 
   - `page?: string`
 
-    Query param: Query parameter for page
+    Query param: The cursor for the page to return, taken from `next_page` in a previous response.
+
+    Leave it out to get the first page.
 
   - `betas?: Array<AnthropicBeta>`
 
@@ -49,7 +65,7 @@ List User Profiles
 
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 42 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 45 more`
 
       - `"message-batches-2024-09-24"`
 
@@ -141,9 +157,25 @@ List User Profiles
 
       - `"mid-conversation-system-clear-at-2026-08-21"`
 
+      - `"compact-2026-09-04"`
+
+      - `"inline-tools-2026-09-15"`
+
+      - `"mcp-client-2026-09-15"`
+
+  - `workspace_id?: string`
+
+    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 ## Returns
 
-- `BetaUserProfile`
+- `interface BetaUserProfile`
+
+  A record of an entity that the platform serves through the API, such as an end-user of the platform's product or a company that the platform resells Claude access to.
+
+  A Messages, Message Batches or token counting request can send a profile's `id` in the `anthropic-user-profile-id` header to attribute the request to that entity.
 
   - `type: "user_profile"`
 
@@ -187,9 +219,16 @@ List User Profiles
 
     How the platform uses the API on behalf of the entity this profile represents. `application`: the platform sells a product that uses the API behind the scenes, and the profile represents an individual end-user of that product. `passthrough`: the platform resells raw inference, and the profile identifies the resold-to company.
 
+    - `application` - The user profile represents an individual end-user of a product that the platform builds on the API. New profiles get this value by default.
+    - `passthrough` - The user profile represents a company that the platform resells Claude access to.
+
     - `"application"`
 
+      The user profile represents an individual end-user of a product that the platform builds on the API. New profiles get this value by default.
+
     - `"passthrough"`
+
+      The user profile represents a company that the platform resells Claude access to.
 
   - `external_id?: string | null`
 
@@ -203,11 +242,21 @@ List User Profiles
 
       The status of the entity's account on the platform, as the platform states it: `active`; `suspended`, when the platform has restricted the account and may restore it; or `blocked`, when the platform has barred it. It records the platform's decision only; the statuses in `trust_grants` are Anthropic's and do not follow it.
 
+      - `active` - The platform has neither restricted nor barred the account of the entity that the user profile represents.
+      - `suspended` - The platform has restricted the account of the entity that the user profile represents and may restore it.
+      - `blocked` - The platform has barred the account of the entity that the user profile represents.
+
       - `"active"`
+
+        The platform has neither restricted nor barred the account of the entity that the user profile represents.
 
       - `"suspended"`
 
+        The platform has restricted the account of the entity that the user profile represents and may restore it.
+
       - `"blocked"`
+
+        The platform has barred the account of the entity that the user profile represents.
 
     - `country: string | null`
 

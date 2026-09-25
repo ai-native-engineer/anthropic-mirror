@@ -1,5 +1,7 @@
 <!-- source: https://claude.com/blog-category/announcements -->
 
+Explore here
+
 Thank you! Your submission has been received!
 
 Oops! Something went wrong while submitting the form.
@@ -15,6 +17,102 @@ Oops! Something went wrong while submitting the form.
 Grid
 
 List
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22deea97e4a5b5e5739_8d339ae8ecedecc1409db8f5bbb99c958db56946-1000x1000.svg)
+
+Sep 24, 2026
+
+Claude Tag now supports personal connectors in channels
+
+Product announcements
+
+Claude Tag now supports personal connectors in channels
+
+September 24, 2026
+
+[Claude Tag now supports personal connectors in channels](https://claude.com/blog/claude-tag-now-supports-personal-connectors-in-channels)Claude Tag now supports personal connectors in channels
+
+[Claude Tag now supports personal connectors in channels](#)Claude Tag now supports personal connectors in channels
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22930b7622d6096c33d_4d663bd87c391c144b9bca513b3849ccfa00a3b9-1000x1000.svg)
+
+Sep 23, 2026
+
+Claude Marketplace: one place to discover plugins, agents, and services from our partners
+
+Product announcements
+
+Claude Marketplace: one place to discover plugins, agents, and services from our partners
+
+September 23, 2026
+
+[Claude Marketplace: one place to discover plugins, agents, and services from our partners](https://claude.com/blog/claude-marketplace)Claude Marketplace: one place to discover plugins, agents, and services from our partners
+
+[Claude Marketplace: one place to discover plugins, agents, and services from our partners](#)Claude Marketplace: one place to discover plugins, agents, and services from our partners
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a42c9bc20d2072552ef256a_Node-EnterpriseAgents.svg)
+
+Sep 17, 2026
+
+Projects redesigned: from folder to conversation
+
+Product announcements
+
+Projects redesigned: from folder to conversation
+
+September 17, 2026
+
+[Projects redesigned: from folder to conversation](https://claude.com/blog/projects-redesigned)Projects redesigned: from folder to conversation
+
+[Projects redesigned: from folder to conversation](#)Projects redesigned: from folder to conversation
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6aaaa060d1aec4a549c537ef_Object-Easel.svg)
+
+Sep 16, 2026
+
+Claude Cowork and chat are now one Claude
+
+Product announcements
+
+Claude Cowork and chat are now one Claude
+
+September 16, 2026
+
+[Claude Cowork and chat are now one Claude](https://claude.com/blog/cowork-is-now-claude)Claude Cowork and chat are now one Claude
+
+[Claude Cowork and chat are now one Claude](#)Claude Cowork and chat are now one Claude
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6aa82dfc4ca89952d04c3873_Object-Store.svg)
+
+Sep 15, 2026
+
+Claude for Small Business launches new workflows, integrations, and training programs
+
+Product announcements
+
+Claude for Small Business launches new workflows, integrations, and training programs
+
+September 15, 2026
+
+[Claude for Small Business launches new workflows, integrations, and training programs](https://claude.com/blog/claude-for-small-business-launches-new-workflows-integrations-and-training-programs)Claude for Small Business launches new workflows, integrations, and training programs
+
+[Claude for Small Business launches new workflows, integrations, and training programs](#)Claude for Small Business launches new workflows, integrations, and training programs
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2319ef2161fcf9ba649_ddad92700787ec1bf1d80359c0c5e6ca305682b0-1000x1000.svg)
+
+Sep 14, 2026
+
+Claude for Financial Advisors
+
+Product announcements
+
+Claude for Financial Advisors
+
+September 14, 2026
+
+[Claude for Financial Advisors](https://claude.com/blog/claude-for-financial-advisors)Claude for Financial Advisors
+
+[Claude for Financial Advisors](#)Claude for Financial Advisors
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d228c83775fcc75f4e6d_74409af25137110ac04cc39e4d5ea0a2fbcea421-1000x1000.svg)
 
@@ -160,102 +258,6 @@ August 13, 2026
 
 [Self-service data analytics in Slack: how Anthropic deploys Claude Tag for ad-hoc questions](#)Self-service data analytics in Slack: how Anthropic deploys Claude Tag for ad-hoc questions
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2260bfc90348429f9c3_cd9cf56a7f049285b7c1c8786c0a600cf3d7f317-1000x1000.svg)
-
-Aug 13, 2026
-
-Claude Tag now reads even more of the room
-
-Product announcements
-
-Claude Tag now reads even more of the room
-
-August 13, 2026
-
-[Claude Tag now reads even more of the room](https://claude.com/blog/claude-tag-now-reads-even-more-of-the-room)Claude Tag now reads even more of the room
-
-[Claude Tag now reads even more of the room](#)Claude Tag now reads even more of the room
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22d0099a66d72e05699_33ddc751e21fb4b116b3f57dd553f0bc55ea09d1-1000x1000.svg)
-
-Aug 12, 2026
-
-The Claude in Chrome side panel is now Claude Cowork
-
-Product announcements
-
-The Claude in Chrome side panel is now Claude Cowork
-
-August 12, 2026
-
-[The Claude in Chrome side panel is now Claude Cowork](https://claude.com/blog/cowork-chrome-side-panel)The Claude in Chrome side panel is now Claude Cowork
-
-[The Claude in Chrome side panel is now Claude Cowork](#)The Claude in Chrome side panel is now Claude Cowork
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2308749b4e883cc44b7_e029027e0b3beeb5b629bd4a26143597e7775b38-1000x1000.svg)
-
-Aug 11, 2026
-
-Compliance API coverage extends to Claude Cowork and Claude Code
-
-Enterprise AI
-
-Compliance API coverage extends to Claude Cowork and Claude Code
-
-August 11, 2026
-
-[Compliance API coverage extends to Claude Cowork and Claude Code](https://claude.com/blog/compliance-api-cowork-and-claude-code)Compliance API coverage extends to Claude Cowork and Claude Code
-
-[Compliance API coverage extends to Claude Cowork and Claude Code](#)Compliance API coverage extends to Claude Cowork and Claude Code
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22651dd05046d0fdb0b_39c40393e610cc0a5e65f50ad12ff5ada273f792-1000x1000.svg)
-
-Aug 6, 2026
-
-Run Claude Code sessions on your own compute
-
-Product announcements
-
-Run Claude Code sessions on your own compute
-
-August 6, 2026
-
-[Run Claude Code sessions on your own compute](https://claude.com/blog/run-claude-code-sessions-on-your-own-compute)Run Claude Code sessions on your own compute
-
-[Run Claude Code sessions on your own compute](#)Run Claude Code sessions on your own compute
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22753311132c8c37b39_d3dd09ad16c68461dc3fb01df5e84cf7ccafda6c-1000x1000.svg)
-
-Aug 5, 2026
-
-Inference hooks: inline data loss prevention for Claude Enterprise
-
-Enterprise AI
-
-Inference hooks: inline data loss prevention for Claude Enterprise
-
-August 5, 2026
-
-[Inference hooks: inline data loss prevention for Claude Enterprise](https://claude.com/blog/claude-enterprise-inference-hooks)Inference hooks: inline data loss prevention for Claude Enterprise
-
-[Inference hooks: inline data loss prevention for Claude Enterprise](#)Inference hooks: inline data loss prevention for Claude Enterprise
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d229b7f170bab528846d_0df729ce74e4c9dd62c3342c9549ce6c7cef1202-1000x1000.svg)
-
-Jul 28, 2026
-
-Bringing MCP 2026-07-28 to Claude
-
-Product announcements
-
-Bringing MCP 2026-07-28 to Claude
-
-July 28, 2026
-
-[Bringing MCP 2026-07-28 to Claude](https://claude.com/blog/bringing-mcp-2026-07-28-to-claude)Bringing MCP 2026-07-28 to Claude
-
-[Bringing MCP 2026-07-28 to Claude](#)Bringing MCP 2026-07-28 to Claude
-
 [View more](https://claude.com/blog-category/announcements?1e959936_page=2)
 
 Category
@@ -263,6 +265,102 @@ Category
 Product
 
 Usecase
+
+### Claude Tag now supports personal connectors in channels
+
+Category
+
+Product announcements
+
+Product
+
+Usecase
+
+September 24, 2026
+
+[Claude Tag now supports personal connectors in channels](https://claude.com/blog/claude-tag-now-supports-personal-connectors-in-channels)Claude Tag now supports personal connectors in channels
+
+[Claude Tag now supports personal connectors in channels](#)Claude Tag now supports personal connectors in channels
+
+### Claude Marketplace: one place to discover plugins, agents, and services from our partners
+
+Category
+
+Product announcements
+
+Product
+
+Usecase
+
+September 23, 2026
+
+[Claude Marketplace: one place to discover plugins, agents, and services from our partners](https://claude.com/blog/claude-marketplace)Claude Marketplace: one place to discover plugins, agents, and services from our partners
+
+[Claude Marketplace: one place to discover plugins, agents, and services from our partners](#)Claude Marketplace: one place to discover plugins, agents, and services from our partners
+
+### Projects redesigned: from folder to conversation
+
+Category
+
+Product announcements
+
+Product
+
+Usecase
+
+September 17, 2026
+
+[Projects redesigned: from folder to conversation](https://claude.com/blog/projects-redesigned)Projects redesigned: from folder to conversation
+
+[Projects redesigned: from folder to conversation](#)Projects redesigned: from folder to conversation
+
+### Claude Cowork and chat are now one Claude
+
+Category
+
+Product announcements
+
+Product
+
+Usecase
+
+September 16, 2026
+
+[Claude Cowork and chat are now one Claude](https://claude.com/blog/cowork-is-now-claude)Claude Cowork and chat are now one Claude
+
+[Claude Cowork and chat are now one Claude](#)Claude Cowork and chat are now one Claude
+
+### Claude for Small Business launches new workflows, integrations, and training programs
+
+Category
+
+Product announcements
+
+Product
+
+Usecase
+
+September 15, 2026
+
+[Claude for Small Business launches new workflows, integrations, and training programs](https://claude.com/blog/claude-for-small-business-launches-new-workflows-integrations-and-training-programs)Claude for Small Business launches new workflows, integrations, and training programs
+
+[Claude for Small Business launches new workflows, integrations, and training programs](#)Claude for Small Business launches new workflows, integrations, and training programs
+
+### Claude for Financial Advisors
+
+Category
+
+Product announcements
+
+Product
+
+Usecase
+
+September 14, 2026
+
+[Claude for Financial Advisors](https://claude.com/blog/claude-for-financial-advisors)Claude for Financial Advisors
+
+[Claude for Financial Advisors](#)Claude for Financial Advisors
 
 ### Building commerce agents with Claude
 
@@ -408,105 +506,9 @@ August 13, 2026
 
 [Self-service data analytics in Slack: how Anthropic deploys Claude Tag for ad-hoc questions](#)Self-service data analytics in Slack: how Anthropic deploys Claude Tag for ad-hoc questions
 
-### Claude Tag now reads even more of the room
-
-Category
-
-Product announcements
-
-Product
-
-Usecase
-
-August 13, 2026
-
-[Claude Tag now reads even more of the room](https://claude.com/blog/claude-tag-now-reads-even-more-of-the-room)Claude Tag now reads even more of the room
-
-[Claude Tag now reads even more of the room](#)Claude Tag now reads even more of the room
-
-### The Claude in Chrome side panel is now Claude Cowork
-
-Category
-
-Product announcements
-
-Product
-
-Usecase
-
-August 12, 2026
-
-[The Claude in Chrome side panel is now Claude Cowork](https://claude.com/blog/cowork-chrome-side-panel)The Claude in Chrome side panel is now Claude Cowork
-
-[The Claude in Chrome side panel is now Claude Cowork](#)The Claude in Chrome side panel is now Claude Cowork
-
-### Compliance API coverage extends to Claude Cowork and Claude Code
-
-Category
-
-Enterprise AI
-
-Product
-
-Usecase
-
-August 11, 2026
-
-[Compliance API coverage extends to Claude Cowork and Claude Code](https://claude.com/blog/compliance-api-cowork-and-claude-code)Compliance API coverage extends to Claude Cowork and Claude Code
-
-[Compliance API coverage extends to Claude Cowork and Claude Code](#)Compliance API coverage extends to Claude Cowork and Claude Code
-
-### Run Claude Code sessions on your own compute
-
-Category
-
-Product announcements
-
-Product
-
-Usecase
-
-August 6, 2026
-
-[Run Claude Code sessions on your own compute](https://claude.com/blog/run-claude-code-sessions-on-your-own-compute)Run Claude Code sessions on your own compute
-
-[Run Claude Code sessions on your own compute](#)Run Claude Code sessions on your own compute
-
-### Inference hooks: inline data loss prevention for Claude Enterprise
-
-Category
-
-Enterprise AI
-
-Product
-
-Usecase
-
-August 5, 2026
-
-[Inference hooks: inline data loss prevention for Claude Enterprise](https://claude.com/blog/claude-enterprise-inference-hooks)Inference hooks: inline data loss prevention for Claude Enterprise
-
-[Inference hooks: inline data loss prevention for Claude Enterprise](#)Inference hooks: inline data loss prevention for Claude Enterprise
-
-### Bringing MCP 2026-07-28 to Claude
-
-Category
-
-Product announcements
-
-Product
-
-Usecase
-
-July 28, 2026
-
-[Bringing MCP 2026-07-28 to Claude](https://claude.com/blog/bringing-mcp-2026-07-28-to-claude)Bringing MCP 2026-07-28 to Claude
-
-[Bringing MCP 2026-07-28 to Claude](#)Bringing MCP 2026-07-28 to Claude
-
 [View more](https://claude.com/blog-category/announcements?2f226f2c_page=2)
 
-1 / 7
+1 / 8
 
 No posts for those filters
 

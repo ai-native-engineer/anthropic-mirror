@@ -4,42 +4,31 @@
 
 Stop babysitting your AI and start orchestrating it. A walkthrough of the workflows Claude Code engineers use to get the most out of the agent.
 
-Details
+## Details
 
 City
-
-San Francisco, USA
+:   San Francisco, USA
 
 Date
-
-May 6, 2026
+:   May 6, 2026
 
 Time
-
-01:30PM – 02:15PM
+:   01:30PM – 02:15PM
 
 Session type
-
-Workshop
+:   Workshop
 
 Speaker(s)
+:   Sid Bidasaria
 
-Sid Bidasaria
+    Member of Technical Staff, Claude Code,
 
-Member of Technical Staff, Claude Code,
+    Anthropic
 
-Anthropic
-
-Anthropic's developer conference, recorded
+## Anthropic's developer conference, recorded
 
 Keynotes, demos, and conversations with the teams behind Claude. Recorded at Code w/ Claude 2026 San Francisco and ready to replay.
 
-Browse recordings
+[Browse recordings](https://claude.com/code-with-claude/san-francisco)
 
-[Learn more](https://claude.com/code-with-claude/san-francisco)Learn more
-
-[Homepage](https://claude.com/code-with-claude)Homepage
-
-© [year] Anthropic PBC
-
-[PRIVACY POLICY](https://www.anthropic.com/legal/privacy)[CODE OF CONDUCT](https://claude.com/code-with-claude/code-of-conduct)
+Rearchitecting your workflows with Claude Code | Session | Code w/ Claude 2026

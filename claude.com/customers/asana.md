@@ -4,31 +4,21 @@ Case study | Claude Platform
 
 # Asana supercharges work management with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6aa01f7e645f7fe4aabfb7a4_asana-logo-light.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6aa01f851118c8688fe503ab_asana-logo-dark.svg)
+![Asana logo](https://assets.claude.com/b8ffecd4a133f2860151d51156002816a54772e7.svg)
 
 Industry:
-
-Software
+:   Software
 
 Company size:
-
-Medium
+:   Medium
 
 Product:
-
-Claude Platform
+:   Claude Platform
 
 Location:
-
-North America
+:   North America
 
 Years to weeks
 
@@ -37,42 +27,6 @@ engineering development cycles with Claude
 10x faster insights
 
 data-driven decision making with Asana AI
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
 
 Asana, a leading enterprise work management platform, powers their Asana AI offering with Claude for its 150,000+ global customers. Their innovation continues to prove that AI is no longer just a tool, it’s a teammate that can advise teams on where to focus, action work and workflows, and adapt to how an organization works.
 
@@ -92,7 +46,7 @@ Bringing Asana’s Work Graph and Claude together, Asana found an ideal partner 
 
 Asana integrated Claude into their proprietary Work Graph® data model through collaboration in Anthropic's Early Access Programs. The Asana Work Graph is a unique data model that captures work-related relationships, context, and information across an entire organization. This provides the necessary structure that allows AI to access the context needed to surface reliable, accurate insights.
 
-![Asana product screenshot](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68baf0545061a7164c239e03_c88ad19d4d77b5f2542b5747cb0e955f6f6f47fa-1920x1102.jpeg)
+![Asana product screenshot](https://assets.claude.com/db9c4bd81ffa83361c1962508458e1a7e20c3f2f.jpg)
 
 Eric Pelz, Head of Technology for AI at Asana, emphasizes the importance of integrating AI into existing workflows, saying, "The most effective way to adopt AI across your team is in the context of your existing work and processes. Rather than redefining how you work from first principles, you can build on top of how you already collaborate, utilizing AI to remove bottlenecks, add helpful insights, or even preemptively escalate to get support."
 
@@ -136,52 +90,14 @@ Asana is committed to pushing the boundaries of AI-powered work management. Cost
 
 By collaborating with Anthropic and leveraging Claude, Asana aims to redefine productivity and make teamwork effortless in the age of AI.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[![Supermetrics](https://assets.claude.com/3ac4171a81008be0340e5c3d8ccb46571c3edfb3.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### Supermetrics lets marketers manage ad campaigns from a conversation with Claude](https://claude.com/customers/supermetrics)[![Atlassian](https://assets.claude.com/4870b3d6c0253cea01b100c98ad2030b8e4f8ce1.svg)
 
-[Next](#)Next
+### How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-Video caption
+### Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-[Next](#)Next
+### How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-Customer story
-
-[Customer story](https://claude.com/customers/atlassian)Customer story
-
-[Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)Rocket Money on building agents that fix their own code
-
-Rocket Money on building agents that fix their own code
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money-qa)Customer story
-
-[How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)How Rocket Money built its personal finance agent with Claude
-
-How Rocket Money built its personal finance agent with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money)Customer story
-
-[How Notion ships and scales agents with Claude Managed Agents](https://claude.com/customers/notion-qa)How Notion ships and scales agents with Claude Managed Agents
-
-How Notion ships and scales agents with Claude Managed Agents
-
-Customer story
-
-[Customer story](https://claude.com/customers/notion-qa)Customer story
+Asana Claude Platform (API) case study | Claude by Anthropic

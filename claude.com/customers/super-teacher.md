@@ -4,31 +4,21 @@ Case study | Claude Platform
 
 # Super Teacher offers elementary schools a personalized AI Tutor with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![Super Teacher logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c44de76d92ff010b2fdf94_cs-logo-superteacher-light-theme.png)![Super Teacher logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c44defaac88d328dab6f42_cs-logo-superteacher-dark-theme.png)
+![Super Teacher logo](https://assets.claude.com/8b03aceb787b48f08ff6f8c970d87c05c747e999.png)
 
 Industry:
-
-Education
+:   Education
 
 Company size:
-
-Small
+:   Small
 
 Product:
-
-Claude Platform
+:   Claude Platform
 
 Location:
-
-North America
+:   North America
 
 2x more productive
 
@@ -37,42 +27,6 @@ engineering and content teams with Claude
 80% automation
 
 of initial development work for components
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
 
 Super Teacher, a rapidly growing AI tutoring platform for elementary schools, uses Claude to power their platform development and educational content creation, enabling teachers to provide personalized instruction in classrooms and unlimited private tutoring at home for young students across the US.
 
@@ -109,52 +63,12 @@ The efficiency gains extend beyond individual projects. Super Teacher has create
 
 The company is now collaborating with Anthropic to transform how AI serves education. Novikoff concludes, "We're looking forward to working with Anthropic to build an AI tutor that will fulfill the true promise of this technology—not just generating headlines, but delivering meaningful educational experiences that help every child succeed."
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[![Magic School](https://assets.claude.com/cd32331aba30ee77bb8a9a4f6f769b3cf5819d14.png)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### MagicSchool on building a safety layer for millions of student conversations](https://claude.com/customers/magicschool-qa)[![Syracuse University](https://assets.claude.com/6faf42a6bf63981cdb21b56aa6c486dfe5f6aa5b.svg)
 
-[Next](#)Next
+### How Syracuse University deployed Claude to every student, faculty member, and staff](https://claude.com/customers/syracuse)[![Syracuse University (Vertical)](https://assets.claude.com/3b0fe1d2906982c88d627148ba2bf5455745aed5.png)
 
-Video caption
+### Why Syracuse University gave Claude to 30,000 students, faculty, and staff](https://claude.com/customers/syracuse-university)[![RileyBot](https://assets.claude.com/14b0586643ee08e0793d5b808b741c51db9d4814.png)
 
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[MagicSchool on building a safety layer for millions of student conversations](https://claude.com/customers/magicschool-qa)MagicSchool on building a safety layer for millions of student conversations
-
-MagicSchool on building a safety layer for millions of student conversations
-
-Customer story
-
-[Customer story](https://claude.com/customers/magicschool-qa)Customer story
-
-[How Syracuse University deployed Claude to every student, faculty member, and staff](https://claude.com/customers/syracuse)How Syracuse University deployed Claude to every student, faculty member, and staff
-
-How Syracuse University deployed Claude to every student, faculty member, and staff
-
-Customer story
-
-[Customer story](https://claude.com/customers/syracuse)Customer story
-
-[Why Syracuse University gave Claude to 30,000 students, faculty, and staff](https://claude.com/customers/syracuse-university)Why Syracuse University gave Claude to 30,000 students, faculty, and staff
-
-Why Syracuse University gave Claude to 30,000 students, faculty, and staff
-
-Customer story
-
-[Customer story](https://claude.com/customers/syracuse-university)Customer story
-
-[RileyBot creates safe AI learning experiences for students with Claude](https://claude.com/customers/rileybot)RileyBot creates safe AI learning experiences for students with Claude
-
-RileyBot creates safe AI learning experiences for students with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/rileybot)Customer story
+### RileyBot creates safe AI learning experiences for students with Claude](https://claude.com/customers/rileybot)

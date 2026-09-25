@@ -4,31 +4,21 @@ Case study | Claude Platform
 
 # Gamma helps teams create polished presentations with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![Gamma logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68bb5eb091e9b1deda6f7435_Gamma-light-theme.svg)![Gamma logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68bb5eb921a69f6d1bc0efb1_Gamma-dark-theme.svg)
+![Gamma logo](https://assets.claude.com/ad1b34669ba14e22cf566f80be33e0ee0c5280f1.svg)
 
 Industry:
-
-Software
+:   Software
 
 Company size:
-
-Small
+:   Small
 
 Product:
-
-Claude Platform
+:   Claude Platform
 
 Location:
-
-North America
+:   North America
 
 30% improvement
 
@@ -37,42 +27,6 @@ in user satisfaction
 20% increase
 
 in free-to-paid conversions
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
 
 [Gamma](https://gamma.app/), an AI-powered presentation platform, went viral after launching in March 2023—but the team was concerned about quality and costs as they scaled. Claude helped Gamma lower costs while increasing user satisfaction by 30% and free-to-paid conversions by 20%.
 
@@ -95,7 +49,7 @@ _(자막 없음)_
 </details>
 
 
-![App screen from Gamma platform](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68baf05700f0e68a1b608908_28bf834aca6299bd34add845729396d0cf2b6df2-2880x1620.jpeg)
+![App screen from Gamma platform](https://assets.claude.com/f83a51303b0617e38416856aadf1ab769dbbf54e.jpg)
 
 As it became clear that the AI generation flow was a primary driver of Gamma’s business growth, the team started to dig into the data to understand just how well their initial LLM choices were performing.
 
@@ -113,7 +67,7 @@ In fact, positive feedback for advanced use cases increased 30%. Gamma users res
 
 Based on the positive outcome of the A/B test, Gamma quickly shipped the new version of their app to production—and that initial 30% improvement in user satisfaction has driven a 20% increase in conversions from free to paid.
 
-![App screen from Gamma platform](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68baf05700f0e68a1b60890c_67439d21381bf144c10475711fce55ea88f2d10b-2880x1620.jpeg)
+![App screen from Gamma platform](https://assets.claude.com/28e3457134b62f6ee28ac05f0cc49ab991bb302a.jpg)
 
 Today, Claude powers well over half of Gamma’s AI features. Though they consider themselves an AI-native company, they no longer feel sharp pressure to aggressively hire AI specialists onto their 16-person team, which supports 17 million users. “One benefit of models like Claude being so good is that we haven’t had to build a huge team around AI,” Jon says. “We’ve been able to focus more on productizing the experience versus training our own models or even fine-tuning them, because there’s already so much we can do.”
 
@@ -123,52 +77,12 @@ For their next act, Gamma is taking on websites. The team recently released a fe
 
 — Jon Noronha, Co-Founder at Gamma
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[![Supermetrics](https://assets.claude.com/3ac4171a81008be0340e5c3d8ccb46571c3edfb3.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### Supermetrics lets marketers manage ad campaigns from a conversation with Claude](https://claude.com/customers/supermetrics)[![Atlassian](https://assets.claude.com/4870b3d6c0253cea01b100c98ad2030b8e4f8ce1.svg)
 
-[Next](#)Next
+### How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-Video caption
+### Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-Customer story
-
-[Customer story](https://claude.com/customers/atlassian)Customer story
-
-[Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)Rocket Money on building agents that fix their own code
-
-Rocket Money on building agents that fix their own code
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money-qa)Customer story
-
-[How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)How Rocket Money built its personal finance agent with Claude
-
-How Rocket Money built its personal finance agent with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money)Customer story
-
-[How Notion ships and scales agents with Claude Managed Agents](https://claude.com/customers/notion-qa)How Notion ships and scales agents with Claude Managed Agents
-
-How Notion ships and scales agents with Claude Managed Agents
-
-Customer story
-
-[Customer story](https://claude.com/customers/notion-qa)Customer story
+### How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)

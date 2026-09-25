@@ -24,7 +24,7 @@ The throughline: Cowork goes beyond chat to allow you to delegate real work. Eve
 Pick **one** of these to do this week.
 
 * **Set up memory.** Write a five-sentence global instructions block, or create a project for a stream of work you're already in.
-* **Schedule a task or run Cowork in the cloud.** Take a recurring deliverable and put it on a cadence. Or run Cowork in the cloud (in beta, on eligible plans) so that the next time something comes to mind off-hours, you can hand it off from your phone.
+* **Schedule a task, or start one from your phone.** Take a recurring deliverable and put it on a cadence. Or, the next time something comes to mind off-hours, hand it to Cowork from the Claude app on your phone.
 * **Install a plugin.** Go to **Customize → Plugins**, install the plugin closest to your role, and run it against this week's version of your work.
 * **Try Claude in Chrome or M365.** Pick the surface that aligns with where most of your real work happens, install it, and use it on one task.
 * **Share something you built.** Share a use case you found valuable, a workflow that produced great results, or a skill you've built with your team. You could be the unlock they need to get more comfortable working with Claude.

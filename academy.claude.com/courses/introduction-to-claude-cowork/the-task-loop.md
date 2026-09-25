@@ -37,7 +37,7 @@ done.
 
 ## Delegate your first task[](#delegate-your-first-task)
 
-You picked a task in previous lessons. Now is when it leaves your plate. Open Cowork, point it at the folder where the context for the task lives, turn on any connectors that hold relevant context for the task, and write your prompt.
+You picked a task in previous lessons. Now is when it leaves your plate. Open Claude, choose where the context for the task lives (a folder on your computer if you're in the desktop app, otherwise a project), turn on any connectors that hold relevant context for the task, and write your prompt.
 
 A good Cowork prompt does three things:
 
@@ -51,7 +51,7 @@ If you're used to prompting a chatbot, this will feel like more upfront work —
 
 ## Answer the clarifying questions[](#answer-the-clarifying-questions)
 
-Claude asks questions to clarify any ambiguities about your objectives before it gets into the work. In Chat, you collaborate as you go — context shows up turn by turn. In Cowork, you delegate and it returns with a completed artifact. Anything that might trip it up — any gaps in its understanding — comes up through the questions before it dives in.
+Claude asks questions to clarify any ambiguities about your objectives before it gets into the work. When you're chatting, you collaborate as you go — context shows up turn by turn. When you delegate to Cowork, Claude goes off and returns with a completed artifact. Anything that might trip it up — any gaps in its understanding — comes up through the questions before it dives in.
 
 Most are easy: Claude presents a couple of options and you click the one that fits. If none of the options fit, you can answer in your own words.
 
@@ -59,7 +59,7 @@ Below are some examples of the questions you might receive from Cowork after sub
 
 ## Steer mid-task[](#steer-mid-task)
 
-Watch Cowork's plan and progress as it works. If it's going off-track — wrong source, wrong format, wrong tone — interrupt. You can also stop the run if it's substantially off, refine the prompt, and start again with what you've learned. Most people's instinct from Chat is to wait until the response is done and then regenerate. Resist that. Cowork is built for course corrections, and the cost of a redirect is low.
+Watch Cowork's plan and progress as it works. If it's going off-track — wrong source, wrong format, wrong tone — interrupt. You can also stop the run if it's substantially off, refine the prompt, and start again with what you've learned. Most people's instinct from chatting is to wait until the response is done and then regenerate. Resist that. Cowork is built for course corrections, and the cost of a redirect is low.
 
 Steer the example task below and see how Claude responds.
 

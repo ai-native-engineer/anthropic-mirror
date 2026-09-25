@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/ai-fluency-framework-foundations/generative-ai-fundamentals -->
 
-Lesson 4 of 14 · AI Fluency: Framework & FoundationsGenerative AI fundamentals
+Lesson 4 of 14 · AI Fluency: Framework and foundationsGenerative AI fundamentals
 
-3. /[AI Fluency: Framework & Foundations](https://academy.claude.com/courses/ai-fluency-framework-foundations)
+3. /[AI Fluency: Framework and foundations](https://academy.claude.com/courses/ai-fluency-framework-foundations)
 
-[AI Fluency: Framework & Foundations](https://academy.claude.com/courses/ai-fluency-framework-foundations)
+[AI Fluency: Framework and foundations](https://academy.claude.com/courses/ai-fluency-framework-foundations)
 
 # Generative AI fundamentals
 
@@ -32,7 +32,7 @@ emergent capabilities.
 
 [Previous lessonThe 4D Framework](https://academy.claude.com/courses/ai-fluency-framework-foundations/the-4d-framework)[Next lessonCapabilities & limitations](https://academy.claude.com/courses/ai-fluency-framework-foundations/capabilities-limitations)
 
-Lesson 4 of 14 · AI Fluency: Framework & FoundationsGenerative AI fundamentals
+Lesson 4 of 14 · AI Fluency: Framework and foundationsGenerative AI fundamentals
 
 Introduction to AI Fluency
 

@@ -19,6 +19,8 @@ Create a memory
 
 - `memoryStoreID string`
 
+  The ID of the memory store to create the memory in (`memstore_...`).
+
 - `params BetaMemoryStoreMemoryNewParams`
 
   - `Content param.Field[string]`
@@ -33,7 +35,7 @@ Create a memory
 
   - `View param.Field[BetaManagedAgentsMemoryView] Optional`
 
-    Query param: Query parameter for view
+    Query param: Selects which projection of a `memory` or `memory_version` the server returns. `basic` returns the object with `content` set to `null`; `full` populates `content`. When omitted, the default is endpoint-specific: retrieve operations default to `full`; list, create, and update operations default to `basic`. Listing with `view=full` caps `limit` at 20.
 
   - `Betas param.Field[[]AnthropicBeta] Optional`
 
@@ -133,6 +135,12 @@ Create a memory
 
       - `const AnthropicBetaMidConversationSystemClearAt2026_08_21 AnthropicBeta = "mid-conversation-system-clear-at-2026-08-21"`
 
+      - `const AnthropicBetaCompact2026_09_04 AnthropicBeta = "compact-2026-09-04"`
+
+      - `const AnthropicBetaInlineTools2026_09_15 AnthropicBeta = "inline-tools-2026-09-15"`
+
+      - `const AnthropicBetaMCPClient2026_09_15 AnthropicBeta = "mcp-client-2026-09-15"`
+
   - `WorkspaceID param.Field[string] Optional`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -141,7 +149,7 @@ Create a memory
 
 ### Returns
 
-- `type BetaManagedAgentsMemory struct{…}`
+- `type BetaManagedAgentsMemory`
 
   A `memory` object: a single text document at a hierarchical path inside a memory store. The `content` field is populated when `view=full` and `null` when `view=basic`; the `content_size_bytes` and `content_sha256` fields are always populated so sync clients can diff without fetching content. Memories are addressed by their `mem_...` ID; the path is the create key and can be changed via update.
 
@@ -249,6 +257,8 @@ List memories
 ### Parameters
 
 - `memoryStoreID string`
+
+  The ID of the memory store to list memories from (`memstore_...`).
 
 - `params BetaMemoryStoreMemoryListParams`
 
@@ -374,6 +384,12 @@ List memories
 
       - `const AnthropicBetaMidConversationSystemClearAt2026_08_21 AnthropicBeta = "mid-conversation-system-clear-at-2026-08-21"`
 
+      - `const AnthropicBetaCompact2026_09_04 AnthropicBeta = "compact-2026-09-04"`
+
+      - `const AnthropicBetaInlineTools2026_09_15 AnthropicBeta = "inline-tools-2026-09-15"`
+
+      - `const AnthropicBetaMCPClient2026_09_15 AnthropicBeta = "mcp-client-2026-09-15"`
+
   - `WorkspaceID param.Field[string] Optional`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -386,7 +402,7 @@ List memories
 
   One item in a [List memories](/docs/en/api/beta/memory_stores/memories/list) response: either a `memory` object or, when `depth` is set, a `memory_prefix` rollup marker.
 
-  - `type BetaManagedAgentsMemory struct{…}`
+  - `type BetaManagedAgentsMemory`
 
     A `memory` object: a single text document at a hierarchical path inside a memory store. The `content` field is populated when `view=full` and `null` when `view=basic`; the `content_size_bytes` and `content_sha256` fields are always populated so sync clients can diff without fetching content. Memories are addressed by their `mem_...` ID; the path is the create key and can be changed via update.
 
@@ -434,7 +450,7 @@ List memories
 
       The memory's UTF-8 text content. Populated when `view=full`; `null` when `view=basic`. Maximum 100 kB (102,400 bytes).
 
-  - `type BetaManagedAgentsMemoryPrefix struct{…}`
+  - `type BetaManagedAgentsMemoryPrefix`
 
     A rolled-up directory marker returned by [List memories](/docs/en/api/beta/memory_stores/memories/list) when `depth` is set. Indicates that one or more memories exist deeper than the requested depth under this prefix. This is a list-time rollup, not a stored resource; it has no ID and no lifecycle. Each prefix counts toward the page `limit` and interleaves with `memory` items in path order.
 
@@ -507,15 +523,17 @@ Retrieve a memory
 
 - `memoryID string`
 
+  The ID of the memory to retrieve (`mem_...`).
+
 - `params BetaMemoryStoreMemoryGetParams`
 
   - `MemoryStoreID param.Field[string]`
 
-    Path param: Path parameter memory_store_id
+    Path param: The ID of the memory store that holds the memory (`memstore_...`).
 
   - `View param.Field[BetaManagedAgentsMemoryView] Optional`
 
-    Query param: Query parameter for view
+    Query param: Selects which projection of a `memory` or `memory_version` the server returns. `basic` returns the object with `content` set to `null`; `full` populates `content`. When omitted, the default is endpoint-specific: retrieve operations default to `full`; list, create, and update operations default to `basic`. Listing with `view=full` caps `limit` at 20.
 
   - `Betas param.Field[[]AnthropicBeta] Optional`
 
@@ -615,6 +633,12 @@ Retrieve a memory
 
       - `const AnthropicBetaMidConversationSystemClearAt2026_08_21 AnthropicBeta = "mid-conversation-system-clear-at-2026-08-21"`
 
+      - `const AnthropicBetaCompact2026_09_04 AnthropicBeta = "compact-2026-09-04"`
+
+      - `const AnthropicBetaInlineTools2026_09_15 AnthropicBeta = "inline-tools-2026-09-15"`
+
+      - `const AnthropicBetaMCPClient2026_09_15 AnthropicBeta = "mcp-client-2026-09-15"`
+
   - `WorkspaceID param.Field[string] Optional`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -623,7 +647,7 @@ Retrieve a memory
 
 ### Returns
 
-- `type BetaManagedAgentsMemory struct{…}`
+- `type BetaManagedAgentsMemory`
 
   A `memory` object: a single text document at a hierarchical path inside a memory store. The `content` field is populated when `view=full` and `null` when `view=basic`; the `content_size_bytes` and `content_sha256` fields are always populated so sync clients can diff without fetching content. Memories are addressed by their `mem_...` ID; the path is the create key and can be changed via update.
 
@@ -731,15 +755,17 @@ Update a memory
 
 - `memoryID string`
 
+  The ID of the memory to update (`mem_...`).
+
 - `params BetaMemoryStoreMemoryUpdateParams`
 
   - `MemoryStoreID param.Field[string]`
 
-    Path param: Path parameter memory_store_id
+    Path param: The ID of the memory store that holds the memory (`memstore_...`).
 
   - `View param.Field[BetaManagedAgentsMemoryView] Optional`
 
-    Query param: Query parameter for view
+    Query param: Selects which projection of a `memory` or `memory_version` the server returns. `basic` returns the object with `content` set to `null`; `full` populates `content`. When omitted, the default is endpoint-specific: retrieve operations default to `full`; list, create, and update operations default to `basic`. Listing with `view=full` caps `limit` at 20.
 
   - `Content param.Field[string] Optional`
 
@@ -853,6 +879,12 @@ Update a memory
 
       - `const AnthropicBetaMidConversationSystemClearAt2026_08_21 AnthropicBeta = "mid-conversation-system-clear-at-2026-08-21"`
 
+      - `const AnthropicBetaCompact2026_09_04 AnthropicBeta = "compact-2026-09-04"`
+
+      - `const AnthropicBetaInlineTools2026_09_15 AnthropicBeta = "inline-tools-2026-09-15"`
+
+      - `const AnthropicBetaMCPClient2026_09_15 AnthropicBeta = "mcp-client-2026-09-15"`
+
   - `WorkspaceID param.Field[string] Optional`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -861,7 +893,7 @@ Update a memory
 
 ### Returns
 
-- `type BetaManagedAgentsMemory struct{…}`
+- `type BetaManagedAgentsMemory`
 
   A `memory` object: a single text document at a hierarchical path inside a memory store. The `content` field is populated when `view=full` and `null` when `view=basic`; the `content_size_bytes` and `content_sha256` fields are always populated so sync clients can diff without fetching content. Memories are addressed by their `mem_...` ID; the path is the create key and can be changed via update.
 
@@ -969,15 +1001,19 @@ Delete a memory
 
 - `memoryID string`
 
+  The ID of the memory to delete (`mem_...`).
+
 - `params BetaMemoryStoreMemoryDeleteParams`
 
   - `MemoryStoreID param.Field[string]`
 
-    Path param: Path parameter memory_store_id
+    Path param: The ID of the memory store that holds the memory (`memstore_...`).
 
   - `ExpectedContentSha256 param.Field[string] Optional`
 
-    Query param: Query parameter for expected_content_sha256
+    Query param: Delete the memory only if its current `content_sha256` equals this value, given as 64 lowercase hexadecimal characters. Omit it to delete unconditionally.
+
+    If the hashes differ, the request fails with HTTP status 409 and nothing is deleted.
 
   - `Betas param.Field[[]AnthropicBeta] Optional`
 
@@ -1077,6 +1113,12 @@ Delete a memory
 
       - `const AnthropicBetaMidConversationSystemClearAt2026_08_21 AnthropicBeta = "mid-conversation-system-clear-at-2026-08-21"`
 
+      - `const AnthropicBetaCompact2026_09_04 AnthropicBeta = "compact-2026-09-04"`
+
+      - `const AnthropicBetaInlineTools2026_09_15 AnthropicBeta = "inline-tools-2026-09-15"`
+
+      - `const AnthropicBetaMCPClient2026_09_15 AnthropicBeta = "mcp-client-2026-09-15"`
+
   - `WorkspaceID param.Field[string] Optional`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -1085,7 +1127,7 @@ Delete a memory
 
 ### Returns
 
-- `type BetaManagedAgentsDeletedMemory struct{…}`
+- `type BetaManagedAgentsDeletedMemory`
 
   Tombstone returned by [Delete a memory](/docs/en/api/beta/memory_stores/memories/delete). Deleting a memory does not erase its version history: its versions remain listable via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list) while they are retained (each version is kept for at least the version retention period after it was written, unless the store itself is deleted).
 
@@ -1139,7 +1181,7 @@ func main() {
 
 ### Beta Managed Agents Conflict Error
 
-- `type BetaManagedAgentsConflictError struct{…}`
+- `type BetaManagedAgentsConflictError`
 
   - `Type BetaManagedAgentsConflictErrorType`
 
@@ -1147,7 +1189,7 @@ func main() {
 
 ### Beta Managed Agents Content Sha256 Precondition
 
-- `type BetaManagedAgentsContentSha256Precondition struct{…}`
+- `type BetaManagedAgentsContentSha256Precondition`
 
   Optimistic-concurrency precondition: the update applies only if the memory's stored `content_sha256` equals the supplied value. On mismatch, the request returns `memory_precondition_failed_error` (HTTP 409); re-read the memory and retry against the fresh state. If the precondition fails but the stored state already exactly matches the requested `content` and `path`, the server returns 200 instead of 409.
 
@@ -1159,7 +1201,7 @@ func main() {
 
 ### Beta Managed Agents Deleted Memory
 
-- `type BetaManagedAgentsDeletedMemory struct{…}`
+- `type BetaManagedAgentsDeletedMemory`
 
   Tombstone returned by [Delete a memory](/docs/en/api/beta/memory_stores/memories/delete). Deleting a memory does not erase its version history: its versions remain listable via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list) while they are retained (each version is kept for at least the version retention period after it was written, unless the store itself is deleted).
 
@@ -1173,7 +1215,7 @@ func main() {
 
 - `type BetaManagedAgentsErrorUnion interface{…}`
 
-  - `type BetaInvalidRequestError struct{…}`
+  - `type BetaInvalidRequestError`
 
     - `Type InvalidRequestError`
 
@@ -1183,7 +1225,7 @@ func main() {
 
       default: Invalid request
 
-  - `type BetaAuthenticationError struct{…}`
+  - `type BetaAuthenticationError`
 
     - `Type AuthenticationError`
 
@@ -1193,7 +1235,7 @@ func main() {
 
       default: Authentication error
 
-  - `type BetaBillingError struct{…}`
+  - `type BetaBillingError`
 
     - `Type BillingError`
 
@@ -1203,7 +1245,7 @@ func main() {
 
       default: Billing error
 
-  - `type BetaPermissionError struct{…}`
+  - `type BetaPermissionError`
 
     - `Type PermissionError`
 
@@ -1213,7 +1255,7 @@ func main() {
 
       default: Permission denied
 
-  - `type BetaNotFoundError struct{…}`
+  - `type BetaNotFoundError`
 
     - `Type NotFoundError`
 
@@ -1223,7 +1265,7 @@ func main() {
 
       default: Not found
 
-  - `type BetaRateLimitError struct{…}`
+  - `type BetaRateLimitError`
 
     - `Type RateLimitError`
 
@@ -1233,7 +1275,7 @@ func main() {
 
       default: Rate limited
 
-  - `type BetaGatewayTimeoutError struct{…}`
+  - `type BetaGatewayTimeoutError`
 
     - `Type TimeoutError`
 
@@ -1243,7 +1285,7 @@ func main() {
 
       default: Request timeout
 
-  - `type BetaAPIError struct{…}`
+  - `type BetaAPIError`
 
     - `Type APIError`
 
@@ -1253,7 +1295,7 @@ func main() {
 
       default: Internal server error
 
-  - `type BetaOverloadedError struct{…}`
+  - `type BetaOverloadedError`
 
     - `Type OverloadedError`
 
@@ -1263,23 +1305,43 @@ func main() {
 
       default: Overloaded
 
-  - `type BetaManagedAgentsMemoryPreconditionFailedError struct{…}`
+  - `type BetaManagedAgentsMemoryPreconditionFailedError`
+
+    The error returned with HTTP status 409 when a request's precondition doesn't hold for the memory's current state, such as `precondition` on an update or `expected_content_sha256` on a delete.
+
+    The error doesn't include the memory's current state. Retrieve the memory to see its current content and `content_sha256` before you retry.
+
+    See the [memory guide](https://platform.claude.com/docs/en/managed-agents/memory#safe-content-edits-optimistic-concurrency) to learn more about safe content edits with content hash preconditions.
 
     - `Type BetaManagedAgentsMemoryPreconditionFailedErrorType`
 
     - `Message string Optional`
 
-  - `type BetaManagedAgentsMemoryPathConflictError struct{…}`
+      A human-readable explanation of why the precondition failed.
+
+  - `type BetaManagedAgentsMemoryPathConflictError`
+
+    The error returned with HTTP status 409 when a create or rename targets a path that another memory uses, or a path that overlaps another memory's path.
+
+    Two paths overlap when one is an ancestor of the other, such as `/notes` and `/notes/todo.md`. To free the path, rename or delete the memory that `conflicting_memory_id` references, then retry. To change that memory instead of creating a new one, update it.
 
     - `Type BetaManagedAgentsMemoryPathConflictErrorType`
 
     - `ConflictingMemoryID string Optional`
 
+      The ID of the memory that blocked the write (`mem_...`), or an empty string if that memory can't be identified.
+
+      Retry the request when it is empty.
+
     - `ConflictingPath string Optional`
+
+      The path that blocked the write: the requested path, or the path of a memory that is an ancestor or descendant of it.
 
     - `Message string Optional`
 
-  - `type BetaManagedAgentsConflictError struct{…}`
+      A human-readable explanation of the conflict. To handle the error in code, use `conflicting_path` and `conflicting_memory_id` instead.
+
+  - `type BetaManagedAgentsConflictError`
 
     - `Type BetaManagedAgentsConflictErrorType`
 
@@ -1287,7 +1349,7 @@ func main() {
 
 ### Beta Managed Agents Memory
 
-- `type BetaManagedAgentsMemory struct{…}`
+- `type BetaManagedAgentsMemory`
 
   A `memory` object: a single text document at a hierarchical path inside a memory store. The `content` field is populated when `view=full` and `null` when `view=basic`; the `content_size_bytes` and `content_sha256` fields are always populated so sync clients can diff without fetching content. Memories are addressed by their `mem_...` ID; the path is the create key and can be changed via update.
 
@@ -1341,7 +1403,7 @@ func main() {
 
   One item in a [List memories](/docs/en/api/beta/memory_stores/memories/list) response: either a `memory` object or, when `depth` is set, a `memory_prefix` rollup marker.
 
-  - `type BetaManagedAgentsMemory struct{…}`
+  - `type BetaManagedAgentsMemory`
 
     A `memory` object: a single text document at a hierarchical path inside a memory store. The `content` field is populated when `view=full` and `null` when `view=basic`; the `content_size_bytes` and `content_sha256` fields are always populated so sync clients can diff without fetching content. Memories are addressed by their `mem_...` ID; the path is the create key and can be changed via update.
 
@@ -1389,7 +1451,7 @@ func main() {
 
       The memory's UTF-8 text content. Populated when `view=full`; `null` when `view=basic`. Maximum 100 kB (102,400 bytes).
 
-  - `type BetaManagedAgentsMemoryPrefix struct{…}`
+  - `type BetaManagedAgentsMemoryPrefix`
 
     A rolled-up directory marker returned by [List memories](/docs/en/api/beta/memory_stores/memories/list) when `depth` is set. Indicates that one or more memories exist deeper than the requested depth under this prefix. This is a list-time rollup, not a stored resource; it has no ID and no lifecycle. Each prefix counts toward the page `limit` and interleaves with `memory` items in path order.
 
@@ -1401,27 +1463,47 @@ func main() {
 
 ### Beta Managed Agents Memory Path Conflict Error
 
-- `type BetaManagedAgentsMemoryPathConflictError struct{…}`
+- `type BetaManagedAgentsMemoryPathConflictError`
+
+  The error returned with HTTP status 409 when a create or rename targets a path that another memory uses, or a path that overlaps another memory's path.
+
+  Two paths overlap when one is an ancestor of the other, such as `/notes` and `/notes/todo.md`. To free the path, rename or delete the memory that `conflicting_memory_id` references, then retry. To change that memory instead of creating a new one, update it.
 
   - `Type BetaManagedAgentsMemoryPathConflictErrorType`
 
   - `ConflictingMemoryID string Optional`
 
+    The ID of the memory that blocked the write (`mem_...`), or an empty string if that memory can't be identified.
+
+    Retry the request when it is empty.
+
   - `ConflictingPath string Optional`
+
+    The path that blocked the write: the requested path, or the path of a memory that is an ancestor or descendant of it.
 
   - `Message string Optional`
 
+    A human-readable explanation of the conflict. To handle the error in code, use `conflicting_path` and `conflicting_memory_id` instead.
+
 ### Beta Managed Agents Memory Precondition Failed Error
 
-- `type BetaManagedAgentsMemoryPreconditionFailedError struct{…}`
+- `type BetaManagedAgentsMemoryPreconditionFailedError`
+
+  The error returned with HTTP status 409 when a request's precondition doesn't hold for the memory's current state, such as `precondition` on an update or `expected_content_sha256` on a delete.
+
+  The error doesn't include the memory's current state. Retrieve the memory to see its current content and `content_sha256` before you retry.
+
+  See the [memory guide](https://platform.claude.com/docs/en/managed-agents/memory#safe-content-edits-optimistic-concurrency) to learn more about safe content edits with content hash preconditions.
 
   - `Type BetaManagedAgentsMemoryPreconditionFailedErrorType`
 
   - `Message string Optional`
 
+    A human-readable explanation of why the precondition failed.
+
 ### Beta Managed Agents Memory Prefix
 
-- `type BetaManagedAgentsMemoryPrefix struct{…}`
+- `type BetaManagedAgentsMemoryPrefix`
 
   A rolled-up directory marker returned by [List memories](/docs/en/api/beta/memory_stores/memories/list) when `depth` is set. Indicates that one or more memories exist deeper than the requested depth under this prefix. This is a list-time rollup, not a stored resource; it has no ID and no lifecycle. Each prefix counts toward the page `limit` and interleaves with `memory` items in path order.
 
@@ -1439,11 +1521,15 @@ func main() {
 
   - `const BetaManagedAgentsMemoryViewBasic BetaManagedAgentsMemoryView = "basic"`
 
+    Return the object with `content` set to `null`. The `content_size_bytes` and `content_sha256` fields remain populated, so sync clients can diff without fetching content.
+
   - `const BetaManagedAgentsMemoryViewFull BetaManagedAgentsMemoryView = "full"`
+
+    Return the object with `content` populated. On list endpoints, `view=full` caps `limit` at 20.
 
 ### Beta Managed Agents Precondition
 
-- `type BetaManagedAgentsPrecondition struct{…}`
+- `type BetaManagedAgentsPrecondition`
 
   Optimistic-concurrency precondition: the update applies only if the memory's stored `content_sha256` equals the supplied value. On mismatch, the request returns `memory_precondition_failed_error` (HTTP 409); re-read the memory and retry against the fresh state. If the precondition fails but the stored state already exactly matches the requested `content` and `path`, the server returns 200 instead of 409.
 

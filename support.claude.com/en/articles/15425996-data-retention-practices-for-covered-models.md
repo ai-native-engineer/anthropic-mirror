@@ -44,8 +44,8 @@ This change only applies to organizations that have set up workspaces with zero 
 
 * These surfaces already operate with standard retention, so you'll have access to the new models as they become available.
 
-* [Business Associate Agreements (BAA) for Commercial Customers](https://support.claude.com/en/articles/8114513-business-associate-agreements-baa-for-commercial-customers)
 * [Public Sector FAQs](https://support.claude.com/en/articles/13756069-public-sector-faqs)
+* [Real-time cyber safeguards on Claude Opus and Sonnet](https://support.claude.com/en/articles/14604842-real-time-cyber-safeguards-on-claude-opus-and-sonnet)
 * [Covered Models](https://support.claude.com/en/articles/15425695-covered-models)
 * [Covered Models under a Business Associate Agreement (BAA)](https://support.claude.com/en/articles/15455031-covered-models-under-a-business-associate-agreement-baa)
 * [Turn on data retention for a Workspace in a zero data retention organization](https://support.claude.com/en/articles/16824617-turn-on-data-retention-for-a-workspace-in-a-zero-data-retention-organization)

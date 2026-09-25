@@ -17,13 +17,15 @@ Create Credential
 
 - `vaultID: string`
 
+  Identifier of the vault to create the credential in.
+
 - `params: CredentialCreateParams`
 
   - `auth: BetaManagedAgentsMCPOAuthCreateParams | BetaManagedAgentsStaticBearerCreateParams | BetaManagedAgentsEnvironmentVariableCreateParams`
 
     Body param: Authentication details for creating a credential.
 
-    - `BetaManagedAgentsMCPOAuthCreateParams`
+    - `interface BetaManagedAgentsMCPOAuthCreateParams`
 
       Parameters for creating an MCP OAuth credential.
 
@@ -71,13 +73,13 @@ Create Credential
 
         - `token_endpoint_auth: BetaManagedAgentsTokenEndpointAuthNoneParam | BetaManagedAgentsTokenEndpointAuthBasicParam | BetaManagedAgentsTokenEndpointAuthPostParam`
 
-          - `BetaManagedAgentsTokenEndpointAuthNoneParam`
+          - `interface BetaManagedAgentsTokenEndpointAuthNoneParam`
 
             Token endpoint requires no client authentication.
 
             - `type: "none"`
 
-          - `BetaManagedAgentsTokenEndpointAuthBasicParam`
+          - `interface BetaManagedAgentsTokenEndpointAuthBasicParam`
 
             Token endpoint uses HTTP Basic authentication with client credentials.
 
@@ -89,7 +91,7 @@ Create Credential
 
               minLength: 1, maxLength: 512
 
-          - `BetaManagedAgentsTokenEndpointAuthPostParam`
+          - `interface BetaManagedAgentsTokenEndpointAuthPostParam`
 
             Token endpoint uses POST body authentication with client credentials.
 
@@ -113,7 +115,7 @@ Create Credential
 
           minLength: 1, maxLength: 8192
 
-    - `BetaManagedAgentsStaticBearerCreateParams`
+    - `interface BetaManagedAgentsStaticBearerCreateParams`
 
       Parameters for creating a static bearer token credential.
 
@@ -131,7 +133,7 @@ Create Credential
 
         minLength: 1, maxLength: 2047
 
-    - `BetaManagedAgentsEnvironmentVariableCreateParams`
+    - `interface BetaManagedAgentsEnvironmentVariableCreateParams`
 
       Parameters for creating an environment variable credential.
 
@@ -141,13 +143,13 @@ Create Credential
 
         Outbound hosts the secret value is substituted on.
 
-        - `BetaManagedAgentsUnrestrictedCredentialNetworkingParams`
+        - `interface BetaManagedAgentsUnrestrictedCredentialNetworkingParams`
 
           Substitute the secret on any host the session's Environment network policy permits egress to. The Environment's network policy is the only boundary on where the secret can reach.
 
           - `type: "unrestricted"`
 
-        - `BetaManagedAgentsLimitedCredentialNetworkingParams`
+        - `interface BetaManagedAgentsLimitedCredentialNetworkingParams`
 
           Substitute the secret only on requests to the listed hosts.
 
@@ -197,7 +199,7 @@ Create Credential
 
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 42 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 45 more`
 
       - `"message-batches-2024-09-24"`
 
@@ -289,6 +291,12 @@ Create Credential
 
       - `"mid-conversation-system-clear-at-2026-08-21"`
 
+      - `"compact-2026-09-04"`
+
+      - `"inline-tools-2026-09-15"`
+
+      - `"mcp-client-2026-09-15"`
+
   - `workspace_id?: string`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -297,7 +305,7 @@ Create Credential
 
 ## Returns
 
-- `BetaManagedAgentsCredential`
+- `interface BetaManagedAgentsCredential`
 
   A credential stored in a vault. Sensitive fields are never returned in responses.
 
@@ -317,7 +325,7 @@ Create Credential
 
     Authentication details for a credential.
 
-    - `BetaManagedAgentsMCPOAuthAuthResponse`
+    - `interface BetaManagedAgentsMCPOAuthAuthResponse`
 
       OAuth credential details for an MCP server.
 
@@ -347,19 +355,19 @@ Create Credential
 
         - `token_endpoint_auth: BetaManagedAgentsTokenEndpointAuthNoneResponse | BetaManagedAgentsTokenEndpointAuthBasicResponse | BetaManagedAgentsTokenEndpointAuthPostResponse`
 
-          - `BetaManagedAgentsTokenEndpointAuthNoneResponse`
+          - `interface BetaManagedAgentsTokenEndpointAuthNoneResponse`
 
             Token endpoint requires no client authentication.
 
             - `type: "none"`
 
-          - `BetaManagedAgentsTokenEndpointAuthBasicResponse`
+          - `interface BetaManagedAgentsTokenEndpointAuthBasicResponse`
 
             Token endpoint uses HTTP Basic authentication with client credentials.
 
             - `type: "client_secret_basic"`
 
-          - `BetaManagedAgentsTokenEndpointAuthPostResponse`
+          - `interface BetaManagedAgentsTokenEndpointAuthPostResponse`
 
             Token endpoint uses POST body authentication with client credentials.
 
@@ -373,7 +381,7 @@ Create Credential
 
           OAuth scope for the refresh request.
 
-    - `BetaManagedAgentsStaticBearerAuthResponse`
+    - `interface BetaManagedAgentsStaticBearerAuthResponse`
 
       Static bearer token credential details for an MCP server.
 
@@ -383,7 +391,7 @@ Create Credential
 
         URL of the MCP server this credential authenticates against.
 
-    - `BetaManagedAgentsEnvironmentVariableAuthResponse`
+    - `interface BetaManagedAgentsEnvironmentVariableAuthResponse`
 
       Environment variable credential details. The secret value is never returned.
 
@@ -405,13 +413,13 @@ Create Credential
 
         Outbound hosts the secret value is substituted on.
 
-        - `BetaManagedAgentsUnrestrictedCredentialNetworkingResponse`
+        - `interface BetaManagedAgentsUnrestrictedCredentialNetworkingResponse`
 
           The secret is substituted on any host the session's Environment network policy permits egress to.
 
           - `type: "unrestricted"`
 
-        - `BetaManagedAgentsLimitedCredentialNetworkingResponse`
+        - `interface BetaManagedAgentsLimitedCredentialNetworkingResponse`
 
           The secret is substituted only on requests to the listed hosts.
 

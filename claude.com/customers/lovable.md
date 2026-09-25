@@ -4,33 +4,21 @@ Case study | Claude Platform
 
 # Lovable helps anyone create software 20x faster with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-[Play video](#)Play video
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a20f3c36e9c5f7bf7c81777_Lovable-YT-Thumbnail-200kb.jpg)
+![Video thumbnail](https://assets.claude.com/9ee7c6164adc668e76493c863e3e3b49a5327f20.jpg)
 
 Industry:
-
-Software
+:   Software
 
 Company size:
-
-Startup
+:   Startup
 
 Product:
-
-Claude Platform
+:   Claude Platform
 
 Location:
-
-EMEA
+:   EMEA
 
 $200M ARR
 
@@ -50,27 +38,7 @@ on the platform, 200,000+ per day
 
 ## The challenge
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a0cb8c1f8c5c525e8c554b3_problem-solvers-padded-200kb.jpg)
-
-The most driven founders are problem solvers. Watch their unscripted conversations with the Anthropic engineers.
-
-Read more
-
-[Read more](https://claude.com/problem-solvers)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-The most driven founders are problem solvers. Watch their unscripted conversations with the Anthropic engineers.
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-The most driven founders are problem solvers. Watch their unscripted conversations with the Anthropic engineers.
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a21c26b22dd02c6b5fb12de_Lovable%20Still%201.png)
+![](https://assets.claude.com/e508e5a061c2a1bcbe4d2fe3538ffc017040ad71.png)
 
 “Claude has a strong combination of great coding abilities and conversational abilities.” —Anton Osika, Lovable CEO and co-founder
 
@@ -82,31 +50,15 @@ In early 2023, he built a weekend side project to help developers move faster wi
 
 Anton says he pictured far more people building software and running whole businesses on it: founders, teams driving change inside companies and government, and domain experts who knew exactly what their work needed. The team needed a capable model at the core of its product.
 
+![Problem Solvers landing page](https://assets.claude.com/516bf8e49c81e551455b1e24a0fc3678725df957.jpg)
+
+The most driven founders are problem solvers. Watch their unscripted conversations with the Anthropic engineers.
+
+[Read more](https://claude.com/problem-solvers)
+
 ## The solution
 
-Choosing the right Claude model
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69c2dd485d80024bc14f48c6_choosing%20model.jpeg)
-
-Learn when to use Haiku, Sonnet, or Opus to get better results and stay inside your rate limit. A practical guide to picking the right Claude model.
-
-Choosing the right Claude model
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Learn when to use Haiku, Sonnet, or Opus to get better results and stay inside your rate limit. A practical guide to picking the right Claude model.
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Choosing the right Claude model
-
-Learn when to use Haiku, Sonnet, or Opus to get better results and stay inside your rate limit. A practical guide to picking the right Claude model.
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a21c2f33e7672b71d7e645d_Lovable%20Still%202.png)
+![](https://assets.claude.com/1c94b487506bc224ae52be9fc2ac342dc596f22f.png)
 
 “Something that I think is very, very rare in AI is a trusted brand that people love and keep coming back to. To have that trusted brand, that's not something that you magically achieve.” —Anton Osika, Lovable CEO and co-founder
 
@@ -124,25 +76,19 @@ Specific Claude releases marked turning points in what users could build. “Cla
 
 Every new Claude release goes through the same evaluation Lovable has run from the start, measuring how often the system hits a wall and produces an app that’s broken or isn’t what the user asked for. That gate matters because Lovable’s users often can’t read the code themselves, so they’re trusting the output to work. For Osika, earning that trust is the harder, more durable goal. “Something that I think is very, very rare in AI is a trusted brand that people love and keep coming back to,” he said. “To have that trusted brand, that's not something that you magically achieve.”
 
-"We're in the business of unlocking new economies and empowering every human out there who wants to create something."
+Choosing the right Claude model
 
-Anton Osika
+![Choosing the right Claude model](https://assets.claude.com/7388619b452db0af26c78442a275c86c5ebe3124.jpg)
 
-CEO and co-founder, Lovable
+Learn when to use Haiku, Sonnet, or Opus to get better results and stay inside your rate limit. A practical guide to picking the right Claude model.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+> "We're in the business of unlocking new economies and empowering every human out there who wants to create something."
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+Anton OsikaCEO and co-founder, Lovable
 
 ## The outcome
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a21c4c61ef48864ab372685_6mb%20Lovable%203_compressed.jpg)
+![](https://assets.claude.com/102194dac43adf680201e80eff6cb861d3885248.jpg)
 
 “Claude Opus 4.5 was the next big step change in reliability on long-horizon tasks, unlocking a new class of projects.” —Alexandre Pesant, Lovable product lead
 
@@ -156,42 +102,16 @@ That belief shows in what people build. The people closest to a problem can now 
 
 Osika expects that to widen as the friction keeps falling. "There is fundamentally more human agency that's unlocked when frictions for starting a company and building your product start disappearing," he said. "We're entering an era where there are more societal problems that are getting solved. We're seeing that live with millions of people building on top of our platform."
 
-“Claude Opus 4.5 was the next big step change in reliability on long-horizon tasks, unlocking a new class of projects.”
+> “Claude Opus 4.5 was the next big step change in reliability on long-horizon tasks, unlocking a new class of projects.”
 
-Alexandre Pesant
+Alexandre PesantProduct lead, Lovable
 
-Product lead, Lovable
+[![Supermetrics](https://assets.claude.com/3ac4171a81008be0340e5c3d8ccb46571c3edfb3.svg)
 
-## Related stories
+### Supermetrics lets marketers manage ad campaigns from a conversation with Claude](https://claude.com/customers/supermetrics)[![Atlassian](https://assets.claude.com/4870b3d6c0253cea01b100c98ad2030b8e4f8ce1.svg)
 
-[How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)How Atlassian builds AI agents teams can trust with Claude and Google Cloud
+### How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-How Atlassian builds AI agents teams can trust with Claude and Google Cloud
+### Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-Customer story
-
-[Customer story](https://claude.com/customers/atlassian)Customer story
-
-[Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)Rocket Money on building agents that fix their own code
-
-Rocket Money on building agents that fix their own code
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money-qa)Customer story
-
-[How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)How Rocket Money built its personal finance agent with Claude
-
-How Rocket Money built its personal finance agent with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money)Customer story
-
-[How Notion ships and scales agents with Claude Managed Agents](https://claude.com/customers/notion-qa)How Notion ships and scales agents with Claude Managed Agents
-
-How Notion ships and scales agents with Claude Managed Agents
-
-Customer story
-
-[Customer story](https://claude.com/customers/notion-qa)Customer story
+### How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)

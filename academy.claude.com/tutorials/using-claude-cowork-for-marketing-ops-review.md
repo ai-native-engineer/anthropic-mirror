@@ -44,7 +44,7 @@ That information gathering process is the same every week, no matter what the re
 3. Ask Claude to write it as a skill.
 4. Run it once on a real week, read the file, and add anything it missed.
 
-To start now, open Cowork and describe the report you want to prepare — Claude writes the skill as a plain-text file you can open from `Customize → Skills` to read or change any time:
+To start now, open Claude and describe the report you want to prepare — Claude writes the skill as a plain-text file you can open from `Customize → Skills` to read or change any time:
 
 Help me build a skill that prepares my [weekly metrics review]. Walk me through what to pull, where to find it, what the draft should look like, and when to pause and ask — then write it as a skill.
 
@@ -114,7 +114,7 @@ This workflow fits any recurring report where the prep is the same every cycle:
 
 1. Start a task in Cowork and describe the report — what it covers, where the data comes from, what the format looks like, when Claude should pause and ask.
 2. Add a prep mode the scheduled task can run on its own — pull the numbers, write a starting draft, stop.
-3. Schedule it for earlier in your workday, while your computer is on.
+3. Schedule it for before your workday starts.
 4. Keep read-only tools always allowed; anything that sends or changes data waits for you.
 
 When you arrive, the data is there and the candidates are named. The focus call is still yours.

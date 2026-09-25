@@ -8,9 +8,9 @@ The Threat Intelligence team investigates real-world cases of misuse of Claude, 
 
 [## Detecting and countering misuse of AI: September 2026
 
-[Sep 10, 2026
+Sep 10, 2026
 
-Over the past eight months, our Threat Intelligence team identified and disrupted operations in which threat actors tried to use Claude for malicious activity. In this report, we share case studies from those operations and describe how malicious use of Claude has evolved since our previous threat reports in 2025.](https://www.anthropic.com/threat-intelligence-report-september-2026)](https://www.anthropic.com/threat-intelligence-report-september-2026)
+Over the past eight months, our Threat Intelligence team identified and disrupted operations in which threat actors tried to use Claude for malicious activity. In this report, we share case studies from those operations and describe how malicious use of Claude has evolved since our previous threat reports in 2025.](https://www.anthropic.com/threat-intelligence-report-september-2026)
 
 [AnnouncementsJun 3, 2026
 

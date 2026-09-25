@@ -4,35 +4,24 @@ Case study | Claude Platform
 
 # Zoom AI Companion boosts user engagement and satisfaction with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![Zoom logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c1e924b89aa4ed22b0d827_cs-logo-zoom-light-theme.svg)![Zoom logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c1e9282f4c49a5abab41de_cs-logo-zoom-dark-theme.svg)
+![Zoom logo](https://assets.claude.com/6a7f21b4cf5f286e7bd8ffd3ae9ca839f6f0d681.svg)
 
 Industry:
-
-Software
+:   Software
 
 Company size:
-
-Medium
+:   Medium
 
 Product:
-
-Claude Platform
+:   Claude Platform
 
 Partner:
-
-Google
+:   Google
 
 Location:
-
-North America
+:   North America
 
 14% improvement
 
@@ -41,42 +30,6 @@ in meeting summary accuracy
 98% satisfaction
 
 reported by GitLab team members
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
 
 Zoom, the AI-first work platform, is bringing AI-driven collaboration and productivity to millions of users around the world, and uses Claude in addition to other third party models as part of their federated approach. With the addition of Claude to its federated approach, Zoom AI Companion, the company's AI assistant, was able to achieve a 14% accuracy improvement in meeting summaries based on Zoom's internal testing.
 
@@ -110,9 +63,7 @@ This agility in development and deployment has led to tangible outcomes:
 * Rapid integration of new AI models, with features being enhanced within just two weeks of new model releases
 * Increased user engagement and satisfaction
 
-![Zoom product screenshot](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68baf0581da34cf948e314c5_c5a96cab55d8d111a59ea86b8dbbcfc8df8e6127-1920x1080.jpeg)
-
-![Zoom product screenshot](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68baf0581da34cf948e314bb_534e193df5c4476945ee87b28cea12ea79a5f594-1920x963.jpeg)
+![Zoom product screenshot](https://assets.claude.com/4a4b6154bafc1d7bb52ff036f4092603a433bfbe.jpg)![Zoom product screenshot](https://assets.claude.com/aedd1d2ddd4beefb8b32add436349da2c23b8479.jpg)
 
 ## Selecting Claude for trusted, high-quality AI integration
 
@@ -130,52 +81,12 @@ Zoom plans to expand AI Companion features, focusing on cross-cultural communica
 
 — Xuedong Huang, CTO
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[![Supermetrics](https://assets.claude.com/3ac4171a81008be0340e5c3d8ccb46571c3edfb3.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### Supermetrics lets marketers manage ad campaigns from a conversation with Claude](https://claude.com/customers/supermetrics)[![Atlassian](https://assets.claude.com/4870b3d6c0253cea01b100c98ad2030b8e4f8ce1.svg)
 
-[Next](#)Next
+### How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-Video caption
+### Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-Customer story
-
-[Customer story](https://claude.com/customers/atlassian)Customer story
-
-[Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)Rocket Money on building agents that fix their own code
-
-Rocket Money on building agents that fix their own code
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money-qa)Customer story
-
-[How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)How Rocket Money built its personal finance agent with Claude
-
-How Rocket Money built its personal finance agent with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money)Customer story
-
-[How Notion ships and scales agents with Claude Managed Agents](https://claude.com/customers/notion-qa)How Notion ships and scales agents with Claude Managed Agents
-
-How Notion ships and scales agents with Claude Managed Agents
-
-Customer story
-
-[Customer story](https://claude.com/customers/notion-qa)Customer story
+### How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)

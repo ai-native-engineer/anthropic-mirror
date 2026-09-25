@@ -4,31 +4,21 @@ Case study | Claude Platform
 
 # Cogent resolves security threats 97% faster with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69bb37bc9eba514a30cc2992_logo_cogent-light-mode.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69bb37c1f33f6b23ce552ac7_logo_cogent-dark-mode.svg)
+![Cogent logo](https://assets.claude.com/766698d5659097dc0ff541e1d7b77c991a4e9cae.svg)
 
 Industry:
-
-Cybersecurity
+:   Cybersecurity
 
 Company size:
-
-Startup
+:   Startup
 
 Product:
-
-Claude Platform
+:   Claude Platform
 
 Location:
-
-North America
+:   North America
 
 97% reduction in time critical vulnerabilities remain open
 
@@ -50,57 +40,17 @@ Cogent is an applied AI lab building agents to automate critical security tasks 
 
 ## The challenge
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Reduction in time that critical vulnerabilities remain open
-
-Read more
-
-[Read more](https://claude.com/customers/cogent)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Reduction in time that critical vulnerabilities remain open
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-97%
-
-Reduction in time that critical vulnerabilities remain open
-
 ## The gap between finding and fixing
 
 Security teams at large enterprises are generally effective at discovering vulnerabilities: scanners can surface thousands of findings daily. The hard part is the tedious, time consuming work that comes after that: determining which ones actually matter, who owns the fix, and what the exact remediation steps are. Those answers require pulling data across scanners, endpoint detection tools, asset inventories, threat intelligence feeds, and configuration databases, then synthesizing it manually.
 
 The work is slow and often inconsistent. High-severity vulnerabilities can sit open for days or weeks. “AI has shifted the balance of power in cybersecurity,” said Geng Sng, Cogent's CTO. “Attackers now automate most of the attack lifecycle, compressing what once took weeks into hours. Meanwhile, defenders still rely on fragmented tools and manual coordination.” Cogent's founders wanted to build a system that could do this work continuously and at machine speed, across the full vulnerability lifecycle.
 
+97%
+
+Reduction in time that critical vulnerabilities remain open
+
 ## The solution
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Response time to zero-day vulnerabilities
-
-Read more
-
-[Read more](https://claude.com/customers/cogent)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Response time to zero-day vulnerabilities
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-30 minutes
-
-Response time to zero-day vulnerabilities
 
 ## Cogent selects Claude for agentic reliability
 
@@ -112,21 +62,15 @@ That reliability made Claude Opus and Haiku models the clear choice for producti
 
 "Claude consistently performed best on complex, agentic workflows, especially multi-step investigations requiring policy adherence and sustained reasoning across multiple tools," said Anirudh Ravula, Cogent's Head of AI.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+30 minutes
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+Response time to zero-day vulnerabilities
 
 ## The outcome
 
 ## How Cogent uses Claude across the vulnerability lifecycle
 
-Fixing a vulnerability requires three things to go right in sequence: understanding what’s actually exploitable, deciding which issues deserve immediate attention, and actually resolving them. Most security teams do all three manually. Cogent automates the full chain by building the end-to-end remediation stack then embedding  Claude as the reasoning layer at each step.
+Fixing a vulnerability requires three things to go right in sequence: understanding what’s actually exploitable, deciding which issues deserve immediate attention, and actually resolving them. Most security teams do all three manually. Cogent automates the full chain by building the end-to-end remediation stack then embedding Claude as the reasoning layer at each step.
 
 **Investigation:** Cogent's platform continuously pulls from scanners, logs, asset inventories, and threat feeds, building the environmental context that doesn't exist anywhere in a customer's environment ready-made. From there, Cogent's investigative agent works autonomously: tracing asset ownership across systems, synthesizing threat intelligence and business context into a risk score, and mapping the remediation processes that apply to each asset. For issues that warrant deeper analysis, security teams can ask questions in plain language and get back clear, explainable findings. Investigations that once took days now happen in minutes.
 
@@ -146,42 +90,16 @@ Cogent is working toward two capabilities next: fully autonomous remediation, wh
 
 “We are exploring Claude-powered agents that simulate sophisticated attackers, chaining misconfigurations and privilege escalations to uncover attack paths before adversaries do,” said CTO Geng Sng. “Our goal is fully autonomous systems, reducing millions of exploitable issues toward zero.”
 
-"Claude consistently performed best on complex, agentic workflows, especially multi-step investigations requiring policy adherence and sustained reasoning across multiple tools."
+> "Claude consistently performed best on complex, agentic workflows, especially multi-step investigations requiring policy adherence and sustained reasoning across multiple tools."
 
-Anirudh Ravula
+Anirudh RavulaHead of AI, Cogent
 
-Head of AI, Cogent
+[![Vega Security](https://assets.claude.com/4e1839348313fbe4c8f3c96d6c7cbc95f53e13c6.svg)
 
-## Related stories
+### Vega's cyber defense platform returns 67% of analysts' time with Claude](https://claude.com/customers/vega)[![Cyera](https://assets.claude.com/b8c564095d75d596cb49afa2791ea7b0909e958c.svg)
 
-[Vega's cyber defense platform returns 67% of analysts' time with Claude](https://claude.com/customers/vega)Vega's cyber defense platform returns 67% of analysts' time with Claude
+### Cyera on making Claude Cowork the front door to 40 tools](https://claude.com/customers/cyera-qa)[![Cyera](https://assets.claude.com/b8c564095d75d596cb49afa2791ea7b0909e958c.svg)
 
-Vega's cyber defense platform returns 67% of analysts' time with Claude
+### Cyera scales agentic AI across 1,500 employees with Claude Enterprise](https://claude.com/customers/cyera)[![Kai](https://assets.claude.com/aff2397c0fd3708b6d0b23554c2ce5f81a3f7c56.svg)
 
-Customer story
-
-[Customer story](https://claude.com/customers/vega)Customer story
-
-[Cyera on making Claude Cowork the front door to 40 tools](https://claude.com/customers/cyera-qa)Cyera on making Claude Cowork the front door to 40 tools
-
-Cyera on making Claude Cowork the front door to 40 tools
-
-Customer story
-
-[Customer story](https://claude.com/customers/cyera-qa)Customer story
-
-[Cyera scales agentic AI across 1,500 employees with Claude Enterprise](https://claude.com/customers/cyera) Cyera scales agentic AI across 1,500 employees with Claude Enterprise
-
-Cyera scales agentic AI across 1,500 employees with Claude Enterprise
-
-Customer story
-
-[Customer story](https://claude.com/customers/cyera)Customer story
-
-[Kai delivers preemptive exposure management with Claude](https://claude.com/customers/kai) Kai delivers preemptive exposure management with Claude
-
-Kai delivers preemptive exposure management with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/kai)Customer story
+### Kai delivers preemptive exposure management with Claude](https://claude.com/customers/kai)

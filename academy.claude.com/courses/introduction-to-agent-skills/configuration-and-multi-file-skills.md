@@ -14,7 +14,7 @@ In this lessonBy the end, you’ll be able to
 
 * Configure advanced skill metadata fields including allowed-tools and model
 * Write effective skill descriptions that reliably trigger on the right requests
-* Use allowed-tools to restrict what Claude can do when a skill is active
+* Use allowed-tools to pre-approve the tools a skill needs without limiting Claude to them
 * Organize complex skills using progressive disclosure and multi-file structures
 
 ## Configuration and multi-file skills[](#configuration-and-multi-file-skills)
@@ -25,7 +25,7 @@ SummaryTranscript
 
 This video covers the advanced techniques that make skills more powerful:
 the full set of metadata fields, how to write descriptions that trigger
-reliably, restricting tool access for security-sensitive workflows, and
+reliably, pre-approving the tools a skill needs, and
 organizing larger skills across multiple files using progressive
 disclosure. You'll learn how to keep your skills efficient while still
 supporting complex use cases.
@@ -34,19 +34,19 @@ supporting complex use cases.
 
 * **`name` and `description` are required** — `allowed-tools` and `model` are optional but powerful additions
 * A good description **answers two questions**: What does the skill do? When should Claude use it?
-* **`allowed-tools`** restricts which tools Claude can use when the skill is active — useful for read-only or security-sensitive workflows
+* **`allowed-tools`** pre-approves the listed tools while the skill is active, so Claude can use them without asking, and it doesn't limit Claude to those tools
 * **Progressive disclosure**: keep SKILL.md under 500 lines and link to supporting files (references, scripts, assets) that Claude reads only when needed
 * **Scripts execute without loading their contents into context** — only the output consumes tokens, keeping context efficient
 
-A basic skill works with just a name and description, but there are several advanced techniques that can make your skills much more effective in Claude Code. Let's walk through the key fields, best practices for descriptions, tool restrictions, and how to structure larger skills.
+A basic skill works with just a name and description, but there are several advanced techniques that can make your skills much more effective in Claude Code. Let's walk through the key fields, best practices for descriptions, tool permissions, and how to structure larger skills.
 
 ## Skill Metadata Fields[](#skill-metadata-fields)
 
-The agent skills open standard supports several fields in the SKILL.md frontmatter. Two are required, and the rest are optional:
+The agent skills open standard defines the core fields in the SKILL.md frontmatter, and Claude Code adds a few of its own, such as `model`. Two are required, and the rest are optional:
 
 * **name** (required) — Identifies your skill. Use lowercase letters, numbers, and hyphens only. Maximum 64 characters. Should match your directory name.
 * **description** (required) — Tells Claude when to use the skill. Maximum 1,024 characters. This is the most important field because Claude uses it for matching.
-* **allowed-tools** (optional) — Restricts which tools Claude can use when the skill is active.
+* **allowed-tools** (optional) — Pre-approves the listed tools, so Claude can use them without asking permission while the skill is active.
 * **model** (optional) — Specifies which Claude model to use for the skill.
 
 ## Writing Effective Descriptions[](#writing-effective-descriptions)
@@ -60,13 +60,13 @@ A good description answers two questions:
 
 If your skill isn't triggering when you expect it to, try adding more keywords that match how you actually phrase your requests. The description is what Claude uses to decide whether a skill is relevant, so the language matters.
 
-## Restricting Tools with allowed-tools[](#restricting-tools-with-allowed-tools)
+## Pre-approving tools with allowed-tools[](#pre-approving-tools-with-allowed-tools)
 
-Sometimes you want a skill that can only read files, not modify them. This is useful for security-sensitive workflows, read-only tasks, or any situation where you want guardrails.
+Sometimes a skill relies on the same handful of tools every time it runs, and you don't want to approve each call by hand. The `allowed-tools` field pre-approves the tools you list, so Claude can use them without a permission prompt for the rest of the turn that invoked the skill. The grant clears when you send your next message.
 
 ![](https://academy.claude.com/assets/media/621465b21ab002652a474badb3067969c4a1d8d41ba549845efb08df03a59c41.png)
 
-In this example, the `allowed-tools` field is set to `Read, Grep, Glob, Bash`. When this skill is active, Claude can only use those tools without asking permission — no editing, no writing.
+In this example, the `allowed-tools` field is set to `Read, Grep, Glob, Bash`. When this skill is active, Claude can use those four tools without asking permission. It doesn't lose access to anything else: if the skill's instructions lead Claude to edit or write a file, that goes through your normal permission settings like any other tool call. One caution: listing `Bash` on its own pre-approves shell commands in general, so reserve that for skills you trust, or narrow it to a pattern such as `Bash(git status *)`.
 
 yaml
 
@@ -79,7 +79,7 @@ model: sonnet
 ---
 ```
 
-If you omit `allowed-tools` entirely, the skill doesn't restrict anything. Claude uses its normal permission model.
+If you omit `allowed-tools` entirely, nothing is pre-approved and Claude uses its normal permission model for every tool. To go the other way and take tools away while a skill is active, use a separate Claude Code frontmatter field, `disallowed-tools`, which removes the tools you list from the set Claude can use.
 
 ## Progressive Disclosure[](#progressive-disclosure)
 
@@ -116,7 +116,7 @@ This is particularly useful for:
 ## Lesson reflection[](#lesson-reflection)
 
 * Think about a skill you'd like to build that involves multiple files. How would you structure the SKILL.md versus supporting reference files?
-* Are there workflows in your team where restricting tool access with `allowed-tools` would add an important safety layer?
+* For a skill your team shares, which tools would you pre-approve with `allowed-tools`, and which would you rather Claude keep asking about?
 
 ## What's next[](#whats-next)
 
@@ -141,7 +141,7 @@ Lessons
 * [Key takeaways](#key-takeaways)
 * [Skill Metadata Fields](#skill-metadata-fields)
 * [Writing Effective Descriptions](#writing-effective-descriptions)
-* [Restricting Tools with allowed-tools](#restricting-tools-with-allowed-tools)
+* [Pre-approving tools with allowed-tools](#pre-approving-tools-with-allowed-tools)
 * [Progressive Disclosure](#progressive-disclosure)
 * [Using Scripts Efficiently](#using-scripts-efficiently)
 * [Lesson reflection](#lesson-reflection)

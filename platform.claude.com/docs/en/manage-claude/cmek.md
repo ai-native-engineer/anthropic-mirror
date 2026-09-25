@@ -25,7 +25,7 @@ The use of CMEK is optional. Eligible organizations can **opt in** to use custom
 
 ## How it works
 
-Only Organization Admins (on Claude Platform; the Admin role on Claude Platform on AWS) or Owners and the Primary Owner (on Claude Enterprise) can configure CMEK. On Claude Platform, CMEK is scoped per workspace and configured with the Admin API (on Claude Platform on AWS, in the Claude Console or through the IAM-authorized external key and workspace endpoints). On Claude Enterprise, CMEK is scoped per organization and configured in [claude.ai > Organization settings > Data and privacy](https://claude.ai/admin-settings/data-privacy-controls). On either product, CMEK protects data written after your key takes effect. Existing data (prior chats, files, and sessions) remains encrypted with Anthropic-managed keys and is not re-encrypted under your key.
+Only Organization Admins (on Claude Platform; the Admin role on Claude Platform on AWS) or Owners and the Primary Owner (on Claude Enterprise) can configure CMEK. On Claude Platform, CMEK is scoped per workspace and configured in the Claude Console or with the Admin API (on Claude Platform on AWS, in the Claude Console or through the IAM-authorized external key and workspace endpoints). On Claude Enterprise, CMEK is scoped per organization and configured in [claude.ai > Organization settings > Data and privacy](https://claude.ai/admin-settings/data-privacy-controls). On either product, CMEK protects data written after your key takes effect. Existing data (prior chats, files, and sessions) remains encrypted with Anthropic-managed keys and is not re-encrypted under your key.
 
 On Claude Platform, Anthropic recommends attaching your key to a new workspace before you send any requests to that workspace. If you attach a key to a workspace that already receives requests, your key can take up to a day to take effect. Data written before then, like existing data, is encrypted with Anthropic-managed keys and is not re-encrypted.
 
@@ -60,11 +60,11 @@ What CMEK covers depends on which product you use.
 **Claude Platform**
 
 * Message content, files and attachments (both inline attachments sent with a request and Files API uploads), and MCP and tool configuration.
-* [Claude Managed Agents](https://platform.claude.com/docs/en/managed-agents/overview) data, including agent configurations, environments, webhooks, and sessions and their events.
+* [Claude Managed Agents](https://platform.claude.com/docs/en/managed-agents/overview) data, including agent configurations, environments, webhooks, sessions and their events, [memory stores](https://platform.claude.com/docs/en/managed-agents/memory) and their memories and memory versions, and [dreams](https://platform.claude.com/docs/en/managed-agents/dreams).
 
 **Claude Enterprise**
 
-* Chat content, including skills, plugins, and artifacts.
+* Chat content, including skills and plugins.
 * Chat attachments and project attachments.
 * Claude Code on the CLI, including message content.
 * Cowork in Claude Desktop.
@@ -90,6 +90,7 @@ Some features are turned off or substantially modified when CMEK is enabled. Thi
 * Chat search is disabled because chat titles and content are encrypted under your key. Members cannot search past chats, and the **Search and reference chats** toggle stays off, so Claude cannot search them either.
 * [Project knowledge search](https://support.claude.com/en/articles/11473015-retrieval-augmented-generation-rag-for-projects) (retrieval-augmented generation, or RAG) is disabled. Project knowledge loads directly into each conversation's context instead of being indexed and searched. As a result, a project can use substantially less knowledge than it could without CMEK. Knowledge beyond what can be loaded is left out of the conversation.
 * Claude Code on the web (including routines) and Claude in Slack are unavailable: new sessions cannot be started and Claude in Slack declines requests, even if an admin turns these products on. Claude Code Desktop remains available for local sessions but is off unless an admin turns it on under [claude.ai > Organization settings > Claude Code](https://claude.ai/admin-settings/claude-code).
+* In conversations and the **Artifacts** tab, Claude Design, Claude Slides, and Claude Docs are unavailable, and admins cannot turn them on. Claude Code cannot [publish artifacts](https://code.claude.com/docs/en/artifacts#availability).
 * Certain analytics are degraded: admin analytics for claude.ai skills and connectors (under claude.ai/analytics/usage and through the [Claude Enterprise Analytics API](https://platform.claude.com/docs/en/manage-claude/analytics-api)), Claude smart reports (under claude.ai/analytics/insights), and Claude Code contribution metrics (under claude.ai/analytics/claude-code).
 * Organization data exports and audit log exports, both under [claude.ai > Organization settings > Data and privacy](https://claude.ai/admin-settings/data-privacy-controls), are disabled.
 * Response ratings (thumbs up and thumbs down on Claude's responses) are disabled.
@@ -107,8 +108,8 @@ These features remain available, but their data is not encrypted under your key.
 
 **Claude Enterprise**
 
-* Beta and research preview features might not be covered by CMEK and can break in CMEK organizations, for example, Claude Security and Claude Design.
-* [Personal preferences - Instructions for Claude section](https://claude.ai/new#settings/general) and Cowork Global instructions. These are set at the account level and shared across all of a user's organizations.
+* Beta and research preview features might not be covered by CMEK and can break in CMEK organizations, for example, Claude Security and the Claude Design app at claude.ai/design.
+* [Personal preferences - Instructions for Claude section](https://claude.ai/new#settings/account) and Cowork Global instructions. These are set at the account level and shared across all of a user's organizations.
 
 On both products, account data for users in your organization (such as names, email addresses, and profile pictures) is not encrypted under your key.
 
@@ -124,8 +125,8 @@ The following Claude Platform APIs and tools store data at rest under your key w
 | Batch                 | Bash tool                                                                                         |
 | Skills                | Text editor tool                                                                                  |
 | Claude Managed Agents | MCP connector                                                                                     |
-|                       | Structured outputs (not available for Claude Fable or Claude Mythos models in CMEK organizations) |
-|                       | Advisor tool                                                                                      |
+| Memory stores         | Structured outputs (not available for Claude Fable or Claude Mythos models in CMEK organizations) |
+| Dreams                | Advisor tool                                                                                      |
 |                       | Computer use                                                                                      |
 |                       | Browser use                                                                                       |
 |                       | Context management                                                                                |

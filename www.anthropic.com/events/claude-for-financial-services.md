@@ -122,7 +122,7 @@ No items found.
 
 Thank you for your interest in Claude for Financial Services
 
-Applications for this event are now closed. We invite you to tune into the livestream on Jul 15, 2025 at 8:00am EST. The livestream will take place right here on this page.
+Applications for this event are now closed. We invite you to tune into the livestream on July 15, 2025 at EST. The livestream will take place right here on this page.
 
 ## Book meeting
 
@@ -262,30 +262,6 @@ EST
 
 (for in-person attendees)
 
-8:00 am
-
--
-
-8:30 am
-
-EST
-
-### Registration, breakfast and networking
-
-(for in-person attendees)
-
-8:30 am
-
--
-
-9:00 am
-
-EST
-
-### Opening Keynote: AI Built for Finance and Industry Showcase
-
-With live product demo
-
 8:30 am
 
 -
@@ -307,26 +283,6 @@ With live product demo
 EST
 
 ### Customer Spotlight: From pilot to production
-
-9:00 am
-
--
-
-9:30 am
-
-EST
-
-### Customer Spotlight: From pilot to production
-
-9:30 am
-
--
-
-10:00 am
-
-EST
-
-### Q&A + Conclusion
 
 9:30 am
 

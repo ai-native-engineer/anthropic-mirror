@@ -10,10 +10,6 @@ To meet demand, a second event just for independent developers and early-stage f
 
 In-person applications are now closed. Applicants will be notified of their status in early April.
 
-Apply to attend
-
-[Attend virtually](#)Attend virtually
-
 ### Founder stage
 
 When anyone can build, the founder's edge is knowing what to build and sticking with it. Sit in with founders and technical leaders from startups built on Claude as they walk through the bets they made, the road from prototype to first revenue, and the judgement calls they’ve made.
@@ -26,11 +22,16 @@ You don't need a CS degree or an engineering team to ship real software anymore.
 
 Join the same hands-on sessions Anthropic uses to train its own technical staff, adapted for you. Ship your first managed agent, give it memory, write evals that move the score, compose multi-agent systems, then put it all to the test in a live agent battle.
 
-Agenda
+## Agenda
 
 Demos and office hours run all day. Drop by for a demo between sessions. Sign up in advance for office hours. All times in British Summer Time (BST).
 
 Stages
+
+* All stages
+* Founder stage
+* Builder stage
+* Workshops
 
 08:00AM – 09:30AM
 
@@ -41,8 +42,6 @@ Check-in and breakfast
 [Community general session](https://claude.com/code-with-claude/session/ldn-ext-community-general-session)
 
 (Founder stage)
-
-Founder stage
 
 ·
 
@@ -58,8 +57,6 @@ morning sessions
 
 (Founder stage)
 
-Founder stage
-
 ·
 
 Petra Donka
@@ -69,8 +66,6 @@ Warp
 [How I used Claude Code to build an AI road appraisal tool](https://claude.com/code-with-claude/session/ldn-ext-how-i-used-claude-code-to-build-an-ai-road-appraisal-tool)
 
 (Builder stage)
-
-Builder stage
 
 ·
 
@@ -84,8 +79,6 @@ Centre for Infrastructure
 
 (Workshop)
 
-Workshop
-
 ·
 
 Arnaud Doko
@@ -98,8 +91,6 @@ Anthropic
 
 (Founder stage)
 
-Founder stage
-
 ·
 
 Max Tatton-Brown
@@ -109,8 +100,6 @@ Orbit / Claude Code Curious
 [When code is a commodity, what actually matters in product development?](https://claude.com/code-with-claude/session/ldn-ext-when-code-is-a-commodity-what-actually-matters-in-product-development)
 
 (Builder stage)
-
-Builder stage
 
 ·
 
@@ -124,8 +113,6 @@ Applied Futures
 
 (Workshop)
 
-Workshop
-
 ·
 
 Isabella He
@@ -138,8 +125,6 @@ Anthropic
 
 (Founder stage)
 
-Founder stage
-
 ·
 
 Chris Merrick
@@ -149,8 +134,6 @@ Omni
 [How AirOps chases friction to build AI products with Claude](https://claude.com/code-with-claude/session/ldn-ext-how-airops-chases-friction-to-build-ai-products-with-claude)
 
 (Builder stage)
-
-Builder stage
 
 ·
 
@@ -163,8 +146,6 @@ AirOps
 [Agents that remember](https://claude.com/code-with-claude/session/ldn-ext-agents-that-remember)
 
 (Workshop)
-
-Workshop
 
 ·
 
@@ -184,8 +165,6 @@ afternoon sessions
 
 (Workshop)
 
-Workshop
-
 ·
 
 Jiri De Jonghe
@@ -198,8 +177,6 @@ Anthropic
 
 (Founder stage)
 
-Founder stage
-
 ·
 
 Asep Bagja Priandana
@@ -209,8 +186,6 @@ Nanas Sound
 [Giving Claude Code eyes: Building a local video-intelligence pipeline](https://claude.com/code-with-claude/session/ldn-ext-giving-claude-code-eyes-building-a-local-video-intelligence-pipeline)
 
 (Builder stage)
-
-Builder stage
 
 ·
 
@@ -224,8 +199,6 @@ Alter
 
 (Workshop)
 
-Workshop
-
 ·
 
 Will Steuk
@@ -238,8 +211,6 @@ Anthropic
 
 (Founder stage)
 
-Founder stage
-
 ·
 
 Nick Mayhew
@@ -249,8 +220,6 @@ Metaview
 [Making agentic workflows trustworthy and verifiable with a custom DSL](https://claude.com/code-with-claude/session/ldn-ext-making-agentic-workflows-trustworthy-and-verifiable-with-a-custom-dsl)
 
 (Builder stage)
-
-Builder stage
 
 ·
 
@@ -264,8 +233,6 @@ Elicit
 
 (Founder stage)
 
-Founder stage
-
 ·
 
 Stefano Amorelli
@@ -275,8 +242,6 @@ Qonto
 [From idea to income: How I built an AI-powered murder mystery game business with Claude](https://claude.com/code-with-claude/session/ldn-ext-from-idea-to-income-how-i-built-an-ai-powered-murder-mystery-game-business-with-claude)
 
 (Builder stage)
-
-Builder stage
 
 ·
 
@@ -290,8 +255,6 @@ MW Tech Solutions
 
 (Workshop)
 
-Workshop
-
 ·
 
 Ben Lehrburger
@@ -304,8 +267,6 @@ Anthropic
 
 (Founder stage)
 
-Founder stage
-
 ·
 
 Kevin Collins
@@ -316,15 +277,11 @@ echofold.ai / fractium.ai
 
 (Builder stage)
 
-Builder stage
-
 ·
 
 Olly Cobb
 
 Solve Intelligence
-
-No items found.
 
 Evening
 
@@ -334,51 +291,33 @@ Closing reception
 
 ## Featured speakers
 
-## Featured speakers
-
-![Boris Cherny headshot](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/69cc4642d8f17f58de38e50d_boris-cherny.webp)
+![Boris Cherny headshot](https://assets.claude.com/eea3796abaee1d9d2d36ec1e6084fbab5fb4a703.jpg?w=720&h=720&fit=crop&auto=format)
 
 Boris Cherny
-
-[x.com](https://x.com/bcherny)x.com
-
-[LinkedIn](https://www.linkedin.com/in/bcherny/)LinkedIn
 
 Head of Claude Code
 
 Anthropic
 
-![Angela Jiang headshot](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/69cc46422f0213eff23dbdb9_c8d2a6f1dc63e3727198e5dbb86111e8_angela-jiang.webp)
+![Angela Jiang headshot](https://assets.claude.com/85bfbfeed1601c2e411078c6874c9246d4f3ff65.jpg?w=720&h=720&fit=crop&auto=format)
 
 Angela Jiang
-
-[x.com](https://x.com/angjiang)x.com
-
-[LinkedIn](https://www.linkedin.com/in/angelajiang/)LinkedIn
 
 Head of Product
 
 Claude Platform, Anthropic
 
-![Katelyn Lesse headshot](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/69cc46420c3bbf082d3f8314_katelyn-lesse.webp)
+![Katelyn Lesse headshot](https://assets.claude.com/6c2b825df3d621408ee127180e5ecc28bd232bd3.jpg?w=720&h=720&fit=crop&auto=format)
 
 Katelyn Lesse
-
-[x.com](https://x.com/katelyn_lesse)x.com
-
-[LinkedIn](https://www.linkedin.com/in/katelynlesse/)LinkedIn
 
 [Head of Engineering](https://www.linkedin.com/company/74126343/)
 
 Claude Platform, Anthropic
 
-![Cat Wu headshot](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/69cc4641dd6ff8a4efa1077b_5739d9285f7511779f047edda4997798_cat-wu.webp)
+![Cat Wu headshot](https://assets.claude.com/4cf98dc6a28387a223d00b219e72b3e353bd9045.jpg?w=720&h=720&fit=crop&auto=format)
 
 Cat Wu
-
-[x.com](https://x.com/_catwu)x.com
-
-[LinkedIn](https://www.linkedin.com/in/cat-wu/)LinkedIn
 
 Head of Product
 
@@ -386,38 +325,32 @@ Claude Code, Anthropic
 
 19 May
 
-Code w/ Claude
+## Code w/ Claude
 
 Anthropic's developer conference. Live demos of new capabilities, hands-on workshops, and conversations with the research and product teams building Claude — where we share what's shipping and what's next.
 
-Learn more
+[Learn more](https://claude.com/code-with-claude/london)
 
-[Learn more](https://claude.com/code-with-claude/london)Learn more
+## FAQ
 
-FAQ
-
-### What is Code with Claude: Extended?
+What is Code with Claude: Extended?
 
 Demand to attend Code with Claude in-person far exceeded our expectations. To be able to give more people access to the event experience, we added a second day just for independent developers and early-stage founders.
 
-### Who should attend?
+Who should attend?
 
 Code with Claude is designed for software developers, engineers, and technical leaders who are building with AI. Whether you're just getting started with Claude or are an experienced builder, you'll find sessions tailored to your level.
 
-### How do I attend in person?
+How do I attend in person?
 
 Space is limited. Given the demand for in-person attendance at Code with Claude, invites to Code with Claude: Extended were made to existing applicants.
 
-### Can I attend virtually?
+Can I attend virtually?
 
 Code with Claude: Extended will not be livestreamed. Sessions will be recorded and made publicly available after the event.
 
-### Is there a cost to attend?
+Is there a cost to attend?
 
 No, in-person attendance is free.
 
-[Homepage](https://claude.com/code-with-claude)Homepage
-
-© [year] Anthropic PBC
-
-[PRIVACY POLICY](https://www.anthropic.com/legal/privacy)[CODE OF CONDUCT](https://claude.com/code-with-claude/code-of-conduct)
+Code with Claude: Extended London — May 20, 2026

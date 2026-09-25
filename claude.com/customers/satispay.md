@@ -4,35 +4,21 @@ Case study | Claude Code
 
 # How Satispay's engineers write 75% of their code with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a0f312e210005b48a1fb9ea_logo_satispay-light-mode.png)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a0f312e210005b48a1fb9ea_logo_satispay-light-mode.png)
+![Satispay logo](https://assets.claude.com/f87dce8ac96f2e8181e2ed5b000ef17e2278b034.png)
 
 Industry:
-
-Financial services
+:   Financial services
 
 Company size:
-
-Medium
+:   Medium
 
 Product:
-
-[Claude Code](https://claude.com/product/claude-code)
-
-[Claude Enterprise](https://claude.com/solutions/enterprise)
-
-[Claude Cowork](https://claude.com/product/cowork)
+:   [Claude Code](https://claude.com/product/claude-code)[Claude Enterprise](https://claude.com/solutions/enterprise)[Claude Cowork](https://claude.com/product/cowork)
 
 Location:
-
-EMEA
+:   EMEA
 
 75%+ of code committed each month
 
@@ -50,35 +36,9 @@ from a four-week estimate to under four days
 * Achieved 10x faster modernization of the core transaction service, safely completing a Java 8 to Java 21 and major Spring upgrade in under four days against a four-week estimate
 * Cut data transformation lambdas from three to five days to under an hour
 * Completed an 18-month code update roadmap in 7 months
-* Saw over 90% Claude Code adoption across engineering, with full rollout in 30 days managed  by IT support
+* Saw over 90% Claude Code adoption across engineering, with full rollout in 30 days managed by IT support
 
 ## The challenge
-
-Claude Code
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698f525504b02eec936ac51b_68c469d41149ace562bfd24d_og-claude-product-claude-code.jpeg)
-
-Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
-
-Read more
-
-[Read more](https://claude.com/product/claude-code)Read more
-
-Claude Code
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Claude Code
-
-Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
 
 ## A junior team on a mature payments codebase
 
@@ -88,33 +48,15 @@ When Chief Technology Officer Fabio Rapposelli joined in 2025, the team was weig
 
 The default workflow showed the strain. An engineer would pick up a ticket, spend significant time orienting in a service they had never touched, draft a change, and wait for a senior to review it. That review was carrying three jobs at once: teaching, quality gate, and context transfer. Roadmap velocity suffered, and senior time was going to enable others rather than building.
 
+Claude Code
+
+![Claude Code](https://assets.claude.com/38e8385d1c5f9c0f71c486994e22fc5861a4522d.jpg)
+
+Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
+
+[Read more](https://claude.com/product/claude-code)
+
 ## The solution
-
-Claude Code on the web
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69093b56f1035860a3cfe774_og_claude-code-on-the-web.jpg)
-
-Delegate coding tasks directly from your browser. Kick off multiple sessions in parallel across repositories, with real-time progress tracking.
-
-Read more
-
-[Read more](https://claude.com/blog/claude-code-on-the-web)Read more
-
-Claude Code on the web
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Delegate coding tasks directly from your browser. Kick off multiple sessions in parallel across repositories, with real-time progress tracking.
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Claude Code on the web
-
-Delegate coding tasks directly from your browser. Kick off multiple sessions in parallel across repositories, with real-time progress tracking.
 
 ## Making Claude available from day one
 
@@ -128,21 +70,17 @@ Beyond the default tooling, the team builds reusable assets. Standard Java scaff
 
 The expansion beyond engineering surprised even Rapposelli. Once Claude skills became visible internally, requests came in at a rate of roughly 20 a day from finance, legal, marketing, and operations, including the CFO asking for access to financial analysis skills he had spotted himself. "People across the company knew they had AI-shaped problems," Rapposelli said. "When the tool showed up, they didn't need permission to solve them."
 
-"Claude Code's output, both the code it wrote and the reviews it produced, was considered best across the board."
+Claude Code on the web
 
-Fabio Rapposelli
+![Claude Code on the web](https://assets.claude.com/f86dde63aac75ae3fcf058b66769625b7dd62988.jpg)
 
-Chief Technology Officer, Satispay
+Delegate coding tasks directly from your browser. Kick off multiple sessions in parallel across repositories, with real-time progress tracking.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[Read more](https://claude.com/blog/claude-code-on-the-web)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+> "Claude Code's output, both the code it wrote and the reviews it produced, was considered best across the board."
 
-[Next](#)Next
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+Fabio RapposelliChief Technology Officer, Satispay
 
 ## The outcome
 
@@ -158,42 +96,16 @@ Across the organization, more than 75% of code committed each month is generated
 
 Two pilots already running point to what comes next. Issue-to-PR automation has Claude draft pull requests from tickets filed by other teams, with engineers owning the review and the merge. Agentic fraud investigation moves a workflow tied directly to financial loss from human-in-every-step to agent-led, with people kept in the loop on the decisions that warrant it. "Right now we're focused on automating the task and keeping a human in the loop for critical decisions," Rapposelli said. "The work ahead is understanding which decisions genuinely need a person, and which ones we've simply been used to making ourselves."
 
-"We're moving to a model where the engineer becomes an engineering manager of agents. Individual engineers are operating above their years because the agents close the gap."
+> "We're moving to a model where the engineer becomes an engineering manager of agents. Individual engineers are operating above their years because the agents close the gap."
 
-Fabio Rapposelli
+Fabio RapposelliChief Technology Officer, Satispay
 
-Chief Technology Officer, Satispay
+[![Qonto](https://assets.claude.com/cf9df71e319709f3b2abd4508f40680fa0bcce1e.svg)
 
-## Related stories
+### How Qonto delegates financial admin for small businesses with Claude on Amazon Bedrock](https://claude.com/customers/qonto)[![Pictet](https://assets.claude.com/93f19b6d2b95f2f82e5c7e33938b43dbd537c62f.svg)
 
-[How Qonto delegates financial admin for small businesses with Claude on Amazon Bedrock](https://claude.com/customers/qonto) How Qonto delegates financial admin for small businesses with Claude on Amazon Bedrock
+### Pictet turns weeks of work into hours with Claude Code](https://claude.com/customers/pictet)[![OffDeal](https://assets.claude.com/0144c459af1814dfb5bd273db786703ffcf1cce6.svg)
 
-How Qonto delegates financial admin for small businesses with Claude on Amazon Bedrock
+### OffDeal powers every stage of M&A advisory with one Claude-based agent](https://claude.com/customers/offdeal)[![Money Forward](https://assets.claude.com/4b6d511a3fbb31c233614e47b3e8ce6f8b3e448c.svg)
 
-Customer story
-
-[Customer story](https://claude.com/customers/qonto)Customer story
-
-[Pictet turns weeks of work into hours with Claude Code](https://claude.com/customers/pictet)Pictet turns weeks of work into hours with Claude Code
-
-Pictet turns weeks of work into hours with Claude Code
-
-Customer story
-
-[Customer story](https://claude.com/customers/pictet)Customer story
-
-[OffDeal powers every stage of M&A advisory with one Claude-based agent](https://claude.com/customers/offdeal)OffDeal powers every stage of M&A advisory with one Claude-based agent
-
-OffDeal powers every stage of M&A advisory with one Claude-based agent
-
-Customer story
-
-[Customer story](https://claude.com/customers/offdeal)Customer story
-
-[Money Forward builds an AI-native engineering organization with Claude Code](https://claude.com/customers/money-forward)Money Forward builds an AI-native engineering organization with Claude Code
-
-Money Forward builds an AI-native engineering organization with Claude Code
-
-Customer story
-
-[Customer story](https://claude.com/customers/money-forward)Customer story
+### Money Forward builds an AI-native engineering organization with Claude Code](https://claude.com/customers/money-forward)

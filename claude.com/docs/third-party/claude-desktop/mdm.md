@@ -47,7 +47,7 @@ The window is organized into sections in the left sidebar. Work through them in 
 | Section | What you set |
 | --- | --- |
 | **Connection** | Inference provider (Gateway, Claude API, Google Cloud’s Agent Platform, Bedrock, Bedrock Mantle, or Foundry) and its credentials Model list Organization UUID Optional credential-helper script |
-| **Workspace** | Which of Cowork, Code, and Chat are available Allowed egress hosts for the sandbox Disabled built-in tools Allowed workspace folders |
+| **Capabilities** | Which of Cowork, Code, and Chat are available Allowed egress hosts for the sandbox Disabled built-in tools Allowed workspace folders |
 | **Connectors** | Managed MCP servers pushed to all users Whether users can add their own local MCP servers Whether desktop extensions (`.mcpb`) are allowed Whether unsigned extensions are rejected |
 | **Telemetry & updates** | OpenTelemetry collector endpoint Whether auto-updates are blocked, and the enforcement window if not The three Anthropic-bound telemetry toggles (essential, nonessential, nonessential services) |
 | **Limits** | Per-device token cap and its window length Retention periods after which idle chats, Cowork tasks, and Code sessions are deleted, and the hold that suspends deletion |
@@ -93,7 +93,7 @@ On Windows, check which registry hive your assignment rules write to. If your as
 
 The hosts the app needs to reach depend on the configuration you built: your inference provider’s endpoint is always required, and each telemetry, update, and service setting you leave enabled adds its own hosts. The configuration window shows the exact allowlist for your settings and can export it as a text file for your network team.
 
-`downloads.claude.ai` is required to run the app regardless of your configuration: it serves the VM workspace bundle and the latest Claude Code binary, fetched at session start. Without it, Cowork sessions cannot start. The [offline installer variant](https://claude.com/docs/third-party/claude-desktop/installation#offline-installation) builds both components into the installer package and does not need this host.
+`downloads.claude.ai` is required to run the app regardless of your configuration: it serves the VM workspace bundle and the latest Claude Code binary, fetched at session start. Without it, Chat conversations, Cowork tasks, and Code sessions cannot start on a device that has not yet downloaded these components. App updates often change one or both of these components, and the app then downloads the new versions from the same host. The [offline installer variant](https://claude.com/docs/third-party/claude-desktop/installation#offline-installation) builds both components into the installer package and does not need this host. The app still requests the model catalog from `downloads.claude.ai` unless [`modelCatalogEnabled`](https://claude.com/docs/third-party/claude-desktop/configuration#modelcatalogenabled) is `false` or [`modelCatalogUrl`](https://claude.com/docs/third-party/claude-desktop/configuration#modelcatalogurl) names a mirror inside your network, and sessions start whether or not that request succeeds.
 
 Open these hosts on your perimeter firewall before rolling out to devices. See [Telemetry and egress](https://claude.com/docs/third-party/claude-desktop/telemetry#required-egress-paths) for the full list of hosts grouped by the setting that controls each one, and for the distinction between the perimeter firewall and the in-app sandbox allowlist.
 

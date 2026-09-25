@@ -4,33 +4,21 @@ Q&A | Claude Enterprise
 
 # How League went all in on Claude in a regulated industry
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a7e50faffe550cd0871c1c9_logo_league-light-mode.png)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a7e50fdc2966b1ac852794a_logo_league-dark-mode.png)
+![League logo](https://assets.claude.com/7360d174acf8827f869d92d50d49e0add1c58c2c.png)
 
 Industry:
-
-Healthcare
+:   Healthcare
 
 Company size:
-
-Medium
+:   Medium
 
 Product:
-
-[Claude Enterprise](https://claude.com/solutions/enterprise)
-
-[Claude Code](https://claude.com/product/claude-code)
+:   [Claude Enterprise](https://claude.com/solutions/enterprise)[Claude Code](https://claude.com/product/claude-code)
 
 Location:
-
-North America
+:   North America
 
 98% Claude adoption,
 
@@ -42,35 +30,11 @@ for a 12-year-old regulated healthcare company to go company-wide on Claude Ente
 
 Case Study: League
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a7e557b127ab6a1deab03ed_og_case-study-league%20(1).jpg)
+![Case Study: League](https://assets.claude.com/50bd1123d85ebeb78848384b857f918c348a5f7d.jpg)
 
 League cuts product development cycle times in half with Claude
 
-Read more
-
-[Read more](https://claude.com/customers/league)Read more
-
-Case Study: League
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-League cuts product development cycle times in half with Claude
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Case Study: League
-
-League cuts product development cycle times in half with Claude
-
-[Prev](#)Prev
-
-[Next](#)Next
+[Read more](https://claude.com/customers/league)
 
 [League](https://league.com/) has spent almost 12 years building software for health plans and providers. They work in an industry where new tools typically wait weeks to get off the ground, yet roughly 98% of League's code is AI-authored. We asked CEO and Co-founder Dan Galperin, SVP of Data and AI Engineering Jordan Christensen, and AVP of AI Transformation Signy Roland how they move this fast in a highly regulated industry.
 
@@ -78,11 +42,9 @@ League cuts product development cycle times in half with Claude
 
 **Dan Galperin, League:** What Anthropic has built covers the whole arc of the work in healthcare tech: research, brainstorming, execution, validation, design, security, and more, all in one place, end to end. And it’s connected to the dozens of other tools we already use every day using MCP. Claude also keeps shipping features before we even know we want them. Our engineers, and everyone else, spend their time on harder problems now because we trust Claude with the execution. That has taken us further and faster than we expected.
 
-"Our engineers spend their time on harder problems now because we trust Claude with the execution. That has taken us further and faster than we expected."
+> "Our engineers spend their time on harder problems now because we trust Claude with the execution. That has taken us further and faster than we expected."
 
-Dan Galperin
-
-CEO and Co-founder, League
+Dan GalperinCEO and Co-founder, League
 
 ## Anthropic: What's the hardest problem your engineering team has handed Claude, and what was the outcome?
 
@@ -108,37 +70,15 @@ The ceiling also keeps moving. Every release I've picked up has let me hand off 
 
 Claude for Healthcare
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/696415a56ed108d94045852e_heart-marginalia.avif)
+![Claude for Healthcare](https://assets.claude.com/3cc055deed02884f4a1b81019a962925687fccc3.jpg)
 
 Claude helps healthcare organizations move faster without sacrificing accuracy, safety, or compliance. Less administrative work, more time with the people you serve.
 
-Read more
+[Read more](https://claude.com/healthcare)
 
-[Read more](https://claude.com/healthcare)Read more
+> "Security is the first question on everything we do, and Anthropic clearly treats it the same way. We can set the boundaries we need."
 
-Claude for Healthcare
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Claude helps healthcare organizations move faster without sacrificing accuracy, safety, or compliance. Less administrative work, more time with the people you serve.
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Claude for Healthcare
-
-Claude helps healthcare organizations move faster without sacrificing accuracy, safety, or compliance. Less administrative work, more time with the people you serve.
-
-"Security is the first question on everything we do, and Anthropic clearly treats it the same way. We can set the boundaries we need."
-
-Dan Galperin
-
-CEO and Co-founder, League
+Dan GalperinCEO and Co-founder, League
 
 ## Anthropic: How far does that go across the rest of the company?
 
@@ -148,52 +88,12 @@ CEO and Co-founder, League
 
 **Galperin:** Security is the first question on everything we do, and Anthropic clearly treats it the same way. The controls reflect that: we can tier model access, manage which connectors are available and to whom, and set the boundaries we need. Claude Security itself has been excellent. The spend and usage transparency is the best we have seen in this market. Most importantly, Anthropic already understands what it takes to operate in a regulated industry, and that shows up in how they build. What it adds up to is that our whole R&D process now runs on what we call bets: a small team takes two or three weeks to build out an ambitious idea we would previously have ruled out as taking too long, and comes back with a working prototype we can put in front of the market. The cycle is insanely fast, and our ability to experiment and execute on those bets is phenomenal.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[![League](https://assets.claude.com/7360d174acf8827f869d92d50d49e0add1c58c2c.png)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### League cuts product development cycle times in half with Claude](https://claude.com/customers/league)[![Arkana Labs](https://assets.claude.com/825b44bd9f2704f71fd53f5125cb92c31b32bd73.svg)
 
-[Next](#)Next
+### How can a medical lab keep patients at the center of its work while the caseload keeps growing?](https://claude.com/customers/arkana-labs)[![Zingage](https://assets.claude.com/7a6b9b092d1ec61d938402cc6744e4d94ed2564a.svg)
 
-Video caption
+### How Zingage automates care coordination for 400+ home care agencies with Claude](https://claude.com/customers/zingage)[![Epic](https://assets.claude.com/eba99cadd0dd874d08d32b4f4c0cfbea1596372e.png)
 
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[League cuts product development cycle times in half with Claude](https://claude.com/customers/league) League cuts product development cycle times in half with Claude
-
-League cuts product development cycle times in half with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/league)Customer story
-
-[How can a medical lab keep patients at the center of its work while the caseload keeps growing?](https://claude.com/customers/arkana-labs)How can a medical lab keep patients at the center of its work while the caseload keeps growing?
-
-How can a medical lab keep patients at the center of its work while the caseload keeps growing?
-
-Customer story
-
-[Customer story](https://claude.com/customers/arkana-labs)Customer story
-
-[How Zingage automates care coordination for 400+ home care agencies with Claude](https://claude.com/customers/zingage)How Zingage automates care coordination for 400+ home care agencies with Claude
-
-How Zingage automates care coordination for 400+ home care agencies with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/zingage)Customer story
-
-[A conversation with Seth Hain about Epic’s internal AI adoption](https://claude.com/customers/epic-systems)A conversation with Seth Hain about Epic’s internal AI adoption
-
-A conversation with Seth Hain about Epic’s internal AI adoption
-
-Customer story
-
-[Customer story](https://claude.com/customers/epic-systems)Customer story
+### A conversation with Seth Hain about Epic’s internal AI adoption](https://claude.com/customers/epic-systems)

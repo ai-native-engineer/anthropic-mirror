@@ -109,6 +109,12 @@ Copy link
 for Claude for Government (C4G) PFCS-SS FedRAMP High Authorization Package
 View
 Claude for Government (C4G) PFCS-SS FedRAMP High Authorization Package
+Claude for Government (C4G) FedRAMP Secure Configuration Guide
+Copy link
+for Claude for Government (C4G) FedRAMP Secure Configuration Guide
+v2.1
+View
+Claude for Government (C4G) FedRAMP Secure Configuration Guide
 International Compliance
 [Anthropic Ireland Limited] Cyber Essentials Certificate (2025)
 Copy link
@@ -198,6 +204,11 @@ Copy link
 for Claude for Excel, Powerpoint, Word: Architecture Overview (Third party platforms)
 View
 Claude for Excel, Powerpoint, Word: Architecture Overview (Third party platforms)
+Microsoft 365 connector for Claude: architecture and data flows
+Copy link
+for Microsoft 365 connector for Claude: architecture and data flows
+View
+Microsoft 365 connector for Claude: architecture and data flows
 [Anthropic] Identity & Access Controls
 Copy link
 for [Anthropic] Identity & Access Controls
@@ -250,6 +261,11 @@ Copy link
 for Claude Opus 5 Model Documentation Form
 View
 Claude Opus 5 Model Documentation Form
+Claude Opus 5.5 Model Documentation Form
+Copy link
+for Claude Opus 5.5 Model Documentation Form
+View
+Claude Opus 5.5 Model Documentation Form
 Claude Mythos Preview Model Documentation Form
 Copy link
 for Claude Mythos Preview Model Documentation Form
@@ -291,6 +307,11 @@ Copy link
 for Claude Opus 5 Training Data Summary
 View
 Claude Opus 5 Training Data Summary
+Claude Opus 5.5 Training Data Summary
+Copy link
+for Claude Opus 5.5 Training Data Summary
+View
+Claude Opus 5.5 Training Data Summary
 Claude Mythos Preview Training Data Summary
 Copy link
 for Claude Mythos Preview Training Data Summary

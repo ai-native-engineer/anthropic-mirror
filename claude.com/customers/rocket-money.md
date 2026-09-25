@@ -4,37 +4,24 @@ Case study | Claude
 
 # How Rocket Money built its personal finance agent with Claude
 
-Try Claude
+[Contact sales](https://claude.com/contact-sales)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a8e170db69adaa238d89c2d_logo_rocketmoney-light-mode.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a8e17136685ddacc4602392_logo_customer-dark-mode.svg)
+![Rocket Money logo](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
 Industry:
-
-Software
+:   Software
 
 Company size:
-
-Large
+:   Large
 
 Product:
-
-[Claude Platform](https://claude.com/platform/api)
-
-[Claude Code](https://claude.com/product/claude-code)
+:   [Claude Platform](https://claude.com/platform/api)[Claude Code](https://claude.com/product/claude-code)
 
 Partner:
-
-AWS
+:   AWS
 
 Location:
-
-North America
+:   North America
 
 11x increase in code commits
 
@@ -57,32 +44,6 @@ with apparent errors tracing to data, not the model
 
 ## The challenge
 
-Q&A: Rocket Money on building agents that fix their own code
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a8e470dae58261233b29295_og_Q%26A%20Rocket.jpg)
-
-Anthropic spoke with Rocket Money's engineering team about the architecture behind Rowan and their approach to building agents in consumer AI.
-
-Read more
-
-[Read more](https://claude.com/customers/rocket-money-qa)Read more
-
-Q&A: Rocket Money on building agents that fix their own code
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Anthropic spoke with Rocket Money's engineering team about the architecture behind Rowan and their approach to building agents in consumer AI.
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Q&A: Rocket Money on building agents that fix their own code
-
-Anthropic spoke with Rocket Money's engineering team about the architecture behind Rowan and their approach to building agents in consumer AI.
-
 ## Putting a money manager in everyone's pocket
 
 The people who manage their money best usually have help: someone watching their accounts, flagging what looks off, and weighing in when a decision comes up. That kind of attention has long been reserved for the wealthy, and everyone else has managed on their own, mostly by opening an app and reading dashboards.
@@ -91,29 +52,15 @@ Aaron Dignan, Rocket Money's VP of Product & AI, puts it simply: "The most succe
 
 Rocket Money had already built the underlying machinery, with millions of users relying on it to stay on top of their finances. But that value still depended on people doing the work themselves, and a large share of those who want to manage money well don't have the time, aptitude, or interest to sit in an app. "I don't want to make anyone open a dashboard or read a graph," said Chase Adams, VP of AI Engineering. The job was to deliver that value without asking for attention.
 
+Q&A: Rocket Money on building agents that fix their own code
+
+![Q&A: Rocket Money on building agents that fix their own code](https://assets.claude.com/42628d0586b397e10585e4eee5249b6e1412e733.jpg)
+
+Anthropic spoke with Rocket Money's engineering team about the architecture behind Rowan and their approach to building agents in consumer AI.
+
+[Read more](https://claude.com/customers/rocket-money-qa)
+
 ## The solution
-
-Choosing the right Claude model
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69c2dd485d80024bc14f48c6_choosing%20model.jpeg)
-
-Learn when to use Haiku, Sonnet, or Opus to get better results and stay inside your rate limit. A practical guide to picking the right Claude model.
-
-Choosing the right Claude model
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Learn when to use Haiku, Sonnet, or Opus to get better results and stay inside your rate limit. A practical guide to picking the right Claude model.
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Choosing the right Claude model
-
-Learn when to use Haiku, Sonnet, or Opus to get better results and stay inside your rate limit. A practical guide to picking the right Claude model.
 
 ## Choosing a model that could be trusted with money
 
@@ -131,21 +78,15 @@ Adams makes that concrete: "A cancellation should be codified into a procedure a
 
 Because Rowan handles money, the architecture is also built to be auditable. Structured outputs let the team run evals against deterministic results instead of asking a model to grade itself, and classifier fall-throughs catch off-topic requests early so a conversation never drifts away from money. After Rowan takes an action, Claude classifies whether it actually completed, such as whether a cancellation went through, and surfaces why when it hasn't, so a person can decide what happens next. Opus 5 also runs automated analysis over traces of production data. "We can trace the thread back to exactly where it went wrong—a specific classifier or a specific call—and fix it for everyone," Dignan said.
 
-"We're in finance. Our bar for accuracy needs to be 100%."
+Choosing the right Claude model
 
-Aaron Dignan
+![Choosing the right Claude model](https://assets.claude.com/7388619b452db0af26c78442a275c86c5ebe3124.jpg)
 
-VP of Product & AI, Rocket Money
+Learn when to use Haiku, Sonnet, or Opus to get better results and stay inside your rate limit. A practical guide to picking the right Claude model.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+> "We're in finance. Our bar for accuracy needs to be 100%."
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+Aaron DignanVP of Product & AI, Rocket Money
 
 ## The outcome
 
@@ -157,42 +98,16 @@ Expanding what Rowan does depends on it staying reliable. Across Rowan's beta, t
 
 Rowan is now beginning a phased private rollout, starting with its first paying users and expanding through the second half of the year, and the discipline, the team says, is staying focused rather than saying yes to everything. "Our hypothesis is that people will eventually hire a handful of specialized agents for the major roles in their life, not one agent for everything," Dignan said. "Specialization is what delivers a high quality experience, so Rowan will continue to think about one thing: money."
 
-"We haven't had any meaningful hallucination patterns, and when someone thinks they've found one, it usually turns out to be a data problem, not the model making something up."
+> "We haven't had any meaningful hallucination patterns, and when someone thinks they've found one, it usually turns out to be a data problem, not the model making something up."
 
-Chase Adams
+Chase AdamsVP of AI Engineering, Rocket Money
 
-VP of AI Engineering, Rocket Money
+[![Supermetrics](https://assets.claude.com/3ac4171a81008be0340e5c3d8ccb46571c3edfb3.svg)
 
-## Related stories
+### Supermetrics lets marketers manage ad campaigns from a conversation with Claude](https://claude.com/customers/supermetrics)[![Atlassian](https://assets.claude.com/4870b3d6c0253cea01b100c98ad2030b8e4f8ce1.svg)
 
-[How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)How Atlassian builds AI agents teams can trust with Claude and Google Cloud
+### How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-How Atlassian builds AI agents teams can trust with Claude and Google Cloud
+### Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)[![Notion](https://assets.claude.com/19e0cdfaef9d2980bddd19cd993076d62b46c0c7.svg)
 
-Customer story
-
-[Customer story](https://claude.com/customers/atlassian)Customer story
-
-[Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)Rocket Money on building agents that fix their own code
-
-Rocket Money on building agents that fix their own code
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money-qa)Customer story
-
-[How Notion ships and scales agents with Claude Managed Agents](https://claude.com/customers/notion-qa)How Notion ships and scales agents with Claude Managed Agents
-
-How Notion ships and scales agents with Claude Managed Agents
-
-Customer story
-
-[Customer story](https://claude.com/customers/notion-qa)Customer story
-
-[Deepgram ships 4–10x more durable code with Claude](https://claude.com/customers/deepgram) Deepgram ships 4–10x more durable code with Claude
-
-Deepgram ships 4–10x more durable code with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/deepgram)Customer story
+### How Notion ships and scales agents with Claude Managed Agents](https://claude.com/customers/notion-qa)

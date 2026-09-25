@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/ai-fluency-for-small-businesses/tying-it-all-together -->
 
-Lesson 7 of 9 · AI Fluency for Small BusinessesTying it all together
+Lesson 7 of 9 · AI Fluency for small businessesTying it all together
 
-3. /[AI Fluency for Small Businesses](https://academy.claude.com/courses/ai-fluency-for-small-businesses)
+3. /[AI Fluency for small businesses](https://academy.claude.com/courses/ai-fluency-for-small-businesses)
 
-[AI Fluency for Small Businesses](https://academy.claude.com/courses/ai-fluency-for-small-businesses)
+[AI Fluency for small businesses](https://academy.claude.com/courses/ai-fluency-for-small-businesses)
 
 # Tying it all together
 
@@ -82,7 +82,7 @@ In the next lesson, we'll discuss strategies for integrating AI into your busine
 
 [Previous lessonTransparent AI use](https://academy.claude.com/courses/ai-fluency-for-small-businesses/using-data-with-ai)[Next lessonHuman in the loop](https://academy.claude.com/courses/ai-fluency-for-small-businesses/human-in-the-loop)
 
-Lesson 7 of 9 · AI Fluency for Small BusinessesTying it all together
+Lesson 7 of 9 · AI Fluency for small businessesTying it all together
 
 Introduction and AI Fluency framework
 

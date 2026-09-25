@@ -49,10 +49,11 @@ When Claude enters a path outside the repository's `.claude/worktrees/` director
 
 ## Clean up worktrees
 
-When you exit an interactive worktree session, Claude checks the worktree for work that removal would delete: changed or untracked files, and new commits.
+When you exit an interactive worktree session, Claude checks the worktree for work that removal would delete: changed or untracked files, uncommitted work inside checked-out submodules, and new commits.
 
 * **The worktree is clean**: for an unnamed session, Claude removes the worktree and its branch automatically. A [named](/docs/en/sessions#name-your-sessions) session prompts you first so you can keep the worktree for later
 * **The worktree has work in it**: Claude prompts you to keep or remove the worktree. Keeping preserves the directory and branch so you can return later. Removing deletes the worktree directory and its branch, along with all the work in them
+* **The worktree's state can't be verified**: when Claude Code can't count the worktree's changes or can't inspect its submodule checkouts, it prompts you rather than removing the worktree automatically. The prompt names what it couldn't check
 
 Non-interactive runs with `-p` have no exit prompt, so Claude doesn't clean up their worktrees, and Claude Code leaves the lock it took on each one at creation in place until a later session's [stale-lock sweep](#clean-up-subagent-and-background-session-worktrees) releases it. To remove one, run `git worktree remove`; if git refuses because the worktree is locked, run `git worktree unlock` on it first.
 
@@ -87,11 +88,11 @@ Claude Code applies four checks:
 * **File edits**: Claude Code blocks an `Edit`, `Write`, or `NotebookEdit` that targets a path in the main checkout.
 * **Command working directory**: Claude Code blocks a Bash, PowerShell, or Monitor command whose working directory resolves to the main checkout, or whose working directory it can't verify stays outside it.
 * **Git redirects**: Claude Code blocks a Bash or Monitor command that redirects git into the main checkout. The redirect can come through `git -C`, `--git-dir`, a `GIT_DIR` or `GIT_WORK_TREE` variable, or a `cd` into the main checkout before running git.
-* **Command shape**: Claude Code blocks a Bash or Monitor command when it can't verify from the command text that any git the command runs stays inside the worktree, for example when the command name is computed at runtime or the syntax can't be parsed. Claude Code tells Claude how to rewrite the refused command, such as splitting it into plain, separate commands. You can't turn this check off.
+* **Command shape**: Claude Code blocks a Bash or Monitor command when it can't verify from the command text that any git the command runs stays inside the worktree. That happens, for example, when the command name is computed at runtime, when the syntax can't be parsed, or when an expansion such as `${!name}` or `${ command; }` could run a command the text doesn't spell out. Claude Code tells Claude how to rewrite the refused command, such as splitting it into plain, separate commands. You can't turn this check off.
 
 The checks apply to the repository you launched Claude Code from. They also cover the main checkout a linked worktree is linked from. For PowerShell commands, Claude Code applies only the working-directory check.
 
-Claude sees each refusal as a tool error that names the worktree and says how to proceed.
+Claude sees each refusal as a tool error that names the worktree and says how to proceed. For a refused command, see [what the refusal message means and how to clear it](/docs/en/errors#command-blocked-by-the-worktree-isolation-checks).
 
 ## Isolate subagents with worktrees
 
@@ -121,7 +122,8 @@ Claude Code runs a periodic sweep that removes worktrees that Claude created for
 When you [background](/docs/en/agent-view#send-the-session-to-the-background) a `--worktree` session, its worktree becomes a background-session worktree that the sweep can remove. The sweep leaves a worktree in place in these cases:
 
 * The worktree still holds work: changed or untracked files, or unpushed commits.
-* Claude Code can't determine which filter drivers the repository config defines, in any of the [three cases that also block worktree creation](#git-lfs-content-is-missing-from-a-worktree-claude-code-created).
+* A checked-out submodule in the worktree holds changed or untracked files, or Claude Code can't inspect the worktree's submodules. This check requires Claude Code v2.1.274 or later.
+* One of the [four cases that also block worktree creation](#git-lfs-content-is-missing-from-a-worktree-claude-code-created) applies: Claude Code can't determine which filter drivers the repository config defines, or finds a setting there it can't switch off.
 * The worktree belongs to a `--worktree` session you haven't backgrounded, whatever its age.
 * You created the worktree yourself with `git worktree add`, even if you then ran a `--worktree <name>` session in it and backgrounded that session.
 
@@ -219,13 +221,16 @@ Configure a [`WorktreeCreate` hook](/docs/en/hooks#worktreecreate) to replace th
 
 ## What worktrees share with the main checkout
 
-A worktree gets its own files and branch, but it shares the repository's `.git` directory, project-scope plugins, and saved permission approvals with the main checkout:
+A worktree gets its own files and branch, but it shares the following with the main checkout:
 
 * **The repository's `.git` directory**: git commands in a worktree write to the main repository's shared `.git` directory, and [sandboxing](/docs/en/sandboxing#filesystem-isolation) allows those writes, so commands such as `git commit` work from inside a worktree with the sandbox enabled.
-* **Plugins**: plugins installed at [project scope](/docs/en/plugins-reference#plugin-installation-scopes) from the main checkout also load in worktrees of the same repository, so you don't need to reinstall them per worktree. Requires Claude Code v2.1.200 or later.
+* **Plugins**: plugins installed at [project scope](/docs/en/plugins/loading#find-where-a-plugin-is-enabled) from the main checkout also load in worktrees of the same repository, so you don't need to reinstall them per worktree. Requires Claude Code v2.1.200 or later.
 * **Permission approvals**: choosing "Yes, and don't ask again" for a Bash command in a worktree session saves the rule to the main checkout's `.claude/settings.local.json`, so it applies in the main checkout and in every other worktree of the repository, and it survives the worktree's removal. On Windows and in the other cases where Claude Code [doesn't use the repository root](/docs/en/settings#where-claude-code-looks-for-each-file), the rule stays with that worktree. Before v2.1.211, an approval granted in a worktree was saved inside that worktree, didn't apply elsewhere, and was lost when the worktree was removed. See [where approvals are saved](/docs/en/permissions#permission-system).
+* **Untracked skills, agents, and commands**: when the worktree checkout has no `.claude/skills` directory at its root, for example because your `.claude/skills` is gitignored, Claude Code loads the main checkout's [project skills](/docs/en/skills#where-skills-live) in the worktree session. In a worktree with its own `.claude/skills` directory, only that copy loads.
 
-All three apply whether you create the worktree with `--worktree`, with `git worktree add`, or through the [desktop app](/docs/en/desktop#work-in-parallel-with-sessions).
+  The same read-through covers `.claude/agents` and `.claude/commands`. For skills, the read-through requires Claude Code v2.1.277 or later.
+
+All of these apply whether you create the worktree with `--worktree`, with `git worktree add`, or through the [desktop app](/docs/en/desktop#work-in-parallel-with-sessions).
 
 ## Manage worktrees manually
 
@@ -289,6 +294,8 @@ This `WorktreeCreate` hook reads the worktree name from the JSON on stdin with `
 
 Pair it with a `WorktreeRemove` hook to clean up when the session ends. See the [hooks reference](/docs/en/hooks#worktreecreate) for the input schema and a removal example.
 
+A `WorktreeCreate` hook also lets you run [`/batch`](/docs/en/commands#all-commands) outside a git repository. Each `/batch` subagent then publishes its change with your project's version-control commands and, when it can't open a pull request, reports what it published instead. Running `/batch` outside a git repository requires Claude Code v2.1.281 or later.
+
 ## Troubleshooting
 
 Claude Code reports the errors below when it creates a worktree, enters one at startup, or returns a resumed session to one.
@@ -311,11 +318,12 @@ Claude Code skips the repository's own filter drivers when it creates a worktree
 
 To get the real files, run `git lfs pull` inside the worktree.
 
-In three rare cases, Claude Code can't tell which filter drivers the repository's config defines, and creates no worktree at all. Match the error to its fix:
+In four rare cases, Claude Code creates no worktree at all: it can't tell which filter drivers the repository's config defines, or it finds a setting there it can't switch off. Match the error to its fix:
 
 * **`Could not read the repository git config to neutralize filter drivers`**: Claude Code couldn't read the repository's `.git/config`, for example because of its permissions. Fix that and retry.
 * **`The repository git config defines a filter driver whose name cannot be neutralized (contains "=" or a newline)`**: rename or remove that filter driver in `.git/config` and retry.
 * **`The repository git config has a conditional include (includeIf)`**: move the settings the `includeIf` in `.git/config` pulls in directly into that file, remove the `includeIf`, and retry. An `includeIf` in your global git config doesn't trigger this.
+* **`Git was not run: the repository's own git config sets <key>`**: the message names a key that points Git LFS at a program to run, such as `lfs.customtransfer.<name>.path` or `lfs.standalonetransferagent`. If that setting is yours, move it to your global git config. If you don't recognize it, remove it from the repository's git config, since a tool or checkout you don't trust may have written it. Retry once the key is gone from the repository's config.
 
 ### Claude Code refuses to use a worktree
 
@@ -359,6 +367,8 @@ The messages take different shapes from the interactive messages in the table:
 * `Notice: the worktree <path> for this session no longer exists...` for a gone worktree; Claude Code prints it and continues the session, as an interactive resume does
 
 The refusal ending embedded in each error is shared with the interactive notices, so it still matches its entry under [Claude Code refuses to use a worktree](#claude-code-refuses-to-use-a-worktree).
+
+In the stream-json result, [`startup_failure_reason`](/docs/en/agent-sdk/typescript#startup_failure_reason) is `worktree_unverified` for the `could not verify worktree` error and `worktree_resume_refused` for the `cannot resume into worktree` and `The worktree binding is kept` errors. An application can branch on it instead of matching the error text. Before v2.1.274, the result carried no `startup_failure_reason` field.
 
 ## See also
 

@@ -4,42 +4,31 @@
 
 The mechanics that separate basic Claude Code use from real leverage: CLAUDE.md done well, wiring tools in with MCP, packaging team knowledge as skills, and using auto mode safely.
 
-Details
+## Details
 
 City
-
-San Francisco, USA
+:   San Francisco, USA
 
 Date
-
-May 6, 2026
+:   May 6, 2026
 
 Time
-
-11:15AM – 12:00PM
+:   11:15AM – 12:00PM
 
 Session type
-
-Workshop
+:   Workshop
 
 Speaker(s)
+:   Daisy Hollman
 
-Daisy Hollman
+    Member of Technical Staff,
 
-Member of Technical Staff,
+    Anthropic
 
-Anthropic
-
-Anthropic's developer conference, recorded
+## Anthropic's developer conference, recorded
 
 Keynotes, demos, and conversations with the teams behind Claude. Recorded at Code w/ Claude 2026 San Francisco and ready to replay.
 
-Browse recordings
+[Browse recordings](https://claude.com/code-with-claude/san-francisco)
 
-[Learn more](https://claude.com/code-with-claude/san-francisco)Learn more
-
-[Homepage](https://claude.com/code-with-claude)Homepage
-
-© [year] Anthropic PBC
-
-[PRIVACY POLICY](https://www.anthropic.com/legal/privacy)[CODE OF CONDUCT](https://claude.com/code-with-claude/code-of-conduct)
+Beyond the basics with Claude Code | Session | Code w/ Claude 2026

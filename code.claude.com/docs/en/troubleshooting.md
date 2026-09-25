@@ -35,6 +35,10 @@ Claude Code is designed to work with most development environments, but may cons
 3. Consider adding large build directories to your `.gitignore` file
 4. Restart with [`claude --safe-mode`](/docs/en/cli-reference#cli-flags) to check whether a plugin, MCP server, or hook is the source. It disables all customizations for the session; if usage drops, see [Debug your configuration](/docs/en/debug-your-config#test-against-a-clean-configuration) to find which one
 
+If a session's heap memory passes 2.5GB, a critical memory usage warning appears. To free the memory, restart Claude Code and run [`claude --continue`](/docs/en/cli-reference#cli-flags) to resume the conversation in a fresh process.
+
+Outside [fullscreen rendering](/docs/en/fullscreen), running `/compact` frees memory too. The warning disappears once memory use drops back below 2.5GB.
+
 If memory usage stays high after these steps, run `/heapdump` to write two files to `~/Desktop`: a JavaScript heap snapshot named `<session-id>.heapsnapshot` and a memory breakdown named `<session-id>-diagnostics.json`. Claude Code [hides the command from the command menu](/docs/en/commands#how-the-command-menu-matches-what-you-type); type it in full. On Linux without a Desktop folder, the files are written to your home directory.
 
 <Warning>
@@ -43,7 +47,7 @@ If memory usage stays high after these steps, run `/heapdump` to write two files
 
 The command also prints a summary in the conversation, showing resident set size, JS heap, array buffers, and unaccounted native memory, plus any leak indicators it detected, such as a high memory growth rate or an unusually high number of open handles. The summary says whether most memory is in the JS heap, which the snapshot captures, or in native memory, which it doesn't.
 
-Do one of two things with the output:
+Report the output or investigate it yourself:
 
 * **Report it**: open a [GitHub issue](https://github.com/anthropics/claude-code/issues) and attach only the `-diagnostics.json` file, which carries the statistics behind the printed summary and no conversation content or credentials
 * **Investigate it yourself**: if the summary says most memory is JS heap, open the `.heapsnapshot` file in Chrome DevTools under Memory → Load and sort by retained size to see what's holding the memory
@@ -82,7 +86,7 @@ If characters render as boxes, smears, or the wrong glyphs when running Claude C
 
 In [fullscreen rendering](/docs/en/fullscreen), Claude Code scrolls the conversation itself rather than leaving it to your terminal. If each wheel notch moves fewer lines than you want, run `/scroll-speed` to raise the number of lines per notch and save it, or set the `CLAUDE_CODE_SCROLL_SPEED` environment variable, except in the JetBrains IDE terminal, where Claude Code applies its own scroll handling and neither takes effect. See [Mouse wheel scrolling](/docs/en/fullscreen#mouse-wheel-scrolling) for the values each accepts.
 
-To move faster without changing the speed, press `PgUp` and `PgDn` to scroll half a screen at a time. To hand scrolling back to your terminal's native scrollback instead, run `/tui default` to switch to the classic renderer.
+To move faster without changing the speed, press `PgUp` and `PgDn` to scroll half a screen at a time. To use your terminal's native scrollback instead, run `/tui default` to switch to the classic renderer.
 
 ### Clipboard commands such as `pbcopy` fail inside the sandbox
 
@@ -90,7 +94,7 @@ When [sandboxing](/docs/en/sandboxing) is on, clipboard utilities such as `pbcop
 
 To put Claude's output on your clipboard, ask Claude to print the content in its response, then run [`/copy`](/docs/en/commands). `/copy` writes to the clipboard from the Claude Code process itself rather than from a sandboxed command, so sandboxing doesn't block it. It can copy a single code block instead of the whole response, and it also writes what it copied to a file and prints the path, which gives you a fallback when the clipboard write doesn't reach your terminal, for example over SSH.
 
-To let a piped command reach the clipboard directly instead, add `pbcopy *`, `wl-copy *`, or `xclip *` to [`excludedCommands`](/docs/en/settings-reference#sandbox-excludedcommands) so the command runs outside the sandbox.
+When Claude pipes text to one of these tools, adding `pbcopy *`, `wl-copy *`, or `xclip *` to [`excludedCommands`](/docs/en/settings-reference#sandbox-excludedcommands) doesn't take that call out of the sandbox on its own.
 
 ### Copied text doesn't reach your local clipboard over SSH
 

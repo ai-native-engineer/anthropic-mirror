@@ -4,7 +4,7 @@ The Web Search connector gives Claude the ability to search the public internet 
 
 For questions about web search in commercial Claude, see **[Enabling and using web search](https://support.claude.com/en/articles/10684626-enabling-and-using-web-search)**.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2256120763/7652c6c669446113eae75f3c5977/9c74d57e-aaa2-4f1c-bfe4-2b9b87fd41ab?expires=1789345800&signature=c21b0260af02b66bf095e79f924eaa5296437cd75906ceccb19e2b108c8bda24&req=diIiEMh8nYZZWvMW1HO4zQvFLLtQicHwM%2Fw5SJgC29HQRWB6%2BGEIIFLTV%2Bvb%0AdKEMNrPiw8yXs7U4uSc%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2256120763/7652c6c669446113eae75f3c5977/9c74d57e-aaa2-4f1c-bfe4-2b9b87fd41ab?expires=1789345800&signature=c21b0260af02b66bf095e79f924eaa5296437cd75906ceccb19e2b108c8bda24&req=diIiEMh8nYZZWvMW1HO4zQvFLLtQicHwM%2Fw5SJgC29HQRWB6%2BGEIIFLTV%2Bvb%0AdKEMNrPiw8yXs7U4uSc%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2256120763/7652c6c669446113eae75f3c5977/9c74d57e-aaa2-4f1c-bfe4-2b9b87fd41ab?expires=1790297100&signature=6be8ef0294a2a05d48809f97950ac63c576c88985216607eeb88c4d80f3ef776&req=diIiEMh8nYZZWvMW1HO4zQvFLbJRhMP5M%2Fw5SJgC29GnHfMLCJInnnAeH3ku%0Ad0CpNqHAFFMymAv7r%2BY%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2256120763/7652c6c669446113eae75f3c5977/9c74d57e-aaa2-4f1c-bfe4-2b9b87fd41ab?expires=1790297100&signature=6be8ef0294a2a05d48809f97950ac63c576c88985216607eeb88c4d80f3ef776&req=diIiEMh8nYZZWvMW1HO4zQvFLbJRhMP5M%2Fw5SJgC29GnHfMLCJInnnAeH3ku%0Ad0CpNqHAFFMymAv7r%2BY%3D%0A)
 
 ## How Web Search differs for Claude for Government
 
@@ -75,6 +75,6 @@ No. The Remote MCP framework was authorized as a feature, which covers individua
 
 * [Enable and use web search](https://support.claude.com/en/articles/10684626-enable-and-use-web-search)
 * [Public Sector FAQs](https://support.claude.com/en/articles/13756069-public-sector-faqs)
-* [Get started with Claude for Government](https://support.claude.com/en/articles/14503590-get-started-with-claude-for-government)
 * [MCP connectors](https://support.claude.com/en/articles/14503689-mcp-connectors)
 * [MCP: Individual connectors](https://support.claude.com/en/articles/14503703-mcp-individual-connectors)
+* [Model availability in Claude for Government](https://support.claude.com/en/articles/14503794-model-availability-in-claude-for-government)

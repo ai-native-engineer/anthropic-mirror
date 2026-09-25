@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence/adoption-signals -->
 
-Lesson 12 of 14 · Deploying Claude Enterprise with Confidence: The five decisions that shape your rolloutAdoption signals
+Lesson 12 of 14 · Deploying Claude Enterprise with confidence: The five decisions that shape your rolloutAdoption signals
 
-3. /[Deploying Claude Enterprise with Confidence: The five decisions that shape your rollout](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence)
+3. /[Deploying Claude Enterprise with confidence: The five decisions that shape your rollout](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence)
 
-[Deploying Claude Enterprise with Confidence: The five decisions that shape your rollout](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence)
+[Deploying Claude Enterprise with confidence: The five decisions that shape your rollout](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence)
 
 # Adoption signals
 
@@ -83,7 +83,7 @@ The next module, Your rollout, pulls your five decisions together on one map: yo
 
 [Previous lessonVisibility: what you can measure](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence/visibility-what-you-can-measure)[Next lessonHow the decisions connect](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence/how-the-decisions-connect)
 
-Lesson 12 of 14 · Deploying Claude Enterprise with Confidence: The five decisions that shape your rolloutAdoption signals
+Lesson 12 of 14 · Deploying Claude Enterprise with confidence: The five decisions that shape your rolloutAdoption signals
 
 The plan
 

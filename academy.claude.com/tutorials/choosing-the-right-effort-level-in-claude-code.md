@@ -133,6 +133,9 @@ Managing effort comes down to one habit: start at the default, watch what comes 
 
 * [**Choosing a Claude model and effort level in Claude Code**(opens in new tab)](https://claude.com/blog/claude-model-and-effort-level-in-claude-code): the concepts behind model choice and effort, from the Claude Code team.
 * [**Model configuration**(opens in new tab)](https://code.claude.com/docs/en/model-config): the full reference for `/effort`, settings, precedence, and organization limits.
+* [**Maximizing value from Claude Code**(opens in new tab)](https://www.anthropic.com/webinars/claude-code-maximizing-value): a recorded webinar on where a session's tokens go, how to pick the right model and effort level, and what CLAUDE.md and MCP servers add to every turn, from the Claude Code team.
+* [**Optimizing for cost and intelligence**(opens in new tab)](https://platform.claude.com/docs/en/about-claude/models/optimizing-for-cost-and-intelligence): measured results for effort, prompt caching, and model choice, compared on cost per task, from the Claude Platform docs.
+* [**Cost Optimization on the Claude API**(opens in new tab)](https://platform.claude.com/cookbook/cost-optimization-cost-optimization): cost levers applied one at a time to a working agent, for Platform builders, from the Claude Cookbook.
 
 * [Effort does not change what the model knows](#effort-does-not-change-what-the-model-knows)
 * [When to change the effort](#when-to-change-the-effort)

@@ -10,11 +10,11 @@ Build your skills through written guides, and video lessons covering everything 
 
 [View all](https://academy.claude.com/all?kind=tutorial&product=chat)
 
-[![](https://academy.claude.com/assets/v1/thumbnail.light-iznp6akh.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-hh3at4r1.png)
+[![](https://academy.claude.com/assets/v1/thumbnail.light-khg817wt.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-h1zlg9b3.png)
 
-### Getting started with Claude.ai
+### Getting started with Claude
 
-5 min](https://academy.claude.com/tutorials/getting-started-with-claude-ai)[![](https://academy.claude.com/assets/v1/thumbnail.light-ofwck6bq.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-09in3lr8.png)
+5 min](https://academy.claude.com/tutorials/getting-started-with-claude)[![](https://academy.claude.com/assets/v1/thumbnail.light-ofwck6bq.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-09in3lr8.png)
 
 ### Intro to Projects
 
@@ -48,7 +48,7 @@ Build your skills through written guides, and video lessons covering everything 
 
 ### Delegating your first task in Claude Cowork
 
-4 min](https://academy.claude.com/tutorials/delegating-your-first-task-in-claude-cowork)[![](https://academy.claude.com/assets/v1/thumbnail.light-jeypcq29.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-bsl631sl.png)
+4 min](https://academy.claude.com/tutorials/delegating-your-first-task-in-claude-cowork)[![](https://academy.claude.com/assets/v1/thumbnail.light-elo1j6u1.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-bl2sp83f.png)
 
 ### Customize Claude Cowork
 
@@ -104,19 +104,11 @@ Build your skills through written guides, and video lessons covering everything 
 
 4 min](https://academy.claude.com/tutorials/what-is-claude-managed-agents)
 
-## AI Fluency
+## How AI works
 
-[View all](https://academy.claude.com/collections/ai-fluency)
+[View all](https://academy.claude.com/collections/how-ai-works)
 
-[![](https://academy.claude.com/assets/v1/thumbnail.light-m01o4z13.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-ca0nkqqm.png)
-
-### The 4 Properties of AI
-
-7 min](https://academy.claude.com/tutorials/the-4-properties-of-ai)[![](https://academy.claude.com/assets/v1/thumbnail.light-peff89t8.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-lrenqyqv.png)
-
-### The 4 Ds of AI Fluency — Behavioral Indicators
-
-5 min](https://academy.claude.com/tutorials/the-4-ds-of-ai-fluency-behavioral-indicators)[![](https://academy.claude.com/assets/v1/thumbnail.light-jnlvedd9.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-myovko8b.png)
+[![](https://academy.claude.com/assets/v1/thumbnail.light-jnlvedd9.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-myovko8b.png)
 
 ### What happens when you talk to AI?
 
@@ -128,7 +120,45 @@ Build your skills through written guides, and video lessons covering everything 
 
 ### What does AI know about me?
 
-5 min](https://academy.claude.com/tutorials/what-does-ai-know-about-me)[![](https://academy.claude.com/assets/v1/thumbnail.light-fibnfxv4.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-ov8b09q9.png)
+5 min](https://academy.claude.com/tutorials/what-does-ai-know-about-me)[![](https://academy.claude.com/assets/v1/thumbnail.light-m01o4z13.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-ca0nkqqm.png)
+
+### The 4 Properties of AI
+
+7 min](https://academy.claude.com/tutorials/the-4-properties-of-ai)[![](https://academy.claude.com/assets/v1/thumbnail.light-hbwc6qac.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-gxfjrbde.png)
+
+### How context affects Claude's performance and cost
+
+20 min](https://academy.claude.com/tutorials/parametric-memory-and-context)[![](https://academy.claude.com/assets/v1/thumbnail.light-o6cqv60g.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-dzby7rgv.png)
+
+### Tokens: why some inputs cost more than others
+
+15 min](https://academy.claude.com/tutorials/tokens-and-embeddings)
+
+## Collaborating with AI
+
+[View all](https://academy.claude.com/collections/collaborating-with-ai)
+
+[![](https://academy.claude.com/assets/v1/thumbnail.light-peff89t8.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-lrenqyqv.png)
+
+### The 4 Ds of AI Fluency — Behavioral Indicators
+
+5 min](https://academy.claude.com/tutorials/the-4-ds-of-ai-fluency-behavioral-indicators)[![](https://academy.claude.com/assets/v1/thumbnail.light-mgzhysjk.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-jvn9chjj.png)
+
+### Writing an AI diligence statement
+
+15 min](https://academy.claude.com/tutorials/writing-an-ai-diligence-statement)[![](https://academy.claude.com/assets/v1/thumbnail.light-blskv34c.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-bv9w6wt2.png)
+
+### A discussion guide for the AI Fluency Index
+
+10 min](https://academy.claude.com/tutorials/a-discussion-guide-for-the-ai-fluency-index)[![](https://academy.claude.com/assets/v1/thumbnail.light-cu6wjiio.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-omuj02iu.png)
+
+### Anthropic Education Report: How people check Claude's work
+
+10 min](https://academy.claude.com/tutorials/discernment-toolkit)[![](https://academy.claude.com/assets/v1/thumbnail.light-cq67r4kj.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-d9qi1x8j.png)
+
+### Anthropic Education Report: The AI Fluency Index
+
+10 min](https://academy.claude.com/tutorials/the-ai-fluency-index)[![](https://academy.claude.com/assets/v1/thumbnail.light-fibnfxv4.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-ov8b09q9.png)
 
 ### Getting good at Claude: A research-backed curriculum
 

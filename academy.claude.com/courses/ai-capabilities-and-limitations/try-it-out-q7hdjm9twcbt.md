@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/ai-capabilities-and-limitations/try-it-out-q7hdjm9twcbt -->
 
-Lesson 9 of 13 · AI Capabilities and LimitationsTry It Out: Working Memory
+Lesson 9 of 13 · AI capabilities and limitationsTry It Out: Working Memory
 
-3. /[AI Capabilities and Limitations](https://academy.claude.com/courses/ai-capabilities-and-limitations)
+3. /[AI capabilities and limitations](https://academy.claude.com/courses/ai-capabilities-and-limitations)
 
-[AI Capabilities and Limitations](https://academy.claude.com/courses/ai-capabilities-and-limitations)
+[AI capabilities and limitations](https://academy.claude.com/courses/ai-capabilities-and-limitations)
 
 # Try It Out: Working Memory
 
@@ -51,7 +51,7 @@ Your own memory test told you this already. The words in the middle vanished. Th
 
 [Previous lessonWorking Memory](https://academy.claude.com/courses/ai-capabilities-and-limitations/working-memory)[Next lessonSteerability](https://academy.claude.com/courses/ai-capabilities-and-limitations/steerability)
 
-Lesson 9 of 13 · AI Capabilities and LimitationsTry It Out: Working Memory
+Lesson 9 of 13 · AI capabilities and limitationsTry It Out: Working Memory
 
 Getting started
 

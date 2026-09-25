@@ -1,5 +1,7 @@
 <!-- source: https://claude.com/solutions/legal -->
 
+Explore here
+
 Webinar
 
 [Next](#)Next
@@ -493,7 +495,7 @@ Matter management, research platforms, contract tools, and data rooms: finally a
 
 Explore connectors
 
-[Explore connectors](https://claude.com/archive/connectors)Explore connectors
+[Explore connectors](https://claude.com/connectors)Explore connectors
 
 ## Legal resources
 

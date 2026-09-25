@@ -77,7 +77,7 @@ The remote engine uses only the credential Claude Desktop passes in its environm
 | [LLM gateway](https://claude.com/docs/third-party/claude-desktop/gateway) | Static API key, single sign-on, credential helper |  |
 | [Claude API](https://claude.com/docs/third-party/claude-desktop/claude-api) | Static API key, Sign in with Claude Console, credential helper |  |
 | [Microsoft Foundry](https://claude.com/docs/third-party/claude-desktop/foundry) | API key, in-app Entra ID sign-in, credential helper |  |
-| [Amazon Bedrock](https://claude.com/docs/third-party/claude-desktop/bedrock) | Bearer token, credential helper | In-app AWS sign-in (IAM Identity Center), named profile |
+| [Amazon Bedrock](https://claude.com/docs/third-party/claude-desktop/bedrock) | Bearer token, identity provider sign-in, credential helper | In-app AWS sign-in (IAM Identity Center), named profile |
 | [Amazon Bedrock Mantle](https://claude.com/docs/third-party/claude-desktop/mantle) | Bearer token, credential helper |  |
 | [Google Cloud’s Agent Platform](https://claude.com/docs/third-party/claude-desktop/vertex) | In-app Workforce Identity sign-in, credential helper | In-app Google sign-in, service-account key or credentials file, application default credentials on the device |
 

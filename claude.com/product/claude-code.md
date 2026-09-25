@@ -2,7 +2,7 @@
 
 # Claude Code
 
-Work with Claude directly in your codebase. Build, debug, and ship from your terminal, IDE, Slack, web, and more.
+Hand Claude a bug fix, test, or multi-day migration. Steer and review from your terminal, IDE, Slack, or web.
 
 [Download for macOS](https://claude.ai/api/desktop/darwin/universal/dmg/latest/redirect)[Read documentation (opens in new tab)](https://code.claude.com/docs/en/overview)
 
@@ -222,25 +222,27 @@ Per month
 
 ## Latest feature announcements
 
-[### **Dynamic workflows:** Tackle the most challenging tasks by executing across 10s to 100s of parallel subagents, and checking its work before anything reaches you.
+[### **Projects:** Group related coding sessions so you can run and easily supervise multiple Claude agents at once. Available on Claude Code Desktop.
 
-BlogMay 28, 2026](https://claude.com/blog/introducing-dynamic-workflows-in-claude-code)
+BlogSep 17, 2026](https://claude.com/blog/projects-redesigned)
 
-[### **Agent view:** One place to manage all your Claude Code sessions.
+[### **Auto mode by default:** Claude Code now runs in auto mode by default on Pro, Max, and Team plans, so it can work longer while still catching risky commands.
 
-BlogMay 11, 2026](https://claude.com/blog/agent-view-in-claude-code)
+BlogAug 7, 2026](https://claude.com/blog/auto-mode-default-in-claude-code)
 
-[### **Routines:** Configure a routine once, and it can run on a schedule, from an API call, or in response to an event.
+[### **Self-hosted environments:** Run Claude Code sessions on your own infrastructure, inside your network and next to your internal services. Now in public beta.
 
-BlogApr 14, 2026](https://claude.com/blog/introducing-routines-in-claude-code)
+BlogAug 6, 2026](https://claude.com/blog/run-claude-code-sessions-on-your-own-compute)
 
-[### **Computer use:** Claude now opens your apps, navigates your browser, and runs your dev tools to complete tasks.
+[### **Artifacts:** Preview in-progress work as a live, interactive artifact built from your session context, and share it with your team.
 
-BlogMar 23, 2026](https://claude.com/blog/dispatch-and-computer-use)
+BlogJun 18, 2026](https://claude.com/blog/artifacts-in-claude-code)
 
 [View changelog (opens in new tab)](https://code.claude.com/docs/en/changelog)
 
-## What could you do with Claude Code?
+## What Claude Code can take on
+
+Claude Code builds the plan, asks clarifying questions, and handles work that runs for hours or days.
 
 Get Claude Code
 
@@ -256,7 +258,7 @@ Or read the [documentation](https://code.claude.com/docs/en/overview)
 
 [Try Claude Code (opens in new tab)](https://claude.ai/code)[Developer docs (opens in new tab)](https://code.claude.com/docs/en/overview)
 
-OnboardingTriage issuesRefactor code
+OnboardingTriage issuesMigrate code
 
 ```
 I'm new to this codebase. Can you explain it to me?
@@ -328,10 +330,10 @@ The architecture allows for both using Excalidraw as a component in other applic
   Claude Code maps and explains entire codebases in a few seconds. It uses agentic search to understand project structure and dependencies without you having to manually select context files.
 * ### Turn issues into PRs
 
-  Stop bouncing between tools. Claude Code integrates with GitHub, GitLab, and your command line tools to handle the entire workflow—reading issues, writing code, running tests, and submitting PRs—all from your terminal.
-* ### Make powerful edits
+  Stop bouncing between tools. Claude Code works with GitHub, GitLab, and your command line tools to read issues, write code, run tests, and open pull requests.
+* ### Run multi-hour refactors and migrations
 
-  Claude Code's understanding of your codebase and dependencies enables it to make powerful, multi-file edits that work.
+  Claude Code follows imports across the repo, runs your tests, and keeps going when something breaks.
 
 ## Meets you where you code
 
@@ -415,11 +417,13 @@ Your terminal is where real work happens. Claude Code connects with the tools th
 
 ### How do I get started with Claude?
 
-You can access Claude Code with a Claude Pro or Max plan, a Team or Enterprise plan premium seat, or a Claude Console account. [Download Claude Code](https://code.claude.com/docs/en/overview) and sign in with your respective Claude or Console credentials.
+You can access Claude Code with a Claude Pro or Max plan, a Team or Enterprise plan, or a Claude Console account. [Download Claude Code](https://code.claude.com/docs/en/overview) and sign in with your respective Claude or Console credentials.
 
-### What kinds of tasks can Claude Code handle?
+### What kind of tasks can Claude Code handle?
 
-Claude Code excels at both routine development tasks like bug fixes and testing, as well as transformative work like refactors and feature implementation that require deep codebase understanding.
+Claude Code can handle routine work like bug fixes and testing, and larger jobs like refactors and new features that are long-running and asynchronous.
+
+You set the direction as the architect and orchestrator, and Claude Code does the work. Describe what you want and it plans, writes code, runs tests, and opens pull requests. It can work on several tasks at once, and surface decisions you need to make for it to keep going.
 
 ### How does Claude Code work with my existing tools?
 
@@ -443,9 +447,9 @@ Yes. Max, Pro, Team, and Enterprise users can access Claude Code on the [Claude 
 
 ### What is fast mode on Claude Code?
 
-Fast mode is a high-speed configuration for Opus 5, making the model 2.5x faster at a higher cost per token. Fast mode is available:
+Fast mode is a high-speed configuration for Opus 5.5, making the model 2.5x faster at a higher cost per token. Fast mode is available:
 
-* In research preview on Claude Code, and is priced at $10/$50 per million tokens.
+* In research preview on Claude Code, and is priced at $8/$40 per million tokens.
 * On consumption-based plans.
 * Via usage credits for users on subscription plans.
 
@@ -475,7 +479,7 @@ Blog](https://www.anthropic.com/news/how-anthropic-teams-use-claude-code)
 
 Blog](https://claude.com/blog/fix-software-bugs-faster-with-claude)
 
-## Create what's exciting. Maintain what's essential.
+## Create what’s exciting. Maintain what’s essential.
 
 Use Claude Code where you work
 

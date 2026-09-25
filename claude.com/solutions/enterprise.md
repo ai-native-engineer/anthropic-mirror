@@ -269,7 +269,7 @@ Connect to Gmail, Google Drive, Slack and more to give Claude context from acros
 
 Learn more
 
-[Learn more](https://claude.com/archive/connectors)Learn more
+[Learn more](https://claude.com/connectors)Learn more
 
 ## Real work, across every function
 
@@ -419,7 +419,7 @@ Amplitude
 
 Slack
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abff72b804fad37465165_Linear.jpg)
+![Linear logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6ab43729f44eabd60b9e2ec0_6ab4360ab06e949f996372ed_startups-square-linear-light.svg)
 
 Linear
 
@@ -778,13 +778,13 @@ Tutorial
 
 [Tutorial](https://claude.com/resources/tutorials/claude-enterprise-administrator-guide)Tutorial
 
-[Claude Cowork Enterprise admin guide](https://claude.com/resources/tutorials/claude-cowork-enterprise-administrator-guide)Claude Cowork Enterprise admin guide
+[Claude Academy](https://academy.claude.com/)Claude Academy
 
-Claude Cowork Enterprise admin guide
+Claude Academy
 
-Tutorial
+Resource
 
-[Tutorial](https://claude.com/resources/tutorials/claude-cowork-enterprise-administrator-guide)Tutorial
+[Resource](https://academy.claude.com/)Resource
 
 [Zero trust AI agents](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6a0521e14a6fed28fe4a3b3b_Claude-eBook-Zero-Trust-for-AI-Agents-05132026.pdf)Zero trust AI agents
 

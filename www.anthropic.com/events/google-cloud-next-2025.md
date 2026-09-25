@@ -265,31 +265,9 @@ PST
 
 ### The Enterprise AI Playbook: Five Must-Have Strategies
 
-9:00 am
-
--
-
-11:45 am
-
-PST
-
-### The Enterprise AI Playbook: Five Must-Have Strategies
-
 Join product leaders from Google Cloud, Anthropic, Oracle, Databricks, and SAP as they dive into the five essential strategies that every enterprise needs for AI success. You’ll hear firsthand accounts of how organizations are leveraging AI and data to drive real world results and how you can bring these strategies to life in your organization.
 
 Mandalay Bay Ballroom F
-
-2:30 pm
-
--
-
-3:15 pm
-
-PST
-
-### Anthropic’s Claude & Vertex AI: Paving the way for production AI in enterprises
-
-Mandalay Bay Ballroom D
 
 2:30 pm
 
@@ -317,29 +295,9 @@ PST
 
 ### Leverage Anthropic’s Claude models for AI’s evolving landscape
 
-2:45 pm
-
--
-
-3:30 pm
-
-PST
-
-### Leverage Anthropic’s Claude models for AI’s evolving landscape
-
 Discover how you can use Anthropic's Claude models on Vertex AI to create innovative solutions. This session offers insights into the AI landscape, its impact on software development, and practical guidance on integrating AI technologies into your workflows.
 
 Expo Breakout 1
-
-4:00 pm
-
--
-
-4:45 pm
-
-PST
-
-### Deep Dive into Claude Models: Unlocking potential on Google Cloud
 
 4:00 pm
 

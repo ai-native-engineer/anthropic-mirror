@@ -8,10 +8,6 @@ Tokyo
 
 To meet demand, a second event just for independent developers and early-stage founders: founder stories, builder deep-dives, and laptops-open workshops from our Applied AI team. Code with Claude is where you hear what's new. Extended is where you see it in the wild.
 
-Apply to attend
-
-[Attend virtually](#)Attend virtually
-
 ### Founder stage
 
 When anyone can build, the founder's edge is knowing what to build and sticking with it. Sit in with founders and technical leaders from startups built on Claude as they walk through the bets they made, the road from prototype to first revenue, and the judgement calls they’ve made.
@@ -24,13 +20,18 @@ You don't need a CS degree or an engineering team to ship real software anymore.
 
 Join the same hands-on sessions Anthropic uses to train its own technical staff, adapted for you. Ship your first managed agent, give it memory, write evals that move the score, compose multi-agent systems, then put it all to the test in a live agent battle.
 
-Agenda
+## Agenda
 
 Demos and office hours run all day. Drop by for a demo between sessions. Sign up in advance for office hours. All times in Japan Standard Time (JST).
 
 **A note on language.** Sessions run primarily in English with some in Japanese (marked on the agenda), and live simultaneous interpretation is available in both directions throughout the event. Office hours are held in English.
 
 Stages
+
+* All stages
+* Founder stage
+* Builder stage
+* Workshops
 
 08:30 – 09:30
 
@@ -44,8 +45,6 @@ Check-in and breakfast
 
 (Founder stage)
 
-Founder stage
-
 ·
 
 Boris Cherny
@@ -56,24 +55,6 @@ morning sessions
 
 10:00 – 10:30
 
-[What happens when domain experts can finally build](https://claude.com/code-with-claude/session/tyo-ext-domain-experts-can-finally-build)
-
-·
-
-(
-
-Builder stage
-
-)
-
-Builder stage
-
-·
-
-Jason Tangen
-
-University of Queensland
-
 [Building AI-native across industries with NTT, Mizuho and Mercari](https://claude.com/code-with-claude/session/tyo-ext-ai-native-across-industries)
 
 ·
@@ -83,8 +64,6 @@ University of Queensland
 Founder stage
 
 )
-
-Founder stage
 
 ·
 
@@ -100,6 +79,22 @@ Tatsuto Fujii
 
 Mizuho Financial Group, Inc.
 
+[What happens when domain experts can finally build](https://claude.com/code-with-claude/session/tyo-ext-domain-experts-can-finally-build)
+
+·
+
+(
+
+Builder stage
+
+)
+
+·
+
+Jason Tangen
+
+University of Queensland
+
 10:00 – 10:45
 
 [How we Claude Code](https://claude.com/code-with-claude/session/tyo-ext-how-we-claude-code)
@@ -111,8 +106,6 @@ Mizuho Financial Group, Inc.
 Workshop
 
 )
-
-Workshop
 
 ·
 
@@ -132,8 +125,6 @@ Founder stage
 
 )
 
-Founder stage
-
 ·
 
 Wonjin Hur
@@ -149,8 +140,6 @@ Myrealtrip
 Builder stage
 
 )
-
-Builder stage
 
 ·
 
@@ -170,8 +159,6 @@ Workshop
 
 )
 
-Workshop
-
 ·
 
 Koki Yoshida
@@ -189,8 +176,6 @@ Anthropic
 Founder stage
 
 )
-
-Founder stage
 
 ·
 
@@ -210,8 +195,6 @@ Builder stage
 
 )
 
-Builder stage
-
 ·
 
 Yuta Hayashi
@@ -229,8 +212,6 @@ Determinant, Inc.
 Workshop
 
 )
-
-Workshop
 
 ·
 
@@ -256,8 +237,6 @@ Workshop
 
 )
 
-Workshop
-
 ·
 
 Jonah Dueck
@@ -270,8 +249,6 @@ Anthropic
 
 ·
 
-(In Japanese)
-
 (
 
 Founder stage
@@ -279,8 +256,6 @@ Founder stage
 // presented in Japanese
 
 )
-
-Founder stage
 
 ·
 
@@ -301,8 +276,6 @@ Tsukumo Labs Inc.
 Builder stage
 
 )
-
-Builder stage
 
 ·
 
@@ -328,8 +301,6 @@ Determinant, Inc.
 
 ·
 
-(In Japanese)
-
 (
 
 Founder stage
@@ -337,8 +308,6 @@ Founder stage
 // presented in Japanese
 
 )
-
-Founder stage
 
 ·
 
@@ -355,8 +324,6 @@ primeNumber Inc.
 Builder stage
 
 )
-
-Builder stage
 
 ·
 
@@ -376,8 +343,6 @@ Workshop
 
 )
 
-Workshop
-
 ·
 
 Karan Sampath
@@ -396,8 +361,6 @@ Founder stage
 
 )
 
-Founder stage
-
 ·
 
 Rye Smith
@@ -413,8 +376,6 @@ Spruik Co.
 Builder stage
 
 )
-
-Builder stage
 
 ·
 
@@ -434,8 +395,6 @@ Workshop
 
 )
 
-Workshop
-
 ·
 
 Liam Plambeck
@@ -454,8 +413,6 @@ Founder stage
 
 )
 
-Founder stage
-
 ·
 
 Jarred Sumner
@@ -470,51 +427,33 @@ Closing reception
 
 ## Featured speakers
 
-## Featured speakers
-
-![Boris Cherny headshot](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/69cc4642d8f17f58de38e50d_boris-cherny.webp)
+![Boris Cherny headshot](https://assets.claude.com/eea3796abaee1d9d2d36ec1e6084fbab5fb4a703.jpg?w=720&h=720&fit=crop&auto=format)
 
 Boris Cherny
-
-[x.com](https://x.com/bcherny)x.com
-
-[LinkedIn](https://www.linkedin.com/in/bcherny/)LinkedIn
 
 Head of Claude Code
 
 Anthropic
 
-![Angela Jiang headshot](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/69cc46422f0213eff23dbdb9_c8d2a6f1dc63e3727198e5dbb86111e8_angela-jiang.webp)
+![Angela Jiang headshot](https://assets.claude.com/85bfbfeed1601c2e411078c6874c9246d4f3ff65.jpg?w=720&h=720&fit=crop&auto=format)
 
 Angela Jiang
-
-[x.com](https://x.com/angjiang)x.com
-
-[LinkedIn](https://www.linkedin.com/in/angelajiang/)LinkedIn
 
 Head of Product
 
 Claude Platform, Anthropic
 
-![Katelyn Lesse headshot](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/69cc46420c3bbf082d3f8314_katelyn-lesse.webp)
+![Katelyn Lesse headshot](https://assets.claude.com/6c2b825df3d621408ee127180e5ecc28bd232bd3.jpg?w=720&h=720&fit=crop&auto=format)
 
 Katelyn Lesse
-
-[x.com](https://x.com/katelyn_lesse)x.com
-
-[LinkedIn](https://www.linkedin.com/in/katelynlesse/)LinkedIn
 
 [Head of Engineering](https://www.linkedin.com/company/74126343/)
 
 Claude Platform, Anthropic
 
-![Cat Wu headshot](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/69cc4641dd6ff8a4efa1077b_5739d9285f7511779f047edda4997798_cat-wu.webp)
+![Cat Wu headshot](https://assets.claude.com/4cf98dc6a28387a223d00b219e72b3e353bd9045.jpg?w=720&h=720&fit=crop&auto=format)
 
 Cat Wu
-
-[x.com](https://x.com/_catwu)x.com
-
-[LinkedIn](https://www.linkedin.com/in/cat-wu/)LinkedIn
 
 Head of Product
 
@@ -522,38 +461,32 @@ Claude Code, Anthropic
 
 10 June
 
-Code w/ Claude
+## Code w/ Claude
 
 Anthropic's developer conference. Live demos of new capabilities, hands-on workshops, and conversations with the research and product teams building Claude — where we share what's shipping and what's next.
 
-Learn more
+[Learn more](https://claude.com/code-with-claude/tokyo)
 
-[Learn more](https://claude.com/code-with-claude/tokyo)Learn more
+## FAQ
 
-FAQ
-
-### What is Code with Claude: Extended?
+What is Code with Claude: Extended?
 
 Demand to attend Code with Claude in-person far exceeded our expectations. To be able to give more people access to the event experience, we added a second day just for independent developers and early-stage founders.
 
-### Who should attend?
+Who should attend?
 
 Code with Claude is designed for software developers, engineers, and technical leaders who are building with AI. Whether you're just getting started with Claude or are an experienced builder, you'll find sessions tailored to your level.
 
-### How do I attend in person?
+How do I attend in person?
 
 Space is limited. Given the demand for in-person attendance at Code with Claude, invites to Code with Claude: Extended were made to existing applicants.
 
-### Can I attend virtually?
+Can I attend virtually?
 
 Code with Claude: Extended will not be livestreamed. Sessions will be recorded and made publicly available after the event.
 
-### Is there a cost to attend?
+Is there a cost to attend?
 
 No, in-person attendance is free.
 
-[Homepage](https://claude.com/code-with-claude)Homepage
-
-© [year] Anthropic PBC
-
-[PRIVACY POLICY](https://www.anthropic.com/legal/privacy)[CODE OF CONDUCT](https://claude.com/code-with-claude/code-of-conduct)
+Code with Claude: Extended Tokyo — June 11, 2026

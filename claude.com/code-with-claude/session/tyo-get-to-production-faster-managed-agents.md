@@ -4,51 +4,51 @@
 
 Building agents used to mean spending development cycles on secure infrastructure, state management, permissioning, and reworking your agent loops for every model upgrade. Managed Agents, on the Claude Platform, now handles that layer for you. This session covers the fundamentals of building and deploying a production-grade agent, and you'll hear firsthand how Rakuten is using Managed Agents to power their work.
 
-Details
+## Details
 
 City
-
-Tokyo, JP
+:   Tokyo, JP
 
 Date
-
-10 June 2026
+:   10 June 2026
 
 Time
-
-12:00 – 12:30
+:   12:00 – 12:30
 
 Speaker(s)
+:   Jess Yan
 
-Jess Yan
+    Member of Technical Staff,
 
-Member of Technical Staff,
+    Anthropic
 
-Anthropic
+    Michael Cohen
 
-Michael Cohen
+    Member of Technical Staff,
 
-Member of Technical Staff,
+    Anthropic
 
-Anthropic
+    Yusuke Kaji
 
-Yusuke Kaji
+    General Manager, AI for Business,
 
-General Manager, AI for Business,
-
-Rakuten Group, Inc.
+    Rakuten Group, Inc.
 
 Language
+:   English
 
-English
-
-Agenda
+## Agenda
 
 Demos and office hours run all day. Drop by for a demo between sessions. Sign up in advance for office hours. All times in Japan Standard Time (JST).
 
 **A note on language.** Sessions run primarily in English with some in Japanese (marked on the agenda), and live simultaneous interpretation is available in both directions throughout the event. Office hours are held in English.
 
 Session track
+
+* All tracks
+* Research
+* Claude Platform
+* Claude Code
 
 08:00 – 09:00
 
@@ -61,12 +61,6 @@ Check-in and breakfast
 ·
 
 (Main stage)
-
-(
-
-Main stage
-
-)
 
 ·
 
@@ -86,7 +80,7 @@ Katelyn Lesse
 
 Anthropic
 
-10:00AM – 10:30AM
+10:00 – 10:30
 
 Morning break
 
@@ -104,8 +98,6 @@ Main stage
 
 )
 
-Claude Code
-
 ·
 
 Charmaine Lee
@@ -121,8 +113,6 @@ Anthropic
 Breakout stage
 
 )
-
-Claude Platform
 
 ·
 
@@ -142,8 +132,6 @@ Workshop
 
 )
 
-Research
-
 ·
 
 Rodrigo Olivares
@@ -162,8 +150,6 @@ Main stage
 
 )
 
-Claude Platform
-
 ·
 
 Danny Wu
@@ -179,8 +165,6 @@ Canva
 Breakout stage
 
 )
-
-Research
 
 ·
 
@@ -200,8 +184,6 @@ Workshop
 
 )
 
-Claude Code
-
 ·
 
 Sosuke Suzuki
@@ -219,8 +201,6 @@ Anthropic
 Main stage
 
 )
-
-Claude Platform
 
 ·
 
@@ -248,8 +228,6 @@ Breakout stage
 
 )
 
-Claude Code
-
 ·
 
 Kohei Noguchi
@@ -274,8 +252,6 @@ Workshop
 
 )
 
-Claude Code
-
 ·
 
 Sid Bidasaria
@@ -295,8 +271,6 @@ Workshop
 // presented in Japanese
 
 )
-
-Claude Platform
 
 ·
 
@@ -318,8 +292,6 @@ Main stage
 
 )
 
-Research
-
 ·
 
 Yusuke Kaji
@@ -335,8 +307,6 @@ Rakuten Group, Inc.
 Breakout stage
 
 )
-
-Research
 
 ·
 
@@ -355,8 +325,6 @@ Anthropic
 Workshop
 
 )
-
-Claude Platform
 
 ·
 
@@ -378,8 +346,6 @@ Main stage
 
 )
 
-Claude Platform
-
 ·
 
 Kentaro Someya
@@ -400,8 +366,6 @@ Breakout stage
 
 )
 
-Claude Code
-
 ·
 
 Fiona Fung
@@ -420,8 +384,6 @@ Main stage
 
 )
 
-Research
-
 ·
 
 Theo Chu
@@ -439,8 +401,6 @@ Breakout stage
 // presented in Japanese
 
 )
-
-Claude Platform
 
 ·
 
@@ -461,8 +421,6 @@ Workshop
 // presented in Japanese
 
 )
-
-Claude Platform
 
 ·
 
@@ -488,8 +446,6 @@ Main stage
 
 )
 
-Research
-
 ·
 
 Yuki Kitamura
@@ -507,8 +463,6 @@ Breakout stage
 // presented in Japanese
 
 )
-
-Claude Platform
 
 ·
 
@@ -532,8 +486,6 @@ Workshop
 
 )
 
-Claude Code
-
 ·
 
 Ash Prabaker
@@ -555,8 +507,6 @@ Anthropic
 Main stage
 
 )
-
-Claude Platform
 
 ·
 
@@ -580,8 +530,6 @@ Breakout stage
 
 )
 
-Claude Code
-
 ·
 
 Yu Nakai
@@ -599,8 +547,6 @@ Mercari, Inc.
 Workshop
 
 )
-
-Research
 
 ·
 
@@ -634,16 +580,10 @@ Evening
 
 Evening reception
 
-Anthropic's developer conference
+## Anthropic's developer conference, recorded
 
-Join us for a day of hands-on workshops, live demos of new capabilities and conversations with the teams behind Claude. Watch live from anywhere.
+Keynotes, demos, and conversations with the teams behind Claude. Recorded at Code w/ Claude 2026 Tokyo and ready to replay.
 
-Attend virtually
+[Browse recordings](https://claude.com/code-with-claude/tokyo)
 
-[Learn more](https://claude.com/code-with-claude/register-livestream)Learn more
-
-[Homepage](https://claude.com/code-with-claude)Homepage
-
-© [year] Anthropic PBC
-
-[PRIVACY POLICY](https://www.anthropic.com/legal/privacy)[CODE OF CONDUCT](https://claude.com/code-with-claude/code-of-conduct)
+How to get to production faster with Claude Managed Agents | Session | Code w/ Claude 2026

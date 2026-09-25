@@ -46,7 +46,7 @@ Salesforce
 
 Pull the renewal book, ARR, owner, and any logged exec commitments straight from CRM.
 
-Custom connector
+[Connect](https://claude.ai/desktop/directory/salesforce-headless-360)
 
 Gong
 

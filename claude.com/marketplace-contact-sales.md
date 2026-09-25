@@ -1,5 +1,7 @@
 <!-- source: https://claude.com/marketplace-contact-sales -->
 
+Explore here
+
 Claude Marketplace
 
 Have an existing Anthropic commitment? Talk to your account team to start using it across Claude-powered solutions from our customers.

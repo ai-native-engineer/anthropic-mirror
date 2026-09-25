@@ -4,53 +4,17 @@ Q&A | Ramp
 
 # Office Hours: Building for the model that doesn't exist yet
 
-Try Claude
+[Office Hours with Boris Cherny](https://claude.com/office-hours)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
+![Video thumbnail](https://assets.claude.com/f11d3038b5cc94aedb5d8538949c01a4c4fb3fa6.jpg)
 
 Office Hours with Boris Cherny
 
-[Office Hours with Boris Cherny](https://claude.com/office-hours)Office Hours with Boris Cherny
-
-[Play video](#)Play video
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a7d059559429dfbc08f0905_OfficeHours-YT-Thumbnail-Ramp-F2.jpg)
-
-Office Hours with Boris Cherny
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a7ceba17e3c474c1e3f0fde_og_office-hours.webp)
+![Office Hours with Boris Cherny](https://assets.claude.com/9173e999ae52ee5dfc9111debd93828f096cf0cd.jpg)
 
 The best engineering teams are rethinking how they work with AI. Boris Cherny talks with technical leaders to uncover what's changing for their teams, from how they’re building with Claude Code to organization design, and the shifting workflows that come with it.
 
-Read more
-
-[Read more](https://claude.com/office-hours)Read more
-
-Office Hours with Boris Cherny
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-The best engineering teams are rethinking how they work with AI. Boris Cherny talks with technical leaders to uncover what's changing for their teams, from how they’re building with Claude Code to organization design, and the shifting workflows that come with it.
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Office Hours with Boris Cherny
-
-The best engineering teams are rethinking how they work with AI. Boris Cherny talks with technical leaders to uncover what's changing for their teams, from how they’re building with Claude Code to organization design, and the shifting workflows that come with it.
-
-[Prev](#)Prev
-
-[Next](#)Next
+[Read more](https://claude.com/office-hours)
 
 At [Ramp](https://claude.com/office-hours), more agent sessions are now kicked off by automations than by humans. [Boris Cherny sat down with CTO Rahul Sengottuvelu](https://claude.com/office-hours) and Staff Software Engineer Austin Ray to talk about treating agents like coworkers, loops versus dynamic workflows, and why they refuse to build for the model that exists today.
 
@@ -80,11 +44,9 @@ At [Ramp](https://claude.com/office-hours), more agent sessions are now kicked o
 
 **Boris:** I feel like, if you have a bunch of engineers doing work, loops are slicing a horizontal off of it. If there's one task every engineer does every day, you can maybe take that and put it in a loop or in a routine. And this is something like a code review, babysitting a PR, addressing feedback. We just have dozens of these. I have one, for example, for deleting dead code. This is a routine that runs every day. And then on the flip side, you can do this vertical slice. And for us this is Claude Tag. An example of that is I'll have Tag ship an experiment. It'll make the experiment, it'll land the PR, and then it'll set a reminder for itself, using a routine to monitor and check in the next day, it'll make sure that the exposures are balanced. It'll crank up the exposure, make sure the experiment's running, and maybe a couple weeks later, it'll be like, all right, I'm going to ship this variant and it puts up another PR for that. And I wasn't in the loop at all. At the beginning I asked Claude to do this. I stamped the pull request, but the rest was just Claude. Okay, I want to detour a little bit. I want to hear about your coding setups.
 
-“We’ve tried to build for what comes three to six months down the line, because when you're building for what's available today, it might already be too late by the time you ship.”
+> “We’ve tried to build for what comes three to six months down the line, because when you're building for what's available today, it might already be too late by the time you ship.”
 
-Rahul Sengottuvelu
-
-Chief Technology Officer, Ramp
+Rahul Sengottuvelu Chief Technology Officer, Ramp
 
 **Austin:** So iTerm2, pretty vanilla. No IDE these days. And as many panes as my monitors can handle. Pretty barebones Claude Code setups, so not a lot of plugins or skills or MCPs, pretty simple CLAUDE.md, inspired by your Twitter posts for the vanilla setup. I think it's the best way to learn the models. And then a good amount of subagent use, adversarial review.
 
@@ -146,37 +108,15 @@ Chief Technology Officer, Ramp
 
 How Anthropic teams use Claude Code
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6905133b69fcac6a5cbadb2f_og_how-anthropic-teams-use-claude-code.jpg)
+![How Anthropic teams use Claude Code](https://assets.claude.com/1b3f54eec0c96a79b1a32faa26e694975cd21329.jpg)
 
 From debugging production issues to navigating unfamiliar codebases to building custom automation—here's how teams across Anthropic use Claude Code.
 
-Read more
+[Read more](https://claude.com/blog/how-anthropic-teams-use-claude-code)
 
-[Read more](https://claude.com/blog/how-anthropic-teams-use-claude-code)Read more
+> "We don't really like to impose a certain token budget or a tool budget, or tell people that they should use this thing or that thing."
 
-How Anthropic teams use Claude Code
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-From debugging production issues to navigating unfamiliar codebases to building custom automation—here's how teams across Anthropic use Claude Code.
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-How Anthropic teams use Claude Code
-
-From debugging production issues to navigating unfamiliar codebases to building custom automation—here's how teams across Anthropic use Claude Code.
-
-"We don't really like to impose a certain token budget or a tool budget, or tell people that they should use this thing or that thing."
-
-Rahul Sengottuvelu
-
-Chief Technology Officer, Ramp
+Rahul Sengottuvelu Chief Technology Officer, Ramp
 
 **Austin:** I also do want to mention On-call Assistant, which has always run on Claude Code. And that's another instance of just taking what works really well locally, proving it out locally, building up the skills and MCPs and prompts that make, essentially, an AI SRE run really well on incidents to root cause them and put up PRs of fixes and then just packaging that and having it run in a container with safeguards and guardrails. So On-call Assistant runs on every incident that gets assigned to our engineers. So that includes customer support tickets that require an engineer, but also includes system-level incidents. We're working on it. And then it comes back in with a really solid root cause analysis in the Slack channel that we have for every incident. And then the incident responders interact with it. And we've had that running since late February or March. The stuff you can build on the primitives on this sort of Unix philosophy, Claude Code executable, it's just wild.
 
@@ -206,62 +146,18 @@ Chief Technology Officer, Ramp
 
 Claude Enterprise
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a4e8f1c4eb05b098011e591_claude%20ent%20marginalia.jpeg)
+![Claude Enterprise](https://assets.claude.com/50a00469e498d2c960d9e45f1a4a37d2d7a92f2e.jpg)
 
 Put Claude to work across your organization. Help everyone think deeper, do more, and build securely.
 
-Claude Enterprise
+[Read more](https://claude.com/solutions/enterprise)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[![Supermetrics](https://assets.claude.com/3ac4171a81008be0340e5c3d8ccb46571c3edfb3.svg)
 
-[Next](#)Next
+### Supermetrics lets marketers manage ad campaigns from a conversation with Claude](https://claude.com/customers/supermetrics)[![Atlassian](https://assets.claude.com/4870b3d6c0253cea01b100c98ad2030b8e4f8ce1.svg)
 
-Put Claude to work across your organization. Help everyone think deeper, do more, and build securely.
+### How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-Video caption
+### Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Claude Enterprise
-
-Put Claude to work across your organization. Help everyone think deeper, do more, and build securely.
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-Customer story
-
-[Customer story](https://claude.com/customers/atlassian)Customer story
-
-[Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)Rocket Money on building agents that fix their own code
-
-Rocket Money on building agents that fix their own code
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money-qa)Customer story
-
-[How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)How Rocket Money built its personal finance agent with Claude
-
-How Rocket Money built its personal finance agent with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money)Customer story
-
-[How Notion ships and scales agents with Claude Managed Agents](https://claude.com/customers/notion-qa)How Notion ships and scales agents with Claude Managed Agents
-
-How Notion ships and scales agents with Claude Managed Agents
-
-Customer story
-
-[Customer story](https://claude.com/customers/notion-qa)Customer story
+### How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)

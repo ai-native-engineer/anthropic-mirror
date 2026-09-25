@@ -44,7 +44,7 @@ For example, if you wanted Claude to solve a logic puzzle, you could say:
 
 It’s helpful to give Claude realistic and specific examples of the inputs and ideal outputs you’re hoping to see. It’s useful to include challenging examples and edge cases to help Claude understand exactly what you’re looking for.
 
-For a simple example, consider how Claude can help with removing personally-identifiable information (PII) from information, using 2 examples to help Claude understand different ways that PII could present itself in a prompt. A simplified example using [claude.ai](https://claude.ai/redirect/website.v1.c04eaeb0-768f-4d6c-9ed1-0f041b479e8d) may look something like this:
+For a simple example, consider how Claude can help with removing personally-identifiable information (PII) from information, using 2 examples to help Claude understand different ways that PII could present itself in a prompt. A simplified example using [claude.ai](https://claude.ai/redirect/website.v1.e3faf700-0cfa-40d0-bae3-a9946142190f) may look something like this:
 
 *You are an expert redactor. I am going to provide you with some text. Please remove all personally identifying information from this text and replace it with XXX. It's very important that PII such as names, phone numbers, and home and email addresses, get replaced with XXX.*
 
@@ -141,5 +141,3 @@ There’s no single best technique for prompt engineering. Every LLM is differen
 If you’re deploying an AI-powered solution within your business, prompt engineering is essential — and it should be a collaborative effort between prompt engineers and subject matter experts.
 
 To get started on optimizing Claude for your use case, read our [prompt engineering guide](https://docs.anthropic.com/claude/docs/guide-to-anthropics-prompt-engineering-resources) or [contact our sales team](https://www.anthropic.com/earlyaccess).
-
-Prompt engineering for business performance \ Anthropic

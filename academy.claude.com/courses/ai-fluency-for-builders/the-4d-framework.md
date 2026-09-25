@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/ai-fluency-for-builders/the-4d-framework -->
 
-Lesson 2 of 9 · AI Fluency for BuildersThe 4D Framework
+Lesson 2 of 9 · AI Fluency for buildersThe 4D Framework
 
-3. /[AI Fluency for Builders](https://academy.claude.com/courses/ai-fluency-for-builders)
+3. /[AI Fluency for builders](https://academy.claude.com/courses/ai-fluency-for-builders)
 
-[AI Fluency for Builders](https://academy.claude.com/courses/ai-fluency-for-builders)
+[AI Fluency for builders](https://academy.claude.com/courses/ai-fluency-for-builders)
 
 # The 4D Framework
 
@@ -75,7 +75,7 @@ In the next lesson, we’ll look at how generative AI works — what it can and 
 
 [Previous lessonWelcome to AI Fluency for builders](https://academy.claude.com/courses/ai-fluency-for-builders/ai-fluency-for-builders)[Next lessonAI capabilities & limitations](https://academy.claude.com/courses/ai-fluency-for-builders/ai-capabilities-and-limitations)
 
-Lesson 2 of 9 · AI Fluency for BuildersThe 4D Framework
+Lesson 2 of 9 · AI Fluency for buildersThe 4D Framework
 
 Introduction and AI Fluency framework
 

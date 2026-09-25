@@ -27,7 +27,7 @@ Add Session Resource
 
   - `required string sessionID`
 
-    Path param: Path parameter session_id
+    Path param
 
   - `required string fileID`
 
@@ -135,6 +135,12 @@ Add Session Resource
 
     - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
+    - `Compact2026_09_04("compact-2026-09-04")`
+
+    - `InlineTools2026_09_15("inline-tools-2026-09-15")`
+
+    - `McpClient2026_09_15("mcp-client-2026-09-15")`
+
   - `string workspaceID`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -143,7 +149,7 @@ Add Session Resource
 
 ### Returns
 
-- `class BetaManagedAgentsFileResource:`
+- `class BetaManagedAgentsFileResource`
 
   - `required Type Type`
 
@@ -207,7 +213,7 @@ List Session Resources
 
   - `required string sessionID`
 
-    Path param: Path parameter session_id
+    Path param
 
   - `int limit`
 
@@ -313,6 +319,12 @@ List Session Resources
 
     - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
+    - `Compact2026_09_04("compact-2026-09-04")`
+
+    - `InlineTools2026_09_15("inline-tools-2026-09-15")`
+
+    - `McpClient2026_09_15("mcp-client-2026-09-15")`
+
   - `string workspaceID`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -323,7 +335,7 @@ List Session Resources
 
 - `class BetaManagedAgentsSessionResource: union`
 
-  - `class BetaManagedAgentsGitHubRepositoryResource:`
+  - `class BetaManagedAgentsGitHubRepositoryResource`
 
     - `required Type Type`
 
@@ -347,7 +359,7 @@ List Session Resources
 
     - `Checkout? Checkout`
 
-      - `class BetaManagedAgentsBranchCheckout:`
+      - `class BetaManagedAgentsBranchCheckout`
 
         - `required Type Type`
 
@@ -357,7 +369,7 @@ List Session Resources
 
           minLength: 1, maxLength: 255
 
-      - `class BetaManagedAgentsCommitCheckout:`
+      - `class BetaManagedAgentsCommitCheckout`
 
         - `required Type Type`
 
@@ -367,7 +379,7 @@ List Session Resources
 
           minLength: 7, maxLength: 64
 
-  - `class BetaManagedAgentsFileResource:`
+  - `class BetaManagedAgentsFileResource`
 
     - `required Type Type`
 
@@ -389,7 +401,7 @@ List Session Resources
 
       format: date-time
 
-  - `class BetaManagedAgentsMemoryStoreResource:`
+  - `class BetaManagedAgentsMemoryStoreResource`
 
     A memory store attached to an agent session.
 
@@ -484,11 +496,11 @@ Get Session Resource
 
   - `required string sessionID`
 
-    Path param: Path parameter session_id
+    Path param
 
   - `required string resourceID`
 
-    Path param: Path parameter resource_id
+    Path param
 
   - `IReadOnlyList<AnthropicBeta> betas`
 
@@ -584,6 +596,12 @@ Get Session Resource
 
     - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
+    - `Compact2026_09_04("compact-2026-09-04")`
+
+    - `InlineTools2026_09_15("inline-tools-2026-09-15")`
+
+    - `McpClient2026_09_15("mcp-client-2026-09-15")`
+
   - `string workspaceID`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -596,7 +614,7 @@ Get Session Resource
 
   The requested session resource.
 
-  - `class BetaManagedAgentsGitHubRepositoryResource:`
+  - `class BetaManagedAgentsGitHubRepositoryResource`
 
     - `required Type Type`
 
@@ -620,7 +638,7 @@ Get Session Resource
 
     - `Checkout? Checkout`
 
-      - `class BetaManagedAgentsBranchCheckout:`
+      - `class BetaManagedAgentsBranchCheckout`
 
         - `required Type Type`
 
@@ -630,7 +648,7 @@ Get Session Resource
 
           minLength: 1, maxLength: 255
 
-      - `class BetaManagedAgentsCommitCheckout:`
+      - `class BetaManagedAgentsCommitCheckout`
 
         - `required Type Type`
 
@@ -640,7 +658,7 @@ Get Session Resource
 
           minLength: 7, maxLength: 64
 
-  - `class BetaManagedAgentsFileResource:`
+  - `class BetaManagedAgentsFileResource`
 
     - `required Type Type`
 
@@ -662,7 +680,7 @@ Get Session Resource
 
       format: date-time
 
-  - `class BetaManagedAgentsMemoryStoreResource:`
+  - `class BetaManagedAgentsMemoryStoreResource`
 
     A memory store attached to an agent session.
 
@@ -743,11 +761,11 @@ Update Session Resource
 
   - `required string sessionID`
 
-    Path param: Path parameter session_id
+    Path param
 
   - `required string resourceID`
 
-    Path param: Path parameter resource_id
+    Path param
 
   - `required string authorizationToken`
 
@@ -849,6 +867,12 @@ Update Session Resource
 
     - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
+    - `Compact2026_09_04("compact-2026-09-04")`
+
+    - `InlineTools2026_09_15("inline-tools-2026-09-15")`
+
+    - `McpClient2026_09_15("mcp-client-2026-09-15")`
+
   - `string workspaceID`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -861,7 +885,7 @@ Update Session Resource
 
   The updated session resource.
 
-  - `class BetaManagedAgentsGitHubRepositoryResource:`
+  - `class BetaManagedAgentsGitHubRepositoryResource`
 
     - `required Type Type`
 
@@ -885,7 +909,7 @@ Update Session Resource
 
     - `Checkout? Checkout`
 
-      - `class BetaManagedAgentsBranchCheckout:`
+      - `class BetaManagedAgentsBranchCheckout`
 
         - `required Type Type`
 
@@ -895,7 +919,7 @@ Update Session Resource
 
           minLength: 1, maxLength: 255
 
-      - `class BetaManagedAgentsCommitCheckout:`
+      - `class BetaManagedAgentsCommitCheckout`
 
         - `required Type Type`
 
@@ -905,7 +929,7 @@ Update Session Resource
 
           minLength: 7, maxLength: 64
 
-  - `class BetaManagedAgentsFileResource:`
+  - `class BetaManagedAgentsFileResource`
 
     - `required Type Type`
 
@@ -927,7 +951,7 @@ Update Session Resource
 
       format: date-time
 
-  - `class BetaManagedAgentsMemoryStoreResource:`
+  - `class BetaManagedAgentsMemoryStoreResource`
 
     A memory store attached to an agent session.
 
@@ -1009,11 +1033,11 @@ Delete Session Resource
 
   - `required string sessionID`
 
-    Path param: Path parameter session_id
+    Path param
 
   - `required string resourceID`
 
-    Path param: Path parameter resource_id
+    Path param
 
   - `IReadOnlyList<AnthropicBeta> betas`
 
@@ -1109,6 +1133,12 @@ Delete Session Resource
 
     - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
+    - `Compact2026_09_04("compact-2026-09-04")`
+
+    - `InlineTools2026_09_15("inline-tools-2026-09-15")`
+
+    - `McpClient2026_09_15("mcp-client-2026-09-15")`
+
   - `string workspaceID`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -1117,7 +1147,7 @@ Delete Session Resource
 
 ### Returns
 
-- `class BetaManagedAgentsDeleteSessionResource:`
+- `class BetaManagedAgentsDeleteSessionResource`
 
   Confirmation of resource deletion.
 
@@ -1152,7 +1182,7 @@ Console.WriteLine(betaManagedAgentsDeleteSessionResource);
 
 ### Beta Managed Agents Delete Session Resource
 
-- `class BetaManagedAgentsDeleteSessionResource:`
+- `class BetaManagedAgentsDeleteSessionResource`
 
   Confirmation of resource deletion.
 
@@ -1162,7 +1192,7 @@ Console.WriteLine(betaManagedAgentsDeleteSessionResource);
 
 ### Beta Managed Agents File Resource
 
-- `class BetaManagedAgentsFileResource:`
+- `class BetaManagedAgentsFileResource`
 
   - `required Type Type`
 
@@ -1186,7 +1216,7 @@ Console.WriteLine(betaManagedAgentsDeleteSessionResource);
 
 ### Beta Managed Agents GitHub Repository Resource
 
-- `class BetaManagedAgentsGitHubRepositoryResource:`
+- `class BetaManagedAgentsGitHubRepositoryResource`
 
   - `required Type Type`
 
@@ -1210,7 +1240,7 @@ Console.WriteLine(betaManagedAgentsDeleteSessionResource);
 
   - `Checkout? Checkout`
 
-    - `class BetaManagedAgentsBranchCheckout:`
+    - `class BetaManagedAgentsBranchCheckout`
 
       - `required Type Type`
 
@@ -1220,7 +1250,7 @@ Console.WriteLine(betaManagedAgentsDeleteSessionResource);
 
         minLength: 1, maxLength: 255
 
-    - `class BetaManagedAgentsCommitCheckout:`
+    - `class BetaManagedAgentsCommitCheckout`
 
       - `required Type Type`
 
@@ -1232,7 +1262,7 @@ Console.WriteLine(betaManagedAgentsDeleteSessionResource);
 
 ### Beta Managed Agents Memory Store Resource
 
-- `class BetaManagedAgentsMemoryStoreResource:`
+- `class BetaManagedAgentsMemoryStoreResource`
 
   A memory store attached to an agent session.
 
@@ -1272,7 +1302,7 @@ Console.WriteLine(betaManagedAgentsDeleteSessionResource);
 
 - `class BetaManagedAgentsSessionResource: union`
 
-  - `class BetaManagedAgentsGitHubRepositoryResource:`
+  - `class BetaManagedAgentsGitHubRepositoryResource`
 
     - `required Type Type`
 
@@ -1296,7 +1326,7 @@ Console.WriteLine(betaManagedAgentsDeleteSessionResource);
 
     - `Checkout? Checkout`
 
-      - `class BetaManagedAgentsBranchCheckout:`
+      - `class BetaManagedAgentsBranchCheckout`
 
         - `required Type Type`
 
@@ -1306,7 +1336,7 @@ Console.WriteLine(betaManagedAgentsDeleteSessionResource);
 
           minLength: 1, maxLength: 255
 
-      - `class BetaManagedAgentsCommitCheckout:`
+      - `class BetaManagedAgentsCommitCheckout`
 
         - `required Type Type`
 
@@ -1316,7 +1346,7 @@ Console.WriteLine(betaManagedAgentsDeleteSessionResource);
 
           minLength: 7, maxLength: 64
 
-  - `class BetaManagedAgentsFileResource:`
+  - `class BetaManagedAgentsFileResource`
 
     - `required Type Type`
 
@@ -1338,7 +1368,7 @@ Console.WriteLine(betaManagedAgentsDeleteSessionResource);
 
       format: date-time
 
-  - `class BetaManagedAgentsMemoryStoreResource:`
+  - `class BetaManagedAgentsMemoryStoreResource`
 
     A memory store attached to an agent session.
 

@@ -125,6 +125,12 @@ Retrieve detailed information about a specific work item.
 
       - `const AnthropicBetaMidConversationSystemClearAt2026_08_21 AnthropicBeta = "mid-conversation-system-clear-at-2026-08-21"`
 
+      - `const AnthropicBetaCompact2026_09_04 AnthropicBeta = "compact-2026-09-04"`
+
+      - `const AnthropicBetaInlineTools2026_09_15 AnthropicBeta = "inline-tools-2026-09-15"`
+
+      - `const AnthropicBetaMCPClient2026_09_15 AnthropicBeta = "mcp-client-2026-09-15"`
+
   - `WorkspaceID param.Field[string] Optional`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -133,7 +139,7 @@ Retrieve detailed information about a specific work item.
 
 ### Returns
 
-- `type BetaSelfHostedWork struct{…}`
+- `type BetaSelfHostedWork`
 
   Work resource representing a unit of work in a self-hosted environment.
 
@@ -395,13 +401,19 @@ Long poll for work items in the queue.
 
       - `const AnthropicBetaMidConversationSystemClearAt2026_08_21 AnthropicBeta = "mid-conversation-system-clear-at-2026-08-21"`
 
+      - `const AnthropicBetaCompact2026_09_04 AnthropicBeta = "compact-2026-09-04"`
+
+      - `const AnthropicBetaInlineTools2026_09_15 AnthropicBeta = "inline-tools-2026-09-15"`
+
+      - `const AnthropicBetaMCPClient2026_09_15 AnthropicBeta = "mcp-client-2026-09-15"`
+
   - `AnthropicWorkerID param.Field[string] Optional`
 
     Header param: Unique identifier for the specific worker polling, used to track aggregated environment-level work metrics in Console
 
 ### Returns
 
-- `type BetaSelfHostedWork struct{…}`
+- `type BetaSelfHostedWork`
 
   Work resource representing a unit of work in a self-hosted environment.
 
@@ -653,9 +665,15 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
 
       - `const AnthropicBetaMidConversationSystemClearAt2026_08_21 AnthropicBeta = "mid-conversation-system-clear-at-2026-08-21"`
 
+      - `const AnthropicBetaCompact2026_09_04 AnthropicBeta = "compact-2026-09-04"`
+
+      - `const AnthropicBetaInlineTools2026_09_15 AnthropicBeta = "inline-tools-2026-09-15"`
+
+      - `const AnthropicBetaMCPClient2026_09_15 AnthropicBeta = "mcp-client-2026-09-15"`
+
 ### Returns
 
-- `type BetaSelfHostedWork struct{…}`
+- `type BetaSelfHostedWork`
 
   Work resource representing a unit of work in a self-hosted environment.
 
@@ -917,9 +935,15 @@ Record a heartbeat for a work item to maintain the lease.
 
       - `const AnthropicBetaMidConversationSystemClearAt2026_08_21 AnthropicBeta = "mid-conversation-system-clear-at-2026-08-21"`
 
+      - `const AnthropicBetaCompact2026_09_04 AnthropicBeta = "compact-2026-09-04"`
+
+      - `const AnthropicBetaInlineTools2026_09_15 AnthropicBeta = "inline-tools-2026-09-15"`
+
+      - `const AnthropicBetaMCPClient2026_09_15 AnthropicBeta = "mcp-client-2026-09-15"`
+
 ### Returns
 
-- `type BetaSelfHostedWorkHeartbeatResponse struct{…}`
+- `type BetaSelfHostedWorkHeartbeatResponse`
 
   Response after recording a heartbeat for a work item.
 
@@ -1120,6 +1144,12 @@ Stop a work item, initiating graceful or forced shutdown.
 
       - `const AnthropicBetaMidConversationSystemClearAt2026_08_21 AnthropicBeta = "mid-conversation-system-clear-at-2026-08-21"`
 
+      - `const AnthropicBetaCompact2026_09_04 AnthropicBeta = "compact-2026-09-04"`
+
+      - `const AnthropicBetaInlineTools2026_09_15 AnthropicBeta = "inline-tools-2026-09-15"`
+
+      - `const AnthropicBetaMCPClient2026_09_15 AnthropicBeta = "mcp-client-2026-09-15"`
+
   - `WorkspaceID param.Field[string] Optional`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -1128,7 +1158,7 @@ Stop a work item, initiating graceful or forced shutdown.
 
 ### Returns
 
-- `type BetaSelfHostedWork struct{…}`
+- `type BetaSelfHostedWork`
 
   Work resource representing a unit of work in a self-hosted environment.
 
@@ -1389,9 +1419,15 @@ List work items in an environment.
 
       - `const AnthropicBetaMidConversationSystemClearAt2026_08_21 AnthropicBeta = "mid-conversation-system-clear-at-2026-08-21"`
 
+      - `const AnthropicBetaCompact2026_09_04 AnthropicBeta = "compact-2026-09-04"`
+
+      - `const AnthropicBetaInlineTools2026_09_15 AnthropicBeta = "inline-tools-2026-09-15"`
+
+      - `const AnthropicBetaMCPClient2026_09_15 AnthropicBeta = "mcp-client-2026-09-15"`
+
 ### Returns
 
-- `type BetaSelfHostedWork struct{…}`
+- `type BetaSelfHostedWork`
 
   Work resource representing a unit of work in a self-hosted environment.
 
@@ -1652,6 +1688,12 @@ Update work item metadata with merge semantics.
 
       - `const AnthropicBetaMidConversationSystemClearAt2026_08_21 AnthropicBeta = "mid-conversation-system-clear-at-2026-08-21"`
 
+      - `const AnthropicBetaCompact2026_09_04 AnthropicBeta = "compact-2026-09-04"`
+
+      - `const AnthropicBetaInlineTools2026_09_15 AnthropicBeta = "inline-tools-2026-09-15"`
+
+      - `const AnthropicBetaMCPClient2026_09_15 AnthropicBeta = "mcp-client-2026-09-15"`
+
   - `WorkspaceID param.Field[string] Optional`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -1660,7 +1702,7 @@ Update work item metadata with merge semantics.
 
 ### Returns
 
-- `type BetaSelfHostedWork struct{…}`
+- `type BetaSelfHostedWork`
 
   Work resource representing a unit of work in a self-hosted environment.
 
@@ -1913,6 +1955,12 @@ Get statistics about the work queue for an environment.
 
       - `const AnthropicBetaMidConversationSystemClearAt2026_08_21 AnthropicBeta = "mid-conversation-system-clear-at-2026-08-21"`
 
+      - `const AnthropicBetaCompact2026_09_04 AnthropicBeta = "compact-2026-09-04"`
+
+      - `const AnthropicBetaInlineTools2026_09_15 AnthropicBeta = "inline-tools-2026-09-15"`
+
+      - `const AnthropicBetaMCPClient2026_09_15 AnthropicBeta = "mcp-client-2026-09-15"`
+
   - `WorkspaceID param.Field[string] Optional`
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -1921,7 +1969,7 @@ Get statistics about the work queue for an environment.
 
 ### Returns
 
-- `type BetaSelfHostedWorkQueueStats struct{…}`
+- `type BetaSelfHostedWorkQueueStats`
 
   Statistics about the work queue for an environment.
 
@@ -1996,7 +2044,7 @@ func main() {
 
 ### Beta Self Hosted Work
 
-- `type BetaSelfHostedWork struct{…}`
+- `type BetaSelfHostedWork`
 
   Work resource representing a unit of work in a self-hosted environment.
 
@@ -2078,7 +2126,7 @@ func main() {
 
 ### Beta Self Hosted Work Heartbeat Response
 
-- `type BetaSelfHostedWorkHeartbeatResponse struct{…}`
+- `type BetaSelfHostedWorkHeartbeatResponse`
 
   Response after recording a heartbeat for a work item.
 
@@ -2116,7 +2164,7 @@ func main() {
 
 ### Beta Self Hosted Work List Response
 
-- `type BetaSelfHostedWorkListResponse struct{…}`
+- `type BetaSelfHostedWorkListResponse`
 
   Response when listing work items with cursor-based pagination.
 
@@ -2202,7 +2250,7 @@ func main() {
 
 ### Beta Self Hosted Work Queue Stats
 
-- `type BetaSelfHostedWorkQueueStats struct{…}`
+- `type BetaSelfHostedWorkQueueStats`
 
   Statistics about the work queue for an environment.
 
@@ -2234,7 +2282,7 @@ func main() {
 
 ### Beta Self Hosted Work Stop Request
 
-- `type BetaSelfHostedWorkStopRequest struct{…}`
+- `type BetaSelfHostedWorkStopRequest`
 
   Request to stop a work item.
 
@@ -2246,7 +2294,7 @@ func main() {
 
 ### Beta Self Hosted Work Update Request
 
-- `type BetaSelfHostedWorkUpdateRequest struct{…}`
+- `type BetaSelfHostedWorkUpdateRequest`
 
   Request to update work item metadata.
 
@@ -2256,7 +2304,7 @@ func main() {
 
 ### Beta Session Work Data
 
-- `type BetaSessionWorkData struct{…}`
+- `type BetaSessionWorkData`
 
   Work data for session work items.
 

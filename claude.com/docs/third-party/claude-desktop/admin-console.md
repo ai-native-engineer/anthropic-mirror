@@ -11,7 +11,7 @@
 The Enterprise Admin Console for Desktop 3P is in beta. Contact your Anthropic representative to have an organization provisioned.
 
 With the Enterprise Admin Console, Anthropic hosts your organization’s [Claude Desktop 3P](https://claude.com/docs/third-party/claude-desktop/overview) configuration, and your administrators manage it centrally instead of pushing files to each device. You sign in to the console in a browser and choose your inference provider, the app’s settings, and which groups of users get which settings, rather than authoring an [MDM](https://claude.com/docs/third-party/claude-desktop/mdm) profile or running a [bootstrap server](https://claude.com/docs/third-party/claude-desktop/bootstrap). Your users sign in to Claude Desktop once with their work account, through your single sign-on if you connect it. The app then downloads the settings that apply to them and sends every model request to your provider.
-Prompts, responses, and files go to your inference provider, exactly as they do with MDM or a bootstrap server. Anthropic holds your user list and the settings you save, and never holds provider credentials. See exactly what data Anthropic stores under [Where your data goes](#where-your-data-goes).
+Prompts, responses, and files go to your inference provider, as they do with MDM or a bootstrap server. Anthropic holds your user list and the settings you save. If you turn on usage analytics, Anthropic also holds token and session counts from your users’ apps. Anthropic never holds provider credentials such as API keys or your users’ tokens. For the full list of what Anthropic stores, see [Where your data goes](#where-your-data-goes).
 
 ##  How it works
 
@@ -22,21 +22,22 @@ Users are provisioned a Claude account only to sign in to Claude Desktop and rec
 
 ##  Where your data goes
 
-Anthropic stores your organization’s user accounts and the configuration you save, and delivers that configuration to users’ apps. Prompts and model responses go to your inference provider, and conversations stay on the device, as they do with MDM or bootstrap delivery.
+Anthropic stores your organization’s user accounts and the configuration you save, and delivers that configuration to users’ apps. If you turn on usage analytics, Anthropic also stores the token and session counts that users’ apps report. As with MDM or bootstrap delivery, prompts and model responses go to your inference provider and conversations stay on the device.
 
 | Data | Does Anthropic store it? |
 | --- | --- |
 | Prompts, model responses, and tool inputs and outputs | **No.** They go to your inference provider, and tool calls go to the connectors you configure. Data handling at the provider depends on the provider, as described under [Data handling by provider](https://claude.com/docs/third-party/claude-desktop/overview#data-handling-by-provider). |
 | Conversation history, projects, memory, and uploaded files | **No.** They stay on the device. |
-| Provider credentials, API keys, bearer tokens, and MCP secrets | **No.** They stay on the device, and the console refuses to save them. |
+| Provider credentials, API keys, bearer tokens, and MCP secrets | **No**, except the client secret of a Google Desktop-app OAuth client, which Google doesn’t treat as confidential. You can enter one for [Google sign-in to your provider](#choose-how-users-authenticate-to-your-provider) or for a [managed MCP server that signs in with Google](https://claude.com/docs/third-party/claude-desktop/mcp-sign-in#where-the-client-secret-goes). Everything else stays on the device, and the console refuses to save it. |
 | Plugin and skill content | **No.** It stays in your own repositories or on devices. The console stores marketplace locations and installation settings, not content. |
 | OpenTelemetry export, if you configure a collector | **No.** It goes to your collector only. |
 | User accounts (name and work email), group membership, and administrator roles | **Yes.** |
 | Single sign-on and SCIM connection settings, if you use them | **Yes.** |
-| The configuration your administrators save, organization-wide and per group | **Yes.** Anthropic delivers it to users’ apps. It contains no credentials. |
+| The configuration your administrators save, organization-wide and per group | **Yes.** Anthropic delivers it to users’ apps. It contains no credentials other than a Google Desktop-app OAuth client secret, if you enter one. |
 | Essential telemetry (crash and error reports) and non-essential telemetry (product analytics) | **Yes**, unless you turn them off on the **Telemetry & updates** page. Neither contains prompt or response content. [Telemetry and egress](https://claude.com/docs/third-party/claude-desktop/telemetry) describes what each category contains. |
+| Usage analytics: session, token, and estimated-cost counts per user, conversation, and model | **Yes**, if you turn on the **Report desktop usage to this organization** switch on the **Telemetry & updates** page. The switch is off by default. Users’ apps report new counts only while the switch is on, and turning the switch off doesn’t delete counts that Anthropic has already received. The counts contain no prompt, response, or file content. [Usage analytics](#usage-analytics) lists exactly what each report contains. |
 
-The app contacts `api.anthropic.com` at every launch to check the user’s sign-in and download the configuration, and `claude.ai` when the user signs in, in addition to the hosts listed on [Telemetry and egress](https://claude.com/docs/third-party/claude-desktop/telemetry).
+The app contacts `api.anthropic.com` at every launch to check the user’s sign-in and download the configuration. While the app runs, it contacts `api.anthropic.com` again every 10 minutes by default to check for configuration changes. The app contacts `claude.ai` when the user signs in. Both hosts are in addition to the hosts listed on [Telemetry and egress](https://claude.com/docs/third-party/claude-desktop/telemetry). While usage analytics is on, the app also sends its token and session counts to `api.anthropic.com` every few minutes during use and when it quits, so usage analytics needs no additional firewall entry.
 
 ##  Get set up
 
@@ -53,6 +54,8 @@ The Claude sign-in is separate from the sign-in to your inference provider or ga
 ##  Configure Claude Desktop
 
 Sign in at [claude.ai](https://claude.ai), switch to the organization, and open **Organization settings**. The **Desktop 3P** section in the left navigation has one page per settings area, listed under [What you can configure](#what-you-can-configure). Each field sets one of the documented [configuration keys](https://claude.com/docs/third-party/claude-desktop/configuration), and the console checks values as you type and again when you click **Save changes**.
+
+Save the **Connection** page, where you choose your inference provider, before the other pages. The console doesn’t accept **Save changes** on any other page until a connection is saved. A user who signs in to Claude Desktop and clicks **Restart** before a connection is saved stays in standard Claude Desktop instead of switching to your configuration. After you save the connection, ask those users to quit and reopen Claude Desktop, then restart when prompted.
 
 ###  Start from an existing configuration file
 
@@ -79,15 +82,40 @@ From the console you can set the same [configuration keys](https://claude.com/do
 | Page | What you configure there |
 | --- | --- |
 | **Connection** | The inference provider ([gateway](https://claude.com/docs/third-party/claude-desktop/gateway), [Amazon Bedrock](https://claude.com/docs/third-party/claude-desktop/bedrock), [Bedrock Mantle](https://claude.com/docs/third-party/claude-desktop/mantle), [Google Cloud’s Agent Platform](https://claude.com/docs/third-party/claude-desktop/vertex), or [Microsoft Foundry](https://claude.com/docs/third-party/claude-desktop/foundry)), its endpoint, region, or project, how users authenticate to it, custom request headers, and, under **Models**, the model list, default model, model discovery, and cost-estimate rates. **Desktop sign-in** on this page holds the **Require this organization in Claude Desktop** switch described under [Users in more than one Claude organization](#users-in-more-than-one-claude-organization). |
-| **Workspace** | Whether Chat, Cowork, and Code are each available, the folders and network hosts the app may use, permission modes and built-in tool policy, whether users may add their own skills and plugins, and organization instructions |
+| **Capabilities** | Whether Chat, Cowork, and Code are each available, the folders and network hosts the app may use, permission modes and built-in tool policy, the [built-in browser](https://claude.com/docs/third-party/claude-desktop/browser#manage-the-built-in-browser-from-the-enterprise-admin-console) and its site permissions, whether users may add their own skills and plugins, and organization instructions |
 | **Connectors** | Managed MCP servers, including the [built-in connectors](https://claude.com/docs/third-party/claude-desktop/built-in-connectors), whether users may add their own MCP servers, desktop extension policy, and [**Claude.ai data import**](https://claude.com/docs/third-party/claude-desktop/import) |
-| **Telemetry & updates** | Which telemetry categories go to Anthropic, OpenTelemetry export to your collector, update policy, the [configuration relaunch window](#configuration-updates), and the configuration re-check interval |
+| **Telemetry & updates** | Which telemetry categories go to Anthropic, whether users’ apps report [usage analytics](#usage-analytics) to your organization, OpenTelemetry export to your collector, update policy, the [configuration relaunch window](#configuration-updates), the configuration re-check interval, and [how much of the configuration devices keep on disk](#configuration-kept-on-devices) |
 | **Limits** | A per-user token limit and its window |
 | **Appearance** | Banner text and colors, end-user attribution, and whether the app shows feature announcements and configuration deprecation warnings |
 | **Plugins** | The [plugin marketplaces](#plugin-marketplaces) that users’ apps fetch, and how each one installs |
 
-The console stores no API keys, tokens, or secrets, and refuses them anywhere in the configuration, including in request headers and MCP server settings. Users authenticate to your provider with an interactive sign-in, a cloud credential profile, or a [credential helper](https://claude.com/docs/third-party/claude-desktop/credential-helper) on the device, and a managed MCP server that needs a secret takes the path of a helper script that exists at the same path on every device.
+The console refuses API keys, tokens, and secrets anywhere in the configuration, including in request headers and MCP server settings. The one exception is the client secret of a Google Desktop-app OAuth client, for [Google sign-in to your inference provider](#choose-how-users-authenticate-to-your-provider) or a [managed MCP server that signs in with Google](https://claude.com/docs/third-party/claude-desktop/mcp-sign-in#where-the-client-secret-goes), which Google doesn’t treat as confidential. Users authenticate to your provider on the device, as described under [Choose how users authenticate to your provider](#choose-how-users-authenticate-to-your-provider).
 Most of these settings can also differ per group of users, on the **Permission policies** page under **People**, as described under [Per-group permission policies](#per-group-permission-policies).
+
+###  Choose how users authenticate to your provider
+
+Choose an interactive sign-in wherever your provider offers one. It is the recommended credential kind for a deployment managed from the console. Users sign in inside the app with their own accounts, and there is no shared credential to distribute to devices or rotate.
+
+The console never holds a provider credential. The **Credential kind** field on the **Connection** page tells Claude Desktop how each user’s device obtains one, and offers the kinds your provider supports: **Interactive sign-in** in the app, **Workforce Identity** (Google Cloud’s Agent Platform only), **Cloud vendor profile** (an AWS profile or Google Cloud credentials file already on the device), or **Helper script** (a [credential helper](https://claude.com/docs/third-party/claude-desktop/credential-helper) on the device). Static API keys and bearer tokens aren’t offered, because the console refuses to store them. The same **Connection** settings go to every user, so a credential kind that depends on something present on each device works only if your device management puts it there.
+
+| Provider | Recommended credential kind | Credential fields on the **Connection** page | What users do at first launch |
+| --- | --- | --- | --- |
+| [LLM gateway](https://claude.com/docs/third-party/claude-desktop/gateway#single-sign-on-with-your-identity-provider) | **Interactive sign-in** with your identity provider | **Gateway SSO IdP (OIDC)** with your identity provider’s issuer URL and the client ID of the application you registered for Claude Desktop | The app shows a **Sign in to your organization** button that opens your identity provider’s sign-in page in the browser. After sign-in, the app sends that user’s token to your gateway on every request, and your gateway validates it. |
+| [Amazon Bedrock](https://claude.com/docs/third-party/claude-desktop/bedrock#in-app-aws-sign-in) | **Interactive sign-in** through IAM Identity Center | **AWS SSO start URL**, **AWS SSO region**, **AWS SSO account ID**, and **AWS SSO role name** | The app shows a **Sign in with AWS** page and the user approves in the browser. No AWS CLI is needed. |
+| [Google Cloud’s Agent Platform](https://claude.com/docs/third-party/claude-desktop/vertex#in-app-google-sign-in), users with Google accounts | **Interactive sign-in** with Google | **Vertex OAuth client ID** and **Vertex OAuth client secret** from a Desktop-app OAuth client in your own Google Cloud project. Google doesn’t treat a Desktop-app client secret as confidential, so the console accepts it. | The app shows a **Sign in with Google** page and the user approves Google’s consent screen in the browser |
+| [Google Cloud’s Agent Platform](https://claude.com/docs/third-party/claude-desktop/vertex#in-app-workforce-identity-sign-in), users who sign in with another identity provider | **Workforce Identity** | **Workforce Identity audience** and **Workforce Identity IdP (OIDC)** with your identity provider’s issuer URL and client ID | The app shows a **Sign in** page and the user signs in to your identity provider in the browser. No Google identity is needed. |
+| [Microsoft Foundry](https://claude.com/docs/third-party/claude-desktop/foundry#in-app-entra-id-sign-in) | **Interactive sign-in** with Microsoft Entra ID | **Entra ID tenant ID** and **Entra ID client ID**, and optionally **Entra ID sign-in flow** | The app shows a **Sign in with Microsoft** page and the user signs in with a device code, in the browser, or through the operating system’s account picker |
+| [Bedrock Mantle](https://claude.com/docs/third-party/claude-desktop/mantle) | **Helper script**, because Mantle has no interactive sign-in | **Helper script** with the absolute path of a script that prints the bearer token | The app shows no sign-in page and runs the script whenever it needs a token |
+
+Tokens from these sign-ins are stored only on the user’s device. The linked provider pages cover setup at the provider, network egress, and session lifetime for each option.
+
+####  When a helper script is the right choice
+
+Choose **Helper script** for Bedrock Mantle, or when the credential for your gateway or provider can only come from tooling that runs on the device, such as an internal secret broker. The console stores the script’s path, not the script, and the same path goes to every device in the organization. Install the script at that absolute path on every device through your software distribution, in a location that users can’t modify, for example `/usr/local/bin/corp-cred-helper` on a macOS fleet or `C:\Program Files\Corp\cred-helper.cmd` on a Windows fleet. Claude Desktop runs the script under the user’s operating-system account, so anything that differs per user, such as reading that user’s home folder or keychain, belongs inside the script.
+
+####  Managed MCP servers that need authentication
+
+A managed MCP server that supports OAuth needs nothing on the device. Set **OAuth** on the server’s entry on the **Connectors** page to **Auto-register (dynamic client registration)** or **Bring your own client**, and Claude Desktop signs each user in through the browser, as described under [OAuth sign-in](https://claude.com/docs/third-party/claude-desktop/extensions#oauth-sign-in). For a server that needs a secret, such as a confidential OAuth client secret, a request header that carries a token, or environment variables for a local server, enter the absolute path of a helper script on the device that prints it, in the **Client secret helper script**, **Headers helper script**, or **Environment helper script** field. The [`managedMcpServers` schema](https://claude.com/docs/third-party/claude-desktop/configuration#managedmcpservers) describes each script’s output format. Install that script at the same absolute path on every device, as with the inference helper script. [Set up sign-in for managed MCP servers](https://claude.com/docs/third-party/claude-desktop/mcp-sign-in) explains how to tell whether a server needs a client ID or also a client secret, and [Connect to Google Cloud](https://claude.com/docs/third-party/claude-desktop/connectors-google-cloud) and [Connect to Box](https://claude.com/docs/third-party/claude-desktop/connectors-box) walk through two servers that need both.
 
 ###  Localhost base URLs
 
@@ -103,11 +131,51 @@ For example, if the Traders policy (ranked first) turns Code off and selects the
 
 ###  Plugin marketplaces
 
-On the **Plugins** page under Desktop 3P, list the [plugin marketplaces](https://claude.com/docs/third-party/claude-desktop/extensions#plugin-marketplaces-admin) that users’ apps should fetch. The marketplaces you add are git repositories, or a `marketplace.json` file and plugin archives on an HTTPS origin you control. The **Add marketplace** menu also offers Anthropic’s public plugin marketplaces under **Curated by Anthropic**. The app does not add the Anthropic marketplaces on its own in third-party mode.
+On the **Plugins** page under Desktop 3P, list the [plugin marketplaces](https://claude.com/docs/third-party/claude-desktop/extensions#plugin-marketplaces-admin) that users’ apps should fetch. The marketplaces you add are git repositories, or a `marketplace.json` file and plugin archives on an HTTPS origin you control. The **Add** menu also offers Anthropic’s public plugin marketplaces under **Curated by Anthropic**, and Salesforce’s under **From partners**, which [Connect to Salesforce](https://claude.com/docs/third-party/claude-desktop/connectors-salesforce) walks through. The app does not add these marketplaces on its own in third-party mode.
 
 ###  Telemetry defaults
 
-The telemetry categories, keys, and egress hosts on [Telemetry and egress](https://claude.com/docs/third-party/claude-desktop/telemetry) apply unchanged. Essential and non-essential telemetry are on until you turn them off on the **Telemetry & updates** page. Crash reports are attributed to your organization automatically. An OpenTelemetry collector that you configure on the same page must use an `https://` endpoint.
+The telemetry categories, keys, and egress hosts on [Telemetry and egress](https://claude.com/docs/third-party/claude-desktop/telemetry) apply unchanged. Essential and non-essential telemetry are on until you turn them off on the **Telemetry & updates** page. The **Keep only your organization ID and restrictions on disk** switch on the same page also stops crash and performance reports, as described under [Configuration kept on devices](#configuration-kept-on-devices). The app attributes crash reports and product analytics to your organization automatically, and also attributes product analytics to the signed-in user’s Claude account. An OpenTelemetry collector that you configure on the same page must use an `https://` endpoint.
+
+###  Configuration kept on devices
+
+From Claude Desktop 2.7032.0, each device keeps a copy of part of the last configuration it downloaded from the admin console, and applies it at the next launch, before the app has downloaded the current configuration. The copy holds your organization’s ID and name, the **Block essential telemetry** and **Block nonessential telemetry** switches, the **Microsoft 365 native sign-in broker** setting, and restrictions you have set, such as **Block nonessential services** turned on or **Allow user-added MCP servers** turned off. It doesn’t hold lists, such as the folders and network hosts the app may use, or whether Chat, Cowork, and Code are available. Signing out of Claude Desktop deletes the copy.
+To keep less on devices, open **Organization settings**, go to the **Telemetry & updates** page under **Desktop 3P**, and turn on the **Keep only your organization ID and restrictions on disk** switch. The copy then holds only your organization ID and the restrictions you have set. Releases before 2.7032.0 keep the whole configuration except secrets, and ignore the switch.
+When you turn on the switch, a running app trims its copy at its next configuration check (every 10 minutes by default), without a relaunch. An app that isn’t running trims its copy at the next launch that downloads the configuration. Turning on the switch has two effects for users:
+
+* From the first launch after a device trims its copy, the app sends no crash or performance reports to Anthropic, even while the **Block essential telemetry** switch is off. An app that is already running keeps sending reports until it relaunches. For support, you then collect logs from affected devices yourself, as described under [Essential telemetry](https://claude.com/docs/third-party/claude-desktop/telemetry#essential-telemetry).
+* The sign-in screen can’t show your organization’s name until the app has downloaded the configuration.
+
+###  Usage analytics
+
+Usage analytics lets your administrators see how much each user uses Chat, Cowork, and Code in Claude Desktop. Usage analytics is off by default. A member with the Owner or Primary Owner role can turn it on: open **Organization settings**, go to the **Telemetry & updates** page under **Desktop 3P**, and turn on the **Report desktop usage to this organization** switch. If your organization needs HIPAA compliance, don’t turn on the switch.
+Claude Desktop 1.46388.1 and later report usage. While the switch is on, each user’s app counts its Chat, Cowork, and Code activity. The app sends the counts to Anthropic every few minutes during use and when it quits. A running app starts or stops reporting at its next configuration check (every 10 minutes by default), without a relaunch. Anthropic stores the counts for your organization and ties each report to the user’s Claude account.
+The counts appear on the **Desktop usage** page. To open the page, click **Analytics** in the user menu on claude.ai, or **Desktop usage** under **Desktop 3P** in **Organization settings**. The page includes the following:
+
+* Sessions and tokens for Chat, Cowork, and Code (the page labels Code **Claude Code**).
+* A daily chart.
+* A chart of tokens by model.
+* A **Team** table with one row for each member who reported usage that month. Each row shows the member’s name and email from your member list, their sessions, their tokens, and their last active day.
+
+Click a member’s row in the **Team** table to show only that member’s sessions and tokens. When the month’s reports include cost estimates, switch the control at the top of the page from **Tokens** to **Cost** to show estimated cost in US dollars instead of tokens. Estimated cost and the chart of tokens by model cover the whole organization, and the page doesn’t show them while a single member is selected.
+To download a CSV file, click the **Export** button above the **Team** table. The file has one row for each member who matches the table’s search, including the member’s input, output, cache read, and cache write tokens and, when the month has estimates, their estimated cost.
+Members with the Primary Owner, Owner, or Admin role can open the **Desktop usage** page. Members whose role from the **Admin roles** page includes the **Analytics** permission can also open the page.
+Each report contains only the following:
+
+| Data | Example |
+| --- | --- |
+| A session count: one for each Chat, Cowork, or Code conversation | `1` |
+| Token counts for each conversation and model: input, output, cache read, and cache write | `1300` input tokens |
+| An estimated cost in US dollars for each conversation and model. The app calculates the estimate on the device, at Anthropic list prices or at the rates you set under **Models** on the **Connection** page, and labels which it used (`list` or `managed`). A model ID that the app can’t match to a Claude model (such as a gateway alias) has no estimate unless you [set a rate](https://claude.com/docs/third-party/claude-desktop/configuration#inferencemodelpricing) for that exact ID | `0.0133`, `list` |
+| The tab the activity happened in | `cowork` |
+| The model identifier, exactly as your provider or configuration identifies the model. For Amazon Bedrock, the identifier can be an inference profile ARN, which includes your AWS region and account ID. Claude Desktop 1.52386.0 and later mask the account ID before sending. For Google Cloud, the identifier can be a resource path that includes your project ID | `claude-sonnet-4-5` |
+| The date and time of the counted activity | `2026-08-27T21:00:01Z` |
+| A random identifier for the conversation | `local_c34fa9b2-…` |
+| A random identifier for the app installation. Crash reports and product analytics carry the same identifier | `49819623-…` |
+| The app version, the operating system type and version, the processor architecture, and a fixed product label | `1.49585.0`, `darwin`, `24.6.0`, `arm64`, `claude-desktop` |
+
+The reports never contain prompts, responses, file names or contents, tool names, tool inputs or outputs, folder or project names, connector names, or host names.
+When you turn off the **Report desktop usage to this organization** switch on the **Telemetry & updates** page under **Desktop 3P** in **Organization settings**, users’ apps stop reporting at their next configuration check and discard any counts they haven’t sent. Turning the switch off doesn’t delete counts that Anthropic has already received. While the switch is off, the **Desktop usage** page shows a notice instead of the counts. If you remove a user from the organization, your totals still include the user’s counts, shown without a name or email.
 
 ##  Onboard users
 
@@ -118,7 +186,7 @@ Before the first user signs in, confirm the following:
 * Single sign-on is connected, if you use it, and the users you want on this deployment are invited or provisioned, as described under [Connect your identity provider](#connect-your-identity-provider)
 * Devices run the latest Claude Desktop release, installed as described in [Installation and setup](https://claude.com/docs/third-party/claude-desktop/installation)
 * Devices carry no MDM-delivered Claude Desktop configuration. If a managed profile or registry policy sets any key other than the [app-behavior keys](https://claude.com/docs/third-party/claude-desktop/mdm#update-keys-and-managed-precedence) (the update, configuration re-check, relaunch window, and network proxy keys), the app uses that configuration and ignores the configuration from the admin console.
-* Devices can reach `api.anthropic.com` at every launch and `claude.ai` when users sign in, in addition to the hosts on [Telemetry and egress](https://claude.com/docs/third-party/claude-desktop/telemetry)
+* Devices can reach `api.anthropic.com` at every launch and while the app runs, and `claude.ai` when users sign in, in addition to the hosts on [Telemetry and egress](https://claude.com/docs/third-party/claude-desktop/telemetry)
 
 A device picks up the configuration from the admin console the first time the user signs in to Claude in the app. Walk through it on a test device first.
 
@@ -165,6 +233,67 @@ If a setting is changed that affects where users’ apps connect or sign in, or 
 A user returns a device to standard Claude Desktop by choosing **Sign out** from the account menu. The app relaunches signed out.
 When you remove a user from the organization, Anthropic revokes their Claude Desktop sign-in to that organization. A running app isn’t interrupted. At its next launch the app can no longer download the organization’s configuration. It shows either the sign-in screen, where **Or sign in with Claude.ai** returns the device to standard Claude Desktop, or a **Restart required** prompt whose **Restart** button does the same.
 To return a whole fleet to [MDM](https://claude.com/docs/third-party/claude-desktop/mdm) or [bootstrap](https://claude.com/docs/third-party/claude-desktop/bootstrap) delivery, deploy the configuration profile or registry policy again. The device-managed configuration takes precedence over the configuration from the admin console from the app’s next launch. From Claude Desktop 1.46388.1, a running app also notices the profile or policy at its next configuration re-check and asks the user to relaunch. Conversations created under the admin console’s configuration stay on the device but no longer appear in the app’s history after the switch. Users can bring them into the app’s history from **Settings → Import & export** in the app, as described at the end of [Start from an existing configuration file](#start-from-an-existing-configuration-file), after you set the [`claudeAiImport`](https://claude.com/docs/third-party/claude-desktop/configuration#claudeaiimport) key with `enabled` set to `true` in the profile or policy you deploy.
+
+##  Manage the configuration with the Admin API
+
+The configuration that the admin console edits is also available as one JSON document through the Admin API. You can keep it in version control and apply it from a pipeline.
+Requests authenticate with an Admin API key that the organization’s Primary Owner creates. Sign in at [claude.ai](https://claude.ai), switch to your Claude Desktop deployment’s organization, and open **Organization settings → API**. Click **Create key**, name the key, and select the `read:desktop_config` scope to read the configuration and `write:desktop_config` to replace it. Only that organization’s **Create key** dialog lists these two scopes. A key that reads and writes needs both scopes. Copy the key when it’s shown, because you can’t view it again.
+Pass the key in the `x-api-key` header. The key determines the organization, so there is no organization ID in the path. The examples read the key from the `ANTHROPIC_ADMIN_KEY` environment variable.
+
+###  Read the configuration
+
+```
+curl -sS --fail-with-body https://api.anthropic.com/v1/organizations/desktop_config \
+  -H "x-api-key: $ANTHROPIC_ADMIN_KEY" \
+  -H "anthropic-version: 2023-06-01" \
+  -o desktop-config.json.tmp \
+  && mv desktop-config.json.tmp desktop-config.json
+```
+
+On an error status, curl exits non-zero before the `mv`, so your saved copy is kept and the error message is in `desktop-config.json.tmp`. `--fail-with-body` needs curl 7.76 or later. With an older curl, use `--fail`, which discards the error message. A read returns `404` until a configuration has been saved, on the **Connection** page of the console or by a first write through this API.
+The response has these fields:
+
+| Field | Contents |
+| --- | --- |
+| `config` | The organization-wide configuration as nested JSON, in the v2 format described under [Response schema](https://claude.com/docs/third-party/claude-desktop/bootstrap#response-schema) for bootstrap servers. Stored header values appear as a placeholder, as described under [Replace the configuration](#replace-the-configuration). |
+| `status` | `active` or `disabled`. A `disabled` configuration isn’t served to users’ apps, as the warning under [Replace the configuration](#replace-the-configuration) describes. |
+| `group_settings` | An object whose `entries` list holds the [per-group permission policies](#per-group-permission-policies) in rank order, highest first, each with a `group_id` and its `config`. A `group_id` that matches no group is accepted and applies to nobody until a group with that ID exists. |
+| `version` | An integer that increases with every change. |
+| `checksum` | A digest of `config` and `group_settings` as returned. It leaves out `status`, so compare `version` to detect changes. |
+| `updated_at` | The time of the last change. |
+
+###  Replace the configuration
+
+A write replaces the whole document and accepts only `config`, `status`, `group_settings`, and `expected_version`. Send `config`, `status`, and `group_settings` together, even the parts you are not changing. Sending `version`, `checksum`, or `updated_at` returns `400`. The `jq` line below keeps only the accepted fields, sets `expected_version`, and fails if `desktop-config.json` has no `version`.
+Set `expected_version` to the `version` you read, or to `0` for a first write when nothing has been saved. The write is then refused with `409` if anyone changed the configuration after you read it. Without `expected_version`, the last writer wins. Sending `update.json` unedited returns `200` without creating a new version.
+
+```
+jq -e 'select(.version != null) | {config, status, group_settings, expected_version: .version}' \
+  desktop-config.json > update.json
+# Edit update.json, then:
+curl -sS --fail-with-body -X POST https://api.anthropic.com/v1/organizations/desktop_config \
+  -H "x-api-key: $ANTHROPIC_ADMIN_KEY" \
+  -H "anthropic-version: 2023-06-01" \
+  -H "content-type: application/json" \
+  -d @update.json
+```
+
+On an error status, curl prints the error body and exits non-zero (curl 7.76 or later, as under [Read the configuration](#read-the-configuration)). The response to a successful write is the stored document in the same shape as a read.
+Header values you save are never returned. In every `headers` or `customHeaders` map, including the request headers for your provider, OpenTelemetry export, and managed MCP servers, each stored value reads as the placeholder `[stored on server - enter a new value to replace]`. Sending the placeholder back keeps the stored value. A write that sends the placeholder is refused with `400` in two cases: nothing is stored under that header name yet (a first write, or a renamed header or server), or the same write changes where those headers are sent, for example with a new `baseUrl`. Send the actual header values in those cases.
+A write goes through the same checks as a save in the admin console. Users’ apps pick up the change as described under [Configuration updates](#configuration-updates). Owners receive the email alert described there when a write changes where users’ apps connect or sign in, what can run on their devices, or the `status`. In place of an administrator, the alert names the key by its ID (`apikey_…`).
+
+Setting `status` to `disabled` stops serving the configuration to users’ apps, as if none had been saved. A running app isn’t interrupted. At its next launch it shows a **Restart required** prompt whose **Restart** button returns the device to standard Claude Desktop, signed out. New sign-ins also stay in standard Claude Desktop. The admin console has no control for `status`, so only another API write can set it back to `active`. After that, users who clicked **Restart** sign in again as described under [Onboard users](#onboard-users).
+
+###  Admin API errors
+
+| Status | Meaning |
+| --- | --- |
+| `400` | The server refused the document. The message names the field and the rule, for example `config.inference.baseUrl: must not embed credentials in the URL`. Nothing is stored. |
+| `401` | The key in `x-api-key` is unknown, deleted, disabled, or expired. |
+| `403` | The key lacks the scope the request needs, or isn’t an organization-level key. For a missing scope, the message lists the scopes the key has and the one required. |
+| `404` | The key was created in an organization other than your Claude Desktop deployment’s, the `x-api-key` header is missing or its key is malformed, or (on a read) no configuration has been saved yet. |
+| `409` | `expected_version` is not the current version. Read the configuration again and reapply your change. |
+| `429` | Admin API requests share a per-organization limit of 100 requests per minute, as described under [Rate limits](https://platform.claude.com/docs/en/manage-claude/user-management#rate-limits). Retry after the number of seconds in the `retry-after` header. |
 
 ##  Limitations
 

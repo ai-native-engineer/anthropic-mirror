@@ -17,11 +17,11 @@ Additional factors that affect your usage limits include:
 * Model choice
 * Effort level
 * Artifact creation and usage
+* Multi-step tasks, like running code, creating files, or browsing websites
 
 Our system also includes caching that helps you optimize your limits:
 
-* Content in projects is cached and doesn't count against your limits when reused.
-* Similar prompts you use frequently are partially cached.
+* Content in projects is cached and counts less against your limits when reused.
 * Claude remembers context from earlier in the conversation.
 
 ---
@@ -68,9 +68,10 @@ Take a moment to review your message for clarity and completeness to reduce the 
 Projects offer significant caching benefits:
 
 * When you upload documents to a project, they're cached for future use.
-* Every time you reference that content, only new/uncached portions count against your limits.
+* When you reference that content again while it’s still cached, cached portions count less against your limits than new content.
 * This means you can work with the same documents repeatedly without using up your messages as quickly.
 * Example: If you're working on a research paper and add all your reference materials to a project, you can ask multiple questions about those materials while using fewer messages than if you uploaded them each time.
+* Caches expire after a period of inactivity. If you come back to a project after a long break, your first message counts that content in full again.
 * Projects offer a Retrieval Augmented Generation (RAG) mode allowing for expanded project knowledge capacity.
 
   + Learn more here: **[Retrieval Augmented Generation (RAG) for projects](https://support.claude.com/en/articles/11473015-retrieval-augmented-generation-rag-for-projects)**
@@ -81,7 +82,7 @@ Projects offer significant caching benefits:
 * The **Plan usage limits** section at the top shows your progress towards both your session limit and weekly limits.
 
   + **Current session:** How much of your plan’s five-hour session limit you’ve used thus far, plus the amount of time remaining in the session.
-  + **Weekly limits:** Check when your plan’s weekly usage limit resets for Opus only and all other models.
+  + **Weekly limits:** Check when your plan’s weekly usage limit resets, for all models, and for Fable (if included in your plan).
 * **Usage credits:** If you are using a Pro, Max, Team, or seat-based Enterprise plan, your usage settings page will also show how much of your plan's limit you've used. Refer to these articles for more information about enabling usage credits depending on your plan:
 
   + **[Manage usage credits for paid Claude plans](https://support.claude.com/en/articles/12429409-)**

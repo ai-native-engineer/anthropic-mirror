@@ -4,15 +4,17 @@
 title: Accessing GitHub
 url: https://platform.claude.com/docs/en/managed-agents/github
 description: Connect your agent to GitHub repositories for cloning, reading, and creating pull requests.
+featureMetadata:
+  topic:
+    title: Managed Agents
+    url: https://platform.claude.com/docs/en/managed-agents/overview
+  status: beta
+  betaHeader: managed-agents-2026-04-01
 ---
 
 You can mount a GitHub repository to your session sandbox and connect to the GitHub MCP for making pull requests.
 
 GitHub repositories are cached, so future sessions that use the same repository start faster.
-
-<Note>
-  Managed Agents API requests require the `managed-agents-2026-04-01` beta header, except memory store endpoints, which use `agent-memory-2026-07-22` instead. The SDK sets the correct beta header automatically. See [Beta headers](https://platform.claude.com/docs/en/api/beta-headers#endpoint-specific-headers).
-</Note>
 
 ## GitHub MCP and session resources
 
@@ -28,7 +30,7 @@ First, create an agent that declares the GitHub MCP server. The agent definition
     --data @- <<JSON | jq -r '.id'
   {
     "name": "Code Reviewer",
-    "model": "claude-opus-5",
+    "model": "claude-opus-5-5",
     "system": "You are a code review assistant with access to GitHub.",
     "mcp_servers": [
       {
@@ -58,7 +60,7 @@ First, create an agent that declares the GitHub MCP server. The agent definition
       ```markdown
       ---
       name: Code Reviewer
-      model: claude-opus-5
+      model: claude-opus-5-5
       mcp_servers:
         - type: url
           name: github
@@ -77,7 +79,7 @@ First, create an agent that declares the GitHub MCP server. The agent definition
   ```python Python
   agent = client.beta.agents.create(
       name="Code Reviewer",
-      model="claude-opus-5",
+      model="claude-opus-5-5",
       system="You are a code review assistant with access to GitHub.",
       mcp_servers=[
           {
@@ -99,7 +101,7 @@ First, create an agent that declares the GitHub MCP server. The agent definition
   ```typescript TypeScript
   const agent = await client.beta.agents.create({
     name: "Code Reviewer",
-    model: "claude-opus-5",
+    model: "claude-opus-5-5",
     system: "You are a code review assistant with access to GitHub.",
     mcp_servers: [
       {
@@ -122,7 +124,7 @@ First, create an agent that declares the GitHub MCP server. The agent definition
   var agent = await client.Beta.Agents.Create(new()
   {
       Name = "Code Reviewer",
-      Model = BetaManagedAgentsModel.ClaudeOpus5,
+      Model = BetaManagedAgentsModel.ClaudeOpus5_5,
       System = "You are a code review assistant with access to GitHub.",
       McpServers =
       [
@@ -147,7 +149,7 @@ First, create an agent that declares the GitHub MCP server. The agent definition
   agent, err := client.Beta.Agents.New(ctx, anthropic.BetaAgentNewParams{
   	Name: "Code Reviewer",
   	Model: anthropic.BetaManagedAgentsModelConfigParams{
-  		ID: anthropic.BetaManagedAgentsModelClaudeOpus5,
+  		ID: anthropic.BetaManagedAgentsModelClaudeOpus5_5,
   	},
   	System: anthropic.String("You are a code review assistant with access to GitHub."),
   	MCPServers: []anthropic.BetaManagedAgentsURLMCPServerParams{
@@ -179,7 +181,7 @@ First, create an agent that declares the GitHub MCP server. The agent definition
   ```java Java
   var agent = client.beta().agents().create(AgentCreateParams.builder()
       .name("Code Reviewer")
-      .model(BetaManagedAgentsModel.CLAUDE_OPUS_5)
+      .model(BetaManagedAgentsModel.CLAUDE_OPUS_5_5)
       .system("You are a code review assistant with access to GitHub.")
       .addMcpServer(BetaManagedAgentsUrlMcpServerParams.builder()
           .type(BetaManagedAgentsUrlMcpServerParams.Type.URL)
@@ -199,7 +201,7 @@ First, create an agent that declares the GitHub MCP server. The agent definition
   ```php PHP
   $agent = $client->beta->agents->create(
       name: 'Code Reviewer',
-      model: 'claude-opus-5',
+      model: 'claude-opus-5-5',
       system: 'You are a code review assistant with access to GitHub.',
       mcpServers: [
           [
@@ -221,7 +223,7 @@ First, create an agent that declares the GitHub MCP server. The agent definition
   ```ruby Ruby
   agent = client.beta.agents.create(
     name: "Code Reviewer",
-    model: "claude-opus-5",
+    model: "claude-opus-5-5",
     system_: "You are a code review assistant with access to GitHub.",
     mcp_servers: [
       {

@@ -27,10 +27,12 @@ The tables below compare the feature set of Claude Desktop on third-party (3P) t
 | Code | ✓ | ✓ |
 | Auto mode (Code) | ✓ | ✓ |
 | [SSH remote Code sessions](https://claude.com/docs/third-party/claude-desktop/ssh-remote-sessions) | ✓ | ✓ |
-| Automatically approve / Skip all approvals (Cowork) | — ¶ | ✓ |
+| Automatically approve (Cowork) | — ¶ | ✓ Δ |
+| Skip all approvals (Cowork) | — ¶ | — |
 | Projects | ✓ | ✓ |
 | Code execution for analysis | ✓ | ✓ |
 | Web search | ✓ | ✓ § |
+| [Built-in browser](https://claude.com/docs/third-party/claude-desktop/browser) | ✓ | ✓ |
 | File access, upload, and export | ✓ | ✓ |
 | Local MCP | ✓ | ✓ |
 | Remote MCP | ✓ | ✓ |
@@ -45,7 +47,7 @@ The tables below compare the feature set of Claude Desktop on third-party (3P) t
 | Mobile | ✓ | — |
 | claude.ai web-based access | ✓ | — |
 | Voice mode | ✓ | — |
-| Claude in Chrome | ✓ | — |
+| [Claude in Chrome](https://claude.com/docs/third-party/claude-desktop/browser#claude-in-chrome) | ✓ | ✓ ‖ |
 | Claude Design | ✓ | — |
 | Claude Security | ✓ | — |
 | Claude Tag | ✓ | — |
@@ -54,6 +56,8 @@ The tables below compare the feature set of Claude Desktop on third-party (3P) t
 § Amazon Bedrock deployments and gateways that do not forward Anthropic server tools need a web search provider configured first; see [Web search options](https://claude.com/docs/third-party/claude-desktop/web-tools#web-search-options).
 † Memory in Claude Desktop on 3P is stored on the device, not on Anthropic infrastructure. Users can review, delete, or pause it under **Settings → Cowork → Memory**; see [Memory](https://claude.com/docs/third-party/claude-desktop/data-storage#memory). Chat-history search and nightly summary generation are not available in Chat on 3P.
 ¶ Cowork’s Automatically approve and Skip all approvals modes are not available for Claude Enterprise organizations.
+Δ Offered when an administrator sets [`autoModeEnabled`](https://claude.com/docs/third-party/claude-desktop/configuration#automodeenabled) to `true`.
+‖ Claude in Chrome works with Claude Desktop on 3P only in organizations managed from the [Enterprise Admin Console](https://claude.com/docs/third-party/claude-desktop/admin-console).
 
 ##  Admin features
 

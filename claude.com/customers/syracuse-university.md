@@ -4,47 +4,17 @@ Q&A | Claude Enterprise
 
 # Why Syracuse University gave Claude to 30,000 students, faculty, and staff
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69c55e378470f097a9c1932a_logo_syracuse-light-mode.png)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69c55e41c5540b773626981e_logo_syracuse-dark-mode.png)
+![Syracuse University (Vertical) logo](https://assets.claude.com/3b0fe1d2906982c88d627148ba2bf5455745aed5.png)
 
 Education
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698f5245ff22e3ab8e64405f_68c469d2d09b203c164ad8e6_og-claude-education.jpeg)
+![Education](https://assets.claude.com/b3e6d0547ee5dc0654c639ece4b89778e2edb536.jpg)
 
 Trusted, responsible AI tools for students and educators, from personalized learning to research assistance.
 
-Read more
-
-[Read more](https://claude.com/solutions/education)Read more
-
-Education
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Trusted, responsible AI tools for students and educators, from personalized learning to research assistance.
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Education
-
-Trusted, responsible AI tools for students and educators, from personalized learning to research assistance.
-
-[Prev](#)Prev
-
-[Next](#)Next
+[Read more](https://claude.com/solutions/education)
 
 Over the past two years, Jeff Rubin, Senior Vice President and Chief Digital Officer at Syracuse University, has led a rollout of Claude to every student, faculty member, and staff member at the university. Syracuse is now launching a new way for students to search for classes. Instead of keyword searches, students can ask questions in natural language and get answers that support and align with the pursuit of their career goals. The system runs on Claude Opus and queries millions of rows of enterprise data in real time.
 
@@ -82,11 +52,9 @@ So I changed it. I used Claude to redesign the practice exam so students get a t
 
 The problem wasn't the tool. It was how I was using it. And that's what I mean by changing pedagogy: we have to change how we teach, not just hand our community a new tool.
 
-“As an educational institution, we can either ignore AI, or we can prepare our students to be successful within this new environment and teach our faculty to use it effectively.”
+> “As an educational institution, we can either ignore AI, or we can prepare our students to be successful within this new environment and teach our faculty to use it effectively.”
 
-Jeff Rubin
-
-Senior Vice President and Chief Digital Officer, Syracuse University
+Jeff RubinSenior Vice President and Chief Digital Officer, Syracuse University
 
 ## You're also about to launch a new class search tool powered by Claude. What problem does that solve?
 
@@ -124,84 +92,22 @@ When I grew up in the late '70s and '80s, I had an encyclopedia. That was it. Th
 
 Claude Code
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698f525504b02eec936ac51b_68c469d41149ace562bfd24d_og-claude-product-claude-code.jpeg)
+![Claude Code](https://assets.claude.com/38e8385d1c5f9c0f71c486994e22fc5861a4522d.jpg)
 
 Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
 
-Read more
+[Read more](https://claude.com/product/claude-code)
 
-[Read more](https://claude.com/product/claude-code)Read more
+> “From the beginning, Anthropic looked at us as a partner, not a customer.”
 
-Claude Code
+Jeff RubinSenior Vice President and Chief Digital Officer, Syracuse University
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[![Mercy Corps](https://assets.claude.com/544995a85d67ef08fd67560f5758d5e28bc7a53f.svg)
 
-[Next](#)Next
+### Mercy Corps on what AI makes possible in humanitarian work](https://claude.com/customers/mercy-corps-qa)[![Mercy Corps](https://assets.claude.com/544995a85d67ef08fd67560f5758d5e28bc7a53f.svg)
 
-Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
+### Mercy Corps accelerates global humanitarian response to community feedback with Claude](https://claude.com/customers/mercy-corps)[![Epilepsy Foundation](https://assets.claude.com/446cc4df1be577720df85748fa3813fa0837e3b8.png)
 
-Video caption
+### The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude](https://claude.com/customers/epilepsy-foundation)[![Epilepsy Foundation](https://assets.claude.com/446cc4df1be577720df85748fa3813fa0837e3b8.png)
 
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Claude Code
-
-Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
-
-“From the beginning, Anthropic looked at us as a partner, not a customer.”
-
-Jeff Rubin
-
-Senior Vice President and Chief Digital Officer, Syracuse University
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[Mercy Corps on what AI makes possible in humanitarian work](https://claude.com/customers/mercy-corps-qa)Mercy Corps on what AI makes possible in humanitarian work
-
-Mercy Corps on what AI makes possible in humanitarian work
-
-Customer story
-
-[Customer story](https://claude.com/customers/mercy-corps-qa)Customer story
-
-[Mercy Corps accelerates global humanitarian response to community feedback with Claude](https://claude.com/customers/mercy-corps)Mercy Corps accelerates global humanitarian response to community feedback with Claude
-
-Mercy Corps accelerates global humanitarian response to community feedback with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/mercy-corps)Customer story
-
-[The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude](https://claude.com/customers/epilepsy-foundation)The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude
-
-The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/epilepsy-foundation)Customer story
-
-[How the Epilepsy Foundation uses Claude across the organization](https://claude.com/customers/epilepsy-foundation-qa)How the Epilepsy Foundation uses Claude across the organization
-
-How the Epilepsy Foundation uses Claude across the organization
-
-Customer story
-
-[Customer story](https://claude.com/customers/epilepsy-foundation-qa)Customer story
+### How the Epilepsy Foundation uses Claude across the organization](https://claude.com/customers/epilepsy-foundation-qa)

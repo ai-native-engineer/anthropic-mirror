@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/ai-fluency-framework-foundations/a-closer-look-at-diligence -->
 
-Lesson 12 of 14 · AI Fluency: Framework & FoundationsA closer look at Diligence
+Lesson 12 of 14 · AI Fluency: Framework and foundationsA closer look at Diligence
 
-3. /[AI Fluency: Framework & Foundations](https://academy.claude.com/courses/ai-fluency-framework-foundations)
+3. /[AI Fluency: Framework and foundations](https://academy.claude.com/courses/ai-fluency-framework-foundations)
 
-[AI Fluency: Framework & Foundations](https://academy.claude.com/courses/ai-fluency-framework-foundations)
+[AI Fluency: Framework and foundations](https://academy.claude.com/courses/ai-fluency-framework-foundations)
 
 # A closer look at Diligence
 
@@ -113,7 +113,7 @@ In the final lesson of this course, we'll reflect on what we've learned about AI
 
 [Previous lessonThe Description-Discernment loop](https://academy.claude.com/courses/ai-fluency-framework-foundations/the-description-discernment-loop)[Next lessonConclusion](https://academy.claude.com/courses/ai-fluency-framework-foundations/conclusion)
 
-Lesson 12 of 14 · AI Fluency: Framework & FoundationsA closer look at Diligence
+Lesson 12 of 14 · AI Fluency: Framework and foundationsA closer look at Diligence
 
 Introduction to AI Fluency
 

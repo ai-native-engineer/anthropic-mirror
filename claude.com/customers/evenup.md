@@ -4,35 +4,21 @@ Case study | Claude
 
 # EvenUp cuts document drafting from 15 hours to 15 minutes with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a5e5b97ed26f0736cd8ef5b_evenup_light.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a5e5b9a67ae5f64f19fc17e_evenup_dark.svg)
+![EvenUp logo](https://assets.claude.com/466446f5f59635a264efe3e688a42b51c0e88976.svg)
 
 Industry:
-
-Legal
+:   Legal
 
 Company size:
-
-Startup
+:   Startup
 
 Product:
-
-[Claude Platform](https://claude.com/platform/api)
-
-[Claude Enterprise](https://claude.com/solutions/enterprise)
-
-[Claude Code](https://claude.com/product/claude-code)
+:   [Claude Platform](https://claude.com/platform/api)[Claude Enterprise](https://claude.com/solutions/enterprise)[Claude Code](https://claude.com/product/claude-code)
 
 Location:
-
-North America
+:   North America
 
 Documents drafted in minutes,
 
@@ -55,61 +41,19 @@ with AI Drafts backed by cited evidence
 
 ## The challenge
 
-Choosing the right Claude model
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69c2dd485d80024bc14f48c6_choosing%20model.jpeg)
-
-Learn when to use Haiku, Sonnet, or Opus to get better results and stay inside your rate limit. A practical guide to picking the right Claude model.
-
-Choosing the right Claude model
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Learn when to use Haiku, Sonnet, or Opus to get better results and stay inside your rate limit. A practical guide to picking the right Claude model.
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Choosing the right Claude model
-
-Learn when to use Haiku, Sonnet, or Opus to get better results and stay inside your rate limit. A practical guide to picking the right Claude model.
-
 ## Weeks of skilled work inside every document
 
 A personal injury case runs on documents: demands, negotiation sheets, discovery responses, medical summaries. Each one has to be formatted correctly, factually airtight, and toned to match the firm. Before EvenUp, getting there was entirely manual. "A paralegal with a highlighter worked through stacks of records that were weeks late and out of order, said Emre Yamangil, Principal Machine Learning Engineer at EvenUp. “The same visit could be documented three different ways by three different providers."
 
-One California firm juggled 1,500+ active cases, 250 of them in litigation at any given time, and ran its entire demand-writing function through a single person.  A 45-day backlog slowed every case behind it. Paralegals at an Ohio-based firm built medical chronologies and totaled bills by hand, taking 8 to 15 hours for each case. Firms faced a choice: take the case and eat the hours, or refer it out.
+One California firm juggled 1,500+ active cases, 250 of them in litigation at any given time, and ran its entire demand-writing function through a single person. A 45-day backlog slowed every case behind it. Paralegals at an Ohio-based firm built medical chronologies and totaled bills by hand, taking 8 to 15 hours for each case. Firms faced a choice: take the case and eat the hours, or refer it out.
+
+Choosing the right Claude model
+
+![Choosing the right Claude model](https://assets.claude.com/7388619b452db0af26c78442a275c86c5ebe3124.jpg)
+
+Learn when to use Haiku, Sonnet, or Opus to get better results and stay inside your rate limit. A practical guide to picking the right Claude model.
 
 ## The solution
-
-Claude Enterprise
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a4e8f1c4eb05b098011e591_claude%20ent%20marginalia.jpeg)
-
-Put Claude to work across your organization. Help everyone think deeper, do more, and build securely.
-
-Read more
-
-[Read more](https://claude.com/solutions/enterprise)Read more
-
-Claude Enterprise
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Put Claude to work across your organization. Help everyone think deeper, do more, and build securely.
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Claude Enterprise
-
-Put Claude to work across your organization. Help everyone think deeper, do more, and build securely.
 
 ## Selecting Claude for long-context performance
 
@@ -131,21 +75,17 @@ Another feature that totals what a case is worth on paper works off records the 
 
 "Getting one case right is easy," Yamangil said. "Getting the hundred-thousandth case right at a cost a firm can actually afford is the hard part." EvenUp tracks the cost of every task, so a spike traces to its source within a day. “Cost is something you engineer,” he added.
 
-"Other models can write one good paragraph, but Claude stands apart. Keeping a single consistent story across thirty pages is the real test."
+Claude Enterprise
 
-Emre Yamangil
+![Claude Enterprise](https://assets.claude.com/50a00469e498d2c960d9e45f1a4a37d2d7a92f2e.jpg)
 
-Principal Machine Learning Engineer, EvenUp
+Put Claude to work across your organization. Help everyone think deeper, do more, and build securely.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[Read more](https://claude.com/solutions/enterprise)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+> "Other models can write one good paragraph, but Claude stands apart. Keeping a single consistent story across thirty pages is the real test."
 
-[Next](#)Next
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+Emre YamangilPrincipal Machine Learning Engineer, EvenUp
 
 ## The outcome
 
@@ -159,44 +99,18 @@ The same shift runs inside EvenUp itself, where 200+ employees use Claude Enterp
 
 The change reads differently from inside a firm. "I've been doing medical billing spreadsheets for over 25 years,” said a paralegal at an Ohio personal injury firm on EvenUp. “At first, I was hesitant to give up control, but with the way our firm is growing, I just don't have the time I used to. EvenUp has been a huge stress relief. It helps us move cases faster, benefits the client, and supports the whole firm."
 
-That relief is what EvenUp wants to build on. Yamangil's advice to anyone building AI for a specialized industry hasn't changed: "Spend your expensive model where you can't verify cheaply," he  said. "The case doesn't end when the demand goes out, and neither does the opportunity to save a firm time on it.”
+That relief is what EvenUp wants to build on. Yamangil's advice to anyone building AI for a specialized industry hasn't changed: "Spend your expensive model where you can't verify cheaply," he said. "The case doesn't end when the demand goes out, and neither does the opportunity to save a firm time on it.”
 
-"Claude Opus 4.8 delivers a new level of reasoning, reliability, and long-context performance. EvenUp adds PI data, domain expertise, and purpose-built workflows."
+> "Claude Opus 4.8 delivers a new level of reasoning, reliability, and long-context performance. EvenUp adds PI data, domain expertise, and purpose-built workflows."
 
-Rami Karabibar,
+Rami Karabibar, CEO, EvenUp
 
-CEO, EvenUp
+[![Spellbook](https://assets.claude.com/6d8c2b327807c9a9dc5b911946df64b7a0cbda3c.svg)
 
-## Related stories
+### Spellbook runs 530,000 contract reviews a month with Claude](https://claude.com/customers/spellbook)[![Eve Legal](https://assets.claude.com/f1efc487a08ab700dd2f0a0d09e717745da3e2d0.svg)
 
-[Spellbook runs 530,000 contract reviews a month with Claude](https://claude.com/customers/spellbook)Spellbook runs 530,000 contract reviews a month with Claude
+### Eve Legal helps plaintiff law firms settle cases 60 days faster with Claude](https://claude.com/customers/eve-legal)[![GC AI](https://assets.claude.com/bf75981f3c09a3118604def848ab045ebfd0bfb5.svg)
 
-Spellbook runs 530,000 contract reviews a month with Claude
+### GC AI powers legal workflows for 1,500 companies, saving lawyers 14 hours a week with Claude](https://claude.com/customers/gc-ai)[![Thomson Reuters](https://assets.claude.com/3c80d8dc7dbf6556d1137977873dee26eaffae1d.svg)
 
-Customer story
-
-[Customer story](https://claude.com/customers/spellbook)Customer story
-
-[Eve Legal helps plaintiff law firms settle cases 60 days faster with Claude](https://claude.com/customers/eve-legal)Eve Legal helps plaintiff law firms settle cases 60 days faster with Claude
-
-Eve Legal helps plaintiff law firms settle cases 60 days faster with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/eve-legal)Customer story
-
-[GC AI powers legal workflows for 1,500 companies, saving lawyers 14 hours a week with Claude](https://claude.com/customers/gc-ai)GC AI powers legal workflows for 1,500 companies, saving lawyers 14 hours a week with Claude
-
-GC AI powers legal workflows for 1,500 companies, saving lawyers 14 hours a week with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/gc-ai)Customer story
-
-[Thomson Reuters CTO on piloting Cowork with Claude Enterprise](https://claude.com/customers/thomson-reuters-qa)Thomson Reuters CTO on piloting Cowork with Claude Enterprise
-
-Thomson Reuters CTO on piloting Cowork with Claude Enterprise
-
-Customer story
-
-[Customer story](https://claude.com/customers/thomson-reuters-qa)Customer story
+### Thomson Reuters CTO on piloting Cowork with Claude Enterprise](https://claude.com/customers/thomson-reuters-qa)

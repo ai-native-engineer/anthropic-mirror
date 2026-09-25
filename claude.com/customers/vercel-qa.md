@@ -4,33 +4,21 @@ Q&A | Claude
 
 # How Vercel built an ecosystem on the open skills standard
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![Vercel logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ae5cc28a7f003e87512b_Vercel_light.svg)![Vercel logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ae58a9b3ff9512c20db4_Vercel_dark.svg)
+![Vercel logo](https://assets.claude.com/f6f5598aac3be6fd9b2dfc23eced7509c90d387b.svg)
 
 Industry:
-
-Software
+:   Software
 
 Company size:
-
-Large
+:   Large
 
 Product:
-
-[Claude Enterprise](https://claude.com/solutions/enterprise)
-
-[Claude Code](https://claude.com/product/claude-code)
+:   [Claude Enterprise](https://claude.com/solutions/enterprise)[Claude Code](https://claude.com/product/claude-code)
 
 Location:
-
-North America
+:   North America
 
 ~100 skills
 
@@ -42,35 +30,11 @@ are written by non-developers
 
 How to create Skills
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/691e12491e60b22e092c4065_og_how-to-create-skills-key-steps-limitations-and-examples.jpg)
+![How to create Skills](https://assets.claude.com/597f5f4383bc4f65ab162f9b1a712d5347dcec9a.jpg)
 
 Follow our step-by-step guide to write custom skills that extend Claude's capabilities with real examples and practical patterns.
 
-Read more
-
-[Read more](https://claude.com/blog/how-to-create-skills-key-steps-limitations-and-examples)Read more
-
-How to create Skills
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Follow our step-by-step guide to write custom skills that extend Claude's capabilities with real examples and practical patterns.
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-How to create Skills
-
-Follow our step-by-step guide to write custom skills that extend Claude's capabilities with real examples and practical patterns.
-
-[Prev](#)Prev
-
-[Next](#)Next
+[Read more](https://claude.com/blog/how-to-create-skills-key-steps-limitations-and-examples)
 
 [Vercel](https://vercel.com/) is a platform developers use to build and deploy web applications and agents. Its Chief of Software, Andrew Qu, built [skills.sh](http://skills.sh), a registry on top of Anthropic's open Skills spec, where developers discover and install agent skills.
 
@@ -94,11 +58,9 @@ With the skill, you can go from having your work in Claude to saying "I want thi
 
 A good example is a data science agent I maintain, named d0. I went through all the phases, sub agents, file systems, and the version we serve today runs on roughly 100 skills: aggregation, customer metrics, product metrics, time series data. Every scenario it handles is now encoded as a skill, because once we've done something accurately we can capture it and turn it into something the agent can recall later. Skills have changed how we work with agents at Vercel.
 
-"Skills have changed how we work with agents at Vercel."
+> "Skills have changed how we work with agents at Vercel."
 
-Andrew Qu
-
-Chief of Software, Vercel
+Andrew QuChief of Software, Vercel
 
 ## With around 100 skills behind one agent, how does it know which skill to use when?
 
@@ -122,37 +84,15 @@ Skills are great right now. Honestly, we hope a lot of them eventually become ob
 
 Improving frontend design through Skills
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/691415fb9e16a6640cf2288a_og_improving-frontend-design-through-skills%20(1).jpg)
+![Improving frontend design through Skills](https://assets.claude.com/eab98d037de55c9f2fa64adfb1f05902c43fa56d.jpg)
 
 Build richer, more customized frontend interfaces with Claude. Learn how Skills unlock better typography, animations, and design quality.
 
-Read more
+[Read more](https://claude.com/blog/improving-frontend-design-through-skills)
 
-[Read more](https://claude.com/blog/improving-frontend-design-through-skills)Read more
+> "Skills have opened up the door for non-technical people with a background in a specific field to contribute to the AI ecosystem."
 
-Improving frontend design through Skills
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Build richer, more customized frontend interfaces with Claude. Learn how Skills unlock better typography, animations, and design quality.
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Improving frontend design through Skills
-
-Build richer, more customized frontend interfaces with Claude. Learn how Skills unlock better typography, animations, and design quality.
-
-"Skills have opened up the door for non-technical people with a background in a specific field to contribute to the AI ecosystem."
-
-Andrew Qu
-
-Chief of Software, Vercel
+Andrew QuChief of Software, Vercel
 
 ## What's surprised you most about what people are building with skills?
 
@@ -164,54 +104,14 @@ Chief of Software, Vercel
 
 ## Where do you see this heading? Are teams starting to build whole agents out of skills?
 
-**Qu:** Internally, yes, though it still feels new. We're releasing a framework for building agents, based on everything we've learned building agents at Vercel and shipping these experiences ourselves. It’s called [eve](http://eve.dev), and  one of the core pieces is skills. There are really four things that make up an agent: tools, the initial system instructions, skills, and channels, which are the interfaces for communicating with the agent. Skills are probably the biggest thing people customize. The system prompt will be dense, but the way people actually iterate, we think, is by adding and removing skills. A lot of what we're doing is skill-based, building more markdown and resource-heavy agents. I don't think it's a big industry-wide thing yet, but I think it will be.
+**Qu:** Internally, yes, though it still feels new. We're releasing a framework for building agents, based on everything we've learned building agents at Vercel and shipping these experiences ourselves. It’s called [eve](http://eve.dev), and one of the core pieces is skills. There are really four things that make up an agent: tools, the initial system instructions, skills, and channels, which are the interfaces for communicating with the agent. Skills are probably the biggest thing people customize. The system prompt will be dense, but the way people actually iterate, we think, is by adding and removing skills. A lot of what we're doing is skill-based, building more markdown and resource-heavy agents. I don't think it's a big industry-wide thing yet, but I think it will be.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[![Supermetrics](https://assets.claude.com/3ac4171a81008be0340e5c3d8ccb46571c3edfb3.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### Supermetrics lets marketers manage ad campaigns from a conversation with Claude](https://claude.com/customers/supermetrics)[![Atlassian](https://assets.claude.com/4870b3d6c0253cea01b100c98ad2030b8e4f8ce1.svg)
 
-[Next](#)Next
+### How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-Video caption
+### Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-Customer story
-
-[Customer story](https://claude.com/customers/atlassian)Customer story
-
-[Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)Rocket Money on building agents that fix their own code
-
-Rocket Money on building agents that fix their own code
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money-qa)Customer story
-
-[How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)How Rocket Money built its personal finance agent with Claude
-
-How Rocket Money built its personal finance agent with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money)Customer story
-
-[How Notion ships and scales agents with Claude Managed Agents](https://claude.com/customers/notion-qa)How Notion ships and scales agents with Claude Managed Agents
-
-How Notion ships and scales agents with Claude Managed Agents
-
-Customer story
-
-[Customer story](https://claude.com/customers/notion-qa)Customer story
+### How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)

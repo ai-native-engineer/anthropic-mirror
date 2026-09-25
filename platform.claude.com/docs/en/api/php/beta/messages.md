@@ -9,7 +9,7 @@ url: https://platform.claude.com/docs/en/api/php/beta/messages
 
 ## Create a Message
 
-`$client->beta->messages->create(int maxTokens, list<BetaMessageParam> messages, Model model, ?BetaCacheControlEphemeral cacheControl, ?Container container, ?BetaContextManagementConfig contextManagement, ?BetaDiagnosticsParam diagnostics, ?FallbackCreditToken fallbackCreditToken, ?BetaFallbacksParam fallbacks, ?string inferenceGeo, ?list<BetaRequestMCPServerURLDefinition> mcpServers, ?BetaMetadata metadata, ?BetaOutputConfig outputConfig, ?BetaJSONOutputFormat outputFormat, ?ServiceTier serviceTier, ?Speed speed, ?list<string> stopSequences, ?System system, ?float temperature, ?BetaThinkingConfigParam thinking, ?BetaToolChoice toolChoice, ?list<BetaToolUnion> tools, ?int topK, ?float topP, ?list<AnthropicBeta> betas, ?string userProfileID, ?string workspaceID): BetaMessage`
+`$client->beta->messages->create(int maxTokens, list<BetaMessageParam> messages, Model model, ?BetaCacheControlEphemeral cacheControl, ?BetaCompactionConfig compaction, ?Container container, ?BetaContextManagementConfig contextManagement, ?BetaDiagnosticsParam diagnostics, ?FallbackCreditToken fallbackCreditToken, ?BetaFallbacksParam fallbacks, ?string inferenceGeo, ?list<BetaRequestMCPServerURLDefinition> mcpServers, ?BetaMetadata metadata, ?BetaOutputConfig outputConfig, ?BetaJSONOutputFormat outputFormat, ?ServiceTier serviceTier, ?Speed speed, ?list<string> stopSequences, ?System system, ?float temperature, ?BetaThinkingConfigParam thinking, ?BetaToolChoice toolChoice, ?list<BetaToolUnion> tools, ?int topK, ?float topP, ?list<AnthropicBeta> betas, ?string userProfileID, ?string workspaceID): BetaMessage`
 
 **POST** `/v1/messages`
 
@@ -91,6 +91,17 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 - `cacheControl?:optional BetaCacheControlEphemeral`
 
   Top-level cache control automatically applies a cache_control marker to the last cacheable block in the request.
+
+- `compaction?:optional BetaCompactionConfig`
+
+  Compact the whole conversation and return a signed `compaction` block,
+  alone, that a later request sends back first in `messages`, in place of
+  the messages it summarizes. There is no trigger and no pause flag: sending
+  the parameter compacts, and nothing is sampled after the block.
+
+  The summarization prompt is the server's own unless `instructions` are
+  given, which then replace it for this request; a value that is empty or
+  only whitespace counts as absent.
 
 - `container?:optional Container`
 
@@ -266,6 +277,10 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 - `outputFormat?:optional BetaJSONOutputFormat`
 
   **Deprecated**
@@ -276,7 +291,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
 - `temperature?:optional float`
 
-  **Deprecated**: Deprecated. Models released after Claude Opus 4.6 do not support setting temperature. A value of 1.0 of will be accepted for backwards compatibility, all other values will be rejected with a 400 error.
+  **Deprecated**: Deprecated. Models released after Claude Opus 4.6 do not support setting temperature. A value of 1.0 will be accepted for backwards compatibility, all other values will be rejected with a 400 error.
 
   Amount of randomness injected into the response.
 
@@ -306,7 +321,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
 ### Returns
 
-- `BetaMessage`
+- `class BetaMessage`
 
   - `"message" type`
 
@@ -361,8 +376,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
   - `?BetaDiagnostics diagnostics`
 
-    Response envelope for request-level diagnostics. Present (possibly
-    null) whenever the caller supplied `diagnostics` on the request.
+    Request-level diagnostics: why the prompt cache could not fully reuse
+    the prefix of the request named by `diagnostics.previous_message_id`.
 
   - `Model model`
 
@@ -414,33 +429,39 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     Total input tokens in a request is the summation of `input_tokens`, `cache_creation_input_tokens`, and `cache_read_input_tokens`.
 
-  - `?list<BetaThinkingDroppedInputTransformation> inputTransformations`
+  - `?list<BetaInputTransformation> inputTransformations`
 
-    Changes the API made to the request's input before showing it to the model:
-    one entry per change, in request order. Today the only entry type is
-    `thinking_dropped` — a `thinking`, `redacted_thinking` or `connector_text`
-    block from the request's `messages` that was removed from the prompt instead
-    of being shown to the model because it failed a binding check. More entry
-    types may be added over time; ignore types you do not recognize.
+    Changes the API made to the request's input before showing it to the model,
+    and blocks that failed a binding check but were left unchanged: one entry per
+    block, in request order. Two entry types today. `thinking_dropped` — a
+    `thinking`, `redacted_thinking` or `connector_text` block from the request's
+    `messages` that was removed from the prompt instead of being shown to the
+    model because it failed a binding check. `thinking_mismatch_allowed` — a
+    `thinking` or `redacted_thinking` block that failed the conversation check
+    (the conversation before it differs from the one it was created in, or it
+    carries no record of one on a model that requires it) and was shown to the
+    model all the same, because that check is not enforced for this request.
+    More entry types may be added over time; ignore types you do not recognize.
 
     Requires `anthropic-beta: thinking-binding-controls-2026-08-01`. Present on
     every such response from a model that supports extended thinking, as `[]`
-    when nothing was changed; without the beta, blocks are removed all the same
-    but nothing is reported. Removed blocks contribute nothing to
-    `usage.input_tokens`. When streaming, the array is final in `message_start`;
-    the final `message_delta` event carries it only when a server-side model
-    fallback happened mid-stream, in which case it holds the serving model's
-    entries and replaces the one in `message_start`.
+    when there is no entry to report; without the beta, blocks are removed or
+    left in place all the same but nothing is reported. Removed blocks contribute
+    nothing to `usage.input_tokens`; blocks left in place count as sent. When
+    streaming, the array is final in `message_start`; the final `message_delta`
+    event carries it only when a server-side model fallback happened mid-stream,
+    in which case it holds the serving model's entries and replaces the one in
+    `message_start`.
 
-- `BetaRawMessageStreamEvent`
+- `class BetaRawMessageStreamEvent`
 
-  - `BetaRawMessageStartEvent`
+  - `class BetaRawMessageStartEvent`
 
     - `"message_start" type`
 
     - `BetaMessage message`
 
-  - `BetaRawMessageDeltaEvent`
+  - `class BetaRawMessageDeltaEvent`
 
     - `"message_delta" type`
 
@@ -462,29 +483,35 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       Total input tokens in a request is the summation of `input_tokens`, `cache_creation_input_tokens`, and `cache_read_input_tokens`.
 
-    - `?list<BetaThinkingDroppedInputTransformation> inputTransformations`
+    - `?list<BetaInputTransformation> inputTransformations`
 
-      Changes the API made to the request's input before showing it to the model:
-      one entry per change, in request order. Today the only entry type is
-      `thinking_dropped` — a `thinking`, `redacted_thinking` or `connector_text`
-      block from the request's `messages` that was removed from the prompt instead
-      of being shown to the model because it failed a binding check. More entry
-      types may be added over time; ignore types you do not recognize.
+      Changes the API made to the request's input before showing it to the model,
+      and blocks that failed a binding check but were left unchanged: one entry per
+      block, in request order. Two entry types today. `thinking_dropped` — a
+      `thinking`, `redacted_thinking` or `connector_text` block from the request's
+      `messages` that was removed from the prompt instead of being shown to the
+      model because it failed a binding check. `thinking_mismatch_allowed` — a
+      `thinking` or `redacted_thinking` block that failed the conversation check
+      (the conversation before it differs from the one it was created in, or it
+      carries no record of one on a model that requires it) and was shown to the
+      model all the same, because that check is not enforced for this request.
+      More entry types may be added over time; ignore types you do not recognize.
 
       Requires `anthropic-beta: thinking-binding-controls-2026-08-01`. Present on
       every such response from a model that supports extended thinking, as `[]`
-      when nothing was changed; without the beta, blocks are removed all the same
-      but nothing is reported. Removed blocks contribute nothing to
-      `usage.input_tokens`. When streaming, the array is final in `message_start`;
-      the final `message_delta` event carries it only when a server-side model
-      fallback happened mid-stream, in which case it holds the serving model's
-      entries and replaces the one in `message_start`.
+      when there is no entry to report; without the beta, blocks are removed or
+      left in place all the same but nothing is reported. Removed blocks contribute
+      nothing to `usage.input_tokens`; blocks left in place count as sent. When
+      streaming, the array is final in `message_start`; the final `message_delta`
+      event carries it only when a server-side model fallback happened mid-stream,
+      in which case it holds the serving model's entries and replaces the one in
+      `message_start`.
 
-  - `BetaRawMessageStopEvent`
+  - `class BetaRawMessageStopEvent`
 
     - `"message_stop" type`
 
-  - `BetaRawContentBlockStartEvent`
+  - `class BetaRawContentBlockStartEvent`
 
     - `"content_block_start" type`
 
@@ -492,7 +519,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `int index`
 
-  - `BetaRawContentBlockDeltaEvent`
+  - `class BetaRawContentBlockDeltaEvent`
 
     - `"content_block_delta" type`
 
@@ -500,7 +527,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `int index`
 
-  - `BetaRawContentBlockStopEvent`
+  - `class BetaRawContentBlockStopEvent`
 
     - `"content_block_stop" type`
 
@@ -527,6 +554,7 @@ $betaMessage = $client->beta->messages->create(
   ],
   model: Model::CLAUDE_OPUS_5,
   cacheControl: ['type' => 'ephemeral', 'ttl' => '5m'],
+  compaction: ['type' => 'summarize', 'instructions' => 'instructions'],
   container: [
     'id' => 'id',
     'skills' => [
@@ -734,7 +762,7 @@ var_dump($betaMessage);
 
 ## Count tokens in a Message
 
-`$client->beta->messages->countTokens(list<BetaMessageParam> messages, Model model, ?BetaCacheControlEphemeral cacheControl, ?BetaContextManagementConfig contextManagement, ?list<BetaRequestMCPServerURLDefinition> mcpServers, ?BetaOutputConfig outputConfig, ?BetaJSONOutputFormat outputFormat, ?Speed speed, ?System system, ?BetaThinkingConfigParam thinking, ?BetaToolChoice toolChoice, ?list<Tool> tools, ?list<AnthropicBeta> betas, ?string userProfileID, ?string workspaceID): BetaMessageTokensCount`
+`$client->beta->messages->countTokens(list<BetaMessageParam> messages, Model model, ?BetaCacheControlEphemeral cacheControl, ?BetaCompactionConfig compaction, ?BetaContextManagementConfig contextManagement, ?list<BetaRequestMCPServerURLDefinition> mcpServers, ?BetaOutputConfig outputConfig, ?BetaJSONOutputFormat outputFormat, ?Speed speed, ?System system, ?BetaThinkingConfigParam thinking, ?BetaToolChoice toolChoice, ?list<Tool> tools, ?list<AnthropicBeta> betas, ?string userProfileID, ?string workspaceID): BetaMessageTokensCount`
 
 **POST** `/v1/messages/count_tokens`
 
@@ -806,6 +834,17 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 - `cacheControl?:optional BetaCacheControlEphemeral`
 
   Top-level cache control automatically applies a cache_control marker to the last cacheable block in the request.
+
+- `compaction?:optional BetaCompactionConfig`
+
+  Compact the whole conversation and return a signed `compaction` block,
+  alone, that a later request sends back first in `messages`, in place of
+  the messages it summarizes. There is no trigger and no pause flag: sending
+  the parameter compacts, and nothing is sampled after the block.
+
+  The summarization prompt is the server's own unless `instructions` are
+  given, which then replace it for this request; a value that is empty or
+  only whitespace counts as absent.
 
 - `contextManagement?:optional BetaContextManagementConfig`
 
@@ -917,6 +956,10 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 - `outputFormat?:optional BetaJSONOutputFormat`
 
   **Deprecated**
@@ -927,7 +970,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
 ### Returns
 
-- `BetaMessageTokensCount`
+- `class BetaMessageTokensCount`
 
   - `?BetaCountTokensContextManagementResponse contextManagement`
 
@@ -957,6 +1000,7 @@ $betaMessageTokensCount = $client->beta->messages->countTokens(
   ],
   model: Model::CLAUDE_OPUS_5,
   cacheControl: ['type' => 'ephemeral', 'ttl' => '5m'],
+  compaction: ['type' => 'summarize', 'instructions' => 'instructions'],
   contextManagement: [
     'edits' => [
       [
@@ -1051,7 +1095,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Advisor Message Iteration Usage
 
-- `BetaAdvisorMessageIterationUsage`
+- `class BetaAdvisorMessageIterationUsage`
 
   - `"advisor_message" type`
 
@@ -1085,7 +1129,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Advisor Redacted Result Block
 
-- `BetaAdvisorRedactedResultBlock`
+- `class BetaAdvisorRedactedResultBlock`
 
   - `"advisor_redacted_result" type`
 
@@ -1099,7 +1143,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Advisor Redacted Result Block Param
 
-- `BetaAdvisorRedactedResultBlockParam`
+- `class BetaAdvisorRedactedResultBlockParam`
 
   - `"advisor_redacted_result" type`
 
@@ -1111,7 +1155,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Advisor Result Block
 
-- `BetaAdvisorResultBlock`
+- `class BetaAdvisorResultBlock`
 
   - `"advisor_result" type`
 
@@ -1123,7 +1167,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Advisor Result Block Param
 
-- `BetaAdvisorResultBlockParam`
+- `class BetaAdvisorResultBlockParam`
 
   - `"advisor_result" type`
 
@@ -1133,7 +1177,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Advisor Tool 20260301
 
-- `BetaAdvisorTool20260301`
+- `class BetaAdvisorTool20260301`
 
   - `"advisor_20260301" type`
 
@@ -1177,7 +1221,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Advisor Tool Result Block
 
-- `BetaAdvisorToolResultBlock`
+- `class BetaAdvisorToolResultBlock`
 
   - `"advisor_tool_result" type`
 
@@ -1187,7 +1231,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Advisor Tool Result Block Param
 
-- `BetaAdvisorToolResultBlockParam`
+- `class BetaAdvisorToolResultBlockParam`
 
   - `"advisor_tool_result" type`
 
@@ -1201,7 +1245,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Advisor Tool Result Error
 
-- `BetaAdvisorToolResultError`
+- `class BetaAdvisorToolResultError`
 
   - `"advisor_tool_result_error" type`
 
@@ -1209,7 +1253,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Advisor Tool Result Error Param
 
-- `BetaAdvisorToolResultErrorParam`
+- `class BetaAdvisorToolResultErrorParam`
 
   - `"advisor_tool_result_error" type`
 
@@ -1217,13 +1261,13 @@ var_dump($betaMessageTokensCount);
 
 ### Beta All Thinking Turns
 
-- `BetaAllThinkingTurns`
+- `class BetaAllThinkingTurns`
 
   - `"all" type`
 
 ### Beta Base64 Image Source
 
-- `BetaBase64ImageSource`
+- `class BetaBase64ImageSource`
 
   - `"base64" type`
 
@@ -1233,7 +1277,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Base64 PDF Source
 
-- `BetaBase64PDFSource`
+- `class BetaBase64PDFSource`
 
   - `"base64" type`
 
@@ -1243,7 +1287,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Bash Code Execution Output Block
 
-- `BetaBashCodeExecutionOutputBlock`
+- `class BetaBashCodeExecutionOutputBlock`
 
   - `"bash_code_execution_output" type`
 
@@ -1251,7 +1295,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Bash Code Execution Output Block Param
 
-- `BetaBashCodeExecutionOutputBlockParam`
+- `class BetaBashCodeExecutionOutputBlockParam`
 
   - `"bash_code_execution_output" type`
 
@@ -1259,7 +1303,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Bash Code Execution Result Block
 
-- `BetaBashCodeExecutionResultBlock`
+- `class BetaBashCodeExecutionResultBlock`
 
   - `"bash_code_execution_result" type`
 
@@ -1273,7 +1317,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Bash Code Execution Result Block Param
 
-- `BetaBashCodeExecutionResultBlockParam`
+- `class BetaBashCodeExecutionResultBlockParam`
 
   - `"bash_code_execution_result" type`
 
@@ -1287,7 +1331,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Bash Code Execution Tool Result Block
 
-- `BetaBashCodeExecutionToolResultBlock`
+- `class BetaBashCodeExecutionToolResultBlock`
 
   - `"bash_code_execution_tool_result" type`
 
@@ -1297,7 +1341,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Bash Code Execution Tool Result Block Param
 
-- `BetaBashCodeExecutionToolResultBlockParam`
+- `class BetaBashCodeExecutionToolResultBlockParam`
 
   - `"bash_code_execution_tool_result" type`
 
@@ -1311,7 +1355,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Bash Code Execution Tool Result Error
 
-- `BetaBashCodeExecutionToolResultError`
+- `class BetaBashCodeExecutionToolResultError`
 
   - `"bash_code_execution_tool_result_error" type`
 
@@ -1319,7 +1363,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Bash Code Execution Tool Result Error Param
 
-- `BetaBashCodeExecutionToolResultErrorParam`
+- `class BetaBashCodeExecutionToolResultErrorParam`
 
   - `"bash_code_execution_tool_result_error" type`
 
@@ -1327,7 +1371,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Browser Close Tab Config
 
-- `BetaBrowserCloseTabConfig`
+- `class BetaBrowserCloseTabConfig`
 
   - `?bool deferLoading`
 
@@ -1339,7 +1383,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Browser Double Click Config
 
-- `BetaBrowserDoubleClickConfig`
+- `class BetaBrowserDoubleClickConfig`
 
   - `?bool deferLoading`
 
@@ -1351,7 +1395,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Browser File Upload Config
 
-- `BetaBrowserFileUploadConfig`
+- `class BetaBrowserFileUploadConfig`
 
   - `?bool deferLoading`
 
@@ -1363,7 +1407,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Browser Find Config
 
-- `BetaBrowserFindConfig`
+- `class BetaBrowserFindConfig`
 
   - `?bool deferLoading`
 
@@ -1375,7 +1419,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Browser Form Input Config
 
-- `BetaBrowserFormInputConfig`
+- `class BetaBrowserFormInputConfig`
 
   - `?bool deferLoading`
 
@@ -1387,7 +1431,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Browser Get Page Text Config
 
-- `BetaBrowserGetPageTextConfig`
+- `class BetaBrowserGetPageTextConfig`
 
   - `?bool deferLoading`
 
@@ -1399,7 +1443,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Browser Hold Key Config
 
-- `BetaBrowserHoldKeyConfig`
+- `class BetaBrowserHoldKeyConfig`
 
   - `?bool deferLoading`
 
@@ -1411,7 +1455,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Browser Hover Config
 
-- `BetaBrowserHoverConfig`
+- `class BetaBrowserHoverConfig`
 
   - `?bool deferLoading`
 
@@ -1423,7 +1467,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Browser Javascript Exec Config
 
-- `BetaBrowserJavascriptExecConfig`
+- `class BetaBrowserJavascriptExecConfig`
 
   - `?bool deferLoading`
 
@@ -1435,7 +1479,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Browser Key Config
 
-- `BetaBrowserKeyConfig`
+- `class BetaBrowserKeyConfig`
 
   - `?bool deferLoading`
 
@@ -1447,7 +1491,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Browser Left Click Config
 
-- `BetaBrowserLeftClickConfig`
+- `class BetaBrowserLeftClickConfig`
 
   - `?bool deferLoading`
 
@@ -1459,7 +1503,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Browser Left Click Drag Config
 
-- `BetaBrowserLeftClickDragConfig`
+- `class BetaBrowserLeftClickDragConfig`
 
   - `?bool deferLoading`
 
@@ -1471,7 +1515,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Browser Left Mouse Down Config
 
-- `BetaBrowserLeftMouseDownConfig`
+- `class BetaBrowserLeftMouseDownConfig`
 
   - `?bool deferLoading`
 
@@ -1483,7 +1527,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Browser Left Mouse Up Config
 
-- `BetaBrowserLeftMouseUpConfig`
+- `class BetaBrowserLeftMouseUpConfig`
 
   - `?bool deferLoading`
 
@@ -1495,7 +1539,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Browser List Tabs Config
 
-- `BetaBrowserListTabsConfig`
+- `class BetaBrowserListTabsConfig`
 
   - `?bool deferLoading`
 
@@ -1507,7 +1551,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Browser Middle Click Config
 
-- `BetaBrowserMiddleClickConfig`
+- `class BetaBrowserMiddleClickConfig`
 
   - `?bool deferLoading`
 
@@ -1519,7 +1563,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Browser Mouse Move Config
 
-- `BetaBrowserMouseMoveConfig`
+- `class BetaBrowserMouseMoveConfig`
 
   - `?bool deferLoading`
 
@@ -1531,7 +1575,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Browser Navigate Config
 
-- `BetaBrowserNavigateConfig`
+- `class BetaBrowserNavigateConfig`
 
   - `?bool deferLoading`
 
@@ -1543,7 +1587,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Browser New Tab Config
 
-- `BetaBrowserNewTabConfig`
+- `class BetaBrowserNewTabConfig`
 
   - `?bool deferLoading`
 
@@ -1555,7 +1599,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Browser Read Console Config
 
-- `BetaBrowserReadConsoleConfig`
+- `class BetaBrowserReadConsoleConfig`
 
   - `?bool deferLoading`
 
@@ -1567,7 +1611,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Browser Read Network Config
 
-- `BetaBrowserReadNetworkConfig`
+- `class BetaBrowserReadNetworkConfig`
 
   - `?bool deferLoading`
 
@@ -1579,7 +1623,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Browser Read Page Config
 
-- `BetaBrowserReadPageConfig`
+- `class BetaBrowserReadPageConfig`
 
   - `?bool deferLoading`
 
@@ -1591,7 +1635,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Browser Right Click Config
 
-- `BetaBrowserRightClickConfig`
+- `class BetaBrowserRightClickConfig`
 
   - `?bool deferLoading`
 
@@ -1603,7 +1647,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Browser Screenshot Config
 
-- `BetaBrowserScreenshotConfig`
+- `class BetaBrowserScreenshotConfig`
 
   - `?bool deferLoading`
 
@@ -1615,7 +1659,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Browser Scroll Config
 
-- `BetaBrowserScrollConfig`
+- `class BetaBrowserScrollConfig`
 
   - `?bool deferLoading`
 
@@ -1627,7 +1671,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Browser Scroll To Config
 
-- `BetaBrowserScrollToConfig`
+- `class BetaBrowserScrollToConfig`
 
   - `?bool deferLoading`
 
@@ -1639,7 +1683,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Browser State Block Param
 
-- `BetaBrowserStateBlockParam`
+- `class BetaBrowserStateBlockParam`
 
   - `"browser_state" type`
 
@@ -1657,9 +1701,9 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Browser State Change
 
-- `BetaBrowserStateChange`
+- `class BetaBrowserStateChange`
 
-  - `BetaBrowserStateChangeTabOpened`
+  - `class BetaBrowserStateChangeTabOpened`
 
     - `"tab_opened" type`
 
@@ -1667,7 +1711,7 @@ var_dump($betaMessageTokensCount);
 
       The `tab_id` of the opened tab, present in `tabs`.
 
-  - `BetaBrowserStateChangeDownloadStarted`
+  - `class BetaBrowserStateChangeDownloadStarted`
 
     - `"download_started" type`
 
@@ -1679,7 +1723,7 @@ var_dump($betaMessageTokensCount);
 
       The final post-redirect URL the download was served from.
 
-  - `BetaBrowserStateChangeDownloadCompleted`
+  - `class BetaBrowserStateChangeDownloadCompleted`
 
     - `"download_completed" type`
 
@@ -1699,7 +1743,7 @@ var_dump($betaMessageTokensCount);
 
       The completed download's size.
 
-  - `BetaBrowserStateChangeDownloadFailed`
+  - `class BetaBrowserStateChangeDownloadFailed`
 
     - `"download_failed" type`
 
@@ -1717,7 +1761,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Browser State Change Download Completed
 
-- `BetaBrowserStateChangeDownloadCompleted`
+- `class BetaBrowserStateChangeDownloadCompleted`
 
   - `"download_completed" type`
 
@@ -1739,7 +1783,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Browser State Change Download Failed
 
-- `BetaBrowserStateChangeDownloadFailed`
+- `class BetaBrowserStateChangeDownloadFailed`
 
   - `"download_failed" type`
 
@@ -1757,7 +1801,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Browser State Change Download Started
 
-- `BetaBrowserStateChangeDownloadStarted`
+- `class BetaBrowserStateChangeDownloadStarted`
 
   - `"download_started" type`
 
@@ -1771,7 +1815,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Browser State Change Tab Opened
 
-- `BetaBrowserStateChangeTabOpened`
+- `class BetaBrowserStateChangeTabOpened`
 
   - `"tab_opened" type`
 
@@ -1781,7 +1825,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Browser State Tab Entry
 
-- `BetaBrowserStateTabEntry`
+- `class BetaBrowserStateTabEntry`
 
   - `string tabID`
 
@@ -1801,7 +1845,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Browser Switch Tab Config
 
-- `BetaBrowserSwitchTabConfig`
+- `class BetaBrowserSwitchTabConfig`
 
   - `?bool deferLoading`
 
@@ -1813,7 +1857,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Browser Toolset 20260801
 
-- `BetaBrowserToolset20260801`
+- `class BetaBrowserToolset20260801`
 
   - `"browser_toolset_20260801" type`
 
@@ -1832,7 +1876,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Browser Toolset Configs
 
-- `BetaBrowserToolsetConfigs`
+- `class BetaBrowserToolsetConfigs`
 
   - `?BetaBrowserTypeConfig type`
 
@@ -1960,7 +2004,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Browser Triple Click Config
 
-- `BetaBrowserTripleClickConfig`
+- `class BetaBrowserTripleClickConfig`
 
   - `?bool deferLoading`
 
@@ -1972,7 +2016,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Browser Type Config
 
-- `BetaBrowserTypeConfig`
+- `class BetaBrowserTypeConfig`
 
   - `?bool deferLoading`
 
@@ -1984,7 +2028,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Browser Wait Config
 
-- `BetaBrowserWaitConfig`
+- `class BetaBrowserWaitConfig`
 
   - `?bool deferLoading`
 
@@ -1996,7 +2040,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Browser Zoom Config
 
-- `BetaBrowserZoomConfig`
+- `class BetaBrowserZoomConfig`
 
   - `?bool deferLoading`
 
@@ -2008,7 +2052,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Cache Control Ephemeral
 
-- `BetaCacheControlEphemeral`
+- `class BetaCacheControlEphemeral`
 
   - `"ephemeral" type`
 
@@ -2025,7 +2069,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Cache Creation
 
-- `BetaCacheCreation`
+- `class BetaCacheCreation`
 
   - `int ephemeral1hInputTokens`
 
@@ -2037,7 +2081,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Cache Miss Messages Changed
 
-- `BetaCacheMissMessagesChanged`
+- `class BetaCacheMissMessagesChanged`
 
   - `"messages_changed" type`
 
@@ -2047,7 +2091,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Cache Miss Model Changed
 
-- `BetaCacheMissModelChanged`
+- `class BetaCacheMissModelChanged`
 
   - `"model_changed" type`
 
@@ -2057,13 +2101,57 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Cache Miss Previous Message Not Found
 
-- `BetaCacheMissPreviousMessageNotFound`
+- `class BetaCacheMissPreviousMessageNotFound`
 
   - `"previous_message_not_found" type`
 
+### Beta Cache Miss Reason
+
+- `class BetaCacheMissReason`
+
+  - `class BetaCacheMissModelChanged`
+
+    - `"model_changed" type`
+
+    - `int cacheMissedInputTokens`
+
+      Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+  - `class BetaCacheMissSystemChanged`
+
+    - `"system_changed" type`
+
+    - `int cacheMissedInputTokens`
+
+      Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+  - `class BetaCacheMissToolsChanged`
+
+    - `"tools_changed" type`
+
+    - `int cacheMissedInputTokens`
+
+      Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+  - `class BetaCacheMissMessagesChanged`
+
+    - `"messages_changed" type`
+
+    - `int cacheMissedInputTokens`
+
+      Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+  - `class BetaCacheMissPreviousMessageNotFound`
+
+    - `"previous_message_not_found" type`
+
+  - `class BetaCacheMissUnavailable`
+
+    - `"unavailable" type`
+
 ### Beta Cache Miss System Changed
 
-- `BetaCacheMissSystemChanged`
+- `class BetaCacheMissSystemChanged`
 
   - `"system_changed" type`
 
@@ -2073,7 +2161,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Cache Miss Tools Changed
 
-- `BetaCacheMissToolsChanged`
+- `class BetaCacheMissToolsChanged`
 
   - `"tools_changed" type`
 
@@ -2083,13 +2171,13 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Cache Miss Unavailable
 
-- `BetaCacheMissUnavailable`
+- `class BetaCacheMissUnavailable`
 
   - `"unavailable" type`
 
 ### Beta Citation Char Location
 
-- `BetaCitationCharLocation`
+- `class BetaCitationCharLocation`
 
   - `"char_location" type`
 
@@ -2107,7 +2195,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Citation Char Location Param
 
-- `BetaCitationCharLocationParam`
+- `class BetaCitationCharLocationParam`
 
   - `"char_location" type`
 
@@ -2123,13 +2211,13 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Citation Config
 
-- `BetaCitationConfig`
+- `class BetaCitationConfig`
 
   - `bool enabled`
 
 ### Beta Citation Content Block Location
 
-- `BetaCitationContentBlockLocation`
+- `class BetaCitationContentBlockLocation`
 
   - `"content_block_location" type`
 
@@ -2157,7 +2245,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Citation Content Block Location Param
 
-- `BetaCitationContentBlockLocationParam`
+- `class BetaCitationContentBlockLocationParam`
 
   - `"content_block_location" type`
 
@@ -2183,7 +2271,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Citation Page Location
 
-- `BetaCitationPageLocation`
+- `class BetaCitationPageLocation`
 
   - `"page_location" type`
 
@@ -2201,7 +2289,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Citation Page Location Param
 
-- `BetaCitationPageLocationParam`
+- `class BetaCitationPageLocationParam`
 
   - `"page_location" type`
 
@@ -2217,7 +2305,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Citation Search Result Location
 
-- `BetaCitationSearchResultLocation`
+- `class BetaCitationSearchResultLocation`
 
   - `"search_result_location" type`
 
@@ -2249,7 +2337,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Citation Search Result Location Param
 
-- `BetaCitationSearchResultLocationParam`
+- `class BetaCitationSearchResultLocationParam`
 
   - `"search_result_location" type`
 
@@ -2281,7 +2369,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Citation Web Search Result Location Param
 
-- `BetaCitationWebSearchResultLocationParam`
+- `class BetaCitationWebSearchResultLocationParam`
 
   - `"web_search_result_location" type`
 
@@ -2295,13 +2383,13 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Citations Config Param
 
-- `BetaCitationsConfigParam`
+- `class BetaCitationsConfigParam`
 
   - `?bool enabled`
 
 ### Beta Citations Delta
 
-- `BetaCitationsDelta`
+- `class BetaCitationsDelta`
 
   - `"citations_delta" type`
 
@@ -2309,7 +2397,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Citations Web Search Result Location
 
-- `BetaCitationsWebSearchResultLocation`
+- `class BetaCitationsWebSearchResultLocation`
 
   - `"web_search_result_location" type`
 
@@ -2323,7 +2411,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Clear Thinking 20251015 Edit
 
-- `BetaClearThinking20251015Edit`
+- `class BetaClearThinking20251015Edit`
 
   - `"clear_thinking_20251015" type`
 
@@ -2333,7 +2421,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Clear Thinking 20251015 Edit Response
 
-- `BetaClearThinking20251015EditResponse`
+- `class BetaClearThinking20251015EditResponse`
 
   - `"clear_thinking_20251015" type`
 
@@ -2349,7 +2437,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Clear Tool Uses 20250919 Edit
 
-- `BetaClearToolUses20250919Edit`
+- `class BetaClearToolUses20250919Edit`
 
   - `"clear_tool_uses_20250919" type`
 
@@ -2375,7 +2463,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Clear Tool Uses 20250919 Edit Response
 
-- `BetaClearToolUses20250919EditResponse`
+- `class BetaClearToolUses20250919EditResponse`
 
   - `"clear_tool_uses_20250919" type`
 
@@ -2391,7 +2479,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Code Execution Output Block
 
-- `BetaCodeExecutionOutputBlock`
+- `class BetaCodeExecutionOutputBlock`
 
   - `"code_execution_output" type`
 
@@ -2399,7 +2487,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Code Execution Output Block Param
 
-- `BetaCodeExecutionOutputBlockParam`
+- `class BetaCodeExecutionOutputBlockParam`
 
   - `"code_execution_output" type`
 
@@ -2407,7 +2495,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Code Execution Result Block
 
-- `BetaCodeExecutionResultBlock`
+- `class BetaCodeExecutionResultBlock`
 
   - `"code_execution_result" type`
 
@@ -2421,7 +2509,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Code Execution Result Block Param
 
-- `BetaCodeExecutionResultBlockParam`
+- `class BetaCodeExecutionResultBlockParam`
 
   - `"code_execution_result" type`
 
@@ -2435,7 +2523,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Code Execution Tool 20250522
 
-- `BetaCodeExecutionTool20250522`
+- `class BetaCodeExecutionTool20250522`
 
   - `"code_execution_20250522" type`
 
@@ -2461,7 +2549,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Code Execution Tool 20250825
 
-- `BetaCodeExecutionTool20250825`
+- `class BetaCodeExecutionTool20250825`
 
   - `"code_execution_20250825" type`
 
@@ -2487,7 +2575,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Code Execution Tool 20260120
 
-- `BetaCodeExecutionTool20260120`
+- `class BetaCodeExecutionTool20260120`
 
   - `"code_execution_20260120" type`
 
@@ -2513,7 +2601,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Code Execution Tool 20260521
 
-- `BetaCodeExecutionTool20260521`
+- `class BetaCodeExecutionTool20260521`
 
   - `"code_execution_20260521" type`
 
@@ -2539,7 +2627,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Code Execution Tool Result Block
 
-- `BetaCodeExecutionToolResultBlock`
+- `class BetaCodeExecutionToolResultBlock`
 
   - `"code_execution_tool_result" type`
 
@@ -2549,15 +2637,15 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Code Execution Tool Result Block Content
 
-- `BetaCodeExecutionToolResultBlockContent`
+- `class BetaCodeExecutionToolResultBlockContent`
 
-  - `BetaCodeExecutionToolResultError`
+  - `class BetaCodeExecutionToolResultError`
 
     - `"code_execution_tool_result_error" type`
 
     - `BetaCodeExecutionToolResultErrorCode errorCode`
 
-  - `BetaCodeExecutionResultBlock`
+  - `class BetaCodeExecutionResultBlock`
 
     - `"code_execution_result" type`
 
@@ -2569,7 +2657,7 @@ var_dump($betaMessageTokensCount);
 
     - `string stdout`
 
-  - `BetaEncryptedCodeExecutionResultBlock`
+  - `class BetaEncryptedCodeExecutionResultBlock`
 
     - `"encrypted_code_execution_result" type`
 
@@ -2583,7 +2671,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Code Execution Tool Result Block Param
 
-- `BetaCodeExecutionToolResultBlockParam`
+- `class BetaCodeExecutionToolResultBlockParam`
 
   - `"code_execution_tool_result" type`
 
@@ -2597,15 +2685,15 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Code Execution Tool Result Block Param Content
 
-- `BetaCodeExecutionToolResultBlockParamContent`
+- `class BetaCodeExecutionToolResultBlockParamContent`
 
-  - `BetaCodeExecutionToolResultErrorParam`
+  - `class BetaCodeExecutionToolResultErrorParam`
 
     - `"code_execution_tool_result_error" type`
 
     - `BetaCodeExecutionToolResultErrorCode errorCode`
 
-  - `BetaCodeExecutionResultBlockParam`
+  - `class BetaCodeExecutionResultBlockParam`
 
     - `"code_execution_result" type`
 
@@ -2617,7 +2705,7 @@ var_dump($betaMessageTokensCount);
 
     - `string stdout`
 
-  - `BetaEncryptedCodeExecutionResultBlockParam`
+  - `class BetaEncryptedCodeExecutionResultBlockParam`
 
     - `"encrypted_code_execution_result" type`
 
@@ -2631,7 +2719,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Code Execution Tool Result Error
 
-- `BetaCodeExecutionToolResultError`
+- `class BetaCodeExecutionToolResultError`
 
   - `"code_execution_tool_result_error" type`
 
@@ -2639,7 +2727,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Code Execution Tool Result Error Code
 
-- `BetaCodeExecutionToolResultErrorCode`
+- `enum BetaCodeExecutionToolResultErrorCode`
 
   - `"invalid_tool_input"`
 
@@ -2651,7 +2739,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Code Execution Tool Result Error Param
 
-- `BetaCodeExecutionToolResultErrorParam`
+- `class BetaCodeExecutionToolResultErrorParam`
 
   - `"code_execution_tool_result_error" type`
 
@@ -2659,7 +2747,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Compact 20260112 Edit
 
-- `BetaCompact20260112Edit`
+- `class BetaCompact20260112Edit`
 
   - `"compact_20260112" type`
 
@@ -2677,7 +2765,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Compaction Block
 
-- `BetaCompactionBlock`
+- `class BetaCompactionBlock`
 
   - `"compaction" type`
 
@@ -2689,9 +2777,17 @@ var_dump($betaMessageTokensCount);
 
     Opaque metadata from prior compaction, to be round-tripped verbatim
 
+  - `?string signature`
+
+    Signature over the summary, to be sent back with the block verbatim
+
+  - `?list<ToolChange> toolChanges`
+
+    The tool changes of the compacted range: the `tool_addition` and `tool_removal` blocks that take the request's `tools` to the tool set in effect at the end of the range, or `[]` when the range changed no tool. Absent when the server did not compute them. Send the block back unchanged.
+
 ### Beta Compaction Block Param
 
-- `BetaCompactionBlockParam`
+- `class BetaCompactionBlockParam`
 
   - `"compaction" type`
 
@@ -2707,9 +2803,27 @@ var_dump($betaMessageTokensCount);
 
     Opaque metadata from prior compaction, to be round-tripped verbatim
 
+  - `?string signature`
+
+    The block's signature as returned, to be sent back verbatim
+
+  - `?list<ToolChange> toolChanges`
+
+    The tool changes of the compacted range, as the server returned them on this block: the `tool_addition` and `tool_removal` entries that take the request's `tools` to the tool set in effect at the end of the range. Send them back unchanged with the block.
+
+### Beta Compaction Config
+
+- `class BetaCompactionConfig`
+
+  - `"summarize" type`
+
+  - `?string instructions`
+
+    Replaces the server's default summarization prompt for this request. An empty or whitespace-only value counts as absent.
+
 ### Beta Compaction Content Block Delta
 
-- `BetaCompactionContentBlockDelta`
+- `class BetaCompactionContentBlockDelta`
 
   - `"compaction_delta" type`
 
@@ -2721,7 +2835,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Compaction Iteration Usage
 
-- `BetaCompactionIterationUsage`
+- `class BetaCompactionIterationUsage`
 
   - `"compaction" type`
 
@@ -2749,7 +2863,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Computer Cursor Position Config
 
-- `BetaComputerCursorPositionConfig`
+- `class BetaComputerCursorPositionConfig`
 
   - `?bool deferLoading`
 
@@ -2761,7 +2875,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Computer Double Click Config
 
-- `BetaComputerDoubleClickConfig`
+- `class BetaComputerDoubleClickConfig`
 
   - `?bool deferLoading`
 
@@ -2773,7 +2887,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Computer Hold Key Config
 
-- `BetaComputerHoldKeyConfig`
+- `class BetaComputerHoldKeyConfig`
 
   - `?bool deferLoading`
 
@@ -2785,7 +2899,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Computer Key Config
 
-- `BetaComputerKeyConfig`
+- `class BetaComputerKeyConfig`
 
   - `?bool deferLoading`
 
@@ -2797,7 +2911,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Computer Left Click Config
 
-- `BetaComputerLeftClickConfig`
+- `class BetaComputerLeftClickConfig`
 
   - `?bool deferLoading`
 
@@ -2809,7 +2923,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Computer Left Click Drag Config
 
-- `BetaComputerLeftClickDragConfig`
+- `class BetaComputerLeftClickDragConfig`
 
   - `?bool deferLoading`
 
@@ -2821,7 +2935,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Computer Left Mouse Down Config
 
-- `BetaComputerLeftMouseDownConfig`
+- `class BetaComputerLeftMouseDownConfig`
 
   - `?bool deferLoading`
 
@@ -2833,7 +2947,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Computer Left Mouse Up Config
 
-- `BetaComputerLeftMouseUpConfig`
+- `class BetaComputerLeftMouseUpConfig`
 
   - `?bool deferLoading`
 
@@ -2845,7 +2959,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Computer Middle Click Config
 
-- `BetaComputerMiddleClickConfig`
+- `class BetaComputerMiddleClickConfig`
 
   - `?bool deferLoading`
 
@@ -2857,7 +2971,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Computer Mouse Move Config
 
-- `BetaComputerMouseMoveConfig`
+- `class BetaComputerMouseMoveConfig`
 
   - `?bool deferLoading`
 
@@ -2869,7 +2983,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Computer Right Click Config
 
-- `BetaComputerRightClickConfig`
+- `class BetaComputerRightClickConfig`
 
   - `?bool deferLoading`
 
@@ -2881,7 +2995,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Computer Screenshot Config
 
-- `BetaComputerScreenshotConfig`
+- `class BetaComputerScreenshotConfig`
 
   - `?bool deferLoading`
 
@@ -2893,7 +3007,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Computer Scroll Config
 
-- `BetaComputerScrollConfig`
+- `class BetaComputerScrollConfig`
 
   - `?bool deferLoading`
 
@@ -2905,7 +3019,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Computer Toolset 20260801
 
-- `BetaComputerToolset20260801`
+- `class BetaComputerToolset20260801`
 
   - `"computer_toolset_20260801" type`
 
@@ -2924,7 +3038,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Computer Toolset Configs
 
-- `BetaComputerToolsetConfigs`
+- `class BetaComputerToolsetConfigs`
 
   - `?BetaComputerTypeConfig type`
 
@@ -2996,7 +3110,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Computer Triple Click Config
 
-- `BetaComputerTripleClickConfig`
+- `class BetaComputerTripleClickConfig`
 
   - `?bool deferLoading`
 
@@ -3008,7 +3122,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Computer Type Config
 
-- `BetaComputerTypeConfig`
+- `class BetaComputerTypeConfig`
 
   - `?bool deferLoading`
 
@@ -3020,7 +3134,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Computer Wait Config
 
-- `BetaComputerWaitConfig`
+- `class BetaComputerWaitConfig`
 
   - `?bool deferLoading`
 
@@ -3032,7 +3146,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Computer Zoom Config
 
-- `BetaComputerZoomConfig`
+- `class BetaComputerZoomConfig`
 
   - `?bool deferLoading`
 
@@ -3044,7 +3158,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Container
 
-- `BetaContainer`
+- `class BetaContainer`
 
   - `string id`
 
@@ -3060,7 +3174,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Container Params
 
-- `BetaContainerParams`
+- `class BetaContainerParams`
 
   - `?string id`
 
@@ -3072,7 +3186,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Container Skill
 
-- `BetaContainerSkill`
+- `class BetaContainerSkill`
 
   - `Type type`
 
@@ -3088,7 +3202,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Container Upload Block
 
-- `BetaContainerUploadBlock`
+- `class BetaContainerUploadBlock`
 
   - `"container_upload" type`
 
@@ -3096,7 +3210,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Container Upload Block Param
 
-- `BetaContainerUploadBlockParam`
+- `class BetaContainerUploadBlockParam`
 
   - `"container_upload" type`
 
@@ -3108,9 +3222,9 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Content Block
 
-- `BetaContentBlock`
+- `class BetaContentBlock`
 
-  - `BetaTextBlock`
+  - `class BetaTextBlock`
 
     - `"text" type`
 
@@ -3122,7 +3236,7 @@ var_dump($betaMessageTokensCount);
 
     - `string text`
 
-  - `BetaThinkingBlock`
+  - `class BetaThinkingBlock`
 
     - `"thinking" type`
 
@@ -3138,7 +3252,7 @@ var_dump($betaMessageTokensCount);
 
       The text of Claude's thinking process for this block.
 
-  - `BetaRedactedThinkingBlock`
+  - `class BetaRedactedThinkingBlock`
 
     - `"redacted_thinking" type`
 
@@ -3150,7 +3264,7 @@ var_dump($betaMessageTokensCount);
 
       See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking#redacted-thinking-blocks) for details.
 
-  - `BetaToolUseBlock`
+  - `class BetaToolUseBlock`
 
     - `"tool_use" type`
 
@@ -3166,7 +3280,7 @@ var_dump($betaMessageTokensCount);
 
       For a toolset member tool_use, the toolset family.
 
-  - `BetaServerToolUseBlock`
+  - `class BetaServerToolUseBlock`
 
     - `"server_tool_use" type`
 
@@ -3178,7 +3292,7 @@ var_dump($betaMessageTokensCount);
 
     - `?Caller caller`
 
-  - `BetaWebSearchToolResultBlock`
+  - `class BetaWebSearchToolResultBlock`
 
     - `"web_search_tool_result" type`
 
@@ -3188,7 +3302,7 @@ var_dump($betaMessageTokensCount);
 
     - `?Caller caller`
 
-  - `BetaWebFetchToolResultBlock`
+  - `class BetaWebFetchToolResultBlock`
 
     - `"web_fetch_tool_result" type`
 
@@ -3198,7 +3312,7 @@ var_dump($betaMessageTokensCount);
 
     - `?Caller caller`
 
-  - `BetaAdvisorToolResultBlock`
+  - `class BetaAdvisorToolResultBlock`
 
     - `"advisor_tool_result" type`
 
@@ -3206,7 +3320,7 @@ var_dump($betaMessageTokensCount);
 
     - `string toolUseID`
 
-  - `BetaCodeExecutionToolResultBlock`
+  - `class BetaCodeExecutionToolResultBlock`
 
     - `"code_execution_tool_result" type`
 
@@ -3214,7 +3328,7 @@ var_dump($betaMessageTokensCount);
 
     - `string toolUseID`
 
-  - `BetaBashCodeExecutionToolResultBlock`
+  - `class BetaBashCodeExecutionToolResultBlock`
 
     - `"bash_code_execution_tool_result" type`
 
@@ -3222,7 +3336,7 @@ var_dump($betaMessageTokensCount);
 
     - `string toolUseID`
 
-  - `BetaTextEditorCodeExecutionToolResultBlock`
+  - `class BetaTextEditorCodeExecutionToolResultBlock`
 
     - `"text_editor_code_execution_tool_result" type`
 
@@ -3230,7 +3344,7 @@ var_dump($betaMessageTokensCount);
 
     - `string toolUseID`
 
-  - `BetaToolSearchToolResultBlock`
+  - `class BetaToolSearchToolResultBlock`
 
     - `"tool_search_tool_result" type`
 
@@ -3238,7 +3352,7 @@ var_dump($betaMessageTokensCount);
 
     - `string toolUseID`
 
-  - `BetaMCPToolUseBlock`
+  - `class BetaMCPToolUseBlock`
 
     - `"mcp_tool_use" type`
 
@@ -3254,7 +3368,7 @@ var_dump($betaMessageTokensCount);
 
       The name of the MCP server
 
-  - `BetaMCPToolResultBlock`
+  - `class BetaMCPToolResultBlock`
 
     - `"mcp_tool_result" type`
 
@@ -3264,13 +3378,13 @@ var_dump($betaMessageTokensCount);
 
     - `string toolUseID`
 
-  - `BetaContainerUploadBlock`
+  - `class BetaContainerUploadBlock`
 
     - `"container_upload" type`
 
     - `string fileID`
 
-  - `BetaCompactionBlock`
+  - `class BetaCompactionBlock`
 
     - `"compaction" type`
 
@@ -3282,7 +3396,15 @@ var_dump($betaMessageTokensCount);
 
       Opaque metadata from prior compaction, to be round-tripped verbatim
 
-  - `BetaFallbackBlock`
+    - `?string signature`
+
+      Signature over the summary, to be sent back with the block verbatim
+
+    - `?list<ToolChange> toolChanges`
+
+      The tool changes of the compacted range: the `tool_addition` and `tool_removal` blocks that take the request's `tools` to the tool set in effect at the end of the range, or `[]` when the range changed no tool. Absent when the server did not compute them. Send the block back unchanged.
+
+  - `class BetaFallbackBlock`
 
     - `"fallback" type`
 
@@ -3298,11 +3420,19 @@ var_dump($betaMessageTokensCount);
 
       What caused the `from` model to hand over at this hop.
 
+  - `class BetaMCPToolListingBlock`
+
+    - `"mcp_tool_listing" type`
+
+    - `string mcpServerName`
+
+    - `list<BetaMCPTool> tools`
+
 ### Beta Content Block Param
 
-- `BetaContentBlockParam`
+- `class BetaContentBlockParam`
 
-  - `BetaTextBlockParam`
+  - `class BetaTextBlockParam`
 
     - `"text" type`
 
@@ -3314,7 +3444,7 @@ var_dump($betaMessageTokensCount);
 
     - `?list<BetaTextCitationParam> citations`
 
-  - `BetaImageBlockParam`
+  - `class BetaImageBlockParam`
 
     - `"image" type`
 
@@ -3328,7 +3458,7 @@ var_dump($betaMessageTokensCount);
 
       Configures the transformations the server applies to this image before the model observes it. Each key names a condition the server transforms images for; its value selects the transformation applied. Omitted keys keep their default behavior, and an empty object is equivalent to omitting the field.
 
-  - `BetaRequestDocumentBlock`
+  - `class BetaRequestDocumentBlock`
 
     - `"document" type`
 
@@ -3344,7 +3474,7 @@ var_dump($betaMessageTokensCount);
 
     - `?string title`
 
-  - `BetaSearchResultBlockParam`
+  - `class BetaSearchResultBlockParam`
 
     - `"search_result" type`
 
@@ -3360,7 +3490,7 @@ var_dump($betaMessageTokensCount);
 
     - `?BetaCitationsConfigParam citations`
 
-  - `BetaThinkingBlockParam`
+  - `class BetaThinkingBlockParam`
 
     - `"thinking" type`
 
@@ -3374,7 +3504,7 @@ var_dump($betaMessageTokensCount);
 
       The `thinking` text of this block as returned by the API.
 
-  - `BetaRedactedThinkingBlockParam`
+  - `class BetaRedactedThinkingBlockParam`
 
     - `"redacted_thinking" type`
 
@@ -3382,7 +3512,7 @@ var_dump($betaMessageTokensCount);
 
       The `data` value of this redacted thinking block, exactly as returned by the API in a previous response. Opaque and encrypted; pass it back unchanged.
 
-  - `BetaToolUseBlockParam`
+  - `class BetaToolUseBlockParam`
 
     - `"tool_use" type`
 
@@ -3402,7 +3532,7 @@ var_dump($betaMessageTokensCount);
 
       For a toolset member tool_use, the toolset family this member belongs to.
 
-  - `BetaToolResultBlockParam`
+  - `class BetaToolResultBlockParam`
 
     - `"tool_result" type`
 
@@ -3420,7 +3550,7 @@ var_dump($betaMessageTokensCount);
 
       For a toolset member tool_result, the toolset family of the paired tool_use.
 
-  - `BetaServerToolUseBlockParam`
+  - `class BetaServerToolUseBlockParam`
 
     - `"server_tool_use" type`
 
@@ -3436,7 +3566,7 @@ var_dump($betaMessageTokensCount);
 
     - `?Caller caller`
 
-  - `BetaWebSearchToolResultBlockParam`
+  - `class BetaWebSearchToolResultBlockParam`
 
     - `"web_search_tool_result" type`
 
@@ -3450,7 +3580,7 @@ var_dump($betaMessageTokensCount);
 
     - `?Caller caller`
 
-  - `BetaWebFetchToolResultBlockParam`
+  - `class BetaWebFetchToolResultBlockParam`
 
     - `"web_fetch_tool_result" type`
 
@@ -3464,7 +3594,7 @@ var_dump($betaMessageTokensCount);
 
     - `?Caller caller`
 
-  - `BetaAdvisorToolResultBlockParam`
+  - `class BetaAdvisorToolResultBlockParam`
 
     - `"advisor_tool_result" type`
 
@@ -3476,7 +3606,7 @@ var_dump($betaMessageTokensCount);
 
       Create a cache control breakpoint at this content block.
 
-  - `BetaCodeExecutionToolResultBlockParam`
+  - `class BetaCodeExecutionToolResultBlockParam`
 
     - `"code_execution_tool_result" type`
 
@@ -3488,7 +3618,7 @@ var_dump($betaMessageTokensCount);
 
       Create a cache control breakpoint at this content block.
 
-  - `BetaBashCodeExecutionToolResultBlockParam`
+  - `class BetaBashCodeExecutionToolResultBlockParam`
 
     - `"bash_code_execution_tool_result" type`
 
@@ -3500,7 +3630,7 @@ var_dump($betaMessageTokensCount);
 
       Create a cache control breakpoint at this content block.
 
-  - `BetaTextEditorCodeExecutionToolResultBlockParam`
+  - `class BetaTextEditorCodeExecutionToolResultBlockParam`
 
     - `"text_editor_code_execution_tool_result" type`
 
@@ -3512,7 +3642,7 @@ var_dump($betaMessageTokensCount);
 
       Create a cache control breakpoint at this content block.
 
-  - `BetaToolSearchToolResultBlockParam`
+  - `class BetaToolSearchToolResultBlockParam`
 
     - `"tool_search_tool_result" type`
 
@@ -3524,7 +3654,7 @@ var_dump($betaMessageTokensCount);
 
       Create a cache control breakpoint at this content block.
 
-  - `BetaMCPToolUseBlockParam`
+  - `class BetaMCPToolUseBlockParam`
 
     - `"mcp_tool_use" type`
 
@@ -3542,7 +3672,7 @@ var_dump($betaMessageTokensCount);
 
       Create a cache control breakpoint at this content block.
 
-  - `BetaRequestMCPToolResultBlockParam`
+  - `class BetaRequestMCPToolResultBlockParam`
 
     - `"mcp_tool_result" type`
 
@@ -3556,7 +3686,7 @@ var_dump($betaMessageTokensCount);
 
     - `?bool isError`
 
-  - `BetaContainerUploadBlockParam`
+  - `class BetaContainerUploadBlockParam`
 
     - `"container_upload" type`
 
@@ -3566,7 +3696,7 @@ var_dump($betaMessageTokensCount);
 
       Create a cache control breakpoint at this content block.
 
-  - `BetaCompactionBlockParam`
+  - `class BetaCompactionBlockParam`
 
     - `"compaction" type`
 
@@ -3582,7 +3712,15 @@ var_dump($betaMessageTokensCount);
 
       Opaque metadata from prior compaction, to be round-tripped verbatim
 
-  - `BetaRequestToolAdditionBlock`
+    - `?string signature`
+
+      The block's signature as returned, to be sent back verbatim
+
+    - `?list<ToolChange> toolChanges`
+
+      The tool changes of the compacted range, as the server returned them on this block: the `tool_addition` and `tool_removal` entries that take the request's `tools` to the tool set in effect at the end of the range. Send them back unchanged with the block.
+
+  - `class BetaRequestToolAdditionBlock`
 
     - `"tool_addition" type`
 
@@ -3592,7 +3730,7 @@ var_dump($betaMessageTokensCount);
 
       Create a cache control breakpoint at this content block.
 
-  - `BetaRequestToolRemovalBlock`
+  - `class BetaRequestToolRemovalBlock`
 
     - `"tool_removal" type`
 
@@ -3602,7 +3740,19 @@ var_dump($betaMessageTokensCount);
 
       Create a cache control breakpoint at this content block.
 
-  - `BetaFallbackBlockParam`
+  - `class BetaMCPToolListingBlockParam`
+
+    - `"mcp_tool_listing" type`
+
+    - `string mcpServerName`
+
+      The name of the MCP server this listing came from, as `mcp_servers` declares it.
+
+    - `list<BetaMCPToolParam> tools`
+
+      The server's tools, exactly as the response listed them.
+
+  - `class BetaFallbackBlockParam`
 
     - `"fallback" type`
 
@@ -3620,7 +3770,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Content Block Source
 
-- `BetaContentBlockSource`
+- `class BetaContentBlockSource`
 
   - `"content" type`
 
@@ -3628,9 +3778,9 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Content Block Source Content
 
-- `BetaContentBlockSourceContent`
+- `class BetaContentBlockSourceContent`
 
-  - `BetaTextBlockParam`
+  - `class BetaTextBlockParam`
 
     - `"text" type`
 
@@ -3642,7 +3792,7 @@ var_dump($betaMessageTokensCount);
 
     - `?list<BetaTextCitationParam> citations`
 
-  - `BetaImageBlockParam`
+  - `class BetaImageBlockParam`
 
     - `"image" type`
 
@@ -3658,7 +3808,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Context Management Config
 
-- `BetaContextManagementConfig`
+- `class BetaContextManagementConfig`
 
   - `?list<Edit> edits`
 
@@ -3666,7 +3816,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Context Management Response
 
-- `BetaContextManagementResponse`
+- `class BetaContextManagementResponse`
 
   - `list<AppliedEdit> appliedEdits`
 
@@ -3674,7 +3824,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Count Tokens Context Management Response
 
-- `BetaCountTokensContextManagementResponse`
+- `class BetaCountTokensContextManagementResponse`
 
   - `int originalInputTokens`
 
@@ -3682,15 +3832,15 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Diagnostics
 
-- `BetaDiagnostics`
+- `class BetaDiagnostics`
 
-  - `?CacheMissReason cacheMissReason`
+  - `?BetaCacheMissReason cacheMissReason`
 
     Explains why the prompt cache could not fully reuse the prefix from the request identified by `diagnostics.previous_message_id`. `null` means diagnosis is still pending — the response was serialized before the background comparison completed.
 
 ### Beta Diagnostics Param
 
-- `BetaDiagnosticsParam`
+- `class BetaDiagnosticsParam`
 
   - `?string previousMessageID`
 
@@ -3698,13 +3848,13 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Direct Caller
 
-- `BetaDirectCaller`
+- `class BetaDirectCaller`
 
   - `"direct" type`
 
 ### Beta Document Block
 
-- `BetaDocumentBlock`
+- `class BetaDocumentBlock`
 
   - `"document" type`
 
@@ -3720,7 +3870,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Encrypted Code Execution Result Block
 
-- `BetaEncryptedCodeExecutionResultBlock`
+- `class BetaEncryptedCodeExecutionResultBlock`
 
   - `"encrypted_code_execution_result" type`
 
@@ -3734,7 +3884,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Encrypted Code Execution Result Block Param
 
-- `BetaEncryptedCodeExecutionResultBlockParam`
+- `class BetaEncryptedCodeExecutionResultBlockParam`
 
   - `"encrypted_code_execution_result" type`
 
@@ -3748,7 +3898,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Fallback Block
 
-- `BetaFallbackBlock`
+- `class BetaFallbackBlock`
 
   - `"fallback" type`
 
@@ -3766,7 +3916,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Fallback Block Param
 
-- `BetaFallbackBlockParam`
+- `class BetaFallbackBlockParam`
 
   - `"fallback" type`
 
@@ -3784,7 +3934,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Fallback Credit Not Applied
 
-- `BetaFallbackCreditNotApplied`
+- `class BetaFallbackCreditNotApplied`
 
   - `"not_applied" type`
 
@@ -3808,13 +3958,13 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Fallback Credit Redeemed
 
-- `BetaFallbackCreditRedeemed`
+- `class BetaFallbackCreditRedeemed`
 
   - `"redeemed" type`
 
 ### Beta Fallback Credit Token Param
 
-- `BetaFallbackCreditTokenParam`
+- `class BetaFallbackCreditTokenParam`
 
   - `string token`
 
@@ -3826,7 +3976,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Fallback Credit Usage
 
-- `BetaFallbackCreditUsage`
+- `class BetaFallbackCreditUsage`
 
   - `Status status`
 
@@ -3839,7 +3989,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Fallback Info
 
-- `BetaFallbackInfo`
+- `class BetaFallbackInfo`
 
   - `Model model`
 
@@ -3849,7 +3999,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Fallback Info Param
 
-- `BetaFallbackInfoParam`
+- `class BetaFallbackInfoParam`
 
   - `Model model`
 
@@ -3859,7 +4009,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Fallback Message Iteration Usage
 
-- `BetaFallbackMessageIterationUsage`
+- `class BetaFallbackMessageIterationUsage`
 
   - `"fallback_message" type`
 
@@ -3893,7 +4043,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Fallback Param
 
-- `BetaFallbackParam`
+- `class BetaFallbackParam`
 
   - `Model model`
 
@@ -3913,7 +4063,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Fallback Refusal Trigger
 
-- `BetaFallbackRefusalTrigger`
+- `class BetaFallbackRefusalTrigger`
 
   - `"refusal" type`
 
@@ -3923,9 +4073,9 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Fallbacks Param
 
-- `BetaFallbacksParam`
+- `class BetaFallbacksParam`
 
-  - `list<BetaFallbackParam>`
+  - `class list<BetaFallbackParam>`
 
     - `Model model`
 
@@ -3947,7 +4097,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta File Document Source
 
-- `BetaFileDocumentSource`
+- `class BetaFileDocumentSource`
 
   - `"file" type`
 
@@ -3955,7 +4105,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta File Image Source
 
-- `BetaFileImageSource`
+- `class BetaFileImageSource`
 
   - `"file" type`
 
@@ -3963,7 +4113,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Image Block Param
 
-- `BetaImageBlockParam`
+- `class BetaImageBlockParam`
 
   - `"image" type`
 
@@ -3979,7 +4129,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Image Transformations Param
 
-- `BetaImageTransformationsParam`
+- `class BetaImageTransformationsParam`
 
   - `?OversizedImage oversizedImage`
 
@@ -3987,7 +4137,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Input JSON Delta
 
-- `BetaInputJSONDelta`
+- `class BetaInputJSONDelta`
 
   - `"input_json_delta" type`
 
@@ -3995,7 +4145,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Input Tokens Clear At Least
 
-- `BetaInputTokensClearAtLeast`
+- `class BetaInputTokensClearAtLeast`
 
   - `"input_tokens" type`
 
@@ -4003,17 +4153,73 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Input Tokens Trigger
 
-- `BetaInputTokensTrigger`
+- `class BetaInputTokensTrigger`
 
   - `"input_tokens" type`
 
   - `int value`
 
+### Beta Input Transformation
+
+- `class BetaInputTransformation`
+
+  - `class BetaThinkingDroppedInputTransformation`
+
+    - `"thinking_dropped" type`
+
+      Always `thinking_dropped` for this entry type.
+
+    - `string path`
+
+      Where the removed block was in your request, as `messages.{i}.content.{j}`:
+      `i` indexes the `messages` array you sent and `j` that message's `content`
+      array — the same form error messages use.
+
+    - `Reason reason`
+
+      Which binding check removed the block: `model_binding_mismatch` — it was
+      created by a model whose reasoning the requested model may not read;
+      `prefix_binding_mismatch` — the conversation before it differs from the
+      conversation it was created in (the rest of that turn's consecutive thinking
+      blocks are removed with it, each with this reason);
+      `organization_binding_mismatch` — it was created under a different
+      organization (an Anthropic organization, AWS account or Google Cloud project)
+      and this organization is not one of its additional organizations;
+      `end_user_binding_mismatch` — it was created for a different end user, or
+      was removed by the consumer-organization binding. A block that would fail
+      several checks reports one reason, in this order of precedence:
+      `organization_binding_mismatch`, `end_user_binding_mismatch`,
+      `model_binding_mismatch`, `prefix_binding_mismatch`.
+
+  - `class BetaThinkingMismatchAllowedInputTransformation`
+
+    - `"thinking_mismatch_allowed" type`
+
+      Always `thinking_mismatch_allowed` for this entry type.
+
+    - `string path`
+
+      Where the block is in your request, as `messages.{i}.content.{j}`:
+      `i` indexes the `messages` array you sent and `j` that message's `content`
+      array — the same form error messages use.
+
+    - `Reason reason`
+
+      Which binding check the block failed; the block was shown to the model all
+      the same. Always `prefix_binding_mismatch` today — the conversation before
+      the block differs from the conversation it was created in, or the block
+      carries no record of one on a model that requires it. Were the check
+      enforced for this request, the block would have been removed or the request
+      rejected (`thinking.block_binding.prefix_mismatch_behavior`). A removal also
+      takes the rest of that turn's consecutive thinking blocks, whereas here each
+      block is checked on its own, so `thinking_mismatch_allowed` entries are a
+      lower bound on what enforcement would remove.
+
 ### Beta Iterations Usage
 
 - `list<BetaIterationsUsageItem>`
 
-  - `BetaMessageIterationUsage`
+  - `class BetaMessageIterationUsage`
 
     - `"message" type`
 
@@ -4035,7 +4241,7 @@ var_dump($betaMessageTokensCount);
 
       The number of input tokens which were used.
 
-    - `Model model`
+    - `?Model model`
 
       The model that will complete your prompt.
 
@@ -4045,7 +4251,7 @@ var_dump($betaMessageTokensCount);
 
       The number of output tokens which were used.
 
-  - `BetaCompactionIterationUsage`
+  - `class BetaCompactionIterationUsage`
 
     - `"compaction" type`
 
@@ -4071,7 +4277,7 @@ var_dump($betaMessageTokensCount);
 
       The number of output tokens which were used.
 
-  - `BetaAdvisorMessageIterationUsage`
+  - `class BetaAdvisorMessageIterationUsage`
 
     - `"advisor_message" type`
 
@@ -4103,7 +4309,7 @@ var_dump($betaMessageTokensCount);
 
       The number of output tokens which were used.
 
-  - `BetaFallbackMessageIterationUsage`
+  - `class BetaFallbackMessageIterationUsage`
 
     - `"fallback_message" type`
 
@@ -4137,7 +4343,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta JSON Output Format
 
-- `BetaJSONOutputFormat`
+- `class BetaJSONOutputFormat`
 
   - `"json_schema" type`
 
@@ -4145,9 +4351,19 @@ var_dump($betaMessageTokensCount);
 
     The JSON schema of the format
 
+### Beta MCP Tool
+
+- `class BetaMCPTool`
+
+  - `array<string,mixed> inputSchema`
+
+  - `string name`
+
+  - `?string description`
+
 ### Beta MCP Tool Config
 
-- `BetaMCPToolConfig`
+- `class BetaMCPToolConfig`
 
   - `?bool deferLoading`
 
@@ -4155,15 +4371,55 @@ var_dump($betaMessageTokensCount);
 
 ### Beta MCP Tool Default Config
 
-- `BetaMCPToolDefaultConfig`
+- `class BetaMCPToolDefaultConfig`
 
   - `?bool deferLoading`
 
   - `?bool enabled`
 
+### Beta MCP Tool Listing Block
+
+- `class BetaMCPToolListingBlock`
+
+  - `"mcp_tool_listing" type`
+
+  - `string mcpServerName`
+
+  - `list<BetaMCPTool> tools`
+
+### Beta MCP Tool Listing Block Param
+
+- `class BetaMCPToolListingBlockParam`
+
+  - `"mcp_tool_listing" type`
+
+  - `string mcpServerName`
+
+    The name of the MCP server this listing came from, as `mcp_servers` declares it.
+
+  - `list<BetaMCPToolParam> tools`
+
+    The server's tools, exactly as the response listed them.
+
+### Beta MCP Tool Param
+
+- `class BetaMCPToolParam`
+
+  - `array<string,mixed> inputSchema`
+
+    The tool's input schema as the MCP server lists it, verbatim.
+
+  - `string name`
+
+    The tool's name as the MCP server lists it (not prefixed with the server name).
+
+  - `?string description`
+
+    The tool's description as the MCP server lists it.
+
 ### Beta MCP Tool Result Block
 
-- `BetaMCPToolResultBlock`
+- `class BetaMCPToolResultBlock`
 
   - `"mcp_tool_result" type`
 
@@ -4175,7 +4431,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta MCP Tool Use Block
 
-- `BetaMCPToolUseBlock`
+- `class BetaMCPToolUseBlock`
 
   - `"mcp_tool_use" type`
 
@@ -4193,7 +4449,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta MCP Tool Use Block Param
 
-- `BetaMCPToolUseBlockParam`
+- `class BetaMCPToolUseBlockParam`
 
   - `"mcp_tool_use" type`
 
@@ -4213,7 +4469,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta MCP Toolset
 
-- `BetaMCPToolset`
+- `class BetaMCPToolset`
 
   - `"mcp_toolset" type`
 
@@ -4233,9 +4489,13 @@ var_dump($betaMessageTokensCount);
 
     Default configuration applied to all tools from this server
 
+  - `?list<BetaMCPToolParam> tools`
+
+    The server's tool listing, pinned: when present, the server is not asked for its tools before sampling and exactly these entries, with `default_config` and `configs` applied, are the toolset's tools. Copy it from the `mcp_tool_listing` block of an earlier response.
+
 ### Beta Memory Tool 20250818
 
-- `BetaMemoryTool20250818`
+- `class BetaMemoryTool20250818`
 
   - `"memory_20250818" type`
 
@@ -4263,9 +4523,9 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Memory Tool 20250818 Command
 
-- `BetaMemoryTool20250818Command`
+- `class BetaMemoryTool20250818Command`
 
-  - `BetaMemoryTool20250818ViewCommand`
+  - `class BetaMemoryTool20250818ViewCommand`
 
     - `"view" command`
 
@@ -4279,7 +4539,7 @@ var_dump($betaMessageTokensCount);
 
       Optional line range for viewing specific lines
 
-  - `BetaMemoryTool20250818CreateCommand`
+  - `class BetaMemoryTool20250818CreateCommand`
 
     - `"create" command`
 
@@ -4293,7 +4553,7 @@ var_dump($betaMessageTokensCount);
 
       Path where the file should be created
 
-  - `BetaMemoryTool20250818StrReplaceCommand`
+  - `class BetaMemoryTool20250818StrReplaceCommand`
 
     - `"str_replace" command`
 
@@ -4311,7 +4571,7 @@ var_dump($betaMessageTokensCount);
 
       Path to the file where text should be replaced
 
-  - `BetaMemoryTool20250818InsertCommand`
+  - `class BetaMemoryTool20250818InsertCommand`
 
     - `"insert" command`
 
@@ -4329,7 +4589,7 @@ var_dump($betaMessageTokensCount);
 
       Path to the file where text should be inserted
 
-  - `BetaMemoryTool20250818DeleteCommand`
+  - `class BetaMemoryTool20250818DeleteCommand`
 
     - `"delete" command`
 
@@ -4339,7 +4599,7 @@ var_dump($betaMessageTokensCount);
 
       Path to the file or directory to delete
 
-  - `BetaMemoryTool20250818RenameCommand`
+  - `class BetaMemoryTool20250818RenameCommand`
 
     - `"rename" command`
 
@@ -4355,7 +4615,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Memory Tool 20250818 Create Command
 
-- `BetaMemoryTool20250818CreateCommand`
+- `class BetaMemoryTool20250818CreateCommand`
 
   - `"create" command`
 
@@ -4371,7 +4631,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Memory Tool 20250818 Delete Command
 
-- `BetaMemoryTool20250818DeleteCommand`
+- `class BetaMemoryTool20250818DeleteCommand`
 
   - `"delete" command`
 
@@ -4383,7 +4643,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Memory Tool 20250818 Insert Command
 
-- `BetaMemoryTool20250818InsertCommand`
+- `class BetaMemoryTool20250818InsertCommand`
 
   - `"insert" command`
 
@@ -4403,7 +4663,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Memory Tool 20250818 Rename Command
 
-- `BetaMemoryTool20250818RenameCommand`
+- `class BetaMemoryTool20250818RenameCommand`
 
   - `"rename" command`
 
@@ -4419,7 +4679,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Memory Tool 20250818 Str Replace Command
 
-- `BetaMemoryTool20250818StrReplaceCommand`
+- `class BetaMemoryTool20250818StrReplaceCommand`
 
   - `"str_replace" command`
 
@@ -4439,7 +4699,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Memory Tool 20250818 View Command
 
-- `BetaMemoryTool20250818ViewCommand`
+- `class BetaMemoryTool20250818ViewCommand`
 
   - `"view" command`
 
@@ -4455,7 +4715,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Message
 
-- `BetaMessage`
+- `class BetaMessage`
 
   - `"message" type`
 
@@ -4510,8 +4770,8 @@ var_dump($betaMessageTokensCount);
 
   - `?BetaDiagnostics diagnostics`
 
-    Response envelope for request-level diagnostics. Present (possibly
-    null) whenever the caller supplied `diagnostics` on the request.
+    Request-level diagnostics: why the prompt cache could not fully reuse
+    the prefix of the request named by `diagnostics.previous_message_id`.
 
   - `Model model`
 
@@ -4563,27 +4823,33 @@ var_dump($betaMessageTokensCount);
 
     Total input tokens in a request is the summation of `input_tokens`, `cache_creation_input_tokens`, and `cache_read_input_tokens`.
 
-  - `?list<BetaThinkingDroppedInputTransformation> inputTransformations`
+  - `?list<BetaInputTransformation> inputTransformations`
 
-    Changes the API made to the request's input before showing it to the model:
-    one entry per change, in request order. Today the only entry type is
-    `thinking_dropped` — a `thinking`, `redacted_thinking` or `connector_text`
-    block from the request's `messages` that was removed from the prompt instead
-    of being shown to the model because it failed a binding check. More entry
-    types may be added over time; ignore types you do not recognize.
+    Changes the API made to the request's input before showing it to the model,
+    and blocks that failed a binding check but were left unchanged: one entry per
+    block, in request order. Two entry types today. `thinking_dropped` — a
+    `thinking`, `redacted_thinking` or `connector_text` block from the request's
+    `messages` that was removed from the prompt instead of being shown to the
+    model because it failed a binding check. `thinking_mismatch_allowed` — a
+    `thinking` or `redacted_thinking` block that failed the conversation check
+    (the conversation before it differs from the one it was created in, or it
+    carries no record of one on a model that requires it) and was shown to the
+    model all the same, because that check is not enforced for this request.
+    More entry types may be added over time; ignore types you do not recognize.
 
     Requires `anthropic-beta: thinking-binding-controls-2026-08-01`. Present on
     every such response from a model that supports extended thinking, as `[]`
-    when nothing was changed; without the beta, blocks are removed all the same
-    but nothing is reported. Removed blocks contribute nothing to
-    `usage.input_tokens`. When streaming, the array is final in `message_start`;
-    the final `message_delta` event carries it only when a server-side model
-    fallback happened mid-stream, in which case it holds the serving model's
-    entries and replaces the one in `message_start`.
+    when there is no entry to report; without the beta, blocks are removed or
+    left in place all the same but nothing is reported. Removed blocks contribute
+    nothing to `usage.input_tokens`; blocks left in place count as sent. When
+    streaming, the array is final in `message_start`; the final `message_delta`
+    event carries it only when a server-side model fallback happened mid-stream,
+    in which case it holds the serving model's entries and replaces the one in
+    `message_start`.
 
 ### Beta Message Delta Usage
 
-- `BetaMessageDeltaUsage`
+- `class BetaMessageDeltaUsage`
 
   - `?int cacheCreationInputTokens`
 
@@ -4632,7 +4898,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Message Iteration Usage
 
-- `BetaMessageIterationUsage`
+- `class BetaMessageIterationUsage`
 
   - `"message" type`
 
@@ -4654,7 +4920,7 @@ var_dump($betaMessageTokensCount);
 
     The number of input tokens which were used.
 
-  - `Model model`
+  - `?Model model`
 
     The model that will complete your prompt.
 
@@ -4666,7 +4932,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Message Param
 
-- `BetaMessageParam`
+- `class BetaMessageParam`
 
   - `Content content`
 
@@ -4686,7 +4952,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Message Tokens Count
 
-- `BetaMessageTokensCount`
+- `class BetaMessageTokensCount`
 
   - `?BetaCountTokensContextManagementResponse contextManagement`
 
@@ -4698,7 +4964,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Metadata
 
-- `BetaMetadata`
+- `class BetaMetadata`
 
   - `?string userID`
 
@@ -4708,7 +4974,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Output Config
 
-- `BetaOutputConfig`
+- `class BetaOutputConfig`
 
   - `?Effort effort`
 
@@ -4724,7 +4990,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Output Tokens Details
 
-- `BetaOutputTokensDetails`
+- `class BetaOutputTokensDetails`
 
   - `int thinkingTokens`
 
@@ -4739,7 +5005,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Plain Text Source
 
-- `BetaPlainTextSource`
+- `class BetaPlainTextSource`
 
   - `"text" type`
 
@@ -4749,27 +5015,27 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Raw Content Block Delta
 
-- `BetaRawContentBlockDelta`
+- `class BetaRawContentBlockDelta`
 
-  - `BetaTextDelta`
+  - `class BetaTextDelta`
 
     - `"text_delta" type`
 
     - `string text`
 
-  - `BetaInputJSONDelta`
+  - `class BetaInputJSONDelta`
 
     - `"input_json_delta" type`
 
     - `string partialJSON`
 
-  - `BetaCitationsDelta`
+  - `class BetaCitationsDelta`
 
     - `"citations_delta" type`
 
     - `Citation citation`
 
-  - `BetaThinkingDelta`
+  - `class BetaThinkingDelta`
 
     - `"thinking_delta" type`
 
@@ -4781,7 +5047,7 @@ var_dump($betaMessageTokensCount);
 
       The incremental `thinking` text for this content block. Concatenate the `thinking` values of successive `thinking_delta` events to assemble the block's full `thinking` value.
 
-  - `BetaSignatureDelta`
+  - `class BetaSignatureDelta`
 
     - `"signature_delta" type`
 
@@ -4789,7 +5055,7 @@ var_dump($betaMessageTokensCount);
 
       The `signature` for this thinking block: an opaque value used to verify that the block was generated by Claude when it is passed back to the API. Delivered in a `signature_delta` event just before the block's `content_block_stop` event.
 
-  - `BetaCompactionContentBlockDelta`
+  - `class BetaCompactionContentBlockDelta`
 
     - `"compaction_delta" type`
 
@@ -4801,7 +5067,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Raw Content Block Delta Event
 
-- `BetaRawContentBlockDeltaEvent`
+- `class BetaRawContentBlockDeltaEvent`
 
   - `"content_block_delta" type`
 
@@ -4811,7 +5077,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Raw Content Block Start Event
 
-- `BetaRawContentBlockStartEvent`
+- `class BetaRawContentBlockStartEvent`
 
   - `"content_block_start" type`
 
@@ -4821,7 +5087,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Raw Content Block Stop Event
 
-- `BetaRawContentBlockStopEvent`
+- `class BetaRawContentBlockStopEvent`
 
   - `"content_block_stop" type`
 
@@ -4829,7 +5095,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Raw Message Delta Event
 
-- `BetaRawMessageDeltaEvent`
+- `class BetaRawMessageDeltaEvent`
 
   - `"message_delta" type`
 
@@ -4851,27 +5117,33 @@ var_dump($betaMessageTokensCount);
 
     Total input tokens in a request is the summation of `input_tokens`, `cache_creation_input_tokens`, and `cache_read_input_tokens`.
 
-  - `?list<BetaThinkingDroppedInputTransformation> inputTransformations`
+  - `?list<BetaInputTransformation> inputTransformations`
 
-    Changes the API made to the request's input before showing it to the model:
-    one entry per change, in request order. Today the only entry type is
-    `thinking_dropped` — a `thinking`, `redacted_thinking` or `connector_text`
-    block from the request's `messages` that was removed from the prompt instead
-    of being shown to the model because it failed a binding check. More entry
-    types may be added over time; ignore types you do not recognize.
+    Changes the API made to the request's input before showing it to the model,
+    and blocks that failed a binding check but were left unchanged: one entry per
+    block, in request order. Two entry types today. `thinking_dropped` — a
+    `thinking`, `redacted_thinking` or `connector_text` block from the request's
+    `messages` that was removed from the prompt instead of being shown to the
+    model because it failed a binding check. `thinking_mismatch_allowed` — a
+    `thinking` or `redacted_thinking` block that failed the conversation check
+    (the conversation before it differs from the one it was created in, or it
+    carries no record of one on a model that requires it) and was shown to the
+    model all the same, because that check is not enforced for this request.
+    More entry types may be added over time; ignore types you do not recognize.
 
     Requires `anthropic-beta: thinking-binding-controls-2026-08-01`. Present on
     every such response from a model that supports extended thinking, as `[]`
-    when nothing was changed; without the beta, blocks are removed all the same
-    but nothing is reported. Removed blocks contribute nothing to
-    `usage.input_tokens`. When streaming, the array is final in `message_start`;
-    the final `message_delta` event carries it only when a server-side model
-    fallback happened mid-stream, in which case it holds the serving model's
-    entries and replaces the one in `message_start`.
+    when there is no entry to report; without the beta, blocks are removed or
+    left in place all the same but nothing is reported. Removed blocks contribute
+    nothing to `usage.input_tokens`; blocks left in place count as sent. When
+    streaming, the array is final in `message_start`; the final `message_delta`
+    event carries it only when a server-side model fallback happened mid-stream,
+    in which case it holds the serving model's entries and replaces the one in
+    `message_start`.
 
 ### Beta Raw Message Start Event
 
-- `BetaRawMessageStartEvent`
+- `class BetaRawMessageStartEvent`
 
   - `"message_start" type`
 
@@ -4879,21 +5151,21 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Raw Message Stop Event
 
-- `BetaRawMessageStopEvent`
+- `class BetaRawMessageStopEvent`
 
   - `"message_stop" type`
 
 ### Beta Raw Message Stream Event
 
-- `BetaRawMessageStreamEvent`
+- `class BetaRawMessageStreamEvent`
 
-  - `BetaRawMessageStartEvent`
+  - `class BetaRawMessageStartEvent`
 
     - `"message_start" type`
 
     - `BetaMessage message`
 
-  - `BetaRawMessageDeltaEvent`
+  - `class BetaRawMessageDeltaEvent`
 
     - `"message_delta" type`
 
@@ -4915,29 +5187,35 @@ var_dump($betaMessageTokensCount);
 
       Total input tokens in a request is the summation of `input_tokens`, `cache_creation_input_tokens`, and `cache_read_input_tokens`.
 
-    - `?list<BetaThinkingDroppedInputTransformation> inputTransformations`
+    - `?list<BetaInputTransformation> inputTransformations`
 
-      Changes the API made to the request's input before showing it to the model:
-      one entry per change, in request order. Today the only entry type is
-      `thinking_dropped` — a `thinking`, `redacted_thinking` or `connector_text`
-      block from the request's `messages` that was removed from the prompt instead
-      of being shown to the model because it failed a binding check. More entry
-      types may be added over time; ignore types you do not recognize.
+      Changes the API made to the request's input before showing it to the model,
+      and blocks that failed a binding check but were left unchanged: one entry per
+      block, in request order. Two entry types today. `thinking_dropped` — a
+      `thinking`, `redacted_thinking` or `connector_text` block from the request's
+      `messages` that was removed from the prompt instead of being shown to the
+      model because it failed a binding check. `thinking_mismatch_allowed` — a
+      `thinking` or `redacted_thinking` block that failed the conversation check
+      (the conversation before it differs from the one it was created in, or it
+      carries no record of one on a model that requires it) and was shown to the
+      model all the same, because that check is not enforced for this request.
+      More entry types may be added over time; ignore types you do not recognize.
 
       Requires `anthropic-beta: thinking-binding-controls-2026-08-01`. Present on
       every such response from a model that supports extended thinking, as `[]`
-      when nothing was changed; without the beta, blocks are removed all the same
-      but nothing is reported. Removed blocks contribute nothing to
-      `usage.input_tokens`. When streaming, the array is final in `message_start`;
-      the final `message_delta` event carries it only when a server-side model
-      fallback happened mid-stream, in which case it holds the serving model's
-      entries and replaces the one in `message_start`.
+      when there is no entry to report; without the beta, blocks are removed or
+      left in place all the same but nothing is reported. Removed blocks contribute
+      nothing to `usage.input_tokens`; blocks left in place count as sent. When
+      streaming, the array is final in `message_start`; the final `message_delta`
+      event carries it only when a server-side model fallback happened mid-stream,
+      in which case it holds the serving model's entries and replaces the one in
+      `message_start`.
 
-  - `BetaRawMessageStopEvent`
+  - `class BetaRawMessageStopEvent`
 
     - `"message_stop" type`
 
-  - `BetaRawContentBlockStartEvent`
+  - `class BetaRawContentBlockStartEvent`
 
     - `"content_block_start" type`
 
@@ -4945,7 +5223,7 @@ var_dump($betaMessageTokensCount);
 
     - `int index`
 
-  - `BetaRawContentBlockDeltaEvent`
+  - `class BetaRawContentBlockDeltaEvent`
 
     - `"content_block_delta" type`
 
@@ -4953,7 +5231,7 @@ var_dump($betaMessageTokensCount);
 
     - `int index`
 
-  - `BetaRawContentBlockStopEvent`
+  - `class BetaRawContentBlockStopEvent`
 
     - `"content_block_stop" type`
 
@@ -4961,7 +5239,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Redacted Thinking Block
 
-- `BetaRedactedThinkingBlock`
+- `class BetaRedactedThinkingBlock`
 
   - `"redacted_thinking" type`
 
@@ -4975,7 +5253,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Redacted Thinking Block Param
 
-- `BetaRedactedThinkingBlockParam`
+- `class BetaRedactedThinkingBlockParam`
 
   - `"redacted_thinking" type`
 
@@ -4985,7 +5263,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Refusal Stop Details
 
-- `BetaRefusalStopDetails`
+- `class BetaRefusalStopDetails`
 
   - `"refusal" type`
 
@@ -5050,7 +5328,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Request Document Block
 
-- `BetaRequestDocumentBlock`
+- `class BetaRequestDocumentBlock`
 
   - `"document" type`
 
@@ -5068,7 +5346,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Request MCP Server Tool Configuration
 
-- `BetaRequestMCPServerToolConfiguration`
+- `class BetaRequestMCPServerToolConfiguration`
 
   - `?list<string> allowedTools`
 
@@ -5076,7 +5354,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Request MCP Server URL Definition
 
-- `BetaRequestMCPServerURLDefinition`
+- `class BetaRequestMCPServerURLDefinition`
 
   - `"url" type`
 
@@ -5090,7 +5368,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Request MCP Tool Result Block Param
 
-- `BetaRequestMCPToolResultBlockParam`
+- `class BetaRequestMCPToolResultBlockParam`
 
   - `"mcp_tool_result" type`
 
@@ -5106,7 +5384,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Request Tool Addition Block
 
-- `BetaRequestToolAdditionBlock`
+- `class BetaRequestToolAdditionBlock`
 
   - `"tool_addition" type`
 
@@ -5118,7 +5396,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Request Tool Removal Block
 
-- `BetaRequestToolRemovalBlock`
+- `class BetaRequestToolRemovalBlock`
 
   - `"tool_removal" type`
 
@@ -5128,719 +5406,13 @@ var_dump($betaMessageTokensCount);
 
     Create a cache control breakpoint at this content block.
 
-### Beta Search Result Block Param
+### Beta Response Tool
 
-- `BetaSearchResultBlockParam`
-
-  - `"search_result" type`
-
-  - `list<BetaTextBlockParam> content`
-
-  - `string source`
-
-  - `string title`
-
-  - `?BetaCacheControlEphemeral cacheControl`
-
-    Create a cache control breakpoint at this content block.
-
-  - `?BetaCitationsConfigParam citations`
-
-### Beta Server Tool Caller
-
-- `BetaServerToolCaller`
-
-  - `"code_execution_20250825" type`
-
-  - `string toolID`
-
-### Beta Server Tool Caller 20260120
-
-- `BetaServerToolCaller20260120`
-
-  - `"code_execution_20260120" type`
-
-  - `string toolID`
-
-### Beta Server Tool Usage
-
-- `BetaServerToolUsage`
-
-  - `int webFetchRequests`
-
-    The number of web fetch tool requests.
-
-  - `int webSearchRequests`
-
-    The number of web search tool requests.
-
-### Beta Server Tool Use Block
-
-- `BetaServerToolUseBlock`
-
-  - `"server_tool_use" type`
-
-  - `string id`
-
-  - `array<string,mixed> input`
-
-  - `Name name`
-
-  - `?Caller caller`
-
-### Beta Server Tool Use Block Param
-
-- `BetaServerToolUseBlockParam`
-
-  - `"server_tool_use" type`
-
-  - `string id`
-
-  - `array<string,mixed> input`
-
-  - `Name name`
-
-  - `?BetaCacheControlEphemeral cacheControl`
-
-    Create a cache control breakpoint at this content block.
-
-  - `?Caller caller`
-
-### Beta Signature Delta
-
-- `BetaSignatureDelta`
-
-  - `"signature_delta" type`
-
-  - `string signature`
-
-    The `signature` for this thinking block: an opaque value used to verify that the block was generated by Claude when it is passed back to the API. Delivered in a `signature_delta` event just before the block's `content_block_stop` event.
-
-### Beta Skill Params
-
-- `BetaSkillParams`
-
-  - `Type type`
-
-    Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
-
-  - `string skillID`
-
-    Skill ID
-
-  - `?string version`
-
-    Skill version or 'latest' for most recent version
-
-### Beta Stop Reason
-
-- `BetaStopReason`
-
-  - `"end_turn"`
-
-  - `"max_tokens"`
-
-  - `"stop_sequence"`
-
-  - `"tool_use"`
-
-  - `"pause_turn"`
-
-  - `"compaction"`
-
-  - `"refusal"`
-
-  - `"model_context_window_exceeded"`
-
-### Beta System Message Output Config
-
-- `BetaSystemMessageOutputConfig`
-
-  - `?Effort effort`
-
-    All possible effort levels.
-
-### Beta Text Block
-
-- `BetaTextBlock`
-
-  - `"text" type`
-
-  - `?list<BetaTextCitation> citations`
-
-    Citations supporting the text block.
-
-    The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
-
-  - `string text`
-
-### Beta Text Block Param
-
-- `BetaTextBlockParam`
-
-  - `"text" type`
-
-  - `string text`
-
-  - `?BetaCacheControlEphemeral cacheControl`
-
-    Create a cache control breakpoint at this content block.
-
-  - `?list<BetaTextCitationParam> citations`
-
-### Beta Text Citation
-
-- `BetaTextCitation`
-
-  - `BetaCitationCharLocation`
-
-    - `"char_location" type`
-
-    - `string citedText`
-
-    - `int documentIndex`
-
-    - `?string documentTitle`
-
-    - `int endCharIndex`
-
-    - `?string fileID`
-
-    - `int startCharIndex`
-
-  - `BetaCitationPageLocation`
-
-    - `"page_location" type`
-
-    - `string citedText`
-
-    - `int documentIndex`
-
-    - `?string documentTitle`
-
-    - `int endPageNumber`
-
-    - `?string fileID`
-
-    - `int startPageNumber`
-
-  - `BetaCitationContentBlockLocation`
-
-    - `"content_block_location" type`
-
-    - `string citedText`
-
-      The full text of the cited block range, concatenated.
-
-      Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
-
-    - `int documentIndex`
-
-    - `?string documentTitle`
-
-    - `int endBlockIndex`
-
-      Exclusive 0-based end index of the cited block range in the source's `content` array.
-
-      Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
-
-    - `?string fileID`
-
-    - `int startBlockIndex`
-
-      0-based index of the first cited block in the source's `content` array.
-
-  - `BetaCitationsWebSearchResultLocation`
-
-    - `"web_search_result_location" type`
-
-    - `string citedText`
-
-    - `string encryptedIndex`
-
-    - `?string title`
-
-    - `string url`
-
-  - `BetaCitationSearchResultLocation`
-
-    - `"search_result_location" type`
-
-    - `string citedText`
-
-      The full text of the cited block range, concatenated.
-
-      Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
-
-    - `int endBlockIndex`
-
-      Exclusive 0-based end index of the cited block range in the source's `content` array.
-
-      Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
-
-    - `int searchResultIndex`
-
-      0-based index of the cited search result among all `search_result` content blocks in the request, in the order they appear across messages and tool results.
-
-      Counted separately from `document_index`; server-side web search results are not included in this count.
-
-    - `string source`
-
-    - `int startBlockIndex`
-
-      0-based index of the first cited block in the source's `content` array.
-
-    - `?string title`
-
-### Beta Text Citation Param
-
-- `BetaTextCitationParam`
-
-  - `BetaCitationCharLocationParam`
-
-    - `"char_location" type`
-
-    - `string citedText`
-
-    - `int documentIndex`
-
-    - `?string documentTitle`
-
-    - `int endCharIndex`
-
-    - `int startCharIndex`
-
-  - `BetaCitationPageLocationParam`
-
-    - `"page_location" type`
-
-    - `string citedText`
-
-    - `int documentIndex`
-
-    - `?string documentTitle`
-
-    - `int endPageNumber`
-
-    - `int startPageNumber`
-
-  - `BetaCitationContentBlockLocationParam`
-
-    - `"content_block_location" type`
-
-    - `string citedText`
-
-      The full text of the cited block range, concatenated.
-
-      Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
-
-    - `int documentIndex`
-
-    - `?string documentTitle`
-
-    - `int endBlockIndex`
-
-      Exclusive 0-based end index of the cited block range in the source's `content` array.
-
-      Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
-
-    - `int startBlockIndex`
-
-      0-based index of the first cited block in the source's `content` array.
-
-  - `BetaCitationWebSearchResultLocationParam`
-
-    - `"web_search_result_location" type`
-
-    - `string citedText`
-
-    - `string encryptedIndex`
-
-    - `?string title`
-
-    - `string url`
-
-  - `BetaCitationSearchResultLocationParam`
-
-    - `"search_result_location" type`
-
-    - `string citedText`
-
-      The full text of the cited block range, concatenated.
-
-      Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
-
-    - `int endBlockIndex`
-
-      Exclusive 0-based end index of the cited block range in the source's `content` array.
-
-      Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
-
-    - `int searchResultIndex`
-
-      0-based index of the cited search result among all `search_result` content blocks in the request, in the order they appear across messages and tool results.
-
-      Counted separately from `document_index`; server-side web search results are not included in this count.
-
-    - `string source`
-
-    - `int startBlockIndex`
-
-      0-based index of the first cited block in the source's `content` array.
-
-    - `?string title`
-
-### Beta Text Delta
-
-- `BetaTextDelta`
-
-  - `"text_delta" type`
-
-  - `string text`
-
-### Beta Text Editor Code Execution Create Result Block
-
-- `BetaTextEditorCodeExecutionCreateResultBlock`
-
-  - `"text_editor_code_execution_create_result" type`
-
-  - `bool isFileUpdate`
-
-### Beta Text Editor Code Execution Create Result Block Param
-
-- `BetaTextEditorCodeExecutionCreateResultBlockParam`
-
-  - `"text_editor_code_execution_create_result" type`
-
-  - `bool isFileUpdate`
-
-### Beta Text Editor Code Execution Str Replace Result Block
-
-- `BetaTextEditorCodeExecutionStrReplaceResultBlock`
-
-  - `"text_editor_code_execution_str_replace_result" type`
-
-  - `?list<string> lines`
-
-  - `?int newLines`
-
-  - `?int newStart`
-
-  - `?int oldLines`
-
-  - `?int oldStart`
-
-### Beta Text Editor Code Execution Str Replace Result Block Param
-
-- `BetaTextEditorCodeExecutionStrReplaceResultBlockParam`
-
-  - `"text_editor_code_execution_str_replace_result" type`
-
-  - `?list<string> lines`
-
-  - `?int newLines`
-
-  - `?int newStart`
-
-  - `?int oldLines`
-
-  - `?int oldStart`
-
-### Beta Text Editor Code Execution Tool Result Block
-
-- `BetaTextEditorCodeExecutionToolResultBlock`
-
-  - `"text_editor_code_execution_tool_result" type`
-
-  - `Content content`
-
-  - `string toolUseID`
-
-### Beta Text Editor Code Execution Tool Result Block Param
-
-- `BetaTextEditorCodeExecutionToolResultBlockParam`
-
-  - `"text_editor_code_execution_tool_result" type`
-
-  - `Content content`
-
-  - `string toolUseID`
-
-  - `?BetaCacheControlEphemeral cacheControl`
-
-    Create a cache control breakpoint at this content block.
-
-### Beta Text Editor Code Execution Tool Result Error
-
-- `BetaTextEditorCodeExecutionToolResultError`
-
-  - `"text_editor_code_execution_tool_result_error" type`
-
-  - `ErrorCode errorCode`
-
-  - `?string errorMessage`
-
-### Beta Text Editor Code Execution Tool Result Error Param
-
-- `BetaTextEditorCodeExecutionToolResultErrorParam`
-
-  - `"text_editor_code_execution_tool_result_error" type`
-
-  - `ErrorCode errorCode`
-
-  - `?string errorMessage`
-
-### Beta Text Editor Code Execution View Result Block
-
-- `BetaTextEditorCodeExecutionViewResultBlock`
-
-  - `"text_editor_code_execution_view_result" type`
-
-  - `string content`
-
-  - `FileType fileType`
-
-  - `?int numLines`
-
-  - `?int startLine`
-
-  - `?int totalLines`
-
-### Beta Text Editor Code Execution View Result Block Param
-
-- `BetaTextEditorCodeExecutionViewResultBlockParam`
-
-  - `"text_editor_code_execution_view_result" type`
-
-  - `string content`
-
-  - `FileType fileType`
-
-  - `?int numLines`
-
-  - `?int startLine`
-
-  - `?int totalLines`
-
-### Beta Thinking Block
-
-- `BetaThinkingBlock`
-
-  - `"thinking" type`
-
-  - `string signature`
-
-    A value used to verify that this thinking block was generated by Claude when it is passed back to the API.
-
-    This is an opaque field and should not be interpreted or parsed. When passing thinking blocks back to the API (required when using tools with extended thinking), pass them back exactly as received, with this field intact.
-
-    See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
-
-  - `string thinking`
-
-    The text of Claude's thinking process for this block.
-
-### Beta Thinking Block Binding
-
-- `BetaThinkingBlockBinding`
-
-  - `?BetaThinkingPrefixMismatchBehavior prefixMismatchBehavior`
-
-    What happens when a thinking block in `messages` fails the conversation
-    check: it was created in a different conversation, or the messages before
-    it have changed since. `"error"` (the default) fails the request with a
-    400 error. `"drop_block"` removes the failing blocks and the request
-    proceeds; the model no longer sees the dropped reasoning.
-
-### Beta Thinking Block Param
-
-- `BetaThinkingBlockParam`
-
-  - `"thinking" type`
-
-  - `string signature`
-
-    The `signature` value of this thinking block, exactly as returned by the API in a previous response. Used to verify that the block was generated by Claude.
-
-    Thinking blocks must be passed back unmodified and in their original order; a modified block results in a 400 `invalid_request_error`.
-
-  - `string thinking`
-
-    The `thinking` text of this block as returned by the API.
-
-### Beta Thinking Config Adaptive
-
-- `BetaThinkingConfigAdaptive`
-
-  - `"adaptive" type`
-
-  - `?BetaThinkingBlockBinding blockBinding`
-
-    Controls for block binding: what happens when a thinking block this
-    request sends back fails the conversation check. Every field is optional;
-    an empty object means every default.
-
-  - `?Display display`
-
-    Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
-
-### Beta Thinking Config Disabled
-
-- `BetaThinkingConfigDisabled`
-
-  - `"disabled" type`
-
-### Beta Thinking Config Enabled
-
-- `BetaThinkingConfigEnabled`
-
-  - `"enabled" type`
-
-  - `int budgetTokens`
-
-    Determines how many tokens Claude can use for its internal reasoning process. Larger budgets can enable more thorough analysis for complex problems, improving response quality.
-
-    Must be ≥1024 and less than `max_tokens`.
-
-    See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
-
-  - `?BetaThinkingBlockBinding blockBinding`
-
-    Controls for block binding: what happens when a thinking block this
-    request sends back fails the conversation check. Every field is optional;
-    an empty object means every default.
-
-  - `?Display display`
-
-    Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
-
-### Beta Thinking Config Param
-
-- `BetaThinkingConfigParam`
-
-  - `BetaThinkingConfigEnabled`
-
-    - `"enabled" type`
-
-    - `int budgetTokens`
-
-      Determines how many tokens Claude can use for its internal reasoning process. Larger budgets can enable more thorough analysis for complex problems, improving response quality.
-
-      Must be ≥1024 and less than `max_tokens`.
-
-      See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
-
-    - `?BetaThinkingBlockBinding blockBinding`
-
-      Controls for block binding: what happens when a thinking block this
-      request sends back fails the conversation check. Every field is optional;
-      an empty object means every default.
-
-    - `?Display display`
-
-      Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
-
-  - `BetaThinkingConfigDisabled`
-
-    - `"disabled" type`
-
-  - `BetaThinkingConfigAdaptive`
-
-    - `"adaptive" type`
-
-    - `?BetaThinkingBlockBinding blockBinding`
-
-      Controls for block binding: what happens when a thinking block this
-      request sends back fails the conversation check. Every field is optional;
-      an empty object means every default.
-
-    - `?Display display`
-
-      Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
-
-### Beta Thinking Delta
-
-- `BetaThinkingDelta`
-
-  - `"thinking_delta" type`
-
-  - `?int estimatedTokens`
-
-    Per-frame increment of a coarse, running estimate of the tokens this thinking block has produced so far. Present whenever the `thinking-token-count-2026-05-13` beta is set; `null` unless `thinking.display` resolves to `"omitted"` and a count is due this frame. Sum the increments across `thinking_delta` frames on this block for a progress indicator. Each increment is a non-negative multiple of a fixed quantum and the cadence is rate-limited, so this is a deliberately lossy display hint, not a billable count; `usage.output_tokens` remains authoritative.
-
-  - `string thinking`
-
-    The incremental `thinking` text for this content block. Concatenate the `thinking` values of successive `thinking_delta` events to assemble the block's full `thinking` value.
-
-### Beta Thinking Dropped Input Transformation
-
-- `BetaThinkingDroppedInputTransformation`
-
-  - `"thinking_dropped" type`
-
-    Always `thinking_dropped` for this entry type.
-
-  - `string path`
-
-    Where the removed block was in your request, as `messages.{i}.content.{j}`:
-    `i` indexes the `messages` array you sent and `j` that message's `content`
-    array — the same form error messages use.
-
-  - `Reason reason`
-
-    Which binding check removed the block: `model_binding_mismatch` — it was
-    created by a model whose reasoning the requested model may not read;
-    `prefix_binding_mismatch` — the conversation before it differs from the
-    conversation it was created in (the rest of that turn's consecutive thinking
-    blocks are removed with it, each with this reason);
-    `organization_binding_mismatch` — it was created under a different
-    organization (an Anthropic organization, AWS account or Google Cloud project)
-    and this organization is not one of its additional organizations;
-    `end_user_binding_mismatch` — it was created for a different end user, or
-    was removed by the consumer-organization binding. A block that would fail
-    several checks reports one reason, in this order of precedence:
-    `organization_binding_mismatch`, `end_user_binding_mismatch`,
-    `model_binding_mismatch`, `prefix_binding_mismatch`.
-
-### Beta Thinking Prefix Mismatch Behavior
-
-- `BetaThinkingPrefixMismatchBehavior`
-
-  - `"error"`
-
-  - `"drop_block"`
-
-### Beta Thinking Turns
-
-- `BetaThinkingTurns`
-
-  - `"thinking_turns" type`
-
-  - `int value`
-
-### Beta Token Task Budget
-
-- `BetaTokenTaskBudget`
-
-  - `"tokens" type`
-
-    The budget type. Currently only 'tokens' is supported.
-
-  - `int total`
-
-    Total token budget across all contexts in the session.
-
-  - `?int remaining`
-
-    Remaining tokens in the budget. Use this to track usage across contexts when implementing compaction client-side. Defaults to total if not provided.
-
-### Beta Tool
-
-- `BetaTool`
+- `class BetaResponseTool`
 
   - `?Type type`
 
-  - `InputSchema inputSchema`
+  - `BetaResponseToolInputSchema inputSchema`
 
     [JSON schema](https://json-schema.org/draft/2020-12) for this tool's input.
 
@@ -5853,10 +5425,6 @@ var_dump($betaMessageTokensCount);
     This is how the tool will be called by the model and in `tool_use` blocks.
 
   - `?list<AllowedCaller> allowedCallers`
-
-  - `?BetaCacheControlEphemeral cacheControl`
-
-    Create a cache control breakpoint at this content block.
 
   - `?bool deferLoading`
 
@@ -5878,65 +5446,19 @@ var_dump($betaMessageTokensCount);
 
     When true, guarantees schema validation on tool names and inputs
 
-### Beta Tool Bash 20241022
+### Beta Response Tool Addition Block
 
-- `BetaToolBash20241022`
+- `class BetaResponseToolAdditionBlock`
 
-  - `"bash_20241022" type`
+  - `"tool_addition" type`
 
-  - `"bash" name`
+  - `Tool tool`
 
-    Name of the tool.
+    The tool made available: a reference to a `tools` entry or MCP toolset, or a `tool_definition` carrying the definition by value.
 
-    This is how the tool will be called by the model and in `tool_use` blocks.
+### Beta Response Tool Change MCP Tool Reference
 
-  - `?list<AllowedCaller> allowedCallers`
-
-  - `?BetaCacheControlEphemeral cacheControl`
-
-    Create a cache control breakpoint at this content block.
-
-  - `?bool deferLoading`
-
-    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-  - `?list<array<string,mixed>> inputExamples`
-
-  - `?bool strict`
-
-    When true, guarantees schema validation on tool names and inputs
-
-### Beta Tool Bash 20250124
-
-- `BetaToolBash20250124`
-
-  - `"bash_20250124" type`
-
-  - `"bash" name`
-
-    Name of the tool.
-
-    This is how the tool will be called by the model and in `tool_use` blocks.
-
-  - `?list<AllowedCaller> allowedCallers`
-
-  - `?BetaCacheControlEphemeral cacheControl`
-
-    Create a cache control breakpoint at this content block.
-
-  - `?bool deferLoading`
-
-    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-  - `?list<array<string,mixed>> inputExamples`
-
-  - `?bool strict`
-
-    When true, guarantees schema validation on tool names and inputs
-
-### Beta Tool Change MCP Tool Reference
-
-- `BetaToolChangeMCPToolReference`
+- `class BetaResponseToolChangeMCPToolReference`
 
   - `"mcp_tool_reference" type`
 
@@ -5944,511 +5466,51 @@ var_dump($betaMessageTokensCount);
 
   - `string serverName`
 
-### Beta Tool Change MCP Toolset Reference
+### Beta Response Tool Change MCP Toolset Reference
 
-- `BetaToolChangeMCPToolsetReference`
+- `class BetaResponseToolChangeMCPToolsetReference`
 
   - `"mcp_toolset_reference" type`
 
   - `string serverName`
 
-### Beta Tool Change Tool Reference
+### Beta Response Tool Change Tool Reference
 
-- `BetaToolChangeToolReference`
+- `class BetaResponseToolChangeToolReference`
 
   - `"tool_reference" type`
 
   - `string name`
 
-### Beta Tool Choice
+### Beta Response Tool Input Schema
 
-- `BetaToolChoice`
+- `class BetaResponseToolInputSchema`
 
-  - `BetaToolChoiceAuto`
+  - `"object" type`
 
-    - `"auto" type`
+  - `?array<string,mixed> properties`
 
-    - `?bool disableParallelToolUse`
+  - `?list<string> required`
 
-      Whether to disable parallel tool use.
+### Beta Response Tool Removal Block
 
-      Defaults to `false`. If set to `true`, the model will output at most one tool use.
+- `class BetaResponseToolRemovalBlock`
 
-  - `BetaToolChoiceAny`
+  - `"tool_removal" type`
 
-    - `"any" type`
+  - `Tool tool`
 
-    - `?bool disableParallelToolUse`
+    A reference to the withdrawn `tools` entry, MCP tool or MCP toolset.
 
-      Whether to disable parallel tool use.
+### Beta Response Tool Union
 
-      Defaults to `false`. If set to `true`, the model will output exactly one tool use.
+- `class BetaResponseToolUnion`
 
-  - `BetaToolChoiceTool`
-
-    - `"tool" type`
-
-    - `string name`
-
-      The name of the tool to use.
-
-    - `?bool disableParallelToolUse`
-
-      Whether to disable parallel tool use.
-
-      Defaults to `false`. If set to `true`, the model will output exactly one tool use.
-
-  - `BetaToolChoiceNone`
-
-    - `"none" type`
-
-### Beta Tool Choice Any
-
-- `BetaToolChoiceAny`
-
-  - `"any" type`
-
-  - `?bool disableParallelToolUse`
-
-    Whether to disable parallel tool use.
-
-    Defaults to `false`. If set to `true`, the model will output exactly one tool use.
-
-### Beta Tool Choice Auto
-
-- `BetaToolChoiceAuto`
-
-  - `"auto" type`
-
-  - `?bool disableParallelToolUse`
-
-    Whether to disable parallel tool use.
-
-    Defaults to `false`. If set to `true`, the model will output at most one tool use.
-
-### Beta Tool Choice None
-
-- `BetaToolChoiceNone`
-
-  - `"none" type`
-
-### Beta Tool Choice Tool
-
-- `BetaToolChoiceTool`
-
-  - `"tool" type`
-
-  - `string name`
-
-    The name of the tool to use.
-
-  - `?bool disableParallelToolUse`
-
-    Whether to disable parallel tool use.
-
-    Defaults to `false`. If set to `true`, the model will output exactly one tool use.
-
-### Beta Tool Computer Use 20241022
-
-- `BetaToolComputerUse20241022`
-
-  - `"computer_20241022" type`
-
-  - `int displayHeightPx`
-
-    The height of the display in pixels.
-
-  - `int displayWidthPx`
-
-    The width of the display in pixels.
-
-  - `"computer" name`
-
-    Name of the tool.
-
-    This is how the tool will be called by the model and in `tool_use` blocks.
-
-  - `?list<AllowedCaller> allowedCallers`
-
-  - `?BetaCacheControlEphemeral cacheControl`
-
-    Create a cache control breakpoint at this content block.
-
-  - `?bool deferLoading`
-
-    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-  - `?int displayNumber`
-
-    The X11 display number (e.g. 0, 1) for the display.
-
-  - `?list<array<string,mixed>> inputExamples`
-
-  - `?bool strict`
-
-    When true, guarantees schema validation on tool names and inputs
-
-### Beta Tool Computer Use 20250124
-
-- `BetaToolComputerUse20250124`
-
-  - `"computer_20250124" type`
-
-  - `int displayHeightPx`
-
-    The height of the display in pixels.
-
-  - `int displayWidthPx`
-
-    The width of the display in pixels.
-
-  - `"computer" name`
-
-    Name of the tool.
-
-    This is how the tool will be called by the model and in `tool_use` blocks.
-
-  - `?list<AllowedCaller> allowedCallers`
-
-  - `?BetaCacheControlEphemeral cacheControl`
-
-    Create a cache control breakpoint at this content block.
-
-  - `?bool deferLoading`
-
-    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-  - `?int displayNumber`
-
-    The X11 display number (e.g. 0, 1) for the display.
-
-  - `?list<array<string,mixed>> inputExamples`
-
-  - `?bool strict`
-
-    When true, guarantees schema validation on tool names and inputs
-
-### Beta Tool Computer Use 20251124
-
-- `BetaToolComputerUse20251124`
-
-  - `"computer_20251124" type`
-
-  - `int displayHeightPx`
-
-    The height of the display in pixels.
-
-  - `int displayWidthPx`
-
-    The width of the display in pixels.
-
-  - `"computer" name`
-
-    Name of the tool.
-
-    This is how the tool will be called by the model and in `tool_use` blocks.
-
-  - `?list<AllowedCaller> allowedCallers`
-
-  - `?BetaCacheControlEphemeral cacheControl`
-
-    Create a cache control breakpoint at this content block.
-
-  - `?bool deferLoading`
-
-    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-  - `?int displayNumber`
-
-    The X11 display number (e.g. 0, 1) for the display.
-
-  - `?bool enableZoom`
-
-    Whether to enable an action to take a zoomed-in screenshot of the screen.
-
-  - `?list<array<string,mixed>> inputExamples`
-
-  - `?bool strict`
-
-    When true, guarantees schema validation on tool names and inputs
-
-### Beta Tool Reference Block
-
-- `BetaToolReferenceBlock`
-
-  - `"tool_reference" type`
-
-  - `string toolName`
-
-### Beta Tool Reference Block Param
-
-- `BetaToolReferenceBlockParam`
-
-  - `"tool_reference" type`
-
-  - `string toolName`
-
-  - `?BetaCacheControlEphemeral cacheControl`
-
-    Create a cache control breakpoint at this content block.
-
-### Beta Tool Result Block Param
-
-- `BetaToolResultBlockParam`
-
-  - `"tool_result" type`
-
-  - `string toolUseID`
-
-  - `?BetaCacheControlEphemeral cacheControl`
-
-    Create a cache control breakpoint at this content block.
-
-  - `?Content content`
-
-  - `?bool isError`
-
-  - `?string toolsetName`
-
-    For a toolset member tool_result, the toolset family of the paired tool_use.
-
-### Beta Tool Search Tool Bm25 20251119
-
-- `BetaToolSearchToolBm25_20251119`
-
-  - `Type type`
-
-  - `"tool_search_tool_bm25" name`
-
-    Name of the tool.
-
-    This is how the tool will be called by the model and in `tool_use` blocks.
-
-  - `?list<AllowedCaller> allowedCallers`
-
-  - `?BetaCacheControlEphemeral cacheControl`
-
-    Create a cache control breakpoint at this content block.
-
-  - `?bool deferLoading`
-
-    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-  - `?bool strict`
-
-    When true, guarantees schema validation on tool names and inputs
-
-### Beta Tool Search Tool Regex 20251119
-
-- `BetaToolSearchToolRegex20251119`
-
-  - `Type type`
-
-  - `"tool_search_tool_regex" name`
-
-    Name of the tool.
-
-    This is how the tool will be called by the model and in `tool_use` blocks.
-
-  - `?list<AllowedCaller> allowedCallers`
-
-  - `?BetaCacheControlEphemeral cacheControl`
-
-    Create a cache control breakpoint at this content block.
-
-  - `?bool deferLoading`
-
-    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-  - `?bool strict`
-
-    When true, guarantees schema validation on tool names and inputs
-
-### Beta Tool Search Tool Result Block
-
-- `BetaToolSearchToolResultBlock`
-
-  - `"tool_search_tool_result" type`
-
-  - `Content content`
-
-  - `string toolUseID`
-
-### Beta Tool Search Tool Result Block Param
-
-- `BetaToolSearchToolResultBlockParam`
-
-  - `"tool_search_tool_result" type`
-
-  - `Content content`
-
-  - `string toolUseID`
-
-  - `?BetaCacheControlEphemeral cacheControl`
-
-    Create a cache control breakpoint at this content block.
-
-### Beta Tool Search Tool Result Error
-
-- `BetaToolSearchToolResultError`
-
-  - `"tool_search_tool_result_error" type`
-
-  - `ErrorCode errorCode`
-
-  - `?string errorMessage`
-
-### Beta Tool Search Tool Result Error Param
-
-- `BetaToolSearchToolResultErrorParam`
-
-  - `"tool_search_tool_result_error" type`
-
-  - `ErrorCode errorCode`
-
-  - `?string errorMessage`
-
-### Beta Tool Search Tool Search Result Block
-
-- `BetaToolSearchToolSearchResultBlock`
-
-  - `"tool_search_tool_search_result" type`
-
-  - `list<BetaToolReferenceBlock> toolReferences`
-
-### Beta Tool Search Tool Search Result Block Param
-
-- `BetaToolSearchToolSearchResultBlockParam`
-
-  - `"tool_search_tool_search_result" type`
-
-  - `list<BetaToolReferenceBlockParam> toolReferences`
-
-### Beta Tool Text Editor 20241022
-
-- `BetaToolTextEditor20241022`
-
-  - `"text_editor_20241022" type`
-
-  - `"str_replace_editor" name`
-
-    Name of the tool.
-
-    This is how the tool will be called by the model and in `tool_use` blocks.
-
-  - `?list<AllowedCaller> allowedCallers`
-
-  - `?BetaCacheControlEphemeral cacheControl`
-
-    Create a cache control breakpoint at this content block.
-
-  - `?bool deferLoading`
-
-    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-  - `?list<array<string,mixed>> inputExamples`
-
-  - `?bool strict`
-
-    When true, guarantees schema validation on tool names and inputs
-
-### Beta Tool Text Editor 20250124
-
-- `BetaToolTextEditor20250124`
-
-  - `"text_editor_20250124" type`
-
-  - `"str_replace_editor" name`
-
-    Name of the tool.
-
-    This is how the tool will be called by the model and in `tool_use` blocks.
-
-  - `?list<AllowedCaller> allowedCallers`
-
-  - `?BetaCacheControlEphemeral cacheControl`
-
-    Create a cache control breakpoint at this content block.
-
-  - `?bool deferLoading`
-
-    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-  - `?list<array<string,mixed>> inputExamples`
-
-  - `?bool strict`
-
-    When true, guarantees schema validation on tool names and inputs
-
-### Beta Tool Text Editor 20250429
-
-- `BetaToolTextEditor20250429`
-
-  - `"text_editor_20250429" type`
-
-  - `"str_replace_based_edit_tool" name`
-
-    Name of the tool.
-
-    This is how the tool will be called by the model and in `tool_use` blocks.
-
-  - `?list<AllowedCaller> allowedCallers`
-
-  - `?BetaCacheControlEphemeral cacheControl`
-
-    Create a cache control breakpoint at this content block.
-
-  - `?bool deferLoading`
-
-    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-  - `?list<array<string,mixed>> inputExamples`
-
-  - `?bool strict`
-
-    When true, guarantees schema validation on tool names and inputs
-
-### Beta Tool Text Editor 20250728
-
-- `BetaToolTextEditor20250728`
-
-  - `"text_editor_20250728" type`
-
-  - `"str_replace_based_edit_tool" name`
-
-    Name of the tool.
-
-    This is how the tool will be called by the model and in `tool_use` blocks.
-
-  - `?list<AllowedCaller> allowedCallers`
-
-  - `?BetaCacheControlEphemeral cacheControl`
-
-    Create a cache control breakpoint at this content block.
-
-  - `?bool deferLoading`
-
-    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-  - `?list<array<string,mixed>> inputExamples`
-
-  - `?int maxCharacters`
-
-    Maximum number of characters to display when viewing a file. If not specified, defaults to displaying the full file.
-
-  - `?bool strict`
-
-    When true, guarantees schema validation on tool names and inputs
-
-### Beta Tool Union
-
-- `BetaToolUnion`
-
-  - `BetaTool`
+  - `class BetaResponseTool`
 
     - `?Type type`
 
-    - `InputSchema inputSchema`
+    - `BetaResponseToolInputSchema inputSchema`
 
       [JSON schema](https://json-schema.org/draft/2020-12) for this tool's input.
 
@@ -6461,10 +5523,6 @@ var_dump($betaMessageTokensCount);
       This is how the tool will be called by the model and in `tool_use` blocks.
 
     - `?list<AllowedCaller> allowedCallers`
-
-    - `?BetaCacheControlEphemeral cacheControl`
-
-      Create a cache control breakpoint at this content block.
 
     - `?bool deferLoading`
 
@@ -6486,7 +5544,7 @@ var_dump($betaMessageTokensCount);
 
       When true, guarantees schema validation on tool names and inputs
 
-  - `BetaToolBash20241022`
+  - `class BetaToolBash20241022`
 
     - `"bash_20241022" type`
 
@@ -6512,7 +5570,7 @@ var_dump($betaMessageTokensCount);
 
       When true, guarantees schema validation on tool names and inputs
 
-  - `BetaToolBash20250124`
+  - `class BetaToolBash20250124`
 
     - `"bash_20250124" type`
 
@@ -6538,7 +5596,7 @@ var_dump($betaMessageTokensCount);
 
       When true, guarantees schema validation on tool names and inputs
 
-  - `BetaCodeExecutionTool20250522`
+  - `class BetaCodeExecutionTool20250522`
 
     - `"code_execution_20250522" type`
 
@@ -6562,7 +5620,7 @@ var_dump($betaMessageTokensCount);
 
       When true, guarantees schema validation on tool names and inputs
 
-  - `BetaCodeExecutionTool20250825`
+  - `class BetaCodeExecutionTool20250825`
 
     - `"code_execution_20250825" type`
 
@@ -6586,7 +5644,7 @@ var_dump($betaMessageTokensCount);
 
       When true, guarantees schema validation on tool names and inputs
 
-  - `BetaCodeExecutionTool20260120`
+  - `class BetaCodeExecutionTool20260120`
 
     - `"code_execution_20260120" type`
 
@@ -6610,7 +5668,7 @@ var_dump($betaMessageTokensCount);
 
       When true, guarantees schema validation on tool names and inputs
 
-  - `BetaCodeExecutionTool20260521`
+  - `class BetaCodeExecutionTool20260521`
 
     - `"code_execution_20260521" type`
 
@@ -6634,7 +5692,7 @@ var_dump($betaMessageTokensCount);
 
       When true, guarantees schema validation on tool names and inputs
 
-  - `BetaBrowserToolset20260801`
+  - `class BetaBrowserToolset20260801`
 
     - `"browser_toolset_20260801" type`
 
@@ -6651,7 +5709,7 @@ var_dump($betaMessageTokensCount);
       absent. Unknown keys are rejected: the field set is this toolset
       version's complete member set.
 
-  - `BetaToolComputerUse20241022`
+  - `class BetaToolComputerUse20241022`
 
     - `"computer_20241022" type`
 
@@ -6689,7 +5747,7 @@ var_dump($betaMessageTokensCount);
 
       When true, guarantees schema validation on tool names and inputs
 
-  - `BetaMemoryTool20250818`
+  - `class BetaMemoryTool20250818`
 
     - `"memory_20250818" type`
 
@@ -6715,7 +5773,7 @@ var_dump($betaMessageTokensCount);
 
       When true, guarantees schema validation on tool names and inputs
 
-  - `BetaToolComputerUse20250124`
+  - `class BetaToolComputerUse20250124`
 
     - `"computer_20250124" type`
 
@@ -6753,7 +5811,7 @@ var_dump($betaMessageTokensCount);
 
       When true, guarantees schema validation on tool names and inputs
 
-  - `BetaToolTextEditor20241022`
+  - `class BetaToolTextEditor20241022`
 
     - `"text_editor_20241022" type`
 
@@ -6779,7 +5837,7 @@ var_dump($betaMessageTokensCount);
 
       When true, guarantees schema validation on tool names and inputs
 
-  - `BetaToolComputerUse20251124`
+  - `class BetaToolComputerUse20251124`
 
     - `"computer_20251124" type`
 
@@ -6821,7 +5879,7 @@ var_dump($betaMessageTokensCount);
 
       When true, guarantees schema validation on tool names and inputs
 
-  - `BetaComputerToolset20260801`
+  - `class BetaComputerToolset20260801`
 
     - `"computer_toolset_20260801" type`
 
@@ -6838,7 +5896,7 @@ var_dump($betaMessageTokensCount);
       absent. Unknown keys are rejected: the field set is this toolset
       version's complete member set.
 
-  - `BetaToolTextEditor20250124`
+  - `class BetaToolTextEditor20250124`
 
     - `"text_editor_20250124" type`
 
@@ -6864,7 +5922,7 @@ var_dump($betaMessageTokensCount);
 
       When true, guarantees schema validation on tool names and inputs
 
-  - `BetaToolTextEditor20250429`
+  - `class BetaToolTextEditor20250429`
 
     - `"text_editor_20250429" type`
 
@@ -6890,7 +5948,7 @@ var_dump($betaMessageTokensCount);
 
       When true, guarantees schema validation on tool names and inputs
 
-  - `BetaToolTextEditor20250728`
+  - `class BetaToolTextEditor20250728`
 
     - `"text_editor_20250728" type`
 
@@ -6920,7 +5978,7 @@ var_dump($betaMessageTokensCount);
 
       When true, guarantees schema validation on tool names and inputs
 
-  - `BetaWebSearchTool20250305`
+  - `class BetaWebSearchTool20250305`
 
     - `"web_search_20250305" type`
 
@@ -6960,7 +6018,7 @@ var_dump($betaMessageTokensCount);
 
       Parameters for the user's location. Used to provide more relevant search results.
 
-  - `BetaWebFetchTool20250910`
+  - `class BetaWebFetchTool20250910`
 
     - `"web_fetch_20250910" type`
 
@@ -7004,7 +6062,16 @@ var_dump($betaMessageTokensCount);
 
       When true, guarantees schema validation on tool names and inputs
 
-  - `BetaWebSearchTool20260209`
+    - `?BetaWebFetchURLSources urlSources`
+
+      Which sources contribute to the set of URLs web fetch may fetch.
+
+      Each key is a tagged variant: `user_input` is `all` or `none`; the
+      two tool filters are `all`, `none`, `only` (only the named tools'
+      results) or `except` (every result but the named tools'). A named tool
+      must be declared in this request's `tools[]`.
+
+  - `class BetaWebSearchTool20260209`
 
     - `"web_search_20260209" type`
 
@@ -7044,7 +6111,7 @@ var_dump($betaMessageTokensCount);
 
       Parameters for the user's location. Used to provide more relevant search results.
 
-  - `BetaWebFetchTool20260209`
+  - `class BetaWebFetchTool20260209`
 
     - `"web_fetch_20260209" type`
 
@@ -7088,7 +6155,16 @@ var_dump($betaMessageTokensCount);
 
       When true, guarantees schema validation on tool names and inputs
 
-  - `BetaWebFetchTool20260309`
+    - `?BetaWebFetchURLSources urlSources`
+
+      Which sources contribute to the set of URLs web fetch may fetch.
+
+      Each key is a tagged variant: `user_input` is `all` or `none`; the
+      two tool filters are `all`, `none`, `only` (only the named tools'
+      results) or `except` (every result but the named tools'). A named tool
+      must be declared in this request's `tools[]`.
+
+  - `class BetaWebFetchTool20260309`
 
     - `"web_fetch_20260309" type`
 
@@ -7132,11 +6208,20 @@ var_dump($betaMessageTokensCount);
 
       When true, guarantees schema validation on tool names and inputs
 
+    - `?BetaWebFetchURLSources urlSources`
+
+      Which sources contribute to the set of URLs web fetch may fetch.
+
+      Each key is a tagged variant: `user_input` is `all` or `none`; the
+      two tool filters are `all`, `none`, `only` (only the named tools'
+      results) or `except` (every result but the named tools'). A named tool
+      must be declared in this request's `tools[]`.
+
     - `?bool useCache`
 
       Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
 
-  - `BetaWebSearchTool20260318`
+  - `class BetaWebSearchTool20260318`
 
     - `"web_search_20260318" type`
 
@@ -7180,7 +6265,7 @@ var_dump($betaMessageTokensCount);
 
       Parameters for the user's location. Used to provide more relevant search results.
 
-  - `BetaWebFetchTool20260318`
+  - `class BetaWebFetchTool20260318`
 
     - `"web_fetch_20260318" type`
 
@@ -7228,11 +6313,20 @@ var_dump($betaMessageTokensCount);
 
       When true, guarantees schema validation on tool names and inputs
 
+    - `?BetaWebFetchURLSources urlSources`
+
+      Which sources contribute to the set of URLs web fetch may fetch.
+
+      Each key is a tagged variant: `user_input` is `all` or `none`; the
+      two tool filters are `all`, `none`, `only` (only the named tools'
+      results) or `except` (every result but the named tools'). A named tool
+      must be declared in this request's `tools[]`.
+
     - `?bool useCache`
 
       Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
 
-  - `BetaAdvisorTool20260301`
+  - `class BetaAdvisorTool20260301`
 
     - `"advisor_20260301" type`
 
@@ -7274,7 +6368,7 @@ var_dump($betaMessageTokensCount);
 
       When true, guarantees schema validation on tool names and inputs
 
-  - `BetaToolSearchToolBm25_20251119`
+  - `class BetaToolSearchToolBm25_20251119`
 
     - `Type type`
 
@@ -7298,7 +6392,7 @@ var_dump($betaMessageTokensCount);
 
       When true, guarantees schema validation on tool names and inputs
 
-  - `BetaToolSearchToolRegex20251119`
+  - `class BetaToolSearchToolRegex20251119`
 
     - `Type type`
 
@@ -7322,7 +6416,7 @@ var_dump($betaMessageTokensCount);
 
       When true, guarantees schema validation on tool names and inputs
 
-  - `BetaMCPToolset`
+  - `class BetaMCPToolset`
 
     - `"mcp_toolset" type`
 
@@ -7342,9 +6436,2319 @@ var_dump($betaMessageTokensCount);
 
       Default configuration applied to all tools from this server
 
+    - `?list<BetaMCPToolParam> tools`
+
+      The server's tool listing, pinned: when present, the server is not asked for its tools before sampling and exactly these entries, with `default_config` and `configs` applied, are the toolset's tools. Copy it from the `mcp_tool_listing` block of an earlier response.
+
+### Beta Search Result Block Param
+
+- `class BetaSearchResultBlockParam`
+
+  - `"search_result" type`
+
+  - `list<BetaTextBlockParam> content`
+
+  - `string source`
+
+  - `string title`
+
+  - `?BetaCacheControlEphemeral cacheControl`
+
+    Create a cache control breakpoint at this content block.
+
+  - `?BetaCitationsConfigParam citations`
+
+### Beta Server Tool Caller
+
+- `class BetaServerToolCaller`
+
+  - `"code_execution_20250825" type`
+
+  - `string toolID`
+
+### Beta Server Tool Caller 20260120
+
+- `class BetaServerToolCaller20260120`
+
+  - `"code_execution_20260120" type`
+
+  - `string toolID`
+
+### Beta Server Tool Usage
+
+- `class BetaServerToolUsage`
+
+  - `int webFetchRequests`
+
+    The number of web fetch tool requests.
+
+  - `int webSearchRequests`
+
+    The number of web search tool requests.
+
+### Beta Server Tool Use Block
+
+- `class BetaServerToolUseBlock`
+
+  - `"server_tool_use" type`
+
+  - `string id`
+
+  - `array<string,mixed> input`
+
+  - `Name name`
+
+  - `?Caller caller`
+
+### Beta Server Tool Use Block Param
+
+- `class BetaServerToolUseBlockParam`
+
+  - `"server_tool_use" type`
+
+  - `string id`
+
+  - `array<string,mixed> input`
+
+  - `Name name`
+
+  - `?BetaCacheControlEphemeral cacheControl`
+
+    Create a cache control breakpoint at this content block.
+
+  - `?Caller caller`
+
+### Beta Signature Delta
+
+- `class BetaSignatureDelta`
+
+  - `"signature_delta" type`
+
+  - `string signature`
+
+    The `signature` for this thinking block: an opaque value used to verify that the block was generated by Claude when it is passed back to the API. Delivered in a `signature_delta` event just before the block's `content_block_stop` event.
+
+### Beta Skill Params
+
+- `class BetaSkillParams`
+
+  - `Type type`
+
+    Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
+
+  - `string skillID`
+
+    Skill ID
+
+  - `?string version`
+
+    Skill version or 'latest' for most recent version
+
+### Beta Stop Reason
+
+- `enum BetaStopReason`
+
+  - `"end_turn"`
+
+  - `"max_tokens"`
+
+  - `"stop_sequence"`
+
+  - `"tool_use"`
+
+  - `"pause_turn"`
+
+  - `"compaction"`
+
+  - `"refusal"`
+
+  - `"model_context_window_exceeded"`
+
+### Beta Summarize Compaction
+
+- `class BetaSummarizeCompaction`
+
+  - `"summarize" type`
+
+  - `?string instructions`
+
+    Replaces the server's default summarization prompt for this request. An empty or whitespace-only value counts as absent.
+
+### Beta System Message Output Config
+
+- `class BetaSystemMessageOutputConfig`
+
+  - `?Effort effort`
+
+    All possible effort levels.
+
+### Beta Text Block
+
+- `class BetaTextBlock`
+
+  - `"text" type`
+
+  - `?list<BetaTextCitation> citations`
+
+    Citations supporting the text block.
+
+    The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
+
+  - `string text`
+
+### Beta Text Block Param
+
+- `class BetaTextBlockParam`
+
+  - `"text" type`
+
+  - `string text`
+
+  - `?BetaCacheControlEphemeral cacheControl`
+
+    Create a cache control breakpoint at this content block.
+
+  - `?list<BetaTextCitationParam> citations`
+
+### Beta Text Citation
+
+- `class BetaTextCitation`
+
+  - `class BetaCitationCharLocation`
+
+    - `"char_location" type`
+
+    - `string citedText`
+
+    - `int documentIndex`
+
+    - `?string documentTitle`
+
+    - `int endCharIndex`
+
+    - `?string fileID`
+
+    - `int startCharIndex`
+
+  - `class BetaCitationPageLocation`
+
+    - `"page_location" type`
+
+    - `string citedText`
+
+    - `int documentIndex`
+
+    - `?string documentTitle`
+
+    - `int endPageNumber`
+
+    - `?string fileID`
+
+    - `int startPageNumber`
+
+  - `class BetaCitationContentBlockLocation`
+
+    - `"content_block_location" type`
+
+    - `string citedText`
+
+      The full text of the cited block range, concatenated.
+
+      Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
+
+    - `int documentIndex`
+
+    - `?string documentTitle`
+
+    - `int endBlockIndex`
+
+      Exclusive 0-based end index of the cited block range in the source's `content` array.
+
+      Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
+
+    - `?string fileID`
+
+    - `int startBlockIndex`
+
+      0-based index of the first cited block in the source's `content` array.
+
+  - `class BetaCitationsWebSearchResultLocation`
+
+    - `"web_search_result_location" type`
+
+    - `string citedText`
+
+    - `string encryptedIndex`
+
+    - `?string title`
+
+    - `string url`
+
+  - `class BetaCitationSearchResultLocation`
+
+    - `"search_result_location" type`
+
+    - `string citedText`
+
+      The full text of the cited block range, concatenated.
+
+      Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
+
+    - `int endBlockIndex`
+
+      Exclusive 0-based end index of the cited block range in the source's `content` array.
+
+      Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
+
+    - `int searchResultIndex`
+
+      0-based index of the cited search result among all `search_result` content blocks in the request, in the order they appear across messages and tool results.
+
+      Counted separately from `document_index`; server-side web search results are not included in this count.
+
+    - `string source`
+
+    - `int startBlockIndex`
+
+      0-based index of the first cited block in the source's `content` array.
+
+    - `?string title`
+
+### Beta Text Citation Param
+
+- `class BetaTextCitationParam`
+
+  - `class BetaCitationCharLocationParam`
+
+    - `"char_location" type`
+
+    - `string citedText`
+
+    - `int documentIndex`
+
+    - `?string documentTitle`
+
+    - `int endCharIndex`
+
+    - `int startCharIndex`
+
+  - `class BetaCitationPageLocationParam`
+
+    - `"page_location" type`
+
+    - `string citedText`
+
+    - `int documentIndex`
+
+    - `?string documentTitle`
+
+    - `int endPageNumber`
+
+    - `int startPageNumber`
+
+  - `class BetaCitationContentBlockLocationParam`
+
+    - `"content_block_location" type`
+
+    - `string citedText`
+
+      The full text of the cited block range, concatenated.
+
+      Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
+
+    - `int documentIndex`
+
+    - `?string documentTitle`
+
+    - `int endBlockIndex`
+
+      Exclusive 0-based end index of the cited block range in the source's `content` array.
+
+      Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
+
+    - `int startBlockIndex`
+
+      0-based index of the first cited block in the source's `content` array.
+
+  - `class BetaCitationWebSearchResultLocationParam`
+
+    - `"web_search_result_location" type`
+
+    - `string citedText`
+
+    - `string encryptedIndex`
+
+    - `?string title`
+
+    - `string url`
+
+  - `class BetaCitationSearchResultLocationParam`
+
+    - `"search_result_location" type`
+
+    - `string citedText`
+
+      The full text of the cited block range, concatenated.
+
+      Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
+
+    - `int endBlockIndex`
+
+      Exclusive 0-based end index of the cited block range in the source's `content` array.
+
+      Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
+
+    - `int searchResultIndex`
+
+      0-based index of the cited search result among all `search_result` content blocks in the request, in the order they appear across messages and tool results.
+
+      Counted separately from `document_index`; server-side web search results are not included in this count.
+
+    - `string source`
+
+    - `int startBlockIndex`
+
+      0-based index of the first cited block in the source's `content` array.
+
+    - `?string title`
+
+### Beta Text Delta
+
+- `class BetaTextDelta`
+
+  - `"text_delta" type`
+
+  - `string text`
+
+### Beta Text Editor Code Execution Create Result Block
+
+- `class BetaTextEditorCodeExecutionCreateResultBlock`
+
+  - `"text_editor_code_execution_create_result" type`
+
+  - `bool isFileUpdate`
+
+### Beta Text Editor Code Execution Create Result Block Param
+
+- `class BetaTextEditorCodeExecutionCreateResultBlockParam`
+
+  - `"text_editor_code_execution_create_result" type`
+
+  - `bool isFileUpdate`
+
+### Beta Text Editor Code Execution Str Replace Result Block
+
+- `class BetaTextEditorCodeExecutionStrReplaceResultBlock`
+
+  - `"text_editor_code_execution_str_replace_result" type`
+
+  - `?list<string> lines`
+
+  - `?int newLines`
+
+  - `?int newStart`
+
+  - `?int oldLines`
+
+  - `?int oldStart`
+
+### Beta Text Editor Code Execution Str Replace Result Block Param
+
+- `class BetaTextEditorCodeExecutionStrReplaceResultBlockParam`
+
+  - `"text_editor_code_execution_str_replace_result" type`
+
+  - `?list<string> lines`
+
+  - `?int newLines`
+
+  - `?int newStart`
+
+  - `?int oldLines`
+
+  - `?int oldStart`
+
+### Beta Text Editor Code Execution Tool Result Block
+
+- `class BetaTextEditorCodeExecutionToolResultBlock`
+
+  - `"text_editor_code_execution_tool_result" type`
+
+  - `Content content`
+
+  - `string toolUseID`
+
+### Beta Text Editor Code Execution Tool Result Block Param
+
+- `class BetaTextEditorCodeExecutionToolResultBlockParam`
+
+  - `"text_editor_code_execution_tool_result" type`
+
+  - `Content content`
+
+  - `string toolUseID`
+
+  - `?BetaCacheControlEphemeral cacheControl`
+
+    Create a cache control breakpoint at this content block.
+
+### Beta Text Editor Code Execution Tool Result Error
+
+- `class BetaTextEditorCodeExecutionToolResultError`
+
+  - `"text_editor_code_execution_tool_result_error" type`
+
+  - `ErrorCode errorCode`
+
+  - `?string errorMessage`
+
+### Beta Text Editor Code Execution Tool Result Error Param
+
+- `class BetaTextEditorCodeExecutionToolResultErrorParam`
+
+  - `"text_editor_code_execution_tool_result_error" type`
+
+  - `ErrorCode errorCode`
+
+  - `?string errorMessage`
+
+### Beta Text Editor Code Execution View Result Block
+
+- `class BetaTextEditorCodeExecutionViewResultBlock`
+
+  - `"text_editor_code_execution_view_result" type`
+
+  - `string content`
+
+  - `FileType fileType`
+
+  - `?int numLines`
+
+  - `?int startLine`
+
+  - `?int totalLines`
+
+### Beta Text Editor Code Execution View Result Block Param
+
+- `class BetaTextEditorCodeExecutionViewResultBlockParam`
+
+  - `"text_editor_code_execution_view_result" type`
+
+  - `string content`
+
+  - `FileType fileType`
+
+  - `?int numLines`
+
+  - `?int startLine`
+
+  - `?int totalLines`
+
+### Beta Thinking Block
+
+- `class BetaThinkingBlock`
+
+  - `"thinking" type`
+
+  - `string signature`
+
+    A value used to verify that this thinking block was generated by Claude when it is passed back to the API.
+
+    This is an opaque field and should not be interpreted or parsed. When passing thinking blocks back to the API (required when using tools with extended thinking), pass them back exactly as received, with this field intact.
+
+    See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
+
+  - `string thinking`
+
+    The text of Claude's thinking process for this block.
+
+### Beta Thinking Block Binding
+
+- `class BetaThinkingBlockBinding`
+
+  - `?BetaThinkingPrefixMismatchBehavior prefixMismatchBehavior`
+
+    What happens when a thinking block in `messages` fails the conversation
+    check: it was created in a different conversation, or the messages before
+    it have changed since. `"error"` (the default) fails the request with a
+    400 error. `"drop_block"` removes the failing blocks and the request
+    proceeds; the model no longer sees the dropped reasoning.
+
+### Beta Thinking Block Param
+
+- `class BetaThinkingBlockParam`
+
+  - `"thinking" type`
+
+  - `string signature`
+
+    The `signature` value of this thinking block, exactly as returned by the API in a previous response. Used to verify that the block was generated by Claude.
+
+    Thinking blocks must be passed back unmodified and in their original order; a modified block results in a 400 `invalid_request_error`.
+
+  - `string thinking`
+
+    The `thinking` text of this block as returned by the API.
+
+### Beta Thinking Config Adaptive
+
+- `class BetaThinkingConfigAdaptive`
+
+  - `"adaptive" type`
+
+  - `?BetaThinkingBlockBinding blockBinding`
+
+    Controls for block binding: what happens when a thinking block this
+    request sends back fails the conversation check. Every field is optional;
+    an empty object means every default.
+
+  - `?Display display`
+
+    Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
+
+### Beta Thinking Config Disabled
+
+- `class BetaThinkingConfigDisabled`
+
+  - `"disabled" type`
+
+### Beta Thinking Config Enabled
+
+- `class BetaThinkingConfigEnabled`
+
+  - `"enabled" type`
+
+  - `int budgetTokens`
+
+    Determines how many tokens Claude can use for its internal reasoning process. Larger budgets can enable more thorough analysis for complex problems, improving response quality.
+
+    Must be ≥1024 and less than `max_tokens`.
+
+    See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
+
+  - `?BetaThinkingBlockBinding blockBinding`
+
+    Controls for block binding: what happens when a thinking block this
+    request sends back fails the conversation check. Every field is optional;
+    an empty object means every default.
+
+  - `?Display display`
+
+    Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
+
+### Beta Thinking Config Param
+
+- `class BetaThinkingConfigParam`
+
+  - `class BetaThinkingConfigEnabled`
+
+    - `"enabled" type`
+
+    - `int budgetTokens`
+
+      Determines how many tokens Claude can use for its internal reasoning process. Larger budgets can enable more thorough analysis for complex problems, improving response quality.
+
+      Must be ≥1024 and less than `max_tokens`.
+
+      See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
+
+    - `?BetaThinkingBlockBinding blockBinding`
+
+      Controls for block binding: what happens when a thinking block this
+      request sends back fails the conversation check. Every field is optional;
+      an empty object means every default.
+
+    - `?Display display`
+
+      Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
+
+  - `class BetaThinkingConfigDisabled`
+
+    - `"disabled" type`
+
+  - `class BetaThinkingConfigAdaptive`
+
+    - `"adaptive" type`
+
+    - `?BetaThinkingBlockBinding blockBinding`
+
+      Controls for block binding: what happens when a thinking block this
+      request sends back fails the conversation check. Every field is optional;
+      an empty object means every default.
+
+    - `?Display display`
+
+      Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
+
+### Beta Thinking Delta
+
+- `class BetaThinkingDelta`
+
+  - `"thinking_delta" type`
+
+  - `?int estimatedTokens`
+
+    Per-frame increment of a coarse, running estimate of the tokens this thinking block has produced so far. Present whenever the `thinking-token-count-2026-05-13` beta is set; `null` unless `thinking.display` resolves to `"omitted"` and a count is due this frame. Sum the increments across `thinking_delta` frames on this block for a progress indicator. Each increment is a non-negative multiple of a fixed quantum and the cadence is rate-limited, so this is a deliberately lossy display hint, not a billable count; `usage.output_tokens` remains authoritative.
+
+  - `string thinking`
+
+    The incremental `thinking` text for this content block. Concatenate the `thinking` values of successive `thinking_delta` events to assemble the block's full `thinking` value.
+
+### Beta Thinking Dropped Input Transformation
+
+- `class BetaThinkingDroppedInputTransformation`
+
+  - `"thinking_dropped" type`
+
+    Always `thinking_dropped` for this entry type.
+
+  - `string path`
+
+    Where the removed block was in your request, as `messages.{i}.content.{j}`:
+    `i` indexes the `messages` array you sent and `j` that message's `content`
+    array — the same form error messages use.
+
+  - `Reason reason`
+
+    Which binding check removed the block: `model_binding_mismatch` — it was
+    created by a model whose reasoning the requested model may not read;
+    `prefix_binding_mismatch` — the conversation before it differs from the
+    conversation it was created in (the rest of that turn's consecutive thinking
+    blocks are removed with it, each with this reason);
+    `organization_binding_mismatch` — it was created under a different
+    organization (an Anthropic organization, AWS account or Google Cloud project)
+    and this organization is not one of its additional organizations;
+    `end_user_binding_mismatch` — it was created for a different end user, or
+    was removed by the consumer-organization binding. A block that would fail
+    several checks reports one reason, in this order of precedence:
+    `organization_binding_mismatch`, `end_user_binding_mismatch`,
+    `model_binding_mismatch`, `prefix_binding_mismatch`.
+
+### Beta Thinking Mismatch Allowed Input Transformation
+
+- `class BetaThinkingMismatchAllowedInputTransformation`
+
+  - `"thinking_mismatch_allowed" type`
+
+    Always `thinking_mismatch_allowed` for this entry type.
+
+  - `string path`
+
+    Where the block is in your request, as `messages.{i}.content.{j}`:
+    `i` indexes the `messages` array you sent and `j` that message's `content`
+    array — the same form error messages use.
+
+  - `Reason reason`
+
+    Which binding check the block failed; the block was shown to the model all
+    the same. Always `prefix_binding_mismatch` today — the conversation before
+    the block differs from the conversation it was created in, or the block
+    carries no record of one on a model that requires it. Were the check
+    enforced for this request, the block would have been removed or the request
+    rejected (`thinking.block_binding.prefix_mismatch_behavior`). A removal also
+    takes the rest of that turn's consecutive thinking blocks, whereas here each
+    block is checked on its own, so `thinking_mismatch_allowed` entries are a
+    lower bound on what enforcement would remove.
+
+### Beta Thinking Prefix Mismatch Behavior
+
+- `enum BetaThinkingPrefixMismatchBehavior`
+
+  - `"error"`
+
+  - `"drop_block"`
+
+### Beta Thinking Turns
+
+- `class BetaThinkingTurns`
+
+  - `"thinking_turns" type`
+
+  - `int value`
+
+### Beta Token Task Budget
+
+- `class BetaTokenTaskBudget`
+
+  - `"tokens" type`
+
+    The budget type. Currently only 'tokens' is supported.
+
+  - `int total`
+
+    Total token budget across all contexts in the session.
+
+  - `?int remaining`
+
+    Remaining tokens in the budget. Use this to track usage across contexts when implementing compaction client-side. Defaults to total if not provided.
+
+### Beta Tool
+
+- `class BetaTool`
+
+  - `?Type type`
+
+  - `InputSchema inputSchema`
+
+    [JSON schema](https://json-schema.org/draft/2020-12) for this tool's input.
+
+    This defines the shape of the `input` that your tool accepts and that the model will produce.
+
+  - `string name`
+
+    Name of the tool.
+
+    This is how the tool will be called by the model and in `tool_use` blocks.
+
+  - `?list<AllowedCaller> allowedCallers`
+
+  - `?BetaCacheControlEphemeral cacheControl`
+
+    Create a cache control breakpoint at this content block.
+
+  - `?bool deferLoading`
+
+    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+  - `?string description`
+
+    Description of what this tool does.
+
+    Tool descriptions should be as detailed as possible. The more information that the model has about what the tool is and how to use it, the better it will perform. You can use natural language descriptions to reinforce important aspects of the tool input JSON schema.
+
+  - `?bool eagerInputStreaming`
+
+    Enable eager input streaming for this tool. When true, tool input parameters will be streamed incrementally as they are generated, and types will be inferred on-the-fly rather than buffering the full JSON output. When false, streaming is disabled for this tool even if the fine-grained-tool-streaming beta is active. When null (default), uses the default behavior based on beta headers.
+
+  - `?list<array<string,mixed>> inputExamples`
+
+  - `?bool strict`
+
+    When true, guarantees schema validation on tool names and inputs
+
+### Beta Tool Bash 20241022
+
+- `class BetaToolBash20241022`
+
+  - `"bash_20241022" type`
+
+  - `"bash" name`
+
+    Name of the tool.
+
+    This is how the tool will be called by the model and in `tool_use` blocks.
+
+  - `?list<AllowedCaller> allowedCallers`
+
+  - `?BetaCacheControlEphemeral cacheControl`
+
+    Create a cache control breakpoint at this content block.
+
+  - `?bool deferLoading`
+
+    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+  - `?list<array<string,mixed>> inputExamples`
+
+  - `?bool strict`
+
+    When true, guarantees schema validation on tool names and inputs
+
+### Beta Tool Bash 20250124
+
+- `class BetaToolBash20250124`
+
+  - `"bash_20250124" type`
+
+  - `"bash" name`
+
+    Name of the tool.
+
+    This is how the tool will be called by the model and in `tool_use` blocks.
+
+  - `?list<AllowedCaller> allowedCallers`
+
+  - `?BetaCacheControlEphemeral cacheControl`
+
+    Create a cache control breakpoint at this content block.
+
+  - `?bool deferLoading`
+
+    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+  - `?list<array<string,mixed>> inputExamples`
+
+  - `?bool strict`
+
+    When true, guarantees schema validation on tool names and inputs
+
+### Beta Tool Change MCP Tool Reference
+
+- `class BetaToolChangeMCPToolReference`
+
+  - `"mcp_tool_reference" type`
+
+  - `string name`
+
+  - `string serverName`
+
+### Beta Tool Change MCP Toolset Reference
+
+- `class BetaToolChangeMCPToolsetReference`
+
+  - `"mcp_toolset_reference" type`
+
+  - `string serverName`
+
+### Beta Tool Change Tool Definition
+
+- `class BetaToolChangeToolDefinition`
+
+  - `"tool_definition" type`
+
+  - `BetaResponseToolUnion definition`
+
+### Beta Tool Change Tool Definition Param
+
+- `class BetaToolChangeToolDefinitionParam`
+
+  - `"tool_definition" type`
+
+  - `BetaToolUnion definition`
+
+### Beta Tool Change Tool Reference
+
+- `class BetaToolChangeToolReference`
+
+  - `"tool_reference" type`
+
+  - `string name`
+
+### Beta Tool Choice
+
+- `class BetaToolChoice`
+
+  - `class BetaToolChoiceAuto`
+
+    - `"auto" type`
+
+    - `?bool disableParallelToolUse`
+
+      Whether to disable parallel tool use.
+
+      Defaults to `false`. If set to `true`, the model will output at most one tool use.
+
+  - `class BetaToolChoiceAny`
+
+    - `"any" type`
+
+    - `?bool disableParallelToolUse`
+
+      Whether to disable parallel tool use.
+
+      Defaults to `false`. If set to `true`, the model will output exactly one tool use.
+
+  - `class BetaToolChoiceTool`
+
+    - `"tool" type`
+
+    - `string name`
+
+      The name of the tool to use.
+
+    - `?bool disableParallelToolUse`
+
+      Whether to disable parallel tool use.
+
+      Defaults to `false`. If set to `true`, the model will output exactly one tool use.
+
+  - `class BetaToolChoiceNone`
+
+    - `"none" type`
+
+### Beta Tool Choice Any
+
+- `class BetaToolChoiceAny`
+
+  - `"any" type`
+
+  - `?bool disableParallelToolUse`
+
+    Whether to disable parallel tool use.
+
+    Defaults to `false`. If set to `true`, the model will output exactly one tool use.
+
+### Beta Tool Choice Auto
+
+- `class BetaToolChoiceAuto`
+
+  - `"auto" type`
+
+  - `?bool disableParallelToolUse`
+
+    Whether to disable parallel tool use.
+
+    Defaults to `false`. If set to `true`, the model will output at most one tool use.
+
+### Beta Tool Choice None
+
+- `class BetaToolChoiceNone`
+
+  - `"none" type`
+
+### Beta Tool Choice Tool
+
+- `class BetaToolChoiceTool`
+
+  - `"tool" type`
+
+  - `string name`
+
+    The name of the tool to use.
+
+  - `?bool disableParallelToolUse`
+
+    Whether to disable parallel tool use.
+
+    Defaults to `false`. If set to `true`, the model will output exactly one tool use.
+
+### Beta Tool Computer Use 20241022
+
+- `class BetaToolComputerUse20241022`
+
+  - `"computer_20241022" type`
+
+  - `int displayHeightPx`
+
+    The height of the display in pixels.
+
+  - `int displayWidthPx`
+
+    The width of the display in pixels.
+
+  - `"computer" name`
+
+    Name of the tool.
+
+    This is how the tool will be called by the model and in `tool_use` blocks.
+
+  - `?list<AllowedCaller> allowedCallers`
+
+  - `?BetaCacheControlEphemeral cacheControl`
+
+    Create a cache control breakpoint at this content block.
+
+  - `?bool deferLoading`
+
+    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+  - `?int displayNumber`
+
+    The X11 display number (e.g. 0, 1) for the display.
+
+  - `?list<array<string,mixed>> inputExamples`
+
+  - `?bool strict`
+
+    When true, guarantees schema validation on tool names and inputs
+
+### Beta Tool Computer Use 20250124
+
+- `class BetaToolComputerUse20250124`
+
+  - `"computer_20250124" type`
+
+  - `int displayHeightPx`
+
+    The height of the display in pixels.
+
+  - `int displayWidthPx`
+
+    The width of the display in pixels.
+
+  - `"computer" name`
+
+    Name of the tool.
+
+    This is how the tool will be called by the model and in `tool_use` blocks.
+
+  - `?list<AllowedCaller> allowedCallers`
+
+  - `?BetaCacheControlEphemeral cacheControl`
+
+    Create a cache control breakpoint at this content block.
+
+  - `?bool deferLoading`
+
+    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+  - `?int displayNumber`
+
+    The X11 display number (e.g. 0, 1) for the display.
+
+  - `?list<array<string,mixed>> inputExamples`
+
+  - `?bool strict`
+
+    When true, guarantees schema validation on tool names and inputs
+
+### Beta Tool Computer Use 20251124
+
+- `class BetaToolComputerUse20251124`
+
+  - `"computer_20251124" type`
+
+  - `int displayHeightPx`
+
+    The height of the display in pixels.
+
+  - `int displayWidthPx`
+
+    The width of the display in pixels.
+
+  - `"computer" name`
+
+    Name of the tool.
+
+    This is how the tool will be called by the model and in `tool_use` blocks.
+
+  - `?list<AllowedCaller> allowedCallers`
+
+  - `?BetaCacheControlEphemeral cacheControl`
+
+    Create a cache control breakpoint at this content block.
+
+  - `?bool deferLoading`
+
+    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+  - `?int displayNumber`
+
+    The X11 display number (e.g. 0, 1) for the display.
+
+  - `?bool enableZoom`
+
+    Whether to enable an action to take a zoomed-in screenshot of the screen.
+
+  - `?list<array<string,mixed>> inputExamples`
+
+  - `?bool strict`
+
+    When true, guarantees schema validation on tool names and inputs
+
+### Beta Tool Reference Block
+
+- `class BetaToolReferenceBlock`
+
+  - `"tool_reference" type`
+
+  - `string toolName`
+
+### Beta Tool Reference Block Param
+
+- `class BetaToolReferenceBlockParam`
+
+  - `"tool_reference" type`
+
+  - `string toolName`
+
+  - `?BetaCacheControlEphemeral cacheControl`
+
+    Create a cache control breakpoint at this content block.
+
+### Beta Tool Result Block Param
+
+- `class BetaToolResultBlockParam`
+
+  - `"tool_result" type`
+
+  - `string toolUseID`
+
+  - `?BetaCacheControlEphemeral cacheControl`
+
+    Create a cache control breakpoint at this content block.
+
+  - `?Content content`
+
+  - `?bool isError`
+
+  - `?string toolsetName`
+
+    For a toolset member tool_result, the toolset family of the paired tool_use.
+
+### Beta Tool Search Tool Bm25 20251119
+
+- `class BetaToolSearchToolBm25_20251119`
+
+  - `Type type`
+
+  - `"tool_search_tool_bm25" name`
+
+    Name of the tool.
+
+    This is how the tool will be called by the model and in `tool_use` blocks.
+
+  - `?list<AllowedCaller> allowedCallers`
+
+  - `?BetaCacheControlEphemeral cacheControl`
+
+    Create a cache control breakpoint at this content block.
+
+  - `?bool deferLoading`
+
+    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+  - `?bool strict`
+
+    When true, guarantees schema validation on tool names and inputs
+
+### Beta Tool Search Tool Regex 20251119
+
+- `class BetaToolSearchToolRegex20251119`
+
+  - `Type type`
+
+  - `"tool_search_tool_regex" name`
+
+    Name of the tool.
+
+    This is how the tool will be called by the model and in `tool_use` blocks.
+
+  - `?list<AllowedCaller> allowedCallers`
+
+  - `?BetaCacheControlEphemeral cacheControl`
+
+    Create a cache control breakpoint at this content block.
+
+  - `?bool deferLoading`
+
+    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+  - `?bool strict`
+
+    When true, guarantees schema validation on tool names and inputs
+
+### Beta Tool Search Tool Result Block
+
+- `class BetaToolSearchToolResultBlock`
+
+  - `"tool_search_tool_result" type`
+
+  - `Content content`
+
+  - `string toolUseID`
+
+### Beta Tool Search Tool Result Block Param
+
+- `class BetaToolSearchToolResultBlockParam`
+
+  - `"tool_search_tool_result" type`
+
+  - `Content content`
+
+  - `string toolUseID`
+
+  - `?BetaCacheControlEphemeral cacheControl`
+
+    Create a cache control breakpoint at this content block.
+
+### Beta Tool Search Tool Result Error
+
+- `class BetaToolSearchToolResultError`
+
+  - `"tool_search_tool_result_error" type`
+
+  - `ErrorCode errorCode`
+
+  - `?string errorMessage`
+
+### Beta Tool Search Tool Result Error Param
+
+- `class BetaToolSearchToolResultErrorParam`
+
+  - `"tool_search_tool_result_error" type`
+
+  - `ErrorCode errorCode`
+
+  - `?string errorMessage`
+
+### Beta Tool Search Tool Search Result Block
+
+- `class BetaToolSearchToolSearchResultBlock`
+
+  - `"tool_search_tool_search_result" type`
+
+  - `list<BetaToolReferenceBlock> toolReferences`
+
+### Beta Tool Search Tool Search Result Block Param
+
+- `class BetaToolSearchToolSearchResultBlockParam`
+
+  - `"tool_search_tool_search_result" type`
+
+  - `list<BetaToolReferenceBlockParam> toolReferences`
+
+### Beta Tool Text Editor 20241022
+
+- `class BetaToolTextEditor20241022`
+
+  - `"text_editor_20241022" type`
+
+  - `"str_replace_editor" name`
+
+    Name of the tool.
+
+    This is how the tool will be called by the model and in `tool_use` blocks.
+
+  - `?list<AllowedCaller> allowedCallers`
+
+  - `?BetaCacheControlEphemeral cacheControl`
+
+    Create a cache control breakpoint at this content block.
+
+  - `?bool deferLoading`
+
+    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+  - `?list<array<string,mixed>> inputExamples`
+
+  - `?bool strict`
+
+    When true, guarantees schema validation on tool names and inputs
+
+### Beta Tool Text Editor 20250124
+
+- `class BetaToolTextEditor20250124`
+
+  - `"text_editor_20250124" type`
+
+  - `"str_replace_editor" name`
+
+    Name of the tool.
+
+    This is how the tool will be called by the model and in `tool_use` blocks.
+
+  - `?list<AllowedCaller> allowedCallers`
+
+  - `?BetaCacheControlEphemeral cacheControl`
+
+    Create a cache control breakpoint at this content block.
+
+  - `?bool deferLoading`
+
+    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+  - `?list<array<string,mixed>> inputExamples`
+
+  - `?bool strict`
+
+    When true, guarantees schema validation on tool names and inputs
+
+### Beta Tool Text Editor 20250429
+
+- `class BetaToolTextEditor20250429`
+
+  - `"text_editor_20250429" type`
+
+  - `"str_replace_based_edit_tool" name`
+
+    Name of the tool.
+
+    This is how the tool will be called by the model and in `tool_use` blocks.
+
+  - `?list<AllowedCaller> allowedCallers`
+
+  - `?BetaCacheControlEphemeral cacheControl`
+
+    Create a cache control breakpoint at this content block.
+
+  - `?bool deferLoading`
+
+    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+  - `?list<array<string,mixed>> inputExamples`
+
+  - `?bool strict`
+
+    When true, guarantees schema validation on tool names and inputs
+
+### Beta Tool Text Editor 20250728
+
+- `class BetaToolTextEditor20250728`
+
+  - `"text_editor_20250728" type`
+
+  - `"str_replace_based_edit_tool" name`
+
+    Name of the tool.
+
+    This is how the tool will be called by the model and in `tool_use` blocks.
+
+  - `?list<AllowedCaller> allowedCallers`
+
+  - `?BetaCacheControlEphemeral cacheControl`
+
+    Create a cache control breakpoint at this content block.
+
+  - `?bool deferLoading`
+
+    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+  - `?list<array<string,mixed>> inputExamples`
+
+  - `?int maxCharacters`
+
+    Maximum number of characters to display when viewing a file. If not specified, defaults to displaying the full file.
+
+  - `?bool strict`
+
+    When true, guarantees schema validation on tool names and inputs
+
+### Beta Tool Union
+
+- `class BetaToolUnion`
+
+  - `class BetaTool`
+
+    - `?Type type`
+
+    - `InputSchema inputSchema`
+
+      [JSON schema](https://json-schema.org/draft/2020-12) for this tool's input.
+
+      This defines the shape of the `input` that your tool accepts and that the model will produce.
+
+    - `string name`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `?list<AllowedCaller> allowedCallers`
+
+    - `?BetaCacheControlEphemeral cacheControl`
+
+      Create a cache control breakpoint at this content block.
+
+    - `?bool deferLoading`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `?string description`
+
+      Description of what this tool does.
+
+      Tool descriptions should be as detailed as possible. The more information that the model has about what the tool is and how to use it, the better it will perform. You can use natural language descriptions to reinforce important aspects of the tool input JSON schema.
+
+    - `?bool eagerInputStreaming`
+
+      Enable eager input streaming for this tool. When true, tool input parameters will be streamed incrementally as they are generated, and types will be inferred on-the-fly rather than buffering the full JSON output. When false, streaming is disabled for this tool even if the fine-grained-tool-streaming beta is active. When null (default), uses the default behavior based on beta headers.
+
+    - `?list<array<string,mixed>> inputExamples`
+
+    - `?bool strict`
+
+      When true, guarantees schema validation on tool names and inputs
+
+  - `class BetaToolBash20241022`
+
+    - `"bash_20241022" type`
+
+    - `"bash" name`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `?list<AllowedCaller> allowedCallers`
+
+    - `?BetaCacheControlEphemeral cacheControl`
+
+      Create a cache control breakpoint at this content block.
+
+    - `?bool deferLoading`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `?list<array<string,mixed>> inputExamples`
+
+    - `?bool strict`
+
+      When true, guarantees schema validation on tool names and inputs
+
+  - `class BetaToolBash20250124`
+
+    - `"bash_20250124" type`
+
+    - `"bash" name`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `?list<AllowedCaller> allowedCallers`
+
+    - `?BetaCacheControlEphemeral cacheControl`
+
+      Create a cache control breakpoint at this content block.
+
+    - `?bool deferLoading`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `?list<array<string,mixed>> inputExamples`
+
+    - `?bool strict`
+
+      When true, guarantees schema validation on tool names and inputs
+
+  - `class BetaCodeExecutionTool20250522`
+
+    - `"code_execution_20250522" type`
+
+    - `"code_execution" name`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `?list<AllowedCaller> allowedCallers`
+
+    - `?BetaCacheControlEphemeral cacheControl`
+
+      Create a cache control breakpoint at this content block.
+
+    - `?bool deferLoading`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `?bool strict`
+
+      When true, guarantees schema validation on tool names and inputs
+
+  - `class BetaCodeExecutionTool20250825`
+
+    - `"code_execution_20250825" type`
+
+    - `"code_execution" name`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `?list<AllowedCaller> allowedCallers`
+
+    - `?BetaCacheControlEphemeral cacheControl`
+
+      Create a cache control breakpoint at this content block.
+
+    - `?bool deferLoading`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `?bool strict`
+
+      When true, guarantees schema validation on tool names and inputs
+
+  - `class BetaCodeExecutionTool20260120`
+
+    - `"code_execution_20260120" type`
+
+    - `"code_execution" name`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `?list<AllowedCaller> allowedCallers`
+
+    - `?BetaCacheControlEphemeral cacheControl`
+
+      Create a cache control breakpoint at this content block.
+
+    - `?bool deferLoading`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `?bool strict`
+
+      When true, guarantees schema validation on tool names and inputs
+
+  - `class BetaCodeExecutionTool20260521`
+
+    - `"code_execution_20260521" type`
+
+    - `"code_execution" name`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `?list<AllowedCaller> allowedCallers`
+
+    - `?BetaCacheControlEphemeral cacheControl`
+
+      Create a cache control breakpoint at this content block.
+
+    - `?bool deferLoading`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `?bool strict`
+
+      When true, guarantees schema validation on tool names and inputs
+
+  - `class BetaBrowserToolset20260801`
+
+    - `"browser_toolset_20260801" type`
+
+    - `?BetaCacheControlEphemeral cacheControl`
+
+      Create a cache control breakpoint at this content block.
+
+    - `?BetaBrowserToolsetConfigs configs`
+
+      Per-member configuration for `browser_toolset_20260801`: one
+      optional field per member tool, keyed by the member name — the same
+      name the member's `tool_use` blocks carry. Every member is an
+      accepted key, and a member's defaults apply wherever its key is
+      absent. Unknown keys are rejected: the field set is this toolset
+      version's complete member set.
+
+  - `class BetaToolComputerUse20241022`
+
+    - `"computer_20241022" type`
+
+    - `int displayHeightPx`
+
+      The height of the display in pixels.
+
+    - `int displayWidthPx`
+
+      The width of the display in pixels.
+
+    - `"computer" name`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `?list<AllowedCaller> allowedCallers`
+
+    - `?BetaCacheControlEphemeral cacheControl`
+
+      Create a cache control breakpoint at this content block.
+
+    - `?bool deferLoading`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `?int displayNumber`
+
+      The X11 display number (e.g. 0, 1) for the display.
+
+    - `?list<array<string,mixed>> inputExamples`
+
+    - `?bool strict`
+
+      When true, guarantees schema validation on tool names and inputs
+
+  - `class BetaMemoryTool20250818`
+
+    - `"memory_20250818" type`
+
+    - `"memory" name`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `?list<AllowedCaller> allowedCallers`
+
+    - `?BetaCacheControlEphemeral cacheControl`
+
+      Create a cache control breakpoint at this content block.
+
+    - `?bool deferLoading`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `?list<array<string,mixed>> inputExamples`
+
+    - `?bool strict`
+
+      When true, guarantees schema validation on tool names and inputs
+
+  - `class BetaToolComputerUse20250124`
+
+    - `"computer_20250124" type`
+
+    - `int displayHeightPx`
+
+      The height of the display in pixels.
+
+    - `int displayWidthPx`
+
+      The width of the display in pixels.
+
+    - `"computer" name`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `?list<AllowedCaller> allowedCallers`
+
+    - `?BetaCacheControlEphemeral cacheControl`
+
+      Create a cache control breakpoint at this content block.
+
+    - `?bool deferLoading`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `?int displayNumber`
+
+      The X11 display number (e.g. 0, 1) for the display.
+
+    - `?list<array<string,mixed>> inputExamples`
+
+    - `?bool strict`
+
+      When true, guarantees schema validation on tool names and inputs
+
+  - `class BetaToolTextEditor20241022`
+
+    - `"text_editor_20241022" type`
+
+    - `"str_replace_editor" name`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `?list<AllowedCaller> allowedCallers`
+
+    - `?BetaCacheControlEphemeral cacheControl`
+
+      Create a cache control breakpoint at this content block.
+
+    - `?bool deferLoading`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `?list<array<string,mixed>> inputExamples`
+
+    - `?bool strict`
+
+      When true, guarantees schema validation on tool names and inputs
+
+  - `class BetaToolComputerUse20251124`
+
+    - `"computer_20251124" type`
+
+    - `int displayHeightPx`
+
+      The height of the display in pixels.
+
+    - `int displayWidthPx`
+
+      The width of the display in pixels.
+
+    - `"computer" name`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `?list<AllowedCaller> allowedCallers`
+
+    - `?BetaCacheControlEphemeral cacheControl`
+
+      Create a cache control breakpoint at this content block.
+
+    - `?bool deferLoading`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `?int displayNumber`
+
+      The X11 display number (e.g. 0, 1) for the display.
+
+    - `?bool enableZoom`
+
+      Whether to enable an action to take a zoomed-in screenshot of the screen.
+
+    - `?list<array<string,mixed>> inputExamples`
+
+    - `?bool strict`
+
+      When true, guarantees schema validation on tool names and inputs
+
+  - `class BetaComputerToolset20260801`
+
+    - `"computer_toolset_20260801" type`
+
+    - `?BetaCacheControlEphemeral cacheControl`
+
+      Create a cache control breakpoint at this content block.
+
+    - `?BetaComputerToolsetConfigs configs`
+
+      Per-member configuration for `computer_toolset_20260801`: one
+      optional field per member tool, keyed by the member name — the same
+      name the member's `tool_use` blocks carry. Every member is an
+      accepted key, and a member's defaults apply wherever its key is
+      absent. Unknown keys are rejected: the field set is this toolset
+      version's complete member set.
+
+  - `class BetaToolTextEditor20250124`
+
+    - `"text_editor_20250124" type`
+
+    - `"str_replace_editor" name`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `?list<AllowedCaller> allowedCallers`
+
+    - `?BetaCacheControlEphemeral cacheControl`
+
+      Create a cache control breakpoint at this content block.
+
+    - `?bool deferLoading`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `?list<array<string,mixed>> inputExamples`
+
+    - `?bool strict`
+
+      When true, guarantees schema validation on tool names and inputs
+
+  - `class BetaToolTextEditor20250429`
+
+    - `"text_editor_20250429" type`
+
+    - `"str_replace_based_edit_tool" name`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `?list<AllowedCaller> allowedCallers`
+
+    - `?BetaCacheControlEphemeral cacheControl`
+
+      Create a cache control breakpoint at this content block.
+
+    - `?bool deferLoading`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `?list<array<string,mixed>> inputExamples`
+
+    - `?bool strict`
+
+      When true, guarantees schema validation on tool names and inputs
+
+  - `class BetaToolTextEditor20250728`
+
+    - `"text_editor_20250728" type`
+
+    - `"str_replace_based_edit_tool" name`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `?list<AllowedCaller> allowedCallers`
+
+    - `?BetaCacheControlEphemeral cacheControl`
+
+      Create a cache control breakpoint at this content block.
+
+    - `?bool deferLoading`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `?list<array<string,mixed>> inputExamples`
+
+    - `?int maxCharacters`
+
+      Maximum number of characters to display when viewing a file. If not specified, defaults to displaying the full file.
+
+    - `?bool strict`
+
+      When true, guarantees schema validation on tool names and inputs
+
+  - `class BetaWebSearchTool20250305`
+
+    - `"web_search_20250305" type`
+
+    - `"web_search" name`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `?list<AllowedCaller> allowedCallers`
+
+    - `?list<string> allowedDomains`
+
+      If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
+
+    - `?list<string> blockedDomains`
+
+      If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
+
+    - `?BetaCacheControlEphemeral cacheControl`
+
+      Create a cache control breakpoint at this content block.
+
+    - `?bool deferLoading`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `?int maxUses`
+
+      Maximum number of times the tool can be used in the API request.
+
+    - `?bool strict`
+
+      When true, guarantees schema validation on tool names and inputs
+
+    - `?BetaUserLocation userLocation`
+
+      Parameters for the user's location. Used to provide more relevant search results.
+
+  - `class BetaWebFetchTool20250910`
+
+    - `"web_fetch_20250910" type`
+
+    - `"web_fetch" name`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `?list<AllowedCaller> allowedCallers`
+
+    - `?list<string> allowedDomains`
+
+      List of domains to allow fetching from
+
+    - `?list<string> blockedDomains`
+
+      List of domains to block fetching from
+
+    - `?BetaCacheControlEphemeral cacheControl`
+
+      Create a cache control breakpoint at this content block.
+
+    - `?BetaCitationsConfigParam citations`
+
+      Citations configuration for fetched documents. Citations are disabled by default.
+
+    - `?bool deferLoading`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `?int maxContentTokens`
+
+      Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
+
+    - `?int maxUses`
+
+      Maximum number of times the tool can be used in the API request.
+
+    - `?bool strict`
+
+      When true, guarantees schema validation on tool names and inputs
+
+    - `?BetaWebFetchURLSources urlSources`
+
+      Which sources contribute to the set of URLs web fetch may fetch.
+
+      Each key is a tagged variant: `user_input` is `all` or `none`; the
+      two tool filters are `all`, `none`, `only` (only the named tools'
+      results) or `except` (every result but the named tools'). A named tool
+      must be declared in this request's `tools[]`.
+
+  - `class BetaWebSearchTool20260209`
+
+    - `"web_search_20260209" type`
+
+    - `"web_search" name`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `?list<AllowedCaller> allowedCallers`
+
+    - `?list<string> allowedDomains`
+
+      If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
+
+    - `?list<string> blockedDomains`
+
+      If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
+
+    - `?BetaCacheControlEphemeral cacheControl`
+
+      Create a cache control breakpoint at this content block.
+
+    - `?bool deferLoading`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `?int maxUses`
+
+      Maximum number of times the tool can be used in the API request.
+
+    - `?bool strict`
+
+      When true, guarantees schema validation on tool names and inputs
+
+    - `?BetaUserLocation userLocation`
+
+      Parameters for the user's location. Used to provide more relevant search results.
+
+  - `class BetaWebFetchTool20260209`
+
+    - `"web_fetch_20260209" type`
+
+    - `"web_fetch" name`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `?list<AllowedCaller> allowedCallers`
+
+    - `?list<string> allowedDomains`
+
+      List of domains to allow fetching from
+
+    - `?list<string> blockedDomains`
+
+      List of domains to block fetching from
+
+    - `?BetaCacheControlEphemeral cacheControl`
+
+      Create a cache control breakpoint at this content block.
+
+    - `?BetaCitationsConfigParam citations`
+
+      Citations configuration for fetched documents. Citations are disabled by default.
+
+    - `?bool deferLoading`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `?int maxContentTokens`
+
+      Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
+
+    - `?int maxUses`
+
+      Maximum number of times the tool can be used in the API request.
+
+    - `?bool strict`
+
+      When true, guarantees schema validation on tool names and inputs
+
+    - `?BetaWebFetchURLSources urlSources`
+
+      Which sources contribute to the set of URLs web fetch may fetch.
+
+      Each key is a tagged variant: `user_input` is `all` or `none`; the
+      two tool filters are `all`, `none`, `only` (only the named tools'
+      results) or `except` (every result but the named tools'). A named tool
+      must be declared in this request's `tools[]`.
+
+  - `class BetaWebFetchTool20260309`
+
+    - `"web_fetch_20260309" type`
+
+    - `"web_fetch" name`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `?list<AllowedCaller> allowedCallers`
+
+    - `?list<string> allowedDomains`
+
+      List of domains to allow fetching from
+
+    - `?list<string> blockedDomains`
+
+      List of domains to block fetching from
+
+    - `?BetaCacheControlEphemeral cacheControl`
+
+      Create a cache control breakpoint at this content block.
+
+    - `?BetaCitationsConfigParam citations`
+
+      Citations configuration for fetched documents. Citations are disabled by default.
+
+    - `?bool deferLoading`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `?int maxContentTokens`
+
+      Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
+
+    - `?int maxUses`
+
+      Maximum number of times the tool can be used in the API request.
+
+    - `?bool strict`
+
+      When true, guarantees schema validation on tool names and inputs
+
+    - `?BetaWebFetchURLSources urlSources`
+
+      Which sources contribute to the set of URLs web fetch may fetch.
+
+      Each key is a tagged variant: `user_input` is `all` or `none`; the
+      two tool filters are `all`, `none`, `only` (only the named tools'
+      results) or `except` (every result but the named tools'). A named tool
+      must be declared in this request's `tools[]`.
+
+    - `?bool useCache`
+
+      Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
+
+  - `class BetaWebSearchTool20260318`
+
+    - `"web_search_20260318" type`
+
+    - `"web_search" name`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `?list<AllowedCaller> allowedCallers`
+
+    - `?list<string> allowedDomains`
+
+      If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
+
+    - `?list<string> blockedDomains`
+
+      If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
+
+    - `?BetaCacheControlEphemeral cacheControl`
+
+      Create a cache control breakpoint at this content block.
+
+    - `?bool deferLoading`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `?int maxUses`
+
+      Maximum number of times the tool can be used in the API request.
+
+    - `?ResponseInclusion responseInclusion`
+
+      How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
+
+    - `?bool strict`
+
+      When true, guarantees schema validation on tool names and inputs
+
+    - `?BetaUserLocation userLocation`
+
+      Parameters for the user's location. Used to provide more relevant search results.
+
+  - `class BetaWebFetchTool20260318`
+
+    - `"web_fetch_20260318" type`
+
+    - `"web_fetch" name`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `?list<AllowedCaller> allowedCallers`
+
+    - `?list<string> allowedDomains`
+
+      List of domains to allow fetching from
+
+    - `?list<string> blockedDomains`
+
+      List of domains to block fetching from
+
+    - `?BetaCacheControlEphemeral cacheControl`
+
+      Create a cache control breakpoint at this content block.
+
+    - `?BetaCitationsConfigParam citations`
+
+      Citations configuration for fetched documents. Citations are disabled by default.
+
+    - `?bool deferLoading`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `?int maxContentTokens`
+
+      Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
+
+    - `?int maxUses`
+
+      Maximum number of times the tool can be used in the API request.
+
+    - `?ResponseInclusion responseInclusion`
+
+      How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
+
+    - `?bool strict`
+
+      When true, guarantees schema validation on tool names and inputs
+
+    - `?BetaWebFetchURLSources urlSources`
+
+      Which sources contribute to the set of URLs web fetch may fetch.
+
+      Each key is a tagged variant: `user_input` is `all` or `none`; the
+      two tool filters are `all`, `none`, `only` (only the named tools'
+      results) or `except` (every result but the named tools'). A named tool
+      must be declared in this request's `tools[]`.
+
+    - `?bool useCache`
+
+      Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
+
+  - `class BetaAdvisorTool20260301`
+
+    - `"advisor_20260301" type`
+
+    - `Model model`
+
+      The model that will complete your prompt.
+
+      See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+    - `"advisor" name`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `?list<AllowedCaller> allowedCallers`
+
+    - `?BetaCacheControlEphemeral cacheControl`
+
+      Create a cache control breakpoint at this content block.
+
+    - `?BetaCacheControlEphemeral caching`
+
+      Caching for the advisor's own prompt. When set, each advisor call writes a cache entry at the given TTL so subsequent calls in the same conversation read the stable prefix. When omitted, the advisor prompt is not cached.
+
+    - `?bool deferLoading`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `?int maxTokens`
+
+      Bounds the advisor's total output (thinking + text) per call. When the advisor hits this cap, the returned advisor_result or advisor_redacted_result block carries stop_reason='max_tokens', and a truncation note is appended to the advice text the worker model sees (inside the encrypted blob in redacted mode). When set, the server also emits a remaining-tokens budget block in the advisor's prompt so the advisor self-shapes toward the cap. When omitted, the advisor model's default output cap applies and no budget block is emitted.
+
+    - `?int maxUses`
+
+      Maximum number of times the tool can be used in the API request.
+
+    - `?bool strict`
+
+      When true, guarantees schema validation on tool names and inputs
+
+  - `class BetaToolSearchToolBm25_20251119`
+
+    - `Type type`
+
+    - `"tool_search_tool_bm25" name`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `?list<AllowedCaller> allowedCallers`
+
+    - `?BetaCacheControlEphemeral cacheControl`
+
+      Create a cache control breakpoint at this content block.
+
+    - `?bool deferLoading`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `?bool strict`
+
+      When true, guarantees schema validation on tool names and inputs
+
+  - `class BetaToolSearchToolRegex20251119`
+
+    - `Type type`
+
+    - `"tool_search_tool_regex" name`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `?list<AllowedCaller> allowedCallers`
+
+    - `?BetaCacheControlEphemeral cacheControl`
+
+      Create a cache control breakpoint at this content block.
+
+    - `?bool deferLoading`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `?bool strict`
+
+      When true, guarantees schema validation on tool names and inputs
+
+  - `class BetaMCPToolset`
+
+    - `"mcp_toolset" type`
+
+    - `string mcpServerName`
+
+      Name of the MCP server to configure tools for
+
+    - `?BetaCacheControlEphemeral cacheControl`
+
+      Create a cache control breakpoint at this content block.
+
+    - `?array<string,BetaMCPToolConfig> configs`
+
+      Configuration overrides for specific tools, keyed by tool name
+
+    - `?BetaMCPToolDefaultConfig defaultConfig`
+
+      Default configuration applied to all tools from this server
+
+    - `?list<BetaMCPToolParam> tools`
+
+      The server's tool listing, pinned: when present, the server is not asked for its tools before sampling and exactly these entries, with `default_config` and `configs` applied, are the toolset's tools. Copy it from the `mcp_tool_listing` block of an earlier response.
+
 ### Beta Tool Use Block
 
-- `BetaToolUseBlock`
+- `class BetaToolUseBlock`
 
   - `"tool_use" type`
 
@@ -7362,7 +8766,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Tool Use Block Param
 
-- `BetaToolUseBlockParam`
+- `class BetaToolUseBlockParam`
 
   - `"tool_use" type`
 
@@ -7384,7 +8788,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Tool Uses Keep
 
-- `BetaToolUsesKeep`
+- `class BetaToolUsesKeep`
 
   - `"tool_uses" type`
 
@@ -7392,7 +8796,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Tool Uses Trigger
 
-- `BetaToolUsesTrigger`
+- `class BetaToolUsesTrigger`
 
   - `"tool_uses" type`
 
@@ -7400,7 +8804,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta URL Image Source
 
-- `BetaURLImageSource`
+- `class BetaURLImageSource`
 
   - `"url" type`
 
@@ -7408,7 +8812,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta URL PDF Source
 
-- `BetaURLPDFSource`
+- `class BetaURLPDFSource`
 
   - `"url" type`
 
@@ -7416,7 +8820,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Usage
 
-- `BetaUsage`
+- `class BetaUsage`
 
   - `?BetaCacheCreation cacheCreation`
 
@@ -7481,7 +8885,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta User Location
 
-- `BetaUserLocation`
+- `class BetaUserLocation`
 
   - `"approximate" type`
 
@@ -7503,7 +8907,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Web Fetch Block
 
-- `BetaWebFetchBlock`
+- `class BetaWebFetchBlock`
 
   - `"web_fetch_result" type`
 
@@ -7519,7 +8923,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Web Fetch Block Param
 
-- `BetaWebFetchBlockParam`
+- `class BetaWebFetchBlockParam`
 
   - `"web_fetch_result" type`
 
@@ -7535,7 +8939,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Web Fetch Tool 20250910
 
-- `BetaWebFetchTool20250910`
+- `class BetaWebFetchTool20250910`
 
   - `"web_fetch_20250910" type`
 
@@ -7579,9 +8983,18 @@ var_dump($betaMessageTokensCount);
 
     When true, guarantees schema validation on tool names and inputs
 
+  - `?BetaWebFetchURLSources urlSources`
+
+    Which sources contribute to the set of URLs web fetch may fetch.
+
+    Each key is a tagged variant: `user_input` is `all` or `none`; the
+    two tool filters are `all`, `none`, `only` (only the named tools'
+    results) or `except` (every result but the named tools'). A named tool
+    must be declared in this request's `tools[]`.
+
 ### Beta Web Fetch Tool 20260209
 
-- `BetaWebFetchTool20260209`
+- `class BetaWebFetchTool20260209`
 
   - `"web_fetch_20260209" type`
 
@@ -7625,9 +9038,18 @@ var_dump($betaMessageTokensCount);
 
     When true, guarantees schema validation on tool names and inputs
 
+  - `?BetaWebFetchURLSources urlSources`
+
+    Which sources contribute to the set of URLs web fetch may fetch.
+
+    Each key is a tagged variant: `user_input` is `all` or `none`; the
+    two tool filters are `all`, `none`, `only` (only the named tools'
+    results) or `except` (every result but the named tools'). A named tool
+    must be declared in this request's `tools[]`.
+
 ### Beta Web Fetch Tool 20260309
 
-- `BetaWebFetchTool20260309`
+- `class BetaWebFetchTool20260309`
 
   - `"web_fetch_20260309" type`
 
@@ -7671,13 +9093,22 @@ var_dump($betaMessageTokensCount);
 
     When true, guarantees schema validation on tool names and inputs
 
+  - `?BetaWebFetchURLSources urlSources`
+
+    Which sources contribute to the set of URLs web fetch may fetch.
+
+    Each key is a tagged variant: `user_input` is `all` or `none`; the
+    two tool filters are `all`, `none`, `only` (only the named tools'
+    results) or `except` (every result but the named tools'). A named tool
+    must be declared in this request's `tools[]`.
+
   - `?bool useCache`
 
     Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
 
 ### Beta Web Fetch Tool 20260318
 
-- `BetaWebFetchTool20260318`
+- `class BetaWebFetchTool20260318`
 
   - `"web_fetch_20260318" type`
 
@@ -7725,13 +9156,22 @@ var_dump($betaMessageTokensCount);
 
     When true, guarantees schema validation on tool names and inputs
 
+  - `?BetaWebFetchURLSources urlSources`
+
+    Which sources contribute to the set of URLs web fetch may fetch.
+
+    Each key is a tagged variant: `user_input` is `all` or `none`; the
+    two tool filters are `all`, `none`, `only` (only the named tools'
+    results) or `except` (every result but the named tools'). A named tool
+    must be declared in this request's `tools[]`.
+
   - `?bool useCache`
 
     Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
 
 ### Beta Web Fetch Tool Result Block
 
-- `BetaWebFetchToolResultBlock`
+- `class BetaWebFetchToolResultBlock`
 
   - `"web_fetch_tool_result" type`
 
@@ -7743,7 +9183,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Web Fetch Tool Result Block Param
 
-- `BetaWebFetchToolResultBlockParam`
+- `class BetaWebFetchToolResultBlockParam`
 
   - `"web_fetch_tool_result" type`
 
@@ -7759,7 +9199,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Web Fetch Tool Result Error Block
 
-- `BetaWebFetchToolResultErrorBlock`
+- `class BetaWebFetchToolResultErrorBlock`
 
   - `"web_fetch_tool_result_error" type`
 
@@ -7767,7 +9207,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Web Fetch Tool Result Error Block Param
 
-- `BetaWebFetchToolResultErrorBlockParam`
+- `class BetaWebFetchToolResultErrorBlockParam`
 
   - `"web_fetch_tool_result_error" type`
 
@@ -7775,7 +9215,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Web Fetch Tool Result Error Code
 
-- `BetaWebFetchToolResultErrorCode`
+- `enum BetaWebFetchToolResultErrorCode`
 
   - `"invalid_tool_input"`
 
@@ -7797,9 +9237,61 @@ var_dump($betaMessageTokensCount);
 
   - `"content_too_large"`
 
+### Beta Web Fetch URL Source All
+
+- `class BetaWebFetchURLSourceAll`
+
+  - `"all" type`
+
+### Beta Web Fetch URL Source Except
+
+- `class BetaWebFetchURLSourceExcept`
+
+  - `"except" type`
+
+  - `list<BetaWebFetchURLSourceToolReference> tools`
+
+### Beta Web Fetch URL Source None
+
+- `class BetaWebFetchURLSourceNone`
+
+  - `"none" type`
+
+### Beta Web Fetch URL Source Only
+
+- `class BetaWebFetchURLSourceOnly`
+
+  - `"only" type`
+
+  - `list<BetaWebFetchURLSourceToolReference> tools`
+
+### Beta Web Fetch URL Source Tool Reference
+
+- `class BetaWebFetchURLSourceToolReference`
+
+  - `"tool_reference" type`
+
+  - `string name`
+
+### Beta Web Fetch URL Sources
+
+- `class BetaWebFetchURLSources`
+
+  - `?ClientToolResults clientToolResults`
+
+    Which client tools' results contribute fetchable URLs: "all", "none", or an only or except list of client tool names from tools[].
+
+  - `?ServerToolResults serverToolResults`
+
+    Which server tools' results contribute fetchable URLs: "all", "none", or an only or except list of server tool names from tools[]; only web_search and web_fetch results ever contribute.
+
+  - `?UserInput userInput`
+
+    Whether URLs in user messages are fetchable: "all" or "none".
+
 ### Beta Web Search Result Block
 
-- `BetaWebSearchResultBlock`
+- `class BetaWebSearchResultBlock`
 
   - `"web_search_result" type`
 
@@ -7813,7 +9305,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Web Search Result Block Param
 
-- `BetaWebSearchResultBlockParam`
+- `class BetaWebSearchResultBlockParam`
 
   - `"web_search_result" type`
 
@@ -7827,7 +9319,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Web Search Tool 20250305
 
-- `BetaWebSearchTool20250305`
+- `class BetaWebSearchTool20250305`
 
   - `"web_search_20250305" type`
 
@@ -7869,7 +9361,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Web Search Tool 20260209
 
-- `BetaWebSearchTool20260209`
+- `class BetaWebSearchTool20260209`
 
   - `"web_search_20260209" type`
 
@@ -7911,7 +9403,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Web Search Tool 20260318
 
-- `BetaWebSearchTool20260318`
+- `class BetaWebSearchTool20260318`
 
   - `"web_search_20260318" type`
 
@@ -7957,7 +9449,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Web Search Tool Request Error
 
-- `BetaWebSearchToolRequestError`
+- `class BetaWebSearchToolRequestError`
 
   - `"web_search_tool_result_error" type`
 
@@ -7965,7 +9457,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Web Search Tool Result Block
 
-- `BetaWebSearchToolResultBlock`
+- `class BetaWebSearchToolResultBlock`
 
   - `"web_search_tool_result" type`
 
@@ -7977,15 +9469,15 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Web Search Tool Result Block Content
 
-- `BetaWebSearchToolResultBlockContent`
+- `class BetaWebSearchToolResultBlockContent`
 
-  - `BetaWebSearchToolResultError`
+  - `class BetaWebSearchToolResultError`
 
     - `"web_search_tool_result_error" type`
 
     - `BetaWebSearchToolResultErrorCode errorCode`
 
-  - `list<BetaWebSearchResultBlock>`
+  - `class list<BetaWebSearchResultBlock>`
 
     - `"web_search_result" type`
 
@@ -7999,7 +9491,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Web Search Tool Result Block Param
 
-- `BetaWebSearchToolResultBlockParam`
+- `class BetaWebSearchToolResultBlockParam`
 
   - `"web_search_tool_result" type`
 
@@ -8015,9 +9507,9 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Web Search Tool Result Block Param Content
 
-- `BetaWebSearchToolResultBlockParamContent`
+- `class BetaWebSearchToolResultBlockParamContent`
 
-  - `list<BetaWebSearchResultBlockParam>`
+  - `class list<BetaWebSearchResultBlockParam>`
 
     - `"web_search_result" type`
 
@@ -8029,7 +9521,7 @@ var_dump($betaMessageTokensCount);
 
     - `?string pageAge`
 
-  - `BetaWebSearchToolRequestError`
+  - `class BetaWebSearchToolRequestError`
 
     - `"web_search_tool_result_error" type`
 
@@ -8037,7 +9529,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Web Search Tool Result Error
 
-- `BetaWebSearchToolResultError`
+- `class BetaWebSearchToolResultError`
 
   - `"web_search_tool_result_error" type`
 
@@ -8045,7 +9537,7 @@ var_dump($betaMessageTokensCount);
 
 ### Beta Web Search Tool Result Error Code
 
-- `BetaWebSearchToolResultErrorCode`
+- `enum BetaWebSearchToolResultErrorCode`
 
   - `"invalid_tool_input"`
 
@@ -8089,9 +9581,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `MessageBatch`
+- `class MessageBatch`
 
   - `"message_batch" type`
 
@@ -8168,6 +9664,9 @@ $betaMessageBatch = $client->beta->messages->batches->create(
         ],
         'model' => Model::CLAUDE_OPUS_5,
         'cacheControl' => ['type' => 'ephemeral', 'ttl' => '5m'],
+        'compaction' => [
+          'type' => 'summarize', 'instructions' => 'instructions'
+        ],
         'container' => [
           'id' => 'id',
           'skills' => [
@@ -8318,9 +9817,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `MessageBatch`
+- `class MessageBatch`
 
   - `"message_batch" type`
 
@@ -8447,9 +9950,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `MessageBatch`
+- `class MessageBatch`
 
   - `"message_batch" type`
 
@@ -8575,9 +10082,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `MessageBatch`
+- `class MessageBatch`
 
   - `"message_batch" type`
 
@@ -8694,9 +10205,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `DeletedMessageBatch`
+- `class DeletedMessageBatch`
 
   - `"message_batch_deleted" type`
 
@@ -8759,9 +10274,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 #### Returns
 
-- `MessageBatchIndividualResponse`
+- `class MessageBatchIndividualResponse`
 
   - `string customID`
 

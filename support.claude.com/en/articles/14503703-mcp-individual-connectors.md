@@ -34,6 +34,6 @@ Claude, the MCP proxy, and all OAuth token storage stay inside the FedRAMP High 
 
 * [Get started with custom connectors using remote MCP](https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp)
 * [Public Sector FAQs](https://support.claude.com/en/articles/13756069-public-sector-faqs)
-* [Get started with Claude for Government](https://support.claude.com/en/articles/14503590-get-started-with-claude-for-government)
 * [MCP connectors](https://support.claude.com/en/articles/14503689-mcp-connectors)
 * [MCP: Web Search](https://support.claude.com/en/articles/14503775-mcp-web-search)
+* [Model availability in Claude for Government](https://support.claude.com/en/articles/14503794-model-availability-in-claude-for-government)

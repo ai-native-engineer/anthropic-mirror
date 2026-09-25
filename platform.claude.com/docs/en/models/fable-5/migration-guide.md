@@ -365,7 +365,7 @@ model = "claude-mythos-5"  # After
 ## Migrating to Claude Mythos 5 and Claude Fable 5 from Claude Opus 4.8
 
 <Note>
-  If your code is on Claude Opus 4.7 or earlier, first apply the relevant [Migrating to Claude Opus 5](https://platform.claude.com/docs/en/models/opus-5/migration-guide) from-section for the API-level changes from your current model, then the remaining delta in this section.
+  If your code is on Claude Opus 4.7 or earlier, first apply the relevant [Migrating to Claude Opus 5.5](https://platform.claude.com/docs/en/models/opus-5-5/migration-guide) from-section for the API-level changes from your current model, then the remaining delta in this section.
 </Note>
 
 Migration is mostly drop-in. Claude Fable 5 and Claude Mythos 5 use the same [Messages API](https://platform.claude.com/docs/en/build-with-claude/working-with-messages) and the same [tool use](https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview) patterns as Claude Opus 4.8, with the same [1M token context window](https://platform.claude.com/docs/en/build-with-claude/context-windows) by default and the same [128k max output tokens](https://platform.claude.com/docs/en/models/overview). Token counts are roughly unchanged because the models use the same tokenizer. The key changes to check are always-on [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/thinking), thinking output, safety classifier refusals (Claude Fable 5 only), and pricing.
@@ -682,7 +682,7 @@ The items in this section describe the API and behavior differences worth checki
 
 5. **Safety classifiers and the `refusal` stop reason (Claude Fable 5 only):** `claude-fable-5` runs safety classifiers on requests and during response generation. Claude Mythos 5 does not include these classifiers. When a classifier declines a request, the Messages API returns `stop_reason: "refusal"` as a successful HTTP 200 response, not an error. The `stop_details.category` field reports which classifier fired, with categories such as `"cyber"`, `"bio"`, and `"reasoning_extraction"`, or `null` when the refusal maps to no named category. See the [refusal category table](https://platform.claude.com/docs/en/build-with-claude/refusals-and-fallback#refusal-response) for the full set.
 
-   You are not billed for the input tokens of a request refused before any output is generated. When a classifier fires mid-stream, the input and already-streamed output are billed; discard the partial output.
+   A refusal that arrives before any output is billed when its category is `"bio"`, `"frontier_llm"`, or `"reasoning_extraction"`. A refusal before any output in any other category, or with a `null` category, is not billed ([How refusals are billed](https://platform.claude.com/docs/en/build-with-claude/refusals-and-fallback#how-refusals-are-billed)). Before September 24, 2026, no refusal before any output was billed on Claude Fable 5. When a classifier fires mid-stream, the input and already-streamed output are billed; discard the partial output.
 
    To re-run refused requests on another model automatically, pass the opt-in `fallbacks` parameter, which is in beta on the Claude API. The parameter is not available on the Message Batches API or on Amazon Bedrock, Google Cloud, and Microsoft Foundry; on those three platforms, run the retry client-side or use the SDK refusal-fallback middleware. See [Refusals and fallback](https://platform.claude.com/docs/en/build-with-claude/refusals-and-fallback).
 

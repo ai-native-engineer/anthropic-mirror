@@ -4,37 +4,24 @@ Case study | Claude Platform
 
 # How Atlassian builds AI agents teams can trust with Claude and Google Cloud
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![Atlassian logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5a84a22074cc407a84848_Atlassian_light.svg)![Atlassian logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5a84a22074cc407a84848_Atlassian_light.svg)
+![Atlassian logo](https://assets.claude.com/4870b3d6c0253cea01b100c98ad2030b8e4f8ce1.svg)
 
 Industry:
-
-Software
+:   Software
 
 Company size:
-
-Large
+:   Large
 
 Product:
-
-[Claude Platform](https://claude.com/platform/api)
-
-[Claude Code](https://claude.com/product/claude-code)
+:   [Claude Platform](https://claude.com/platform/api)[Claude Code](https://claude.com/product/claude-code)
 
 Partner:
-
-Google
+:   Google
 
 Location:
-
-Australia
+:   Australia
 
 5 million+ agents executed
 
@@ -56,63 +43,23 @@ with Claude as a base agent model
 
 ## The challenge
 
-Claude on Google Cloud
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69eaf379756a2219fdd60403_Screenshot%202026-04-23%20at%209.36.06%E2%80%AFPM.png)
-
-Build advanced AI agents with Claude on Google Cloud.
-
-Read more
-
-[Read more](https://claude.com/partners/google-cloud)Read more
-
-Claude on Google Cloud
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Build advanced AI agents with Claude on Google Cloud.
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Claude on Google Cloud
-
-Build advanced AI agents with Claude on Google Cloud.
-
 ## Agents customers trust with work that matters
 
 Chatting with an AI assistant, asking it to summarize a thread or draft an update, still leaves the work to a person. Atlassian's customers want to hand that work to a trusted and capable agent instead: reviewing incoming contracts as a first line of defense, triaging support tickets, and surfacing new sales leads.
 
-Handing an agent that kind of consequential, repeatable work raises a higher bar than chat. The agent has to use Atlassian's own capabilities from inside the product itself, the way a person does,  in order for the business to trust the result. "We're good at building UIs for humans," said Sherif Mansour, Head of AI at Atlassian. "The next muscle is making sure those capabilities are usable by agents as well. How do I make sure agents are an equivalent customer of our software?"
+Handing an agent that kind of consequential, repeatable work raises a higher bar than chat. The agent has to use Atlassian's own capabilities from inside the product itself, the way a person does, in order for the business to trust the result. "We're good at building UIs for humans," said Sherif Mansour, Head of AI at Atlassian. "The next muscle is making sure those capabilities are usable by agents as well. How do I make sure agents are an equivalent customer of our software?"
 
 Trust is hardest to earn where the work is most valuable: complex, long-running tasks where a wrong answer compounds the longer an agent works. It only gets harder as Atlassian opens more of its surface to agents, across hundreds of AI capabilities in more than 20 apps, and trust hinges on how they are deployed, what they can access, and what they return. Until agents earn it, customers won't hand them the work worth automating. "Scale, complexity, and trust seem to be the three biggest themes that keep coming up over and over again," Mansour said.
 
+Claude on Google Cloud
+
+![Claude on Google Cloud](https://assets.claude.com/3bf99530eb5387631c2eb5a95f92a81c5020c4ef.png)
+
+Build advanced AI agents with Claude on Google Cloud.
+
+[Read more](https://claude.com/partners/google-cloud)
+
 ## The solution
-
-Choosing the right Claude model
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69c2dd485d80024bc14f48c6_choosing%20model.jpeg)
-
-Learn when to use Haiku, Sonnet, or Opus to get better results and stay inside your rate limit. A practical guide to picking the right Claude model.
-
-Choosing the right Claude model
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Learn when to use Haiku, Sonnet, or Opus to get better results and stay inside your rate limit. A practical guide to picking the right Claude model.
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Choosing the right Claude model
-
-Learn when to use Haiku, Sonnet, or Opus to get better results and stay inside your rate limit. A practical guide to picking the right Claude model.
 
 ## Putting Claude behind the hardest work
 
@@ -130,21 +77,15 @@ Claude runs on the internal AI platform Atlassian built to serve models across i
 
 Atlassian moved the platform behind its high-volume custom agents to Google's Gemini Flash family. "We have significantly reduced operational costs for our customers running continuous AI workflows on our platform," Mansour explained. "By using Gemini and Claude through Google Cloud, we hit a rare trifecta: costs dropped, quality improved, and latency remained optimized." Gemini Flash is now the default for those general-purpose customer agents, while Claude carries the complex, long-running work. When vendors retire models, the team swaps in newer ones without re-architecting. "A long-term roadmap in the world of AI is probably no more than three months these days," Mansour said. "What's most important for all organizations is how do you have your teams empowered with a set of tools to respond to change quickly."
 
-"By using Gemini and Claude through Google Cloud, we hit a rare trifecta: costs dropped, quality improved, and latency remained optimized."
+Choosing the right Claude model
 
-Sherif Mansour
+![Choosing the right Claude model](https://assets.claude.com/7388619b452db0af26c78442a275c86c5ebe3124.jpg)
 
-Head of AI, Atlassian
+Learn when to use Haiku, Sonnet, or Opus to get better results and stay inside your rate limit. A practical guide to picking the right Claude model.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+> "By using Gemini and Claude through Google Cloud, we hit a rare trifecta: costs dropped, quality improved, and latency remained optimized."
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+Sherif MansourHead of AI, Atlassian
 
 ## The outcome
 
@@ -156,42 +97,16 @@ What that looks like in practice came through in an internal Rovo Max demo. Some
 
 Where Atlassian takes this next rests on two problems it wants to keep solving for customers: their workflows and their context. The workflows already exist. "Our customers run billions, with a B, of workflows in Jira and Confluence," Mansour said, and the opportunity is finding the steps inside them where an agent can deflect a ticket, surface a lead, or cut the time a task takes. Context is the more durable problem, and the one Teamwork Graph is built to solve. "If you assume that every customer, including ourselves, has access to more and more intelligence every year, and the cost also drops at the same time, then what is the most sustainable differentiation any company can have?" Mansour asked. "It's just the context. It sounds like an abstract term, but the context is really just the knowledge they have everywhere."
 
-“The Claude models are better at following complex instructions consistently, especially where quality and trust matter a lot."
+> “The Claude models are better at following complex instructions consistently, especially where quality and trust matter a lot."
 
-Sherif Mansour
+Sherif MansourHead of AI, Atlassian
 
-Head of AI, Atlassian
+[![Supermetrics](https://assets.claude.com/3ac4171a81008be0340e5c3d8ccb46571c3edfb3.svg)
 
-## Related stories
+### Supermetrics lets marketers manage ad campaigns from a conversation with Claude](https://claude.com/customers/supermetrics)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-[Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)Rocket Money on building agents that fix their own code
+### Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-Rocket Money on building agents that fix their own code
+### How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)[![Notion](https://assets.claude.com/19e0cdfaef9d2980bddd19cd993076d62b46c0c7.svg)
 
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money-qa)Customer story
-
-[How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)How Rocket Money built its personal finance agent with Claude
-
-How Rocket Money built its personal finance agent with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money)Customer story
-
-[How Notion ships and scales agents with Claude Managed Agents](https://claude.com/customers/notion-qa)How Notion ships and scales agents with Claude Managed Agents
-
-How Notion ships and scales agents with Claude Managed Agents
-
-Customer story
-
-[Customer story](https://claude.com/customers/notion-qa)Customer story
-
-[Deepgram ships 4–10x more durable code with Claude](https://claude.com/customers/deepgram) Deepgram ships 4–10x more durable code with Claude
-
-Deepgram ships 4–10x more durable code with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/deepgram)Customer story
+### How Notion ships and scales agents with Claude Managed Agents](https://claude.com/customers/notion-qa)

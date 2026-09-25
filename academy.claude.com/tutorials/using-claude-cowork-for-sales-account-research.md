@@ -37,8 +37,8 @@ The skill is what turns a one-line prompt into a full account brief — it tells
 **Install and set it up:**
 
 1. **In Customize → Plugins**, open the [Sales plugin(opens in new tab)](https://claude.ai/desktop/customize/plugins/new?marketplace=https%3A%2F%2Fgithub.com%2Fanthropics%2Fknowledge-work-plugins&plugin=sales) and install it — it comes with the `account-research` skill, built on how a working sales team uses it.
-2. **In Customize → Connectors**, connect the tools the skill draws on — your CRM, the data warehouse, call recordings, email, chat, and the web. When the skill runs, Claude reads all of them at once.
-3. **In the Cowork chat bar**, pick a working folder Claude can read, edit, and save to. The brief lands there before the call and the debrief goes next to it after, so over time the folder becomes the account’s history.
+2. **In Customize → Connectors**, connect the tools the skill draws on — your CRM (like [HubSpot(opens in new tab)](https://claude.ai/desktop/directory/hubspot) or [Salesforce(opens in new tab)](https://claude.ai/desktop/directory/salesforce-headless-360)), the data warehouse, call recordings, email, chat, and the web. When the skill runs, Claude reads all of them at once.
+3. **In the chat bar**, pick a place Claude can read, edit, and save to: a working folder if you're in the desktop app, or a project. The brief lands there before the call and the debrief goes next to it after, so over time it becomes the account’s history.
 
 With the plugin installed and your tools connected, tell Claude to tailor the skill to your company — your systems, the signals that matter, and the brief format you read fastest:
 
@@ -52,7 +52,7 @@ Claude walks you through what information to pull, which connected tools to look
 
 Before each call
 
-The skill is set up and your tools are connected. Now, the morning of a first call, open Cowork, type `/`, pick the `account-research` skill, and name the account:
+The skill is set up and your tools are connected. Now, the morning of a first call, open Claude, type `/`, pick the `account-research` skill, and name the account:
 
 /account-research [the account name]
 

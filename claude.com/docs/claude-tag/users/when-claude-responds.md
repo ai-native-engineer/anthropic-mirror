@@ -75,7 +75,7 @@ Tell Claude in the thread to respond only when mentioned.
 @Claude only respond when I @-mention you
 ```
 
-Claude stops following that thread, and the rest of the channel is unaffected. This is the fix when one busy thread is the noise. The [`!mute` command](https://claude.com/docs/claude-tag/users/commands#mute-or-unmute-a-thread) goes further and silences the thread entirely; any direct `@Claude` mention turns it back on. A 👎 reaction on one of Claude’s replies also mutes the thread, as [Thumbs-down reactions and muting](https://claude.com/docs/claude-tag/users/commands#thumbs-down-reactions-and-muting) describes.
+Claude stops following that thread, and the rest of the channel is unaffected. This is the fix when one busy thread is the noise. The [`!mute` command](https://claude.com/docs/claude-tag/users/commands#mute-or-unmute-a-thread) goes further and silences the thread entirely; `@Claude !unmute`, or an @-mention that carries a request, turns it back on. A 👎 reaction on one of Claude’s replies also mutes the thread, as [Thumbs-down reactions and muting](https://claude.com/docs/claude-tag/users/commands#thumbs-down-reactions-and-muting) describes.
 
 ###  Quiet the whole channel
 
@@ -111,7 +111,7 @@ A few cases produce silence even when the message includes a mention:
 * **Editing a message to add the mention.** An edit doesn’t trigger a response. Delete the message and send a new one with `@Claude` included.
 * **Channels with guest accounts.** By default, Claude is off in channels that include guests; your admin can turn it on per scope. Ask whoever runs your Claude plan, or send them [the guest access setting](https://claude.com/docs/claude-tag/admins/restrict-access#restrict-guest-channels).
 * **Channels shared across workspaces connected to different Claude organizations.** Every workspace where Claude runs is connected to a Claude organization, the account a company sets up for Claude. When a channel is shared across workspaces connected to different Claude organizations, Claude won’t reply there and posts a refusal message instead. You can’t tell from Slack how a workspace is connected; the refusal message itself is the signal. Use a channel that belongs to one workspace, or send Claude a DM.
-* **Slack Connect channels.** Channels shared with another company are always off.
+* **Slack Connect channels.** Claude doesn’t answer in [channels shared with another company](https://claude.com/docs/claude-tag/admins/restrict-access#slack-connect-channels). A mention there gets a notice saying Claude isn’t turned on for Slack Connect channels, and no admin setting changes that.
 
 When the workspaces sharing a channel all belong to one Claude organization, Claude replies there, but with only your organization’s default access and settings. The repositories, instructions, and memory set up for that channel or its workspaces don’t apply, and Claude posts a notice in the thread explaining this from time to time. The guest check above still applies first where guest access is restricted.
 To confirm a channel’s setting, check the **Respond automatically** toggle on its [Configure page](https://claude.com/docs/claude-tag/users/good-habits#configure-claude-for-a-channel). To confirm an instruction Claude saved, ask `@Claude what do you remember about responding in this channel?`, and see [What Claude Tag remembers](https://claude.com/docs/claude-tag/users/memory) for where instructions are stored and how to change them.

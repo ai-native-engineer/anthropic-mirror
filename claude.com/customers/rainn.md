@@ -4,35 +4,21 @@ Q&A | Claude
 
 # RAINN brings crisis support to encrypted messaging platforms with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a57cc3a12ba4fd5b38e358a_logo_rainn-light-mode.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a57cc4468867728a26e33ae_logo_rainn-dark-mode.svg)
+![RAINN logo](https://assets.claude.com/a4e6bd28df6999b3c15622183c94380010c6f1be.svg)
 
 Industry:
-
-Beneficial Deployments
+:   Beneficial Deployments
 
 Company size:
-
-Small
+:   Small
 
 Product:
-
-[Claude for Nonprofits](https://claude.com/solutions/nonprofits)
-
-[Claude Code](https://claude.com/product/claude-code)
-
-[Claude Enterprise](https://claude.com/solutions/enterprise)
+:   [Claude for Nonprofits](https://claude.com/solutions/nonprofits)[Claude Code](https://claude.com/product/claude-code)[Claude Enterprise](https://claude.com/solutions/enterprise)
 
 Location:
-
-North America
+:   North America
 
 Signal Messenger integration in 30 days
 
@@ -44,35 +30,11 @@ via WhatsApp, text, and phone services
 
 Beneficial Deployments
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a57d4749f1d659f155a38d4_Screenshot%202026-07-15%20at%2011.41.43%E2%80%AFAM.png)
+![Beneficial Deployments](https://assets.claude.com/bd2f6616dd97e9699cf8d4a806c93022b8741492.png)
 
 Accelerate the work that matters most
 
-Read more
-
-[Read more](https://www.anthropic.com/news/claude-for-nonprofits)Read more
-
-Beneficial Deployments
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Accelerate the work that matters most
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Beneficial Deployments
-
-Accelerate the work that matters most
-
-[Prev](#)Prev
-
-[Next](#)Next
+[Read more](https://www.anthropic.com/news/claude-for-nonprofits)
 
 [RAINN](https://rainn.org/help-and-healing/hotline/), the Rape, Abuse & Incest National Network, has connected survivors of sexual violence with confidential support for over 30 years through its National Sexual Assault Hotline and online services. As CTO, William Bondurant leads the engineering work that extends RAINN's reach to new channels, including building the hotline interface on encrypted messaging platforms like Signal. We spoke with William about how RAINN's engineering team uses Claude Code to build infrastructure for crisis support, while still keeping the crisis support itself fully human. As RAINN has adopted Claude across its operations, their guiding principle is that AI's role is to connect survivors with human support faster, not to replace people. The following conversation has been edited for length and clarity.
 
@@ -84,11 +46,9 @@ Accelerate the work that matters most
 
 **Bondurant:** For a survivor, there can be real fear of repercussions in reaching out for help. When a survivor works up the courage to make contact, maybe they’re ready and maybe they’re not, and they need to know they can trust the channel completely. We have an obligation, from a safety and a trust perspective, to be completely anonymous and completely confidential. That's why we've been adding ways for survivors to reach us through Signal, WhatsApp, and coming soon, Telegram. You don't have to give us any information about who you are. When you're ready, we're here.
 
-"We're not putting a bot up to triage people. Our mission is to put a survivor in contact with a trained human. Everything Claude does at RAINN is on the way to that connection, not in place of it."
+> "We're not putting a bot up to triage people. Our mission is to put a survivor in contact with a trained human. Everything Claude does at RAINN is on the way to that connection, not in place of it."
 
-William Bondurant
-
-CTO, RAINN
+William BondurantCTO, RAINN
 
 ## Anthropic: What's the standard you hold yourselves to for any new channel you bring online?
 
@@ -134,41 +94,19 @@ We've also been clear philosophically: AI is not going in front of the survivor.
 
 Nonprofits
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698f525504b02eec936ac514_692e248602b0e973666dc35b_og-nonprofit.jpeg)
+![Nonprofits](https://assets.claude.com/b46529adbd87da89ebb1e8191178d53278f93d1b.jpg)
 
 Turn limited resources into lasting impact. Generate grant proposals, track program outcomes, and free your team to focus on serving your community.
 
-Read more
+[Read more](https://claude.com/solutions/nonprofits)
 
-[Read more](https://claude.com/solutions/nonprofits)Read more
+> "The role of the technology is to clear the path between the survivor and that human being."
 
-Nonprofits
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Turn limited resources into lasting impact. Generate grant proposals, track program outcomes, and free your team to focus on serving your community.
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Nonprofits
-
-Turn limited resources into lasting impact. Generate grant proposals, track program outcomes, and free your team to focus on serving your community.
-
-"The role of the technology is to clear the path between the survivor and that human being."
-
-William Bondurant
-
-CTO, RAINN
+William BondurantCTO, RAINN
 
 ## Anthropic: RAINN's work extends beyond direct support into policy. Does that shape how you approach building AI tools in this domain?
 
-**Bondurant:**  It does. We have a policy team that works on legislation like the Take It Down Act, so we understand tech-enabled sexual abuse (TESA) from the legislative side, not just the support side. That perspective shapes how we build. We know what survivors are up against, and we build survivor-facing tools accordingly: every channel is encrypted end to end, and survivor conversations stay inside our own environment—they’re never sent to the AI tools we build with.
+**Bondurant:** It does. We have a policy team that works on legislation like the Take It Down Act, so we understand tech-enabled sexual abuse (TESA) from the legislative side, not just the support side. That perspective shapes how we build. We know what survivors are up against, and we build survivor-facing tools accordingly: every channel is encrypted end to end, and survivor conversations stay inside our own environment—they’re never sent to the AI tools we build with.
 
 ## Anthropic: RAINN has been firm that AI will not replace your victim services staff. Why is that line so important?
 
@@ -188,52 +126,12 @@ As an example: what's the statute of limitations in a given state? Today, the su
 
 Second, take your encryption and confidentiality requirements seriously when you pick platforms. The technology has to be aligned with your mission. For us, that meant going with platforms where the privacy story is end-to-end. If you skip that step, the rest of what you build doesn't matter.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[![Mercy Corps](https://assets.claude.com/544995a85d67ef08fd67560f5758d5e28bc7a53f.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### Mercy Corps on what AI makes possible in humanitarian work](https://claude.com/customers/mercy-corps-qa)[![Mercy Corps](https://assets.claude.com/544995a85d67ef08fd67560f5758d5e28bc7a53f.svg)
 
-[Next](#)Next
+### Mercy Corps accelerates global humanitarian response to community feedback with Claude](https://claude.com/customers/mercy-corps)[![Epilepsy Foundation](https://assets.claude.com/446cc4df1be577720df85748fa3813fa0837e3b8.png)
 
-Video caption
+### The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude](https://claude.com/customers/epilepsy-foundation)[![Epilepsy Foundation](https://assets.claude.com/446cc4df1be577720df85748fa3813fa0837e3b8.png)
 
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[Mercy Corps on what AI makes possible in humanitarian work](https://claude.com/customers/mercy-corps-qa)Mercy Corps on what AI makes possible in humanitarian work
-
-Mercy Corps on what AI makes possible in humanitarian work
-
-Customer story
-
-[Customer story](https://claude.com/customers/mercy-corps-qa)Customer story
-
-[Mercy Corps accelerates global humanitarian response to community feedback with Claude](https://claude.com/customers/mercy-corps)Mercy Corps accelerates global humanitarian response to community feedback with Claude
-
-Mercy Corps accelerates global humanitarian response to community feedback with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/mercy-corps)Customer story
-
-[The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude](https://claude.com/customers/epilepsy-foundation)The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude
-
-The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/epilepsy-foundation)Customer story
-
-[How the Epilepsy Foundation uses Claude across the organization](https://claude.com/customers/epilepsy-foundation-qa)How the Epilepsy Foundation uses Claude across the organization
-
-How the Epilepsy Foundation uses Claude across the organization
-
-Customer story
-
-[Customer story](https://claude.com/customers/epilepsy-foundation-qa)Customer story
+### How the Epilepsy Foundation uses Claude across the organization](https://claude.com/customers/epilepsy-foundation-qa)

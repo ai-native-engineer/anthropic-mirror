@@ -4,48 +4,35 @@
 
 In this hands-on workshop, you'll provision Claude in Microsoft Foundry, connect it to a real MCP server with Claude Code, and build a working agent. You'll leave with running code and a cupcake to prove it.
 
-Details
+## Details
 
 City
-
-London, UK
+:   London, UK
 
 Date
-
-19 May 2026
+:   19 May 2026
 
 Time
-
-15:30 – 16:15
+:   15:30 – 16:15
 
 Session type
-
-Workshop
+:   Workshop
 
 Speaker(s)
+:   Marlene Mhangami
 
-Marlene Mhangami
+    Senior Cloud Advocate,
 
-Senior Cloud Advocate,
-
-Microsoft
+    Microsoft
 
 ## Watch recording
 
-[Play video](#)Play video
+![Build AI agents using Claude in Microsoft Foundry](https://assets.claude.com/8acea47fb097c274d4204c601ded4aef3ec48837.jpg?w=1600&auto=format)
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a10d2c45ef1d748bb5fada5_build-ai-agents-using-claude.webp)
-
-Anthropic's developer conference, recorded
+## Anthropic's developer conference, recorded
 
 Keynotes, demos, and conversations with the teams behind Claude. Recorded at Code w/ Claude 2026 San Francisco and ready to replay.
 
-Browse recordings
+[Browse recordings](https://claude.com/code-with-claude/london)
 
-[Learn more](https://claude.com/code-with-claude/london)Learn more
-
-[Homepage](https://claude.com/code-with-claude)Homepage
-
-© [year] Anthropic PBC
-
-[PRIVACY POLICY](https://www.anthropic.com/legal/privacy)[CODE OF CONDUCT](https://claude.com/code-with-claude/code-of-conduct)
+Build AI agents using Claude in Microsoft Foundry | Session | Code w/ Claude 2026

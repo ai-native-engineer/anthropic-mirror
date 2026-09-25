@@ -37,7 +37,7 @@ List environments with pagination support.
 
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 42 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 45 more`
 
       - `"message-batches-2024-09-24"`
 
@@ -129,6 +129,12 @@ List environments with pagination support.
 
       - `"mid-conversation-system-clear-at-2026-08-21"`
 
+      - `"compact-2026-09-04"`
+
+      - `"inline-tools-2026-09-15"`
+
+      - `"mcp-client-2026-09-15"`
+
   - `workspace_id?: string`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -137,7 +143,7 @@ List environments with pagination support.
 
 ## Returns
 
-- `BetaEnvironment`
+- `interface BetaEnvironment`
 
   Unified Environment resource for both cloud and self-hosted environments.
 
@@ -159,7 +165,7 @@ List environments with pagination support.
 
     Environment configuration (either Anthropic Cloud or self-hosted)
 
-    - `BetaCloudConfig`
+    - `interface BetaCloudConfig`
 
       `cloud` environment configuration.
 
@@ -171,7 +177,7 @@ List environments with pagination support.
 
         Network configuration policy.
 
-        - `BetaUnrestrictedNetwork`
+        - `interface BetaUnrestrictedNetwork`
 
           Unrestricted network access.
 
@@ -179,7 +185,7 @@ List environments with pagination support.
 
             Network policy type
 
-        - `BetaLimitedNetwork`
+        - `interface BetaLimitedNetwork`
 
           Limited network access.
 
@@ -233,7 +239,7 @@ List environments with pagination support.
 
           Python packages to install
 
-    - `BetaSelfHostedConfig`
+    - `interface BetaSelfHostedConfig`
 
       Configuration for self-hosted environments.
 

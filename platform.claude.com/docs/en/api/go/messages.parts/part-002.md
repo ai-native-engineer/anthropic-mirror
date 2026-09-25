@@ -2,6 +2,1098 @@
 <!-- part of: https://platform.claude.com/docs/en/api/go/messages -->
 
 <!-- chunk-start -->
+  "ended_at": "2024-08-20T18:37:24.100435Z",
+  "expires_at": "2024-08-20T18:37:24.100435Z",
+  "processing_status": "in_progress",
+  "request_counts": {
+    "canceled": 10,
+    "errored": 30,
+    "expired": 10,
+    "processing": 100,
+    "succeeded": 50
+  },
+  "results_url": "https://api.anthropic.com/v1/messages/batches/msgbatch_013Zva2CMHLNnXjNJJKqJ2EF/results",
+  "type": "message_batch"
+}
+```
+
+### Delete a Message Batch
+
+`client.Messages.Batches.Delete(ctx, messageBatchID, body) (*DeletedMessageBatch, error)`
+
+**DELETE** `/v1/messages/batches/{message_batch_id}`
+
+Delete a Message Batch.
+
+Message Batches can only be deleted once they've finished processing. If you'd like to delete an in-progress batch, you must first cancel it.
+
+Learn more about the Message Batches API in our [user guide](https://platform.claude.com/docs/en/build-with-claude/batch-processing)
+
+#### Parameters
+
+- `messageBatchID string`
+
+  ID of the Message Batch.
+
+- `body MessageBatchDeleteParams`
+
+  - `WorkspaceID param.Field[string] Optional`
+
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `type DeletedMessageBatch`
+
+  - `Type MessageBatchDeleted`
+
+    Deleted object type.
+
+    For Message Batches, this is always `"message_batch_deleted"`.
+
+    default: message_batch_deleted
+
+  - `ID string`
+
+    ID of the Message Batch.
+
+#### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+
+	"github.com/anthropics/anthropic-sdk-go"
+	"github.com/anthropics/anthropic-sdk-go/option"
+)
+
+func main() {
+	client := anthropic.NewClient(
+		option.WithAPIKey("my-anthropic-api-key"),
+	)
+	deletedMessageBatch, err := client.Messages.Batches.Delete(
+		context.TODO(),
+		"message_batch_id",
+		anthropic.MessageBatchDeleteParams{},
+	)
+	if err != nil {
+		panic(err.Error())
+	}
+	fmt.Printf("%+v\n", deletedMessageBatch.ID)
+}
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "msgbatch_013Zva2CMHLNnXjNJJKqJ2EF",
+  "type": "message_batch_deleted"
+}
+```
+
+### Retrieve Message Batch results
+
+`client.Messages.Batches.Results(ctx, messageBatchID, query) (*MessageBatchIndividualResponse, error)`
+
+**GET** `/v1/messages/batches/{message_batch_id}/results`
+
+Streams the results of a Message Batch as a `.jsonl` file.
+
+Each line in the file is a JSON object containing the result of a single request in the Message Batch. Results are not guaranteed to be in the same order as requests. Use the `custom_id` field to match results to requests.
+
+Learn more about the Message Batches API in our [user guide](https://platform.claude.com/docs/en/build-with-claude/batch-processing)
+
+#### Parameters
+
+- `messageBatchID string`
+
+  ID of the Message Batch.
+
+- `query MessageBatchResultsParams`
+
+  - `WorkspaceID param.Field[string] Optional`
+
+    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `type MessageBatchIndividualResponse`
+
+  This is a single line in the response `.jsonl` file and does not represent the response as a whole.
+
+  - `CustomID string`
+
+    Developer-provided ID created for each request in a Message Batch. Useful for matching results to requests, as results may be given out of request order.
+
+    Must be unique for each request within the Message Batch.
+
+  - `Result MessageBatchResultUnion`
+
+    Processing result for this request.
+
+    Contains a Message output if processing was successful, an error response if processing failed, or the reason why processing was not attempted, such as cancellation or expiration.
+
+    - `type MessageBatchSucceededResult`
+
+      - `Type Succeeded`
+
+        default: succeeded
+
+      - `Message Message`
+
+        - `Type Message`
+
+          Object type.
+
+          For Messages, this is always `"message"`.
+
+          default: message
+
+        - `ID string`
+
+          Unique object identifier.
+
+          The format and length of IDs may change over time.
+
+        - `Container Container`
+
+          Information about the container used in the request (for the code execution tool)
+
+          - `ID string`
+
+            Identifier for the container used in this request
+
+          - `ExpiresAt Time`
+
+            The time at which the container will expire.
+
+            format: date-time
+
+          - `Skills []ContainerSkill`
+
+            Skills loaded in the container
+
+            - `Type ContainerSkillType`
+
+              Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
+
+              - `const ContainerSkillTypeAnthropic ContainerSkillType = "anthropic"`
+
+              - `const ContainerSkillTypeCustom ContainerSkillType = "custom"`
+
+            - `SkillID string`
+
+              Skill ID
+
+              maxLength: 64, minLength: 1
+
+            - `Version string`
+
+              The resolved version: a skill version ID for custom skills.
+
+              maxLength: 64, minLength: 1
+
+        - `Content []ContentBlockUnion`
+
+          Content generated by the model.
+
+          This is an array of content blocks, each of which has a `type` that determines its shape.
+
+          Example:
+
+          ```json
+          [{"type": "text", "text": "Hi, I'm Claude."}]
+          ```
+
+          If the request input `messages` ended with an `assistant` turn, then the response `content` will continue directly from that last turn. You can use this to constrain the model's output.
+
+          For example, if the input `messages` were:
+
+          ```json
+          [
+            {"role": "user", "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"},
+            {"role": "assistant", "content": "The best answer is ("}
+          ]
+          ```
+
+          Then the response `content` might be:
+
+          ```json
+          [{"type": "text", "text": "B)"}]
+          ```
+
+          - `type TextBlock`
+
+            - `Type Text`
+
+              default: text
+
+            - `Citations []TextCitationUnion`
+
+              Citations supporting the text block.
+
+              The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
+
+              - `type CitationCharLocation`
+
+                - `Type CharLocation`
+
+                  default: char_location
+
+                - `CitedText string`
+
+                - `DocumentIndex int64`
+
+                  minimum: 0
+
+                - `DocumentTitle string`
+
+                - `EndCharIndex int64`
+
+                - `FileID string`
+
+                - `StartCharIndex int64`
+
+                  minimum: 0
+
+              - `type CitationPageLocation`
+
+                - `Type PageLocation`
+
+                  default: page_location
+
+                - `CitedText string`
+
+                - `DocumentIndex int64`
+
+                  minimum: 0
+
+                - `DocumentTitle string`
+
+                - `EndPageNumber int64`
+
+                - `FileID string`
+
+                - `StartPageNumber int64`
+
+                  minimum: 1
+
+              - `type CitationContentBlockLocation`
+
+                - `Type ContentBlockLocation`
+
+                  default: content_block_location
+
+                - `CitedText string`
+
+                  The full text of the cited block range, concatenated.
+
+                  Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
+
+                - `DocumentIndex int64`
+
+                  minimum: 0
+
+                - `DocumentTitle string`
+
+                - `EndBlockIndex int64`
+
+                  Exclusive 0-based end index of the cited block range in the source's `content` array.
+
+                  Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
+
+                - `FileID string`
+
+                - `StartBlockIndex int64`
+
+                  0-based index of the first cited block in the source's `content` array.
+
+                  minimum: 0
+
+              - `type CitationsWebSearchResultLocation`
+
+                - `Type WebSearchResultLocation`
+
+                  default: web_search_result_location
+
+                - `CitedText string`
+
+                - `EncryptedIndex string`
+
+                - `Title string`
+
+                  maxLength: 512
+
+                - `URL string`
+
+              - `type CitationsSearchResultLocation`
+
+                - `Type SearchResultLocation`
+
+                  default: search_result_location
+
+                - `CitedText string`
+
+                  The full text of the cited block range, concatenated.
+
+                  Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
+
+                - `EndBlockIndex int64`
+
+                  Exclusive 0-based end index of the cited block range in the source's `content` array.
+
+                  Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
+
+                - `SearchResultIndex int64`
+
+                  0-based index of the cited search result among all `search_result` content blocks in the request, in the order they appear across messages and tool results.
+
+                  Counted separately from `document_index`; server-side web search results are not included in this count.
+
+                  minimum: 0
+
+                - `Source string`
+
+                - `StartBlockIndex int64`
+
+                  0-based index of the first cited block in the source's `content` array.
+
+                  minimum: 0
+
+                - `Title string`
+
+            - `Text string`
+
+              minLength: 0
+
+          - `type ThinkingBlock`
+
+            - `Type Thinking`
+
+              default: thinking
+
+            - `Signature string`
+
+              A value used to verify that this thinking block was generated by Claude when it is passed back to the API.
+
+              This is an opaque field and should not be interpreted or parsed. When passing thinking blocks back to the API (required when using tools with extended thinking), pass them back exactly as received, with this field intact.
+
+              See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
+
+            - `Thinking string`
+
+              The text of Claude's thinking process for this block.
+
+          - `type RedactedThinkingBlock`
+
+            - `Type RedactedThinking`
+
+              default: redacted_thinking
+
+            - `Data string`
+
+              The contents of this redacted thinking block, returned when portions of the model's thinking were safety-redacted. This field is opaque and encrypted, with no readable content.
+
+              Pass `redacted_thinking` blocks back to the API unchanged when continuing a multi-turn conversation.
+
+              See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking#redacted-thinking-blocks) for details.
+
+          - `type ToolUseBlock`
+
+            - `Type ToolUse`
+
+              default: tool_use
+
+            - `ID string`
+
+              pattern: ^[a-zA-Z0-9_-]+$
+
+            - `Caller ToolUseBlockCallerUnion`
+
+              default: {"type":"direct"}
+
+              - `type DirectCaller`
+
+                Tool invocation directly from the model.
+
+                - `Type Direct`
+
+              - `type ServerToolCaller`
+
+                Tool invocation generated by a server-side tool.
+
+                - `Type CodeExecution20250825`
+
+                - `ToolID string`
+
+                  pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+              - `type ServerToolCaller20260120`
+
+                - `Type CodeExecution20260120`
+
+                - `ToolID string`
+
+                  pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+            - `Input map[string, any]`
+
+            - `Name string`
+
+              minLength: 1
+
+            - `ToolsetName string Optional`
+
+              For a toolset member tool_use, the toolset family.
+
+              maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
+
+          - `type ServerToolUseBlock`
+
+            - `Type ServerToolUse`
+
+              default: server_tool_use
+
+            - `ID string`
+
+              pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+            - `Caller ServerToolUseBlockCallerUnion`
+
+              default: {"type":"direct"}
+
+              - `type DirectCaller`
+
+                Tool invocation directly from the model.
+
+              - `type ServerToolCaller`
+
+                Tool invocation generated by a server-side tool.
+
+              - `type ServerToolCaller20260120`
+
+            - `Input map[string, any]`
+
+            - `Name ServerToolUseBlockName`
+
+              - `const ServerToolUseBlockNameWebSearch ServerToolUseBlockName = "web_search"`
+
+              - `const ServerToolUseBlockNameWebFetch ServerToolUseBlockName = "web_fetch"`
+
+              - `const ServerToolUseBlockNameCodeExecution ServerToolUseBlockName = "code_execution"`
+
+              - `const ServerToolUseBlockNameBashCodeExecution ServerToolUseBlockName = "bash_code_execution"`
+
+              - `const ServerToolUseBlockNameTextEditorCodeExecution ServerToolUseBlockName = "text_editor_code_execution"`
+
+              - `const ServerToolUseBlockNameToolSearchToolRegex ServerToolUseBlockName = "tool_search_tool_regex"`
+
+              - `const ServerToolUseBlockNameToolSearchToolBm25 ServerToolUseBlockName = "tool_search_tool_bm25"`
+
+          - `type WebSearchToolResultBlock`
+
+            - `Type WebSearchToolResult`
+
+              default: web_search_tool_result
+
+            - `Caller WebSearchToolResultBlockCallerUnion`
+
+              default: {"type":"direct"}
+
+              - `type DirectCaller`
+
+                Tool invocation directly from the model.
+
+              - `type ServerToolCaller`
+
+                Tool invocation generated by a server-side tool.
+
+              - `type ServerToolCaller20260120`
+
+            - `Content WebSearchToolResultBlockContentUnion`
+
+              - `type WebSearchToolResultError`
+
+                - `Type WebSearchToolResultError`
+
+                  default: web_search_tool_result_error
+
+                - `ErrorCode WebSearchToolResultErrorCode`
+
+                  - `const WebSearchToolResultErrorCodeInvalidToolInput WebSearchToolResultErrorCode = "invalid_tool_input"`
+
+                  - `const WebSearchToolResultErrorCodeUnavailable WebSearchToolResultErrorCode = "unavailable"`
+
+                  - `const WebSearchToolResultErrorCodeMaxUsesExceeded WebSearchToolResultErrorCode = "max_uses_exceeded"`
+
+                  - `const WebSearchToolResultErrorCodeTooManyRequests WebSearchToolResultErrorCode = "too_many_requests"`
+
+                  - `const WebSearchToolResultErrorCodeQueryTooLong WebSearchToolResultErrorCode = "query_too_long"`
+
+                  - `const WebSearchToolResultErrorCodeRequestTooLarge WebSearchToolResultErrorCode = "request_too_large"`
+
+              - `type WebSearchToolResultBlockContentArray []WebSearchResultBlock`
+
+                - `Type WebSearchResult`
+
+                  default: web_search_result
+
+                - `EncryptedContent string`
+
+                - `PageAge string`
+
+                - `Title string`
+
+                - `URL string`
+
+            - `ToolUseID string`
+
+              pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+          - `type WebFetchToolResultBlock`
+
+            - `Type WebFetchToolResult`
+
+              default: web_fetch_tool_result
+
+            - `Caller WebFetchToolResultBlockCallerUnion`
+
+              default: {"type":"direct"}
+
+              - `type DirectCaller`
+
+                Tool invocation directly from the model.
+
+              - `type ServerToolCaller`
+
+                Tool invocation generated by a server-side tool.
+
+              - `type ServerToolCaller20260120`
+
+            - `Content WebFetchToolResultBlockContentUnion`
+
+              - `type WebFetchToolResultErrorBlock`
+
+                - `Type WebFetchToolResultError`
+
+                  default: web_fetch_tool_result_error
+
+                - `ErrorCode WebFetchToolResultErrorCode`
+
+                  - `const WebFetchToolResultErrorCodeInvalidToolInput WebFetchToolResultErrorCode = "invalid_tool_input"`
+
+                  - `const WebFetchToolResultErrorCodeURLTooLong WebFetchToolResultErrorCode = "url_too_long"`
+
+                  - `const WebFetchToolResultErrorCodeURLNotAllowed WebFetchToolResultErrorCode = "url_not_allowed"`
+
+                  - `const WebFetchToolResultErrorCodeURLNotInPriorContext WebFetchToolResultErrorCode = "url_not_in_prior_context"`
+
+                  - `const WebFetchToolResultErrorCodeURLNotAccessible WebFetchToolResultErrorCode = "url_not_accessible"`
+
+                  - `const WebFetchToolResultErrorCodeUnsupportedContentType WebFetchToolResultErrorCode = "unsupported_content_type"`
+
+                  - `const WebFetchToolResultErrorCodeTooManyRequests WebFetchToolResultErrorCode = "too_many_requests"`
+
+                  - `const WebFetchToolResultErrorCodeMaxUsesExceeded WebFetchToolResultErrorCode = "max_uses_exceeded"`
+
+                  - `const WebFetchToolResultErrorCodeUnavailable WebFetchToolResultErrorCode = "unavailable"`
+
+                  - `const WebFetchToolResultErrorCodeContentTooLarge WebFetchToolResultErrorCode = "content_too_large"`
+
+              - `type WebFetchBlock`
+
+                - `Type WebFetchResult`
+
+                  default: web_fetch_result
+
+                - `Content DocumentBlock`
+
+                  - `Type Document`
+
+                    default: document
+
+                  - `Citations CitationsConfig`
+
+                    Citation configuration for the document
+
+                    - `Enabled bool`
+
+                      default: false
+
+                  - `Source DocumentBlockSourceUnion`
+
+                    - `type Base64PDFSource`
+
+                      - `Type Base64`
+
+                      - `Data string`
+
+                        format: byte
+
+                      - `MediaType ApplicationPDF`
+
+                    - `type PlainTextSource`
+
+                      - `Type Text`
+
+                      - `Data string`
+
+                      - `MediaType TextPlain`
+
+                  - `Title string`
+
+                    The title of the document
+
+                - `RetrievedAt string`
+
+                  ISO 8601 timestamp when the content was retrieved
+
+                - `URL string`
+
+                  Fetched content URL
+
+            - `ToolUseID string`
+
+              pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+          - `type CodeExecutionToolResultBlock`
+
+            - `Type CodeExecutionToolResult`
+
+              default: code_execution_tool_result
+
+            - `Content CodeExecutionToolResultBlockContentUnion`
+
+              - `type CodeExecutionToolResultError`
+
+                - `Type CodeExecutionToolResultError`
+
+                  default: code_execution_tool_result_error
+
+                - `ErrorCode CodeExecutionToolResultErrorCode`
+
+                  - `const CodeExecutionToolResultErrorCodeInvalidToolInput CodeExecutionToolResultErrorCode = "invalid_tool_input"`
+
+                  - `const CodeExecutionToolResultErrorCodeUnavailable CodeExecutionToolResultErrorCode = "unavailable"`
+
+                  - `const CodeExecutionToolResultErrorCodeTooManyRequests CodeExecutionToolResultErrorCode = "too_many_requests"`
+
+                  - `const CodeExecutionToolResultErrorCodeExecutionTimeExceeded CodeExecutionToolResultErrorCode = "execution_time_exceeded"`
+
+              - `type CodeExecutionResultBlock`
+
+                - `Type CodeExecutionResult`
+
+                  default: code_execution_result
+
+                - `Content []CodeExecutionOutputBlock`
+
+                  - `Type CodeExecutionOutput`
+
+                    default: code_execution_output
+
+                  - `FileID string`
+
+                - `ReturnCode int64`
+
+                - `Stderr string`
+
+                - `Stdout string`
+
+              - `type EncryptedCodeExecutionResultBlock`
+
+                Code execution result with encrypted stdout for PFC + web_search results.
+
+                - `Type EncryptedCodeExecutionResult`
+
+                  default: encrypted_code_execution_result
+
+                - `Content []CodeExecutionOutputBlock`
+
+                  - `Type CodeExecutionOutput`
+
+                    default: code_execution_output
+
+                  - `FileID string`
+
+                - `EncryptedStdout string`
+
+                - `ReturnCode int64`
+
+                - `Stderr string`
+
+            - `ToolUseID string`
+
+              pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+          - `type BashCodeExecutionToolResultBlock`
+
+            - `Type BashCodeExecutionToolResult`
+
+              default: bash_code_execution_tool_result
+
+            - `Content BashCodeExecutionToolResultBlockContentUnion`
+
+              - `type BashCodeExecutionToolResultError`
+
+                - `Type BashCodeExecutionToolResultError`
+
+                  default: bash_code_execution_tool_result_error
+
+                - `ErrorCode BashCodeExecutionToolResultErrorCode`
+
+                  - `const BashCodeExecutionToolResultErrorCodeInvalidToolInput BashCodeExecutionToolResultErrorCode = "invalid_tool_input"`
+
+                  - `const BashCodeExecutionToolResultErrorCodeUnavailable BashCodeExecutionToolResultErrorCode = "unavailable"`
+
+                  - `const BashCodeExecutionToolResultErrorCodeTooManyRequests BashCodeExecutionToolResultErrorCode = "too_many_requests"`
+
+                  - `const BashCodeExecutionToolResultErrorCodeExecutionTimeExceeded BashCodeExecutionToolResultErrorCode = "execution_time_exceeded"`
+
+                  - `const BashCodeExecutionToolResultErrorCodeOutputFileTooLarge BashCodeExecutionToolResultErrorCode = "output_file_too_large"`
+
+              - `type BashCodeExecutionResultBlock`
+
+                - `Type BashCodeExecutionResult`
+
+                  default: bash_code_execution_result
+
+                - `Content []BashCodeExecutionOutputBlock`
+
+                  - `Type BashCodeExecutionOutput`
+
+                    default: bash_code_execution_output
+
+                  - `FileID string`
+
+                - `ReturnCode int64`
+
+                - `Stderr string`
+
+                - `Stdout string`
+
+            - `ToolUseID string`
+
+              pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+          - `type TextEditorCodeExecutionToolResultBlock`
+
+            - `Type TextEditorCodeExecutionToolResult`
+
+              default: text_editor_code_execution_tool_result
+
+            - `Content TextEditorCodeExecutionToolResultBlockContentUnion`
+
+              - `type TextEditorCodeExecutionToolResultError`
+
+                - `Type TextEditorCodeExecutionToolResultError`
+
+                  default: text_editor_code_execution_tool_result_error
+
+                - `ErrorCode TextEditorCodeExecutionToolResultErrorCode`
+
+                  - `const TextEditorCodeExecutionToolResultErrorCodeInvalidToolInput TextEditorCodeExecutionToolResultErrorCode = "invalid_tool_input"`
+
+                  - `const TextEditorCodeExecutionToolResultErrorCodeUnavailable TextEditorCodeExecutionToolResultErrorCode = "unavailable"`
+
+                  - `const TextEditorCodeExecutionToolResultErrorCodeTooManyRequests TextEditorCodeExecutionToolResultErrorCode = "too_many_requests"`
+
+                  - `const TextEditorCodeExecutionToolResultErrorCodeExecutionTimeExceeded TextEditorCodeExecutionToolResultErrorCode = "execution_time_exceeded"`
+
+                  - `const TextEditorCodeExecutionToolResultErrorCodeFileNotFound TextEditorCodeExecutionToolResultErrorCode = "file_not_found"`
+
+                - `ErrorMessage string`
+
+              - `type TextEditorCodeExecutionViewResultBlock`
+
+                - `Type TextEditorCodeExecutionViewResult`
+
+                  default: text_editor_code_execution_view_result
+
+                - `Content string`
+
+                - `FileType TextEditorCodeExecutionViewResultBlockFileType`
+
+                  - `const TextEditorCodeExecutionViewResultBlockFileTypeText TextEditorCodeExecutionViewResultBlockFileType = "text"`
+
+                  - `const TextEditorCodeExecutionViewResultBlockFileTypeImage TextEditorCodeExecutionViewResultBlockFileType = "image"`
+
+                  - `const TextEditorCodeExecutionViewResultBlockFileTypePDF TextEditorCodeExecutionViewResultBlockFileType = "pdf"`
+
+                - `NumLines int64`
+
+                - `StartLine int64`
+
+                - `TotalLines int64`
+
+              - `type TextEditorCodeExecutionCreateResultBlock`
+
+                - `Type TextEditorCodeExecutionCreateResult`
+
+                  default: text_editor_code_execution_create_result
+
+                - `IsFileUpdate bool`
+
+              - `type TextEditorCodeExecutionStrReplaceResultBlock`
+
+                - `Type TextEditorCodeExecutionStrReplaceResult`
+
+                  default: text_editor_code_execution_str_replace_result
+
+                - `Lines []string`
+
+                - `NewLines int64`
+
+                - `NewStart int64`
+
+                - `OldLines int64`
+
+                - `OldStart int64`
+
+            - `ToolUseID string`
+
+              pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+          - `type ToolSearchToolResultBlock`
+
+            - `Type ToolSearchToolResult`
+
+              default: tool_search_tool_result
+
+            - `Content ToolSearchToolResultBlockContentUnion`
+
+              - `type ToolSearchToolResultError`
+
+                - `Type ToolSearchToolResultError`
+
+                  default: tool_search_tool_result_error
+
+                - `ErrorCode ToolSearchToolResultErrorCode`
+
+                  - `const ToolSearchToolResultErrorCodeInvalidToolInput ToolSearchToolResultErrorCode = "invalid_tool_input"`
+
+                  - `const ToolSearchToolResultErrorCodeUnavailable ToolSearchToolResultErrorCode = "unavailable"`
+
+                  - `const ToolSearchToolResultErrorCodeTooManyRequests ToolSearchToolResultErrorCode = "too_many_requests"`
+
+                  - `const ToolSearchToolResultErrorCodeExecutionTimeExceeded ToolSearchToolResultErrorCode = "execution_time_exceeded"`
+
+                - `ErrorMessage string`
+
+              - `type ToolSearchToolSearchResultBlock`
+
+                - `Type ToolSearchToolSearchResult`
+
+                  default: tool_search_tool_search_result
+
+                - `ToolReferences []ToolReferenceBlock`
+
+                  - `Type ToolReference`
+
+                    default: tool_reference
+
+                  - `ToolName string`
+
+                    maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+
+            - `ToolUseID string`
+
+              pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+          - `type ContainerUploadBlock`
+
+            Response model for a file uploaded to the container.
+
+            - `Type ContainerUpload`
+
+              default: container_upload
+
+            - `FileID string`
+
+        - `Diagnostics Diagnostics`
+
+          Request-level diagnostics: why the prompt cache could not fully reuse
+          the prefix of the request named by `diagnostics.previous_message_id`.
+
+          - `CacheMissReason CacheMissReasonUnion`
+
+            Explains why the prompt cache could not fully reuse the prefix from the request identified by `diagnostics.previous_message_id`. `null` means diagnosis is still pending — the response was serialized before the background comparison completed.
+
+            - `type CacheMissModelChanged`
+
+              - `Type ModelChanged`
+
+                default: model_changed
+
+              - `CacheMissedInputTokens int64`
+
+                Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+            - `type CacheMissSystemChanged`
+
+              - `Type SystemChanged`
+
+                default: system_changed
+
+              - `CacheMissedInputTokens int64`
+
+                Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+            - `type CacheMissToolsChanged`
+
+              - `Type ToolsChanged`
+
+                default: tools_changed
+
+              - `CacheMissedInputTokens int64`
+
+                Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+            - `type CacheMissMessagesChanged`
+
+              - `Type MessagesChanged`
+
+                default: messages_changed
+
+              - `CacheMissedInputTokens int64`
+
+                Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+            - `type CacheMissPreviousMessageNotFound`
+
+              - `Type PreviousMessageNotFound`
+
+                default: previous_message_not_found
+
+            - `type CacheMissUnavailable`
+
+              - `Type Unavailable`
+
+                default: unavailable
+
+        - `Model Model`
+
+          The model that will complete your prompt.
+
+          See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `type Model string`
+
+            The model that will complete your prompt.
+
+            See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+            - `const ModelClaudeFable5_1 Model = "claude-fable-5-1"`
+
+              Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+            - `const ModelClaudeOpus5_5 Model = "claude-opus-5-5"`
+
+              Powerful intelligence for coding, knowledge work, and long-running agents
+
+            - `const ModelClaudeMythos5_1 Model = "claude-mythos-5-1"`
+
+              Our most capable model for cybersecurity and biology research, available through trusted access programs
+
+            - `const ModelClaudeSonnet5 Model = "claude-sonnet-5"`
+
+              High-performance model for coding and agents
+
+            - `const ModelClaudeFable5 Model = "claude-fable-5"`
+
+              Next generation of intelligence for the hardest knowledge work and coding problems
+
+            - `const ModelClaudeMythos5 Model = "claude-mythos-5"`
+
+              Most capable model for cybersecurity and biology research
+
+            - `const ModelClaudeOpus5 Model = "claude-opus-5"`
+
+              Powerful intelligence for long-running agents and coding
+
+            - `const ModelClaudeOpus4_8 Model = "claude-opus-4-8"`
+
+              Powerful intelligence for long-running agents and coding
+
+            - `const ModelClaudeOpus4_7 Model = "claude-opus-4-7"`
+
+              Powerful intelligence for long-running agents and coding
+
+            - `const ModelClaudeMythosPreview Model = "claude-mythos-preview"`
+
+              New class of intelligence, strongest in coding and cybersecurity
+
+            - `const ModelClaudeOpus4_6 Model = "claude-opus-4-6"`
+
+              Powerful intelligence for long-running agents and coding
+
+            - `const ModelClaudeSonnet4_6 Model = "claude-sonnet-4-6"`
+
+              Best combination of speed and intelligence
+
+            - `const ModelClaudeHaiku4_5 Model = "claude-haiku-4-5"`
+
+              Fastest model with near-frontier intelligence
+
+            - `const ModelClaudeHaiku4_5_20251001 Model = "claude-haiku-4-5-20251001"`
+
+              Fastest model with near-frontier intelligence
+
+            - `const ModelClaudeOpus4_5 Model = "claude-opus-4-5"`
+
+              Powerful intelligence for long-running agents and coding
+
+            - `const ModelClaudeOpus4_5_20251101 Model = "claude-opus-4-5-20251101"`
+
+              Powerful intelligence for long-running agents and coding
+
+            - `const ModelClaudeSonnet4_5 Model = "claude-sonnet-4-5"`
+
+              High-performance model for agents and coding
+
+            - `const ModelClaudeSonnet4_5_20250929 Model = "claude-sonnet-4-5-20250929"`
+
+              High-performance model for agents and coding
+
+          - `string`
+
+        - `Role Assistant`
+
+          Conversational role of the generated message.
+
+          This will always be `"assistant"`.
+
+          default: assistant
+
+        - `StopDetails RefusalStopDetails`
+
+          Structured information about a refusal.
+
+          - `Type Refusal`
+
+            default: refusal
+
+          - `Category RefusalStopDetailsCategory`
+
+            The policy category that triggered a refusal.
+
+            - `const RefusalStopDetailsCategoryCyber RefusalStopDetailsCategory = "cyber"`
+
+              The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
+
+            - `const RefusalStopDetailsCategoryBio RefusalStopDetailsCategory = "bio"`
+
+              The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
+
+            - `const RefusalStopDetailsCategoryFrontierLLM RefusalStopDetailsCategory = "frontier_llm"`
 
               The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
 
@@ -159,7 +1251,7 @@
 
             - `const UsageServiceTierBatch UsageServiceTier = "batch"`
 
-    - `type MessageBatchErroredResult struct{…}`
+    - `type MessageBatchErroredResult`
 
       - `Type Errored`
 
@@ -173,7 +1265,7 @@
 
         - `Error ErrorObjectUnion`
 
-          - `type InvalidRequestError struct{…}`
+          - `type InvalidRequestError`
 
             - `Type InvalidRequestError`
 
@@ -183,7 +1275,7 @@
 
               default: Invalid request
 
-          - `type AuthenticationError struct{…}`
+          - `type AuthenticationError`
 
             - `Type AuthenticationError`
 
@@ -193,7 +1285,7 @@
 
               default: Authentication error
 
-          - `type BillingError struct{…}`
+          - `type BillingError`
 
             - `Type BillingError`
 
@@ -203,7 +1295,7 @@
 
               default: Billing error
 
-          - `type PermissionError struct{…}`
+          - `type PermissionError`
 
             - `Type PermissionError`
 
@@ -213,7 +1305,7 @@
 
               default: Permission denied
 
-          - `type NotFoundError struct{…}`
+          - `type NotFoundError`
 
             - `Type NotFoundError`
 
@@ -223,7 +1315,7 @@
 
               default: Not found
 
-          - `type RateLimitError struct{…}`
+          - `type RateLimitError`
 
             - `Type RateLimitError`
 
@@ -233,7 +1325,7 @@
 
               default: Rate limited
 
-          - `type GatewayTimeoutError struct{…}`
+          - `type GatewayTimeoutError`
 
             - `Type TimeoutError`
 
@@ -243,7 +1335,7 @@
 
               default: Request timeout
 
-          - `type APIErrorObject struct{…}`
+          - `type APIErrorObject`
 
             - `Type APIError`
 
@@ -253,7 +1345,7 @@
 
               default: Internal server error
 
-          - `type OverloadedError struct{…}`
+          - `type OverloadedError`
 
             - `Type OverloadedError`
 
@@ -265,13 +1357,13 @@
 
         - `RequestID string`
 
-    - `type MessageBatchCanceledResult struct{…}`
+    - `type MessageBatchCanceledResult`
 
       - `Type Canceled`
 
         default: canceled
 
-    - `type MessageBatchExpiredResult struct{…}`
+    - `type MessageBatchExpiredResult`
 
       - `Type Expired`
 

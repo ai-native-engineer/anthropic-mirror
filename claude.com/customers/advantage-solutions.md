@@ -4,39 +4,24 @@ Case study | Claude
 
 # Advantage Solutions gives frontline managers 70,000 hours back with Claude
 
-Try Claude
+[Contact sales](https://claude.com/contact-sales)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a4e8b230306c994ea21adf8_logo_advantagesolutions-light-mode%20(1).svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a4e8b2610793346e34938ff_logo_advantagesolutions-dark-mode%20(1).svg)
+![Advantage Solutions logo](https://assets.claude.com/97c2cf17bb75ef2c4f1d0986904838b87ab4f8b5.svg)
 
 Industry:
-
-Retail Services
+:   Retail Services
 
 Company size:
-
-Large
+:   Large
 
 Product:
-
-[Claude Enterprise](https://claude.com/solutions/enterprise)
-
-[Claude Code](https://claude.com/product/claude-code)
-
-[Claude Cowork](https://claude.com/product/cowork)
+:   [Claude Enterprise](https://claude.com/solutions/enterprise)[Claude Code](https://claude.com/product/claude-code)[Claude Cowork](https://claude.com/product/cowork)
 
 Partner:
-
-Tenex
+:   Tenex
 
 Location:
-
-North America
+:   North America
 
 70,000+ labor hours redirected per year
 
@@ -60,32 +45,6 @@ If you've ever taken a free sample at a grocery store, an Advantage Solutions te
 
 ## The challenge
 
-Claude Enterprise
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a4e8f1c4eb05b098011e591_claude%20ent%20marginalia.jpeg)
-
-Put Claude to work across your organization. Help everyone think deeper, do more, and build securely.
-
-Read more
-
-[Read more](https://claude.com/solutions/enterprise)Read more
-
-Claude Enterprise
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Put Claude to work across your organization. Help everyone think deeper, do more, and build securely.
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Claude Enterprise
-
-Put Claude to work across your organization. Help everyone think deeper, do more, and build securely.
-
 ## Turning scattered AI pilots into operational scale
 
 Going into 2026, Advantage had AI experiments running in pockets across the company without a central owner. One demo business unit had automated 90% of its scheduling for thousands of daily shifts, but most teams were still experimenting independently.
@@ -96,33 +55,15 @@ In early 2026, Advantage commissioned an enterprise AI diagnostic with Tenex, an
 
 “We needed a central force that was actually thinking about where we were spending time and resources, in order to deploy that in the organization,” said Bethany Miles, Chief AI Officer. “We want to get rid of some of the truly redundant manual tasks, and think about how we upskill our teammates to spend more time on training and being out on the store floor.”
 
+Claude Enterprise
+
+![Claude Enterprise](https://assets.claude.com/50a00469e498d2c960d9e45f1a4a37d2d7a92f2e.jpg)
+
+Put Claude to work across your organization. Help everyone think deeper, do more, and build securely.
+
+[Read more](https://claude.com/solutions/enterprise)
+
 ## The solution
-
-Cowork
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698f525604b02eec936ac521_696fc8952f473c6520149cfa_4f58536f1c08deac7a94811f4be57881_og-claude-cowork.jpeg)
-
-Give Claude access to your local files and let it complete tasks autonomously. Agentic capabilities for non-technical knowledge work.
-
-Read more
-
-[Read more](https://claude.com/product/cowork)Read more
-
-Cowork
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Give Claude access to your local files and let it complete tasks autonomously. Agentic capabilities for non-technical knowledge work.
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Cowork
-
-Give Claude access to your local files and let it complete tasks autonomously. Agentic capabilities for non-technical knowledge work.
 
 ## Choosing Claude, starting at the top
 
@@ -136,39 +77,23 @@ Peacock is equally direct about what AI is for. “The way I think about AI is s
 
 After the executive team finished, the company ran a three-hour Claude session for the next layer of senior leaders. From there, a growing network of business unit champions began emerging across the pilot, building Claude solutions for their own functions. The pilot itself launched with 150 people. Tenex helped design the curriculum: a 101 orientation on chat, a 201 module on Claude Cowork for multi-source workflows, and a 301 module on Claude Code.
 
-Inside the pilot, super-users emerged quickly. One member of the retail merchandising team built a store-routing model in Claude Code that is nowstarting to appear in client pitches. It’s also actively being piloted to engage current clients and sharpen their retail execution strategy. Advantage is turning the prototype into a deployable solution.
+Inside the pilot, super-users emerged quickly. One member of the retail merchandising team built a store-routing model in Claude Code that is now starting to appear in client pitches. It’s also actively being piloted to engage current clients and sharpen their retail execution strategy. Advantage is turning the prototype into a deployable solution.
 
 A finance super-user, Ash Gupta, Director of Financial Planning and Analysis at Advantage, was spending about 10 hours every forecast cycle on slides, commentary, and validation. He automated the assembly work in Claude, compressing it to under 30 minutes. “Claude took all of that off our plate,” said Gupta. “Now we're doing what finance is supposed to do: finding the insight and driving the decision. That's a meaningful shift for a team supporting a business of this size.”
 
 The biggest workforce operations build is in event management. Each shift, an event manager overseeing in-store product demos checks off supply availability and compliance items with highlighters and paper, a 20-to-30-minute task. Advantage is building a tool, in part using Claude Code, that lets the manager take a photo of the cart setup and get a verified compliance check in minutes. Across the network, the company projects the automation will reclaim over 70,000 labor hours a year. "It means they could be on the floor more with our teammates, helping other teammates get training," Miles added. "It's giving us more meaningful work."
 
-“Claude took all of that off our plate. Now we're doing what finance is supposed to do: finding the insight and driving the decision."
+Cowork
 
-Ash Gupta,
+![Cowork](https://assets.claude.com/9716b96b8df867765a639f3ea8a07170508200bf.jpg)
 
-Director of Financial Planning and Analysis, Advantage Solutions
+Give Claude access to your local files and let it complete tasks autonomously. Agentic capabilities for non-technical knowledge work.
 
-Claude Code
+[Read more](https://claude.com/product/cowork)
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698f525504b02eec936ac51b_68c469d41149ace562bfd24d_og-claude-product-claude-code.jpeg)
+> “Claude took all of that off our plate. Now we're doing what finance is supposed to do: finding the insight and driving the decision."
 
-Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
-
-Claude Code
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Claude Code
-
-Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
+Ash Gupta, Director of Financial Planning and Analysis, Advantage Solutions
 
 ## The outcome
 
@@ -188,26 +113,20 @@ Advantage is now scaling Claude Enterprise from the 150-person pilot to thousand
 
 The company is also looking beyond internal productivity. “We see a lot of potential here,” Miles said. “It’s really opened the eyes of our leadership team, who have been really impressed with what Claude and Anthropic can do."
 
-"70,000 hours is not an abstraction. That's real people, real shifts, and real time that was going to paperwork and is now going back to our teammates."
+Claude Code
 
-George Johnson
+![Claude Code](https://assets.claude.com/38e8385d1c5f9c0f71c486994e22fc5861a4522d.jpg)
 
-Chief Operating Officer of Workforce Operations and Demonstration Services, Advantage Solutions
+Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
 
-## Related stories
+[Read more](https://claude.com/product/claude-code)
 
-[Carvana turns Slack alerts into production fixes with Claude Tag](https://claude.com/customers/carvana)Carvana turns Slack alerts into production fixes with Claude Tag
+> "70,000 hours is not an abstraction. That's real people, real shifts, and real time that was going to paperwork and is now going back to our teammates."
 
-Carvana turns Slack alerts into production fixes with Claude Tag
+George JohnsonChief Operating Officer of Workforce Operations and Demonstration Services, Advantage Solutions
 
-Customer story
+[![Carvana](https://assets.claude.com/6d55e4e27973e13fce3e66d63ef5618d65cb12ae.svg)
 
-[Customer story](https://claude.com/customers/carvana)Customer story
+### Carvana turns Slack alerts into production fixes with Claude Tag](https://claude.com/customers/carvana)[![Shy Bird](https://assets.claude.com/9d2b2c26c7073e477b39005906610be869c4d2ec.svg)
 
-[How can a Boston restaurant owner pay people what they deserve and still keep the lights on?](https://claude.com/customers/shy-bird)How can a Boston restaurant owner pay people what they deserve and still keep the lights on?
-
-How can a Boston restaurant owner pay people what they deserve and still keep the lights on?
-
-Customer story
-
-[Customer story](https://claude.com/customers/shy-bird)Customer story
+### How can a Boston restaurant owner pay people what they deserve and still keep the lights on?](https://claude.com/customers/shy-bird)

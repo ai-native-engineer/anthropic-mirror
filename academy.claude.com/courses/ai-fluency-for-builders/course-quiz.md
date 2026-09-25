@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/ai-fluency-for-builders/course-quiz -->
 
-Quiz 1 of 1 · AI Fluency for BuildersCourse quiz
+Quiz 1 of 1 · AI Fluency for buildersCourse quiz
 
-3. /[AI Fluency for Builders](https://academy.claude.com/courses/ai-fluency-for-builders)
+3. /[AI Fluency for builders](https://academy.claude.com/courses/ai-fluency-for-builders)
 
-[AI Fluency for Builders](https://academy.claude.com/courses/ai-fluency-for-builders)
+[AI Fluency for builders](https://academy.claude.com/courses/ai-fluency-for-builders)
 
 # Course quiz
 
@@ -14,7 +14,7 @@ You've reached the final quiz for AI Fluency for Builders. Its 8 questions revis
 
 [Previous lessonClosure & looking forward](https://academy.claude.com/courses/ai-fluency-for-builders/closure-looking-forward)[Up nextCompletion badge](https://academy.claude.com/courses/ai-fluency-for-builders/badge)
 
-Quiz 1 of 1 · AI Fluency for BuildersCourse quiz
+Quiz 1 of 1 · AI Fluency for buildersCourse quiz
 
 Introduction and AI Fluency framework
 

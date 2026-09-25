@@ -1,5 +1,7 @@
 <!-- source: https://claude.com/blog/product-development-in-the-agentic-era -->
 
+Explore here
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22a7bb714a55b503cd7_cad034e66b44f7f017c0cb931c403a97d1763758-1000x1000.svg)
 
 # Product development in the agentic era

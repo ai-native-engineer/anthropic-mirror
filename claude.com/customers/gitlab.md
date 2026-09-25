@@ -4,31 +4,21 @@ Case study | Claude Platform
 
 # GitLab powers stable, secure software development with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![GitLab logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5aaf1b161d57cbe7095b8_GitLab_light.svg)![GitLab logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5aaebe118de085a232f53_GitLab_dark.svg)
+![GitLab logo](https://assets.claude.com/9760b31778be76fd66c6b722dced22db12cb59e8.svg)
 
 Industry:
-
-Software
+:   Software
 
 Company size:
-
-Medium
+:   Medium
 
 Product:
-
-Claude Platform
+:   Claude Platform
 
 Location:
-
-North America
+:   North America
 
 25-50% productivity gains
 
@@ -37,42 +27,6 @@ across internal workflows with Claude
 Weeks not years
 
 AI feature development time with Claude
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
 
 GitLab, the most comprehensive DevSecOps platform, uses Claude to drive AI-powered features across their software development, deployment and security platform. By leveraging Claude's capabilities, GitLab delivers innovative AI solutions while maintaining the stability and security its customers demand.
 
@@ -96,7 +50,7 @@ GitLab hit its stride when more advanced AI models became available. The company
 
 GitLab chose Claude 3 models to power their AI-powered Duo features due to their performance and the fully featured developer experience. "We see consistently strong performance from Claude 3 models for thoughtful, holistic, and contextualized code generation and other software development-related tasks," McCaslin notes, attributing this partly to Claude's long context window.
 
-![Gitlab product mockup](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68baf0531cf0856b64b721b1_ac462305e68264babb655e9169e1fb0daebe3e56-1920x1080.jpeg)
+![Gitlab product mockup](https://assets.claude.com/d134923ae1767c2daa38d52efe556f67ec2135be.jpg)
 
 ## Empowering engineers and ensuring reliability
 
@@ -116,52 +70,14 @@ As GitLab continues to evolve their platform, the company is well-positioned to 
 
 By choosing Claude, GitLab has found foundation models that provide powerful AI capabilities and align with their commitment to stability and security in software development.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[![Supermetrics](https://assets.claude.com/3ac4171a81008be0340e5c3d8ccb46571c3edfb3.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### Supermetrics lets marketers manage ad campaigns from a conversation with Claude](https://claude.com/customers/supermetrics)[![Atlassian](https://assets.claude.com/4870b3d6c0253cea01b100c98ad2030b8e4f8ce1.svg)
 
-[Next](#)Next
+### How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-Video caption
+### Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-[Next](#)Next
+### How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-Customer story
-
-[Customer story](https://claude.com/customers/atlassian)Customer story
-
-[Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)Rocket Money on building agents that fix their own code
-
-Rocket Money on building agents that fix their own code
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money-qa)Customer story
-
-[How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)How Rocket Money built its personal finance agent with Claude
-
-How Rocket Money built its personal finance agent with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money)Customer story
-
-[How Notion ships and scales agents with Claude Managed Agents](https://claude.com/customers/notion-qa)How Notion ships and scales agents with Claude Managed Agents
-
-How Notion ships and scales agents with Claude Managed Agents
-
-Customer story
-
-[Customer story](https://claude.com/customers/notion-qa)Customer story
+GitLab Claude Platform (API) case study | Claude by Anthropic

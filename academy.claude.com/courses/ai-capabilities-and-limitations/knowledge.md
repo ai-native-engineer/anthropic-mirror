@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/ai-capabilities-and-limitations/knowledge -->
 
-Lesson 6 of 13 · AI Capabilities and LimitationsKnowledge
+Lesson 6 of 13 · AI capabilities and limitationsKnowledge
 
-3. /[AI Capabilities and Limitations](https://academy.claude.com/courses/ai-capabilities-and-limitations)
+3. /[AI capabilities and limitations](https://academy.claude.com/courses/ai-capabilities-and-limitations)
 
-[AI Capabilities and Limitations](https://academy.claude.com/courses/ai-capabilities-and-limitations)
+[AI capabilities and limitations](https://academy.claude.com/courses/ai-capabilities-and-limitations)
 
 # Knowledge
 
@@ -72,7 +72,7 @@ Knowledge covers what the model absorbed during training. Working Memory covers 
 
 [Previous lessonTry It Out: Next Token Prediction](https://academy.claude.com/courses/ai-capabilities-and-limitations/try-it-out)[Next lessonTry It Out: Knowledge](https://academy.claude.com/courses/ai-capabilities-and-limitations/try-it-out-31vzkl2dgi907)
 
-Lesson 6 of 13 · AI Capabilities and LimitationsKnowledge
+Lesson 6 of 13 · AI capabilities and limitationsKnowledge
 
 Getting started
 

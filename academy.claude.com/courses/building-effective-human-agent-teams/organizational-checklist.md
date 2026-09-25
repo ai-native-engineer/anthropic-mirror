@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/building-effective-human-agent-teams/organizational-checklist -->
 
-Lesson 4 of 5 · Building Effective Human Agent Teams (Beta)Organizational checklist
+Lesson 4 of 5 · Building effective human-agent teams (beta)Organizational checklist
 
-3. /[Building Effective Human Agent Teams (Beta)](https://academy.claude.com/courses/building-effective-human-agent-teams)
+3. /[Building effective human-agent teams (beta)](https://academy.claude.com/courses/building-effective-human-agent-teams)
 
-[Building Effective Human Agent Teams (Beta)](https://academy.claude.com/courses/building-effective-human-agent-teams)
+[Building effective human-agent teams (beta)](https://academy.claude.com/courses/building-effective-human-agent-teams)
 
 # Organizational checklist
 
@@ -44,7 +44,7 @@ Now you know the right preparation steps to take. Next: how teams start small.
 
 [Previous lessonWhat a strong human-agent team looks like](https://academy.claude.com/courses/building-effective-human-agent-teams/what-a-strong-team-looks-like)[Next lessonSome practical ways to get started](https://academy.claude.com/courses/building-effective-human-agent-teams/practical-ways-to-get-started)
 
-Lesson 4 of 5 · Building Effective Human Agent Teams (Beta)Organizational checklist
+Lesson 4 of 5 · Building effective human-agent teams (beta)Organizational checklist
 
 The shift to multiplayer
 

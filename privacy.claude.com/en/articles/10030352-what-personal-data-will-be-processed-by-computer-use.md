@@ -25,7 +25,7 @@ By default, Anthropic will automatically delete all screenshots from our backend
 For more information about our computer use, please see our [Announcement](https://www.anthropic.com/research/developing-computer-use) and [Docs](https://docs.anthropic.com/en/docs/build-with-claude/computer-use).
 
 * [Is my data used for model training?](https://privacy.claude.com/en/articles/7996868-is-my-data-used-for-model-training)
-* [How do you use personal data in model training?](https://privacy.claude.com/en/articles/7996885-how-do-you-use-personal-data-in-model-training)
 * [Does Anthropic Act as a Data Processor or Controller?](https://privacy.claude.com/en/articles/9267385-does-anthropic-act-as-a-data-processor-or-controller)
+* [How Do You Use Personal Data in Model Training?](https://privacy.claude.com/en/articles/10023555-how-do-you-use-personal-data-in-model-training)
 * [What personal data is collected when using dictation on the Claude mobile apps?](https://privacy.claude.com/en/articles/10067979-what-personal-data-is-collected-when-using-dictation-on-the-claude-mobile-apps)
 * [What Personal data is collected when using dictation on the Claude Mobile Apps?](https://privacy.claude.com/en/articles/10067984-what-personal-data-is-collected-when-using-dictation-on-the-claude-mobile-apps)

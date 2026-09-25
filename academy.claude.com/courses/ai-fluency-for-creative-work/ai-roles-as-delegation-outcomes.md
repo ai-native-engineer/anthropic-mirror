@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/ai-fluency-for-creative-work/ai-roles-as-delegation-outcomes -->
 
-Lesson 7 of 8 · AI Fluency for Creative WorkAI roles as Delegation outcomes
+Lesson 7 of 8 · AI Fluency for creative workAI roles as Delegation outcomes
 
-3. /[AI Fluency for Creative Work](https://academy.claude.com/courses/ai-fluency-for-creative-work)
+3. /[AI Fluency for creative work](https://academy.claude.com/courses/ai-fluency-for-creative-work)
 
-[AI Fluency for Creative Work](https://academy.claude.com/courses/ai-fluency-for-creative-work)
+[AI Fluency for creative work](https://academy.claude.com/courses/ai-fluency-for-creative-work)
 
 # AI roles as Delegation outcomes
 
@@ -47,7 +47,7 @@ The final lesson assembles everything you have built, the articulation, the lens
 
 [Previous lessonDelegation and Diligence](https://academy.claude.com/courses/ai-fluency-for-creative-work/delegation-and-diligence)[Next lessonPutting it all together](https://academy.claude.com/courses/ai-fluency-for-creative-work/putting-it-all-together)
 
-Lesson 7 of 8 · AI Fluency for Creative WorkAI roles as Delegation outcomes
+Lesson 7 of 8 · AI Fluency for creative workAI roles as Delegation outcomes
 
 Introduction
 

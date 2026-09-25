@@ -117,6 +117,12 @@ The Models API response can be used to determine information about a specific mo
 
     - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
+    - `Compact2026_09_04("compact-2026-09-04")`
+
+    - `InlineTools2026_09_15("inline-tools-2026-09-15")`
+
+    - `McpClient2026_09_15("mcp-client-2026-09-15")`
+
   - `string workspaceID`
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -125,7 +131,7 @@ The Models API response can be used to determine information about a specific mo
 
 ## Returns
 
-- `class BetaModelInfo:`
+- `class BetaModelInfo`
 
   - `JsonElement Type = "model"`
 
@@ -160,6 +166,20 @@ The Models API response can be used to determine information about a specific mo
     - `required BetaCapabilitySupport CodeExecution`
 
       Whether the model supports code execution tools.
+
+    - `required BetaCompactionCapability? Compaction`
+
+      Compaction capability details: whether the model accepts the top-level
+      `compaction` request parameter, with one entry per supported
+      `compaction.type` value.
+
+      - `required BetaCapabilitySupport Summarize`
+
+        Whether the summarize compaction type is supported.
+
+      - `required bool Supported`
+
+        Whether this capability is supported by the model.
 
     - `required BetaContextManagementCapability ContextManagement`
 
@@ -285,6 +305,12 @@ Console.WriteLine(betaModelInfo);
       "supported": true
     },
     "code_execution": {
+      "supported": true
+    },
+    "compaction": {
+      "summarize": {
+        "supported": true
+      },
       "supported": true
     },
     "context_management": {

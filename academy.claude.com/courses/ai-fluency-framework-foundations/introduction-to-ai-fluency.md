@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/ai-fluency-framework-foundations/introduction-to-ai-fluency -->
 
-Lesson 1 of 14 · AI Fluency: Framework & FoundationsIntroduction to AI Fluency
+Lesson 1 of 14 · AI Fluency: Framework and foundationsIntroduction to AI Fluency
 
-3. /[AI Fluency: Framework & Foundations](https://academy.claude.com/courses/ai-fluency-framework-foundations)
+3. /[AI Fluency: Framework and foundations](https://academy.claude.com/courses/ai-fluency-framework-foundations)
 
-[AI Fluency: Framework & Foundations](https://academy.claude.com/courses/ai-fluency-framework-foundations)
+[AI Fluency: Framework and foundations](https://academy.claude.com/courses/ai-fluency-framework-foundations)
 
 # Introduction to AI Fluency
 
@@ -74,7 +74,7 @@ In the next lesson, we'll explore why AI Fluency matters in today's rapidly evol
 
 [Next lessonWhy do we need AI Fluency?](https://academy.claude.com/courses/ai-fluency-framework-foundations/why-do-we-need-ai-fluency)
 
-Lesson 1 of 14 · AI Fluency: Framework & FoundationsIntroduction to AI Fluency
+Lesson 1 of 14 · AI Fluency: Framework and foundationsIntroduction to AI Fluency
 
 Introduction to AI Fluency
 

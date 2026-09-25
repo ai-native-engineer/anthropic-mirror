@@ -4,35 +4,24 @@ Case study | Claude Platform
 
 # Dolly helps teachers reclaim their work-life balance with Claude in Amazon Bedrock
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![Dolly logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c368eda4ec025f7ee15de0_cs-logo-dolly-light-theme.png)![Dolly logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c36903038072b44afb2134_cs-logo-dolly-dark-theme.png)
+![Dolly logo](https://assets.claude.com/16fdaa547237188c40625de66a87bf205f45d81b.png)
 
 Industry:
-
-Education
+:   Education
 
 Company size:
-
-Small
+:   Small
 
 Product:
-
-Claude Platform
+:   Claude Platform
 
 Partner:
-
-AWS
+:   AWS
 
 Location:
-
-Europe
+:   Europe
 
 60-70% reduction
 
@@ -41,42 +30,6 @@ in marking time for digital assessments
 8-10 hours
 
 saved per teacher per week
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
 
 Dolly helps UK teachers save time by using Claude in [Amazon Bedrock](https://aws.amazon.com/bedrock/claude/) to instantly grade assignments, generate research-backed lesson content, and create detailed student progress reports.
 
@@ -133,52 +86,12 @@ The team envisions Claude in Amazon Bedrock helping generate fully personalized 
 
 "Our goal is to help teachers do what only humans can do," Morgan explained. He sees teachers focusing on insight, creativity, and genuine care while Dolly handles repetitive tasks. "With Anthropic as our AI partner, we're reimagining what's possible in education, giving teachers the tools to achieve more with less stress."
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[![Magic School](https://assets.claude.com/cd32331aba30ee77bb8a9a4f6f769b3cf5819d14.png)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### MagicSchool on building a safety layer for millions of student conversations](https://claude.com/customers/magicschool-qa)[![Syracuse University](https://assets.claude.com/6faf42a6bf63981cdb21b56aa6c486dfe5f6aa5b.svg)
 
-[Next](#)Next
+### How Syracuse University deployed Claude to every student, faculty member, and staff](https://claude.com/customers/syracuse)[![Syracuse University (Vertical)](https://assets.claude.com/3b0fe1d2906982c88d627148ba2bf5455745aed5.png)
 
-Video caption
+### Why Syracuse University gave Claude to 30,000 students, faculty, and staff](https://claude.com/customers/syracuse-university)[![RileyBot](https://assets.claude.com/14b0586643ee08e0793d5b808b741c51db9d4814.png)
 
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[MagicSchool on building a safety layer for millions of student conversations](https://claude.com/customers/magicschool-qa)MagicSchool on building a safety layer for millions of student conversations
-
-MagicSchool on building a safety layer for millions of student conversations
-
-Customer story
-
-[Customer story](https://claude.com/customers/magicschool-qa)Customer story
-
-[How Syracuse University deployed Claude to every student, faculty member, and staff](https://claude.com/customers/syracuse)How Syracuse University deployed Claude to every student, faculty member, and staff
-
-How Syracuse University deployed Claude to every student, faculty member, and staff
-
-Customer story
-
-[Customer story](https://claude.com/customers/syracuse)Customer story
-
-[Why Syracuse University gave Claude to 30,000 students, faculty, and staff](https://claude.com/customers/syracuse-university)Why Syracuse University gave Claude to 30,000 students, faculty, and staff
-
-Why Syracuse University gave Claude to 30,000 students, faculty, and staff
-
-Customer story
-
-[Customer story](https://claude.com/customers/syracuse-university)Customer story
-
-[RileyBot creates safe AI learning experiences for students with Claude](https://claude.com/customers/rileybot)RileyBot creates safe AI learning experiences for students with Claude
-
-RileyBot creates safe AI learning experiences for students with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/rileybot)Customer story
+### RileyBot creates safe AI learning experiences for students with Claude](https://claude.com/customers/rileybot)

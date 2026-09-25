@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/claude-code-in-action/routines-and-headless -->
 
-Lesson 6 of 9 · Claude Code in ActionRoutines and headless
+Lesson 6 of 9 · Claude Code in actionRoutines and headless
 
-3. /[Claude Code in Action](https://academy.claude.com/courses/claude-code-in-action)
+3. /[Claude Code in action](https://academy.claude.com/courses/claude-code-in-action)
 
-[Claude Code in Action](https://academy.claude.com/courses/claude-code-in-action)
+[Claude Code in action](https://academy.claude.com/courses/claude-code-in-action)
 
 # Routines and headless
 
@@ -55,7 +55,7 @@ Before you lean on routines for anything important, keep these three limits in m
 
 * **Routines are a research preview.** Behavior and limits will keep moving, so don't be surprised if things change.
 * **A recurring schedule runs at most hourly.** If you need something more frequent, routines aren't the tool.
-* **Each run starts from a fresh clone of your default branch and can only push to `claude/` prefixed branches** unless you loosen that per repo. This is the guardrail that keeps an autonomous run from rewriting main.
+* **Runs start from a fresh clone of your default branch, push to `claude/` branches freely, and get checked before pushing anywhere else.** If your prompt names another branch, the check refuses the push when the branch is protected on GitHub, someone else has an open pull request from it, or it carries someone else's commits. Keep `main` protected and an autonomous run can't rewrite it.
 
 ## Headless mode: when you need your own environment[](#headless-mode-when-you-need-your-own-environment)
 
@@ -123,7 +123,7 @@ Start with routines. Drop down the spectrum only when the job actually needs the
 
 [Previous lessonHooks](https://academy.claude.com/courses/claude-code-in-action/hooks)[Next lessonGitHub Actions and Code Review](https://academy.claude.com/courses/claude-code-in-action/github-actions-and-code-review)
 
-Lesson 6 of 9 · Claude Code in ActionRoutines and headless
+Lesson 6 of 9 · Claude Code in actionRoutines and headless
 
 Steer the work
 

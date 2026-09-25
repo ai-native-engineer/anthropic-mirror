@@ -12,7 +12,7 @@ A playbook for rolling out Claude Cowork across your organization.
 
 [Open Cowork](claude://cowork/new)
 
-![](https://academy.claude.com/assets/v1/thumbnail.light-eb38a4h1.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-j0al2e51.png)
+![](https://academy.claude.com/assets/v1/thumbnail.light-bvn0kt1s.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-iu3pg3zz.png)
 
 ## The scaling mindset[](#the-scaling-mindset)
 
@@ -30,7 +30,7 @@ You are the director of this rollout, and that ownership does not transfer becau
 
 | Component | What it does | Help center |
 | --- | --- | --- |
-| Connectors | Make your data accessible to Claude Cowork. Give Claude Cowork access to tools your teams use — Google Drive, Slack, HubSpot, GitHub, etc. | [Connectors(opens in new tab)](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities) |
+| Connectors | Make your data accessible to Claude Cowork. Give Claude Cowork access to tools your teams use — Google Drive, Slack, [Salesforce(opens in new tab)](https://claude.ai/desktop/directory/salesforce-headless-360), GitHub, etc. | [Connectors(opens in new tab)](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities) |
 | Skills | Instructions that tell Claude how to do a specific task — skills work for simple tasks and multi-step workflows. | [Skills(opens in new tab)](https://support.claude.com/en/articles/12512180-use-skills-in-claude) |
 | Plugins | Packages of skills + connectors, distributed to specific teams or your whole org. | [Plugins(opens in new tab)](https://code.claude.com/docs/en/plugins) |
 | Scheduled tasks | Save a prompt and Claude runs it on a schedule (hourly, daily, weekly, weekdays, or on-demand) with access to everything a regular Cowork session does: connected tools, local files, and Chrome. Daily reports, weekly digests, recurring data pulls. | [Scheduled tasks(opens in new tab)](https://support.claude.com/en/articles/13854387-schedule-recurring-tasks-in-claude-cowork) |

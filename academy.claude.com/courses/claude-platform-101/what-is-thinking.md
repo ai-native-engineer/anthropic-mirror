@@ -23,7 +23,7 @@ Here's the failure mode we're trying to avoid. Ask a model a multi-step question
 
 ## What is extended thinking?[](#what-is-extended-thinking)
 
-Extended thinking lets Claude reason step by step before producing a final response. When it's enabled, Claude generates internal reasoning tokens — often called a **chain of thought** — and then delivers the answer. The reasoning isn't hidden: you can see it in the response alongside the final text.
+Extended thinking lets Claude reason step by step before producing a final response. When it's enabled, Claude generates internal reasoning tokens — often called a **chain of thought** — and then delivers the answer. On Claude Opus 5, the thinking text stays hidden unless your request's `thinking` setting includes `"display": "summarized"`, as the example below does. When it does, a summary of Claude's reasoning comes back in the response alongside the final text.
 
 ## Adaptive thinking on Claude Opus 5[](#adaptive-thinking-on-claude-opus-5)
 
@@ -101,7 +101,7 @@ In a production app, this is the difference between an agent that finds problems
 
 ## Recap[](#recap)
 
-* **Extended thinking** gives Claude room to reason before it answers, and the reasoning is visible in the response.
+* **Extended thinking** gives Claude room to reason before it answers. On Opus 5, the response carries a summary of that reasoning only when you ask for it.
 * On Opus 5, adaptive thinking is on by default — no token budget needed. Add `"display": "summarized"` to see the reasoning in the response.
 * Dial the depth with the **effort** parameter inside `output_config`: `low`, `medium`, `high` (default), `xhigh`, or `max`.
 * Use it for hard, trade-off-heavy problems. Skip it for simple ones — there it just costs latency and tokens.

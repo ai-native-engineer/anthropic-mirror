@@ -90,6 +90,7 @@ Claude Certification Package Overview
 Opens in new tab
 Claude for Government (C4G) PFCS-SS FedRAMP High Authorization Package
 Opens in new tab
+Claude for Government (C4G) FedRAMP Secure Configuration Guide
 International Compliance
 [Anthropic Ireland Limited] Cyber Essentials Certificate (2025)
 Questionnaires
@@ -110,7 +111,7 @@ Claude Cowork Security Best Practices
 Claude Cowork Desktop Security Architecture Overview
 Claude Desktop Security Overview (Third-party platforms)
 
-View 8 more
+View 9 more
 
 Security Advisories
 CVE-2026-22561 - DLL Search Order Hijacking in Claude for Windows installer
@@ -120,7 +121,7 @@ Claude Opus 4.7 Model Documentation Form
 Claude Opus 4.8 Model Documentation Form
 Claude Opus 5 Model Documentation Form
 
-View 3 more
+View 4 more
 
 Training Data Summaries
 AB 2013 Training Data Summary
@@ -128,7 +129,7 @@ Claude Sonnet 5 Training Data Summary
 Claude Opus 4.7 Training Data Summary
 Claude Opus 4.8 Training Data Summary
 
-View 4 more
+View 5 more
 
 Other Documents
 [Anthropic] Data Processing Addendum

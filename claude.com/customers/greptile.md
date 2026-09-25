@@ -4,37 +4,21 @@ Case study | Claude Agent SDK
 
 # Greptile builds truly agentic code review with Claude Agent SDK
 
-Try Claude
+[Get started](https://www.anthropic.com/engineering/building-agents-with-the-claude-agent-sdk)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-Get started
-
-[Get started](https://www.anthropic.com/engineering/building-agents-with-the-claude-agent-sdk)Get started
-
-![Greptile logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c0232414369115421c1f65_6863e9434f1286f887473e7b_logo-Greptile.svg)![Greptile logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c0232414369115421c1f65_6863e9434f1286f887473e7b_logo-Greptile.svg)
+![Greptile logo](https://assets.claude.com/332897b27e3360ad662ec44e2f8b25f6cedfe99d.svg)
 
 Industry:
-
-Software
+:   Software
 
 Company size:
-
-Small
+:   Small
 
 Product:
-
-Claude Agent SDK
-
-[Claude Code](https://claude.com/product/claude-code)
+:   Claude Agent SDK[Claude Code](https://claude.com/product/claude-code)
 
 Location:
-
-North America
+:   North America
 
 ~90% cache hit rates
 
@@ -43,42 +27,6 @@ Prompt caching through the Agent SDK dramatically reduces costs and increases co
 1 million
 
 Issues caught per month
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
 
 [**Greptile**](https://greptile.com) builds AI agents that review pull requests with full codebase context. The company serves more than 2,000 organizations, from startups to enterprises like NVIDIA, Brex, and Coinbase, helping engineering teams catch bugs and anti-patterns before they ship to production.
 
@@ -118,9 +66,9 @@ The team also uses hooks to inject determinism where it matters. For code review
 
 ## The outcome
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/696a9788da0a2879bd4e7abb_03707559.png)
+![](https://assets.claude.com/30b6e0463300201b51d360ef5af1b70986b90b80.png)
 
-[Greptile](https://www.greptile.com/examples) catches a precision calculation bug in [NVIDIA's PhysicsNeMo](https://github.com/NVIDIA/physicsnemo/pull/1174), then backs it up with evidence when the author pushes back.
+Greptile catches a precision calculation bug in NVIDIA's PhysicsNeMo, then backs it up with evidence when the author pushes back.
 
 ‍
 
@@ -136,58 +84,16 @@ Customers have noticed the difference. "Despite having a tech stack that has rep
 
 Greptile continues to expand what's possible with the Agent SDK, building new capabilities that would have been far more difficult to develop and maintain without it. For a company reviewing over a billion lines of code each month, the ability to focus on domain expertise rather than infrastructure has become a strategic advantage.
 
-"The Agent SDK has allowed us to ship faster with far more cost effectiveness and allows us to focus deeply on building specialized tooling."
+> "The Agent SDK has allowed us to ship faster with far more cost effectiveness and allows us to focus deeply on building specialized tooling."
 
-Daksh Gupta
+Daksh GuptaCo-founder and CEO, Greptile
 
-Co-founder and CEO, Greptile
+[![Supermetrics](https://assets.claude.com/3ac4171a81008be0340e5c3d8ccb46571c3edfb3.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### Supermetrics lets marketers manage ad campaigns from a conversation with Claude](https://claude.com/customers/supermetrics)[![Atlassian](https://assets.claude.com/4870b3d6c0253cea01b100c98ad2030b8e4f8ce1.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-[Next](#)Next
+### Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-Customer story
-
-[Customer story](https://claude.com/customers/atlassian)Customer story
-
-[Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)Rocket Money on building agents that fix their own code
-
-Rocket Money on building agents that fix their own code
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money-qa)Customer story
-
-[How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)How Rocket Money built its personal finance agent with Claude
-
-How Rocket Money built its personal finance agent with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money)Customer story
-
-[How Notion ships and scales agents with Claude Managed Agents](https://claude.com/customers/notion-qa)How Notion ships and scales agents with Claude Managed Agents
-
-How Notion ships and scales agents with Claude Managed Agents
-
-Customer story
-
-[Customer story](https://claude.com/customers/notion-qa)Customer story
+### How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)

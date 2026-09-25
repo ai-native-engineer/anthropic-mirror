@@ -4,35 +4,24 @@ Case study | Claude Platform
 
 # The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a5f65c6fd705dd371878f31_Epilepsy-foundation_light.png)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a5f65bf5bef5e4e2da75b45_epilepsy-foundation_dark.png)
+![Epilepsy Foundation logo](https://assets.claude.com/446cc4df1be577720df85748fa3813fa0837e3b8.png)
 
 Industry:
-
-Beneficial Deployments
+:   Beneficial Deployments
 
 Company size:
-
-Medium
+:   Medium
 
 Product:
-
-[Claude Platform](https://claude.com/platform/api)
+:   [Claude Platform](https://claude.com/platform/api)
 
 Partner:
-
-AWS
+:   AWS
 
 Location:
-
-North America
+:   North America
 
 60,000 interactions with Sage
 
@@ -54,32 +43,6 @@ From 1.2 to 3 since launch, as trust in Sage grew
 
 ## The challenge
 
-Q&A: The Epilepsy Foundation
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a59cacb6a5ea34a1b7ab877_og_case-study-EP%20Foundation%20(1).jpg)
-
-How the Epilepsy Foundation uses Claude across the organization
-
-Read more
-
-[Read more](https://claude.com/customers/epilepsy-foundation-qa)Read more
-
-Q&A: The Epilepsy Foundation
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-How the Epilepsy Foundation uses Claude across the organization
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Q&A: The Epilepsy Foundation
-
-How the Epilepsy Foundation uses Claude across the organization
-
 ## People getting lost in 20 years of content
 
 [Epilepsy.com](http://epilepsy.com) is the source people turn to when epilepsy enters their lives, whether they have just been diagnosed, are caring for a child, or are supporting a loved one. Somewhere between 8 to 10 million unique visitors come to the site each year, with about 35% coming from outside the United States. It’s trusted because every page is reviewed by the Foundation's expert editorial board, which is drawn from the nation's leading epileptologists and neurologists. These editors write or review every page and ensure that nothing is published without their sign-off. "There's no other place anywhere that has the depth and breadth of content that we have," said Sarah Klein, Chief Engagement Officer at the Epilepsy Foundation.
@@ -88,33 +51,15 @@ With such a wealth of content, the challenge arose when visitors needed to find 
 
 No fixed path could fit everyone. "No two people have the same epilepsy journey," Klein added. The site was strong at guiding a visitor to the right page, but building a route through content that met each person where they were proved much harder. At the scariest moments—a parent up at night or someone still absorbing a diagnosis—that gap sent people away from the one expert-vetted source and into the rest of the internet, where nothing had been checked.
 
+Q&A: The Epilepsy Foundation
+
+![Q&A: The Epilepsy Foundation ](https://assets.claude.com/241e023e2a98a4dc66029fe1a3c16e696eb50883.jpg)
+
+How the Epilepsy Foundation uses Claude across the organization
+
+[Read more](https://claude.com/customers/epilepsy-foundation-qa)
+
 ## The solution
-
-Beneficial Deployments
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a57d4749f1d659f155a38d4_Screenshot%202026-07-15%20at%2011.41.43%E2%80%AFAM.png)
-
-Accelerate the work that matters most
-
-Read more
-
-[Read more](https://www.anthropic.com/news/claude-for-nonprofits)Read more
-
-Beneficial Deployments
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Accelerate the work that matters most
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Beneficial Deployments
-
-Accelerate the work that matters most
 
 ## Choosing a model with empathy built in
 
@@ -136,21 +81,17 @@ Jost is careful not to call Sage a chatbot. "A chatbot is usually a one-way conv
 
 Over time, the team noticed Sage doing useful things no one had explicitly programmed. For example, Sage began offering guidance pulled from the Foundation's vetted articles, like how to handle a situation at school or how to make the most of a few minutes with a neurologist. "We don't have to prompt everything into our agent," he added. "A lot of this is prompted from the knowledge base we created."
 
-"Even though we didn't bake this into our own prompt, at the core, the Claude models were very empathetic."
+Beneficial Deployments
 
-David-Alexandre Jost,
+![Beneficial Deployments](https://assets.claude.com/bd2f6616dd97e9699cf8d4a806c93022b8741492.png)
 
-Chief Technology and Innovations Officer, The Epilepsy Foundation
+Accelerate the work that matters most
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[Read more](https://www.anthropic.com/news/claude-for-nonprofits)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+> "Even though we didn't bake this into our own prompt, at the core, the Claude models were very empathetic."
 
-[Next](#)Next
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+David-Alexandre Jost, Chief Technology and Innovations Officer, The Epilepsy Foundation
 
 ## The outcome
 
@@ -164,42 +105,16 @@ Another user had lived with uncontrolled seizures for two years, along with seve
 
 That pattern points to where the Foundation is headed. Power users are treating Sage as a diary, which matters most for community members with cognitive challenges, and the current version cannot carry memory across sessions yet. The next iteration, Sage Next, is being built on [Amazon Bedrock AgentCore](https://aws.amazon.com/bedrock/agentcore/) with authentication and short-term and long-term memory, so Sage can carry what someone shared weeks ago into a later conversation. "The vision for Sage was to really help you navigate all of that content,” Jost said. “But now Sage is more than this. It's your companion in your epilepsy journey."
 
-"When a new version of your Claude models comes out, it's usually available the same day on AWS."
+> "When a new version of your Claude models comes out, it's usually available the same day on AWS."
 
-David-Alexandre Jost,
+David-Alexandre Jost, Chief Technology and Innovations Officer, The Epilepsy Foundation
 
-Chief Technology and Innovations Officer, The Epilepsy Foundation
+[![Mercy Corps](https://assets.claude.com/544995a85d67ef08fd67560f5758d5e28bc7a53f.svg)
 
-## Related stories
+### Mercy Corps on what AI makes possible in humanitarian work](https://claude.com/customers/mercy-corps-qa)[![Mercy Corps](https://assets.claude.com/544995a85d67ef08fd67560f5758d5e28bc7a53f.svg)
 
-[Mercy Corps on what AI makes possible in humanitarian work](https://claude.com/customers/mercy-corps-qa)Mercy Corps on what AI makes possible in humanitarian work
+### Mercy Corps accelerates global humanitarian response to community feedback with Claude](https://claude.com/customers/mercy-corps)[![Epilepsy Foundation](https://assets.claude.com/446cc4df1be577720df85748fa3813fa0837e3b8.png)
 
-Mercy Corps on what AI makes possible in humanitarian work
+### How the Epilepsy Foundation uses Claude across the organization](https://claude.com/customers/epilepsy-foundation-qa)[![National Domestic Workers Alliance](https://assets.claude.com/8cdd9e0611e1a8258e4b24391c64186909732176.svg)
 
-Customer story
-
-[Customer story](https://claude.com/customers/mercy-corps-qa)Customer story
-
-[Mercy Corps accelerates global humanitarian response to community feedback with Claude](https://claude.com/customers/mercy-corps)Mercy Corps accelerates global humanitarian response to community feedback with Claude
-
-Mercy Corps accelerates global humanitarian response to community feedback with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/mercy-corps)Customer story
-
-[How the Epilepsy Foundation uses Claude across the organization](https://claude.com/customers/epilepsy-foundation-qa)How the Epilepsy Foundation uses Claude across the organization
-
-How the Epilepsy Foundation uses Claude across the organization
-
-Customer story
-
-[Customer story](https://claude.com/customers/epilepsy-foundation-qa)Customer story
-
-[Building dignity-driven AI: A conversation with the National Domestic Workers Alliance](https://claude.com/customers/national-domestic-workers-alliance-qa)Building dignity-driven AI: A conversation with the National Domestic Workers Alliance
-
-Building dignity-driven AI: A conversation with the National Domestic Workers Alliance
-
-Customer story
-
-[Customer story](https://claude.com/customers/national-domestic-workers-alliance-qa)Customer story
+### Building dignity-driven AI: A conversation with the National Domestic Workers Alliance](https://claude.com/customers/national-domestic-workers-alliance-qa)

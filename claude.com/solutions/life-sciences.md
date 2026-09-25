@@ -1,5 +1,7 @@
 <!-- source: https://claude.com/solutions/life-sciences -->
 
+Explore here
+
 Claude Team plan for scientists
 
 [Next](#)Next
@@ -611,7 +613,7 @@ Literature, lab notebooks, and analysis platforms, all working together in one p
 
 Explore connectors
 
-[Explore connectors](https://claude.com/archive/connectors)Explore connectors
+[Explore connectors](https://claude.com/connectors)Explore connectors
 
 ### Explore the latest news in life sciences
 

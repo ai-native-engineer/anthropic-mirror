@@ -4,13 +4,18 @@
 title: Cache diagnostics
 url: https://platform.claude.com/docs/en/build-with-claude/cache-diagnostics
 description: Diagnose unexpected prompt cache misses by comparing consecutive requests and identifying exactly where the prompt prefix diverged.
+featureMetadata:
+  status: ga
+  zdr:
+    eligibility: eligible
+    note: Excludes [Covered Models](https://platform.claude.com/docs/en/manage-claude/api-and-data-retention#model-specific-data-retention-requirements).
+  supportedPlatforms:
+    Claude API: ga
+    Claude Platform on AWS: not available
+    Amazon Bedrock: not available
+    Google Cloud: not available
+    Microsoft Foundry: not available
 ---
-
-## Compatibility
-- Status: Beta
-- [Beta header](https://platform.claude.com/docs/en/api/beta-headers): `cache-diagnosis-2026-04-07`
-- [ZDR](https://platform.claude.com/docs/en/manage-claude/api-and-data-retention): eligible (excludes [Covered Models](https://platform.claude.com/docs/en/manage-claude/api-and-data-retention#model-specific-data-retention-requirements))
-- Platforms: Claude API (beta); not available on Claude Platform on AWS, Amazon Bedrock, Google Cloud, Microsoft Foundry
 
 [Prompt caching](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) cuts latency and cost significantly, but only when the beginning of your prompt is byte-for-byte identical to a recent request. A reordered tool, a timestamp interpolated into your system prompt, or an edit to an earlier message can silently invalidate the cache. Without cache diagnostics, the only signal is `usage.cache_read_input_tokens` dropping to zero, with no indication of what changed.
 
@@ -18,7 +23,7 @@ Cache diagnostics closes that gap. Pass the `id` of your previous response, and 
 
 ## How cache diagnostics works
 
-When the beta header is present, the API stores a lightweight fingerprint of each request, keyed by the response `id`. On your next request, include that `id` as `diagnostics.previous_message_id`. The API rebuilds the fingerprint for the new request, compares it against the stored one, and attaches a `diagnostics` object to the response describing the first point of divergence.
+For each request that includes the `diagnostics` object, the API stores a lightweight fingerprint keyed by the response `id`. It stores nothing for requests that omit the object. On your next request, include the previous response's `id` as `diagnostics.previous_message_id`. The API rebuilds the fingerprint for the new request, compares it against the stored one, and attaches a `diagnostics` object to the response describing the first point of divergence.
 
 The comparison is about request structure, independent of whether the cache actually hit. See [Reading diagnostics alongside usage](https://platform.claude.com/docs/en/build-with-claude/cache-diagnostics#reading-diagnostics-alongside-usage) for how to combine the `diagnostics` result with `usage.cache_read_input_tokens`.
 
@@ -26,7 +31,7 @@ Fingerprints contain only hashes and token-count estimates (never raw prompt con
 
 ## Basic usage
 
-Send the beta header on every turn. On the first turn, pass `"previous_message_id": null` to opt in without a prior message to compare against. On subsequent turns, pass the `id` from the previous response.
+Include the `diagnostics` object on every turn. The object is the opt-in: the API stores a fingerprint only for requests that include it. On the first turn, pass `"previous_message_id": null` to opt in without a prior message to compare against. On subsequent turns, pass the `id` from the previous response. The `cache-diagnosis-2026-04-07` beta header is no longer required, and requests that still send it work as before.
 
 <CodeGroup>
   ```bash cURL
@@ -34,10 +39,9 @@ Send the beta header on every turn. On the first turn, pass `"previous_message_i
   response=$(curl -sS --fail-with-body https://api.anthropic.com/v1/messages \
     -H "x-api-key: $ANTHROPIC_API_KEY" \
     -H "anthropic-version: 2023-06-01" \
-    -H "anthropic-beta: cache-diagnosis-2026-04-07" \
     -H "content-type: application/json" \
     -d '{
-      "model": "claude-opus-5",
+      "model": "claude-opus-5-5",
       "max_tokens": 1024,
       "cache_control": {"type": "ephemeral"},
       "system": "You are an AI assistant analyzing a large document. <document>...</document>",
@@ -51,11 +55,10 @@ Send the beta header on every turn. On the first turn, pass `"previous_message_i
   curl -sS --fail-with-body https://api.anthropic.com/v1/messages \
     -H "x-api-key: $ANTHROPIC_API_KEY" \
     -H "anthropic-version: 2023-06-01" \
-    -H "anthropic-beta: cache-diagnosis-2026-04-07" \
     -H "content-type: application/json" \
     -d @- <<EOF | jq '{id, diagnostics}'  # diagnostics: null means no divergence was found
   {
-    "model": "claude-opus-5",
+    "model": "claude-opus-5-5",
     "max_tokens": 1024,
     "cache_control": {"type": "ephemeral"},
     "system": "You are an AI assistant analyzing a large document. <document>...</document>",
@@ -72,9 +75,8 @@ Send the beta header on every turn. On the first turn, pass `"previous_message_i
   ```bash CLI
   # Turn 1
   turn1=$(ant beta:messages create \
-    --beta cache-diagnosis-2026-04-07 \
     --transform '{id,usage,diagnostics}' <<'YAML'
-  model: claude-opus-5
+  model: claude-opus-5-5
   max_tokens: 1024
   cache_control:
     type: ephemeral
@@ -91,9 +93,8 @@ Send the beta header on every turn. On the first turn, pass `"previous_message_i
   # Turn 2: pass the id from turn 1 as previous_message_id
   message_id=$(jq -r '.id' <<<"$turn1")
   ant beta:messages create \
-    --beta cache-diagnosis-2026-04-07 \
     --transform '{id,usage,diagnostics}' <<YAML
-  model: claude-opus-5
+  model: claude-opus-5-5
   max_tokens: 1024
   cache_control:
     type: ephemeral
@@ -117,18 +118,17 @@ Send the beta header on every turn. On the first turn, pass `"previous_message_i
 
   # Turn 1: opt in with previous_message_id=None
   r1 = client.beta.messages.create(
-      model="claude-opus-5",
+      model="claude-opus-5-5",
       max_tokens=1024,
       cache_control={"type": "ephemeral"},
       system=SYSTEM,
       messages=[{"role": "user", "content": "Summarize section 1."}],
       diagnostics={"previous_message_id": None},
-      betas=["cache-diagnosis-2026-04-07"],
   )
 
   # Turn 2: reference the previous response id
   r2 = client.beta.messages.create(
-      model="claude-opus-5",
+      model="claude-opus-5-5",
       max_tokens=1024,
       cache_control={"type": "ephemeral"},
       system=SYSTEM,
@@ -138,7 +138,6 @@ Send the beta header on every turn. On the first turn, pass `"previous_message_i
           {"role": "user", "content": "Now summarize section 2."},
       ],
       diagnostics={"previous_message_id": r1.id},
-      betas=["cache-diagnosis-2026-04-07"],
   )
 
   diagnostics = r2.diagnostics
@@ -157,18 +156,17 @@ Send the beta header on every turn. On the first turn, pass `"previous_message_i
 
   // Turn 1: opt in with previous_message_id: null
   const r1 = await client.beta.messages.create({
-    model: "claude-opus-5",
+    model: "claude-opus-5-5",
     max_tokens: 1024,
     cache_control: { type: "ephemeral" },
     system: SYSTEM,
     messages: [{ role: "user", content: "Summarize section 1." }],
-    diagnostics: { previous_message_id: null },
-    betas: ["cache-diagnosis-2026-04-07"]
+    diagnostics: { previous_message_id: null }
   });
 
   // Turn 2: reference the previous response id
   const r2 = await client.beta.messages.create({
-    model: "claude-opus-5",
+    model: "claude-opus-5-5",
     max_tokens: 1024,
     cache_control: { type: "ephemeral" },
     system: SYSTEM,
@@ -177,8 +175,7 @@ Send the beta header on every turn. On the first turn, pass `"previous_message_i
       { role: "assistant", content: r1.content },
       { role: "user", content: "Now summarize section 2." }
     ],
-    diagnostics: { previous_message_id: r1.id },
-    betas: ["cache-diagnosis-2026-04-07"]
+    diagnostics: { previous_message_id: r1.id }
   });
 
   if (r2.diagnostics === null) {
@@ -198,7 +195,7 @@ Send the beta header on every turn. On the first turn, pass `"previous_message_i
   var r1 = await client.Beta.Messages.Create(
       new()
       {
-          Model = Messages::Model.ClaudeOpus5,
+          Model = Messages::Model.ClaudeOpus5_5,
           MaxTokens = 1024,
           CacheControl = new(),
           System = system,
@@ -207,14 +204,13 @@ Send the beta header on every turn. On the first turn, pass `"previous_message_i
               new() { Role = Role.User, Content = "Summarize section 1." },
           ],
           Diagnostics = new() { PreviousMessageID = null },
-          Betas = [AnthropicBeta.CacheDiagnosis2026_04_07],
       }
   );
 
   var r2 = await client.Beta.Messages.Create(
       new()
       {
-          Model = Messages::Model.ClaudeOpus5,
+          Model = Messages::Model.ClaudeOpus5_5,
           MaxTokens = 1024,
           CacheControl = new(),
           System = system,
@@ -229,7 +225,6 @@ Send the beta header on every turn. On the first turn, pass `"previous_message_i
               new() { Role = Role.User, Content = "Now summarize section 2." },
           ],
           Diagnostics = new() { PreviousMessageID = r1.ID },
-          Betas = [AnthropicBeta.CacheDiagnosis2026_04_07],
       }
   );
 
@@ -250,7 +245,7 @@ Send the beta header on every turn. On the first turn, pass `"previous_message_i
   }
 
   r1, err := client.Beta.Messages.New(ctx, anthropic.BetaMessageNewParams{
-  	Model:        anthropic.ModelClaudeOpus5,
+  	Model:        anthropic.ModelClaudeOpus5_5,
   	MaxTokens:    1024,
   	CacheControl: anthropic.BetaCacheControlEphemeralParam{},
   	System:       system,
@@ -260,14 +255,13 @@ Send the beta header on every turn. On the first turn, pass `"previous_message_i
   	Diagnostics: anthropic.BetaDiagnosticsParam{
   		PreviousMessageID: param.Null[string](),
   	},
-  	Betas: []anthropic.AnthropicBeta{anthropic.AnthropicBetaCacheDiagnosis2026_04_07},
   })
   if err != nil {
   	panic(err)
   }
 
   r2, err := client.Beta.Messages.New(ctx, anthropic.BetaMessageNewParams{
-  	Model:        anthropic.ModelClaudeOpus5,
+  	Model:        anthropic.ModelClaudeOpus5_5,
   	MaxTokens:    1024,
   	CacheControl: anthropic.BetaCacheControlEphemeralParam{},
   	System:       system,
@@ -279,7 +273,6 @@ Send the beta header on every turn. On the first turn, pass `"previous_message_i
   	Diagnostics: anthropic.BetaDiagnosticsParam{
   		PreviousMessageID: anthropic.String(r1.ID),
   	},
-  	Betas: []anthropic.AnthropicBeta{anthropic.AnthropicBetaCacheDiagnosis2026_04_07},
   })
   if err != nil {
   	panic(err)
@@ -302,20 +295,19 @@ Send the beta header on every turn. On the first turn, pass `"previous_message_i
 
   var r1 = client.beta().messages().create(
       MessageCreateParams.builder()
-          .model(Model.CLAUDE_OPUS_5)
+          .model(Model.CLAUDE_OPUS_5_5)
           .maxTokens(1024)
           .cacheControl(BetaCacheControlEphemeral.builder().build())
           .system(system)
           .addUserMessage("Summarize section 1.")
           // Pass null on the first turn to opt in without a prior message to compare.
           .diagnostics(BetaDiagnosticsParam.builder().previousMessageId((String) null).build())
-          .addBeta(AnthropicBeta.CACHE_DIAGNOSIS_2026_04_07)
           .build()
   );
 
   var r2 = client.beta().messages().create(
       MessageCreateParams.builder()
-          .model(Model.CLAUDE_OPUS_5)
+          .model(Model.CLAUDE_OPUS_5_5)
           .maxTokens(1024)
           .cacheControl(BetaCacheControlEphemeral.builder().build())
           .system(system)
@@ -323,7 +315,6 @@ Send the beta header on every turn. On the first turn, pass `"previous_message_i
           .addMessage(r1)
           .addUserMessage("Now summarize section 2.")
           .diagnostics(BetaDiagnosticsParam.builder().previousMessageId(r1.id()).build())
-          .addBeta(AnthropicBeta.CACHE_DIAGNOSIS_2026_04_07)
           .build()
   );
 
@@ -346,7 +337,7 @@ Send the beta header on every turn. On the first turn, pass `"previous_message_i
   $system = 'You are an AI assistant analyzing a large document. <document>...</document>';
 
   $r1 = $client->beta->messages->create(
-      model: Model::CLAUDE_OPUS_5,
+      model: Model::CLAUDE_OPUS_5_5,
       maxTokens: 1024,
       cacheControl: new BetaCacheControlEphemeral,
       system: $system,
@@ -354,11 +345,10 @@ Send the beta header on every turn. On the first turn, pass `"previous_message_i
           ['role' => 'user', 'content' => 'Summarize section 1.'],
       ],
       diagnostics: (new BetaDiagnosticsParam)->withPreviousMessageID(null),
-      betas: [AnthropicBeta::CACHE_DIAGNOSIS_2026_04_07],
   );
 
   $r2 = $client->beta->messages->create(
-      model: Model::CLAUDE_OPUS_5,
+      model: Model::CLAUDE_OPUS_5_5,
       maxTokens: 1024,
       cacheControl: new BetaCacheControlEphemeral,
       system: $system,
@@ -368,7 +358,6 @@ Send the beta header on every turn. On the first turn, pass `"previous_message_i
           ['role' => 'user', 'content' => 'Now summarize section 2.'],
       ],
       diagnostics: (new BetaDiagnosticsParam)->withPreviousMessageID($r1->id),
-      betas: [AnthropicBeta::CACHE_DIAGNOSIS_2026_04_07],
   );
 
   echo match (true) {
@@ -384,19 +373,18 @@ Send the beta header on every turn. On the first turn, pass `"previous_message_i
   SYSTEM = "You are an AI assistant analyzing a large document. <document>...</document>"
 
   r1 = client.beta.messages.create(
-    model: :"claude-opus-5",
+    model: :"claude-opus-5-5",
     max_tokens: 1024,
     cache_control: {type: "ephemeral"},
     system_: SYSTEM,
     messages: [
       {role: "user", content: "Summarize section 1."}
     ],
-    diagnostics: {previous_message_id: nil},
-    betas: ["cache-diagnosis-2026-04-07"]
+    diagnostics: {previous_message_id: nil}
   )
 
   r2 = client.beta.messages.create(
-    model: :"claude-opus-5",
+    model: :"claude-opus-5-5",
     max_tokens: 1024,
     cache_control: {type: "ephemeral"},
     system_: SYSTEM,
@@ -405,8 +393,7 @@ Send the beta header on every turn. On the first turn, pass `"previous_message_i
       {role: "assistant", content: r1.content},
       {role: "user", content: "Now summarize section 2."}
     ],
-    diagnostics: {previous_message_id: r1.id},
-    betas: ["cache-diagnosis-2026-04-07"]
+    diagnostics: {previous_message_id: r1.id}
   )
 
   case r2.diagnostics
@@ -431,11 +418,10 @@ In streaming responses, `diagnostics` appears on the `message_start` event.
   curl -sS --fail-with-body https://api.anthropic.com/v1/messages \
     -H "x-api-key: $ANTHROPIC_API_KEY" \
     -H "anthropic-version: 2023-06-01" \
-    -H "anthropic-beta: cache-diagnosis-2026-04-07" \
     -H "content-type: application/json" \
     -d @- <<EOF | jq -R 'select(startswith("data: ")) | ltrimstr("data: ") | fromjson | select(.type == "message_start") | .message.diagnostics'
   {
-    "model": "claude-opus-5",
+    "model": "claude-opus-5-5",
     "max_tokens": 1024,
     "stream": true,
     "cache_control": {"type": "ephemeral"},
@@ -454,9 +440,8 @@ In streaming responses, `diagnostics` appears on the `message_start` event.
   # Turn 2: stream. With --stream the CLI emits each SSE event as one JSON object.
   # diagnostics arrives on the message_start event; pick it out with jq.
   ant beta:messages create \
-    --beta cache-diagnosis-2026-04-07 \
     --stream --format jsonl <<YAML |
-  model: claude-opus-5
+  model: claude-opus-5-5
   max_tokens: 1024
   cache_control:
     type: ephemeral
@@ -477,7 +462,7 @@ In streaming responses, `diagnostics` appears on the `message_start` event.
   ```python Python
   # Turn 2: stream, referencing the previous response id
   with client.beta.messages.stream(
-      model="claude-opus-5",
+      model="claude-opus-5-5",
       max_tokens=1024,
       cache_control={"type": "ephemeral"},
       system=SYSTEM,
@@ -487,7 +472,6 @@ In streaming responses, `diagnostics` appears on the `message_start` event.
           {"role": "user", "content": "Now summarize section 2."},
       ],
       diagnostics={"previous_message_id": r1.id},
-      betas=["cache-diagnosis-2026-04-07"],
   ) as stream:
       for text in stream.text_stream:
           print(text, end="", flush=True)
@@ -505,7 +489,7 @@ In streaming responses, `diagnostics` appears on the `message_start` event.
 
   ```typescript TypeScript
   const stream = client.beta.messages.stream({
-    model: "claude-opus-5",
+    model: "claude-opus-5-5",
     max_tokens: 1024,
     cache_control: { type: "ephemeral" },
     system: SYSTEM,
@@ -514,8 +498,7 @@ In streaming responses, `diagnostics` appears on the `message_start` event.
       { role: "assistant", content: r1.content },
       { role: "user", content: "Now summarize section 2." }
     ],
-    diagnostics: { previous_message_id: r1.id },
-    betas: ["cache-diagnosis-2026-04-07"]
+    diagnostics: { previous_message_id: r1.id }
   });
 
   for await (const event of stream) {
@@ -544,7 +527,7 @@ In streaming responses, `diagnostics` appears on the `message_start` event.
   var stream = client.Beta.Messages.CreateStreaming(
       new()
       {
-          Model = Messages::Model.ClaudeOpus5,
+          Model = Messages::Model.ClaudeOpus5_5,
           MaxTokens = 1024,
           CacheControl = new(),
           System = system,
@@ -559,7 +542,6 @@ In streaming responses, `diagnostics` appears on the `message_start` event.
               new() { Role = Role.User, Content = "Now summarize section 2." },
           ],
           Diagnostics = new() { PreviousMessageID = r1.ID },
-          Betas = [AnthropicBeta.CacheDiagnosis2026_04_07],
       }
   );
 
@@ -588,7 +570,7 @@ In streaming responses, `diagnostics` appears on the `message_start` event.
   ```go Go
   // Turn 2: stream, referencing the previous response id
   stream := client.Beta.Messages.NewStreaming(ctx, anthropic.BetaMessageNewParams{
-  	Model:        anthropic.ModelClaudeOpus5,
+  	Model:        anthropic.ModelClaudeOpus5_5,
   	MaxTokens:    1024,
   	CacheControl: anthropic.BetaCacheControlEphemeralParam{},
   	System:       system,
@@ -600,7 +582,6 @@ In streaming responses, `diagnostics` appears on the `message_start` event.
   	Diagnostics: anthropic.BetaDiagnosticsParam{
   		PreviousMessageID: anthropic.String(r1.ID),
   	},
-  	Betas: []anthropic.AnthropicBeta{anthropic.AnthropicBetaCacheDiagnosis2026_04_07},
   })
   defer stream.Close()
 
@@ -628,7 +609,7 @@ In streaming responses, `diagnostics` appears on the `message_start` event.
   ```java Java
   // Turn 2: stream, referencing the previous response id
   var params = MessageCreateParams.builder()
-      .model(Model.CLAUDE_OPUS_5)
+      .model(Model.CLAUDE_OPUS_5_5)
       .maxTokens(1024)
       .cacheControl(BetaCacheControlEphemeral.builder().build())
       .system(system)
@@ -636,7 +617,6 @@ In streaming responses, `diagnostics` appears on the `message_start` event.
       .addMessage(r1)
       .addUserMessage("Now summarize section 2.")
       .diagnostics(BetaDiagnosticsParam.builder().previousMessageId(r1.id()).build())
-      .addBeta(AnthropicBeta.CACHE_DIAGNOSIS_2026_04_07)
       .build();
 
   var accumulator = BetaMessageAccumulator.create();
@@ -667,7 +647,7 @@ In streaming responses, `diagnostics` appears on the `message_start` event.
   ```php PHP
   // Turn 2: stream, referencing the previous response id
   $stream = $client->beta->messages->createStream(
-      model: Model::CLAUDE_OPUS_5,
+      model: Model::CLAUDE_OPUS_5_5,
       maxTokens: 1024,
       cacheControl: new BetaCacheControlEphemeral,
       system: $system,
@@ -677,16 +657,20 @@ In streaming responses, `diagnostics` appears on the `message_start` event.
           ['role' => 'user', 'content' => 'Now summarize section 2.'],
       ],
       diagnostics: (new BetaDiagnosticsParam)->withPreviousMessageID($r1->id),
-      betas: [AnthropicBeta::CACHE_DIAGNOSIS_2026_04_07],
   );
 
   $diagnostics = null;
   foreach ($stream as $event) {
-      if ($event instanceof BetaRawMessageStartEvent) {
-          // diagnostics arrives on the message_start event's embedded BetaMessage
-          $diagnostics = $event->message->diagnostics;
-      } elseif ($event instanceof BetaRawContentBlockDeltaEvent && $event->delta instanceof BetaTextDelta) {
-          echo $event->delta->text;
+      switch (true) {
+          case $event instanceof \Anthropic\Beta\Messages\BetaRawMessageStartEvent:
+              // diagnostics arrives on the message_start event's embedded BetaMessage
+              $diagnostics = $event->message->diagnostics;
+              break;
+          case $event instanceof \Anthropic\Beta\Messages\BetaRawContentBlockDeltaEvent:
+              if ($event->delta instanceof \Anthropic\Beta\Messages\BetaTextDelta) {
+                  echo $event->delta->text;
+              }
+              break;
       }
   }
   echo PHP_EOL;
@@ -701,7 +685,7 @@ In streaming responses, `diagnostics` appears on the `message_start` event.
   ```ruby Ruby
   # Turn 2: stream, referencing the previous response id
   stream = client.beta.messages.stream(
-    model: :"claude-opus-5",
+    model: :"claude-opus-5-5",
     max_tokens: 1024,
     cache_control: {type: "ephemeral"},
     system_: SYSTEM,
@@ -710,8 +694,7 @@ In streaming responses, `diagnostics` appears on the `message_start` event.
       {role: "assistant", content: r1.content},
       {role: "user", content: "Now summarize section 2."}
     ],
-    diagnostics: {previous_message_id: r1.id},
-    betas: ["cache-diagnosis-2026-04-07"]
+    diagnostics: {previous_message_id: r1.id}
   )
 
   stream.each do |event|
@@ -767,13 +750,12 @@ In a multi-turn conversation, carry the latest response `id` forward as `previou
         messages.append({"role": "user", "content": user_message})
 
         r = client.beta.messages.create(
-            model="claude-opus-5",
+            model="claude-opus-5-5",
             max_tokens=1024,
             cache_control={"type": "ephemeral"},
             system=SYSTEM,
             messages=messages,
             diagnostics={"previous_message_id": prev_id},
-            betas=["cache-diagnosis-2026-04-07"],
         )
 
         if r.diagnostics is not None and r.diagnostics.cache_miss_reason is not None:
@@ -799,13 +781,12 @@ In a multi-turn conversation, carry the latest response `id` forward as `previou
       messages.push({ role: "user", content: prompt });
 
       const r: BetaMessage = await client.beta.messages.create({
-        model: "claude-opus-5",
+        model: "claude-opus-5-5",
         max_tokens: 1024,
         cache_control: { type: "ephemeral" },
         system: SYSTEM,
         messages,
-        diagnostics: { previous_message_id: prevId },
-        betas: ["cache-diagnosis-2026-04-07"]
+        diagnostics: { previous_message_id: prevId }
       });
 
       if (r.diagnostics?.cache_miss_reason) {
@@ -835,13 +816,12 @@ In a multi-turn conversation, carry the latest response `id` forward as `previou
         var r = await client.Beta.Messages.Create(
             new()
             {
-                Model = Messages::Model.ClaudeOpus5,
+                Model = Messages::Model.ClaudeOpus5_5,
                 MaxTokens = 1024,
                 CacheControl = new(),
                 System = system,
                 Messages = messages,
                 Diagnostics = new() { PreviousMessageID = prevId },
-                Betas = [AnthropicBeta.CacheDiagnosis2026_04_07],
             }
         );
 
@@ -880,7 +860,7 @@ In a multi-turn conversation, carry the latest response `id` forward as `previou
     	messages = append(messages, anthropic.NewBetaUserMessage(anthropic.NewBetaTextBlock(prompt)))
 
     	r, err := client.Beta.Messages.New(ctx, anthropic.BetaMessageNewParams{
-    		Model:        anthropic.ModelClaudeOpus5,
+    		Model:        anthropic.ModelClaudeOpus5_5,
     		MaxTokens:    1024,
     		CacheControl: anthropic.BetaCacheControlEphemeralParam{},
     		System:       system,
@@ -888,7 +868,6 @@ In a multi-turn conversation, carry the latest response `id` forward as `previou
     		Diagnostics: anthropic.BetaDiagnosticsParam{
     			PreviousMessageID: prevID,
     		},
-    		Betas: []anthropic.AnthropicBeta{anthropic.AnthropicBetaCacheDiagnosis2026_04_07},
     	})
     	if err != nil {
     		panic(err)
@@ -924,13 +903,12 @@ In a multi-turn conversation, carry the latest response `id` forward as `previou
 
         var r = client.beta().messages().create(
             MessageCreateParams.builder()
-                .model(Model.CLAUDE_OPUS_5)
+                .model(Model.CLAUDE_OPUS_5_5)
                 .maxTokens(1024)
                 .cacheControl(BetaCacheControlEphemeral.builder().build())
                 .system(system)
                 .messages(messages)
                 .diagnostics(BetaDiagnosticsParam.builder().previousMessageId(prevId).build())
-                .addBeta(AnthropicBeta.CACHE_DIAGNOSIS_2026_04_07)
                 .build()
         );
 
@@ -962,13 +940,12 @@ In a multi-turn conversation, carry the latest response `id` forward as `previou
         $messages[] = ['role' => 'user', 'content' => $userMsg];
 
         $r = $client->beta->messages->create(
-            model: Model::CLAUDE_OPUS_5,
+            model: Model::CLAUDE_OPUS_5_5,
             maxTokens: 1024,
             cacheControl: new BetaCacheControlEphemeral,
             system: $system,
             messages: $messages,
             diagnostics: (new BetaDiagnosticsParam)->withPreviousMessageID($prevId),
-            betas: [AnthropicBeta::CACHE_DIAGNOSIS_2026_04_07],
         );
 
         if ($r->diagnostics?->cacheMissReason !== null) {
@@ -994,13 +971,12 @@ In a multi-turn conversation, carry the latest response `id` forward as `previou
       messages << {role: "user", content: user_msg}
 
       r = client.beta.messages.create(
-        model: :"claude-opus-5",
+        model: :"claude-opus-5-5",
         max_tokens: 1024,
         cache_control: {type: "ephemeral"},
         system_: SYSTEM,
         messages: messages,
-        diagnostics: {previous_message_id: prev_id},
-        betas: ["cache-diagnosis-2026-04-07"]
+        diagnostics: {previous_message_id: prev_id}
       )
 
       if (reason = r.diagnostics&.cache_miss_reason)
@@ -1016,12 +992,11 @@ In a multi-turn conversation, carry the latest response `id` forward as `previou
 
 ## Response format
 
-The `diagnostics` field on the response `Message` has four possible states:
+The `diagnostics` field on the response `Message` has three possible values:
 
 | Value                          | Meaning                                                                                                                                                                                         |
 | ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| field absent                   | The request did not include `diagnostics`, or the beta header was missing.                                                                                                                      |
-| `null`                         | Either `previous_message_id` was `null` (first turn, nothing to compare), or a comparison ran and found no divergence.                                                                          |
+| `null`                         | The request did not include the `diagnostics` object, `previous_message_id` was `null` (first turn, nothing to compare), or a comparison ran and found no divergence.                           |
 | `{"cache_miss_reason": null}`  | The comparison was still running when the response was serialized. This can happen when the response starts very quickly. Treat it as inconclusive and check the next turn.                     |
 | `{"cache_miss_reason": {...}}` | A `cache_miss_reason` is attached. For `*_changed` types this identifies the first divergence point; `previous_message_not_found` and `unavailable` are cases where no comparison was produced. |
 
@@ -1058,7 +1033,7 @@ When `cache_miss_reason` is non-null, it looks like this:
 | `system_changed`             | The `system` parameter differs. Typically a timestamp, request ID, or other per-request value was interpolated into the system prompt.                                                                                                                                                                                                                                                                                                          | Make the system prompt a byte-stable constant and move dynamic data into the first `user` message after your cache breakpoint.                                                                                                                                                                                |
 | `tools_changed`              | The `tools` array differs: tools were added, removed, or reordered between turns, or tool `input_schema` JSON was serialized non-deterministically.                                                                                                                                                                                                                                                                                             | Send the same tool list on every turn in a fixed order with deterministically serialized schemas (for example, sort keys).                                                                                                                                                                                    |
 | `messages_changed`           | The model, system, and tools all match, but an earlier entry in `messages` was altered, reordered, or removed rather than appended to. Typically conversation history was truncated or edited, or assistant turns and `tool_result` blocks were re-serialized differently on resend.                                                                                                                                                            | Treat the history as append-only; echo assistant `content` and tool results back verbatim.                                                                                                                                                                                                                    |
-| `previous_message_not_found` | No stored fingerprint exists for the supplied `previous_message_id`. This is not evidence that your request changed. Typically the previous request did not carry the beta header, it came from a different workspace, or too much time has passed since it was sent.                                                                                                                                                                           | Send the beta header on every turn and keep consecutive turns close together in time.                                                                                                                                                                                                                         |
+| `previous_message_not_found` | No stored fingerprint exists for the supplied `previous_message_id`. This is not evidence that your request changed. Typically the previous request did not include the `diagnostics` object, it came from a different workspace, or too much time has passed since it was sent.                                                                                                                                                                | Include the `diagnostics` object on every turn and keep consecutive turns close together in time.                                                                                                                                                                                                             |
 | `unavailable`                | Diagnostic information was not available for this request. This includes the case where `model`, `system`, and `tools` match but another prompt-affecting request parameter (`tool_choice`, `thinking`, `context_management`, `output_config`, `output_format`, or the set of active `anthropic-beta` headers) differs, and very long conversations where the divergence is beyond the comparison horizon. Your request was processed normally. | Keep the prompt-affecting request parameters constant for the lifetime of a cached conversation. If persistent, apply the manual checks under [Troubleshooting common issues](https://platform.claude.com/docs/en/build-with-claude/prompt-caching#troubleshooting-common-issues) on the prompt caching page. |
 
 <Note>
@@ -1080,7 +1055,6 @@ This matrix applies to turns where you passed a real `previous_message_id`. On t
 
 ## Limitations
 
-* **Beta:** Field names and semantics may change while this feature is in beta.
 * **Claude API only:** Not available on Amazon Bedrock or Google Cloud.
 * **Limited retention:** Fingerprints for `previous_message_id` lookup expire after a short period. Run diagnostic comparisons between closely spaced requests.
 * **Same workspace:** The previous request must have run in the same organization and workspace. To check, compare the `anthropic-workspace-id` [response header](https://platform.claude.com/docs/en/api/overview#response-headers) on the two responses.
@@ -1091,7 +1065,7 @@ This matrix applies to turns where you passed a real `previous_message_id`. On t
 
 Cache diagnostics is ZDR eligible (qualified). Anthropic does not store the raw text of your prompts or Claude's outputs for this feature.
 
-The fingerprint stored for each request consists only of cryptographic hashes and token-count estimates, keyed by the response `id` and scoped to your organization and workspace. Fingerprints expire after a short period and are not used for any other purpose.
+The API stores a fingerprint only for requests that include the `diagnostics` object. The fingerprint consists only of cryptographic hashes and token-count estimates, keyed by the response `id` and scoped to your organization and workspace. Fingerprints expire after a short period and are not used for any other purpose.
 
 For ZDR eligibility across all features, see [API and data retention](https://platform.claude.com/docs/en/manage-claude/api-and-data-retention).
 
@@ -1099,4 +1073,3 @@ For ZDR eligibility across all features, see [API and data retention](https://pl
 
 * [Prompt caching](https://platform.claude.com/docs/en/build-with-claude/prompt-caching)
 * [Token counting](https://platform.claude.com/docs/en/build-with-claude/token-counting)
-* [Beta headers](https://platform.claude.com/docs/en/api/beta-headers)

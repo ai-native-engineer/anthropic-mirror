@@ -76,7 +76,7 @@ A **spend limit increase request** is created when a member clicks **Request mor
 | ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `pending`  | Awaiting admin action. The request normally carries a live `spend_summary` so you can see the member's current effective spend limit and period-to-date spend while deciding; `spend_summary` may be `null` if it could not be computed. |
 | `approved` | The request was resolved with approval: either an admin approved it explicitly, another admin action raised the member's spend limit, or Anthropic support raised a spend limit on the organization's behalf. `spend_summary` is `null`. |
-| `denied`   | An admin declined. `spend_summary` is `null`. claude.ai hides that member's request button for 30 days from `resolved_at`; an admin can still raise the member's spend limit directly at any time.                                       |
+| `denied`   | An admin declined. `spend_summary` is `null`. The member can send a new request right away; only a `pending` request blocks a new one. An admin can still raise the member's spend limit directly at any time.                           |
 
 Both `approved` and `denied` are terminal. A member has at most one `pending` request at a time.
 
@@ -369,7 +369,7 @@ Give an incident responder room to work while an incident is open: raise their s
 
    See [User management](https://platform.claude.com/docs/en/manage-claude/user-management#groups) for the group endpoints.
 
-4. When your incident system marks the incident closed, roll both changes back: restore the spend limit you recorded in step 1 (or delete the override with `DELETE /v1/organizations/spend_limits/{spend_limit_id}` if the member had none), and remove the member from the group with `DELETE /v1/organizations/rbac_groups/{group_id}/members/{user_id}`.
+4. When your incident system marks the incident closed, roll both changes back: restore the spend limit you recorded in step 1 (or delete the override with `DELETE /v1/organizations/spend_limits/{spend_limit_id}` if the member had none), and remove the member from the group with `DELETE /v1/organizations/rbac_groups/{rbac_group_id}/members/{user_id}`.
 
 ## Frequently asked questions
 

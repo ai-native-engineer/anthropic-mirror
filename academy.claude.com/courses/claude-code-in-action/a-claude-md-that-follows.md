@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/claude-code-in-action/a-claude-md-that-follows -->
 
-Lesson 2 of 9 · Claude Code in ActionA CLAUDE.md that follows
+Lesson 2 of 9 · Claude Code in actionA CLAUDE.md that follows
 
-3. /[Claude Code in Action](https://academy.claude.com/courses/claude-code-in-action)
+3. /[Claude Code in action](https://academy.claude.com/courses/claude-code-in-action)
 
-[Claude Code in Action](https://academy.claude.com/courses/claude-code-in-action)
+[Claude Code in action](https://academy.claude.com/courses/claude-code-in-action)
 
 # A CLAUDE.md that follows
 
@@ -103,7 +103,7 @@ The whole idea is simple. The leaner the file, the more of it Claude follows.
 
 [Previous lessonSteering long sessions](https://academy.claude.com/courses/claude-code-in-action/steering-long-sessions)[Next lessonVerification skills](https://academy.claude.com/courses/claude-code-in-action/verification-skills)
 
-Lesson 2 of 9 · Claude Code in ActionA CLAUDE.md that follows
+Lesson 2 of 9 · Claude Code in actionA CLAUDE.md that follows
 
 Steer the work
 

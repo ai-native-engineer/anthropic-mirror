@@ -2,7 +2,7 @@
 
 [Courses](https://academy.claude.com/courses)
 
-# Model Context Protocol: Advanced Topics
+# Model Context Protocol: Advanced topics
 
 Go beyond MCP basics: sampling, notifications, and roots, with interactive walkthroughs of each protocol flow.
 
@@ -12,7 +12,7 @@ Go beyond MCP basics: sampling, notifications, and roots, with interactive walkt
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-oippap07.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-pe7rwjtj.png)
 
-11 lessons · 1 quizModel Context Protocol: Advanced Topics
+11 lessons · 1 quizModel Context Protocol: Advanced topics
 
 What you’ll learnBy the end of this course, you’ll be able to
 

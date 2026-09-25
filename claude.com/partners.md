@@ -85,7 +85,7 @@ Learn more
 
 ![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abf35eff31cb9416d9ec4_Figma.jpg)
 
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abf6c6461f0fd29c63e59_Hex.jpg)
+![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6ab43729f44eabd60b9e2e9a_6ab4360a6ea33ab113811507_startups-square-hex-light.svg)
 
 ![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abf89f91d777702ff37af_HubSpot.jpg)
 
@@ -93,7 +93,7 @@ Learn more
 
 ![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abfc71647ce192e81d28a_jotform.jpg)
 
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abff72b804fad37465165_Linear.jpg)
+![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6ab43729f44eabd60b9e2ec0_6ab4360ab06e949f996372ed_startups-square-linear-light.svg)
 
 ![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690ac024622a31cabb4f22f9_Mermaid%20Chart.jpg)
 
@@ -119,7 +119,7 @@ Claude can work with your tools, databases, and applications—and give you more
 
 Explore connectors
 
-[Explore connectors](https://claude.com/archive/connectors)Explore connectors
+[Explore connectors](https://claude.com/connectors)Explore connectors
 
 ## Partner news
 

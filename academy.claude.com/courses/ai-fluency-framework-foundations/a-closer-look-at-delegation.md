@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/ai-fluency-framework-foundations/a-closer-look-at-delegation -->
 
-Lesson 6 of 14 · AI Fluency: Framework & FoundationsA closer look at Delegation
+Lesson 6 of 14 · AI Fluency: Framework and foundationsA closer look at Delegation
 
-3. /[AI Fluency: Framework & Foundations](https://academy.claude.com/courses/ai-fluency-framework-foundations)
+3. /[AI Fluency: Framework and foundations](https://academy.claude.com/courses/ai-fluency-framework-foundations)
 
-[AI Fluency: Framework & Foundations](https://academy.claude.com/courses/ai-fluency-framework-foundations)
+[AI Fluency: Framework and foundations](https://academy.claude.com/courses/ai-fluency-framework-foundations)
 
 # A closer look at Delegation
 
@@ -78,7 +78,7 @@ In the next lesson, you'll apply what you've learned about Delegation to a multi
 
 [Previous lessonCapabilities & limitations](https://academy.claude.com/courses/ai-fluency-framework-foundations/capabilities-limitations)[Next lessonProject planning and Delegation](https://academy.claude.com/courses/ai-fluency-framework-foundations/project-planning-and-delegation)
 
-Lesson 6 of 14 · AI Fluency: Framework & FoundationsA closer look at Delegation
+Lesson 6 of 14 · AI Fluency: Framework and foundationsA closer look at Delegation
 
 Introduction to AI Fluency
 

@@ -4,31 +4,21 @@ Case study | Claude Platform
 
 # n8n turns natural language into workflow automations with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/699f5640b0f641d11bbdf28d_logo_n8n-light-mode.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/699f56448e874b3e8f600712_logo_n8n-dark-mode.svg)
+![n8n logo](https://assets.claude.com/7c1403fb8bfeacfd052420ea67ef0444eb1b4770.svg)
 
 Industry:
-
-Software
+:   Software
 
 Company size:
-
-Medium
+:   Medium
 
 Product:
-
-Claude Platform
+:   Claude Platform
 
 Location:
-
-EMEA
+:   EMEA
 
 2 months
 
@@ -40,63 +30,19 @@ out of building a workflow, leaving engineers to handle the final refinements
 
 Claude Code
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698f525504b02eec936ac51b_68c469d41149ace562bfd24d_og-claude-product-claude-code.jpeg)
+![Claude Code](https://assets.claude.com/38e8385d1c5f9c0f71c486994e22fc5861a4522d.jpg)
 
 Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
 
-Read more
-
-[Read more](https://claude.com/product/claude-code)Read more
-
-Claude Code
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Claude Code
-
-Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
+[Read more](https://claude.com/product/claude-code)
 
 Claude Platform
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698f5266ed232fd1354625a6_68c469d18f61fb5c21c81781_og-claude-api.jpeg)
+![Claude Platform](https://assets.claude.com/13caeda2fa5b274f70a676cfe2a8149b865f5e12.jpg)
 
 Use the Claude API to create new user experiences, products, and ways to work with the most advanced AI models on the market.
 
-Read more
-
-[Read more](https://claude.com/platform/api)Read more
-
-Claude Platform
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Use the Claude API to create new user experiences, products, and ways to work with the most advanced AI models on the market.
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Claude Platform
-
-Use the Claude API to create new user experiences, products, and ways to work with the most advanced AI models on the market.
-
-[Prev](#)Prev
-
-[Next](#)Next
+[Read more](https://claude.com/platform/api)
 
 [n8n](https://n8n.io) empowers technical teams to build, orchestrate, and deploy reliable AI workflows and agents, combining the speed of a visual builder with the flexibility of custom code. Their platform has earned more than 170,000 GitHub stars, putting it in the top 50 projects of all time, and customers span from solo founders to Fortune 100 companies.
 
@@ -137,7 +83,7 @@ Since launch, the architecture has evolved into a multi-agent system where speci
 
 For experienced users, the value is speed. The AI Workflow Builder delivers roughly 80% of a target workflow without manual assembly, so engineers can focus on refinement rather than construction. For first-time users, the value is different. n8n has thousands of templates, but its strength is flexibility, and many users choose the platform for unique use cases that templates don't cover. The AI Workflow Builder gives them a starting point. "It helps first-time users get over that initial mental hump of 'I don't know what I don't know,'" said Ophir Prusak, from the Product Marketing team.
 
-The same interface also helps users debug: when a workflow breaks, they can describe the problem and get help fixing it, rather than relying purely on  documentation or community forums. The team recently saw this play out internally when the AI Workflow Builder assembled a complex workflow for tracking engineering progress. It correctly used multiple form nodes on the first attempt, a result van Oosten attributed to the team's ongoing work on optimizing prompts for specific node types.
+The same interface also helps users debug: when a workflow breaks, they can describe the problem and get help fixing it, rather than relying purely on documentation or community forums. The team recently saw this play out internally when the AI Workflow Builder assembled a complex workflow for tracking engineering progress. It correctly used multiple form nodes on the first attempt, a result van Oosten attributed to the team's ongoing work on optimizing prompts for specific node types.
 
 ## Future use cases
 
@@ -153,70 +99,16 @@ n8n is continuing to expand the AI Workflow Builder's capabilities and deepen it
 
 ‍
 
-"Tool calling is top-notch in Claude, as well as its coding capabilities."
+> "Tool calling is top-notch in Claude, as well as its coding capabilities."
 
-JP van Oosten
+JP van OostenAI Engineering Manager, n8n
 
-AI Engineering Manager, n8n
+[![Supermetrics](https://assets.claude.com/3ac4171a81008be0340e5c3d8ccb46571c3edfb3.svg)
 
-AI agents
+### Supermetrics lets marketers manage ad campaigns from a conversation with Claude](https://claude.com/customers/supermetrics)[![Atlassian](https://assets.claude.com/4870b3d6c0253cea01b100c98ad2030b8e4f8ce1.svg)
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698f5244ff22e3ab8e64404d_68c469d3872afd7941c5e6f2_og-claude-agents.jpeg)
+### How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-Build powerful AI agents that reason through complex problems and execute tasks autonomously with reliable results.
+### Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-AI agents
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Build powerful AI agents that reason through complex problems and execute tasks autonomously with reliable results.
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-AI agents
-
-Build powerful AI agents that reason through complex problems and execute tasks autonomously with reliable results.
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-Customer story
-
-[Customer story](https://claude.com/customers/atlassian)Customer story
-
-[Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)Rocket Money on building agents that fix their own code
-
-Rocket Money on building agents that fix their own code
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money-qa)Customer story
-
-[How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)How Rocket Money built its personal finance agent with Claude
-
-How Rocket Money built its personal finance agent with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money)Customer story
-
-[How Notion ships and scales agents with Claude Managed Agents](https://claude.com/customers/notion-qa)How Notion ships and scales agents with Claude Managed Agents
-
-How Notion ships and scales agents with Claude Managed Agents
-
-Customer story
-
-[Customer story](https://claude.com/customers/notion-qa)Customer story
+### How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)

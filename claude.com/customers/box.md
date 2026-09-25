@@ -4,31 +4,21 @@ Case study | Claude Platform
 
 # Box builds document creation into its AI agent with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![Box logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5a8c287936531790c85c4_box_light.svg)![Box logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5a8bdc1ea299a1a768655_box_dark.svg)
+![Box logo](https://assets.claude.com/f7051ef3388f6fcd83051cffcba21499a021e446.svg)
 
 Industry:
-
-Software
+:   Software
 
 Company size:
-
-Large
+:   Large
 
 Product:
-
-[Claude Platform](https://claude.com/platform/api)
+:   [Claude Platform](https://claude.com/platform/api)
 
 Location:
-
-North America
+:   North America
 
 Concept to customer-facing capability in weeks using the Claude Skills API
 
@@ -52,53 +42,17 @@ when Box's team tested jurisdiction changes on a contract
 
 ## The challenge
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Redlined a contract vs. an afternoon of manual review
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Redlined a contract vs. an afternoon of manual review
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-2 minutes
-
-Redlined a contract vs. an afternoon of manual review
-
 ## Bringing document creation inside Box
 
 Box customers could already create, collaborate on, and sign documents inside the platform. Early customers of the new Box Agent consistently requested the ability to generate presentations, documents, and other file formats. Building that capability in-house didn’t make sense from a timing, effort, or focus standpoint. It would have meant standing up a distributed code-execution environment across Box's data centers and meeting the 5-nines reliability bar Box's customers expect. Box's team estimated the work for the in-house path would take months of engineering time.
 
 “Box's strength is in how enterprise content is managed, governed, and put to work,” said Darryl Sladden, Staff Product Manager for AI at Box. “The intelligence to make a good slide is a different problem, and it's one Anthropic has already solved.”
 
+2 minutes
+
+Redlined a contract vs. an afternoon of manual review
+
 ## The solution
-
-Choosing the right Claude model
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69c2dd485d80024bc14f48c6_choosing%20model.jpeg)
-
-Learn when to use Haiku, Sonnet, or Opus to get better results and stay inside your rate limit. A practical guide to picking the right Claude model.
-
-Choosing the right Claude model
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Learn when to use Haiku, Sonnet, or Opus to get better results and stay inside your rate limit. A practical guide to picking the right Claude model.
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Choosing the right Claude model
-
-Learn when to use Haiku, Sonnet, or Opus to get better results and stay inside your rate limit. A practical guide to picking the right Claude model.
 
 ## Pre-built skills connected to the path Box already trusted
 
@@ -116,27 +70,11 @@ The pre-built skills are also what made the speed possible. Spreadsheet analysis
 
 The capability runs under Box's existing Anthropic agreement, which contractually ensures customer data isn't used for training. Containers that execute skill code are short-lived, lasting only minutes. For Box's security team, the review was about two new data paths, not a new trust boundary.
 
-How enterprises are building AI agents in 2026
+Choosing the right Claude model
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6938f1ba14ef8dffb304fae8_2026%20State%20of%20AI%20Agents%20Report%20-%20Blog%20-%201200%20x%20630%20E.png)
+![Choosing the right Claude model](https://assets.claude.com/7388619b452db0af26c78442a275c86c5ebe3124.jpg)
 
-New research from 500+ technical leaders reveals how enterprises are deploying AI agents—and why 80% already report measurable ROI.
-
-How enterprises are building AI agents in 2026
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-New research from 500+ technical leaders reveals how enterprises are deploying AI agents—and why 80% already report measurable ROI.
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-How enterprises are building AI agents in 2026
-
-New research from 500+ technical leaders reveals how enterprises are deploying AI agents—and why 80% already report measurable ROI.
+Learn when to use Haiku, Sonnet, or Opus to get better results and stay inside your rate limit. A practical guide to picking the right Claude model.
 
 ## The outcome
 
@@ -150,42 +88,24 @@ Box went from concept to customer-facing document creation capability in about a
 
 The principle that emerged: use pre-built skills where the expertise is general and already trained in; build your own where the knowledge is yours. “The trajectory of AI is really what we're betting on for this,” Darryl said. “Our advice is to look at each capability not only how it is now, but how it will be in six months.”
 
-“Using the API, we’re able to show the customers very early how they can save work and time, and start to change their processes very quickly."
+How enterprises are building AI agents in 2026
 
-Darryl Sladden
+![How enterprises are building AI agents in 2026](https://assets.claude.com/faaa398e4d7a94cfce273d40c67bf04482996e0d.png)
 
-Staff Product Manager for AI, Box
+New research from 500+ technical leaders reveals how enterprises are deploying AI agents—and why 80% already report measurable ROI.
 
-## Related stories
+[Read more](https://claude.com/blog/how-enterprises-are-building-ai-agents-in-2026)
 
-[How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)How Atlassian builds AI agents teams can trust with Claude and Google Cloud
+> “Using the API, we’re able to show the customers very early how they can save work and time, and start to change their processes very quickly."
 
-How Atlassian builds AI agents teams can trust with Claude and Google Cloud
+Darryl Sladden Staff Product Manager for AI, Box
 
-Customer story
+[![Supermetrics](https://assets.claude.com/3ac4171a81008be0340e5c3d8ccb46571c3edfb3.svg)
 
-[Customer story](https://claude.com/customers/atlassian)Customer story
+### Supermetrics lets marketers manage ad campaigns from a conversation with Claude](https://claude.com/customers/supermetrics)[![Atlassian](https://assets.claude.com/4870b3d6c0253cea01b100c98ad2030b8e4f8ce1.svg)
 
-[Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)Rocket Money on building agents that fix their own code
+### How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-Rocket Money on building agents that fix their own code
+### Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money-qa)Customer story
-
-[How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)How Rocket Money built its personal finance agent with Claude
-
-How Rocket Money built its personal finance agent with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money)Customer story
-
-[How Notion ships and scales agents with Claude Managed Agents](https://claude.com/customers/notion-qa)How Notion ships and scales agents with Claude Managed Agents
-
-How Notion ships and scales agents with Claude Managed Agents
-
-Customer story
-
-[Customer story](https://claude.com/customers/notion-qa)Customer story
+### How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)

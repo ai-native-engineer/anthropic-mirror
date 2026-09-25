@@ -1,6 +1,6 @@
 <!-- source: https://claude.com/code-with-claude -->
 
-## Anthropic’s developer conference
+# Anthropic’s developer conference
 
 Join us for a day of hands-on workshops, live demos of new capabilities, and conversations with the teams behind Claude. Watch live from anywhere, or apply for an in-person seat in San Francisco, London, or Tokyo.
 
@@ -13,6 +13,10 @@ TokyoJune 10
 [Attend virtually](https://claude.com/code-with-claude/register-livestream)
 
 Learn more
+
+* [San Francisco](https://claude.com/code-with-claude/san-francisco)
+* [London](https://claude.com/code-with-claude/london)
+* [Tokyo](https://claude.com/code-with-claude/tokyo)
 
 In-person applications are now closed. Applicants will be notified of their status in early April.
 
@@ -30,32 +34,30 @@ TokyoJune 11
 
 Learn more
 
-[Attend virtually](#)Attend virtually
+* [San Francisco: Extended](https://claude.com/code-with-claude/san-francisco-extended)
+* [London: Extended](https://claude.com/code-with-claude/london-extended)
+* [Tokyo: Extended](https://claude.com/code-with-claude/tokyo-extended)
 
 ## FAQ
 
-### What is Code with Claude?
+What is Code with Claude?
 
 Code with Claude is a series of developer events hosted by Anthropic. Join us for a day of hands-on workshops, live demos of new capabilities, and conversations with the teams behind Claude.
 
-### Who should attend?
+Who should attend?
 
 Code with Claude is designed for software developers, engineers, and technical leaders who are building with AI. Whether you're just getting started with Claude or are an experienced builder, you'll find sessions tailored to your level.
 
-### How do I attend in person?
+How do I attend in person?
 
 Space is limited. Applications are now closed and accepted attendees will be notified via email in early April.
 
-### Can I attend virtually?
+Can I attend virtually?
 
 Yes, the San Francisco (May 6), London (19 May) and Tokyo (10 June) events will be livestreamed. Register now for access and we'll send you details closer to the event.
 
-### Is there a cost to attend?
+Is there a cost to attend?
 
 No, both in-person attendance and the livestream access are free.
 
-[Homepage](https://claude.com/code-with-claude)Homepage
-
-© [year] Anthropic PBC
-
-[PRIVACY POLICY](https://www.anthropic.com/legal/privacy)[CODE OF CONDUCT](https://claude.com/code-with-claude/code-of-conduct)
+Code with Claude — Anthropic's Developer Conference

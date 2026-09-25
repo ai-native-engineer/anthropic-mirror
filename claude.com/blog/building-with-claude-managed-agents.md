@@ -1,5 +1,7 @@
 <!-- source: https://claude.com/blog/building-with-claude-managed-agents -->
 
+Explore here
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a0112e18cdd7f0b92d19e40_Hand-BuildingBricks.svg)
 
 # The evolution of agentic surfaces: building with Claude Managed Agents

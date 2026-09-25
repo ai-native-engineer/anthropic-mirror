@@ -52,7 +52,7 @@ func main() {
 		Messages: []anthropic.MessageParam{
 			anthropic.NewUserMessage(anthropic.NewTextBlock("What is a quaternion?")),
 		},
-		Model: anthropic.ModelClaudeOpus5,
+		Model: anthropic.ModelClaudeOpus5_5,
 	})
 	if err != nil {
 		panic(err.Error())
@@ -75,7 +75,7 @@ For authentication options including Workload Identity Federation, see [Authenti
     }
 
     message, err := client.Messages.New(context.TODO(), anthropic.MessageNewParams{
-    	Model:     anthropic.ModelClaudeOpus5,
+    	Model:     anthropic.ModelClaudeOpus5_5,
     	Messages:  messages,
     	MaxTokens: 1024,
     })
@@ -91,7 +91,7 @@ For authentication options including Workload Identity Federation, see [Authenti
     ))
 
     message, err = client.Messages.New(context.TODO(), anthropic.MessageNewParams{
-    	Model:     anthropic.ModelClaudeOpus5,
+    	Model:     anthropic.ModelClaudeOpus5_5,
     	Messages:  messages,
     	MaxTokens: 1024,
     })
@@ -106,7 +106,7 @@ For authentication options including Workload Identity Federation, see [Authenti
   <Accordion title="System prompts">
     ```go
     message, err := client.Messages.New(context.TODO(), anthropic.MessageNewParams{
-    	Model:     anthropic.ModelClaudeOpus5,
+    	Model:     anthropic.ModelClaudeOpus5_5,
     	MaxTokens: 1024,
     	System: []anthropic.TextBlockParam{
     		{Text: "Be very serious at all times."},
@@ -125,7 +125,7 @@ For authentication options including Workload Identity Federation, see [Authenti
     content := "What is a quaternion?"
 
     stream := client.Messages.NewStreaming(context.TODO(), anthropic.MessageNewParams{
-    	Model:     anthropic.ModelClaudeOpus5,
+    	Model:     anthropic.ModelClaudeOpus5_5,
     	MaxTokens: 1024,
     	Messages: []anthropic.MessageParam{
     		anthropic.NewUserMessage(anthropic.NewTextBlock(content)),
@@ -176,7 +176,7 @@ For authentication options including Workload Identity Federation, see [Authenti
 
     for {
     	message, err := client.Messages.New(context.TODO(), anthropic.MessageNewParams{
-    		Model:     anthropic.ModelClaudeOpus5,
+    		Model:     anthropic.ModelClaudeOpus5_5,
     		MaxTokens: 1024,
     		Messages:  messages,
     		Tools:     tools,
@@ -468,7 +468,7 @@ _, err := client.Messages.New(context.TODO(), anthropic.MessageNewParams{
 		}},
 		Role: anthropic.MessageParamRoleUser,
 	}},
-	Model: anthropic.ModelClaudeOpus5,
+	Model: anthropic.ModelClaudeOpus5_5,
 })
 if err != nil {
 	var apierr *anthropic.Error
@@ -509,7 +509,7 @@ client := anthropic.NewClient(
 				}},
 				Role: anthropic.MessageParamRoleUser,
 			}},
-			Model: anthropic.ModelClaudeOpus5,
+			Model: anthropic.ModelClaudeOpus5_5,
 		},
 		option.WithMaxRetries(5),
 	)
@@ -538,7 +538,7 @@ defer cancel()
 				}},
 				Role: anthropic.MessageParamRoleUser,
 			}},
-			Model: anthropic.ModelClaudeOpus5,
+			Model: anthropic.ModelClaudeOpus5_5,
 		},
 		// This sets the per-retry timeout
 		option.WithRequestTimeout(20*time.Second),
@@ -678,7 +678,7 @@ message, err := client.Messages.New(
 			}},
 			Role: anthropic.MessageParamRoleUser,
 		}},
-		Model: anthropic.ModelClaudeOpus5,
+		Model: anthropic.ModelClaudeOpus5_5,
 	},
 	option.WithResponseInto(&response),
 )

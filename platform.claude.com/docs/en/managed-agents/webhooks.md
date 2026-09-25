@@ -4,6 +4,12 @@
 title: Subscribe to webhooks
 url: https://platform.claude.com/docs/en/managed-agents/webhooks
 description: Get notified when major events happen without polling.
+featureMetadata:
+  topic:
+    title: Managed Agents
+    url: https://platform.claude.com/docs/en/managed-agents/overview
+  status: beta
+  betaHeader: managed-agents-2026-04-01
 ---
 
 Sessions are long-running interactions. While most real-time interactions happen through the [SSE event stream](https://platform.claude.com/docs/en/managed-agents/events-and-streaming), webhooks notify you of major state changes.
@@ -107,11 +113,11 @@ A webhook endpoint consists of:
 
 ## Verify the signature
 
-Every delivery carries the `webhook-id`, `webhook-timestamp`, and `webhook-signature` headers. Use the SDK's `unwrap()` helper to verify the signature and parse the event in one step. It throws if the signature is invalid or the payload is more than 5 minutes old.
+Every delivery carries the `webhook-id`, `webhook-timestamp`, and `webhook-signature` headers. Use the SDK's `unwrap()` (csharp, go: `Unwrap()`) helper to verify the signature and parse the event in one step. It throws if the signature is invalid or the payload is more than 5 minutes old.
 
 Set `ANTHROPIC_WEBHOOK_SIGNING_KEY` to the `whsec_`-prefixed secret shown at endpoint creation.
 
-<CodeGroup>
+<CodeGroup exclude="shell:cURL, shell:CLI">
   ```python Python
   from flask import Flask, request
   import anthropic
@@ -353,7 +359,7 @@ Every event payload has the same structure, including the event type, identifier
 }
 ```
 
-<CodeGroup>
+<CodeGroup exclude="shell:cURL, shell:CLI">
   ```python Python
   if event.data.type == "session.status_idled":
       session = client.beta.sessions.retrieve(event.data.id)

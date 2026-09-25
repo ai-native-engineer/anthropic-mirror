@@ -2,7 +2,7 @@
 
 [Courses](https://academy.claude.com/courses)
 
-# AI Fluency for Small Businesses
+# AI Fluency for small businesses
 
 Helps small business owners and staff build practical AI collaboration skills using the 4D Framework: Delegation, Description, Discernment, and Diligence. Applies the framework to everyday business tasks like research, customer data, and operations while staying true to your mission and values.
 
@@ -12,7 +12,7 @@ Helps small business owners and staff build practical AI collaboration skills us
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-mpyjyp46.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-bw011lwh.png)
 
-9 lessons · 1 quizAI Fluency for Small Businesses
+9 lessons · 1 quizAI Fluency for small businesses
 
 What you’ll learnBy the end of this course, you’ll be able to
 

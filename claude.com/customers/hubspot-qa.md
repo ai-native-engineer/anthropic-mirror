@@ -4,31 +4,21 @@ Q&A | Claude Cowork
 
 # HubSpot product and marketing leaders on scaling Claude Cowork
 
-Try Claude
+[Contact sales](https://claude.com/contact-sales)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6989420bd171609a4d78b31e_logo_hubspot-light-mode.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6989420ff5d1708aeefc4396_logo_hubspot-dark-mode.svg)
+![Hubspot logo](https://assets.claude.com/d6f4aa0286766975a05548621fb66283ec2bfe32.svg)
 
 Industry:
-
-Software
+:   Software
 
 Company size:
-
-Large
+:   Large
 
 Product:
-
-Claude Cowork
+:   Claude Cowork
 
 Location:
-
-North America
+:   North America
 
 Hundreds of marketers using Claude Cowork
 
@@ -38,35 +28,11 @@ Multi-week internal builds compressed to three hours
 
 Case Study: HubSpot
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a15be7cc707dc7206ca10e1_Anthropic_x_HubSpot-LongForm-012126.00_01_21_09.Still002%20(1)%201%202.jpg)
+![Case Study: HubSpot](https://assets.claude.com/9ae0d87e26e07fd8f66264f7539baec91c0bdd6a.jpg)
 
 HubSpot reclaims time for creativity with Claude
 
-Read more
-
-[Read more](https://claude.com/customers/hubspot)Read more
-
-Case Study: HubSpot
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-HubSpot reclaims time for creativity with Claude
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Case Study: HubSpot
-
-HubSpot reclaims time for creativity with Claude
-
-[Prev](#)Prev
-
-[Next](#)Next
+[Read more](https://claude.com/customers/hubspot)
 
 [**HubSpot**](https://www.hubspot.com/) is an agentic customer platform that helps marketing, sales, and customer service teams drive growth. Both product and marketing teams at HubSpot are scaling Claude Cowork across teams. We spoke with nine HubSpot leaders to walk through how their teams are using Cowork in practice.
 
@@ -86,11 +52,9 @@ Cowork's automation really appeals to the Marketing Team. We have hundreds of ma
 
 **Oscar Estrada, Senior AI Creative Technologist:** I built a dashboard for my team that tracks all the AI video tools we're piloting. That dashboard is a Claude artifact that uses a JSON file on the back end, containing the entries for the various tools, with all the metadata that populates the dashboard. I also have a Claude skill that’s in charge of updating that dashboard periodically with new information pulled from notes, meetings, and other web sources. The dashboard also connects users to trainings and workflows. Leveraging Cowork's file system access and sub-agents has been key in helping me keep the JSON file up to date.
 
-"Cowork gives us the ability to schedule and run tasks even when people are offline, taking busywork off their plates so they can focus on actually being marketers."
+> "Cowork gives us the ability to schedule and run tasks even when people are offline, taking busywork off their plates so they can focus on actually being marketers."
 
-Chloe Tambe
-
-Director, AI Transformation, HubSpot
+Chloe TambeDirector, AI Transformation, HubSpot
 
 ## When you're using Cowork to generate first drafts of documents or plans, what do you provide as input, and how usable is the initial output versus what you end up revising?
 
@@ -118,37 +82,15 @@ Now, the BRD shows up to the kickoff meeting before we do. Using Cowork, we deve
 
 Cowork
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698f525604b02eec936ac521_696fc8952f473c6520149cfa_4f58536f1c08deac7a94811f4be57881_og-claude-cowork.jpeg)
+![Cowork](https://assets.claude.com/9716b96b8df867765a639f3ea8a07170508200bf.jpg)
 
 Give Claude access to your local files and let it complete tasks autonomously. Agentic capabilities for non-technical knowledge work.
 
-Read more
+[Read more](https://claude.com/product/cowork)
 
-[Read more](https://claude.com/product/cowork)Read more
+> "Using Cowork, we developed custom document-formatting skills built specifically for how our team works. By the time we sit down for that first meeting, a first draft is already built."
 
-Cowork
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Give Claude access to your local files and let it complete tasks autonomously. Agentic capabilities for non-technical knowledge work.
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Cowork
-
-Give Claude access to your local files and let it complete tasks autonomously. Agentic capabilities for non-technical knowledge work.
-
-"Using Cowork, we developed custom document-formatting skills built specifically for how our team works. By the time we sit down for that first meeting, a first draft is already built."
-
-Jon Blackwell
-
-Manager, Business Systems HubSpot
+Jon BlackwellManager, Business Systems HubSpot
 
 ## What advice would you give to another team thinking about getting started with Cowork?
 
@@ -166,62 +108,18 @@ Third, treat your personal and team knowledge bases as architecture. Information
 
 Skills explained
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/691422974acd1cc3d6467e3a_og_skills-explained.jpg)
+![Skills explained](https://assets.claude.com/2c1a10b16f371961f69f0cc86318a5e89137faf3.jpg)
 
 Where do Skills fit in the Claude stack alongside prompts, Projects, MCP, and subagents? Learn what tool to use when—and how they work together.
 
-Skills explained
+[Read more](https://claude.com/blog/skills-explained)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[![Supermetrics](https://assets.claude.com/3ac4171a81008be0340e5c3d8ccb46571c3edfb3.svg)
 
-[Next](#)Next
+### Supermetrics lets marketers manage ad campaigns from a conversation with Claude](https://claude.com/customers/supermetrics)[![Atlassian](https://assets.claude.com/4870b3d6c0253cea01b100c98ad2030b8e4f8ce1.svg)
 
-Where do Skills fit in the Claude stack alongside prompts, Projects, MCP, and subagents? Learn what tool to use when—and how they work together.
+### How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-Video caption
+### Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Skills explained
-
-Where do Skills fit in the Claude stack alongside prompts, Projects, MCP, and subagents? Learn what tool to use when—and how they work together.
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-Customer story
-
-[Customer story](https://claude.com/customers/atlassian)Customer story
-
-[Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)Rocket Money on building agents that fix their own code
-
-Rocket Money on building agents that fix their own code
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money-qa)Customer story
-
-[How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)How Rocket Money built its personal finance agent with Claude
-
-How Rocket Money built its personal finance agent with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money)Customer story
-
-[How Notion ships and scales agents with Claude Managed Agents](https://claude.com/customers/notion-qa)How Notion ships and scales agents with Claude Managed Agents
-
-How Notion ships and scales agents with Claude Managed Agents
-
-Customer story
-
-[Customer story](https://claude.com/customers/notion-qa)Customer story
+### How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)

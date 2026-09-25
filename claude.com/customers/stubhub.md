@@ -4,31 +4,21 @@ Case study | Claude Platform
 
 # StubHub transforms live event ticketing with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![StubHub logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ae12c8fde8379f187f2b_Stubhub_light.svg)![StubHub logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ae0ce20f30193a817bb3_Stubhub_dark.svg)
+![StubHub logo](https://assets.claude.com/d3451a4bfe1c5af7f56f76ab8237c3bab7dd7a9d.svg)
 
 Industry:
-
-Entertainment
+:   Entertainment
 
 Company size:
-
-Large
+:   Large
 
 Product:
-
-Claude Platform
+:   Claude Platform
 
 Location:
-
-North America
+:   North America
 
 20 minutes
 
@@ -37,42 +27,6 @@ to near-instant response for customer wait times
 30% cost
 
 reduction in customer service operations
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
 
 StubHub, the world's leading marketplace for live events, uses Claude to transform customer experiences by delivering instant, accurate support that resolves complex ticketing issues in seconds—improving satisfaction scores while optimizing operational efficiency.
 
@@ -124,52 +78,12 @@ StubHub envisions AI transforming how fans discover and experience live events. 
 
 As live events bring people together worldwide, StubHub ensures the technology connecting fans to experiences is as seamless and delightful as the events themselves. With Claude foundational to their AI strategy, they're redefining ticketing platforms in the digital age.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[![Audience Strategies](https://assets.claude.com/3413dcb9640e98c9dd678f02077d38ea6f0b7b34.png)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### Audience Strategies expands the electronic music industry's policy influence with Claude](https://claude.com/customers/audience-strategies)[![Orange](https://assets.claude.com/c97f28a41e222c81bda3ab8af5ed81dbfb385756.png)
 
-[Next](#)Next
+### Orange localizes manga at an unprecedented scale with Claude](https://claude.com/customers/orange)[![WRTN](https://assets.claude.com/c3f8213b72f494f94cf99ec6d2abf77e5129ef74.svg)
 
-Video caption
+### WRTN pioneers AI entertainment and storytelling across Asia with Claude](https://claude.com/customers/wrtn)[![Lex](https://assets.claude.com/e6a76687f426d031b52ad173ac5406303b29bc38.png)
 
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[Audience Strategies expands the electronic music industry's policy influence with Claude](https://claude.com/customers/audience-strategies)Audience Strategies expands the electronic music industry's policy influence with Claude
-
-Audience Strategies expands the electronic music industry's policy influence with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/audience-strategies)Customer story
-
-[Orange localizes manga at an unprecedented scale with Claude](https://claude.com/customers/orange)Orange localizes manga at an unprecedented scale with Claude
-
-Orange localizes manga at an unprecedented scale with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/orange)Customer story
-
-[WRTN pioneers AI entertainment and storytelling across Asia with Claude](https://claude.com/customers/wrtn)WRTN pioneers AI entertainment and storytelling across Asia with Claude
-
-WRTN pioneers AI entertainment and storytelling across Asia with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/wrtn)Customer story
-
-[Lex streamlines the writing process with Claude](https://claude.com/customers/lex)Lex streamlines the writing process with Claude
-
-Lex streamlines the writing process with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/lex)Customer story
+### Lex streamlines the writing process with Claude](https://claude.com/customers/lex)

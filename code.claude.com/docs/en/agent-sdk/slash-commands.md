@@ -114,7 +114,7 @@ This section is the SDK's command documentation. A command is anything you run b
 * **Your skills**: prompt artifacts that you author, each a directory holding a `SKILL.md` file. A user-invocable skill's name joins the surface automatically, so dispatching your own `/security-check` and running a built-in work the same way
 * **Custom command files**: an older artifact form with the same behavior, flat Markdown files in `.claude/commands/` whose filenames become command names. Skills are their recommended successor
 
-By default, both you and Claude can invoke any skill. You can restrict either path through the skill's [frontmatter](/docs/en/skills#control-who-invokes-a-skill). For a definition of the two terms, see the glossary's [Command](/docs/en/glossary#command) and [Skill](/docs/en/glossary#skill) entries. See [Commands in Claude Code](/docs/en/commands) for every built-in and [Extend Claude with skills](/docs/en/skills) for the complete guide to both artifact forms.
+By default, both you and Claude can invoke any skill. You can restrict either path through the skill's [frontmatter](/docs/en/skills#control-who-invokes-a-skill). For definitions of command and skill, see the glossary's [Command](/docs/en/glossary#command) and [Skill](/docs/en/glossary#skill) entries. See [Commands in Claude Code](/docs/en/commands) for every built-in and [Extend Claude with skills](/docs/en/skills) for the complete guide to both artifact forms.
 
 ### Discover available commands
 
@@ -158,6 +158,10 @@ A skill with [`user-invocable: false`](/docs/en/skills#control-who-invokes-a-ski
 ### Dispatch commands by name
 
 Send a command by including it in your prompt string, the same way you send regular text. Dispatch doesn't depend on the `skills` option. Sending `/<name>` runs a user-invocable skill even when your `skills` list omits it. Commands that act on conversation history, such as `/compact`, need prior messages to work with.
+
+A `/<name>` that matches neither a command in the session nor a built-in Claude Code command doesn't fail the query. Claude Code sends the prompt to Claude as an ordinary message, with a note that the command didn't run, so the query spends a model turn and returns Claude's reply. Before v2.1.274, a `/<name>` that matched nothing returned `Unknown command: /<name>` as the result without a model turn.
+
+A `/<name>` that matches a built-in Claude Code command that isn't available in the session, such as `/theme`, returns `/theme isn't available in this environment.` as the result without a model turn.
 
 <Note>
   A command can hit the `maxTurns` / `max_turns` limit like any other prompt, ending the query with an error result instead of `success`. For the error-result contract, see [Handle the result](/docs/en/agent-sdk/agent-loop#handle-the-result). If your command might hit the limit, wrap the loop in a `try`/`catch` in TypeScript or `try`/`except` in Python, as shown in [Single Message Input](/docs/en/agent-sdk/streaming-vs-single-mode#single-message-input), or set `maxTurns` high enough for the work to complete.

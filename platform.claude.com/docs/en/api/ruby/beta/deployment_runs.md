@@ -65,7 +65,11 @@ List Deployment Runs
 
   - `:schedule`
 
+    The run was fired by the deployment's cron schedule.
+
   - `:manual`
+
+    The run was started manually by creating a session directly against the deployment.
 
 - `betas: Array[AnthropicBeta]`
 
@@ -73,7 +77,7 @@ List Deployment Runs
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 42 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 45 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -165,7 +169,17 @@ List Deployment Runs
 
     - `:"mid-conversation-system-clear-at-2026-08-21"`
 
+    - `:"compact-2026-09-04"`
+
+    - `:"inline-tools-2026-09-15"`
+
+    - `:"mcp-client-2026-09-15"`
+
 - `workspace_id: String`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
 ### Returns
 
@@ -445,13 +459,15 @@ Get Deployment Run
 
 - `deployment_run_id: String`
 
+  Unique identifier of the deployment run.
+
 - `betas: Array[AnthropicBeta]`
 
   Optional header to specify the beta version(s) you want to use.
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 42 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 45 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -543,7 +559,17 @@ Get Deployment Run
 
     - `:"mid-conversation-system-clear-at-2026-08-21"`
 
+    - `:"compact-2026-09-04"`
+
+    - `:"inline-tools-2026-09-15"`
+
+    - `:"mcp-client-2026-09-15"`
+
 - `workspace_id: String`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
 
 ### Returns
 
@@ -1200,7 +1226,7 @@ puts(beta_managed_agents_deployment_run)
 
 ### Beta Managed Agents Trigger Context
 
-- `BetaManagedAgentsTriggerContext = BetaManagedAgentsScheduleTriggerContext | BetaManagedAgentsManualTriggerContext`
+- `type BetaManagedAgentsTriggerContext = BetaManagedAgentsScheduleTriggerContext | BetaManagedAgentsManualTriggerContext`
 
   Describes what triggered a deployment run, with trigger-specific metadata.
 
@@ -1224,13 +1250,17 @@ puts(beta_managed_agents_deployment_run)
 
 ### Beta Managed Agents Trigger Type
 
-- `BetaManagedAgentsTriggerType = :schedule | :manual`
+- `type BetaManagedAgentsTriggerType = :schedule | :manual`
 
   What triggered a deployment run.
 
   - `:schedule`
 
+    The run was fired by the deployment's cron schedule.
+
   - `:manual`
+
+    The run was started manually by creating a session directly against the deployment.
 
 ### Beta Managed Agents Unknown Run Error
 

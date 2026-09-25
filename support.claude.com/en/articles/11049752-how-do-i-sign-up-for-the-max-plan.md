@@ -38,8 +38,8 @@ If you're moving from an annual Pro plan to a Max plan and the remaining balance
 
 After subscribing for a Max plan, your subscription will be set to automatically renew at the end of each billing period by default. This ensures uninterrupted access to Max features. However, you have the flexibility to **[cancel your paid plan](https://support.claude.com/en/articles/8325617)** at any time if you choose not to continue.
 
+* [How do I sign up for the Pro plan?](https://support.claude.com/en/articles/8325609-how-do-i-sign-up-for-the-pro-plan)
 * [What is the Max plan?](https://support.claude.com/en/articles/11049741-what-is-the-max-plan)
-* [Choose a Claude plan](https://support.claude.com/en/articles/11049762-choose-a-claude-plan)
 * [Use Claude Code with your Pro or Max plan](https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan)
 * [Use the Claude Agent SDK with your Claude plan](https://support.claude.com/en/articles/15036540-use-the-claude-agent-sdk-with-your-claude-plan)
 * [Understanding your Pro or Max plan invoices](https://support.claude.com/en/articles/16607638-understanding-your-pro-or-max-plan-invoices)

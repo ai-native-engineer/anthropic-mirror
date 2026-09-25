@@ -2,7 +2,7 @@
 
 When you open Claude on a web browser ([claude.ai](http://claude.ai)), the desktop app, or a mobile app, you will see two different options for logging in to your Claude account.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1893216804/f2209c3ec6cf4fc2e803d13bbc9d/40520c9e-ff82-4a7c-adca-5a064fe18d8c?expires=1789345800&signature=11cb79e681eb22a3c4dec4da04fdad25407a04abc6231418c30e715519e0df3a&req=dSguFct%2Fm4lfXfMW1HO4zXg5BouP5xe8zWhrqpWiTMkinclKEzE13DKpy%2F4K%0AwiDvmXNuzmIIB4gvHQA%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1893216804/f2209c3ec6cf4fc2e803d13bbc9d/40520c9e-ff82-4a7c-adca-5a064fe18d8c?expires=1789345800&signature=11cb79e681eb22a3c4dec4da04fdad25407a04abc6231418c30e715519e0df3a&req=dSguFct%2Fm4lfXfMW1HO4zXg5BouP5xe8zWhrqpWiTMkinclKEzE13DKpy%2F4K%0AwiDvmXNuzmIIB4gvHQA%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1893216804/f2209c3ec6cf4fc2e803d13bbc9d/40520c9e-ff82-4a7c-adca-5a064fe18d8c?expires=1790297100&signature=395042b94a9241ec7ad0b44ed45ed14036580f0c0a62bd4f0fcafdad157be07c&req=dSguFct%2Fm4lfXfMW1HO4zXg5B4KO6hW1zWhrqpWiTMm8l2i%2BEYiC%2FrcsW6CQ%0Ae9j%2BVULHkoKvurRGBgs%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1893216804/f2209c3ec6cf4fc2e803d13bbc9d/40520c9e-ff82-4a7c-adca-5a064fe18d8c?expires=1790297100&signature=395042b94a9241ec7ad0b44ed45ed14036580f0c0a62bd4f0fcafdad157be07c&req=dSguFct%2Fm4lfXfMW1HO4zXg5B4KO6hW1zWhrqpWiTMm8l2i%2BEYiC%2FrcsW6CQ%0Ae9j%2BVULHkoKvurRGBgs%3D%0A)
 
 ## Continue with Google
 
@@ -98,7 +98,7 @@ If you are already logged in to Claude for iOS, you can see the email address yo
 3. Look for your email address under Settings.
 
 * [Delete your Claude account](https://support.claude.com/en/articles/9028421-delete-your-claude-account)
+* [How do I log out of all active sessions?](https://support.claude.com/en/articles/10310342-how-do-i-log-out-of-all-active-sessions)
 * [Get started with Claude for Education at your university (for Owners/Admins)](https://support.claude.com/en/articles/11139094-get-started-with-claude-for-education-at-your-university-for-owners-admins)
 * [Claude 4 Invite Sweepstakes Official Rules](https://support.claude.com/en/articles/11140763-claude-4-invite-sweepstakes-official-rules)
 * [Log in to your Console account](https://support.claude.com/en/articles/13371040-log-in-to-your-console-account)
-* [Open the Claude mobile app with a link](https://support.claude.com/en/articles/14898120-open-the-claude-mobile-app-with-a-link)

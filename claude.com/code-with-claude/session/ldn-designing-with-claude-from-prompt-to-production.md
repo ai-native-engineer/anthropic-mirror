@@ -4,44 +4,32 @@
 
 Claude Design lets you describe what you want in plain language and get production-quality outputs. Learn how a small team built a design tool that ships in your brand, from prompt to production.
 
-Details
+## Details
 
 City
-
-London, UK
+:   London, UK
 
 Date
-
-19 May 2026
+:   19 May 2026
 
 Time
-
-11:15 – 11:45
+:   11:15 – 11:45
 
 Speaker(s)
+:   Dan Cary
 
-Dan Cary
+    Member of Technical Staff,
 
-Member of Technical Staff,
-
-Anthropic
+    Anthropic
 
 ## Watch recording
 
-[Play video](#)Play video
+![Designing with Claude: From prompt to production](https://assets.claude.com/ec1227452561159f497813e7fc081a6d6ca4831b.jpg?w=1600&auto=format)
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a10d3b9355d70e504e7da3f_designing-with-claude.webp)
-
-Anthropic's developer conference, recorded
+## Anthropic's developer conference, recorded
 
 Keynotes, demos, and conversations with the teams behind Claude. Recorded at Code w/ Claude 2026 San Francisco and ready to replay.
 
-Browse recordings
+[Browse recordings](https://claude.com/code-with-claude/london)
 
-[Learn more](https://claude.com/code-with-claude/london)Learn more
-
-[Homepage](https://claude.com/code-with-claude)Homepage
-
-© [year] Anthropic PBC
-
-[PRIVACY POLICY](https://www.anthropic.com/legal/privacy)[CODE OF CONDUCT](https://claude.com/code-with-claude/code-of-conduct)
+Designing with Claude: From prompt to production | Session | Code w/ Claude 2026

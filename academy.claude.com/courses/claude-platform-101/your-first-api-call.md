@@ -18,7 +18,7 @@ back — in just under 20 lines of code.
 
 ## Get set up[](#get-set-up)
 
-First, grab an **API key** from platform.claude.com. You'll need to purchase some credits beforehand.
+First, grab an **API key** from platform.claude.com. New accounts get a small amount of free credit to test the API, and after that you add credit there, in the Claude Console.
 
 ![The Claude Console dialog showing a newly created API key with a Copy key button and a warning that the key won't be viewable again](https://academy.claude.com/assets/media/5fca342aff439c7ed5c6148fbea16fd361ff1ea636f32fd1c233fe08080b9885.png)
 

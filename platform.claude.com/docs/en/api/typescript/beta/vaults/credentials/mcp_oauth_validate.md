@@ -17,11 +17,13 @@ Validate Credential
 
 - `credentialID: string`
 
+  Unique identifier of the credential to validate.
+
 - `params: CredentialMCPOAuthValidateParams`
 
   - `vault_id: string`
 
-    Path param: Path parameter vault_id
+    Path param: Identifier of the vault containing the credential.
 
   - `betas?: Array<AnthropicBeta>`
 
@@ -29,7 +31,7 @@ Validate Credential
 
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 42 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 45 more`
 
       - `"message-batches-2024-09-24"`
 
@@ -121,6 +123,12 @@ Validate Credential
 
       - `"mid-conversation-system-clear-at-2026-08-21"`
 
+      - `"compact-2026-09-04"`
+
+      - `"inline-tools-2026-09-15"`
+
+      - `"mcp-client-2026-09-15"`
+
   - `workspace_id?: string`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -129,7 +137,7 @@ Validate Credential
 
 ## Returns
 
-- `BetaManagedAgentsCredentialValidation`
+- `interface BetaManagedAgentsCredentialValidation`
 
   Result of live-probing a credential against its configured MCP server.
 
@@ -185,13 +193,26 @@ Validate Credential
 
       Outcome of a refresh-token exchange attempted during credential validation.
 
+      - `succeeded` - The token endpoint returned a new access token.
+      - `failed` - The token endpoint returned an error response. See `http_response` for detail.
+      - `connect_error` - The token endpoint could not be reached (DNS, TLS, or connection error).
+      - `no_refresh_token` - No refresh token is stored for the credential, so no exchange was attempted.
+
       - `"succeeded"`
+
+        The token endpoint returned a new access token.
 
       - `"failed"`
 
+        The token endpoint returned an error response. See `http_response` for detail.
+
       - `"connect_error"`
 
+        The token endpoint could not be reached (DNS, TLS, or connection error).
+
       - `"no_refresh_token"`
+
+        No refresh token is stored for the credential, so no exchange was attempted.
 
   - `status: BetaManagedAgentsCredentialValidationStatus`
 
@@ -199,9 +220,15 @@ Validate Credential
 
     - `"valid"`
 
+      The credential successfully authenticated against its MCP server.
+
     - `"invalid"`
 
+      The probe reached the MCP server and was rejected, and a refresh (if attempted) did not recover it.
+
     - `"unknown"`
+
+      The probe could not determine validity — for example, a transport error or a successful refresh that was not re-probed.
 
   - `validated_at: string`
 

@@ -4,31 +4,21 @@ Case study | Claude Platform
 
 # tl;dv boosts revenue 500% from AI-powered meeting intelligence with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![tl;dv logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c1c06c294a0c4754ddce9d_cs-logo-tldv-light-theme.svg)![tl;dv logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c1c06e9f89e21edc8fe99f_cs-logo-tldv-dark-theme.svg)
+![tl;dv logo](https://assets.claude.com/3989dc1c5a86ba339848ed65497cfd3a340bff6a.svg)
 
 Industry:
-
-Software
+:   Software
 
 Company size:
-
-Small
+:   Small
 
 Product:
-
-Claude Platform
+:   Claude Platform
 
 Location:
-
-Europe
+:   Europe
 
 300% growth
 
@@ -37,42 +27,6 @@ in new customer sign-ups
 500% increase
 
 in revenue
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
 
 tl;dv, a platform specializing in meeting intelligence, revolutionized its offering by integrating Claude. This partnership transformed tl;dv from a meeting recap tool into a sophisticated AI-powered analytics engine.
 
@@ -105,7 +59,7 @@ The impact of Claude on tl;dv's product was immediate and profound. Users experi
 
 But speed was just the beginning. Claude's advanced analysis capabilities enabled tl;dv to offer deeper, more actionable insights from meeting data. Instead of simple summaries, customers now received customized reports identifying trends across weeks worth of meetings at once and providing concrete recommendations. This depth of analysis transformed tl;dv from a basic transcription service into an indispensable business intelligence tool.
 
-![tl;dv AI report](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68baf05e8e7d43058c35b426_195f8acecd4f645d5a84cba1c881e77d23b25fae-1920x1080.jpeg)
+![tl;dv AI report](https://assets.claude.com/07a2be7b6cafc2be2fb240cb2ca2ac5ec9f5f97a.jpg)
 
 ## New Claude-powered features
 
@@ -113,7 +67,7 @@ Perhaps the most exciting development was tl;dv's ability to create innovative f
 
 "Sales teams have shown significant interest in this application of AI for a critical sales workflow, as it allows them to scale coaching in ways that would have taken hours of manual effort before," said Allstadt.
 
-![tl;dv AI coaching hub](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68baf05e8e7d43058c35b419_42ee6d4a1d5f597a9a1f93f0d541b936265b09ae-1920x1080.jpeg)
+![tl;dv AI coaching hub](https://assets.claude.com/d728d28ab66fefc2aae5cd085c6ba56ffd839cc0.jpg)
 
 ## A better user experience with AI
 
@@ -139,52 +93,12 @@ Looking ahead, tl;dv is excited about leveraging Claude's expanding capabilities
 
 By integrating Claude, tl;dv has not only enhanced its core product but has also positioned itself at the forefront of AI-driven meeting intelligence. As virtual meetings continue to be a crucial part of business operations, tl;dv's Claude-powered platform stands ready to turn countless hours of conversation into actionable, business-driving insights.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[![Supermetrics](https://assets.claude.com/3ac4171a81008be0340e5c3d8ccb46571c3edfb3.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### Supermetrics lets marketers manage ad campaigns from a conversation with Claude](https://claude.com/customers/supermetrics)[![Atlassian](https://assets.claude.com/4870b3d6c0253cea01b100c98ad2030b8e4f8ce1.svg)
 
-[Next](#)Next
+### How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-Video caption
+### Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-Customer story
-
-[Customer story](https://claude.com/customers/atlassian)Customer story
-
-[Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)Rocket Money on building agents that fix their own code
-
-Rocket Money on building agents that fix their own code
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money-qa)Customer story
-
-[How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)How Rocket Money built its personal finance agent with Claude
-
-How Rocket Money built its personal finance agent with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money)Customer story
-
-[How Notion ships and scales agents with Claude Managed Agents](https://claude.com/customers/notion-qa)How Notion ships and scales agents with Claude Managed Agents
-
-How Notion ships and scales agents with Claude Managed Agents
-
-Customer story
-
-[Customer story](https://claude.com/customers/notion-qa)Customer story
+### How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)

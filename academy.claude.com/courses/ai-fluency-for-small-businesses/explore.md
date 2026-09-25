@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/ai-fluency-for-small-businesses/explore -->
 
-Lesson 4 of 9 · AI Fluency for Small BusinessesExplore!
+Lesson 4 of 9 · AI Fluency for small businessesExplore!
 
-3. /[AI Fluency for Small Businesses](https://academy.claude.com/courses/ai-fluency-for-small-businesses)
+3. /[AI Fluency for small businesses](https://academy.claude.com/courses/ai-fluency-for-small-businesses)
 
-[AI Fluency for Small Businesses](https://academy.claude.com/courses/ai-fluency-for-small-businesses)
+[AI Fluency for small businesses](https://academy.claude.com/courses/ai-fluency-for-small-businesses)
 
 # Explore!
 
@@ -46,7 +46,7 @@ Markov published this idea in 1906. A century later in 2010, n-gram models like 
 
 [Previous lessonAI capabilities and limitations](https://academy.claude.com/courses/ai-fluency-for-small-businesses/ai-capabilities-and-limits)[Next lessonRefining with AI](https://academy.claude.com/courses/ai-fluency-for-small-businesses/researching-with-ai)
 
-Lesson 4 of 9 · AI Fluency for Small BusinessesExplore!
+Lesson 4 of 9 · AI Fluency for small businessesExplore!
 
 Introduction and AI Fluency framework
 

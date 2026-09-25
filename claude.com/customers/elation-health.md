@@ -4,35 +4,21 @@ Case study | Claude Platform
 
 # Elation Health delivers faster clinical insights with Claude
 
-Try Claude
+[Get started](https://claude.com/solutions/healthcare#pricing-section)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-Get started
-
-[Get started](https://claude.com/solutions/healthcare#pricing-section)Get started
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/695fcb8c8818f8efbb7a4025_elation-dark.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/695fcb8c8818f8efbb7a4025_elation-dark.svg)
+![Elation logo](https://assets.claude.com/9b56bac4cc71f72643b7a612f3f3165592135b64.svg)
 
 Industry:
-
-Healthcare
+:   Healthcare
 
 Company size:
-
-Medium
+:   Medium
 
 Product:
-
-Claude Platform
+:   Claude Platform
 
 Location:
-
-North America
+:   North America
 
 61% reduction
 
@@ -44,63 +30,19 @@ of Elation’s Clinical Insights product feature since migrating to Claude
 
 Advancing Claude in healthcare and the life sciences
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6961abe753199c35cdc7f2a2_HCLS%20Launch%20-%20Blog%20-%20Social%20Image%20-%201200%20x%20628%20A.png)
+![Advancing Claude in healthcare and the life sciences](https://assets.claude.com/2245c8d44d57bbbd808ee21e2a14a250946d583b.png)
 
 Transform healthcare from insight to action
 
-Read more
-
-[Read more](https://www.anthropic.com/news/healthcare-life-sciences)Read more
-
-Advancing Claude in healthcare and the life sciences
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Transform healthcare from insight to action
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Advancing Claude in healthcare and the life sciences
-
-Transform healthcare from insight to action
+[Read more](https://www.anthropic.com/news/healthcare-life-sciences)
 
 Claude for Healthcare
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/696415a56ed108d94045852e_heart-marginalia.avif)
+![Claude for Healthcare](https://assets.claude.com/3cc055deed02884f4a1b81019a962925687fccc3.jpg)
 
 Claude helps healthcare organizations move faster without sacrificing accuracy, safety, or compliance. Less administrative work, more time with the people you serve.
 
-Read more
-
-[Read more](https://claude.com/healthcare)Read more
-
-Claude for Healthcare
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Claude helps healthcare organizations move faster without sacrificing accuracy, safety, or compliance. Less administrative work, more time with the people you serve.
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Claude for Healthcare
-
-Claude helps healthcare organizations move faster without sacrificing accuracy, safety, or compliance. Less administrative work, more time with the people you serve.
-
-[Prev](#)Prev
-
-[Next](#)Next
+[Read more](https://claude.com/healthcare)
 
 [Elation Health](https://www.elationhealth.com) is a clinical electronic health record (EHR) and billing platform for primary care, with more than 46,000 clinical users caring for 24 million patients across 50 states. The company delivers AI-native solutions built for independent practices, direct primary care and concierge clinics, and primary-care-led enterprises.
 
@@ -150,70 +92,16 @@ Looking ahead, Elation is exploring how Claude can help reconcile external docum
 
 ‍
 
-"We chose Claude by Anthropic for the strength of its model and its reputation for responsible AI. That balance of performance plus trust was a decisive factor."
+> "We chose Claude by Anthropic for the strength of its model and its reputation for responsible AI. That balance of performance plus trust was a decisive factor."
 
-Kyna Fong
+Kyna Fong CEO & Co-Founder, Elation Health
 
-CEO & Co-Founder, Elation Health
+[![League](https://assets.claude.com/7360d174acf8827f869d92d50d49e0add1c58c2c.png)
 
-Livestream
+### How League went all in on Claude in a regulated industry](https://claude.com/customers/league-qa)[![League](https://assets.claude.com/7360d174acf8827f869d92d50d49e0add1c58c2c.png)
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/696415a56ed108d94045852e_heart-marginalia.avif)
+### League cuts product development cycle times in half with Claude](https://claude.com/customers/league)[![Arkana Labs](https://assets.claude.com/825b44bd9f2704f71fd53f5125cb92c31b32bd73.svg)
 
-Tune in to watch Anthropic CEO and Co-founder Dario Amodei share his vision for AI in healthcare and life sciences, along with an executive customer panel.
+### How can a medical lab keep patients at the center of its work while the caseload keeps growing?](https://claude.com/customers/arkana-labs)[![Zingage](https://assets.claude.com/7a6b9b092d1ec61d938402cc6744e4d94ed2564a.svg)
 
-Livestream
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Tune in to watch Anthropic CEO and Co-founder Dario Amodei share his vision for AI in healthcare and life sciences, along with an executive customer panel.
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Livestream
-
-Tune in to watch Anthropic CEO and Co-founder Dario Amodei share his vision for AI in healthcare and life sciences, along with an executive customer panel.
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[How League went all in on Claude in a regulated industry](https://claude.com/customers/league-qa)How League went all in on Claude in a regulated industry
-
-How League went all in on Claude in a regulated industry
-
-Customer story
-
-[Customer story](https://claude.com/customers/league-qa)Customer story
-
-[League cuts product development cycle times in half with Claude](https://claude.com/customers/league) League cuts product development cycle times in half with Claude
-
-League cuts product development cycle times in half with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/league)Customer story
-
-[How can a medical lab keep patients at the center of its work while the caseload keeps growing?](https://claude.com/customers/arkana-labs)How can a medical lab keep patients at the center of its work while the caseload keeps growing?
-
-How can a medical lab keep patients at the center of its work while the caseload keeps growing?
-
-Customer story
-
-[Customer story](https://claude.com/customers/arkana-labs)Customer story
-
-[How Zingage automates care coordination for 400+ home care agencies with Claude](https://claude.com/customers/zingage)How Zingage automates care coordination for 400+ home care agencies with Claude
-
-How Zingage automates care coordination for 400+ home care agencies with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/zingage)Customer story
+### How Zingage automates care coordination for 400+ home care agencies with Claude](https://claude.com/customers/zingage)

@@ -4,42 +4,31 @@
 
 Routines turn Claude Code into a proactive teammate that reads your repo and opens a PR before you've opened your laptop. You'll see one built end to end, learn the trigger, context, and steering decisions behind any routine, and leave one /schedule command away from your first.
 
-Details
+## Details
 
 City
-
-San Francisco, USA
+:   San Francisco, USA
 
 Date
-
-May 6, 2026
+:   May 6, 2026
 
 Time
-
-12:15PM – 12:55PM
+:   12:15PM – 12:55PM
 
 Session type
-
-Workshop
+:   Workshop
 
 Speaker(s)
+:   Noah Zweben
 
-Noah Zweben
+    Member of Technical Staff,
 
-Member of Technical Staff,
+    Anthropic
 
-Anthropic
-
-Anthropic's developer conference, recorded
+## Anthropic's developer conference, recorded
 
 Keynotes, demos, and conversations with the teams behind Claude. Recorded at Code w/ Claude 2026 San Francisco and ready to replay.
 
-Browse recordings
+[Browse recordings](https://claude.com/code-with-claude/san-francisco)
 
-[Learn more](https://claude.com/code-with-claude/san-francisco)Learn more
-
-[Homepage](https://claude.com/code-with-claude)Homepage
-
-© [year] Anthropic PBC
-
-[PRIVACY POLICY](https://www.anthropic.com/legal/privacy)[CODE OF CONDUCT](https://claude.com/code-with-claude/code-of-conduct)
+Build a proactive agent workflow with Claude Code | Session | Code w/ Claude 2026

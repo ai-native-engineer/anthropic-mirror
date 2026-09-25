@@ -28,7 +28,7 @@ These initial findings present us with a baseline that we can use to study the d
 
 ## Measuring AI fluency[](#measuring-ai-fluency)
 
-To quantify AI fluency, we use the [4D AI Fluency Framework(opens in new tab)](https://academy.claude.com/collections/ai-fluency), developed by Professors Rick Dakan and Joseph Feller in collaboration with Anthropic. This framework helps us define 24 specific behaviors that we take to exemplify safe and effective human-AI collaboration.
+To quantify AI fluency, we use the [4D AI Fluency Framework(opens in new tab)](https://academy.claude.com/collections/collaborating-with-ai), developed by Professors Rick Dakan and Joseph Feller in collaboration with Anthropic. This framework helps us define 24 specific behaviors that we take to exemplify safe and effective human-AI collaboration.
 
 Of these 24 behaviors, 11 (listed in the graph below) are directly observable when humans interact with Claude on Claude.ai or Claude Code. The other 13 (including things like being honest about AI's role in work, or considering the consequences of sharing AI-generated output), happen outside Claude.ai's chat interface, so they're much harder for us to track. These unobservable behaviors are arguably some of the most consequential dimensions of AI fluency, so in future work we plan to use qualitative methods to assess them.
 

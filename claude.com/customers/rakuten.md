@@ -4,31 +4,21 @@ Case study | Claude Code
 
 # Rakuten accelerates development with Claude Code
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![Rakuten logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68d5faa6352b26bf7542cb9b_logo_rakuten-light.svg)![Rakuten logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68d5fab610bf0d091b541153_logo_rakuten-dark.svg)
+![Rakuten logo](https://assets.claude.com/5463fa5a44d12868ceec5ae30bfc8c412cafdeae.svg)
 
 Industry:
-
-Ecommerce
+:   Ecommerce
 
 Company size:
-
-Large
+:   Large
 
 Product:
-
-Claude Code
+:   Claude Code
 
 Location:
-
-Asia Pacific
+:   Asia Pacific
 
 79% reduction
 
@@ -40,35 +30,11 @@ of sustained autonomous coding on complex refactoring
 
 Case Study: Rakuten
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69d68a29adf244215ac55985_og_case-study-rakuten.jpg)
+![Case Study: Rakuten](https://assets.claude.com/93db54b4af90793b8d000d9690f17d18c86facf7.jpg)
 
 Rakuten uses Claude Managed Agents to turn every employee into a builder—shipping major releases every two weeks instead of quarterly and cutting critical errors by 97%.
 
-Read more
-
-[Read more](https://claude.com/customers/rakuten-qa)Read more
-
-Case Study: Rakuten
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Rakuten uses Claude Managed Agents to turn every employee into a builder—shipping major releases every two weeks instead of quarterly and cutting critical errors by 97%.
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Case Study: Rakuten
-
-Rakuten uses Claude Managed Agents to turn every employee into a builder—shipping major releases every two weeks instead of quarterly and cutting critical errors by 97%.
-
-[Prev](#)Prev
-
-[Next](#)Next
+[Read more](https://claude.com/customers/rakuten-qa)
 
 [Rakuten](http://rakuten.com/), a leading Japanese technology company, is using Claude Code to transform software development, enabling their engineering teams to automate coding tasks that accelerate time to market while reliably powering AI features for millions of customers.
 
@@ -101,11 +67,9 @@ An inflection point came when Kenta Naruse, Machine Learning Engineer, tested Cl
 
 This breakthrough, combined with Anthropic's commitment to responsible AI that aligned with Rakuten's values, convinced leadership that Claude Code could transform their development process.
 
-“You can have five tasks running in parallel by delegating four to Claude Code while focusing on the remaining one.”
+> “You can have five tasks running in parallel by delegating four to Claude Code while focusing on the remaining one.”
 
-Yusuke Kaji
-
-General Manager of AI for Business
+Yusuke KajiGeneral Manager of AI for Business
 
 ## Transforming development workflows across the organization
 
@@ -138,84 +102,22 @@ Rakuten's AI-nization offers a blueprint for enterprise transformation. By givin
 
 Claude Code
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698f525504b02eec936ac51b_68c469d41149ace562bfd24d_og-claude-product-claude-code.jpeg)
+![Claude Code](https://assets.claude.com/38e8385d1c5f9c0f71c486994e22fc5861a4522d.jpg)
 
 Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
 
-Read more
+[Read more](https://claude.com/product/claude-code)
 
-[Read more](https://claude.com/product/claude-code)Read more
+> “With Managed Agents, our power users become like Galileo, contributing across domains far beyond a single specialty or discipline.”
 
-Claude Code
+Yusuke KajiGeneral Manager of AI for Business
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[![Reversia](https://assets.claude.com/86b324fdb04166c3b115b1cf48071e52e83d08cf.svg)
 
-[Next](#)Next
+### Reversia translates e-commerce stores across 110+ languages with Claude](https://claude.com/customers/reversia)[![Rakuten](https://assets.claude.com/5463fa5a44d12868ceec5ae30bfc8c412cafdeae.svg)
 
-Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
+### Inside Rakuten's plan to turn every employee into a builder with Claude Managed Agents](https://claude.com/customers/rakuten-qa)[![Shopify](https://assets.claude.com/33de1bc0b1b2c92e879e513e3c14ec213c311ff1.svg)
 
-Video caption
+### How Shopify uses Anthropic’s Claude on Google Cloud to supercharge Sidekick](https://claude.com/customers/shopify)[![L'Oreal](https://assets.claude.com/4e6032e43573d2aac0260633c76ee859d566326a.svg)
 
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Claude Code
-
-Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
-
-“With Managed Agents, our power users become like Galileo, contributing across domains far beyond a single specialty or discipline.”
-
-Yusuke Kaji
-
-General Manager of AI for Business
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[Reversia translates e-commerce stores across 110+ languages with Claude](https://claude.com/customers/reversia)Reversia translates e-commerce stores across 110+ languages with Claude
-
-Reversia translates e-commerce stores across 110+ languages with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/reversia)Customer story
-
-[Inside Rakuten's plan to turn every employee into a builder with Claude Managed Agents](https://claude.com/customers/rakuten-qa)Inside Rakuten's plan to turn every employee into a builder with Claude Managed Agents
-
-Inside Rakuten's plan to turn every employee into a builder with Claude Managed Agents
-
-Customer story
-
-[Customer story](https://claude.com/customers/rakuten-qa)Customer story
-
-[How Shopify uses Anthropic’s Claude on Google Cloud to supercharge Sidekick](https://claude.com/customers/shopify)How Shopify uses Anthropic’s Claude on Google Cloud to supercharge Sidekick
-
-How Shopify uses Anthropic’s Claude on Google Cloud to supercharge Sidekick
-
-Customer story
-
-[Customer story](https://claude.com/customers/shopify)Customer story
-
-[L'Oréal advances conversational analytics with Claude](https://claude.com/customers/loreal)L'Oréal advances conversational analytics with Claude
-
-L'Oréal advances conversational analytics with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/loreal)Customer story
+### L'Oréal advances conversational analytics with Claude](https://claude.com/customers/loreal)

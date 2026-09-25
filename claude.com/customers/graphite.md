@@ -4,31 +4,21 @@ Case study | Claude Platform
 
 # Graphite speeds up code review by 40x with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![Graphite logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68bb5f0cfaa84d1119a0c35b_Clip%20path%20group.svg)![Graphite logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68bb5f1d05f1df7047ff2c0d_Graphite-dark-theme.svg)
+![Graphite logo](https://assets.claude.com/b5761a5379dfcf79b47232349bd7ab557eee6e85.svg)
 
 Industry:
-
-Software
+:   Software
 
 Company size:
-
-Small
+:   Small
 
 Product:
-
-Claude Platform
+:   Claude Platform
 
 Location:
-
-North America
+:   North America
 
 800x faster
 
@@ -37,42 +27,6 @@ North America
 Human-level
 
 performance on biomedical benchmarks
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
 
 Graphite, a modern end-to-end developer platform, uses Claude to power their AI code reviewer that catches bugs and suggests fixes, transforming how engineering teams at companies like Snowflake, Asana, and Ramp approach software development.
 
@@ -111,9 +65,7 @@ The platform focuses on objective bugs, not subjective suggestions. It addresses
 
 When issues are identified, the system automatically generates fix suggestions for developers to implement with a single click, reducing the traditional fix-and-review cycle time.
 
-![Graphite product screen ](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68baf058657d4f7b80396a99_0068517fa5822a805c478c7c933c6b29af2c1f65-2880x1620.png)
-
-![Graphite product screen](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68baf058657d4f7b80396ac0_89b8c38542c938ea808b12f185b0a72e7ba58e28-2880x1620.png)
+![Graphite product screen ](https://assets.claude.com/9c81978c9821c8343ef714405a86a37630cb446f.png)![Graphite product screen](https://assets.claude.com/f869115db6ed9c178059435adb8636fc452d1a15.png)
 
 ## Delivering measurable impact for development teams
 
@@ -131,52 +83,12 @@ Graphite envisions a fundamental transformation in software development over the
 
 Through their partnership with Anthropic, Graphite is leading this transformation. By automating time-consuming reviews, catching subtle bugs, and enabling one-click fixes, they're freeing developers to focus on what humans do best – making high-level architectural decisions that shape the future of software. Together, Graphite and Claude are transforming code review from a bottleneck into an accelerator of human creativity and engineering excellence.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[![Supermetrics](https://assets.claude.com/3ac4171a81008be0340e5c3d8ccb46571c3edfb3.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### Supermetrics lets marketers manage ad campaigns from a conversation with Claude](https://claude.com/customers/supermetrics)[![Atlassian](https://assets.claude.com/4870b3d6c0253cea01b100c98ad2030b8e4f8ce1.svg)
 
-[Next](#)Next
+### How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-Video caption
+### Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-Customer story
-
-[Customer story](https://claude.com/customers/atlassian)Customer story
-
-[Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)Rocket Money on building agents that fix their own code
-
-Rocket Money on building agents that fix their own code
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money-qa)Customer story
-
-[How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)How Rocket Money built its personal finance agent with Claude
-
-How Rocket Money built its personal finance agent with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money)Customer story
-
-[How Notion ships and scales agents with Claude Managed Agents](https://claude.com/customers/notion-qa)How Notion ships and scales agents with Claude Managed Agents
-
-How Notion ships and scales agents with Claude Managed Agents
-
-Customer story
-
-[Customer story](https://claude.com/customers/notion-qa)Customer story
+### How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)

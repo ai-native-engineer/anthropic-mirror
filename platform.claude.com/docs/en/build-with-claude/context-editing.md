@@ -64,7 +64,7 @@ An assistant conversation turn may include multiple content blocks (for example,
 
 Context editing is applied server-side before the prompt reaches Claude. Your client application maintains the full, unmodified conversation history. You do not need to sync your client state with the edited version. Continue managing your full conversation history locally as you normally would.
 
-On Claude Fable 5.1, server-side context management never invalidates thinking blocks. Client-side edits to earlier turns can invalidate the thinking blocks in every later assistant turn. For new accounts created on or after August 31, 2026, a request that replays an invalidated block is rejected unless you opt into dropping it. See [Keeping the prefix unchanged](https://platform.claude.com/docs/en/build-with-claude/preserved-thinking#prefix-check).
+On Claude Fable 5.1 and Claude Opus 5.5, server-side context management never invalidates thinking blocks. Client-side edits to earlier turns can invalidate the thinking blocks in every later assistant turn. For new accounts created on or after August 31, 2026, a request that replays an invalidated block is rejected unless you opt into dropping it. See [Keeping the prefix unchanged](https://platform.claude.com/docs/en/build-with-claude/preserved-thinking#prefix-check).
 
 ### Context editing and prompt caching
 
@@ -90,7 +90,7 @@ The simplest way to enable tool result clearing is to specify only the strategy 
       --header "content-type: application/json" \
       --header "anthropic-beta: context-management-2025-06-27" \
       --data '{
-          "model": "claude-opus-5",
+          "model": "claude-opus-5-5",
           "max_tokens": 4096,
           "messages": [
               {
@@ -114,7 +114,7 @@ The simplest way to enable tool result clearing is to specify only the strategy 
 
   ```bash CLI
   ant beta:messages create --beta context-management-2025-06-27 <<'YAML'
-  model: claude-opus-5
+  model: claude-opus-5-5
   max_tokens: 4096
   messages:
     - role: user
@@ -130,7 +130,7 @@ The simplest way to enable tool result clearing is to specify only the strategy 
 
   ```python Python
   response = client.beta.messages.create(
-      model="claude-opus-5",
+      model="claude-opus-5-5",
       max_tokens=4096,
       messages=[{"role": "user", "content": "Search for recent developments in AI"}],
       tools=[{"type": "web_search_20250305", "name": "web_search"}],
@@ -145,7 +145,7 @@ The simplest way to enable tool result clearing is to specify only the strategy 
   });
 
   const response = await anthropic.beta.messages.create({
-    model: "claude-opus-5",
+    model: "claude-opus-5-5",
     max_tokens: 4096,
     messages: [
       {
@@ -176,7 +176,7 @@ The simplest way to enable tool result clearing is to specify only the strategy 
 
   var parameters = new MessageCreateParams
   {
-      Model = Messages::Model.ClaudeOpus5,
+      Model = Messages::Model.ClaudeOpus5_5,
       MaxTokens = 4096,
       Messages = [
           new() { Role = Role.User, Content = "Search for recent developments in AI" }
@@ -199,7 +199,7 @@ The simplest way to enable tool result clearing is to specify only the strategy 
   client := anthropic.NewClient()
 
   response, err := client.Beta.Messages.New(context.TODO(), anthropic.BetaMessageNewParams{
-  	Model:     anthropic.ModelClaudeOpus5,
+  	Model:     anthropic.ModelClaudeOpus5_5,
   	MaxTokens: 4096,
   	Messages: []anthropic.BetaMessageParam{
   		anthropic.NewBetaUserMessage(anthropic.NewBetaTextBlock("Search for recent developments in AI")),
@@ -232,7 +232,7 @@ The simplest way to enable tool result clearing is to specify only the strategy 
       AnthropicClient client = AnthropicOkHttpClient.fromEnv();
 
       MessageCreateParams params = MessageCreateParams.builder()
-          .model(Model.CLAUDE_OPUS_5)
+          .model(Model.CLAUDE_OPUS_5_5)
           .maxTokens(4096L)
           .addUserMessage("Search for recent developments in AI")
           .addTool(BetaWebSearchTool20250305.builder().build())
@@ -255,7 +255,7 @@ The simplest way to enable tool result clearing is to specify only the strategy 
       messages: [
           ['role' => 'user', 'content' => 'Search for recent developments in AI']
       ],
-      model: 'claude-opus-5',
+      model: 'claude-opus-5-5',
       betas: ['context-management-2025-06-27'],
       tools: [
           ['type' => 'web_search_20250305', 'name' => 'web_search']
@@ -274,7 +274,7 @@ The simplest way to enable tool result clearing is to specify only the strategy 
   client = Anthropic::Client.new
 
   response = client.beta.messages.create(
-    model: "claude-opus-5",
+    model: "claude-opus-5-5",
     max_tokens: 4096,
     messages: [
       { role: "user", content: "Search for recent developments in AI" }
@@ -305,7 +305,7 @@ You can customize the tool result clearing behavior with additional parameters:
       --header "content-type: application/json" \
       --header "anthropic-beta: context-management-2025-06-27" \
       --data '{
-          "model": "claude-opus-5",
+          "model": "claude-opus-5-5",
           "max_tokens": 4096,
           "messages": [
               {
@@ -350,7 +350,7 @@ You can customize the tool result clearing behavior with additional parameters:
 
   ```bash CLI
   ant beta:messages create --beta context-management-2025-06-27 <<'YAML'
-  model: claude-opus-5
+  model: claude-opus-5-5
   max_tokens: 4096
   messages:
     - role: user
@@ -381,7 +381,7 @@ You can customize the tool result clearing behavior with additional parameters:
 
   ```python Python
   response = client.beta.messages.create(
-      model="claude-opus-5",
+      model="claude-opus-5-5",
       max_tokens=4096,
       messages=[
           {
@@ -422,7 +422,7 @@ You can customize the tool result clearing behavior with additional parameters:
   });
 
   const response = await anthropic.beta.messages.create({
-    model: "claude-opus-5",
+    model: "claude-opus-5-5",
     max_tokens: 4096,
     messages: [
       {
@@ -480,7 +480,7 @@ You can customize the tool result clearing behavior with additional parameters:
 
   var parameters = new MessageCreateParams
   {
-      Model = Messages::Model.ClaudeOpus5,
+      Model = Messages::Model.ClaudeOpus5_5,
       MaxTokens = 4096,
       Messages = [
           new() { Role = Role.User, Content = "Create a simple command line calculator app using Python" }
@@ -512,7 +512,7 @@ You can customize the tool result clearing behavior with additional parameters:
   client := anthropic.NewClient()
 
   response, err := client.Beta.Messages.New(context.TODO(), anthropic.BetaMessageNewParams{
-  	Model:     anthropic.ModelClaudeOpus5,
+  	Model:     anthropic.ModelClaudeOpus5_5,
   	MaxTokens: 4096,
   	Messages: []anthropic.BetaMessageParam{
   		anthropic.NewBetaUserMessage(anthropic.NewBetaTextBlock("Create a simple command line calculator app using Python")),
@@ -565,7 +565,7 @@ You can customize the tool result clearing behavior with additional parameters:
       AnthropicClient client = AnthropicOkHttpClient.fromEnv();
 
       MessageCreateParams params = MessageCreateParams.builder()
-          .model(Model.CLAUDE_OPUS_5)
+          .model(Model.CLAUDE_OPUS_5_5)
           .maxTokens(4096L)
           .addUserMessage("Create a simple command line calculator app using Python")
           .addTool(BetaToolTextEditor20250728.builder()
@@ -607,7 +607,7 @@ You can customize the tool result clearing behavior with additional parameters:
               'content' => 'Create a simple command line calculator app using Python'
           ]
       ],
-      model: 'claude-opus-5',
+      model: 'claude-opus-5-5',
       betas: ['context-management-2025-06-27'],
       tools: [
           [
@@ -650,7 +650,7 @@ You can customize the tool result clearing behavior with additional parameters:
   client = Anthropic::Client.new
 
   response = client.beta.messages.create(
-    model: "claude-opus-5",
+    model: "claude-opus-5-5",
     max_tokens: 4096,
     messages: [
       {
@@ -708,7 +708,7 @@ Enable thinking block clearing to manage context and prompt caching effectively 
       --header "content-type: application/json" \
       --header "anthropic-beta: context-management-2025-06-27" \
       --data '{
-          "model": "claude-opus-5",
+          "model": "claude-opus-5-5",
           "max_tokens": 16000,
           "messages": [{"role": "user", "content": "Hello"}],
           "context_management": {
@@ -727,7 +727,7 @@ Enable thinking block clearing to manage context and prompt caching effectively 
 
   ```bash CLI
   ant beta:messages create --beta context-management-2025-06-27 <<'YAML'
-  model: claude-opus-5
+  model: claude-opus-5-5
   max_tokens: 16000
   messages:
     - role: user
@@ -743,7 +743,7 @@ Enable thinking block clearing to manage context and prompt caching effectively 
 
   ```python Python
   response = client.beta.messages.create(
-      model="claude-opus-5",
+      model="claude-opus-5-5",
       max_tokens=16000,
       messages=[{"role": "user", "content": "Hello"}],
       betas=["context-management-2025-06-27"],
@@ -764,7 +764,7 @@ Enable thinking block clearing to manage context and prompt caching effectively 
   });
 
   const response = await anthropic.beta.messages.create({
-    model: "claude-opus-5",
+    model: "claude-opus-5-5",
     max_tokens: 16000,
     messages: [{ role: "user", content: "Hello" }],
     betas: ["context-management-2025-06-27"],
@@ -792,7 +792,7 @@ Enable thinking block clearing to manage context and prompt caching effectively 
 
   var parameters = new MessageCreateParams
   {
-      Model = Messages::Model.ClaudeOpus5,
+      Model = Messages::Model.ClaudeOpus5_5,
       MaxTokens = 16000,
       Messages = [
           new() { Role = Role.User, Content = "Hello" }
@@ -817,7 +817,7 @@ Enable thinking block clearing to manage context and prompt caching effectively 
   client := anthropic.NewClient()
 
   response, err := client.Beta.Messages.New(context.TODO(), anthropic.BetaMessageNewParams{
-  	Model:     anthropic.ModelClaudeOpus5,
+  	Model:     anthropic.ModelClaudeOpus5_5,
   	MaxTokens: 16000,
   	Messages: []anthropic.BetaMessageParam{
   		anthropic.NewBetaUserMessage(anthropic.NewBetaTextBlock("Hello")),
@@ -851,7 +851,7 @@ Enable thinking block clearing to manage context and prompt caching effectively 
       AnthropicClient client = AnthropicOkHttpClient.fromEnv();
 
       MessageCreateParams params = MessageCreateParams.builder()
-          .model(Model.CLAUDE_OPUS_5)
+          .model(Model.CLAUDE_OPUS_5_5)
           .maxTokens(16000L)
           .addUserMessage("Hello")
           .addBeta(AnthropicBeta.CONTEXT_MANAGEMENT_2025_06_27)
@@ -877,7 +877,7 @@ Enable thinking block clearing to manage context and prompt caching effectively 
       messages: [
           ['role' => 'user', 'content' => 'Hello']
       ],
-      model: 'claude-opus-5',
+      model: 'claude-opus-5-5',
       betas: ['context-management-2025-06-27'],
       contextManagement: [
           'edits' => [
@@ -899,7 +899,7 @@ Enable thinking block clearing to manage context and prompt caching effectively 
   client = Anthropic::Client.new
 
   response = client.beta.messages.create(
-    model: "claude-opus-5",
+    model: "claude-opus-5-5",
     max_tokens: 16000,
     messages: [{ role: "user", content: "Hello" }],
     betas: ["context-management-2025-06-27"],
@@ -939,7 +939,7 @@ Keep thinking blocks from the last 3 assistant turns:
       --header "content-type: application/json" \
       --header "anthropic-beta: context-management-2025-06-27" \
       --data '{
-          "model": "claude-opus-5",
+          "model": "claude-opus-5-5",
           "max_tokens": 16000,
           "messages": [{"role": "user", "content": "Hello"}],
           "context_management": {
@@ -958,7 +958,7 @@ Keep thinking blocks from the last 3 assistant turns:
 
   ```bash CLI
   ant beta:messages create --beta context-management-2025-06-27 <<'YAML'
-  model: claude-opus-5
+  model: claude-opus-5-5
   max_tokens: 16000
   messages:
     - role: user
@@ -974,7 +974,7 @@ Keep thinking blocks from the last 3 assistant turns:
 
   ```python Python
   response = client.beta.messages.create(
-      model="claude-opus-5",
+      model="claude-opus-5-5",
       max_tokens=16000,
       messages=[{"role": "user", "content": "Hello"}],
       betas=["context-management-2025-06-27"],
@@ -995,7 +995,7 @@ Keep thinking blocks from the last 3 assistant turns:
   });
 
   const response = await anthropic.beta.messages.create({
-    model: "claude-opus-5",
+    model: "claude-opus-5-5",
     max_tokens: 16000,
     messages: [{ role: "user", content: "Hello" }],
     betas: ["context-management-2025-06-27"],
@@ -1023,7 +1023,7 @@ Keep thinking blocks from the last 3 assistant turns:
 
   var parameters = new MessageCreateParams
   {
-      Model = Messages::Model.ClaudeOpus5,
+      Model = Messages::Model.ClaudeOpus5_5,
       MaxTokens = 16000,
       Messages = [
           new() { Role = Role.User, Content = "Hello" }
@@ -1048,7 +1048,7 @@ Keep thinking blocks from the last 3 assistant turns:
   client := anthropic.NewClient()
 
   response, err := client.Beta.Messages.New(context.TODO(), anthropic.BetaMessageNewParams{
-  	Model:     anthropic.ModelClaudeOpus5,
+  	Model:     anthropic.ModelClaudeOpus5_5,
   	MaxTokens: 16000,
   	Messages: []anthropic.BetaMessageParam{
   		anthropic.NewBetaUserMessage(anthropic.NewBetaTextBlock("Hello")),
@@ -1076,7 +1076,7 @@ Keep thinking blocks from the last 3 assistant turns:
   AnthropicClient client = AnthropicOkHttpClient.fromEnv();
 
   MessageCreateParams params = MessageCreateParams.builder()
-      .model(Model.CLAUDE_OPUS_5)
+      .model(Model.CLAUDE_OPUS_5_5)
       .maxTokens(16000L)
       .addUserMessage("Hello")
       .addBeta(AnthropicBeta.CONTEXT_MANAGEMENT_2025_06_27)
@@ -1101,7 +1101,7 @@ Keep thinking blocks from the last 3 assistant turns:
       messages: [
           ['role' => 'user', 'content' => 'Hello']
       ],
-      model: 'claude-opus-5',
+      model: 'claude-opus-5-5',
       betas: ['context-management-2025-06-27'],
       contextManagement: [
           'edits' => [
@@ -1123,7 +1123,7 @@ Keep thinking blocks from the last 3 assistant turns:
   client = Anthropic::Client.new
 
   response = client.beta.messages.create(
-    model: "claude-opus-5",
+    model: "claude-opus-5-5",
     max_tokens: 16000,
     messages: [{ role: "user", content: "Hello" }],
     betas: ["context-management-2025-06-27"],
@@ -1153,7 +1153,7 @@ Keep all thinking blocks (maximizes cache hits):
       --header "content-type: application/json" \
       --header "anthropic-beta: context-management-2025-06-27" \
       --data '{
-          "model": "claude-opus-5",
+          "model": "claude-opus-5-5",
           "max_tokens": 16000,
           "messages": [{"role": "user", "content": "Hello"}],
           "context_management": {
@@ -1169,7 +1169,7 @@ Keep all thinking blocks (maximizes cache hits):
 
   ```bash CLI
   ant beta:messages create --beta context-management-2025-06-27 <<'YAML'
-  model: claude-opus-5
+  model: claude-opus-5-5
   max_tokens: 16000
   messages:
     - role: user
@@ -1183,7 +1183,7 @@ Keep all thinking blocks (maximizes cache hits):
 
   ```python Python
   response = client.beta.messages.create(
-      model="claude-opus-5",
+      model="claude-opus-5-5",
       max_tokens=16000,
       messages=[{"role": "user", "content": "Hello"}],
       betas=["context-management-2025-06-27"],
@@ -1204,7 +1204,7 @@ Keep all thinking blocks (maximizes cache hits):
   });
 
   const response = await anthropic.beta.messages.create({
-    model: "claude-opus-5",
+    model: "claude-opus-5-5",
     max_tokens: 16000,
     messages: [{ role: "user", content: "Hello" }],
     betas: ["context-management-2025-06-27"],
@@ -1229,7 +1229,7 @@ Keep all thinking blocks (maximizes cache hits):
 
   var parameters = new MessageCreateParams
   {
-      Model = Messages::Model.ClaudeOpus5,
+      Model = Messages::Model.ClaudeOpus5_5,
       MaxTokens = 16000,
       Messages = [
           new() { Role = Role.User, Content = "Hello" }
@@ -1254,7 +1254,7 @@ Keep all thinking blocks (maximizes cache hits):
   client := anthropic.NewClient()
 
   response, err := client.Beta.Messages.New(context.TODO(), anthropic.BetaMessageNewParams{
-  	Model:     anthropic.ModelClaudeOpus5,
+  	Model:     anthropic.ModelClaudeOpus5_5,
   	MaxTokens: 16000,
   	Messages: []anthropic.BetaMessageParam{
   		anthropic.NewBetaUserMessage(anthropic.NewBetaTextBlock("Hello")),
@@ -1280,7 +1280,7 @@ Keep all thinking blocks (maximizes cache hits):
   AnthropicClient client = AnthropicOkHttpClient.fromEnv();
 
   MessageCreateParams params = MessageCreateParams.builder()
-      .model(Model.CLAUDE_OPUS_5)
+      .model(Model.CLAUDE_OPUS_5_5)
       .maxTokens(16000L)
       .addUserMessage("Hello")
       .addBeta(AnthropicBeta.CONTEXT_MANAGEMENT_2025_06_27)
@@ -1303,7 +1303,7 @@ Keep all thinking blocks (maximizes cache hits):
       messages: [
           ['role' => 'user', 'content' => 'Hello']
       ],
-      model: 'claude-opus-5',
+      model: 'claude-opus-5-5',
       betas: ['context-management-2025-06-27'],
       contextManagement: [
           'edits' => [
@@ -1322,7 +1322,7 @@ Keep all thinking blocks (maximizes cache hits):
   client = Anthropic::Client.new
 
   response = client.beta.messages.create(
-    model: "claude-opus-5",
+    model: "claude-opus-5-5",
     max_tokens: 16000,
     messages: [{ role: "user", content: "Hello" }],
     betas: ["context-management-2025-06-27"],
@@ -1355,7 +1355,7 @@ You can use both thinking block clearing and tool result clearing together:
       --header "content-type: application/json" \
       --header "anthropic-beta: context-management-2025-06-27" \
       --data '{
-          "model": "claude-opus-5",
+          "model": "claude-opus-5-5",
           "max_tokens": 16000,
           "messages": [
               {
@@ -1397,7 +1397,7 @@ You can use both thinking block clearing and tool result clearing together:
 
   ```bash CLI
   ant beta:messages create --beta context-management-2025-06-27 <<'YAML'
-  model: claude-opus-5
+  model: claude-opus-5-5
   max_tokens: 16000
   messages:
     - role: user
@@ -1424,7 +1424,7 @@ You can use both thinking block clearing and tool result clearing together:
 
   ```python Python
   response = client.beta.messages.create(
-      model="claude-opus-5",
+      model="claude-opus-5-5",
       max_tokens=16000,
       messages=[
           {
@@ -1464,7 +1464,7 @@ You can use both thinking block clearing and tool result clearing together:
   });
 
   const response = await anthropic.beta.messages.create({
-    model: "claude-opus-5",
+    model: "claude-opus-5-5",
     max_tokens: 16000,
     messages: [
       {
@@ -1518,7 +1518,7 @@ You can use both thinking block clearing and tool result clearing together:
 
   var parameters = new MessageCreateParams
   {
-      Model = Messages::Model.ClaudeOpus5,
+      Model = Messages::Model.ClaudeOpus5_5,
       MaxTokens = 16000,
       Messages = [
           new() { Role = Role.User, Content = "Search for the latest developments in quantum error correction and summarize the key breakthroughs." }
@@ -1551,7 +1551,7 @@ You can use both thinking block clearing and tool result clearing together:
   client := anthropic.NewClient()
 
   response, err := client.Beta.Messages.New(context.TODO(), anthropic.BetaMessageNewParams{
-  	Model:     anthropic.ModelClaudeOpus5,
+  	Model:     anthropic.ModelClaudeOpus5_5,
   	MaxTokens: 16000,
   	Messages: []anthropic.BetaMessageParam{
   		anthropic.NewBetaUserMessage(anthropic.NewBetaTextBlock("Search for the latest developments in quantum error correction and summarize the key breakthroughs.")),
@@ -1606,7 +1606,7 @@ You can use both thinking block clearing and tool result clearing together:
       AnthropicClient client = AnthropicOkHttpClient.fromEnv();
 
       MessageCreateParams params = MessageCreateParams.builder()
-          .model(Model.CLAUDE_OPUS_5)
+          .model(Model.CLAUDE_OPUS_5_5)
           .maxTokens(16000L)
           .addUserMessage("Search for the latest developments in quantum error correction and summarize the key breakthroughs.")
           .addTool(BetaWebSearchTool20250305.builder()
@@ -1646,7 +1646,7 @@ You can use both thinking block clearing and tool result clearing together:
               'content' => 'Search for the latest developments in quantum error correction and summarize the key breakthroughs.'
           ]
       ],
-      model: 'claude-opus-5',
+      model: 'claude-opus-5-5',
       betas: ['context-management-2025-06-27'],
       tools: [
           [
@@ -1686,7 +1686,7 @@ You can use both thinking block clearing and tool result clearing together:
   client = Anthropic::Client.new
 
   response = client.beta.messages.create(
-    model: "claude-opus-5",
+    model: "claude-opus-5-5",
     max_tokens: 16000,
     messages: [
       {
@@ -1805,7 +1805,7 @@ The [token counting](https://platform.claude.com/docs/en/build-with-claude/token
       --header "content-type: application/json" \
       --header "anthropic-beta: context-management-2025-06-27" \
       --data '{
-          "model": "claude-opus-5",
+          "model": "claude-opus-5-5",
           "messages": [
               {
                   "role": "user",
@@ -1831,8 +1831,11 @@ The [token counting](https://platform.claude.com/docs/en/build-with-claude/token
   ```
 
   ```bash CLI
-  cat > request.yaml <<'YAML'
-  model: claude-opus-5
+  ORIGINAL=$(ant beta:messages count-tokens \
+    --beta context-management-2025-06-27 \
+    --transform context_management.original_input_tokens \
+    --raw-output <<'YAML'
+  model: claude-opus-5-5
   messages:
     - role: user
       content: Continue our conversation...
@@ -1846,15 +1849,26 @@ The [token counting](https://platform.claude.com/docs/en/build-with-claude/token
           type: tool_uses
           value: 5
   YAML
-
-  ORIGINAL=$(ant beta:messages count-tokens \
-    --beta context-management-2025-06-27 \
-    --transform context_management.original_input_tokens \
-    --raw-output < request.yaml)
+  )
 
   INPUT_TOKENS=$(ant beta:messages count-tokens \
     --beta context-management-2025-06-27 \
-    --transform input_tokens --raw-output < request.yaml)
+    --transform input_tokens --raw-output <<'YAML'
+  model: claude-opus-5-5
+  messages:
+    - role: user
+      content: Continue our conversation...
+  context_management:
+    edits:
+      - type: clear_tool_uses_20250919
+        trigger:
+          type: input_tokens
+          value: 30000
+        keep:
+          type: tool_uses
+          value: 5
+  YAML
+  )
 
   printf 'Original tokens: %s\n' "$ORIGINAL"
   printf 'After clearing: %s\n' "$INPUT_TOKENS"
@@ -1863,7 +1877,7 @@ The [token counting](https://platform.claude.com/docs/en/build-with-claude/token
 
   ```python Python
   response = client.beta.messages.count_tokens(
-      model="claude-opus-5",
+      model="claude-opus-5-5",
       messages=[{"role": "user", "content": "Continue our conversation..."}],
       betas=["context-management-2025-06-27"],
       context_management={
@@ -1890,7 +1904,7 @@ The [token counting](https://platform.claude.com/docs/en/build-with-claude/token
   });
 
   const response = await anthropic.beta.messages.countTokens({
-    model: "claude-opus-5",
+    model: "claude-opus-5-5",
     messages: [
       {
         role: "user",
@@ -1934,7 +1948,7 @@ The [token counting](https://platform.claude.com/docs/en/build-with-claude/token
 
   var parameters = new MessageCountTokensParams
   {
-      Model = Messages::Model.ClaudeOpus5,
+      Model = Messages::Model.ClaudeOpus5_5,
       Messages = [new() { Role = Role.User, Content = "Continue our conversation..." }],
       Betas = [AnthropicBeta.ContextManagement2025_06_27],
       ContextManagement = new BetaContextManagementConfig
@@ -1960,7 +1974,7 @@ The [token counting](https://platform.claude.com/docs/en/build-with-claude/token
   client := anthropic.NewClient()
 
   response, err := client.Beta.Messages.CountTokens(context.TODO(), anthropic.BetaMessageCountTokensParams{
-  	Model: anthropic.ModelClaudeOpus5,
+  	Model: anthropic.ModelClaudeOpus5_5,
   	Messages: []anthropic.BetaMessageParam{
   		anthropic.NewBetaUserMessage(anthropic.NewBetaTextBlock("Continue our conversation...")),
   	},
@@ -2004,7 +2018,7 @@ The [token counting](https://platform.claude.com/docs/en/build-with-claude/token
       AnthropicClient client = AnthropicOkHttpClient.fromEnv();
 
       MessageCountTokensParams params = MessageCountTokensParams.builder()
-          .model(Model.CLAUDE_OPUS_5)
+          .model(Model.CLAUDE_OPUS_5_5)
           .addUserMessage("Continue our conversation...")
           .addBeta(AnthropicBeta.CONTEXT_MANAGEMENT_2025_06_27)
           .contextManagement(BetaContextManagementConfig.builder()
@@ -2034,7 +2048,7 @@ The [token counting](https://platform.claude.com/docs/en/build-with-claude/token
       messages: [
           ['role' => 'user', 'content' => 'Continue our conversation...']
       ],
-      model: 'claude-opus-5',
+      model: 'claude-opus-5-5',
       betas: ['context-management-2025-06-27'],
       contextManagement: [
           'edits' => [
@@ -2062,7 +2076,7 @@ The [token counting](https://platform.claude.com/docs/en/build-with-claude/token
   client = Anthropic::Client.new
 
   response = client.beta.messages.count_tokens(
-    model: "claude-opus-5",
+    model: "claude-opus-5-5",
     messages: [
       { role: "user", content: "Continue our conversation..." }
     ],
@@ -2123,7 +2137,7 @@ To use both features together, enable them in your API request:
       --header "content-type: application/json" \
       --header "anthropic-beta: context-management-2025-06-27" \
       --data '{
-          "model": "claude-opus-5",
+          "model": "claude-opus-5-5",
           "max_tokens": 4096,
           "messages": [
               {
@@ -2147,7 +2161,7 @@ To use both features together, enable them in your API request:
 
   ```bash CLI
   ant beta:messages create --beta context-management-2025-06-27 <<'YAML'
-  model: claude-opus-5
+  model: claude-opus-5-5
   max_tokens: 4096
   messages:
     - role: user
@@ -2163,7 +2177,7 @@ To use both features together, enable them in your API request:
 
   ```python Python
   response = client.beta.messages.create(
-      model="claude-opus-5",
+      model="claude-opus-5-5",
       max_tokens=4096,
       messages=[{"role": "user", "content": "Hello"}],
       tools=[{"type": "memory_20250818", "name": "memory"}],
@@ -2178,7 +2192,7 @@ To use both features together, enable them in your API request:
   });
 
   const response = await anthropic.beta.messages.create({
-    model: "claude-opus-5",
+    model: "claude-opus-5-5",
     max_tokens: 4096,
     messages: [{ role: "user", content: "Hello" }],
     tools: [
@@ -2204,7 +2218,7 @@ To use both features together, enable them in your API request:
 
   var parameters = new MessageCreateParams
   {
-      Model = Messages::Model.ClaudeOpus5,
+      Model = Messages::Model.ClaudeOpus5_5,
       MaxTokens = 4096,
       Messages = [
           new() { Role = Role.User, Content = "Hello" }
@@ -2227,7 +2241,7 @@ To use both features together, enable them in your API request:
   client := anthropic.NewClient()
 
   response, err := client.Beta.Messages.New(context.TODO(), anthropic.BetaMessageNewParams{
-  	Model:     anthropic.ModelClaudeOpus5,
+  	Model:     anthropic.ModelClaudeOpus5_5,
   	MaxTokens: 4096,
   	Messages: []anthropic.BetaMessageParam{
   		anthropic.NewBetaUserMessage(anthropic.NewBetaTextBlock("Hello")),
@@ -2258,7 +2272,7 @@ To use both features together, enable them in your API request:
       AnthropicClient client = AnthropicOkHttpClient.fromEnv();
 
       MessageCreateParams params = MessageCreateParams.builder()
-          .model(Model.CLAUDE_OPUS_5)
+          .model(Model.CLAUDE_OPUS_5_5)
           .maxTokens(4096L)
           .addUserMessage("Hello")
           .addTool(BetaMemoryTool20250818.builder().build())
@@ -2281,7 +2295,7 @@ To use both features together, enable them in your API request:
       messages: [
           ['role' => 'user', 'content' => 'Hello']
       ],
-      model: 'claude-opus-5',
+      model: 'claude-opus-5-5',
       betas: ['context-management-2025-06-27'],
       tools: [
           [
@@ -2303,7 +2317,7 @@ To use both features together, enable them in your API request:
   client = Anthropic::Client.new
 
   response = client.beta.messages.create(
-    model: "claude-opus-5",
+    model: "claude-opus-5-5",
     max_tokens: 4096,
     messages: [{ role: "user", content: "Hello" }],
     tools: [
@@ -2367,7 +2381,7 @@ Add `compaction_control` to your `tool_runner` call to enable automatic summariz
 
   <Tab title="Python">
     <Note>
-      In v1.0 and later, the Python SDK's tool runner does not support client-side `compaction_control`. Use [server-side compaction](https://platform.claude.com/docs/en/build-with-claude/compaction) instead: it works with the tool runner by passing the `compact_20260112` edit in the request's `context_management` parameter.
+      In v1.0 and later, the Python SDK's tool runner does not support client-side `compaction_control`. Use [server-side compaction](https://platform.claude.com/docs/en/build-with-claude/compaction-threshold) instead: it works with the tool runner by passing the `compact_20260112` edit in the request's `context_management` parameter.
     </Note>
   </Tab>
 
@@ -2376,7 +2390,7 @@ Add `compaction_control` to your `tool_runner` call to enable automatic summariz
     const client = new Anthropic();
 
     const runner = client.beta.messages.toolRunner({
-      model: "claude-opus-5",
+      model: "claude-opus-5-5",
       max_tokens: 1024,
       tools: [readFile],
       messages: [{ role: "user", content: "What's in config.json?" }],
@@ -2391,25 +2405,25 @@ Add `compaction_control` to your `tool_runner` call to enable automatic summariz
 
   <Tab title="C#">
     <Note>
-      The C# SDK includes a tool runner, but it does not support client-side `compaction_control`. Use [server-side compaction](https://platform.claude.com/docs/en/build-with-claude/compaction) instead: it works with the tool runner by passing the `compact_20260112` edit in the request's `context_management` parameter.
+      The C# SDK includes a tool runner, but it does not support client-side `compaction_control`. Use [server-side compaction](https://platform.claude.com/docs/en/build-with-claude/compaction-threshold) instead: it works with the tool runner by passing the `compact_20260112` edit in the request's `context_management` parameter.
     </Note>
   </Tab>
 
   <Tab title="Go">
     <Note>
-      The Go SDK includes a tool runner, but it does not support client-side `compaction_control`. Use [server-side compaction](https://platform.claude.com/docs/en/build-with-claude/compaction) instead: it works with the tool runner by passing the `compact_20260112` edit in the request's `context_management` parameter.
+      The Go SDK includes a tool runner, but it does not support client-side `compaction_control`. Use [server-side compaction](https://platform.claude.com/docs/en/build-with-claude/compaction-threshold) instead: it works with the tool runner by passing the `compact_20260112` edit in the request's `context_management` parameter.
     </Note>
   </Tab>
 
   <Tab title="Java">
     <Note>
-      The Java SDK includes a tool runner, but it does not support client-side `compaction_control`. Use [server-side compaction](https://platform.claude.com/docs/en/build-with-claude/compaction) instead: it works with the tool runner by passing the `compact_20260112` edit in the request's `context_management` parameter.
+      The Java SDK includes a tool runner, but it does not support client-side `compaction_control`. Use [server-side compaction](https://platform.claude.com/docs/en/build-with-claude/compaction-threshold) instead: it works with the tool runner by passing the `compact_20260112` edit in the request's `context_management` parameter.
     </Note>
   </Tab>
 
   <Tab title="PHP">
     <Note>
-      The PHP SDK includes a tool runner, but it does not support client-side `compaction_control`. Use [server-side compaction](https://platform.claude.com/docs/en/build-with-claude/compaction) instead: it works with the tool runner by passing the `compact_20260112` edit in the request's `context_management` parameter.
+      The PHP SDK includes a tool runner, but it does not support client-side `compaction_control`. Use [server-side compaction](https://platform.claude.com/docs/en/build-with-claude/compaction-threshold) instead: it works with the tool runner by passing the `compact_20260112` edit in the request's `context_management` parameter.
     </Note>
   </Tab>
 
@@ -2418,7 +2432,7 @@ Add `compaction_control` to your `tool_runner` call to enable automatic summariz
     client = Anthropic::Client.new
 
     runner = client.beta.messages.tool_runner(
-      model: "claude-opus-5",
+      model: "claude-opus-5-5",
       max_tokens: 1024,
       tools: [ReadFile.new],
       messages: [{ role: "user", content: "What's in config.json?" }],
@@ -2499,7 +2513,7 @@ The threshold determines when compaction occurs. A lower threshold means more fr
 
   <Tab title="Python">
     <Note>
-      In v1.0 and later, the Python SDK's tool runner does not support client-side `compaction_control`. Use [server-side compaction](https://platform.claude.com/docs/en/build-with-claude/compaction) instead: it works with the tool runner by passing the `compact_20260112` edit in the request's `context_management` parameter.
+      In v1.0 and later, the Python SDK's tool runner does not support client-side `compaction_control`. Use [server-side compaction](https://platform.claude.com/docs/en/build-with-claude/compaction-threshold) instead: it works with the tool runner by passing the `compact_20260112` edit in the request's `context_management` parameter.
     </Note>
   </Tab>
 
@@ -2508,7 +2522,7 @@ The threshold determines when compaction occurs. A lower threshold means more fr
     const client = new Anthropic();
 
     const runner = client.beta.messages.toolRunner({
-      model: "claude-opus-5",
+      model: "claude-opus-5-5",
       max_tokens: 1024,
       tools: [readFile],
       messages: [{ role: "user", content: "What's in config.json?" }],
@@ -2524,25 +2538,25 @@ The threshold determines when compaction occurs. A lower threshold means more fr
 
   <Tab title="C#">
     <Note>
-      The C# SDK includes a tool runner, but it does not support client-side `compaction_control`. Use [server-side compaction](https://platform.claude.com/docs/en/build-with-claude/compaction) instead: it works with the tool runner by passing the `compact_20260112` edit in the request's `context_management` parameter.
+      The C# SDK includes a tool runner, but it does not support client-side `compaction_control`. Use [server-side compaction](https://platform.claude.com/docs/en/build-with-claude/compaction-threshold) instead: it works with the tool runner by passing the `compact_20260112` edit in the request's `context_management` parameter.
     </Note>
   </Tab>
 
   <Tab title="Go">
     <Note>
-      The Go SDK includes a tool runner, but it does not support client-side `compaction_control`. Use [server-side compaction](https://platform.claude.com/docs/en/build-with-claude/compaction) instead: it works with the tool runner by passing the `compact_20260112` edit in the request's `context_management` parameter.
+      The Go SDK includes a tool runner, but it does not support client-side `compaction_control`. Use [server-side compaction](https://platform.claude.com/docs/en/build-with-claude/compaction-threshold) instead: it works with the tool runner by passing the `compact_20260112` edit in the request's `context_management` parameter.
     </Note>
   </Tab>
 
   <Tab title="Java">
     <Note>
-      The Java SDK includes a tool runner, but it does not support client-side `compaction_control`. Use [server-side compaction](https://platform.claude.com/docs/en/build-with-claude/compaction) instead: it works with the tool runner by passing the `compact_20260112` edit in the request's `context_management` parameter.
+      The Java SDK includes a tool runner, but it does not support client-side `compaction_control`. Use [server-side compaction](https://platform.claude.com/docs/en/build-with-claude/compaction-threshold) instead: it works with the tool runner by passing the `compact_20260112` edit in the request's `context_management` parameter.
     </Note>
   </Tab>
 
   <Tab title="PHP">
     <Note>
-      The PHP SDK includes a tool runner, but it does not support client-side `compaction_control`. Use [server-side compaction](https://platform.claude.com/docs/en/build-with-claude/compaction) instead: it works with the tool runner by passing the `compact_20260112` edit in the request's `context_management` parameter.
+      The PHP SDK includes a tool runner, but it does not support client-side `compaction_control`. Use [server-side compaction](https://platform.claude.com/docs/en/build-with-claude/compaction-threshold) instead: it works with the tool runner by passing the `compact_20260112` edit in the request's `context_management` parameter.
     </Note>
   </Tab>
 
@@ -2551,7 +2565,7 @@ The threshold determines when compaction occurs. A lower threshold means more fr
     client = Anthropic::Client.new
 
     runner = client.beta.messages.tool_runner(
-      model: "claude-opus-5",
+      model: "claude-opus-5-5",
       max_tokens: 1024,
       tools: [ReadFile.new],
       messages: [{ role: "user", content: "What's in config.json?" }],
@@ -2585,7 +2599,7 @@ You can use a faster or cheaper model for generating summaries:
 
   <Tab title="Python">
     <Note>
-      In v1.0 and later, the Python SDK's tool runner does not support client-side `compaction_control`. Use [server-side compaction](https://platform.claude.com/docs/en/build-with-claude/compaction) instead: it works with the tool runner by passing the `compact_20260112` edit in the request's `context_management` parameter.
+      In v1.0 and later, the Python SDK's tool runner does not support client-side `compaction_control`. Use [server-side compaction](https://platform.claude.com/docs/en/build-with-claude/compaction-threshold) instead: it works with the tool runner by passing the `compact_20260112` edit in the request's `context_management` parameter.
     </Note>
   </Tab>
 
@@ -2594,7 +2608,7 @@ You can use a faster or cheaper model for generating summaries:
     const client = new Anthropic();
 
     const runner = client.beta.messages.toolRunner({
-      model: "claude-opus-5",
+      model: "claude-opus-5-5",
       max_tokens: 1024,
       tools: [readFile],
       messages: [{ role: "user", content: "What's in config.json?" }],
@@ -2613,25 +2627,25 @@ You can use a faster or cheaper model for generating summaries:
 
   <Tab title="C#">
     <Note>
-      The C# SDK includes a tool runner, but it does not support client-side `compaction_control`. Use [server-side compaction](https://platform.claude.com/docs/en/build-with-claude/compaction) instead: it works with the tool runner by passing the `compact_20260112` edit in the request's `context_management` parameter.
+      The C# SDK includes a tool runner, but it does not support client-side `compaction_control`. Use [server-side compaction](https://platform.claude.com/docs/en/build-with-claude/compaction-threshold) instead: it works with the tool runner by passing the `compact_20260112` edit in the request's `context_management` parameter.
     </Note>
   </Tab>
 
   <Tab title="Go">
     <Note>
-      The Go SDK includes a tool runner, but it does not support client-side `compaction_control`. Use [server-side compaction](https://platform.claude.com/docs/en/build-with-claude/compaction) instead: it works with the tool runner by passing the `compact_20260112` edit in the request's `context_management` parameter.
+      The Go SDK includes a tool runner, but it does not support client-side `compaction_control`. Use [server-side compaction](https://platform.claude.com/docs/en/build-with-claude/compaction-threshold) instead: it works with the tool runner by passing the `compact_20260112` edit in the request's `context_management` parameter.
     </Note>
   </Tab>
 
   <Tab title="Java">
     <Note>
-      The Java SDK includes a tool runner, but it does not support client-side `compaction_control`. Use [server-side compaction](https://platform.claude.com/docs/en/build-with-claude/compaction) instead: it works with the tool runner by passing the `compact_20260112` edit in the request's `context_management` parameter.
+      The Java SDK includes a tool runner, but it does not support client-side `compaction_control`. Use [server-side compaction](https://platform.claude.com/docs/en/build-with-claude/compaction-threshold) instead: it works with the tool runner by passing the `compact_20260112` edit in the request's `context_management` parameter.
     </Note>
   </Tab>
 
   <Tab title="PHP">
     <Note>
-      The PHP SDK includes a tool runner, but it does not support client-side `compaction_control`. Use [server-side compaction](https://platform.claude.com/docs/en/build-with-claude/compaction) instead: it works with the tool runner by passing the `compact_20260112` edit in the request's `context_management` parameter.
+      The PHP SDK includes a tool runner, but it does not support client-side `compaction_control`. Use [server-side compaction](https://platform.claude.com/docs/en/build-with-claude/compaction-threshold) instead: it works with the tool runner by passing the `compact_20260112` edit in the request's `context_management` parameter.
     </Note>
   </Tab>
 
@@ -2640,7 +2654,7 @@ You can use a faster or cheaper model for generating summaries:
     client = Anthropic::Client.new
 
     runner = client.beta.messages.tool_runner(
-      model: "claude-opus-5",
+      model: "claude-opus-5-5",
       max_tokens: 1024,
       tools: [ReadFile.new],
       messages: [{ role: "user", content: "What's in config.json?" }],
@@ -2677,7 +2691,7 @@ You can provide a custom prompt for domain-specific needs. Your prompt should in
 
   <Tab title="Python">
     <Note>
-      In v1.0 and later, the Python SDK's tool runner does not support client-side `compaction_control`. Use [server-side compaction](https://platform.claude.com/docs/en/build-with-claude/compaction) instead: it works with the tool runner by passing the `compact_20260112` edit in the request's `context_management` parameter.
+      In v1.0 and later, the Python SDK's tool runner does not support client-side `compaction_control`. Use [server-side compaction](https://platform.claude.com/docs/en/build-with-claude/compaction-threshold) instead: it works with the tool runner by passing the `compact_20260112` edit in the request's `context_management` parameter.
     </Note>
   </Tab>
 
@@ -2686,7 +2700,7 @@ You can provide a custom prompt for domain-specific needs. Your prompt should in
     const client = new Anthropic();
 
     const runner = client.beta.messages.toolRunner({
-      model: "claude-opus-5",
+      model: "claude-opus-5-5",
       max_tokens: 1024,
       tools: [readFile],
       messages: [{ role: "user", content: "What's in config.json?" }],
@@ -2710,25 +2724,25 @@ You can provide a custom prompt for domain-specific needs. Your prompt should in
 
   <Tab title="C#">
     <Note>
-      The C# SDK includes a tool runner, but it does not support client-side `compaction_control`. Use [server-side compaction](https://platform.claude.com/docs/en/build-with-claude/compaction) instead: it works with the tool runner by passing the `compact_20260112` edit in the request's `context_management` parameter.
+      The C# SDK includes a tool runner, but it does not support client-side `compaction_control`. Use [server-side compaction](https://platform.claude.com/docs/en/build-with-claude/compaction-threshold) instead: it works with the tool runner by passing the `compact_20260112` edit in the request's `context_management` parameter.
     </Note>
   </Tab>
 
   <Tab title="Go">
     <Note>
-      The Go SDK includes a tool runner, but it does not support client-side `compaction_control`. Use [server-side compaction](https://platform.claude.com/docs/en/build-with-claude/compaction) instead: it works with the tool runner by passing the `compact_20260112` edit in the request's `context_management` parameter.
+      The Go SDK includes a tool runner, but it does not support client-side `compaction_control`. Use [server-side compaction](https://platform.claude.com/docs/en/build-with-claude/compaction-threshold) instead: it works with the tool runner by passing the `compact_20260112` edit in the request's `context_management` parameter.
     </Note>
   </Tab>
 
   <Tab title="Java">
     <Note>
-      The Java SDK includes a tool runner, but it does not support client-side `compaction_control`. Use [server-side compaction](https://platform.claude.com/docs/en/build-with-claude/compaction) instead: it works with the tool runner by passing the `compact_20260112` edit in the request's `context_management` parameter.
+      The Java SDK includes a tool runner, but it does not support client-side `compaction_control`. Use [server-side compaction](https://platform.claude.com/docs/en/build-with-claude/compaction-threshold) instead: it works with the tool runner by passing the `compact_20260112` edit in the request's `context_management` parameter.
     </Note>
   </Tab>
 
   <Tab title="PHP">
     <Note>
-      The PHP SDK includes a tool runner, but it does not support client-side `compaction_control`. Use [server-side compaction](https://platform.claude.com/docs/en/build-with-claude/compaction) instead: it works with the tool runner by passing the `compact_20260112` edit in the request's `context_management` parameter.
+      The PHP SDK includes a tool runner, but it does not support client-side `compaction_control`. Use [server-side compaction](https://platform.claude.com/docs/en/build-with-claude/compaction-threshold) instead: it works with the tool runner by passing the `compact_20260112` edit in the request's `context_management` parameter.
     </Note>
   </Tab>
 
@@ -2737,7 +2751,7 @@ You can provide a custom prompt for domain-specific needs. Your prompt should in
     client = Anthropic::Client.new
 
     runner = client.beta.messages.tool_runner(
-      model: "claude-opus-5",
+      model: "claude-opus-5-5",
       max_tokens: 1024,
       tools: [ReadFile.new],
       messages: [{ role: "user", content: "What's in config.json?" }],
@@ -2913,7 +2927,7 @@ Understanding when compaction triggers helps you tune thresholds and verify expe
     client = Anthropic::Client.new
 
     runner = client.beta.messages.tool_runner(
-      model: "claude-opus-5",
+      model: "claude-opus-5-5",
       max_tokens: 1024,
       tools: [ReadFile.new],
       messages: [{ role: "user", content: "What's in config.json?" }],

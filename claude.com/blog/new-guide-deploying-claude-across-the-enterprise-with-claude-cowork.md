@@ -1,5 +1,21 @@
 <!-- source: https://claude.com/blog/new-guide-deploying-claude-across-the-enterprise-with-claude-cowork -->
 
+Explore here
+
+Latest news
+
+[Next](#)Next
+
+Claude Cowork is now just Claude
+
+Rolling out to Pro and Max, with more plans to follow.
+
+Read what changed
+
+[Read what changed](https://claude.com/blog/cowork-is-now-claude)Read what changed
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6aaaa65ceb65332701e9b3b2_og-claude-cowork.jpg)
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d225485fe31f1ed2d9a1_db28a79c9f4492b8471009d4c20e900f234ece48-1000x1000.svg)
 
 # Deploying agentic AI across the enterprise with Claude Cowork

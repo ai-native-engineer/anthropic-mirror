@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence/five-decisions-and-the-frame -->
 
-Lesson 1 of 14 · Deploying Claude Enterprise with Confidence: The five decisions that shape your rolloutFive decisions and the frame
+Lesson 1 of 14 · Deploying Claude Enterprise with confidence: The five decisions that shape your rolloutFive decisions and the frame
 
-3. /[Deploying Claude Enterprise with Confidence: The five decisions that shape your rollout](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence)
+3. /[Deploying Claude Enterprise with confidence: The five decisions that shape your rollout](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence)
 
-[Deploying Claude Enterprise with Confidence: The five decisions that shape your rollout](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence)
+[Deploying Claude Enterprise with confidence: The five decisions that shape your rollout](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence)
 
 # Five decisions and the frame
 
@@ -100,7 +100,7 @@ Before you make any of the five decisions, you need to know who owns each one. I
 
 [Next lessonOwners and intake](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence/owners-and-intake)
 
-Lesson 1 of 14 · Deploying Claude Enterprise with Confidence: The five decisions that shape your rolloutFive decisions and the frame
+Lesson 1 of 14 · Deploying Claude Enterprise with confidence: The five decisions that shape your rolloutFive decisions and the frame
 
 The plan
 

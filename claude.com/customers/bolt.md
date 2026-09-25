@@ -4,31 +4,21 @@ Case study | Claude Agent SDK
 
 # Bolt builds autonomous design system agent on the Claude Agent SDK
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f26e70e1444e31742ca027_logo_boltupdatedlogo-light-mode.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f26e76cdf0245458a77c3f_logo_boltupdatedlogo-dark-mode.svg)
+![Bolt logo](https://assets.claude.com/c47ae719ec15794844da97bc7651c0081ce5a4e2.svg)
 
 Industry:
-
-Software
+:   Software
 
 Company size:
-
-Startup
+:   Startup
 
 Product:
-
-Claude Agent SDK
+:   Claude Agent SDK
 
 Location:
-
-North America
+:   North America
 
 ~53-minute average autonomous agent workflow
 
@@ -49,32 +39,6 @@ reducing inference costs across high-traffic workflows
 
 ## The challenge
 
-Building agents with the Claude Agent SDK
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698395d5956e6e0e78f3e486_image-claude-sdk.jpg)
-
-The Claude Agent SDK is a collection of tools that helps developers build powerful agents on top of Claude Code.
-
-Read more
-
-[Read more](https://claude.com/blog/building-agents-with-the-claude-agent-sdk)Read more
-
-Building agents with the Claude Agent SDK
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-The Claude Agent SDK is a collection of tools that helps developers build powerful agents on top of Claude Code.
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Building agents with the Claude Agent SDK
-
-The Claude Agent SDK is a collection of tools that helps developers build powerful agents on top of Claude Code.
-
 ## The problem with fragmented design systems
 
 Most companies don't have their design system in one place. Typography lives in a Google Doc. Components are scattered across Figma files, Storybook instances, and GitHub repositories. Spacing and layout guidelines might be in a wiki, or just in an engineer's head.
@@ -83,33 +47,15 @@ That gap has become a major barrier to enterprise adoption of AI development too
 
 The tools can generate code quickly, but the output doesn't match a company's internal standards. Prototypes end up as throwaways: a PM builds something to communicate an idea, but an engineer rewrites it entirely before it can ship. That distance between prototype and production code keeps non-engineers on the sidelines of the development lifecycle.
 
+Building agents with the Claude Agent SDK
+
+![Building agents with the Claude Agent SDK ](https://assets.claude.com/8a8df6660b8f39d6a0a88896d12215466857b588.jpg)
+
+The Claude Agent SDK is a collection of tools that helps developers build powerful agents on top of Claude Code.
+
+[Read more](https://claude.com/blog/building-agents-with-the-claude-agent-sdk)
+
 ## The solution
-
-Claude Code
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698f525504b02eec936ac51b_68c469d41149ace562bfd24d_og-claude-product-claude-code.jpeg)
-
-Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
-
-Read more
-
-[Read more](https://claude.com/product/claude-code)Read more
-
-Claude Code
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Claude Code
-
-Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
 
 ## Why StackBlitz built on the Claude Agent SDK
 
@@ -127,21 +73,17 @@ This research phase can run for 40 minutes to an hour and a half depending on ho
 
 The result lives inside Bolt as a browsable library of all the company's components, sections, and pages in one place. StackBlitz was deliberate about not making Bolt the source of truth for a company's design system. Instead, when a team updates their design system on their end, they can come back to Bolt and reindex, and the agent does an incremental update. Once the design system is in place, a user selects it, prompts Bolt to build something, say a car configurator or a comparison page, and the output follows the company's actual components, typography, and spacing. The agent then checks its own work in a review loop. "You build something and then you check again: does this match what it's supposed to look like?" Elm said, comparing the process to how a developer would verify output against a Figma file.
 
-"Agent SDK just allows you to build almost any workflow."
+Claude Code
 
-Dominic Elm, Founding Engineer
+![Claude Code](https://assets.claude.com/38e8385d1c5f9c0f71c486994e22fc5861a4522d.jpg)
 
-Stackblitz
+Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[Read more](https://claude.com/product/claude-code)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+> "Agent SDK just allows you to build almost any workflow."
 
-[Next](#)Next
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+Dominic Elm, Founding EngineerStackblitz
 
 ## The outcome
 
@@ -155,36 +97,12 @@ StackBlitz sees roughly 90% cache efficiency on the Agent SDK, keeping inference
 
 StackBlitz is focused on broader adoption among companies shipping production code through Bolt. "The goal is to get PMs and designers actually integrated into the development lifecycle and able to contribute to production code," Elm said. "That's the holy grail for almost everyone."
 
-## Related stories
+[![Supermetrics](https://assets.claude.com/3ac4171a81008be0340e5c3d8ccb46571c3edfb3.svg)
 
-[How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)How Atlassian builds AI agents teams can trust with Claude and Google Cloud
+### Supermetrics lets marketers manage ad campaigns from a conversation with Claude](https://claude.com/customers/supermetrics)[![Atlassian](https://assets.claude.com/4870b3d6c0253cea01b100c98ad2030b8e4f8ce1.svg)
 
-How Atlassian builds AI agents teams can trust with Claude and Google Cloud
+### How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-Customer story
+### Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-[Customer story](https://claude.com/customers/atlassian)Customer story
-
-[Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)Rocket Money on building agents that fix their own code
-
-Rocket Money on building agents that fix their own code
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money-qa)Customer story
-
-[How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)How Rocket Money built its personal finance agent with Claude
-
-How Rocket Money built its personal finance agent with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money)Customer story
-
-[How Notion ships and scales agents with Claude Managed Agents](https://claude.com/customers/notion-qa)How Notion ships and scales agents with Claude Managed Agents
-
-How Notion ships and scales agents with Claude Managed Agents
-
-Customer story
-
-[Customer story](https://claude.com/customers/notion-qa)Customer story
+### How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)

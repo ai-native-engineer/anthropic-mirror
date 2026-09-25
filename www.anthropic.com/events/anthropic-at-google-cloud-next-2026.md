@@ -274,27 +274,7 @@ PST
 
 ### Building Multi-Agent Systems That Actually Work
 
-11:15 am
-
--
-
-12:00 pm
-
-PST
-
-### Building Multi-Agent Systems That Actually Work
-
 Multi-agent architectures are powerful but over-applied. In this Anthropic-led session, using examples including Claude on Vertex AI, you'll learn the three scenarios where multi-agent consistently wins (context isolation, parallel execution, specialization), four architecture patterns with concrete trade-offs, and the context-centric decomposition strategy most teams get wrong - plus verification subagents and the pitfalls that undermine even well-designed systems.
-
-1:00 pm
-
--
-
-1:20 pm
-
-PST
-
-### Demystifying Evals at the Frontier of Agentic Development
 
 1:00 pm
 
@@ -318,25 +298,7 @@ PST
 
 ### After Software: Anthropic's Vision for the Next Era of Enterprise AI
 
-2:45 pm
-
--
-
-3:30 pm
-
-PST
-
-### After Software: Anthropic's Vision for the Next Era of Enterprise AI
-
 Enterprise software will change more in the next two years than it has in the last twenty. The model is inverting: top-down planning, where organizations define and prioritize what gets built, is giving way to bottom-up execution, where AI agents help teams solve problems as fast as they find them. Anthropic shares what we're seeing at the frontier. Teams are already deploying agents on Vertex AI that define, build, and iterate autonomously. We'll ground the vision in real examples and practical frameworks for readiness.
-
-3:45 pm
-
--
-
-4:30 pm
-
-### Build agents at scale: How Shopify powers Sidekick with Claude on Vertex AI
 
 3:45 pm
 

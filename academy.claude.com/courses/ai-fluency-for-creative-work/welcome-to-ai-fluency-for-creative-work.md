@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/ai-fluency-for-creative-work/welcome-to-ai-fluency-for-creative-work -->
 
-Lesson 1 of 8 · AI Fluency for Creative WorkWelcome to AI Fluency for creative work
+Lesson 1 of 8 · AI Fluency for creative workWelcome to AI Fluency for creative work
 
-3. /[AI Fluency for Creative Work](https://academy.claude.com/courses/ai-fluency-for-creative-work)
+3. /[AI Fluency for creative work](https://academy.claude.com/courses/ai-fluency-for-creative-work)
 
-[AI Fluency for Creative Work](https://academy.claude.com/courses/ai-fluency-for-creative-work)
+[AI Fluency for creative work](https://academy.claude.com/courses/ai-fluency-for-creative-work)
 
 # Welcome to AI Fluency for creative work
 
@@ -78,7 +78,7 @@ In the next lesson, we pick up the first analytical tool: the Creative Value Len
 
 [Next lessonThe creative value lens](https://academy.claude.com/courses/ai-fluency-for-creative-work/the-creative-value-lens)
 
-Lesson 1 of 8 · AI Fluency for Creative WorkWelcome to AI Fluency for creative work
+Lesson 1 of 8 · AI Fluency for creative workWelcome to AI Fluency for creative work
 
 Introduction
 

@@ -4,31 +4,21 @@ Case study | Claude Platform
 
 # Lex streamlines the writing process with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![Lex logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c375f4339b700bc108f8e9_cs-logo-lex-light-theme.png)![Lex logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c375f4339b700bc108f8e9_cs-logo-lex-light-theme.png)
+![Lex logo](https://assets.claude.com/e6a76687f426d031b52ad173ac5406303b29bc38.png)
 
 Industry:
-
-Entertainment
+:   Entertainment
 
 Company size:
-
-Small
+:   Small
 
 Product:
-
-Claude Platform
+:   Claude Platform
 
 Location:
-
-North America
+:   North America
 
 25,000 signups
 
@@ -37,42 +27,6 @@ within 24 hours of launch
 50% reduction
 
 in cost vs competitive model
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
 
 Lex, an AI-powered writing platform, uses Claude to provide writers with AI-powered assistance—helping professionals, academics, and creative writers improve their content and streamline the writing process.
 
@@ -107,7 +61,7 @@ Lex leverages Claude in several key ways to enhance the writing experience:
 * Customizable prompts: Users can create and share saved prompts for consistent feedback across teams or projects.
 * Style and brevity checks: Claude helps refine prose by suggesting ways to streamline text and adhere to style guidelines.
 
-![Lex product image](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68baf05c363fe7f3722742f4_563a3f8f68e4ea02b8c063f6595bfd5abb668f0b-1920x1080.jpeg)
+![Lex product image](https://assets.claude.com/267eaff5ffc851d75c6be7aff8fffbde558abcf2.jpg)
 
 ## Driving impact for Lex and its users
 
@@ -133,52 +87,12 @@ With Claude, Lex aims to set a new standard for digital writing tools to make th
 
 Author’s note: This case study was written with help from Lex!
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[![StubHub](https://assets.claude.com/d3451a4bfe1c5af7f56f76ab8237c3bab7dd7a9d.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### StubHub transforms live event ticketing with Claude](https://claude.com/customers/stubhub)[![Audience Strategies](https://assets.claude.com/3413dcb9640e98c9dd678f02077d38ea6f0b7b34.png)
 
-[Next](#)Next
+### Audience Strategies expands the electronic music industry's policy influence with Claude](https://claude.com/customers/audience-strategies)[![Orange](https://assets.claude.com/c97f28a41e222c81bda3ab8af5ed81dbfb385756.png)
 
-Video caption
+### Orange localizes manga at an unprecedented scale with Claude](https://claude.com/customers/orange)[![WRTN](https://assets.claude.com/c3f8213b72f494f94cf99ec6d2abf77e5129ef74.svg)
 
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[StubHub transforms live event ticketing with Claude](https://claude.com/customers/stubhub)StubHub transforms live event ticketing with Claude
-
-StubHub transforms live event ticketing with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/stubhub)Customer story
-
-[Audience Strategies expands the electronic music industry's policy influence with Claude](https://claude.com/customers/audience-strategies)Audience Strategies expands the electronic music industry's policy influence with Claude
-
-Audience Strategies expands the electronic music industry's policy influence with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/audience-strategies)Customer story
-
-[Orange localizes manga at an unprecedented scale with Claude](https://claude.com/customers/orange)Orange localizes manga at an unprecedented scale with Claude
-
-Orange localizes manga at an unprecedented scale with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/orange)Customer story
-
-[WRTN pioneers AI entertainment and storytelling across Asia with Claude](https://claude.com/customers/wrtn)WRTN pioneers AI entertainment and storytelling across Asia with Claude
-
-WRTN pioneers AI entertainment and storytelling across Asia with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/wrtn)Customer story
+### WRTN pioneers AI entertainment and storytelling across Asia with Claude](https://claude.com/customers/wrtn)

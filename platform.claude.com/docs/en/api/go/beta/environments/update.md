@@ -23,7 +23,7 @@ Update an existing environment's configuration.
 
     Body param: Updated environment configuration
 
-    - `type BetaCloudConfigParamsResp struct{…}`
+    - `type BetaCloudConfigParamsResp`
 
       Request params for `cloud` environment configuration.
 
@@ -38,7 +38,7 @@ Update an existing environment's configuration.
 
         Network configuration policy. Omit on update to preserve the existing value.
 
-        - `type BetaUnrestrictedNetwork struct{…}`
+        - `type BetaUnrestrictedNetwork`
 
           Unrestricted network access.
 
@@ -46,7 +46,7 @@ Update an existing environment's configuration.
 
             Network policy type
 
-        - `type BetaLimitedNetworkParamsResp struct{…}`
+        - `type BetaLimitedNetworkParamsResp`
 
           Limited network request params.
 
@@ -107,7 +107,7 @@ Update an existing environment's configuration.
 
           Python packages to install
 
-    - `type BetaSelfHostedConfigParamsResp struct{…}`
+    - `type BetaSelfHostedConfigParamsResp`
 
       Request params for `self_hosted` environment configuration.
 
@@ -237,6 +237,12 @@ Update an existing environment's configuration.
 
       - `const AnthropicBetaMidConversationSystemClearAt2026_08_21 AnthropicBeta = "mid-conversation-system-clear-at-2026-08-21"`
 
+      - `const AnthropicBetaCompact2026_09_04 AnthropicBeta = "compact-2026-09-04"`
+
+      - `const AnthropicBetaInlineTools2026_09_15 AnthropicBeta = "inline-tools-2026-09-15"`
+
+      - `const AnthropicBetaMCPClient2026_09_15 AnthropicBeta = "mcp-client-2026-09-15"`
+
   - `WorkspaceID param.Field[string] Optional`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -245,7 +251,7 @@ Update an existing environment's configuration.
 
 ## Returns
 
-- `type BetaEnvironment struct{…}`
+- `type BetaEnvironment`
 
   Unified Environment resource for both cloud and self-hosted environments.
 
@@ -267,7 +273,7 @@ Update an existing environment's configuration.
 
     Environment configuration (either Anthropic Cloud or self-hosted)
 
-    - `type BetaCloudConfig struct{…}`
+    - `type BetaCloudConfig`
 
       `cloud` environment configuration.
 
@@ -279,7 +285,7 @@ Update an existing environment's configuration.
 
         Network configuration policy.
 
-        - `type BetaUnrestrictedNetwork struct{…}`
+        - `type BetaUnrestrictedNetwork`
 
           Unrestricted network access.
 
@@ -287,7 +293,7 @@ Update an existing environment's configuration.
 
             Network policy type
 
-        - `type BetaLimitedNetwork struct{…}`
+        - `type BetaLimitedNetwork`
 
           Limited network access.
 
@@ -341,7 +347,7 @@ Update an existing environment's configuration.
 
           Python packages to install
 
-    - `type BetaSelfHostedConfig struct{…}`
+    - `type BetaSelfHostedConfig`
 
       Configuration for self-hosted environments.
 

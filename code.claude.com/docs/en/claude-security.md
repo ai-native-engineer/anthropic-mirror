@@ -21,20 +21,20 @@ To run the plugin, you need:
 
 ## Install the plugin
 
-In a Claude Code session, install from the [official Anthropic marketplace](/docs/en/discover-plugins#official-anthropic-marketplace):
+In a Claude Code session, install from the [official Anthropic marketplace](/docs/en/plugins/anthropic-marketplaces):
 
 ```text theme={null}
 /plugin install claude-security@claude-plugins-official
 ```
 
-The command opens the plugin's details, where you choose an [installation scope](/docs/en/discover-plugins#install-plugins) to start the install.
+The command opens the plugin's details, where you choose an [installation scope](/docs/en/plugins/install#install-a-plugin) to start the install.
 
 If the install fails, the fix depends on which message Claude Code reports:
 
 * If it reports `Marketplace "claude-plugins-official" not found`, add the marketplace with `/plugin marketplace add anthropics/claude-plugins-official`, then retry the install.
-* If it reports that it [can't find the plugin in the marketplace](/docs/en/discover-plugins#install-plugins), check the plugin name for a typo.
+* If it reports that it [can't find the plugin in the marketplace](/docs/en/plugins/install#install-a-plugin), check the plugin name for a typo.
 
-Check the install summary. If it reports `Run /reload-plugins to activate.`, see [Apply plugin changes without restarting](/docs/en/discover-plugins#apply-plugin-changes-without-restarting) to activate the plugin in your current session.
+Check the install summary. If it reports `Run /reload-plugins to activate.`, see [Apply plugin changes without restarting](/docs/en/plugins/cli-reference#reload-plugins) to activate the plugin in your current session.
 
 Once the plugin is active, you're ready to [scan and fix your codebase](#scan-and-fix-your-codebase).
 
@@ -60,11 +60,11 @@ The plugin adds one command, `/claude-security`, which opens a menu of its three
   </Step>
 
   <Step title="Read the report">
-    While the scan runs, it reports each stage as it starts, with the detail available under [`/workflows`](/docs/en/workflows). Results land in a timestamped directory in your repository, described in [Read the scan results](#read-the-scan-results).
+    While the scan runs, it reports each stage as it starts, with the detail available under [`/workflows`](/docs/en/workflows). Results are written to a timestamped directory in your repository, described in [Read the scan results](#read-the-scan-results).
   </Step>
 
   <Step title="Turn findings into patches">
-    Run `/claude-security` again and pick **Suggest patches**, then choose which findings to address. Reviewed patches land in the report's `patches/` folder; [Fix findings](#fix-findings) covers how each patch is built and reviewed.
+    Run `/claude-security` again and pick **Suggest patches**, then choose which findings to address. Reviewed patches are written to the report's `patches/` folder; [Fix findings](#fix-findings) covers how each patch is built and reviewed.
   </Step>
 
   <Step title="Apply the patches you accept">
@@ -105,7 +105,7 @@ Before delivery, each patch is reviewed by an agent independent of the one that 
 
 ### Patches are never applied automatically
 
-Applying a patch is always your decision. Patches land in the report's `patches/` folder, one `F<n>.patch` per finding with a note beside it explaining the change. Apply one from your shell, or ask Claude to apply it and open a pull request:
+Applying a patch is always your decision. Patches are written to the report's `patches/` folder, one `F<n>.patch` per finding with a note beside it explaining the change. Apply one from your shell, or ask Claude to apply it and open a pull request:
 
 ```bash theme={null}
 git apply CLAUDE-SECURITY-<timestamp>/patches/F1.patch
@@ -142,4 +142,4 @@ To go deeper on the pieces this page touches:
 * [Code Review](/docs/en/code-review): set up the PR-time multi-agent review
 * [Claude Security](https://claude.com/product/claude-security): the managed service that monitors connected repositories
 * [Claude Code security](/docs/en/security): how Claude Code approaches trust, permissions, and safeguards
-* [Discover and install plugins](/docs/en/discover-plugins#official-anthropic-marketplace): browse other official plugins
+* [Install and manage plugins](/docs/en/plugins/install): find and install other plugins from the official marketplace

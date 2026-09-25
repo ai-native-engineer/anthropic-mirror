@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/ai-fluency-for-small-businesses/human-in-the-loop -->
 
-Lesson 8 of 9 · AI Fluency for Small BusinessesHuman in the loop
+Lesson 8 of 9 · AI Fluency for small businessesHuman in the loop
 
-3. /[AI Fluency for Small Businesses](https://academy.claude.com/courses/ai-fluency-for-small-businesses)
+3. /[AI Fluency for small businesses](https://academy.claude.com/courses/ai-fluency-for-small-businesses)
 
-[AI Fluency for Small Businesses](https://academy.claude.com/courses/ai-fluency-for-small-businesses)
+[AI Fluency for small businesses](https://academy.claude.com/courses/ai-fluency-for-small-businesses)
 
 # Human in the loop
 
@@ -75,7 +75,7 @@ In the next lesson, we'll close out the course, share resources for what comes n
 
 [Previous lessonTying it all together](https://academy.claude.com/courses/ai-fluency-for-small-businesses/tying-it-all-together)[Next lessonClosure and looking forward](https://academy.claude.com/courses/ai-fluency-for-small-businesses/closure-and-looking-forward)
 
-Lesson 8 of 9 · AI Fluency for Small BusinessesHuman in the loop
+Lesson 8 of 9 · AI Fluency for small businessesHuman in the loop
 
 Introduction and AI Fluency framework
 

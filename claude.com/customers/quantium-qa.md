@@ -4,35 +4,21 @@ Q&A | Claude Enterprise
 
 # Quantium scales Claude across Australia's largest enterprises
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![Quantium logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ad2a3bc17a074ec7604a_quantium_light.svg)![Quantium logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ad33a51ccb23802c611d_quantium_dark.svg)
+![Quantium logo](https://assets.claude.com/0e6b8d1ab806b1a949b793cce5bc3b294fe8d88c.svg)
 
 Industry:
-
-Professional services
+:   Professional services
 
 Company size:
-
-Large
+:   Large
 
 Product:
-
-[Claude Enterprise](https://claude.com/solutions/enterprise)
-
-[Claude Code](https://claude.com/product/claude-code)
-
-[Claude Cowork](https://claude.com/product/cowork)
+:   [Claude Enterprise](https://claude.com/solutions/enterprise)[Claude Code](https://claude.com/product/claude-code)[Claude Cowork](https://claude.com/product/cowork)
 
 Location:
-
-Asia Pacific
+:   Asia Pacific
 
 1,200+ Claude Enterprise users
 
@@ -44,35 +30,11 @@ across global workforce
 
 Cowork
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698f525604b02eec936ac521_696fc8952f473c6520149cfa_4f58536f1c08deac7a94811f4be57881_og-claude-cowork.jpeg)
+![Cowork](https://assets.claude.com/9716b96b8df867765a639f3ea8a07170508200bf.jpg)
 
 Give Claude access to your local files and let it complete tasks autonomously. Agentic capabilities for non-technical knowledge work.
 
-Read more
-
-[Read more](https://claude.com/product/cowork)Read more
-
-Cowork
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Give Claude access to your local files and let it complete tasks autonomously. Agentic capabilities for non-technical knowledge work.
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Cowork
-
-Give Claude access to your local files and let it complete tasks autonomously. Agentic capabilities for non-technical knowledge work.
-
-[Prev](#)Prev
-
-[Next](#)Next
+[Read more](https://claude.com/product/cowork)
 
 [Quantium](https://quantium.com.au/) is an AI and data analytics company headquartered in Australia, with more than 23 years of experience building AI and data solutions for retail, consumer, financial services, government, and health organizations. The firm designs, builds, and deploys AI agents for a client portfolio of large-scale enterprise clients. We sat down with Justin Spratt, Executive, AI Partnerships at Quantium, to talk about how enterprises are deploying Claude, what's blocking them, and how Quantium's own development culture has shifted.
 
@@ -86,11 +48,9 @@ Give Claude access to your local files and let it complete tasks autonomously. A
 
 The pull is across more verticals than people assume. Retail and financial services are the usual suspects, but mining is a meaningful growth area too. The operational safety work in remote sites is checklist-heavy and investment-rich, and it's the kind of work where careful augmentation can move the needle. The bottleneck today is actually hiring. We're bringing on roughly 100 new AI-skilled people into a 1,200+ person organization just to keep pace with what's in front of us.
 
-"The demand for Cowork is enormous. Every CIO and CISO we talk to is asking about it."
+> "The demand for Cowork is enormous. Every CIO and CISO we talk to is asking about it."
 
-Justin Spratt
-
-Head of Executive Partnerships, Quantium
+Justin SprattHead of Executive Partnerships, Quantium
 
 ## Walk us through your internal Claude footprint. Where is it deployed across the company?
 
@@ -106,7 +66,7 @@ That's why leadership role-modeling and training sit at the centre of how we wor
 
 ## You've developed a specific workshop format for first conversations with CEOs, C-suite, and board executives that's been a deliberate answer to that pilot-fatigue problem. How does it work?
 
-**Spratt:** We run a C-suite GenAI training masterclass called AI Executive Edge. It's peer-to-peer. Our leadership team runs in-person sessions for other CEOs and executives. Successful organization-wide AI adoption is led from the top.  If a CEO, their leadership team, and the board aren't using the tools themselves, they can't credibly drive the agenda, and the organization slows down behind them.
+**Spratt:** We run a C-suite GenAI training masterclass called AI Executive Edge. It's peer-to-peer. Our leadership team runs in-person sessions for other CEOs and executives. Successful organization-wide AI adoption is led from the top. If a CEO, their leadership team, and the board aren't using the tools themselves, they can't credibly drive the agenda, and the organization slows down behind them.
 
 AI Executive Edge came out of a pattern we kept seeing. The organizations moving the fastest, and getting the most economic value from AI, had their leadership using it for their own executive work, not just sponsoring it for others. You only see the real value when you take on the more advanced skills yourself, and then share that with your team. That's where real change and adoption start.
 
@@ -116,37 +76,15 @@ We've also extended AI Executive Edge to our clients, training their leadership 
 
 Claude Code
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698f525504b02eec936ac51b_68c469d41149ace562bfd24d_og-claude-product-claude-code.jpeg)
+![Claude Code](https://assets.claude.com/38e8385d1c5f9c0f71c486994e22fc5861a4522d.jpg)
 
 Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
 
-Read more
+[Read more](https://claude.com/product/claude-code)
 
-[Read more](https://claude.com/product/claude-code)Read more
+> "We've rolled Claude Enterprise out to all our 1,200 employees, with 91% weekly usage. Six hundred of those are on Claude Code."
 
-Claude Code
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Claude Code
-
-Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
-
-"We've rolled Claude Enterprise out to all our 1,200 employees, with 91% weekly usage. Six hundred of those are on Claude Code."
-
-Justin Spratt
-
-Head of Executive Partnerships, Quantium
+Justin SprattHead of Executive Partnerships, Quantium
 
 ## What does Claude Code rollout look like at enterprise scale? Where does it land cleanly, and where does it get hard?
 
@@ -164,52 +102,12 @@ The thing most enterprises don't realize yet is that the agent layer doesn't tec
 
 **Spratt:** With the increased capability of Cowork, we're carefully weighing how we balance this with our trust obligations. Identity management is one of the major components we're thinking about. Rolling out Cowork well requires admins to actually set up their roles for knowledge workers so agents can act autonomously.Once that mapping exists, the information security guardrails fall into place. The demand for Cowork is enormous. Every CIO and CISO we talk to is asking about it.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[![Caylent](https://assets.claude.com/b224ee1fa1757f5331b381ded249b619b03c957e.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### Caylent turns months of migration work into days with Claude Agent SDK](https://claude.com/customers/caylent)[![BLA Studios](https://assets.claude.com/01af34a075be06353de94d0a7df2e25c668c9a15.svg)
 
-[Next](#)Next
+### How can a two-person fabrication studio make room for problems it’s never solved before?](https://claude.com/customers/bla-studios)[![LG CNS](https://assets.claude.com/61ca6aa185bfb470e18a6189b462ea0618039fca.png)
 
-Video caption
+### LG CNS modernizes 20-year-old enterprise systems with Claude](https://claude.com/customers/lg-cns)[![Blank Metal](https://assets.claude.com/31d5dea773d37ce4626bd3710c924b455d46bcc0.svg)
 
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[Caylent turns months of migration work into days with Claude Agent SDK](https://claude.com/customers/caylent)Caylent turns months of migration work into days with Claude Agent SDK
-
-Caylent turns months of migration work into days with Claude Agent SDK
-
-Customer story
-
-[Customer story](https://claude.com/customers/caylent)Customer story
-
-[How can a two-person fabrication studio make room for problems it’s never solved before?](https://claude.com/customers/bla-studios)How can a two-person fabrication studio make room for problems it’s never solved before?
-
-How can a two-person fabrication studio make room for problems it’s never solved before?
-
-Customer story
-
-[Customer story](https://claude.com/customers/bla-studios)Customer story
-
-[LG CNS modernizes 20-year-old enterprise systems with Claude](https://claude.com/customers/lg-cns)LG CNS modernizes 20-year-old enterprise systems with Claude
-
-LG CNS modernizes 20-year-old enterprise systems with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/lg-cns)Customer story
-
-[How Blank Metal, a lean professional services firm, runs on Claude Cowork](https://claude.com/customers/blank-metal-qa)How Blank Metal, a lean professional services firm, runs on Claude Cowork
-
-How Blank Metal, a lean professional services firm, runs on Claude Cowork
-
-Customer story
-
-[Customer story](https://claude.com/customers/blank-metal-qa)Customer story
+### How Blank Metal, a lean professional services firm, runs on Claude Cowork](https://claude.com/customers/blank-metal-qa)

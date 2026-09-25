@@ -20,7 +20,7 @@ Cowork, the agent workspace at the center of Claude Desktop on 3P, has the follo
 | CPU architecture | Apple silicon or Intel (x64) | x64 or Arm64 |
 | Installer | `.dmg` | `.msix` |
 
-On Windows, Cowork requires the `.msix` package: fleets provisioned with the legacy `.exe` installer get Claude Desktop without Cowork, and migrating them to `.msix` enables it. Cowork also requires working hardware virtualization, which the [readiness check](#check-device-readiness) verifies along with the requirements above.
+On Windows, Cowork requires the `.msix` package: fleets provisioned with the legacy `.exe` installer get Claude Desktop without Cowork, and migrating them to `.msix` enables it. Cowork also requires working hardware virtualization and, on Windows, the Virtual Machine Platform optional feature. The [readiness check](#check-device-readiness) verifies both along with the requirements above.
 
 ##  Check device readiness
 
@@ -100,10 +100,21 @@ If the app shows the standard claude.ai sign-in screen instead of Cowork, the co
 If installation or setup fails, generate a diagnostic report before requesting support: on the affected machine, go to **Help → Troubleshooting → Generate Diagnostic Report**, click **Export to file**, choose where to save the `.zip` file, and send that file to your Anthropic representative.
 The report contains the configuration state, application logs, and environment details needed to investigate. It does not include user data or conversation content.
 
+###  Cowork workspace or Claude CLI fails to download
+
+Claude Desktop downloads the VM workspace bundle that Cowork uses and the Claude CLI binary (the agent helper described under [Endpoint security software](#endpoint-security-software)) from `downloads.claude.ai` whenever a device does not have the versions the app needs. When the workspace download fails or the downloaded file does not pass verification, the app shows **Failed to start Claude’s workspace** with the download error under it, for example a message that begins “Checksum/decompress failed”, “Download failed”, or “Request error”. When the Claude CLI download fails on a device that has no earlier copy, Chat conversations and Cowork tasks fail to start with “Host Claude Code binary not available. Check that the download completed.”
+Restarting the app tries the download again, which is enough when an earlier attempt was only interrupted. When the same message returns on every attempt, the usual cause is a proxy, secure web gateway, or web filter between the device and `downloads.claude.ai`. Such equipment can block the app’s requests, cut off the transfer partway (the workspace bundle is more than 1 GB), or return its own page in place of the file. Less often, security software on the device locks or quarantines the downloaded files.
+
+* Allow Claude Desktop itself, not only browsers, to reach `downloads.claude.ai`, as listed under [Required egress paths](https://claude.com/docs/third-party/claude-desktop/telemetry#required-egress-paths). The download follows the app’s proxy settings, described under [Network proxy](https://claude.com/docs/third-party/claude-desktop/network-proxy).
+* If a proxy or secure web gateway inspects this traffic, make sure files from `downloads.claude.ai` reach the device complete and unchanged.
+* On a network that cannot allow these downloads, deploy the [offline installer](#offline-installation), which includes both components.
+
+Once the device can download from `downloads.claude.ai`, have the user restart Claude Desktop and start a new conversation or task, so that the app downloads what is missing. If the messages persist, generate the diagnostic report described under [Troubleshooting](#troubleshooting) and send it to your Anthropic representative. It includes the errors the app logged for these downloads.
+
 ##  Endpoint security software
 
-If your organization runs binary-authorization or EDR software (such as [Santa](https://santa.dev), CrowdStrike Falcon, or Microsoft Defender ASR) with path-based deny rules, the Cowork agent helper may be blocked from launching. The symptom is that Claude Desktop opens normally and reads the managed configuration, but Cowork sessions fail to start.
-The agent helper is a signed binary that Claude Desktop installs under its user-data directory. **Allowlist by signing identity rather than path** so the rule survives version updates.
+Claude Desktop runs Chat conversations, Cowork tasks, and Code sessions through an agent helper, a signed binary that it keeps under its user-data directory (with the standard installer) and launches when a user works in Chat, Cowork, or Code. If your organization runs binary-authorization or EDR software (such as [Santa](https://santa.dev), CrowdStrike Falcon, or Microsoft Defender ASR) with path-based deny rules, the agent helper may be blocked from launching. The symptom is that Claude Desktop opens normally and reads the managed configuration, but Chat conversations, Cowork tasks, and Code sessions fail to start.
+**Allowlist the helper by signing identity rather than path** so the rule survives version updates.
 **macOS**
 
 ```
@@ -139,7 +150,7 @@ Each supported platform and architecture has a fixed download URL that serves th
 Each URL responds with an HTTP redirect to a versioned installer file, so any HTTP client that follows redirects downloads the installer directly. New versions of Claude Desktop roll out to connected devices gradually; these URLs serve the newest version whose rollout has completed. The redirect’s `Location` header contains the version number, so tooling can detect a new version by requesting the URL without following the redirect.
 If the offline installer for the version the URL serves is not yet available, the download fails with HTTP 404 rather than falling back to an older installer; this can happen just after a new version appears in the `Location` header. Keep the installer you last downloaded and retry later.
 Download the installer from a connected machine and bring it across your boundary with your usual software-distribution process.
-Pair the offline installer with [`disableAutoUpdates`](https://claude.com/docs/third-party/claude-desktop/configuration#disableautoupdates): the app cannot reach the update feed from an air-gapped network, and you update the fleet by distributing each new offline installer through your MDM. Aside from updates, the only egress an air-gapped deployment needs is your inference provider; see [Telemetry and egress](https://claude.com/docs/third-party/claude-desktop/telemetry#required-egress-paths).
+Pair the offline installer with [`disableAutoUpdates`](https://claude.com/docs/third-party/claude-desktop/configuration#disableautoupdates). The app cannot reach the update feed from an air-gapped network, and you update the fleet by distributing each new offline installer through your MDM. Also set [`modelCatalogEnabled`](https://claude.com/docs/third-party/claude-desktop/configuration#modelcatalogenabled) to `false`, or point [`modelCatalogUrl`](https://claude.com/docs/third-party/claude-desktop/configuration#modelcatalogurl) at a mirror inside your network. Otherwise the app tries to fetch the signed model catalog from `downloads.claude.ai` at launch and every 5 to 15 minutes after that, and while those requests fail the model picker keeps the names and effort options that ship with the app. With updates and the catalog fetch handled this way, the only egress an air-gapped deployment needs is your inference provider; see [Telemetry and egress](https://claude.com/docs/third-party/claude-desktop/telemetry#required-egress-paths).
 
 ##  Updates
 

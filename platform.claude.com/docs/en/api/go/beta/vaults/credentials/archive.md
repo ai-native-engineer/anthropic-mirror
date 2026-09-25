@@ -17,11 +17,13 @@ Archive Credential
 
 - `credentialID string`
 
+  Unique identifier of the credential to archive.
+
 - `params BetaVaultCredentialArchiveParams`
 
   - `VaultID param.Field[string]`
 
-    Path param: Path parameter vault_id
+    Path param: Identifier of the vault containing the credential.
 
   - `Betas param.Field[[]AnthropicBeta] Optional`
 
@@ -121,6 +123,12 @@ Archive Credential
 
       - `const AnthropicBetaMidConversationSystemClearAt2026_08_21 AnthropicBeta = "mid-conversation-system-clear-at-2026-08-21"`
 
+      - `const AnthropicBetaCompact2026_09_04 AnthropicBeta = "compact-2026-09-04"`
+
+      - `const AnthropicBetaInlineTools2026_09_15 AnthropicBeta = "inline-tools-2026-09-15"`
+
+      - `const AnthropicBetaMCPClient2026_09_15 AnthropicBeta = "mcp-client-2026-09-15"`
+
   - `WorkspaceID param.Field[string] Optional`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -129,7 +137,7 @@ Archive Credential
 
 ## Returns
 
-- `type BetaManagedAgentsCredential struct{…}`
+- `type BetaManagedAgentsCredential`
 
   A credential stored in a vault. Sensitive fields are never returned in responses.
 
@@ -149,7 +157,7 @@ Archive Credential
 
     Authentication details for a credential.
 
-    - `type BetaManagedAgentsMCPOAuthAuthResponse struct{…}`
+    - `type BetaManagedAgentsMCPOAuthAuthResponse`
 
       OAuth credential details for an MCP server.
 
@@ -179,19 +187,19 @@ Archive Credential
 
         - `TokenEndpointAuth BetaManagedAgentsMCPOAuthRefreshResponseTokenEndpointAuthUnion`
 
-          - `type BetaManagedAgentsTokenEndpointAuthNoneResponse struct{…}`
+          - `type BetaManagedAgentsTokenEndpointAuthNoneResponse`
 
             Token endpoint requires no client authentication.
 
             - `Type BetaManagedAgentsTokenEndpointAuthNoneResponseType`
 
-          - `type BetaManagedAgentsTokenEndpointAuthBasicResponse struct{…}`
+          - `type BetaManagedAgentsTokenEndpointAuthBasicResponse`
 
             Token endpoint uses HTTP Basic authentication with client credentials.
 
             - `Type BetaManagedAgentsTokenEndpointAuthBasicResponseType`
 
-          - `type BetaManagedAgentsTokenEndpointAuthPostResponse struct{…}`
+          - `type BetaManagedAgentsTokenEndpointAuthPostResponse`
 
             Token endpoint uses POST body authentication with client credentials.
 
@@ -205,7 +213,7 @@ Archive Credential
 
           OAuth scope for the refresh request.
 
-    - `type BetaManagedAgentsStaticBearerAuthResponse struct{…}`
+    - `type BetaManagedAgentsStaticBearerAuthResponse`
 
       Static bearer token credential details for an MCP server.
 
@@ -215,7 +223,7 @@ Archive Credential
 
         URL of the MCP server this credential authenticates against.
 
-    - `type BetaManagedAgentsEnvironmentVariableAuthResponse struct{…}`
+    - `type BetaManagedAgentsEnvironmentVariableAuthResponse`
 
       Environment variable credential details. The secret value is never returned.
 
@@ -237,13 +245,13 @@ Archive Credential
 
         Outbound hosts the secret value is substituted on.
 
-        - `type BetaManagedAgentsUnrestrictedCredentialNetworkingResponse struct{…}`
+        - `type BetaManagedAgentsUnrestrictedCredentialNetworkingResponse`
 
           The secret is substituted on any host the session's Environment network policy permits egress to.
 
           - `Type BetaManagedAgentsUnrestrictedCredentialNetworkingResponseType`
 
-        - `type BetaManagedAgentsLimitedCredentialNetworkingResponse struct{…}`
+        - `type BetaManagedAgentsLimitedCredentialNetworkingResponse`
 
           The secret is substituted only on requests to the listed hosts.
 

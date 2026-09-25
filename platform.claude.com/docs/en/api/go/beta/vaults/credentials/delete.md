@@ -17,11 +17,13 @@ Delete Credential
 
 - `credentialID string`
 
+  Unique identifier of the credential to delete.
+
 - `params BetaVaultCredentialDeleteParams`
 
   - `VaultID param.Field[string]`
 
-    Path param: Path parameter vault_id
+    Path param: Identifier of the vault containing the credential.
 
   - `Betas param.Field[[]AnthropicBeta] Optional`
 
@@ -121,6 +123,12 @@ Delete Credential
 
       - `const AnthropicBetaMidConversationSystemClearAt2026_08_21 AnthropicBeta = "mid-conversation-system-clear-at-2026-08-21"`
 
+      - `const AnthropicBetaCompact2026_09_04 AnthropicBeta = "compact-2026-09-04"`
+
+      - `const AnthropicBetaInlineTools2026_09_15 AnthropicBeta = "inline-tools-2026-09-15"`
+
+      - `const AnthropicBetaMCPClient2026_09_15 AnthropicBeta = "mcp-client-2026-09-15"`
+
   - `WorkspaceID param.Field[string] Optional`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -129,7 +137,7 @@ Delete Credential
 
 ## Returns
 
-- `type BetaManagedAgentsDeletedCredential struct{…}`
+- `type BetaManagedAgentsDeletedCredential`
 
   Confirmation of a deleted credential.
 

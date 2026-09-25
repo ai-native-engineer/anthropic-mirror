@@ -4,31 +4,21 @@ Case study | Claude Platform
 
 # How Pressmaster turns a 10-minute conversation into a content strategy
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69bc65782f329e31af4821c5_logo_pressmaster-light-mode.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69bc657c222af1868f9352f8_logo_pressmaster-dark-mode.svg)
+![pressmaster logo](https://assets.claude.com/7951e95c60d4015bf6c8fbd06a1375184080a389.svg)
 
 Industry:
-
-Software
+:   Software
 
 Company size:
-
-Startup
+:   Startup
 
 Product:
-
-Claude Platform
+:   Claude Platform
 
 Location:
-
-North America
+:   North America
 
 90%+ reduction
 
@@ -51,28 +41,6 @@ Most AI writing tools address the wrong bottleneck. They produce more content, f
 
 ## The challenge
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-in content production time, compressing a one-to-three-week workflow into a 10-minute interview session
-
-Read more
-
-[Read more](https://claude.com/customers/pressmaster)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-in content production time, compressing a one-to-three-week workflow into a 10-minute interview session
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-90%+ reduction
-
-in content production time, compressing a one-to-three-week workflow into a 10-minute interview session
-
 ## Getting expert thinking out of people's heads and into print
 
 Founders and executives generally have opinions worth publishing. What they don't have is time. The traditional thought leadership process demanded weekly hour-long interviews, multiple rounds of editing, approval cycles, then separate repurposing for LinkedIn, newsletters, and other channels. A single long-form piece could run $500 to $2,000 before anyone touched distribution. The full content stack took one to three weeks.
@@ -81,29 +49,11 @@ When Pressmaster launched, the first version used a static questionnaire that tu
 
 That insight drove a pivot toward a more dynamic system: one that builds a personalized model of how a user thinks about their domain, developed over time through interviews, voice recordings, uploaded materials, and platform interactions, and uses that model to generate content that reflects not just what someone knows but how they'd say it.
 
+90%+ reduction
+
+in content production time, compressing a one-to-three-week workflow into a 10-minute interview session
+
 ## The solution
-
-Introducing Claude Opus 4.6
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698529955ffaa6de831ec14e_opus%201%20(4).jpg)
-
-We’re upgrading our smartest model. The new Claude Opus 4.6 improves on its predecessor’s coding skills. It plans more carefully, sustains agentic tasks for longer, and features a 1M token context window.
-
-Introducing Claude Opus 4.6
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-We’re upgrading our smartest model. The new Claude Opus 4.6 improves on its predecessor’s coding skills. It plans more carefully, sustains agentic tasks for longer, and features a 1M token context window.
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Introducing Claude Opus 4.6
-
-We’re upgrading our smartest model. The new Claude Opus 4.6 improves on its predecessor’s coding skills. It plans more carefully, sustains agentic tasks for longer, and features a 1M token context window.
 
 ## Selecting Claude for narrative and creative context
 
@@ -119,15 +69,11 @@ The user experience is deliberately simple: complete a short interview, review t
 
 Claude also drives what Plickat calls the ideation ecosystem: a background layer combining audience intelligence, real-time trends, and each user's accumulated knowledge. Whenever a user interacts with the platform, an agent is triggered to reason across those signals and surface content ideas aligned with where that specific person would naturally take the conversation. The team is also expanding toward autonomous agent capabilities, using Claude to handle edge cases that would otherwise require human intervention.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+Introducing Claude Opus 4.6
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+![Introducing Claude Opus 4.6](https://assets.claude.com/d7a4c17612163424a76462db8e58b65621bdf903.jpg)
 
-[Next](#)Next
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+We’re upgrading our smartest model. The new Claude Opus 4.6 improves on its predecessor’s coding skills. It plans more carefully, sustains agentic tasks for longer, and features a 1M token context window.
 
 ## The outcome
 
@@ -149,42 +95,16 @@ The product roadmap points toward autonomy. Rather than a tool that helps produc
 
 ‍
 
-"We primarily use Claude for content creation because it consistently produces outputs that feel closer to human reasoning and expression."
+> "We primarily use Claude for content creation because it consistently produces outputs that feel closer to human reasoning and expression."
 
-Raoul Plickat
+Raoul PlickatCEO and Co-founder, Pressmaster
 
-CEO and Co-founder, Pressmaster
+[![Supermetrics](https://assets.claude.com/3ac4171a81008be0340e5c3d8ccb46571c3edfb3.svg)
 
-## Related stories
+### Supermetrics lets marketers manage ad campaigns from a conversation with Claude](https://claude.com/customers/supermetrics)[![Atlassian](https://assets.claude.com/4870b3d6c0253cea01b100c98ad2030b8e4f8ce1.svg)
 
-[How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)How Atlassian builds AI agents teams can trust with Claude and Google Cloud
+### How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-How Atlassian builds AI agents teams can trust with Claude and Google Cloud
+### Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-Customer story
-
-[Customer story](https://claude.com/customers/atlassian)Customer story
-
-[Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)Rocket Money on building agents that fix their own code
-
-Rocket Money on building agents that fix their own code
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money-qa)Customer story
-
-[How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)How Rocket Money built its personal finance agent with Claude
-
-How Rocket Money built its personal finance agent with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money)Customer story
-
-[How Notion ships and scales agents with Claude Managed Agents](https://claude.com/customers/notion-qa)How Notion ships and scales agents with Claude Managed Agents
-
-How Notion ships and scales agents with Claude Managed Agents
-
-Customer story
-
-[Customer story](https://claude.com/customers/notion-qa)Customer story
+### How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)

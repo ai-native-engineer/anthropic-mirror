@@ -4,38 +4,28 @@
 
 One person (plus Claude) resurrected a 1999 Visual Basic 6 MMORPG by letting Claude explore the original game first, build its own tools, then port to a modern stack with remarkably little friction. How front-loading context-building makes Claude dramatically more effective downstream.
 
-Details
+## Details
 
 City
-
-San Francisco, USA
+:   San Francisco, USA
 
 Date
-
-May 7, 2026
+:   May 7, 2026
 
 Time
-
-02:50PM – 03:20PM
+:   02:50PM – 03:20PM
 
 Speaker(s)
+:   Kyle Easterly
 
-Kyle Easterly
+    Co-Founder & CEO,
 
-Co-Founder & CEO,
+    Delve Group
 
-Delve Group
-
-Anthropic's developer conference, recorded
+## Anthropic's developer conference, recorded
 
 Keynotes, demos, and conversations with the teams behind Claude. Recorded at Code w/ Claude 2026 San Francisco and ready to replay.
 
-Browse recordings
+[Browse recordings](https://claude.com/code-with-claude/san-francisco)
 
-[Learn more](https://claude.com/code-with-claude/san-francisco)Learn more
-
-[Homepage](https://claude.com/code-with-claude)Homepage
-
-© [year] Anthropic PBC
-
-[PRIVACY POLICY](https://www.anthropic.com/legal/privacy)[CODE OF CONDUCT](https://claude.com/code-with-claude/code-of-conduct)
+Era Online: Resurrecting a 1999 MMORPG with Claude Code | Session | Code w/ Claude 2026

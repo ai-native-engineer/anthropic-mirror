@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/ai-fluency-framework-foundations/project-planning-and-delegation -->
 
-Lesson 7 of 14 · AI Fluency: Framework & FoundationsProject planning and Delegation
+Lesson 7 of 14 · AI Fluency: Framework and foundationsProject planning and Delegation
 
-3. /[AI Fluency: Framework & Foundations](https://academy.claude.com/courses/ai-fluency-framework-foundations)
+3. /[AI Fluency: Framework and foundations](https://academy.claude.com/courses/ai-fluency-framework-foundations)
 
-[AI Fluency: Framework & Foundations](https://academy.claude.com/courses/ai-fluency-framework-foundations)
+[AI Fluency: Framework and foundations](https://academy.claude.com/courses/ai-fluency-framework-foundations)
 
 # Project planning and Delegation
 
@@ -88,7 +88,7 @@ In the next lesson, we'll explore the second core competency: Description. You'l
 
 [Previous lessonA closer look at Delegation](https://academy.claude.com/courses/ai-fluency-framework-foundations/a-closer-look-at-delegation)[Next lessonA closer look at Description](https://academy.claude.com/courses/ai-fluency-framework-foundations/a-closer-look-at-description)
 
-Lesson 7 of 14 · AI Fluency: Framework & FoundationsProject planning and Delegation
+Lesson 7 of 14 · AI Fluency: Framework and foundationsProject planning and Delegation
 
 Introduction to AI Fluency
 

@@ -1,5 +1,7 @@
 <!-- source: https://claude.com/blog-category/agents -->
 
+Explore here
+
 Thank you! Your submission has been received!
 
 Oops! Something went wrong while submitting the form.
@@ -160,22 +162,6 @@ August 6, 2026
 
 [Millennium and Anthropic are building a digital risk analyst with Claude](#) Millennium and Anthropic are building a digital risk analyst with Claude
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a0112e18cdd7f0b92d19e40_Hand-BuildingBricks.svg)
-
-Jul 24, 2026
-
-The new rules of context engineering for Claude 5 generation models
-
-Claude Code
-
-The new rules of context engineering for Claude 5 generation models
-
-July 24, 2026
-
-[The new rules of context engineering for Claude 5 generation models](https://claude.com/blog/the-new-rules-of-context-engineering-for-claude-5-generation-models) The new rules of context engineering for Claude 5 generation models
-
-[The new rules of context engineering for Claude 5 generation models](#) The new rules of context engineering for Claude 5 generation models
-
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d225e31f7aa22c1f28cb_46e4aa7ea208ed440d5bd9e9e3a0ee66bc336ff1-1000x1000.svg)
 
 Jul 24, 2026
@@ -255,6 +241,22 @@ May 27, 2026
 [Zero Trust for AI agents](https://claude.com/blog/zero-trust-for-ai-agents)Zero Trust for AI agents
 
 [Zero Trust for AI agents](#)Zero Trust for AI agents
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a0112e18cdd7f0b92d19e40_Hand-BuildingBricks.svg)
+
+May 13, 2026
+
+Best practices for computer and browser use with Claude
+
+Agents
+
+Best practices for computer and browser use with Claude
+
+May 13, 2026
+
+[Best practices for computer and browser use with Claude](https://claude.com/blog/best-practices-for-computer-and-browser-use-with-claude)Best practices for computer and browser use with Claude
+
+[Best practices for computer and browser use with Claude](#)Best practices for computer and browser use with Claude
 
 [View more](https://claude.com/blog-category/agents?1e959936_page=2)
 
@@ -408,22 +410,6 @@ August 6, 2026
 
 [Millennium and Anthropic are building a digital risk analyst with Claude](#) Millennium and Anthropic are building a digital risk analyst with Claude
 
-### The new rules of context engineering for Claude 5 generation models
-
-Category
-
-Claude Code
-
-Product
-
-Usecase
-
-July 24, 2026
-
-[The new rules of context engineering for Claude 5 generation models](https://claude.com/blog/the-new-rules-of-context-engineering-for-claude-5-generation-models) The new rules of context engineering for Claude 5 generation models
-
-[The new rules of context engineering for Claude 5 generation models](#) The new rules of context engineering for Claude 5 generation models
-
 ### Claude models explained: choosing the best model for your use case
 
 Category
@@ -503,6 +489,22 @@ May 27, 2026
 [Zero Trust for AI agents](https://claude.com/blog/zero-trust-for-ai-agents)Zero Trust for AI agents
 
 [Zero Trust for AI agents](#)Zero Trust for AI agents
+
+### Best practices for computer and browser use with Claude
+
+Category
+
+Agents
+
+Product
+
+Usecase
+
+May 13, 2026
+
+[Best practices for computer and browser use with Claude](https://claude.com/blog/best-practices-for-computer-and-browser-use-with-claude)Best practices for computer and browser use with Claude
+
+[Best practices for computer and browser use with Claude](#)Best practices for computer and browser use with Claude
 
 [View more](https://claude.com/blog-category/agents?2f226f2c_page=2)
 

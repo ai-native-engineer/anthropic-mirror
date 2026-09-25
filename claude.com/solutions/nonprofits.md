@@ -1,5 +1,7 @@
 <!-- source: https://claude.com/solutions/nonprofits -->
 
+Explore here
+
 Claude Team plan for scientists
 
 [Next](#)Next
@@ -715,7 +717,7 @@ Work across your donor database, productivity suite, and research tools all in o
 
 Explore connectors
 
-[Explore connectors](https://claude.com/archive/connectors)Explore connectors
+[Explore connectors](https://claude.com/connectors)Explore connectors
 
 ## AI Fluency for nonprofits
 
@@ -735,19 +737,27 @@ If your organization has fewer than 20 people, get started by verifying your non
 
 ### Team
 
-For organizations purchasing fewer than 20 seats
-
-$8 /user
-
-Per month
+For organizations purchasing 2-150 seats
 
 Verify via Goodstack
 
 [Verify via Goodstack](https://validate.poweredbypercent.com/anthropic)Verify via Goodstack
 
+Nonprofit standard
+
+$8/user
+
+Per month
+
+Nonprofit access
+
+$3/user
+
+Per month. For nonprofits based in [low- or middle-income countries](https://datahelpdesk.worldbank.org/knowledgebase/articles/906519-world-bank-country-and-lending-groups)
+
 * Nonprofit connectors
 * Single sign-on (SSO) and domain capture
-* Includes Claude Code and Claude Cowork
+* Includes Claude and Claude Code
 * Access to file creation (docs, slides, spreadsheets, and PDFs)
 * Central billing and administration
 * Nonprofit guides and docs
@@ -761,7 +771,7 @@ Chat with buying specialist
 
 [Chat with buying specialist](https://claude.ai/buying-specialist?src=dotcom_nonprofit_enterprise)Chat with buying specialist
 
-Everything in Pro, plus:
+Everything in Team, plus:
 
 * More usage\*
 * Enhanced context window

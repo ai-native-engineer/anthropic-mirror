@@ -4,48 +4,37 @@
 
 In this hands-on workshop, you'll provision Claude in Microsoft Foundry, connect it to a real MCP server with Claude Code, and build a working agent. You'll leave with running code and a cupcake to prove it.
 
-Details
+## Details
 
 City
-
-San Francisco, USA
+:   San Francisco, USA
 
 Date
-
-May 6, 2026
+:   May 6, 2026
 
 Time
-
-04:30PM – 05:15PM
+:   04:30PM – 05:15PM
 
 Session type
-
-Workshop
+:   Workshop
 
 Speaker(s)
+:   Henk Boelman
 
-Henk Boelman
+    Principal Cloud Advocate,
 
-Principal Cloud Advocate,
+    Microsoft
 
-Microsoft
+    Pamela Fox
 
-Pamela Fox
+    Principal Cloud Advocate,
 
-Principal Cloud Advocate,
+    Microsoft
 
-Microsoft
-
-Anthropic's developer conference, recorded
+## Anthropic's developer conference, recorded
 
 Keynotes, demos, and conversations with the teams behind Claude. Recorded at Code w/ Claude 2026 San Francisco and ready to replay.
 
-Browse recordings
+[Browse recordings](https://claude.com/code-with-claude/san-francisco)
 
-[Learn more](https://claude.com/code-with-claude/san-francisco)Learn more
-
-[Homepage](https://claude.com/code-with-claude)Homepage
-
-© [year] Anthropic PBC
-
-[PRIVACY POLICY](https://www.anthropic.com/legal/privacy)[CODE OF CONDUCT](https://claude.com/code-with-claude/code-of-conduct)
+Build AI Agents using Claude in Microsoft Foundry | Session | Code w/ Claude 2026

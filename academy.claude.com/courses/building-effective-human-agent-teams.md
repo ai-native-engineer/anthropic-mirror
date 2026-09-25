@@ -2,7 +2,7 @@
 
 [Courses](https://academy.claude.com/courses)
 
-# Building Effective Human Agent Teams (Beta)
+# Building effective human-agent teams (beta)
 
 Explore the benefits of moving from single-player to multiplayer AI and learn how to prepare your team for the shift.
 
@@ -12,7 +12,7 @@ Explore the benefits of moving from single-player to multiplayer AI and learn ho
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-n6mhsfmo.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-fp5skept.png)
 
-5 lessons · 1 quizBuilding Effective Human Agent Teams (Beta)
+5 lessons · 1 quizBuilding effective human-agent teams (beta)
 
 What you’ll learnBy the end of this course, you’ll be able to
 

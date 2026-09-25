@@ -28,14 +28,14 @@ To start using Claude in Xcode:
 2. Open Xcode preferences and navigate to the Intelligence settings.
 3. Log in with your Claude account.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1727371585/b18ca03a6357c52d12d10386f28e/dab2dcb2-f670-4173-b77d-38767a34cec1?expires=1789345800&signature=8ec7e046ca83f4d401c0333e2daabffb3fcfa59557036f2257c097dc75b61c1a&req=dSclEcp5nIRXXPMW1HO4zUAXI8UBVq3cFalhp3bugHIyEfnb8Bm6Z3r4%2Br3l%0A2MWANNXYJtsUwzdG9Ys%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1727371585/b18ca03a6357c52d12d10386f28e/dab2dcb2-f670-4173-b77d-38767a34cec1?expires=1789345800&signature=8ec7e046ca83f4d401c0333e2daabffb3fcfa59557036f2257c097dc75b61c1a&req=dSclEcp5nIRXXPMW1HO4zUAXI8UBVq3cFalhp3bugHIyEfnb8Bm6Z3r4%2Br3l%0A2MWANNXYJtsUwzdG9Ys%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1727371585/b18ca03a6357c52d12d10386f28e/dab2dcb2-f670-4173-b77d-38767a34cec1?expires=1790297100&signature=8bfdaf75ea71b2aadadf91d730536b4aebb5ad70166e0315d83c2eb966baa2a4&req=dSclEcp5nIRXXPMW1HO4zUAXIswAW6%2FVFalhp3bugHKYP9ret5DKT6xaj1DM%0AALoIWXgaaTA9LjFWDw0%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1727371585/b18ca03a6357c52d12d10386f28e/dab2dcb2-f670-4173-b77d-38767a34cec1?expires=1790297100&signature=8bfdaf75ea71b2aadadf91d730536b4aebb5ad70166e0315d83c2eb966baa2a4&req=dSclEcp5nIRXXPMW1HO4zUAXIswAW6%2FVFalhp3bugHKYP9ret5DKT6xaj1DM%0AALoIWXgaaTA9LjFWDw0%3D%0A)
 
 ## Usage limits
 
 Your Claude usage limits are shared across all platforms, so your chats with Claude and coding work in Xcode will draw from the same limits with a five-hour reset period, and will count towards your weekly usage limits. You will see the following message upon reaching either of your limits: “You've reached your rate limit, please try again later.”
 
 * [How large is the context window on paid Claude plans?](https://support.claude.com/en/articles/8606394-how-large-is-the-context-window-on-paid-claude-plans)
+* [How do I pay for my Claude API usage?](https://support.claude.com/en/articles/8977456-how-do-i-pay-for-my-claude-api-usage)
 * [Claude Console roles and permissions](https://support.claude.com/en/articles/10186004-claude-console-roles-and-permissions)
 * [Claude Code model configuration](https://support.claude.com/en/articles/11940350-claude-code-model-configuration)
 * [Models, usage, and limits in Claude Code](https://support.claude.com/en/articles/14552983-models-usage-and-limits-in-claude-code)
-* [Claude Enterprise consumption guide](https://support.claude.com/en/articles/14782391-claude-enterprise-consumption-guide)

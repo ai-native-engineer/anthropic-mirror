@@ -115,7 +115,7 @@ Open in Cowork
 
 ## Things to know[](#things-to-know)
 
-* **Plugins work in Cowork, Code, and Chat.** Your plugin's skills are active in whichever surface you're using.
+* **Plugins work across Claude.** Your plugin's skills are available in conversations, in Cowork tasks, and in Claude Code.
 * **Plugins you add yourself live on that machine.** A plugin you build or install manually is stored locally, so it typically doesn't follow your account to your other devices — including into remote sessions (in beta), where Claude works on Anthropic's servers. Plugins your organization distributes work differently: they usually come from a private marketplace your admin manages, and an admin can make a plugin available for people to install or have it installed by default.
 * **Sharing with teammates isn't automatic, but you have options.** You can share a plugin as a compressed file, host it on GitHub for automatic updates, or have an admin provision it across your org. [*Learn more about sharing plugins.*(opens in new tab)](https://support.claude.com/en/articles/13837440-use-plugins-in-cowork)
 * **Skills and connectors can also live outside plugins.** If you have personal context that applies across everything you do in Cowork — not tied to one plugin — you can add standalone skills and connectors in settings.

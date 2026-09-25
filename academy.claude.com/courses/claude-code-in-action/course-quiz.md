@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/claude-code-in-action/course-quiz -->
 
-Quiz 1 of 1 · Claude Code in ActionCourse quiz
+Quiz 1 of 1 · Claude Code in actionCourse quiz
 
-3. /[Claude Code in Action](https://academy.claude.com/courses/claude-code-in-action)
+3. /[Claude Code in action](https://academy.claude.com/courses/claude-code-in-action)
 
-[Claude Code in Action](https://academy.claude.com/courses/claude-code-in-action)
+[Claude Code in action](https://academy.claude.com/courses/claude-code-in-action)
 
 # Course quiz
 
@@ -12,7 +12,7 @@ Quiz3 min
 
 [Previous lessonPlugins](https://academy.claude.com/courses/claude-code-in-action/plugins)[Up nextCompletion badge](https://academy.claude.com/courses/claude-code-in-action/badge)
 
-Quiz 1 of 1 · Claude Code in ActionCourse quiz
+Quiz 1 of 1 · Claude Code in actionCourse quiz
 
 Steer the work
 

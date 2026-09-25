@@ -4,6 +4,12 @@
 title: Get started with Claude Managed Agents
 url: https://platform.claude.com/docs/en/managed-agents/quickstart
 description: Create your first autonomous agent.
+featureMetadata:
+  topic:
+    title: Managed Agents
+    url: https://platform.claude.com/docs/en/managed-agents/overview
+  status: beta
+  betaHeader: managed-agents-2026-04-01
 ---
 
 This guide walks you through creating an agent, setting up an environment, starting a session, and streaming agent responses.
@@ -39,7 +45,7 @@ This guide walks you through creating an agent, setting up an environment, start
     For Linux environments, download the release binary directly.
 
     ```bash
-    VERSION=1.30.0
+    VERSION=1.35.0
     OS=$(uname -s | tr '[:upper:]' '[:lower:]')
     case $(uname -m) in
       x86_64) ARCH=amd64 ;;
@@ -90,7 +96,7 @@ ant --version
 
   <Tab title="Java">
     ```groovy Gradle
-    implementation("com.anthropic:anthropic-java:2.60.0")
+    implementation("com.anthropic:anthropic-java:2.65.0")
     ```
   </Tab>
 
@@ -127,10 +133,6 @@ export ANTHROPIC_API_KEY="your-api-key-here"
 
 ## Create your first session
 
-<Note>
-  Managed Agents API requests require the `managed-agents-2026-04-01` beta header, except memory store endpoints, which use `agent-memory-2026-07-22` instead. The SDK sets the correct beta header automatically. See [Beta headers](https://platform.claude.com/docs/en/api/beta-headers#endpoint-specific-headers).
-</Note>
-
 <Steps>
   <Step title="Create an agent">
     Create an agent that defines the model, system prompt, and available tools.
@@ -148,7 +150,7 @@ export ANTHROPIC_API_KEY="your-api-key-here"
           -d @- <<'EOF'
       {
         "name": "Coding Assistant",
-        "model": "claude-opus-5",
+        "model": "claude-opus-5-5",
         "system": "You are a helpful coding assistant. Write clean, well-documented code.",
         "tools": [
           {"type": "agent_toolset_20260401"}
@@ -172,7 +174,7 @@ export ANTHROPIC_API_KEY="your-api-key-here"
           ```markdown
           ---
           name: Coding Assistant
-          model: claude-opus-5
+          model: claude-opus-5-5
           tools:
             - type: agent_toolset_20260401
           ---
@@ -182,6 +184,10 @@ export ANTHROPIC_API_KEY="your-api-key-here"
         </File>
       </MultiFileExample>
 
+      <ForLanguage tab="CLI">
+        [`ant apply`](https://platform.claude.com/docs/en/cli-sdks-libraries/cli/apply) prints the agent's ID and records it in `claude-lock.json`. You'll reference it in every session you create.
+      </ForLanguage>
+
       ```python Python
       from anthropic import Anthropic
 
@@ -189,7 +195,7 @@ export ANTHROPIC_API_KEY="your-api-key-here"
 
       agent = client.beta.agents.create(
           name="Coding Assistant",
-          model="claude-opus-5",
+          model="claude-opus-5-5",
           system="You are a helpful coding assistant. Write clean, well-documented code.",
           tools=[
               {"type": "agent_toolset_20260401"},
@@ -206,7 +212,7 @@ export ANTHROPIC_API_KEY="your-api-key-here"
 
       const agent = await client.beta.agents.create({
         name: "Coding Assistant",
-        model: "claude-opus-5",
+        model: "claude-opus-5-5",
         system: "You are a helpful coding assistant. Write clean, well-documented code.",
         tools: [
           { type: "agent_toolset_20260401" },
@@ -228,7 +234,7 @@ export ANTHROPIC_API_KEY="your-api-key-here"
       var agent = await client.Beta.Agents.Create(new()
       {
           Name = "Coding Assistant",
-          Model = BetaManagedAgentsModel.ClaudeOpus5,
+          Model = BetaManagedAgentsModel.ClaudeOpus5_5,
           System = "You are a helpful coding assistant. Write clean, well-documented code.",
           Tools =
           [
@@ -259,7 +265,7 @@ export ANTHROPIC_API_KEY="your-api-key-here"
       	agent, err := client.Beta.Agents.New(ctx, anthropic.BetaAgentNewParams{
       		Name: "Coding Assistant",
       		Model: anthropic.BetaManagedAgentsModelConfigParams{
-      			ID: anthropic.BetaManagedAgentsModelClaudeOpus5,
+      			ID: anthropic.BetaManagedAgentsModelClaudeOpus5_5,
       		},
       		System: anthropic.String("You are a helpful coding assistant. Write clean, well-documented code."),
       		Tools: []anthropic.BetaAgentNewParamsToolUnion{{
@@ -293,7 +299,7 @@ export ANTHROPIC_API_KEY="your-api-key-here"
 
           var agent = client.beta().agents().create(AgentCreateParams.builder()
               .name("Coding Assistant")
-              .model(BetaManagedAgentsModel.CLAUDE_OPUS_5)
+              .model(BetaManagedAgentsModel.CLAUDE_OPUS_5_5)
               .system("You are a helpful coding assistant. Write clean, well-documented code.")
               .addTool(BetaManagedAgentsAgentToolset20260401Params.builder()
                   .type(BetaManagedAgentsAgentToolset20260401Params.Type.AGENT_TOOLSET_20260401)
@@ -310,7 +316,7 @@ export ANTHROPIC_API_KEY="your-api-key-here"
 
       $agent = $client->beta->agents->create(
           name: 'Coding Assistant',
-          model: 'claude-opus-5',
+          model: 'claude-opus-5-5',
           system: 'You are a helpful coding assistant. Write clean, well-documented code.',
           tools: [
               ['type' => 'agent_toolset_20260401'],
@@ -327,18 +333,20 @@ export ANTHROPIC_API_KEY="your-api-key-here"
 
       agent = client.beta.agents.create(
         name: "Coding Assistant",
-        model: "claude-opus-5",
+        model: "claude-opus-5-5",
         system_: "You are a helpful coding assistant. Write clean, well-documented code.",
         tools: [{type: "agent_toolset_20260401"}]
       )
 
       puts "Agent ID: #{agent.id}, version: #{agent.version}"
       ```
+
+      <ForLanguage not="CLI">
+        Save the returned `agent.id`. You'll reference it in every session you create.
+      </ForLanguage>
     </CodeGroup>
 
     The `agent_toolset_20260401` tool type enables the full set of pre-built agent tools (bash, file operations, web search, and more). See [Tools](https://platform.claude.com/docs/en/managed-agents/tools) for the complete list and per-tool configuration options.
-
-    Save the returned `agent.id` (the CLI's [`ant apply`](https://platform.claude.com/docs/en/cli-sdks-libraries/cli/apply) prints it and records it in `claude-lock.json`). You'll reference it in every session you create.
   </Step>
 
   <Step title="Create an environment">
@@ -375,6 +383,7 @@ export ANTHROPIC_API_KEY="your-api-key-here"
 
         <File filename="environment.yaml">
           ```yaml
+          # yaml-language-server: $schema=https://platform.claude.com/schemas/ant/beta/environment.json
           name: quickstart-env
           config:
             type: cloud
@@ -383,6 +392,10 @@ export ANTHROPIC_API_KEY="your-api-key-here"
           ```
         </File>
       </MultiFileExample>
+
+      <ForLanguage tab="CLI">
+        [`ant apply`](https://platform.claude.com/docs/en/cli-sdks-libraries/cli/apply) records the environment's ID in `claude-lock.json` too. To create the agent and the environment with one command, pass both files: `ant apply coding-assistant.md environment.yaml`.
+      </ForLanguage>
 
       ```python Python
       environment = client.beta.environments.create(
@@ -464,9 +477,11 @@ export ANTHROPIC_API_KEY="your-api-key-here"
 
       puts "Environment ID: #{environment.id}"
       ```
-    </CodeGroup>
 
-    Save the returned `environment.id` (also in `claude-lock.json` if you used `ant apply`). You'll reference it in every session you create.
+      <ForLanguage not="CLI">
+        Save the returned `environment.id` too.
+      </ForLanguage>
+    </CodeGroup>
 
     <Tip>
       To run the sandbox on your own infrastructure instead of a cloud sandbox, see 
@@ -653,18 +668,21 @@ export ANTHROPIC_API_KEY="your-api-key-here"
       });
 
       // Process streaming events
-      for await (const event of stream) {
-        if (event.type === "agent.message") {
-          for (const block of event.content) {
-            if (block.type === "text") {
-              process.stdout.write(block.text);
+      loop: for await (const event of stream) {
+        switch (event.type) {
+          case "agent.message":
+            for (const block of event.content) {
+              if (block.type === "text") {
+                process.stdout.write(block.text);
+              }
             }
-          }
-        } else if (event.type === "agent.tool_use") {
-          console.log(`\n[Using tool: ${event.name}]`);
-        } else if (event.type === "session.status_idle") {
-          console.log("\n\nAgent finished.");
-          break;
+            break;
+          case "agent.tool_use":
+            console.log(`\n[Using tool: ${event.name}]`);
+            break;
+          case "session.status_idle":
+            console.log("\n\nAgent finished.");
+            break loop;
         }
       }
       ```
@@ -772,14 +790,15 @@ export ANTHROPIC_API_KEY="your-api-key-here"
               .build());
 
           // Process streaming events
+          loop:
           for (var event : (Iterable<BetaManagedAgentsStreamSessionEvents>) stream.stream()::iterator) {
-              if (event.isAgentMessage()) {
-                  event.asAgentMessage().content().forEach(block -> block.text().ifPresent(textBlock -> IO.print(textBlock.text())));
-              } else if (event.isAgentToolUse()) {
-                  IO.println("\n[Using tool: " + event.asAgentToolUse().name() + "]");
-              } else if (event.isSessionStatusIdle()) {
-                  IO.println("\n\nAgent finished.");
-                  break;
+              switch (event.type().value()) {
+                  case AGENT_MESSAGE -> event.asAgentMessage().content().forEach(block -> block.text().ifPresent(textBlock -> IO.print(textBlock.text())));
+                  case AGENT_TOOL_USE -> IO.println("\n[Using tool: " + event.asAgentToolUse().name() + "]");
+                  case SESSION_STATUS_IDLE -> {
+                      IO.println("\n\nAgent finished.");
+                      break loop;
+                  }
               }
           }
       }
@@ -803,13 +822,13 @@ export ANTHROPIC_API_KEY="your-api-key-here"
 
       // Process streaming events
       foreach ($stream as $event) {
-          match ($event->type) {
-              'agent.message' => array_walk(
+          match (true) {
+              $event instanceof \Anthropic\Beta\Sessions\Events\ManagedAgentsAgentMessageEvent => array_walk(
                   $event->content,
-                  static fn ($block) => $block->type === 'text' ? print($block->text) : null,
+                  static fn ($block) => $block instanceof \Anthropic\Beta\Sessions\Events\ManagedAgentsTextBlock ? print($block->text) : null,
               ),
-              'agent.tool_use' => print("\n[Using tool: {$event->name}]\n"),
-              'session.status_idle' => print("\n\nAgent finished.\n"),
+              $event instanceof \Anthropic\Beta\Sessions\Events\ManagedAgentsAgentToolUseEvent => print("\n[Using tool: {$event->name}]\n"),
+              $event instanceof \Anthropic\Beta\Sessions\Events\ManagedAgentsSessionStatusIdleEvent => print("\n\nAgent finished.\n"),
               default => null,
           };
           if ($event->type === 'session.status_idle') {
@@ -832,12 +851,12 @@ export ANTHROPIC_API_KEY="your-api-key-here"
 
       # Process streaming events
       stream.each do |event|
-        case event.type
-        in :"agent.message"
-          event.content.each { print it.text if it.type == :text }
-        in :"agent.tool_use"
+        case event
+        when Anthropic::Beta::Sessions::BetaManagedAgentsAgentMessageEvent
+          event.content.each { print it.text if it.is_a?(Anthropic::Beta::Sessions::BetaManagedAgentsTextBlock) }
+        when Anthropic::Beta::Sessions::BetaManagedAgentsAgentToolUseEvent
           puts "\n[Using tool: #{event.name}]"
-        in :"session.status_idle"
+        when Anthropic::Beta::Sessions::BetaManagedAgentsSessionStatusIdleEvent
           puts "\n\nAgent finished."
           break
         else

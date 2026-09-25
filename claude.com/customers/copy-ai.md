@@ -4,31 +4,21 @@ Case study | Claude Platform
 
 # Copy.ai accelerates content creation and reduces costs with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![Copy.ai logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c1dc23f109ea0e7e4d8f98_cs-logo-copyai-light-theme.svg)![Copy.ai logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c1dc2b381f7bb72b652bd9_cs-logo-copyai-dark-theme.svg)
+![Copy.ai logo](https://assets.claude.com/4edb31e7c5da7aeaba70b840eb9caf20097b1c99.svg)
 
 Industry:
-
-Software
+:   Software
 
 Company size:
-
-Small
+:   Small
 
 Product:
-
-Claude Platform
+:   Claude Platform
 
 Location:
-
-North America
+:   North America
 
 4x increase
 
@@ -37,42 +27,6 @@ in content output
 75% reduction
 
 in content creation costs
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
 
 Copy.ai, a leading GTM AI platform, uses Claude to help marketing teams generate high-quality content faster and more cost-effectively. By leveraging Claude's advanced language capabilities, Copy.ai enables its customers to streamline their content workflows and significantly reduce outsourcing costs.
 
@@ -99,7 +53,7 @@ For example, Copy.ai uses Claude for the following:
 * Brand voice adaptation: The platform uses Claude to maintain consistent brand voice across various content types and authors.
 * Research and fact-checking: Claude helps gather and incorporate relevant statistics and facts to substantiate content claims.
 
-![App screen from the Copy.ai platform](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68baf054aa64dfc25549ec2c_0d1bf6b6ac542a5beedde01a778a083fdaf5430e-1920x1080.jpeg)
+![App screen from the Copy.ai platform](https://assets.claude.com/58e283d6ae00e6faa9779f8052ebd73d57609a2e.jpg)
 
 "In the content creation field, quality and creativity are critical. Marketers need to have confidence in the outputs being generated," says Kyle Coleman, Chief Marketing Officer at Copy.ai. "Claude enhances our content solutions at Copy.ai by helping us deliver more human-like, creative content and empowering marketers to produce crucial materials that can significantly impact their marketing efforts."
 
@@ -125,52 +79,12 @@ In the future, Copy.ai hopes to enhance content workflows even further by integr
 
 "I envision a day where a marketer could make a note in Copy.ai, and then an AI assistant could ask, 'Would you like me to draft content for these topics?'" says Coleman. "Once we get to that level of intuitive, AI-driven content creation, we're going to see even more efficiencies and creative possibilities for marketers."
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[![Supermetrics](https://assets.claude.com/3ac4171a81008be0340e5c3d8ccb46571c3edfb3.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### Supermetrics lets marketers manage ad campaigns from a conversation with Claude](https://claude.com/customers/supermetrics)[![Atlassian](https://assets.claude.com/4870b3d6c0253cea01b100c98ad2030b8e4f8ce1.svg)
 
-[Next](#)Next
+### How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-Video caption
+### Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-Customer story
-
-[Customer story](https://claude.com/customers/atlassian)Customer story
-
-[Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)Rocket Money on building agents that fix their own code
-
-Rocket Money on building agents that fix their own code
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money-qa)Customer story
-
-[How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)How Rocket Money built its personal finance agent with Claude
-
-How Rocket Money built its personal finance agent with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money)Customer story
-
-[How Notion ships and scales agents with Claude Managed Agents](https://claude.com/customers/notion-qa)How Notion ships and scales agents with Claude Managed Agents
-
-How Notion ships and scales agents with Claude Managed Agents
-
-Customer story
-
-[Customer story](https://claude.com/customers/notion-qa)Customer story
+### How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)

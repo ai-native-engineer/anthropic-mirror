@@ -4,31 +4,21 @@ Case study | Claude Platform
 
 # How Pratham delivers personalized assessment feedback to thousands of students across India with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6992a5400e1c7f195d6d23f9_second%20edit%20light%20mode%20converted.png)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6992a54433e0821a6801a39d_second%20edit%20dark%20mode%20converted.png)
+![Pratham logo](https://assets.claude.com/a49b496eb6b02d7f1a3d969f8fd078fb2dca0f82.png)
 
 Industry:
-
-Beneficial Deployments
+:   Beneficial Deployments
 
 Company size:
-
-Large
+:   Large
 
 Product:
-
-Claude Platform
+:   Claude Platform
 
 Location:
-
-India
+:   India
 
 1,500+ student assessments
 
@@ -40,63 +30,19 @@ through iterative prompt engineering with Anthropic
 
 Nonprofits
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698f525504b02eec936ac514_692e248602b0e973666dc35b_og-nonprofit.jpeg)
+![Nonprofits](https://assets.claude.com/b46529adbd87da89ebb1e8191178d53278f93d1b.jpg)
 
 Turn limited resources into lasting impact. Generate grant proposals, track program outcomes, and free your team to focus on serving your community.
 
-Read more
-
-[Read more](https://claude.com/solutions/nonprofits)Read more
-
-Nonprofits
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Turn limited resources into lasting impact. Generate grant proposals, track program outcomes, and free your team to focus on serving your community.
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Nonprofits
-
-Turn limited resources into lasting impact. Generate grant proposals, track program outcomes, and free your team to focus on serving your community.
+[Read more](https://claude.com/solutions/nonprofits)
 
 Education
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698f5245ff22e3ab8e64405f_68c469d2d09b203c164ad8e6_og-claude-education.jpeg)
+![Education](https://assets.claude.com/b3e6d0547ee5dc0654c639ece4b89778e2edb536.jpg)
 
 Trusted, responsible AI tools for students and educators, from personalized learning to research assistance.
 
-Read more
-
-[Read more](https://claude.com/solutions/education)Read more
-
-Education
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Trusted, responsible AI tools for students and educators, from personalized learning to research assistance.
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Education
-
-Trusted, responsible AI tools for students and educators, from personalized learning to research assistance.
-
-[Prev](#)Prev
-
-[Next](#)Next
+[Read more](https://claude.com/solutions/education)
 
 [Pratham](https://pratham.org/) is one of the world’s largest education nonprofits. Founded 30 years ago in India, the organization reaches millions of children annually through programs spanning early literacy to vocational training. Its methods have been validated through more than 10 randomized controlled trials, including studies by MIT's J-PAL. The World Bank has also recognized the Pratham method as one of the best investments in education for global education. Today, Pratham’s programs operate in nearly every Indian state and have been adopted in more than 30 countries.
 
@@ -148,60 +94,18 @@ Chavan sees assessment as just the starting point for something larger: a system
 
 "Instead of asking children questions about the curriculum, ask them what they know," Chavan said. "If we flip that, we can flip the education system from being a filtration mechanism to one that offers differentiated pathways based on a child's interests and background knowledge. Before AI, this was not possible."
 
-The partnership is already expanding. Anthropic will support Pratham's Tech in TaRL (Teaching at the Right Level) initiative, an AI-powered teacher support system with a randomized controlled trial planned for several thousand students.  The two organizations are also exploring educational digital public infrastructure (including knowledge graphs), as well as geographic expansion to Kenya, Rwanda, and communities across the Global South. Pratham's three-year goal is to evolve the ATM into a learning and credentialing engine that recognizes competencies gained through non-linear pathways, available to learners worldwide.
+The partnership is already expanding. Anthropic will support Pratham's Tech in TaRL (Teaching at the Right Level) initiative, an AI-powered teacher support system with a randomized controlled trial planned for several thousand students. The two organizations are also exploring educational digital public infrastructure (including knowledge graphs), as well as geographic expansion to Kenya, Rwanda, and communities across the Global South. Pratham's three-year goal is to evolve the ATM into a learning and credentialing engine that recognizes competencies gained through non-linear pathways, available to learners worldwide.
 
-"AI tools like Claude give us a way to reimagine learning for students who do not have access to advanced educational resources."
+> "AI tools like Claude give us a way to reimagine learning for students who do not have access to advanced educational resources."
 
-Madhav Chavan
+Madhav ChavanCo-founder, Pratham International
 
-Co-founder, Pratham International
+[![Mercy Corps](https://assets.claude.com/544995a85d67ef08fd67560f5758d5e28bc7a53f.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### Mercy Corps on what AI makes possible in humanitarian work](https://claude.com/customers/mercy-corps-qa)[![Mercy Corps](https://assets.claude.com/544995a85d67ef08fd67560f5758d5e28bc7a53f.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### Mercy Corps accelerates global humanitarian response to community feedback with Claude](https://claude.com/customers/mercy-corps)[![Epilepsy Foundation](https://assets.claude.com/446cc4df1be577720df85748fa3813fa0837e3b8.png)
 
-[Next](#)Next
+### The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude](https://claude.com/customers/epilepsy-foundation)[![Epilepsy Foundation](https://assets.claude.com/446cc4df1be577720df85748fa3813fa0837e3b8.png)
 
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[Mercy Corps on what AI makes possible in humanitarian work](https://claude.com/customers/mercy-corps-qa)Mercy Corps on what AI makes possible in humanitarian work
-
-Mercy Corps on what AI makes possible in humanitarian work
-
-Customer story
-
-[Customer story](https://claude.com/customers/mercy-corps-qa)Customer story
-
-[Mercy Corps accelerates global humanitarian response to community feedback with Claude](https://claude.com/customers/mercy-corps)Mercy Corps accelerates global humanitarian response to community feedback with Claude
-
-Mercy Corps accelerates global humanitarian response to community feedback with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/mercy-corps)Customer story
-
-[The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude](https://claude.com/customers/epilepsy-foundation)The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude
-
-The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/epilepsy-foundation)Customer story
-
-[How the Epilepsy Foundation uses Claude across the organization](https://claude.com/customers/epilepsy-foundation-qa)How the Epilepsy Foundation uses Claude across the organization
-
-How the Epilepsy Foundation uses Claude across the organization
-
-Customer story
-
-[Customer story](https://claude.com/customers/epilepsy-foundation-qa)Customer story
+### How the Epilepsy Foundation uses Claude across the organization](https://claude.com/customers/epilepsy-foundation-qa)

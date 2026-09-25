@@ -67,6 +67,6 @@ We appreciate your interest in conducting red-teaming or jailbreaking research, 
 
 * [What is the External Researcher Access Program?](https://support.claude.com/en/articles/9125743-what-is-the-external-researcher-access-program)
 * [About the Development Partner Program](https://support.claude.com/en/articles/11174108-about-the-development-partner-program)
-* [Why Claude switched models in your conversation with Opus 5](https://support.claude.com/en/articles/16049681-why-claude-switched-models-in-your-conversation-with-opus-5)
+* [Why Claude switched models in your conversation with Opus 5 or Opus 5.5](https://support.claude.com/en/articles/16049681-why-claude-switched-models-in-your-conversation-with-opus-5-or-opus-5-5)
 * [Get started with Claude Science](https://support.claude.com/en/articles/16563838-get-started-with-claude-science)
 * [Claude Team plan for scientists](https://support.claude.com/en/articles/16634237-claude-team-plan-for-scientists)

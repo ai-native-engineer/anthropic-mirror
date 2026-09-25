@@ -29,7 +29,7 @@ The Models API response can be used to determine information about a specific mo
 
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 42 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 45 more`
 
       - `"message-batches-2024-09-24"`
 
@@ -121,6 +121,12 @@ The Models API response can be used to determine information about a specific mo
 
       - `"mid-conversation-system-clear-at-2026-08-21"`
 
+      - `"compact-2026-09-04"`
+
+      - `"inline-tools-2026-09-15"`
+
+      - `"mcp-client-2026-09-15"`
+
   - `workspace_id?: string`
 
     Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -129,7 +135,7 @@ The Models API response can be used to determine information about a specific mo
 
 ## Returns
 
-- `BetaModelInfo`
+- `interface BetaModelInfo`
 
   - `type: "model"`
 
@@ -166,6 +172,20 @@ The Models API response can be used to determine information about a specific mo
     - `code_execution: BetaCapabilitySupport`
 
       Whether the model supports code execution tools.
+
+    - `compaction: BetaCompactionCapability | null`
+
+      Compaction capability details: whether the model accepts the top-level
+      `compaction` request parameter, with one entry per supported
+      `compaction.type` value.
+
+      - `summarize: BetaCapabilitySupport`
+
+        Whether the summarize compaction type is supported.
+
+      - `supported: boolean`
+
+        Whether this capability is supported by the model.
 
     - `context_management: BetaContextManagementCapability`
 
@@ -295,6 +315,12 @@ console.log(betaModelInfo.id);
       "supported": true
     },
     "code_execution": {
+      "supported": true
+    },
+    "compaction": {
+      "summarize": {
+        "supported": true
+      },
       "supported": true
     },
     "context_management": {

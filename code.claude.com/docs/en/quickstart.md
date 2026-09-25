@@ -349,6 +349,7 @@ Now that you've learned the basics, explore more advanced features:
 
 ## Getting help
 
-* **In Claude Code**: Type `/help` or ask "how do I..."
+* **In Claude Code**: Type `/help` or ask a "how do I" question
 * **Documentation**: You're here! Browse other guides
+* **Courses**: Take [Claude Code 101](https://academy.claude.com/courses/claude-code-101) and other free self-paced courses on [Claude Academy](https://academy.claude.com/)
 * **Community**: Join our [Discord](https://www.anthropic.com/discord) for tips and support

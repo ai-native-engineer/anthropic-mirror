@@ -4,31 +4,21 @@ Case study | Claude Platform
 
 # Skillfully transforms hiring through AI-powered skill simulations with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![Skillfully logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c1c39d03de5df3a2db447b_cs-logo-skillfully-light-theme.svg)![Skillfully logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c1c39fdac1a64095622e25_cs-logo-skillfully-dark-theme.svg)
+![Skillfully logo](https://assets.claude.com/4d045f8f15c950f0b55087335dd918f70f8db501.svg)
 
 Industry:
-
-Recruiting
+:   Recruiting
 
 Company size:
-
-Small
+:   Small
 
 Product:
-
-Claude Platform
+:   Claude Platform
 
 Location:
-
-North America
+:   North America
 
 10x more likely
 
@@ -37,42 +27,6 @@ to convert to full-time hires vs traditional methods
 50% reduction
 
 in hiring cycle time and 70% decrease in cost
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
 
 Skillfully uses Claude to transform traditional hiring, complementing conventional resumes with AI-powered simulations that let candidates demonstrate their real abilities in action, making true skills-driven hiring both more equitable and effective for employers and job seekers alike.
 
@@ -96,9 +50,7 @@ After evaluating several AI solutions to power this platform, Skillfully selecte
 
 Second, as a public benefit corporation dedicated to creating a more meritocratic job market, Skillfully found a natural partner in Anthropic. "We're dedicated to inclusivity and accessibility of opportunity—that's in our DNA," explained Waikart. "It's not a small thing that Anthropic is also a public benefit corporation. We focus on human-centric hiring, they focus on human-centric AI." This shared commitment to responsible innovation made Claude the clear choice for powering their platform.
 
-![Skillfully product screen](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68baf04f9a2483f17b315cb1_c41735335eeb4e7868ee27d1e5ceaa03509a97c3-2876x2172.jpeg)
-
-![Skillfully product screen](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68baf04f9a2483f17b315cad_de007de3a24e800db774da2408d82486fcba8255-2876x2172.jpeg)
+![Skillfully product screen](https://assets.claude.com/f487d0c1edac2f0954b6fd3adff9d9481c72e200.jpg)![Skillfully product screen](https://assets.claude.com/92d2780c537e6420344a22f5d4677c0515c82ccb.jpg)
 
 ## Transforming lives through fairer hiring
 
@@ -112,44 +64,10 @@ Skillfully envisions a fundamental transformation in how organizations evaluate 
 
 Through their partnership with Claude, Skillfully aims to make hiring both more efficient and more human. "Instead of reducing candidates to checkboxes on a resume, we want to create rich, dynamic interactions where people can truly showcase their abilities and feel seen for who they are," explained Waikart. By combining Claude's advanced capabilities with their commitment to human-centric hiring, Skillfully is working to create a future where everyone has the opportunity to demonstrate—and benefit from—their true potential.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[![Fountain](https://assets.claude.com/b71e514bd0b898b54389212058f29c0dfcf6b27f.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### Fountain accelerates frontline workforce hiring and management with Claude](https://claude.com/customers/fountain)[![micro1](https://assets.claude.com/b1bad452489c0ab55beeb4cbeb4b05543378b7bb.svg)
 
-[Next](#)Next
+### micro1 transforms technical recruiting with Claude](https://claude.com/customers/micro1)[![Braintrust](https://assets.claude.com/e902bcd557abee20fb67ab82f79395b90141b73c.svg)
 
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[Fountain accelerates frontline workforce hiring and management with Claude](https://claude.com/customers/fountain)Fountain accelerates frontline workforce hiring and management with Claude
-
-Fountain accelerates frontline workforce hiring and management with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/fountain)Customer story
-
-[micro1 transforms technical recruiting with Claude](https://claude.com/customers/micro1)micro1 transforms technical recruiting with Claude
-
-micro1 transforms technical recruiting with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/micro1)Customer story
-
-[Braintrust revolutionizes talent acquisition and career growth with Claude](https://claude.com/customers/braintrust)Braintrust revolutionizes talent acquisition and career growth with Claude
-
-Braintrust revolutionizes talent acquisition and career growth with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/braintrust)Customer story
+### Braintrust revolutionizes talent acquisition and career growth with Claude](https://claude.com/customers/braintrust)

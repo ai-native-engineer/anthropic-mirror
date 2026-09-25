@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/ai-capabilities-and-limitations/how-ai-gets-its-character -->
 
-Lesson 3 of 13 · AI Capabilities and LimitationsHow AI Gets Its Character
+Lesson 3 of 13 · AI capabilities and limitationsHow AI Gets Its Character
 
-3. /[AI Capabilities and Limitations](https://academy.claude.com/courses/ai-capabilities-and-limitations)
+3. /[AI capabilities and limitations](https://academy.claude.com/courses/ai-capabilities-and-limitations)
 
-[AI Capabilities and Limitations](https://academy.claude.com/courses/ai-capabilities-and-limitations)
+[AI capabilities and limitations](https://academy.claude.com/courses/ai-capabilities-and-limitations)
 
 # How AI Gets Its Character
 
@@ -60,7 +60,7 @@ Now we start on the four properties themselves, beginning with the one that expl
 
 [Previous lessonWhat We Mean by AI](https://academy.claude.com/courses/ai-capabilities-and-limitations/what-we-mean-by-ai)[Next lessonNext Token Prediction](https://academy.claude.com/courses/ai-capabilities-and-limitations/next-token-prediction)
 
-Lesson 3 of 13 · AI Capabilities and LimitationsHow AI Gets Its Character
+Lesson 3 of 13 · AI capabilities and limitationsHow AI Gets Its Character
 
 Getting started
 

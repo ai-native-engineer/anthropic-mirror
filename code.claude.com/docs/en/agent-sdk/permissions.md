@@ -257,7 +257,7 @@ Converts any permission prompt into a denial, without calling `canUseTool`. Tool
 
 #### Bypass permissions mode (`bypassPermissions`)
 
-Auto-approves tool uses without prompting, except the cases listed in the warning below. Hooks still execute and can block operations if needed.
+Auto-approves tool uses without prompting, except the cases listed in the warning below. Hooks still execute and can block operations if needed. On Linux and macOS, Claude Code refuses to start in this mode as root or under `sudo` outside a [recognized sandbox](/docs/en/permission-modes#skip-all-checks-with-bypasspermissions-mode), and the query fails before the first turn.
 
 <Warning>
   Use with extreme caution. Claude has full system access in this mode. Only use in controlled environments where you trust all possible operations.
@@ -274,6 +274,8 @@ Auto-approves tool uses without prompting, except the cases listed in the warnin
 Claude explores the codebase and produces a plan without editing your source files. Read-only tools run as they do in the `default` permission mode.
 
 File edits are never auto-approved in plan mode, even when an allow rule matches. They prompt through your `canUseTool` callback instead. On Claude Code v2.1.212 or later, shell commands that modify files, such as `touch` and `rm`, reach your `canUseTool` callback the same way.
+
+If you set `allowDangerouslySkipPermissions: true` alongside `permissionMode: 'plan'`, file edits and shell commands that modify files still reach your `canUseTool` callback. The option lets you switch to `bypassPermissions` later with `setPermissionMode()`.
 
 Claude may use `AskUserQuestion` to clarify requirements before finalizing the plan. See [Handle approvals and user input](/docs/en/agent-sdk/user-input#handle-clarifying-questions) for handling these prompts.
 

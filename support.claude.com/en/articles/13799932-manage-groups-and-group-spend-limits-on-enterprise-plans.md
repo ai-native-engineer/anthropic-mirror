@@ -6,11 +6,11 @@ Groups and group spend limits are available for Enterprise plan organizations. O
 
 Groups let you organize members into logical collections—by team, department, or any other grouping that fits your organization. Once groups are set up, you can:
 
-* **Set spend limits for groups**, so all members of a group share a per-user spend limit.
+* **Set spend limits for groups**, so all members of a group share a per-user spend limit, and optionally give the group one shared monthly budget (beta).
 * **Control member access through group memberships and custom roles**, so their capabilities and permissions are determined entirely by the groups they belong to. For additional details, see **[Manage custom roles on Enterprise plans](https://support.claude.com/en/articles/13930452-manage-custom-roles-on-enterprise-plans)**.
-* **Let members share resources with a group**, so a project, skill, or plugin shared with the group is available to everyone in it, and access follows membership as it changes. For details, see [**Manage project visibility and sharing**](https://support.claude.com/en/articles/9519189-manage-project-visibility-and-sharing)and **[Provision and manage skills for your organization](https://support.claude.com/en/articles/13119606-provision-and-manage-skills-for-your-organization)**.
+* **Let members share resources with a group**, so a project, skill, or plugin shared with the group is available to everyone in it, and access follows membership as it changes. For details, see **[Manage project visibility and sharing](https://support.claude.com/en/articles/9519189-manage-project-visibility-and-sharing)** and **[Provision and manage skills for your organization](https://support.claude.com/en/articles/13119606-provision-and-manage-skills-for-your-organization)**.
 
-Groups can be created manually or synced automatically from your identity provider via SCIM. Each organization can have up to 100 groups. There's no limit on how many groups a member can belong to, though belonging to more than 250 can slow performance.
+Groups can be created manually or synced automatically from your identity provider via SCIM. Each organization can have up to 1000 groups. There's no limit on how many groups a member can belong to, though belonging to more than 250 can slow performance.
 
 In addition to spend limits, Enterprise admins can use groups to control plugin access in Cowork. Each plugin in your organization's marketplace can have group-level overrides that determine whether it's available, pre-installed, required, or hidden for members of a specific group. For details, see **[Manage Cowork plugins for your organization](https://support.claude.com/en/articles/13837433-manage-cowork-plugins-for-your-organization)**.
 
@@ -130,27 +130,29 @@ Group spend limits let you control spending across your organization by assignin
 
 Group spend limits work alongside individual spend limits. If a member has an individual spend limit set, their individual limit takes precedence over any group limit.
 
-## Set a group spend limit
+A pooled budget only starts counting spend after it is created and resets each month.
+
+### Set a group spend limit
 
 1. Navigate to **[Organization settings > Usage](https://claude.ai/admin-settings/usage)**.
-2. Select the “By group” tab.
-3. Find the group and click the menu button to the right, then “Edit limit”
-4. Select “Unlimited,” or “Set dollar amount” and enter a dollar amount for the spend limit.
-5. Click "Set limit."
+2. Select the "By group/tier" tab.
+3. Find the group and click the menu button to the right, then "Edit limits."
+4. Select "No member limit" or "Member limit" and enter an amount.
+5. Click "Save."
 
 The spend limit applies to all members of the group. Members who also have an individual spend limit set are governed by their individual limit instead.
 
-## Choose how multi-group spend limits resolve
+### Choose how multi-group spend limits resolve
 
 If a member belongs to more than one group with a spend limit, the **Multi-group spend limit** setting controls which limit applies.
 
 1. Navigate to **[Organization settings > Usage](https://claude.ai/admin-settings/usage)**.
-2. Find **Multi-group spend limit** in the **Spending defaults** section.
+2. Find **Member limit** from groups in the **Spending defaults** section.
 3. Select "Higher group limit" or "Lower group limit" from the dropdown.
 
 Select "Lower group limit" to set a broad limit on a large group and create subgroups with tighter budgets. Select "Higher group limit" to set a conservative baseline on a large group and grant more headroom to specific teams.
 
-## How spend limits are resolved
+### How spend limits are resolved
 
 When determining a member's effective spend limit, the system evaluates in this order:
 
@@ -158,8 +160,8 @@ When determining a member's effective spend limit, the system evaluates in this 
 2. **Group limit**—if the member has no individual limit, the system checks their group memberships. If the member belongs to multiple groups with spend limits, your **Multi-group spend limit** setting determines whether the higher or lower limit applies.
 3. **No limit**—if the member has no individual limit and belongs to no groups with spend limits, no spend limit is applied.
 
-* [Manage members on Team and Enterprise plans](https://support.claude.com/en/articles/13133750-manage-members-on-team-and-enterprise-plans)
 * [Migrate your organization from Team to Enterprise](https://support.claude.com/en/articles/13779868-migrate-your-organization-from-team-to-enterprise)
 * [Manage custom roles on Enterprise plans](https://support.claude.com/en/articles/13930452-manage-custom-roles-on-enterprise-plans)
 * [Set up role-based permissions on Enterprise plans](https://support.claude.com/en/articles/13930458-set-up-role-based-permissions-on-enterprise-plans)
 * [How SCIM sync works for Enterprise organizations](https://support.claude.com/en/articles/14499648-how-scim-sync-works-for-enterprise-organizations)
+* [Manage pooled group budgets on Enterprise plans](https://support.claude.com/en/articles/17005973-manage-pooled-group-budgets-on-enterprise-plans)

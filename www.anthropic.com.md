@@ -2,17 +2,35 @@
 
 [Skip to main content](#main)[Skip to footer](#footer)
 
-[](https://cdn.sanity.io/files/4zrzovbb/website/2471bf20827901f94b1739010670e94ad4200e87.mov)
+[](https://cdn.sanity.io/files/4zrzovbb/website/9ba94b221719352217f42e6d9a5be6946734e190.webm)
 
-## :Claude: Fable 5.1 and Mythos 5.1
+## Claude Opus 5.5
 
-The world’s most advanced models for coding and knowledge work.
+Our most capable Opus model, faster and costs 40% less to run.
 
 Read more
 
-[Read more](https://anthropic.com/claude-fable-and-mythos-5-1)Read more
+[Read more](https://anthropic.com/claude-opus-5-5)Read more
 
 ## Latest releases
+
+### Introducing Opus 5.5
+
+Opus 5.5 performs at the level of Fable 5.1 on most work, and costs 40% less to run than Opus 5 on typical workloads.
+
+* Date
+
+  September 22, 2026
+* Category
+
+  Announcements
+* Details
+
+  [Opus](https://www.anthropic.com/claude/opus)
+
+[Read announcement](https://anthropic.com/claude-opus-5-5)Read announcement
+
+Read announcement
 
 ### Introducing Fable 5.1 and Mythos 5.1
 
@@ -29,24 +47,6 @@ Our most advanced models for coding and knowledge work. Their research capabilit
   [Fable](https://www.anthropic.com/claude/fable)[Mythos](https://www.anthropic.com/claude/mythos)
 
 [Read announcement](https://www.anthropic.com/claude-fable-and-mythos-5-1)Read announcement
-
-Read announcement
-
-### Introducing Opus 5
-
-Opus 5 is a step change for the Opus tier: stronger coding, more capable agents, and sharper professional work.
-
-* Date
-
-  July 24, 2026
-* Category
-
-  Announcements
-* Details
-
-  [Opus](https://www.anthropic.com/claude/opus)
-
-[Read announcement](https://www.anthropic.com/news/claude-opus-5)Read announcement
 
 Read announcement
 

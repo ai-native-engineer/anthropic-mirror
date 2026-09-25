@@ -1,5 +1,7 @@
 <!-- source: https://claude.com/blog-category/claude-code -->
 
+Explore here
+
 Thank you! Your submission has been received!
 
 Oops! Something went wrong while submitting the form.
@@ -15,6 +17,86 @@ Oops! Something went wrong while submitting the form.
 Grid
 
 List
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d225e31f7aa22c1f28cb_46e4aa7ea208ed440d5bd9e9e3a0ee66bc336ff1-1000x1000.svg)
+
+Sep 24, 2026
+
+Coding sessions are longer and use more context. Claude Opus 5.5 is built with that in mind.
+
+Claude Code
+
+Coding sessions are longer and use more context. Claude Opus 5.5 is built with that in mind.
+
+September 24, 2026
+
+[Coding sessions are longer and use more context. Claude Opus 5.5 is built with that in mind.](https://claude.com/blog/claude-opus-5-5-built-for-coding-sessions-that-use-more-context)Coding sessions are longer and use more context. Claude Opus 5.5 is built with that in mind.
+
+[Coding sessions are longer and use more context. Claude Opus 5.5 is built with that in mind.](#)Coding sessions are longer and use more context. Claude Opus 5.5 is built with that in mind.
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d229a7aa26ac1b6e96c2_a62b6eb169818f14c35b7a192af269e283f8fa93-1000x1000.svg)
+
+Sep 23, 2026
+
+How to prepare for AI-driven code modernization projects
+
+Enterprise AI
+
+How to prepare for AI-driven code modernization projects
+
+September 23, 2026
+
+[How to prepare for AI-driven code modernization projects](https://claude.com/blog/how-to-prepare-for-ai-driven-code-modernization-projects) How to prepare for AI-driven code modernization projects
+
+[How to prepare for AI-driven code modernization projects](#) How to prepare for AI-driven code modernization projects
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2279047e82efc257633_6c7219042e95bfef1a126ad5ee8b2c7def8b8b0a-1000x1000.svg)
+
+Sep 22, 2026
+
+What a task costs on Opus 5.5
+
+Claude Code
+
+What a task costs on Opus 5.5
+
+September 22, 2026
+
+[What a task costs on Opus 5.5](https://claude.com/blog/what-a-task-costs-on-opus-5-5)What a task costs on Opus 5.5
+
+[What a task costs on Opus 5.5](#)What a task costs on Opus 5.5
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a42c9bc20d2072552ef256a_Node-EnterpriseAgents.svg)
+
+Sep 17, 2026
+
+Projects redesigned: from folder to conversation
+
+Product announcements
+
+Projects redesigned: from folder to conversation
+
+September 17, 2026
+
+[Projects redesigned: from folder to conversation](https://claude.com/blog/projects-redesigned)Projects redesigned: from folder to conversation
+
+[Projects redesigned: from folder to conversation](#)Projects redesigned: from folder to conversation
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d228e9c51800dde13958_6507d83d1197bb8630131d363fb8bea838d79ca7-1000x1000.svg)
+
+Sep 14, 2026
+
+Agentic coding is straining CI. Here’s how we scaled test impact analysis at Anthropic
+
+Claude Code
+
+Agentic coding is straining CI. Here’s how we scaled test impact analysis at Anthropic
+
+September 14, 2026
+
+[Agentic coding is straining CI. Here’s how we scaled test impact analysis at Anthropic](https://claude.com/blog/agentic-coding-is-straining-ci-heres-how-we-scaled-test-impact-analysis-at-anthropic)Agentic coding is straining CI. Here’s how we scaled test impact analysis at Anthropic
+
+[Agentic coding is straining CI. Here’s how we scaled test impact analysis at Anthropic](#)Agentic coding is straining CI. Here’s how we scaled test impact analysis at Anthropic
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d226ca443e2e05990c00_83d7d2fe412ceb4dfe627f0d5f3d64aff1a3f5db-1000x1000.svg)
 
@@ -160,22 +242,6 @@ August 6, 2026
 
 [Millennium and Anthropic are building a digital risk analyst with Claude](#) Millennium and Anthropic are building a digital risk analyst with Claude
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a0112e18cdd7f0b92d19e40_Hand-BuildingBricks.svg)
-
-Jul 24, 2026
-
-The new rules of context engineering for Claude 5 generation models
-
-Claude Code
-
-The new rules of context engineering for Claude 5 generation models
-
-July 24, 2026
-
-[The new rules of context engineering for Claude 5 generation models](https://claude.com/blog/the-new-rules-of-context-engineering-for-claude-5-generation-models) The new rules of context engineering for Claude 5 generation models
-
-[The new rules of context engineering for Claude 5 generation models](#) The new rules of context engineering for Claude 5 generation models
-
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d225e31f7aa22c1f28cb_46e4aa7ea208ed440d5bd9e9e3a0ee66bc336ff1-1000x1000.svg)
 
 Jul 24, 2026
@@ -192,70 +258,6 @@ July 24, 2026
 
 [Claude models explained: choosing the best model for your use case](#)Claude models explained: choosing the best model for your use case
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d224d39f9b8e905d1823_b68cbb43d7c8f56f0b14cc867e8d4d74445f78b0-1000x1000.svg)
-
-Jul 22, 2026
-
-Building verification loops in Claude Code with skills
-
-Claude Code
-
-Building verification loops in Claude Code with skills
-
-July 22, 2026
-
-[Building verification loops in Claude Code with skills](https://claude.com/blog/building-verification-loops-in-claude-code-with-skills)Building verification loops in Claude Code with skills
-
-[Building verification loops in Claude Code with skills](#)Building verification loops in Claude Code with skills
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/692f76874e94e489958af8ba_Object-CodeMagnifier.svg)
-
-Jul 22, 2026
-
-How Outtake built a cyber investigator on Claude
-
-Agents
-
-How Outtake built a cyber investigator on Claude
-
-July 22, 2026
-
-[How Outtake built a cyber investigator on Claude](https://claude.com/blog/how-outtake-built-a-cyber-investigator-on-claude)How Outtake built a cyber investigator on Claude
-
-[How Outtake built a cyber investigator on Claude](#)How Outtake built a cyber investigator on Claude
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22824d4124c2e33ba8e_b1ce510c468b2920d4f8f61c17a50906801f939a-1000x1000.svg)
-
-Jul 21, 2026
-
-How Anthropic secures its AI-native software development lifecycle
-
-Claude Code
-
-How Anthropic secures its AI-native software development lifecycle
-
-July 21, 2026
-
-[How Anthropic secures its AI-native software development lifecycle](https://claude.com/blog/how-anthropic-secures-its-ai-native-software-development-lifecycle)How Anthropic secures its AI-native software development lifecycle
-
-[How Anthropic secures its AI-native software development lifecycle](#)How Anthropic secures its AI-native software development lifecycle
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d229061abf091318fc81_6905c83d0735e1bc430025fdd1748d1406079036-1000x1000.svg)
-
-Jul 21, 2026
-
-How Datadog built a “universal machine tool” for Claude Code
-
-Claude Code
-
-How Datadog built a “universal machine tool” for Claude Code
-
-July 21, 2026
-
-[How Datadog built a “universal machine tool” for Claude Code](https://claude.com/blog/how-datadog-built-a-universal-machine-tool-for-claude-code)How Datadog built a “universal machine tool” for Claude Code
-
-[How Datadog built a “universal machine tool” for Claude Code](#)How Datadog built a “universal machine tool” for Claude Code
-
 [View more](https://claude.com/blog-category/claude-code?1e959936_page=2)
 
 Category
@@ -263,6 +265,86 @@ Category
 Product
 
 Usecase
+
+### Coding sessions are longer and use more context. Claude Opus 5.5 is built with that in mind.
+
+Category
+
+Claude Code
+
+Product
+
+Usecase
+
+September 24, 2026
+
+[Coding sessions are longer and use more context. Claude Opus 5.5 is built with that in mind.](https://claude.com/blog/claude-opus-5-5-built-for-coding-sessions-that-use-more-context)Coding sessions are longer and use more context. Claude Opus 5.5 is built with that in mind.
+
+[Coding sessions are longer and use more context. Claude Opus 5.5 is built with that in mind.](#)Coding sessions are longer and use more context. Claude Opus 5.5 is built with that in mind.
+
+### How to prepare for AI-driven code modernization projects
+
+Category
+
+Enterprise AI
+
+Product
+
+Usecase
+
+September 23, 2026
+
+[How to prepare for AI-driven code modernization projects](https://claude.com/blog/how-to-prepare-for-ai-driven-code-modernization-projects) How to prepare for AI-driven code modernization projects
+
+[How to prepare for AI-driven code modernization projects](#) How to prepare for AI-driven code modernization projects
+
+### What a task costs on Opus 5.5
+
+Category
+
+Claude Code
+
+Product
+
+Usecase
+
+September 22, 2026
+
+[What a task costs on Opus 5.5](https://claude.com/blog/what-a-task-costs-on-opus-5-5)What a task costs on Opus 5.5
+
+[What a task costs on Opus 5.5](#)What a task costs on Opus 5.5
+
+### Projects redesigned: from folder to conversation
+
+Category
+
+Product announcements
+
+Product
+
+Usecase
+
+September 17, 2026
+
+[Projects redesigned: from folder to conversation](https://claude.com/blog/projects-redesigned)Projects redesigned: from folder to conversation
+
+[Projects redesigned: from folder to conversation](#)Projects redesigned: from folder to conversation
+
+### Agentic coding is straining CI. Here’s how we scaled test impact analysis at Anthropic
+
+Category
+
+Claude Code
+
+Product
+
+Usecase
+
+September 14, 2026
+
+[Agentic coding is straining CI. Here’s how we scaled test impact analysis at Anthropic](https://claude.com/blog/agentic-coding-is-straining-ci-heres-how-we-scaled-test-impact-analysis-at-anthropic)Agentic coding is straining CI. Here’s how we scaled test impact analysis at Anthropic
+
+[Agentic coding is straining CI. Here’s how we scaled test impact analysis at Anthropic](#)Agentic coding is straining CI. Here’s how we scaled test impact analysis at Anthropic
 
 ### How an Anthropic field marketer uses Claude Code to send weekly personalized updates to every sales rep
 
@@ -408,22 +490,6 @@ August 6, 2026
 
 [Millennium and Anthropic are building a digital risk analyst with Claude](#) Millennium and Anthropic are building a digital risk analyst with Claude
 
-### The new rules of context engineering for Claude 5 generation models
-
-Category
-
-Claude Code
-
-Product
-
-Usecase
-
-July 24, 2026
-
-[The new rules of context engineering for Claude 5 generation models](https://claude.com/blog/the-new-rules-of-context-engineering-for-claude-5-generation-models) The new rules of context engineering for Claude 5 generation models
-
-[The new rules of context engineering for Claude 5 generation models](#) The new rules of context engineering for Claude 5 generation models
-
 ### Claude models explained: choosing the best model for your use case
 
 Category
@@ -439,70 +505,6 @@ July 24, 2026
 [Claude models explained: choosing the best model for your use case](https://claude.com/blog/claude-models-explained-choosing-the-best-model-for-your-use-case)Claude models explained: choosing the best model for your use case
 
 [Claude models explained: choosing the best model for your use case](#)Claude models explained: choosing the best model for your use case
-
-### Building verification loops in Claude Code with skills
-
-Category
-
-Claude Code
-
-Product
-
-Usecase
-
-July 22, 2026
-
-[Building verification loops in Claude Code with skills](https://claude.com/blog/building-verification-loops-in-claude-code-with-skills)Building verification loops in Claude Code with skills
-
-[Building verification loops in Claude Code with skills](#)Building verification loops in Claude Code with skills
-
-### How Outtake built a cyber investigator on Claude
-
-Category
-
-Agents
-
-Product
-
-Usecase
-
-July 22, 2026
-
-[How Outtake built a cyber investigator on Claude](https://claude.com/blog/how-outtake-built-a-cyber-investigator-on-claude)How Outtake built a cyber investigator on Claude
-
-[How Outtake built a cyber investigator on Claude](#)How Outtake built a cyber investigator on Claude
-
-### How Anthropic secures its AI-native software development lifecycle
-
-Category
-
-Claude Code
-
-Product
-
-Usecase
-
-July 21, 2026
-
-[How Anthropic secures its AI-native software development lifecycle](https://claude.com/blog/how-anthropic-secures-its-ai-native-software-development-lifecycle)How Anthropic secures its AI-native software development lifecycle
-
-[How Anthropic secures its AI-native software development lifecycle](#)How Anthropic secures its AI-native software development lifecycle
-
-### How Datadog built a “universal machine tool” for Claude Code
-
-Category
-
-Claude Code
-
-Product
-
-Usecase
-
-July 21, 2026
-
-[How Datadog built a “universal machine tool” for Claude Code](https://claude.com/blog/how-datadog-built-a-universal-machine-tool-for-claude-code)How Datadog built a “universal machine tool” for Claude Code
-
-[How Datadog built a “universal machine tool” for Claude Code](#)How Datadog built a “universal machine tool” for Claude Code
 
 [View more](https://claude.com/blog-category/claude-code?2f226f2c_page=2)
 

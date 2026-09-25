@@ -4,31 +4,21 @@ Case study | Claude
 
 # How YMCA South Australia is building an AI-powered nonprofit with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69efc2bfa704ba199535d91b_logo_ymca-light-mode.png)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f1456acdf1f0fc4310f141_logo_ymca2-dark-mode.svg)
+![YMCA South Australia logo](https://assets.claude.com/452fc4a81b7bf769c6592fe35fbb84d002ecacb4.png)
 
 Industry:
-
-Beneficial Deployments
+:   Beneficial Deployments
 
 Company size:
-
-Large
+:   Large
 
 Product:
-
-Claude for Nonprofits
+:   Claude for Nonprofits
 
 Location:
-
-Asia Pacific
+:   Asia Pacific
 
 10–15 hours saved per week for key users
 
@@ -50,59 +40,23 @@ that previously took a full day, with cross-site benchmarking, trend analysis, a
 
 ## The challenge
 
-Nonprofits
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698f525504b02eec936ac514_692e248602b0e973666dc35b_og-nonprofit.jpeg)
-
-Turn limited resources into lasting impact. Generate grant proposals, track program outcomes, and free your team to focus on serving your community.
-
-Read more
-
-[Read more](https://claude.com/solutions/nonprofits)Read more
-
-Nonprofits
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Turn limited resources into lasting impact. Generate grant proposals, track program outcomes, and free your team to focus on serving your community.
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Nonprofits
-
-Turn limited resources into lasting impact. Generate grant proposals, track program outcomes, and free your team to focus on serving your community.
-
 ## A small corporate team for a large network
 
 YMCA South Australia's corporate services team handles marketing, technology, finance, risk, and people and culture for its entire 65-site network. "Every dollar we earn goes back into the communities we serve, so the tools we adopt need to create real operational value," said Devan Seamans, Head of Marketing and Technology at YMCA South Australia.
 
-The challenge was one of scale. The network spans 16 recreation contracts (aquatic centers, fitness facilities, gymnastics centers), around 50 after-school care and early learning sites, as well as specialist programs, from metro Adelaide to regional centers like Port Lincoln and Whyalla. Each generates its own membership, attendance, financial, and program data. Comparing and analyzing performance across sites was challenging with multiple databases and thousands of records, and the manual effort meant it wasn't happening as often or as deeply as the organization needed.  A high volume of communications, operational documentation, tender submissions, and stakeholder reports also needed to be produced with limited capacity to do so.
+The challenge was one of scale. The network spans 16 recreation contracts (aquatic centers, fitness facilities, gymnastics centers), around 50 after-school care and early learning sites, as well as specialist programs, from metro Adelaide to regional centers like Port Lincoln and Whyalla. Each generates its own membership, attendance, financial, and program data. Comparing and analyzing performance across sites was challenging with multiple databases and thousands of records, and the manual effort meant it wasn't happening as often or as deeply as the organization needed. A high volume of communications, operational documentation, tender submissions, and stakeholder reports also needed to be produced with limited capacity to do so.
 
 "We needed a way to multiply output," Seamans said. “Our goal was to reduce time on repeatable, structured work so the team could focus on strategy and relationships."
 
+Nonprofits
+
+![Nonprofits](https://assets.claude.com/b46529adbd87da89ebb1e8191178d53278f93d1b.jpg)
+
+Turn limited resources into lasting impact. Generate grant proposals, track program outcomes, and free your team to focus on serving your community.
+
+[Read more](https://claude.com/solutions/nonprofits)
+
 ## The solution
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-saved per week, with time redirected to strategy and community impact
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-saved per week, with time redirected to strategy and community impact
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-10–15 hours
-
-saved per week, with time redirected to strategy and community impact
 
 ## Why YMCA South Australia selected Claude
 
@@ -112,21 +66,13 @@ As the organization evaluated how to scale AI use responsibly, values alignment 
 
 Moving to Claude for Nonprofits represented a commitment to consolidating on one tool across the organization, reducing overhead for security, compliance, and billing while creating a cohort of users learning together. Implementation was deliberately phased: personal adoption to prove value, then organizational rollout with SSO enforcement and domain capture, followed by ongoing infrastructure work including custom skills, MCP integrations, and an AI Acceptable Use Policy. "The technical implementation was straightforward," noted Regan Marshall, IT Manager at YMCA South Australia. "The bigger investment has been in change management. AI requires a fundamentally different way of thinking about how to approach work, and that shift takes time."
 
-“Hours saved doesn’t really capture it. I’m delivering projects now that I’ve always wanted to do but never had the capacity for."
+10–15 hours
 
-Devan Seamans
+saved per week, with time redirected to strategy and community impact
 
-Head of Marketing and Technology, YMCA South Australia
+> “Hours saved doesn’t really capture it. I’m delivering projects now that I’ve always wanted to do but never had the capacity for."
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+Devan SeamansHead of Marketing and Technology, YMCA South Australia
 
 ## The outcome
 
@@ -154,42 +100,18 @@ Claude is now formally embedded in YMCA South Australia's FY27–30 organization
 
 “Claude is already proving what’s possible with individual data exports,” said Seamans. “The future for us is about Claude becoming embedded infrastructure: a core part of how we operate, report, and serve our communities.”
 
-"We work with children, health data, and government contracts. We needed an AI partner that takes that seriously, not just in their marketing but in how they build the product."
+> "We work with children, health data, and government contracts. We needed an AI partner that takes that seriously, not just in their marketing but in how they build the product."
 
-Devan Seamans
+Devan SeamansHead of Marketing and Technology, YMCA South Australia
 
-Head of Marketing and Technology, YMCA South Australia
+[![Mercy Corps](https://assets.claude.com/544995a85d67ef08fd67560f5758d5e28bc7a53f.svg)
 
-## Related stories
+### Mercy Corps on what AI makes possible in humanitarian work](https://claude.com/customers/mercy-corps-qa)[![Mercy Corps](https://assets.claude.com/544995a85d67ef08fd67560f5758d5e28bc7a53f.svg)
 
-[Mercy Corps on what AI makes possible in humanitarian work](https://claude.com/customers/mercy-corps-qa)Mercy Corps on what AI makes possible in humanitarian work
+### Mercy Corps accelerates global humanitarian response to community feedback with Claude](https://claude.com/customers/mercy-corps)[![Epilepsy Foundation](https://assets.claude.com/446cc4df1be577720df85748fa3813fa0837e3b8.png)
 
-Mercy Corps on what AI makes possible in humanitarian work
+### The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude](https://claude.com/customers/epilepsy-foundation)[![Epilepsy Foundation](https://assets.claude.com/446cc4df1be577720df85748fa3813fa0837e3b8.png)
 
-Customer story
+### How the Epilepsy Foundation uses Claude across the organization](https://claude.com/customers/epilepsy-foundation-qa)
 
-[Customer story](https://claude.com/customers/mercy-corps-qa)Customer story
-
-[Mercy Corps accelerates global humanitarian response to community feedback with Claude](https://claude.com/customers/mercy-corps)Mercy Corps accelerates global humanitarian response to community feedback with Claude
-
-Mercy Corps accelerates global humanitarian response to community feedback with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/mercy-corps)Customer story
-
-[The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude](https://claude.com/customers/epilepsy-foundation)The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude
-
-The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/epilepsy-foundation)Customer story
-
-[How the Epilepsy Foundation uses Claude across the organization](https://claude.com/customers/epilepsy-foundation-qa)How the Epilepsy Foundation uses Claude across the organization
-
-How the Epilepsy Foundation uses Claude across the organization
-
-Customer story
-
-[Customer story](https://claude.com/customers/epilepsy-foundation-qa)Customer story
+YMCA South Australia Claude case study | Claude by Anthropic

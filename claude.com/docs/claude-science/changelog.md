@@ -8,6 +8,72 @@
 
 [Skip to main content](#content-area)
 
+0.1.52
+
+September 22, 2026
+
+* Clicking a figure in Claude’s answer now opens it beside the chat; Ctrl/Cmd-click or the new “Open fullscreen” button opens it full screen
+* Opening or closing the right pane now keeps your place in a long answer
+* Markdown files no longer rotate in Safari after they load
+* The reviewer no longer flags working figure links in saved reports as broken
+* When Claude sets a Python, R, or shell cell to run in a folder other than the session’s workspace, its permission card now shows that folder
+* “Download script” and “Download notebook” now give the input and output files in the zip plain names: spaces, brackets, and other special characters become underscores
+* Various bug fixes and security improvements
+
+0.1.51
+
+September 22, 2026
+
+* Pinned sessions (formerly starred) from across all your projects now appear at the top of the session list; a new switch in **Settings > General > Appearance** lets you limit them to the open project
+* In Markdown files, click a plain-text cell in a table to edit it in place
+* Tables in Markdown files keep their scroll position when Claude saves another file
+* Fixed the BioMart connector’s data queries and identifier translation; a data query that filters on more than a few hundred IDs can still fail
+* The BioMart connector now reads from Ensembl’s June 2026 archive. If your network allowlist lists `www.ensembl.org` by name, add `jun2026.archive.ensembl.org`
+* Removed connector tools that failed on every call: the ENCODE and eQTL Catalogue lookups and ZINC’s random-sample tool
+* “Download script” on an artifact made by a shell command now includes the script itself
+* The app stays more responsive while Claude saves files in projects with tens of thousands of files, and zip downloads with thousands of same-named files are prepared much faster
+* Mac: security hardening of the analysis sandbox
+* Life Sciences Verification Program (beta): fixed a case where your approved use cases could disappear from the app
+* Various bug fixes and security improvements
+
+0.1.50
+
+September 17, 2026
+
+* Tables in Markdown files now show as a compact grid; a long table keeps its header row in view, and row labels stay in view when you scroll sideways
+* Tabs in the right pane can be reordered by dragging, or with Ctrl/Cmd+Shift+Left/Right
+* Pasted images are now saved to your uploads, so Claude can keep working with them later in the conversation
+* When Claude redraws a figure several times in one turn, the chat keeps only the newest one open; open an earlier step to see its draft
+* Closing Settings or Customize by clicking outside it no longer drops an edit you were still typing
+* “View in context” on a file version that a different session saved now opens the file’s own session instead of an empty screen
+* Project settings are now clearer with helper text
+* Home screen: project rows now show running sessions in gray like the session cards
+
+0.1.49
+
+September 16, 2026
+
+* If your organization is in Anthropic’s Life Sciences Verification Program (beta), you can now [choose a use case](https://claude.com/docs/claude-science/safeguards#choose-a-use-case) for your sessions
+* Saved credentials now reach Claude’s code only when it asks for them and you approve. They’re no longer present in every cell
+* Access Claude Science work saved on your computer from other sign-ins, from Home or Settings. Admins control it on Team and Enterprise plans
+* Claude can send you a short message, such as a link to a file, while it keeps working on a task
+* Mac: Apple silicon Macs with the Intel version installed can now update, and then run natively
+* Mac: if Claude’s tools can’t start after an Xcode update, the error now says how to accept the Xcode license
+* You can comment on and bookmark the short summaries of Claude’s progress notes
+* Sessions moved to a model with a smaller context window keep going instead of failing
+* Turning Auto-review off now applies to agents that are already running; turning it back on resumes their reviews
+* Settings > Connectors shows “Not set” for tools without a permission, and saves “Ask each time”
+* Windows: `claude-science install` now reports the step that failed instead of reporting success
+* Faster search of a long session’s history; clearer wording in model settings
+
+0.1.48
+
+September 14, 2026
+
+* On Windows, environment setup now handles user folders with accented or non-Latin names, tries again if Windows briefly refuses to start the environment installer, and no longer needs the Microsoft Visual C++ Redistributable
+* The app now warns you a few days before your sign-in expires and offers a “Sign in again” button
+* Various bug fixes and security improvements
+
 0.1.47
 
 September 10, 2026

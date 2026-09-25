@@ -21,7 +21,7 @@ A member can add Claude to a channel in one of two ways:
 A Claude organization admin can also set [auto-join channel patterns](https://claude.com/docs/claude-tag/admins/restrict-access#block-or-auto-join-channels-by-name), so Claude joins a public channel whose name matches when the channel is created or renamed.
 When a member selects **Add to channel** or an auto-join pattern matches, Claude adds itself to that channel using its `channels:join` scope. Slack’s audit log records the join as the Claude app, with no inviter shown; neither the member’s selection nor the matched pattern is visible in Slack’s log. If you see a join in the audit log that no one can explain, a member selected one of these buttons or an auto-join pattern matched. Outside those two paths, Claude does not join channels on its own.
 Reading a channel’s full history requires being added there. Workspace search can surface public-channel content, the same as any app with the search scope.
-Slack Connect channels (shared with another company) are always excluded, regardless of configuration.
+In a Slack Connect channel (shared with another company), Claude doesn’t answer, and a mention there gets a notice saying so. See [Slack Connect channels](https://claude.com/docs/claude-tag/admins/restrict-access#slack-connect-channels).
 
 ##  Requested scopes
 

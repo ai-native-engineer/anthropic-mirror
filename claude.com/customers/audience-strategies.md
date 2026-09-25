@@ -4,31 +4,21 @@ Case study | Claude Enterprise
 
 # Audience Strategies expands the electronic music industry's policy influence with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![Audience Strategies logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c371a090777b23fa94b83e_cs-logo-audiencestrategies-light-theme.png)![Audience Strategies logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c371b4464f147921c3ebed_cs-logo-audiencestrategies-dark-theme.png)
+![Audience Strategies logo](https://assets.claude.com/3413dcb9640e98c9dd678f02077d38ea6f0b7b34.png)
 
 Industry:
-
-Entertainment
+:   Entertainment
 
 Company size:
-
-Small
+:   Small
 
 Product:
-
-Claude Enterprise
+:   Claude Enterprise
 
 Location:
-
-Europe
+:   Europe
 
 3 months to 4 weeks
 
@@ -37,42 +27,6 @@ report creation timeline compression
 30% more topics
 
 covered vs previous reports
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
 
 Audience Strategies partners with the Night Time Industries Association (NTIA) to produce the annual "State of Electronic Music" report, which documents the cultural and economic impact of the UK's £2.4 billion electronic music sector.
 
@@ -134,52 +88,12 @@ As Claude's capabilities evolve, the team anticipates even more sophisticated ap
 
 "This approach represents the future of industry research and cultural documentation—not replacing human expertise but amplifying it to create more inclusive, insightful, and impactful storytelling," Boyle concluded. For the UK electronic music industry—and countless other cultural sectors waiting to tell their stories—this AI-enhanced approach to research and documentation offers a powerful new voice in shaping public understanding and policy.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[![StubHub](https://assets.claude.com/d3451a4bfe1c5af7f56f76ab8237c3bab7dd7a9d.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### StubHub transforms live event ticketing with Claude](https://claude.com/customers/stubhub)[![Orange](https://assets.claude.com/c97f28a41e222c81bda3ab8af5ed81dbfb385756.png)
 
-[Next](#)Next
+### Orange localizes manga at an unprecedented scale with Claude](https://claude.com/customers/orange)[![WRTN](https://assets.claude.com/c3f8213b72f494f94cf99ec6d2abf77e5129ef74.svg)
 
-Video caption
+### WRTN pioneers AI entertainment and storytelling across Asia with Claude](https://claude.com/customers/wrtn)[![Lex](https://assets.claude.com/e6a76687f426d031b52ad173ac5406303b29bc38.png)
 
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[StubHub transforms live event ticketing with Claude](https://claude.com/customers/stubhub)StubHub transforms live event ticketing with Claude
-
-StubHub transforms live event ticketing with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/stubhub)Customer story
-
-[Orange localizes manga at an unprecedented scale with Claude](https://claude.com/customers/orange)Orange localizes manga at an unprecedented scale with Claude
-
-Orange localizes manga at an unprecedented scale with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/orange)Customer story
-
-[WRTN pioneers AI entertainment and storytelling across Asia with Claude](https://claude.com/customers/wrtn)WRTN pioneers AI entertainment and storytelling across Asia with Claude
-
-WRTN pioneers AI entertainment and storytelling across Asia with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/wrtn)Customer story
-
-[Lex streamlines the writing process with Claude](https://claude.com/customers/lex)Lex streamlines the writing process with Claude
-
-Lex streamlines the writing process with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/lex)Customer story
+### Lex streamlines the writing process with Claude](https://claude.com/customers/lex)

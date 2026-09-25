@@ -314,6 +314,24 @@ The Models API response can be used to determine which models are available for 
 
           Whether this capability is supported by the model.
 
+      - `compaction: object`
+
+        Compaction capability details: whether the model accepts the top-level
+        `compaction` request parameter, with one entry per supported
+        `compaction.type` value.
+
+        - `summarize: object`
+
+          Whether the summarize compaction type is supported.
+
+          - `supported: boolean`
+
+            Whether this capability is supported by the model.
+
+        - `supported: boolean`
+
+          Whether this capability is supported by the model.
+
       - `context_management: object`
 
         Context management support and available strategies.
@@ -503,6 +521,12 @@ ant beta:models list \
         "code_execution": {
           "supported": true
         },
+        "compaction": {
+          "summarize": {
+            "supported": true
+          },
+          "supported": true
+        },
         "context_management": {
           "clear_thinking_20251015": {
             "supported": true
@@ -634,6 +658,24 @@ The Models API response can be used to determine information about a specific mo
     - `code_execution: object`
 
       Whether the model supports code execution tools.
+
+      - `supported: boolean`
+
+        Whether this capability is supported by the model.
+
+    - `compaction: object`
+
+      Compaction capability details: whether the model accepts the top-level
+      `compaction` request parameter, with one entry per supported
+      `compaction.type` value.
+
+      - `summarize: object`
+
+        Whether the summarize compaction type is supported.
+
+        - `supported: boolean`
+
+          Whether this capability is supported by the model.
 
       - `supported: boolean`
 
@@ -815,6 +857,12 @@ ant beta:models retrieve \
     "code_execution": {
       "supported": true
     },
+    "compaction": {
+      "summarize": {
+        "supported": true
+      },
+      "supported": true
+    },
     "context_management": {
       "clear_thinking_20251015": {
         "supported": true
@@ -953,7 +1001,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
   There is a limit of 100,000 messages in a single request.
 
-- `--model: "claude-fable-5-1" or "claude-mythos-5-1" or "claude-sonnet-5" or 14 more or string`
+- `--model: "claude-fable-5-1" or "claude-opus-5-5" or "claude-mythos-5-1" or 15 more or string`
 
   Body param: The model that will complete your prompt.
 
@@ -962,6 +1010,17 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 - `--cache-control: optional object`
 
   Body param: Top-level cache control automatically applies a cache_control marker to the last cacheable block in the request.
+
+- `--compaction: optional object`
+
+  Body param: Compact the whole conversation and return a signed `compaction` block,
+  alone, that a later request sends back first in `messages`, in place of
+  the messages it summarizes. There is no trigger and no pause flag: sending
+  the parameter compacts, and nothing is sampled after the block.
+
+  The summarization prompt is the server's own unless `instructions` are
+  given, which then replace it for this request; a value that is empty or
+  only whitespace counts as absent.
 
 - `--container: optional BetaContainerParams or string`
 
@@ -1145,7 +1204,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
 - `--temperature: optional number`
 
-  **Deprecated**: Deprecated. Models released after Claude Opus 4.6 do not support setting temperature. A value of 1.0 of will be accepted for backwards compatibility, all other values will be rejected with a 400 error.
+  **Deprecated**: Deprecated. Models released after Claude Opus 4.6 do not support setting temperature. A value of 1.0 will be accepted for backwards compatibility, all other values will be rejected with a 400 error.
 
   Body param: Amount of randomness injected into the response.
 
@@ -1984,6 +2043,2577 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         Opaque metadata from prior compaction, to be round-tripped verbatim
 
+      - `signature: optional string`
+
+        Signature over the summary, to be sent back with the block verbatim
+
+      - `tool_changes: optional array of BetaResponseToolAdditionBlock or BetaResponseToolRemovalBlock`
+
+        The tool changes of the compacted range: the `tool_addition` and `tool_removal` blocks that take the request's `tools` to the tool set in effect at the end of the range, or `[]` when the range changed no tool. Absent when the server did not compute them. Send the block back unchanged.
+
+        - `beta_response_tool_addition_block: object`
+
+          An entry of a `compaction` block's `tool_changes`: a tool the
+          compacted range made available, as a reference to a `tools` entry or
+          MCP toolset, or as the tool definition in effect at the end of the
+          range, by value. Send it back unchanged.
+
+          - `type: "tool_addition"`
+
+          - `tool: BetaResponseToolChangeToolReference or BetaResponseToolChangeMCPToolReference or BetaResponseToolChangeMCPToolsetReference or BetaToolChangeToolDefinition`
+
+            The tool made available: a reference to a `tools` entry or MCP toolset, or a `tool_definition` carrying the definition by value.
+
+            - `beta_response_tool_change_tool_reference: object`
+
+              Reference to a single tool, by the name the model uses to call it, as
+              a `compaction` block's `tool_changes` entry reports it: a tool
+              declared in `tools` or defined by an earlier `tool_addition` block.
+              Send it back unchanged with the block.
+
+              - `type: "tool_reference"`
+
+              - `name: string`
+
+            - `beta_response_tool_change_mcp_tool_reference: object`
+
+              Reference to a single MCP tool, by its server and its name on that
+              server, as a `compaction` block's `tool_changes` entry reports it.
+              Send it back unchanged with the block.
+
+              - `type: "mcp_tool_reference"`
+
+              - `name: string`
+
+              - `server_name: string`
+
+            - `beta_response_tool_change_mcp_toolset_reference: object`
+
+              Reference to every tool in the named MCP server's toolset, as a
+              `compaction` block's `tool_changes` entry reports it. Send it back
+              unchanged with the block.
+
+              - `type: "mcp_toolset_reference"`
+
+              - `server_name: string`
+
+            - `beta_tool_change_tool_definition: object`
+
+              A tool defined by value, as a `compaction` block's `tool_changes` entry
+              reports it: `definition` is the tool's definition as it was sent, in the
+              form of a `tools` entry, without `cache_control`. Send it back unchanged
+              with the block.
+
+              - `type: "tool_definition"`
+
+              - `definition: BetaResponseTool or BetaToolBash20241022 or BetaToolBash20250124 or 25 more`
+
+                - `beta_response_tool: object`
+
+                  A custom tool definition, as sent.
+
+                  - `type: optional "custom"`
+
+                  - `input_schema: object`
+
+                    [JSON schema](https://json-schema.org/draft/2020-12) for this tool's input.
+
+                    This defines the shape of the `input` that your tool accepts and that the model will produce.
+
+                    - `type: "object"`
+
+                    - `properties: optional map[unknown]`
+
+                    - `required: optional array of string`
+
+                  - `name: string`
+
+                    Name of the tool.
+
+                    This is how the tool will be called by the model and in `tool_use` blocks.
+
+                    maxLength: 128, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,128}$
+
+                  - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+                    - `"direct"`
+
+                    - `"code_execution_20250825"`
+
+                    - `"code_execution_20260120"`
+
+                    - `"code_execution_20260521"`
+
+                  - `defer_loading: optional boolean`
+
+                    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                  - `description: optional string`
+
+                    Description of what this tool does.
+
+                    Tool descriptions should be as detailed as possible. The more information that the model has about what the tool is and how to use it, the better it will perform. You can use natural language descriptions to reinforce important aspects of the tool input JSON schema.
+
+                  - `eager_input_streaming: optional boolean`
+
+                    Enable eager input streaming for this tool. When true, tool input parameters will be streamed incrementally as they are generated, and types will be inferred on-the-fly rather than buffering the full JSON output. When false, streaming is disabled for this tool even if the fine-grained-tool-streaming beta is active. When null (default), uses the default behavior based on beta headers.
+
+                  - `input_examples: optional array of map[unknown]`
+
+                  - `strict: optional boolean`
+
+                    When true, guarantees schema validation on tool names and inputs
+
+                - `beta_tool_bash_20241022: object`
+
+                  - `type: "bash_20241022"`
+
+                  - `name: "bash"`
+
+                    Name of the tool.
+
+                    This is how the tool will be called by the model and in `tool_use` blocks.
+
+                  - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+                    - `"direct"`
+
+                    - `"code_execution_20250825"`
+
+                    - `"code_execution_20260120"`
+
+                    - `"code_execution_20260521"`
+
+                  - `cache_control: optional object`
+
+                    Create a cache control breakpoint at this content block.
+
+                    - `type: "ephemeral"`
+
+                    - `ttl: optional "5m" or "1h"`
+
+                      The time-to-live for the cache control breakpoint.
+
+                      This may be one the following values:
+
+                      - `5m`: 5 minutes
+                      - `1h`: 1 hour
+
+                      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+                      - `"5m"`
+
+                      - `"1h"`
+
+                  - `defer_loading: optional boolean`
+
+                    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                  - `input_examples: optional array of map[unknown]`
+
+                  - `strict: optional boolean`
+
+                    When true, guarantees schema validation on tool names and inputs
+
+                - `beta_tool_bash_20250124: object`
+
+                  - `type: "bash_20250124"`
+
+                  - `name: "bash"`
+
+                    Name of the tool.
+
+                    This is how the tool will be called by the model and in `tool_use` blocks.
+
+                  - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+                    - `"direct"`
+
+                    - `"code_execution_20250825"`
+
+                    - `"code_execution_20260120"`
+
+                    - `"code_execution_20260521"`
+
+                  - `cache_control: optional object`
+
+                    Create a cache control breakpoint at this content block.
+
+                    - `type: "ephemeral"`
+
+                    - `ttl: optional "5m" or "1h"`
+
+                      The time-to-live for the cache control breakpoint.
+
+                      This may be one the following values:
+
+                      - `5m`: 5 minutes
+                      - `1h`: 1 hour
+
+                      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+                  - `defer_loading: optional boolean`
+
+                    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                  - `input_examples: optional array of map[unknown]`
+
+                  - `strict: optional boolean`
+
+                    When true, guarantees schema validation on tool names and inputs
+
+                - `beta_code_execution_tool_20250522: object`
+
+                  - `type: "code_execution_20250522"`
+
+                  - `name: "code_execution"`
+
+                    Name of the tool.
+
+                    This is how the tool will be called by the model and in `tool_use` blocks.
+
+                  - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+                    - `"direct"`
+
+                    - `"code_execution_20250825"`
+
+                    - `"code_execution_20260120"`
+
+                    - `"code_execution_20260521"`
+
+                  - `cache_control: optional object`
+
+                    Create a cache control breakpoint at this content block.
+
+                    - `type: "ephemeral"`
+
+                    - `ttl: optional "5m" or "1h"`
+
+                      The time-to-live for the cache control breakpoint.
+
+                      This may be one the following values:
+
+                      - `5m`: 5 minutes
+                      - `1h`: 1 hour
+
+                      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+                  - `defer_loading: optional boolean`
+
+                    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                  - `strict: optional boolean`
+
+                    When true, guarantees schema validation on tool names and inputs
+
+                - `beta_code_execution_tool_20250825: object`
+
+                  - `type: "code_execution_20250825"`
+
+                  - `name: "code_execution"`
+
+                    Name of the tool.
+
+                    This is how the tool will be called by the model and in `tool_use` blocks.
+
+                  - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+                    - `"direct"`
+
+                    - `"code_execution_20250825"`
+
+                    - `"code_execution_20260120"`
+
+                    - `"code_execution_20260521"`
+
+                  - `cache_control: optional object`
+
+                    Create a cache control breakpoint at this content block.
+
+                    - `type: "ephemeral"`
+
+                    - `ttl: optional "5m" or "1h"`
+
+                      The time-to-live for the cache control breakpoint.
+
+                      This may be one the following values:
+
+                      - `5m`: 5 minutes
+                      - `1h`: 1 hour
+
+                      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+                  - `defer_loading: optional boolean`
+
+                    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                  - `strict: optional boolean`
+
+                    When true, guarantees schema validation on tool names and inputs
+
+                - `beta_code_execution_tool_20260120: object`
+
+                  Code execution tool with REPL state persistence (daemon mode + gVisor checkpoint).
+
+                  - `type: "code_execution_20260120"`
+
+                  - `name: "code_execution"`
+
+                    Name of the tool.
+
+                    This is how the tool will be called by the model and in `tool_use` blocks.
+
+                  - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+                    - `"direct"`
+
+                    - `"code_execution_20250825"`
+
+                    - `"code_execution_20260120"`
+
+                    - `"code_execution_20260521"`
+
+                  - `cache_control: optional object`
+
+                    Create a cache control breakpoint at this content block.
+
+                    - `type: "ephemeral"`
+
+                    - `ttl: optional "5m" or "1h"`
+
+                      The time-to-live for the cache control breakpoint.
+
+                      This may be one the following values:
+
+                      - `5m`: 5 minutes
+                      - `1h`: 1 hour
+
+                      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+                  - `defer_loading: optional boolean`
+
+                    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                  - `strict: optional boolean`
+
+                    When true, guarantees schema validation on tool names and inputs
+
+                - `beta_code_execution_tool_20260521: object`
+
+                  Code execution tool with REPL state persistence.
+
+                  - `type: "code_execution_20260521"`
+
+                  - `name: "code_execution"`
+
+                    Name of the tool.
+
+                    This is how the tool will be called by the model and in `tool_use` blocks.
+
+                  - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+                    - `"direct"`
+
+                    - `"code_execution_20250825"`
+
+                    - `"code_execution_20260120"`
+
+                    - `"code_execution_20260521"`
+
+                  - `cache_control: optional object`
+
+                    Create a cache control breakpoint at this content block.
+
+                    - `type: "ephemeral"`
+
+                    - `ttl: optional "5m" or "1h"`
+
+                      The time-to-live for the cache control breakpoint.
+
+                      This may be one the following values:
+
+                      - `5m`: 5 minutes
+                      - `1h`: 1 hour
+
+                      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+                  - `defer_loading: optional boolean`
+
+                    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                  - `strict: optional boolean`
+
+                    When true, guarantees schema validation on tool names and inputs
+
+                - `beta_browser_toolset_20260801: object`
+
+                  The browser toolset: a single `tools[]` entry (carrying no
+                  `name`) that declares the browser tool family. The model is served
+                  the family's tool with any members disabled via `configs` removed
+                  from its schema.
+
+                  - `type: "browser_toolset_20260801"`
+
+                  - `cache_control: optional object`
+
+                    Create a cache control breakpoint at this content block.
+
+                    - `type: "ephemeral"`
+
+                    - `ttl: optional "5m" or "1h"`
+
+                      The time-to-live for the cache control breakpoint.
+
+                      This may be one the following values:
+
+                      - `5m`: 5 minutes
+                      - `1h`: 1 hour
+
+                      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+                  - `configs: optional object`
+
+                    Per-member configuration for `browser_toolset_20260801`: one
+                    optional field per member tool, keyed by the member name — the same
+                    name the member's `tool_use` blocks carry. Every member is an
+                    accepted key, and a member's defaults apply wherever its key is
+                    absent. Unknown keys are rejected: the field set is this toolset
+                    version's complete member set.
+
+                    - `type: optional object`
+
+                      `type`'s config overrides.
+
+                      - `defer_loading: optional boolean`
+
+                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                      - `enabled: optional boolean`
+
+                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                    - `close_tab: optional object`
+
+                      `close_tab`'s config overrides.
+
+                      - `defer_loading: optional boolean`
+
+                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                      - `enabled: optional boolean`
+
+                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                    - `double_click: optional object`
+
+                      `double_click`'s config overrides.
+
+                      - `defer_loading: optional boolean`
+
+                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                      - `enabled: optional boolean`
+
+                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                    - `file_upload: optional object`
+
+                      `file_upload`'s config overrides.
+
+                      - `defer_loading: optional boolean`
+
+                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                      - `enabled: optional boolean`
+
+                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                    - `find: optional object`
+
+                      `find`'s config overrides.
+
+                      - `defer_loading: optional boolean`
+
+                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                      - `enabled: optional boolean`
+
+                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                    - `form_input: optional object`
+
+                      `form_input`'s config overrides.
+
+                      - `defer_loading: optional boolean`
+
+                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                      - `enabled: optional boolean`
+
+                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                    - `get_page_text: optional object`
+
+                      `get_page_text`'s config overrides.
+
+                      - `defer_loading: optional boolean`
+
+                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                      - `enabled: optional boolean`
+
+                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                    - `hold_key: optional object`
+
+                      `hold_key`'s config overrides.
+
+                      - `defer_loading: optional boolean`
+
+                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                      - `enabled: optional boolean`
+
+                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                    - `hover: optional object`
+
+                      `hover`'s config overrides.
+
+                      - `defer_loading: optional boolean`
+
+                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                      - `enabled: optional boolean`
+
+                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                    - `javascript_exec: optional object`
+
+                      `javascript_exec`'s config overrides.
+
+                      - `defer_loading: optional boolean`
+
+                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                      - `enabled: optional boolean`
+
+                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                    - `key: optional object`
+
+                      `key`'s config overrides.
+
+                      - `defer_loading: optional boolean`
+
+                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                      - `enabled: optional boolean`
+
+                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                    - `left_click: optional object`
+
+                      `left_click`'s config overrides.
+
+                      - `defer_loading: optional boolean`
+
+                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                      - `enabled: optional boolean`
+
+                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                    - `left_click_drag: optional object`
+
+                      `left_click_drag`'s config overrides.
+
+                      - `defer_loading: optional boolean`
+
+                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                      - `enabled: optional boolean`
+
+                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                    - `left_mouse_down: optional object`
+
+                      `left_mouse_down`'s config overrides.
+
+                      - `defer_loading: optional boolean`
+
+                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                      - `enabled: optional boolean`
+
+                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                    - `left_mouse_up: optional object`
+
+                      `left_mouse_up`'s config overrides.
+
+                      - `defer_loading: optional boolean`
+
+                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                      - `enabled: optional boolean`
+
+                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                    - `list_tabs: optional object`
+
+                      `list_tabs`'s config overrides.
+
+                      - `defer_loading: optional boolean`
+
+                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                      - `enabled: optional boolean`
+
+                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                    - `middle_click: optional object`
+
+                      `middle_click`'s config overrides.
+
+                      - `defer_loading: optional boolean`
+
+                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                      - `enabled: optional boolean`
+
+                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                    - `mouse_move: optional object`
+
+                      `mouse_move`'s config overrides.
+
+                      - `defer_loading: optional boolean`
+
+                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                      - `enabled: optional boolean`
+
+                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                    - `navigate: optional object`
+
+                      `navigate`'s config overrides.
+
+                      - `defer_loading: optional boolean`
+
+                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                      - `enabled: optional boolean`
+
+                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                    - `new_tab: optional object`
+
+                      `new_tab`'s config overrides.
+
+                      - `defer_loading: optional boolean`
+
+                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                      - `enabled: optional boolean`
+
+                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                    - `read_console: optional object`
+
+                      `read_console`'s config overrides.
+
+                      - `defer_loading: optional boolean`
+
+                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                      - `enabled: optional boolean`
+
+                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                    - `read_network: optional object`
+
+                      `read_network`'s config overrides.
+
+                      - `defer_loading: optional boolean`
+
+                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                      - `enabled: optional boolean`
+
+                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                    - `read_page: optional object`
+
+                      `read_page`'s config overrides.
+
+                      - `defer_loading: optional boolean`
+
+                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                      - `enabled: optional boolean`
+
+                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                    - `right_click: optional object`
+
+                      `right_click`'s config overrides.
+
+                      - `defer_loading: optional boolean`
+
+                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                      - `enabled: optional boolean`
+
+                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                    - `screenshot: optional object`
+
+                      `screenshot`'s config overrides.
+
+                      - `defer_loading: optional boolean`
+
+                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                      - `enabled: optional boolean`
+
+                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                    - `scroll: optional object`
+
+                      `scroll`'s config overrides.
+
+                      - `defer_loading: optional boolean`
+
+                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                      - `enabled: optional boolean`
+
+                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                    - `scroll_to: optional object`
+
+                      `scroll_to`'s config overrides.
+
+                      - `defer_loading: optional boolean`
+
+                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                      - `enabled: optional boolean`
+
+                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                    - `switch_tab: optional object`
+
+                      `switch_tab`'s config overrides.
+
+                      - `defer_loading: optional boolean`
+
+                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                      - `enabled: optional boolean`
+
+                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                    - `triple_click: optional object`
+
+                      `triple_click`'s config overrides.
+
+                      - `defer_loading: optional boolean`
+
+                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                      - `enabled: optional boolean`
+
+                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                    - `wait: optional object`
+
+                      `wait`'s config overrides.
+
+                      - `defer_loading: optional boolean`
+
+                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                      - `enabled: optional boolean`
+
+                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                    - `zoom: optional object`
+
+                      `zoom`'s config overrides.
+
+                      - `defer_loading: optional boolean`
+
+                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                      - `enabled: optional boolean`
+
+                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                - `beta_tool_computer_use_20241022: object`
+
+                  - `type: "computer_20241022"`
+
+                  - `display_height_px: number`
+
+                    The height of the display in pixels.
+
+                    minimum: 1
+
+                  - `display_width_px: number`
+
+                    The width of the display in pixels.
+
+                    minimum: 1
+
+                  - `name: "computer"`
+
+                    Name of the tool.
+
+                    This is how the tool will be called by the model and in `tool_use` blocks.
+
+                  - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+                    - `"direct"`
+
+                    - `"code_execution_20250825"`
+
+                    - `"code_execution_20260120"`
+
+                    - `"code_execution_20260521"`
+
+                  - `cache_control: optional object`
+
+                    Create a cache control breakpoint at this content block.
+
+                    - `type: "ephemeral"`
+
+                    - `ttl: optional "5m" or "1h"`
+
+                      The time-to-live for the cache control breakpoint.
+
+                      This may be one the following values:
+
+                      - `5m`: 5 minutes
+                      - `1h`: 1 hour
+
+                      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+                  - `defer_loading: optional boolean`
+
+                    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                  - `display_number: optional number`
+
+                    The X11 display number (e.g. 0, 1) for the display.
+
+                    minimum: 0
+
+                  - `input_examples: optional array of map[unknown]`
+
+                  - `strict: optional boolean`
+
+                    When true, guarantees schema validation on tool names and inputs
+
+                - `beta_memory_tool_20250818: object`
+
+                  - `type: "memory_20250818"`
+
+                  - `name: "memory"`
+
+                    Name of the tool.
+
+                    This is how the tool will be called by the model and in `tool_use` blocks.
+
+                  - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+                    - `"direct"`
+
+                    - `"code_execution_20250825"`
+
+                    - `"code_execution_20260120"`
+
+                    - `"code_execution_20260521"`
+
+                  - `cache_control: optional object`
+
+                    Create a cache control breakpoint at this content block.
+
+                    - `type: "ephemeral"`
+
+                    - `ttl: optional "5m" or "1h"`
+
+                      The time-to-live for the cache control breakpoint.
+
+                      This may be one the following values:
+
+                      - `5m`: 5 minutes
+                      - `1h`: 1 hour
+
+                      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+                  - `defer_loading: optional boolean`
+
+                    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                  - `input_examples: optional array of map[unknown]`
+
+                  - `strict: optional boolean`
+
+                    When true, guarantees schema validation on tool names and inputs
+
+                - `beta_tool_computer_use_20250124: object`
+
+                  - `type: "computer_20250124"`
+
+                  - `display_height_px: number`
+
+                    The height of the display in pixels.
+
+                    minimum: 1
+
+                  - `display_width_px: number`
+
+                    The width of the display in pixels.
+
+                    minimum: 1
+
+                  - `name: "computer"`
+
+                    Name of the tool.
+
+                    This is how the tool will be called by the model and in `tool_use` blocks.
+
+                  - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+                    - `"direct"`
+
+                    - `"code_execution_20250825"`
+
+                    - `"code_execution_20260120"`
+
+                    - `"code_execution_20260521"`
+
+                  - `cache_control: optional object`
+
+                    Create a cache control breakpoint at this content block.
+
+                    - `type: "ephemeral"`
+
+                    - `ttl: optional "5m" or "1h"`
+
+                      The time-to-live for the cache control breakpoint.
+
+                      This may be one the following values:
+
+                      - `5m`: 5 minutes
+                      - `1h`: 1 hour
+
+                      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+                  - `defer_loading: optional boolean`
+
+                    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                  - `display_number: optional number`
+
+                    The X11 display number (e.g. 0, 1) for the display.
+
+                    minimum: 0
+
+                  - `input_examples: optional array of map[unknown]`
+
+                  - `strict: optional boolean`
+
+                    When true, guarantees schema validation on tool names and inputs
+
+                - `beta_tool_text_editor_20241022: object`
+
+                  - `type: "text_editor_20241022"`
+
+                  - `name: "str_replace_editor"`
+
+                    Name of the tool.
+
+                    This is how the tool will be called by the model and in `tool_use` blocks.
+
+                  - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+                    - `"direct"`
+
+                    - `"code_execution_20250825"`
+
+                    - `"code_execution_20260120"`
+
+                    - `"code_execution_20260521"`
+
+                  - `cache_control: optional object`
+
+                    Create a cache control breakpoint at this content block.
+
+                    - `type: "ephemeral"`
+
+                    - `ttl: optional "5m" or "1h"`
+
+                      The time-to-live for the cache control breakpoint.
+
+                      This may be one the following values:
+
+                      - `5m`: 5 minutes
+                      - `1h`: 1 hour
+
+                      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+                  - `defer_loading: optional boolean`
+
+                    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                  - `input_examples: optional array of map[unknown]`
+
+                  - `strict: optional boolean`
+
+                    When true, guarantees schema validation on tool names and inputs
+
+                - `beta_tool_computer_use_20251124: object`
+
+                  - `type: "computer_20251124"`
+
+                  - `display_height_px: number`
+
+                    The height of the display in pixels.
+
+                    minimum: 1
+
+                  - `display_width_px: number`
+
+                    The width of the display in pixels.
+
+                    minimum: 1
+
+                  - `name: "computer"`
+
+                    Name of the tool.
+
+                    This is how the tool will be called by the model and in `tool_use` blocks.
+
+                  - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+                    - `"direct"`
+
+                    - `"code_execution_20250825"`
+
+                    - `"code_execution_20260120"`
+
+                    - `"code_execution_20260521"`
+
+                  - `cache_control: optional object`
+
+                    Create a cache control breakpoint at this content block.
+
+                    - `type: "ephemeral"`
+
+                    - `ttl: optional "5m" or "1h"`
+
+                      The time-to-live for the cache control breakpoint.
+
+                      This may be one the following values:
+
+                      - `5m`: 5 minutes
+                      - `1h`: 1 hour
+
+                      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+                  - `defer_loading: optional boolean`
+
+                    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                  - `display_number: optional number`
+
+                    The X11 display number (e.g. 0, 1) for the display.
+
+                    minimum: 0
+
+                  - `enable_zoom: optional boolean`
+
+                    Whether to enable an action to take a zoomed-in screenshot of the screen.
+
+                  - `input_examples: optional array of map[unknown]`
+
+                  - `strict: optional boolean`
+
+                    When true, guarantees schema validation on tool names and inputs
+
+                - `beta_computer_toolset_20260801: object`
+
+                  The computer toolset: a single `tools[]` entry (carrying no
+                  `name`) that declares the computer tool family. The model is
+                  served the family's tool with any members disabled via `configs`
+                  removed from its schema. Every member is enabled by default, zoom
+                  included. The single-tool options `display_number` and
+                  `enable_zoom` are not fields of a toolset entry — it carries only
+                  `type`, `configs`, and `cache_control`; zoom is controlled
+                  via `configs.zoom.enabled`.
+
+                  - `type: "computer_toolset_20260801"`
+
+                  - `cache_control: optional object`
+
+                    Create a cache control breakpoint at this content block.
+
+                    - `type: "ephemeral"`
+
+                    - `ttl: optional "5m" or "1h"`
+
+                      The time-to-live for the cache control breakpoint.
+
+                      This may be one the following values:
+
+                      - `5m`: 5 minutes
+                      - `1h`: 1 hour
+
+                      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+                  - `configs: optional object`
+
+                    Per-member configuration for `computer_toolset_20260801`: one
+                    optional field per member tool, keyed by the member name — the same
+                    name the member's `tool_use` blocks carry. Every member is an
+                    accepted key, and a member's defaults apply wherever its key is
+                    absent. Unknown keys are rejected: the field set is this toolset
+                    version's complete member set.
+
+                    - `type: optional object`
+
+                      `type`'s config overrides.
+
+                      - `defer_loading: optional boolean`
+
+                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                      - `enabled: optional boolean`
+
+                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                    - `cursor_position: optional object`
+
+                      `cursor_position`'s config overrides.
+
+                      - `defer_loading: optional boolean`
+
+                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                      - `enabled: optional boolean`
+
+                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                    - `double_click: optional object`
+
+                      `double_click`'s config overrides.
+
+                      - `defer_loading: optional boolean`
+
+                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                      - `enabled: optional boolean`
+
+                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                    - `hold_key: optional object`
+
+                      `hold_key`'s config overrides.
+
+                      - `defer_loading: optional boolean`
+
+                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                      - `enabled: optional boolean`
+
+                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                    - `key: optional object`
+
+                      `key`'s config overrides.
+
+                      - `defer_loading: optional boolean`
+
+                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                      - `enabled: optional boolean`
+
+                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                    - `left_click: optional object`
+
+                      `left_click`'s config overrides.
+
+                      - `defer_loading: optional boolean`
+
+                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                      - `enabled: optional boolean`
+
+                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                    - `left_click_drag: optional object`
+
+                      `left_click_drag`'s config overrides.
+
+                      - `defer_loading: optional boolean`
+
+                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                      - `enabled: optional boolean`
+
+                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                    - `left_mouse_down: optional object`
+
+                      `left_mouse_down`'s config overrides.
+
+                      - `defer_loading: optional boolean`
+
+                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                      - `enabled: optional boolean`
+
+                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                    - `left_mouse_up: optional object`
+
+                      `left_mouse_up`'s config overrides.
+
+                      - `defer_loading: optional boolean`
+
+                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                      - `enabled: optional boolean`
+
+                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                    - `middle_click: optional object`
+
+                      `middle_click`'s config overrides.
+
+                      - `defer_loading: optional boolean`
+
+                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                      - `enabled: optional boolean`
+
+                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                    - `mouse_move: optional object`
+
+                      `mouse_move`'s config overrides.
+
+                      - `defer_loading: optional boolean`
+
+                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                      - `enabled: optional boolean`
+
+                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                    - `right_click: optional object`
+
+                      `right_click`'s config overrides.
+
+                      - `defer_loading: optional boolean`
+
+                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                      - `enabled: optional boolean`
+
+                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                    - `screenshot: optional object`
+
+                      `screenshot`'s config overrides.
+
+                      - `defer_loading: optional boolean`
+
+                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                      - `enabled: optional boolean`
+
+                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                    - `scroll: optional object`
+
+                      `scroll`'s config overrides.
+
+                      - `defer_loading: optional boolean`
+
+                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                      - `enabled: optional boolean`
+
+                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                    - `triple_click: optional object`
+
+                      `triple_click`'s config overrides.
+
+                      - `defer_loading: optional boolean`
+
+                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                      - `enabled: optional boolean`
+
+                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                    - `wait: optional object`
+
+                      `wait`'s config overrides.
+
+                      - `defer_loading: optional boolean`
+
+                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                      - `enabled: optional boolean`
+
+                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                    - `zoom: optional object`
+
+                      `zoom`'s config overrides.
+
+                      - `defer_loading: optional boolean`
+
+                        Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                      - `enabled: optional boolean`
+
+                        Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                - `beta_tool_text_editor_20250124: object`
+
+                  - `type: "text_editor_20250124"`
+
+                  - `name: "str_replace_editor"`
+
+                    Name of the tool.
+
+                    This is how the tool will be called by the model and in `tool_use` blocks.
+
+                  - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+                    - `"direct"`
+
+                    - `"code_execution_20250825"`
+
+                    - `"code_execution_20260120"`
+
+                    - `"code_execution_20260521"`
+
+                  - `cache_control: optional object`
+
+                    Create a cache control breakpoint at this content block.
+
+                    - `type: "ephemeral"`
+
+                    - `ttl: optional "5m" or "1h"`
+
+                      The time-to-live for the cache control breakpoint.
+
+                      This may be one the following values:
+
+                      - `5m`: 5 minutes
+                      - `1h`: 1 hour
+
+                      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+                  - `defer_loading: optional boolean`
+
+                    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                  - `input_examples: optional array of map[unknown]`
+
+                  - `strict: optional boolean`
+
+                    When true, guarantees schema validation on tool names and inputs
+
+                - `beta_tool_text_editor_20250429: object`
+
+                  - `type: "text_editor_20250429"`
+
+                  - `name: "str_replace_based_edit_tool"`
+
+                    Name of the tool.
+
+                    This is how the tool will be called by the model and in `tool_use` blocks.
+
+                  - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+                    - `"direct"`
+
+                    - `"code_execution_20250825"`
+
+                    - `"code_execution_20260120"`
+
+                    - `"code_execution_20260521"`
+
+                  - `cache_control: optional object`
+
+                    Create a cache control breakpoint at this content block.
+
+                    - `type: "ephemeral"`
+
+                    - `ttl: optional "5m" or "1h"`
+
+                      The time-to-live for the cache control breakpoint.
+
+                      This may be one the following values:
+
+                      - `5m`: 5 minutes
+                      - `1h`: 1 hour
+
+                      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+                  - `defer_loading: optional boolean`
+
+                    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                  - `input_examples: optional array of map[unknown]`
+
+                  - `strict: optional boolean`
+
+                    When true, guarantees schema validation on tool names and inputs
+
+                - `beta_tool_text_editor_20250728: object`
+
+                  - `type: "text_editor_20250728"`
+
+                  - `name: "str_replace_based_edit_tool"`
+
+                    Name of the tool.
+
+                    This is how the tool will be called by the model and in `tool_use` blocks.
+
+                  - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+                    - `"direct"`
+
+                    - `"code_execution_20250825"`
+
+                    - `"code_execution_20260120"`
+
+                    - `"code_execution_20260521"`
+
+                  - `cache_control: optional object`
+
+                    Create a cache control breakpoint at this content block.
+
+                    - `type: "ephemeral"`
+
+                    - `ttl: optional "5m" or "1h"`
+
+                      The time-to-live for the cache control breakpoint.
+
+                      This may be one the following values:
+
+                      - `5m`: 5 minutes
+                      - `1h`: 1 hour
+
+                      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+                  - `defer_loading: optional boolean`
+
+                    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                  - `input_examples: optional array of map[unknown]`
+
+                  - `max_characters: optional number`
+
+                    Maximum number of characters to display when viewing a file. If not specified, defaults to displaying the full file.
+
+                    minimum: 1
+
+                  - `strict: optional boolean`
+
+                    When true, guarantees schema validation on tool names and inputs
+
+                - `beta_web_search_tool_20250305: object`
+
+                  - `type: "web_search_20250305"`
+
+                  - `name: "web_search"`
+
+                    Name of the tool.
+
+                    This is how the tool will be called by the model and in `tool_use` blocks.
+
+                  - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+                    - `"direct"`
+
+                    - `"code_execution_20250825"`
+
+                    - `"code_execution_20260120"`
+
+                    - `"code_execution_20260521"`
+
+                  - `allowed_domains: optional array of string`
+
+                    If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
+
+                  - `blocked_domains: optional array of string`
+
+                    If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
+
+                  - `cache_control: optional object`
+
+                    Create a cache control breakpoint at this content block.
+
+                    - `type: "ephemeral"`
+
+                    - `ttl: optional "5m" or "1h"`
+
+                      The time-to-live for the cache control breakpoint.
+
+                      This may be one the following values:
+
+                      - `5m`: 5 minutes
+                      - `1h`: 1 hour
+
+                      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+                  - `defer_loading: optional boolean`
+
+                    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                  - `max_uses: optional number`
+
+                    Maximum number of times the tool can be used in the API request.
+
+                    exclusiveMinimum: 0
+
+                  - `strict: optional boolean`
+
+                    When true, guarantees schema validation on tool names and inputs
+
+                  - `user_location: optional object`
+
+                    Parameters for the user's location. Used to provide more relevant search results.
+
+                    - `type: "approximate"`
+
+                    - `city: optional string`
+
+                      The city of the user.
+
+                      maxLength: 255, minLength: 1
+
+                    - `country: optional string`
+
+                      The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
+
+                      maxLength: 2, minLength: 2
+
+                    - `region: optional string`
+
+                      The region of the user.
+
+                      maxLength: 255, minLength: 1
+
+                    - `timezone: optional string`
+
+                      The [IANA timezone](https://nodatime.org/TimeZones) of the user.
+
+                      maxLength: 255, minLength: 1
+
+                - `beta_web_fetch_tool_20250910: object`
+
+                  - `type: "web_fetch_20250910"`
+
+                  - `name: "web_fetch"`
+
+                    Name of the tool.
+
+                    This is how the tool will be called by the model and in `tool_use` blocks.
+
+                  - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+                    - `"direct"`
+
+                    - `"code_execution_20250825"`
+
+                    - `"code_execution_20260120"`
+
+                    - `"code_execution_20260521"`
+
+                  - `allowed_domains: optional array of string`
+
+                    List of domains to allow fetching from
+
+                  - `blocked_domains: optional array of string`
+
+                    List of domains to block fetching from
+
+                  - `cache_control: optional object`
+
+                    Create a cache control breakpoint at this content block.
+
+                    - `type: "ephemeral"`
+
+                    - `ttl: optional "5m" or "1h"`
+
+                      The time-to-live for the cache control breakpoint.
+
+                      This may be one the following values:
+
+                      - `5m`: 5 minutes
+                      - `1h`: 1 hour
+
+                      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+                  - `citations: optional object`
+
+                    Citations configuration for fetched documents. Citations are disabled by default.
+
+                    - `enabled: optional boolean`
+
+                  - `defer_loading: optional boolean`
+
+                    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                  - `max_content_tokens: optional number`
+
+                    Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
+
+                    exclusiveMinimum: 0
+
+                  - `max_uses: optional number`
+
+                    Maximum number of times the tool can be used in the API request.
+
+                    exclusiveMinimum: 0
+
+                  - `strict: optional boolean`
+
+                    When true, guarantees schema validation on tool names and inputs
+
+                  - `url_sources: optional object`
+
+                    Which sources contribute to the set of URLs web fetch may fetch.
+
+                    Each key is a tagged variant: `user_input` is `all` or `none`; the
+                    two tool filters are `all`, `none`, `only` (only the named tools'
+                    results) or `except` (every result but the named tools'). A named tool
+                    must be declared in this request's `tools[]`.
+
+                    - `client_tool_results: optional BetaWebFetchURLSourceAll or BetaWebFetchURLSourceNone or BetaWebFetchURLSourceOnly or BetaWebFetchURLSourceExcept`
+
+                      Which client tools' results contribute fetchable URLs: "all", "none", or an only or except list of client tool names from tools[].
+
+                      - `beta_web_fetch_url_source_all: object`
+
+                        The `url_sources` variant under which a source contributes in
+                        full: every result of the tool filter's source, or all user input.
+
+                        - `type: "all"`
+
+                      - `beta_web_fetch_url_source_none: object`
+
+                        The `url_sources` variant under which a source contributes nothing:
+                        no result of the tool filter's source, or no user input.
+
+                        - `type: "none"`
+
+                      - `beta_web_fetch_url_source_only: object`
+
+                        The tool filter variant under which only the named tools' results
+                        contribute.
+
+                        - `type: "only"`
+
+                        - `tools: array of BetaWebFetchURLSourceToolReference`
+
+                          - `type: "tool_reference"`
+
+                          - `name: string`
+
+                      - `beta_web_fetch_url_source_except: object`
+
+                        The tool filter variant under which every result but the named
+                        tools' contributes.
+
+                        - `type: "except"`
+
+                        - `tools: array of BetaWebFetchURLSourceToolReference`
+
+                          - `type: "tool_reference"`
+
+                          - `name: string`
+
+                    - `server_tool_results: optional BetaWebFetchURLSourceAll or BetaWebFetchURLSourceNone or BetaWebFetchURLSourceOnly or BetaWebFetchURLSourceExcept`
+
+                      Which server tools' results contribute fetchable URLs: "all", "none", or an only or except list of server tool names from tools[]; only web_search and web_fetch results ever contribute.
+
+                      - `beta_web_fetch_url_source_all: object`
+
+                        The `url_sources` variant under which a source contributes in
+                        full: every result of the tool filter's source, or all user input.
+
+                      - `beta_web_fetch_url_source_none: object`
+
+                        The `url_sources` variant under which a source contributes nothing:
+                        no result of the tool filter's source, or no user input.
+
+                      - `beta_web_fetch_url_source_only: object`
+
+                        The tool filter variant under which only the named tools' results
+                        contribute.
+
+                      - `beta_web_fetch_url_source_except: object`
+
+                        The tool filter variant under which every result but the named
+                        tools' contributes.
+
+                    - `user_input: optional BetaWebFetchURLSourceAll or BetaWebFetchURLSourceNone`
+
+                      Whether URLs in user messages are fetchable: "all" or "none".
+
+                      - `beta_web_fetch_url_source_all: object`
+
+                        The `url_sources` variant under which a source contributes in
+                        full: every result of the tool filter's source, or all user input.
+
+                      - `beta_web_fetch_url_source_none: object`
+
+                        The `url_sources` variant under which a source contributes nothing:
+                        no result of the tool filter's source, or no user input.
+
+                - `beta_web_search_tool_20260209: object`
+
+                  - `type: "web_search_20260209"`
+
+                  - `name: "web_search"`
+
+                    Name of the tool.
+
+                    This is how the tool will be called by the model and in `tool_use` blocks.
+
+                  - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+                    - `"direct"`
+
+                    - `"code_execution_20250825"`
+
+                    - `"code_execution_20260120"`
+
+                    - `"code_execution_20260521"`
+
+                  - `allowed_domains: optional array of string`
+
+                    If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
+
+                  - `blocked_domains: optional array of string`
+
+                    If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
+
+                  - `cache_control: optional object`
+
+                    Create a cache control breakpoint at this content block.
+
+                    - `type: "ephemeral"`
+
+                    - `ttl: optional "5m" or "1h"`
+
+                      The time-to-live for the cache control breakpoint.
+
+                      This may be one the following values:
+
+                      - `5m`: 5 minutes
+                      - `1h`: 1 hour
+
+                      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+                  - `defer_loading: optional boolean`
+
+                    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                  - `max_uses: optional number`
+
+                    Maximum number of times the tool can be used in the API request.
+
+                    exclusiveMinimum: 0
+
+                  - `strict: optional boolean`
+
+                    When true, guarantees schema validation on tool names and inputs
+
+                  - `user_location: optional object`
+
+                    Parameters for the user's location. Used to provide more relevant search results.
+
+                    - `type: "approximate"`
+
+                    - `city: optional string`
+
+                      The city of the user.
+
+                      maxLength: 255, minLength: 1
+
+                    - `country: optional string`
+
+                      The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
+
+                      maxLength: 2, minLength: 2
+
+                    - `region: optional string`
+
+                      The region of the user.
+
+                      maxLength: 255, minLength: 1
+
+                    - `timezone: optional string`
+
+                      The [IANA timezone](https://nodatime.org/TimeZones) of the user.
+
+                      maxLength: 255, minLength: 1
+
+                - `beta_web_fetch_tool_20260209: object`
+
+                  - `type: "web_fetch_20260209"`
+
+                  - `name: "web_fetch"`
+
+                    Name of the tool.
+
+                    This is how the tool will be called by the model and in `tool_use` blocks.
+
+                  - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+                    - `"direct"`
+
+                    - `"code_execution_20250825"`
+
+                    - `"code_execution_20260120"`
+
+                    - `"code_execution_20260521"`
+
+                  - `allowed_domains: optional array of string`
+
+                    List of domains to allow fetching from
+
+                  - `blocked_domains: optional array of string`
+
+                    List of domains to block fetching from
+
+                  - `cache_control: optional object`
+
+                    Create a cache control breakpoint at this content block.
+
+                    - `type: "ephemeral"`
+
+                    - `ttl: optional "5m" or "1h"`
+
+                      The time-to-live for the cache control breakpoint.
+
+                      This may be one the following values:
+
+                      - `5m`: 5 minutes
+                      - `1h`: 1 hour
+
+                      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+                  - `citations: optional object`
+
+                    Citations configuration for fetched documents. Citations are disabled by default.
+
+                    - `enabled: optional boolean`
+
+                  - `defer_loading: optional boolean`
+
+                    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                  - `max_content_tokens: optional number`
+
+                    Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
+
+                    exclusiveMinimum: 0
+
+                  - `max_uses: optional number`
+
+                    Maximum number of times the tool can be used in the API request.
+
+                    exclusiveMinimum: 0
+
+                  - `strict: optional boolean`
+
+                    When true, guarantees schema validation on tool names and inputs
+
+                  - `url_sources: optional object`
+
+                    Which sources contribute to the set of URLs web fetch may fetch.
+
+                    Each key is a tagged variant: `user_input` is `all` or `none`; the
+                    two tool filters are `all`, `none`, `only` (only the named tools'
+                    results) or `except` (every result but the named tools'). A named tool
+                    must be declared in this request's `tools[]`.
+
+                    - `client_tool_results: optional BetaWebFetchURLSourceAll or BetaWebFetchURLSourceNone or BetaWebFetchURLSourceOnly or BetaWebFetchURLSourceExcept`
+
+                      Which client tools' results contribute fetchable URLs: "all", "none", or an only or except list of client tool names from tools[].
+
+                    - `server_tool_results: optional BetaWebFetchURLSourceAll or BetaWebFetchURLSourceNone or BetaWebFetchURLSourceOnly or BetaWebFetchURLSourceExcept`
+
+                      Which server tools' results contribute fetchable URLs: "all", "none", or an only or except list of server tool names from tools[]; only web_search and web_fetch results ever contribute.
+
+                    - `user_input: optional BetaWebFetchURLSourceAll or BetaWebFetchURLSourceNone`
+
+                      Whether URLs in user messages are fetchable: "all" or "none".
+
+                - `beta_web_fetch_tool_20260309: object`
+
+                  Web fetch tool with use_cache parameter for bypassing cached content.
+
+                  - `type: "web_fetch_20260309"`
+
+                  - `name: "web_fetch"`
+
+                    Name of the tool.
+
+                    This is how the tool will be called by the model and in `tool_use` blocks.
+
+                  - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+                    - `"direct"`
+
+                    - `"code_execution_20250825"`
+
+                    - `"code_execution_20260120"`
+
+                    - `"code_execution_20260521"`
+
+                  - `allowed_domains: optional array of string`
+
+                    List of domains to allow fetching from
+
+                  - `blocked_domains: optional array of string`
+
+                    List of domains to block fetching from
+
+                  - `cache_control: optional object`
+
+                    Create a cache control breakpoint at this content block.
+
+                    - `type: "ephemeral"`
+
+                    - `ttl: optional "5m" or "1h"`
+
+                      The time-to-live for the cache control breakpoint.
+
+                      This may be one the following values:
+
+                      - `5m`: 5 minutes
+                      - `1h`: 1 hour
+
+                      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+                  - `citations: optional object`
+
+                    Citations configuration for fetched documents. Citations are disabled by default.
+
+                    - `enabled: optional boolean`
+
+                  - `defer_loading: optional boolean`
+
+                    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                  - `max_content_tokens: optional number`
+
+                    Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
+
+                    exclusiveMinimum: 0
+
+                  - `max_uses: optional number`
+
+                    Maximum number of times the tool can be used in the API request.
+
+                    exclusiveMinimum: 0
+
+                  - `strict: optional boolean`
+
+                    When true, guarantees schema validation on tool names and inputs
+
+                  - `url_sources: optional object`
+
+                    Which sources contribute to the set of URLs web fetch may fetch.
+
+                    Each key is a tagged variant: `user_input` is `all` or `none`; the
+                    two tool filters are `all`, `none`, `only` (only the named tools'
+                    results) or `except` (every result but the named tools'). A named tool
+                    must be declared in this request's `tools[]`.
+
+                    - `client_tool_results: optional BetaWebFetchURLSourceAll or BetaWebFetchURLSourceNone or BetaWebFetchURLSourceOnly or BetaWebFetchURLSourceExcept`
+
+                      Which client tools' results contribute fetchable URLs: "all", "none", or an only or except list of client tool names from tools[].
+
+                    - `server_tool_results: optional BetaWebFetchURLSourceAll or BetaWebFetchURLSourceNone or BetaWebFetchURLSourceOnly or BetaWebFetchURLSourceExcept`
+
+                      Which server tools' results contribute fetchable URLs: "all", "none", or an only or except list of server tool names from tools[]; only web_search and web_fetch results ever contribute.
+
+                    - `user_input: optional BetaWebFetchURLSourceAll or BetaWebFetchURLSourceNone`
+
+                      Whether URLs in user messages are fetchable: "all" or "none".
+
+                  - `use_cache: optional boolean`
+
+                    Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
+
+                - `beta_web_search_tool_20260318: object`
+
+                  - `type: "web_search_20260318"`
+
+                  - `name: "web_search"`
+
+                    Name of the tool.
+
+                    This is how the tool will be called by the model and in `tool_use` blocks.
+
+                  - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+                    - `"direct"`
+
+                    - `"code_execution_20250825"`
+
+                    - `"code_execution_20260120"`
+
+                    - `"code_execution_20260521"`
+
+                  - `allowed_domains: optional array of string`
+
+                    If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
+
+                  - `blocked_domains: optional array of string`
+
+                    If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
+
+                  - `cache_control: optional object`
+
+                    Create a cache control breakpoint at this content block.
+
+                    - `type: "ephemeral"`
+
+                    - `ttl: optional "5m" or "1h"`
+
+                      The time-to-live for the cache control breakpoint.
+
+                      This may be one the following values:
+
+                      - `5m`: 5 minutes
+                      - `1h`: 1 hour
+
+                      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+                  - `defer_loading: optional boolean`
+
+                    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                  - `max_uses: optional number`
+
+                    Maximum number of times the tool can be used in the API request.
+
+                    exclusiveMinimum: 0
+
+                  - `response_inclusion: optional "full" or "excluded"`
+
+                    How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
+
+                    - `"full"`
+
+                    - `"excluded"`
+
+                  - `strict: optional boolean`
+
+                    When true, guarantees schema validation on tool names and inputs
+
+                  - `user_location: optional object`
+
+                    Parameters for the user's location. Used to provide more relevant search results.
+
+                    - `type: "approximate"`
+
+                    - `city: optional string`
+
+                      The city of the user.
+
+                      maxLength: 255, minLength: 1
+
+                    - `country: optional string`
+
+                      The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
+
+                      maxLength: 2, minLength: 2
+
+                    - `region: optional string`
+
+                      The region of the user.
+
+                      maxLength: 255, minLength: 1
+
+                    - `timezone: optional string`
+
+                      The [IANA timezone](https://nodatime.org/TimeZones) of the user.
+
+                      maxLength: 255, minLength: 1
+
+                - `beta_web_fetch_tool_20260318: object`
+
+                  - `type: "web_fetch_20260318"`
+
+                  - `name: "web_fetch"`
+
+                    Name of the tool.
+
+                    This is how the tool will be called by the model and in `tool_use` blocks.
+
+                  - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+                    - `"direct"`
+
+                    - `"code_execution_20250825"`
+
+                    - `"code_execution_20260120"`
+
+                    - `"code_execution_20260521"`
+
+                  - `allowed_domains: optional array of string`
+
+                    List of domains to allow fetching from
+
+                  - `blocked_domains: optional array of string`
+
+                    List of domains to block fetching from
+
+                  - `cache_control: optional object`
+
+                    Create a cache control breakpoint at this content block.
+
+                    - `type: "ephemeral"`
+
+                    - `ttl: optional "5m" or "1h"`
+
+                      The time-to-live for the cache control breakpoint.
+
+                      This may be one the following values:
+
+                      - `5m`: 5 minutes
+                      - `1h`: 1 hour
+
+                      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+                  - `citations: optional object`
+
+                    Citations configuration for fetched documents. Citations are disabled by default.
+
+                    - `enabled: optional boolean`
+
+                  - `defer_loading: optional boolean`
+
+                    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                  - `max_content_tokens: optional number`
+
+                    Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
+
+                    exclusiveMinimum: 0
+
+                  - `max_uses: optional number`
+
+                    Maximum number of times the tool can be used in the API request.
+
+                    exclusiveMinimum: 0
+
+                  - `response_inclusion: optional "full" or "excluded"`
+
+                    How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
+
+                    - `"full"`
+
+                    - `"excluded"`
+
+                  - `strict: optional boolean`
+
+                    When true, guarantees schema validation on tool names and inputs
+
+                  - `url_sources: optional object`
+
+                    Which sources contribute to the set of URLs web fetch may fetch.
+
+                    Each key is a tagged variant: `user_input` is `all` or `none`; the
+                    two tool filters are `all`, `none`, `only` (only the named tools'
+                    results) or `except` (every result but the named tools'). A named tool
+                    must be declared in this request's `tools[]`.
+
+                    - `client_tool_results: optional BetaWebFetchURLSourceAll or BetaWebFetchURLSourceNone or BetaWebFetchURLSourceOnly or BetaWebFetchURLSourceExcept`
+
+                      Which client tools' results contribute fetchable URLs: "all", "none", or an only or except list of client tool names from tools[].
+
+                    - `server_tool_results: optional BetaWebFetchURLSourceAll or BetaWebFetchURLSourceNone or BetaWebFetchURLSourceOnly or BetaWebFetchURLSourceExcept`
+
+                      Which server tools' results contribute fetchable URLs: "all", "none", or an only or except list of server tool names from tools[]; only web_search and web_fetch results ever contribute.
+
+                    - `user_input: optional BetaWebFetchURLSourceAll or BetaWebFetchURLSourceNone`
+
+                      Whether URLs in user messages are fetchable: "all" or "none".
+
+                  - `use_cache: optional boolean`
+
+                    Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
+
+                - `beta_advisor_tool_20260301: object`
+
+                  - `type: "advisor_20260301"`
+
+                  - `model: "claude-fable-5-1" or "claude-opus-5-5" or "claude-mythos-5-1" or 15 more or string`
+
+                    The model that will complete your prompt.
+
+                    See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+                    - `"claude-fable-5-1"`
+
+                      Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+                    - `"claude-opus-5-5"`
+
+                      Powerful intelligence for coding, knowledge work, and long-running agents
+
+                    - `"claude-mythos-5-1"`
+
+                      Our most capable model for cybersecurity and biology research, available through trusted access programs
+
+                    - `"claude-sonnet-5"`
+
+                      High-performance model for coding and agents
+
+                    - `"claude-fable-5"`
+
+                      Next generation of intelligence for the hardest knowledge work and coding problems
+
+                    - `"claude-mythos-5"`
+
+                      Most capable model for cybersecurity and biology research
+
+                    - `"claude-opus-5"`
+
+                      Powerful intelligence for long-running agents and coding
+
+                    - `"claude-opus-4-8"`
+
+                      Powerful intelligence for long-running agents and coding
+
+                    - `"claude-opus-4-7"`
+
+                      Powerful intelligence for long-running agents and coding
+
+                    - `"claude-mythos-preview"`
+
+                      New class of intelligence, strongest in coding and cybersecurity
+
+                    - `"claude-opus-4-6"`
+
+                      Powerful intelligence for long-running agents and coding
+
+                    - `"claude-sonnet-4-6"`
+
+                      Best combination of speed and intelligence
+
+                    - `"claude-haiku-4-5"`
+
+                      Fastest model with near-frontier intelligence
+
+                    - `"claude-haiku-4-5-20251001"`
+
+                      Fastest model with near-frontier intelligence
+
+                    - `"claude-opus-4-5"`
+
+                      Powerful intelligence for long-running agents and coding
+
+                    - `"claude-opus-4-5-20251101"`
+
+                      Powerful intelligence for long-running agents and coding
+
+                    - `"claude-sonnet-4-5"`
+
+                      High-performance model for agents and coding
+
+                    - `"claude-sonnet-4-5-20250929"`
+
+                      High-performance model for agents and coding
+
+                  - `name: "advisor"`
+
+                    Name of the tool.
+
+                    This is how the tool will be called by the model and in `tool_use` blocks.
+
+                  - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+                    - `"direct"`
+
+                    - `"code_execution_20250825"`
+
+                    - `"code_execution_20260120"`
+
+                    - `"code_execution_20260521"`
+
+                  - `cache_control: optional object`
+
+                    Create a cache control breakpoint at this content block.
+
+                    - `type: "ephemeral"`
+
+                    - `ttl: optional "5m" or "1h"`
+
+                      The time-to-live for the cache control breakpoint.
+
+                      This may be one the following values:
+
+                      - `5m`: 5 minutes
+                      - `1h`: 1 hour
+
+                      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+                  - `caching: optional object`
+
+                    Caching for the advisor's own prompt. When set, each advisor call writes a cache entry at the given TTL so subsequent calls in the same conversation read the stable prefix. When omitted, the advisor prompt is not cached.
+
+                    - `type: "ephemeral"`
+
+                    - `ttl: optional "5m" or "1h"`
+
+                      The time-to-live for the cache control breakpoint.
+
+                      This may be one the following values:
+
+                      - `5m`: 5 minutes
+                      - `1h`: 1 hour
+
+                      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+                  - `defer_loading: optional boolean`
+
+                    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                  - `max_tokens: optional number`
+
+                    Bounds the advisor's total output (thinking + text) per call. When the advisor hits this cap, the returned advisor_result or advisor_redacted_result block carries stop_reason='max_tokens', and a truncation note is appended to the advice text the worker model sees (inside the encrypted blob in redacted mode). When set, the server also emits a remaining-tokens budget block in the advisor's prompt so the advisor self-shapes toward the cap. When omitted, the advisor model's default output cap applies and no budget block is emitted.
+
+                    minimum: 1024
+
+                  - `max_uses: optional number`
+
+                    Maximum number of times the tool can be used in the API request.
+
+                    exclusiveMinimum: 0
+
+                  - `strict: optional boolean`
+
+                    When true, guarantees schema validation on tool names and inputs
+
+                - `beta_tool_search_tool_bm25_20251119: object`
+
+                  - `type: "tool_search_tool_bm25_20251119" or "tool_search_tool_bm25"`
+
+                    - `"tool_search_tool_bm25_20251119"`
+
+                    - `"tool_search_tool_bm25"`
+
+                  - `name: "tool_search_tool_bm25"`
+
+                    Name of the tool.
+
+                    This is how the tool will be called by the model and in `tool_use` blocks.
+
+                  - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+                    - `"direct"`
+
+                    - `"code_execution_20250825"`
+
+                    - `"code_execution_20260120"`
+
+                    - `"code_execution_20260521"`
+
+                  - `cache_control: optional object`
+
+                    Create a cache control breakpoint at this content block.
+
+                    - `type: "ephemeral"`
+
+                    - `ttl: optional "5m" or "1h"`
+
+                      The time-to-live for the cache control breakpoint.
+
+                      This may be one the following values:
+
+                      - `5m`: 5 minutes
+                      - `1h`: 1 hour
+
+                      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+                  - `defer_loading: optional boolean`
+
+                    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                  - `strict: optional boolean`
+
+                    When true, guarantees schema validation on tool names and inputs
+
+                - `beta_tool_search_tool_regex_20251119: object`
+
+                  - `type: "tool_search_tool_regex_20251119" or "tool_search_tool_regex"`
+
+                    - `"tool_search_tool_regex_20251119"`
+
+                    - `"tool_search_tool_regex"`
+
+                  - `name: "tool_search_tool_regex"`
+
+                    Name of the tool.
+
+                    This is how the tool will be called by the model and in `tool_use` blocks.
+
+                  - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+                    - `"direct"`
+
+                    - `"code_execution_20250825"`
+
+                    - `"code_execution_20260120"`
+
+                    - `"code_execution_20260521"`
+
+                  - `cache_control: optional object`
+
+                    Create a cache control breakpoint at this content block.
+
+                    - `type: "ephemeral"`
+
+                    - `ttl: optional "5m" or "1h"`
+
+                      The time-to-live for the cache control breakpoint.
+
+                      This may be one the following values:
+
+                      - `5m`: 5 minutes
+                      - `1h`: 1 hour
+
+                      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+                  - `defer_loading: optional boolean`
+
+                    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                  - `strict: optional boolean`
+
+                    When true, guarantees schema validation on tool names and inputs
+
+                - `beta_mcp_toolset: object`
+
+                  Configuration for a group of tools from an MCP server.
+
+                  Allows configuring enabled status and defer_loading for all tools
+                  from an MCP server, with optional per-tool overrides.
+
+                  - `type: "mcp_toolset"`
+
+                  - `mcp_server_name: string`
+
+                    Name of the MCP server to configure tools for
+
+                    maxLength: 255, minLength: 1
+
+                  - `cache_control: optional object`
+
+                    Create a cache control breakpoint at this content block.
+
+                    - `type: "ephemeral"`
+
+                    - `ttl: optional "5m" or "1h"`
+
+                      The time-to-live for the cache control breakpoint.
+
+                      This may be one the following values:
+
+                      - `5m`: 5 minutes
+                      - `1h`: 1 hour
+
+                      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+                  - `configs: optional map[BetaMCPToolConfig]`
+
+                    Configuration overrides for specific tools, keyed by tool name
+
+                    - `defer_loading: optional boolean`
+
+                    - `enabled: optional boolean`
+
+                  - `default_config: optional object`
+
+                    Default configuration applied to all tools from this server
+
+                    - `defer_loading: optional boolean`
+
+                    - `enabled: optional boolean`
+
+                  - `tools: optional array of BetaMCPToolParam`
+
+                    The server's tool listing, pinned: when present, the server is not asked for its tools before sampling and exactly these entries, with `default_config` and `configs` applied, are the toolset's tools. Copy it from the `mcp_tool_listing` block of an earlier response.
+
+                    - `input_schema: map[unknown]`
+
+                      The tool's input schema as the MCP server lists it, verbatim.
+
+                    - `name: string`
+
+                      The tool's name as the MCP server lists it (not prefixed with the server name).
+
+                      minLength: 1
+
+                    - `description: optional string`
+
+                      The tool's description as the MCP server lists it.
+
+        - `beta_response_tool_removal_block: object`
+
+          An entry of a `compaction` block's `tool_changes`: a tool of the
+          request's `tools` (or an MCP tool or toolset) that the compacted range
+          withdrew. Send it back unchanged.
+
+          - `type: "tool_removal"`
+
+          - `tool: BetaResponseToolChangeToolReference or BetaResponseToolChangeMCPToolReference or BetaResponseToolChangeMCPToolsetReference`
+
+            A reference to the withdrawn `tools` entry, MCP tool or MCP toolset.
+
+            - `beta_response_tool_change_tool_reference: object`
+
+              Reference to a single tool, by the name the model uses to call it, as
+              a `compaction` block's `tool_changes` entry reports it: a tool
+              declared in `tools` or defined by an earlier `tool_addition` block.
+              Send it back unchanged with the block.
+
+            - `beta_response_tool_change_mcp_tool_reference: object`
+
+              Reference to a single MCP tool, by its server and its name on that
+              server, as a `compaction` block's `tool_changes` entry reports it.
+              Send it back unchanged with the block.
+
+            - `beta_response_tool_change_mcp_toolset_reference: object`
+
+              Reference to every tool in the named MCP server's toolset, as a
+              `compaction` block's `tool_changes` entry reports it. Send it back
+              unchanged with the block.
+
     - `beta_fallback_block: object`
 
       Marks the point in `content` where one model's output gives way to the next.
@@ -2004,7 +4634,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         The model whose output ends at this point — the model that declined at this hop. When the declining hop is the requested model, its `model` echoes the top-level `model` string the caller sent (alias or canonical); when the declining hop is a fallback model, its `model` is that model's canonical id.
 
-        - `model: "claude-fable-5-1" or "claude-mythos-5-1" or "claude-sonnet-5" or 14 more or string`
+        - `model: "claude-fable-5-1" or "claude-opus-5-5" or "claude-mythos-5-1" or 15 more or string`
 
           The model that will complete your prompt.
 
@@ -2013,6 +4643,10 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
           - `"claude-fable-5-1"`
 
             Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+          - `"claude-opus-5-5"`
+
+            Powerful intelligence for coding, knowledge work, and long-running agents
 
           - `"claude-mythos-5-1"`
 
@@ -2082,7 +4716,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         The fallback model producing the content that follows this block. Its `model` is always the canonical id.
 
-        - `model: "claude-fable-5-1" or "claude-mythos-5-1" or "claude-sonnet-5" or 14 more or string`
+        - `model: "claude-fable-5-1" or "claude-opus-5-5" or "claude-mythos-5-1" or 15 more or string`
 
           The model that will complete your prompt.
 
@@ -2117,6 +4751,25 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
           - `"general_harms"`
 
             The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
+
+    - `beta_mcp_tool_listing_block: object`
+
+      The tool listing the server fetched from an MCP server while producing
+      this response. Send the assistant message back unchanged, this block
+      included, so later requests use this listing instead of asking the MCP
+      server again.
+
+      - `type: "mcp_tool_listing"`
+
+      - `mcp_server_name: string`
+
+      - `tools: array of BetaMCPTool`
+
+        - `input_schema: map[unknown]`
+
+        - `name: string`
+
+        - `description: optional string`
 
   - `context_management: object`
 
@@ -2166,8 +4819,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
   - `diagnostics: object`
 
-    Response envelope for request-level diagnostics. Present (possibly
-    null) whenever the caller supplied `diagnostics` on the request.
+    Request-level diagnostics: why the prompt cache could not fully reuse
+    the prefix of the request named by `diagnostics.previous_message_id`.
 
     - `cache_miss_reason: BetaCacheMissModelChanged or BetaCacheMissSystemChanged or BetaCacheMissToolsChanged or 3 more`
 
@@ -2213,7 +4866,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `type: "unavailable"`
 
-  - `model: "claude-fable-5-1" or "claude-mythos-5-1" or "claude-sonnet-5" or 14 more or string`
+  - `model: "claude-fable-5-1" or "claude-opus-5-5" or "claude-mythos-5-1" or 15 more or string`
 
     The model that will complete your prompt.
 
@@ -2222,6 +4875,10 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
     - `"claude-fable-5-1"`
 
       Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+    - `"claude-opus-5-5"`
+
+      Powerful intelligence for coding, knowledge work, and long-running agents
 
     - `"claude-mythos-5-1"`
 
@@ -2588,7 +5245,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           minimum: 0
 
-        - `model: "claude-fable-5-1" or "claude-mythos-5-1" or "claude-sonnet-5" or 14 more or string`
+        - `model: "claude-fable-5-1" or "claude-opus-5-5" or "claude-mythos-5-1" or 15 more or string`
 
           The model that will complete your prompt.
 
@@ -2597,6 +5254,10 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
           - `"claude-fable-5-1"`
 
             Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+          - `"claude-opus-5-5"`
+
+            Powerful intelligence for coding, knowledge work, and long-running agents
 
           - `"claude-mythos-5-1"`
 
@@ -2758,7 +5419,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           minimum: 0
 
-        - `model: "claude-fable-5-1" or "claude-mythos-5-1" or "claude-sonnet-5" or 14 more or string`
+        - `model: "claude-fable-5-1" or "claude-opus-5-5" or "claude-mythos-5-1" or 15 more or string`
 
           The model that will complete your prompt.
 
@@ -2767,6 +5428,10 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
           - `"claude-fable-5-1"`
 
             Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+          - `"claude-opus-5-5"`
+
+            Powerful intelligence for coding, knowledge work, and long-running agents
 
           - `"claude-mythos-5-1"`
 
@@ -2842,10 +5507,12 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         Token usage for the fallback-model attempt of a server-side fallback request.
 
-        Produced in place of a `message` entry for whichever hop served the
-        response. A declined hop produces the existing `message` entry. Whether
-        a fallback model served the response is signalled by the presence of this
-        entry in `usage.iterations`.
+        The terminal entry of a fallback-served turn: when a fallback hop's
+        output is the returned message, the entry for the iteration that
+        completed it carries this type in place of `message`. A declined hop
+        and the serving hop's earlier tool-loop iterations produce `message`
+        entries. Whether a fallback model served the response is signalled by
+        the presence of this entry in `usage.iterations`.
 
         - `type: "fallback_message"`
 
@@ -2885,7 +5552,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           minimum: 0
 
-        - `model: "claude-fable-5-1" or "claude-mythos-5-1" or "claude-sonnet-5" or 14 more or string`
+        - `model: "claude-fable-5-1" or "claude-opus-5-5" or "claude-mythos-5-1" or 15 more or string`
 
           The model that will complete your prompt.
 
@@ -2894,6 +5561,10 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
           - `"claude-fable-5-1"`
 
             Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+          - `"claude-opus-5-5"`
+
+            Powerful intelligence for coding, knowledge work, and long-running agents
 
           - `"claude-mythos-5-1"`
 
@@ -3027,57 +5698,97 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `"fast"`
 
-  - `input_transformations: optional array of BetaThinkingDroppedInputTransformation`
+  - `input_transformations: optional array of BetaInputTransformation`
 
-    Changes the API made to the request's input before showing it to the model:
-    one entry per change, in request order. Today the only entry type is
-    `thinking_dropped` — a `thinking`, `redacted_thinking` or `connector_text`
-    block from the request's `messages` that was removed from the prompt instead
-    of being shown to the model because it failed a binding check. More entry
-    types may be added over time; ignore types you do not recognize.
+    Changes the API made to the request's input before showing it to the model,
+    and blocks that failed a binding check but were left unchanged: one entry per
+    block, in request order. Two entry types today. `thinking_dropped` — a
+    `thinking`, `redacted_thinking` or `connector_text` block from the request's
+    `messages` that was removed from the prompt instead of being shown to the
+    model because it failed a binding check. `thinking_mismatch_allowed` — a
+    `thinking` or `redacted_thinking` block that failed the conversation check
+    (the conversation before it differs from the one it was created in, or it
+    carries no record of one on a model that requires it) and was shown to the
+    model all the same, because that check is not enforced for this request.
+    More entry types may be added over time; ignore types you do not recognize.
 
     Requires `anthropic-beta: thinking-binding-controls-2026-08-01`. Present on
     every such response from a model that supports extended thinking, as `[]`
-    when nothing was changed; without the beta, blocks are removed all the same
-    but nothing is reported. Removed blocks contribute nothing to
-    `usage.input_tokens`. When streaming, the array is final in `message_start`;
-    the final `message_delta` event carries it only when a server-side model
-    fallback happened mid-stream, in which case it holds the serving model's
-    entries and replaces the one in `message_start`.
+    when there is no entry to report; without the beta, blocks are removed or
+    left in place all the same but nothing is reported. Removed blocks contribute
+    nothing to `usage.input_tokens`; blocks left in place count as sent. When
+    streaming, the array is final in `message_start`; the final `message_delta`
+    event carries it only when a server-side model fallback happened mid-stream,
+    in which case it holds the serving model's entries and replaces the one in
+    `message_start`.
 
-    - `type: "thinking_dropped"`
+    - `beta_thinking_dropped_input_transformation: object`
 
-      Always `thinking_dropped` for this entry type.
+      - `type: "thinking_dropped"`
 
-    - `path: string`
+        Always `thinking_dropped` for this entry type.
 
-      Where the removed block was in your request, as `messages.{i}.content.{j}`:
-      `i` indexes the `messages` array you sent and `j` that message's `content`
-      array — the same form error messages use.
+      - `path: string`
 
-    - `reason: "model_binding_mismatch" or "prefix_binding_mismatch" or "organization_binding_mismatch" or "end_user_binding_mismatch"`
+        Where the removed block was in your request, as `messages.{i}.content.{j}`:
+        `i` indexes the `messages` array you sent and `j` that message's `content`
+        array — the same form error messages use.
 
-      Which binding check removed the block: `model_binding_mismatch` — it was
-      created by a model whose reasoning the requested model may not read;
-      `prefix_binding_mismatch` — the conversation before it differs from the
-      conversation it was created in (the rest of that turn's consecutive thinking
-      blocks are removed with it, each with this reason);
-      `organization_binding_mismatch` — it was created under a different
-      organization (an Anthropic organization, AWS account or Google Cloud project)
-      and this organization is not one of its additional organizations;
-      `end_user_binding_mismatch` — it was created for a different end user, or
-      was removed by the consumer-organization binding. A block that would fail
-      several checks reports one reason, in this order of precedence:
-      `organization_binding_mismatch`, `end_user_binding_mismatch`,
-      `model_binding_mismatch`, `prefix_binding_mismatch`.
+      - `reason: "model_binding_mismatch" or "prefix_binding_mismatch" or "organization_binding_mismatch" or "end_user_binding_mismatch"`
 
-      - `"model_binding_mismatch"`
+        Which binding check removed the block: `model_binding_mismatch` — it was
+        created by a model whose reasoning the requested model may not read;
+        `prefix_binding_mismatch` — the conversation before it differs from the
+        conversation it was created in (the rest of that turn's consecutive thinking
+        blocks are removed with it, each with this reason);
+        `organization_binding_mismatch` — it was created under a different
+        organization (an Anthropic organization, AWS account or Google Cloud project)
+        and this organization is not one of its additional organizations;
+        `end_user_binding_mismatch` — it was created for a different end user, or
+        was removed by the consumer-organization binding. A block that would fail
+        several checks reports one reason, in this order of precedence:
+        `organization_binding_mismatch`, `end_user_binding_mismatch`,
+        `model_binding_mismatch`, `prefix_binding_mismatch`.
 
-      - `"prefix_binding_mismatch"`
+        - `"model_binding_mismatch"`
 
-      - `"organization_binding_mismatch"`
+        - `"prefix_binding_mismatch"`
 
-      - `"end_user_binding_mismatch"`
+        - `"organization_binding_mismatch"`
+
+        - `"end_user_binding_mismatch"`
+
+    - `beta_thinking_mismatch_allowed_input_transformation: object`
+
+      - `type: "thinking_mismatch_allowed"`
+
+        Always `thinking_mismatch_allowed` for this entry type.
+
+      - `path: string`
+
+        Where the block is in your request, as `messages.{i}.content.{j}`:
+        `i` indexes the `messages` array you sent and `j` that message's `content`
+        array — the same form error messages use.
+
+      - `reason: "model_binding_mismatch" or "prefix_binding_mismatch" or "organization_binding_mismatch" or "end_user_binding_mismatch"`
+
+        Which binding check the block failed; the block was shown to the model all
+        the same. Always `prefix_binding_mismatch` today — the conversation before
+        the block differs from the conversation it was created in, or the block
+        carries no record of one on a model that requires it. Were the check
+        enforced for this request, the block would have been removed or the request
+        rejected (`thinking.block_binding.prefix_mismatch_behavior`). A removal also
+        takes the rest of that turn's consecutive thinking blocks, whereas here each
+        block is checked on its own, so `thinking_mismatch_allowed` entries are a
+        lower bound on what enforcement would remove.
+
+        - `"model_binding_mismatch"`
+
+        - `"prefix_binding_mismatch"`
+
+        - `"organization_binding_mismatch"`
+
+        - `"end_user_binding_mismatch"`
 
 - `beta_raw_message_stream_event: BetaRawMessageStartEvent or BetaRawMessageDeltaEvent or BetaRawMessageStopEvent or 3 more`
 
@@ -3140,10 +5851,10 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `diagnostics: object`
 
-        Response envelope for request-level diagnostics. Present (possibly
-        null) whenever the caller supplied `diagnostics` on the request.
+        Request-level diagnostics: why the prompt cache could not fully reuse
+        the prefix of the request named by `diagnostics.previous_message_id`.
 
-      - `model: "claude-fable-5-1" or "claude-mythos-5-1" or "claude-sonnet-5" or 14 more or string`
+      - `model: "claude-fable-5-1" or "claude-opus-5-5" or "claude-mythos-5-1" or 15 more or string`
 
         The model that will complete your prompt.
 
@@ -3193,23 +5904,29 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         Total input tokens in a request is the summation of `input_tokens`, `cache_creation_input_tokens`, and `cache_read_input_tokens`.
 
-      - `input_transformations: optional array of BetaThinkingDroppedInputTransformation`
+      - `input_transformations: optional array of BetaInputTransformation`
 
-        Changes the API made to the request's input before showing it to the model:
-        one entry per change, in request order. Today the only entry type is
-        `thinking_dropped` — a `thinking`, `redacted_thinking` or `connector_text`
-        block from the request's `messages` that was removed from the prompt instead
-        of being shown to the model because it failed a binding check. More entry
-        types may be added over time; ignore types you do not recognize.
+        Changes the API made to the request's input before showing it to the model,
+        and blocks that failed a binding check but were left unchanged: one entry per
+        block, in request order. Two entry types today. `thinking_dropped` — a
+        `thinking`, `redacted_thinking` or `connector_text` block from the request's
+        `messages` that was removed from the prompt instead of being shown to the
+        model because it failed a binding check. `thinking_mismatch_allowed` — a
+        `thinking` or `redacted_thinking` block that failed the conversation check
+        (the conversation before it differs from the one it was created in, or it
+        carries no record of one on a model that requires it) and was shown to the
+        model all the same, because that check is not enforced for this request.
+        More entry types may be added over time; ignore types you do not recognize.
 
         Requires `anthropic-beta: thinking-binding-controls-2026-08-01`. Present on
         every such response from a model that supports extended thinking, as `[]`
-        when nothing was changed; without the beta, blocks are removed all the same
-        but nothing is reported. Removed blocks contribute nothing to
-        `usage.input_tokens`. When streaming, the array is final in `message_start`;
-        the final `message_delta` event carries it only when a server-side model
-        fallback happened mid-stream, in which case it holds the serving model's
-        entries and replaces the one in `message_start`.
+        when there is no entry to report; without the beta, blocks are removed or
+        left in place all the same but nothing is reported. Removed blocks contribute
+        nothing to `usage.input_tokens`; blocks left in place count as sent. When
+        streaming, the array is final in `message_start`; the final `message_delta`
+        event carries it only when a server-side model fallback happened mid-stream,
+        in which case it holds the serving model's entries and replaces the one in
+        `message_start`.
 
   - `beta_raw_message_delta_event: object`
 
@@ -3399,10 +6116,12 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           Token usage for the fallback-model attempt of a server-side fallback request.
 
-          Produced in place of a `message` entry for whichever hop served the
-          response. A declined hop produces the existing `message` entry. Whether
-          a fallback model served the response is signalled by the presence of this
-          entry in `usage.iterations`.
+          The terminal entry of a fallback-served turn: when a fallback hop's
+          output is the returned message, the entry for the iteration that
+          completed it carries this type in place of `message`. A declined hop
+          and the serving hop's earlier tool-loop iterations produce `message`
+          entries. Whether a fallback model served the response is signalled by
+          the presence of this entry in `usage.iterations`.
 
       - `output_tokens: number`
 
@@ -3446,49 +6165,33 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           minimum: 0
 
-    - `input_transformations: optional array of BetaThinkingDroppedInputTransformation`
+    - `input_transformations: optional array of BetaInputTransformation`
 
-      Changes the API made to the request's input before showing it to the model:
-      one entry per change, in request order. Today the only entry type is
-      `thinking_dropped` — a `thinking`, `redacted_thinking` or `connector_text`
-      block from the request's `messages` that was removed from the prompt instead
-      of being shown to the model because it failed a binding check. More entry
-      types may be added over time; ignore types you do not recognize.
+      Changes the API made to the request's input before showing it to the model,
+      and blocks that failed a binding check but were left unchanged: one entry per
+      block, in request order. Two entry types today. `thinking_dropped` — a
+      `thinking`, `redacted_thinking` or `connector_text` block from the request's
+      `messages` that was removed from the prompt instead of being shown to the
+      model because it failed a binding check. `thinking_mismatch_allowed` — a
+      `thinking` or `redacted_thinking` block that failed the conversation check
+      (the conversation before it differs from the one it was created in, or it
+      carries no record of one on a model that requires it) and was shown to the
+      model all the same, because that check is not enforced for this request.
+      More entry types may be added over time; ignore types you do not recognize.
 
       Requires `anthropic-beta: thinking-binding-controls-2026-08-01`. Present on
       every such response from a model that supports extended thinking, as `[]`
-      when nothing was changed; without the beta, blocks are removed all the same
-      but nothing is reported. Removed blocks contribute nothing to
-      `usage.input_tokens`. When streaming, the array is final in `message_start`;
-      the final `message_delta` event carries it only when a server-side model
-      fallback happened mid-stream, in which case it holds the serving model's
-      entries and replaces the one in `message_start`.
+      when there is no entry to report; without the beta, blocks are removed or
+      left in place all the same but nothing is reported. Removed blocks contribute
+      nothing to `usage.input_tokens`; blocks left in place count as sent. When
+      streaming, the array is final in `message_start`; the final `message_delta`
+      event carries it only when a server-side model fallback happened mid-stream,
+      in which case it holds the serving model's entries and replaces the one in
+      `message_start`.
 
-      - `type: "thinking_dropped"`
+      - `beta_thinking_dropped_input_transformation: object`
 
-        Always `thinking_dropped` for this entry type.
-
-      - `path: string`
-
-        Where the removed block was in your request, as `messages.{i}.content.{j}`:
-        `i` indexes the `messages` array you sent and `j` that message's `content`
-        array — the same form error messages use.
-
-      - `reason: "model_binding_mismatch" or "prefix_binding_mismatch" or "organization_binding_mismatch" or "end_user_binding_mismatch"`
-
-        Which binding check removed the block: `model_binding_mismatch` — it was
-        created by a model whose reasoning the requested model may not read;
-        `prefix_binding_mismatch` — the conversation before it differs from the
-        conversation it was created in (the rest of that turn's consecutive thinking
-        blocks are removed with it, each with this reason);
-        `organization_binding_mismatch` — it was created under a different
-        organization (an Anthropic organization, AWS account or Google Cloud project)
-        and this organization is not one of its additional organizations;
-        `end_user_binding_mismatch` — it was created for a different end user, or
-        was removed by the consumer-organization binding. A block that would fail
-        several checks reports one reason, in this order of precedence:
-        `organization_binding_mismatch`, `end_user_binding_mismatch`,
-        `model_binding_mismatch`, `prefix_binding_mismatch`.
+      - `beta_thinking_mismatch_allowed_input_transformation: object`
 
   - `beta_raw_message_stop_event: object`
 
@@ -3498,7 +6201,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `type: "content_block_start"`
 
-    - `content_block: BetaTextBlock or BetaThinkingBlock or BetaRedactedThinkingBlock or 14 more`
+    - `content_block: BetaTextBlock or BetaThinkingBlock or BetaRedactedThinkingBlock or 15 more`
 
       - `beta_text_block: object`
 
@@ -3708,6 +6411,14 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           Opaque metadata from prior compaction, to be round-tripped verbatim
 
+        - `signature: optional string`
+
+          Signature over the summary, to be sent back with the block verbatim
+
+        - `tool_changes: optional array of BetaResponseToolAdditionBlock or BetaResponseToolRemovalBlock`
+
+          The tool changes of the compacted range: the `tool_addition` and `tool_removal` blocks that take the request's `tools` to the tool set in effect at the end of the range, or `[]` when the range changed no tool. Absent when the server did not compute them. Send the block back unchanged.
+
       - `beta_fallback_block: object`
 
         Marks the point in `content` where one model's output gives way to the next.
@@ -3735,6 +6446,19 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         - `trigger: object`
 
           What caused the `from` model to hand over at this hop.
+
+      - `beta_mcp_tool_listing_block: object`
+
+        The tool listing the server fetched from an MCP server while producing
+        this response. Send the assistant message back unchanged, this block
+        included, so later requests use this listing instead of asking the MCP
+        server again.
+
+        - `type: "mcp_tool_listing"`
+
+        - `mcp_server_name: string`
+
+        - `tools: array of BetaMCPTool`
 
     - `index: number`
 
@@ -4103,7 +6827,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
   There is a limit of 100,000 messages in a single request.
 
-- `--model: "claude-fable-5-1" or "claude-mythos-5-1" or "claude-sonnet-5" or 14 more or string`
+- `--model: "claude-fable-5-1" or "claude-opus-5-5" or "claude-mythos-5-1" or 15 more or string`
 
   Body param: The model that will complete your prompt.
 
@@ -4112,6 +6836,17 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 - `--cache-control: optional object`
 
   Body param: Top-level cache control automatically applies a cache_control marker to the last cacheable block in the request.
+
+- `--compaction: optional object`
+
+  Body param: Compact the whole conversation and return a signed `compaction` block,
+  alone, that a later request sends back first in `messages`, in place of
+  the messages it summarizes. There is no trigger and no pause flag: sending
+  the parameter compacts, and nothing is sampled after the block.
+
+  The summarization prompt is the server's own unless `instructions` are
+  given, which then replace it for this request; a value that is empty or
+  only whitespace counts as absent.
 
 - `--context-management: optional object`
 
@@ -5847,6 +8582,2577 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               Opaque metadata from prior compaction, to be round-tripped verbatim
 
+            - `signature: optional string`
+
+              Signature over the summary, to be sent back with the block verbatim
+
+            - `tool_changes: optional array of BetaResponseToolAdditionBlock or BetaResponseToolRemovalBlock`
+
+              The tool changes of the compacted range: the `tool_addition` and `tool_removal` blocks that take the request's `tools` to the tool set in effect at the end of the range, or `[]` when the range changed no tool. Absent when the server did not compute them. Send the block back unchanged.
+
+              - `beta_response_tool_addition_block: object`
+
+                An entry of a `compaction` block's `tool_changes`: a tool the
+                compacted range made available, as a reference to a `tools` entry or
+                MCP toolset, or as the tool definition in effect at the end of the
+                range, by value. Send it back unchanged.
+
+                - `type: "tool_addition"`
+
+                - `tool: BetaResponseToolChangeToolReference or BetaResponseToolChangeMCPToolReference or BetaResponseToolChangeMCPToolsetReference or BetaToolChangeToolDefinition`
+
+                  The tool made available: a reference to a `tools` entry or MCP toolset, or a `tool_definition` carrying the definition by value.
+
+                  - `beta_response_tool_change_tool_reference: object`
+
+                    Reference to a single tool, by the name the model uses to call it, as
+                    a `compaction` block's `tool_changes` entry reports it: a tool
+                    declared in `tools` or defined by an earlier `tool_addition` block.
+                    Send it back unchanged with the block.
+
+                    - `type: "tool_reference"`
+
+                    - `name: string`
+
+                  - `beta_response_tool_change_mcp_tool_reference: object`
+
+                    Reference to a single MCP tool, by its server and its name on that
+                    server, as a `compaction` block's `tool_changes` entry reports it.
+                    Send it back unchanged with the block.
+
+                    - `type: "mcp_tool_reference"`
+
+                    - `name: string`
+
+                    - `server_name: string`
+
+                  - `beta_response_tool_change_mcp_toolset_reference: object`
+
+                    Reference to every tool in the named MCP server's toolset, as a
+                    `compaction` block's `tool_changes` entry reports it. Send it back
+                    unchanged with the block.
+
+                    - `type: "mcp_toolset_reference"`
+
+                    - `server_name: string`
+
+                  - `beta_tool_change_tool_definition: object`
+
+                    A tool defined by value, as a `compaction` block's `tool_changes` entry
+                    reports it: `definition` is the tool's definition as it was sent, in the
+                    form of a `tools` entry, without `cache_control`. Send it back unchanged
+                    with the block.
+
+                    - `type: "tool_definition"`
+
+                    - `definition: BetaResponseTool or BetaToolBash20241022 or BetaToolBash20250124 or 25 more`
+
+                      - `beta_response_tool: object`
+
+                        A custom tool definition, as sent.
+
+                        - `type: optional "custom"`
+
+                        - `input_schema: object`
+
+                          [JSON schema](https://json-schema.org/draft/2020-12) for this tool's input.
+
+                          This defines the shape of the `input` that your tool accepts and that the model will produce.
+
+                          - `type: "object"`
+
+                          - `properties: optional map[unknown]`
+
+                          - `required: optional array of string`
+
+                        - `name: string`
+
+                          Name of the tool.
+
+                          This is how the tool will be called by the model and in `tool_use` blocks.
+
+                          maxLength: 128, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,128}$
+
+                        - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+                          - `"direct"`
+
+                          - `"code_execution_20250825"`
+
+                          - `"code_execution_20260120"`
+
+                          - `"code_execution_20260521"`
+
+                        - `defer_loading: optional boolean`
+
+                          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                        - `description: optional string`
+
+                          Description of what this tool does.
+
+                          Tool descriptions should be as detailed as possible. The more information that the model has about what the tool is and how to use it, the better it will perform. You can use natural language descriptions to reinforce important aspects of the tool input JSON schema.
+
+                        - `eager_input_streaming: optional boolean`
+
+                          Enable eager input streaming for this tool. When true, tool input parameters will be streamed incrementally as they are generated, and types will be inferred on-the-fly rather than buffering the full JSON output. When false, streaming is disabled for this tool even if the fine-grained-tool-streaming beta is active. When null (default), uses the default behavior based on beta headers.
+
+                        - `input_examples: optional array of map[unknown]`
+
+                        - `strict: optional boolean`
+
+                          When true, guarantees schema validation on tool names and inputs
+
+                      - `beta_tool_bash_20241022: object`
+
+                        - `type: "bash_20241022"`
+
+                        - `name: "bash"`
+
+                          Name of the tool.
+
+                          This is how the tool will be called by the model and in `tool_use` blocks.
+
+                        - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+                          - `"direct"`
+
+                          - `"code_execution_20250825"`
+
+                          - `"code_execution_20260120"`
+
+                          - `"code_execution_20260521"`
+
+                        - `cache_control: optional object`
+
+                          Create a cache control breakpoint at this content block.
+
+                          - `type: "ephemeral"`
+
+                          - `ttl: optional "5m" or "1h"`
+
+                            The time-to-live for the cache control breakpoint.
+
+                            This may be one the following values:
+
+                            - `5m`: 5 minutes
+                            - `1h`: 1 hour
+
+                            Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+                            - `"5m"`
+
+                            - `"1h"`
+
+                        - `defer_loading: optional boolean`
+
+                          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                        - `input_examples: optional array of map[unknown]`
+
+                        - `strict: optional boolean`
+
+                          When true, guarantees schema validation on tool names and inputs
+
+                      - `beta_tool_bash_20250124: object`
+
+                        - `type: "bash_20250124"`
+
+                        - `name: "bash"`
+
+                          Name of the tool.
+
+                          This is how the tool will be called by the model and in `tool_use` blocks.
+
+                        - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+                          - `"direct"`
+
+                          - `"code_execution_20250825"`
+
+                          - `"code_execution_20260120"`
+
+                          - `"code_execution_20260521"`
+
+                        - `cache_control: optional object`
+
+                          Create a cache control breakpoint at this content block.
+
+                          - `type: "ephemeral"`
+
+                          - `ttl: optional "5m" or "1h"`
+
+                            The time-to-live for the cache control breakpoint.
+
+                            This may be one the following values:
+
+                            - `5m`: 5 minutes
+                            - `1h`: 1 hour
+
+                            Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+                        - `defer_loading: optional boolean`
+
+                          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                        - `input_examples: optional array of map[unknown]`
+
+                        - `strict: optional boolean`
+
+                          When true, guarantees schema validation on tool names and inputs
+
+                      - `beta_code_execution_tool_20250522: object`
+
+                        - `type: "code_execution_20250522"`
+
+                        - `name: "code_execution"`
+
+                          Name of the tool.
+
+                          This is how the tool will be called by the model and in `tool_use` blocks.
+
+                        - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+                          - `"direct"`
+
+                          - `"code_execution_20250825"`
+
+                          - `"code_execution_20260120"`
+
+                          - `"code_execution_20260521"`
+
+                        - `cache_control: optional object`
+
+                          Create a cache control breakpoint at this content block.
+
+                          - `type: "ephemeral"`
+
+                          - `ttl: optional "5m" or "1h"`
+
+                            The time-to-live for the cache control breakpoint.
+
+                            This may be one the following values:
+
+                            - `5m`: 5 minutes
+                            - `1h`: 1 hour
+
+                            Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+                        - `defer_loading: optional boolean`
+
+                          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                        - `strict: optional boolean`
+
+                          When true, guarantees schema validation on tool names and inputs
+
+                      - `beta_code_execution_tool_20250825: object`
+
+                        - `type: "code_execution_20250825"`
+
+                        - `name: "code_execution"`
+
+                          Name of the tool.
+
+                          This is how the tool will be called by the model and in `tool_use` blocks.
+
+                        - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+                          - `"direct"`
+
+                          - `"code_execution_20250825"`
+
+                          - `"code_execution_20260120"`
+
+                          - `"code_execution_20260521"`
+
+                        - `cache_control: optional object`
+
+                          Create a cache control breakpoint at this content block.
+
+                          - `type: "ephemeral"`
+
+                          - `ttl: optional "5m" or "1h"`
+
+                            The time-to-live for the cache control breakpoint.
+
+                            This may be one the following values:
+
+                            - `5m`: 5 minutes
+                            - `1h`: 1 hour
+
+                            Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+                        - `defer_loading: optional boolean`
+
+                          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                        - `strict: optional boolean`
+
+                          When true, guarantees schema validation on tool names and inputs
+
+                      - `beta_code_execution_tool_20260120: object`
+
+                        Code execution tool with REPL state persistence (daemon mode + gVisor checkpoint).
+
+                        - `type: "code_execution_20260120"`
+
+                        - `name: "code_execution"`
+
+                          Name of the tool.
+
+                          This is how the tool will be called by the model and in `tool_use` blocks.
+
+                        - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+                          - `"direct"`
+
+                          - `"code_execution_20250825"`
+
+                          - `"code_execution_20260120"`
+
+                          - `"code_execution_20260521"`
+
+                        - `cache_control: optional object`
+
+                          Create a cache control breakpoint at this content block.
+
+                          - `type: "ephemeral"`
+
+                          - `ttl: optional "5m" or "1h"`
+
+                            The time-to-live for the cache control breakpoint.
+
+                            This may be one the following values:
+
+                            - `5m`: 5 minutes
+                            - `1h`: 1 hour
+
+                            Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+                        - `defer_loading: optional boolean`
+
+                          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                        - `strict: optional boolean`
+
+                          When true, guarantees schema validation on tool names and inputs
+
+                      - `beta_code_execution_tool_20260521: object`
+
+                        Code execution tool with REPL state persistence.
+
+                        - `type: "code_execution_20260521"`
+
+                        - `name: "code_execution"`
+
+                          Name of the tool.
+
+                          This is how the tool will be called by the model and in `tool_use` blocks.
+
+                        - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+                          - `"direct"`
+
+                          - `"code_execution_20250825"`
+
+                          - `"code_execution_20260120"`
+
+                          - `"code_execution_20260521"`
+
+                        - `cache_control: optional object`
+
+                          Create a cache control breakpoint at this content block.
+
+                          - `type: "ephemeral"`
+
+                          - `ttl: optional "5m" or "1h"`
+
+                            The time-to-live for the cache control breakpoint.
+
+                            This may be one the following values:
+
+                            - `5m`: 5 minutes
+                            - `1h`: 1 hour
+
+                            Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+                        - `defer_loading: optional boolean`
+
+                          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                        - `strict: optional boolean`
+
+                          When true, guarantees schema validation on tool names and inputs
+
+                      - `beta_browser_toolset_20260801: object`
+
+                        The browser toolset: a single `tools[]` entry (carrying no
+                        `name`) that declares the browser tool family. The model is served
+                        the family's tool with any members disabled via `configs` removed
+                        from its schema.
+
+                        - `type: "browser_toolset_20260801"`
+
+                        - `cache_control: optional object`
+
+                          Create a cache control breakpoint at this content block.
+
+                          - `type: "ephemeral"`
+
+                          - `ttl: optional "5m" or "1h"`
+
+                            The time-to-live for the cache control breakpoint.
+
+                            This may be one the following values:
+
+                            - `5m`: 5 minutes
+                            - `1h`: 1 hour
+
+                            Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+                        - `configs: optional object`
+
+                          Per-member configuration for `browser_toolset_20260801`: one
+                          optional field per member tool, keyed by the member name — the same
+                          name the member's `tool_use` blocks carry. Every member is an
+                          accepted key, and a member's defaults apply wherever its key is
+                          absent. Unknown keys are rejected: the field set is this toolset
+                          version's complete member set.
+
+                          - `type: optional object`
+
+                            `type`'s config overrides.
+
+                            - `defer_loading: optional boolean`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: optional boolean`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `close_tab: optional object`
+
+                            `close_tab`'s config overrides.
+
+                            - `defer_loading: optional boolean`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: optional boolean`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `double_click: optional object`
+
+                            `double_click`'s config overrides.
+
+                            - `defer_loading: optional boolean`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: optional boolean`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `file_upload: optional object`
+
+                            `file_upload`'s config overrides.
+
+                            - `defer_loading: optional boolean`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: optional boolean`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `find: optional object`
+
+                            `find`'s config overrides.
+
+                            - `defer_loading: optional boolean`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: optional boolean`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `form_input: optional object`
+
+                            `form_input`'s config overrides.
+
+                            - `defer_loading: optional boolean`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: optional boolean`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `get_page_text: optional object`
+
+                            `get_page_text`'s config overrides.
+
+                            - `defer_loading: optional boolean`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: optional boolean`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `hold_key: optional object`
+
+                            `hold_key`'s config overrides.
+
+                            - `defer_loading: optional boolean`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: optional boolean`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `hover: optional object`
+
+                            `hover`'s config overrides.
+
+                            - `defer_loading: optional boolean`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: optional boolean`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `javascript_exec: optional object`
+
+                            `javascript_exec`'s config overrides.
+
+                            - `defer_loading: optional boolean`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: optional boolean`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `key: optional object`
+
+                            `key`'s config overrides.
+
+                            - `defer_loading: optional boolean`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: optional boolean`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `left_click: optional object`
+
+                            `left_click`'s config overrides.
+
+                            - `defer_loading: optional boolean`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: optional boolean`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `left_click_drag: optional object`
+
+                            `left_click_drag`'s config overrides.
+
+                            - `defer_loading: optional boolean`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: optional boolean`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `left_mouse_down: optional object`
+
+                            `left_mouse_down`'s config overrides.
+
+                            - `defer_loading: optional boolean`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: optional boolean`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `left_mouse_up: optional object`
+
+                            `left_mouse_up`'s config overrides.
+
+                            - `defer_loading: optional boolean`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: optional boolean`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `list_tabs: optional object`
+
+                            `list_tabs`'s config overrides.
+
+                            - `defer_loading: optional boolean`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: optional boolean`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `middle_click: optional object`
+
+                            `middle_click`'s config overrides.
+
+                            - `defer_loading: optional boolean`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: optional boolean`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `mouse_move: optional object`
+
+                            `mouse_move`'s config overrides.
+
+                            - `defer_loading: optional boolean`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: optional boolean`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `navigate: optional object`
+
+                            `navigate`'s config overrides.
+
+                            - `defer_loading: optional boolean`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: optional boolean`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `new_tab: optional object`
+
+                            `new_tab`'s config overrides.
+
+                            - `defer_loading: optional boolean`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: optional boolean`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `read_console: optional object`
+
+                            `read_console`'s config overrides.
+
+                            - `defer_loading: optional boolean`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: optional boolean`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `read_network: optional object`
+
+                            `read_network`'s config overrides.
+
+                            - `defer_loading: optional boolean`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: optional boolean`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `read_page: optional object`
+
+                            `read_page`'s config overrides.
+
+                            - `defer_loading: optional boolean`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: optional boolean`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `right_click: optional object`
+
+                            `right_click`'s config overrides.
+
+                            - `defer_loading: optional boolean`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: optional boolean`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `screenshot: optional object`
+
+                            `screenshot`'s config overrides.
+
+                            - `defer_loading: optional boolean`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: optional boolean`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `scroll: optional object`
+
+                            `scroll`'s config overrides.
+
+                            - `defer_loading: optional boolean`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: optional boolean`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `scroll_to: optional object`
+
+                            `scroll_to`'s config overrides.
+
+                            - `defer_loading: optional boolean`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: optional boolean`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `switch_tab: optional object`
+
+                            `switch_tab`'s config overrides.
+
+                            - `defer_loading: optional boolean`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: optional boolean`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `triple_click: optional object`
+
+                            `triple_click`'s config overrides.
+
+                            - `defer_loading: optional boolean`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: optional boolean`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `wait: optional object`
+
+                            `wait`'s config overrides.
+
+                            - `defer_loading: optional boolean`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: optional boolean`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `zoom: optional object`
+
+                            `zoom`'s config overrides.
+
+                            - `defer_loading: optional boolean`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: optional boolean`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                      - `beta_tool_computer_use_20241022: object`
+
+                        - `type: "computer_20241022"`
+
+                        - `display_height_px: number`
+
+                          The height of the display in pixels.
+
+                          minimum: 1
+
+                        - `display_width_px: number`
+
+                          The width of the display in pixels.
+
+                          minimum: 1
+
+                        - `name: "computer"`
+
+                          Name of the tool.
+
+                          This is how the tool will be called by the model and in `tool_use` blocks.
+
+                        - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+                          - `"direct"`
+
+                          - `"code_execution_20250825"`
+
+                          - `"code_execution_20260120"`
+
+                          - `"code_execution_20260521"`
+
+                        - `cache_control: optional object`
+
+                          Create a cache control breakpoint at this content block.
+
+                          - `type: "ephemeral"`
+
+                          - `ttl: optional "5m" or "1h"`
+
+                            The time-to-live for the cache control breakpoint.
+
+                            This may be one the following values:
+
+                            - `5m`: 5 minutes
+                            - `1h`: 1 hour
+
+                            Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+                        - `defer_loading: optional boolean`
+
+                          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                        - `display_number: optional number`
+
+                          The X11 display number (e.g. 0, 1) for the display.
+
+                          minimum: 0
+
+                        - `input_examples: optional array of map[unknown]`
+
+                        - `strict: optional boolean`
+
+                          When true, guarantees schema validation on tool names and inputs
+
+                      - `beta_memory_tool_20250818: object`
+
+                        - `type: "memory_20250818"`
+
+                        - `name: "memory"`
+
+                          Name of the tool.
+
+                          This is how the tool will be called by the model and in `tool_use` blocks.
+
+                        - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+                          - `"direct"`
+
+                          - `"code_execution_20250825"`
+
+                          - `"code_execution_20260120"`
+
+                          - `"code_execution_20260521"`
+
+                        - `cache_control: optional object`
+
+                          Create a cache control breakpoint at this content block.
+
+                          - `type: "ephemeral"`
+
+                          - `ttl: optional "5m" or "1h"`
+
+                            The time-to-live for the cache control breakpoint.
+
+                            This may be one the following values:
+
+                            - `5m`: 5 minutes
+                            - `1h`: 1 hour
+
+                            Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+                        - `defer_loading: optional boolean`
+
+                          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                        - `input_examples: optional array of map[unknown]`
+
+                        - `strict: optional boolean`
+
+                          When true, guarantees schema validation on tool names and inputs
+
+                      - `beta_tool_computer_use_20250124: object`
+
+                        - `type: "computer_20250124"`
+
+                        - `display_height_px: number`
+
+                          The height of the display in pixels.
+
+                          minimum: 1
+
+                        - `display_width_px: number`
+
+                          The width of the display in pixels.
+
+                          minimum: 1
+
+                        - `name: "computer"`
+
+                          Name of the tool.
+
+                          This is how the tool will be called by the model and in `tool_use` blocks.
+
+                        - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+                          - `"direct"`
+
+                          - `"code_execution_20250825"`
+
+                          - `"code_execution_20260120"`
+
+                          - `"code_execution_20260521"`
+
+                        - `cache_control: optional object`
+
+                          Create a cache control breakpoint at this content block.
+
+                          - `type: "ephemeral"`
+
+                          - `ttl: optional "5m" or "1h"`
+
+                            The time-to-live for the cache control breakpoint.
+
+                            This may be one the following values:
+
+                            - `5m`: 5 minutes
+                            - `1h`: 1 hour
+
+                            Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+                        - `defer_loading: optional boolean`
+
+                          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                        - `display_number: optional number`
+
+                          The X11 display number (e.g. 0, 1) for the display.
+
+                          minimum: 0
+
+                        - `input_examples: optional array of map[unknown]`
+
+                        - `strict: optional boolean`
+
+                          When true, guarantees schema validation on tool names and inputs
+
+                      - `beta_tool_text_editor_20241022: object`
+
+                        - `type: "text_editor_20241022"`
+
+                        - `name: "str_replace_editor"`
+
+                          Name of the tool.
+
+                          This is how the tool will be called by the model and in `tool_use` blocks.
+
+                        - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+                          - `"direct"`
+
+                          - `"code_execution_20250825"`
+
+                          - `"code_execution_20260120"`
+
+                          - `"code_execution_20260521"`
+
+                        - `cache_control: optional object`
+
+                          Create a cache control breakpoint at this content block.
+
+                          - `type: "ephemeral"`
+
+                          - `ttl: optional "5m" or "1h"`
+
+                            The time-to-live for the cache control breakpoint.
+
+                            This may be one the following values:
+
+                            - `5m`: 5 minutes
+                            - `1h`: 1 hour
+
+                            Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+                        - `defer_loading: optional boolean`
+
+                          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                        - `input_examples: optional array of map[unknown]`
+
+                        - `strict: optional boolean`
+
+                          When true, guarantees schema validation on tool names and inputs
+
+                      - `beta_tool_computer_use_20251124: object`
+
+                        - `type: "computer_20251124"`
+
+                        - `display_height_px: number`
+
+                          The height of the display in pixels.
+
+                          minimum: 1
+
+                        - `display_width_px: number`
+
+                          The width of the display in pixels.
+
+                          minimum: 1
+
+                        - `name: "computer"`
+
+                          Name of the tool.
+
+                          This is how the tool will be called by the model and in `tool_use` blocks.
+
+                        - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+                          - `"direct"`
+
+                          - `"code_execution_20250825"`
+
+                          - `"code_execution_20260120"`
+
+                          - `"code_execution_20260521"`
+
+                        - `cache_control: optional object`
+
+                          Create a cache control breakpoint at this content block.
+
+                          - `type: "ephemeral"`
+
+                          - `ttl: optional "5m" or "1h"`
+
+                            The time-to-live for the cache control breakpoint.
+
+                            This may be one the following values:
+
+                            - `5m`: 5 minutes
+                            - `1h`: 1 hour
+
+                            Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+                        - `defer_loading: optional boolean`
+
+                          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                        - `display_number: optional number`
+
+                          The X11 display number (e.g. 0, 1) for the display.
+
+                          minimum: 0
+
+                        - `enable_zoom: optional boolean`
+
+                          Whether to enable an action to take a zoomed-in screenshot of the screen.
+
+                        - `input_examples: optional array of map[unknown]`
+
+                        - `strict: optional boolean`
+
+                          When true, guarantees schema validation on tool names and inputs
+
+                      - `beta_computer_toolset_20260801: object`
+
+                        The computer toolset: a single `tools[]` entry (carrying no
+                        `name`) that declares the computer tool family. The model is
+                        served the family's tool with any members disabled via `configs`
+                        removed from its schema. Every member is enabled by default, zoom
+                        included. The single-tool options `display_number` and
+                        `enable_zoom` are not fields of a toolset entry — it carries only
+                        `type`, `configs`, and `cache_control`; zoom is controlled
+                        via `configs.zoom.enabled`.
+
+                        - `type: "computer_toolset_20260801"`
+
+                        - `cache_control: optional object`
+
+                          Create a cache control breakpoint at this content block.
+
+                          - `type: "ephemeral"`
+
+                          - `ttl: optional "5m" or "1h"`
+
+                            The time-to-live for the cache control breakpoint.
+
+                            This may be one the following values:
+
+                            - `5m`: 5 minutes
+                            - `1h`: 1 hour
+
+                            Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+                        - `configs: optional object`
+
+                          Per-member configuration for `computer_toolset_20260801`: one
+                          optional field per member tool, keyed by the member name — the same
+                          name the member's `tool_use` blocks carry. Every member is an
+                          accepted key, and a member's defaults apply wherever its key is
+                          absent. Unknown keys are rejected: the field set is this toolset
+                          version's complete member set.
+
+                          - `type: optional object`
+
+                            `type`'s config overrides.
+
+                            - `defer_loading: optional boolean`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: optional boolean`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `cursor_position: optional object`
+
+                            `cursor_position`'s config overrides.
+
+                            - `defer_loading: optional boolean`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: optional boolean`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `double_click: optional object`
+
+                            `double_click`'s config overrides.
+
+                            - `defer_loading: optional boolean`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: optional boolean`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `hold_key: optional object`
+
+                            `hold_key`'s config overrides.
+
+                            - `defer_loading: optional boolean`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: optional boolean`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `key: optional object`
+
+                            `key`'s config overrides.
+
+                            - `defer_loading: optional boolean`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: optional boolean`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `left_click: optional object`
+
+                            `left_click`'s config overrides.
+
+                            - `defer_loading: optional boolean`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: optional boolean`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `left_click_drag: optional object`
+
+                            `left_click_drag`'s config overrides.
+
+                            - `defer_loading: optional boolean`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: optional boolean`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `left_mouse_down: optional object`
+
+                            `left_mouse_down`'s config overrides.
+
+                            - `defer_loading: optional boolean`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: optional boolean`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `left_mouse_up: optional object`
+
+                            `left_mouse_up`'s config overrides.
+
+                            - `defer_loading: optional boolean`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: optional boolean`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `middle_click: optional object`
+
+                            `middle_click`'s config overrides.
+
+                            - `defer_loading: optional boolean`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: optional boolean`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `mouse_move: optional object`
+
+                            `mouse_move`'s config overrides.
+
+                            - `defer_loading: optional boolean`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: optional boolean`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `right_click: optional object`
+
+                            `right_click`'s config overrides.
+
+                            - `defer_loading: optional boolean`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: optional boolean`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `screenshot: optional object`
+
+                            `screenshot`'s config overrides.
+
+                            - `defer_loading: optional boolean`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: optional boolean`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `scroll: optional object`
+
+                            `scroll`'s config overrides.
+
+                            - `defer_loading: optional boolean`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: optional boolean`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `triple_click: optional object`
+
+                            `triple_click`'s config overrides.
+
+                            - `defer_loading: optional boolean`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: optional boolean`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `wait: optional object`
+
+                            `wait`'s config overrides.
+
+                            - `defer_loading: optional boolean`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: optional boolean`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                          - `zoom: optional object`
+
+                            `zoom`'s config overrides.
+
+                            - `defer_loading: optional boolean`
+
+                              Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+                            - `enabled: optional boolean`
+
+                              Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+                      - `beta_tool_text_editor_20250124: object`
+
+                        - `type: "text_editor_20250124"`
+
+                        - `name: "str_replace_editor"`
+
+                          Name of the tool.
+
+                          This is how the tool will be called by the model and in `tool_use` blocks.
+
+                        - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+                          - `"direct"`
+
+                          - `"code_execution_20250825"`
+
+                          - `"code_execution_20260120"`
+
+                          - `"code_execution_20260521"`
+
+                        - `cache_control: optional object`
+
+                          Create a cache control breakpoint at this content block.
+
+                          - `type: "ephemeral"`
+
+                          - `ttl: optional "5m" or "1h"`
+
+                            The time-to-live for the cache control breakpoint.
+
+                            This may be one the following values:
+
+                            - `5m`: 5 minutes
+                            - `1h`: 1 hour
+
+                            Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+                        - `defer_loading: optional boolean`
+
+                          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                        - `input_examples: optional array of map[unknown]`
+
+                        - `strict: optional boolean`
+
+                          When true, guarantees schema validation on tool names and inputs
+
+                      - `beta_tool_text_editor_20250429: object`
+
+                        - `type: "text_editor_20250429"`
+
+                        - `name: "str_replace_based_edit_tool"`
+
+                          Name of the tool.
+
+                          This is how the tool will be called by the model and in `tool_use` blocks.
+
+                        - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+                          - `"direct"`
+
+                          - `"code_execution_20250825"`
+
+                          - `"code_execution_20260120"`
+
+                          - `"code_execution_20260521"`
+
+                        - `cache_control: optional object`
+
+                          Create a cache control breakpoint at this content block.
+
+                          - `type: "ephemeral"`
+
+                          - `ttl: optional "5m" or "1h"`
+
+                            The time-to-live for the cache control breakpoint.
+
+                            This may be one the following values:
+
+                            - `5m`: 5 minutes
+                            - `1h`: 1 hour
+
+                            Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+                        - `defer_loading: optional boolean`
+
+                          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                        - `input_examples: optional array of map[unknown]`
+
+                        - `strict: optional boolean`
+
+                          When true, guarantees schema validation on tool names and inputs
+
+                      - `beta_tool_text_editor_20250728: object`
+
+                        - `type: "text_editor_20250728"`
+
+                        - `name: "str_replace_based_edit_tool"`
+
+                          Name of the tool.
+
+                          This is how the tool will be called by the model and in `tool_use` blocks.
+
+                        - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+                          - `"direct"`
+
+                          - `"code_execution_20250825"`
+
+                          - `"code_execution_20260120"`
+
+                          - `"code_execution_20260521"`
+
+                        - `cache_control: optional object`
+
+                          Create a cache control breakpoint at this content block.
+
+                          - `type: "ephemeral"`
+
+                          - `ttl: optional "5m" or "1h"`
+
+                            The time-to-live for the cache control breakpoint.
+
+                            This may be one the following values:
+
+                            - `5m`: 5 minutes
+                            - `1h`: 1 hour
+
+                            Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+                        - `defer_loading: optional boolean`
+
+                          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                        - `input_examples: optional array of map[unknown]`
+
+                        - `max_characters: optional number`
+
+                          Maximum number of characters to display when viewing a file. If not specified, defaults to displaying the full file.
+
+                          minimum: 1
+
+                        - `strict: optional boolean`
+
+                          When true, guarantees schema validation on tool names and inputs
+
+                      - `beta_web_search_tool_20250305: object`
+
+                        - `type: "web_search_20250305"`
+
+                        - `name: "web_search"`
+
+                          Name of the tool.
+
+                          This is how the tool will be called by the model and in `tool_use` blocks.
+
+                        - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+                          - `"direct"`
+
+                          - `"code_execution_20250825"`
+
+                          - `"code_execution_20260120"`
+
+                          - `"code_execution_20260521"`
+
+                        - `allowed_domains: optional array of string`
+
+                          If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
+
+                        - `blocked_domains: optional array of string`
+
+                          If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
+
+                        - `cache_control: optional object`
+
+                          Create a cache control breakpoint at this content block.
+
+                          - `type: "ephemeral"`
+
+                          - `ttl: optional "5m" or "1h"`
+
+                            The time-to-live for the cache control breakpoint.
+
+                            This may be one the following values:
+
+                            - `5m`: 5 minutes
+                            - `1h`: 1 hour
+
+                            Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+                        - `defer_loading: optional boolean`
+
+                          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                        - `max_uses: optional number`
+
+                          Maximum number of times the tool can be used in the API request.
+
+                          exclusiveMinimum: 0
+
+                        - `strict: optional boolean`
+
+                          When true, guarantees schema validation on tool names and inputs
+
+                        - `user_location: optional object`
+
+                          Parameters for the user's location. Used to provide more relevant search results.
+
+                          - `type: "approximate"`
+
+                          - `city: optional string`
+
+                            The city of the user.
+
+                            maxLength: 255, minLength: 1
+
+                          - `country: optional string`
+
+                            The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
+
+                            maxLength: 2, minLength: 2
+
+                          - `region: optional string`
+
+                            The region of the user.
+
+                            maxLength: 255, minLength: 1
+
+                          - `timezone: optional string`
+
+                            The [IANA timezone](https://nodatime.org/TimeZones) of the user.
+
+                            maxLength: 255, minLength: 1
+
+                      - `beta_web_fetch_tool_20250910: object`
+
+                        - `type: "web_fetch_20250910"`
+
+                        - `name: "web_fetch"`
+
+                          Name of the tool.
+
+                          This is how the tool will be called by the model and in `tool_use` blocks.
+
+                        - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+                          - `"direct"`
+
+                          - `"code_execution_20250825"`
+
+                          - `"code_execution_20260120"`
+
+                          - `"code_execution_20260521"`
+
+                        - `allowed_domains: optional array of string`
+
+                          List of domains to allow fetching from
+
+                        - `blocked_domains: optional array of string`
+
+                          List of domains to block fetching from
+
+                        - `cache_control: optional object`
+
+                          Create a cache control breakpoint at this content block.
+
+                          - `type: "ephemeral"`
+
+                          - `ttl: optional "5m" or "1h"`
+
+                            The time-to-live for the cache control breakpoint.
+
+                            This may be one the following values:
+
+                            - `5m`: 5 minutes
+                            - `1h`: 1 hour
+
+                            Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+                        - `citations: optional object`
+
+                          Citations configuration for fetched documents. Citations are disabled by default.
+
+                          - `enabled: optional boolean`
+
+                        - `defer_loading: optional boolean`
+
+                          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                        - `max_content_tokens: optional number`
+
+                          Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
+
+                          exclusiveMinimum: 0
+
+                        - `max_uses: optional number`
+
+                          Maximum number of times the tool can be used in the API request.
+
+                          exclusiveMinimum: 0
+
+                        - `strict: optional boolean`
+
+                          When true, guarantees schema validation on tool names and inputs
+
+                        - `url_sources: optional object`
+
+                          Which sources contribute to the set of URLs web fetch may fetch.
+
+                          Each key is a tagged variant: `user_input` is `all` or `none`; the
+                          two tool filters are `all`, `none`, `only` (only the named tools'
+                          results) or `except` (every result but the named tools'). A named tool
+                          must be declared in this request's `tools[]`.
+
+                          - `client_tool_results: optional BetaWebFetchURLSourceAll or BetaWebFetchURLSourceNone or BetaWebFetchURLSourceOnly or BetaWebFetchURLSourceExcept`
+
+                            Which client tools' results contribute fetchable URLs: "all", "none", or an only or except list of client tool names from tools[].
+
+                            - `beta_web_fetch_url_source_all: object`
+
+                              The `url_sources` variant under which a source contributes in
+                              full: every result of the tool filter's source, or all user input.
+
+                              - `type: "all"`
+
+                            - `beta_web_fetch_url_source_none: object`
+
+                              The `url_sources` variant under which a source contributes nothing:
+                              no result of the tool filter's source, or no user input.
+
+                              - `type: "none"`
+
+                            - `beta_web_fetch_url_source_only: object`
+
+                              The tool filter variant under which only the named tools' results
+                              contribute.
+
+                              - `type: "only"`
+
+                              - `tools: array of BetaWebFetchURLSourceToolReference`
+
+                                - `type: "tool_reference"`
+
+                                - `name: string`
+
+                            - `beta_web_fetch_url_source_except: object`
+
+                              The tool filter variant under which every result but the named
+                              tools' contributes.
+
+                              - `type: "except"`
+
+                              - `tools: array of BetaWebFetchURLSourceToolReference`
+
+                                - `type: "tool_reference"`
+
+                                - `name: string`
+
+                          - `server_tool_results: optional BetaWebFetchURLSourceAll or BetaWebFetchURLSourceNone or BetaWebFetchURLSourceOnly or BetaWebFetchURLSourceExcept`
+
+                            Which server tools' results contribute fetchable URLs: "all", "none", or an only or except list of server tool names from tools[]; only web_search and web_fetch results ever contribute.
+
+                            - `beta_web_fetch_url_source_all: object`
+
+                              The `url_sources` variant under which a source contributes in
+                              full: every result of the tool filter's source, or all user input.
+
+                            - `beta_web_fetch_url_source_none: object`
+
+                              The `url_sources` variant under which a source contributes nothing:
+                              no result of the tool filter's source, or no user input.
+
+                            - `beta_web_fetch_url_source_only: object`
+
+                              The tool filter variant under which only the named tools' results
+                              contribute.
+
+                            - `beta_web_fetch_url_source_except: object`
+
+                              The tool filter variant under which every result but the named
+                              tools' contributes.
+
+                          - `user_input: optional BetaWebFetchURLSourceAll or BetaWebFetchURLSourceNone`
+
+                            Whether URLs in user messages are fetchable: "all" or "none".
+
+                            - `beta_web_fetch_url_source_all: object`
+
+                              The `url_sources` variant under which a source contributes in
+                              full: every result of the tool filter's source, or all user input.
+
+                            - `beta_web_fetch_url_source_none: object`
+
+                              The `url_sources` variant under which a source contributes nothing:
+                              no result of the tool filter's source, or no user input.
+
+                      - `beta_web_search_tool_20260209: object`
+
+                        - `type: "web_search_20260209"`
+
+                        - `name: "web_search"`
+
+                          Name of the tool.
+
+                          This is how the tool will be called by the model and in `tool_use` blocks.
+
+                        - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+                          - `"direct"`
+
+                          - `"code_execution_20250825"`
+
+                          - `"code_execution_20260120"`
+
+                          - `"code_execution_20260521"`
+
+                        - `allowed_domains: optional array of string`
+
+                          If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
+
+                        - `blocked_domains: optional array of string`
+
+                          If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
+
+                        - `cache_control: optional object`
+
+                          Create a cache control breakpoint at this content block.
+
+                          - `type: "ephemeral"`
+
+                          - `ttl: optional "5m" or "1h"`
+
+                            The time-to-live for the cache control breakpoint.
+
+                            This may be one the following values:
+
+                            - `5m`: 5 minutes
+                            - `1h`: 1 hour
+
+                            Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+                        - `defer_loading: optional boolean`
+
+                          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                        - `max_uses: optional number`
+
+                          Maximum number of times the tool can be used in the API request.
+
+                          exclusiveMinimum: 0
+
+                        - `strict: optional boolean`
+
+                          When true, guarantees schema validation on tool names and inputs
+
+                        - `user_location: optional object`
+
+                          Parameters for the user's location. Used to provide more relevant search results.
+
+                          - `type: "approximate"`
+
+                          - `city: optional string`
+
+                            The city of the user.
+
+                            maxLength: 255, minLength: 1
+
+                          - `country: optional string`
+
+                            The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
+
+                            maxLength: 2, minLength: 2
+
+                          - `region: optional string`
+
+                            The region of the user.
+
+                            maxLength: 255, minLength: 1
+
+                          - `timezone: optional string`
+
+                            The [IANA timezone](https://nodatime.org/TimeZones) of the user.
+
+                            maxLength: 255, minLength: 1
+
+                      - `beta_web_fetch_tool_20260209: object`
+
+                        - `type: "web_fetch_20260209"`
+
+                        - `name: "web_fetch"`
+
+                          Name of the tool.
+
+                          This is how the tool will be called by the model and in `tool_use` blocks.
+
+                        - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+                          - `"direct"`
+
+                          - `"code_execution_20250825"`
+
+                          - `"code_execution_20260120"`
+
+                          - `"code_execution_20260521"`
+
+                        - `allowed_domains: optional array of string`
+
+                          List of domains to allow fetching from
+
+                        - `blocked_domains: optional array of string`
+
+                          List of domains to block fetching from
+
+                        - `cache_control: optional object`
+
+                          Create a cache control breakpoint at this content block.
+
+                          - `type: "ephemeral"`
+
+                          - `ttl: optional "5m" or "1h"`
+
+                            The time-to-live for the cache control breakpoint.
+
+                            This may be one the following values:
+
+                            - `5m`: 5 minutes
+                            - `1h`: 1 hour
+
+                            Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+                        - `citations: optional object`
+
+                          Citations configuration for fetched documents. Citations are disabled by default.
+
+                          - `enabled: optional boolean`
+
+                        - `defer_loading: optional boolean`
+
+                          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                        - `max_content_tokens: optional number`
+
+                          Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
+
+                          exclusiveMinimum: 0
+
+                        - `max_uses: optional number`
+
+                          Maximum number of times the tool can be used in the API request.
+
+                          exclusiveMinimum: 0
+
+                        - `strict: optional boolean`
+
+                          When true, guarantees schema validation on tool names and inputs
+
+                        - `url_sources: optional object`
+
+                          Which sources contribute to the set of URLs web fetch may fetch.
+
+                          Each key is a tagged variant: `user_input` is `all` or `none`; the
+                          two tool filters are `all`, `none`, `only` (only the named tools'
+                          results) or `except` (every result but the named tools'). A named tool
+                          must be declared in this request's `tools[]`.
+
+                          - `client_tool_results: optional BetaWebFetchURLSourceAll or BetaWebFetchURLSourceNone or BetaWebFetchURLSourceOnly or BetaWebFetchURLSourceExcept`
+
+                            Which client tools' results contribute fetchable URLs: "all", "none", or an only or except list of client tool names from tools[].
+
+                          - `server_tool_results: optional BetaWebFetchURLSourceAll or BetaWebFetchURLSourceNone or BetaWebFetchURLSourceOnly or BetaWebFetchURLSourceExcept`
+
+                            Which server tools' results contribute fetchable URLs: "all", "none", or an only or except list of server tool names from tools[]; only web_search and web_fetch results ever contribute.
+
+                          - `user_input: optional BetaWebFetchURLSourceAll or BetaWebFetchURLSourceNone`
+
+                            Whether URLs in user messages are fetchable: "all" or "none".
+
+                      - `beta_web_fetch_tool_20260309: object`
+
+                        Web fetch tool with use_cache parameter for bypassing cached content.
+
+                        - `type: "web_fetch_20260309"`
+
+                        - `name: "web_fetch"`
+
+                          Name of the tool.
+
+                          This is how the tool will be called by the model and in `tool_use` blocks.
+
+                        - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+                          - `"direct"`
+
+                          - `"code_execution_20250825"`
+
+                          - `"code_execution_20260120"`
+
+                          - `"code_execution_20260521"`
+
+                        - `allowed_domains: optional array of string`
+
+                          List of domains to allow fetching from
+
+                        - `blocked_domains: optional array of string`
+
+                          List of domains to block fetching from
+
+                        - `cache_control: optional object`
+
+                          Create a cache control breakpoint at this content block.
+
+                          - `type: "ephemeral"`
+
+                          - `ttl: optional "5m" or "1h"`
+
+                            The time-to-live for the cache control breakpoint.
+
+                            This may be one the following values:
+
+                            - `5m`: 5 minutes
+                            - `1h`: 1 hour
+
+                            Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+                        - `citations: optional object`
+
+                          Citations configuration for fetched documents. Citations are disabled by default.
+
+                          - `enabled: optional boolean`
+
+                        - `defer_loading: optional boolean`
+
+                          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                        - `max_content_tokens: optional number`
+
+                          Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
+
+                          exclusiveMinimum: 0
+
+                        - `max_uses: optional number`
+
+                          Maximum number of times the tool can be used in the API request.
+
+                          exclusiveMinimum: 0
+
+                        - `strict: optional boolean`
+
+                          When true, guarantees schema validation on tool names and inputs
+
+                        - `url_sources: optional object`
+
+                          Which sources contribute to the set of URLs web fetch may fetch.
+
+                          Each key is a tagged variant: `user_input` is `all` or `none`; the
+                          two tool filters are `all`, `none`, `only` (only the named tools'
+                          results) or `except` (every result but the named tools'). A named tool
+                          must be declared in this request's `tools[]`.
+
+                          - `client_tool_results: optional BetaWebFetchURLSourceAll or BetaWebFetchURLSourceNone or BetaWebFetchURLSourceOnly or BetaWebFetchURLSourceExcept`
+
+                            Which client tools' results contribute fetchable URLs: "all", "none", or an only or except list of client tool names from tools[].
+
+                          - `server_tool_results: optional BetaWebFetchURLSourceAll or BetaWebFetchURLSourceNone or BetaWebFetchURLSourceOnly or BetaWebFetchURLSourceExcept`
+
+                            Which server tools' results contribute fetchable URLs: "all", "none", or an only or except list of server tool names from tools[]; only web_search and web_fetch results ever contribute.
+
+                          - `user_input: optional BetaWebFetchURLSourceAll or BetaWebFetchURLSourceNone`
+
+                            Whether URLs in user messages are fetchable: "all" or "none".
+
+                        - `use_cache: optional boolean`
+
+                          Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
+
+                      - `beta_web_search_tool_20260318: object`
+
+                        - `type: "web_search_20260318"`
+
+                        - `name: "web_search"`
+
+                          Name of the tool.
+
+                          This is how the tool will be called by the model and in `tool_use` blocks.
+
+                        - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+                          - `"direct"`
+
+                          - `"code_execution_20250825"`
+
+                          - `"code_execution_20260120"`
+
+                          - `"code_execution_20260521"`
+
+                        - `allowed_domains: optional array of string`
+
+                          If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
+
+                        - `blocked_domains: optional array of string`
+
+                          If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
+
+                        - `cache_control: optional object`
+
+                          Create a cache control breakpoint at this content block.
+
+                          - `type: "ephemeral"`
+
+                          - `ttl: optional "5m" or "1h"`
+
+                            The time-to-live for the cache control breakpoint.
+
+                            This may be one the following values:
+
+                            - `5m`: 5 minutes
+                            - `1h`: 1 hour
+
+                            Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+                        - `defer_loading: optional boolean`
+
+                          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                        - `max_uses: optional number`
+
+                          Maximum number of times the tool can be used in the API request.
+
+                          exclusiveMinimum: 0
+
+                        - `response_inclusion: optional "full" or "excluded"`
+
+                          How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
+
+                          - `"full"`
+
+                          - `"excluded"`
+
+                        - `strict: optional boolean`
+
+                          When true, guarantees schema validation on tool names and inputs
+
+                        - `user_location: optional object`
+
+                          Parameters for the user's location. Used to provide more relevant search results.
+
+                          - `type: "approximate"`
+
+                          - `city: optional string`
+
+                            The city of the user.
+
+                            maxLength: 255, minLength: 1
+
+                          - `country: optional string`
+
+                            The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
+
+                            maxLength: 2, minLength: 2
+
+                          - `region: optional string`
+
+                            The region of the user.
+
+                            maxLength: 255, minLength: 1
+
+                          - `timezone: optional string`
+
+                            The [IANA timezone](https://nodatime.org/TimeZones) of the user.
+
+                            maxLength: 255, minLength: 1
+
+                      - `beta_web_fetch_tool_20260318: object`
+
+                        - `type: "web_fetch_20260318"`
+
+                        - `name: "web_fetch"`
+
+                          Name of the tool.
+
+                          This is how the tool will be called by the model and in `tool_use` blocks.
+
+                        - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+                          - `"direct"`
+
+                          - `"code_execution_20250825"`
+
+                          - `"code_execution_20260120"`
+
+                          - `"code_execution_20260521"`
+
+                        - `allowed_domains: optional array of string`
+
+                          List of domains to allow fetching from
+
+                        - `blocked_domains: optional array of string`
+
+                          List of domains to block fetching from
+
+                        - `cache_control: optional object`
+
+                          Create a cache control breakpoint at this content block.
+
+                          - `type: "ephemeral"`
+
+                          - `ttl: optional "5m" or "1h"`
+
+                            The time-to-live for the cache control breakpoint.
+
+                            This may be one the following values:
+
+                            - `5m`: 5 minutes
+                            - `1h`: 1 hour
+
+                            Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+                        - `citations: optional object`
+
+                          Citations configuration for fetched documents. Citations are disabled by default.
+
+                          - `enabled: optional boolean`
+
+                        - `defer_loading: optional boolean`
+
+                          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                        - `max_content_tokens: optional number`
+
+                          Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
+
+                          exclusiveMinimum: 0
+
+                        - `max_uses: optional number`
+
+                          Maximum number of times the tool can be used in the API request.
+
+                          exclusiveMinimum: 0
+
+                        - `response_inclusion: optional "full" or "excluded"`
+
+                          How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
+
+                          - `"full"`
+
+                          - `"excluded"`
+
+                        - `strict: optional boolean`
+
+                          When true, guarantees schema validation on tool names and inputs
+
+                        - `url_sources: optional object`
+
+                          Which sources contribute to the set of URLs web fetch may fetch.
+
+                          Each key is a tagged variant: `user_input` is `all` or `none`; the
+                          two tool filters are `all`, `none`, `only` (only the named tools'
+                          results) or `except` (every result but the named tools'). A named tool
+                          must be declared in this request's `tools[]`.
+
+                          - `client_tool_results: optional BetaWebFetchURLSourceAll or BetaWebFetchURLSourceNone or BetaWebFetchURLSourceOnly or BetaWebFetchURLSourceExcept`
+
+                            Which client tools' results contribute fetchable URLs: "all", "none", or an only or except list of client tool names from tools[].
+
+                          - `server_tool_results: optional BetaWebFetchURLSourceAll or BetaWebFetchURLSourceNone or BetaWebFetchURLSourceOnly or BetaWebFetchURLSourceExcept`
+
+                            Which server tools' results contribute fetchable URLs: "all", "none", or an only or except list of server tool names from tools[]; only web_search and web_fetch results ever contribute.
+
+                          - `user_input: optional BetaWebFetchURLSourceAll or BetaWebFetchURLSourceNone`
+
+                            Whether URLs in user messages are fetchable: "all" or "none".
+
+                        - `use_cache: optional boolean`
+
+                          Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
+
+                      - `beta_advisor_tool_20260301: object`
+
+                        - `type: "advisor_20260301"`
+
+                        - `model: "claude-fable-5-1" or "claude-opus-5-5" or "claude-mythos-5-1" or 15 more or string`
+
+                          The model that will complete your prompt.
+
+                          See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+                          - `"claude-fable-5-1"`
+
+                            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+                          - `"claude-opus-5-5"`
+
+                            Powerful intelligence for coding, knowledge work, and long-running agents
+
+                          - `"claude-mythos-5-1"`
+
+                            Our most capable model for cybersecurity and biology research, available through trusted access programs
+
+                          - `"claude-sonnet-5"`
+
+                            High-performance model for coding and agents
+
+                          - `"claude-fable-5"`
+
+                            Next generation of intelligence for the hardest knowledge work and coding problems
+
+                          - `"claude-mythos-5"`
+
+                            Most capable model for cybersecurity and biology research
+
+                          - `"claude-opus-5"`
+
+                            Powerful intelligence for long-running agents and coding
+
+                          - `"claude-opus-4-8"`
+
+                            Powerful intelligence for long-running agents and coding
+
+                          - `"claude-opus-4-7"`
+
+                            Powerful intelligence for long-running agents and coding
+
+                          - `"claude-mythos-preview"`
+
+                            New class of intelligence, strongest in coding and cybersecurity
+
+                          - `"claude-opus-4-6"`
+
+                            Powerful intelligence for long-running agents and coding
+
+                          - `"claude-sonnet-4-6"`
+
+                            Best combination of speed and intelligence
+
+                          - `"claude-haiku-4-5"`
+
+                            Fastest model with near-frontier intelligence
+
+                          - `"claude-haiku-4-5-20251001"`
+
+                            Fastest model with near-frontier intelligence
+
+                          - `"claude-opus-4-5"`
+
+                            Powerful intelligence for long-running agents and coding
+
+                          - `"claude-opus-4-5-20251101"`
+
+                            Powerful intelligence for long-running agents and coding
+
+                          - `"claude-sonnet-4-5"`
+
+                            High-performance model for agents and coding
+
+                          - `"claude-sonnet-4-5-20250929"`
+
+                            High-performance model for agents and coding
+
+                        - `name: "advisor"`
+
+                          Name of the tool.
+
+                          This is how the tool will be called by the model and in `tool_use` blocks.
+
+                        - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+                          - `"direct"`
+
+                          - `"code_execution_20250825"`
+
+                          - `"code_execution_20260120"`
+
+                          - `"code_execution_20260521"`
+
+                        - `cache_control: optional object`
+
+                          Create a cache control breakpoint at this content block.
+
+                          - `type: "ephemeral"`
+
+                          - `ttl: optional "5m" or "1h"`
+
+                            The time-to-live for the cache control breakpoint.
+
+                            This may be one the following values:
+
+                            - `5m`: 5 minutes
+                            - `1h`: 1 hour
+
+                            Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+                        - `caching: optional object`
+
+                          Caching for the advisor's own prompt. When set, each advisor call writes a cache entry at the given TTL so subsequent calls in the same conversation read the stable prefix. When omitted, the advisor prompt is not cached.
+
+                          - `type: "ephemeral"`
+
+                          - `ttl: optional "5m" or "1h"`
+
+                            The time-to-live for the cache control breakpoint.
+
+                            This may be one the following values:
+
+                            - `5m`: 5 minutes
+                            - `1h`: 1 hour
+
+                            Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+                        - `defer_loading: optional boolean`
+
+                          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                        - `max_tokens: optional number`
+
+                          Bounds the advisor's total output (thinking + text) per call. When the advisor hits this cap, the returned advisor_result or advisor_redacted_result block carries stop_reason='max_tokens', and a truncation note is appended to the advice text the worker model sees (inside the encrypted blob in redacted mode). When set, the server also emits a remaining-tokens budget block in the advisor's prompt so the advisor self-shapes toward the cap. When omitted, the advisor model's default output cap applies and no budget block is emitted.
+
+                          minimum: 1024
+
+                        - `max_uses: optional number`
+
+                          Maximum number of times the tool can be used in the API request.
+
+                          exclusiveMinimum: 0
+
+                        - `strict: optional boolean`
+
+                          When true, guarantees schema validation on tool names and inputs
+
+                      - `beta_tool_search_tool_bm25_20251119: object`
+
+                        - `type: "tool_search_tool_bm25_20251119" or "tool_search_tool_bm25"`
+
+                          - `"tool_search_tool_bm25_20251119"`
+
+                          - `"tool_search_tool_bm25"`
+
+                        - `name: "tool_search_tool_bm25"`
+
+                          Name of the tool.
+
+                          This is how the tool will be called by the model and in `tool_use` blocks.
+
+                        - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+                          - `"direct"`
+
+                          - `"code_execution_20250825"`
+
+                          - `"code_execution_20260120"`
+
+                          - `"code_execution_20260521"`
+
+                        - `cache_control: optional object`
+
+                          Create a cache control breakpoint at this content block.
+
+                          - `type: "ephemeral"`
+
+                          - `ttl: optional "5m" or "1h"`
+
+                            The time-to-live for the cache control breakpoint.
+
+                            This may be one the following values:
+
+                            - `5m`: 5 minutes
+                            - `1h`: 1 hour
+
+                            Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+                        - `defer_loading: optional boolean`
+
+                          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                        - `strict: optional boolean`
+
+                          When true, guarantees schema validation on tool names and inputs
+
+                      - `beta_tool_search_tool_regex_20251119: object`
+
+                        - `type: "tool_search_tool_regex_20251119" or "tool_search_tool_regex"`
+
+                          - `"tool_search_tool_regex_20251119"`
+
+                          - `"tool_search_tool_regex"`
+
+                        - `name: "tool_search_tool_regex"`
+
+                          Name of the tool.
+
+                          This is how the tool will be called by the model and in `tool_use` blocks.
+
+                        - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+                          - `"direct"`
+
+                          - `"code_execution_20250825"`
+
+                          - `"code_execution_20260120"`
+
+                          - `"code_execution_20260521"`
+
+                        - `cache_control: optional object`
+
+                          Create a cache control breakpoint at this content block.
+
+                          - `type: "ephemeral"`
+
+                          - `ttl: optional "5m" or "1h"`
+
+                            The time-to-live for the cache control breakpoint.
+
+                            This may be one the following values:
+
+                            - `5m`: 5 minutes
+                            - `1h`: 1 hour
+
+                            Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+                        - `defer_loading: optional boolean`
+
+                          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                        - `strict: optional boolean`
+
+                          When true, guarantees schema validation on tool names and inputs
+
+                      - `beta_mcp_toolset: object`
+
+                        Configuration for a group of tools from an MCP server.
+
+                        Allows configuring enabled status and defer_loading for all tools
+                        from an MCP server, with optional per-tool overrides.
+
+                        - `type: "mcp_toolset"`
+
+                        - `mcp_server_name: string`
+
+                          Name of the MCP server to configure tools for
+
+                          maxLength: 255, minLength: 1
+
+                        - `cache_control: optional object`
+
+                          Create a cache control breakpoint at this content block.
+
+                          - `type: "ephemeral"`
+
+                          - `ttl: optional "5m" or "1h"`
+
+                            The time-to-live for the cache control breakpoint.
+
+                            This may be one the following values:
+
+                            - `5m`: 5 minutes
+                            - `1h`: 1 hour
+
+                            Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+                        - `configs: optional map[BetaMCPToolConfig]`
+
+                          Configuration overrides for specific tools, keyed by tool name
+
+                          - `defer_loading: optional boolean`
+
+                          - `enabled: optional boolean`
+
+                        - `default_config: optional object`
+
+                          Default configuration applied to all tools from this server
+
+                          - `defer_loading: optional boolean`
+
+                          - `enabled: optional boolean`
+
+                        - `tools: optional array of BetaMCPToolParam`
+
+                          The server's tool listing, pinned: when present, the server is not asked for its tools before sampling and exactly these entries, with `default_config` and `configs` applied, are the toolset's tools. Copy it from the `mcp_tool_listing` block of an earlier response.
+
+                          - `input_schema: map[unknown]`
+
+                            The tool's input schema as the MCP server lists it, verbatim.
+
+                          - `name: string`
+
+                            The tool's name as the MCP server lists it (not prefixed with the server name).
+
+                            minLength: 1
+
+                          - `description: optional string`
+
+                            The tool's description as the MCP server lists it.
+
+              - `beta_response_tool_removal_block: object`
+
+                An entry of a `compaction` block's `tool_changes`: a tool of the
+                request's `tools` (or an MCP tool or toolset) that the compacted range
+                withdrew. Send it back unchanged.
+
+                - `type: "tool_removal"`
+
+                - `tool: BetaResponseToolChangeToolReference or BetaResponseToolChangeMCPToolReference or BetaResponseToolChangeMCPToolsetReference`
+
+                  A reference to the withdrawn `tools` entry, MCP tool or MCP toolset.
+
+                  - `beta_response_tool_change_tool_reference: object`
+
+                    Reference to a single tool, by the name the model uses to call it, as
+                    a `compaction` block's `tool_changes` entry reports it: a tool
+                    declared in `tools` or defined by an earlier `tool_addition` block.
+                    Send it back unchanged with the block.
+
+                  - `beta_response_tool_change_mcp_tool_reference: object`
+
+                    Reference to a single MCP tool, by its server and its name on that
+                    server, as a `compaction` block's `tool_changes` entry reports it.
+                    Send it back unchanged with the block.
+
+                  - `beta_response_tool_change_mcp_toolset_reference: object`
+
+                    Reference to every tool in the named MCP server's toolset, as a
+                    `compaction` block's `tool_changes` entry reports it. Send it back
+                    unchanged with the block.
+
           - `beta_fallback_block: object`
 
             Marks the point in `content` where one model's output gives way to the next.
@@ -5867,7 +11173,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               The model whose output ends at this point — the model that declined at this hop. When the declining hop is the requested model, its `model` echoes the top-level `model` string the caller sent (alias or canonical); when the declining hop is a fallback model, its `model` is that model's canonical id.
 
-              - `model: "claude-fable-5-1" or "claude-mythos-5-1" or "claude-sonnet-5" or 14 more or string`
+              - `model: "claude-fable-5-1" or "claude-opus-5-5" or "claude-mythos-5-1" or 15 more or string`
 
                 The model that will complete your prompt.
 
@@ -5876,6 +11182,10 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
                 - `"claude-fable-5-1"`
 
                   Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+                - `"claude-opus-5-5"`
+
+                  Powerful intelligence for coding, knowledge work, and long-running agents
 
                 - `"claude-mythos-5-1"`
 
@@ -5945,7 +11255,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               The fallback model producing the content that follows this block. Its `model` is always the canonical id.
 
-              - `model: "claude-fable-5-1" or "claude-mythos-5-1" or "claude-sonnet-5" or 14 more or string`
+              - `model: "claude-fable-5-1" or "claude-opus-5-5" or "claude-mythos-5-1" or 15 more or string`
 
                 The model that will complete your prompt.
 
@@ -5980,6 +11290,25 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
                 - `"general_harms"`
 
                   The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
+
+          - `beta_mcp_tool_listing_block: object`
+
+            The tool listing the server fetched from an MCP server while producing
+            this response. Send the assistant message back unchanged, this block
+            included, so later requests use this listing instead of asking the MCP
+            server again.
+
+            - `type: "mcp_tool_listing"`
+
+            - `mcp_server_name: string`
+
+            - `tools: array of BetaMCPTool`
+
+              - `input_schema: map[unknown]`
+
+              - `name: string`
+
+              - `description: optional string`
 
         - `context_management: object`
 
@@ -6029,8 +11358,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `diagnostics: object`
 
-          Response envelope for request-level diagnostics. Present (possibly
-          null) whenever the caller supplied `diagnostics` on the request.
+          Request-level diagnostics: why the prompt cache could not fully reuse
+          the prefix of the request named by `diagnostics.previous_message_id`.
 
           - `cache_miss_reason: BetaCacheMissModelChanged or BetaCacheMissSystemChanged or BetaCacheMissToolsChanged or 3 more`
 
@@ -6076,7 +11405,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `type: "unavailable"`
 
-        - `model: "claude-fable-5-1" or "claude-mythos-5-1" or "claude-sonnet-5" or 14 more or string`
+        - `model: "claude-fable-5-1" or "claude-opus-5-5" or "claude-mythos-5-1" or 15 more or string`
 
           The model that will complete your prompt.
 
@@ -6085,6 +11414,10 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
           - `"claude-fable-5-1"`
 
             Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+          - `"claude-opus-5-5"`
+
+            Powerful intelligence for coding, knowledge work, and long-running agents
 
           - `"claude-mythos-5-1"`
 
@@ -6451,7 +11784,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 minimum: 0
 
-              - `model: "claude-fable-5-1" or "claude-mythos-5-1" or "claude-sonnet-5" or 14 more or string`
+              - `model: "claude-fable-5-1" or "claude-opus-5-5" or "claude-mythos-5-1" or 15 more or string`
 
                 The model that will complete your prompt.
 
@@ -6460,6 +11793,10 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
                 - `"claude-fable-5-1"`
 
                   Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+                - `"claude-opus-5-5"`
+
+                  Powerful intelligence for coding, knowledge work, and long-running agents
 
                 - `"claude-mythos-5-1"`
 
@@ -6621,7 +11958,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 minimum: 0
 
-              - `model: "claude-fable-5-1" or "claude-mythos-5-1" or "claude-sonnet-5" or 14 more or string`
+              - `model: "claude-fable-5-1" or "claude-opus-5-5" or "claude-mythos-5-1" or 15 more or string`
 
                 The model that will complete your prompt.
 
@@ -6630,6 +11967,10 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
                 - `"claude-fable-5-1"`
 
                   Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+                - `"claude-opus-5-5"`
+
+                  Powerful intelligence for coding, knowledge work, and long-running agents
 
                 - `"claude-mythos-5-1"`
 
@@ -6705,10 +12046,12 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               Token usage for the fallback-model attempt of a server-side fallback request.
 
-              Produced in place of a `message` entry for whichever hop served the
-              response. A declined hop produces the existing `message` entry. Whether
-              a fallback model served the response is signalled by the presence of this
-              entry in `usage.iterations`.
+              The terminal entry of a fallback-served turn: when a fallback hop's
+              output is the returned message, the entry for the iteration that
+              completed it carries this type in place of `message`. A declined hop
+              and the serving hop's earlier tool-loop iterations produce `message`
+              entries. Whether a fallback model served the response is signalled by
+              the presence of this entry in `usage.iterations`.
 
               - `type: "fallback_message"`
 
@@ -6748,7 +12091,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 minimum: 0
 
-              - `model: "claude-fable-5-1" or "claude-mythos-5-1" or "claude-sonnet-5" or 14 more or string`
+              - `model: "claude-fable-5-1" or "claude-opus-5-5" or "claude-mythos-5-1" or 15 more or string`
 
                 The model that will complete your prompt.
 
@@ -6757,6 +12100,10 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
                 - `"claude-fable-5-1"`
 
                   Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+                - `"claude-opus-5-5"`
+
+                  Powerful intelligence for coding, knowledge work, and long-running agents
 
                 - `"claude-mythos-5-1"`
 
@@ -6890,57 +12237,97 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `"fast"`
 
-        - `input_transformations: optional array of BetaThinkingDroppedInputTransformation`
+        - `input_transformations: optional array of BetaInputTransformation`
 
-          Changes the API made to the request's input before showing it to the model:
-          one entry per change, in request order. Today the only entry type is
-          `thinking_dropped` — a `thinking`, `redacted_thinking` or `connector_text`
-          block from the request's `messages` that was removed from the prompt instead
-          of being shown to the model because it failed a binding check. More entry
-          types may be added over time; ignore types you do not recognize.
+          Changes the API made to the request's input before showing it to the model,
+          and blocks that failed a binding check but were left unchanged: one entry per
+          block, in request order. Two entry types today. `thinking_dropped` — a
+          `thinking`, `redacted_thinking` or `connector_text` block from the request's
+          `messages` that was removed from the prompt instead of being shown to the
+          model because it failed a binding check. `thinking_mismatch_allowed` — a
+          `thinking` or `redacted_thinking` block that failed the conversation check
+          (the conversation before it differs from the one it was created in, or it
+          carries no record of one on a model that requires it) and was shown to the
+          model all the same, because that check is not enforced for this request.
+          More entry types may be added over time; ignore types you do not recognize.
 
           Requires `anthropic-beta: thinking-binding-controls-2026-08-01`. Present on
           every such response from a model that supports extended thinking, as `[]`
-          when nothing was changed; without the beta, blocks are removed all the same
-          but nothing is reported. Removed blocks contribute nothing to
-          `usage.input_tokens`. When streaming, the array is final in `message_start`;
-          the final `message_delta` event carries it only when a server-side model
-          fallback happened mid-stream, in which case it holds the serving model's
-          entries and replaces the one in `message_start`.
+          when there is no entry to report; without the beta, blocks are removed or
+          left in place all the same but nothing is reported. Removed blocks contribute
+          nothing to `usage.input_tokens`; blocks left in place count as sent. When
+          streaming, the array is final in `message_start`; the final `message_delta`
+          event carries it only when a server-side model fallback happened mid-stream,
+          in which case it holds the serving model's entries and replaces the one in
+          `message_start`.
 
-          - `type: "thinking_dropped"`
+          - `beta_thinking_dropped_input_transformation: object`
 
-            Always `thinking_dropped` for this entry type.
+            - `type: "thinking_dropped"`
 
-          - `path: string`
+              Always `thinking_dropped` for this entry type.
 
-            Where the removed block was in your request, as `messages.{i}.content.{j}`:
-            `i` indexes the `messages` array you sent and `j` that message's `content`
-            array — the same form error messages use.
+            - `path: string`
 
-          - `reason: "model_binding_mismatch" or "prefix_binding_mismatch" or "organization_binding_mismatch" or "end_user_binding_mismatch"`
+              Where the removed block was in your request, as `messages.{i}.content.{j}`:
+              `i` indexes the `messages` array you sent and `j` that message's `content`
+              array — the same form error messages use.
 
-            Which binding check removed the block: `model_binding_mismatch` — it was
-            created by a model whose reasoning the requested model may not read;
-            `prefix_binding_mismatch` — the conversation before it differs from the
-            conversation it was created in (the rest of that turn's consecutive thinking
-            blocks are removed with it, each with this reason);
-            `organization_binding_mismatch` — it was created under a different
-            organization (an Anthropic organization, AWS account or Google Cloud project)
-            and this organization is not one of its additional organizations;
-            `end_user_binding_mismatch` — it was created for a different end user, or
-            was removed by the consumer-organization binding. A block that would fail
-            several checks reports one reason, in this order of precedence:
-            `organization_binding_mismatch`, `end_user_binding_mismatch`,
-            `model_binding_mismatch`, `prefix_binding_mismatch`.
+            - `reason: "model_binding_mismatch" or "prefix_binding_mismatch" or "organization_binding_mismatch" or "end_user_binding_mismatch"`
 
-            - `"model_binding_mismatch"`
+              Which binding check removed the block: `model_binding_mismatch` — it was
+              created by a model whose reasoning the requested model may not read;
+              `prefix_binding_mismatch` — the conversation before it differs from the
+              conversation it was created in (the rest of that turn's consecutive thinking
+              blocks are removed with it, each with this reason);
+              `organization_binding_mismatch` — it was created under a different
+              organization (an Anthropic organization, AWS account or Google Cloud project)
+              and this organization is not one of its additional organizations;
+              `end_user_binding_mismatch` — it was created for a different end user, or
+              was removed by the consumer-organization binding. A block that would fail
+              several checks reports one reason, in this order of precedence:
+              `organization_binding_mismatch`, `end_user_binding_mismatch`,
+              `model_binding_mismatch`, `prefix_binding_mismatch`.
 
-            - `"prefix_binding_mismatch"`
+              - `"model_binding_mismatch"`
 
-            - `"organization_binding_mismatch"`
+              - `"prefix_binding_mismatch"`
 
-            - `"end_user_binding_mismatch"`
+              - `"organization_binding_mismatch"`
+
+              - `"end_user_binding_mismatch"`
+
+          - `beta_thinking_mismatch_allowed_input_transformation: object`
+
+            - `type: "thinking_mismatch_allowed"`
+
+              Always `thinking_mismatch_allowed` for this entry type.
+
+            - `path: string`
+
+              Where the block is in your request, as `messages.{i}.content.{j}`:
+              `i` indexes the `messages` array you sent and `j` that message's `content`
+              array — the same form error messages use.
+
+            - `reason: "model_binding_mismatch" or "prefix_binding_mismatch" or "organization_binding_mismatch" or "end_user_binding_mismatch"`
+
+              Which binding check the block failed; the block was shown to the model all
+              the same. Always `prefix_binding_mismatch` today — the conversation before
+              the block differs from the conversation it was created in, or the block
+              carries no record of one on a model that requires it. Were the check
+              enforced for this request, the block would have been removed or the request
+              rejected (`thinking.block_binding.prefix_mismatch_behavior`). A removal also
+              takes the rest of that turn's consecutive thinking blocks, whereas here each
+              block is checked on its own, so `thinking_mismatch_allowed` entries are a
+              lower bound on what enforcement would remove.
+
+              - `"model_binding_mismatch"`
+
+              - `"prefix_binding_mismatch"`
+
+              - `"organization_binding_mismatch"`
+
+              - `"end_user_binding_mismatch"`
 
     - `beta_message_batch_errored_result: object`
 
@@ -7126,11 +12513,15 @@ Create Agent
 
     Model identifier and configuration.
 
-    - `id: "claude-fable-5-1" or "claude-sonnet-5" or "claude-fable-5" or 11 more or string`
+    - `id: "claude-opus-5-5" or "claude-fable-5-1" or "claude-sonnet-5" or 12 more or string`
 
       The model that will power your agent.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+      - `"claude-opus-5-5"`
+
+        Powerful intelligence for coding, knowledge work, and long-running agents
 
       - `"claude-fable-5-1"`
 
@@ -7834,11 +13225,15 @@ List Agents
 
       Model identifier and configuration.
 
-      - `id: "claude-fable-5-1" or "claude-sonnet-5" or "claude-fable-5" or 11 more or string`
+      - `id: "claude-opus-5-5" or "claude-fable-5-1" or "claude-sonnet-5" or 12 more or string`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `"claude-opus-5-5"`
+
+          Powerful intelligence for coding, knowledge work, and long-running agents
 
         - `"claude-fable-5-1"`
 
@@ -8473,7 +13868,7 @@ Get Agent
 
 - `--agent-id: string`
 
-  Path param: Path parameter agent_id
+  Path param: Unique identifier of the agent to retrieve.
 
 - `--version: optional number`
 
@@ -8529,11 +13924,15 @@ Get Agent
 
     Model identifier and configuration.
 
-    - `id: "claude-fable-5-1" or "claude-sonnet-5" or "claude-fable-5" or 11 more or string`
+    - `id: "claude-opus-5-5" or "claude-fable-5-1" or "claude-sonnet-5" or 12 more or string`
 
       The model that will power your agent.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+      - `"claude-opus-5-5"`
+
+        Powerful intelligence for coding, knowledge work, and long-running agents
 
       - `"claude-fable-5-1"`
 
@@ -9160,7 +14559,7 @@ Update Agent
 
 - `--agent-id: string`
 
-  Path param: Path parameter agent_id
+  Path param: Unique identifier of the agent to update.
 
 - `--description: optional string`
 
@@ -9258,11 +14657,15 @@ Update Agent
 
     Model identifier and configuration.
 
-    - `id: "claude-fable-5-1" or "claude-sonnet-5" or "claude-fable-5" or 11 more or string`
+    - `id: "claude-opus-5-5" or "claude-fable-5-1" or "claude-sonnet-5" or 12 more or string`
 
       The model that will power your agent.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+      - `"claude-opus-5-5"`
+
+        Powerful intelligence for coding, knowledge work, and long-running agents
 
       - `"claude-fable-5-1"`
 
@@ -9889,7 +15292,7 @@ Archive Agent
 
 - `--agent-id: string`
 
-  Path parameter agent_id
+  Unique identifier of the agent to archive.
 
 - `--beta: optional array of AnthropicBeta`
 
@@ -9939,11 +15342,15 @@ Archive Agent
 
     Model identifier and configuration.
 
-    - `id: "claude-fable-5-1" or "claude-sonnet-5" or "claude-fable-5" or 11 more or string`
+    - `id: "claude-opus-5-5" or "claude-fable-5-1" or "claude-sonnet-5" or 12 more or string`
 
       The model that will power your agent.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+      - `"claude-opus-5-5"`
+
+        Powerful intelligence for coding, knowledge work, and long-running agents
 
       - `"claude-fable-5-1"`
 
@@ -10572,7 +15979,7 @@ List Agent Versions
 
 - `--agent-id: string`
 
-  Path param: Path parameter agent_id
+  Path param: Agent ID to list versions for.
 
 - `--limit: optional number`
 
@@ -10636,11 +16043,15 @@ List Agent Versions
 
       Model identifier and configuration.
 
-      - `id: "claude-fable-5-1" or "claude-sonnet-5" or "claude-fable-5" or 11 more or string`
+      - `id: "claude-opus-5-5" or "claude-fable-5-1" or "claude-sonnet-5" or 12 more or string`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `"claude-opus-5-5"`
+
+          Powerful intelligence for coding, knowledge work, and long-running agents
 
         - `"claude-fable-5-1"`
 
@@ -13570,11 +18981,15 @@ Create Session
 
       Model identifier and configuration.
 
-      - `id: "claude-fable-5-1" or "claude-sonnet-5" or "claude-fable-5" or 11 more or string`
+      - `id: "claude-opus-5-5" or "claude-fable-5-1" or "claude-sonnet-5" or 12 more or string`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `"claude-opus-5-5"`
+
+          Powerful intelligence for coding, knowledge work, and long-running agents
 
         - `"claude-fable-5-1"`
 
@@ -13710,7 +19125,7 @@ Create Session
 
             Model identifier and configuration.
 
-            - `id: "claude-fable-5-1" or "claude-sonnet-5" or "claude-fable-5" or 11 more or string`
+            - `id: "claude-opus-5-5" or "claude-fable-5-1" or "claude-sonnet-5" or 12 more or string`
 
               The model that will power your agent.
 
@@ -14346,11 +19761,19 @@ Create Session
 
     - `"rescheduling"`
 
+      Transient error occurred, retrying automatically.
+
     - `"running"`
+
+      Agent is actively executing.
 
     - `"idle"`
 
+      Agent is waiting for input, including user messages or tool confirmations. Sessions start in idle.
+
     - `"terminated"`
+
+      Session has ended, either due to an error or completion.
 
   - `title: string`
 
@@ -14763,11 +20186,15 @@ List Sessions
 
         Model identifier and configuration.
 
-        - `id: "claude-fable-5-1" or "claude-sonnet-5" or "claude-fable-5" or 11 more or string`
+        - `id: "claude-opus-5-5" or "claude-fable-5-1" or "claude-sonnet-5" or 12 more or string`
 
           The model that will power your agent.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `"claude-opus-5-5"`
+
+            Powerful intelligence for coding, knowledge work, and long-running agents
 
           - `"claude-fable-5-1"`
 
@@ -14903,7 +20330,7 @@ List Sessions
 
               Model identifier and configuration.
 
-              - `id: "claude-fable-5-1" or "claude-sonnet-5" or "claude-fable-5" or 11 more or string`
+              - `id: "claude-opus-5-5" or "claude-fable-5-1" or "claude-sonnet-5" or 12 more or string`
 
                 The model that will power your agent.
 
@@ -15539,11 +20966,19 @@ List Sessions
 
       - `"rescheduling"`
 
+        Transient error occurred, retrying automatically.
+
       - `"running"`
+
+        Agent is actively executing.
 
       - `"idle"`
 
+        Agent is waiting for input, including user messages or tool confirmations. Sessions start in idle.
+
       - `"terminated"`
+
+        Session has ended, either due to an error or completion.
 
     - `title: string`
 
@@ -15860,8 +21295,6 @@ Get Session
 
 - `--session-id: string`
 
-  Path parameter session_id
-
 - `--beta: optional array of AnthropicBeta`
 
   Optional header to specify the beta version(s) you want to use.
@@ -15904,11 +21337,15 @@ Get Session
 
       Model identifier and configuration.
 
-      - `id: "claude-fable-5-1" or "claude-sonnet-5" or "claude-fable-5" or 11 more or string`
+      - `id: "claude-opus-5-5" or "claude-fable-5-1" or "claude-sonnet-5" or 12 more or string`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `"claude-opus-5-5"`
+
+          Powerful intelligence for coding, knowledge work, and long-running agents
 
         - `"claude-fable-5-1"`
 
@@ -16044,7 +21481,7 @@ Get Session
 
             Model identifier and configuration.
 
-            - `id: "claude-fable-5-1" or "claude-sonnet-5" or "claude-fable-5" or 11 more or string`
+            - `id: "claude-opus-5-5" or "claude-fable-5-1" or "claude-sonnet-5" or 12 more or string`
 
               The model that will power your agent.
 
@@ -16680,11 +22117,19 @@ Get Session
 
     - `"rescheduling"`
 
+      Transient error occurred, retrying automatically.
+
     - `"running"`
+
+      Agent is actively executing.
 
     - `"idle"`
 
+      Agent is waiting for input, including user messages or tool confirmations. Sessions start in idle.
+
     - `"terminated"`
+
+      Session has ended, either due to an error or completion.
 
   - `title: string`
 
@@ -16988,7 +22433,7 @@ Update Session
 
 - `--session-id: string`
 
-  Path param: Path parameter session_id
+  Path param
 
 - `--agent: optional object`
 
@@ -17054,11 +22499,15 @@ Update Session
 
       Model identifier and configuration.
 
-      - `id: "claude-fable-5-1" or "claude-sonnet-5" or "claude-fable-5" or 11 more or string`
+      - `id: "claude-opus-5-5" or "claude-fable-5-1" or "claude-sonnet-5" or 12 more or string`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `"claude-opus-5-5"`
+
+          Powerful intelligence for coding, knowledge work, and long-running agents
 
         - `"claude-fable-5-1"`
 
@@ -17194,7 +22643,7 @@ Update Session
 
             Model identifier and configuration.
 
-            - `id: "claude-fable-5-1" or "claude-sonnet-5" or "claude-fable-5" or 11 more or string`
+            - `id: "claude-opus-5-5" or "claude-fable-5-1" or "claude-sonnet-5" or 12 more or string`
 
               The model that will power your agent.
 
@@ -17830,11 +23279,19 @@ Update Session
 
     - `"rescheduling"`
 
+      Transient error occurred, retrying automatically.
+
     - `"running"`
+
+      Agent is actively executing.
 
     - `"idle"`
 
+      Agent is waiting for input, including user messages or tool confirmations. Sessions start in idle.
+
     - `"terminated"`
+
+      Session has ended, either due to an error or completion.
 
   - `title: string`
 
@@ -18138,8 +23595,6 @@ Delete Session
 
 - `--session-id: string`
 
-  Path parameter session_id
-
 - `--beta: optional array of AnthropicBeta`
 
   Optional header to specify the beta version(s) you want to use.
@@ -18189,8 +23644,6 @@ Archive Session
 
 - `--session-id: string`
 
-  Path parameter session_id
-
 - `--beta: optional array of AnthropicBeta`
 
   Optional header to specify the beta version(s) you want to use.
@@ -18233,11 +23686,15 @@ Archive Session
 
       Model identifier and configuration.
 
-      - `id: "claude-fable-5-1" or "claude-sonnet-5" or "claude-fable-5" or 11 more or string`
+      - `id: "claude-opus-5-5" or "claude-fable-5-1" or "claude-sonnet-5" or 12 more or string`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `"claude-opus-5-5"`
+
+          Powerful intelligence for coding, knowledge work, and long-running agents
 
         - `"claude-fable-5-1"`
 
@@ -18373,7 +23830,7 @@ Archive Session
 
             Model identifier and configuration.
 
-            - `id: "claude-fable-5-1" or "claude-sonnet-5" or "claude-fable-5" or 11 more or string`
+            - `id: "claude-opus-5-5" or "claude-fable-5-1" or "claude-sonnet-5" or 12 more or string`
 
               The model that will power your agent.
 
@@ -19009,11 +24466,19 @@ Archive Session
 
     - `"rescheduling"`
 
+      Transient error occurred, retrying automatically.
+
     - `"running"`
+
+      Agent is actively executing.
 
     - `"idle"`
 
+      Agent is waiting for input, including user messages or tool confirmations. Sessions start in idle.
+
     - `"terminated"`
+
+      Session has ended, either due to an error or completion.
 
   - `title: string`
 
@@ -19319,7 +24784,7 @@ List Events
 
 - `--session-id: string`
 
-  Path param: Path parameter session_id
+  Path param
 
 - `--created-at-gt: optional string`
 
@@ -19347,7 +24812,7 @@ List Events
 
 - `--limit: optional number`
 
-  Query param: Query parameter for limit
+  Query param
 
   format: int32
 
@@ -19605,7 +25070,7 @@ List Events
 
       - `session_thread_id: optional string`
 
-        When set, the confirmation routes to this subagent's thread rather than the primary. Echo this from the `session_thread_id` on the `agent.tool_use` or `agent.mcp_tool_use` event that prompted the approval.
+        Set by the server to the subagent thread this confirmation was routed to. Omitted when it was routed to the primary thread.
 
     - `beta_managed_agents_user_custom_tool_result_event: object`
 
@@ -19687,7 +25152,7 @@ List Events
 
       - `session_thread_id: optional string`
 
-        Routes this result to a subagent thread. Copy from the `agent.custom_tool_use` event's `session_thread_id`.
+        Set by the server to the subagent thread this result was routed to. Omitted when it was routed to the primary thread.
 
     - `beta_managed_agents_agent_custom_tool_use_event: object`
 
@@ -19715,7 +25180,7 @@ List Events
 
       - `session_thread_id: optional string`
 
-        When set, this event was cross-posted from a subagent's thread to surface its custom tool use on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.custom_tool_result` event to route the result back.
+        When set, this event was cross-posted from a subagent's thread to surface its custom tool use on the primary thread's stream. Empty on the thread's own events. Informational only: the server routes the matching `user.custom_tool_result` by `custom_tool_use_id`, so clients do not send it back.
 
     - `beta_managed_agents_agent_message_event: object`
 
@@ -19857,7 +25322,7 @@ List Events
 
       - `session_thread_id: optional string`
 
-        When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
+        When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Informational only: the server routes the matching `user.tool_confirmation` by `tool_use_id`, so clients do not send it back.
 
     - `beta_managed_agents_agent_mcp_tool_result_event: object`
 
@@ -19955,7 +25420,7 @@ List Events
 
       - `session_thread_id: optional string`
 
-        When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
+        When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Informational only: the server routes the matching `user.tool_confirmation` or `user.tool_result` by `tool_use_id`, so clients do not send it back.
 
     - `beta_managed_agents_agent_tool_result_event: object`
 
@@ -20875,7 +26340,7 @@ List Events
 
       - `session_thread_id: optional string`
 
-        Routes this result to a subagent thread. Copy from the `agent.tool_use` event's `session_thread_id`.
+        Set by the server to the subagent thread this result was routed to. Omitted when it was routed to the primary thread.
 
     - `beta_managed_agents_session_thread_status_rescheduled_event: object`
 
@@ -20939,11 +26404,15 @@ List Events
 
           Model identifier and configuration.
 
-          - `id: "claude-fable-5-1" or "claude-sonnet-5" or "claude-fable-5" or 11 more or string`
+          - `id: "claude-opus-5-5" or "claude-fable-5-1" or "claude-sonnet-5" or 12 more or string`
 
             The model that will power your agent.
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+            - `"claude-opus-5-5"`
+
+              Powerful intelligence for coding, knowledge work, and long-running agents
 
             - `"claude-fable-5-1"`
 
@@ -21079,7 +26548,7 @@ List Events
 
                 Model identifier and configuration.
 
-                - `id: "claude-fable-5-1" or "claude-sonnet-5" or "claude-fable-5" or 11 more or string`
+                - `id: "claude-opus-5-5" or "claude-fable-5-1" or "claude-sonnet-5" or 12 more or string`
 
                   The model that will power your agent.
 
@@ -21729,7 +27198,7 @@ Send Events
 
 - `--session-id: string`
 
-  Path param: Path parameter session_id
+  Path param
 
 - `--event: array of BetaManagedAgentsEventParams`
 
@@ -21977,7 +27446,7 @@ Send Events
 
       - `session_thread_id: optional string`
 
-        When set, the confirmation routes to this subagent's thread rather than the primary. Echo this from the `session_thread_id` on the `agent.tool_use` or `agent.mcp_tool_use` event that prompted the approval.
+        Set by the server to the subagent thread this confirmation was routed to. Omitted when it was routed to the primary thread.
 
     - `beta_managed_agents_user_custom_tool_result_event: object`
 
@@ -22059,7 +27528,7 @@ Send Events
 
       - `session_thread_id: optional string`
 
-        Routes this result to a subagent thread. Copy from the `agent.custom_tool_use` event's `session_thread_id`.
+        Set by the server to the subagent thread this result was routed to. Omitted when it was routed to the primary thread.
 
     - `beta_managed_agents_user_define_outcome_event: object`
 
@@ -22161,7 +27630,7 @@ Send Events
 
       - `session_thread_id: optional string`
 
-        Routes this result to a subagent thread. Copy from the `agent.tool_use` event's `session_thread_id`.
+        Set by the server to the subagent thread this result was routed to. Omitted when it was routed to the primary thread.
 
     - `beta_managed_agents_system_message_event: object`
 
@@ -22232,7 +27701,7 @@ Stream Events
 
 - `--session-id: string`
 
-  Path param: Path parameter session_id
+  Path param
 
 - `--event-delta: optional array of BetaManagedAgentsDeltaType`
 
@@ -22476,7 +27945,7 @@ Stream Events
 
     - `session_thread_id: optional string`
 
-      When set, the confirmation routes to this subagent's thread rather than the primary. Echo this from the `session_thread_id` on the `agent.tool_use` or `agent.mcp_tool_use` event that prompted the approval.
+      Set by the server to the subagent thread this confirmation was routed to. Omitted when it was routed to the primary thread.
 
   - `beta_managed_agents_user_custom_tool_result_event: object`
 
@@ -22558,7 +28027,7 @@ Stream Events
 
     - `session_thread_id: optional string`
 
-      Routes this result to a subagent thread. Copy from the `agent.custom_tool_use` event's `session_thread_id`.
+      Set by the server to the subagent thread this result was routed to. Omitted when it was routed to the primary thread.
 
   - `beta_managed_agents_agent_custom_tool_use_event: object`
 
@@ -22586,7 +28055,7 @@ Stream Events
 
     - `session_thread_id: optional string`
 
-      When set, this event was cross-posted from a subagent's thread to surface its custom tool use on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.custom_tool_result` event to route the result back.
+      When set, this event was cross-posted from a subagent's thread to surface its custom tool use on the primary thread's stream. Empty on the thread's own events. Informational only: the server routes the matching `user.custom_tool_result` by `custom_tool_use_id`, so clients do not send it back.
 
   - `beta_managed_agents_agent_message_event: object`
 
@@ -22728,7 +28197,7 @@ Stream Events
 
     - `session_thread_id: optional string`
 
-      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
+      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Informational only: the server routes the matching `user.tool_confirmation` by `tool_use_id`, so clients do not send it back.
 
   - `beta_managed_agents_agent_mcp_tool_result_event: object`
 
@@ -22826,7 +28295,7 @@ Stream Events
 
     - `session_thread_id: optional string`
 
-      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
+      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Informational only: the server routes the matching `user.tool_confirmation` or `user.tool_result` by `tool_use_id`, so clients do not send it back.
 
   - `beta_managed_agents_agent_tool_result_event: object`
 
@@ -23746,7 +29215,7 @@ Stream Events
 
     - `session_thread_id: optional string`
 
-      Routes this result to a subagent thread. Copy from the `agent.tool_use` event's `session_thread_id`.
+      Set by the server to the subagent thread this result was routed to. Omitted when it was routed to the primary thread.
 
   - `beta_managed_agents_session_thread_status_rescheduled_event: object`
 
@@ -23810,11 +29279,15 @@ Stream Events
 
         Model identifier and configuration.
 
-        - `id: "claude-fable-5-1" or "claude-sonnet-5" or "claude-fable-5" or 11 more or string`
+        - `id: "claude-opus-5-5" or "claude-fable-5-1" or "claude-sonnet-5" or 12 more or string`
 
           The model that will power your agent.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `"claude-opus-5-5"`
+
+            Powerful intelligence for coding, knowledge work, and long-running agents
 
           - `"claude-fable-5-1"`
 
@@ -23950,7 +29423,7 @@ Stream Events
 
               Model identifier and configuration.
 
-              - `id: "claude-fable-5-1" or "claude-sonnet-5" or "claude-fable-5" or 11 more or string`
+              - `id: "claude-opus-5-5" or "claude-fable-5-1" or "claude-sonnet-5" or 12 more or string`
 
                 The model that will power your agent.
 
@@ -24642,7 +30115,7 @@ Add Session Resource
 
 - `--session-id: string`
 
-  Path param: Path parameter session_id
+  Path param
 
 - `--file-id: string`
 
@@ -24729,7 +30202,7 @@ List Session Resources
 
 - `--session-id: string`
 
-  Path param: Path parameter session_id
+  Path param
 
 - `--limit: optional number`
 
@@ -24917,11 +30390,11 @@ Get Session Resource
 
 - `--session-id: string`
 
-  Path param: Path parameter session_id
+  Path param
 
 - `--resource-id: string`
 
-  Path param: Path parameter resource_id
+  Path param
 
 - `--beta: optional array of AnthropicBeta`
 
@@ -25079,11 +30552,11 @@ Update Session Resource
 
 - `--session-id: string`
 
-  Path param: Path parameter session_id
+  Path param
 
 - `--resource-id: string`
 
-  Path param: Path parameter resource_id
+  Path param
 
 - `--authorization-token: string`
 
@@ -25248,11 +30721,11 @@ Delete Session Resource
 
 - `--session-id: string`
 
-  Path param: Path parameter session_id
+  Path param
 
 - `--resource-id: string`
 
-  Path param: Path parameter resource_id
+  Path param
 
 - `--beta: optional array of AnthropicBeta`
 
@@ -25306,7 +30779,7 @@ List Session Threads
 
 - `--session-id: string`
 
-  Path param: Path parameter session_id
+  Path param
 
 - `--limit: optional number`
 
@@ -25346,7 +30819,7 @@ List Session Threads
 
     - `agent: BetaManagedAgentsSessionThreadAgent or BetaManagedAgentsAdvisor`
 
-      The resolved agent a session thread runs: a saved-agent snapshot, the platform advisor entry, or an inline-defined (ephemeral) agent snapshot.
+      The resolved agent a `session_thread` runs.
 
       - `beta_managed_agents_session_thread_agent: object`
 
@@ -25370,11 +30843,15 @@ List Session Threads
 
           Model identifier and configuration.
 
-          - `id: "claude-fable-5-1" or "claude-sonnet-5" or "claude-fable-5" or 11 more or string`
+          - `id: "claude-opus-5-5" or "claude-fable-5-1" or "claude-sonnet-5" or 12 more or string`
 
             The model that will power your agent.
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+            - `"claude-opus-5-5"`
+
+              Powerful intelligence for coding, knowledge work, and long-running agents
 
             - `"claude-fable-5-1"`
 
@@ -26124,11 +31601,11 @@ Get Session Thread
 
 - `--session-id: string`
 
-  Path param: Path parameter session_id
+  Path param
 
 - `--thread-id: string`
 
-  Path param: Path parameter thread_id
+  Path param
 
 - `--beta: optional array of AnthropicBeta`
 
@@ -26154,7 +31631,7 @@ Get Session Thread
 
   - `agent: BetaManagedAgentsSessionThreadAgent or BetaManagedAgentsAdvisor`
 
-    The resolved agent a session thread runs: a saved-agent snapshot, the platform advisor entry, or an inline-defined (ephemeral) agent snapshot.
+    The resolved agent a `session_thread` runs.
 
     - `beta_managed_agents_session_thread_agent: object`
 
@@ -26178,11 +31655,15 @@ Get Session Thread
 
         Model identifier and configuration.
 
-        - `id: "claude-fable-5-1" or "claude-sonnet-5" or "claude-fable-5" or 11 more or string`
+        - `id: "claude-opus-5-5" or "claude-fable-5-1" or "claude-sonnet-5" or 12 more or string`
 
           The model that will power your agent.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `"claude-opus-5-5"`
+
+            Powerful intelligence for coding, knowledge work, and long-running agents
 
           - `"claude-fable-5-1"`
 
@@ -26924,11 +32405,11 @@ Archive Session Thread
 
 - `--session-id: string`
 
-  Path param: Path parameter session_id
+  Path param
 
 - `--thread-id: string`
 
-  Path param: Path parameter thread_id
+  Path param
 
 - `--beta: optional array of AnthropicBeta`
 
@@ -26954,7 +32435,7 @@ Archive Session Thread
 
   - `agent: BetaManagedAgentsSessionThreadAgent or BetaManagedAgentsAdvisor`
 
-    The resolved agent a session thread runs: a saved-agent snapshot, the platform advisor entry, or an inline-defined (ephemeral) agent snapshot.
+    The resolved agent a `session_thread` runs.
 
     - `beta_managed_agents_session_thread_agent: object`
 
@@ -26978,11 +32459,15 @@ Archive Session Thread
 
         Model identifier and configuration.
 
-        - `id: "claude-fable-5-1" or "claude-sonnet-5" or "claude-fable-5" or 11 more or string`
+        - `id: "claude-opus-5-5" or "claude-fable-5-1" or "claude-sonnet-5" or 12 more or string`
 
           The model that will power your agent.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `"claude-opus-5-5"`
+
+            Powerful intelligence for coding, knowledge work, and long-running agents
 
           - `"claude-fable-5-1"`
 
@@ -27009,7173 +32494,3 @@ Archive Session Thread
             Powerful intelligence for long-running agents and coding
 
           - `"claude-opus-4-6"`
-
-            Powerful intelligence for long-running agents and coding
-
-          - `"claude-sonnet-4-6"`
-
-            Best combination of speed and intelligence
-
-          - `"claude-haiku-4-5"`
-
-            Fastest model with near-frontier intelligence
-
-          - `"claude-haiku-4-5-20251001"`
-
-            Fastest model with near-frontier intelligence
-
-          - `"claude-opus-4-5"`
-
-            Powerful intelligence for long-running agents and coding
-
-          - `"claude-opus-4-5-20251101"`
-
-            Powerful intelligence for long-running agents and coding
-
-          - `"claude-sonnet-4-5"`
-
-            High-performance model for agents and coding
-
-          - `"claude-sonnet-4-5-20250929"`
-
-            High-performance model for agents and coding
-
-        - `effort: optional BetaManagedAgentsEffortLow or BetaManagedAgentsEffortMedium or BetaManagedAgentsEffortHigh or 2 more`
-
-          How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
-
-          - `beta_managed_agents_effort_low: object`
-
-            Low effort. Favors latency over reasoning depth.
-
-            - `type: "low"`
-
-          - `beta_managed_agents_effort_medium: object`
-
-            Medium effort. Balances latency and reasoning depth.
-
-            - `type: "medium"`
-
-          - `beta_managed_agents_effort_high: object`
-
-            High effort. Favors reasoning depth.
-
-            - `type: "high"`
-
-          - `beta_managed_agents_effort_xhigh: object`
-
-            Extra-high effort. Not all models accept this level.
-
-            - `type: "xhigh"`
-
-          - `beta_managed_agents_effort_max: object`
-
-            Maximum effort. Favors reasoning depth over latency.
-
-            - `type: "max"`
-
-        - `inference_geo: optional string`
-
-          Geographic region for model inference. When unset, requests fall through to the workspace's default_inference_geo.
-
-        - `speed: optional "standard" or "fast"`
-
-          Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
-          - `"standard"`
-
-          - `"fast"`
-
-      - `name: string`
-
-      - `skills: array of BetaManagedAgentsAnthropicSkill or BetaManagedAgentsCustomSkill`
-
-        - `beta_managed_agents_anthropic_skill: object`
-
-          A resolved Anthropic-managed skill.
-
-          - `type: "anthropic"`
-
-          - `skill_id: string`
-
-          - `version: string`
-
-        - `beta_managed_agents_custom_skill: object`
-
-          A resolved user-created custom skill.
-
-          - `type: "custom"`
-
-          - `skill_id: string`
-
-          - `version: string`
-
-      - `system: string`
-
-      - `tools: array of BetaManagedAgentsAgentToolset20260401 or BetaManagedAgentsMCPToolset or BetaManagedAgentsCustomTool`
-
-        - `beta_managed_agents_agent_toolset20260401: object`
-
-          - `type: "agent_toolset_20260401"`
-
-          - `configs: array of BetaManagedAgentsAgentToolConfig`
-
-            - `beta_managed_agents_bash_tool_config: object`
-
-              Configuration for the bash tool.
-
-              - `type: "bash"`
-
-              - `enabled: boolean`
-
-              - `name: "bash"`
-
-              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
-
-                Permission policy for tool execution.
-
-                - `beta_managed_agents_always_allow_policy: object`
-
-                  Tool calls are automatically approved without user confirmation.
-
-                  - `type: "always_allow"`
-
-                - `beta_managed_agents_always_ask_policy: object`
-
-                  Tool calls require user confirmation before execution.
-
-                  - `type: "always_ask"`
-
-                - `beta_managed_agents_auto_policy: object`
-
-                  The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
-
-                  - `type: "auto"`
-
-            - `beta_managed_agents_edit_tool_config: object`
-
-              Configuration for the edit tool.
-
-              - `type: "edit"`
-
-              - `enabled: boolean`
-
-              - `name: "edit"`
-
-              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
-
-                Permission policy for tool execution.
-
-                - `beta_managed_agents_always_allow_policy: object`
-
-                  Tool calls are automatically approved without user confirmation.
-
-                - `beta_managed_agents_always_ask_policy: object`
-
-                  Tool calls require user confirmation before execution.
-
-                - `beta_managed_agents_auto_policy: object`
-
-                  The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
-
-            - `beta_managed_agents_read_tool_config: object`
-
-              Configuration for the read tool.
-
-              - `type: "read"`
-
-              - `enabled: boolean`
-
-              - `name: "read"`
-
-              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
-
-                Permission policy for tool execution.
-
-                - `beta_managed_agents_always_allow_policy: object`
-
-                  Tool calls are automatically approved without user confirmation.
-
-                - `beta_managed_agents_always_ask_policy: object`
-
-                  Tool calls require user confirmation before execution.
-
-                - `beta_managed_agents_auto_policy: object`
-
-                  The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
-
-            - `beta_managed_agents_write_tool_config: object`
-
-              Configuration for the write tool.
-
-              - `type: "write"`
-
-              - `enabled: boolean`
-
-              - `name: "write"`
-
-              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
-
-                Permission policy for tool execution.
-
-                - `beta_managed_agents_always_allow_policy: object`
-
-                  Tool calls are automatically approved without user confirmation.
-
-                - `beta_managed_agents_always_ask_policy: object`
-
-                  Tool calls require user confirmation before execution.
-
-                - `beta_managed_agents_auto_policy: object`
-
-                  The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
-
-            - `beta_managed_agents_glob_tool_config: object`
-
-              Configuration for the glob tool.
-
-              - `type: "glob"`
-
-              - `enabled: boolean`
-
-              - `name: "glob"`
-
-              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
-
-                Permission policy for tool execution.
-
-                - `beta_managed_agents_always_allow_policy: object`
-
-                  Tool calls are automatically approved without user confirmation.
-
-                - `beta_managed_agents_always_ask_policy: object`
-
-                  Tool calls require user confirmation before execution.
-
-                - `beta_managed_agents_auto_policy: object`
-
-                  The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
-
-            - `beta_managed_agents_grep_tool_config: object`
-
-              Configuration for the grep tool.
-
-              - `type: "grep"`
-
-              - `enabled: boolean`
-
-              - `name: "grep"`
-
-              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
-
-                Permission policy for tool execution.
-
-                - `beta_managed_agents_always_allow_policy: object`
-
-                  Tool calls are automatically approved without user confirmation.
-
-                - `beta_managed_agents_always_ask_policy: object`
-
-                  Tool calls require user confirmation before execution.
-
-                - `beta_managed_agents_auto_policy: object`
-
-                  The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
-
-            - `beta_managed_agents_web_fetch_tool_config: object`
-
-              Configuration for the web_fetch tool.
-
-              - `type: "web_fetch"`
-
-              - `enabled: boolean`
-
-              - `name: "web_fetch"`
-
-              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
-
-                Permission policy for tool execution.
-
-                - `beta_managed_agents_always_allow_policy: object`
-
-                  Tool calls are automatically approved without user confirmation.
-
-                - `beta_managed_agents_always_ask_policy: object`
-
-                  Tool calls require user confirmation before execution.
-
-                - `beta_managed_agents_auto_policy: object`
-
-                  The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
-
-              - `allowed_domains: optional array of string`
-
-              - `blocked_domains: optional array of string`
-
-              - `max_content_tokens: optional number`
-
-                format: int32
-
-            - `beta_managed_agents_web_search_tool_config: object`
-
-              Configuration for the web_search tool.
-
-              - `type: "web_search"`
-
-              - `enabled: boolean`
-
-              - `name: "web_search"`
-
-              - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
-
-                Permission policy for tool execution.
-
-                - `beta_managed_agents_always_allow_policy: object`
-
-                  Tool calls are automatically approved without user confirmation.
-
-                - `beta_managed_agents_always_ask_policy: object`
-
-                  Tool calls require user confirmation before execution.
-
-                - `beta_managed_agents_auto_policy: object`
-
-                  The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
-
-              - `allowed_domains: optional array of string`
-
-              - `blocked_domains: optional array of string`
-
-              - `user_location: optional object`
-
-                Approximate user location for search result localization.
-
-                - `type: "approximate"`
-
-                  Location precision. Only "approximate" is supported.
-
-                - `city: optional string`
-
-                  City name.
-
-                  minLength: 1, maxLength: 255
-
-                - `country: optional string`
-
-                  Two-letter ISO 3166-1 country code, uppercase.
-
-                - `region: optional string`
-
-                  Region or state name.
-
-                  minLength: 1, maxLength: 255
-
-                - `timezone: optional string`
-
-                  IANA timezone identifier, e.g. "America/Los_Angeles".
-
-                  minLength: 1, maxLength: 255
-
-          - `default_config: object`
-
-            Resolved default configuration for agent tools.
-
-            - `enabled: boolean`
-
-            - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
-
-              Permission policy for tool execution.
-
-              - `beta_managed_agents_always_allow_policy: object`
-
-                Tool calls are automatically approved without user confirmation.
-
-              - `beta_managed_agents_always_ask_policy: object`
-
-                Tool calls require user confirmation before execution.
-
-              - `beta_managed_agents_auto_policy: object`
-
-                The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
-
-        - `beta_managed_agents_mcp_toolset: object`
-
-          - `type: "mcp_toolset"`
-
-          - `configs: array of BetaManagedAgentsMCPToolConfig`
-
-            - `enabled: boolean`
-
-            - `name: string`
-
-            - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
-
-              Permission policy for tool execution.
-
-              - `beta_managed_agents_always_allow_policy: object`
-
-                Tool calls are automatically approved without user confirmation.
-
-              - `beta_managed_agents_always_ask_policy: object`
-
-                Tool calls require user confirmation before execution.
-
-              - `beta_managed_agents_auto_policy: object`
-
-                The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
-
-          - `default_config: object`
-
-            Resolved default configuration for all tools from an MCP server.
-
-            - `enabled: boolean`
-
-            - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
-
-              Permission policy for tool execution.
-
-              - `beta_managed_agents_always_allow_policy: object`
-
-                Tool calls are automatically approved without user confirmation.
-
-              - `beta_managed_agents_always_ask_policy: object`
-
-                Tool calls require user confirmation before execution.
-
-              - `beta_managed_agents_auto_policy: object`
-
-                The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
-
-          - `mcp_server_name: string`
-
-        - `beta_managed_agents_custom_tool: object`
-
-          A custom tool as returned in API responses.
-
-          - `type: "custom"`
-
-          - `description: string`
-
-          - `input_schema: object`
-
-            JSON Schema for custom tool input parameters.
-
-            - `type: "object"`
-
-            - `properties: optional map[unknown]`
-
-            - `required: optional array of string`
-
-          - `name: string`
-
-      - `version: number`
-
-        format: int32
-
-    - `beta_managed_agents_advisor: object`
-
-      Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
-
-      - `type: "advisor"`
-
-      - `model: string`
-
-        The advisor model id.
-
-  - `archived_at: string`
-
-    A timestamp in RFC 3339 format
-
-    format: date-time
-
-  - `created_at: string`
-
-    A timestamp in RFC 3339 format
-
-    format: date-time
-
-  - `parent_thread_id: string`
-
-    Parent thread that spawned this thread. Null for the primary thread.
-
-  - `session_id: string`
-
-    The session this thread belongs to.
-
-  - `stats: object`
-
-    Timing statistics for a session thread.
-
-    - `active_seconds: optional number`
-
-      Cumulative time in seconds the thread spent actively running. Excludes idle time.
-
-      format: double
-
-    - `duration_seconds: optional number`
-
-      Elapsed time since thread creation in seconds. For archived threads, frozen at the final update.
-
-      format: double
-
-    - `startup_seconds: optional number`
-
-      Time in seconds for the thread to begin running. Zero for child threads, which start immediately.
-
-      format: double
-
-  - `status: "running" or "idle" or "rescheduling" or "terminated"`
-
-    SessionThreadStatus enum
-
-    - `"running"`
-
-    - `"idle"`
-
-    - `"rescheduling"`
-
-    - `"terminated"`
-
-  - `updated_at: string`
-
-    A timestamp in RFC 3339 format
-
-    format: date-time
-
-  - `usage: object`
-
-    Cumulative token usage for a session thread across all turns.
-
-    - `active_seconds: optional number`
-
-      Cumulative time in seconds this thread spent in running status. Equal to `stats.active_seconds`; surfaced here so a thread's usage carries every quantity its cost is priced on.
-
-      format: double
-
-    - `cache_creation: optional object`
-
-      Prompt-cache creation token usage broken down by cache lifetime.
-
-      - `ephemeral_1h_input_tokens: optional number`
-
-        Tokens used to create 1-hour ephemeral cache entries.
-
-        format: int32
-
-      - `ephemeral_5m_input_tokens: optional number`
-
-        Tokens used to create 5-minute ephemeral cache entries.
-
-        format: int32
-
-    - `cache_read_input_tokens: optional number`
-
-      Total tokens read from prompt cache.
-
-      format: int32
-
-    - `input_tokens: optional number`
-
-      Total input tokens consumed across all turns.
-
-      format: int32
-
-    - `list_cost: optional object`
-
-      A monetary amount in a specific currency.
-
-      - `amount: string`
-
-        Amount in minor units of the currency, as an integer decimal string with no leading zeros: "2500" is $25.00 and "50" is fifty cents. A string rather than a number so no float rounding is ever applied.
-
-      - `currency: "USD"`
-
-        Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
-
-    - `output_tokens: optional number`
-
-      Total output tokens generated across all turns.
-
-      format: int32
-
-    - `server_tool_use: optional object`
-
-      Cumulative count of server-executed tool invocations, broken down by tool.
-
-      - `web_fetch_requests: optional number`
-
-        Number of server-executed web fetch requests.
-
-        format: int32
-
-      - `web_search_requests: optional number`
-
-        Number of server-executed web search requests.
-
-        format: int32
-
-#### Example
-
-```bash
-ant beta:sessions:threads archive \
-  --api-key my-anthropic-api-key \
-  --session-id sesn_011CZkZAtmR3yMPDzynEDxu7 \
-  --thread-id sthr_011CZkZVWa6oIjw0rgXZpnBt
-```
-
-##### Response (200)
-
-```json
-{
-  "id": "sthr_011CZkZVWa6oIjw0rgXZpnBt",
-  "agent": {
-    "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
-    "description": "A focused research subagent.",
-    "mcp_servers": [
-      {
-        "name": "example-mcp",
-        "type": "url",
-        "url": "https://example-server.modelcontextprotocol.io/sse"
-      }
-    ],
-    "model": {
-      "id": "claude-opus-5",
-      "effort": {
-        "type": "low"
-      },
-      "inference_geo": "inference_geo",
-      "speed": "standard"
-    },
-    "name": "Researcher",
-    "skills": [
-      {
-        "skill_id": "xlsx",
-        "type": "anthropic",
-        "version": "1"
-      }
-    ],
-    "system": "You are a research subagent that gathers and summarises sources for the coordinating agent.",
-    "tools": [
-      {
-        "configs": [
-          {
-            "enabled": true,
-            "name": "bash",
-            "permission_policy": {
-              "type": "always_allow"
-            },
-            "type": "bash"
-          }
-        ],
-        "default_config": {
-          "enabled": true,
-          "permission_policy": {
-            "type": "always_ask"
-          }
-        },
-        "type": "agent_toolset_20260401"
-      }
-    ],
-    "type": "agent",
-    "version": 1
-  },
-  "archived_at": null,
-  "created_at": "2026-03-15T10:00:00Z",
-  "parent_thread_id": null,
-  "session_id": "sesn_011CZkZAtmR3yMPDzynEDxu7",
-  "stats": {
-    "active_seconds": 0,
-    "duration_seconds": 0,
-    "startup_seconds": 0
-  },
-  "status": "idle",
-  "type": "session_thread",
-  "updated_at": "2026-03-15T10:00:00Z",
-  "usage": {
-    "active_seconds": 0,
-    "cache_creation": {
-      "ephemeral_1h_input_tokens": 0,
-      "ephemeral_5m_input_tokens": 0
-    },
-    "cache_read_input_tokens": 0,
-    "input_tokens": 0,
-    "list_cost": {
-      "amount": "2500",
-      "currency": "USD"
-    },
-    "output_tokens": 0,
-    "server_tool_use": {
-      "web_fetch_requests": 0,
-      "web_search_requests": 3
-    }
-  }
-}
-```
-
-## Beta › Sessions › Threads › Events
-
-### List Session Thread Events
-
-`$ ant beta:sessions:threads:events list`
-
-**GET** `/v1/sessions/{session_id}/threads/{thread_id}/events`
-
-List Session Thread Events
-
-#### Parameters
-
-- `--session-id: string`
-
-  Path param: Path parameter session_id
-
-- `--thread-id: string`
-
-  Path param: Path parameter thread_id
-
-- `--limit: optional number`
-
-  Query param: Query parameter for limit
-
-  format: int32
-
-- `--page: optional string`
-
-  Query param: Query parameter for page
-
-- `--beta: optional array of AnthropicBeta`
-
-  Header param: Optional header to specify the beta version(s) you want to use.
-
-- `--workspace-id: optional string`
-
-  Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
-
-  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
-
-#### Returns
-
-- `BetaManagedAgentsListSessionThreadEvents: object`
-
-  Paginated list of events for a single thread within a `session`.
-
-  - `data: optional array of BetaManagedAgentsSessionEvent`
-
-    Events for the thread, ordered by `processed_at`.
-
-    - `beta_managed_agents_user_message_event: object`
-
-      A user message event in the session conversation.
-
-      - `type: "user.message"`
-
-      - `id: string`
-
-        Unique identifier for this event.
-
-      - `content: array of BetaManagedAgentsTextBlock or BetaManagedAgentsImageBlock or BetaManagedAgentsDocumentBlock or BetaManagedAgentsRedactedBlock`
-
-        Array of content blocks comprising the user message.
-
-        - `beta_managed_agents_text_block: object`
-
-          Regular text content.
-
-          - `type: "text"`
-
-          - `text: string`
-
-            The text content.
-
-            minLength: 1
-
-        - `beta_managed_agents_image_block: object`
-
-          Image content specified directly as base64 data or as a reference via a URL.
-
-          - `type: "image"`
-
-          - `source: BetaManagedAgentsBase64ImageSource or BetaManagedAgentsURLImageSource or BetaManagedAgentsFileImageSource`
-
-            Union type for image source variants.
-
-            - `beta_managed_agents_base64_image_source: object`
-
-              Base64-encoded image data.
-
-              - `type: "base64"`
-
-              - `data: string`
-
-                Base64-encoded image data.
-
-                minLength: 1
-
-              - `media_type: string`
-
-                MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
-
-                minLength: 1
-
-            - `beta_managed_agents_url_image_source: object`
-
-              Image referenced by URL.
-
-              - `type: "url"`
-
-              - `url: string`
-
-                URL of the image to fetch.
-
-                minLength: 1
-
-            - `beta_managed_agents_file_image_source: object`
-
-              Image referenced by file ID.
-
-              - `type: "file"`
-
-              - `file_id: string`
-
-                ID of a previously uploaded file.
-
-                minLength: 1
-
-        - `beta_managed_agents_document_block: object`
-
-          Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-          - `type: "document"`
-
-          - `source: BetaManagedAgentsBase64DocumentSource or BetaManagedAgentsPlainTextDocumentSource or BetaManagedAgentsURLDocumentSource or BetaManagedAgentsFileDocumentSource`
-
-            Union type for document source variants.
-
-            - `beta_managed_agents_base64_document_source: object`
-
-              Base64-encoded document data.
-
-              - `type: "base64"`
-
-              - `data: string`
-
-                Base64-encoded document data.
-
-                minLength: 1
-
-              - `media_type: string`
-
-                MIME type of the document (e.g., "application/pdf").
-
-                minLength: 1
-
-            - `beta_managed_agents_plain_text_document_source: object`
-
-              Plain text document content.
-
-              - `type: "text"`
-
-              - `data: string`
-
-                The plain text content.
-
-                minLength: 1
-
-              - `media_type: "text/plain"`
-
-                MIME type of the text content. Must be "text/plain".
-
-            - `beta_managed_agents_url_document_source: object`
-
-              Document referenced by URL.
-
-              - `type: "url"`
-
-              - `url: string`
-
-                URL of the document to fetch.
-
-                minLength: 1
-
-            - `beta_managed_agents_file_document_source: object`
-
-              Document referenced by file ID.
-
-              - `type: "file"`
-
-              - `file_id: string`
-
-                ID of a previously uploaded file.
-
-                minLength: 1
-
-          - `context: optional string`
-
-            Additional context about the document for the model.
-
-          - `title: optional string`
-
-            The title of the document.
-
-        - `beta_managed_agents_redacted_block: object`
-
-          Placeholder for content withheld by Anthropic model policy.
-
-          - `type: "redacted"`
-
-      - `processed_at: optional string`
-
-        A timestamp in RFC 3339 format
-
-        format: date-time
-
-    - `beta_managed_agents_user_interrupt_event: object`
-
-      An interrupt event that pauses agent execution and returns control to the user.
-
-      - `type: "user.interrupt"`
-
-      - `id: string`
-
-        Unique identifier for this event.
-
-      - `processed_at: optional string`
-
-        A timestamp in RFC 3339 format
-
-        format: date-time
-
-      - `session_thread_id: optional string`
-
-        If absent, interrupts every non-archived thread in a multiagent session (or the primary alone in a single-agent session). If present, interrupts only the named thread.
-
-    - `beta_managed_agents_user_tool_confirmation_event: object`
-
-      A tool confirmation event that approves or denies a pending tool execution.
-
-      - `type: "user.tool_confirmation"`
-
-      - `id: string`
-
-        Unique identifier for this event.
-
-      - `result: "allow" or "deny"`
-
-        UserToolConfirmationResult enum
-
-        - `"allow"`
-
-        - `"deny"`
-
-      - `tool_use_id: string`
-
-        The id of the `agent.tool_use` or `agent.mcp_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
-
-      - `deny_message: optional string`
-
-        Optional message providing context for a 'deny' decision. Only allowed when result is 'deny'.
-
-        maxLength: 10000
-
-      - `processed_at: optional string`
-
-        A timestamp in RFC 3339 format
-
-        format: date-time
-
-      - `session_thread_id: optional string`
-
-        When set, the confirmation routes to this subagent's thread rather than the primary. Echo this from the `session_thread_id` on the `agent.tool_use` or `agent.mcp_tool_use` event that prompted the approval.
-
-    - `beta_managed_agents_user_custom_tool_result_event: object`
-
-      Event sent by the client providing the result of a custom tool execution.
-
-      - `type: "user.custom_tool_result"`
-
-      - `id: string`
-
-        Unique identifier for this event.
-
-      - `custom_tool_use_id: string`
-
-        The id of the `agent.custom_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
-
-      - `content: optional array of BetaManagedAgentsTextBlock or BetaManagedAgentsImageBlock or BetaManagedAgentsDocumentBlock or BetaManagedAgentsSearchResultBlock`
-
-        The result content returned by the tool.
-
-        - `beta_managed_agents_text_block: object`
-
-          Regular text content.
-
-        - `beta_managed_agents_image_block: object`
-
-          Image content specified directly as base64 data or as a reference via a URL.
-
-        - `beta_managed_agents_document_block: object`
-
-          Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-        - `beta_managed_agents_search_result_block: object`
-
-          A block containing a web search result.
-
-          - `type: "search_result"`
-
-          - `citations: object`
-
-            Citation settings for a search result.
-
-            - `enabled: boolean`
-
-              Whether citations are enabled for this search result.
-
-          - `content: array of BetaManagedAgentsSearchResultContent`
-
-            Array of text content blocks from the search result.
-
-            - `type: "text"`
-
-            - `text: string`
-
-              The text content.
-
-              minLength: 1
-
-          - `source: string`
-
-            The URL source of the search result.
-
-            minLength: 1
-
-          - `title: string`
-
-            The title of the search result.
-
-            minLength: 1
-
-      - `is_error: optional boolean`
-
-        Whether the tool execution resulted in an error.
-
-      - `processed_at: optional string`
-
-        A timestamp in RFC 3339 format
-
-        format: date-time
-
-      - `session_thread_id: optional string`
-
-        Routes this result to a subagent thread. Copy from the `agent.custom_tool_use` event's `session_thread_id`.
-
-    - `beta_managed_agents_agent_custom_tool_use_event: object`
-
-      Event emitted when the agent calls a custom tool. The session goes idle until the client sends a `user.custom_tool_result` event with the result.
-
-      - `type: "agent.custom_tool_use"`
-
-      - `id: string`
-
-        Unique identifier for this event.
-
-      - `input: map[unknown]`
-
-        Input parameters for the tool call.
-
-      - `name: string`
-
-        Name of the custom tool being called.
-
-      - `processed_at: string`
-
-        A timestamp in RFC 3339 format
-
-        format: date-time
-
-      - `session_thread_id: optional string`
-
-        When set, this event was cross-posted from a subagent's thread to surface its custom tool use on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.custom_tool_result` event to route the result back.
-
-    - `beta_managed_agents_agent_message_event: object`
-
-      An agent response event in the session conversation.
-
-      - `type: "agent.message"`
-
-      - `id: string`
-
-        Unique identifier for this event.
-
-      - `content: array of BetaManagedAgentsTextBlock or BetaManagedAgentsRedactedBlock`
-
-        Array of text blocks comprising the agent response.
-
-        - `beta_managed_agents_text_block: object`
-
-          Regular text content.
-
-        - `beta_managed_agents_redacted_block: object`
-
-          Placeholder for content withheld by Anthropic model policy.
-
-      - `processed_at: string`
-
-        A timestamp in RFC 3339 format
-
-        format: date-time
-
-    - `beta_managed_agents_agent_thinking_event: object`
-
-      Indicates the agent is making forward progress via extended thinking. A progress signal, not a content carrier.
-
-      - `type: "agent.thinking"`
-
-      - `id: string`
-
-        Unique identifier for this event.
-
-      - `processed_at: string`
-
-        A timestamp in RFC 3339 format
-
-        format: date-time
-
-    - `beta_managed_agents_agent_mcp_tool_use_event: object`
-
-      Event emitted when the agent invokes a tool provided by an MCP server.
-
-      - `type: "agent.mcp_tool_use"`
-
-      - `id: string`
-
-        Unique identifier for this event.
-
-      - `input: map[unknown]`
-
-        Input parameters for the tool call.
-
-      - `mcp_server_name: string`
-
-        Name of the MCP server providing the tool.
-
-      - `name: string`
-
-        Name of the MCP tool being used.
-
-      - `processed_at: string`
-
-        A timestamp in RFC 3339 format
-
-        format: date-time
-
-      - `evaluated_permission: optional "allow" or "ask" or "deny"`
-
-        AgentEvaluatedPermission enum
-
-        - `"allow"`
-
-        - `"ask"`
-
-        - `"deny"`
-
-      - `evaluation: optional BetaManagedAgentsAgentToolEvaluationAlwaysAllow or BetaManagedAgentsAgentToolEvaluationAlwaysAsk or BetaManagedAgentsAgentToolEvaluationAuto`
-
-        Names the resolved permission_policy that produced evaluated_permission, and under auto carries the judgement. Open union: clients must tolerate unknown variants.
-
-        - `beta_managed_agents_agent_tool_evaluation_always_allow: object`
-
-          The resolved permission_policy was always_allow; accompanies evaluated_permission "allow".
-
-          - `type: "always_allow"`
-
-        - `beta_managed_agents_agent_tool_evaluation_always_ask: object`
-
-          The resolved permission_policy was always_ask; accompanies evaluated_permission "ask".
-
-          - `type: "always_ask"`
-
-        - `beta_managed_agents_agent_tool_evaluation_auto: object`
-
-          The resolved permission_policy was auto: the server judged this invocation individually.
-
-          - `type: "auto"`
-
-          - `evaluated_permission: BetaManagedAgentsAgentAutoEvaluatedPermissionAllow or BetaManagedAgentsAgentAutoEvaluatedPermissionAsk or BetaManagedAgentsAgentAutoEvaluatedPermissionDeny`
-
-            The server's per-invocation judgement under the auto permission policy. Its type always equals the event's top-level evaluated_permission. Open union: clients must tolerate unknown variants.
-
-            - `beta_managed_agents_agent_auto_evaluated_permission_allow: object`
-
-              The server judged the invocation safe to execute without client approval.
-
-              - `type: "allow"`
-
-            - `beta_managed_agents_agent_auto_evaluated_permission_ask: object`
-
-              The server reached no judgement; the invocation is held for client approval.
-
-              - `type: "ask"`
-
-              - `reason_code: string`
-
-                The judgement's grounds in registry-bound terms, for client branching and audit rather than end-user display. Open registry; currently "indeterminate" (no judgement was reached). Clients must tolerate values outside this set.
-
-                maxLength: 64
-
-            - `beta_managed_agents_agent_auto_evaluated_permission_deny: object`
-
-              The server judged the invocation high-risk; it does not execute and a synthetic error tool result is appended.
-
-              - `type: "deny"`
-
-              - `reason_code: string`
-
-                The judgement's grounds in registry-bound terms. Open registry; currently "high_risk" (judged high-risk; the call does not run). Clients must tolerate values outside this set.
-
-                maxLength: 64
-
-      - `session_thread_id: optional string`
-
-        When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
-
-    - `beta_managed_agents_agent_mcp_tool_result_event: object`
-
-      Event representing the result of an MCP tool execution.
-
-      - `type: "agent.mcp_tool_result"`
-
-      - `id: string`
-
-        Unique identifier for this event.
-
-      - `mcp_tool_use_id: string`
-
-        The id of the `agent.mcp_tool_use` event this result corresponds to.
-
-      - `processed_at: string`
-
-        A timestamp in RFC 3339 format
-
-        format: date-time
-
-      - `content: optional array of BetaManagedAgentsTextBlock or BetaManagedAgentsImageBlock or BetaManagedAgentsDocumentBlock or BetaManagedAgentsSearchResultBlock`
-
-        The result content returned by the tool.
-
-        - `beta_managed_agents_text_block: object`
-
-          Regular text content.
-
-        - `beta_managed_agents_image_block: object`
-
-          Image content specified directly as base64 data or as a reference via a URL.
-
-        - `beta_managed_agents_document_block: object`
-
-          Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-        - `beta_managed_agents_search_result_block: object`
-
-          A block containing a web search result.
-
-      - `is_error: optional boolean`
-
-        Whether the tool execution resulted in an error.
-
-    - `beta_managed_agents_agent_tool_use_event: object`
-
-      Event emitted when the agent invokes a built-in agent tool.
-
-      - `type: "agent.tool_use"`
-
-      - `id: string`
-
-        Unique identifier for this event.
-
-      - `input: map[unknown]`
-
-        Input parameters for the tool call.
-
-      - `name: string`
-
-        Name of the agent tool being used.
-
-      - `processed_at: string`
-
-        A timestamp in RFC 3339 format
-
-        format: date-time
-
-      - `evaluated_permission: optional "allow" or "ask" or "deny"`
-
-        AgentEvaluatedPermission enum
-
-        - `"allow"`
-
-        - `"ask"`
-
-        - `"deny"`
-
-      - `evaluation: optional BetaManagedAgentsAgentToolEvaluationAlwaysAllow or BetaManagedAgentsAgentToolEvaluationAlwaysAsk or BetaManagedAgentsAgentToolEvaluationAuto`
-
-        Names the resolved permission_policy that produced evaluated_permission, and under auto carries the judgement. Open union: clients must tolerate unknown variants.
-
-        - `beta_managed_agents_agent_tool_evaluation_always_allow: object`
-
-          The resolved permission_policy was always_allow; accompanies evaluated_permission "allow".
-
-        - `beta_managed_agents_agent_tool_evaluation_always_ask: object`
-
-          The resolved permission_policy was always_ask; accompanies evaluated_permission "ask".
-
-        - `beta_managed_agents_agent_tool_evaluation_auto: object`
-
-          The resolved permission_policy was auto: the server judged this invocation individually.
-
-      - `session_thread_id: optional string`
-
-        When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
-
-    - `beta_managed_agents_agent_tool_result_event: object`
-
-      Event representing the result of an agent tool execution.
-
-      - `type: "agent.tool_result"`
-
-      - `id: string`
-
-        Unique identifier for this event.
-
-      - `processed_at: string`
-
-        A timestamp in RFC 3339 format
-
-        format: date-time
-
-      - `tool_use_id: string`
-
-        The id of the `agent.tool_use` event this result corresponds to.
-
-      - `content: optional array of BetaManagedAgentsTextBlock or BetaManagedAgentsImageBlock or BetaManagedAgentsDocumentBlock or BetaManagedAgentsSearchResultBlock`
-
-        The result content returned by the tool.
-
-        - `beta_managed_agents_text_block: object`
-
-          Regular text content.
-
-        - `beta_managed_agents_image_block: object`
-
-          Image content specified directly as base64 data or as a reference via a URL.
-
-        - `beta_managed_agents_document_block: object`
-
-          Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-        - `beta_managed_agents_search_result_block: object`
-
-          A block containing a web search result.
-
-      - `is_error: optional boolean`
-
-        Whether the tool execution resulted in an error.
-
-    - `beta_managed_agents_agent_thread_message_received_event: object`
-
-      Delivery event written to the target thread's input stream when an agent-to-agent message arrives.
-
-      - `type: "agent.thread_message_received"`
-
-      - `id: string`
-
-        Unique identifier for this event.
-
-      - `content: array of BetaManagedAgentsTextBlock or BetaManagedAgentsImageBlock or BetaManagedAgentsDocumentBlock or BetaManagedAgentsRedactedBlock`
-
-        Message content blocks.
-
-        - `beta_managed_agents_text_block: object`
-
-          Regular text content.
-
-        - `beta_managed_agents_image_block: object`
-
-          Image content specified directly as base64 data or as a reference via a URL.
-
-        - `beta_managed_agents_document_block: object`
-
-          Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-        - `beta_managed_agents_redacted_block: object`
-
-          Placeholder for content withheld by Anthropic model policy.
-
-      - `from_session_thread_id: string`
-
-        Public `sthr_` ID of the thread that sent the message.
-
-      - `processed_at: string`
-
-        A timestamp in RFC 3339 format
-
-        format: date-time
-
-      - `from_agent_name: optional string`
-
-        Name of the callable agent this message came from. Absent when received from the primary agent.
-
-    - `beta_managed_agents_agent_thread_message_sent_event: object`
-
-      Observability event emitted to the sender's output stream when an agent-to-agent message is sent.
-
-      - `type: "agent.thread_message_sent"`
-
-      - `id: string`
-
-        Unique identifier for this event.
-
-      - `content: array of BetaManagedAgentsTextBlock or BetaManagedAgentsImageBlock or BetaManagedAgentsDocumentBlock or BetaManagedAgentsRedactedBlock`
-
-        Message content blocks.
-
-        - `beta_managed_agents_text_block: object`
-
-          Regular text content.
-
-        - `beta_managed_agents_image_block: object`
-
-          Image content specified directly as base64 data or as a reference via a URL.
-
-        - `beta_managed_agents_document_block: object`
-
-          Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-        - `beta_managed_agents_redacted_block: object`
-
-          Placeholder for content withheld by Anthropic model policy.
-
-      - `processed_at: string`
-
-        A timestamp in RFC 3339 format
-
-        format: date-time
-
-      - `to_session_thread_id: string`
-
-        Public `sthr_` ID of the thread the message was sent to.
-
-      - `to_agent_name: optional string`
-
-        Name of the callable agent this message was sent to. Absent when sent to the primary agent.
-
-    - `beta_managed_agents_agent_thread_context_compacted_event: object`
-
-      Indicates that context compaction (summarization) occurred during the session.
-
-      - `type: "agent.thread_context_compacted"`
-
-      - `id: string`
-
-        Unique identifier for this event.
-
-      - `processed_at: string`
-
-        A timestamp in RFC 3339 format
-
-        format: date-time
-
-    - `beta_managed_agents_session_error_event: object`
-
-      An error event indicating a problem occurred during session execution.
-
-      - `type: "session.error"`
-
-      - `id: string`
-
-        Unique identifier for this event.
-
-      - `error: BetaManagedAgentsUnknownError or BetaManagedAgentsModelOverloadedError or BetaManagedAgentsModelRateLimitedError or 5 more`
-
-        - `beta_managed_agents_unknown_error: object`
-
-          An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
-
-          - `type: "unknown_error"`
-
-          - `message: string`
-
-            Human-readable error description.
-
-          - `retry_status: BetaManagedAgentsRetryStatusRetrying or BetaManagedAgentsRetryStatusExhausted or BetaManagedAgentsRetryStatusTerminal`
-
-            What the client should do next in response to this error.
-
-            - `beta_managed_agents_retry_status_retrying: object`
-
-              The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-              - `type: "retrying"`
-
-            - `beta_managed_agents_retry_status_exhausted: object`
-
-              This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
-
-              - `type: "exhausted"`
-
-            - `beta_managed_agents_retry_status_terminal: object`
-
-              The session encountered a terminal error and will transition to `terminated` state.
-
-              - `type: "terminal"`
-
-        - `beta_managed_agents_model_overloaded_error: object`
-
-          The model is currently overloaded. Emitted after automatic retries are exhausted.
-
-          - `type: "model_overloaded_error"`
-
-          - `message: string`
-
-            Human-readable error description.
-
-          - `retry_status: BetaManagedAgentsRetryStatusRetrying or BetaManagedAgentsRetryStatusExhausted or BetaManagedAgentsRetryStatusTerminal`
-
-            What the client should do next in response to this error.
-
-            - `beta_managed_agents_retry_status_retrying: object`
-
-              The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-            - `beta_managed_agents_retry_status_exhausted: object`
-
-              This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
-
-            - `beta_managed_agents_retry_status_terminal: object`
-
-              The session encountered a terminal error and will transition to `terminated` state.
-
-        - `beta_managed_agents_model_rate_limited_error: object`
-
-          The model request was rate-limited.
-
-          - `type: "model_rate_limited_error"`
-
-          - `message: string`
-
-            Human-readable error description.
-
-          - `retry_status: BetaManagedAgentsRetryStatusRetrying or BetaManagedAgentsRetryStatusExhausted or BetaManagedAgentsRetryStatusTerminal`
-
-            What the client should do next in response to this error.
-
-            - `beta_managed_agents_retry_status_retrying: object`
-
-              The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-            - `beta_managed_agents_retry_status_exhausted: object`
-
-              This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
-
-            - `beta_managed_agents_retry_status_terminal: object`
-
-              The session encountered a terminal error and will transition to `terminated` state.
-
-        - `beta_managed_agents_model_request_failed_error: object`
-
-          A model request failed for a reason other than overload or rate-limiting.
-
-          - `type: "model_request_failed_error"`
-
-          - `message: string`
-
-            Human-readable error description.
-
-          - `retry_status: BetaManagedAgentsRetryStatusRetrying or BetaManagedAgentsRetryStatusExhausted or BetaManagedAgentsRetryStatusTerminal`
-
-            What the client should do next in response to this error.
-
-            - `beta_managed_agents_retry_status_retrying: object`
-
-              The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-            - `beta_managed_agents_retry_status_exhausted: object`
-
-              This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
-
-            - `beta_managed_agents_retry_status_terminal: object`
-
-              The session encountered a terminal error and will transition to `terminated` state.
-
-        - `beta_managed_agents_mcp_connection_failed_error: object`
-
-          Failed to connect to an MCP server.
-
-          - `type: "mcp_connection_failed_error"`
-
-          - `mcp_server_name: string`
-
-            Name of the MCP server that failed to connect.
-
-          - `message: string`
-
-            Human-readable error description.
-
-          - `retry_status: BetaManagedAgentsRetryStatusRetrying or BetaManagedAgentsRetryStatusExhausted or BetaManagedAgentsRetryStatusTerminal`
-
-            What the client should do next in response to this error.
-
-            - `beta_managed_agents_retry_status_retrying: object`
-
-              The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-            - `beta_managed_agents_retry_status_exhausted: object`
-
-              This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
-
-            - `beta_managed_agents_retry_status_terminal: object`
-
-              The session encountered a terminal error and will transition to `terminated` state.
-
-        - `beta_managed_agents_mcp_authentication_failed_error: object`
-
-          Authentication to an MCP server failed.
-
-          - `type: "mcp_authentication_failed_error"`
-
-          - `mcp_server_name: string`
-
-            Name of the MCP server that failed authentication.
-
-          - `message: string`
-
-            Human-readable error description.
-
-          - `retry_status: BetaManagedAgentsRetryStatusRetrying or BetaManagedAgentsRetryStatusExhausted or BetaManagedAgentsRetryStatusTerminal`
-
-            What the client should do next in response to this error.
-
-            - `beta_managed_agents_retry_status_retrying: object`
-
-              The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-            - `beta_managed_agents_retry_status_exhausted: object`
-
-              This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
-
-            - `beta_managed_agents_retry_status_terminal: object`
-
-              The session encountered a terminal error and will transition to `terminated` state.
-
-        - `beta_managed_agents_billing_error: object`
-
-          The caller's organization or workspace cannot make model requests — out of credits or spend limit reached. Retrying with the same credentials will not succeed; the caller must resolve the billing state.
-
-          - `type: "billing_error"`
-
-          - `message: string`
-
-            Human-readable error description.
-
-          - `retry_status: BetaManagedAgentsRetryStatusRetrying or BetaManagedAgentsRetryStatusExhausted or BetaManagedAgentsRetryStatusTerminal`
-
-            What the client should do next in response to this error.
-
-            - `beta_managed_agents_retry_status_retrying: object`
-
-              The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-            - `beta_managed_agents_retry_status_exhausted: object`
-
-              This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
-
-            - `beta_managed_agents_retry_status_terminal: object`
-
-              The session encountered a terminal error and will transition to `terminated` state.
-
-        - `beta_managed_agents_credential_host_unreachable_error: object`
-
-          An `environment_variable` credential's `auth.networking.allowed_hosts` includes a host the environment's network policy does not permit.
-
-          - `type: "credential_host_unreachable_error"`
-
-          - `credential_id: string`
-
-            ID of the affected credential.
-
-          - `message: string`
-
-            Human-readable error description.
-
-          - `retry_status: BetaManagedAgentsRetryStatusRetrying or BetaManagedAgentsRetryStatusExhausted or BetaManagedAgentsRetryStatusTerminal`
-
-            What the client should do next in response to this error.
-
-            - `beta_managed_agents_retry_status_retrying: object`
-
-              The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-            - `beta_managed_agents_retry_status_exhausted: object`
-
-              This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
-
-            - `beta_managed_agents_retry_status_terminal: object`
-
-              The session encountered a terminal error and will transition to `terminated` state.
-
-          - `vault_id: string`
-
-            ID of the vault containing the affected credential.
-
-      - `processed_at: string`
-
-        A timestamp in RFC 3339 format
-
-        format: date-time
-
-    - `beta_managed_agents_session_status_rescheduled_event: object`
-
-      Indicates the session is recovering from an error state and is rescheduled for execution.
-
-      - `type: "session.status_rescheduled"`
-
-      - `id: string`
-
-        Unique identifier for this event.
-
-      - `processed_at: string`
-
-        A timestamp in RFC 3339 format
-
-        format: date-time
-
-    - `beta_managed_agents_session_status_running_event: object`
-
-      Indicates the session is actively running and the agent is working.
-
-      - `type: "session.status_running"`
-
-      - `id: string`
-
-        Unique identifier for this event.
-
-      - `processed_at: string`
-
-        A timestamp in RFC 3339 format
-
-        format: date-time
-
-    - `beta_managed_agents_session_status_idle_event: object`
-
-      Indicates the agent has paused and is awaiting user input.
-
-      - `type: "session.status_idle"`
-
-      - `id: string`
-
-        Unique identifier for this event.
-
-      - `processed_at: string`
-
-        A timestamp in RFC 3339 format
-
-        format: date-time
-
-      - `stop_reason: BetaManagedAgentsSessionEndTurn or BetaManagedAgentsSessionRequiresAction or BetaManagedAgentsSessionRetriesExhausted or BetaManagedAgentsSessionBudgetReached`
-
-        - `beta_managed_agents_session_end_turn: object`
-
-          The agent completed its turn naturally and is ready for the next user message.
-
-          - `type: "end_turn"`
-
-        - `beta_managed_agents_session_requires_action: object`
-
-          The agent is idle waiting on one or more blocking user-input events (tool confirmation, custom tool result, etc.). Resolving all of them transitions the session back to running.
-
-          - `type: "requires_action"`
-
-          - `event_ids: array of string`
-
-            The ids of events the agent is blocked on. Resolving fewer than all re-emits `session.status_idle` with the remainder.
-
-        - `beta_managed_agents_session_retries_exhausted: object`
-
-          The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
-
-          - `type: "retries_exhausted"`
-
-        - `beta_managed_agents_session_budget_reached: object`
-
-          The agent stopped because the session's tracked list cost reached its budget, or because its usage includes a model with no list price (which the budget cannot measure). Raise the budget to continue — or, if raising is rejected because a model has no list price, remove the budget.
-
-          - `type: "budget_reached"`
-
-    - `beta_managed_agents_session_status_terminated_event: object`
-
-      Indicates the session has terminated, either due to an error or completion.
-
-      - `type: "session.status_terminated"`
-
-      - `id: string`
-
-        Unique identifier for this event.
-
-      - `processed_at: string`
-
-        A timestamp in RFC 3339 format
-
-        format: date-time
-
-    - `beta_managed_agents_session_thread_created_event: object`
-
-      Emitted when a subagent is spawned as a new thread. Written to the parent thread's output stream so clients observing the session see child creation.
-
-      - `type: "session.thread_created"`
-
-      - `id: string`
-
-        Unique identifier for this event.
-
-      - `agent_name: string`
-
-        Name of the callable agent the thread runs.
-
-      - `processed_at: string`
-
-        A timestamp in RFC 3339 format
-
-        format: date-time
-
-      - `session_thread_id: string`
-
-        Public `sthr_` ID of the newly created thread.
-
-    - `beta_managed_agents_span_outcome_evaluation_start_event: object`
-
-      Emitted when an outcome evaluation cycle begins.
-
-      - `type: "span.outcome_evaluation_start"`
-
-      - `id: string`
-
-        Unique identifier for this event.
-
-      - `iteration: number`
-
-        0-indexed revision cycle. 0 is the first evaluation; 1 is the re-evaluation after the first revision; etc.
-
-        format: int32
-
-      - `outcome_id: string`
-
-        The `outc_` ID of the outcome being evaluated.
-
-      - `processed_at: string`
-
-        A timestamp in RFC 3339 format
-
-        format: date-time
-
-    - `beta_managed_agents_span_outcome_evaluation_end_event: object`
-
-      Emitted when an outcome evaluation cycle completes. Carries the verdict and aggregate token usage. A verdict of `needs_revision` means another evaluation cycle follows; `satisfied`, `max_iterations_reached`, `failed`, or `interrupted` are terminal — no further evaluation cycles follow.
-
-      - `type: "span.outcome_evaluation_end"`
-
-      - `id: string`
-
-        Unique identifier for this event.
-
-      - `explanation: string`
-
-        Human-readable explanation of the verdict. For `needs_revision`, describes which criteria failed and why.
-
-      - `iteration: number`
-
-        0-indexed revision cycle, matching the corresponding `span.outcome_evaluation_start`.
-
-        format: int32
-
-      - `outcome_evaluation_start_id: string`
-
-        The id of the corresponding `span.outcome_evaluation_start` event.
-
-      - `outcome_id: string`
-
-        The `outc_` ID of the outcome being evaluated.
-
-      - `processed_at: string`
-
-        A timestamp in RFC 3339 format
-
-        format: date-time
-
-      - `result: string`
-
-        Evaluation verdict. 'satisfied': criteria met, session goes idle. 'needs_revision': criteria not met, another revision cycle follows. 'max_iterations_reached': evaluation budget exhausted with criteria still unmet — one final acknowledgment turn follows before the session goes idle, but no further evaluation runs. 'failed': grader determined the rubric does not apply to the deliverables. 'interrupted': user sent an interrupt while evaluation was in progress.
-
-      - `usage: object`
-
-        Token usage for a single model request.
-
-        - `cache_creation_input_tokens: number`
-
-          Tokens used to create prompt cache in this request.
-
-          format: int32
-
-        - `cache_read_input_tokens: number`
-
-          Tokens read from prompt cache in this request.
-
-          format: int32
-
-        - `input_tokens: number`
-
-          Input tokens consumed by this request.
-
-          format: int32
-
-        - `output_tokens: number`
-
-          Output tokens generated by this request.
-
-          format: int32
-
-        - `speed: optional "standard" or "fast"`
-
-          Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
-          - `"standard"`
-
-          - `"fast"`
-
-    - `beta_managed_agents_span_model_request_start_event: object`
-
-      Emitted when a model request is initiated by the agent.
-
-      - `type: "span.model_request_start"`
-
-      - `id: string`
-
-        Unique identifier for this event.
-
-      - `processed_at: string`
-
-        A timestamp in RFC 3339 format
-
-        format: date-time
-
-    - `beta_managed_agents_span_model_request_end_event: object`
-
-      Emitted when a model request completes.
-
-      - `type: "span.model_request_end"`
-
-      - `id: string`
-
-        Unique identifier for this event.
-
-      - `is_error: boolean`
-
-        Whether the model request resulted in an error.
-
-      - `model_request_start_id: string`
-
-        The id of the corresponding `span.model_request_start` event.
-
-      - `model_usage: object`
-
-        Token usage for a single model request.
-
-        - `cache_creation_input_tokens: number`
-
-          Tokens used to create prompt cache in this request.
-
-          format: int32
-
-        - `cache_read_input_tokens: number`
-
-          Tokens read from prompt cache in this request.
-
-          format: int32
-
-        - `input_tokens: number`
-
-          Input tokens consumed by this request.
-
-          format: int32
-
-        - `output_tokens: number`
-
-          Output tokens generated by this request.
-
-          format: int32
-
-        - `speed: optional "standard" or "fast"`
-
-          Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
-      - `processed_at: string`
-
-        A timestamp in RFC 3339 format
-
-        format: date-time
-
-    - `beta_managed_agents_span_outcome_evaluation_ongoing_event: object`
-
-      Periodic heartbeat emitted while an outcome evaluation cycle is in progress. Distinguishes 'evaluation is actively running' from 'evaluation is stuck' between the corresponding `span.outcome_evaluation_start` and `span.outcome_evaluation_end` events.
-
-      - `type: "span.outcome_evaluation_ongoing"`
-
-      - `id: string`
-
-        Unique identifier for this event.
-
-      - `iteration: number`
-
-        0-indexed revision cycle, matching the corresponding `span.outcome_evaluation_start`.
-
-        format: int32
-
-      - `outcome_id: string`
-
-        The `outc_` ID of the outcome being evaluated.
-
-      - `processed_at: string`
-
-        A timestamp in RFC 3339 format
-
-        format: date-time
-
-    - `beta_managed_agents_user_define_outcome_event: object`
-
-      Echo of a `user.define_outcome` input event. Carries the server-generated `outcome_id` that subsequent `span.outcome_evaluation_*` events reference.
-
-      - `type: "user.define_outcome"`
-
-      - `id: string`
-
-        Unique identifier for this event.
-
-      - `description: string`
-
-        What the agent should produce. Copied from the input event.
-
-      - `max_iterations: number`
-
-        Evaluate-then-revise cycles before giving up. Default 3, max 20.
-
-        format: int32
-
-      - `outcome_id: string`
-
-        Server-generated `outc_` ID for this outcome. Referenced by `span.outcome_evaluation_*` events and the session's `outcome_evaluations` list.
-
-      - `processed_at: string`
-
-        A timestamp in RFC 3339 format
-
-        format: date-time
-
-      - `rubric: BetaManagedAgentsFileRubric or BetaManagedAgentsTextRubric`
-
-        Rubric for grading the quality of an outcome.
-
-        - `beta_managed_agents_file_rubric: object`
-
-          Rubric referenced by a file uploaded via the Files API.
-
-          - `type: "file"`
-
-          - `file_id: string`
-
-            ID of the rubric file.
-
-        - `beta_managed_agents_text_rubric: object`
-
-          Rubric content provided inline as text.
-
-          - `type: "text"`
-
-          - `content: string`
-
-            Rubric content. Plain text or markdown — the grader treats it as freeform text.
-
-    - `beta_managed_agents_session_deleted_event: object`
-
-      Emitted when a session has been deleted. Terminates any active event stream — no further events will be emitted for this session.
-
-      - `type: "session.deleted"`
-
-      - `id: string`
-
-        Unique identifier for this event.
-
-      - `processed_at: string`
-
-        A timestamp in RFC 3339 format
-
-        format: date-time
-
-    - `beta_managed_agents_session_thread_status_running_event: object`
-
-      A session thread has begun executing. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
-
-      - `type: "session.thread_status_running"`
-
-      - `id: string`
-
-        Unique identifier for this event.
-
-      - `agent_name: string`
-
-        Name of the agent the thread runs.
-
-      - `processed_at: string`
-
-        A timestamp in RFC 3339 format
-
-        format: date-time
-
-      - `session_thread_id: string`
-
-        Public sthr_ ID of the thread that started running.
-
-    - `beta_managed_agents_session_thread_status_idle_event: object`
-
-      A session thread has yielded and is awaiting input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
-
-      - `type: "session.thread_status_idle"`
-
-      - `id: string`
-
-        Unique identifier for this event.
-
-      - `agent_name: string`
-
-        Name of the agent the thread runs.
-
-      - `processed_at: string`
-
-        A timestamp in RFC 3339 format
-
-        format: date-time
-
-      - `session_thread_id: string`
-
-        Public sthr_ ID of the thread that went idle.
-
-      - `stop_reason: BetaManagedAgentsSessionEndTurn or BetaManagedAgentsSessionRequiresAction or BetaManagedAgentsSessionRetriesExhausted or BetaManagedAgentsSessionBudgetReached`
-
-        - `beta_managed_agents_session_end_turn: object`
-
-          The agent completed its turn naturally and is ready for the next user message.
-
-        - `beta_managed_agents_session_requires_action: object`
-
-          The agent is idle waiting on one or more blocking user-input events (tool confirmation, custom tool result, etc.). Resolving all of them transitions the session back to running.
-
-        - `beta_managed_agents_session_retries_exhausted: object`
-
-          The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
-
-        - `beta_managed_agents_session_budget_reached: object`
-
-          The agent stopped because the session's tracked list cost reached its budget, or because its usage includes a model with no list price (which the budget cannot measure). Raise the budget to continue — or, if raising is rejected because a model has no list price, remove the budget.
-
-    - `beta_managed_agents_session_thread_status_terminated_event: object`
-
-      A session thread has terminated and will accept no further input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
-
-      - `type: "session.thread_status_terminated"`
-
-      - `id: string`
-
-        Unique identifier for this event.
-
-      - `agent_name: string`
-
-        Name of the agent the thread runs.
-
-      - `processed_at: string`
-
-        A timestamp in RFC 3339 format
-
-        format: date-time
-
-      - `session_thread_id: string`
-
-        Public sthr_ ID of the thread that terminated.
-
-    - `beta_managed_agents_user_tool_result_event: object`
-
-      Event sent by the client providing the result of an agent-toolset tool execution. Only valid on `self_hosted` environments, where sandbox-routed tools are executed by the client rather than the server.
-
-      - `type: "user.tool_result"`
-
-      - `id: string`
-
-        Unique identifier for this event.
-
-      - `tool_use_id: string`
-
-        The id of the `agent.tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
-
-      - `content: optional array of BetaManagedAgentsTextBlock or BetaManagedAgentsImageBlock or BetaManagedAgentsDocumentBlock or BetaManagedAgentsSearchResultBlock`
-
-        The result content returned by the tool.
-
-        - `beta_managed_agents_text_block: object`
-
-          Regular text content.
-
-        - `beta_managed_agents_image_block: object`
-
-          Image content specified directly as base64 data or as a reference via a URL.
-
-        - `beta_managed_agents_document_block: object`
-
-          Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-        - `beta_managed_agents_search_result_block: object`
-
-          A block containing a web search result.
-
-      - `is_error: optional boolean`
-
-        Whether the tool execution resulted in an error.
-
-      - `processed_at: optional string`
-
-        A timestamp in RFC 3339 format
-
-        format: date-time
-
-      - `session_thread_id: optional string`
-
-        Routes this result to a subagent thread. Copy from the `agent.tool_use` event's `session_thread_id`.
-
-    - `beta_managed_agents_session_thread_status_rescheduled_event: object`
-
-      A session thread hit a transient error and is retrying automatically. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
-
-      - `type: "session.thread_status_rescheduled"`
-
-      - `id: string`
-
-        Unique identifier for this event.
-
-      - `agent_name: string`
-
-        Name of the agent the thread runs.
-
-      - `processed_at: string`
-
-        A timestamp in RFC 3339 format
-
-        format: date-time
-
-      - `session_thread_id: string`
-
-        Public sthr_ ID of the thread that is retrying.
-
-    - `beta_managed_agents_session_updated_event: object`
-
-      Emitted when an UpdateSession request changed at least one field. Carries only the fields that changed; absent fields were not part of the update. The new configuration applies from the next turn.
-
-      - `type: "session.updated"`
-
-      - `id: string`
-
-        Unique identifier for this event.
-
-      - `processed_at: string`
-
-        A timestamp in RFC 3339 format
-
-        format: date-time
-
-      - `agent: optional object`
-
-        Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
-
-        - `type: "agent"`
-
-        - `id: string`
-
-        - `description: string`
-
-        - `mcp_servers: array of BetaManagedAgentsMCPServerURLDefinition`
-
-          - `type: "url"`
-
-          - `name: string`
-
-          - `url: string`
-
-        - `model: object`
-
-          Model identifier and configuration.
-
-          - `id: "claude-fable-5-1" or "claude-sonnet-5" or "claude-fable-5" or 11 more or string`
-
-            The model that will power your agent.
-
-            See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
-            - `"claude-fable-5-1"`
-
-              Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
-
-            - `"claude-sonnet-5"`
-
-              High-performance model for coding and agents
-
-            - `"claude-fable-5"`
-
-              Next generation of intelligence for the hardest knowledge work and coding problems
-
-            - `"claude-opus-5"`
-
-              Powerful intelligence for long-running agents and coding
-
-            - `"claude-opus-4-8"`
-
-              Powerful intelligence for long-running agents and coding
-
-            - `"claude-opus-4-7"`
-
-              Powerful intelligence for long-running agents and coding
-
-            - `"claude-opus-4-6"`
-
-              Powerful intelligence for long-running agents and coding
-
-            - `"claude-sonnet-4-6"`
-
-              Best combination of speed and intelligence
-
-            - `"claude-haiku-4-5"`
-
-              Fastest model with near-frontier intelligence
-
-            - `"claude-haiku-4-5-20251001"`
-
-              Fastest model with near-frontier intelligence
-
-            - `"claude-opus-4-5"`
-
-              Powerful intelligence for long-running agents and coding
-
-            - `"claude-opus-4-5-20251101"`
-
-              Powerful intelligence for long-running agents and coding
-
-            - `"claude-sonnet-4-5"`
-
-              High-performance model for agents and coding
-
-            - `"claude-sonnet-4-5-20250929"`
-
-              High-performance model for agents and coding
-
-          - `effort: optional BetaManagedAgentsEffortLow or BetaManagedAgentsEffortMedium or BetaManagedAgentsEffortHigh or 2 more`
-
-            How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
-
-            - `beta_managed_agents_effort_low: object`
-
-              Low effort. Favors latency over reasoning depth.
-
-              - `type: "low"`
-
-            - `beta_managed_agents_effort_medium: object`
-
-              Medium effort. Balances latency and reasoning depth.
-
-              - `type: "medium"`
-
-            - `beta_managed_agents_effort_high: object`
-
-              High effort. Favors reasoning depth.
-
-              - `type: "high"`
-
-            - `beta_managed_agents_effort_xhigh: object`
-
-              Extra-high effort. Not all models accept this level.
-
-              - `type: "xhigh"`
-
-            - `beta_managed_agents_effort_max: object`
-
-              Maximum effort. Favors reasoning depth over latency.
-
-              - `type: "max"`
-
-          - `inference_geo: optional string`
-
-            Geographic region for model inference. When unset, requests fall through to the workspace's default_inference_geo.
-
-          - `speed: optional "standard" or "fast"`
-
-            Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
-            - `"standard"`
-
-            - `"fast"`
-
-        - `multiagent: object`
-
-          Resolved coordinator topology with full agent definitions for each roster member.
-
-          - `type: "coordinator"`
-
-          - `agents: array of BetaManagedAgentsSessionThreadAgent or BetaManagedAgentsAdvisor`
-
-            Full `agent` definitions the coordinator may spawn as session threads.
-
-            - `beta_managed_agents_session_thread_agent: object`
-
-              Resolved `agent` definition for a single `session_thread`. Snapshot of the agent at thread creation time. The multiagent roster is not repeated here; read it from `Session.agent`.
-
-              - `type: "agent"`
-
-              - `id: string`
-
-              - `description: string`
-
-              - `mcp_servers: array of BetaManagedAgentsMCPServerURLDefinition`
-
-                - `type: "url"`
-
-                - `name: string`
-
-                - `url: string`
-
-              - `model: object`
-
-                Model identifier and configuration.
-
-                - `id: "claude-fable-5-1" or "claude-sonnet-5" or "claude-fable-5" or 11 more or string`
-
-                  The model that will power your agent.
-
-                  See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
-                - `effort: optional BetaManagedAgentsEffortLow or BetaManagedAgentsEffortMedium or BetaManagedAgentsEffortHigh or 2 more`
-
-                  How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
-
-                - `inference_geo: optional string`
-
-                  Geographic region for model inference. When unset, requests fall through to the workspace's default_inference_geo.
-
-                - `speed: optional "standard" or "fast"`
-
-                  Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
-              - `name: string`
-
-              - `skills: array of BetaManagedAgentsAnthropicSkill or BetaManagedAgentsCustomSkill`
-
-                - `beta_managed_agents_anthropic_skill: object`
-
-                  A resolved Anthropic-managed skill.
-
-                  - `type: "anthropic"`
-
-                  - `skill_id: string`
-
-                  - `version: string`
-
-                - `beta_managed_agents_custom_skill: object`
-
-                  A resolved user-created custom skill.
-
-                  - `type: "custom"`
-
-                  - `skill_id: string`
-
-                  - `version: string`
-
-              - `system: string`
-
-              - `tools: array of BetaManagedAgentsAgentToolset20260401 or BetaManagedAgentsMCPToolset or BetaManagedAgentsCustomTool`
-
-                - `beta_managed_agents_agent_toolset20260401: object`
-
-                  - `type: "agent_toolset_20260401"`
-
-                  - `configs: array of BetaManagedAgentsAgentToolConfig`
-
-                    - `beta_managed_agents_bash_tool_config: object`
-
-                      Configuration for the bash tool.
-
-                      - `type: "bash"`
-
-                      - `enabled: boolean`
-
-                      - `name: "bash"`
-
-                      - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
-
-                        Permission policy for tool execution.
-
-                        - `beta_managed_agents_always_allow_policy: object`
-
-                          Tool calls are automatically approved without user confirmation.
-
-                          - `type: "always_allow"`
-
-                        - `beta_managed_agents_always_ask_policy: object`
-
-                          Tool calls require user confirmation before execution.
-
-                          - `type: "always_ask"`
-
-                        - `beta_managed_agents_auto_policy: object`
-
-                          The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
-
-                          - `type: "auto"`
-
-                    - `beta_managed_agents_edit_tool_config: object`
-
-                      Configuration for the edit tool.
-
-                      - `type: "edit"`
-
-                      - `enabled: boolean`
-
-                      - `name: "edit"`
-
-                      - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
-
-                        Permission policy for tool execution.
-
-                        - `beta_managed_agents_always_allow_policy: object`
-
-                          Tool calls are automatically approved without user confirmation.
-
-                        - `beta_managed_agents_always_ask_policy: object`
-
-                          Tool calls require user confirmation before execution.
-
-                        - `beta_managed_agents_auto_policy: object`
-
-                          The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
-
-                    - `beta_managed_agents_read_tool_config: object`
-
-                      Configuration for the read tool.
-
-                      - `type: "read"`
-
-                      - `enabled: boolean`
-
-                      - `name: "read"`
-
-                      - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
-
-                        Permission policy for tool execution.
-
-                        - `beta_managed_agents_always_allow_policy: object`
-
-                          Tool calls are automatically approved without user confirmation.
-
-                        - `beta_managed_agents_always_ask_policy: object`
-
-                          Tool calls require user confirmation before execution.
-
-                        - `beta_managed_agents_auto_policy: object`
-
-                          The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
-
-                    - `beta_managed_agents_write_tool_config: object`
-
-                      Configuration for the write tool.
-
-                      - `type: "write"`
-
-                      - `enabled: boolean`
-
-                      - `name: "write"`
-
-                      - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
-
-                        Permission policy for tool execution.
-
-                        - `beta_managed_agents_always_allow_policy: object`
-
-                          Tool calls are automatically approved without user confirmation.
-
-                        - `beta_managed_agents_always_ask_policy: object`
-
-                          Tool calls require user confirmation before execution.
-
-                        - `beta_managed_agents_auto_policy: object`
-
-                          The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
-
-                    - `beta_managed_agents_glob_tool_config: object`
-
-                      Configuration for the glob tool.
-
-                      - `type: "glob"`
-
-                      - `enabled: boolean`
-
-                      - `name: "glob"`
-
-                      - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
-
-                        Permission policy for tool execution.
-
-                        - `beta_managed_agents_always_allow_policy: object`
-
-                          Tool calls are automatically approved without user confirmation.
-
-                        - `beta_managed_agents_always_ask_policy: object`
-
-                          Tool calls require user confirmation before execution.
-
-                        - `beta_managed_agents_auto_policy: object`
-
-                          The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
-
-                    - `beta_managed_agents_grep_tool_config: object`
-
-                      Configuration for the grep tool.
-
-                      - `type: "grep"`
-
-                      - `enabled: boolean`
-
-                      - `name: "grep"`
-
-                      - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
-
-                        Permission policy for tool execution.
-
-                        - `beta_managed_agents_always_allow_policy: object`
-
-                          Tool calls are automatically approved without user confirmation.
-
-                        - `beta_managed_agents_always_ask_policy: object`
-
-                          Tool calls require user confirmation before execution.
-
-                        - `beta_managed_agents_auto_policy: object`
-
-                          The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
-
-                    - `beta_managed_agents_web_fetch_tool_config: object`
-
-                      Configuration for the web_fetch tool.
-
-                      - `type: "web_fetch"`
-
-                      - `enabled: boolean`
-
-                      - `name: "web_fetch"`
-
-                      - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
-
-                        Permission policy for tool execution.
-
-                        - `beta_managed_agents_always_allow_policy: object`
-
-                          Tool calls are automatically approved without user confirmation.
-
-                        - `beta_managed_agents_always_ask_policy: object`
-
-                          Tool calls require user confirmation before execution.
-
-                        - `beta_managed_agents_auto_policy: object`
-
-                          The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
-
-                      - `allowed_domains: optional array of string`
-
-                      - `blocked_domains: optional array of string`
-
-                      - `max_content_tokens: optional number`
-
-                        format: int32
-
-                    - `beta_managed_agents_web_search_tool_config: object`
-
-                      Configuration for the web_search tool.
-
-                      - `type: "web_search"`
-
-                      - `enabled: boolean`
-
-                      - `name: "web_search"`
-
-                      - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
-
-                        Permission policy for tool execution.
-
-                        - `beta_managed_agents_always_allow_policy: object`
-
-                          Tool calls are automatically approved without user confirmation.
-
-                        - `beta_managed_agents_always_ask_policy: object`
-
-                          Tool calls require user confirmation before execution.
-
-                        - `beta_managed_agents_auto_policy: object`
-
-                          The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
-
-                      - `allowed_domains: optional array of string`
-
-                      - `blocked_domains: optional array of string`
-
-                      - `user_location: optional object`
-
-                        Approximate user location for search result localization.
-
-                        - `type: "approximate"`
-
-                          Location precision. Only "approximate" is supported.
-
-                        - `city: optional string`
-
-                          City name.
-
-                          minLength: 1, maxLength: 255
-
-                        - `country: optional string`
-
-                          Two-letter ISO 3166-1 country code, uppercase.
-
-                        - `region: optional string`
-
-                          Region or state name.
-
-                          minLength: 1, maxLength: 255
-
-                        - `timezone: optional string`
-
-                          IANA timezone identifier, e.g. "America/Los_Angeles".
-
-                          minLength: 1, maxLength: 255
-
-                  - `default_config: object`
-
-                    Resolved default configuration for agent tools.
-
-                    - `enabled: boolean`
-
-                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
-
-                      Permission policy for tool execution.
-
-                      - `beta_managed_agents_always_allow_policy: object`
-
-                        Tool calls are automatically approved without user confirmation.
-
-                      - `beta_managed_agents_always_ask_policy: object`
-
-                        Tool calls require user confirmation before execution.
-
-                      - `beta_managed_agents_auto_policy: object`
-
-                        The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
-
-                - `beta_managed_agents_mcp_toolset: object`
-
-                  - `type: "mcp_toolset"`
-
-                  - `configs: array of BetaManagedAgentsMCPToolConfig`
-
-                    - `enabled: boolean`
-
-                    - `name: string`
-
-                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
-
-                      Permission policy for tool execution.
-
-                      - `beta_managed_agents_always_allow_policy: object`
-
-                        Tool calls are automatically approved without user confirmation.
-
-                      - `beta_managed_agents_always_ask_policy: object`
-
-                        Tool calls require user confirmation before execution.
-
-                      - `beta_managed_agents_auto_policy: object`
-
-                        The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
-
-                  - `default_config: object`
-
-                    Resolved default configuration for all tools from an MCP server.
-
-                    - `enabled: boolean`
-
-                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
-
-                      Permission policy for tool execution.
-
-                      - `beta_managed_agents_always_allow_policy: object`
-
-                        Tool calls are automatically approved without user confirmation.
-
-                      - `beta_managed_agents_always_ask_policy: object`
-
-                        Tool calls require user confirmation before execution.
-
-                      - `beta_managed_agents_auto_policy: object`
-
-                        The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
-
-                  - `mcp_server_name: string`
-
-                - `beta_managed_agents_custom_tool: object`
-
-                  A custom tool as returned in API responses.
-
-                  - `type: "custom"`
-
-                  - `description: string`
-
-                  - `input_schema: object`
-
-                    JSON Schema for custom tool input parameters.
-
-                    - `type: "object"`
-
-                    - `properties: optional map[unknown]`
-
-                    - `required: optional array of string`
-
-                  - `name: string`
-
-              - `version: number`
-
-                format: int32
-
-            - `beta_managed_agents_advisor: object`
-
-              Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
-
-              - `type: "advisor"`
-
-              - `model: string`
-
-                The advisor model id.
-
-        - `name: string`
-
-        - `skills: array of BetaManagedAgentsAnthropicSkill or BetaManagedAgentsCustomSkill`
-
-          - `beta_managed_agents_anthropic_skill: object`
-
-            A resolved Anthropic-managed skill.
-
-          - `beta_managed_agents_custom_skill: object`
-
-            A resolved user-created custom skill.
-
-        - `system: string`
-
-        - `tools: array of BetaManagedAgentsAgentToolset20260401 or BetaManagedAgentsMCPToolset or BetaManagedAgentsCustomTool`
-
-          - `beta_managed_agents_agent_toolset20260401: object`
-
-          - `beta_managed_agents_mcp_toolset: object`
-
-          - `beta_managed_agents_custom_tool: object`
-
-            A custom tool as returned in API responses.
-
-        - `version: number`
-
-          format: int32
-
-      - `budget: optional object`
-
-        A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
-
-        - `type: "limit"`
-
-        - `max_list_cost: object`
-
-          A monetary amount in a specific currency.
-
-          - `amount: string`
-
-            Amount in minor units of the currency, as an integer decimal string with no leading zeros: "2500" is $25.00 and "50" is fifty cents. A string rather than a number so no float rounding is ever applied.
-
-          - `currency: "USD"`
-
-            Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
-
-      - `metadata: optional map[string]`
-
-        The session's full metadata bag after the update. Present when the update set non-empty metadata; absent when metadata was unchanged or cleared to empty.
-
-      - `title: optional string`
-
-        The session's new title. Present only when the update changed it.
-
-    - `beta_managed_agents_system_message_event: object`
-
-      A mid-conversation system message event. Carries system-role content that is appended to the session as a `role: "system"` turn.
-
-      - `type: "system.message"`
-
-      - `id: string`
-
-        Unique identifier for this event.
-
-      - `content: array of BetaManagedAgentsSystemContentBlock`
-
-        System content blocks. Text-only.
-
-        - `type: "text"`
-
-        - `text: string`
-
-          The text content.
-
-          minLength: 1
-
-      - `processed_at: optional string`
-
-        A timestamp in RFC 3339 format
-
-        format: date-time
-
-    - `beta_managed_agents_session_usage_event: object`
-
-      Periodic snapshot of the session's cumulative usage and tracked list cost.
-
-      - `type: "session.usage"`
-
-      - `id: string`
-
-        Unique identifier for this event.
-
-      - `processed_at: string`
-
-        A timestamp in RFC 3339 format
-
-        format: date-time
-
-      - `usage: object`
-
-        Point-in-time snapshot of a session's cumulative usage.
-
-        - `active_seconds: optional number`
-
-          Cumulative time in seconds during which the session had at least one thread in running status. Overlapping activity from concurrent threads is counted once. This is the duration the session's runtime cost is priced on.
-
-          format: double
-
-        - `cache_creation: optional object`
-
-          Prompt-cache creation token usage broken down by cache lifetime.
-
-          - `ephemeral_1h_input_tokens: optional number`
-
-            Tokens used to create 1-hour ephemeral cache entries.
-
-            format: int32
-
-          - `ephemeral_5m_input_tokens: optional number`
-
-            Tokens used to create 5-minute ephemeral cache entries.
-
-            format: int32
-
-        - `cache_read_input_tokens: optional number`
-
-          Total tokens read from prompt cache.
-
-          format: int32
-
-        - `input_tokens: optional number`
-
-          Total input tokens consumed across all turns.
-
-          format: int32
-
-        - `list_cost: optional object`
-
-          A monetary amount in a specific currency.
-
-          - `amount: string`
-
-            Amount in minor units of the currency, as an integer decimal string with no leading zeros: "2500" is $25.00 and "50" is fifty cents. A string rather than a number so no float rounding is ever applied.
-
-          - `currency: "USD"`
-
-            Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
-
-        - `output_tokens: optional number`
-
-          Total output tokens generated across all turns.
-
-          format: int32
-
-        - `server_tool_use: optional object`
-
-          Cumulative count of server-executed tool invocations, broken down by tool.
-
-          - `web_fetch_requests: optional number`
-
-            Number of server-executed web fetch requests.
-
-            format: int32
-
-          - `web_search_requests: optional number`
-
-            Number of server-executed web search requests.
-
-            format: int32
-
-      - `budget: optional object`
-
-        A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
-
-        - `type: "limit"`
-
-        - `max_list_cost: object`
-
-          A monetary amount in a specific currency.
-
-  - `next_page: optional string`
-
-    Opaque cursor for the next page. Null when no more results.
-
-#### Example
-
-```bash
-ant beta:sessions:threads:events list \
-  --api-key my-anthropic-api-key \
-  --session-id sesn_011CZkZAtmR3yMPDzynEDxu7 \
-  --thread-id sthr_011CZkZVWa6oIjw0rgXZpnBt
-```
-
-##### Response (200)
-
-```json
-{
-  "data": [
-    {
-      "id": "sevt_011CZkZGOp0iBcp4kaQSihUmy",
-      "content": [
-        {
-          "text": "Where is my order #1234?",
-          "type": "text"
-        }
-      ],
-      "type": "user.message",
-      "processed_at": "2026-03-15T10:00:00Z"
-    }
-  ],
-  "next_page": "next_page"
-}
-```
-
-### Stream Session Thread Events
-
-`$ ant beta:sessions:threads:events stream`
-
-**GET** `/v1/sessions/{session_id}/threads/{thread_id}/stream`
-
-Stream Session Thread Events
-
-#### Parameters
-
-- `--session-id: string`
-
-  Path param: Path parameter session_id
-
-- `--thread-id: string`
-
-  Path param: Path parameter thread_id
-
-- `--event-delta: optional array of BetaManagedAgentsDeltaType`
-
-  Query param: When set, this connection also receives streaming deltas (`event_start`, `event_delta`) while an event is being produced, before the event itself arrives. Deltas are best-effort; when the final event is produced it carries the complete content. A model request that ends early (an error or interrupt) produces no final event — its terminal `span.model_request_end` closes the preview. Accepts one or more event types to preview and may be repeated: `agent.message` streams `content_delta` fragments; `agent.thinking` is start-only — a signal that the agent has begun extended thinking, concluded by the `agent.thinking` event itself. Only previews of the requested event types are sent.
-
-- `--beta: optional array of AnthropicBeta`
-
-  Header param: Optional header to specify the beta version(s) you want to use.
-
-- `--workspace-id: optional string`
-
-  Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
-
-  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
-
-#### Returns
-
-- `beta_managed_agents_stream_session_thread_events: BetaManagedAgentsUserMessageEvent or BetaManagedAgentsUserInterruptEvent or BetaManagedAgentsUserToolConfirmationEvent or 34 more`
-
-  Server-sent event in a single thread's stream.
-
-  - `beta_managed_agents_user_message_event: object`
-
-    A user message event in the session conversation.
-
-    - `type: "user.message"`
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `content: array of BetaManagedAgentsTextBlock or BetaManagedAgentsImageBlock or BetaManagedAgentsDocumentBlock or BetaManagedAgentsRedactedBlock`
-
-      Array of content blocks comprising the user message.
-
-      - `beta_managed_agents_text_block: object`
-
-        Regular text content.
-
-        - `type: "text"`
-
-        - `text: string`
-
-          The text content.
-
-          minLength: 1
-
-      - `beta_managed_agents_image_block: object`
-
-        Image content specified directly as base64 data or as a reference via a URL.
-
-        - `type: "image"`
-
-        - `source: BetaManagedAgentsBase64ImageSource or BetaManagedAgentsURLImageSource or BetaManagedAgentsFileImageSource`
-
-          Union type for image source variants.
-
-          - `beta_managed_agents_base64_image_source: object`
-
-            Base64-encoded image data.
-
-            - `type: "base64"`
-
-            - `data: string`
-
-              Base64-encoded image data.
-
-              minLength: 1
-
-            - `media_type: string`
-
-              MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
-
-              minLength: 1
-
-          - `beta_managed_agents_url_image_source: object`
-
-            Image referenced by URL.
-
-            - `type: "url"`
-
-            - `url: string`
-
-              URL of the image to fetch.
-
-              minLength: 1
-
-          - `beta_managed_agents_file_image_source: object`
-
-            Image referenced by file ID.
-
-            - `type: "file"`
-
-            - `file_id: string`
-
-              ID of a previously uploaded file.
-
-              minLength: 1
-
-      - `beta_managed_agents_document_block: object`
-
-        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-        - `type: "document"`
-
-        - `source: BetaManagedAgentsBase64DocumentSource or BetaManagedAgentsPlainTextDocumentSource or BetaManagedAgentsURLDocumentSource or BetaManagedAgentsFileDocumentSource`
-
-          Union type for document source variants.
-
-          - `beta_managed_agents_base64_document_source: object`
-
-            Base64-encoded document data.
-
-            - `type: "base64"`
-
-            - `data: string`
-
-              Base64-encoded document data.
-
-              minLength: 1
-
-            - `media_type: string`
-
-              MIME type of the document (e.g., "application/pdf").
-
-              minLength: 1
-
-          - `beta_managed_agents_plain_text_document_source: object`
-
-            Plain text document content.
-
-            - `type: "text"`
-
-            - `data: string`
-
-              The plain text content.
-
-              minLength: 1
-
-            - `media_type: "text/plain"`
-
-              MIME type of the text content. Must be "text/plain".
-
-          - `beta_managed_agents_url_document_source: object`
-
-            Document referenced by URL.
-
-            - `type: "url"`
-
-            - `url: string`
-
-              URL of the document to fetch.
-
-              minLength: 1
-
-          - `beta_managed_agents_file_document_source: object`
-
-            Document referenced by file ID.
-
-            - `type: "file"`
-
-            - `file_id: string`
-
-              ID of a previously uploaded file.
-
-              minLength: 1
-
-        - `context: optional string`
-
-          Additional context about the document for the model.
-
-        - `title: optional string`
-
-          The title of the document.
-
-      - `beta_managed_agents_redacted_block: object`
-
-        Placeholder for content withheld by Anthropic model policy.
-
-        - `type: "redacted"`
-
-    - `processed_at: optional string`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-  - `beta_managed_agents_user_interrupt_event: object`
-
-    An interrupt event that pauses agent execution and returns control to the user.
-
-    - `type: "user.interrupt"`
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `processed_at: optional string`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `session_thread_id: optional string`
-
-      If absent, interrupts every non-archived thread in a multiagent session (or the primary alone in a single-agent session). If present, interrupts only the named thread.
-
-  - `beta_managed_agents_user_tool_confirmation_event: object`
-
-    A tool confirmation event that approves or denies a pending tool execution.
-
-    - `type: "user.tool_confirmation"`
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `result: "allow" or "deny"`
-
-      UserToolConfirmationResult enum
-
-      - `"allow"`
-
-      - `"deny"`
-
-    - `tool_use_id: string`
-
-      The id of the `agent.tool_use` or `agent.mcp_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
-
-    - `deny_message: optional string`
-
-      Optional message providing context for a 'deny' decision. Only allowed when result is 'deny'.
-
-      maxLength: 10000
-
-    - `processed_at: optional string`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `session_thread_id: optional string`
-
-      When set, the confirmation routes to this subagent's thread rather than the primary. Echo this from the `session_thread_id` on the `agent.tool_use` or `agent.mcp_tool_use` event that prompted the approval.
-
-  - `beta_managed_agents_user_custom_tool_result_event: object`
-
-    Event sent by the client providing the result of a custom tool execution.
-
-    - `type: "user.custom_tool_result"`
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `custom_tool_use_id: string`
-
-      The id of the `agent.custom_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
-
-    - `content: optional array of BetaManagedAgentsTextBlock or BetaManagedAgentsImageBlock or BetaManagedAgentsDocumentBlock or BetaManagedAgentsSearchResultBlock`
-
-      The result content returned by the tool.
-
-      - `beta_managed_agents_text_block: object`
-
-        Regular text content.
-
-      - `beta_managed_agents_image_block: object`
-
-        Image content specified directly as base64 data or as a reference via a URL.
-
-      - `beta_managed_agents_document_block: object`
-
-        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-      - `beta_managed_agents_search_result_block: object`
-
-        A block containing a web search result.
-
-        - `type: "search_result"`
-
-        - `citations: object`
-
-          Citation settings for a search result.
-
-          - `enabled: boolean`
-
-            Whether citations are enabled for this search result.
-
-        - `content: array of BetaManagedAgentsSearchResultContent`
-
-          Array of text content blocks from the search result.
-
-          - `type: "text"`
-
-          - `text: string`
-
-            The text content.
-
-            minLength: 1
-
-        - `source: string`
-
-          The URL source of the search result.
-
-          minLength: 1
-
-        - `title: string`
-
-          The title of the search result.
-
-          minLength: 1
-
-    - `is_error: optional boolean`
-
-      Whether the tool execution resulted in an error.
-
-    - `processed_at: optional string`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `session_thread_id: optional string`
-
-      Routes this result to a subagent thread. Copy from the `agent.custom_tool_use` event's `session_thread_id`.
-
-  - `beta_managed_agents_agent_custom_tool_use_event: object`
-
-    Event emitted when the agent calls a custom tool. The session goes idle until the client sends a `user.custom_tool_result` event with the result.
-
-    - `type: "agent.custom_tool_use"`
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `input: map[unknown]`
-
-      Input parameters for the tool call.
-
-    - `name: string`
-
-      Name of the custom tool being called.
-
-    - `processed_at: string`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `session_thread_id: optional string`
-
-      When set, this event was cross-posted from a subagent's thread to surface its custom tool use on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.custom_tool_result` event to route the result back.
-
-  - `beta_managed_agents_agent_message_event: object`
-
-    An agent response event in the session conversation.
-
-    - `type: "agent.message"`
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `content: array of BetaManagedAgentsTextBlock or BetaManagedAgentsRedactedBlock`
-
-      Array of text blocks comprising the agent response.
-
-      - `beta_managed_agents_text_block: object`
-
-        Regular text content.
-
-      - `beta_managed_agents_redacted_block: object`
-
-        Placeholder for content withheld by Anthropic model policy.
-
-    - `processed_at: string`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-  - `beta_managed_agents_agent_thinking_event: object`
-
-    Indicates the agent is making forward progress via extended thinking. A progress signal, not a content carrier.
-
-    - `type: "agent.thinking"`
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `processed_at: string`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-  - `beta_managed_agents_agent_mcp_tool_use_event: object`
-
-    Event emitted when the agent invokes a tool provided by an MCP server.
-
-    - `type: "agent.mcp_tool_use"`
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `input: map[unknown]`
-
-      Input parameters for the tool call.
-
-    - `mcp_server_name: string`
-
-      Name of the MCP server providing the tool.
-
-    - `name: string`
-
-      Name of the MCP tool being used.
-
-    - `processed_at: string`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `evaluated_permission: optional "allow" or "ask" or "deny"`
-
-      AgentEvaluatedPermission enum
-
-      - `"allow"`
-
-      - `"ask"`
-
-      - `"deny"`
-
-    - `evaluation: optional BetaManagedAgentsAgentToolEvaluationAlwaysAllow or BetaManagedAgentsAgentToolEvaluationAlwaysAsk or BetaManagedAgentsAgentToolEvaluationAuto`
-
-      Names the resolved permission_policy that produced evaluated_permission, and under auto carries the judgement. Open union: clients must tolerate unknown variants.
-
-      - `beta_managed_agents_agent_tool_evaluation_always_allow: object`
-
-        The resolved permission_policy was always_allow; accompanies evaluated_permission "allow".
-
-        - `type: "always_allow"`
-
-      - `beta_managed_agents_agent_tool_evaluation_always_ask: object`
-
-        The resolved permission_policy was always_ask; accompanies evaluated_permission "ask".
-
-        - `type: "always_ask"`
-
-      - `beta_managed_agents_agent_tool_evaluation_auto: object`
-
-        The resolved permission_policy was auto: the server judged this invocation individually.
-
-        - `type: "auto"`
-
-        - `evaluated_permission: BetaManagedAgentsAgentAutoEvaluatedPermissionAllow or BetaManagedAgentsAgentAutoEvaluatedPermissionAsk or BetaManagedAgentsAgentAutoEvaluatedPermissionDeny`
-
-          The server's per-invocation judgement under the auto permission policy. Its type always equals the event's top-level evaluated_permission. Open union: clients must tolerate unknown variants.
-
-          - `beta_managed_agents_agent_auto_evaluated_permission_allow: object`
-
-            The server judged the invocation safe to execute without client approval.
-
-            - `type: "allow"`
-
-          - `beta_managed_agents_agent_auto_evaluated_permission_ask: object`
-
-            The server reached no judgement; the invocation is held for client approval.
-
-            - `type: "ask"`
-
-            - `reason_code: string`
-
-              The judgement's grounds in registry-bound terms, for client branching and audit rather than end-user display. Open registry; currently "indeterminate" (no judgement was reached). Clients must tolerate values outside this set.
-
-              maxLength: 64
-
-          - `beta_managed_agents_agent_auto_evaluated_permission_deny: object`
-
-            The server judged the invocation high-risk; it does not execute and a synthetic error tool result is appended.
-
-            - `type: "deny"`
-
-            - `reason_code: string`
-
-              The judgement's grounds in registry-bound terms. Open registry; currently "high_risk" (judged high-risk; the call does not run). Clients must tolerate values outside this set.
-
-              maxLength: 64
-
-    - `session_thread_id: optional string`
-
-      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
-
-  - `beta_managed_agents_agent_mcp_tool_result_event: object`
-
-    Event representing the result of an MCP tool execution.
-
-    - `type: "agent.mcp_tool_result"`
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `mcp_tool_use_id: string`
-
-      The id of the `agent.mcp_tool_use` event this result corresponds to.
-
-    - `processed_at: string`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `content: optional array of BetaManagedAgentsTextBlock or BetaManagedAgentsImageBlock or BetaManagedAgentsDocumentBlock or BetaManagedAgentsSearchResultBlock`
-
-      The result content returned by the tool.
-
-      - `beta_managed_agents_text_block: object`
-
-        Regular text content.
-
-      - `beta_managed_agents_image_block: object`
-
-        Image content specified directly as base64 data or as a reference via a URL.
-
-      - `beta_managed_agents_document_block: object`
-
-        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-      - `beta_managed_agents_search_result_block: object`
-
-        A block containing a web search result.
-
-    - `is_error: optional boolean`
-
-      Whether the tool execution resulted in an error.
-
-  - `beta_managed_agents_agent_tool_use_event: object`
-
-    Event emitted when the agent invokes a built-in agent tool.
-
-    - `type: "agent.tool_use"`
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `input: map[unknown]`
-
-      Input parameters for the tool call.
-
-    - `name: string`
-
-      Name of the agent tool being used.
-
-    - `processed_at: string`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `evaluated_permission: optional "allow" or "ask" or "deny"`
-
-      AgentEvaluatedPermission enum
-
-      - `"allow"`
-
-      - `"ask"`
-
-      - `"deny"`
-
-    - `evaluation: optional BetaManagedAgentsAgentToolEvaluationAlwaysAllow or BetaManagedAgentsAgentToolEvaluationAlwaysAsk or BetaManagedAgentsAgentToolEvaluationAuto`
-
-      Names the resolved permission_policy that produced evaluated_permission, and under auto carries the judgement. Open union: clients must tolerate unknown variants.
-
-      - `beta_managed_agents_agent_tool_evaluation_always_allow: object`
-
-        The resolved permission_policy was always_allow; accompanies evaluated_permission "allow".
-
-      - `beta_managed_agents_agent_tool_evaluation_always_ask: object`
-
-        The resolved permission_policy was always_ask; accompanies evaluated_permission "ask".
-
-      - `beta_managed_agents_agent_tool_evaluation_auto: object`
-
-        The resolved permission_policy was auto: the server judged this invocation individually.
-
-    - `session_thread_id: optional string`
-
-      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
-
-  - `beta_managed_agents_agent_tool_result_event: object`
-
-    Event representing the result of an agent tool execution.
-
-    - `type: "agent.tool_result"`
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `processed_at: string`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `tool_use_id: string`
-
-      The id of the `agent.tool_use` event this result corresponds to.
-
-    - `content: optional array of BetaManagedAgentsTextBlock or BetaManagedAgentsImageBlock or BetaManagedAgentsDocumentBlock or BetaManagedAgentsSearchResultBlock`
-
-      The result content returned by the tool.
-
-      - `beta_managed_agents_text_block: object`
-
-        Regular text content.
-
-      - `beta_managed_agents_image_block: object`
-
-        Image content specified directly as base64 data or as a reference via a URL.
-
-      - `beta_managed_agents_document_block: object`
-
-        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-      - `beta_managed_agents_search_result_block: object`
-
-        A block containing a web search result.
-
-    - `is_error: optional boolean`
-
-      Whether the tool execution resulted in an error.
-
-  - `beta_managed_agents_agent_thread_message_received_event: object`
-
-    Delivery event written to the target thread's input stream when an agent-to-agent message arrives.
-
-    - `type: "agent.thread_message_received"`
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `content: array of BetaManagedAgentsTextBlock or BetaManagedAgentsImageBlock or BetaManagedAgentsDocumentBlock or BetaManagedAgentsRedactedBlock`
-
-      Message content blocks.
-
-      - `beta_managed_agents_text_block: object`
-
-        Regular text content.
-
-      - `beta_managed_agents_image_block: object`
-
-        Image content specified directly as base64 data or as a reference via a URL.
-
-      - `beta_managed_agents_document_block: object`
-
-        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-      - `beta_managed_agents_redacted_block: object`
-
-        Placeholder for content withheld by Anthropic model policy.
-
-    - `from_session_thread_id: string`
-
-      Public `sthr_` ID of the thread that sent the message.
-
-    - `processed_at: string`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `from_agent_name: optional string`
-
-      Name of the callable agent this message came from. Absent when received from the primary agent.
-
-  - `beta_managed_agents_agent_thread_message_sent_event: object`
-
-    Observability event emitted to the sender's output stream when an agent-to-agent message is sent.
-
-    - `type: "agent.thread_message_sent"`
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `content: array of BetaManagedAgentsTextBlock or BetaManagedAgentsImageBlock or BetaManagedAgentsDocumentBlock or BetaManagedAgentsRedactedBlock`
-
-      Message content blocks.
-
-      - `beta_managed_agents_text_block: object`
-
-        Regular text content.
-
-      - `beta_managed_agents_image_block: object`
-
-        Image content specified directly as base64 data or as a reference via a URL.
-
-      - `beta_managed_agents_document_block: object`
-
-        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-      - `beta_managed_agents_redacted_block: object`
-
-        Placeholder for content withheld by Anthropic model policy.
-
-    - `processed_at: string`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `to_session_thread_id: string`
-
-      Public `sthr_` ID of the thread the message was sent to.
-
-    - `to_agent_name: optional string`
-
-      Name of the callable agent this message was sent to. Absent when sent to the primary agent.
-
-  - `beta_managed_agents_agent_thread_context_compacted_event: object`
-
-    Indicates that context compaction (summarization) occurred during the session.
-
-    - `type: "agent.thread_context_compacted"`
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `processed_at: string`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-  - `beta_managed_agents_session_error_event: object`
-
-    An error event indicating a problem occurred during session execution.
-
-    - `type: "session.error"`
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `error: BetaManagedAgentsUnknownError or BetaManagedAgentsModelOverloadedError or BetaManagedAgentsModelRateLimitedError or 5 more`
-
-      - `beta_managed_agents_unknown_error: object`
-
-        An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
-
-        - `type: "unknown_error"`
-
-        - `message: string`
-
-          Human-readable error description.
-
-        - `retry_status: BetaManagedAgentsRetryStatusRetrying or BetaManagedAgentsRetryStatusExhausted or BetaManagedAgentsRetryStatusTerminal`
-
-          What the client should do next in response to this error.
-
-          - `beta_managed_agents_retry_status_retrying: object`
-
-            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-            - `type: "retrying"`
-
-          - `beta_managed_agents_retry_status_exhausted: object`
-
-            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
-
-            - `type: "exhausted"`
-
-          - `beta_managed_agents_retry_status_terminal: object`
-
-            The session encountered a terminal error and will transition to `terminated` state.
-
-            - `type: "terminal"`
-
-      - `beta_managed_agents_model_overloaded_error: object`
-
-        The model is currently overloaded. Emitted after automatic retries are exhausted.
-
-        - `type: "model_overloaded_error"`
-
-        - `message: string`
-
-          Human-readable error description.
-
-        - `retry_status: BetaManagedAgentsRetryStatusRetrying or BetaManagedAgentsRetryStatusExhausted or BetaManagedAgentsRetryStatusTerminal`
-
-          What the client should do next in response to this error.
-
-          - `beta_managed_agents_retry_status_retrying: object`
-
-            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-          - `beta_managed_agents_retry_status_exhausted: object`
-
-            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
-
-          - `beta_managed_agents_retry_status_terminal: object`
-
-            The session encountered a terminal error and will transition to `terminated` state.
-
-      - `beta_managed_agents_model_rate_limited_error: object`
-
-        The model request was rate-limited.
-
-        - `type: "model_rate_limited_error"`
-
-        - `message: string`
-
-          Human-readable error description.
-
-        - `retry_status: BetaManagedAgentsRetryStatusRetrying or BetaManagedAgentsRetryStatusExhausted or BetaManagedAgentsRetryStatusTerminal`
-
-          What the client should do next in response to this error.
-
-          - `beta_managed_agents_retry_status_retrying: object`
-
-            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-          - `beta_managed_agents_retry_status_exhausted: object`
-
-            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
-
-          - `beta_managed_agents_retry_status_terminal: object`
-
-            The session encountered a terminal error and will transition to `terminated` state.
-
-      - `beta_managed_agents_model_request_failed_error: object`
-
-        A model request failed for a reason other than overload or rate-limiting.
-
-        - `type: "model_request_failed_error"`
-
-        - `message: string`
-
-          Human-readable error description.
-
-        - `retry_status: BetaManagedAgentsRetryStatusRetrying or BetaManagedAgentsRetryStatusExhausted or BetaManagedAgentsRetryStatusTerminal`
-
-          What the client should do next in response to this error.
-
-          - `beta_managed_agents_retry_status_retrying: object`
-
-            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-          - `beta_managed_agents_retry_status_exhausted: object`
-
-            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
-
-          - `beta_managed_agents_retry_status_terminal: object`
-
-            The session encountered a terminal error and will transition to `terminated` state.
-
-      - `beta_managed_agents_mcp_connection_failed_error: object`
-
-        Failed to connect to an MCP server.
-
-        - `type: "mcp_connection_failed_error"`
-
-        - `mcp_server_name: string`
-
-          Name of the MCP server that failed to connect.
-
-        - `message: string`
-
-          Human-readable error description.
-
-        - `retry_status: BetaManagedAgentsRetryStatusRetrying or BetaManagedAgentsRetryStatusExhausted or BetaManagedAgentsRetryStatusTerminal`
-
-          What the client should do next in response to this error.
-
-          - `beta_managed_agents_retry_status_retrying: object`
-
-            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-          - `beta_managed_agents_retry_status_exhausted: object`
-
-            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
-
-          - `beta_managed_agents_retry_status_terminal: object`
-
-            The session encountered a terminal error and will transition to `terminated` state.
-
-      - `beta_managed_agents_mcp_authentication_failed_error: object`
-
-        Authentication to an MCP server failed.
-
-        - `type: "mcp_authentication_failed_error"`
-
-        - `mcp_server_name: string`
-
-          Name of the MCP server that failed authentication.
-
-        - `message: string`
-
-          Human-readable error description.
-
-        - `retry_status: BetaManagedAgentsRetryStatusRetrying or BetaManagedAgentsRetryStatusExhausted or BetaManagedAgentsRetryStatusTerminal`
-
-          What the client should do next in response to this error.
-
-          - `beta_managed_agents_retry_status_retrying: object`
-
-            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-          - `beta_managed_agents_retry_status_exhausted: object`
-
-            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
-
-          - `beta_managed_agents_retry_status_terminal: object`
-
-            The session encountered a terminal error and will transition to `terminated` state.
-
-      - `beta_managed_agents_billing_error: object`
-
-        The caller's organization or workspace cannot make model requests — out of credits or spend limit reached. Retrying with the same credentials will not succeed; the caller must resolve the billing state.
-
-        - `type: "billing_error"`
-
-        - `message: string`
-
-          Human-readable error description.
-
-        - `retry_status: BetaManagedAgentsRetryStatusRetrying or BetaManagedAgentsRetryStatusExhausted or BetaManagedAgentsRetryStatusTerminal`
-
-          What the client should do next in response to this error.
-
-          - `beta_managed_agents_retry_status_retrying: object`
-
-            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-          - `beta_managed_agents_retry_status_exhausted: object`
-
-            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
-
-          - `beta_managed_agents_retry_status_terminal: object`
-
-            The session encountered a terminal error and will transition to `terminated` state.
-
-      - `beta_managed_agents_credential_host_unreachable_error: object`
-
-        An `environment_variable` credential's `auth.networking.allowed_hosts` includes a host the environment's network policy does not permit.
-
-        - `type: "credential_host_unreachable_error"`
-
-        - `credential_id: string`
-
-          ID of the affected credential.
-
-        - `message: string`
-
-          Human-readable error description.
-
-        - `retry_status: BetaManagedAgentsRetryStatusRetrying or BetaManagedAgentsRetryStatusExhausted or BetaManagedAgentsRetryStatusTerminal`
-
-          What the client should do next in response to this error.
-
-          - `beta_managed_agents_retry_status_retrying: object`
-
-            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-          - `beta_managed_agents_retry_status_exhausted: object`
-
-            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
-
-          - `beta_managed_agents_retry_status_terminal: object`
-
-            The session encountered a terminal error and will transition to `terminated` state.
-
-        - `vault_id: string`
-
-          ID of the vault containing the affected credential.
-
-    - `processed_at: string`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-  - `beta_managed_agents_session_status_rescheduled_event: object`
-
-    Indicates the session is recovering from an error state and is rescheduled for execution.
-
-    - `type: "session.status_rescheduled"`
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `processed_at: string`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-  - `beta_managed_agents_session_status_running_event: object`
-
-    Indicates the session is actively running and the agent is working.
-
-    - `type: "session.status_running"`
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `processed_at: string`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-  - `beta_managed_agents_session_status_idle_event: object`
-
-    Indicates the agent has paused and is awaiting user input.
-
-    - `type: "session.status_idle"`
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `processed_at: string`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `stop_reason: BetaManagedAgentsSessionEndTurn or BetaManagedAgentsSessionRequiresAction or BetaManagedAgentsSessionRetriesExhausted or BetaManagedAgentsSessionBudgetReached`
-
-      - `beta_managed_agents_session_end_turn: object`
-
-        The agent completed its turn naturally and is ready for the next user message.
-
-        - `type: "end_turn"`
-
-      - `beta_managed_agents_session_requires_action: object`
-
-        The agent is idle waiting on one or more blocking user-input events (tool confirmation, custom tool result, etc.). Resolving all of them transitions the session back to running.
-
-        - `type: "requires_action"`
-
-        - `event_ids: array of string`
-
-          The ids of events the agent is blocked on. Resolving fewer than all re-emits `session.status_idle` with the remainder.
-
-      - `beta_managed_agents_session_retries_exhausted: object`
-
-        The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
-
-        - `type: "retries_exhausted"`
-
-      - `beta_managed_agents_session_budget_reached: object`
-
-        The agent stopped because the session's tracked list cost reached its budget, or because its usage includes a model with no list price (which the budget cannot measure). Raise the budget to continue — or, if raising is rejected because a model has no list price, remove the budget.
-
-        - `type: "budget_reached"`
-
-  - `beta_managed_agents_session_status_terminated_event: object`
-
-    Indicates the session has terminated, either due to an error or completion.
-
-    - `type: "session.status_terminated"`
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `processed_at: string`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-  - `beta_managed_agents_session_thread_created_event: object`
-
-    Emitted when a subagent is spawned as a new thread. Written to the parent thread's output stream so clients observing the session see child creation.
-
-    - `type: "session.thread_created"`
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `agent_name: string`
-
-      Name of the callable agent the thread runs.
-
-    - `processed_at: string`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `session_thread_id: string`
-
-      Public `sthr_` ID of the newly created thread.
-
-  - `beta_managed_agents_span_outcome_evaluation_start_event: object`
-
-    Emitted when an outcome evaluation cycle begins.
-
-    - `type: "span.outcome_evaluation_start"`
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `iteration: number`
-
-      0-indexed revision cycle. 0 is the first evaluation; 1 is the re-evaluation after the first revision; etc.
-
-      format: int32
-
-    - `outcome_id: string`
-
-      The `outc_` ID of the outcome being evaluated.
-
-    - `processed_at: string`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-  - `beta_managed_agents_span_outcome_evaluation_end_event: object`
-
-    Emitted when an outcome evaluation cycle completes. Carries the verdict and aggregate token usage. A verdict of `needs_revision` means another evaluation cycle follows; `satisfied`, `max_iterations_reached`, `failed`, or `interrupted` are terminal — no further evaluation cycles follow.
-
-    - `type: "span.outcome_evaluation_end"`
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `explanation: string`
-
-      Human-readable explanation of the verdict. For `needs_revision`, describes which criteria failed and why.
-
-    - `iteration: number`
-
-      0-indexed revision cycle, matching the corresponding `span.outcome_evaluation_start`.
-
-      format: int32
-
-    - `outcome_evaluation_start_id: string`
-
-      The id of the corresponding `span.outcome_evaluation_start` event.
-
-    - `outcome_id: string`
-
-      The `outc_` ID of the outcome being evaluated.
-
-    - `processed_at: string`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `result: string`
-
-      Evaluation verdict. 'satisfied': criteria met, session goes idle. 'needs_revision': criteria not met, another revision cycle follows. 'max_iterations_reached': evaluation budget exhausted with criteria still unmet — one final acknowledgment turn follows before the session goes idle, but no further evaluation runs. 'failed': grader determined the rubric does not apply to the deliverables. 'interrupted': user sent an interrupt while evaluation was in progress.
-
-    - `usage: object`
-
-      Token usage for a single model request.
-
-      - `cache_creation_input_tokens: number`
-
-        Tokens used to create prompt cache in this request.
-
-        format: int32
-
-      - `cache_read_input_tokens: number`
-
-        Tokens read from prompt cache in this request.
-
-        format: int32
-
-      - `input_tokens: number`
-
-        Input tokens consumed by this request.
-
-        format: int32
-
-      - `output_tokens: number`
-
-        Output tokens generated by this request.
-
-        format: int32
-
-      - `speed: optional "standard" or "fast"`
-
-        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
-        - `"standard"`
-
-        - `"fast"`
-
-  - `beta_managed_agents_span_model_request_start_event: object`
-
-    Emitted when a model request is initiated by the agent.
-
-    - `type: "span.model_request_start"`
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `processed_at: string`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-  - `beta_managed_agents_span_model_request_end_event: object`
-
-    Emitted when a model request completes.
-
-    - `type: "span.model_request_end"`
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `is_error: boolean`
-
-      Whether the model request resulted in an error.
-
-    - `model_request_start_id: string`
-
-      The id of the corresponding `span.model_request_start` event.
-
-    - `model_usage: object`
-
-      Token usage for a single model request.
-
-      - `cache_creation_input_tokens: number`
-
-        Tokens used to create prompt cache in this request.
-
-        format: int32
-
-      - `cache_read_input_tokens: number`
-
-        Tokens read from prompt cache in this request.
-
-        format: int32
-
-      - `input_tokens: number`
-
-        Input tokens consumed by this request.
-
-        format: int32
-
-      - `output_tokens: number`
-
-        Output tokens generated by this request.
-
-        format: int32
-
-      - `speed: optional "standard" or "fast"`
-
-        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
-    - `processed_at: string`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-  - `beta_managed_agents_span_outcome_evaluation_ongoing_event: object`
-
-    Periodic heartbeat emitted while an outcome evaluation cycle is in progress. Distinguishes 'evaluation is actively running' from 'evaluation is stuck' between the corresponding `span.outcome_evaluation_start` and `span.outcome_evaluation_end` events.
-
-    - `type: "span.outcome_evaluation_ongoing"`
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `iteration: number`
-
-      0-indexed revision cycle, matching the corresponding `span.outcome_evaluation_start`.
-
-      format: int32
-
-    - `outcome_id: string`
-
-      The `outc_` ID of the outcome being evaluated.
-
-    - `processed_at: string`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-  - `beta_managed_agents_user_define_outcome_event: object`
-
-    Echo of a `user.define_outcome` input event. Carries the server-generated `outcome_id` that subsequent `span.outcome_evaluation_*` events reference.
-
-    - `type: "user.define_outcome"`
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `description: string`
-
-      What the agent should produce. Copied from the input event.
-
-    - `max_iterations: number`
-
-      Evaluate-then-revise cycles before giving up. Default 3, max 20.
-
-      format: int32
-
-    - `outcome_id: string`
-
-      Server-generated `outc_` ID for this outcome. Referenced by `span.outcome_evaluation_*` events and the session's `outcome_evaluations` list.
-
-    - `processed_at: string`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `rubric: BetaManagedAgentsFileRubric or BetaManagedAgentsTextRubric`
-
-      Rubric for grading the quality of an outcome.
-
-      - `beta_managed_agents_file_rubric: object`
-
-        Rubric referenced by a file uploaded via the Files API.
-
-        - `type: "file"`
-
-        - `file_id: string`
-
-          ID of the rubric file.
-
-      - `beta_managed_agents_text_rubric: object`
-
-        Rubric content provided inline as text.
-
-        - `type: "text"`
-
-        - `content: string`
-
-          Rubric content. Plain text or markdown — the grader treats it as freeform text.
-
-  - `beta_managed_agents_session_deleted_event: object`
-
-    Emitted when a session has been deleted. Terminates any active event stream — no further events will be emitted for this session.
-
-    - `type: "session.deleted"`
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `processed_at: string`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-  - `beta_managed_agents_session_thread_status_running_event: object`
-
-    A session thread has begun executing. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
-
-    - `type: "session.thread_status_running"`
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `agent_name: string`
-
-      Name of the agent the thread runs.
-
-    - `processed_at: string`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `session_thread_id: string`
-
-      Public sthr_ ID of the thread that started running.
-
-  - `beta_managed_agents_session_thread_status_idle_event: object`
-
-    A session thread has yielded and is awaiting input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
-
-    - `type: "session.thread_status_idle"`
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `agent_name: string`
-
-      Name of the agent the thread runs.
-
-    - `processed_at: string`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `session_thread_id: string`
-
-      Public sthr_ ID of the thread that went idle.
-
-    - `stop_reason: BetaManagedAgentsSessionEndTurn or BetaManagedAgentsSessionRequiresAction or BetaManagedAgentsSessionRetriesExhausted or BetaManagedAgentsSessionBudgetReached`
-
-      - `beta_managed_agents_session_end_turn: object`
-
-        The agent completed its turn naturally and is ready for the next user message.
-
-      - `beta_managed_agents_session_requires_action: object`
-
-        The agent is idle waiting on one or more blocking user-input events (tool confirmation, custom tool result, etc.). Resolving all of them transitions the session back to running.
-
-      - `beta_managed_agents_session_retries_exhausted: object`
-
-        The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
-
-      - `beta_managed_agents_session_budget_reached: object`
-
-        The agent stopped because the session's tracked list cost reached its budget, or because its usage includes a model with no list price (which the budget cannot measure). Raise the budget to continue — or, if raising is rejected because a model has no list price, remove the budget.
-
-  - `beta_managed_agents_session_thread_status_terminated_event: object`
-
-    A session thread has terminated and will accept no further input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
-
-    - `type: "session.thread_status_terminated"`
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `agent_name: string`
-
-      Name of the agent the thread runs.
-
-    - `processed_at: string`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `session_thread_id: string`
-
-      Public sthr_ ID of the thread that terminated.
-
-  - `beta_managed_agents_user_tool_result_event: object`
-
-    Event sent by the client providing the result of an agent-toolset tool execution. Only valid on `self_hosted` environments, where sandbox-routed tools are executed by the client rather than the server.
-
-    - `type: "user.tool_result"`
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `tool_use_id: string`
-
-      The id of the `agent.tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
-
-    - `content: optional array of BetaManagedAgentsTextBlock or BetaManagedAgentsImageBlock or BetaManagedAgentsDocumentBlock or BetaManagedAgentsSearchResultBlock`
-
-      The result content returned by the tool.
-
-      - `beta_managed_agents_text_block: object`
-
-        Regular text content.
-
-      - `beta_managed_agents_image_block: object`
-
-        Image content specified directly as base64 data or as a reference via a URL.
-
-      - `beta_managed_agents_document_block: object`
-
-        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-      - `beta_managed_agents_search_result_block: object`
-
-        A block containing a web search result.
-
-    - `is_error: optional boolean`
-
-      Whether the tool execution resulted in an error.
-
-    - `processed_at: optional string`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `session_thread_id: optional string`
-
-      Routes this result to a subagent thread. Copy from the `agent.tool_use` event's `session_thread_id`.
-
-  - `beta_managed_agents_session_thread_status_rescheduled_event: object`
-
-    A session thread hit a transient error and is retrying automatically. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
-
-    - `type: "session.thread_status_rescheduled"`
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `agent_name: string`
-
-      Name of the agent the thread runs.
-
-    - `processed_at: string`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `session_thread_id: string`
-
-      Public sthr_ ID of the thread that is retrying.
-
-  - `beta_managed_agents_session_updated_event: object`
-
-    Emitted when an UpdateSession request changed at least one field. Carries only the fields that changed; absent fields were not part of the update. The new configuration applies from the next turn.
-
-    - `type: "session.updated"`
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `processed_at: string`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `agent: optional object`
-
-      Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
-
-      - `type: "agent"`
-
-      - `id: string`
-
-      - `description: string`
-
-      - `mcp_servers: array of BetaManagedAgentsMCPServerURLDefinition`
-
-        - `type: "url"`
-
-        - `name: string`
-
-        - `url: string`
-
-      - `model: object`
-
-        Model identifier and configuration.
-
-        - `id: "claude-fable-5-1" or "claude-sonnet-5" or "claude-fable-5" or 11 more or string`
-
-          The model that will power your agent.
-
-          See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
-          - `"claude-fable-5-1"`
-
-            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
-
-          - `"claude-sonnet-5"`
-
-            High-performance model for coding and agents
-
-          - `"claude-fable-5"`
-
-            Next generation of intelligence for the hardest knowledge work and coding problems
-
-          - `"claude-opus-5"`
-
-            Powerful intelligence for long-running agents and coding
-
-          - `"claude-opus-4-8"`
-
-            Powerful intelligence for long-running agents and coding
-
-          - `"claude-opus-4-7"`
-
-            Powerful intelligence for long-running agents and coding
-
-          - `"claude-opus-4-6"`
-
-            Powerful intelligence for long-running agents and coding
-
-          - `"claude-sonnet-4-6"`
-
-            Best combination of speed and intelligence
-
-          - `"claude-haiku-4-5"`
-
-            Fastest model with near-frontier intelligence
-
-          - `"claude-haiku-4-5-20251001"`
-
-            Fastest model with near-frontier intelligence
-
-          - `"claude-opus-4-5"`
-
-            Powerful intelligence for long-running agents and coding
-
-          - `"claude-opus-4-5-20251101"`
-
-            Powerful intelligence for long-running agents and coding
-
-          - `"claude-sonnet-4-5"`
-
-            High-performance model for agents and coding
-
-          - `"claude-sonnet-4-5-20250929"`
-
-            High-performance model for agents and coding
-
-        - `effort: optional BetaManagedAgentsEffortLow or BetaManagedAgentsEffortMedium or BetaManagedAgentsEffortHigh or 2 more`
-
-          How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
-
-          - `beta_managed_agents_effort_low: object`
-
-            Low effort. Favors latency over reasoning depth.
-
-            - `type: "low"`
-
-          - `beta_managed_agents_effort_medium: object`
-
-            Medium effort. Balances latency and reasoning depth.
-
-            - `type: "medium"`
-
-          - `beta_managed_agents_effort_high: object`
-
-            High effort. Favors reasoning depth.
-
-            - `type: "high"`
-
-          - `beta_managed_agents_effort_xhigh: object`
-
-            Extra-high effort. Not all models accept this level.
-
-            - `type: "xhigh"`
-
-          - `beta_managed_agents_effort_max: object`
-
-            Maximum effort. Favors reasoning depth over latency.
-
-            - `type: "max"`
-
-        - `inference_geo: optional string`
-
-          Geographic region for model inference. When unset, requests fall through to the workspace's default_inference_geo.
-
-        - `speed: optional "standard" or "fast"`
-
-          Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
-          - `"standard"`
-
-          - `"fast"`
-
-      - `multiagent: object`
-
-        Resolved coordinator topology with full agent definitions for each roster member.
-
-        - `type: "coordinator"`
-
-        - `agents: array of BetaManagedAgentsSessionThreadAgent or BetaManagedAgentsAdvisor`
-
-          Full `agent` definitions the coordinator may spawn as session threads.
-
-          - `beta_managed_agents_session_thread_agent: object`
-
-            Resolved `agent` definition for a single `session_thread`. Snapshot of the agent at thread creation time. The multiagent roster is not repeated here; read it from `Session.agent`.
-
-            - `type: "agent"`
-
-            - `id: string`
-
-            - `description: string`
-
-            - `mcp_servers: array of BetaManagedAgentsMCPServerURLDefinition`
-
-              - `type: "url"`
-
-              - `name: string`
-
-              - `url: string`
-
-            - `model: object`
-
-              Model identifier and configuration.
-
-              - `id: "claude-fable-5-1" or "claude-sonnet-5" or "claude-fable-5" or 11 more or string`
-
-                The model that will power your agent.
-
-                See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
-              - `effort: optional BetaManagedAgentsEffortLow or BetaManagedAgentsEffortMedium or BetaManagedAgentsEffortHigh or 2 more`
-
-                How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
-
-              - `inference_geo: optional string`
-
-                Geographic region for model inference. When unset, requests fall through to the workspace's default_inference_geo.
-
-              - `speed: optional "standard" or "fast"`
-
-                Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
-            - `name: string`
-
-            - `skills: array of BetaManagedAgentsAnthropicSkill or BetaManagedAgentsCustomSkill`
-
-              - `beta_managed_agents_anthropic_skill: object`
-
-                A resolved Anthropic-managed skill.
-
-                - `type: "anthropic"`
-
-                - `skill_id: string`
-
-                - `version: string`
-
-              - `beta_managed_agents_custom_skill: object`
-
-                A resolved user-created custom skill.
-
-                - `type: "custom"`
-
-                - `skill_id: string`
-
-                - `version: string`
-
-            - `system: string`
-
-            - `tools: array of BetaManagedAgentsAgentToolset20260401 or BetaManagedAgentsMCPToolset or BetaManagedAgentsCustomTool`
-
-              - `beta_managed_agents_agent_toolset20260401: object`
-
-                - `type: "agent_toolset_20260401"`
-
-                - `configs: array of BetaManagedAgentsAgentToolConfig`
-
-                  - `beta_managed_agents_bash_tool_config: object`
-
-                    Configuration for the bash tool.
-
-                    - `type: "bash"`
-
-                    - `enabled: boolean`
-
-                    - `name: "bash"`
-
-                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
-
-                      Permission policy for tool execution.
-
-                      - `beta_managed_agents_always_allow_policy: object`
-
-                        Tool calls are automatically approved without user confirmation.
-
-                        - `type: "always_allow"`
-
-                      - `beta_managed_agents_always_ask_policy: object`
-
-                        Tool calls require user confirmation before execution.
-
-                        - `type: "always_ask"`
-
-                      - `beta_managed_agents_auto_policy: object`
-
-                        The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
-
-                        - `type: "auto"`
-
-                  - `beta_managed_agents_edit_tool_config: object`
-
-                    Configuration for the edit tool.
-
-                    - `type: "edit"`
-
-                    - `enabled: boolean`
-
-                    - `name: "edit"`
-
-                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
-
-                      Permission policy for tool execution.
-
-                      - `beta_managed_agents_always_allow_policy: object`
-
-                        Tool calls are automatically approved without user confirmation.
-
-                      - `beta_managed_agents_always_ask_policy: object`
-
-                        Tool calls require user confirmation before execution.
-
-                      - `beta_managed_agents_auto_policy: object`
-
-                        The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
-
-                  - `beta_managed_agents_read_tool_config: object`
-
-                    Configuration for the read tool.
-
-                    - `type: "read"`
-
-                    - `enabled: boolean`
-
-                    - `name: "read"`
-
-                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
-
-                      Permission policy for tool execution.
-
-                      - `beta_managed_agents_always_allow_policy: object`
-
-                        Tool calls are automatically approved without user confirmation.
-
-                      - `beta_managed_agents_always_ask_policy: object`
-
-                        Tool calls require user confirmation before execution.
-
-                      - `beta_managed_agents_auto_policy: object`
-
-                        The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
-
-                  - `beta_managed_agents_write_tool_config: object`
-
-                    Configuration for the write tool.
-
-                    - `type: "write"`
-
-                    - `enabled: boolean`
-
-                    - `name: "write"`
-
-                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
-
-                      Permission policy for tool execution.
-
-                      - `beta_managed_agents_always_allow_policy: object`
-
-                        Tool calls are automatically approved without user confirmation.
-
-                      - `beta_managed_agents_always_ask_policy: object`
-
-                        Tool calls require user confirmation before execution.
-
-                      - `beta_managed_agents_auto_policy: object`
-
-                        The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
-
-                  - `beta_managed_agents_glob_tool_config: object`
-
-                    Configuration for the glob tool.
-
-                    - `type: "glob"`
-
-                    - `enabled: boolean`
-
-                    - `name: "glob"`
-
-                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
-
-                      Permission policy for tool execution.
-
-                      - `beta_managed_agents_always_allow_policy: object`
-
-                        Tool calls are automatically approved without user confirmation.
-
-                      - `beta_managed_agents_always_ask_policy: object`
-
-                        Tool calls require user confirmation before execution.
-
-                      - `beta_managed_agents_auto_policy: object`
-
-                        The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
-
-                  - `beta_managed_agents_grep_tool_config: object`
-
-                    Configuration for the grep tool.
-
-                    - `type: "grep"`
-
-                    - `enabled: boolean`
-
-                    - `name: "grep"`
-
-                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
-
-                      Permission policy for tool execution.
-
-                      - `beta_managed_agents_always_allow_policy: object`
-
-                        Tool calls are automatically approved without user confirmation.
-
-                      - `beta_managed_agents_always_ask_policy: object`
-
-                        Tool calls require user confirmation before execution.
-
-                      - `beta_managed_agents_auto_policy: object`
-
-                        The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
-
-                  - `beta_managed_agents_web_fetch_tool_config: object`
-
-                    Configuration for the web_fetch tool.
-
-                    - `type: "web_fetch"`
-
-                    - `enabled: boolean`
-
-                    - `name: "web_fetch"`
-
-                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
-
-                      Permission policy for tool execution.
-
-                      - `beta_managed_agents_always_allow_policy: object`
-
-                        Tool calls are automatically approved without user confirmation.
-
-                      - `beta_managed_agents_always_ask_policy: object`
-
-                        Tool calls require user confirmation before execution.
-
-                      - `beta_managed_agents_auto_policy: object`
-
-                        The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
-
-                    - `allowed_domains: optional array of string`
-
-                    - `blocked_domains: optional array of string`
-
-                    - `max_content_tokens: optional number`
-
-                      format: int32
-
-                  - `beta_managed_agents_web_search_tool_config: object`
-
-                    Configuration for the web_search tool.
-
-                    - `type: "web_search"`
-
-                    - `enabled: boolean`
-
-                    - `name: "web_search"`
-
-                    - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
-
-                      Permission policy for tool execution.
-
-                      - `beta_managed_agents_always_allow_policy: object`
-
-                        Tool calls are automatically approved without user confirmation.
-
-                      - `beta_managed_agents_always_ask_policy: object`
-
-                        Tool calls require user confirmation before execution.
-
-                      - `beta_managed_agents_auto_policy: object`
-
-                        The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
-
-                    - `allowed_domains: optional array of string`
-
-                    - `blocked_domains: optional array of string`
-
-                    - `user_location: optional object`
-
-                      Approximate user location for search result localization.
-
-                      - `type: "approximate"`
-
-                        Location precision. Only "approximate" is supported.
-
-                      - `city: optional string`
-
-                        City name.
-
-                        minLength: 1, maxLength: 255
-
-                      - `country: optional string`
-
-                        Two-letter ISO 3166-1 country code, uppercase.
-
-                      - `region: optional string`
-
-                        Region or state name.
-
-                        minLength: 1, maxLength: 255
-
-                      - `timezone: optional string`
-
-                        IANA timezone identifier, e.g. "America/Los_Angeles".
-
-                        minLength: 1, maxLength: 255
-
-                - `default_config: object`
-
-                  Resolved default configuration for agent tools.
-
-                  - `enabled: boolean`
-
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
-
-                    Permission policy for tool execution.
-
-                    - `beta_managed_agents_always_allow_policy: object`
-
-                      Tool calls are automatically approved without user confirmation.
-
-                    - `beta_managed_agents_always_ask_policy: object`
-
-                      Tool calls require user confirmation before execution.
-
-                    - `beta_managed_agents_auto_policy: object`
-
-                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
-
-              - `beta_managed_agents_mcp_toolset: object`
-
-                - `type: "mcp_toolset"`
-
-                - `configs: array of BetaManagedAgentsMCPToolConfig`
-
-                  - `enabled: boolean`
-
-                  - `name: string`
-
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
-
-                    Permission policy for tool execution.
-
-                    - `beta_managed_agents_always_allow_policy: object`
-
-                      Tool calls are automatically approved without user confirmation.
-
-                    - `beta_managed_agents_always_ask_policy: object`
-
-                      Tool calls require user confirmation before execution.
-
-                    - `beta_managed_agents_auto_policy: object`
-
-                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
-
-                - `default_config: object`
-
-                  Resolved default configuration for all tools from an MCP server.
-
-                  - `enabled: boolean`
-
-                  - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy or BetaManagedAgentsAutoPolicy`
-
-                    Permission policy for tool execution.
-
-                    - `beta_managed_agents_always_allow_policy: object`
-
-                      Tool calls are automatically approved without user confirmation.
-
-                    - `beta_managed_agents_always_ask_policy: object`
-
-                      Tool calls require user confirmation before execution.
-
-                    - `beta_managed_agents_auto_policy: object`
-
-                      The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
-
-                - `mcp_server_name: string`
-
-              - `beta_managed_agents_custom_tool: object`
-
-                A custom tool as returned in API responses.
-
-                - `type: "custom"`
-
-                - `description: string`
-
-                - `input_schema: object`
-
-                  JSON Schema for custom tool input parameters.
-
-                  - `type: "object"`
-
-                  - `properties: optional map[unknown]`
-
-                  - `required: optional array of string`
-
-                - `name: string`
-
-            - `version: number`
-
-              format: int32
-
-          - `beta_managed_agents_advisor: object`
-
-            Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
-
-            - `type: "advisor"`
-
-            - `model: string`
-
-              The advisor model id.
-
-      - `name: string`
-
-      - `skills: array of BetaManagedAgentsAnthropicSkill or BetaManagedAgentsCustomSkill`
-
-        - `beta_managed_agents_anthropic_skill: object`
-
-          A resolved Anthropic-managed skill.
-
-        - `beta_managed_agents_custom_skill: object`
-
-          A resolved user-created custom skill.
-
-      - `system: string`
-
-      - `tools: array of BetaManagedAgentsAgentToolset20260401 or BetaManagedAgentsMCPToolset or BetaManagedAgentsCustomTool`
-
-        - `beta_managed_agents_agent_toolset20260401: object`
-
-        - `beta_managed_agents_mcp_toolset: object`
-
-        - `beta_managed_agents_custom_tool: object`
-
-          A custom tool as returned in API responses.
-
-      - `version: number`
-
-        format: int32
-
-    - `budget: optional object`
-
-      A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
-
-      - `type: "limit"`
-
-      - `max_list_cost: object`
-
-        A monetary amount in a specific currency.
-
-        - `amount: string`
-
-          Amount in minor units of the currency, as an integer decimal string with no leading zeros: "2500" is $25.00 and "50" is fifty cents. A string rather than a number so no float rounding is ever applied.
-
-        - `currency: "USD"`
-
-          Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
-
-    - `metadata: optional map[string]`
-
-      The session's full metadata bag after the update. Present when the update set non-empty metadata; absent when metadata was unchanged or cleared to empty.
-
-    - `title: optional string`
-
-      The session's new title. Present only when the update changed it.
-
-  - `beta_managed_agents_start_event: object`
-
-    Opens a preview of a buffered event. Carries the previewed event's type and id only. Followed by zero or more event_delta events with the same event id, normally concluded by the buffered event carrying that id. If the producing model request ends without that event (an error or interrupt mid-stream), its terminal span.model_request_end closes the preview. Only sent on stream connections that opt in via event_deltas; never appears in event history.
-
-    - `type: "event_start"`
-
-    - `event: BetaManagedAgentsAgentMessagePreview or BetaManagedAgentsAgentThinkingPreview`
-
-      The previewed event's type and id. The event type determines which delta types the preview's event_delta events carry: agent.message events stream content_delta fragments; agent.thinking previews are start-only — no deltas follow, and the buffered agent.thinking with the same id concludes them.
-
-      - `beta_managed_agents_agent_message_preview: object`
-
-        - `type: "agent.message"`
-
-        - `id: string`
-
-          The id the buffered agent.message will carry if it is emitted. Matches the event_id on this preview's event_delta events.
-
-      - `beta_managed_agents_agent_thinking_preview: object`
-
-        - `type: "agent.thinking"`
-
-        - `id: string`
-
-          The id the buffered agent.thinking will carry if it is emitted. Start-only — no event_delta events follow.
-
-  - `beta_managed_agents_delta_event: object`
-
-    An incremental update to an event that is still being streamed. Deltas are best-effort and may stop early; when the buffered event with id == event_id is produced it carries the complete content. A model request that ends early (an error or interrupt) produces no buffered event — its terminal span.model_request_end closes the preview. Only sent on stream connections that opt in via event_deltas; never appears in event history.
-
-    - `type: "event_delta"`
-
-    - `delta: object`
-
-      One fragment of the previewed event. The delta type is named for the previewed event's field it streams into: agent.message events stream content_delta fragments, each a partial element of the content array.
-
-      - `type: "content_delta"`
-
-      - `content: object`
-
-        Regular text content.
-
-        - `type: "text"`
-
-        - `text: string`
-
-          The text content.
-
-          minLength: 1
-
-      - `index: optional number`
-
-        Which entry in the previewed event's content array this fragment lands in. Insert content as that entry when the index is new; append to the existing entry otherwise.
-
-        format: uint32
-
-    - `event_id: string`
-
-      The id of the event being previewed. Matches event.id on the corresponding event_start and the buffered event that reconciles the preview.
-
-  - `beta_managed_agents_system_message_event: object`
-
-    A mid-conversation system message event. Carries system-role content that is appended to the session as a `role: "system"` turn.
-
-    - `type: "system.message"`
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `content: array of BetaManagedAgentsSystemContentBlock`
-
-      System content blocks. Text-only.
-
-      - `type: "text"`
-
-      - `text: string`
-
-        The text content.
-
-        minLength: 1
-
-    - `processed_at: optional string`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-  - `beta_managed_agents_session_usage_event: object`
-
-    Periodic snapshot of the session's cumulative usage and tracked list cost.
-
-    - `type: "session.usage"`
-
-    - `id: string`
-
-      Unique identifier for this event.
-
-    - `processed_at: string`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `usage: object`
-
-      Point-in-time snapshot of a session's cumulative usage.
-
-      - `active_seconds: optional number`
-
-        Cumulative time in seconds during which the session had at least one thread in running status. Overlapping activity from concurrent threads is counted once. This is the duration the session's runtime cost is priced on.
-
-        format: double
-
-      - `cache_creation: optional object`
-
-        Prompt-cache creation token usage broken down by cache lifetime.
-
-        - `ephemeral_1h_input_tokens: optional number`
-
-          Tokens used to create 1-hour ephemeral cache entries.
-
-          format: int32
-
-        - `ephemeral_5m_input_tokens: optional number`
-
-          Tokens used to create 5-minute ephemeral cache entries.
-
-          format: int32
-
-      - `cache_read_input_tokens: optional number`
-
-        Total tokens read from prompt cache.
-
-        format: int32
-
-      - `input_tokens: optional number`
-
-        Total input tokens consumed across all turns.
-
-        format: int32
-
-      - `list_cost: optional object`
-
-        A monetary amount in a specific currency.
-
-        - `amount: string`
-
-          Amount in minor units of the currency, as an integer decimal string with no leading zeros: "2500" is $25.00 and "50" is fifty cents. A string rather than a number so no float rounding is ever applied.
-
-        - `currency: "USD"`
-
-          Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
-
-      - `output_tokens: optional number`
-
-        Total output tokens generated across all turns.
-
-        format: int32
-
-      - `server_tool_use: optional object`
-
-        Cumulative count of server-executed tool invocations, broken down by tool.
-
-        - `web_fetch_requests: optional number`
-
-          Number of server-executed web fetch requests.
-
-          format: int32
-
-        - `web_search_requests: optional number`
-
-          Number of server-executed web search requests.
-
-          format: int32
-
-    - `budget: optional object`
-
-      A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
-
-      - `type: "limit"`
-
-      - `max_list_cost: object`
-
-        A monetary amount in a specific currency.
-
-#### Example
-
-```bash
-ant beta:sessions:threads:events stream \
-  --api-key my-anthropic-api-key \
-  --session-id sesn_011CZkZAtmR3yMPDzynEDxu7 \
-  --thread-id sthr_011CZkZVWa6oIjw0rgXZpnBt
-```
-
-##### Response (200)
-
-```json
-{
-  "id": "sevt_011CZkZGOp0iBcp4kaQSihUmy",
-  "content": [
-    {
-      "text": "Where is my order #1234?",
-      "type": "text"
-    }
-  ],
-  "type": "user.message",
-  "processed_at": "2026-03-15T10:00:00Z"
-}
-```
-
-## Beta › Deployments
-
-### Create Deployment
-
-`$ ant beta:deployments create`
-
-**POST** `/v1/deployments`
-
-Create Deployment
-
-#### Parameters
-
-- `--agent: string or BetaManagedAgentsAgentParams`
-
-  Body param: Agent to deploy. Accepts the `agent` ID string, which pins the latest version, or an `agent` object with both id and version specified. The agent must exist and not be archived.
-
-- `--environment-id: string`
-
-  Body param: ID of the `environment` defining the container configuration for sessions created from this deployment.
-
-  minLength: 1, maxLength: 128
-
-- `--initial-event: array of BetaManagedAgentsDeploymentInitialEventParams`
-
-  Body param: Events to send to each session immediately after creation. At least 1, maximum 50.
-
-- `--name: string`
-
-  Body param: Human-readable name for the deployment.
-
-  minLength: 1, maxLength: 256
-
-- `--budget: optional object`
-
-  Body param: A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
-
-- `--description: optional string`
-
-  Body param: Description of what the deployment does.
-
-  maxLength: 2048
-
-- `--metadata: optional map[string]`
-
-  Body param: Arbitrary key-value metadata. Maximum 16 pairs, keys up to 64 chars, values up to 512 chars.
-
-- `--resource: optional array of BetaManagedAgentsGitHubRepositoryResourceParams or BetaManagedAgentsFileResourceParams or BetaManagedAgentsMemoryStoreResourceParam`
-
-  Body param: Resources (e.g. repositories, files) to mount into each session's container. Maximum 500.
-
-- `--schedule: optional object`
-
-  Body param: 5-field POSIX cron schedule. Literal wall-clock matching in the configured timezone.
-
-- `--vault-id: optional array of string`
-
-  Body param: Vault IDs for stored credentials the agent can use during sessions created from this deployment. Maximum 50.
-
-- `--beta: optional array of AnthropicBeta`
-
-  Header param: Optional header to specify the beta version(s) you want to use.
-
-- `--workspace-id: optional string`
-
-  Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
-
-  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
-
-#### Returns
-
-- `beta_managed_agents_deployment: object`
-
-  A deployment is a configured instance of an agent — it binds the agent to everything needed to run it autonomously: an environment, credentials, initial events, and an optional schedule.
-
-  - `type: "deployment"`
-
-  - `id: string`
-
-    Unique identifier for this deployment.
-
-  - `agent: object`
-
-    A resolved agent reference with a concrete version.
-
-    - `type: "agent"`
-
-    - `id: string`
-
-    - `version: number`
-
-      format: int32
-
-  - `archived_at: string`
-
-    A timestamp in RFC 3339 format
-
-    format: date-time
-
-  - `created_at: string`
-
-    A timestamp in RFC 3339 format
-
-    format: date-time
-
-  - `description: string`
-
-    Description of what the deployment does.
-
-  - `environment_id: string`
-
-    ID of the `environment` where sessions run.
-
-  - `initial_events: array of BetaManagedAgentsDeploymentInitialEvent`
-
-    Events sent to each session immediately after creation.
-
-    - `beta_managed_agents_deployment_user_message_event: object`
-
-      A user message sent to the session.
-
-      - `type: "user.message"`
-
-      - `content: array of BetaManagedAgentsTextBlock or BetaManagedAgentsImageBlock or BetaManagedAgentsDocumentBlock or BetaManagedAgentsRedactedBlock`
-
-        Array of content blocks for the user message.
-
-        - `beta_managed_agents_text_block: object`
-
-          Regular text content.
-
-          - `type: "text"`
-
-          - `text: string`
-
-            The text content.
-
-            minLength: 1
-
-        - `beta_managed_agents_image_block: object`
-
-          Image content specified directly as base64 data or as a reference via a URL.
-
-          - `type: "image"`
-
-          - `source: BetaManagedAgentsBase64ImageSource or BetaManagedAgentsURLImageSource or BetaManagedAgentsFileImageSource`
-
-            Union type for image source variants.
-
-            - `beta_managed_agents_base64_image_source: object`
-
-              Base64-encoded image data.
-
-              - `type: "base64"`
-
-              - `data: string`
-
-                Base64-encoded image data.
-
-                minLength: 1
-
-              - `media_type: string`
-
-                MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
-
-                minLength: 1
-
-            - `beta_managed_agents_url_image_source: object`
-
-              Image referenced by URL.
-
-              - `type: "url"`
-
-              - `url: string`
-
-                URL of the image to fetch.
-
-                minLength: 1
-
-            - `beta_managed_agents_file_image_source: object`
-
-              Image referenced by file ID.
-
-              - `type: "file"`
-
-              - `file_id: string`
-
-                ID of a previously uploaded file.
-
-                minLength: 1
-
-        - `beta_managed_agents_document_block: object`
-
-          Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-          - `type: "document"`
-
-          - `source: BetaManagedAgentsBase64DocumentSource or BetaManagedAgentsPlainTextDocumentSource or BetaManagedAgentsURLDocumentSource or BetaManagedAgentsFileDocumentSource`
-
-            Union type for document source variants.
-
-            - `beta_managed_agents_base64_document_source: object`
-
-              Base64-encoded document data.
-
-              - `type: "base64"`
-
-              - `data: string`
-
-                Base64-encoded document data.
-
-                minLength: 1
-
-              - `media_type: string`
-
-                MIME type of the document (e.g., "application/pdf").
-
-                minLength: 1
-
-            - `beta_managed_agents_plain_text_document_source: object`
-
-              Plain text document content.
-
-              - `type: "text"`
-
-              - `data: string`
-
-                The plain text content.
-
-                minLength: 1
-
-              - `media_type: "text/plain"`
-
-                MIME type of the text content. Must be "text/plain".
-
-            - `beta_managed_agents_url_document_source: object`
-
-              Document referenced by URL.
-
-              - `type: "url"`
-
-              - `url: string`
-
-                URL of the document to fetch.
-
-                minLength: 1
-
-            - `beta_managed_agents_file_document_source: object`
-
-              Document referenced by file ID.
-
-              - `type: "file"`
-
-              - `file_id: string`
-
-                ID of a previously uploaded file.
-
-                minLength: 1
-
-          - `context: optional string`
-
-            Additional context about the document for the model.
-
-          - `title: optional string`
-
-            The title of the document.
-
-        - `beta_managed_agents_redacted_block: object`
-
-          Placeholder for content withheld by Anthropic model policy.
-
-          - `type: "redacted"`
-
-    - `beta_managed_agents_deployment_user_define_outcome_event: object`
-
-      An outcome the agent should work toward. The agent begins work on receipt.
-
-      - `type: "user.define_outcome"`
-
-      - `description: string`
-
-        What the agent should produce. This is the task specification.
-
-      - `rubric: BetaManagedAgentsFileRubric or BetaManagedAgentsTextRubric`
-
-        Rubric for grading the quality of an outcome.
-
-        - `beta_managed_agents_file_rubric: object`
-
-          Rubric referenced by a file uploaded via the Files API.
-
-          - `type: "file"`
-
-          - `file_id: string`
-
-            ID of the rubric file.
-
-        - `beta_managed_agents_text_rubric: object`
-
-          Rubric content provided inline as text.
-
-          - `type: "text"`
-
-          - `content: string`
-
-            Rubric content. Plain text or markdown — the grader treats it as freeform text.
-
-      - `max_iterations: optional number`
-
-        Eval→revision cycles before giving up. Default 3, max 20.
-
-        format: int32
-
-    - `beta_managed_agents_deployment_system_message_event: object`
-
-      Privileged context for the accompanying turn and all subsequent turns, appended to the session's system context as a `role: "system"` turn rather than replacing the top-level system prompt.
-
-      - `type: "system.message"`
-
-      - `content: array of BetaManagedAgentsSystemContentBlock`
-
-        System content blocks to append. Text-only.
-
-        - `type: "text"`
-
-        - `text: string`
-
-          The text content.
-
-          minLength: 1
-
-  - `metadata: map[string]`
-
-    Arbitrary key-value metadata. Maximum 16 pairs.
-
-  - `name: string`
-
-    Human-readable name.
-
-  - `paused_reason: BetaManagedAgentsManualDeploymentPausedReason or BetaManagedAgentsErrorDeploymentPausedReason`
-
-    Why a deployment is paused. Non-null exactly when `status` is `paused`.
-
-    - `beta_managed_agents_manual_deployment_paused_reason: object`
-
-      The caller invoked the pause endpoint on the deployment.
-
-      - `type: "manual"`
-
-    - `beta_managed_agents_error_deployment_paused_reason: object`
-
-      A scheduled fire recorded a failed run whose error auto-pauses the deployment.
-
-      - `type: "error"`
-
-      - `error: BetaManagedAgentsEnvironmentArchivedDeploymentPausedReasonError or BetaManagedAgentsAgentArchivedDeploymentPausedReasonError or BetaManagedAgentsEnvironmentNotFoundDeploymentPausedReasonError or 11 more`
-
-        The error that triggered an auto-pause. Matches the failed run's `error.type`.
-
-        - `beta_managed_agents_environment_archived_deployment_paused_reason_error: object`
-
-          The deployment's environment was archived.
-
-          - `type: "environment_archived_error"`
-
-        - `beta_managed_agents_agent_archived_deployment_paused_reason_error: object`
-
-          The deployment's agent was archived.
-
-          - `type: "agent_archived_error"`
-
-        - `beta_managed_agents_environment_not_found_deployment_paused_reason_error: object`
-
-          The deployment's environment no longer exists.
-
-          - `type: "environment_not_found_error"`
-
-        - `beta_managed_agents_vault_not_found_deployment_paused_reason_error: object`
-
-          A vault referenced by the deployment no longer exists.
-
-          - `type: "vault_not_found_error"`
-
-        - `beta_managed_agents_file_not_found_deployment_paused_reason_error: object`
-
-          A file resource referenced by the deployment no longer exists.
-
-          - `type: "file_not_found_error"`
-
-        - `beta_managed_agents_session_resource_not_found_deployment_paused_reason_error: object`
-
-          A referenced resource no longer exists and its kind was not reported.
-
-          - `type: "session_resource_not_found_error"`
-
-        - `beta_managed_agents_workspace_archived_deployment_paused_reason_error: object`
-
-          The deployment's workspace was archived.
-
-          - `type: "workspace_archived_error"`
-
-        - `beta_managed_agents_organization_disabled_deployment_paused_reason_error: object`
-
-          The deployment's organization is disabled.
-
-          - `type: "organization_disabled_error"`
-
-        - `beta_managed_agents_memory_store_archived_deployment_paused_reason_error: object`
-
-          A memory store referenced by the deployment is archived.
-
-          - `type: "memory_store_archived_error"`
-
-        - `beta_managed_agents_skill_not_found_deployment_paused_reason_error: object`
-
-          A skill referenced by the deployment's agent no longer exists.
-
-          - `type: "skill_not_found_error"`
-
-        - `beta_managed_agents_vault_archived_deployment_paused_reason_error: object`
-
-          A vault referenced by the deployment is archived.
-
-          - `type: "vault_archived_error"`
-
-        - `beta_managed_agents_unknown_deployment_paused_reason_error: object`
-
-          An unrecognized error auto-paused the deployment. A fallback variant; matches a run whose `error.type` is `unknown_error`.
-
-          - `type: "unknown_error"`
-
-        - `beta_managed_agents_self_hosted_resources_unsupported_deployment_paused_reason_error: object`
-
-          The deployment configures resources, but its environment is self-hosted and cannot mount them.
-
-          - `type: "self_hosted_resources_unsupported_error"`
-
-        - `beta_managed_agents_mcp_egress_blocked_deployment_paused_reason_error: object`
-
-          An MCP server host used by the deployment's agent is blocked by the environment's network policy.
-
-          - `type: "mcp_egress_blocked_error"`
-
-  - `resources: array of BetaManagedAgentsSessionResourceConfig`
-
-    Resources attached to sessions created from this deployment. Echoes the input minus write-only credentials.
-
-    - `beta_managed_agents_github_repository_resource_config: object`
-
-      A GitHub repository mounted into each session's container. The authorization token is write-only and never returned.
-
-      - `type: "github_repository"`
-
-      - `url: string`
-
-        Github URL of the repository
-
-      - `checkout: optional BetaManagedAgentsBranchCheckout or BetaManagedAgentsCommitCheckout`
-
-        Branch or commit to check out. Defaults to the repository's default branch.
-
-        - `beta_managed_agents_branch_checkout: object`
-
-          - `type: "branch"`
-
-          - `name: string`
-
-            Branch name to check out.
-
-            minLength: 1, maxLength: 255
-
-        - `beta_managed_agents_commit_checkout: object`
-
-          - `type: "commit"`
-
-          - `sha: string`
-
-            Full commit SHA to check out.
-
-            minLength: 7, maxLength: 64
-
-      - `mount_path: optional string`
-
-        Mount path in the container. Defaults to `/workspace/<repo-name>`.
-
-    - `beta_managed_agents_file_resource_config: object`
-
-      A file mounted into each session's container.
-
-      - `type: "file"`
-
-      - `file_id: string`
-
-        ID of a previously uploaded file.
-
-      - `mount_path: optional string`
-
-        Mount path in the container. Defaults to `/mnt/session/uploads/<file_id>`.
-
-    - `beta_managed_agents_memory_store_resource_config: object`
-
-      A memory store attached to each session created from this deployment.
-
-      - `type: "memory_store"`
-
-      - `memory_store_id: string`
-
-        The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
-
-      - `access: optional "read_write" or "read_only"`
-
-        Access mode for an attached memory store.
-
-        - `"read_write"`
-
-        - `"read_only"`
-
-      - `instructions: optional string`
-
-        Per-attachment guidance for the agent on how to use this store. Rendered into the memory section of the system prompt. Max 4096 chars.
-
-  - `schedule: object`
-
-    5-field POSIX cron schedule with computed runtime timestamps.
-
-    - `type: "cron"`
-
-    - `expression: string`
-
-      5-field POSIX cron expression: minute hour day-of-month month day-of-week (e.g., "0 9 * * 1-5" for weekdays at 9am). Day-of-week is 0-7 where 0 and 7 both mean Sunday. Extended cron syntax - seconds or year fields, and the special characters L, W, #, and ? - is not supported, nor are predefined shortcuts (@daily).
-
-      minLength: 1, maxLength: 256
-
-    - `timezone: string`
-
-      IANA timezone identifier (e.g., "America/Los_Angeles", "UTC").
-
-      minLength: 1
-
-    - `last_run_at: optional string`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `upcoming_runs_at: optional array of string`
-
-      Up to 5 timestamps of upcoming cron occurrences. Non-empty for active and paused deployments (reflects what the schedule would do if unpaused); empty once the deployment is archived (`archived_at` set). Each fire is offset by a small per-schedule jitter, so a run will actually start at or shortly after its listed time.
-
-  - `status: "active" or "paused"`
-
-    Lifecycle status of a deployment.
-
-    - `"active"`
-
-    - `"paused"`
-
-  - `updated_at: string`
-
-    A timestamp in RFC 3339 format
-
-    format: date-time
-
-  - `vault_ids: array of string`
-
-    Vault IDs supplying stored credentials for sessions created from this deployment.
-
-  - `budget: optional object`
-
-    A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
-
-    - `type: "limit"`
-
-    - `max_list_cost: object`
-
-      A monetary amount in a specific currency.
-
-      - `amount: string`
-
-        Amount in minor units of the currency, as an integer decimal string with no leading zeros: "2500" is $25.00 and "50" is fifty cents. A string rather than a number so no float rounding is ever applied.
-
-      - `currency: "USD"`
-
-        Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
-
-#### Example
-
-```bash
-ant beta:deployments create \
-  --api-key my-anthropic-api-key \
-  --agent string \
-  --environment-id x \
-  --initial-event '{content: [{text: '\''Where is my order #1234?'\'', type: text}], type: user.message}' \
-  --name x
-```
-
-##### Response (200)
-
-```json
-{
-  "id": "depl_011CZkZcDH3vPqd7xnEfwTai",
-  "agent": {
-    "id": "agent_011CZkYpogX7uDKUyvBTophP",
-    "type": "agent",
-    "version": 1
-  },
-  "archived_at": null,
-  "created_at": "2026-03-15T10:00:00Z",
-  "description": "Compiles yesterday's orders into a report every weekday morning.",
-  "environment_id": "env_011CZkZ9X2dpNyB7HsEFoRfW",
-  "initial_events": [
-    {
-      "content": [
-        {
-          "text": "Compile yesterday's orders into report.md.",
-          "type": "text"
-        }
-      ],
-      "type": "user.message"
-    }
-  ],
-  "metadata": {},
-  "name": "Daily order report",
-  "paused_reason": {
-    "type": "manual"
-  },
-  "resources": [
-    {
-      "type": "github_repository",
-      "url": "url",
-      "checkout": {
-        "name": "main",
-        "type": "branch"
-      },
-      "mount_path": "mount_path"
-    }
-  ],
-  "schedule": {
-    "expression": "0 9 * * 1-5",
-    "timezone": "America/Los_Angeles",
-    "type": "cron",
-    "last_run_at": "2026-03-16T16:00:09Z",
-    "upcoming_runs_at": [
-      "2026-03-17T16:00:00Z",
-      "2026-03-18T16:00:00Z"
-    ]
-  },
-  "status": "active",
-  "type": "deployment",
-  "updated_at": "2026-03-15T10:00:00Z",
-  "vault_ids": [
-    "vlt_011CZkZDLs7fYzm1hXNPeRjv"
-  ],
-  "budget": {
-    "max_list_cost": {
-      "amount": "2500",
-      "currency": "USD"
-    },
-    "type": "limit"
-  }
-}
-```
-
-### List Deployments
-
-`$ ant beta:deployments list`
-
-**GET** `/v1/deployments`
-
-List Deployments
-
-#### Parameters
-
-- `--agent-id: optional string`
-
-  Query param: Filter by agent ID.
-
-- `--created-at-gte: optional string`
-
-  Query param: Return deployments created at or after this time (inclusive).
-
-  format: date-time
-
-- `--created-at-lte: optional string`
-
-  Query param: Return deployments created at or before this time (inclusive).
-
-  format: date-time
-
-- `--include-archived: optional boolean`
-
-  Query param: When true, includes archived deployments. Default: false (exclude archived).
-
-- `--limit: optional number`
-
-  Query param: Maximum results per page. Default 20, maximum 100.
-
-  format: int32
-
-- `--page: optional string`
-
-  Query param: Opaque pagination cursor.
-
-- `--status: optional "active" or "paused"`
-
-  Query param: Filter by status: `active` or `paused`. Omit for both. To include archived deployments, use `include_archived` instead; the two cannot be combined.
-
-- `--beta: optional array of AnthropicBeta`
-
-  Header param: Optional header to specify the beta version(s) you want to use.
-
-- `--workspace-id: optional string`
-
-  Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
-
-  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
-
-#### Returns
-
-- `BetaManagedAgentsListDeploymentsData: object`
-
-  Paginated list of deployments.
-
-  - `data: array of BetaManagedAgentsDeployment`
-
-    List of deployments.
-
-    - `type: "deployment"`
-
-    - `id: string`
-
-      Unique identifier for this deployment.
-
-    - `agent: object`
-
-      A resolved agent reference with a concrete version.
-
-      - `type: "agent"`
-
-      - `id: string`
-
-      - `version: number`
-
-        format: int32
-
-    - `archived_at: string`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `created_at: string`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `description: string`
-
-      Description of what the deployment does.
-
-    - `environment_id: string`
-
-      ID of the `environment` where sessions run.
-
-    - `initial_events: array of BetaManagedAgentsDeploymentInitialEvent`
-
-      Events sent to each session immediately after creation.
-
-      - `beta_managed_agents_deployment_user_message_event: object`
-
-        A user message sent to the session.
-
-        - `type: "user.message"`
-
-        - `content: array of BetaManagedAgentsTextBlock or BetaManagedAgentsImageBlock or BetaManagedAgentsDocumentBlock or BetaManagedAgentsRedactedBlock`
-
-          Array of content blocks for the user message.
-
-          - `beta_managed_agents_text_block: object`
-
-            Regular text content.
-
-            - `type: "text"`
-
-            - `text: string`
-
-              The text content.
-
-              minLength: 1
-
-          - `beta_managed_agents_image_block: object`
-
-            Image content specified directly as base64 data or as a reference via a URL.
-
-            - `type: "image"`
-
-            - `source: BetaManagedAgentsBase64ImageSource or BetaManagedAgentsURLImageSource or BetaManagedAgentsFileImageSource`
-
-              Union type for image source variants.
-
-              - `beta_managed_agents_base64_image_source: object`
-
-                Base64-encoded image data.
-
-                - `type: "base64"`
-
-                - `data: string`
-
-                  Base64-encoded image data.
-
-                  minLength: 1
-
-                - `media_type: string`
-
-                  MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
-
-                  minLength: 1
-
-              - `beta_managed_agents_url_image_source: object`
-
-                Image referenced by URL.
-
-                - `type: "url"`
-
-                - `url: string`
-
-                  URL of the image to fetch.
-
-                  minLength: 1
-
-              - `beta_managed_agents_file_image_source: object`
-
-                Image referenced by file ID.
-
-                - `type: "file"`
-
-                - `file_id: string`
-
-                  ID of a previously uploaded file.
-
-                  minLength: 1
-
-          - `beta_managed_agents_document_block: object`
-
-            Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-            - `type: "document"`
-
-            - `source: BetaManagedAgentsBase64DocumentSource or BetaManagedAgentsPlainTextDocumentSource or BetaManagedAgentsURLDocumentSource or BetaManagedAgentsFileDocumentSource`
-
-              Union type for document source variants.
-
-              - `beta_managed_agents_base64_document_source: object`
-
-                Base64-encoded document data.
-
-                - `type: "base64"`
-
-                - `data: string`
-
-                  Base64-encoded document data.
-
-                  minLength: 1
-
-                - `media_type: string`
-
-                  MIME type of the document (e.g., "application/pdf").
-
-                  minLength: 1
-
-              - `beta_managed_agents_plain_text_document_source: object`
-
-                Plain text document content.
-
-                - `type: "text"`
-
-                - `data: string`
-
-                  The plain text content.
-
-                  minLength: 1
-
-                - `media_type: "text/plain"`
-
-                  MIME type of the text content. Must be "text/plain".
-
-              - `beta_managed_agents_url_document_source: object`
-
-                Document referenced by URL.
-
-                - `type: "url"`
-
-                - `url: string`
-
-                  URL of the document to fetch.
-
-                  minLength: 1
-
-              - `beta_managed_agents_file_document_source: object`
-
-                Document referenced by file ID.
-
-                - `type: "file"`
-
-                - `file_id: string`
-
-                  ID of a previously uploaded file.
-
-                  minLength: 1
-
-            - `context: optional string`
-
-              Additional context about the document for the model.
-
-            - `title: optional string`
-
-              The title of the document.
-
-          - `beta_managed_agents_redacted_block: object`
-
-            Placeholder for content withheld by Anthropic model policy.
-
-            - `type: "redacted"`
-
-      - `beta_managed_agents_deployment_user_define_outcome_event: object`
-
-        An outcome the agent should work toward. The agent begins work on receipt.
-
-        - `type: "user.define_outcome"`
-
-        - `description: string`
-
-          What the agent should produce. This is the task specification.
-
-        - `rubric: BetaManagedAgentsFileRubric or BetaManagedAgentsTextRubric`
-
-          Rubric for grading the quality of an outcome.
-
-          - `beta_managed_agents_file_rubric: object`
-
-            Rubric referenced by a file uploaded via the Files API.
-
-            - `type: "file"`
-
-            - `file_id: string`
-
-              ID of the rubric file.
-
-          - `beta_managed_agents_text_rubric: object`
-
-            Rubric content provided inline as text.
-
-            - `type: "text"`
-
-            - `content: string`
-
-              Rubric content. Plain text or markdown — the grader treats it as freeform text.
-
-        - `max_iterations: optional number`
-
-          Eval→revision cycles before giving up. Default 3, max 20.
-
-          format: int32
-
-      - `beta_managed_agents_deployment_system_message_event: object`
-
-        Privileged context for the accompanying turn and all subsequent turns, appended to the session's system context as a `role: "system"` turn rather than replacing the top-level system prompt.
-
-        - `type: "system.message"`
-
-        - `content: array of BetaManagedAgentsSystemContentBlock`
-
-          System content blocks to append. Text-only.
-
-          - `type: "text"`
-
-          - `text: string`
-
-            The text content.
-
-            minLength: 1
-
-    - `metadata: map[string]`
-
-      Arbitrary key-value metadata. Maximum 16 pairs.
-
-    - `name: string`
-
-      Human-readable name.
-
-    - `paused_reason: BetaManagedAgentsManualDeploymentPausedReason or BetaManagedAgentsErrorDeploymentPausedReason`
-
-      Why a deployment is paused. Non-null exactly when `status` is `paused`.
-
-      - `beta_managed_agents_manual_deployment_paused_reason: object`
-
-        The caller invoked the pause endpoint on the deployment.
-
-        - `type: "manual"`
-
-      - `beta_managed_agents_error_deployment_paused_reason: object`
-
-        A scheduled fire recorded a failed run whose error auto-pauses the deployment.
-
-        - `type: "error"`
-
-        - `error: BetaManagedAgentsEnvironmentArchivedDeploymentPausedReasonError or BetaManagedAgentsAgentArchivedDeploymentPausedReasonError or BetaManagedAgentsEnvironmentNotFoundDeploymentPausedReasonError or 11 more`
-
-          The error that triggered an auto-pause. Matches the failed run's `error.type`.
-
-          - `beta_managed_agents_environment_archived_deployment_paused_reason_error: object`
-
-            The deployment's environment was archived.
-
-            - `type: "environment_archived_error"`
-
-          - `beta_managed_agents_agent_archived_deployment_paused_reason_error: object`
-
-            The deployment's agent was archived.
-
-            - `type: "agent_archived_error"`
-
-          - `beta_managed_agents_environment_not_found_deployment_paused_reason_error: object`
-
-            The deployment's environment no longer exists.
-
-            - `type: "environment_not_found_error"`
-
-          - `beta_managed_agents_vault_not_found_deployment_paused_reason_error: object`
-
-            A vault referenced by the deployment no longer exists.
-
-            - `type: "vault_not_found_error"`
-
-          - `beta_managed_agents_file_not_found_deployment_paused_reason_error: object`
-
-            A file resource referenced by the deployment no longer exists.
-
-            - `type: "file_not_found_error"`
-
-          - `beta_managed_agents_session_resource_not_found_deployment_paused_reason_error: object`
-
-            A referenced resource no longer exists and its kind was not reported.
-
-            - `type: "session_resource_not_found_error"`
-
-          - `beta_managed_agents_workspace_archived_deployment_paused_reason_error: object`
-
-            The deployment's workspace was archived.
-
-            - `type: "workspace_archived_error"`
-
-          - `beta_managed_agents_organization_disabled_deployment_paused_reason_error: object`
-
-            The deployment's organization is disabled.
-
-            - `type: "organization_disabled_error"`
-
-          - `beta_managed_agents_memory_store_archived_deployment_paused_reason_error: object`
-
-            A memory store referenced by the deployment is archived.
-
-            - `type: "memory_store_archived_error"`
-
-          - `beta_managed_agents_skill_not_found_deployment_paused_reason_error: object`
-
-            A skill referenced by the deployment's agent no longer exists.
-
-            - `type: "skill_not_found_error"`
-
-          - `beta_managed_agents_vault_archived_deployment_paused_reason_error: object`
-
-            A vault referenced by the deployment is archived.
-
-            - `type: "vault_archived_error"`
-
-          - `beta_managed_agents_unknown_deployment_paused_reason_error: object`
-
-            An unrecognized error auto-paused the deployment. A fallback variant; matches a run whose `error.type` is `unknown_error`.
-
-            - `type: "unknown_error"`
-
-          - `beta_managed_agents_self_hosted_resources_unsupported_deployment_paused_reason_error: object`
-
-            The deployment configures resources, but its environment is self-hosted and cannot mount them.
-
-            - `type: "self_hosted_resources_unsupported_error"`
-
-          - `beta_managed_agents_mcp_egress_blocked_deployment_paused_reason_error: object`
-
-            An MCP server host used by the deployment's agent is blocked by the environment's network policy.
-
-            - `type: "mcp_egress_blocked_error"`
-
-    - `resources: array of BetaManagedAgentsSessionResourceConfig`
-
-      Resources attached to sessions created from this deployment. Echoes the input minus write-only credentials.
-
-      - `beta_managed_agents_github_repository_resource_config: object`
-
-        A GitHub repository mounted into each session's container. The authorization token is write-only and never returned.
-
-        - `type: "github_repository"`
-
-        - `url: string`
-
-          Github URL of the repository
-
-        - `checkout: optional BetaManagedAgentsBranchCheckout or BetaManagedAgentsCommitCheckout`
-
-          Branch or commit to check out. Defaults to the repository's default branch.
-
-          - `beta_managed_agents_branch_checkout: object`
-
-            - `type: "branch"`
-
-            - `name: string`
-
-              Branch name to check out.
-
-              minLength: 1, maxLength: 255
-
-          - `beta_managed_agents_commit_checkout: object`
-
-            - `type: "commit"`
-
-            - `sha: string`
-
-              Full commit SHA to check out.
-
-              minLength: 7, maxLength: 64
-
-        - `mount_path: optional string`
-
-          Mount path in the container. Defaults to `/workspace/<repo-name>`.
-
-      - `beta_managed_agents_file_resource_config: object`
-
-        A file mounted into each session's container.
-
-        - `type: "file"`
-
-        - `file_id: string`
-
-          ID of a previously uploaded file.
-
-        - `mount_path: optional string`
-
-          Mount path in the container. Defaults to `/mnt/session/uploads/<file_id>`.
-
-      - `beta_managed_agents_memory_store_resource_config: object`
-
-        A memory store attached to each session created from this deployment.
-
-        - `type: "memory_store"`
-
-        - `memory_store_id: string`
-
-          The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
-
-        - `access: optional "read_write" or "read_only"`
-
-          Access mode for an attached memory store.
-
-          - `"read_write"`
-
-          - `"read_only"`
-
-        - `instructions: optional string`
-
-          Per-attachment guidance for the agent on how to use this store. Rendered into the memory section of the system prompt. Max 4096 chars.
-
-    - `schedule: object`
-
-      5-field POSIX cron schedule with computed runtime timestamps.
-
-      - `type: "cron"`
-
-      - `expression: string`
-
-        5-field POSIX cron expression: minute hour day-of-month month day-of-week (e.g., "0 9 * * 1-5" for weekdays at 9am). Day-of-week is 0-7 where 0 and 7 both mean Sunday. Extended cron syntax - seconds or year fields, and the special characters L, W, #, and ? - is not supported, nor are predefined shortcuts (@daily).
-
-        minLength: 1, maxLength: 256
-
-      - `timezone: string`
-
-        IANA timezone identifier (e.g., "America/Los_Angeles", "UTC").
-
-        minLength: 1
-
-      - `last_run_at: optional string`
-
-        A timestamp in RFC 3339 format
-
-        format: date-time
-
-      - `upcoming_runs_at: optional array of string`
-
-        Up to 5 timestamps of upcoming cron occurrences. Non-empty for active and paused deployments (reflects what the schedule would do if unpaused); empty once the deployment is archived (`archived_at` set). Each fire is offset by a small per-schedule jitter, so a run will actually start at or shortly after its listed time.
-
-    - `status: "active" or "paused"`
-
-      Lifecycle status of a deployment.
-
-      - `"active"`
-
-      - `"paused"`
-
-    - `updated_at: string`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `vault_ids: array of string`
-
-      Vault IDs supplying stored credentials for sessions created from this deployment.
-
-    - `budget: optional object`
-
-      A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
-
-      - `type: "limit"`
-
-      - `max_list_cost: object`
-
-        A monetary amount in a specific currency.
-
-        - `amount: string`
-
-          Amount in minor units of the currency, as an integer decimal string with no leading zeros: "2500" is $25.00 and "50" is fifty cents. A string rather than a number so no float rounding is ever applied.
-
-        - `currency: "USD"`
-
-          Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
-
-  - `next_page: optional string`
-
-    Opaque cursor for the next page. Null when no more results.
-
-#### Example
-
-```bash
-ant beta:deployments list \
-  --api-key my-anthropic-api-key
-```
-
-##### Response (200)
-
-```json
-{
-  "data": [
-    {
-      "id": "depl_011CZkZcDH3vPqd7xnEfwTai",
-      "agent": {
-        "id": "agent_011CZkYpogX7uDKUyvBTophP",
-        "type": "agent",
-        "version": 1
-      },
-      "archived_at": null,
-      "created_at": "2026-03-15T10:00:00Z",
-      "description": "Compiles yesterday's orders into a report every weekday morning.",
-      "environment_id": "env_011CZkZ9X2dpNyB7HsEFoRfW",
-      "initial_events": [
-        {
-          "content": [
-            {
-              "text": "Compile yesterday's orders into report.md.",
-              "type": "text"
-            }
-          ],
-          "type": "user.message"
-        }
-      ],
-      "metadata": {},
-      "name": "Daily order report",
-      "paused_reason": {
-        "type": "manual"
-      },
-      "resources": [
-        {
-          "type": "github_repository",
-          "url": "url",
-          "checkout": {
-            "name": "main",
-            "type": "branch"
-          },
-          "mount_path": "mount_path"
-        }
-      ],
-      "schedule": {
-        "expression": "0 9 * * 1-5",
-        "timezone": "America/Los_Angeles",
-        "type": "cron",
-        "last_run_at": "2026-03-16T16:00:09Z",
-        "upcoming_runs_at": [
-          "2026-03-17T16:00:00Z",
-          "2026-03-18T16:00:00Z"
-        ]
-      },
-      "status": "active",
-      "type": "deployment",
-      "updated_at": "2026-03-15T10:00:00Z",
-      "vault_ids": [
-        "vlt_011CZkZDLs7fYzm1hXNPeRjv"
-      ],
-      "budget": {
-        "max_list_cost": {
-          "amount": "2500",
-          "currency": "USD"
-        },
-        "type": "limit"
-      }
-    }
-  ],
-  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
-}
-```
-
-### Get Deployment
-
-`$ ant beta:deployments retrieve`
-
-**GET** `/v1/deployments/{deployment_id}`
-
-Get Deployment
-
-#### Parameters
-
-- `--deployment-id: string`
-
-  Path parameter deployment_id
-
-- `--beta: optional array of AnthropicBeta`
-
-  Optional header to specify the beta version(s) you want to use.
-
-- `--workspace-id: optional string`
-
-  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
-
-  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
-
-#### Returns
-
-- `beta_managed_agents_deployment: object`
-
-  A deployment is a configured instance of an agent — it binds the agent to everything needed to run it autonomously: an environment, credentials, initial events, and an optional schedule.
-
-  - `type: "deployment"`
-
-  - `id: string`
-
-    Unique identifier for this deployment.
-
-  - `agent: object`
-
-    A resolved agent reference with a concrete version.
-
-    - `type: "agent"`
-
-    - `id: string`
-
-    - `version: number`
-
-      format: int32
-
-  - `archived_at: string`
-
-    A timestamp in RFC 3339 format
-
-    format: date-time
-
-  - `created_at: string`
-
-    A timestamp in RFC 3339 format
-
-    format: date-time
-
-  - `description: string`
-
-    Description of what the deployment does.
-
-  - `environment_id: string`
-
-    ID of the `environment` where sessions run.
-
-  - `initial_events: array of BetaManagedAgentsDeploymentInitialEvent`
-
-    Events sent to each session immediately after creation.
-
-    - `beta_managed_agents_deployment_user_message_event: object`
-
-      A user message sent to the session.
-
-      - `type: "user.message"`
-
-      - `content: array of BetaManagedAgentsTextBlock or BetaManagedAgentsImageBlock or BetaManagedAgentsDocumentBlock or BetaManagedAgentsRedactedBlock`
-
-        Array of content blocks for the user message.
-
-        - `beta_managed_agents_text_block: object`
-
-          Regular text content.
-
-          - `type: "text"`
-
-          - `text: string`
-
-            The text content.
-
-            minLength: 1
-
-        - `beta_managed_agents_image_block: object`
-
-          Image content specified directly as base64 data or as a reference via a URL.
-
-          - `type: "image"`
-
-          - `source: BetaManagedAgentsBase64ImageSource or BetaManagedAgentsURLImageSource or BetaManagedAgentsFileImageSource`
-
-            Union type for image source variants.
-
-            - `beta_managed_agents_base64_image_source: object`
-
-              Base64-encoded image data.
-
-              - `type: "base64"`
-
-              - `data: string`
-
-                Base64-encoded image data.
-
-                minLength: 1
-
-              - `media_type: string`
-
-                MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
-
-                minLength: 1
-
-            - `beta_managed_agents_url_image_source: object`
-
-              Image referenced by URL.
-
-              - `type: "url"`
-
-              - `url: string`
-
-                URL of the image to fetch.
-
-                minLength: 1
-
-            - `beta_managed_agents_file_image_source: object`
-
-              Image referenced by file ID.
-
-              - `type: "file"`
-
-              - `file_id: string`
-
-                ID of a previously uploaded file.
-
-                minLength: 1
-
-        - `beta_managed_agents_document_block: object`
-
-          Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-          - `type: "document"`
-
-          - `source: BetaManagedAgentsBase64DocumentSource or BetaManagedAgentsPlainTextDocumentSource or BetaManagedAgentsURLDocumentSource or BetaManagedAgentsFileDocumentSource`
-
-            Union type for document source variants.
-
-            - `beta_managed_agents_base64_document_source: object`
-
-              Base64-encoded document data.
-
-              - `type: "base64"`
-
-              - `data: string`
-
-                Base64-encoded document data.
-
-                minLength: 1
-
-              - `media_type: string`
-
-                MIME type of the document (e.g., "application/pdf").
-
-                minLength: 1
-
-            - `beta_managed_agents_plain_text_document_source: object`
-
-              Plain text document content.
-
-              - `type: "text"`
-
-              - `data: string`
-
-                The plain text content.
-
-                minLength: 1
-
-              - `media_type: "text/plain"`
-
-                MIME type of the text content. Must be "text/plain".
-
-            - `beta_managed_agents_url_document_source: object`
-
-              Document referenced by URL.
-
-              - `type: "url"`
-
-              - `url: string`
-
-                URL of the document to fetch.
-
-                minLength: 1
-
-            - `beta_managed_agents_file_document_source: object`
-
-              Document referenced by file ID.
-
-              - `type: "file"`
-
-              - `file_id: string`
-
-                ID of a previously uploaded file.
-
-                minLength: 1
-
-          - `context: optional string`
-
-            Additional context about the document for the model.
-
-          - `title: optional string`
-
-            The title of the document.
-
-        - `beta_managed_agents_redacted_block: object`
-
-          Placeholder for content withheld by Anthropic model policy.
-
-          - `type: "redacted"`
-
-    - `beta_managed_agents_deployment_user_define_outcome_event: object`
-
-      An outcome the agent should work toward. The agent begins work on receipt.
-
-      - `type: "user.define_outcome"`
-
-      - `description: string`
-
-        What the agent should produce. This is the task specification.
-
-      - `rubric: BetaManagedAgentsFileRubric or BetaManagedAgentsTextRubric`
-
-        Rubric for grading the quality of an outcome.
-
-        - `beta_managed_agents_file_rubric: object`
-
-          Rubric referenced by a file uploaded via the Files API.
-
-          - `type: "file"`
-
-          - `file_id: string`
-
-            ID of the rubric file.
-
-        - `beta_managed_agents_text_rubric: object`
-
-          Rubric content provided inline as text.
-
-          - `type: "text"`
-
-          - `content: string`
-
-            Rubric content. Plain text or markdown — the grader treats it as freeform text.
-
-      - `max_iterations: optional number`
-
-        Eval→revision cycles before giving up. Default 3, max 20.
-
-        format: int32
-
-    - `beta_managed_agents_deployment_system_message_event: object`
-
-      Privileged context for the accompanying turn and all subsequent turns, appended to the session's system context as a `role: "system"` turn rather than replacing the top-level system prompt.
-
-      - `type: "system.message"`
-
-      - `content: array of BetaManagedAgentsSystemContentBlock`
-
-        System content blocks to append. Text-only.
-
-        - `type: "text"`
-
-        - `text: string`
-
-          The text content.
-
-          minLength: 1
-
-  - `metadata: map[string]`
-
-    Arbitrary key-value metadata. Maximum 16 pairs.
-
-  - `name: string`
-
-    Human-readable name.
-
-  - `paused_reason: BetaManagedAgentsManualDeploymentPausedReason or BetaManagedAgentsErrorDeploymentPausedReason`
-
-    Why a deployment is paused. Non-null exactly when `status` is `paused`.
-
-    - `beta_managed_agents_manual_deployment_paused_reason: object`
-
-      The caller invoked the pause endpoint on the deployment.
-
-      - `type: "manual"`
-
-    - `beta_managed_agents_error_deployment_paused_reason: object`
-
-      A scheduled fire recorded a failed run whose error auto-pauses the deployment.
-
-      - `type: "error"`
-
-      - `error: BetaManagedAgentsEnvironmentArchivedDeploymentPausedReasonError or BetaManagedAgentsAgentArchivedDeploymentPausedReasonError or BetaManagedAgentsEnvironmentNotFoundDeploymentPausedReasonError or 11 more`
-
-        The error that triggered an auto-pause. Matches the failed run's `error.type`.
-
-        - `beta_managed_agents_environment_archived_deployment_paused_reason_error: object`
-
-          The deployment's environment was archived.
-
-          - `type: "environment_archived_error"`
-
-        - `beta_managed_agents_agent_archived_deployment_paused_reason_error: object`
-
-          The deployment's agent was archived.
-
-          - `type: "agent_archived_error"`
-
-        - `beta_managed_agents_environment_not_found_deployment_paused_reason_error: object`
-
-          The deployment's environment no longer exists.
-
-          - `type: "environment_not_found_error"`
-
-        - `beta_managed_agents_vault_not_found_deployment_paused_reason_error: object`
-
-          A vault referenced by the deployment no longer exists.
-
-          - `type: "vault_not_found_error"`
-
-        - `beta_managed_agents_file_not_found_deployment_paused_reason_error: object`
-
-          A file resource referenced by the deployment no longer exists.
-
-          - `type: "file_not_found_error"`
-
-        - `beta_managed_agents_session_resource_not_found_deployment_paused_reason_error: object`
-
-          A referenced resource no longer exists and its kind was not reported.
-
-          - `type: "session_resource_not_found_error"`
-
-        - `beta_managed_agents_workspace_archived_deployment_paused_reason_error: object`
-
-          The deployment's workspace was archived.
-
-          - `type: "workspace_archived_error"`
-
-        - `beta_managed_agents_organization_disabled_deployment_paused_reason_error: object`
-
-          The deployment's organization is disabled.
-
-          - `type: "organization_disabled_error"`

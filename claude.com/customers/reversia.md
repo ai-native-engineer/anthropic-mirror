@@ -4,31 +4,21 @@ Case study | Claude Platform
 
 # Reversia translates e-commerce stores across 110+ languages with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f38ec148ec462acd3e08ce_logo_reversia-light-mode.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f38ec5ffecd8c5421c564b_logo_reversia-dark-mode.svg)
+![Reversia logo](https://assets.claude.com/86b324fdb04166c3b115b1cf48071e52e83d08cf.svg)
 
 Industry:
-
-Ecommerce
+:   Ecommerce
 
 Company size:
-
-Startup
+:   Startup
 
 Product:
-
-Claude Platform
+:   Claude Platform
 
 Location:
-
-EMEA
+:   EMEA
 
 99% translation accuracy
 
@@ -50,28 +40,6 @@ to launch a new language on a merchant's store
 
 ## The challenge
 
-Choosing the right Claude model
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69c2dd485d80024bc14f48c6_choosing%20model.jpeg)
-
-Learn when to use Haiku, Sonnet, or Opus to get better results and stay inside your rate limit. A practical guide to picking the right Claude model.
-
-Choosing the right Claude model
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Learn when to use Haiku, Sonnet, or Opus to get better results and stay inside your rate limit. A practical guide to picking the right Claude model.
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Choosing the right Claude model
-
-Learn when to use Haiku, Sonnet, or Opus to get better results and stay inside your rate limit. A practical guide to picking the right Claude model.
-
 ## Machine translation wasn't built for brand copy
 
 For brands running [Shopify stores in multiple countries](https://apps.shopify.com/reversia), localization has been a persistent bottleneck. When Reversia's co-founder Anatole Rozan looked at what was available, the options weren't close to what merchants needed.
@@ -80,33 +48,17 @@ For brands running [Shopify stores in multiple countries](https://apps.shopify.c
 
 Reversia's first version used a conventional machine translation engine, and the same problems applied: the output was overly literal, and the engine produced significant errors when processing HTML content. Launching a new language still took two to three weeks of manual work, coordinating translations, verifying internal links, and checking that nothing was missed.
 
+Choosing the right Claude model
+
+![Choosing the right Claude model](https://assets.claude.com/7388619b452db0af26c78442a275c86c5ebe3124.jpg)
+
+Learn when to use Haiku, Sonnet, or Opus to get better results and stay inside your rate limit. A practical guide to picking the right Claude model.
+
 ## The solution
-
-Introducing Claude Sonnet 4.6
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69c2db2e5920d7dd879d93bf_Sonnet.png)
-
-Hybrid reasoning model with superior intelligence for agents, featuring a 1M context window
-
-Introducing Claude Sonnet 4.6
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Hybrid reasoning model with superior intelligence for agents, featuring a 1M context window
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Introducing Claude Sonnet 4.6
-
-Hybrid reasoning model with superior intelligence for agents, featuring a 1M context window
 
 ## Selecting Claude for contextual understanding
 
-When the team decided to rebuild the translation layer on an LLM, they ran a structured benchmark across multiple providers. They tested each model side-by-side on real merchant content across multiple language pairs. The criteria included translation quality, contextual understanding, tone consistency, and the ability to handle glossary rules and HTML structure.  Claude scored highest on all four quality metrics.
+When the team decided to rebuild the translation layer on an LLM, they ran a structured benchmark across multiple providers. They tested each model side-by-side on real merchant content across multiple language pairs. The criteria included translation quality, contextual understanding, tone consistency, and the ability to handle glossary rules and HTML structure. Claude scored highest on all four quality metrics.
 
 "It's overall more expensive than some alternatives, but we haven't found anything better to this day," Rozan said. "For a product where translation quality is the entire value proposition, that's what matters."
 
@@ -122,21 +74,15 @@ Reversia monitors each merchant's store in real time. When content is created or
 
 "The goal is that after six months on Reversia, the AI translates as if it were an internal team member who knows your brand inside out," Rozan said. "Claude's ability to reason about context, not just words, is what makes that possible."
 
-"Claude's ability to reason about context, not just words, is what makes it possible."
+Introducing Claude Sonnet 4.6
 
-Anatole Rozan
+![Introducing Claude Sonnet 4.6 ](https://assets.claude.com/ed4441933d84103efbafec32505ce83cf3b1dcc6.png)
 
-Co-founder, Reversia
+Hybrid reasoning model with superior intelligence for agents, featuring a 1M context window
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+> "Claude's ability to reason about context, not just words, is what makes it possible."
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+Anatole RozanCo-founder, Reversia
 
 ## The outcome
 
@@ -152,42 +98,16 @@ Reversia's roadmap deepens its use of Claude on two fronts. Automatic quality sc
 
 "Our customers tell us the translations feel like they were written by a native speaker who actually knows their brand," Rozan said. "That's what we were after. Claude makes that possible at scale."
 
-"The AI translates as if it were an internal team member who knows your brand inside out."
+> "The AI translates as if it were an internal team member who knows your brand inside out."
 
-Anatole Rozan
+Anatole RozanCo-founder, Reversia
 
-Co-founder, Reversia
+[![Rakuten](https://assets.claude.com/5463fa5a44d12868ceec5ae30bfc8c412cafdeae.svg)
 
-## Related stories
+### Inside Rakuten's plan to turn every employee into a builder with Claude Managed Agents](https://claude.com/customers/rakuten-qa)[![Rakuten](https://assets.claude.com/5463fa5a44d12868ceec5ae30bfc8c412cafdeae.svg)
 
-[Inside Rakuten's plan to turn every employee into a builder with Claude Managed Agents](https://claude.com/customers/rakuten-qa)Inside Rakuten's plan to turn every employee into a builder with Claude Managed Agents
+### Rakuten accelerates development with Claude Code](https://claude.com/customers/rakuten)[![Shopify](https://assets.claude.com/33de1bc0b1b2c92e879e513e3c14ec213c311ff1.svg)
 
-Inside Rakuten's plan to turn every employee into a builder with Claude Managed Agents
+### How Shopify uses Anthropic’s Claude on Google Cloud to supercharge Sidekick](https://claude.com/customers/shopify)[![L'Oreal](https://assets.claude.com/4e6032e43573d2aac0260633c76ee859d566326a.svg)
 
-Customer story
-
-[Customer story](https://claude.com/customers/rakuten-qa)Customer story
-
-[Rakuten accelerates development with Claude Code](https://claude.com/customers/rakuten)Rakuten accelerates development with Claude Code
-
-Rakuten accelerates development with Claude Code
-
-Customer story
-
-[Customer story](https://claude.com/customers/rakuten)Customer story
-
-[How Shopify uses Anthropic’s Claude on Google Cloud to supercharge Sidekick](https://claude.com/customers/shopify)How Shopify uses Anthropic’s Claude on Google Cloud to supercharge Sidekick
-
-How Shopify uses Anthropic’s Claude on Google Cloud to supercharge Sidekick
-
-Customer story
-
-[Customer story](https://claude.com/customers/shopify)Customer story
-
-[L'Oréal advances conversational analytics with Claude](https://claude.com/customers/loreal)L'Oréal advances conversational analytics with Claude
-
-L'Oréal advances conversational analytics with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/loreal)Customer story
+### L'Oréal advances conversational analytics with Claude](https://claude.com/customers/loreal)

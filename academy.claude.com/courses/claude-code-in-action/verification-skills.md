@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/claude-code-in-action/verification-skills -->
 
-Lesson 3 of 9 · Claude Code in ActionVerification skills
+Lesson 3 of 9 · Claude Code in actionVerification skills
 
-3. /[Claude Code in Action](https://academy.claude.com/courses/claude-code-in-action)
+3. /[Claude Code in action](https://academy.claude.com/courses/claude-code-in-action)
 
-[Claude Code in Action](https://academy.claude.com/courses/claude-code-in-action)
+[Claude Code in action](https://academy.claude.com/courses/claude-code-in-action)
 
 # Verification skills
 
@@ -37,12 +37,12 @@ This same shape carries any procedure your team repeats. A release checklist. A 
 
 ## A skill folder can hold more than instructions[](#a-skill-folder-can-hold-more-than-instructions)
 
-A skill isn't just a single `skill.md` file. The folder around it can carry other things, and this is what makes skills powerful for verification.
+A skill isn't just a single `SKILL.md` file. The folder around it can carry other things, and this is what makes skills useful for verification.
 
-* Drop a `reference.md` next to the skill for detailed material, then link to it from `skill.md`. Claude only reads it when it actually needs that depth. Your main file stays short.
+* Drop a `reference.md` next to `SKILL.md` for detailed material, then link to it from `SKILL.md`. Claude reads it only when it needs that depth. Your main file stays short.
 * Put scripts in the folder too. Claude executes them rather than loading their contents into context. That means a skill can carry its own tooling, like a `check.sh` that runs all the gates.
 
-The takeaway: keep `skill.md` itself lean. Push the heavy material, the long explanations and the executable scripts, into side files. The lean file describes what to do; the side files hold the depth and the tools.
+The takeaway: keep `SKILL.md` itself lean. Push the heavy material (the long explanations and the executable scripts) into side files. The lean file describes what to do. The side files hold the depth and the tools.
 
 ## Which instruction surface owns which rule[](#which-instruction-surface-owns-which-rule)
 
@@ -54,13 +54,13 @@ There's a third case. A rule that Claude must not be able to skip belongs in a h
 
 ## The recap[](#the-recap)
 
-A skill is a folder with a `skill.md` inside it: a name, a description that triggers it, and the procedure itself. Only the descriptions load into context until a skill is actually needed, so there's no cost to packaging every procedure you repeat.
+A skill is a folder with a `SKILL.md` inside it: a name, a description that triggers it, and the procedure itself. Only the descriptions load into context until a skill is needed, so there's little cost to packaging every procedure you repeat.
 
 Start with verification. Build the skill, check it into your project's `.claude/skills`, and now the whole team inherits the same move. Everyone's work gets checked the same way, automatically, without anyone having to remember to ask.
 
 [Previous lessonA CLAUDE.md that follows](https://academy.claude.com/courses/claude-code-in-action/a-claude-md-that-follows)[Next lessonPermission modes](https://academy.claude.com/courses/claude-code-in-action/permission-modes)
 
-Lesson 3 of 9 · Claude Code in ActionVerification skills
+Lesson 3 of 9 · Claude Code in actionVerification skills
 
 Steer the work
 

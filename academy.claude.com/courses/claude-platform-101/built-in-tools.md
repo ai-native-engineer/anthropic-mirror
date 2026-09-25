@@ -94,7 +94,7 @@ Worth knowing the other category exists. **Client tools** run where your code ru
 
 ![The Anthropic docs table of built-in tools, with memory and bash listed as client tools alongside server tools like web fetch and code execution](https://academy.claude.com/assets/media/e1774053aa114f686c3fd446febc366ccd93ba98b80c25625a8164ac18ddd5fd.png)
 
-They have the same shape as a custom tool, but the SDK gives you the schema and a sensible runner.
+They have the same shape as a custom tool, but the schema is built into Claude. Your code still runs them: for memory, four of the SDKs ship a helper that handles Claude's memory calls against storage you provide, and for bash, your application runs the shell itself.
 
 ## Why this matters in production[](#why-this-matters-in-production)
 
@@ -108,7 +108,7 @@ One reminder, though: just because something is validated on the internet doesn'
 
 * **Server tools** — web search, code execution, web fetch — are declared in your `tools` array. Anthropic runs them.
 * You get the result in the same response, with **no agent loop required**. Look for `server_tool_use` and tool result blocks alongside the regular text blocks.
-* **Client tools** like memory and bash run where your code runs, but the SDK ships the schema and a runner for you.
+* **Client tools** like memory and bash run where your code runs. The schema is built into Claude, four of the SDKs ship a helper for memory, and for bash, your code runs the shell.
 * The "hosted by Anthropic" idea scales all the way up: **managed agents** apply it to the entire agent, not just one tool.
 
 [Previous lessonWhat is thinking?](https://academy.claude.com/courses/claude-platform-101/what-is-thinking)[Next lessonSkills](https://academy.claude.com/courses/claude-platform-101/skills)

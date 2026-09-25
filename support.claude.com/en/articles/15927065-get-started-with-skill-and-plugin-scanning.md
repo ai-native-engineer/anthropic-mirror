@@ -24,9 +24,9 @@ Scanning doesn't apply to:
 
 ## Turn on skill and plugin scanning
 
-Skill and plugin scanning is off by default. Owners and Primary Owners can turn it on for their organization in their settings:
+Skill and plugin scanning is off by default until October 2, 2026, when it turns on for Enterprise organizations that haven't set it. Owners and Primary Owners can turn it on for their organization in their settings:
 
-1. Go to **[Organization settings > Skills](https://claude.ai/admin-settings/skills)**.
+1. Go to **[Organization settings > Plugins & skills](https://claude.ai/admin-settings/skills)** and select the “Policy” tab.
 2. Turn on **Skill and plugin security scanning**.
 
 Once it's on, every new skill and plugin upload or edit in your organization is scanned automatically, at no extra cost.
@@ -36,6 +36,8 @@ Once it's on, every new skill and plugin upload or edit in your organization is 
 Turning on skill and plugin scanning in organization settings applies it across your whole organization. If you use custom roles, you can further define who scanning applies to. When you create or edit a custom role, turn on the **Skill and plugin security scanning** capability for roles that should have access to skill scanning. Learn more about **[managing custom roles](https://support.claude.com/en/articles/13930452-manage-custom-roles-on-enterprise-plans)**.
 
 ## What you'll see after an upload
+
+Admins can also see each item's scan result in the “Inventory” and “Requests” tabs in **[Organization settings > Plugins & skills](https://claude.ai/admin-settings/skills)**.
 
 ### Pass
 
@@ -70,5 +72,5 @@ Because of that, choose what you add carefully, and install skills and plugins o
 * [What are skills?](https://support.claude.com/en/articles/12512176-what-are-skills)
 * [Use skills in Claude](https://support.claude.com/en/articles/12512180-use-skills-in-claude)
 * [Provision and manage skills for your organization](https://support.claude.com/en/articles/13119606-provision-and-manage-skills-for-your-organization)
+* [Manage plugins for your organization](https://support.claude.com/en/articles/13837433-manage-plugins-for-your-organization)
 * [Use plugins in Claude](https://support.claude.com/en/articles/13837440-use-plugins-in-claude)
-* [Browse skills, connectors, and plugins in one directory](https://support.claude.com/en/articles/14328846-browse-skills-connectors-and-plugins-in-one-directory)

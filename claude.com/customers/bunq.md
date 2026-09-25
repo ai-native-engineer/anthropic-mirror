@@ -4,31 +4,21 @@ Case study | Claude Code
 
 # bunq builds intelligent banking assistant Finn with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/691e391f8e021cc779d52491_Bunq%20Light.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/691e35b63982aa683eadb2ab_Bunq%20Dark.svg)
+![bunq logo](https://assets.claude.com/0a1b238aa20aae8c2e83f6e5d8ef191bff5fac28.svg)
 
 Industry:
-
-Financial services
+:   Financial services
 
 Company size:
-
-Medium
+:   Medium
 
 Product:
-
-Claude Code
+:   Claude Code
 
 Location:
-
-Europe
+:   Europe
 
 ~80% automated support resolution
 
@@ -37,42 +27,6 @@ Claude's advanced reasoning improved automated resolution, enabling Finn to hand
 5-minute account opening
 
 Fully verified bank accounts created through AI-powered automation
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
 
 [bunq](https://www.bunq.com) is Europe's second-largest neobank, built to serve people and businesses with an international lifestyle. Founded in 2012 by Ali Niknam, bunq empowers 20 million users across Europe to spend, save, budget, and invest through a single user-friendly app.
 
@@ -98,7 +52,7 @@ bunq needed more than a chatbot. They needed an intelligent system that could re
 
 The transformation began with Finn's launch in 2023 as a conversational assistant to help users search their finances and navigate the app. But bunq's vision went far beyond basic assistance. They built a multi-agent system that could securely act on behalf of users if they asked it to —investigating issues, processing documents, and executing complex banking operations.
 
-In 2024, bunq became the first bank to launch real-time speech-to-speech AI translation, a breakthrough that exemplified their approach to making banking accessible. Users could now speak to support agents in their native language, with Finn translating in real-time. Combined with app translation into 38  languages, this broke down barriers that had long excluded millions from modern banking services.
+In 2024, bunq became the first bank to launch real-time speech-to-speech AI translation, a breakthrough that exemplified their approach to making banking accessible. Users could now speak to support agents in their native language, with Finn translating in real-time. Combined with app translation into 38 languages, this broke down barriers that had long excluded millions from modern banking services.
 
 The implementation was remarkably swift. Thanks to bunq's in-house LLM router—which manages different models, providers, and configurations—adding Claude took just days. "Our internal benchmarks and LLM router made it easy to test and integrate quickly," the team notes. "The Anthropic team was always on hand to support us, from optimizing prompts to scaling up capacity."
 
@@ -114,52 +68,14 @@ Looking ahead, bunq sees enormous potential to expand Finn's capabilities. The t
 
 "We're just scratching the surface of what AI can do for banking," the team explains. "Anthropic's focus on trust, safety, and reasoning aligns perfectly with bunq's mission to make life easy without ever compromising security."
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[![Qonto](https://assets.claude.com/cf9df71e319709f3b2abd4508f40680fa0bcce1e.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### How Qonto delegates financial admin for small businesses with Claude on Amazon Bedrock](https://claude.com/customers/qonto)[![Pictet](https://assets.claude.com/93f19b6d2b95f2f82e5c7e33938b43dbd537c62f.svg)
 
-[Next](#)Next
+### Pictet turns weeks of work into hours with Claude Code](https://claude.com/customers/pictet)[![Satispay](https://assets.claude.com/f87dce8ac96f2e8181e2ed5b000ef17e2278b034.png)
 
-Video caption
+### How Satispay's engineers write 75% of their code with Claude](https://claude.com/customers/satispay)[![OffDeal](https://assets.claude.com/0144c459af1814dfb5bd273db786703ffcf1cce6.svg)
 
-[Next](#)Next
+### OffDeal powers every stage of M&A advisory with one Claude-based agent](https://claude.com/customers/offdeal)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[How Qonto delegates financial admin for small businesses with Claude on Amazon Bedrock](https://claude.com/customers/qonto) How Qonto delegates financial admin for small businesses with Claude on Amazon Bedrock
-
-How Qonto delegates financial admin for small businesses with Claude on Amazon Bedrock
-
-Customer story
-
-[Customer story](https://claude.com/customers/qonto)Customer story
-
-[Pictet turns weeks of work into hours with Claude Code](https://claude.com/customers/pictet)Pictet turns weeks of work into hours with Claude Code
-
-Pictet turns weeks of work into hours with Claude Code
-
-Customer story
-
-[Customer story](https://claude.com/customers/pictet)Customer story
-
-[How Satispay's engineers write 75% of their code with Claude](https://claude.com/customers/satispay)How Satispay's engineers write 75% of their code with Claude
-
-How Satispay's engineers write 75% of their code with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/satispay)Customer story
-
-[OffDeal powers every stage of M&A advisory with one Claude-based agent](https://claude.com/customers/offdeal)OffDeal powers every stage of M&A advisory with one Claude-based agent
-
-OffDeal powers every stage of M&A advisory with one Claude-based agent
-
-Customer story
-
-[Customer story](https://claude.com/customers/offdeal)Customer story
+bunq Claude Code case study | Claude by Anthropic

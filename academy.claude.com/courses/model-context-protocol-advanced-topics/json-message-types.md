@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/model-context-protocol-advanced-topics/json-message-types -->
 
-Lesson 7 of 11 · Model Context Protocol: Advanced TopicsJSON message types
+Lesson 7 of 11 · Model Context Protocol: Advanced topicsJSON message types
 
-3. /[Model Context Protocol: Advanced Topics](https://academy.claude.com/courses/model-context-protocol-advanced-topics)
+3. /[Model Context Protocol: Advanced topics](https://academy.claude.com/courses/model-context-protocol-advanced-topics)
 
-[Model Context Protocol: Advanced Topics](https://academy.claude.com/courses/model-context-protocol-advanced-topics)
+[Model Context Protocol: Advanced topics](https://academy.claude.com/courses/model-context-protocol-advanced-topics)
 
 # JSON message types
 
@@ -68,7 +68,7 @@ The key insight is that MCP is designed as a bidirectional protocol - both clien
 
 [Previous lessonRoots walkthrough](https://academy.claude.com/courses/model-context-protocol-advanced-topics/roots-walkthrough)[Next lessonThe STDIO transport](https://academy.claude.com/courses/model-context-protocol-advanced-topics/the-stdio-transport)
 
-Lesson 7 of 11 · Model Context Protocol: Advanced TopicsJSON message types
+Lesson 7 of 11 · Model Context Protocol: Advanced topicsJSON message types
 
 Core MCP features
 

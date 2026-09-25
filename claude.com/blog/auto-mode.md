@@ -1,5 +1,7 @@
 <!-- source: https://claude.com/blog/auto-mode -->
 
+Explore here
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d225c16d1b0cc3b1ded5_6457c34fbcb012acf0f27f15a6006f700d0f50de-1000x1000.svg)
 
 # Auto mode for Claude Code
@@ -99,53 +101,53 @@ No items found.
 
 Explore more product news and best practices for teams building with Claude.
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d228c83775fcc75f4e6d_74409af25137110ac04cc39e4d5ea0a2fbcea421-1000x1000.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2279047e82efc257633_6c7219042e95bfef1a126ad5ee8b2c7def8b8b0a-1000x1000.svg)
 
-Sep 2, 2026
+Sep 22, 2026
 
-### Building commerce agents with Claude
-
-Product announcements
-
-[Building commerce agents with Claude](#)Building commerce agents with Claude
-
-[Building commerce agents with Claude](https://claude.com/blog/claude-for-commerce-agents)Building commerce agents with Claude
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a90479f5433ec75978f1e8a_Object-Apple.svg)
-
-Aug 28, 2026
-
-### Claude for Teachers, now available for U.S. K-12 schools and districts
-
-Product announcements
-
-[Claude for Teachers, now available for U.S. K-12 schools and districts](#)Claude for Teachers, now available for U.S. K-12 schools and districts
-
-[Claude for Teachers, now available for U.S. K-12 schools and districts](https://claude.com/blog/claude-for-teachers-now-available-for-schools-and-districts)Claude for Teachers, now available for U.S. K-12 schools and districts
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d222061abf091318fb82_423062049d4676b41d52b16068cbb5e21603190e-1000x1000.svg)
-
-Aug 20, 2026
-
-### The Claude Code guide for startups
+### What a task costs on Opus 5.5
 
 Claude Code
 
-[The Claude Code guide for startups](#)The Claude Code guide for startups
+[What a task costs on Opus 5.5](#)What a task costs on Opus 5.5
 
-[The Claude Code guide for startups](https://claude.com/blog/claude-code-guide-for-startups)The Claude Code guide for startups
+[What a task costs on Opus 5.5](https://claude.com/blog/what-a-task-costs-on-opus-5-5)What a task costs on Opus 5.5
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22b8840b2f6f9a40fe0_8925ac952fa2cb8eb5e845b2e44f3e71b33fd695-1000x1000.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22deea97e4a5b5e5739_8d339ae8ecedecc1409db8f5bbb99c958db56946-1000x1000.svg)
 
-Aug 26, 2026
+Sep 24, 2026
 
-### Claude gets its own browser in Cowork
+### Claude Tag now supports personal connectors in channels
 
 Product announcements
 
-[Claude gets its own browser in Cowork](#)Claude gets its own browser in Cowork
+[Claude Tag now supports personal connectors in channels](#)Claude Tag now supports personal connectors in channels
 
-[Claude gets its own browser in Cowork](https://claude.com/blog/cowork-built-in-browser)Claude gets its own browser in Cowork
+[Claude Tag now supports personal connectors in channels](https://claude.com/blog/claude-tag-now-supports-personal-connectors-in-channels)Claude Tag now supports personal connectors in channels
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d225e31f7aa22c1f28cb_46e4aa7ea208ed440d5bd9e9e3a0ee66bc336ff1-1000x1000.svg)
+
+Sep 24, 2026
+
+### Coding sessions are longer and use more context. Claude Opus 5.5 is built with that in mind.
+
+Claude Code
+
+[Coding sessions are longer and use more context. Claude Opus 5.5 is built with that in mind.](#)Coding sessions are longer and use more context. Claude Opus 5.5 is built with that in mind.
+
+[Coding sessions are longer and use more context. Claude Opus 5.5 is built with that in mind.](https://claude.com/blog/claude-opus-5-5-built-for-coding-sessions-that-use-more-context)Coding sessions are longer and use more context. Claude Opus 5.5 is built with that in mind.
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690937bee860a953417a8eee_Object-CodeBrowserGlobe.svg)
+
+Oct 20, 2025
+
+### Claude Code on the web
+
+Product announcements
+
+[Claude Code on the web](#)Claude Code on the web
+
+[Claude Code on the web](https://claude.com/blog/claude-code-on-the-web)Claude Code on the web
 
 ## Transform how your organization operates with Claude
 

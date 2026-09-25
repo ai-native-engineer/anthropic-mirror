@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/ai-native-sdlc-playbook/ci-cd-integration-and-deployment -->
 
-Lesson 12 of 14 · The AI-Native SDLC PlaybookCI/CD integration and deployment
+Lesson 12 of 14 · The AI-native SDLC playbookCI/CD integration and deployment
 
-3. /[The AI-Native SDLC Playbook](https://academy.claude.com/courses/ai-native-sdlc-playbook)
+3. /[The AI-native SDLC playbook](https://academy.claude.com/courses/ai-native-sdlc-playbook)
 
-[The AI-Native SDLC Playbook](https://academy.claude.com/courses/ai-native-sdlc-playbook)
+[The AI-native SDLC playbook](https://academy.claude.com/courses/ai-native-sdlc-playbook)
 
 # CI/CD integration and deployment
 
@@ -62,7 +62,7 @@ The governing principle is that the agent may act up to the production gate and 
 
 [Previous lessonHooks as approval gates](https://academy.claude.com/courses/ai-native-sdlc-playbook/hooks-as-approval-gates)[Next lessonClosing the loop on metrics](https://academy.claude.com/courses/ai-native-sdlc-playbook/closing-the-loop-on-metrics)
 
-Lesson 12 of 14 · The AI-Native SDLC PlaybookCI/CD integration and deployment
+Lesson 12 of 14 · The AI-native SDLC playbookCI/CD integration and deployment
 
 Introduction
 

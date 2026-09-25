@@ -10,8 +10,8 @@ Anthropic utilizes multiple cloud service providers to process customer data, as
 
 To receive proactive updates of where we or our Subprocessors operate, please subscribe to our [Trust Center News Feed](https://trust.anthropic.com/updates).
 
+* [How long do you store my organization’s data?](https://privacy.claude.com/en/articles/7996866-how-long-do-you-store-my-organization-s-data)
 * [Is my data used for model training?](https://privacy.claude.com/en/articles/7996868-is-my-data-used-for-model-training)
 * [How do you use personal data in model training?](https://privacy.claude.com/en/articles/7996885-how-do-you-use-personal-data-in-model-training)
-* [I have a zero data retention agreement with Anthropic. What products does it apply to?](https://privacy.claude.com/en/articles/8956058-i-have-a-zero-data-retention-agreement-with-anthropic-what-products-does-it-apply-to)
 * [How Do You Use Personal Data in Model Training?](https://privacy.claude.com/en/articles/10023555-how-do-you-use-personal-data-in-model-training)
 * [Does Claude use my team members’ location?](https://privacy.claude.com/en/articles/11186730-does-claude-use-my-team-members-location)

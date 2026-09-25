@@ -70,7 +70,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
   There is a limit of 100,000 messages in a single request.
 
-- `--model: "claude-fable-5-1" or "claude-mythos-5-1" or "claude-sonnet-5" or 14 more or string`
+- `--model: "claude-fable-5-1" or "claude-opus-5-5" or "claude-mythos-5-1" or 15 more or string`
 
   Body param: The model that will complete your prompt.
 
@@ -79,6 +79,17 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 - `--cache-control: optional object`
 
   Body param: Top-level cache control automatically applies a cache_control marker to the last cacheable block in the request.
+
+- `--compaction: optional object`
+
+  Body param: Compact the whole conversation and return a signed `compaction` block,
+  alone, that a later request sends back first in `messages`, in place of
+  the messages it summarizes. There is no trigger and no pause flag: sending
+  the parameter compacts, and nothing is sampled after the block.
+
+  The summarization prompt is the server's own unless `instructions` are
+  given, which then replace it for this request; a value that is empty or
+  only whitespace counts as absent.
 
 - `--context-management: optional object`
 

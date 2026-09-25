@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/ai-fluency-for-small-businesses/closure-and-looking-forward -->
 
-Lesson 9 of 9 · AI Fluency for Small BusinessesClosure and looking forward
+Lesson 9 of 9 · AI Fluency for small businessesClosure and looking forward
 
-3. /[AI Fluency for Small Businesses](https://academy.claude.com/courses/ai-fluency-for-small-businesses)
+3. /[AI Fluency for small businesses](https://academy.claude.com/courses/ai-fluency-for-small-businesses)
 
-[AI Fluency for Small Businesses](https://academy.claude.com/courses/ai-fluency-for-small-businesses)
+[AI Fluency for small businesses](https://academy.claude.com/courses/ai-fluency-for-small-businesses)
 
 # Closure and looking forward
 
@@ -91,7 +91,7 @@ After completing the task, consider:
 
 [Previous lessonHuman in the loop](https://academy.claude.com/courses/ai-fluency-for-small-businesses/human-in-the-loop)[Next lessonCourse quiz](https://academy.claude.com/courses/ai-fluency-for-small-businesses/course-quiz)
 
-Lesson 9 of 9 · AI Fluency for Small BusinessesClosure and looking forward
+Lesson 9 of 9 · AI Fluency for small businessesClosure and looking forward
 
 Introduction and AI Fluency framework
 

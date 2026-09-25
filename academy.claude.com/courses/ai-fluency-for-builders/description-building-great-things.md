@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/ai-fluency-for-builders/description-building-great-things -->
 
-Lesson 5 of 9 · AI Fluency for BuildersDescription & building great things
+Lesson 5 of 9 · AI Fluency for buildersDescription & building great things
 
-3. /[AI Fluency for Builders](https://academy.claude.com/courses/ai-fluency-for-builders)
+3. /[AI Fluency for builders](https://academy.claude.com/courses/ai-fluency-for-builders)
 
-[AI Fluency for Builders](https://academy.claude.com/courses/ai-fluency-for-builders)
+[AI Fluency for builders](https://academy.claude.com/courses/ai-fluency-for-builders)
 
 # Description & building great things
 
@@ -74,7 +74,7 @@ In the next lesson, we move from description to discernment. You’ve built some
 
 [Previous lessonDelegation & the builder's toolkit](https://academy.claude.com/courses/ai-fluency-for-builders/delegation-the-builder-s-toolkit)[Next lessonDiscernment for code](https://academy.claude.com/courses/ai-fluency-for-builders/discernment-for-code)
 
-Lesson 5 of 9 · AI Fluency for BuildersDescription & building great things
+Lesson 5 of 9 · AI Fluency for buildersDescription & building great things
 
 Introduction and AI Fluency framework
 

@@ -1,15 +1,15 @@
 <!-- source: https://support.claude.com/en/articles/14604397-set-up-your-design-system-in-claude-design -->
 
-Creating a design system allows Claude Design to produce outputs that fit your specifications. It extracts reusable components, colors, typography, and patterns from the assets you provide—codebases, slide decks, or other design references—and uses them as the foundation for every project created within your account.
+A design system captures your colors, typography, components, and layout patterns, so Claude applies them to every new design and deck. Claude extracts them from the assets you provide, like codebases, slide decks, or other design references.
 
-Claude Design is now available in beta to Pro, Max, Team, and Enterprise plans. This capability is default off for Enterprise plans.
+Design systems are available in beta on Pro, Max, Team, and Enterprise plans. They're on by default on Pro, Max, and Team plans. On Enterprise plans, they're off until an owner turns on **Design systems** in **[Organization settings > Artifacts](https://claude.ai/admin-settings/artifacts)**. Standalone Claude Design at claude.ai/design has its own separate setting.
 
-This guide is for the designer or brand owner who will set up the design system. You only need to do this once; after setup, all team members’ projects automatically use it (for Team and Enterprise plans).
+This guide is for the designer or brand owner who will set up the design system. On Team and Enterprise plans, you only need to do this once, and everyone's work picks it up after that.
 
-## Prerequisites
+## Before you start
 
-* Permissions granted by your organization admin for design system setup.
-* At least one of the following as source material:
+* On Team and Enterprise plans, **Design systems** needs to be on for your organization, and an owner may limit who can publish or set the default.
+* You’ll need at least one of the following as source material:
 
   + A codebase with your design system or component library
   + A slide deck or document that reflects your visual identity
@@ -17,48 +17,73 @@ This guide is for the designer or brand owner who will set up the design system.
 
 ---
 
-## Step 1: Create or switch to your organization
+## Create a design system
 
-To set up your organization’s design system:
+### From a chat
+
+Ask Claude to build a design system from your connected apps, uploaded files, Figma files, decks, logos, and fonts. This works best for brand design systems with fonts, colors, and guidelines.
+
+### From Claude Code
+
+If your design system already exists as React components, run /design-sync in Claude Code. It reads your tokens and components directly, and works best for product design systems in code.
+
+### Bring over a design system from claude.ai/design
+
+1. Open the "Design" tab at the bottom of the sidebar.
+2. Click "Migrate team design systems" in the banner.
+
+Each design system becomes an artifact Claude can use in any chat, including in Claude Code. Migrated design systems may need some cleanup, so each one shows a banner where you can click "Let Claude clean it up," and Claude tidies its guide, tokens, and components.
+
+## Manage your design systems
+
+Manage your design systems in **[Settings > Design systems](https://claude.ai/settings/design-systems)**. On Enterprise plans, admins can reserve publishing, setting the organization default, and deleting design systems for specific users. Learn more in the **[Artifacts admin guide for Team and Enterprise plans](https://support.claude.com/en/articles/16994751)**.
+
+---
+
+## Set up a design system at claude.ai/design
+
+These steps use standalone Claude Design.
+
+### Create or switch to your organization
 
 1. Open **[Claude Design](https://claude.ai/design)**.
-2. In the lower-left corner of the project picker, click the current organization name.
+2. In the lower left corner of the project picker, click the current organization name.
 3. Select your organization, or create a new one.
-4. You’ll be redirected to the onboarding flow. Complete it.
+4. Complete the onboarding flow you're redirected to.
 
-## Step 2: Upload your brand and product assets
+### Upload your brand and product assets
 
-During onboarding (or afterward from your organization settings), upload the assets that define your brand and product. Claude will analyze them and extract a reusable design system.
+During onboarding, or afterward from your organization settings, upload the assets that define your brand and product. Claude analyzes them and extracts a reusable design system.
 
-**What to upload:**
-
-* **Codebases:** If your design system lives in code (for example, a React component library), you can link or upload the repository. Claude will read the components and styles.
+* **Codebases:** If your design system lives in code, like a React component library, link or upload the repository. Claude reads the components and styles.
 * **Prototypes:** Screenshots, web flows, and existing design files.
 * **Slide decks or documents:** Even a well-designed PowerPoint or PDF that reflects your brand can work. Claude extracts colors, layout patterns, and typographic choices.
 * **Individual assets:** Logos, color palette files, typography specimens.
 
-You only need one source to get started, but providing multiple gives Claude more to work with.
+You only need one source to get started, but more sources give Claude more to work with.
 
-## Step 3: Review the generated design system
+### Review the generated design system
 
-After uploading, Claude generates a design system (UI kit) for your organization. This typically includes:
+After uploading, Claude generates a design system for your organization. This typically includes:
 
 * **Color palette:** Primary, secondary, and accent colors extracted from your assets.
 * **Typography:** Font families, sizes, and weights.
 * **Components:** Buttons, cards, navigation elements, and other reusable UI patterns.
 * **Layout patterns:** Spacing, grid systems, and page structures.
 
-To validate your design system, create a test project and see if the output matches your brand expectations. Try prompts like:
+To validate it, create a test project and check whether the output matches your brand. Try prompts like:
 
-* “Create a landing page for [your product].”
-* “Design a dashboard showing [relevant metrics].”
-* “Make a presentation about [a topic your team commonly presents on].”
+* "Create a landing page for [your product]."
+* "Design a dashboard showing [relevant metrics]."
+* "Make a one-pager about [a topic your team commonly presents on]."
 
-## Step 4: Make it available to your team
+### Make it available to your team
 
-Once you’re satisfied with the design system quality, make sure the “Published” toggle is switched on. After publishing, any projects created from the Claude Design homescreen while in your organization will use your design system instead of the default.
+When you're happy with the design system, turn on the "Published" toggle. After publishing, projects created from the Claude Design home screen in your organization use your design system instead of the default.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2287527007/b1c46cb8dba4cd7e8bbea85fb0c3/2819c6cf-9ce1-4df5-84c8-feae0164bf2e?expires=1789345800&signature=fd80d878cb3d1b7f9b8570ecc43b0d63c1a58a05ed9e8d00b3db81ca7225a3d8&req=diIvEcx8moFfXvMW1HO4zWNHF%2FuICj4fIQKNMXlu0T%2BvJed2cs1IGpOk9JGL%0AieK%2Bccml2EEwFZwJheo%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2287527007/b1c46cb8dba4cd7e8bbea85fb0c3/2819c6cf-9ce1-4df5-84c8-feae0164bf2e?expires=1789345800&signature=fd80d878cb3d1b7f9b8570ecc43b0d63c1a58a05ed9e8d00b3db81ca7225a3d8&req=diIvEcx8moFfXvMW1HO4zWNHF%2FuICj4fIQKNMXlu0T%2BvJed2cs1IGpOk9JGL%0AieK%2Bccml2EEwFZwJheo%3D%0A)
+## Update your design system
+
+When your design system changes, you can update it within Claude Design. From your Claude Design organization settings, click the “Open” button next to the design system you want to edit. Click the “Remix” button in the upper right corner to open the chat interface on the left side of the window. From here, you can work with Claude to change your design system.
 
 ---
 
@@ -67,12 +92,8 @@ Once you’re satisfied with the design system quality, make sure the “Publish
 * **Include real examples, not just specs.** A finished landing page or marketing site tells Claude more about your brand’s feel than a color palette alone.
 * **Iterate.** If the first extraction doesn’t capture your brand well, try uploading additional or different assets.
 
-## Updating your design system
-
-Brands evolve. When your design system changes, you can update it within Claude Design. From your Claude Design organization settings, click the “Open” button next to the design system you want to edit. Click the “Remix” button in the upper right corner to open the chat interface on the left side of the window. From here, you can work with Claude to change your design system.
-
-* [Claude Code FAQ](https://support.claude.com/en/articles/12386420-claude-code-faq)
-* [Set up Code Review for Claude Code](https://support.claude.com/en/articles/14233555-set-up-code-review-for-claude-code)
 * [Claude Design admin guide for Team and Enterprise plans](https://support.claude.com/en/articles/14604406-claude-design-admin-guide-for-team-and-enterprise-plans)
 * [Get started with Claude Design](https://support.claude.com/en/articles/14604416-get-started-with-claude-design)
-* [Use Claude Security](https://support.claude.com/en/articles/14661296-use-claude-security)
+* [Set up Claude for Teachers for your school or district](https://support.claude.com/en/articles/16559896-set-up-claude-for-teachers-for-your-school-or-district)
+* [Set up Salesforce in Claude for your organization](https://support.claude.com/en/articles/16952184-set-up-salesforce-in-claude-for-your-organization)
+* [Artifacts admin guide for Team and Enterprise plans](https://support.claude.com/en/articles/16994751-artifacts-admin-guide-for-team-and-enterprise-plans)

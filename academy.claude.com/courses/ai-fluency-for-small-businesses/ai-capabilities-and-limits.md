@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/ai-fluency-for-small-businesses/ai-capabilities-and-limits -->
 
-Lesson 3 of 9 · AI Fluency for Small BusinessesAI capabilities and limitations
+Lesson 3 of 9 · AI Fluency for small businessesAI capabilities and limitations
 
-3. /[AI Fluency for Small Businesses](https://academy.claude.com/courses/ai-fluency-for-small-businesses)
+3. /[AI Fluency for small businesses](https://academy.claude.com/courses/ai-fluency-for-small-businesses)
 
-[AI Fluency for Small Businesses](https://academy.claude.com/courses/ai-fluency-for-small-businesses)
+[AI Fluency for small businesses](https://academy.claude.com/courses/ai-fluency-for-small-businesses)
 
 # AI capabilities and limitations
 
@@ -77,7 +77,7 @@ Up next is a hands-on activity exploring how language models actually generate t
 
 [Previous lessonThe 4D Framework](https://academy.claude.com/courses/ai-fluency-for-small-businesses/the-4d-framework)[Next lessonExplore!](https://academy.claude.com/courses/ai-fluency-for-small-businesses/explore)
 
-Lesson 3 of 9 · AI Fluency for Small BusinessesAI capabilities and limitations
+Lesson 3 of 9 · AI Fluency for small businessesAI capabilities and limitations
 
 Introduction and AI Fluency framework
 

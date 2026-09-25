@@ -4,31 +4,21 @@ Case study | Claude Platform
 
 # Cove creates the future of visual AI collaboration with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![Cove logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c1e9e25ac8813deaad37a5_cs-logo-cove-light-theme.svg)![Cove logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c1e9e82370421c0dc2b8c8_cs-logo-cove-dark-theme.svg)
+![Cove logo](https://assets.claude.com/78ee7b269d37beac389d4fdd59f03e6b9e0f9e46.svg)
 
 Industry:
-
-Software
+:   Software
 
 Company size:
-
-Small
+:   Small
 
 Product:
-
-Claude Platform
+:   Claude Platform
 
 Location:
-
-North America
+:   North America
 
 30% faster
 
@@ -37,42 +27,6 @@ response times compared to previous solutions
 Optimal performance
 
 with best-fit Claude model pairing
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
 
 Cove is pioneering a new way to interact with AI through a visual workspace, where users think alongside an AI collaborator. Unlike traditional chatbots or AI assistants, Cove provides a canvas-like environment for exploring ideas visually and non-linearly, mimicking natural thought processes. By implementing multiple Claude models, Cove has created an intelligent thought partner to help users tackle complex projects and ideas.
 
@@ -92,7 +46,7 @@ The user and the AI can both edit all content in the workspace, allowing them to
 
 “People come to Cove to collaborate with AI on a variety of personal and work projects,” says Stephen Chau, co-founder of Cove. “Just some examples include planning kids' birthday parties, building exercise and meal plans, working on business plans, finding sales prospects, designing home renovations, and more.”
 
-![Cove product screen](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68baf04dd84249d990d5481f_f3d3487b5077307ec7fb436e8f281df25f3f181e-1600x900.png)
+![Cove product screen](https://assets.claude.com/f3d3487b5077307ec7fb436e8f281df25f3f181e.png)
 
 ## Why Cove chose Claude
 
@@ -135,52 +89,12 @@ Cove envisions a future where AI is integral to complex thinking and problem-sol
 
 As Cove evolves, the team remains focused on their core mission: empowering people to think brilliantly. Chau emphasizes, "We are excited to see models like Claude continue to advance their capabilities in reasoning and thinking. We hope Cove will be the user interface that complements these model advances so that people can get the most out of AI." With Claude's advanced capabilities at its core, Cove is poised to redefine human-AI collaboration, ensuring that in the future, no one has to think alone.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[![Supermetrics](https://assets.claude.com/3ac4171a81008be0340e5c3d8ccb46571c3edfb3.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### Supermetrics lets marketers manage ad campaigns from a conversation with Claude](https://claude.com/customers/supermetrics)[![Atlassian](https://assets.claude.com/4870b3d6c0253cea01b100c98ad2030b8e4f8ce1.svg)
 
-[Next](#)Next
+### How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-Video caption
+### Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-Customer story
-
-[Customer story](https://claude.com/customers/atlassian)Customer story
-
-[Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)Rocket Money on building agents that fix their own code
-
-Rocket Money on building agents that fix their own code
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money-qa)Customer story
-
-[How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)How Rocket Money built its personal finance agent with Claude
-
-How Rocket Money built its personal finance agent with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money)Customer story
-
-[How Notion ships and scales agents with Claude Managed Agents](https://claude.com/customers/notion-qa)How Notion ships and scales agents with Claude Managed Agents
-
-How Notion ships and scales agents with Claude Managed Agents
-
-Customer story
-
-[Customer story](https://claude.com/customers/notion-qa)Customer story
+### How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)

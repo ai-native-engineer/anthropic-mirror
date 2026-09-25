@@ -4,31 +4,21 @@ Case study | Claude Platform
 
 # Jumpcut helps Hollywood find the next big script with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![Jumpcut logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c466d58e13c2831f6f5a0d_cs-logo-jumpcut-light-theme.png)![Jumpcut logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c466e2fc4b6df3fa74956c_cs-logo-jumpcut-dark-theme.png)
+![Jumpcut logo](https://assets.claude.com/7845a2d4bbafe80d956161dd0570bae93256e056.png)
 
 Industry:
-
-Entertainment
+:   Entertainment
 
 Company size:
-
-Small
+:   Small
 
 Product:
-
-Claude Platform
+:   Claude Platform
 
 Location:
-
-North America
+:   North America
 
 35,000+ hours
 
@@ -37,42 +27,6 @@ saved in script reading time
 200+ companies
 
 using ScriptSense
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
 
 Jumpcut uses Claude 3 Opus to save Hollywood studios, agencies, and production companies hundreds of hours on script reviews by generating comprehensive reports that help entertainment teams review more scripts and more writers catch their big break.
 
@@ -84,8 +38,7 @@ Jumpcut offers a radically different approach using generative AI. Its founders 
 
 Teams upload scripts to ScriptSense to produce comprehensive script coverage on everything from scene summaries to character breakdowns to similar titles—all in seconds. In order to capture the rich stories and unique subtext from each script, the team chose to power ScriptSense with Claude.
 
-![App screen from the Jumpcut platform](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68baf05c0354d3ed544db3a1_cce4f1f69906a5e5a4d887d491677f9bd0e13115-1920x1080.jpeg)
-
+![App screen from the Jumpcut platform](https://assets.claude.com/017232316762dafbfe5a5c5bb525e3ff82686438.jpg)
 > In storytelling, subtext matters. Other foundation models required significant prompt engineering and still weren’t able to capture the nuances of what made a script unique. Claude analyzes scripts more effectively and produces work that sounds more human, all with significantly less prompt work.
 
 — Kartik Hosanagar, Chairman and Founder of Jumpcut
@@ -96,8 +49,7 @@ Over the course of a 100+ page screenplay, a reader will often encounter multipl
 
 With ScriptSense, the Jumpcut team built a multi-step, agentic architecture to break a script down into its core components and understand the plot, character, and thematic devices that form the story.
 
-![App screen from the Jumpcut platform](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68baf05c0354d3ed544db3b2_5a8ae362e7c28294842ab993ab6692bd359fd2a2-1920x1080.jpeg)
-
+![App screen from the Jumpcut platform](https://assets.claude.com/710b6018c31eb7fb83ed252698a48e8e378f2aab.jpg)
 > We ran tests and evaluations across all major foundation models, which revealed that Claude performed best at the summarization and creative analysis subtasks involved in the multi-step script breakdown process. The end result was more context-rich results that help entertainment teams make informed decisions faster.
 >
 > - Dilip Rajan, Co-Founder and Head of Product of Jumpcut
@@ -112,52 +64,12 @@ With the increased quality of script coverage, Jumpcut was able to close several
 
 Even better, building Claude into ScriptSense was a smooth and straightforward process for Jumpcut. “The workbench in the Anthropic Console made it easy for the team to collaborate, iterate, and test the various prompts involved in the script breakdown process,” says Rajan. “The prompt engineering process was faster than with other LLMs that Jumpcut had previously tested—and the team found Claude to be more responsive to detailed instructions and easier to steer.”
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[![StubHub](https://assets.claude.com/d3451a4bfe1c5af7f56f76ab8237c3bab7dd7a9d.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### StubHub transforms live event ticketing with Claude](https://claude.com/customers/stubhub)[![Audience Strategies](https://assets.claude.com/3413dcb9640e98c9dd678f02077d38ea6f0b7b34.png)
 
-[Next](#)Next
+### Audience Strategies expands the electronic music industry's policy influence with Claude](https://claude.com/customers/audience-strategies)[![Orange](https://assets.claude.com/c97f28a41e222c81bda3ab8af5ed81dbfb385756.png)
 
-Video caption
+### Orange localizes manga at an unprecedented scale with Claude](https://claude.com/customers/orange)[![WRTN](https://assets.claude.com/c3f8213b72f494f94cf99ec6d2abf77e5129ef74.svg)
 
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[StubHub transforms live event ticketing with Claude](https://claude.com/customers/stubhub)StubHub transforms live event ticketing with Claude
-
-StubHub transforms live event ticketing with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/stubhub)Customer story
-
-[Audience Strategies expands the electronic music industry's policy influence with Claude](https://claude.com/customers/audience-strategies)Audience Strategies expands the electronic music industry's policy influence with Claude
-
-Audience Strategies expands the electronic music industry's policy influence with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/audience-strategies)Customer story
-
-[Orange localizes manga at an unprecedented scale with Claude](https://claude.com/customers/orange)Orange localizes manga at an unprecedented scale with Claude
-
-Orange localizes manga at an unprecedented scale with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/orange)Customer story
-
-[WRTN pioneers AI entertainment and storytelling across Asia with Claude](https://claude.com/customers/wrtn)WRTN pioneers AI entertainment and storytelling across Asia with Claude
-
-WRTN pioneers AI entertainment and storytelling across Asia with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/wrtn)Customer story
+### WRTN pioneers AI entertainment and storytelling across Asia with Claude](https://claude.com/customers/wrtn)

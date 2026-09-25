@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/ai-fluency-framework-foundations/capabilities-limitations -->
 
-Lesson 5 of 14 · AI Fluency: Framework & FoundationsCapabilities & limitations
+Lesson 5 of 14 · AI Fluency: Framework and foundationsCapabilities & limitations
 
-3. /[AI Fluency: Framework & Foundations](https://academy.claude.com/courses/ai-fluency-framework-foundations)
+3. /[AI Fluency: Framework and foundations](https://academy.claude.com/courses/ai-fluency-framework-foundations)
 
-[AI Fluency: Framework & Foundations](https://academy.claude.com/courses/ai-fluency-framework-foundations)
+[AI Fluency: Framework and foundations](https://academy.claude.com/courses/ai-fluency-framework-foundations)
 
 # Capabilities & limitations
 
@@ -57,7 +57,7 @@ In the next lesson, we'll take a closer look at the first of the 4D competencies
 
 [Previous lessonGenerative AI fundamentals](https://academy.claude.com/courses/ai-fluency-framework-foundations/generative-ai-fundamentals)[Next lessonA closer look at Delegation](https://academy.claude.com/courses/ai-fluency-framework-foundations/a-closer-look-at-delegation)
 
-Lesson 5 of 14 · AI Fluency: Framework & FoundationsCapabilities & limitations
+Lesson 5 of 14 · AI Fluency: Framework and foundationsCapabilities & limitations
 
 Introduction to AI Fluency
 

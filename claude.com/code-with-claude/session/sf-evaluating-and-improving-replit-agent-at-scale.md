@@ -4,50 +4,38 @@
 
 Most teams shipping AI products can't build evals that predict how a model will actually perform in production. Michele Catasta, President & Head of AI at Replit, shares how his team closed that gap with ViBench — a public vibe-coding benchmark that scores whether the generated app works — and the offline/online evaluation loop behind Replit Agent that turns weeks of engineering into compounding overnight gains. Anthropic's Hannah Moran joins to share what separates evals that look rigorous from ones that actually help teams adopt new models with confidence.
 
-Details
+## Details
 
 City
-
-San Francisco, USA
+:   San Francisco, USA
 
 Date
-
-May 6, 2026
+:   May 6, 2026
 
 Time
-
-04:50PM – 05:20PM
+:   04:50PM – 05:20PM
 
 Speaker(s)
+:   Michele Catasta
 
-Michele Catasta
+    President & Head of AI,
 
-President & Head of AI,
+    Replit
 
-Replit
+    Hannah Moran
 
-Hannah Moran
+    Member of Technical Staff,
 
-Member of Technical Staff,
-
-Anthropic
+    Anthropic
 
 ## Watch recording
 
-[Play video](#)Play video
+![Evaluating and improving Replit Agent at scale](https://assets.claude.com/88306937a62809ce4218e990c2bae7bf0e16e3cb.jpg?w=1600&auto=format)
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69fdf3785c51ac6302fdaffc_replit-agent-at-scale.webp)
-
-Anthropic's developer conference, recorded
+## Anthropic's developer conference, recorded
 
 Keynotes, demos, and conversations with the teams behind Claude. Recorded at Code w/ Claude 2026 San Francisco and ready to replay.
 
-Browse recordings
+[Browse recordings](https://claude.com/code-with-claude/san-francisco)
 
-[Learn more](https://claude.com/code-with-claude/san-francisco)Learn more
-
-[Homepage](https://claude.com/code-with-claude)Homepage
-
-© [year] Anthropic PBC
-
-[PRIVACY POLICY](https://www.anthropic.com/legal/privacy)[CODE OF CONDUCT](https://claude.com/code-with-claude/code-of-conduct)
+Evaluating and improving Replit Agent at scale | Session | Code w/ Claude 2026

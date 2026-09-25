@@ -14,6 +14,8 @@ Read more
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6a8ef18fc8c6bab48e493bb2_object-browser.svg)
 
+Explore here
+
 # Claude in Chrome
 
 ## A helping hand across all your tabs

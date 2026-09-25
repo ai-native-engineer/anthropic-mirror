@@ -6,7 +6,7 @@
 
 A session is a saved conversation tied to a project directory. Claude Code stores it locally as you work, so you can resume where you left off, branch to try a different approach, or switch between tasks.
 
-The [desktop app](/docs/en/desktop#work-in-parallel-with-sessions), [Claude Code on the web](/docs/en/claude-code-on-the-web), and the [VS Code extension](/docs/en/vs-code#resume-past-conversations) each maintain their own session history. This page covers the CLI.
+The [desktop app](/docs/en/desktop#work-in-parallel-with-sessions), [claude.ai/code](/docs/en/claude-code-on-the-web), and the [VS Code extension](/docs/en/vs-code#resume-past-conversations) each maintain their own session history. This page covers the CLI.
 
 ## Resume a session
 
@@ -31,7 +31,7 @@ You can run `claude --resume <session-id>` from any directory: Claude Code looks
 
 A resumed session restores the conversation along with the state saved in it:
 
-* Conversation history: the full history, including tool calls and results. A tool that was still running when the previous process ended, for example in a crash, doesn't finish or run again when you resume; Claude continues without its output.
+* Conversation history: the full history, including tool calls and results. A tool that was still running when the previous process ended, for example in a crash, doesn't finish or run again when you resume. Claude sees the call marked as cut off before its result was recorded and is told to check whether it took effect before running it again, unless [`CLAUDE_CODE_RESUME_INTERRUPTED_TURN`](/docs/en/env-vars#variables) is set. Before v2.1.281, Claude Code dropped the cut-off call from the conversation or showed it to Claude as one you interrupted.
 * Model: the session continues on the model it was using. The model isn't restored when it has been retired or isn't allowed by `availableModels`, when a `--model` flag or `ANTHROPIC_MODEL`-family environment variable picks one at launch, or on providers that use provider-specific deployment IDs, such as [Amazon Bedrock, Google Cloud's Agent Platform, and Microsoft Foundry](/docs/en/third-party-integrations); see [model configuration](/docs/en/model-config#setting-your-model) for the resolution order.
 * Agent: a session started with [`--agent`](/docs/en/sub-agents#invoke-subagents-explicitly) or the `agent` setting continues as that agent, keeping its tool restrictions and model. Pass `--agent` when resuming to pick a different one; for the system prompt in either case, see [System prompt flags in resumed conversations](/docs/en/cli-reference#system-prompt-flags-in-resumed-conversations). Claude Code looks for the agent in two places: the session's original directory, provided you have [trusted that workspace](/docs/en/permissions#project-allow-rules-and-workspace-trust), and then the directory you resume from, so a project-scoped agent still loads when you resume from another directory. If Claude Code doesn't find the agent in either place, the session resumes with the default tools and shows a [warning naming the agent](/docs/en/errors#session-agent-no-longer-available).
 * Permission mode: if you resume from a terminal with `claude --continue`, `claude --resume <session-id>`, or `claude --resume <name>` when the name matches one session, without `-p`, Claude Code restores the permission mode the session was in, except in the cases in [permission mode on resume](#permission-mode-on-resume), which also covers the session picker, `/resume`, and resuming with `claude -p`. Pass `--permission-mode` or `--dangerously-skip-permissions` to override the restored mode.
@@ -133,7 +133,13 @@ In three cases Claude Code doesn't rename the duplicate, so you can still see tw
 Sessions you don't name still get two labels that Claude Code assigns. Only the generated title works as a resume handle:
 
 * Default display name: interactive sessions you never name still get a default display name when they start. Requires Claude Code v2.1.196 or later. The default combines the working directory's name with a two-character suffix, for example `my-app-3f`, and identifies the session in listings of running sessions, such as [agent view](/docs/en/agent-view) and `claude agents --json` output. The default isn't a resume handle. If you pass it to `claude --resume` or `/resume`, Claude Code doesn't find the session. Naming the session replaces the default in those listings, and so does accepting a plan.
-* Generated title: if you don't name a session, Claude Code generates a session title for it. The title is a short summary of your first prompt, written by a background request to the small/fast model, normally a Haiku-class model. Accepting a plan replaces it with a title based on the plan. Naming the session replaces the generated title. You see the first-prompt title in the [session picker](#use-the-session-picker) and in the statusline [`session_name`](/docs/en/statusline) field when no name is set. The plan title shows in the same two places and also in the listings of running sessions, where it takes the place of the default display name. You can pass either title to `claude --resume` or `/resume`, and Claude Code resolves it the same way as a name you set.
+* Generated title: if you don't name a session, Claude Code generates a session title for it. The title is a short summary of your first prompt, written by a background request to the small/fast model, normally a Haiku-class model. A `claude -p` run you start directly from a shell or script doesn't get one.
+
+  Accepting a plan replaces the generated title with a title based on the plan. Naming the session replaces it as well.
+
+  You see the first-prompt title in the [session picker](#use-the-session-picker) and in the statusline [`session_name`](/docs/en/statusline) field when no name is set. The plan title shows in the same two places and also in the listings of running sessions, where it takes the place of the default display name.
+
+  You can pass either title to `claude --resume` or `/resume`, and Claude Code resolves it the same way as a name you set.
 
 ## Use the session picker
 

@@ -1,54 +1,27 @@
 <!-- source: https://claude.com/customers/banner-health -->
 
-Claude Science beta
-
-[Next](#)Next
-
-Introducing the Claude Science app, your research partner for rigorous science.
-
-Learn more
-
-[Learn more](https://claude.com/product/claude-science)Learn more
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a43ef89e3431b19c021bf2b_claude-science-og.jpg)
-
 Case study | Claude Platform
 
 # Banner Health battles physician burnout with Claude-powered AI platform
 
-Try Claude
+[Get started](https://claude.com/solutions/healthcare#pricing-section)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-Get started
-
-[Get started](https://claude.com/solutions/healthcare#pricing-section)Get started
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/695fcafa93907f736cf33c15_banner-health-light.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/695fcaf6e759325a5107816e_banner-health-dark.svg)
+![Banner Health logo](https://assets.claude.com/82b8c654bd30ad2381913d6e1e76e00499cb6b4a.svg)
 
 Industry:
-
-Healthcare
+:   Healthcare
 
 Company size:
-
-Large
+:   Large
 
 Product:
-
-Claude Platform
+:   Claude Platform
 
 Partner:
-
-AWS
+:   AWS
 
 Location:
-
-North America
+:   North America
 
 85% of users
 
@@ -60,63 +33,19 @@ Oncology physicians were spending a fifth of their documentation time between 6 
 
 Advancing Claude in healthcare and the life sciences
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6961abe753199c35cdc7f2a2_HCLS%20Launch%20-%20Blog%20-%20Social%20Image%20-%201200%20x%20628%20A.png)
+![Advancing Claude in healthcare and the life sciences](https://assets.claude.com/2245c8d44d57bbbd808ee21e2a14a250946d583b.png)
 
 Transform healthcare from insight to action
 
-Read more
-
-[Read more](https://www.anthropic.com/news/healthcare-life-sciences)Read more
-
-Advancing Claude in healthcare and the life sciences
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Transform healthcare from insight to action
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Advancing Claude in healthcare and the life sciences
-
-Transform healthcare from insight to action
+[Read more](https://www.anthropic.com/news/healthcare-life-sciences)
 
 Claude for Healthcare
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/696415a56ed108d94045852e_heart-marginalia.avif)
+![Claude for Healthcare](https://assets.claude.com/3cc055deed02884f4a1b81019a962925687fccc3.jpg)
 
 Claude helps healthcare organizations move faster without sacrificing accuracy, safety, or compliance. Less administrative work, more time with the people you serve.
 
-Read more
-
-[Read more](https://claude.com/healthcare)Read more
-
-Claude for Healthcare
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Claude helps healthcare organizations move faster without sacrificing accuracy, safety, or compliance. Less administrative work, more time with the people you serve.
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Claude for Healthcare
-
-Claude helps healthcare organizations move faster without sacrificing accuracy, safety, or compliance. Less administrative work, more time with the people you serve.
-
-[Prev](#)Prev
-
-[Next](#)Next
+[Read more](https://claude.com/healthcare)
 
 [Banner Health,](https://www.bannerhealth.com/) one of the largest nonprofit health systems in the United States, operates 33 acute-care hospitals, 400 clinics, and a health plan with 1.2 million members. With more than 55,000 employees, the organization serves more than 3.5 million people across Arizona, California, Colorado, Nebraska, Nevada, and Wyoming.
 
@@ -164,7 +93,7 @@ Rather than replacing staff, the system functions as what Dr. Walker called a "w
 
 ## The outcome
 
-User surveys show  a Net Promoter Score of +64, productivity impact ratings of 8.9 out of 10, and recommendation likelihood scores of 8.7 out of 10. Eighty-five percent of respondents report significant time savings alongside improvements in work accuracy and workflow efficiency. The oncology pilot has processed over 1,400 clinical notes since June 2025.
+User surveys show a Net Promoter Score of +64, productivity impact ratings of 8.9 out of 10, and recommendation likelihood scores of 8.7 out of 10. Eighty-five percent of respondents report significant time savings alongside improvements in work accuracy and workflow efficiency. The oncology pilot has processed over 1,400 clinical notes since June 2025.
 
 Banner is now expanding chart preparation capabilities across multiple specialties including neurology, cardiology, and infectious disease, with plans to aggressively expand to all other specialties in the coming years. The team is also developing an automation agent using Anthropic technology to streamline the workflow, which will be critical for broader adoption.
 
@@ -174,70 +103,16 @@ The organization put BannerWise in the hands of every Banner employee by the end
 
 ‍
 
-"We've built our stack with Amazon Bedrock, so the Anthropic models are readily accessible. The real magic started as we honed prompt structures optimized for Claude."
+> "We've built our stack with Amazon Bedrock, so the Anthropic models are readily accessible. The real magic started as we honed prompt structures optimized for Claude."
 
-Mike Reagin
+Mike ReaginChief Technology Officer, Banner Health
 
-Chief Technology Officer, Banner Health
+[![League](https://assets.claude.com/7360d174acf8827f869d92d50d49e0add1c58c2c.png)
 
-Livestream
+### How League went all in on Claude in a regulated industry](https://claude.com/customers/league-qa)[![League](https://assets.claude.com/7360d174acf8827f869d92d50d49e0add1c58c2c.png)
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/696415a56ed108d94045852e_heart-marginalia.avif)
+### League cuts product development cycle times in half with Claude](https://claude.com/customers/league)[![Arkana Labs](https://assets.claude.com/825b44bd9f2704f71fd53f5125cb92c31b32bd73.svg)
 
-Tune in to watch Anthropic CEO and Co-founder Dario Amodei share his vision for AI in healthcare and life sciences, along with an executive customer panel.
+### How can a medical lab keep patients at the center of its work while the caseload keeps growing?](https://claude.com/customers/arkana-labs)[![Zingage](https://assets.claude.com/7a6b9b092d1ec61d938402cc6744e4d94ed2564a.svg)
 
-Livestream
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Tune in to watch Anthropic CEO and Co-founder Dario Amodei share his vision for AI in healthcare and life sciences, along with an executive customer panel.
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Livestream
-
-Tune in to watch Anthropic CEO and Co-founder Dario Amodei share his vision for AI in healthcare and life sciences, along with an executive customer panel.
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[How League went all in on Claude in a regulated industry](https://claude.com/customers/league-qa)How League went all in on Claude in a regulated industry
-
-How League went all in on Claude in a regulated industry
-
-Customer story
-
-[Customer story](https://claude.com/customers/league-qa)Customer story
-
-[League cuts product development cycle times in half with Claude](https://claude.com/customers/league) League cuts product development cycle times in half with Claude
-
-League cuts product development cycle times in half with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/league)Customer story
-
-[How can a medical lab keep patients at the center of its work while the caseload keeps growing?](https://claude.com/customers/arkana-labs)How can a medical lab keep patients at the center of its work while the caseload keeps growing?
-
-How can a medical lab keep patients at the center of its work while the caseload keeps growing?
-
-Customer story
-
-[Customer story](https://claude.com/customers/arkana-labs)Customer story
-
-[How Zingage automates care coordination for 400+ home care agencies with Claude](https://claude.com/customers/zingage)How Zingage automates care coordination for 400+ home care agencies with Claude
-
-How Zingage automates care coordination for 400+ home care agencies with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/zingage)Customer story
+### How Zingage automates care coordination for 400+ home care agencies with Claude](https://claude.com/customers/zingage)

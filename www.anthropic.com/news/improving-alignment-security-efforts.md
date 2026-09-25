@@ -147,9 +147,3 @@ The July incidents have stressed that the urgency of improving our cybersecurity
 4. Ultimately, a model that acts outside its intended scope on such a challenge is a problem of alignment; an aligned model should stop or report to humans that the task can’t be completed as specified. We are continuing to train this behavior directly, but a defense-in-depth approach means not relying on alignment alone.
 5. We’ve publicly discussed two other categories of reward hacking in the [Mythos Preview system card](https://www-cdn.anthropic.com/8b8380204f74670be75e81c820ca8dda846ab289.pdf), including one where the model utilizes low-level computer process data in order to escalate its permissions, and another where it circumvents network restrictions in its training environment to download data that lets it shortcut the assigned task.
 6. These mitigations have not been wholly sufficient; we discuss further instances of training on chain of thought in more detail in our [August Risk Report](https://www-cdn.anthropic.com/f61d49fa5596956a5dec75fea0e973bf6a6a8378/Redacted%20Risk%20Report%20August%202026%20.pdf), Section 5.2.3.
-
-### Expanding our support for scientists
-
-Starting today, 10,000 scientists around the world can get Claude at no cost to start. Verified principal investigators qualify for a Claude Team subscription plan and then add their research team to Standard seats for free, or Premium seats for $15 per month, for up to a year.
-
-[Read more](https://www.anthropic.com/news/expanding-support-for-scientists)

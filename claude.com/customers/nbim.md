@@ -4,31 +4,21 @@ Case study | Claude Enterprise
 
 # NBIM accelerates sovereign wealth management with enterprise-wide AI transformation
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69024ccbf55f348e93fa53da_logo_NBIM-light.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69024cd21320bee289fca342_logo_NBIM-dark.svg)
+![NBIM logo](https://assets.claude.com/ba63fc8f22c700507805f256e2a25282773a86c9.svg)
 
 Industry:
-
-Financial services
+:   Financial services
 
 Company size:
-
-Large
+:   Large
 
 Product:
-
-Claude Enterprise
+:   Claude Enterprise
 
 Location:
-
-Europe
+:   Europe
 
 20% time saved
 
@@ -37,42 +27,6 @@ weekly per employee on Claude assisted analytical and operational tasks
 600+ active Claude users
 
 across all departments within first two months of deployment
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
 
 [Norges Bank Investment Management (NBIM)](https://www.nbim.no) manages Norway's Government Pension Fund Global, with the mandate to transform Norway's oil revenues into long-term financial wealth for future generations. With $1.7 trillion in assets, NBIM is one of the world's largest sovereign funds.
 
@@ -122,58 +76,16 @@ Looking ahead, NBIM plans to deepen its AI capabilities through advanced trainin
 
 Kirkeberg says that NBIM's partnership with Anthropic continues to help the firm navigate rapidly evolving technology: "We didn't want off-the-shelf solutions – we wanted a strategic partnership with a provider who would understand our specific needs as an institutional investor.”
 
-"Extending Claude Code to business analysts and quantitative researchers was transformative."
+> "Extending Claude Code to business analysts and quantitative researchers was transformative."
 
-Stian Kirkeberg
+Stian KirkebergHead Of Machine Learning And AI
 
-Head Of Machine Learning And AI
+[![Qonto](https://assets.claude.com/cf9df71e319709f3b2abd4508f40680fa0bcce1e.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### How Qonto delegates financial admin for small businesses with Claude on Amazon Bedrock](https://claude.com/customers/qonto)[![Pictet](https://assets.claude.com/93f19b6d2b95f2f82e5c7e33938b43dbd537c62f.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### Pictet turns weeks of work into hours with Claude Code](https://claude.com/customers/pictet)[![Satispay](https://assets.claude.com/f87dce8ac96f2e8181e2ed5b000ef17e2278b034.png)
 
-[Next](#)Next
+### How Satispay's engineers write 75% of their code with Claude](https://claude.com/customers/satispay)[![OffDeal](https://assets.claude.com/0144c459af1814dfb5bd273db786703ffcf1cce6.svg)
 
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[How Qonto delegates financial admin for small businesses with Claude on Amazon Bedrock](https://claude.com/customers/qonto) How Qonto delegates financial admin for small businesses with Claude on Amazon Bedrock
-
-How Qonto delegates financial admin for small businesses with Claude on Amazon Bedrock
-
-Customer story
-
-[Customer story](https://claude.com/customers/qonto)Customer story
-
-[Pictet turns weeks of work into hours with Claude Code](https://claude.com/customers/pictet)Pictet turns weeks of work into hours with Claude Code
-
-Pictet turns weeks of work into hours with Claude Code
-
-Customer story
-
-[Customer story](https://claude.com/customers/pictet)Customer story
-
-[How Satispay's engineers write 75% of their code with Claude](https://claude.com/customers/satispay)How Satispay's engineers write 75% of their code with Claude
-
-How Satispay's engineers write 75% of their code with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/satispay)Customer story
-
-[OffDeal powers every stage of M&A advisory with one Claude-based agent](https://claude.com/customers/offdeal)OffDeal powers every stage of M&A advisory with one Claude-based agent
-
-OffDeal powers every stage of M&A advisory with one Claude-based agent
-
-Customer story
-
-[Customer story](https://claude.com/customers/offdeal)Customer story
+### OffDeal powers every stage of M&A advisory with one Claude-based agent](https://claude.com/customers/offdeal)

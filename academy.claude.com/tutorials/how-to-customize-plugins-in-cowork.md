@@ -34,7 +34,7 @@ The questions depend on the plugin and what's already in your workspace, so trea
 
 Claude will ask which tools you use, and leave room for anything else. The tool answers wire the plugin to the right connectors; the *anything else* is where you describe how your team actually works.
 
-* **Your tools.** Pre-built skills reference tools generically — *the CRM*, *the data warehouse*. Naming yours maps each skill to the right connector, so `/variance-analysis` queries Snowflake and `/call-prep` reads from Salesforce without asking. If a connector you name isn't enabled yet, Claude lists it for you to connect later.
+* **Your tools.** Pre-built skills reference tools generically — *the CRM*, *the data warehouse*. Naming yours maps each skill to the right connector, so `/variance-analysis` queries Snowflake and `/call-prep` reads from [Salesforce(opens in new tab)](https://claude.ai/desktop/directory/salesforce-headless-360) without asking. If a connector you name isn't enabled yet, Claude lists it for you to connect later.
 * **How your team works.** The defaults and standards a new teammate would need to know — what you call things, what counts as done, when something gets escalated. The role examples below show what this looks like for each plugin.
 * **Reference documents.** Point Claude at examples of finished work — last quarter's close package, a brand guide, a redline that landed, your memo template. Claude reads them and writes the relevant patterns into the plugin's skills, so future output matches your formats.
 
@@ -56,7 +56,7 @@ Each role below shows the same three inputs — tools, how the team works, refer
 
 #### Sales
 
-*Connect:* your CRM and call-recording tool.
+*Connect:* your CRM (like [HubSpot(opens in new tab)](https://claude.ai/desktop/directory/hubspot) or [Salesforce(opens in new tab)](https://claude.ai/desktop/directory/salesforce-headless-360)) and call-recording tool.
 
 *Share:* your qualification framework, deal stages, and competitive positioning.
 

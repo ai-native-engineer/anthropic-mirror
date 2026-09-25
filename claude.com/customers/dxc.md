@@ -4,31 +4,21 @@ Case study | Claude Platform
 
 # DXC brings Claude to the insurance backbone running billions of policies
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a4c25fe933c0971c5213df2_DXC_light.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a4c26026abdee7fedea0ab1_DXC_dark.svg)
+![DXC logo](https://assets.claude.com/a6cc538462d716535ab150bb67609835002f2376.svg)
 
 Industry:
-
-Insurance
+:   Insurance
 
 Company size:
-
-Large
+:   Large
 
 Product:
-
-[Claude Platform](https://claude.com/platform/api)
+:   [Claude Platform](https://claude.com/platform/api)
 
 Location:
-
-North America
+:   North America
 
 Days to minutes for claims document backlogs,
 
@@ -51,28 +41,6 @@ classified in under a second
 
 ## The challenge
 
-Choosing the right Claude model
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69c2dd485d80024bc14f48c6_choosing%20model.jpeg)
-
-Learn when to use Haiku, Sonnet, or Opus to get better results and stay inside your rate limit. A practical guide to picking the right Claude model.
-
-Choosing the right Claude model
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Learn when to use Haiku, Sonnet, or Opus to get better results and stay inside your rate limit. A practical guide to picking the right Claude model.
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Choosing the right Claude model
-
-Learn when to use Haiku, Sonnet, or Opus to get better results and stay inside your rate limit. A practical guide to picking the right Claude model.
-
 ## An industry that runs on judgment and paper
 
 Insurance runs on two decisions. First, underwriting, whether to take a risk and at what price, and second claims, what to pay and when. Together, they are "two decision points which drive 100% of the value this industry creates for its shareholders, its policyholders, and society as a whole," said Bill Pieroni, DXC’s Global AI, Strategy & Growth Executive. Today, Pieroni estimates 70% of those decisions on human judgment rather than structured rules. That judgment has to happen at industrial scale: “For an average carrier, millions of these decisions are made in less than an hour," he said.
@@ -81,33 +49,13 @@ That judgment runs on documents. Submissions and claims arrive by email, fax, pa
 
 Those backlogs carried real cost. Time is one of the key drivers of claim severity: claims that take longer to settle cost more, even adjusted for type. And a mishandled claim is one of only two reasons customers leave a carrier at all, the other being a price increase of more than 10% in a year. For property and casualty carriers, running 1% margins over the long term, neither is affordable. And that workload runs through DXC: carriers worldwide underwrite, service their books, and settle claims on the company's platforms.
 
+Choosing the right Claude model
+
+![Choosing the right Claude model](https://assets.claude.com/7388619b452db0af26c78442a275c86c5ebe3124.jpg)
+
+Learn when to use Haiku, Sonnet, or Opus to get better results and stay inside your rate limit. A practical guide to picking the right Claude model.
+
 ## The solution
-
-Claude Platform
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698f5266ed232fd1354625a6_68c469d18f61fb5c21c81781_og-claude-api.jpeg)
-
-Use the Claude API to create new user experiences, products, and ways to work with the most advanced AI models on the market.
-
-Read more
-
-[Read more](https://claude.com/platform/api)Read more
-
-Claude Platform
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Use the Claude API to create new user experiences, products, and ways to work with the most advanced AI models on the market.
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Claude Platform
-
-Use the Claude API to create new user experiences, products, and ways to work with the most advanced AI models on the market.
 
 ## Reasoning that holds up in an audit
 
@@ -123,21 +71,17 @@ Assure gives that reasoning somewhere to run. Document intelligence reads and st
 
 "Every action is recorded: who decided, what basis, what moment, whether it's a person or the agent," Pieroni said. The Claude-powered agents operate inside set authority levels, and humans own the checkpoints on calls with material, legal, or financial weight, and a regulator can reconstruct any decision end to end: "I need to see every step it took, why it said that." Not every decision needs the same model, either: simple triage runs on lighter tiers, while a hundred-page claim gets routed to a frontier model.
 
-"Claude does a better job at flagging uncertainty and asks when there's uncertainty rather than guessing. That type of behavior is what regulated work like insurance demands."
+Claude Platform
 
-Bill Pieroni
+![Claude Platform](https://assets.claude.com/13caeda2fa5b274f70a676cfe2a8149b865f5e12.jpg)
 
-Global AI, Strategy & Growth Executive, DXC
+Use the Claude API to create new user experiences, products, and ways to work with the most advanced AI models on the market.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[Read more](https://claude.com/platform/api)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+> "Claude does a better job at flagging uncertainty and asks when there's uncertainty rather than guessing. That type of behavior is what regulated work like insurance demands."
 
-[Next](#)Next
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+Bill Pieroni Global AI, Strategy & Growth Executive, DXC
 
 ## The outcome
 
@@ -153,18 +97,10 @@ The hours matter because of who's waiting on them. "These are injured people," P
 
 Regulatory change is getting the same treatment. Across the industry, embedding a new rule has historically taken 12 to 18 months. Claude ingests complex legislation in seconds to minutes, and "stuff that took months now is days," Pieroni said. Speed like that is capacity, and in an industry facing a talent crisis, Pieroni argues carriers "should be clamoring to increase capacity and competency of their workers." His yardstick for where this goes is autonomy. "Right now in the insurance industry, about 1% of decisions are autonomous," he said. "I'm talking no one touches, no one thinks about it. My vision is that it goes to 50%." That would be a fifty-fold jump in a business that makes millions of judgment calls per carrier. And in Pieroni's vision, the friction goes away at the source: regulation itself becomes "living code" that updates itself as the rules change.
 
-"This is making a real difference. These people need this money. They can't wait for it. It's not about compliance. It's about doing the right thing for the insured."
+> "This is making a real difference. These people need this money. They can't wait for it. It's not about compliance. It's about doing the right thing for the insured."
 
-Bill Pieroni
+Bill Pieroni Global AI, Strategy & Growth Executive, DXC
 
-Global AI, Strategy & Growth Executive, DXC
+[![Newfront](https://assets.claude.com/ee4d2ca80e3847343a478b6079f86d87f5b9816b.svg)
 
-## Related stories
-
-[Newfront modernizes insurance experiences with Claude](https://claude.com/customers/newfront)Newfront modernizes insurance experiences with Claude
-
-Newfront modernizes insurance experiences with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/newfront)Customer story
+### Newfront modernizes insurance experiences with Claude](https://claude.com/customers/newfront)

@@ -259,29 +259,9 @@ PDT
 
 ### The Agentic Evolution (AIM102-S)
 
-11:15 am
-
--
-
-1:45 pm
-
-PDT
-
-### The Agentic Evolution (AIM102-S)
-
 Claude is the frontier model behind much of the agentic shift in software development and, now, in enterprise knowledge work. Anthropic's Applied AI team shares what they're seeing on the ground: the capability trends that changed what's possible, the patterns emerging across industries, and what separates the enterprises in production from the ones still piloting.
 
 Room 408A
-
-3:30 pm
-
--
-
-4:00 pm
-
-PDT
-
-### Effective Context Engineering for AI Agents (AIM103-S)
 
 3:30 pm
 

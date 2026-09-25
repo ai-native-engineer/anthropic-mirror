@@ -1,5 +1,7 @@
 <!-- source: https://claude.com/blog -->
 
+Explore here
+
 Thank you! Your submission has been received!
 
 Oops! Something went wrong while submitting the form.
@@ -24,65 +26,17 @@ All
 
 [## Product announcements](https://claude.com/blog-category/announcements)
 
-## Claude in Chrome is generally available
+## Claude Cowork and chat are now one Claude
 
-August 26, 2026
+September 16, 2026
 
-[Read more](https://claude.com/blog/claude-in-chrome-generally-available)Read more
+[Read more](https://claude.com/blog/cowork-is-now-claude)Read more
 
-## Claude gets its own browser in Cowork
+## Claude for Small Business launches new workflows, integrations, and training programs
 
-August 26, 2026
+September 15, 2026
 
-[Read more](https://claude.com/blog/cowork-built-in-browser)Read more
-
-## Claude Code now supports artifacts
-
-June 18, 2026
-
-[Read more](https://claude.com/blog/artifacts-in-claude-code)Read more
-
-## Building intelligent apps for Apple platforms with Claude in the Foundation Models framework
-
-June 8, 2026
-
-[Read more](https://claude.com/blog/claude-for-foundation-models)Read more
-
-## New in Claude Managed Agents: self-hosted sandboxes and MCP tunnels
-
-May 19, 2026
-
-[Read more](https://claude.com/blog/claude-managed-agents-updates)Read more
-
-## New in Claude Managed Agents: dreaming, outcomes, and multiagent orchestration
-
-May 19, 2026
-
-[Read more](https://claude.com/blog/new-in-claude-managed-agents)Read more
-
-## New connectors in Claude for everyday life
-
-April 23, 2026
-
-[Read more](https://claude.com/blog/connectors-for-everyday-life)Read more
-
-## Built-in memory for Claude Managed Agents
-
-April 23, 2026
-
-[Read more](https://claude.com/blog/claude-managed-agents-memory)Read more
-
-## Redesigning Claude Code on desktop for parallel agents
-
-April 14, 2026
-
-[Read more](https://claude.com/blog/claude-code-desktop-redesign)Read more
-
-## Preparing your security program for AI-accelerated offense
-
-April 10, 2026
-
-[Read more](https://claude.com/blog/preparing-your-security-program-for-ai-accelerated-offense)Read more
+[Read more](https://claude.com/blog/claude-for-small-business-launches-new-workflows-integrations-and-training-programs)Read more
 
 ## Claude in Chrome is generally available
 
@@ -132,17 +86,65 @@ April 23, 2026
 
 [Read more](https://claude.com/blog/claude-managed-agents-memory)Read more
 
-## Redesigning Claude Code on desktop for parallel agents
+## Claude Cowork and chat are now one Claude
 
-April 14, 2026
+September 16, 2026
 
-[Read more](https://claude.com/blog/claude-code-desktop-redesign)Read more
+[Read more](https://claude.com/blog/cowork-is-now-claude)Read more
 
-## Preparing your security program for AI-accelerated offense
+## Claude for Small Business launches new workflows, integrations, and training programs
 
-April 10, 2026
+September 15, 2026
 
-[Read more](https://claude.com/blog/preparing-your-security-program-for-ai-accelerated-offense)Read more
+[Read more](https://claude.com/blog/claude-for-small-business-launches-new-workflows-integrations-and-training-programs)Read more
+
+## Claude in Chrome is generally available
+
+August 26, 2026
+
+[Read more](https://claude.com/blog/claude-in-chrome-generally-available)Read more
+
+## Claude gets its own browser in Cowork
+
+August 26, 2026
+
+[Read more](https://claude.com/blog/cowork-built-in-browser)Read more
+
+## Claude Code now supports artifacts
+
+June 18, 2026
+
+[Read more](https://claude.com/blog/artifacts-in-claude-code)Read more
+
+## Building intelligent apps for Apple platforms with Claude in the Foundation Models framework
+
+June 8, 2026
+
+[Read more](https://claude.com/blog/claude-for-foundation-models)Read more
+
+## New in Claude Managed Agents: self-hosted sandboxes and MCP tunnels
+
+May 19, 2026
+
+[Read more](https://claude.com/blog/claude-managed-agents-updates)Read more
+
+## New in Claude Managed Agents: dreaming, outcomes, and multiagent orchestration
+
+May 19, 2026
+
+[Read more](https://claude.com/blog/new-in-claude-managed-agents)Read more
+
+## New connectors in Claude for everyday life
+
+April 23, 2026
+
+[Read more](https://claude.com/blog/connectors-for-everyday-life)Read more
+
+## Built-in memory for Claude Managed Agents
+
+April 23, 2026
+
+[Read more](https://claude.com/blog/claude-managed-agents-memory)Read more
 
 Thank you! Your submission has been received!
 
@@ -156,247 +158,249 @@ Grid
 
 List
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22252eca371ddd7020f_60d57c0d0bf031e140de678692f7c3ef2d885ce3-1000x1000.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22deea97e4a5b5e5739_8d339ae8ecedecc1409db8f5bbb99c958db56946-1000x1000.svg)
 
-Sep 10, 2026
+Sep 24, 2026
 
-T. Rowe Price brings more of Claude to its investment process
-
-T. Rowe Price brings more of Claude to its investment process
-
-September 10, 2026
-
-[T. Rowe Price brings more of Claude to its investment process](https://claude.com/blog/t-rowe-price-brings-more-of-claude-to-its-investment-process)T. Rowe Price brings more of Claude to its investment process
-
-[T. Rowe Price brings more of Claude to its investment process](#)T. Rowe Price brings more of Claude to its investment process
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2222403b092e0358b0e_cd4fd51deacd067d4e30aee4f4b149f6cba1b97b-1000x1000.svg)
-
-Sep 10, 2026
-
-What 1,000 small business owners taught us about AI
-
-Enterprise AI
-
-What 1,000 small business owners taught us about AI
-
-September 10, 2026
-
-[What 1,000 small business owners taught us about AI](https://claude.com/blog/what-1-000-small-business-owners-taught-us-about-ai)What 1,000 small business owners taught us about AI
-
-[What 1,000 small business owners taught us about AI](#)What 1,000 small business owners taught us about AI
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a0112e18cdd7f0b92d19e40_Hand-BuildingBricks.svg)
-
-Sep 8, 2026
-
-Reducing cost and improving performance with Claude Platform
-
-Agents
-
-Reducing cost and improving performance with Claude Platform
-
-September 8, 2026
-
-[Reducing cost and improving performance with Claude Platform](https://claude.com/blog/reducing-cost-and-improving-performance-with-claude-platform)Reducing cost and improving performance with Claude Platform
-
-[Reducing cost and improving performance with Claude Platform](#)Reducing cost and improving performance with Claude Platform
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d222061abf091318fb82_423062049d4676b41d52b16068cbb5e21603190e-1000x1000.svg)
-
-Sep 2, 2026
-
-A guide to the anatomy of effective commerce agents
-
-Agents
-
-A guide to the anatomy of effective commerce agents
-
-September 2, 2026
-
-[A guide to the anatomy of effective commerce agents](https://claude.com/blog/the-anatomy-of-effective-commerce-agents)A guide to the anatomy of effective commerce agents
-
-[A guide to the anatomy of effective commerce agents](#)A guide to the anatomy of effective commerce agents
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d228c83775fcc75f4e6d_74409af25137110ac04cc39e4d5ea0a2fbcea421-1000x1000.svg)
-
-Sep 2, 2026
-
-Building commerce agents with Claude
+Claude Tag now supports personal connectors in channels
 
 Product announcements
 
-Building commerce agents with Claude
+Claude Tag now supports personal connectors in channels
 
-September 2, 2026
+September 24, 2026
 
-[Building commerce agents with Claude](https://claude.com/blog/claude-for-commerce-agents)Building commerce agents with Claude
+[Claude Tag now supports personal connectors in channels](https://claude.com/blog/claude-tag-now-supports-personal-connectors-in-channels)Claude Tag now supports personal connectors in channels
 
-[Building commerce agents with Claude](#)Building commerce agents with Claude
+[Claude Tag now supports personal connectors in channels](#)Claude Tag now supports personal connectors in channels
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/692f783c784823d48ad84175_Object-CodeChatText.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d225e31f7aa22c1f28cb_46e4aa7ea208ed440d5bd9e9e3a0ee66bc336ff1-1000x1000.svg)
 
-Aug 28, 2026
+Sep 24, 2026
 
-How Anthropic employees use Claude Tag
-
-Enterprise AI
-
-How Anthropic employees use Claude Tag
-
-August 28, 2026
-
-[How Anthropic employees use Claude Tag](https://claude.com/blog/how-anthropic-employees-use-claude-tag)How Anthropic employees use Claude Tag
-
-[How Anthropic employees use Claude Tag](#)How Anthropic employees use Claude Tag
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a90479f5433ec75978f1e8a_Object-Apple.svg)
-
-Aug 28, 2026
-
-Claude for Teachers, now available for U.S. K-12 schools and districts
-
-Product announcements
-
-Claude for Teachers, now available for U.S. K-12 schools and districts
-
-August 28, 2026
-
-[Claude for Teachers, now available for U.S. K-12 schools and districts](https://claude.com/blog/claude-for-teachers-now-available-for-schools-and-districts)Claude for Teachers, now available for U.S. K-12 schools and districts
-
-[Claude for Teachers, now available for U.S. K-12 schools and districts](#)Claude for Teachers, now available for U.S. K-12 schools and districts
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d225485fe31f1ed2d9a1_db28a79c9f4492b8471009d4c20e900f234ece48-1000x1000.svg)
-
-Aug 26, 2026
-
-How Warp builds self-improving agents on Claude
-
-Agents
-
-How Warp builds self-improving agents on Claude
-
-August 26, 2026
-
-[How Warp builds self-improving agents on Claude](https://claude.com/blog/how-warp-builds-self-improving-agents-on-claude)How Warp builds self-improving agents on Claude
-
-[How Warp builds self-improving agents on Claude](#)How Warp builds self-improving agents on Claude
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22d0099a66d72e05699_33ddc751e21fb4b116b3f57dd553f0bc55ea09d1-1000x1000.svg)
-
-Aug 26, 2026
-
-Claude in Chrome is generally available
-
-Product announcements
-
-Claude in Chrome is generally available
-
-August 26, 2026
-
-[Claude in Chrome is generally available](https://claude.com/blog/claude-in-chrome-generally-available) Claude in Chrome is generally available
-
-[Claude in Chrome is generally available](#) Claude in Chrome is generally available
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22b8840b2f6f9a40fe0_8925ac952fa2cb8eb5e845b2e44f3e71b33fd695-1000x1000.svg)
-
-Aug 26, 2026
-
-Claude gets its own browser in Cowork
-
-Product announcements
-
-Claude gets its own browser in Cowork
-
-August 26, 2026
-
-[Claude gets its own browser in Cowork](https://claude.com/blog/cowork-built-in-browser)Claude gets its own browser in Cowork
-
-[Claude gets its own browser in Cowork](#)Claude gets its own browser in Cowork
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22727482c9ba6a02e71_1576ae23eaf481f33bd36ab468171cc69d12361a-1000x1000.svg)
-
-Aug 25, 2026
-
-Bain & Company joins the Claude Partner Network as a Global Premier partner
-
-Enterprise AI
-
-Bain & Company joins the Claude Partner Network as a Global Premier partner
-
-August 25, 2026
-
-[Bain & Company joins the Claude Partner Network as a Global Premier partner](https://claude.com/blog/bain-company-joins-the-claude-partner-network-as-a-global-premier-partner)Bain & Company joins the Claude Partner Network as a Global Premier partner
-
-[Bain & Company joins the Claude Partner Network as a Global Premier partner](#)Bain & Company joins the Claude Partner Network as a Global Premier partner
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22562f020146c9ec973_f8f4644253bde2f901550431b871b6dcf91e5d9d-1000x1000.svg)
-
-Aug 25, 2026
-
-Claude's memory works everywhere, and you decide what's in it
-
-Product announcements
-
-Claude's memory works everywhere, and you decide what's in it
-
-August 25, 2026
-
-[Claude's memory works everywhere, and you decide what's in it](https://claude.com/blog/claudes-memory-works-everywhere-and-you-decide-whats-in-it)Claude's memory works everywhere, and you decide what's in it
-
-[Claude's memory works everywhere, and you decide what's in it](#)Claude's memory works everywhere, and you decide what's in it
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d226ca443e2e05990c00_83d7d2fe412ceb4dfe627f0d5f3d64aff1a3f5db-1000x1000.svg)
-
-Aug 24, 2026
-
-How an Anthropic field marketer uses Claude Code to send weekly personalized updates to every sales rep
+Coding sessions are longer and use more context. Claude Opus 5.5 is built with that in mind.
 
 Claude Code
 
-How an Anthropic field marketer uses Claude Code to send weekly personalized updates to every sales rep
+Coding sessions are longer and use more context. Claude Opus 5.5 is built with that in mind.
 
-August 24, 2026
+September 24, 2026
 
-[How an Anthropic field marketer uses Claude Code to send weekly personalized updates to every sales rep](https://claude.com/blog/how-an-anthropic-field-marketer-uses-claude-code-to-send-weekly-personalized-updates-to-every-sales-rep)How an Anthropic field marketer uses Claude Code to send weekly personalized updates to every sales rep
+[Coding sessions are longer and use more context. Claude Opus 5.5 is built with that in mind.](https://claude.com/blog/claude-opus-5-5-built-for-coding-sessions-that-use-more-context)Coding sessions are longer and use more context. Claude Opus 5.5 is built with that in mind.
 
-[How an Anthropic field marketer uses Claude Code to send weekly personalized updates to every sales rep](#)How an Anthropic field marketer uses Claude Code to send weekly personalized updates to every sales rep
+[Coding sessions are longer and use more context. Claude Opus 5.5 is built with that in mind.](#)Coding sessions are longer and use more context. Claude Opus 5.5 is built with that in mind.
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2308749b4e883cc44b7_e029027e0b3beeb5b629bd4a26143597e7775b38-1000x1000.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2287f90c57df4c9dd97_c1ef4c0b6882dfe985555b52999d370ea88a3c50-1000x1000.svg)
 
-Aug 21, 2026
+Sep 23, 2026
 
-Bringing the cybersecurity capabilities of Claude Mythos 5 to more defenders
-
-Product announcements
-
-Bringing the cybersecurity capabilities of Claude Mythos 5 to more defenders
-
-August 21, 2026
-
-[Bringing the cybersecurity capabilities of Claude Mythos 5 to more defenders](https://claude.com/blog/bringing-claude-mythos-5-to-more-defenders)Bringing the cybersecurity capabilities of Claude Mythos 5 to more defenders
-
-[Bringing the cybersecurity capabilities of Claude Mythos 5 to more defenders](#)Bringing the cybersecurity capabilities of Claude Mythos 5 to more defenders
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d222061abf091318fb82_423062049d4676b41d52b16068cbb5e21603190e-1000x1000.svg)
-
-Aug 21, 2026
-
-The AI-Native SDLC playbook
+How CodeRabbit, Power Digital, and ThoughtSpot scale with Snowflake and Vercel on Claude Marketplace
 
 Enterprise AI
 
-The AI-Native SDLC playbook
+How CodeRabbit, Power Digital, and ThoughtSpot scale with Snowflake and Vercel on Claude Marketplace
 
-August 21, 2026
+September 23, 2026
 
-[The AI-Native SDLC playbook](https://claude.com/blog/the-ai-native-sdlc-playbook)The AI-Native SDLC playbook
+[How CodeRabbit, Power Digital, and ThoughtSpot scale with Snowflake and Vercel on Claude Marketplace](https://claude.com/blog/how-coderabbit-power-digital-and-thoughtspot-scale-with-snowflake-and-vercel-on-claude-marketplace)How CodeRabbit, Power Digital, and ThoughtSpot scale with Snowflake and Vercel on Claude Marketplace
 
-[The AI-Native SDLC playbook](#)The AI-Native SDLC playbook
+[How CodeRabbit, Power Digital, and ThoughtSpot scale with Snowflake and Vercel on Claude Marketplace](#)How CodeRabbit, Power Digital, and ThoughtSpot scale with Snowflake and Vercel on Claude Marketplace
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d229a7aa26ac1b6e96c2_a62b6eb169818f14c35b7a192af269e283f8fa93-1000x1000.svg)
+
+Sep 23, 2026
+
+How to prepare for AI-driven code modernization projects
+
+Enterprise AI
+
+How to prepare for AI-driven code modernization projects
+
+September 23, 2026
+
+[How to prepare for AI-driven code modernization projects](https://claude.com/blog/how-to-prepare-for-ai-driven-code-modernization-projects) How to prepare for AI-driven code modernization projects
+
+[How to prepare for AI-driven code modernization projects](#) How to prepare for AI-driven code modernization projects
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22930b7622d6096c33d_4d663bd87c391c144b9bca513b3849ccfa00a3b9-1000x1000.svg)
+
+Sep 23, 2026
+
+Claude Marketplace: one place to discover plugins, agents, and services from our partners
+
+Product announcements
+
+Claude Marketplace: one place to discover plugins, agents, and services from our partners
+
+September 23, 2026
+
+[Claude Marketplace: one place to discover plugins, agents, and services from our partners](https://claude.com/blog/claude-marketplace)Claude Marketplace: one place to discover plugins, agents, and services from our partners
+
+[Claude Marketplace: one place to discover plugins, agents, and services from our partners](#)Claude Marketplace: one place to discover plugins, agents, and services from our partners
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2279047e82efc257633_6c7219042e95bfef1a126ad5ee8b2c7def8b8b0a-1000x1000.svg)
+
+Sep 22, 2026
+
+What a task costs on Opus 5.5
+
+Claude Code
+
+What a task costs on Opus 5.5
+
+September 22, 2026
+
+[What a task costs on Opus 5.5](https://claude.com/blog/what-a-task-costs-on-opus-5-5)What a task costs on Opus 5.5
+
+[What a task costs on Opus 5.5](#)What a task costs on Opus 5.5
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2287f90c57df4c9dd97_c1ef4c0b6882dfe985555b52999d370ea88a3c50-1000x1000.svg)
+
+Sep 17, 2026
+
+Working at the frontier: How Balyasny Asset Management evaluates and governs Claude Fable 5
+
+Enterprise AI
+
+Working at the frontier: How Balyasny Asset Management evaluates and governs Claude Fable 5
+
+September 17, 2026
+
+[Working at the frontier: How Balyasny Asset Management evaluates and governs Claude Fable 5](https://claude.com/blog/working-at-the-frontier-how-balyasny-asset-management-evaluates-and-governs-claude-fable-5)Working at the frontier: How Balyasny Asset Management evaluates and governs Claude Fable 5
+
+[Working at the frontier: How Balyasny Asset Management evaluates and governs Claude Fable 5](#)Working at the frontier: How Balyasny Asset Management evaluates and governs Claude Fable 5
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a42c9bc20d2072552ef256a_Node-EnterpriseAgents.svg)
+
+Sep 17, 2026
+
+Projects redesigned: from folder to conversation
+
+Product announcements
+
+Projects redesigned: from folder to conversation
+
+September 17, 2026
+
+[Projects redesigned: from folder to conversation](https://claude.com/blog/projects-redesigned)Projects redesigned: from folder to conversation
+
+[Projects redesigned: from folder to conversation](#)Projects redesigned: from folder to conversation
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6aaaa060d1aec4a549c537ef_Object-Easel.svg)
+
+Sep 16, 2026
+
+Claude Cowork and chat are now one Claude
+
+Product announcements
+
+Claude Cowork and chat are now one Claude
+
+September 16, 2026
+
+[Claude Cowork and chat are now one Claude](https://claude.com/blog/cowork-is-now-claude)Claude Cowork and chat are now one Claude
+
+[Claude Cowork and chat are now one Claude](#)Claude Cowork and chat are now one Claude
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2279047e82efc257633_6c7219042e95bfef1a126ad5ee8b2c7def8b8b0a-1000x1000.svg)
+
+Sep 15, 2026
+
+Bringing Salesforce into Claude
+
+Enterprise AI
+
+Bringing Salesforce into Claude
+
+September 15, 2026
+
+[Bringing Salesforce into Claude](https://claude.com/blog/salesforce-in-claude)Bringing Salesforce into Claude
+
+[Bringing Salesforce into Claude](#)Bringing Salesforce into Claude
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2279047e82efc257633_6c7219042e95bfef1a126ad5ee8b2c7def8b8b0a-1000x1000.svg)
+
+Sep 15, 2026
+
+Building an AI-native revenue organization
+
+Enterprise AI
+
+Building an AI-native revenue organization
+
+September 15, 2026
+
+[Building an AI-native revenue organization](https://claude.com/blog/building-an-ai-native-revenue-organization)Building an AI-native revenue organization
+
+[Building an AI-native revenue organization](#)Building an AI-native revenue organization
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6aa82dfc4ca89952d04c3873_Object-Store.svg)
+
+Sep 15, 2026
+
+Claude for Small Business launches new workflows, integrations, and training programs
+
+Product announcements
+
+Claude for Small Business launches new workflows, integrations, and training programs
+
+September 15, 2026
+
+[Claude for Small Business launches new workflows, integrations, and training programs](https://claude.com/blog/claude-for-small-business-launches-new-workflows-integrations-and-training-programs)Claude for Small Business launches new workflows, integrations, and training programs
+
+[Claude for Small Business launches new workflows, integrations, and training programs](#)Claude for Small Business launches new workflows, integrations, and training programs
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d228e9c51800dde13958_6507d83d1197bb8630131d363fb8bea838d79ca7-1000x1000.svg)
+
+Sep 14, 2026
+
+Agentic coding is straining CI. Here’s how we scaled test impact analysis at Anthropic
+
+Claude Code
+
+Agentic coding is straining CI. Here’s how we scaled test impact analysis at Anthropic
+
+September 14, 2026
+
+[Agentic coding is straining CI. Here’s how we scaled test impact analysis at Anthropic](https://claude.com/blog/agentic-coding-is-straining-ci-heres-how-we-scaled-test-impact-analysis-at-anthropic)Agentic coding is straining CI. Here’s how we scaled test impact analysis at Anthropic
+
+[Agentic coding is straining CI. Here’s how we scaled test impact analysis at Anthropic](#)Agentic coding is straining CI. Here’s how we scaled test impact analysis at Anthropic
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2319ef2161fcf9ba649_ddad92700787ec1bf1d80359c0c5e6ca305682b0-1000x1000.svg)
+
+Sep 14, 2026
+
+Claude for Financial Advisors
+
+Product announcements
+
+Claude for Financial Advisors
+
+September 14, 2026
+
+[Claude for Financial Advisors](https://claude.com/blog/claude-for-financial-advisors)Claude for Financial Advisors
+
+[Claude for Financial Advisors](#)Claude for Financial Advisors
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22deea97e4a5b5e5739_8d339ae8ecedecc1409db8f5bbb99c958db56946-1000x1000.svg)
+
+Sep 14, 2026
+
+How healthcare organizations use Claude Tag
+
+Enterprise AI
+
+How healthcare organizations use Claude Tag
+
+September 14, 2026
+
+[How healthcare organizations use Claude Tag](https://claude.com/blog/how-healthcare-organizations-use-claude-tag)How healthcare organizations use Claude Tag
+
+[How healthcare organizations use Claude Tag](#)How healthcare organizations use Claude Tag
 
 [View more](https://claude.com/blog?b7eea976_page=2)
 
-1 / 16
+1 / 17
 
 Category
 
@@ -404,71 +408,7 @@ Product
 
 Usecase
 
-### T. Rowe Price brings more of Claude to its investment process
-
-Category
-
-No items found.
-
-Product
-
-Usecase
-
-September 10, 2026
-
-[T. Rowe Price brings more of Claude to its investment process](https://claude.com/blog/t-rowe-price-brings-more-of-claude-to-its-investment-process)T. Rowe Price brings more of Claude to its investment process
-
-[T. Rowe Price brings more of Claude to its investment process](#)T. Rowe Price brings more of Claude to its investment process
-
-### What 1,000 small business owners taught us about AI
-
-Category
-
-Enterprise AI
-
-Product
-
-Usecase
-
-September 10, 2026
-
-[What 1,000 small business owners taught us about AI](https://claude.com/blog/what-1-000-small-business-owners-taught-us-about-ai)What 1,000 small business owners taught us about AI
-
-[What 1,000 small business owners taught us about AI](#)What 1,000 small business owners taught us about AI
-
-### Reducing cost and improving performance with Claude Platform
-
-Category
-
-Agents
-
-Product
-
-Usecase
-
-September 8, 2026
-
-[Reducing cost and improving performance with Claude Platform](https://claude.com/blog/reducing-cost-and-improving-performance-with-claude-platform)Reducing cost and improving performance with Claude Platform
-
-[Reducing cost and improving performance with Claude Platform](#)Reducing cost and improving performance with Claude Platform
-
-### A guide to the anatomy of effective commerce agents
-
-Category
-
-Agents
-
-Product
-
-Usecase
-
-September 2, 2026
-
-[A guide to the anatomy of effective commerce agents](https://claude.com/blog/the-anatomy-of-effective-commerce-agents)A guide to the anatomy of effective commerce agents
-
-[A guide to the anatomy of effective commerce agents](#)A guide to the anatomy of effective commerce agents
-
-### Building commerce agents with Claude
+### Claude Tag now supports personal connectors in channels
 
 Category
 
@@ -478,125 +418,13 @@ Product
 
 Usecase
 
-September 2, 2026
+September 24, 2026
 
-[Building commerce agents with Claude](https://claude.com/blog/claude-for-commerce-agents)Building commerce agents with Claude
+[Claude Tag now supports personal connectors in channels](https://claude.com/blog/claude-tag-now-supports-personal-connectors-in-channels)Claude Tag now supports personal connectors in channels
 
-[Building commerce agents with Claude](#)Building commerce agents with Claude
+[Claude Tag now supports personal connectors in channels](#)Claude Tag now supports personal connectors in channels
 
-### How Anthropic employees use Claude Tag
-
-Category
-
-Enterprise AI
-
-Product
-
-Usecase
-
-August 28, 2026
-
-[How Anthropic employees use Claude Tag](https://claude.com/blog/how-anthropic-employees-use-claude-tag)How Anthropic employees use Claude Tag
-
-[How Anthropic employees use Claude Tag](#)How Anthropic employees use Claude Tag
-
-### Claude for Teachers, now available for U.S. K-12 schools and districts
-
-Category
-
-Product announcements
-
-Product
-
-Usecase
-
-August 28, 2026
-
-[Claude for Teachers, now available for U.S. K-12 schools and districts](https://claude.com/blog/claude-for-teachers-now-available-for-schools-and-districts)Claude for Teachers, now available for U.S. K-12 schools and districts
-
-[Claude for Teachers, now available for U.S. K-12 schools and districts](#)Claude for Teachers, now available for U.S. K-12 schools and districts
-
-### How Warp builds self-improving agents on Claude
-
-Category
-
-Agents
-
-Product
-
-Usecase
-
-August 26, 2026
-
-[How Warp builds self-improving agents on Claude](https://claude.com/blog/how-warp-builds-self-improving-agents-on-claude)How Warp builds self-improving agents on Claude
-
-[How Warp builds self-improving agents on Claude](#)How Warp builds self-improving agents on Claude
-
-### Claude in Chrome is generally available
-
-Category
-
-Product announcements
-
-Product
-
-Usecase
-
-August 26, 2026
-
-[Claude in Chrome is generally available](https://claude.com/blog/claude-in-chrome-generally-available) Claude in Chrome is generally available
-
-[Claude in Chrome is generally available](#) Claude in Chrome is generally available
-
-### Claude gets its own browser in Cowork
-
-Category
-
-Product announcements
-
-Product
-
-Usecase
-
-August 26, 2026
-
-[Claude gets its own browser in Cowork](https://claude.com/blog/cowork-built-in-browser)Claude gets its own browser in Cowork
-
-[Claude gets its own browser in Cowork](#)Claude gets its own browser in Cowork
-
-### Bain & Company joins the Claude Partner Network as a Global Premier partner
-
-Category
-
-Enterprise AI
-
-Product
-
-Usecase
-
-August 25, 2026
-
-[Bain & Company joins the Claude Partner Network as a Global Premier partner](https://claude.com/blog/bain-company-joins-the-claude-partner-network-as-a-global-premier-partner)Bain & Company joins the Claude Partner Network as a Global Premier partner
-
-[Bain & Company joins the Claude Partner Network as a Global Premier partner](#)Bain & Company joins the Claude Partner Network as a Global Premier partner
-
-### Claude's memory works everywhere, and you decide what's in it
-
-Category
-
-Product announcements
-
-Product
-
-Usecase
-
-August 25, 2026
-
-[Claude's memory works everywhere, and you decide what's in it](https://claude.com/blog/claudes-memory-works-everywhere-and-you-decide-whats-in-it)Claude's memory works everywhere, and you decide what's in it
-
-[Claude's memory works everywhere, and you decide what's in it](#)Claude's memory works everywhere, and you decide what's in it
-
-### How an Anthropic field marketer uses Claude Code to send weekly personalized updates to every sales rep
+### Coding sessions are longer and use more context. Claude Opus 5.5 is built with that in mind.
 
 Category
 
@@ -606,29 +434,13 @@ Product
 
 Usecase
 
-August 24, 2026
+September 24, 2026
 
-[How an Anthropic field marketer uses Claude Code to send weekly personalized updates to every sales rep](https://claude.com/blog/how-an-anthropic-field-marketer-uses-claude-code-to-send-weekly-personalized-updates-to-every-sales-rep)How an Anthropic field marketer uses Claude Code to send weekly personalized updates to every sales rep
+[Coding sessions are longer and use more context. Claude Opus 5.5 is built with that in mind.](https://claude.com/blog/claude-opus-5-5-built-for-coding-sessions-that-use-more-context)Coding sessions are longer and use more context. Claude Opus 5.5 is built with that in mind.
 
-[How an Anthropic field marketer uses Claude Code to send weekly personalized updates to every sales rep](#)How an Anthropic field marketer uses Claude Code to send weekly personalized updates to every sales rep
+[Coding sessions are longer and use more context. Claude Opus 5.5 is built with that in mind.](#)Coding sessions are longer and use more context. Claude Opus 5.5 is built with that in mind.
 
-### Bringing the cybersecurity capabilities of Claude Mythos 5 to more defenders
-
-Category
-
-Product announcements
-
-Product
-
-Usecase
-
-August 21, 2026
-
-[Bringing the cybersecurity capabilities of Claude Mythos 5 to more defenders](https://claude.com/blog/bringing-claude-mythos-5-to-more-defenders)Bringing the cybersecurity capabilities of Claude Mythos 5 to more defenders
-
-[Bringing the cybersecurity capabilities of Claude Mythos 5 to more defenders](#)Bringing the cybersecurity capabilities of Claude Mythos 5 to more defenders
-
-### The AI-Native SDLC playbook
+### How CodeRabbit, Power Digital, and ThoughtSpot scale with Snowflake and Vercel on Claude Marketplace
 
 Category
 
@@ -638,15 +450,207 @@ Product
 
 Usecase
 
-August 21, 2026
+September 23, 2026
 
-[The AI-Native SDLC playbook](https://claude.com/blog/the-ai-native-sdlc-playbook)The AI-Native SDLC playbook
+[How CodeRabbit, Power Digital, and ThoughtSpot scale with Snowflake and Vercel on Claude Marketplace](https://claude.com/blog/how-coderabbit-power-digital-and-thoughtspot-scale-with-snowflake-and-vercel-on-claude-marketplace)How CodeRabbit, Power Digital, and ThoughtSpot scale with Snowflake and Vercel on Claude Marketplace
 
-[The AI-Native SDLC playbook](#)The AI-Native SDLC playbook
+[How CodeRabbit, Power Digital, and ThoughtSpot scale with Snowflake and Vercel on Claude Marketplace](#)How CodeRabbit, Power Digital, and ThoughtSpot scale with Snowflake and Vercel on Claude Marketplace
+
+### How to prepare for AI-driven code modernization projects
+
+Category
+
+Enterprise AI
+
+Product
+
+Usecase
+
+September 23, 2026
+
+[How to prepare for AI-driven code modernization projects](https://claude.com/blog/how-to-prepare-for-ai-driven-code-modernization-projects) How to prepare for AI-driven code modernization projects
+
+[How to prepare for AI-driven code modernization projects](#) How to prepare for AI-driven code modernization projects
+
+### Claude Marketplace: one place to discover plugins, agents, and services from our partners
+
+Category
+
+Product announcements
+
+Product
+
+Usecase
+
+September 23, 2026
+
+[Claude Marketplace: one place to discover plugins, agents, and services from our partners](https://claude.com/blog/claude-marketplace)Claude Marketplace: one place to discover plugins, agents, and services from our partners
+
+[Claude Marketplace: one place to discover plugins, agents, and services from our partners](#)Claude Marketplace: one place to discover plugins, agents, and services from our partners
+
+### What a task costs on Opus 5.5
+
+Category
+
+Claude Code
+
+Product
+
+Usecase
+
+September 22, 2026
+
+[What a task costs on Opus 5.5](https://claude.com/blog/what-a-task-costs-on-opus-5-5)What a task costs on Opus 5.5
+
+[What a task costs on Opus 5.5](#)What a task costs on Opus 5.5
+
+### Working at the frontier: How Balyasny Asset Management evaluates and governs Claude Fable 5
+
+Category
+
+Enterprise AI
+
+Product
+
+Usecase
+
+September 17, 2026
+
+[Working at the frontier: How Balyasny Asset Management evaluates and governs Claude Fable 5](https://claude.com/blog/working-at-the-frontier-how-balyasny-asset-management-evaluates-and-governs-claude-fable-5)Working at the frontier: How Balyasny Asset Management evaluates and governs Claude Fable 5
+
+[Working at the frontier: How Balyasny Asset Management evaluates and governs Claude Fable 5](#)Working at the frontier: How Balyasny Asset Management evaluates and governs Claude Fable 5
+
+### Projects redesigned: from folder to conversation
+
+Category
+
+Product announcements
+
+Product
+
+Usecase
+
+September 17, 2026
+
+[Projects redesigned: from folder to conversation](https://claude.com/blog/projects-redesigned)Projects redesigned: from folder to conversation
+
+[Projects redesigned: from folder to conversation](#)Projects redesigned: from folder to conversation
+
+### Claude Cowork and chat are now one Claude
+
+Category
+
+Product announcements
+
+Product
+
+Usecase
+
+September 16, 2026
+
+[Claude Cowork and chat are now one Claude](https://claude.com/blog/cowork-is-now-claude)Claude Cowork and chat are now one Claude
+
+[Claude Cowork and chat are now one Claude](#)Claude Cowork and chat are now one Claude
+
+### Bringing Salesforce into Claude
+
+Category
+
+Enterprise AI
+
+Product
+
+Usecase
+
+September 15, 2026
+
+[Bringing Salesforce into Claude](https://claude.com/blog/salesforce-in-claude)Bringing Salesforce into Claude
+
+[Bringing Salesforce into Claude](#)Bringing Salesforce into Claude
+
+### Building an AI-native revenue organization
+
+Category
+
+Enterprise AI
+
+Product
+
+Usecase
+
+September 15, 2026
+
+[Building an AI-native revenue organization](https://claude.com/blog/building-an-ai-native-revenue-organization)Building an AI-native revenue organization
+
+[Building an AI-native revenue organization](#)Building an AI-native revenue organization
+
+### Claude for Small Business launches new workflows, integrations, and training programs
+
+Category
+
+Product announcements
+
+Product
+
+Usecase
+
+September 15, 2026
+
+[Claude for Small Business launches new workflows, integrations, and training programs](https://claude.com/blog/claude-for-small-business-launches-new-workflows-integrations-and-training-programs)Claude for Small Business launches new workflows, integrations, and training programs
+
+[Claude for Small Business launches new workflows, integrations, and training programs](#)Claude for Small Business launches new workflows, integrations, and training programs
+
+### Agentic coding is straining CI. Here’s how we scaled test impact analysis at Anthropic
+
+Category
+
+Claude Code
+
+Product
+
+Usecase
+
+September 14, 2026
+
+[Agentic coding is straining CI. Here’s how we scaled test impact analysis at Anthropic](https://claude.com/blog/agentic-coding-is-straining-ci-heres-how-we-scaled-test-impact-analysis-at-anthropic)Agentic coding is straining CI. Here’s how we scaled test impact analysis at Anthropic
+
+[Agentic coding is straining CI. Here’s how we scaled test impact analysis at Anthropic](#)Agentic coding is straining CI. Here’s how we scaled test impact analysis at Anthropic
+
+### Claude for Financial Advisors
+
+Category
+
+Product announcements
+
+Product
+
+Usecase
+
+September 14, 2026
+
+[Claude for Financial Advisors](https://claude.com/blog/claude-for-financial-advisors)Claude for Financial Advisors
+
+[Claude for Financial Advisors](#)Claude for Financial Advisors
+
+### How healthcare organizations use Claude Tag
+
+Category
+
+Enterprise AI
+
+Product
+
+Usecase
+
+September 14, 2026
+
+[How healthcare organizations use Claude Tag](https://claude.com/blog/how-healthcare-organizations-use-claude-tag)How healthcare organizations use Claude Tag
+
+[How healthcare organizations use Claude Tag](#)How healthcare organizations use Claude Tag
 
 [View more](https://claude.com/blog?d7430fcd_page=2)
 
-1 / 16
+1 / 17
 
 No posts for those filters
 

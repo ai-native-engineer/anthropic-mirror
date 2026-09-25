@@ -6,15 +6,13 @@ Using AI to increase the pace of scientific progress is a core part of Anthropic
 
 Science
 
-## Formalizing Fermat's Last Theorem
+## How Claude is uplifting biomolecular modeling
 
-Claude produced the first complete computer-checked proof of Fermat's Last Theorem. It worked largely autonomously over 11 days, writing the proof in the Lean programming language. We describe how the formalization was done and share some thoughts about what this work could mean for research mathematics.
+We're sharing how Claude made the open-source models that scientists use to predict and design biomolecules faster and more memory-efficient. Claude optimized more than 30 of these models in just under four weeks, speeding them up roughly 4x on average. It also created a low-memory mode that enables the accurate prediction of biomolecular systems larger than 10,000 tokens (amino acids, nucleotides, and atoms from small molecules and ions) on a single NVIDIA GPU node.
 
-[Read more](https://www.anthropic.com/research/formalizing-fermats-last-theorem)
+[Read more](https://www.anthropic.com/research/claude-uplifts-biomolecular-modeling)
 
-[](https://cdn.sanity.io/files/4zrzovbb/website/6d5e1a90507ea4171510b907134139bf716b7d15.mp4)
-
-Time progression of FLT formalization
+![How Claude is uplifting biomolecular modeling](https://www-cdn.anthropic.com/images/4zrzovbb/website/a65d1913ec56de3b90beadf1be2609b03898b42d-3800x1522.png)
 
 ## Publications
 
@@ -22,6 +20,9 @@ Search
 
 DateCategoryTitle
 
+* [Sep 17, 2026Science
+
+  How Claude is uplifting biomolecular modeling](https://www.anthropic.com/research/claude-uplifts-biomolecular-modeling)
 * [Sep 4, 2026Science
 
   Formalizing Fermat's Last Theorem](https://www.anthropic.com/research/formalizing-fermats-last-theorem)

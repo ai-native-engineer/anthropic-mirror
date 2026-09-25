@@ -1,14 +1,16 @@
 <!-- source: https://claude.com/solutions/financial-services -->
 
+Explore here
+
 Latest news
 
 [Next](#)Next
 
-New finance agent templates, expanded connectors, and Microsoft add-ins
+Introducing Claude for financial advisors
 
 Learn more
 
-[Learn more](https://anthropic.com/news/finance-agents)Learn more
+[Learn more](https://claude.com/blog/claude-for-financial-advisors)Learn more
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/68c469d1859e3e7ecf6c2310_og-claude-finance.jpg)
 
@@ -16,7 +18,7 @@ Learn more
 
 ## Your financial competitive edge, from signal to decision
 
-Claude helps leading financial institutions across banking, insurance, asset management, and fintech improve how they serve markets and manage risk.
+Claude helps leading financial institutions across banking, insurance, asset and wealth management, and fintech improve how they serve clients and markets and manage risk.
 
 Contact sales
 
@@ -29,6 +31,30 @@ Try Claude
 [Play video](#)Play video
 
 [](https://assets.claude.ai/brand/videos/fsi-thumbnail.webm)
+
+![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6aa315b9e7fcd973a909ade2_blackrock-logo.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6aa315bcd7a3ce0ddf2fb74f_blackrock-logo-dark.svg)
+
+“Advisors are navigating increasingly complex client needs while facing an accelerating pace of change across markets and technology. Our work with Anthropic is an important step in our broader effort to bring BlackRock’s portfolio intelligence and asset allocation expertise to more advisors to help them scale their business and build better portfolios. By making our institutional-quality portfolio analytics more accessible, we are helping more advisors leverage our portfolio intelligence so they can spend more time focused on client relationships.”
+
+Jaime Magyera, Head of US Wealth & Retirement Businesses
+
+![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6aa80bc46ca18e7dcce3c6ac_mercer-logo.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6aa80bc9842d572fb54eb053_mercer-logo-dark.svg)
+
+“Anthropic builds AI aligned with human values. Mercer Advisors builds family offices aligned with client interests. That shared obsession is core to both firms and anchors our partnership. Claude helps our teams to work seamlessly across clients' financial lives, while judgment and accountability stay with the advisor. That is how AI should work in any profession built on trust.”
+
+Daniel Gourvitch, President
+
+![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6aa80c3d6c72a469ddbac7b1_rockefeller-logo.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6aa80c4182205ec13a310ae5_rockerfeller-logo-dark.svg)
+
+“We are pleased to see Anthropic's continued investment in capabilities tailored to the unique needs of financial advisors. Our collaboration is rooted in a shared belief that technology should support advisors, not replace them, helping them navigate complexity and more efficiently serve clients while keeping human judgment and discretion at the forefront.”
+
+Ashley McCarthy, Chief Operating Officer & Counsel-Managing Director
+
+![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6aa316faab4529cd05ed45e1_charlesschwab-logo.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6aa3162539b7b20d1865420e_charlesschwab-logo-dark.svg)
+
+“The future of advisor technology will be defined by how well firms can connect trusted data, powerful intelligence, and everyday workflows. Our collaboration with Anthropic reflects Schwab's commitment to helping registered investment advisors (RIAs) leverage innovation within the tools they already use, making it easier to serve clients, scale their practices, and grow with confidence."
+
+Jon Beatty, Head of Schwab Advisor Services
 
 ![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f8f2c296e72da5d0c16c64_walleye-capital-light.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f8f2c707f624aa6506e323_walleye-capital-dark.svg)
 
@@ -165,6 +191,76 @@ Ron Lefferts, Co-head, Data and Analytics
 0/5
 
 [Next](#)Next
+
+NEW: Claude for financial advisors
+
+## Claude does the heavy lifting, you give the advice
+
+Claude works across the systems your advisory team runs on, so your time goes to clients.
+
+Contact sales
+
+[Contact sales](https://forms.gle/oyQLyXe7x8zzRuGv7)Contact sales
+
+### Connect your wealth stack
+
+Claude connects to your custodian, portfolio, planning and CRM systems, plus the tools you use to communicate and sign.
+
+Browse connectors
+
+[Browse connectors](https://claude.com/connectors)Browse connectors
+
+### Ready-to-run advisor workflows
+
+Use the plugin to tailor Claude to advisor workflows like client onboarding, meeting prep and follow-up, account opening, portfolio reviews, proposals, and compliance reviews, all with review steps and an audit trail built in.
+
+Install the plugin
+
+[Install the plugin](https://claude.com/plugins)Install the plugin
+
+### Built for how RIAs run
+
+Claude comes configured for an independent practice: the connections, workflows and approval steps a firm needs from day one, with a guided path to get every advisor on it.
+
+Learn more
+
+[Learn more](https://claude.com/blog/claude-for-financial-advisors)Learn more
+
+[Play video](#)Play video
+
+![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6aa81431e81270e6616901cb_financial-advisors-thumbnail2.png)
+
+## Works with
+
+![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6aa3138c910a76dc398014d2_addepar-logo.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6aa3138fa165bc892eaae6d2_addepar-logo-dark.svg)
+
+![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6aa315b9e7fcd973a909ade2_blackrock-logo.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6aa315bcd7a3ce0ddf2fb74f_blackrock-logo-dark.svg)
+
+![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5a8c287936531790c85c4_box_light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5a8bdc1ea299a1a768655_box_dark.svg)
+
+![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6aa316faab4529cd05ed45e1_charlesschwab-logo.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6aa3162539b7b20d1865420e_charlesschwab-logo-dark.svg)
+
+![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a0613394e10ec17042c9c29_Docusign_light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a0613284dee464669df3007_Docusign_dark.svg)
+
+![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6aa31729cf819cb44f55292d_envestnet-logo.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6aa3172c8eb6c2072faae6d3_envestnet-logo-dark.svg)
+
+![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6aa317571d6f297f40dc0f80_icapital-logo.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6aa3175a3bb901681f839d27_icapital-logo-dark.svg)
+
+![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68f01fb569d81fc2c3f1fc7b_logo_microsoft-light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68f01fbe408e45789ed81429_logo_microsoft-dark.svg)
+
+![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6aa3177b28f5d225d96430da_orion-logo.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6aa3177efece8be7ffbaafb9_orion-logo-dark.svg)
+
+![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6aa3179a7996059ba4d710be_wealthbox-logo.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6aa3179d75c36ce1336ae1ad_wealthbox-logo-dark.svg)
+
+![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6aa317ba607c3d6bbb563931_wealthcom-logo.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6aa317ca7763a8370926a462_wealthcom-logo-dark.svg)
+
+Inside Claude for financial advisors: a day in the life
+
+A walkthrough of the connectors and advisor workflows from the team that built them.
+
+Watch now
+
+[Watch now](https://www.anthropic.com/webinars/inside-claude-for-financial-advisors)Watch now
 
 ## Built for finance
 
@@ -388,8 +484,6 @@ Learn more
 
 ![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69fa0070228e4b940874d54c_thirdbridge-light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69fa0074fc0a7399ac3131b2_thirdbridge-dark.svg)
 
-![logo](https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg)![logo](https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg)
-
 ![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5aa172e9b175c9be9f023_daloopa_light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5aa1ea594b265ee7cafe3_daloopa_dark.svg)
 
 ![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5aa2faa897b0e63d332ef_databrick_light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5aa27a195c4190413c57a_databrick_dark.svg)
@@ -438,25 +532,9 @@ Try Claude
 
 [Try Claude](https://claude.ai)Try Claude
 
-[IG Group boosts productivity and saves operational costs with Claude for Work](https://claude.com/customers/ig-group)IG Group boosts productivity and saves operational costs with Claude for Work
+[Claude for financial services plugins](https://github.com/anthropics/financial-services)Claude for financial services plugins
 
-IG Group boosts productivity and saves operational costs with Claude for Work
-
-Case study
-
-[Case study](https://claude.com/customers/ig-group)Case study
-
-[Transforming financial analysis at scale: How BCI uses Claude’s financial analysis solution](https://www.anthropic.com/webinars/bci-claude-financial-analysis)Transforming financial analysis at scale: How BCI uses Claude’s financial analysis solution
-
-Transforming financial analysis at scale: How BCI uses Claude’s financial analysis solution
-
-Webinar
-
-[Webinar](https://www.anthropic.com/webinars/bci-claude-financial-analysis)Webinar
-
-[Claude for Financial Services Plugins](https://github.com/anthropics/financial-services)Claude for Financial Services Plugins
-
-Claude for Financial Services Plugins
+Claude for financial services plugins
 
 Resource
 

@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/ai-fluency-for-creative-work/course-quiz -->
 
-Quiz 1 of 1 · AI Fluency for Creative WorkCourse quiz
+Quiz 1 of 1 · AI Fluency for creative workCourse quiz
 
-3. /[AI Fluency for Creative Work](https://academy.claude.com/courses/ai-fluency-for-creative-work)
+3. /[AI Fluency for creative work](https://academy.claude.com/courses/ai-fluency-for-creative-work)
 
-[AI Fluency for Creative Work](https://academy.claude.com/courses/ai-fluency-for-creative-work)
+[AI Fluency for creative work](https://academy.claude.com/courses/ai-fluency-for-creative-work)
 
 # Course quiz
 
@@ -12,7 +12,7 @@ Quiz6 min
 
 [Previous lessonPutting it all together](https://academy.claude.com/courses/ai-fluency-for-creative-work/putting-it-all-together)[Up nextCompletion badge](https://academy.claude.com/courses/ai-fluency-for-creative-work/badge)
 
-Quiz 1 of 1 · AI Fluency for Creative WorkCourse quiz
+Quiz 1 of 1 · AI Fluency for creative workCourse quiz
 
 Introduction
 

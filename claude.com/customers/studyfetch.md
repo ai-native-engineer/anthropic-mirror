@@ -4,31 +4,21 @@ Case study | Claude Platform
 
 # StudyFetch powers AI-driven personalized learning for millions of students with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![StudyFetch logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c02846375a32bab77cdc81_68b061af9ffd39c41f6e134a_6864509dcf3dbfddf18a6acd_Property%25201%253Dstudyfetch%201.svg)![StudyFetch logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c02846375a32bab77cdc81_68b061af9ffd39c41f6e134a_6864509dcf3dbfddf18a6acd_Property%25201%253Dstudyfetch%201.svg)
+![StudyFetch logo](https://assets.claude.com/fcee7607af617780128965fbad0fc8ae1b0d6f67.svg)
 
 Industry:
-
-Education
+:   Education
 
 Company size:
-
-Small
+:   Small
 
 Product:
-
-Claude Platform
+:   Claude Platform
 
 Location:
-
-North America
+:   North America
 
 240 day streak
 
@@ -37,42 +27,6 @@ maintained by students on learning platform
 20+ languages
 
 supported for global learning access
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
 
 StudyFetch uses Claude to transform educational content into personalized learning experiences, helping students master complex subjects through their AI tutor Spark.E, which can analyze lectures, generate study materials, and provide 24/7 tutoring support in over 20 languages.
 
@@ -120,9 +74,7 @@ Study Tools:
 * Creates practice questions with detailed explanations
 * Provides real-time feedback on student responses
 
-![StudyFetch product screen 1](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68baf04f9293bd813dae5cb4_93e804304a3b0e301d168f515ff09b829b9ea683-1920x1006.png)
-
-![StudyFetch product screen 2](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68baf04f9293bd813dae5cc3_ca5d576c43e7c9555c2bc3554470ea7cd78c2707-1920x1002.png)
+![StudyFetch product screen 1](https://assets.claude.com/f5ab9ed4c862fbf6a740be2dd0f73625650709cc.png)![StudyFetch product screen 2](https://assets.claude.com/b0e269088105d226f02c7b9e5ce6af751cf043d2.png)
 
 ## Delivering measurable impact for students and institutions
 
@@ -138,52 +90,12 @@ StudyFetch sees AI as more than an educational tool—it's a fundamental skill f
 
 Looking ahead, StudyFetch is expanding their research initiatives through collaborations with institutions like Emory University, who are piloting the software to quantify and validate AI's impact on learning outcomes. Their partnership with Anthropic enables them to create what they call "the golden demo"—a vision of AI-enhanced education that consistently impresses educators. "When professors see our platform, they tell us it's a breath of fresh air," said Durrani. "They immediately understand how AI can transform education." As AI becomes increasingly central to both education and careers, StudyFetch is working to ensure that every student has the tools they need to succeed in an AI-powered future.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[![Magic School](https://assets.claude.com/cd32331aba30ee77bb8a9a4f6f769b3cf5819d14.png)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### MagicSchool on building a safety layer for millions of student conversations](https://claude.com/customers/magicschool-qa)[![Syracuse University](https://assets.claude.com/6faf42a6bf63981cdb21b56aa6c486dfe5f6aa5b.svg)
 
-[Next](#)Next
+### How Syracuse University deployed Claude to every student, faculty member, and staff](https://claude.com/customers/syracuse)[![Syracuse University (Vertical)](https://assets.claude.com/3b0fe1d2906982c88d627148ba2bf5455745aed5.png)
 
-Video caption
+### Why Syracuse University gave Claude to 30,000 students, faculty, and staff](https://claude.com/customers/syracuse-university)[![RileyBot](https://assets.claude.com/14b0586643ee08e0793d5b808b741c51db9d4814.png)
 
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[MagicSchool on building a safety layer for millions of student conversations](https://claude.com/customers/magicschool-qa)MagicSchool on building a safety layer for millions of student conversations
-
-MagicSchool on building a safety layer for millions of student conversations
-
-Customer story
-
-[Customer story](https://claude.com/customers/magicschool-qa)Customer story
-
-[How Syracuse University deployed Claude to every student, faculty member, and staff](https://claude.com/customers/syracuse)How Syracuse University deployed Claude to every student, faculty member, and staff
-
-How Syracuse University deployed Claude to every student, faculty member, and staff
-
-Customer story
-
-[Customer story](https://claude.com/customers/syracuse)Customer story
-
-[Why Syracuse University gave Claude to 30,000 students, faculty, and staff](https://claude.com/customers/syracuse-university)Why Syracuse University gave Claude to 30,000 students, faculty, and staff
-
-Why Syracuse University gave Claude to 30,000 students, faculty, and staff
-
-Customer story
-
-[Customer story](https://claude.com/customers/syracuse-university)Customer story
-
-[RileyBot creates safe AI learning experiences for students with Claude](https://claude.com/customers/rileybot)RileyBot creates safe AI learning experiences for students with Claude
-
-RileyBot creates safe AI learning experiences for students with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/rileybot)Customer story
+### RileyBot creates safe AI learning experiences for students with Claude](https://claude.com/customers/rileybot)

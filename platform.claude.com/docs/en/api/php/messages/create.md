@@ -7,7 +7,7 @@ url: https://platform.claude.com/docs/en/api/php/messages/create
 
 # Create a Message
 
-`$client->messages->create(int maxTokens, list<MessageParam> messages, Model model, ?CacheControlEphemeral cacheControl, ?MessageCreateParamsContainer container, ?string inferenceGeo, ?Metadata metadata, ?OutputConfig outputConfig, ?ServiceTier serviceTier, ?list<string> stopSequences, ?System system, ?float temperature, ?ThinkingConfigParam thinking, ?ToolChoice toolChoice, ?list<ToolUnion> tools, ?int topK, ?float topP, ?string userProfileID, ?string workspaceID): Message`
+`$client->messages->create(int maxTokens, list<MessageParam> messages, Model model, ?CacheControlEphemeral cacheControl, ?MessageCreateParamsContainer container, ?DiagnosticsParam diagnostics, ?string inferenceGeo, ?Metadata metadata, ?OutputConfig outputConfig, ?ServiceTier serviceTier, ?list<string> stopSequences, ?System system, ?float temperature, ?ThinkingConfigParam thinking, ?ToolChoice toolChoice, ?list<ToolUnion> tools, ?int topK, ?float topP, ?string userProfileID, ?string workspaceID): Message`
 
 **POST** `/v1/messages`
 
@@ -93,6 +93,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 - `container?:optional MessageCreateParamsContainer`
 
   Container identifier for reuse across requests.
+
+- `diagnostics?:optional DiagnosticsParam`
+
+  Request-level diagnostics. Currently carries the previous response
+  id for prompt-cache divergence reporting.
 
 - `inferenceGeo?:optional string`
 
@@ -214,9 +219,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
 - `workspaceID?:optional string`
 
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
 - `temperature?:optional float`
 
-  **Deprecated**: Deprecated. Models released after Claude Opus 4.6 do not support setting temperature. A value of 1.0 of will be accepted for backwards compatibility, all other values will be rejected with a 400 error.
+  **Deprecated**: Deprecated. Models released after Claude Opus 4.6 do not support setting temperature. A value of 1.0 will be accepted for backwards compatibility, all other values will be rejected with a 400 error.
 
   Amount of randomness injected into the response.
 
@@ -246,7 +255,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
 ## Returns
 
-- `Message`
+- `class Message`
 
   - `"message" type`
 
@@ -292,6 +301,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
     ```json
     [{"type": "text", "text": "B)"}]
     ```
+
+  - `?Diagnostics diagnostics`
+
+    Request-level diagnostics: why the prompt cache could not fully reuse
+    the prefix of the request named by `diagnostics.previous_message_id`.
 
   - `Model model`
 
@@ -343,15 +357,15 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     Total input tokens in a request is the summation of `input_tokens`, `cache_creation_input_tokens`, and `cache_read_input_tokens`.
 
-- `RawMessageStreamEvent`
+- `class RawMessageStreamEvent`
 
-  - `RawMessageStartEvent`
+  - `class RawMessageStartEvent`
 
     - `"message_start" type`
 
     - `Message message`
 
-  - `RawMessageDeltaEvent`
+  - `class RawMessageDeltaEvent`
 
     - `"message_delta" type`
 
@@ -369,11 +383,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       Total input tokens in a request is the summation of `input_tokens`, `cache_creation_input_tokens`, and `cache_read_input_tokens`.
 
-  - `RawMessageStopEvent`
+  - `class RawMessageStopEvent`
 
     - `"message_stop" type`
 
-  - `RawContentBlockStartEvent`
+  - `class RawContentBlockStartEvent`
 
     - `"content_block_start" type`
 
@@ -381,7 +395,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `int index`
 
-  - `RawContentBlockDeltaEvent`
+  - `class RawContentBlockDeltaEvent`
 
     - `"content_block_delta" type`
 
@@ -389,7 +403,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `int index`
 
-  - `RawContentBlockStopEvent`
+  - `class RawContentBlockStopEvent`
 
     - `"content_block_stop" type`
 
@@ -415,6 +429,7 @@ $message = $client->messages->create(
       ['skillID' => 'pdf', 'type' => 'anthropic', 'version' => 'latest']
     ],
   ],
+  diagnostics: ['previousMessageID' => 'previous_message_id'],
   inferenceGeo: 'inference_geo',
   metadata: ['userID' => '13803d75-b4b5-4c3e-b2a2-6f21399b021b'],
   outputConfig: [
@@ -503,6 +518,12 @@ var_dump($message);
       "type": "text"
     }
   ],
+  "diagnostics": {
+    "cache_miss_reason": {
+      "cache_missed_input_tokens": 0,
+      "type": "model_changed"
+    }
+  },
   "model": "claude-opus-5",
   "role": "assistant",
   "stop_details": {

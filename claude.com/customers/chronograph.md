@@ -4,31 +4,21 @@ Case study | Claude Enterprise
 
 # Chronograph scales operations and accelerates decision-making with Claude
 
-Try Claude
+[Contact sales](https://claude.com/contact-sales)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68fbec77143897d29048df61_logo_chronograph-light.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68fbec7adc1d1c810b48506d_logo_chronograph-dark.svg)
+![Chronograph logo](https://assets.claude.com/4c94c372f8c22a40f1a719fa32d51fde5372b854.svg)
 
 Industry:
-
-Financial services
+:   Financial services
 
 Company size:
-
-Medium
+:   Medium
 
 Product:
-
-Claude Enterprise
+:   Claude Enterprise
 
 Location:
-
-North America
+:   North America
 
 Week 2 productivity
 
@@ -37,42 +27,6 @@ for new hires vs. 2+ months previously
 100% adoption
 
 across 150+ employees with 80% daily active usage
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
 
 [Chronograph](https://www.chronograph.pe) is a leading portfolio monitoring and analytics platform serving institutional private equity investors. The company supports more than $4 trillion in client capital and serves a majority of the largest General Partners and Limited Partners globally.
 
@@ -86,7 +40,7 @@ With Claude, Chronograph:
 
 ## The problem
 
-Like many growing SaaS companies, Chronograph faced resource constraints: limited engineering capacity, competing product priorities, and critical business knowledge scattered across systems.  The company accumulated valuable business data across systems like HubSpot, Notion, Linear, and internal databases, but teams couldn't efficiently access insights across these silos.
+Like many growing SaaS companies, Chronograph faced resource constraints: limited engineering capacity, competing product priorities, and critical business knowledge scattered across systems. The company accumulated valuable business data across systems like HubSpot, Notion, Linear, and internal databases, but teams couldn't efficiently access insights across these silos.
 
 The 150-person team spent significant time on repetitive tasks—client research, document analysis, meeting preparation—that prevented focus on high-value strategic work. Customer success teams manually searched multiple systems before client calls. Sales representatives spent dozens of hours weekly on lead generation. Product and engineering teams relied on lengthy specification documents that slowed development cycles.
 
@@ -126,58 +80,16 @@ The AI-first operating model has become a competitive advantage in client pitche
 
 ‍
 
-"Claude has changed what's possible for a company our size."
+> "Claude has changed what's possible for a company our size."
 
-Charlie Tafoya
+Charlie TafoyaCo-Founder and CEO, Chronograph
 
-Co-Founder and CEO, Chronograph
+[![Qonto](https://assets.claude.com/cf9df71e319709f3b2abd4508f40680fa0bcce1e.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### How Qonto delegates financial admin for small businesses with Claude on Amazon Bedrock](https://claude.com/customers/qonto)[![Pictet](https://assets.claude.com/93f19b6d2b95f2f82e5c7e33938b43dbd537c62f.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### Pictet turns weeks of work into hours with Claude Code](https://claude.com/customers/pictet)[![Satispay](https://assets.claude.com/f87dce8ac96f2e8181e2ed5b000ef17e2278b034.png)
 
-[Next](#)Next
+### How Satispay's engineers write 75% of their code with Claude](https://claude.com/customers/satispay)[![OffDeal](https://assets.claude.com/0144c459af1814dfb5bd273db786703ffcf1cce6.svg)
 
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[How Qonto delegates financial admin for small businesses with Claude on Amazon Bedrock](https://claude.com/customers/qonto) How Qonto delegates financial admin for small businesses with Claude on Amazon Bedrock
-
-How Qonto delegates financial admin for small businesses with Claude on Amazon Bedrock
-
-Customer story
-
-[Customer story](https://claude.com/customers/qonto)Customer story
-
-[Pictet turns weeks of work into hours with Claude Code](https://claude.com/customers/pictet)Pictet turns weeks of work into hours with Claude Code
-
-Pictet turns weeks of work into hours with Claude Code
-
-Customer story
-
-[Customer story](https://claude.com/customers/pictet)Customer story
-
-[How Satispay's engineers write 75% of their code with Claude](https://claude.com/customers/satispay)How Satispay's engineers write 75% of their code with Claude
-
-How Satispay's engineers write 75% of their code with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/satispay)Customer story
-
-[OffDeal powers every stage of M&A advisory with one Claude-based agent](https://claude.com/customers/offdeal)OffDeal powers every stage of M&A advisory with one Claude-based agent
-
-OffDeal powers every stage of M&A advisory with one Claude-based agent
-
-Customer story
-
-[Customer story](https://claude.com/customers/offdeal)Customer story
+### OffDeal powers every stage of M&A advisory with one Claude-based agent](https://claude.com/customers/offdeal)

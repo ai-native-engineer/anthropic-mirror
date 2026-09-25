@@ -46,7 +46,7 @@ Global healthLife sciencesEconomic mobilityEducation
 
 More than half of the world’s population—an estimated 4.5 billion people—still lacks access to essential health services, according to the WHO. In low- and middle-income countries, poor-quality care is estimated to contribute to roughly 5 million deaths each year, while another 3.6 million people die because they never reach care at all. Sub-Saharan Africa carries over a quarter of the world’s disease burden but has just 3% of the global health workforce. We seek to address these disparities at three levels: alongside clinicians at the point of care, with health ministries across whole populations, and with the wider field through shared, open infrastructure.
 
-At the primary care level, we are working to improve patient outcomes in the US and around the world by deploying AI to help address some of the biggest challenges in the system. We believe AI can help ensure patients can receive high-quality care, for example by supporting clinical decision-making and integrating with the latest point-of-care diagnostics. We work closely with Ministries of Health and clinicians to ensure that any care AI supports is safe, effective, and held to clinical standards of evidence.
+At the primary care level, we are working to improve patient outcomes in the US and around the world by deploying AI to help address some of the biggest challenges in the system. We believe AI can help ensure patients receive high-quality care, for example by supporting clinical decision-making and integrating with the latest point-of-care diagnostics. We work closely with Ministries of Health and clinicians to ensure that any care AI supports is safe, effective, and held to clinical standards of evidence.
 
 At the population level, Claude can help health ministries and public health officials bring together fragmented health and population data to make faster and more informed decisions, including around workforce deployment, supply chain management, and disease surveillance and response.
 
@@ -59,7 +59,7 @@ Partners Include
 * [Clinton Health Access Initiative (CHAI)(opens in a new tab)](https://www.clintonhealthaccess.org/)
 * [Institute for Health Metrics and Evaluation(opens in a new tab)](https://www.healthdata.org/)
 * [Coalition for Epidemic Preparedness Innovations (CEPI)(opens in a new tab)](https://cepi.net/)
-* [ICF(opens in a new tab)](https://www.icf.com/)
+* [ICF(opens in a new tab)](https://www.icf.com/work/health)
 * [Pophive(opens in a new tab)](https://www.pophive.org/)
 
 Within Anthropic’s [broader life sciences efforts](https://www.anthropic.com/events/the-briefing-ai-for-science-virtual-event), our beneficial deployments focus on the diseases and patients the market tends to overlook. Funding for drug development is largely informed by potential market size, which leaves behind patients suffering from less common diseases and those unable to access or afford treatment. An estimated 300 to 400 million people live with one of more than 7,000 rare diseases, yet fewer than 5% of those diseases have an approved therapy, and most patients wait five to seven years for a diagnosis. Hundreds of millions more contract neglected tropical diseases each year, yet disease surveillance is too thin to guide intervention, and existing therapies are often directed at diseases that circulate in wealthier countries. By collaborating with clinical researchers, patient organizations, and data scientists through grants, hackathons, and other research initiatives, we aim to gain a better understanding of where AI can address these challenges.
@@ -139,7 +139,23 @@ Resources
 
 ## Latest news
 
+## The Situation Report
+
+A rare strain of Ebola is spreading in the DRC and there is no confirmed vaccine. Global health organizations are using Claude to move as fast as possible to combat it.
+
+[Read more](https://www.anthropic.com/features/ebola-response)
+
+![Looking out between dark tree trunks toward the town of Butembo at dawn or dusk. A field of leafy cassava and banana plants fills the foreground, and a red dirt path runs off to the right. Beyond the field, a dense spread of low buildings with metal roofs sits in a haze of mist or smoke. Heavy gray clouds cover the sky, with a narrow band of orange light glowing along the hills on the horizon.](https://www-cdn.anthropic.com/images/4zrzovbb/website/01a7f8f55e83f615a5d9c0fad56863f1863a41d9-1200x630.jpg)
+
 ## Latest news
+
+## The Situation Report
+
+A rare strain of Ebola is spreading in the DRC and there is no confirmed vaccine. Global health organizations are using Claude to move as fast as possible to combat it.
+
+[Read more](https://www.anthropic.com/features/ebola-response)
+
+![Looking out between dark tree trunks toward the town of Butembo at dawn or dusk. A field of leafy cassava and banana plants fills the foreground, and a red dirt path runs off to the right. Beyond the field, a dense spread of low buildings with metal roofs sits in a haze of mist or smoke. Heavy gray clouds cover the sky, with a narrow band of orange light glowing along the hills on the horizon.](https://www-cdn.anthropic.com/images/4zrzovbb/website/01a7f8f55e83f615a5d9c0fad56863f1863a41d9-1200x630.jpg)
 
 Latest news articles, columns: title, description, topic.
 

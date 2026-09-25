@@ -2,7 +2,7 @@
 
 # Is my data used for model training?
 
-Updated over 3 weeks ago
+August 18, 2026
 
 *This article is about our commercial products such as Claude for Work and the Anthropic API. For our consumer products such as Claude Free, Pro, Max and when accounts from those plans use Claude Code, see [here](https://privacy.anthropic.com/en/articles/10023580-is-my-data-used-for-model-training).*
 
@@ -20,13 +20,13 @@ We de-link your feedback from your user and customer IDs before it’s used by A
 
 Here’s an example of what you’ll see when using the thumbs up/thumbs down button to provide a feedback report from claude.ai:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1486988786/c05dce580034fe48589e6090e22b/image.png?expires=1789346700&signature=321d58314cab62b3f625c34274d18eef2c766b59e4a6a0ed1503c5f920f79205&req=dSQvEMB2lYZXX%2FMW1HO4zUNsDBa%2F68dh%2FKUdTynhlx9lzw09%2BQNxOPCbIMdQ%0AliFGtLTX7NV%2F8TXjc4s%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1486988786/c05dce580034fe48589e6090e22b/image.png?expires=1789346700&signature=321d58314cab62b3f625c34274d18eef2c766b59e4a6a0ed1503c5f920f79205&req=dSQvEMB2lYZXX%2FMW1HO4zUNsDBa%2F68dh%2FKUdTynhlx9lzw09%2BQNxOPCbIMdQ%0AliFGtLTX7NV%2F8TXjc4s%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1486988786/c05dce580034fe48589e6090e22b/image.png?expires=1790297100&signature=87796327ef5b4f9639c84f490f17b1b5e425b82a15099e082b9fc81ee0aac94d&req=dSQvEMB2lYZXX%2FMW1HO4zUNsDR%2B%2B5sZn%2FKUdTynhlx81G0XbsZRoGnRaHySB%0A8J5IwR9ZTrmOhSSmrSo%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1486988786/c05dce580034fe48589e6090e22b/image.png?expires=1790297100&signature=87796327ef5b4f9639c84f490f17b1b5e425b82a15099e082b9fc81ee0aac94d&req=dSQvEMB2lYZXX%2FMW1HO4zUNsDR%2B%2B5sZn%2FKUdTynhlx81G0XbsZRoGnRaHySB%0A8J5IwR9ZTrmOhSSmrSo%3D%0A)
 
 ## Disabling Feedback
 
 As a Primary Owner or Owner of a Team or Enterprise plan, you can disable the ability for members of your organization to submit feedback to Anthropic via the thumbs up / down button using the **Rate chats** setting, under Organization settings > Data and Privacy:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2057779089/de1193c386d42130c99ea4c46743/CleanShot+2026-02-12+at+08_55_14%402x.png?expires=1789346700&signature=f700ead6df348f7088906aba5e0aa590d40fa0572cf3575f1584682439c19257&req=diAiEc55lIFXUPMW1HO4zaA59KPWtBDZ1xJ%2BJFalRXYs0yghXLlq5MiQwju1%0AlDZ%2FYcBlV2jQocZdT54%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2057779089/de1193c386d42130c99ea4c46743/CleanShot+2026-02-12+at+08_55_14%402x.png?expires=1789346700&signature=f700ead6df348f7088906aba5e0aa590d40fa0572cf3575f1584682439c19257&req=diAiEc55lIFXUPMW1HO4zaA59KPWtBDZ1xJ%2BJFalRXYs0yghXLlq5MiQwju1%0AlDZ%2FYcBlV2jQocZdT54%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2057779089/de1193c386d42130c99ea4c46743/CleanShot+2026-02-12+at+08_55_14%402x.png?expires=1790297100&signature=0d37f51c959c48be72ad247443be870b608fcdd750b6415102a69cfe473bb9ca&req=diAiEc55lIFXUPMW1HO4zaA59arXuRHf1xJ%2BJFalRXalG6HkmNQMOkoEHaOx%0AAt0PbFEPzmU7hKZg%2BBs%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2057779089/de1193c386d42130c99ea4c46743/CleanShot+2026-02-12+at+08_55_14%402x.png?expires=1790297100&signature=0d37f51c959c48be72ad247443be870b608fcdd750b6415102a69cfe473bb9ca&req=diAiEc55lIFXUPMW1HO4zaA59arXuRHf1xJ%2BJFalRXalG6HkmNQMOkoEHaOx%0AAt0PbFEPzmU7hKZg%2BBs%3D%0A)
 
 * [How long do you store my organization’s data?](https://privacy.claude.com/en/articles/7996866-how-long-do-you-store-my-organization-s-data)
 * [How do you use personal data in model training?](https://privacy.claude.com/en/articles/7996885-how-do-you-use-personal-data-in-model-training)

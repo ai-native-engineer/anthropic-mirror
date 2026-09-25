@@ -61,7 +61,7 @@ http://127.0.0.1:53280/callback
 ```
 
 The value is the same on every device and for every delivery method (device management, a local configuration file, or a [bootstrap server](https://claude.com/docs/third-party/claude-desktop/bootstrap)). On identity providers that accept any port on a loopback redirect URI (the [RFC 8252](https://datatracker.ietf.org/doc/html/rfc8252#section-7.3) native-app pattern), a registration of `http://127.0.0.1/callback` also matches.
-With `"oauth": true`, Claude Desktop registers its own public client through dynamic client registration and lists this URI as the client’s only redirect URI, so the authorization server must offer a registration endpoint and accept an `http` loopback redirect URI. With a client you registered yourself, set `oauth.clientId` and add the URI to that registration. If the registration uses `localhost` or another port, set `oauth.callbackHost` or `oauth.callbackPort` to match; both require `clientId`.
+With `"oauth": true`, Claude Desktop registers its own public client through dynamic client registration and lists this URI as the client’s only redirect URI, so the authorization server must offer a registration endpoint and accept an `http` loopback redirect URI. With a client you registered yourself, set `oauth.clientId` and add the URI to that registration. If the registration uses `localhost` or another port, set `oauth.callbackHost` or `oauth.callbackPort` to match; both require `clientId`. [Set up sign-in for managed MCP servers](https://claude.com/docs/third-party/claude-desktop/mcp-sign-in) explains how to tell which servers need a client that you register, when a client secret is also required, and where the secret goes.
 An `http` or `sse` entry with no `oauth`, no `headersHelper`, and no `Authorization` header is treated as `"oauth": true` when its server asks for authentication (Claude Desktop 1.24012.0 or later). This redirect URI applies to MCP server sign-in only. [Gateway single sign-on](https://claude.com/docs/third-party/claude-desktop/gateway#set-up-single-sign-on) and [bootstrap sign-in](https://claude.com/docs/third-party/claude-desktop/bootstrap#provider-notes) register their own loopback redirect URI.
 
 ####  How OAuth sign-in works
@@ -91,7 +91,7 @@ For short-lived header credentials, configure the helper per server:
 | `headersHelperTtlSec` | 300 | Seconds the returned headers stay valid. |
 | `headersHelperRefreshBufferSec` | 60 | Seconds before expiry that the helper re-runs. Set it above the helper’s typical runtime. |
 
-The helper follows the [`inferenceCredentialHelper`](https://claude.com/docs/third-party/claude-desktop/credential-helper) execution model, with three differences: a 30-second time limit, no `CLAUDE_HELPER_CONTEXT`, and no prompting for input. The helper applies only to servers provisioned through managed configuration and never replaces the `Authorization` header on `oauth` entries.
+The helper follows the [`inferenceCredentialHelper`](https://claude.com/docs/third-party/claude-desktop/credential-helper) execution model, with four differences: no arguments, a 30-second time limit, no `CLAUDE_HELPER_CONTEXT`, and no prompting for input. The helper applies only to servers provisioned through managed configuration and never replaces the `Authorization` header on `oauth` entries.
 While the connection is open, the TTL schedule triggers renewal, and a request that the server rejects with HTTP 401 or 403 also re-runs the helper and, when it returns new headers, is retried once with them (Claude Desktop 1.46388.1 or later). A failed helper run does not interrupt the connection; Claude Desktop keeps the current headers and retries on its schedule. A failure while the server is connecting shows the server as needing authentication.
 
 Mid-session renewal requires Claude Desktop 1.21459.0 or later. Earlier versions run the helper only when the server connects.
@@ -120,7 +120,7 @@ Outlook, OneDrive, SharePoint, and Teams. Requires registering an app in your En
 
 ##  Plugin marketplaces (admin)
 
-A **plugin marketplace** is a catalog file (`marketplace.json`) that lists one or more Claude plugins. You host it either as a git repository or as a plain file over HTTPS. Claude Desktop fetches it on each device, shows the plugins under **Settings → Plugins → Organization** in both **Cowork** and [**Code**](https://claude.com/docs/third-party/claude-desktop/code), and keeps them in sync with the revision you pin. You control which plugins are available, which install automatically, and which are required.
+A **plugin marketplace** is a catalog file (`marketplace.json`) that lists one or more Claude plugins. You host it either as a git repository or as a plain file over HTTPS. Claude Desktop fetches it on each device, lists its plugins under **Customize → Plugins → Discover → Organization** in both **Cowork** and [**Code**](https://claude.com/docs/third-party/claude-desktop/code), and keeps them in sync with the revision you pin. You control which plugins are available, which install automatically, and which are required.
 This is the recommended way to distribute organization plugins. For a git-hosted marketplace, Claude Desktop clones with the git already installed on each device, so include git in your device baseline (Git for Windows on Windows; the Xcode Command Line Tools provide it on macOS); devices without git can use a [marketplace hosted over HTTPS](#host-the-marketplace-over-https-instead-of-git) instead. Use the [system-wide directory](#organization-plugins-admin) path when end-user devices cannot reach a git server or an HTTPS file host.
 
 Plugin marketplaces are in beta and require Claude Desktop 1.17377.1 or later.
@@ -213,7 +213,7 @@ On Windows, write the same string to the `allowedPluginMarketplaces` value in th
 | `credentialHelper` | Path to an executable that prints an access token on stdout. Required, and only valid, when `credentialKind` is `"credentialHelper"`. |
 | `installationPreference` | `"available"` (default), `"auto_install"`, or `"required"`. See [Marketplace installation preferences](#marketplace-installation-preferences). |
 
-You can configure multiple marketplaces; each appears as its own sub-tab under **Settings → Plugins → Organization**. If an admin-configured marketplace has the same `repo`, `url`, or manifest `name` as one the user added themselves, the admin entry replaces the user’s.
+You can configure multiple marketplaces, and each appears as its own sub-tab under **Organization** in the **Directory**. If an admin-configured marketplace has the same `repo`, `url`, or manifest `name` as one the user added themselves, the admin entry replaces the user’s.
 
 ###  Marketplace installation preferences
 

@@ -354,7 +354,7 @@ Get Deployment Run
 
 - `--deployment-run-id: string`
 
-  Path parameter deployment_run_id
+  Unique identifier of the deployment run.
 
 - `--beta: optional array of AnthropicBeta`
 
@@ -1047,7 +1047,11 @@ ant beta:deployment-runs retrieve \
 
   - `"schedule"`
 
+    The run was fired by the deployment's cron schedule.
+
   - `"manual"`
+
+    The run was started manually by creating a session directly against the deployment.
 
 ### Beta Managed Agents Unknown Run Error
 

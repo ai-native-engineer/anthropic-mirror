@@ -427,7 +427,7 @@ Claude connects to trusted curriculum sources so you can build lesson plans grou
 
 Explore connectors
 
-[Explore connectors](https://claude.com/archive/connectors)Explore connectors
+[Explore connectors](https://claude.com/connectors)Explore connectors
 
 AI fluency for pK-12 teachers
 

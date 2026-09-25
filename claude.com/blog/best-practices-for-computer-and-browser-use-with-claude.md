@@ -1,5 +1,7 @@
 <!-- source: https://claude.com/blog/best-practices-for-computer-and-browser-use-with-claude -->
 
+Explore here
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a0112e18cdd7f0b92d19e40_Hand-BuildingBricks.svg)
 
 # Best practices for computer and browser use with Claude

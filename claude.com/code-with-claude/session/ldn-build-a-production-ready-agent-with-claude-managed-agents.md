@@ -4,48 +4,35 @@
 
 A hands-on build session for Claude Managed Agents. You'll deploy a production-ready agent from scratch, then debug and monitor it live in the developer console.
 
-Details
+## Details
 
 City
-
-London, UK
+:   London, UK
 
 Date
-
-19 May 2026
+:   19 May 2026
 
 Time
-
-14:30 – 15:15
+:   14:30 – 15:15
 
 Session type
-
-Workshop
+:   Workshop
 
 Speaker(s)
+:   Michael Cohen
 
-Michael Cohen
+    Member of Technical Staff,
 
-Member of Technical Staff,
-
-Anthropic
+    Anthropic
 
 ## Watch recording
 
-[Play video](#)Play video
+![Build a production-ready agent with Claude Managed Agents](https://assets.claude.com/b79d4f3e492d3aa6a53b489f657616ea6a44b1e0.jpg?w=1600&auto=format)
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a10d28716b092b8109aaf63_build-a-production-ready-agent.webp)
-
-Anthropic's developer conference, recorded
+## Anthropic's developer conference, recorded
 
 Keynotes, demos, and conversations with the teams behind Claude. Recorded at Code w/ Claude 2026 San Francisco and ready to replay.
 
-Browse recordings
+[Browse recordings](https://claude.com/code-with-claude/london)
 
-[Learn more](https://claude.com/code-with-claude/london)Learn more
-
-[Homepage](https://claude.com/code-with-claude)Homepage
-
-© [year] Anthropic PBC
-
-[PRIVACY POLICY](https://www.anthropic.com/legal/privacy)[CODE OF CONDUCT](https://claude.com/code-with-claude/code-of-conduct)
+Build a production-ready agent with Claude Managed Agents | Session | Code w/ Claude 2026

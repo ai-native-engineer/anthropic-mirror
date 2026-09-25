@@ -4,33 +4,21 @@ Q&A | Claude Cowork
 
 # How Miro's champions run their week with Claude Cowork
 
-Try Claude
+[Contact sales](https://claude.com/contact-sales)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a32e4d71f0791469e8be823_miro_light.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a32e4d885a6b7820d8a4630_miro_dark.svg)
+![Miro logo](https://assets.claude.com/3798f56e28e0a3a6f552f61ad7a8a446e458ac84.svg)
 
 Industry:
-
-Software
+:   Software
 
 Company size:
-
-Large
+:   Large
 
 Product:
-
-[Claude Cowork](https://claude.com/product/cowork)
-
-[Claude Enterprise](https://claude.com/solutions/enterprise)
+:   [Claude Cowork](https://claude.com/product/cowork)[Claude Enterprise](https://claude.com/solutions/enterprise)
 
 Location:
-
-North America
+:   North America
 
 99% of influencer content live within 48 hours
 
@@ -42,35 +30,11 @@ Friday project tracking cut from over 90 minutes to ~10 minutes
 
 Cowork
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698f525604b02eec936ac521_696fc8952f473c6520149cfa_4f58536f1c08deac7a94811f4be57881_og-claude-cowork.jpeg)
+![Cowork](https://assets.claude.com/9716b96b8df867765a639f3ea8a07170508200bf.jpg)
 
 Give Claude access to your local files and let it complete tasks autonomously. Agentic capabilities for non-technical knowledge work.
 
-Read more
-
-[Read more](https://claude.com/product/cowork)Read more
-
-Cowork
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Give Claude access to your local files and let it complete tasks autonomously. Agentic capabilities for non-technical knowledge work.
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Cowork
-
-Give Claude access to your local files and let it complete tasks autonomously. Agentic capabilities for non-technical knowledge work.
-
-[Prev](#)Prev
-
-[Next](#)Next
+[Read more](https://claude.com/product/cowork)
 
 Claude Cowork spread across [Miro](https://www.miro.com?utm_campaign=glb-27-glb-ns_partner-mktg-no-sl&utm_source=partner-sourced&utm_medium=partner&utm_content=**%20PARENT%20**&utm_term=anthropic-miro-claude-cowork-case-study&src=-partner_glb), the company building a collaborative workspace where agents and teams converge, on the strength of what its champions are building with it. That includes an influencer content reviewer, an automated project tracker, and a thought partner that pressure-tests half-formed problems before there's anything to draft. We spoke with three of those champions about the workflows they run, how they keep quality high as more colleagues build, and where the value has surprised them.
 
@@ -90,11 +54,9 @@ Claude Cowork closed that gap. The superpowers are there, but it's collaborative
 
 I've personally cross-tested every frontier model, and what separates Claude, and Claude Opus 5 specifically, is judgment. Claude is strongest in long-running, multi-step work where other models lose the thread, holding the full picture without dropping standards or details. Claude also challenges me when my logic is loose and flags when the strategy is off. It disagrees, it has taste, it knows when to push. It tells me what I need to hear, not just what I want to hear. That's what I want in a strategic partner.
 
-"Claude is strongest in long-running, multi-step work where other models lose the thread, holding the full picture without dropping standards or details."
+> "Claude is strongest in long-running, multi-step work where other models lose the thread, holding the full picture without dropping standards or details."
 
-Kate Hostetler,
-
-Senior Product Marketing Manager, Miro
+Kate Hostetler, Senior Product Marketing Manager, Miro
 
 ## Anthropic: Nicole, what first led you to try Claude Cowork?
 
@@ -128,37 +90,15 @@ The magic is in the Cowork project I've set up, which acts as the main holder of
 
 Claude Opus 5
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a7a0019bbf50677cbfa58b1_compressed%20opus%205.jpg)
+![Claude Opus 5 ](https://assets.claude.com/0f426c4849e7fc6002b883393277ac62afd9eb93.jpg)
 
 Claude Opus 5 provides greatly improved performance for the same cost as its predecessor, Opus 4.8.
 
-Read more
+[Read more](https://www.anthropic.com/news/claude-opus-5)
 
-[Read more](https://www.anthropic.com/news/claude-opus-5)Read more
+> "Cowork took over the busywork of documenting the past so I can focus entirely on strategizing for the future."
 
-Claude Opus 5
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Claude Opus 5 provides greatly improved performance for the same cost as its predecessor, Opus 4.8.
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Claude Opus 5
-
-Claude Opus 5 provides greatly improved performance for the same cost as its predecessor, Opus 4.8.
-
-"Cowork took over the busywork of documenting the past so I can focus entirely on strategizing for the future."
-
-Betty Woods,
-
-Scaled Success Lead, Global Programs, Miro
+Betty Woods, Scaled Success Lead, Global Programs, Miro
 
 ## Anthropic: As more people across Miro build their own workflows and connect more tools, how do you keep quality and trust high?
 
@@ -182,52 +122,12 @@ The best version starts by zooming out: you keep each piece clean and simple, th
 
 And don't let a lack of control paralyze you. Early on, I was actually afraid to connect my Google Drive or Gmail because I was worried about accidentally deleting something or sending an email I didn't mean to. That fear definitely delayed some of the workflows I could have built sooner. Once I took the time to read into how the permissions were structured, those concerns completely vanished. You pick which folders and tools Claude can reach, and it can't touch anything outside that.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[![Supermetrics](https://assets.claude.com/3ac4171a81008be0340e5c3d8ccb46571c3edfb3.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### Supermetrics lets marketers manage ad campaigns from a conversation with Claude](https://claude.com/customers/supermetrics)[![Atlassian](https://assets.claude.com/4870b3d6c0253cea01b100c98ad2030b8e4f8ce1.svg)
 
-[Next](#)Next
+### How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-Video caption
+### Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-Customer story
-
-[Customer story](https://claude.com/customers/atlassian)Customer story
-
-[Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)Rocket Money on building agents that fix their own code
-
-Rocket Money on building agents that fix their own code
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money-qa)Customer story
-
-[How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)How Rocket Money built its personal finance agent with Claude
-
-How Rocket Money built its personal finance agent with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money)Customer story
-
-[How Notion ships and scales agents with Claude Managed Agents](https://claude.com/customers/notion-qa)How Notion ships and scales agents with Claude Managed Agents
-
-How Notion ships and scales agents with Claude Managed Agents
-
-Customer story
-
-[Customer story](https://claude.com/customers/notion-qa)Customer story
+### How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)

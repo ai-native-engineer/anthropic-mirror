@@ -1,5 +1,7 @@
 <!-- source: https://claude.com/blog/harnessing-claudes-intelligence -->
 
+Explore here
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d225588ad176f7c4aafd_abc884c723daea810d2e986455358281a2f94102-1000x1000.svg)
 
 # Agent Harness Design: 3 Patterns for Harnessing Claude's Intelligence

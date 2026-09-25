@@ -36,7 +36,13 @@ Claude needs access to your CRM to find and analyze comparable opportunities so 
 
 ### Required context[](#required-context)
 
-In [Settings > Capabilities(opens in new tab)](https://claude.ai/customize/connectors), find and enable your [HubSpot(opens in new tab)](https://mcp.hubspot.com/anthropic) connector so Claude can search opportunities and pull deal data.
+Connect your CRM, like [HubSpot(opens in new tab)](https://claude.ai/directory/hubspot) or [Salesforce(opens in new tab)](https://claude.ai/directory/salesforce-headless-360), so Claude can search opportunities and pull deal data.
+
+![](images/764fa5af07f936df.svg)
+
+Salesforce
+
+[Connect](https://claude.ai/directory/salesforce-headless-360)
 
 HubSpot
 

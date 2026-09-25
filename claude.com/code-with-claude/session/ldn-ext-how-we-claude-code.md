@@ -4,38 +4,28 @@
 
 See how Anthropic engineers actually use Claude Code day to day. You'll configure a real repo the way we do internally: project context files, custom commands, hooks, and subagents. Then run the same task stock versus tuned and see the difference for yourself.
 
-Details
+## Details
 
 City
-
-London, UK
+:   London, UK
 
 Date
-
-20 May 2026
+:   20 May 2026
 
 Time
-
-10:00 – 10:45
+:   10:00 – 10:45
 
 Speaker(s)
+:   Arnaud Doko
 
-Arnaud Doko
+    Member of Technical Staff,
 
-Member of Technical Staff,
+    Anthropic
 
-Anthropic
-
-Anthropic's developer conference, recorded
+## Anthropic's developer conference, recorded
 
 Keynotes, demos, and conversations with the teams behind Claude. Recorded at Code w/ Claude 2026 San Francisco and ready to replay.
 
-Browse recordings
+[Browse recordings](https://claude.com/code-with-claude/london)
 
-[Learn more](https://claude.com/code-with-claude/london)Learn more
-
-[Homepage](https://claude.com/code-with-claude)Homepage
-
-© [year] Anthropic PBC
-
-[PRIVACY POLICY](https://www.anthropic.com/legal/privacy)[CODE OF CONDUCT](https://claude.com/code-with-claude/code-of-conduct)
+How we Claude Code | Session | Code w/ Claude 2026

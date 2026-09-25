@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence/your-groups -->
 
-Lesson 5 of 14 · Deploying Claude Enterprise with Confidence: The five decisions that shape your rolloutYour groups
+Lesson 5 of 14 · Deploying Claude Enterprise with confidence: The five decisions that shape your rolloutYour groups
 
-3. /[Deploying Claude Enterprise with Confidence: The five decisions that shape your rollout](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence)
+3. /[Deploying Claude Enterprise with confidence: The five decisions that shape your rollout](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence)
 
-[Deploying Claude Enterprise with Confidence: The five decisions that shape your rollout](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence)
+[Deploying Claude Enterprise with confidence: The five decisions that shape your rollout](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence)
 
 # Your groups
 
@@ -124,7 +124,7 @@ The next lesson covers which Claude surfaces you’ll grant to each group, along
 
 [Previous lessonOne organization or many](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence/one-organization-or-many)[Next lessonSurfaces each group gets](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence/surfaces-each-group-gets)
 
-Lesson 5 of 14 · Deploying Claude Enterprise with Confidence: The five decisions that shape your rolloutYour groups
+Lesson 5 of 14 · Deploying Claude Enterprise with confidence: The five decisions that shape your rolloutYour groups
 
 The plan
 

@@ -4,33 +4,21 @@ Q&A | Claude
 
 # Pendo closes the gap between shipping fast and shipping well with Claude Managed Agents
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69fcfd0b9db02d4cc6a432e1_logo_pendo-light-mode.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69fcfd0f3d8ebf711a189614_logo_pendo-dark-mode.svg)
+![Pendo logo](https://assets.claude.com/dad5894ee42fb846d0c6c7024684b1848b1f64b1.svg)
 
 Industry:
-
-Software
+:   Software
 
 Company size:
-
-Medium
+:   Medium
 
 Product:
-
-Claude Managed Agents
-
-[Claude Code](https://claude.com/product/claude-code)
+:   Claude Managed Agents[Claude Code](https://claude.com/product/claude-code)
 
 Location:
-
-North America
+:   North America
 
 90% success rate
 
@@ -42,35 +30,11 @@ processing billions of data points using Claude Managed Agents and Claude Code
 
 Claude Managed Agents: Get to production 10x faster
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69d6874d9013e4890f253b80_managed-agents-og.jpg)
+![Claude Managed Agents: Get to production 10x faster](https://assets.claude.com/ff7c99d19d7cdf50b2e9bf56cc15f9f5d406ce19.jpg)
 
 We're launching Claude Managed Agents, a suite of composable APIs for building and deploying cloud-hosted agents at scale.
 
-Read more
-
-[Read more](https://claude.com/blog/claude-managed-agents)Read more
-
-Claude Managed Agents: Get to production 10x faster
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-We're launching Claude Managed Agents, a suite of composable APIs for building and deploying cloud-hosted agents at scale.
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Claude Managed Agents: Get to production 10x faster
-
-We're launching Claude Managed Agents, a suite of composable APIs for building and deploying cloud-hosted agents at scale.
-
-[Prev](#)Prev
-
-[Next](#)Next
+[Read more](https://claude.com/blog/claude-managed-agents)
 
 [Pendo](https://www.pendo.io/) provides product analytics and AI tools that help companies understand user behavior and act on it to drive product adoption. Over the past few months, the company has been building Novus, a product that detects and fixes usability issues in customer applications. The system runs on Claude Managed Agents. We spoke with Zain Lakhani, Pendo's Chief AI Officer, about how Managed Agents powers their AI-native product.
 
@@ -98,11 +62,9 @@ We spent about three months trying to get there on our own. We tried different h
 
 Three days versus months of trying to build it ourselves.
 
-"We don't route through our own infrastructure for the intelligence anymore. We go directly to Claude."
+> "We don't route through our own infrastructure for the intelligence anymore. We go directly to Claude."
 
-Zain Lakhani
-
-Chief AI Officer, Pendo
+Zain LakhaniChief AI Officer, Pendo
 
 ## Walk me through how Novus works when it finds an issue.
 
@@ -144,84 +106,22 @@ For Pendo, building Novus was more than a product decision. It was a signal abou
 
 AI agents
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698f5244ff22e3ab8e64404d_68c469d3872afd7941c5e6f2_og-claude-agents.jpeg)
+![AI agents](https://assets.claude.com/bdc16daf5e533d3c67f77bbbed786c7d7e693dce.jpg)
 
 Build powerful AI agents that reason through complex problems and execute tasks autonomously with reliable results.
 
-Read more
+[Read more](https://claude.com/solutions/agents)
 
-[Read more](https://claude.com/solutions/agents)Read more
+> "The benchmarks blew us away to the point where even the naysayer PMs couldn't tell if it was a human that did it or the agent."
 
-AI agents
+Zain LakhaniChief AI Officer, Pendo
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[![Supermetrics](https://assets.claude.com/3ac4171a81008be0340e5c3d8ccb46571c3edfb3.svg)
 
-[Next](#)Next
+### Supermetrics lets marketers manage ad campaigns from a conversation with Claude](https://claude.com/customers/supermetrics)[![Atlassian](https://assets.claude.com/4870b3d6c0253cea01b100c98ad2030b8e4f8ce1.svg)
 
-Build powerful AI agents that reason through complex problems and execute tasks autonomously with reliable results.
+### How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-Video caption
+### Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-AI agents
-
-Build powerful AI agents that reason through complex problems and execute tasks autonomously with reliable results.
-
-"The benchmarks blew us away to the point where even the naysayer PMs couldn't tell if it was a human that did it or the agent."
-
-Zain Lakhani
-
-Chief AI Officer, Pendo
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-Customer story
-
-[Customer story](https://claude.com/customers/atlassian)Customer story
-
-[Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)Rocket Money on building agents that fix their own code
-
-Rocket Money on building agents that fix their own code
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money-qa)Customer story
-
-[How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)How Rocket Money built its personal finance agent with Claude
-
-How Rocket Money built its personal finance agent with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money)Customer story
-
-[How Notion ships and scales agents with Claude Managed Agents](https://claude.com/customers/notion-qa)How Notion ships and scales agents with Claude Managed Agents
-
-How Notion ships and scales agents with Claude Managed Agents
-
-Customer story
-
-[Customer story](https://claude.com/customers/notion-qa)Customer story
+### How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)

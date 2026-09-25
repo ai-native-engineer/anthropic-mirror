@@ -6,7 +6,7 @@
 
 # Evaluate a company from the science to the balance sheet
 
-Claude Opus 4.6 runs due diligence across SEC filings, clinical trial data, and patent documents at once, evaluating the science, modeling the financials, and catching where one contradicts the other.
+Claude Opus 5 runs due diligence across SEC filings, clinical trial data, and patent documents at once, evaluating the science, modeling the financials, and catching where one contradicts the other.
 
 15 minFinanceClaude.ai
 
@@ -18,7 +18,7 @@ Try in ClaudeCopy prompt
 
 ## 1. Describe the task[](#1-describe-the-task)
 
-Opus 4.6 reads across SEC filings, trial protocols, and patent documents simultaneously, reasoning through the dependencies between them. It catches where one document contradicts another — a risk factor in the 10-K that doesn't match revenue assumptions in the 10-Q, or an undisclosed regulatory requirement that changes the timeline.
+Opus 5 reads across SEC filings, trial protocols, and patent documents simultaneously, reasoning through the dependencies between them. It catches where one document contradicts another — a risk factor in the 10-K that doesn't match revenue assumptions in the 10-Q, or an undisclosed regulatory requirement that changes the timeline.
 
 State the decision your analysis feeds, name the documents Claude will work from, and spell out the deliverables you expect back. The prompt below does all three, then adds a boundary: it anchors on the Phase III readout, lists the five filings, asks for a research memo and a downloadable model, and tells Claude to stay inside the uploaded documents rather than estimating around them.
 
@@ -54,7 +54,7 @@ Extended Thinking](https://support.claude.com/en/articles/10574485-using-extende
 
 ## 3. What Claude creates[](#3-what-claude-creates)
 
-Claude produces an integrated research memo, a downloadable financial model, an interactive scenario dashboard, and a patent cliff timeline. Opus 4.6 reads across all five documents simultaneously, and one finding it surfaced on its own is the kind of detail that could change the risk assessment.
+Claude produces an integrated research memo, a downloadable financial model, an interactive scenario dashboard, and a patent cliff timeline. Opus 5 reads across all five documents simultaneously, and one finding it surfaced on its own is the kind of detail that could change the risk assessment.
 
 ### Research memo: Meridian Therapeutics
 
@@ -110,7 +110,7 @@ Open in Claude
 
 ### Push the analysis further[](#push-the-analysis-further)
 
-Opus 4.6 holds both the science and the financials in context at once, which means it can reason through multi-step problems where a change in one domain cascades into another.
+Opus 5 holds both the science and the financials in context at once, which means it can reason through multi-step problems where a change in one domain cascades into another.
 
 *Model what happens if Phase III misses the superiority endpoint by a narrow margin. Walk through the decision tree: does management pivot to non-inferiority? How does that cascade through the timeline, cash runway, and valuation?*
 
@@ -136,7 +136,7 @@ Match your verification effort to the cost of being wrong: a variable name in th
 
 ### Let Claude flag what you missed[](#let-claude-flag-what-you-missed)
 
-Opus 4.6 works through more of the analysis before asking for direction, and it reads across documents in ways that catch what a surface read won't. An instruction like "flag anything that changes the investment thesis" often surfaces findings you didn't know to look for.
+Opus 5 works through more of the analysis before asking for direction, and it reads across documents in ways that catch what a surface read won't. An instruction like "flag anything that changes the investment thesis" often surfaces findings you didn't know to look for.
 
 ## 6. Ready to try for yourself?[](#6-ready-to-try-for-yourself)
 

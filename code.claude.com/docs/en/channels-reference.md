@@ -58,7 +58,7 @@ This example uses [Bun](https://bun.sh) as the runtime for its built-in HTTP ser
 
 <Steps>
   <Step title="Create the project">
-    The permission relay examples later on this page import `zod` directly, so it installs alongside the MCP SDK. Create a new directory and install both:
+    The [permission relay](#relay-permission-prompts) examples import `zod` directly, so it installs alongside the MCP SDK. Create a new directory and install both:
 
     ```bash theme={null}
     mkdir webhook-channel && cd webhook-channel
@@ -108,7 +108,7 @@ This example uses [Bun](https://bun.sh) as the runtime for its built-in HTTP ser
     })
     ```
 
-    The file does three things in order:
+    The file configures the server, connects over stdio, and starts an HTTP listener, in that order:
 
     * **Server configuration**: creates the MCP server with `claude/channel` in its capabilities, which is what tells Claude Code this is a channel. Claude Code delivers the [`instructions`](#server-options) string to Claude as context when the server connects: tell Claude what events to expect, whether to reply, and how to route replies if it should.
     * **Stdio connection**: connects to Claude Code over stdin/stdout. This is standard for any [MCP server](https://modelcontextprotocol.io/docs/concepts/transports#standard-io).
@@ -181,7 +181,7 @@ claude --dangerously-load-development-channels plugin:yourplugin@yourmarketplace
 claude --dangerously-load-development-channels server:webhook
 ```
 
-The bypass is per-entry. Combining this flag with `--channels` doesn't extend the bypass to the `--channels` entries. During the research preview, the approved allowlist is Anthropic-curated, so your channel stays on the development flag while you build and test.
+The bypass is per-entry. Combining this flag with `--channels` doesn't extend the bypass to the `--channels` entries. During the research preview, your channel isn't on the approved allowlist, so it stays on the development flag while you build and test.
 
 <Note>
   This flag skips the allowlist only. The `channelsEnabled` organization policy still applies. Don't use it to run channels from untrusted sources.
@@ -485,7 +485,7 @@ Clients on Claude Code v2.1.234 or later also mask credentials in `description` 
 
 Masking doesn't change who receives the fields. Whatever stays unmasked goes only to servers you opted in with `--channels` or the development flag. Treat both fields as untrusted unless you control the client fleet.
 
-The verdict your server sends back is `notifications/claude/channel/permission` with two fields: `request_id` echoing the ID above, and `behavior` set to `'allow'` or `'deny'`. Allow lets the tool call proceed; deny rejects it, the same as answering No in the local dialog. Neither verdict affects future calls.
+The verdict your server sends back is `notifications/claude/channel/permission` with two fields: `request_id` echoing the ID above, and `behavior` set to `'allow'` or `'deny'`. Allow lets the tool call proceed; deny rejects it. Neither verdict affects future calls.
 
 ### Add relay to a chat bridge
 
@@ -762,7 +762,7 @@ Listing files is read-only, so Claude runs it without approval. The permission d
 curl -d "yes <id>" -H "X-Sender: dev" localhost:8788
 ```
 
-The local dialog closes, the `reply` tool runs, and Claude's reply lands in the stream.
+The local dialog closes, the `reply` tool runs, and Claude's reply appears in the stream.
 
 The three channel-specific pieces in this file:
 
@@ -772,9 +772,9 @@ The three channel-specific pieces in this file:
 
 ## Package as a plugin
 
-To make your channel installable and shareable, wrap it in a [plugin](/docs/en/plugins) and publish it to a [marketplace](/docs/en/plugin-marketplaces). Users install it with `/plugin install`, then enable it per session with `--channels plugin:<name>@<marketplace>`.
+To make your channel installable and shareable, wrap it in a [plugin](/docs/en/plugins/overview) and publish it to a [marketplace](/docs/en/plugins/overview). Users install it with `/plugin install`, then enable it per session with `--channels plugin:<name>@<marketplace>`.
 
-A channel published to your own marketplace still needs `--dangerously-load-development-channels` to run, since it isn't on the [approved allowlist](/docs/en/channels#supported-channels). The default allowlist is the channel plugins in `claude-plugins-official`, which Anthropic curates at its discretion. The [in-app submission forms](/docs/en/plugins#submit-your-plugin-to-the-community-marketplace) add plugins to the community marketplace, which is not on the channel allowlist.
+A channel published to your own marketplace still needs `--dangerously-load-development-channels` to run, since it isn't on the [approved allowlist](/docs/en/channels#supported-channels). The default allowlist is the channel plugins in `claude-plugins-official`. The [in-app submission forms](/docs/en/plugins/publish#submit-to-the-community-marketplace) add plugins to the community marketplace, which is not on the channel allowlist.
 
 If you are working with an Anthropic partner contact, reach out to them to coordinate an official-marketplace listing. On Team and Enterprise plans, an admin can instead include your plugin in the organization's own [`allowedChannelPlugins`](/docs/en/channels#restrict-which-channel-plugins-can-run) list, which replaces the default Anthropic allowlist.
 
@@ -783,4 +783,4 @@ If you are working with an Anthropic partner contact, reach out to them to coord
 * [Channels](/docs/en/channels) to install and use Telegram, Discord, iMessage, or the fakechat demo, and to enable channels for a Team or Enterprise org
 * [Working channel implementations](https://github.com/anthropics/claude-plugins-official/tree/main/external_plugins) for complete server code with pairing flows, reply tools, and file attachments
 * [MCP](/docs/en/mcp) for the underlying protocol that channel servers implement
-* [Plugins](/docs/en/plugins) to package your channel so users can install it with `/plugin install`
+* [Plugins](/docs/en/plugins/overview) to package your channel so users can install it with `/plugin install`

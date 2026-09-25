@@ -1,5 +1,7 @@
 <!-- source: https://claude.com/blog/best-practices-for-prompt-engineering -->
 
+Explore here
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6909386cc7ad3ed2a7ec8eed_Object-ThoughtBubble.svg)
 
 # Best practices for prompt engineering for 2026

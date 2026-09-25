@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/model-context-protocol-advanced-topics/sampling-walkthrough -->
 
-Lesson 2 of 11 · Model Context Protocol: Advanced TopicsSampling walkthrough
+Lesson 2 of 11 · Model Context Protocol: Advanced topicsSampling walkthrough
 
-3. /[Model Context Protocol: Advanced Topics](https://academy.claude.com/courses/model-context-protocol-advanced-topics)
+3. /[Model Context Protocol: Advanced topics](https://academy.claude.com/courses/model-context-protocol-advanced-topics)
 
-[Model Context Protocol: Advanced Topics](https://academy.claude.com/courses/model-context-protocol-advanced-topics)
+[Model Context Protocol: Advanced topics](https://academy.claude.com/courses/model-context-protocol-advanced-topics)
 
 # Sampling walkthrough
 
@@ -12,7 +12,7 @@ Lesson 215 min
 
 [Previous lessonSampling](https://academy.claude.com/courses/model-context-protocol-advanced-topics/sampling)[Next lessonLog and progress notifications](https://academy.claude.com/courses/model-context-protocol-advanced-topics/log-and-progress-notifications)
 
-Lesson 2 of 11 · Model Context Protocol: Advanced TopicsSampling walkthrough
+Lesson 2 of 11 · Model Context Protocol: Advanced topicsSampling walkthrough
 
 Core MCP features
 

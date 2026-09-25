@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/model-context-protocol-advanced-topics/the-streamablehttp-transport -->
 
-Lesson 9 of 11 · Model Context Protocol: Advanced TopicsThe StreamableHTTP transport
+Lesson 9 of 11 · Model Context Protocol: Advanced topicsThe StreamableHTTP transport
 
-3. /[Model Context Protocol: Advanced Topics](https://academy.claude.com/courses/model-context-protocol-advanced-topics)
+3. /[Model Context Protocol: Advanced topics](https://academy.claude.com/courses/model-context-protocol-advanced-topics)
 
-[Model Context Protocol: Advanced Topics](https://academy.claude.com/courses/model-context-protocol-advanced-topics)
+[Model Context Protocol: Advanced topics](https://academy.claude.com/courses/model-context-protocol-advanced-topics)
 
 # The StreamableHTTP transport
 
@@ -65,7 +65,7 @@ The key is knowing that these restrictions exist and planning your MCP server ar
 
 [Previous lessonThe STDIO transport](https://academy.claude.com/courses/model-context-protocol-advanced-topics/the-stdio-transport)[Next lessonStreamableHTTP in depth](https://academy.claude.com/courses/model-context-protocol-advanced-topics/streamablehttp-in-depth)
 
-Lesson 9 of 11 · Model Context Protocol: Advanced TopicsThe StreamableHTTP transport
+Lesson 9 of 11 · Model Context Protocol: Advanced topicsThe StreamableHTTP transport
 
 Core MCP features
 

@@ -36,7 +36,7 @@ The following examples show the same request with cURL, the `ant` CLI, and the S
     -H "anthropic-beta: context-management-2025-06-27" \
     -H "content-type: application/json" \
     -d '{
-      "model": "claude-opus-5",
+      "model": "claude-opus-5-5",
       "max_tokens": 1024,
       "messages": [
         {"role": "user", "content": "Hello, Claude"}
@@ -47,7 +47,7 @@ The following examples show the same request with cURL, the `ant` CLI, and the S
   ```bash CLI
   ant beta:messages create \
     --beta context-management-2025-06-27 \
-    --model claude-opus-5 \
+    --model claude-opus-5-5 \
     --max-tokens 1024 \
     --message '{role: user, content: "Hello, Claude"}'
   ```
@@ -56,7 +56,7 @@ The following examples show the same request with cURL, the `ant` CLI, and the S
   client = Anthropic()
 
   response = client.beta.messages.create(
-      model="claude-opus-5",
+      model="claude-opus-5-5",
       max_tokens=1024,
       messages=[{"role": "user", "content": "Hello, Claude"}],
       betas=["context-management-2025-06-27"],
@@ -69,7 +69,7 @@ The following examples show the same request with cURL, the `ant` CLI, and the S
   const client = new Anthropic();
 
   const msg = await client.beta.messages.create({
-    model: "claude-opus-5",
+    model: "claude-opus-5-5",
     max_tokens: 1024,
     messages: [{ role: "user", content: "Hello, Claude" }],
     betas: ["context-management-2025-06-27"]
@@ -84,7 +84,7 @@ The following examples show the same request with cURL, the `ant` CLI, and the S
   var message = await client.Beta.Messages.Create(
       new MessageCreateParams
       {
-          Model = "claude-opus-5",
+          Model = "claude-opus-5-5",
           MaxTokens = 1024,
           Messages = [new() { Role = Role.User, Content = "Hello, Claude" }],
           Betas = ["context-management-2025-06-27"],
@@ -98,7 +98,7 @@ The following examples show the same request with cURL, the `ant` CLI, and the S
   client := anthropic.NewClient()
 
   message, err := client.Beta.Messages.New(context.TODO(), anthropic.BetaMessageNewParams{
-  	Model:     anthropic.ModelClaudeOpus5,
+  	Model:     anthropic.ModelClaudeOpus5_5,
   	MaxTokens: 1024,
   	Messages: []anthropic.BetaMessageParam{
   		anthropic.NewBetaUserMessage(anthropic.NewBetaTextBlock("Hello, Claude")),
@@ -116,7 +116,7 @@ The following examples show the same request with cURL, the `ant` CLI, and the S
   AnthropicClient client = AnthropicOkHttpClient.fromEnv();
 
   MessageCreateParams params = MessageCreateParams.builder()
-    .model(Model.CLAUDE_OPUS_5)
+    .model(Model.CLAUDE_OPUS_5_5)
     .maxTokens(1024)
     .addUserMessage("Hello, Claude")
     .addBeta(AnthropicBeta.CONTEXT_MANAGEMENT_2025_06_27)
@@ -132,7 +132,7 @@ The following examples show the same request with cURL, the `ant` CLI, and the S
   $message = $client->beta->messages->create(
       maxTokens: 1024,
       messages: [['role' => 'user', 'content' => 'Hello, Claude']],
-      model: 'claude-opus-5',
+      model: 'claude-opus-5-5',
       betas: ['context-management-2025-06-27'],
   );
 
@@ -143,7 +143,7 @@ The following examples show the same request with cURL, the `ant` CLI, and the S
   client = Anthropic::Client.new
 
   message = client.beta.messages.create(
-    model: "claude-opus-5",
+    model: "claude-opus-5-5",
     max_tokens: 1024,
     messages: [{role: "user", content: "Hello, Claude"}],
     betas: ["context-management-2025-06-27"]
@@ -170,7 +170,15 @@ To use multiple beta features in a single request, include all feature names in 
 anthropic-beta: feature1,feature2,feature3
 ```
 
-When using an SDK, list each feature in the `betas` parameter (for example, `betas=["feature1", "feature2"]`). With the CLI, pass a single `--beta` flag with the feature names separated by commas (for example, `--beta feature1,feature2`). Avoid repeating the flag: currently only the first flag's value takes effect.
+You can also send the `anthropic-beta` header more than once in the same request. The Claude API reads every `anthropic-beta` header, so the following is equivalent to the previous example:
+
+```http
+anthropic-beta: feature1
+anthropic-beta: feature2
+anthropic-beta: feature3
+```
+
+When using an SDK, list each feature in the `betas` parameter (for example, `betas=["feature1", "feature2"]`). With the CLI, pass a single `--beta` flag with the feature names separated by commas (for example, `--beta feature1,feature2`). You can also repeat the flag (for example, `--beta feature1 --beta feature2`).
 
 ### Endpoint-specific headers
 

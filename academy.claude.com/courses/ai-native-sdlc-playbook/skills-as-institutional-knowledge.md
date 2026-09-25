@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/ai-native-sdlc-playbook/skills-as-institutional-knowledge -->
 
-Lesson 6 of 14 · The AI-Native SDLC PlaybookSkills as institutional knowledge
+Lesson 6 of 14 · The AI-native SDLC playbookSkills as institutional knowledge
 
-3. /[The AI-Native SDLC Playbook](https://academy.claude.com/courses/ai-native-sdlc-playbook)
+3. /[The AI-native SDLC playbook](https://academy.claude.com/courses/ai-native-sdlc-playbook)
 
-[The AI-Native SDLC Playbook](https://academy.claude.com/courses/ai-native-sdlc-playbook)
+[The AI-native SDLC playbook](https://academy.claude.com/courses/ai-native-sdlc-playbook)
 
 # Skills as institutional knowledge
 
@@ -78,7 +78,7 @@ A hook that asks a human for approval belongs with the gates in **Stage 5: Deplo
 
 [Previous lessonThe CLAUDE.md](https://academy.claude.com/courses/ai-native-sdlc-playbook/claude-md)[Next lessonParallel sessions and subagents](https://academy.claude.com/courses/ai-native-sdlc-playbook/parallel-sessions-and-subagents)
 
-Lesson 6 of 14 · The AI-Native SDLC PlaybookSkills as institutional knowledge
+Lesson 6 of 14 · The AI-native SDLC playbookSkills as institutional knowledge
 
 Introduction
 

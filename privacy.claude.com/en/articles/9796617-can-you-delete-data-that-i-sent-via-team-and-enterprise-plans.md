@@ -12,8 +12,8 @@ Read more [here](https://privacy.claude.com/en/articles/7996875-can-you-delete-d
 
 Enterprise plan customers can also set [custom retention timelines](https://privacy.claude.com/en/articles/10440198-custom-data-retention-controls-for-claude-enterprise) for their organization’s data.
 
+* [Deleting commercial Anthropic accounts](https://privacy.claude.com/en/articles/7996865-deleting-commercial-anthropic-accounts)
 * [How long do you store my organization’s data?](https://privacy.claude.com/en/articles/7996866-how-long-do-you-store-my-organization-s-data)
 * [Can you delete data that I sent via API?](https://privacy.claude.com/en/articles/7996875-can-you-delete-data-that-i-sent-via-api)
 * [Can you delete data sent via Claude?](https://privacy.claude.com/en/articles/7996878-can-you-delete-data-sent-via-claude)
 * [I have a zero data retention agreement with Anthropic. What products does it apply to?](https://privacy.claude.com/en/articles/8956058-i-have-a-zero-data-retention-agreement-with-anthropic-what-products-does-it-apply-to)
-* [Configure custom data retention controls for Enterprise plans](https://privacy.claude.com/en/articles/10440198-configure-custom-data-retention-controls-for-enterprise-plans)

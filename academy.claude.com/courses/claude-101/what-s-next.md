@@ -29,7 +29,7 @@ Congratulations on completing Claude 101! You've built a solid foundation for wo
 **Organizing your work**
 
 * Projects create dedicated workspaces with persistent knowledge, custom instructions, and team collaboration
-* Artifacts are standalone outputs like documents, code, diagrams, and interactive tools that Claude creates alongside your conversation
+* Your artifacts — designs, decks, living documents, code, diagrams, and interactive tools — are the outputs you create with Claude; on paid plans they're saved in the Artifacts tab so you can keep editing and sharing them (designs, decks, and living documents are on paid plans)
 * Skills are instruction packages that teach Claude specialized workflows—including built-in document creation and custom skills you can create
 
 **Expanding Claude's reach**
@@ -41,13 +41,13 @@ Congratulations on completing Claude 101! You've built a solid foundation for wo
 **Putting it all together**
 
 * Claude applies across roles—sales, marketing, finance, HR, legal, research, and beyond
-* Beyond claude.ai, you can work with Claude through Claude Code, Slack, Excel, and Chrome
+* Beyond claude.ai, you can work with Claude through Claude Code, Claude Tag in Slack, Claude for Microsoft 365, and Claude in Chrome
 
 ## Additional resources[](#additional-resources)
 
 **Learn more about AI and Claude**
 
-* [AI Fluency courses(opens in new tab)](https://academy.claude.com/collections/ai-fluency) – Free courses on effective AI collaboration
+* [Collaborating with AI(opens in new tab)](https://academy.claude.com/collections/collaborating-with-ai) – Free courses on effective AI collaboration
 * [AI Capabilities and Limitations(opens in new tab)](https://academy.claude.com/courses/ai-capabilities-and-limitations) – Free introductory course on what AI can and can't do
 * [Use Case Gallery(opens in new tab)](https://academy.claude.com/all?kind=use-case) – Step-by-step guides and prompts for powerful workflows
 * [Anthropic Help Center(opens in new tab)](https://support.claude.com/) – Detailed documentation and troubleshooting

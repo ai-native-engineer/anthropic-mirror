@@ -204,10 +204,6 @@ Public sector and regulated enterprises can't defer governance until after the p
 
 ### Mission-Ready AI: Deploying Claude for Public Sector Workloads on AWS
 
--
-
-### Mission-Ready AI: Deploying Claude for Public Sector Workloads on AWS
-
 Public sector and regulated enterprises can't defer governance until after the pilot. In this extended session, Anthropic's Applied AI team shows how agencies are deploying Claude on Amazon Bedrock with the controls auditors expect—data isolation, zero retention, full audit trails—and then goes hands-on: Claude Code operating under managed policy inside a governed AWS environment, applied to legacy modernization and secure code review.
 
 ###

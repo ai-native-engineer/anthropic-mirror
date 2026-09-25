@@ -37,7 +37,7 @@ You'll find the project knowledge base on the right side of your project's main 
 
 ## Share projects
 
-If you are a member of a Team or Enterprise plan organization, you can share projects with other members of your organization.
+If you're on a Team or Enterprise plan, you can share projects with other users in your organization, unless your admin has turned off project sharing. See **[If you can't share projects](https://support.claude.com/en/articles/9519189-manage-project-visibility-and-sharing#h_d5a68ef397)** for what to expect.
 
 ### To share a project
 
@@ -84,15 +84,15 @@ Starring a project allows for quick access from your projects and chats list, vi
 
 You can move a standalone chat into a project by clicking on the dropdown arrow next to the chat name, then “Add to project”:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1784190248/0f19c8de18b494a27be252fdfaff/d4e7a5c5-25f5-4623-862b-c593d2dc0b39?expires=1789345800&signature=6414648543040b7e5d66a4088d4bc25ff7b6e9a85d0c8f096482f9f4b2331c51&req=dScvEsh3nYNbUfMW1HO4zQABaWhvTqUdBSXNVFXQ%2FVFAm6dncvLRwFomyVeF%0AaJ9HxTJEDbG70WByBv8%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1784190248/0f19c8de18b494a27be252fdfaff/d4e7a5c5-25f5-4623-862b-c593d2dc0b39?expires=1789345800&signature=6414648543040b7e5d66a4088d4bc25ff7b6e9a85d0c8f096482f9f4b2331c51&req=dScvEsh3nYNbUfMW1HO4zQABaWhvTqUdBSXNVFXQ%2FVFAm6dncvLRwFomyVeF%0AaJ9HxTJEDbG70WByBv8%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1784190248/0f19c8de18b494a27be252fdfaff/d4e7a5c5-25f5-4623-862b-c593d2dc0b39?expires=1790297100&signature=8fddef77aa20d8ebae5df5e9c5569085728670f8b492b78bbbea2f63a64d106c&req=dScvEsh3nYNbUfMW1HO4zQABaGFuQ6cUBSXNVFXQ%2FVHujQ3oDRB%2Fe0Kc4Ajk%0AjF6v2MDTpTAFN3niT6U%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1784190248/0f19c8de18b494a27be252fdfaff/d4e7a5c5-25f5-4623-862b-c593d2dc0b39?expires=1790297100&signature=8fddef77aa20d8ebae5df5e9c5569085728670f8b492b78bbbea2f63a64d106c&req=dScvEsh3nYNbUfMW1HO4zQABaGFuQ6cUBSXNVFXQ%2FVHujQ3oDRB%2Fe0Kc4Ajk%0AjF6v2MDTpTAFN3niT6U%3D%0A)
 
 Browse or search for the correct project in the **Move chat** modal that appears, then click on it to move the chat.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1784190951/34dc256ccd4c0cf74976f31062e6/55365cf2-059d-41b2-ac95-4b00c4389a76?expires=1789345800&signature=25992c3741a569c4c53eef3237843fbcf0f2ac46adb0d011f6ccad7d7df1a802&req=dScvEsh3nYhaWPMW1HO4zSMECimzzwwJgYbpTjViBxC907ABUO%2B2JloJwqrv%0Aqs3Q6MS4pC8l6mA7XDs%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1784190951/34dc256ccd4c0cf74976f31062e6/55365cf2-059d-41b2-ac95-4b00c4389a76?expires=1789345800&signature=25992c3741a569c4c53eef3237843fbcf0f2ac46adb0d011f6ccad7d7df1a802&req=dScvEsh3nYhaWPMW1HO4zSMECimzzwwJgYbpTjViBxC907ABUO%2B2JloJwqrv%0Aqs3Q6MS4pC8l6mA7XDs%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1784190951/34dc256ccd4c0cf74976f31062e6/55365cf2-059d-41b2-ac95-4b00c4389a76?expires=1790297100&signature=edde587c6ed85baa8be7c09a03665a66726f726061b422ec9e83e362789fc698&req=dScvEsh3nYhaWPMW1HO4zSMECyCywg4AgYbpTjViBxDO2%2BfddeCpwfwNOAwM%0ADG5HU1ayei%2FSElSH98E%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1784190951/34dc256ccd4c0cf74976f31062e6/55365cf2-059d-41b2-ac95-4b00c4389a76?expires=1790297100&signature=edde587c6ed85baa8be7c09a03665a66726f726061b422ec9e83e362789fc698&req=dScvEsh3nYhaWPMW1HO4zSMECyCywg4AgYbpTjViBxDO2%2BfddeCpwfwNOAwM%0ADG5HU1ayei%2FSElSH98E%3D%0A)
 
 You can also remove chats from projects, or move them between projects, using the same dropdown menu within the chat:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1784185682/8625eac15b9fa452f148a6c47250/c53a1bc4-a991-4684-a789-5447ed789d35?expires=1789345800&signature=4fb545c819343b74b628f6b94c8b56fcb424300e816ffc152d7b7cb4b40e1217&req=dScvEsh2mIdXW%2FMW1HO4zb6DuP4vCkACS2r1%2FGRlqOSMKkMeT1QKN5wHZGms%0AA0Yt6EsN4uTGa82bq8s%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1784185682/8625eac15b9fa452f148a6c47250/c53a1bc4-a991-4684-a789-5447ed789d35?expires=1789345800&signature=4fb545c819343b74b628f6b94c8b56fcb424300e816ffc152d7b7cb4b40e1217&req=dScvEsh2mIdXW%2FMW1HO4zb6DuP4vCkACS2r1%2FGRlqOSMKkMeT1QKN5wHZGms%0AA0Yt6EsN4uTGa82bq8s%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1784185682/8625eac15b9fa452f148a6c47250/c53a1bc4-a991-4684-a789-5447ed789d35?expires=1790297100&signature=535ce9c9ddfba4593d08facc334c509b5a1a6f85907caa0f0ded9f52487d81aa&req=dScvEsh2mIdXW%2FMW1HO4zb6DufcuB0ILS2r1%2FGRlqOR90nYFs9JXhh2qVz0Z%0AdozS8XHKV8Yxi2ix3Io%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1784185682/8625eac15b9fa452f148a6c47250/c53a1bc4-a991-4684-a789-5447ed789d35?expires=1790297100&signature=535ce9c9ddfba4593d08facc334c509b5a1a6f85907caa0f0ded9f52487d81aa&req=dScvEsh2mIdXW%2FMW1HO4zb6DufcuB0ILS2r1%2FGRlqOR90nYFs9JXhh2qVz0Z%0AdozS8XHKV8Yxi2ix3Io%3D%0A)
 
 ---
 

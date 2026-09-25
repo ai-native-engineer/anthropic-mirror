@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/ai-fluency-framework-foundations/effective-prompting-techniques -->
 
-Lesson 9 of 14 · AI Fluency: Framework & FoundationsEffective prompting techniques
+Lesson 9 of 14 · AI Fluency: Framework and foundationsEffective prompting techniques
 
-3. /[AI Fluency: Framework & Foundations](https://academy.claude.com/courses/ai-fluency-framework-foundations)
+3. /[AI Fluency: Framework and foundations](https://academy.claude.com/courses/ai-fluency-framework-foundations)
 
-[AI Fluency: Framework & Foundations](https://academy.claude.com/courses/ai-fluency-framework-foundations)
+[AI Fluency: Framework and foundations](https://academy.claude.com/courses/ai-fluency-framework-foundations)
 
 # Effective prompting techniques
 
@@ -66,7 +66,7 @@ In the next lesson, we'll explore Discernment, the third core AI Fluency compete
 
 [Previous lessonA closer look at Description](https://academy.claude.com/courses/ai-fluency-framework-foundations/a-closer-look-at-description)[Next lessonA closer look at Discernment](https://academy.claude.com/courses/ai-fluency-framework-foundations/a-closer-look-at-discernment)
 
-Lesson 9 of 14 · AI Fluency: Framework & FoundationsEffective prompting techniques
+Lesson 9 of 14 · AI Fluency: Framework and foundationsEffective prompting techniques
 
 Introduction to AI Fluency
 

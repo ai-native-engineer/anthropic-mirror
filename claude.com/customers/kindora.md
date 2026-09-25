@@ -4,33 +4,21 @@ Case study | Claude Code
 
 # How a philanthropy veteran built an AI fundraising tool for nonprofits with Claude Code
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69de7d7e057338cd30b80dab_logo_kindra-light-mode.png)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69de7d7c5f71f7e3d4d93209_logo_kindra-dark-mode.png)
+![Kindora logo](https://assets.claude.com/4ab895f23a9c25d1b0027e499011c25d95cda56a.png)
 
 Industry:
-
-Beneficial Deployments
+:   Beneficial Deployments
 
 Company size:
-
-Small
+:   Small
 
 Product:
-
-[Claude Code](https://claude.com/product/claude-code)
-
-[Claude Platform](https://claude.com/platform/api)
+:   [Claude Code](https://claude.com/product/claude-code)[Claude Platform](https://claude.com/platform/api)
 
 Location:
-
-North America
+:   North America
 
 328 nonprofits on the platform
 
@@ -51,65 +39,21 @@ The first challenge for a small nonprofit raising money is figuring out which fu
 
 ## The challenge
 
-Kindora MCP Connector
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69de7db17fd211a5fd9b51f0_og_case-study-kindora.jpg)
-
-Kindora’s MCP connector lets nonprofits access its prospecting tools directly within Claude.
-
-Read more
-
-[Read more](https://claude.ai/directory/connectors/kindora-funder-discovery)Read more
-
-Kindora MCP Connector
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Kindora’s MCP connector lets nonprofits access its prospecting tools directly within Claude.
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Kindora MCP Connector
-
-Kindora’s MCP connector lets nonprofits access its prospecting tools directly within Claude.
-
 ### Small nonprofits can’t find the right funders
 
 Steele spent a decade at a major tech company leading one of its largest philanthropy teams, overseeing nearly $700M in total giving across the Americas. He knows the funder side of the equation well: program officers have specific priorities, and as Steele described it, they only "want to talk to you if you’re in my area of interest." Broad outreach rarely leads anywhere.
 
 In 2024 when Steele co-founded Outdoorithm Collective, a nonprofit connecting urban families with nature experiences, he found himself on the other side of the table with $30,000 in the bank, dwindling fast, and hundreds of families waiting to go on trips. He went looking for prospecting tools and found them either prohibitively expensive or unhelpful. One platform he paid $4,000 for returned 3,000 matches with no meaningful filtering. "Structuring unstructured information is AI’s superpower," Steele said. "How are you not using these models to make these matches?"
 
+Kindora MCP Connector
+
+![Kindora MCP Connector](https://assets.claude.com/5ad9ad1569259eb3c62ddac9659134fe0aff025d.jpg)
+
+Kindora’s MCP connector lets nonprofits access its prospecting tools directly within Claude.
+
+[Read more](https://claude.ai/directory/connectors/kindora-funder-discovery)
+
 ## The solution
-
-Nonprofits
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698f525504b02eec936ac514_692e248602b0e973666dc35b_og-nonprofit.jpeg)
-
-Turn limited resources into lasting impact. Generate grant proposals, track program outcomes, and free your team to focus on serving your community.
-
-Read more
-
-[Read more](https://claude.com/solutions/nonprofits)Read more
-
-Nonprofits
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Turn limited resources into lasting impact. Generate grant proposals, track program outcomes, and free your team to focus on serving your community.
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Nonprofits
-
-Turn limited resources into lasting impact. Generate grant proposals, track program outcomes, and free your team to focus on serving your community.
 
 ### From personal script to product with Claude Code
 
@@ -129,21 +73,17 @@ Steele’s background is in chemical engineering and philanthropy, not software 
 
 "I couldn’t sleep because I was so excited," Steele said. He tested it himself, practicing a pitch to a real foundation. The voice tool pushed back on his nonprofit being early-stage, asked about impact measurement, and flagged where he had waited too long to lean into storytelling. The next morning, he showed it to the accelerator cohort and it was ready to use.
 
-“We pushed 10 times more code than before, with fewer errors.”
+Nonprofits
 
-Justin Steele
+![Nonprofits](https://assets.claude.com/b46529adbd87da89ebb1e8191178d53278f93d1b.jpg)
 
-Co-founder, Kindora
+Turn limited resources into lasting impact. Generate grant proposals, track program outcomes, and free your team to focus on serving your community.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[Read more](https://claude.com/solutions/nonprofits)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+> “We pushed 10 times more code than before, with fewer errors.”
 
-[Next](#)Next
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+Justin SteeleCo-founder, Kindora
 
 ## The outcome
 
@@ -157,42 +97,16 @@ For Steele, the broader significance is about who gets to build technology. He h
 
 The social impact sector, Steele argues, has the most to gain from AI but has been the slowest to engage. Kindora’s roadmap keeps expanding based on what nonprofit users ask for, and Steele sees the current moment as urgent. "There’s such a unique opportunity right now for people who understand their problem space, who understand their communities," he said. "The people who are closest to the problem have the best solutions. This window won’t be open forever."
 
-“The people who are closest to the problem have the best solutions. This window won’t be open forever.”
+> “The people who are closest to the problem have the best solutions. This window won’t be open forever.”
 
-Justin Steele
+Justin SteeleCo-founder, Kindora
 
-Co-founder, Kindora
+[![Mercy Corps](https://assets.claude.com/544995a85d67ef08fd67560f5758d5e28bc7a53f.svg)
 
-## Related stories
+### Mercy Corps on what AI makes possible in humanitarian work](https://claude.com/customers/mercy-corps-qa)[![Mercy Corps](https://assets.claude.com/544995a85d67ef08fd67560f5758d5e28bc7a53f.svg)
 
-[Mercy Corps on what AI makes possible in humanitarian work](https://claude.com/customers/mercy-corps-qa)Mercy Corps on what AI makes possible in humanitarian work
+### Mercy Corps accelerates global humanitarian response to community feedback with Claude](https://claude.com/customers/mercy-corps)[![Epilepsy Foundation](https://assets.claude.com/446cc4df1be577720df85748fa3813fa0837e3b8.png)
 
-Mercy Corps on what AI makes possible in humanitarian work
+### The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude](https://claude.com/customers/epilepsy-foundation)[![Epilepsy Foundation](https://assets.claude.com/446cc4df1be577720df85748fa3813fa0837e3b8.png)
 
-Customer story
-
-[Customer story](https://claude.com/customers/mercy-corps-qa)Customer story
-
-[Mercy Corps accelerates global humanitarian response to community feedback with Claude](https://claude.com/customers/mercy-corps)Mercy Corps accelerates global humanitarian response to community feedback with Claude
-
-Mercy Corps accelerates global humanitarian response to community feedback with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/mercy-corps)Customer story
-
-[The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude](https://claude.com/customers/epilepsy-foundation)The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude
-
-The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/epilepsy-foundation)Customer story
-
-[How the Epilepsy Foundation uses Claude across the organization](https://claude.com/customers/epilepsy-foundation-qa)How the Epilepsy Foundation uses Claude across the organization
-
-How the Epilepsy Foundation uses Claude across the organization
-
-Customer story
-
-[Customer story](https://claude.com/customers/epilepsy-foundation-qa)Customer story
+### How the Epilepsy Foundation uses Claude across the organization](https://claude.com/customers/epilepsy-foundation-qa)

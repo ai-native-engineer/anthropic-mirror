@@ -4,33 +4,21 @@ Q&A | Claude Managed Agents
 
 # How Notion ships and scales agents with Claude Managed Agents
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-[Play video](#)Play video
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69d66e4b0c9ac6ae2011f8bf_notion-qa-thumbnail.jpeg)
+![Video thumbnail](https://assets.claude.com/b19de8f09f55762fddbd414cc9831ddd5a2254b5.jpg)
 
 Industry:
-
-Software
+:   Software
 
 Company size:
-
-Large
+:   Large
 
 Product:
-
-Claude Managed Agents
+:   Claude Managed Agents
 
 Location:
-
-North America
+:   North America
 
 18,000 Claude agents
 
@@ -42,35 +30,11 @@ not chat
 
 Case Study: Notion
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69d66fcff40d6b828398a62c_og_case-study-notion.jpg)
+![Case Study: Notion](https://assets.claude.com/1251e47b710d3ece843ec079f8d14f4553d7546a.jpg)
 
 Learn how Notion uses Claude to power enterprise AI search, reduce costs by 90% with prompt caching, and build agent workflows.
 
-Read more
-
-[Read more](http://claude.com/customers/notion)Read more
-
-Case Study: Notion
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Learn how Notion uses Claude to power enterprise AI search, reduce costs by 90% with prompt caching, and build agent workflows.
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Case Study: Notion
-
-Learn how Notion uses Claude to power enterprise AI search, reduce costs by 90% with prompt caching, and build agent workflows.
-
-[Prev](#)Prev
-
-[Next](#)Next
+[Read more](http://claude.com/customers/notion)
 
 Three weeks after launching External Agents, collaborative AI workspace [Notion](http://claude.com/customers/notion) had 18,000 agents created by customers, and 90% of agent activity running on automated triggers rather than chat. Notion built the feature on Claude Managed Agents, Anthropic's suite of composable APIs for building and deploying agents at scale. Product manager Eric Liu spoke with Anthropic about what Managed Agents handled and what's surprised him since launch.
 
@@ -84,11 +48,9 @@ Three weeks after launching External Agents, collaborative AI workspace [Notion]
 
 The nice thing is that you're not limited to one task. Customers can kick off 30 or 40 jobs at the same time, and our platform routes them to the right person for approvals. People are automating the busy work: experiment flag cleanup, a lot of different mini tasks around triage.
 
-"Claude is the number one external agent people wanted to use in Notion."
+> "Claude is the number one external agent people wanted to use in Notion."
 
-Eric Liu
-
-Product Manager, Notion
+Eric LiuProduct Manager, Notion
 
 ## Anthropic: Why did you decide to add Managed Agents into Notion?
 
@@ -130,37 +92,15 @@ Every agent that you create is locked down from a permission standpoint by defau
 
 Claude Managed Agents: Get to production 10x faster
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69d6874d9013e4890f253b80_managed-agents-og.jpg)
+![Claude Managed Agents: Get to production 10x faster](https://assets.claude.com/ff7c99d19d7cdf50b2e9bf56cc15f9f5d406ce19.jpg)
 
 We're launching Claude Managed Agents, a suite of composable APIs for building and deploying cloud-hosted agents at scale.
 
-Read more
+[Read more](https://claude.com/blog/claude-managed-agents)
 
-[Read more](https://claude.com/blog/claude-managed-agents)Read more
+> "The benefit of bringing in Claude is people trust the intelligence of the model and the experience."
 
-Claude Managed Agents: Get to production 10x faster
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-We're launching Claude Managed Agents, a suite of composable APIs for building and deploying cloud-hosted agents at scale.
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Claude Managed Agents: Get to production 10x faster
-
-We're launching Claude Managed Agents, a suite of composable APIs for building and deploying cloud-hosted agents at scale.
-
-"The benefit of bringing in Claude is people trust the intelligence of the model and the experience."
-
-Eric Liu
-
-Product Manager, Notion
+Eric LiuProduct Manager, Notion
 
 ## Anthropic: You preload Claude's public skills, run a skills marketplace, and let agents maintain their own skills database. Why are skills such a big part of this?
 
@@ -176,52 +116,12 @@ A lot of these skills are basically auto-maintained. Once there's a merged pull 
 
 The question becomes: how can humans become the reviewers of agentic work rather than directly the doers? I think that paradigm applies to a lot of AI.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[![Supermetrics](https://assets.claude.com/3ac4171a81008be0340e5c3d8ccb46571c3edfb3.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### Supermetrics lets marketers manage ad campaigns from a conversation with Claude](https://claude.com/customers/supermetrics)[![Atlassian](https://assets.claude.com/4870b3d6c0253cea01b100c98ad2030b8e4f8ce1.svg)
 
-[Next](#)Next
+### How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-Video caption
+### Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-How Atlassian builds AI agents teams can trust with Claude and Google Cloud
-
-Customer story
-
-[Customer story](https://claude.com/customers/atlassian)Customer story
-
-[Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)Rocket Money on building agents that fix their own code
-
-Rocket Money on building agents that fix their own code
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money-qa)Customer story
-
-[How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)How Rocket Money built its personal finance agent with Claude
-
-How Rocket Money built its personal finance agent with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/rocket-money)Customer story
-
-[Deepgram ships 4–10x more durable code with Claude](https://claude.com/customers/deepgram) Deepgram ships 4–10x more durable code with Claude
-
-Deepgram ships 4–10x more durable code with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/deepgram)Customer story
+### How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)

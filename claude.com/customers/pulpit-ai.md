@@ -4,31 +4,21 @@ Case study | Claude Platform
 
 # Pulpit AI turns sermons into multiple pieces of content with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![Pulpit logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c1dbb25024a2e507c9e5c6_cs-logo-pulpit-light-theme.svg)![Pulpit logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c1dbbd0b9a5ce5d827c07b_cs-logo-pulpit-dark-theme.svg)
+![Pulpit logo](https://assets.claude.com/6d0c0abecaff54ebbd6181d3c65990e2ba6e516e.svg)
 
 Industry:
-
-Entertainment
+:   Entertainment
 
 Company size:
-
-Small
+:   Small
 
 Product:
-
-Claude Platform
+:   Claude Platform
 
 Location:
-
-North America
+:   North America
 
 200% increase
 
@@ -37,42 +27,6 @@ in customer base within 3 months
 80% cost savings
 
 overnight when switching to Claude Sonnet
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
 
 Pulpit AI, a tool for pastors to turn sermons into content, uses Claude to help pastors communicate with and reach their congregations.
 
@@ -102,7 +56,7 @@ With Claude, Pulpit AI offers innovative features for pastors and congregation m
 * Multi-format content: A single sermon can be transformed into devotionals, social media posts, e-books, and discipleship materials.
 * Improved sermons: Pastors can get AI-powered feedback on their sermons, with suggestions for clearer introductions or future ideas.
 
-![Pulpit AI product screenshot](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68baf0506602ed0ba33ae912_4502c2c905f484fcb582b3786c1ae7f6fd2195b0-1920x1036.jpeg)
+![Pulpit AI product screenshot](https://assets.claude.com/6b0b2f09fb644230c3ba06ba272d17627a502e81.jpg)
 
 ## Expanded reach, empowered pastors, engaged congregations
 
@@ -120,52 +74,12 @@ Pulpit AI is excited to use Claude's expanding capabilities for sermon analysis 
 
 – Michael Whittle, Founder and CEO, Pulpit AI
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[![StubHub](https://assets.claude.com/d3451a4bfe1c5af7f56f76ab8237c3bab7dd7a9d.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### StubHub transforms live event ticketing with Claude](https://claude.com/customers/stubhub)[![Audience Strategies](https://assets.claude.com/3413dcb9640e98c9dd678f02077d38ea6f0b7b34.png)
 
-[Next](#)Next
+### Audience Strategies expands the electronic music industry's policy influence with Claude](https://claude.com/customers/audience-strategies)[![Orange](https://assets.claude.com/c97f28a41e222c81bda3ab8af5ed81dbfb385756.png)
 
-Video caption
+### Orange localizes manga at an unprecedented scale with Claude](https://claude.com/customers/orange)[![WRTN](https://assets.claude.com/c3f8213b72f494f94cf99ec6d2abf77e5129ef74.svg)
 
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[StubHub transforms live event ticketing with Claude](https://claude.com/customers/stubhub)StubHub transforms live event ticketing with Claude
-
-StubHub transforms live event ticketing with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/stubhub)Customer story
-
-[Audience Strategies expands the electronic music industry's policy influence with Claude](https://claude.com/customers/audience-strategies)Audience Strategies expands the electronic music industry's policy influence with Claude
-
-Audience Strategies expands the electronic music industry's policy influence with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/audience-strategies)Customer story
-
-[Orange localizes manga at an unprecedented scale with Claude](https://claude.com/customers/orange)Orange localizes manga at an unprecedented scale with Claude
-
-Orange localizes manga at an unprecedented scale with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/orange)Customer story
-
-[WRTN pioneers AI entertainment and storytelling across Asia with Claude](https://claude.com/customers/wrtn)WRTN pioneers AI entertainment and storytelling across Asia with Claude
-
-WRTN pioneers AI entertainment and storytelling across Asia with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/wrtn)Customer story
+### WRTN pioneers AI entertainment and storytelling across Asia with Claude](https://claude.com/customers/wrtn)

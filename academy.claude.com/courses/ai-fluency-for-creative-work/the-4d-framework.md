@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/ai-fluency-for-creative-work/the-4d-framework -->
 
-Lesson 4 of 8 · AI Fluency for Creative WorkThe 4D Framework
+Lesson 4 of 8 · AI Fluency for creative workThe 4D Framework
 
-3. /[AI Fluency for Creative Work](https://academy.claude.com/courses/ai-fluency-for-creative-work)
+3. /[AI Fluency for creative work](https://academy.claude.com/courses/ai-fluency-for-creative-work)
 
-[AI Fluency for Creative Work](https://academy.claude.com/courses/ai-fluency-for-creative-work)
+[AI Fluency for creative work](https://academy.claude.com/courses/ai-fluency-for-creative-work)
 
 # The 4D Framework
 
@@ -57,7 +57,7 @@ In the next lesson, we put the inner loop to work on your own practice. You will
 
 [Previous lessonThe production lens](https://academy.claude.com/courses/ai-fluency-for-creative-work/the-production-lens)[Next lessonDescription and Discernment](https://academy.claude.com/courses/ai-fluency-for-creative-work/description-and-discernment)
 
-Lesson 4 of 8 · AI Fluency for Creative WorkThe 4D Framework
+Lesson 4 of 8 · AI Fluency for creative workThe 4D Framework
 
 Introduction
 

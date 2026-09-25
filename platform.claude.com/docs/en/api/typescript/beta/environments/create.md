@@ -27,7 +27,7 @@ Create a new environment with the specified configuration.
 
     Body param: Environment configuration
 
-    - `BetaCloudConfigParams`
+    - `interface BetaCloudConfigParams`
 
       Request params for `cloud` environment configuration.
 
@@ -42,7 +42,7 @@ Create a new environment with the specified configuration.
 
         Network configuration policy. Omit on update to preserve the existing value.
 
-        - `BetaUnrestrictedNetwork`
+        - `interface BetaUnrestrictedNetwork`
 
           Unrestricted network access.
 
@@ -50,7 +50,7 @@ Create a new environment with the specified configuration.
 
             Network policy type
 
-        - `BetaLimitedNetworkParams`
+        - `interface BetaLimitedNetworkParams`
 
           Limited network request params.
 
@@ -111,7 +111,7 @@ Create a new environment with the specified configuration.
 
           Python packages to install
 
-    - `BetaSelfHostedConfigParams`
+    - `interface BetaSelfHostedConfigParams`
 
       Request params for `self_hosted` environment configuration.
 
@@ -143,7 +143,7 @@ Create a new environment with the specified configuration.
 
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 42 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 45 more`
 
       - `"message-batches-2024-09-24"`
 
@@ -235,6 +235,12 @@ Create a new environment with the specified configuration.
 
       - `"mid-conversation-system-clear-at-2026-08-21"`
 
+      - `"compact-2026-09-04"`
+
+      - `"inline-tools-2026-09-15"`
+
+      - `"mcp-client-2026-09-15"`
+
   - `workspace_id?: string`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -243,7 +249,7 @@ Create a new environment with the specified configuration.
 
 ## Returns
 
-- `BetaEnvironment`
+- `interface BetaEnvironment`
 
   Unified Environment resource for both cloud and self-hosted environments.
 
@@ -265,7 +271,7 @@ Create a new environment with the specified configuration.
 
     Environment configuration (either Anthropic Cloud or self-hosted)
 
-    - `BetaCloudConfig`
+    - `interface BetaCloudConfig`
 
       `cloud` environment configuration.
 
@@ -277,7 +283,7 @@ Create a new environment with the specified configuration.
 
         Network configuration policy.
 
-        - `BetaUnrestrictedNetwork`
+        - `interface BetaUnrestrictedNetwork`
 
           Unrestricted network access.
 
@@ -285,7 +291,7 @@ Create a new environment with the specified configuration.
 
             Network policy type
 
-        - `BetaLimitedNetwork`
+        - `interface BetaLimitedNetwork`
 
           Limited network access.
 
@@ -339,7 +345,7 @@ Create a new environment with the specified configuration.
 
           Python packages to install
 
-    - `BetaSelfHostedConfig`
+    - `interface BetaSelfHostedConfig`
 
       Configuration for self-hosted environments.
 

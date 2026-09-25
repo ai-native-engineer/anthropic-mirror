@@ -45,7 +45,7 @@ List Events
 
   - `limit?: number`
 
-    Query param: Query parameter for limit
+    Query param
 
     format: int32
 
@@ -71,7 +71,7 @@ List Events
 
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 42 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 45 more`
 
       - `"message-batches-2024-09-24"`
 
@@ -163,6 +163,12 @@ List Events
 
       - `"mid-conversation-system-clear-at-2026-08-21"`
 
+      - `"compact-2026-09-04"`
+
+      - `"inline-tools-2026-09-15"`
+
+      - `"mcp-client-2026-09-15"`
+
   - `workspace_id?: string`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -171,11 +177,11 @@ List Events
 
 ## Returns
 
-- `BetaManagedAgentsSessionEvent = BetaManagedAgentsUserMessageEvent | BetaManagedAgentsUserInterruptEvent | BetaManagedAgentsUserToolConfirmationEvent | 32 more`
+- `type BetaManagedAgentsSessionEvent = BetaManagedAgentsUserMessageEvent | BetaManagedAgentsUserInterruptEvent | BetaManagedAgentsUserToolConfirmationEvent | 32 more`
 
   Union type for all event types in a session.
 
-  - `BetaManagedAgentsUserMessageEvent`
+  - `interface BetaManagedAgentsUserMessageEvent`
 
     A user message event in the session conversation.
 
@@ -189,7 +195,7 @@ List Events
 
       Array of content blocks comprising the user message.
 
-      - `BetaManagedAgentsTextBlock`
+      - `interface BetaManagedAgentsTextBlock`
 
         Regular text content.
 
@@ -201,7 +207,7 @@ List Events
 
           minLength: 1
 
-      - `BetaManagedAgentsImageBlock`
+      - `interface BetaManagedAgentsImageBlock`
 
         Image content specified directly as base64 data or as a reference via a URL.
 
@@ -211,7 +217,7 @@ List Events
 
           Union type for image source variants.
 
-          - `BetaManagedAgentsBase64ImageSource`
+          - `interface BetaManagedAgentsBase64ImageSource`
 
             Base64-encoded image data.
 
@@ -229,7 +235,7 @@ List Events
 
               minLength: 1
 
-          - `BetaManagedAgentsURLImageSource`
+          - `interface BetaManagedAgentsURLImageSource`
 
             Image referenced by URL.
 
@@ -241,7 +247,7 @@ List Events
 
               minLength: 1
 
-          - `BetaManagedAgentsFileImageSource`
+          - `interface BetaManagedAgentsFileImageSource`
 
             Image referenced by file ID.
 
@@ -253,7 +259,7 @@ List Events
 
               minLength: 1
 
-      - `BetaManagedAgentsDocumentBlock`
+      - `interface BetaManagedAgentsDocumentBlock`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
@@ -263,7 +269,7 @@ List Events
 
           Union type for document source variants.
 
-          - `BetaManagedAgentsBase64DocumentSource`
+          - `interface BetaManagedAgentsBase64DocumentSource`
 
             Base64-encoded document data.
 
@@ -281,7 +287,7 @@ List Events
 
               minLength: 1
 
-          - `BetaManagedAgentsPlainTextDocumentSource`
+          - `interface BetaManagedAgentsPlainTextDocumentSource`
 
             Plain text document content.
 
@@ -297,7 +303,7 @@ List Events
 
               MIME type of the text content. Must be "text/plain".
 
-          - `BetaManagedAgentsURLDocumentSource`
+          - `interface BetaManagedAgentsURLDocumentSource`
 
             Document referenced by URL.
 
@@ -309,7 +315,7 @@ List Events
 
               minLength: 1
 
-          - `BetaManagedAgentsFileDocumentSource`
+          - `interface BetaManagedAgentsFileDocumentSource`
 
             Document referenced by file ID.
 
@@ -329,7 +335,7 @@ List Events
 
           The title of the document.
 
-      - `BetaManagedAgentsRedactedBlock`
+      - `interface BetaManagedAgentsRedactedBlock`
 
         Placeholder for content withheld by Anthropic model policy.
 
@@ -341,7 +347,7 @@ List Events
 
       format: date-time
 
-  - `BetaManagedAgentsUserInterruptEvent`
+  - `interface BetaManagedAgentsUserInterruptEvent`
 
     An interrupt event that pauses agent execution and returns control to the user.
 
@@ -361,7 +367,7 @@ List Events
 
       If absent, interrupts every non-archived thread in a multiagent session (or the primary alone in a single-agent session). If present, interrupts only the named thread.
 
-  - `BetaManagedAgentsUserToolConfirmationEvent`
+  - `interface BetaManagedAgentsUserToolConfirmationEvent`
 
     A tool confirmation event that approves or denies a pending tool execution.
 
@@ -397,9 +403,9 @@ List Events
 
     - `session_thread_id?: string | null`
 
-      When set, the confirmation routes to this subagent's thread rather than the primary. Echo this from the `session_thread_id` on the `agent.tool_use` or `agent.mcp_tool_use` event that prompted the approval.
+      Set by the server to the subagent thread this confirmation was routed to. Omitted when it was routed to the primary thread.
 
-  - `BetaManagedAgentsUserCustomToolResultEvent`
+  - `interface BetaManagedAgentsUserCustomToolResultEvent`
 
     Event sent by the client providing the result of a custom tool execution.
 
@@ -417,19 +423,19 @@ List Events
 
       The result content returned by the tool.
 
-      - `BetaManagedAgentsTextBlock`
+      - `interface BetaManagedAgentsTextBlock`
 
         Regular text content.
 
-      - `BetaManagedAgentsImageBlock`
+      - `interface BetaManagedAgentsImageBlock`
 
         Image content specified directly as base64 data or as a reference via a URL.
 
-      - `BetaManagedAgentsDocumentBlock`
+      - `interface BetaManagedAgentsDocumentBlock`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
-      - `BetaManagedAgentsSearchResultBlock`
+      - `interface BetaManagedAgentsSearchResultBlock`
 
         A block containing a web search result.
 
@@ -479,9 +485,9 @@ List Events
 
     - `session_thread_id?: string | null`
 
-      Routes this result to a subagent thread. Copy from the `agent.custom_tool_use` event's `session_thread_id`.
+      Set by the server to the subagent thread this result was routed to. Omitted when it was routed to the primary thread.
 
-  - `BetaManagedAgentsAgentCustomToolUseEvent`
+  - `interface BetaManagedAgentsAgentCustomToolUseEvent`
 
     Event emitted when the agent calls a custom tool. The session goes idle until the client sends a `user.custom_tool_result` event with the result.
 
@@ -507,9 +513,9 @@ List Events
 
     - `session_thread_id?: string | null`
 
-      When set, this event was cross-posted from a subagent's thread to surface its custom tool use on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.custom_tool_result` event to route the result back.
+      When set, this event was cross-posted from a subagent's thread to surface its custom tool use on the primary thread's stream. Empty on the thread's own events. Informational only: the server routes the matching `user.custom_tool_result` by `custom_tool_use_id`, so clients do not send it back.
 
-  - `BetaManagedAgentsAgentMessageEvent`
+  - `interface BetaManagedAgentsAgentMessageEvent`
 
     An agent response event in the session conversation.
 
@@ -523,11 +529,11 @@ List Events
 
       Array of text blocks comprising the agent response.
 
-      - `BetaManagedAgentsTextBlock`
+      - `interface BetaManagedAgentsTextBlock`
 
         Regular text content.
 
-      - `BetaManagedAgentsRedactedBlock`
+      - `interface BetaManagedAgentsRedactedBlock`
 
         Placeholder for content withheld by Anthropic model policy.
 
@@ -537,7 +543,7 @@ List Events
 
       format: date-time
 
-  - `BetaManagedAgentsAgentThinkingEvent`
+  - `interface BetaManagedAgentsAgentThinkingEvent`
 
     Indicates the agent is making forward progress via extended thinking. A progress signal, not a content carrier.
 
@@ -553,7 +559,7 @@ List Events
 
       format: date-time
 
-  - `BetaManagedAgentsAgentMCPToolUseEvent`
+  - `interface BetaManagedAgentsAgentMCPToolUseEvent`
 
     Event emitted when the agent invokes a tool provided by an MCP server.
 
@@ -581,7 +587,7 @@ List Events
 
       format: date-time
 
-    - `evaluated_permission?: "allow" | "ask" | "deny"`
+    - `evaluated_permission?: BetaManagedAgentsAgentEvaluatedPermission`
 
       AgentEvaluatedPermission enum
 
@@ -595,19 +601,19 @@ List Events
 
       Names the resolved permission_policy that produced evaluated_permission, and under auto carries the judgement. Open union: clients must tolerate unknown variants.
 
-      - `BetaManagedAgentsAgentToolEvaluationAlwaysAllow`
+      - `interface BetaManagedAgentsAgentToolEvaluationAlwaysAllow`
 
         The resolved permission_policy was always_allow; accompanies evaluated_permission "allow".
 
         - `type: "always_allow"`
 
-      - `BetaManagedAgentsAgentToolEvaluationAlwaysAsk`
+      - `interface BetaManagedAgentsAgentToolEvaluationAlwaysAsk`
 
         The resolved permission_policy was always_ask; accompanies evaluated_permission "ask".
 
         - `type: "always_ask"`
 
-      - `BetaManagedAgentsAgentToolEvaluationAuto`
+      - `interface BetaManagedAgentsAgentToolEvaluationAuto`
 
         The resolved permission_policy was auto: the server judged this invocation individually.
 
@@ -617,13 +623,13 @@ List Events
 
           The server's per-invocation judgement under the auto permission policy. Its type always equals the event's top-level evaluated_permission. Open union: clients must tolerate unknown variants.
 
-          - `BetaManagedAgentsAgentAutoEvaluatedPermissionAllow`
+          - `interface BetaManagedAgentsAgentAutoEvaluatedPermissionAllow`
 
             The server judged the invocation safe to execute without client approval.
 
             - `type: "allow"`
 
-          - `BetaManagedAgentsAgentAutoEvaluatedPermissionAsk`
+          - `interface BetaManagedAgentsAgentAutoEvaluatedPermissionAsk`
 
             The server reached no judgement; the invocation is held for client approval.
 
@@ -635,7 +641,7 @@ List Events
 
               maxLength: 64
 
-          - `BetaManagedAgentsAgentAutoEvaluatedPermissionDeny`
+          - `interface BetaManagedAgentsAgentAutoEvaluatedPermissionDeny`
 
             The server judged the invocation high-risk; it does not execute and a synthetic error tool result is appended.
 
@@ -649,9 +655,9 @@ List Events
 
     - `session_thread_id?: string | null`
 
-      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
+      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Informational only: the server routes the matching `user.tool_confirmation` by `tool_use_id`, so clients do not send it back.
 
-  - `BetaManagedAgentsAgentMCPToolResultEvent`
+  - `interface BetaManagedAgentsAgentMCPToolResultEvent`
 
     Event representing the result of an MCP tool execution.
 
@@ -675,19 +681,19 @@ List Events
 
       The result content returned by the tool.
 
-      - `BetaManagedAgentsTextBlock`
+      - `interface BetaManagedAgentsTextBlock`
 
         Regular text content.
 
-      - `BetaManagedAgentsImageBlock`
+      - `interface BetaManagedAgentsImageBlock`
 
         Image content specified directly as base64 data or as a reference via a URL.
 
-      - `BetaManagedAgentsDocumentBlock`
+      - `interface BetaManagedAgentsDocumentBlock`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
-      - `BetaManagedAgentsSearchResultBlock`
+      - `interface BetaManagedAgentsSearchResultBlock`
 
         A block containing a web search result.
 
@@ -695,7 +701,7 @@ List Events
 
       Whether the tool execution resulted in an error.
 
-  - `BetaManagedAgentsAgentToolUseEvent`
+  - `interface BetaManagedAgentsAgentToolUseEvent`
 
     Event emitted when the agent invokes a built-in agent tool.
 
@@ -719,15 +725,9 @@ List Events
 
       format: date-time
 
-    - `evaluated_permission?: "allow" | "ask" | "deny"`
+    - `evaluated_permission?: BetaManagedAgentsAgentEvaluatedPermission`
 
       AgentEvaluatedPermission enum
-
-      - `"allow"`
-
-      - `"ask"`
-
-      - `"deny"`
 
     - `evaluation?: BetaManagedAgentsAgentToolEvaluation`
 
@@ -735,9 +735,9 @@ List Events
 
     - `session_thread_id?: string | null`
 
-      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
+      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Informational only: the server routes the matching `user.tool_confirmation` or `user.tool_result` by `tool_use_id`, so clients do not send it back.
 
-  - `BetaManagedAgentsAgentToolResultEvent`
+  - `interface BetaManagedAgentsAgentToolResultEvent`
 
     Event representing the result of an agent tool execution.
 
@@ -761,19 +761,19 @@ List Events
 
       The result content returned by the tool.
 
-      - `BetaManagedAgentsTextBlock`
+      - `interface BetaManagedAgentsTextBlock`
 
         Regular text content.
 
-      - `BetaManagedAgentsImageBlock`
+      - `interface BetaManagedAgentsImageBlock`
 
         Image content specified directly as base64 data or as a reference via a URL.
 
-      - `BetaManagedAgentsDocumentBlock`
+      - `interface BetaManagedAgentsDocumentBlock`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
-      - `BetaManagedAgentsSearchResultBlock`
+      - `interface BetaManagedAgentsSearchResultBlock`
 
         A block containing a web search result.
 
@@ -781,7 +781,7 @@ List Events
 
       Whether the tool execution resulted in an error.
 
-  - `BetaManagedAgentsAgentThreadMessageReceivedEvent`
+  - `interface BetaManagedAgentsAgentThreadMessageReceivedEvent`
 
     Delivery event written to the target thread's input stream when an agent-to-agent message arrives.
 
@@ -795,19 +795,19 @@ List Events
 
       Message content blocks.
 
-      - `BetaManagedAgentsTextBlock`
+      - `interface BetaManagedAgentsTextBlock`
 
         Regular text content.
 
-      - `BetaManagedAgentsImageBlock`
+      - `interface BetaManagedAgentsImageBlock`
 
         Image content specified directly as base64 data or as a reference via a URL.
 
-      - `BetaManagedAgentsDocumentBlock`
+      - `interface BetaManagedAgentsDocumentBlock`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
-      - `BetaManagedAgentsRedactedBlock`
+      - `interface BetaManagedAgentsRedactedBlock`
 
         Placeholder for content withheld by Anthropic model policy.
 
@@ -825,7 +825,7 @@ List Events
 
       Name of the callable agent this message came from. Absent when received from the primary agent.
 
-  - `BetaManagedAgentsAgentThreadMessageSentEvent`
+  - `interface BetaManagedAgentsAgentThreadMessageSentEvent`
 
     Observability event emitted to the sender's output stream when an agent-to-agent message is sent.
 
@@ -839,19 +839,19 @@ List Events
 
       Message content blocks.
 
-      - `BetaManagedAgentsTextBlock`
+      - `interface BetaManagedAgentsTextBlock`
 
         Regular text content.
 
-      - `BetaManagedAgentsImageBlock`
+      - `interface BetaManagedAgentsImageBlock`
 
         Image content specified directly as base64 data or as a reference via a URL.
 
-      - `BetaManagedAgentsDocumentBlock`
+      - `interface BetaManagedAgentsDocumentBlock`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
-      - `BetaManagedAgentsRedactedBlock`
+      - `interface BetaManagedAgentsRedactedBlock`
 
         Placeholder for content withheld by Anthropic model policy.
 
@@ -869,7 +869,7 @@ List Events
 
       Name of the callable agent this message was sent to. Absent when sent to the primary agent.
 
-  - `BetaManagedAgentsAgentThreadContextCompactedEvent`
+  - `interface BetaManagedAgentsAgentThreadContextCompactedEvent`
 
     Indicates that context compaction (summarization) occurred during the session.
 
@@ -885,7 +885,7 @@ List Events
 
       format: date-time
 
-  - `BetaManagedAgentsSessionErrorEvent`
+  - `interface BetaManagedAgentsSessionErrorEvent`
 
     An error event indicating a problem occurred during session execution.
 
@@ -897,7 +897,7 @@ List Events
 
     - `error: BetaManagedAgentsUnknownError | BetaManagedAgentsModelOverloadedError | BetaManagedAgentsModelRateLimitedError | 5 more`
 
-      - `BetaManagedAgentsUnknownError`
+      - `interface BetaManagedAgentsUnknownError`
 
         An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
 
@@ -911,25 +911,25 @@ List Events
 
           What the client should do next in response to this error.
 
-          - `BetaManagedAgentsRetryStatusRetrying`
+          - `interface BetaManagedAgentsRetryStatusRetrying`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
 
             - `type: "retrying"`
 
-          - `BetaManagedAgentsRetryStatusExhausted`
+          - `interface BetaManagedAgentsRetryStatusExhausted`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
             - `type: "exhausted"`
 
-          - `BetaManagedAgentsRetryStatusTerminal`
+          - `interface BetaManagedAgentsRetryStatusTerminal`
 
             The session encountered a terminal error and will transition to `terminated` state.
 
             - `type: "terminal"`
 
-      - `BetaManagedAgentsModelOverloadedError`
+      - `interface BetaManagedAgentsModelOverloadedError`
 
         The model is currently overloaded. Emitted after automatic retries are exhausted.
 
@@ -943,19 +943,19 @@ List Events
 
           What the client should do next in response to this error.
 
-          - `BetaManagedAgentsRetryStatusRetrying`
+          - `interface BetaManagedAgentsRetryStatusRetrying`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
 
-          - `BetaManagedAgentsRetryStatusExhausted`
+          - `interface BetaManagedAgentsRetryStatusExhausted`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-          - `BetaManagedAgentsRetryStatusTerminal`
+          - `interface BetaManagedAgentsRetryStatusTerminal`
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-      - `BetaManagedAgentsModelRateLimitedError`
+      - `interface BetaManagedAgentsModelRateLimitedError`
 
         The model request was rate-limited.
 
@@ -969,19 +969,19 @@ List Events
 
           What the client should do next in response to this error.
 
-          - `BetaManagedAgentsRetryStatusRetrying`
+          - `interface BetaManagedAgentsRetryStatusRetrying`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
 
-          - `BetaManagedAgentsRetryStatusExhausted`
+          - `interface BetaManagedAgentsRetryStatusExhausted`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-          - `BetaManagedAgentsRetryStatusTerminal`
+          - `interface BetaManagedAgentsRetryStatusTerminal`
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-      - `BetaManagedAgentsModelRequestFailedError`
+      - `interface BetaManagedAgentsModelRequestFailedError`
 
         A model request failed for a reason other than overload or rate-limiting.
 
@@ -995,19 +995,19 @@ List Events
 
           What the client should do next in response to this error.
 
-          - `BetaManagedAgentsRetryStatusRetrying`
+          - `interface BetaManagedAgentsRetryStatusRetrying`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
 
-          - `BetaManagedAgentsRetryStatusExhausted`
+          - `interface BetaManagedAgentsRetryStatusExhausted`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-          - `BetaManagedAgentsRetryStatusTerminal`
+          - `interface BetaManagedAgentsRetryStatusTerminal`
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-      - `BetaManagedAgentsMCPConnectionFailedError`
+      - `interface BetaManagedAgentsMCPConnectionFailedError`
 
         Failed to connect to an MCP server.
 
@@ -1025,19 +1025,19 @@ List Events
 
           What the client should do next in response to this error.
 
-          - `BetaManagedAgentsRetryStatusRetrying`
+          - `interface BetaManagedAgentsRetryStatusRetrying`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
 
-          - `BetaManagedAgentsRetryStatusExhausted`
+          - `interface BetaManagedAgentsRetryStatusExhausted`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-          - `BetaManagedAgentsRetryStatusTerminal`
+          - `interface BetaManagedAgentsRetryStatusTerminal`
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-      - `BetaManagedAgentsMCPAuthenticationFailedError`
+      - `interface BetaManagedAgentsMCPAuthenticationFailedError`
 
         Authentication to an MCP server failed.
 
@@ -1055,19 +1055,19 @@ List Events
 
           What the client should do next in response to this error.
 
-          - `BetaManagedAgentsRetryStatusRetrying`
+          - `interface BetaManagedAgentsRetryStatusRetrying`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
 
-          - `BetaManagedAgentsRetryStatusExhausted`
+          - `interface BetaManagedAgentsRetryStatusExhausted`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-          - `BetaManagedAgentsRetryStatusTerminal`
+          - `interface BetaManagedAgentsRetryStatusTerminal`
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-      - `BetaManagedAgentsBillingError`
+      - `interface BetaManagedAgentsBillingError`
 
         The caller's organization or workspace cannot make model requests — out of credits or spend limit reached. Retrying with the same credentials will not succeed; the caller must resolve the billing state.
 
@@ -1081,19 +1081,19 @@ List Events
 
           What the client should do next in response to this error.
 
-          - `BetaManagedAgentsRetryStatusRetrying`
+          - `interface BetaManagedAgentsRetryStatusRetrying`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
 
-          - `BetaManagedAgentsRetryStatusExhausted`
+          - `interface BetaManagedAgentsRetryStatusExhausted`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-          - `BetaManagedAgentsRetryStatusTerminal`
+          - `interface BetaManagedAgentsRetryStatusTerminal`
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-      - `BetaManagedAgentsCredentialHostUnreachableError`
+      - `interface BetaManagedAgentsCredentialHostUnreachableError`
 
         An `environment_variable` credential's `auth.networking.allowed_hosts` includes a host the environment's network policy does not permit.
 
@@ -1111,15 +1111,15 @@ List Events
 
           What the client should do next in response to this error.
 
-          - `BetaManagedAgentsRetryStatusRetrying`
+          - `interface BetaManagedAgentsRetryStatusRetrying`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
 
-          - `BetaManagedAgentsRetryStatusExhausted`
+          - `interface BetaManagedAgentsRetryStatusExhausted`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-          - `BetaManagedAgentsRetryStatusTerminal`
+          - `interface BetaManagedAgentsRetryStatusTerminal`
 
             The session encountered a terminal error and will transition to `terminated` state.
 
@@ -1133,7 +1133,7 @@ List Events
 
       format: date-time
 
-  - `BetaManagedAgentsSessionStatusRescheduledEvent`
+  - `interface BetaManagedAgentsSessionStatusRescheduledEvent`
 
     Indicates the session is recovering from an error state and is rescheduled for execution.
 
@@ -1149,7 +1149,7 @@ List Events
 
       format: date-time
 
-  - `BetaManagedAgentsSessionStatusRunningEvent`
+  - `interface BetaManagedAgentsSessionStatusRunningEvent`
 
     Indicates the session is actively running and the agent is working.
 
@@ -1165,7 +1165,7 @@ List Events
 
       format: date-time
 
-  - `BetaManagedAgentsSessionStatusIdleEvent`
+  - `interface BetaManagedAgentsSessionStatusIdleEvent`
 
     Indicates the agent has paused and is awaiting user input.
 
@@ -1183,13 +1183,13 @@ List Events
 
     - `stop_reason: BetaManagedAgentsSessionEndTurn | BetaManagedAgentsSessionRequiresAction | BetaManagedAgentsSessionRetriesExhausted | BetaManagedAgentsSessionBudgetReached`
 
-      - `BetaManagedAgentsSessionEndTurn`
+      - `interface BetaManagedAgentsSessionEndTurn`
 
         The agent completed its turn naturally and is ready for the next user message.
 
         - `type: "end_turn"`
 
-      - `BetaManagedAgentsSessionRequiresAction`
+      - `interface BetaManagedAgentsSessionRequiresAction`
 
         The agent is idle waiting on one or more blocking user-input events (tool confirmation, custom tool result, etc.). Resolving all of them transitions the session back to running.
 
@@ -1199,19 +1199,19 @@ List Events
 
           The ids of events the agent is blocked on. Resolving fewer than all re-emits `session.status_idle` with the remainder.
 
-      - `BetaManagedAgentsSessionRetriesExhausted`
+      - `interface BetaManagedAgentsSessionRetriesExhausted`
 
         The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
 
         - `type: "retries_exhausted"`
 
-      - `BetaManagedAgentsSessionBudgetReached`
+      - `interface BetaManagedAgentsSessionBudgetReached`
 
         The agent stopped because the session's tracked list cost reached its budget, or because its usage includes a model with no list price (which the budget cannot measure). Raise the budget to continue — or, if raising is rejected because a model has no list price, remove the budget.
 
         - `type: "budget_reached"`
 
-  - `BetaManagedAgentsSessionStatusTerminatedEvent`
+  - `interface BetaManagedAgentsSessionStatusTerminatedEvent`
 
     Indicates the session has terminated, either due to an error or completion.
 
@@ -1227,7 +1227,7 @@ List Events
 
       format: date-time
 
-  - `BetaManagedAgentsSessionThreadCreatedEvent`
+  - `interface BetaManagedAgentsSessionThreadCreatedEvent`
 
     Emitted when a subagent is spawned as a new thread. Written to the parent thread's output stream so clients observing the session see child creation.
 
@@ -1251,7 +1251,7 @@ List Events
 
       Public `sthr_` ID of the newly created thread.
 
-  - `BetaManagedAgentsSpanOutcomeEvaluationStartEvent`
+  - `interface BetaManagedAgentsSpanOutcomeEvaluationStartEvent`
 
     Emitted when an outcome evaluation cycle begins.
 
@@ -1277,7 +1277,7 @@ List Events
 
       format: date-time
 
-  - `BetaManagedAgentsSpanOutcomeEvaluationEndEvent`
+  - `interface BetaManagedAgentsSpanOutcomeEvaluationEndEvent`
 
     Emitted when an outcome evaluation cycle completes. Carries the verdict and aggregate token usage. A verdict of `needs_revision` means another evaluation cycle follows; `satisfied`, `max_iterations_reached`, `failed`, or `interrupted` are terminal — no further evaluation cycles follow.
 
@@ -1351,7 +1351,7 @@ List Events
 
         - `"fast"`
 
-  - `BetaManagedAgentsSpanModelRequestStartEvent`
+  - `interface BetaManagedAgentsSpanModelRequestStartEvent`
 
     Emitted when a model request is initiated by the agent.
 
@@ -1367,7 +1367,7 @@ List Events
 
       format: date-time
 
-  - `BetaManagedAgentsSpanModelRequestEndEvent`
+  - `interface BetaManagedAgentsSpanModelRequestEndEvent`
 
     Emitted when a model request completes.
 
@@ -1395,7 +1395,7 @@ List Events
 
       format: date-time
 
-  - `BetaManagedAgentsSpanOutcomeEvaluationOngoingEvent`
+  - `interface BetaManagedAgentsSpanOutcomeEvaluationOngoingEvent`
 
     Periodic heartbeat emitted while an outcome evaluation cycle is in progress. Distinguishes 'evaluation is actively running' from 'evaluation is stuck' between the corresponding `span.outcome_evaluation_start` and `span.outcome_evaluation_end` events.
 
@@ -1421,7 +1421,7 @@ List Events
 
       format: date-time
 
-  - `BetaManagedAgentsUserDefineOutcomeEvent`
+  - `interface BetaManagedAgentsUserDefineOutcomeEvent`
 
     Echo of a `user.define_outcome` input event. Carries the server-generated `outcome_id` that subsequent `span.outcome_evaluation_*` events reference.
 
@@ -1455,7 +1455,7 @@ List Events
 
       Rubric for grading the quality of an outcome.
 
-      - `BetaManagedAgentsFileRubric`
+      - `interface BetaManagedAgentsFileRubric`
 
         Rubric referenced by a file uploaded via the Files API.
 
@@ -1465,7 +1465,7 @@ List Events
 
           ID of the rubric file.
 
-      - `BetaManagedAgentsTextRubric`
+      - `interface BetaManagedAgentsTextRubric`
 
         Rubric content provided inline as text.
 
@@ -1475,7 +1475,7 @@ List Events
 
           Rubric content. Plain text or markdown — the grader treats it as freeform text.
 
-  - `BetaManagedAgentsSessionDeletedEvent`
+  - `interface BetaManagedAgentsSessionDeletedEvent`
 
     Emitted when a session has been deleted. Terminates any active event stream — no further events will be emitted for this session.
 
@@ -1491,7 +1491,7 @@ List Events
 
       format: date-time
 
-  - `BetaManagedAgentsSessionThreadStatusRunningEvent`
+  - `interface BetaManagedAgentsSessionThreadStatusRunningEvent`
 
     A session thread has begun executing. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
 
@@ -1515,7 +1515,7 @@ List Events
 
       Public sthr_ ID of the thread that started running.
 
-  - `BetaManagedAgentsSessionThreadStatusIdleEvent`
+  - `interface BetaManagedAgentsSessionThreadStatusIdleEvent`
 
     A session thread has yielded and is awaiting input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
 
@@ -1541,23 +1541,23 @@ List Events
 
     - `stop_reason: BetaManagedAgentsSessionEndTurn | BetaManagedAgentsSessionRequiresAction | BetaManagedAgentsSessionRetriesExhausted | BetaManagedAgentsSessionBudgetReached`
 
-      - `BetaManagedAgentsSessionEndTurn`
+      - `interface BetaManagedAgentsSessionEndTurn`
 
         The agent completed its turn naturally and is ready for the next user message.
 
-      - `BetaManagedAgentsSessionRequiresAction`
+      - `interface BetaManagedAgentsSessionRequiresAction`
 
         The agent is idle waiting on one or more blocking user-input events (tool confirmation, custom tool result, etc.). Resolving all of them transitions the session back to running.
 
-      - `BetaManagedAgentsSessionRetriesExhausted`
+      - `interface BetaManagedAgentsSessionRetriesExhausted`
 
         The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
 
-      - `BetaManagedAgentsSessionBudgetReached`
+      - `interface BetaManagedAgentsSessionBudgetReached`
 
         The agent stopped because the session's tracked list cost reached its budget, or because its usage includes a model with no list price (which the budget cannot measure). Raise the budget to continue — or, if raising is rejected because a model has no list price, remove the budget.
 
-  - `BetaManagedAgentsSessionThreadStatusTerminatedEvent`
+  - `interface BetaManagedAgentsSessionThreadStatusTerminatedEvent`
 
     A session thread has terminated and will accept no further input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
 
@@ -1581,7 +1581,7 @@ List Events
 
       Public sthr_ ID of the thread that terminated.
 
-  - `BetaManagedAgentsUserToolResultEvent`
+  - `interface BetaManagedAgentsUserToolResultEvent`
 
     Event sent by the client providing the result of an agent-toolset tool execution. Only valid on `self_hosted` environments, where sandbox-routed tools are executed by the client rather than the server.
 
@@ -1599,19 +1599,19 @@ List Events
 
       The result content returned by the tool.
 
-      - `BetaManagedAgentsTextBlock`
+      - `interface BetaManagedAgentsTextBlock`
 
         Regular text content.
 
-      - `BetaManagedAgentsImageBlock`
+      - `interface BetaManagedAgentsImageBlock`
 
         Image content specified directly as base64 data or as a reference via a URL.
 
-      - `BetaManagedAgentsDocumentBlock`
+      - `interface BetaManagedAgentsDocumentBlock`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
-      - `BetaManagedAgentsSearchResultBlock`
+      - `interface BetaManagedAgentsSearchResultBlock`
 
         A block containing a web search result.
 
@@ -1627,9 +1627,9 @@ List Events
 
     - `session_thread_id?: string | null`
 
-      Routes this result to a subagent thread. Copy from the `agent.tool_use` event's `session_thread_id`.
+      Set by the server to the subagent thread this result was routed to. Omitted when it was routed to the primary thread.
 
-  - `BetaManagedAgentsSessionThreadStatusRescheduledEvent`
+  - `interface BetaManagedAgentsSessionThreadStatusRescheduledEvent`
 
     A session thread hit a transient error and is retrying automatically. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
 
@@ -1653,7 +1653,7 @@ List Events
 
       Public sthr_ ID of the thread that is retrying.
 
-  - `BetaManagedAgentsSessionUpdatedEvent`
+  - `interface BetaManagedAgentsSessionUpdatedEvent`
 
     Emitted when an UpdateSession request changed at least one field. Carries only the fields that changed; absent fields were not part of the update. The new configuration applies from the next turn.
 
@@ -1697,7 +1697,11 @@ List Events
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-          - `"claude-fable-5-1" | "claude-sonnet-5" | "claude-fable-5" | 11 more`
+          - `"claude-opus-5-5" | "claude-fable-5-1" | "claude-sonnet-5" | 12 more`
+
+            - `"claude-opus-5-5"`
+
+              Powerful intelligence for coding, knowledge work, and long-running agents
 
             - `"claude-fable-5-1"`
 
@@ -1761,31 +1765,31 @@ List Events
 
           How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
 
-          - `BetaManagedAgentsEffortLow`
+          - `interface BetaManagedAgentsEffortLow`
 
             Low effort. Favors latency over reasoning depth.
 
             - `type: "low"`
 
-          - `BetaManagedAgentsEffortMedium`
+          - `interface BetaManagedAgentsEffortMedium`
 
             Medium effort. Balances latency and reasoning depth.
 
             - `type: "medium"`
 
-          - `BetaManagedAgentsEffortHigh`
+          - `interface BetaManagedAgentsEffortHigh`
 
             High effort. Favors reasoning depth.
 
             - `type: "high"`
 
-          - `BetaManagedAgentsEffortXhigh`
+          - `interface BetaManagedAgentsEffortXhigh`
 
             Extra-high effort. Not all models accept this level.
 
             - `type: "xhigh"`
 
-          - `BetaManagedAgentsEffortMax`
+          - `interface BetaManagedAgentsEffortMax`
 
             Maximum effort. Favors reasoning depth over latency.
 
@@ -1813,7 +1817,7 @@ List Events
 
           Full `agent` definitions the coordinator may spawn as session threads.
 
-          - `BetaManagedAgentsSessionThreadAgent`
+          - `interface BetaManagedAgentsSessionThreadAgent`
 
             Resolved `agent` definition for a single `session_thread`. Snapshot of the agent at thread creation time. The multiagent roster is not repeated here; read it from `Session.agent`.
 
@@ -1839,7 +1843,7 @@ List Events
 
             - `skills: Array<BetaManagedAgentsAnthropicSkill | BetaManagedAgentsCustomSkill>`
 
-              - `BetaManagedAgentsAnthropicSkill`
+              - `interface BetaManagedAgentsAnthropicSkill`
 
                 A resolved Anthropic-managed skill.
 
@@ -1849,7 +1853,7 @@ List Events
 
                 - `version: string`
 
-              - `BetaManagedAgentsCustomSkill`
+              - `interface BetaManagedAgentsCustomSkill`
 
                 A resolved user-created custom skill.
 
@@ -1863,13 +1867,13 @@ List Events
 
             - `tools: Array<BetaManagedAgentsAgentToolset20260401 | BetaManagedAgentsMCPToolset | BetaManagedAgentsCustomTool>`
 
-              - `BetaManagedAgentsAgentToolset20260401`
+              - `interface BetaManagedAgentsAgentToolset20260401`
 
                 - `type: "agent_toolset_20260401"`
 
                 - `configs: Array<BetaManagedAgentsAgentToolConfig>`
 
-                  - `BetaManagedAgentsBashToolConfig`
+                  - `interface BetaManagedAgentsBashToolConfig`
 
                     Configuration for the bash tool.
 
@@ -1883,25 +1887,25 @@ List Events
 
                       Permission policy for tool execution.
 
-                      - `BetaManagedAgentsAlwaysAllowPolicy`
+                      - `interface BetaManagedAgentsAlwaysAllowPolicy`
 
                         Tool calls are automatically approved without user confirmation.
 
                         - `type: "always_allow"`
 
-                      - `BetaManagedAgentsAlwaysAskPolicy`
+                      - `interface BetaManagedAgentsAlwaysAskPolicy`
 
                         Tool calls require user confirmation before execution.
 
                         - `type: "always_ask"`
 
-                      - `BetaManagedAgentsAutoPolicy`
+                      - `interface BetaManagedAgentsAutoPolicy`
 
                         The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                         - `type: "auto"`
 
-                  - `BetaManagedAgentsEditToolConfig`
+                  - `interface BetaManagedAgentsEditToolConfig`
 
                     Configuration for the edit tool.
 
@@ -1915,19 +1919,19 @@ List Events
 
                       Permission policy for tool execution.
 
-                      - `BetaManagedAgentsAlwaysAllowPolicy`
+                      - `interface BetaManagedAgentsAlwaysAllowPolicy`
 
                         Tool calls are automatically approved without user confirmation.
 
-                      - `BetaManagedAgentsAlwaysAskPolicy`
+                      - `interface BetaManagedAgentsAlwaysAskPolicy`
 
                         Tool calls require user confirmation before execution.
 
-                      - `BetaManagedAgentsAutoPolicy`
+                      - `interface BetaManagedAgentsAutoPolicy`
 
                         The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
-                  - `BetaManagedAgentsReadToolConfig`
+                  - `interface BetaManagedAgentsReadToolConfig`
 
                     Configuration for the read tool.
 
@@ -1941,19 +1945,19 @@ List Events
 
                       Permission policy for tool execution.
 
-                      - `BetaManagedAgentsAlwaysAllowPolicy`
+                      - `interface BetaManagedAgentsAlwaysAllowPolicy`
 
                         Tool calls are automatically approved without user confirmation.
 
-                      - `BetaManagedAgentsAlwaysAskPolicy`
+                      - `interface BetaManagedAgentsAlwaysAskPolicy`
 
                         Tool calls require user confirmation before execution.
 
-                      - `BetaManagedAgentsAutoPolicy`
+                      - `interface BetaManagedAgentsAutoPolicy`
 
                         The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
-                  - `BetaManagedAgentsWriteToolConfig`
+                  - `interface BetaManagedAgentsWriteToolConfig`
 
                     Configuration for the write tool.
 
@@ -1967,19 +1971,19 @@ List Events
 
                       Permission policy for tool execution.
 
-                      - `BetaManagedAgentsAlwaysAllowPolicy`
+                      - `interface BetaManagedAgentsAlwaysAllowPolicy`
 
                         Tool calls are automatically approved without user confirmation.
 
-                      - `BetaManagedAgentsAlwaysAskPolicy`
+                      - `interface BetaManagedAgentsAlwaysAskPolicy`
 
                         Tool calls require user confirmation before execution.
 
-                      - `BetaManagedAgentsAutoPolicy`
+                      - `interface BetaManagedAgentsAutoPolicy`
 
                         The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
-                  - `BetaManagedAgentsGlobToolConfig`
+                  - `interface BetaManagedAgentsGlobToolConfig`
 
                     Configuration for the glob tool.
 
@@ -1993,19 +1997,19 @@ List Events
 
                       Permission policy for tool execution.
 
-                      - `BetaManagedAgentsAlwaysAllowPolicy`
+                      - `interface BetaManagedAgentsAlwaysAllowPolicy`
 
                         Tool calls are automatically approved without user confirmation.
 
-                      - `BetaManagedAgentsAlwaysAskPolicy`
+                      - `interface BetaManagedAgentsAlwaysAskPolicy`
 
                         Tool calls require user confirmation before execution.
 
-                      - `BetaManagedAgentsAutoPolicy`
+                      - `interface BetaManagedAgentsAutoPolicy`
 
                         The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
-                  - `BetaManagedAgentsGrepToolConfig`
+                  - `interface BetaManagedAgentsGrepToolConfig`
 
                     Configuration for the grep tool.
 
@@ -2019,19 +2023,19 @@ List Events
 
                       Permission policy for tool execution.
 
-                      - `BetaManagedAgentsAlwaysAllowPolicy`
+                      - `interface BetaManagedAgentsAlwaysAllowPolicy`
 
                         Tool calls are automatically approved without user confirmation.
 
-                      - `BetaManagedAgentsAlwaysAskPolicy`
+                      - `interface BetaManagedAgentsAlwaysAskPolicy`
 
                         Tool calls require user confirmation before execution.
 
-                      - `BetaManagedAgentsAutoPolicy`
+                      - `interface BetaManagedAgentsAutoPolicy`
 
                         The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
-                  - `BetaManagedAgentsWebFetchToolConfig`
+                  - `interface BetaManagedAgentsWebFetchToolConfig`
 
                     Configuration for the web_fetch tool.
 
@@ -2045,15 +2049,15 @@ List Events
 
                       Permission policy for tool execution.
 
-                      - `BetaManagedAgentsAlwaysAllowPolicy`
+                      - `interface BetaManagedAgentsAlwaysAllowPolicy`
 
                         Tool calls are automatically approved without user confirmation.
 
-                      - `BetaManagedAgentsAlwaysAskPolicy`
+                      - `interface BetaManagedAgentsAlwaysAskPolicy`
 
                         Tool calls require user confirmation before execution.
 
-                      - `BetaManagedAgentsAutoPolicy`
+                      - `interface BetaManagedAgentsAutoPolicy`
 
                         The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
@@ -2065,7 +2069,7 @@ List Events
 
                       format: int32
 
-                  - `BetaManagedAgentsWebSearchToolConfig`
+                  - `interface BetaManagedAgentsWebSearchToolConfig`
 
                     Configuration for the web_search tool.
 
@@ -2079,15 +2083,15 @@ List Events
 
                       Permission policy for tool execution.
 
-                      - `BetaManagedAgentsAlwaysAllowPolicy`
+                      - `interface BetaManagedAgentsAlwaysAllowPolicy`
 
                         Tool calls are automatically approved without user confirmation.
 
-                      - `BetaManagedAgentsAlwaysAskPolicy`
+                      - `interface BetaManagedAgentsAlwaysAskPolicy`
 
                         Tool calls require user confirmation before execution.
 
-                      - `BetaManagedAgentsAutoPolicy`
+                      - `interface BetaManagedAgentsAutoPolicy`
 
                         The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
@@ -2135,19 +2139,19 @@ List Events
 
                     Permission policy for tool execution.
 
-                    - `BetaManagedAgentsAlwaysAllowPolicy`
+                    - `interface BetaManagedAgentsAlwaysAllowPolicy`
 
                       Tool calls are automatically approved without user confirmation.
 
-                    - `BetaManagedAgentsAlwaysAskPolicy`
+                    - `interface BetaManagedAgentsAlwaysAskPolicy`
 
                       Tool calls require user confirmation before execution.
 
-                    - `BetaManagedAgentsAutoPolicy`
+                    - `interface BetaManagedAgentsAutoPolicy`
 
                       The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
-              - `BetaManagedAgentsMCPToolset`
+              - `interface BetaManagedAgentsMCPToolset`
 
                 - `type: "mcp_toolset"`
 
@@ -2161,15 +2165,15 @@ List Events
 
                     Permission policy for tool execution.
 
-                    - `BetaManagedAgentsAlwaysAllowPolicy`
+                    - `interface BetaManagedAgentsAlwaysAllowPolicy`
 
                       Tool calls are automatically approved without user confirmation.
 
-                    - `BetaManagedAgentsAlwaysAskPolicy`
+                    - `interface BetaManagedAgentsAlwaysAskPolicy`
 
                       Tool calls require user confirmation before execution.
 
-                    - `BetaManagedAgentsAutoPolicy`
+                    - `interface BetaManagedAgentsAutoPolicy`
 
                       The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
@@ -2183,21 +2187,21 @@ List Events
 
                     Permission policy for tool execution.
 
-                    - `BetaManagedAgentsAlwaysAllowPolicy`
+                    - `interface BetaManagedAgentsAlwaysAllowPolicy`
 
                       Tool calls are automatically approved without user confirmation.
 
-                    - `BetaManagedAgentsAlwaysAskPolicy`
+                    - `interface BetaManagedAgentsAlwaysAskPolicy`
 
                       Tool calls require user confirmation before execution.
 
-                    - `BetaManagedAgentsAutoPolicy`
+                    - `interface BetaManagedAgentsAutoPolicy`
 
                       The server decides each tool call individually: it judges, from the tool, its input, and the session content so far, whether the call is safe to execute or high-risk, and evaluates it to allow when judged safe and to deny when judged high-risk. A call the server cannot reach a judgement on evaluates to ask.
 
                 - `mcp_server_name: string`
 
-              - `BetaManagedAgentsCustomTool`
+              - `interface BetaManagedAgentsCustomTool`
 
                 A custom tool as returned in API responses.
 
@@ -2221,7 +2225,7 @@ List Events
 
               format: int32
 
-          - `BetaManagedAgentsAdvisor`
+          - `interface BetaManagedAgentsAdvisor`
 
             Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
 
@@ -2235,11 +2239,11 @@ List Events
 
       - `skills: Array<BetaManagedAgentsAnthropicSkill | BetaManagedAgentsCustomSkill>`
 
-        - `BetaManagedAgentsAnthropicSkill`
+        - `interface BetaManagedAgentsAnthropicSkill`
 
           A resolved Anthropic-managed skill.
 
-        - `BetaManagedAgentsCustomSkill`
+        - `interface BetaManagedAgentsCustomSkill`
 
           A resolved user-created custom skill.
 
@@ -2247,11 +2251,11 @@ List Events
 
       - `tools: Array<BetaManagedAgentsAgentToolset20260401 | BetaManagedAgentsMCPToolset | BetaManagedAgentsCustomTool>`
 
-        - `BetaManagedAgentsAgentToolset20260401`
+        - `interface BetaManagedAgentsAgentToolset20260401`
 
-        - `BetaManagedAgentsMCPToolset`
+        - `interface BetaManagedAgentsMCPToolset`
 
-        - `BetaManagedAgentsCustomTool`
+        - `interface BetaManagedAgentsCustomTool`
 
           A custom tool as returned in API responses.
 
@@ -2285,7 +2289,7 @@ List Events
 
       The session's new title. Present only when the update changed it.
 
-  - `BetaManagedAgentsSystemMessageEvent`
+  - `interface BetaManagedAgentsSystemMessageEvent`
 
     A mid-conversation system message event. Carries system-role content that is appended to the session as a `role: "system"` turn.
 
@@ -2313,7 +2317,7 @@ List Events
 
       format: date-time
 
-  - `BetaManagedAgentsSessionUsageEvent`
+  - `interface BetaManagedAgentsSessionUsageEvent`
 
     Periodic snapshot of the session's cumulative usage and tracked list cost.
 

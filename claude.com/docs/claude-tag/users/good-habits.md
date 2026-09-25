@@ -131,7 +131,7 @@ Channel access belongs to the channel, and DM access belongs to you. A channel c
 A DM can still answer questions about a public channel when the answer should stay private. Name the channel in the DM, as in `summarize the last week of #product-feedback`. Claude’s Slack search covers public channels in this workspace from a DM the same as from a channel, so the DM advantage is privacy of the answer, not broader reach. Workspace search is unavailable in [channels that include guests](https://claude.com/docs/claude-tag/admins/restrict-access#restrict-guest-channels), so ask from a DM or from a channel without guests.
 Reading a public channel’s full history, rather than what search finds, needs Claude to be a member of that channel. If it says it can’t read a public channel, `/invite @Claude` from inside that channel adds it.
 A private channel is readable only from inside it. Inviting Claude lets it work in that channel, but Claude can’t read the private channel’s messages from any other channel or DM. To ask about a private channel, ask in that channel.
-Channels in a different workspace and Slack Connect channels stay out of reach.
+Channels in a different workspace stay out of reach. Claude also doesn’t answer in a [Slack Connect channel](https://claude.com/docs/claude-tag/admins/restrict-access#slack-connect-channels), one shared with another company.
 When more than one surface would work, prefer a channel. Work that happens there compounds, because Claude can draw on it in later threads and teammates can find it, redirect it, or build on it.
 If Claude says it can’t reach something in a channel, the channel likely wasn’t granted that access. See [How agent identity works](https://claude.com/docs/claude-tag/concepts/agent-identity).
 

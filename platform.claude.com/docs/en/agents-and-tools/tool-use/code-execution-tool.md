@@ -4,15 +4,36 @@
 title: Code execution tool
 url: https://platform.claude.com/docs/en/agents-and-tools/tool-use/code-execution-tool
 description: Run Python and bash code in a sandboxed container to analyze data, generate files, and iterate on solutions.
+featureMetadata:
+  status: ga
+  zdr: not-eligible
+  supportedModels:
+    - claude-fable-5-1
+    - claude-mythos-5-1
+    - claude-fable-5
+    - claude-mythos-5
+    - claude-opus-5-5
+    - claude-opus-5
+    - claude-opus-4-8
+    - claude-opus-4-7
+    - claude-opus-4-6
+    - claude-opus-4-5-20251101
+    - claude-sonnet-5
+    - claude-sonnet-4-6
+    - claude-sonnet-4-5-20250929
+    - claude-haiku-4-5-20251001
+  supportedPlatforms:
+    Claude API: ga
+    Claude Platform on AWS: ga
+    Amazon Bedrock: not available
+    Google Cloud: not available
+    Microsoft Foundry:
+      availability: ga
+      note: On [Microsoft Foundry](https://platform.claude.com/docs/en/build-with-claude/claude-in-microsoft-foundry), code execution requires a [Hosted on Anthropic deployment](https://platform.claude.com/docs/en/build-with-claude/claude-in-microsoft-foundry#additional-features-not-supported-when-hosted-on-azure).
+  details:
+    - Every supported model accepts all three [tool versions](https://platform.claude.com/docs/en/agents-and-tools/tool-use/code-execution-tool#tool-versions). On Claude Haiku 4.5, programmatic tool calling and REPL state persistence aren't available, so the newer versions behave like `code_execution_20250825` there.
+    - For [Claude Mythos Preview](https://anthropic.com/glasswing), code execution is supported on the Claude API and Microsoft Foundry.
 ---
-
-## Compatibility
-- [ZDR](https://platform.claude.com/docs/en/manage-claude/api-and-data-retention): not eligible
-- Supported models: `claude-fable-5-1`, `claude-mythos-5-1`, `claude-fable-5`, `claude-mythos-5`, `claude-opus-5`, `claude-opus-4-8`, `claude-opus-4-7`, `claude-opus-4-6`, `claude-opus-4-5-20251101`, `claude-sonnet-5`, `claude-sonnet-4-6`, `claude-sonnet-4-5-20250929`, `claude-haiku-4-5-20251001`
-- Platforms: Claude API, Claude Platform on AWS, Microsoft Foundry [1]; not available on Amazon Bedrock, Google Cloud
-- Every supported model accepts all three [tool versions](https://platform.claude.com/docs/en/agents-and-tools/tool-use/code-execution-tool#tool-versions). On Claude Haiku 4.5, programmatic tool calling and REPL state persistence aren't available, so the newer versions behave like `code_execution_20250825` there.
-- For [Claude Mythos Preview](https://anthropic.com/glasswing), code execution is supported on the Claude API and Microsoft Foundry.
-1. On [Microsoft Foundry](https://platform.claude.com/docs/en/build-with-claude/claude-in-microsoft-foundry), code execution requires a [Hosted on Anthropic deployment](https://platform.claude.com/docs/en/build-with-claude/claude-in-microsoft-foundry#additional-features-not-supported-when-hosted-on-azure).
 
 Claude can analyze data, create visualizations, perform complex calculations, run system commands, create and edit files, and process uploaded files directly within the API conversation. The code execution tool allows Claude to run Bash commands and manipulate files, including writing code, in a secure, sandboxed environment.
 
@@ -53,7 +74,7 @@ Here's an example that asks Claude to perform a calculation:
     -H "anthropic-version: 2023-06-01" \
     -H "content-type: application/json" \
     -d '{
-      "model": "claude-opus-5",
+      "model": "claude-opus-5-5",
       "max_tokens": 4096,
       "messages": [
         {
@@ -72,7 +93,7 @@ Here's an example that asks Claude to perform a calculation:
 
   ```bash CLI
   ant messages create \
-    --model claude-opus-5 \
+    --model claude-opus-5-5 \
     --max-tokens 4096 \
     --message '{
       role: user,
@@ -86,7 +107,7 @@ Here's an example that asks Claude to perform a calculation:
   client = anthropic.Anthropic()
 
   response = client.messages.create(
-      model="claude-opus-5",
+      model="claude-opus-5-5",
       max_tokens=4096,
       messages=[
           {
@@ -104,7 +125,7 @@ Here's an example that asks Claude to perform a calculation:
   const client = new Anthropic();
 
   const response = await client.messages.create({
-    model: "claude-opus-5",
+    model: "claude-opus-5-5",
     max_tokens: 4096,
     messages: [
       {
@@ -124,7 +145,7 @@ Here's an example that asks Claude to perform a calculation:
 
   var message = await client.Messages.Create(new()
   {
-      Model = Model.ClaudeOpus5,
+      Model = Model.ClaudeOpus5_5,
       MaxTokens = 4096,
       Messages = [new() { Role = Role.User, Content = "Use the code execution tool to calculate the mean and standard deviation of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]" }],
       Tools = [new CodeExecutionTool20250825()]
@@ -137,7 +158,7 @@ Here's an example that asks Claude to perform a calculation:
   client := anthropic.NewClient()
 
   response, err := client.Messages.New(context.Background(), anthropic.MessageNewParams{
-  	Model:     anthropic.ModelClaudeOpus5,
+  	Model:     anthropic.ModelClaudeOpus5_5,
   	MaxTokens: 4096,
   	Messages: []anthropic.MessageParam{
   		anthropic.NewUserMessage(anthropic.NewTextBlock("Use the code execution tool to calculate the mean and standard deviation of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]")),
@@ -156,7 +177,7 @@ Here's an example that asks Claude to perform a calculation:
   AnthropicClient client = AnthropicOkHttpClient.fromEnv();
 
   MessageCreateParams params = MessageCreateParams.builder()
-      .model(Model.CLAUDE_OPUS_5)
+      .model(Model.CLAUDE_OPUS_5_5)
       .maxTokens(4096L)
       .addUserMessage("Use the code execution tool to calculate the mean and standard deviation of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]")
       .addTool(CodeExecutionTool20250825.builder().build())
@@ -177,7 +198,7 @@ Here's an example that asks Claude to perform a calculation:
               'content' => 'Use the code execution tool to calculate the mean and standard deviation of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]',
           ],
       ],
-      model: Model::CLAUDE_OPUS_5,
+      model: Model::CLAUDE_OPUS_5_5,
       tools: [new CodeExecutionTool20250825()],
   );
 
@@ -188,7 +209,7 @@ Here's an example that asks Claude to perform a calculation:
   client = Anthropic::Client.new
 
   message = client.messages.create(
-    model: Anthropic::Model::CLAUDE_OPUS_5,
+    model: Anthropic::Model::CLAUDE_OPUS_5_5,
     max_tokens: 4096,
     messages: [
       {
@@ -280,7 +301,7 @@ The Python environment can process various file types uploaded through the Files
     -H "anthropic-version: 2023-06-01" \
     -H "content-type: application/json" \
     -d '{
-      "model": "claude-opus-5",
+      "model": "claude-opus-5-5",
       "max_tokens": 4096,
       "messages": [{
         "role": "user",
@@ -302,7 +323,7 @@ The Python environment can process various file types uploaded through the Files
 
   # Then use the file_id with code execution
   ant messages create <<YAML
-  model: claude-opus-5
+  model: claude-opus-5-5
   max_tokens: 4096
   messages:
     - role: user
@@ -325,7 +346,7 @@ The Python environment can process various file types uploaded through the Files
 
   # Use the file_id with code execution
   response = client.messages.create(
-      model="claude-opus-5",
+      model="claude-opus-5-5",
       max_tokens=4096,
       messages=[
           {
@@ -354,7 +375,7 @@ The Python environment can process various file types uploaded through the Files
 
   // Use the file_id with code execution
   const response = await client.messages.create({
-    model: "claude-opus-5",
+    model: "claude-opus-5-5",
     max_tokens: 4096,
     messages: [
       {
@@ -388,7 +409,7 @@ The Python environment can process various file types uploaded through the Files
   // Use the file_id with code execution
   var parameters = new MessageCreateParams
   {
-      Model = Model.ClaudeOpus5,
+      Model = Model.ClaudeOpus5_5,
       MaxTokens = 4096,
       Messages = [
           new()
@@ -427,7 +448,7 @@ The Python environment can process various file types uploaded through the Files
 
   // Use the file_id with code execution
   response, err := client.Messages.New(ctx, anthropic.MessageNewParams{
-  	Model:     anthropic.ModelClaudeOpus5,
+  	Model:     anthropic.ModelClaudeOpus5_5,
   	MaxTokens: 4096,
   	Messages: []anthropic.MessageParam{
   		anthropic.NewUserMessage(
@@ -459,7 +480,7 @@ The Python environment can process various file types uploaded through the Files
   // Use the file_id with code execution
   Message response = client.messages().create(
       MessageCreateParams.builder()
-          .model(Model.CLAUDE_OPUS_5)
+          .model(Model.CLAUDE_OPUS_5_5)
           .maxTokens(4096L)
           .addUserMessageOfBlockParams(List.of(
               ContentBlockParam.ofText(TextBlockParam.builder()
@@ -486,7 +507,7 @@ The Python environment can process various file types uploaded through the Files
 
   // Use the file_id with code execution
   $response = $client->messages->create(
-      model: Model::CLAUDE_OPUS_5,
+      model: Model::CLAUDE_OPUS_5_5,
       maxTokens: 4096,
       messages: [
           [
@@ -513,7 +534,7 @@ The Python environment can process various file types uploaded through the Files
 
   # Use the file_id with code execution
   response = client.messages.create(
-    model: Anthropic::Model::CLAUDE_OPUS_5,
+    model: Anthropic::Model::CLAUDE_OPUS_5_5,
     max_tokens: 4096,
     messages: [
       {
@@ -555,7 +576,7 @@ When Claude saves files to its output directory during code execution (see [How 
 
   # Request code execution that creates files
   response = client.messages.create(
-      model="claude-opus-5",
+      model="claude-opus-5-5",
       max_tokens=4096,
       messages=[
           {
@@ -592,7 +613,7 @@ When Claude saves files to its output directory during code execution (see [How 
 
   // Request code execution that creates files
   const response = await client.messages.create({
-    model: "claude-opus-5",
+    model: "claude-opus-5-5",
     max_tokens: 4096,
     messages: [
       {
@@ -631,7 +652,7 @@ When Claude saves files to its output directory during code execution (see [How 
 
   var parameters = new MessageCreateParams
   {
-      Model = Model.ClaudeOpus5,
+      Model = Model.ClaudeOpus5_5,
       MaxTokens = 4096,
       Messages = [new() { Role = Role.User, Content = "Create a matplotlib visualization and save it as output.png" }],
       Tools = [new CodeExecutionTool20250825()]
@@ -670,7 +691,7 @@ When Claude saves files to its output directory during code execution (see [How 
   	ctx := context.Background()
 
   	response, err := client.Messages.New(ctx, anthropic.MessageNewParams{
-  		Model:     anthropic.ModelClaudeOpus5,
+  		Model:     anthropic.ModelClaudeOpus5_5,
   		MaxTokens: 4096,
   		Messages: []anthropic.MessageParam{
   			anthropic.NewUserMessage(anthropic.NewTextBlock("Create a matplotlib visualization and save it as output.png")),
@@ -686,12 +707,12 @@ When Claude saves files to its output directory during code execution (see [How 
   	fileIDs := extractFileIDs(response)
 
   	for _, fileID := range fileIDs {
-  		fileMetadata, err := client.Files.GetMetadata(ctx, fileID)
+  		fileMetadata, err := client.Files.GetMetadata(ctx, fileID, anthropic.FileGetMetadataParams{})
   		if err != nil {
   			log.Fatal(err)
   		}
 
-  		fileContent, err := client.Files.Download(ctx, fileID)
+  		fileContent, err := client.Files.Download(ctx, fileID, anthropic.FileDownloadParams{})
   		if err != nil {
   			log.Fatal(err)
   		}
@@ -734,7 +755,7 @@ When Claude saves files to its output directory during code execution (see [How 
       AnthropicClient client = AnthropicOkHttpClient.fromEnv();
 
       MessageCreateParams params = MessageCreateParams.builder()
-          .model(Model.CLAUDE_OPUS_5)
+          .model(Model.CLAUDE_OPUS_5_5)
           .maxTokens(4096L)
           .addUserMessage("Create a matplotlib visualization and save it as output.png")
           .addTool(CodeExecutionTool20250825.builder().build())
@@ -786,7 +807,7 @@ When Claude saves files to its output directory during code execution (see [How 
               'content' => 'Create a matplotlib visualization and save it as output.png',
           ],
       ],
-      model: Model::CLAUDE_OPUS_5,
+      model: Model::CLAUDE_OPUS_5_5,
       tools: [new CodeExecutionTool20250825()],
   );
 
@@ -827,7 +848,7 @@ When Claude saves files to its output directory during code execution (see [How 
   client = Anthropic::Client.new
 
   response = client.messages.create(
-    model: Anthropic::Model::CLAUDE_OPUS_5,
+    model: Anthropic::Model::CLAUDE_OPUS_5_5,
     max_tokens: 4096,
     messages: [
       {
@@ -1126,7 +1147,7 @@ Containers expire 30 days after creation. After about 5 minutes of inactivity a 
     -H "anthropic-version: 2023-06-01" \
     -H "content-type: application/json" \
     -d '{
-      "model": "claude-opus-5",
+      "model": "claude-opus-5-5",
       "max_tokens": 4096,
       "messages": [{
         "role": "user",
@@ -1145,7 +1166,7 @@ Containers expire 30 days after creation. After about 5 minutes of inactivity a 
     -H "content-type: application/json" \
     -d '{
       "container": "'"$CONTAINER_ID"'",
-      "model": "claude-opus-5",
+      "model": "claude-opus-5-5",
       "max_tokens": 4096,
       "messages": [{
         "role": "user",
@@ -1161,7 +1182,7 @@ Containers expire 30 days after creation. After about 5 minutes of inactivity a 
   ```bash CLI
   # First request: Create a file with a random number
   CONTAINER_ID=$(ant messages create \
-    --model claude-opus-5 \
+    --model claude-opus-5-5 \
     --max-tokens 4096 \
     --message '{role: user, content: Write a file with a random number and save it to "/tmp/number.txt"}' \
     --tool '{type: code_execution_20250825, name: code_execution}' \
@@ -1170,7 +1191,7 @@ Containers expire 30 days after creation. After about 5 minutes of inactivity a 
   # Second request: Reuse the container to read the file
   ant messages create \
     --container "$CONTAINER_ID" \
-    --model claude-opus-5 \
+    --model claude-opus-5-5 \
     --max-tokens 4096 \
     --message '{role: user, content: Read the number from "/tmp/number.txt" and calculate its square}' \
     --tool '{type: code_execution_20250825, name: code_execution}'
@@ -1181,7 +1202,7 @@ Containers expire 30 days after creation. After about 5 minutes of inactivity a 
 
   # First request: create a file with a random number in a new container
   response1 = client.messages.create(
-      model="claude-opus-5",
+      model="claude-opus-5-5",
       max_tokens=4096,
       messages=[
           {
@@ -1195,7 +1216,7 @@ Containers expire 30 days after creation. After about 5 minutes of inactivity a 
   # Second request: pass the container ID back so Claude reuses the same container
   response2 = client.messages.create(
       container=response1.container.id,
-      model="claude-opus-5",
+      model="claude-opus-5-5",
       max_tokens=4096,
       messages=[
           {
@@ -1214,7 +1235,7 @@ Containers expire 30 days after creation. After about 5 minutes of inactivity a 
 
   // First request: Claude creates a file inside a fresh code execution container
   const response1 = await client.messages.create({
-    model: "claude-opus-5",
+    model: "claude-opus-5-5",
     max_tokens: 4096,
     messages: [
       {
@@ -1233,7 +1254,7 @@ Containers expire 30 days after creation. After about 5 minutes of inactivity a 
   // Second request: pass the container ID back so it reuses the same container
   const response2 = await client.messages.create({
     container: response1.container.id,
-    model: "claude-opus-5",
+    model: "claude-opus-5-5",
     max_tokens: 4096,
     messages: [
       { role: "user", content: "Read the number from /tmp/number.txt and calculate its square" }
@@ -1250,7 +1271,7 @@ Containers expire 30 days after creation. After about 5 minutes of inactivity a 
   // First request: Claude creates a file inside a fresh code execution container
   var response1 = await client.Messages.Create(new()
   {
-      Model = Model.ClaudeOpus5,
+      Model = Model.ClaudeOpus5_5,
       MaxTokens = 4096,
       Messages = [new() { Role = Role.User, Content = "Write a file with a random number and save it to '/tmp/number.txt'" }],
       Tools = [new CodeExecutionTool20250825()]
@@ -1260,7 +1281,7 @@ Containers expire 30 days after creation. After about 5 minutes of inactivity a 
   var response2 = await client.Messages.Create(new()
   {
       Container = response1.Container!.ID,
-      Model = Model.ClaudeOpus5,
+      Model = Model.ClaudeOpus5_5,
       MaxTokens = 4096,
       Messages = [new() { Role = Role.User, Content = "Read the number from '/tmp/number.txt' and calculate its square" }],
       Tools = [new CodeExecutionTool20250825()]
@@ -1279,7 +1300,7 @@ Containers expire 30 days after creation. After about 5 minutes of inactivity a 
 
   // First request: create a file with a random number in a new container
   response1, err := client.Messages.New(ctx, anthropic.MessageNewParams{
-  	Model:     anthropic.ModelClaudeOpus5,
+  	Model:     anthropic.ModelClaudeOpus5_5,
   	MaxTokens: 4096,
   	Messages: []anthropic.MessageParam{
   		anthropic.NewUserMessage(anthropic.NewTextBlock("Write a file with a random number and save it to '/tmp/number.txt'")),
@@ -1295,7 +1316,7 @@ Containers expire 30 days after creation. After about 5 minutes of inactivity a 
   	Container: anthropic.MessageCreateParamsContainerUnion{
   		OfString: anthropic.String(response1.Container.ID),
   	},
-  	Model:     anthropic.ModelClaudeOpus5,
+  	Model:     anthropic.ModelClaudeOpus5_5,
   	MaxTokens: 4096,
   	Messages: []anthropic.MessageParam{
   		anthropic.NewUserMessage(anthropic.NewTextBlock("Read the number from '/tmp/number.txt' and calculate its square")),
@@ -1314,7 +1335,7 @@ Containers expire 30 days after creation. After about 5 minutes of inactivity a 
 
   // First request: create a file with a random number in a new container
   MessageCreateParams params1 = MessageCreateParams.builder()
-      .model(Model.CLAUDE_OPUS_5)
+      .model(Model.CLAUDE_OPUS_5_5)
       .maxTokens(4096L)
       .addUserMessage("Write a file with a random number and save it to '/tmp/number.txt'")
       .addTool(CodeExecutionTool20250825.builder().build())
@@ -1325,7 +1346,7 @@ Containers expire 30 days after creation. After about 5 minutes of inactivity a 
   // Second request: pass the container ID back so it reuses the same container
   MessageCreateParams params2 = MessageCreateParams.builder()
       .container(response1.container().orElseThrow().id())
-      .model(Model.CLAUDE_OPUS_5)
+      .model(Model.CLAUDE_OPUS_5_5)
       .maxTokens(4096L)
       .addUserMessage("Read the number from '/tmp/number.txt' and calculate its square")
       .addTool(CodeExecutionTool20250825.builder().build())
@@ -1347,7 +1368,7 @@ Containers expire 30 days after creation. After about 5 minutes of inactivity a 
               'content' => "Write a file with a random number and save it to '/tmp/number.txt'",
           ],
       ],
-      model: Model::CLAUDE_OPUS_5,
+      model: Model::CLAUDE_OPUS_5_5,
       tools: [new CodeExecutionTool20250825()],
   );
 
@@ -1361,7 +1382,7 @@ Containers expire 30 days after creation. After about 5 minutes of inactivity a 
               'content' => "Read the number from '/tmp/number.txt' and calculate its square",
           ],
       ],
-      model: Model::CLAUDE_OPUS_5,
+      model: Model::CLAUDE_OPUS_5_5,
       tools: [new CodeExecutionTool20250825()],
   );
 
@@ -1373,7 +1394,7 @@ Containers expire 30 days after creation. After about 5 minutes of inactivity a 
 
   # First request: Claude creates the file inside a fresh code execution container
   response1 = client.messages.create(
-    model: Anthropic::Model::CLAUDE_OPUS_5,
+    model: Anthropic::Model::CLAUDE_OPUS_5_5,
     max_tokens: 4096,
     messages: [
       {
@@ -1387,7 +1408,7 @@ Containers expire 30 days after creation. After about 5 minutes of inactivity a 
   # Second request: pass the container ID back so Claude reuses the same container
   response2 = client.messages.create(
     container: response1.container.id,
-    model: Anthropic::Model::CLAUDE_OPUS_5,
+    model: Anthropic::Model::CLAUDE_OPUS_5_5,
     max_tokens: 4096,
     messages: [
       {
@@ -1504,7 +1525,7 @@ To upgrade, update the tool type in your API requests:
 
 ## Data retention
 
-Code execution runs in server-side sandbox containers. Container data, including execution artifacts, uploaded files, and outputs, is retained for up to 30 days. This retention applies to all data processed within the container environment. Files that code execution creates in the [Files API](https://platform.claude.com/docs/en/build-with-claude/files) (retrievable with `client.files.download()`) persist until explicitly deleted.
+Code execution runs in server-side sandbox containers. Container data, including execution artifacts, uploaded files, and outputs, is retained for up to 30 days. This retention applies to all data processed within the container environment. Files that code execution creates in the [Files API](https://platform.claude.com/docs/en/build-with-claude/files) (retrievable with `client.files.download()` (csharp, go: `client.Files.Download()`; java: `client.files().download()`; php: `$client->files->download()`)) persist until explicitly deleted.
 
 For ZDR eligibility across all features, see [API and data retention](https://platform.claude.com/docs/en/manage-claude/api-and-data-retention).
 

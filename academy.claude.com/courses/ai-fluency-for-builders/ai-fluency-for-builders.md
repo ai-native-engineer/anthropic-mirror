@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/ai-fluency-for-builders/ai-fluency-for-builders -->
 
-Lesson 1 of 9 · AI Fluency for BuildersWelcome to AI Fluency for builders
+Lesson 1 of 9 · AI Fluency for buildersWelcome to AI Fluency for builders
 
-3. /[AI Fluency for Builders](https://academy.claude.com/courses/ai-fluency-for-builders)
+3. /[AI Fluency for builders](https://academy.claude.com/courses/ai-fluency-for-builders)
 
-[AI Fluency for Builders](https://academy.claude.com/courses/ai-fluency-for-builders)
+[AI Fluency for builders](https://academy.claude.com/courses/ai-fluency-for-builders)
 
 # Welcome to AI Fluency for builders
 
@@ -86,7 +86,7 @@ In the next lesson, we introduce the 4D Framework — four interconnected compet
 
 [Next lessonThe 4D Framework](https://academy.claude.com/courses/ai-fluency-for-builders/the-4d-framework)
 
-Lesson 1 of 9 · AI Fluency for BuildersWelcome to AI Fluency for builders
+Lesson 1 of 9 · AI Fluency for buildersWelcome to AI Fluency for builders
 
 Introduction and AI Fluency framework
 

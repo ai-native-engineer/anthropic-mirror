@@ -18,6 +18,128 @@ View events
 
 [View events](https://luma.com/claudecommunity)View events
 
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
+
+View all
+
+[View all](https://luma.com/claudecommunity)View all
+
+title
+
+Location
+
+Date
+
+US
+
+Miami | Claude Para Todos: Edición Latina
+
+Miami, US
+
+September 24, 2026
+
+The DOCK, 400 NW 26th St, Miami, FL 33127, USA
+
+[Miami | Claude Para Todos: Edición Latina](https://luma.com/claude-uy67)Miami | Claude Para Todos: Edición Latina
+
+CO
+
+Medellin | Claude Meetup para Solopreneurs
+
+Medellín, CO
+
+September 24, 2026
+
+On.going: Centro de Emprendimiento de Impacto de EAFIT, Cl. 5 Sur #43C-80, El Poblado, Medellín, El Poblado, Medellín, Antioquia, Colombia
+
+[Medellin | Claude Meetup para Solopreneurs](https://luma.com/claude-qhnd)Medellin | Claude Meetup para Solopreneurs
+
+US
+
+San Francisco | Claude For Spatial Computing
+
+San Francisco, US
+
+September 24, 2026
+
+Homebrew Club, 111 Maiden Ln #540, San Francisco, CA 94108, USA
+
+[San Francisco | Claude For Spatial Computing](https://luma.com/claudeforspatialcomputing)San Francisco | Claude For Spatial Computing
+
+IN
+
+Bangalore | FOSS Coffee Meet
+
+Bengaluru, IN
+
+September 25, 2026
+
+Roastea - Curated Coffee And Tea Artisans, 612/3, 80 Feet Rd, next to Akshaya Motors Mercedes Benz Showroom, 4th Block, Koramangala, Bengaluru, Karnataka 560034, India
+
+[Bangalore | FOSS Coffee Meet](https://luma.com/claude-wigr)Bangalore | FOSS Coffee Meet
+
+SE
+
+Stockholm | Fable 5.1 x Opus 5.5 Build Day
+
+Stockholm, SE
+
+September 25, 2026
+
+Epicenter, Malmskillnadsgatan 44a, 111 57 Stockholm, Sweden
+
+[Stockholm | Fable 5.1 x Opus 5.5 Build Day](https://luma.com/claude-kh4r)Stockholm | Fable 5.1 x Opus 5.5 Build Day
+
+MX
+
+Mexico City | Claude for Research Meetup
+
+Lomas Anáhuac, MX
+
+September 25, 2026
+
+Anáhuac University, Av. Universidad Anáhuac 46, Lomas Anahuac, 52786 Lomas Anáhuac, Méx., Mexico
+
+[Mexico City | Claude for Research Meetup](https://luma.com/claude-investigadores)Mexico City | Claude for Research Meetup
+
+US
+
+San Francisco | Claude Meetup - For the Business Moms: The AI Back Office You Didn't Know You Had
+
+San Francisco, US
+
+September 25, 2026
+
+Mox, 1680 Mission St, San Francisco, CA 94103, USA
+
+[San Francisco | Claude Meetup - For the Business Moms: The AI Back Office You Didn't Know You Had](https://luma.com/claude-aly0)San Francisco | Claude Meetup - For the Business Moms: The AI Back Office You Didn't Know You Had
+
+IN
+
+Bangalore | Claude Opus Build Day
+
+Bengaluru, IN
+
+September 25, 2026
+
+Anakin Skywalker, 4th floor, 168, 19th Main Rd, Sector 4, HSR Layout, Bengaluru, Karnataka 560102, India
+
+[Bangalore | Claude Opus Build Day](https://luma.com/claude-x5dm)Bangalore | Claude Opus Build Day
+
+[View more](https://claude.com/community?46f68bc1_page=2)
+
+1 / 7
+
+No posts for those filters
+
+Try another search or clear some of your filters.
+
+Clear all filters
+
+[Clear all filters](#)Clear all filters
+
 ## Bring your big ideas in to the world
 
 Build and lead the community you want to see.

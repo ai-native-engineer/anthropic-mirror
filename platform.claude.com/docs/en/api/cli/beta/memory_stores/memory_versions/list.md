@@ -17,11 +17,11 @@ List memory versions
 
 - `--memory-store-id: string`
 
-  Path param: Path parameter memory_store_id
+  Path param: The ID of the memory store whose version history to list (`memstore_...`).
 
 - `--api-key-id: optional string`
 
-  Query param: Query parameter for api_key_id
+  Query param: Return only versions written with the API key that has this ID.
 
 - `--created-at-gte: optional string`
 
@@ -37,33 +37,35 @@ List memory versions
 
 - `--limit: optional number`
 
-  Query param: Query parameter for limit
+  Query param: The maximum number of versions to return per page. Defaults to 20.
 
   format: int32
 
 - `--memory-id: optional string`
 
-  Query param: Query parameter for memory_id
+  Query param: Return only versions of the memory with this ID (`mem_...`).
+
+  The filter still works after the memory is deleted. The results then include the version whose `operation` is `deleted`.
 
 - `--operation: optional "created" or "modified" or "deleted"`
 
-  Query param: Query parameter for operation
+  Query param: Return only versions that record this kind of change.
 
 - `--page: optional string`
 
-  Query param: Query parameter for page
+  Query param: The `next_page` value from a previous response, to get the next page. Omit it to get the first page.
 
 - `--service-account-id: optional string`
 
-  Query param: Query parameter for service_account_id
+  Query param: Return only versions written by the service account with this ID (`svac_...`).
 
 - `--session-id: optional string`
 
-  Query param: Query parameter for session_id
+  Query param: Return only versions written by the session with this ID.
 
 - `--view: optional "basic" or "full"`
 
-  Query param: Query parameter for view
+  Query param: Selects which projection of a `memory` or `memory_version` the server returns. `basic` returns the object with `content` set to `null`; `full` populates `content`. When omitted, the default is endpoint-specific: retrieve operations default to `full`; list, create, and update operations default to `basic`. Listing with `view=full` caps `limit` at 20.
 
 - `--beta: optional array of AnthropicBeta`
 
@@ -111,9 +113,15 @@ List memory versions
 
       - `"created"`
 
+        The memory was created. The first version in any memory's lineage.
+
       - `"modified"`
 
+        The memory's `content`, `path`, or both were changed via update. Writes the agent makes through the filesystem mount also appear as `modified`.
+
       - `"deleted"`
+
+        The memory was deleted. The `content`, `content_size_bytes`, and `content_sha256` fields are `null` on this version. The preceding version, while it is retained, records the deleted content's size and hash.
 
     - `content: optional string`
 
@@ -131,53 +139,53 @@ List memory versions
 
     - `created_by: optional BetaManagedAgentsSessionActor or BetaManagedAgentsAPIActor or BetaManagedAgentsUserActor or BetaManagedAgentsServiceAccountActor`
 
-      Identifies who performed a write or redact operation. Captured at write time on the `memory_version` row. The API key that created a session is not recorded on agent writes; attribution answers who made the write, not who is ultimately responsible. Look up session provenance separately via the [Sessions API](/docs/en/api/beta/sessions/retrieve).
+      Identifies who performed an operation. Recorded when the operation happens and not updated afterwards, so the ID may refer to a user, service account, API key, or session that has since been deleted.
 
       - `beta_managed_agents_session_actor: object`
 
-        Attribution for a write made by an agent during a session, through the mounted filesystem at `/mnt/memory/`.
+        An agent acting during a session, for example through the session's mounted filesystem. It names the session itself, not the user or API key that started the session.
 
         - `type: "session_actor"`
 
         - `session_id: string`
 
-          ID of the session that performed the write (a `sesn_...` value). Look up the session via [Retrieve a session](/docs/en/api/beta/sessions/retrieve) for further provenance.
+          ID of the session (a `sesn_...` value). Look up the session via [Retrieve a session](/docs/en/api/beta/sessions/retrieve) for further provenance.
 
           minLength: 1
 
       - `beta_managed_agents_api_actor: object`
 
-        Attribution for a write made directly via the public API (outside of any session).
+        A direct caller of the public API, identified by the API key that authenticated the request.
 
         - `type: "api_actor"`
 
         - `api_key_id: string`
 
-          ID of the API key that performed the write. This identifies the key, not the secret.
+          ID of the API key (an `apikey_...` value). This identifies the key, not the secret.
 
           minLength: 1
 
       - `beta_managed_agents_user_actor: object`
 
-        Attribution for a write made by a human user through the Anthropic Console.
+        A human user, for example acting through the Anthropic Console.
 
         - `type: "user_actor"`
 
         - `user_id: string`
 
-          ID of the user who performed the write (a `user_...` value).
+          ID of the user (a `user_...` value).
 
           minLength: 1
 
       - `beta_managed_agents_service_account_actor: object`
 
-        Attribution for a write made by a workload authenticated as a service account, for example via Workload Identity Federation.
+        A workload authenticated as a service account, for example via Workload Identity Federation.
 
         - `type: "service_account_actor"`
 
         - `service_account_id: string`
 
-          ID of the service account that performed the write (a `svac_...` value).
+          ID of the service account (a `svac_...` value).
 
           minLength: 1
 
@@ -193,23 +201,23 @@ List memory versions
 
     - `redacted_by: optional BetaManagedAgentsSessionActor or BetaManagedAgentsAPIActor or BetaManagedAgentsUserActor or BetaManagedAgentsServiceAccountActor`
 
-      Identifies who performed a write or redact operation. Captured at write time on the `memory_version` row. The API key that created a session is not recorded on agent writes; attribution answers who made the write, not who is ultimately responsible. Look up session provenance separately via the [Sessions API](/docs/en/api/beta/sessions/retrieve).
+      Identifies who performed an operation. Recorded when the operation happens and not updated afterwards, so the ID may refer to a user, service account, API key, or session that has since been deleted.
 
       - `beta_managed_agents_session_actor: object`
 
-        Attribution for a write made by an agent during a session, through the mounted filesystem at `/mnt/memory/`.
+        An agent acting during a session, for example through the session's mounted filesystem. It names the session itself, not the user or API key that started the session.
 
       - `beta_managed_agents_api_actor: object`
 
-        Attribution for a write made directly via the public API (outside of any session).
+        A direct caller of the public API, identified by the API key that authenticated the request.
 
       - `beta_managed_agents_user_actor: object`
 
-        Attribution for a write made by a human user through the Anthropic Console.
+        A human user, for example acting through the Anthropic Console.
 
       - `beta_managed_agents_service_account_actor: object`
 
-        Attribution for a write made by a workload authenticated as a service account, for example via Workload Identity Federation.
+        A workload authenticated as a service account, for example via Workload Identity Federation.
 
   - `next_page: optional string`
 

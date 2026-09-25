@@ -17,17 +17,19 @@ Update Credential
 
 - `credentialID string`
 
+  Unique identifier of the credential to update.
+
 - `params BetaVaultCredentialUpdateParams`
 
   - `VaultID param.Field[string]`
 
-    Path param: Path parameter vault_id
+    Path param: Identifier of the vault containing the credential.
 
   - `Auth param.Field[BetaVaultCredentialUpdateParamsAuthUnion] Optional`
 
     Body param: Updated authentication details for a credential.
 
-    - `type BetaManagedAgentsMCPOAuthUpdateParamsResp struct{…}`
+    - `type BetaManagedAgentsMCPOAuthUpdateParamsResp`
 
       Parameters for updating an MCP OAuth credential. The `mcp_server_url` is immutable.
 
@@ -63,7 +65,7 @@ Update Credential
 
         - `TokenEndpointAuth BetaManagedAgentsMCPOAuthRefreshUpdateParamsTokenEndpointAuthUnionResp Optional`
 
-          - `type BetaManagedAgentsTokenEndpointAuthBasicUpdateParamResp struct{…}`
+          - `type BetaManagedAgentsTokenEndpointAuthBasicUpdateParamResp`
 
             Updated HTTP Basic authentication parameters for the token endpoint.
 
@@ -75,7 +77,7 @@ Update Credential
 
               minLength: 1, maxLength: 512
 
-          - `type BetaManagedAgentsTokenEndpointAuthPostUpdateParamResp struct{…}`
+          - `type BetaManagedAgentsTokenEndpointAuthPostUpdateParamResp`
 
             Updated POST body authentication parameters for the token endpoint.
 
@@ -87,7 +89,7 @@ Update Credential
 
               minLength: 1, maxLength: 512
 
-    - `type BetaManagedAgentsStaticBearerUpdateParamsResp struct{…}`
+    - `type BetaManagedAgentsStaticBearerUpdateParamsResp`
 
       Parameters for updating a static bearer token credential. The `mcp_server_url` is immutable.
 
@@ -99,7 +101,7 @@ Update Credential
 
         minLength: 1, maxLength: 8192
 
-    - `type BetaManagedAgentsEnvironmentVariableUpdateParamsResp struct{…}`
+    - `type BetaManagedAgentsEnvironmentVariableUpdateParamsResp`
 
       Parameters for updating an environment variable credential. `secret_name` is immutable.
 
@@ -121,13 +123,13 @@ Update Credential
 
         Updated networking scope. Full replacement.
 
-        - `type BetaManagedAgentsUnrestrictedCredentialNetworkingParamsResp struct{…}`
+        - `type BetaManagedAgentsUnrestrictedCredentialNetworkingParamsResp`
 
           Substitute the secret on any host the session's Environment network policy permits egress to. The Environment's network policy is the only boundary on where the secret can reach.
 
           - `Type BetaManagedAgentsUnrestrictedCredentialNetworkingParamsType`
 
-        - `type BetaManagedAgentsLimitedCredentialNetworkingParamsResp struct{…}`
+        - `type BetaManagedAgentsLimitedCredentialNetworkingParamsResp`
 
           Substitute the secret only on requests to the listed hosts.
 
@@ -251,6 +253,12 @@ Update Credential
 
       - `const AnthropicBetaMidConversationSystemClearAt2026_08_21 AnthropicBeta = "mid-conversation-system-clear-at-2026-08-21"`
 
+      - `const AnthropicBetaCompact2026_09_04 AnthropicBeta = "compact-2026-09-04"`
+
+      - `const AnthropicBetaInlineTools2026_09_15 AnthropicBeta = "inline-tools-2026-09-15"`
+
+      - `const AnthropicBetaMCPClient2026_09_15 AnthropicBeta = "mcp-client-2026-09-15"`
+
   - `WorkspaceID param.Field[string] Optional`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -259,7 +267,7 @@ Update Credential
 
 ## Returns
 
-- `type BetaManagedAgentsCredential struct{…}`
+- `type BetaManagedAgentsCredential`
 
   A credential stored in a vault. Sensitive fields are never returned in responses.
 
@@ -279,7 +287,7 @@ Update Credential
 
     Authentication details for a credential.
 
-    - `type BetaManagedAgentsMCPOAuthAuthResponse struct{…}`
+    - `type BetaManagedAgentsMCPOAuthAuthResponse`
 
       OAuth credential details for an MCP server.
 
@@ -309,19 +317,19 @@ Update Credential
 
         - `TokenEndpointAuth BetaManagedAgentsMCPOAuthRefreshResponseTokenEndpointAuthUnion`
 
-          - `type BetaManagedAgentsTokenEndpointAuthNoneResponse struct{…}`
+          - `type BetaManagedAgentsTokenEndpointAuthNoneResponse`
 
             Token endpoint requires no client authentication.
 
             - `Type BetaManagedAgentsTokenEndpointAuthNoneResponseType`
 
-          - `type BetaManagedAgentsTokenEndpointAuthBasicResponse struct{…}`
+          - `type BetaManagedAgentsTokenEndpointAuthBasicResponse`
 
             Token endpoint uses HTTP Basic authentication with client credentials.
 
             - `Type BetaManagedAgentsTokenEndpointAuthBasicResponseType`
 
-          - `type BetaManagedAgentsTokenEndpointAuthPostResponse struct{…}`
+          - `type BetaManagedAgentsTokenEndpointAuthPostResponse`
 
             Token endpoint uses POST body authentication with client credentials.
 
@@ -335,7 +343,7 @@ Update Credential
 
           OAuth scope for the refresh request.
 
-    - `type BetaManagedAgentsStaticBearerAuthResponse struct{…}`
+    - `type BetaManagedAgentsStaticBearerAuthResponse`
 
       Static bearer token credential details for an MCP server.
 
@@ -345,7 +353,7 @@ Update Credential
 
         URL of the MCP server this credential authenticates against.
 
-    - `type BetaManagedAgentsEnvironmentVariableAuthResponse struct{…}`
+    - `type BetaManagedAgentsEnvironmentVariableAuthResponse`
 
       Environment variable credential details. The secret value is never returned.
 
@@ -367,13 +375,13 @@ Update Credential
 
         Outbound hosts the secret value is substituted on.
 
-        - `type BetaManagedAgentsUnrestrictedCredentialNetworkingResponse struct{…}`
+        - `type BetaManagedAgentsUnrestrictedCredentialNetworkingResponse`
 
           The secret is substituted on any host the session's Environment network policy permits egress to.
 
           - `Type BetaManagedAgentsUnrestrictedCredentialNetworkingResponseType`
 
-        - `type BetaManagedAgentsLimitedCredentialNetworkingResponse struct{…}`
+        - `type BetaManagedAgentsLimitedCredentialNetworkingResponse`
 
           The secret is substituted only on requests to the listed hosts.
 

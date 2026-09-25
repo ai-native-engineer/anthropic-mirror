@@ -1,5 +1,7 @@
 <!-- source: https://claude.com/blog/compliance-api-cowork-and-claude-code -->
 
+Explore here
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2308749b4e883cc44b7_e029027e0b3beeb5b629bd4a26143597e7775b38-1000x1000.svg)
 
 # Compliance API coverage extends to Claude Cowork and Claude Code
@@ -81,53 +83,53 @@ No items found.
 
 Explore more product news and best practices for teams building with Claude.
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2222403b092e0358b0e_cd4fd51deacd067d4e30aee4f4b149f6cba1b97b-1000x1000.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22deea97e4a5b5e5739_8d339ae8ecedecc1409db8f5bbb99c958db56946-1000x1000.svg)
 
-Sep 10, 2026
+Sep 24, 2026
 
-### What 1,000 small business owners taught us about AI
-
-Enterprise AI
-
-[What 1,000 small business owners taught us about AI](#)What 1,000 small business owners taught us about AI
-
-[What 1,000 small business owners taught us about AI](https://claude.com/blog/what-1-000-small-business-owners-taught-us-about-ai)What 1,000 small business owners taught us about AI
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a0112e18cdd7f0b92d19e40_Hand-BuildingBricks.svg)
-
-Jun 24, 2026
-
-### Building effective human-agent teams
-
-Enterprise AI
-
-[Building effective human-agent teams](#)Building effective human-agent teams
-
-[Building effective human-agent teams](https://claude.com/blog/building-effective-human-agent-teams)Building effective human-agent teams
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d228c83775fcc75f4e6d_74409af25137110ac04cc39e4d5ea0a2fbcea421-1000x1000.svg)
-
-Sep 2, 2026
-
-### Building commerce agents with Claude
+### Claude Tag now supports personal connectors in channels
 
 Product announcements
 
-[Building commerce agents with Claude](#)Building commerce agents with Claude
+[Claude Tag now supports personal connectors in channels](#)Claude Tag now supports personal connectors in channels
 
-[Building commerce agents with Claude](https://claude.com/blog/claude-for-commerce-agents)Building commerce agents with Claude
+[Claude Tag now supports personal connectors in channels](https://claude.com/blog/claude-tag-now-supports-personal-connectors-in-channels)Claude Tag now supports personal connectors in channels
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/692f783c784823d48ad84175_Object-CodeChatText.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d225e31f7aa22c1f28cb_46e4aa7ea208ed440d5bd9e9e3a0ee66bc336ff1-1000x1000.svg)
 
-Aug 28, 2026
+Sep 24, 2026
 
-### How Anthropic employees use Claude Tag
+### Coding sessions are longer and use more context. Claude Opus 5.5 is built with that in mind.
 
-Enterprise AI
+Claude Code
 
-[How Anthropic employees use Claude Tag](#)How Anthropic employees use Claude Tag
+[Coding sessions are longer and use more context. Claude Opus 5.5 is built with that in mind.](#)Coding sessions are longer and use more context. Claude Opus 5.5 is built with that in mind.
 
-[How Anthropic employees use Claude Tag](https://claude.com/blog/how-anthropic-employees-use-claude-tag)How Anthropic employees use Claude Tag
+[Coding sessions are longer and use more context. Claude Opus 5.5 is built with that in mind.](https://claude.com/blog/claude-opus-5-5-built-for-coding-sessions-that-use-more-context)Coding sessions are longer and use more context. Claude Opus 5.5 is built with that in mind.
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690937bee860a953417a8eee_Object-CodeBrowserGlobe.svg)
+
+Oct 20, 2025
+
+### Claude Code on the web
+
+Product announcements
+
+[Claude Code on the web](#)Claude Code on the web
+
+[Claude Code on the web](https://claude.com/blog/claude-code-on-the-web)Claude Code on the web
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6aaaa060d1aec4a549c537ef_Object-Easel.svg)
+
+Sep 16, 2026
+
+### Claude Cowork and chat are now one Claude
+
+Product announcements
+
+[Claude Cowork and chat are now one Claude](#)Claude Cowork and chat are now one Claude
+
+[Claude Cowork and chat are now one Claude](https://claude.com/blog/cowork-is-now-claude)Claude Cowork and chat are now one Claude
 
 ## Transform how your organization operates with Claude
 

@@ -1,5 +1,7 @@
 <!-- source: https://claude.com/blog/upgraded-anthropic-console -->
 
+Explore here
+
 ![](https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg)
 
 # Get to production faster with the upgraded Anthropic Console

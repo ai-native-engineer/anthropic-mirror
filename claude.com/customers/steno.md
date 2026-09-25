@@ -4,31 +4,21 @@ Case study | Claude Platform
 
 # Steno helps attorneys find the critical insights in legal transcripts with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![Steno logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c1dcfbcdd2eaf0fcea2442_cs-logo-steno-light-theme.svg)![Steno logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c1dd04d4dd7a0233cadd93_cs-logo-steno-dark-theme.svg)
+![Steno logo](https://assets.claude.com/b0520ff8d58b29cfec1ada8cd1c610e87efc9a17.svg)
 
 Industry:
-
-Legal
+:   Legal
 
 Company size:
-
-Small
+:   Small
 
 Product:
-
-Claude Platform
+:   Claude Platform
 
 Location:
-
-North America
+:   North America
 
 1200+ law firms
 
@@ -37,42 +27,6 @@ using Steno services
 200K context
 
 window enabled transcript analysis
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
 
 Steno uses Claude 3 Opus to streamline deposition preparation for attorneys. Claude helps lawyers quickly find relevant information across vast transcripts, saving them from manually gathering and reading thousands of pages at a time.
 
@@ -92,7 +46,7 @@ Steno chose Claude 3 Opus to drive Transcript Genius, its AI-powered transcript 
 
 “We had a proof of concept up within a week,” says Dan Anderson, Co-Founder and Chief Technology Officer at Steno, noting that they were able to build everything needed with one and a half engineers on the project.
 
-![App screen from Steno platform](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68baf05ba39237c68440a870_610ac849a318af8e2f873d14d2d2d54756496269-1920x1080.png)
+![App screen from Steno platform](https://assets.claude.com/97393eae42e22dc4b95024cfde07c7066a1e44d6.png)
 
 ## A solution attorneys can trust
 
@@ -100,7 +54,7 @@ With Transcript Genius, attorneys can easily search, analyze, and interrogate th
 
 “I’m litigating a legal malpractice case right now, and I asked the model to find all evidence of legal malpractice in a particular transcript,” says Dylan Ruga, President and Chief Legal Officer at Steno. “The model was able to understand four things you need to prove legal malpractice and find specific evidence relevant to those four things, which is super impressive, because there was nothing in the transcript itself that talked about the elements of proving a legal malpractice case.”
 
-![App screen of the Steno platform](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68baf05ba39237c68440a879_2caa3ebeed93bcbaa3b9c4a2be69737d1f5ad5e4-3840x2160.jpeg)
+![App screen of the Steno platform](https://assets.claude.com/733fb2ead12b86ada27a51a3df4de11c364f8d86.jpg)
 
 In the legal world, attorneys need to trust in a system before they can rely on it, and the legal world has been rightfully skeptical of many players in the generative AI space. “We’ve heard horror stories of other models citing cases that don’t actually exist. We want to build trust with our customers, and working with a high-integrity model like Claude helps preserve that trust,” Dan says.
 
@@ -112,52 +66,12 @@ Transcript Genius streamlines a previously time-consuming, error-prone workflow.
 
 “Most attorneys aren’t following the latest advancements in the AI world,” Dan adds. “For a lot of them, this is their first time being exposed to a model of Claude’s caliber. And it’s kind of mind-blowing for them.”
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[![Spellbook](https://assets.claude.com/6d8c2b327807c9a9dc5b911946df64b7a0cbda3c.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### Spellbook runs 530,000 contract reviews a month with Claude](https://claude.com/customers/spellbook)[![EvenUp](https://assets.claude.com/466446f5f59635a264efe3e688a42b51c0e88976.svg)
 
-[Next](#)Next
+### EvenUp cuts document drafting from 15 hours to 15 minutes with Claude](https://claude.com/customers/evenup)[![Eve Legal](https://assets.claude.com/f1efc487a08ab700dd2f0a0d09e717745da3e2d0.svg)
 
-Video caption
+### Eve Legal helps plaintiff law firms settle cases 60 days faster with Claude](https://claude.com/customers/eve-legal)[![GC AI](https://assets.claude.com/bf75981f3c09a3118604def848ab045ebfd0bfb5.svg)
 
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[Spellbook runs 530,000 contract reviews a month with Claude](https://claude.com/customers/spellbook)Spellbook runs 530,000 contract reviews a month with Claude
-
-Spellbook runs 530,000 contract reviews a month with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/spellbook)Customer story
-
-[EvenUp cuts document drafting from 15 hours to 15 minutes with Claude](https://claude.com/customers/evenup)EvenUp cuts document drafting from 15 hours to 15 minutes with Claude
-
-EvenUp cuts document drafting from 15 hours to 15 minutes with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/evenup)Customer story
-
-[Eve Legal helps plaintiff law firms settle cases 60 days faster with Claude](https://claude.com/customers/eve-legal)Eve Legal helps plaintiff law firms settle cases 60 days faster with Claude
-
-Eve Legal helps plaintiff law firms settle cases 60 days faster with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/eve-legal)Customer story
-
-[GC AI powers legal workflows for 1,500 companies, saving lawyers 14 hours a week with Claude](https://claude.com/customers/gc-ai)GC AI powers legal workflows for 1,500 companies, saving lawyers 14 hours a week with Claude
-
-GC AI powers legal workflows for 1,500 companies, saving lawyers 14 hours a week with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/gc-ai)Customer story
+### GC AI powers legal workflows for 1,500 companies, saving lawyers 14 hours a week with Claude](https://claude.com/customers/gc-ai)

@@ -4,42 +4,29 @@
 
 See how Anthropic engineers actually use Claude Code day to day. You'll configure a real repo the way we do internally: project context files, custom commands, hooks, and subagents. Then run the same task stock versus tuned and see the difference for yourself.
 
-Details
+## Details
 
 City
-
-San Francisco, USA
+:   San Francisco, USA
 
 Date
-
-May 7, 2026
+:   May 7, 2026
 
 Time
-
-10:00AM – 10:45AM
+:   10:00AM – 10:45AM
 
 Session type
-
-Workshop
+:   Workshop
 
 Speaker(s)
+:   Thariq Shihipar
 
-Thariq Shihipar
+    Member of Technical Staff,
 
-Member of Technical Staff,
+    Anthropic
 
-Anthropic
-
-Anthropic's developer conference, recorded
+## Anthropic's developer conference, recorded
 
 Keynotes, demos, and conversations with the teams behind Claude. Recorded at Code w/ Claude 2026 San Francisco and ready to replay.
 
-Browse recordings
-
-[Learn more](https://claude.com/code-with-claude/san-francisco)Learn more
-
-[Homepage](https://claude.com/code-with-claude)Homepage
-
-© [year] Anthropic PBC
-
-[PRIVACY POLICY](https://www.anthropic.com/legal/privacy)[CODE OF CONDUCT](https://claude.com/code-with-claude/code-of-conduct)
+[Browse recordings](https://claude.com/code-with-claude/san-francisco)

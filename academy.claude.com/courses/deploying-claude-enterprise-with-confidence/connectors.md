@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence/connectors -->
 
-Lesson 7 of 14 · Deploying Claude Enterprise with Confidence: The five decisions that shape your rolloutConnectors
+Lesson 7 of 14 · Deploying Claude Enterprise with confidence: The five decisions that shape your rolloutConnectors
 
-3. /[Deploying Claude Enterprise with Confidence: The five decisions that shape your rollout](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence)
+3. /[Deploying Claude Enterprise with confidence: The five decisions that shape your rollout](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence)
 
-[Deploying Claude Enterprise with Confidence: The five decisions that shape your rollout](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence)
+[Deploying Claude Enterprise with confidence: The five decisions that shape your rollout](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence)
 
 # Connectors
 
@@ -120,7 +120,7 @@ The next module, Governance, turns inward to how freely members customize Claude
 
 [Previous lessonSurfaces each group gets](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence/surfaces-each-group-gets)[Next lessonGoverning customizations](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence/governing-customizations)
 
-Lesson 7 of 14 · Deploying Claude Enterprise with Confidence: The five decisions that shape your rolloutConnectors
+Lesson 7 of 14 · Deploying Claude Enterprise with confidence: The five decisions that shape your rolloutConnectors
 
 The plan
 

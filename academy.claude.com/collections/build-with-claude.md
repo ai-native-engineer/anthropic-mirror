@@ -12,7 +12,7 @@ Courses and tutorials from Anthropic for developers. Learn Claude Code and the C
 
 An agentic coding tool that lives in your terminal. Learn what Claude Code is, how it works, and the core workflows for getting real work done with it.
 
-Course·12 lessons · 1 quiz·1.5 hr](https://academy.claude.com/courses/claude-code-101)[### Claude Code in Action
+Course·12 lessons · 1 quiz·1.5 hr](https://academy.claude.com/courses/claude-code-101)[### Claude Code in action
 
 Run long, hands-off Claude Code sessions you can trust: steer, configure, automate, and verify
 
@@ -69,7 +69,7 @@ Tutorial·4 min](https://academy.claude.com/tutorials/what-is-claude-managed-age
 * [Introduction to Model Context ProtocolCourse10 lessons · 1 quiz
 
   Course·10 lessons · 1 quiz](https://academy.claude.com/courses/introduction-to-model-context-protocol)
-* [Model Context Protocol: Advanced TopicsCourse11 lessons · 1 quiz
+* [Model Context Protocol: Advanced topicsCourse11 lessons · 1 quiz
 
   Course·11 lessons · 1 quiz](https://academy.claude.com/courses/model-context-protocol-advanced-topics)
 * [Building effective agents www.anthropic.com—

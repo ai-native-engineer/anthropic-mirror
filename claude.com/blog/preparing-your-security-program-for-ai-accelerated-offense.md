@@ -1,5 +1,7 @@
 <!-- source: https://claude.com/blog/preparing-your-security-program-for-ai-accelerated-offense -->
 
+Explore here
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2308749b4e883cc44b7_e029027e0b3beeb5b629bd4a26143597e7775b38-1000x1000.svg)
 
 # Preparing your security program for AI-accelerated offense

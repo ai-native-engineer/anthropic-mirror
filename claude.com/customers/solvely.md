@@ -4,31 +4,21 @@ Case study | Claude Platform
 
 # Solvely.ai transforms global learning with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![Solvely.ai logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c1c4316cc7fecf7ee7c09e_cs-logo-solvely-light-theme.svg)![Solvely.ai logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c1c4371a8fc462d5c72284_cs-logo-solvely-dark-theme.svg)
+![Solvely.ai logo](https://assets.claude.com/117a1db54b062ad42a5adf6df0b2ef854ec46b87.svg)
 
 Industry:
-
-Education
+:   Education
 
 Company size:
-
-Medium
+:   Medium
 
 Product:
-
-Claude Platform
+:   Claude Platform
 
 Location:
-
-North America
+:   North America
 
 #1 education
 
@@ -38,42 +28,6 @@ app on App Store with 4.8/5 star rating
 
 research and creative brainstorming processes
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
 [Solvely.ai](http://solvely.ai) has created an AI learning platform that serves 5+ million students across 120+ countries. By developing Claude-powered interactive learning companions, Solvely delivers personalized instruction that guides students through complex concepts with step-by-step instruction rather than just providing answers.
 
 Key results:
@@ -82,7 +36,7 @@ Key results:
 * Increases pair-coding productivity by 5x through advanced AI-assisted collaboration
 * Accelerates research, product design, and creative brainstorming processes by up to 8x
 
-![Solvely product screen 1](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68baf0531a41c2b9dfd0fa50_9c071dc921a4c9079cd471814df94e3eba2592b5-1920x1043.png)
+![Solvely product screen 1](https://assets.claude.com/3d9273933ea50b40e3786b4eae37c763e3bd5fe3.png)
 
 ## Breaking down barriers to personalized education
 
@@ -114,9 +68,7 @@ Solvely leverages Claude to create an all-in-one learning companion that support
 
 **Test Preparation**: Solvely offers personalized exam preparation that adapts to each student's learning style and knowledge gaps so they develop stronger testing strategies and deeper subject mastery.
 
-![Solvely Product screen 2](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68baf0531a41c2b9dfd0fa56_f1297ad397777fc5266a741bc9976aca2676f5c4-1920x1043.png)
-
-![Solvely product screen 3](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68baf0531a41c2b9dfd0fa5c_eb6585ece70b01a71e422568cbec5f7db712dcca-1920x1043.png)
+![Solvely Product screen 2](https://assets.claude.com/55c1078311d0b3e9d91d018d54a8847a3da7284d.png)![Solvely product screen 3](https://assets.claude.com/1606a50329088ef255da8f0e19c60baf8821bf59.png)
 
 ## Measurable impact on learning outcomes
 
@@ -138,52 +90,12 @@ Solvely envisions a future where educational AI makes learning globally accessib
 
 Through their collaboration with Anthropic, Solvely is realizing their vision that education should be a right, not a privilege—available to everyone regardless of circumstances. With Claude, they see the opportunity to provide personalized, adaptive, and genuinely enjoyable education to every child—restoring the natural joy of discovery that makes us human.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[![Magic School](https://assets.claude.com/cd32331aba30ee77bb8a9a4f6f769b3cf5819d14.png)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### MagicSchool on building a safety layer for millions of student conversations](https://claude.com/customers/magicschool-qa)[![Syracuse University](https://assets.claude.com/6faf42a6bf63981cdb21b56aa6c486dfe5f6aa5b.svg)
 
-[Next](#)Next
+### How Syracuse University deployed Claude to every student, faculty member, and staff](https://claude.com/customers/syracuse)[![Syracuse University (Vertical)](https://assets.claude.com/3b0fe1d2906982c88d627148ba2bf5455745aed5.png)
 
-Video caption
+### Why Syracuse University gave Claude to 30,000 students, faculty, and staff](https://claude.com/customers/syracuse-university)[![RileyBot](https://assets.claude.com/14b0586643ee08e0793d5b808b741c51db9d4814.png)
 
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[MagicSchool on building a safety layer for millions of student conversations](https://claude.com/customers/magicschool-qa)MagicSchool on building a safety layer for millions of student conversations
-
-MagicSchool on building a safety layer for millions of student conversations
-
-Customer story
-
-[Customer story](https://claude.com/customers/magicschool-qa)Customer story
-
-[How Syracuse University deployed Claude to every student, faculty member, and staff](https://claude.com/customers/syracuse)How Syracuse University deployed Claude to every student, faculty member, and staff
-
-How Syracuse University deployed Claude to every student, faculty member, and staff
-
-Customer story
-
-[Customer story](https://claude.com/customers/syracuse)Customer story
-
-[Why Syracuse University gave Claude to 30,000 students, faculty, and staff](https://claude.com/customers/syracuse-university)Why Syracuse University gave Claude to 30,000 students, faculty, and staff
-
-Why Syracuse University gave Claude to 30,000 students, faculty, and staff
-
-Customer story
-
-[Customer story](https://claude.com/customers/syracuse-university)Customer story
-
-[RileyBot creates safe AI learning experiences for students with Claude](https://claude.com/customers/rileybot)RileyBot creates safe AI learning experiences for students with Claude
-
-RileyBot creates safe AI learning experiences for students with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/rileybot)Customer story
+### RileyBot creates safe AI learning experiences for students with Claude](https://claude.com/customers/rileybot)

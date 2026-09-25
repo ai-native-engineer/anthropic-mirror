@@ -4,31 +4,21 @@ Case study | Claude Platform
 
 # Fountain accelerates frontline workforce hiring and management with Claude
 
-Try Claude
+[Try Claude](https://claude.ai)
 
-[Try Claude](https://claude.ai)Try Claude
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-![Fountain logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c0d3a33fea0a5a3828b8fd_cs-logo-fountain-light-theme.svg)![Fountain logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c0d3aa44c2e56444a4337a_cs-logo-fountain-dark-theme.svg)
+![Fountain logo](https://assets.claude.com/b71e514bd0b898b54389212058f29c0dfcf6b27f.svg)
 
 Industry:
-
-Recruiting
+:   Recruiting
 
 Company size:
-
-Small
+:   Small
 
 Product:
-
-Claude Platform
+:   Claude Platform
 
 Location:
-
-North America
+:   North America
 
 50% reduction
 
@@ -37,42 +27,6 @@ in manual screening effort
 72 hours
 
 to fully staff new fulfillment center
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Read more
-
-[Read more](#)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Next](#)Next
-
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
 
 Fountain, a frontline workforce management platform, has partnered with Anthropic to co-create an industry first, AI-native Frontline Operating System. This collaboration enables customers like Clear, Sweetgreen, and others to leverage Claude’s AI capabilities for automating high-volume hiring, streamlining onboarding, and improving retention for their frontline workers.
 
@@ -130,44 +84,10 @@ Fountain envisions a future where AI operates autonomously to handle complete wo
 
 "We see Anthropic as a core partner in co-developing the next generation of our platform," noted Jernite. "As we continue building the agentic Frontline OS and Copilot, Claude models will power the intelligence layer behind every agent, workflow, and insight." Together, they aim to move from assistance to autonomy, proving that agentic AI can unlock real-world outcomes for the world's 2.7 billion frontline workers.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+[![micro1](https://assets.claude.com/b1bad452489c0ab55beeb4cbeb4b05543378b7bb.svg)
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+### micro1 transforms technical recruiting with Claude](https://claude.com/customers/micro1)[![Skillfully](https://assets.claude.com/4d045f8f15c950f0b55087335dd918f70f8db501.svg)
 
-[Next](#)Next
+### Skillfully transforms hiring through AI-powered skill simulations with Claude](https://claude.com/customers/skillfully)[![Braintrust](https://assets.claude.com/e902bcd557abee20fb67ab82f79395b90141b73c.svg)
 
-Video caption
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
-
-## Related stories
-
-[micro1 transforms technical recruiting with Claude](https://claude.com/customers/micro1)micro1 transforms technical recruiting with Claude
-
-micro1 transforms technical recruiting with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/micro1)Customer story
-
-[Skillfully transforms hiring through AI-powered skill simulations with Claude](https://claude.com/customers/skillfully)Skillfully transforms hiring through AI-powered skill simulations with Claude
-
-Skillfully transforms hiring through AI-powered skill simulations with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/skillfully)Customer story
-
-[Braintrust revolutionizes talent acquisition and career growth with Claude](https://claude.com/customers/braintrust)Braintrust revolutionizes talent acquisition and career growth with Claude
-
-Braintrust revolutionizes talent acquisition and career growth with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/braintrust)Customer story
+### Braintrust revolutionizes talent acquisition and career growth with Claude](https://claude.com/customers/braintrust)

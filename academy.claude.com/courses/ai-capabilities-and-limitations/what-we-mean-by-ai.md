@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/ai-capabilities-and-limitations/what-we-mean-by-ai -->
 
-Lesson 2 of 13 · AI Capabilities and LimitationsWhat We Mean by AI
+Lesson 2 of 13 · AI capabilities and limitationsWhat We Mean by AI
 
-3. /[AI Capabilities and Limitations](https://academy.claude.com/courses/ai-capabilities-and-limitations)
+3. /[AI capabilities and limitations](https://academy.claude.com/courses/ai-capabilities-and-limitations)
 
-[AI Capabilities and Limitations](https://academy.claude.com/courses/ai-capabilities-and-limitations)
+[AI capabilities and limitations](https://academy.claude.com/courses/ai-capabilities-and-limitations)
 
 # What We Mean by AI
 
@@ -63,7 +63,7 @@ Before we dig into the four properties, we'll spend one lesson on how an AI syst
 
 [Previous lessonIntro to AI Capabilities and Limitations](https://academy.claude.com/courses/ai-capabilities-and-limitations/intro-to-ai-capabilities-and-limitations)[Next lessonHow AI Gets Its Character](https://academy.claude.com/courses/ai-capabilities-and-limitations/how-ai-gets-its-character)
 
-Lesson 2 of 13 · AI Capabilities and LimitationsWhat We Mean by AI
+Lesson 2 of 13 · AI capabilities and limitationsWhat We Mean by AI
 
 Getting started
 

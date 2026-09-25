@@ -1,10 +1,10 @@
 <!-- source: https://academy.claude.com/courses/model-context-protocol-advanced-topics/sampling -->
 
-Lesson 1 of 11 · Model Context Protocol: Advanced TopicsSampling
+Lesson 1 of 11 · Model Context Protocol: Advanced topicsSampling
 
-3. /[Model Context Protocol: Advanced Topics](https://academy.claude.com/courses/model-context-protocol-advanced-topics)
+3. /[Model Context Protocol: Advanced topics](https://academy.claude.com/courses/model-context-protocol-advanced-topics)
 
-[Model Context Protocol: Advanced Topics](https://academy.claude.com/courses/model-context-protocol-advanced-topics)
+[Model Context Protocol: Advanced topics](https://academy.claude.com/courses/model-context-protocol-advanced-topics)
 
 # Sampling
 
@@ -121,7 +121,7 @@ The technique essentially moves the AI integration complexity from your server t
 
 [Next lessonSampling walkthrough](https://academy.claude.com/courses/model-context-protocol-advanced-topics/sampling-walkthrough)
 
-Lesson 1 of 11 · Model Context Protocol: Advanced TopicsSampling
+Lesson 1 of 11 · Model Context Protocol: Advanced topicsSampling
 
 Core MCP features
 

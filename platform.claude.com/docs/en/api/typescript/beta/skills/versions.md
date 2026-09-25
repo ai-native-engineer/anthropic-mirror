@@ -37,7 +37,7 @@ Create Skill Version
 
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 42 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 45 more`
 
       - `"message-batches-2024-09-24"`
 
@@ -129,6 +129,12 @@ Create Skill Version
 
       - `"mid-conversation-system-clear-at-2026-08-21"`
 
+      - `"compact-2026-09-04"`
+
+      - `"inline-tools-2026-09-15"`
+
+      - `"mcp-client-2026-09-15"`
+
   - `workspace_id?: string`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -137,7 +143,7 @@ Create Skill Version
 
 ### Returns
 
-- `BetaSkillVersion`
+- `interface BetaSkillVersion`
 
   - `type: "skill_version"`
 
@@ -242,7 +248,7 @@ List Skill Versions
 
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 42 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 45 more`
 
       - `"message-batches-2024-09-24"`
 
@@ -334,6 +340,12 @@ List Skill Versions
 
       - `"mid-conversation-system-clear-at-2026-08-21"`
 
+      - `"compact-2026-09-04"`
+
+      - `"inline-tools-2026-09-15"`
+
+      - `"mcp-client-2026-09-15"`
+
   - `workspace_id?: string`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -342,7 +354,7 @@ List Skill Versions
 
 ### Returns
 
-- `BetaSkillVersion`
+- `interface BetaSkillVersion`
 
   - `type: "skill_version"`
 
@@ -445,7 +457,7 @@ Download a skill version's content as a zip archive.
 
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 42 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 45 more`
 
       - `"message-batches-2024-09-24"`
 
@@ -537,6 +549,12 @@ Download a skill version's content as a zip archive.
 
       - `"mid-conversation-system-clear-at-2026-08-21"`
 
+      - `"compact-2026-09-04"`
+
+      - `"inline-tools-2026-09-15"`
+
+      - `"mcp-client-2026-09-15"`
+
   - `workspace_id?: string`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -545,7 +563,7 @@ Download a skill version's content as a zip archive.
 
 ### Returns
 
-- `unnamed_schema_2 = Response`
+- `type unnamed_schema_2 = Response`
 
 ### Example
 
@@ -596,7 +614,7 @@ Get Skill Version
 
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 42 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 45 more`
 
       - `"message-batches-2024-09-24"`
 
@@ -688,6 +706,12 @@ Get Skill Version
 
       - `"mid-conversation-system-clear-at-2026-08-21"`
 
+      - `"compact-2026-09-04"`
+
+      - `"inline-tools-2026-09-15"`
+
+      - `"mcp-client-2026-09-15"`
+
   - `workspace_id?: string`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -696,7 +720,7 @@ Get Skill Version
 
 ### Returns
 
-- `BetaSkillVersion`
+- `interface BetaSkillVersion`
 
   - `type: "skill_version"`
 
@@ -795,7 +819,7 @@ Delete Skill Version
 
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 42 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 45 more`
 
       - `"message-batches-2024-09-24"`
 
@@ -887,6 +911,12 @@ Delete Skill Version
 
       - `"mid-conversation-system-clear-at-2026-08-21"`
 
+      - `"compact-2026-09-04"`
+
+      - `"inline-tools-2026-09-15"`
+
+      - `"mcp-client-2026-09-15"`
+
   - `workspace_id?: string`
 
     Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
@@ -895,7 +925,7 @@ Delete Skill Version
 
 ### Returns
 
-- `BetaDeletedSkillVersion`
+- `interface BetaDeletedSkillVersion`
 
   - `type: "skill_version_deleted"`
 
@@ -939,7 +969,7 @@ console.log(betaDeletedSkillVersion.id);
 
 ### Beta Deleted Skill Version
 
-- `BetaDeletedSkillVersion`
+- `interface BetaDeletedSkillVersion`
 
   - `type: "skill_version_deleted"`
 
@@ -956,7 +986,7 @@ console.log(betaDeletedSkillVersion.id);
 
 ### Beta Skill Version
 
-- `BetaSkillVersion`
+- `interface BetaSkillVersion`
 
   - `type: "skill_version"`
 

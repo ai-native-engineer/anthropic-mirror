@@ -1,5 +1,7 @@
 <!-- source: https://claude.com/partners/powered-by-claude -->
 
+Explore here
+
 Thank you! Your submission has been received!
 
 Oops! Something went wrong while submitting the form.
@@ -34,7 +36,7 @@ Cybersecurity
 
 [See solution](http://arcticwolf.com)
 
-![Attention logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68d46132e34f23de9fcd5b0b_logo_attention-light.svg)![Attention logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68d461388dfc56c514f3f357_logo_attention-dark.svg)
+![Attention logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6ab2c8ba3466f0c993603d6d_6ab2c6e8a10ce2797f75cd88_startups-wordmark-attention-light.svg)![Attention logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6ab2c8ba3466f0c993603d70_6ab2c6e84d792678eb88f11e_startups-wordmark-attention-dark.svg)
 
 Attention is an AI-powered sales agent platform that automates post-call activities, scores conversations and opportunities, and enables intelligent search across customer interactions. The integrated AI agents handle CRM updates, provide revenue leaders with real-time sales visibility, and generate accurate enablement content and reports in minutes rather than days.
 
@@ -42,7 +44,7 @@ Business intelligence
 
 [See solution](https://www.attention.com/)
 
-![Augment Code logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5a8066e04cba3dd0a8dde_augment%20code_light.svg)![Augment Code logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5a80a8b51472408dce9b3_augment%20code_dark.svg)
+![Augment Code logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6ab2c8ba3466f0c993603d7b_6ab2c6e8c7f95095d8c9bba5_startups-wordmark-augment-code-light.svg)![Augment Code logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6ab2c8bb3466f0c993603d8d_6ab2c6e8bcffe96ca440c809_startups-wordmark-augment-code-dark.svg)
 
 Augment Code provides AI-powered coding assistance and development tools that help developers write better code faster with intelligent suggestions and automation.
 
@@ -234,7 +236,7 @@ Data and analytics
 
 [See solution](http://finout.io)
 
-![Gamma logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68bb5eb091e9b1deda6f7435_Gamma-light-theme.svg)![Gamma logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68bb5eb921a69f6d1bc0efb1_Gamma-dark-theme.svg)
+![Gamma logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6ab2c8bb3466f0c993603da4_6ab2c6ea45f4990cf30cf13d_startups-wordmark-gamma-light.svg)![Gamma logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6ab2c8bb3466f0c993603da4_6ab2c6ea45f4990cf30cf13d_startups-wordmark-gamma-light.svg)
 
 Gamma is an AI design partner for creating presentations, websites, social media, and documents. Over 50 million users create 700,000 presentations and assets daily.
 
@@ -350,7 +352,7 @@ Data and analytics
 
 [See solution](https://julius.ai)
 
-![Lovable logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68bb5f628079049002c70825_Lovable-light-theme.svg)![Lovable logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68bb5f6571ade0cef16d3413_Lovable-dark-theme.svg)
+![Lovable logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6ab2c8bd3466f0c993603ed7_6ab2c6eb2a0f7493d7d5b0ed_startups-wordmark-lovable-light.svg)![Lovable logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6ab2c8be3466f0c993603eef_6ab2c6ebbcffe96ca440c8d3_startups-wordmark-lovable-dark.svg)
 
 Lovable is an AI-powered development platform that helps teams build and deploy applications faster with intelligent code generation and automated workflows.
 
