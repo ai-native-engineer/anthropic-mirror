@@ -61,7 +61,7 @@ Agent Proxy signs requests to hostnames in these forms:
 * `service.region.amazonaws.com`
 * S3 virtual-hosted-style endpoints, for example `my-bucket.s3.us-east-1.amazonaws.com`
 * Service hostnames with extra parts before the service name, as long as the region is the last part before `amazonaws.com`, for example the Amazon ECR API host `api.ecr.us-east-1.amazonaws.com` or the host of an API Gateway invoke URL, `abc123.execute-api.us-east-1.amazonaws.com`
-* The regionless hosts of IAM, STS, S3, Route 53, CloudFront, Organizations, and Global Accelerator, for example `iam.amazonaws.com`, which Agent Proxy signs for `us-east-1`
+* Hosts with no region for S3 and for a fixed set of services that includes IAM, STS, Route 53, CloudFront, and Organizations, for example `iam.amazonaws.com` or `sts.amazonaws.com`
 
 Requests to other hostnames fail before reaching AWS. Agent Proxy can’t sign a request to a hostname with no region for any other service, such as `ec2.amazonaws.com`, or to a hostname with the region before the service name, such as an OpenSearch domain endpoint (`my-domain.us-east-1.es.amazonaws.com`). It also can’t sign requests to an API Gateway custom domain or to a non-AWS API that uses Signature Version 4.
 
@@ -73,7 +73,7 @@ Requests to other hostnames fail before reaching AWS. Agent Proxy can’t sign a
 | Allowed websites | The AWS service endpoint host, for example `s3.us-east-1.amazonaws.com` or `lambda.us-east-1.amazonaws.com` |
 
 Use long-lived credentials from a dedicated IAM user where you can. Temporary STS credentials work but expire on their own schedule, and the connection stops working when they do; you re-enter all three values to rotate.
-Claude can call the endpoint with `curl`, an AWS SDK, or the AWS CLI. The sandbox holds no real AWS credentials, so a CLI or SDK signs the request with placeholder values; Agent Proxy strips that signature and re-signs with the stored credential before the request leaves for AWS. Agent Proxy can’t sign an S3 upload sent in chunks with a checksum trailer, which the AWS CLI and the AWS SDKs send when they compute upload checksums by default. That upload fails with HTTP 502 and the reason `injection failed ("<connection name>")`. Have Claude add `request_checksum_calculation = WHEN_REQUIRED` to the profile in `~/.aws/config` and retry. The federated-access troubleshooting entry [An AWS request fails after a successful sign-in](https://claude.com/docs/claude-tag/admins/federated-access/troubleshooting#an-aws-request-fails-after-a-successful-sign-in) gives the same fix, the environment-variable form, and how to apply the setting in every thread.
+Claude can call the endpoint with `curl`, an AWS SDK, or the AWS CLI. The sandbox holds no real AWS credentials, so a CLI or SDK signs the request with placeholder values; Agent Proxy strips that signature and re-signs with the stored credential before the request leaves for AWS. Agent Proxy can’t sign an S3 upload sent in chunks with a checksum trailer, which the AWS CLI and the AWS SDKs send when they compute upload checksums by default. That upload fails with HTTP 502 and a reason that begins `injection failed ("<connection name>")`. Have Claude add `request_checksum_calculation = WHEN_REQUIRED` to the profile in `~/.aws/config` and retry. The federated-access troubleshooting entry [An AWS request fails after a successful sign-in](https://claude.com/docs/claude-tag/admins/federated-access/troubleshooting#an-aws-request-fails-after-a-successful-sign-in) gives the same fix, the environment-variable form, and how to apply the setting in every thread.
 
 ####  When AWS returns `SignatureDoesNotMatch`
 
@@ -98,7 +98,7 @@ Saving also fails when a PEM-encoded key isn’t an RSA key or has a passphrase.
 
 ##  Add a custom MCP server
 
-The server must be a remote endpoint that Claude can reach at a URL over the internet. An MCP server that runs on a person’s machine over stdio, including one packaged as a [desktop extension](https://claude.com/docs/connectors/custom/desktop-extensions), can’t be connected, because [sessions](https://claude.com/docs/claude-tag/concepts/glossary#session) run in a cloud sandbox that Anthropic hosts, not on anyone’s machine. Host the server as a remote endpoint first, then follow the steps below.
+The server must be a remote endpoint that Claude can reach at a URL over the internet. An MCP server that runs on a person’s machine over stdio, including one packaged as a [desktop extension](https://claude.com/docs/connectors/custom/add-unlisted#install-a-local-connector-in-the-desktop-app), can’t be connected, because [sessions](https://claude.com/docs/claude-tag/concepts/glossary#session) run in a cloud sandbox that Anthropic hosts, not on anyone’s machine. Host the server as a remote endpoint first, then follow the steps below.
 To give Claude an MCP server (one you run, or a vendor’s hosted MCP endpoint), the pattern is a plugin plus a credential:
 
 1

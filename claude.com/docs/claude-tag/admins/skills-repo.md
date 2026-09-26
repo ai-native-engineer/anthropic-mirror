@@ -23,7 +23,7 @@ A private or internal GitHub repository, laid out as a [Claude Code plugin marke
 
 Register the repository as a plugin marketplace
 
-For a github.com repository, the GitHub connector must be enabled for your organization. On the **Plugins** page at [`claude.ai/admin-settings/plugins`](https://claude.ai/admin-settings/plugins), click **Add plugins** and choose **Sync from GitHub**. Select the repository, leave **Sync automatically** on (the default), and click **Create**.When you click **Create**, and on every sync after that, the whole repository is downloaded as one archive, and the archive can’t be larger than 512 MiB. A repository over that size, such as a large monorepo, is rejected with `Download too large (>536.9MB)` even when the plugins in it are small. Put the plugins in a smaller dedicated repository, or [upload the plugin as a zip file](#upload-a-plugin-as-a-zip-file) instead.
+For a github.com repository, the GitHub connector must be enabled for your organization. In [**Organization settings > Plugins & skills**](https://claude.ai/admin-settings/skills?tab=inventory), click **Add** and choose **Sync from GitHub**. Select the repository, leave **Sync automatically** on (the default), and click **Create**.When you click **Create**, and on every sync after that, the whole repository is downloaded as one archive, and the archive can’t be larger than 512 MiB. A repository over that size, such as a large monorepo, is rejected with `Download too large (>536.9MB)` even when the plugins in it are small. Put the plugins in a smaller dedicated repository, or [upload the plugin as a zip file](#upload-a-plugin-as-a-zip-file) instead.
 
 3
 
@@ -73,7 +73,7 @@ You can also upload individual skills in the console without a repository. The r
 
 ##  Upload a plugin as a zip file
 
-To upload instead, on the **Plugins** page at [`claude.ai/admin-settings/plugins`](https://claude.ai/admin-settings/plugins), click **Add plugins**, choose **Upload a file**, and upload a `.zip` or `.plugin` archive of up to 200 MB. The archive has to be a [Claude Code plugin](https://code.claude.com/docs/en/plugins), laid out in one of these ways:
+To upload instead, in [**Organization settings > Plugins & skills**](https://claude.ai/admin-settings/skills?tab=inventory), click **Add**, choose **Upload a plugin**, and upload a `.zip` or `.plugin` archive of up to 200 MB. The archive has to be a [Claude Code plugin](https://code.claude.com/docs/en/plugins), laid out in one of these ways:
 
 * A `.claude-plugin/plugin.json` manifest at the archive root, with each skill in its own folder at `skills/<name>/SKILL.md`
 * The same layout inside a single top-level folder

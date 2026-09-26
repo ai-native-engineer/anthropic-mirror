@@ -58,7 +58,7 @@ At the organizational level, Otter breaks down traditional information silos by 
 
 Otter has become the living knowledge hub for all the organization’s meetings. Tasker shares, "Our institutional knowledge, our spoken knowledge, is inside of Otter." By continuously capturing critical context across teams and actively syncing real-time conversation insights to key business systems, Otter empowers organizations to stay current, learn from live interactions, and make better-informed decisions in the moment and moving forward.
 
-![Otter product screen](https://assets.claude.com/cf94557d2c724b5c7ff9dc436ea321143651387d.png)![Otter product screen 2](https://assets.claude.com/14d7390a4e4610ebd9c9bb4511f7bed5077e2e76.png)
+![Otter product screen](https://assets.claude.com/cf94557d2c724b5c7ff9dc436ea321143651387d.png?w=2400&q=75&fm=webp&fit=max)![Otter product screen 2](https://assets.claude.com/14d7390a4e4610ebd9c9bb4511f7bed5077e2e76.png?w=2400&q=75&fm=webp&fit=max)
 
 ## Looking forward
 

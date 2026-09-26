@@ -49,7 +49,7 @@ AI made the tradeoff sharper. "AI agents are only as effective as the data they 
 
 Claude on Amazon Bedrock
 
-![Claude on Amazon Bedrock](https://assets.claude.com/3bf99530eb5387631c2eb5a95f92a81c5020c4ef.png)
+![Claude on Amazon Bedrock](https://assets.claude.com/3bf99530eb5387631c2eb5a95f92a81c5020c4ef.png?w=2400&q=75&fm=webp&fit=max)
 
 Build innovative AI applications with safer systems from Anthropic, supported by secure infrastructure from AWS.
 
@@ -79,7 +79,7 @@ As a global company, Vega needs to serve organizations with compliance, privacy,
 
 Choosing the right Claude model
 
-![Choosing the right Claude model](https://assets.claude.com/7388619b452db0af26c78442a275c86c5ebe3124.jpg)
+![Choosing the right Claude model](https://assets.claude.com/7388619b452db0af26c78442a275c86c5ebe3124.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Learn when to use Haiku, Sonnet, or Opus to get better results and stay inside your rate limit. A practical guide to picking the right Claude model.
 

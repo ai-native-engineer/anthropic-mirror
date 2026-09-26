@@ -48,7 +48,7 @@ On the research side, PCV faced a tradeoff. A multiple-choice survey could reach
 
 Q&A
 
-![Q&A](https://assets.claude.com/9e48e857ba4ef0deaa6477ea10f98bc620c63a95.jpg)
+![Q&A](https://assets.claude.com/9e48e857ba4ef0deaa6477ea10f98bc620c63a95.jpg?w=2400&q=75&fm=webp&fit=max)
 
 A conversation with Pacific Community Ventures on building AI for fair lending
 
@@ -82,7 +82,7 @@ The work is early. PCV has set aside two months for testing, with a rollout targ
 
 Nonprofits
 
-![Nonprofits](https://assets.claude.com/b46529adbd87da89ebb1e8191178d53278f93d1b.jpg)
+![Nonprofits](https://assets.claude.com/b46529adbd87da89ebb1e8191178d53278f93d1b.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Turn limited resources into lasting impact. Generate grant proposals, track program outcomes, and free your team to focus on serving your community.
 
@@ -119,5 +119,3 @@ Sachi ShenoyChief Data Officer, Pacific Community Ventures
 ### The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude](https://claude.com/customers/epilepsy-foundation)[![Epilepsy Foundation](https://assets.claude.com/446cc4df1be577720df85748fa3813fa0837e3b8.png)
 
 ### How the Epilepsy Foundation uses Claude across the organization](https://claude.com/customers/epilepsy-foundation-qa)
-
-Pacific Community Ventures Claude case study | Claude by Anthropic

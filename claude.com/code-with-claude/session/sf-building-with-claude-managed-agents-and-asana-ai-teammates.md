@@ -24,7 +24,7 @@ Speaker(s)
 
 ## Watch recording
 
-![Building with Claude Managed Agents and Asana AI teammates](https://assets.claude.com/0dbf150329d90d8fc40c0e547ab407646c569efd.jpg?w=1600&auto=format)
+![Building with Claude Managed Agents and Asana AI teammates](https://assets.claude.com/0dbf150329d90d8fc40c0e547ab407646c569efd.jpg?w=2400&q=75&fm=webp&fit=max)
 
 ## Anthropic's developer conference, recorded
 

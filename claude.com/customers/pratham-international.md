@@ -30,7 +30,7 @@ through iterative prompt engineering with Anthropic
 
 Nonprofits
 
-![Nonprofits](https://assets.claude.com/b46529adbd87da89ebb1e8191178d53278f93d1b.jpg)
+![Nonprofits](https://assets.claude.com/b46529adbd87da89ebb1e8191178d53278f93d1b.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Turn limited resources into lasting impact. Generate grant proposals, track program outcomes, and free your team to focus on serving your community.
 
@@ -38,7 +38,7 @@ Turn limited resources into lasting impact. Generate grant proposals, track prog
 
 Education
 
-![Education](https://assets.claude.com/b3e6d0547ee5dc0654c639ece4b89778e2edb536.jpg)
+![Education](https://assets.claude.com/b3e6d0547ee5dc0654c639ece4b89778e2edb536.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Trusted, responsible AI tools for students and educators, from personalized learning to research assistance.
 

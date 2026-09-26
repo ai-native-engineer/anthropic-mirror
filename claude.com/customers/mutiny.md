@@ -48,7 +48,7 @@ The arrival of Claude Opus 4 changed what Mutiny decided to build. "We really sa
 
 Introducing Claude Opus 4.7
 
-![Introducing Claude Opus 4.7](https://assets.claude.com/8f53ced47c279491a8187467424cba10156184d9.jpg)
+![Introducing Claude Opus 4.7](https://assets.claude.com/8f53ced47c279491a8187467424cba10156184d9.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Opus 4.7 is a notable improvement on Opus 4.6 in advanced software engineering, with particular gains on the most difficult tasks.
 

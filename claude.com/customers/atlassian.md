@@ -53,7 +53,7 @@ Trust is hardest to earn where the work is most valuable: complex, long-running 
 
 Claude on Google Cloud
 
-![Claude on Google Cloud](https://assets.claude.com/3bf99530eb5387631c2eb5a95f92a81c5020c4ef.png)
+![Claude on Google Cloud](https://assets.claude.com/3bf99530eb5387631c2eb5a95f92a81c5020c4ef.png?w=2400&q=75&fm=webp&fit=max)
 
 Build advanced AI agents with Claude on Google Cloud.
 
@@ -79,7 +79,7 @@ Atlassian moved the platform behind its high-volume custom agents to Google's Ge
 
 Choosing the right Claude model
 
-![Choosing the right Claude model](https://assets.claude.com/7388619b452db0af26c78442a275c86c5ebe3124.jpg)
+![Choosing the right Claude model](https://assets.claude.com/7388619b452db0af26c78442a275c86c5ebe3124.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Learn when to use Haiku, Sonnet, or Opus to get better results and stay inside your rate limit. A practical guide to picking the right Claude model.
 

@@ -35,7 +35,7 @@ The Models API response can be used to determine which models are available for 
 
     Defaults to `20`. Ranges from `1` to `1000`.
 
-    maximum: 1000, minimum: 1
+    minimum: 1, maximum: 1000
 
   - `WorkspaceID param.Field[string] Optional`
 
@@ -167,7 +167,7 @@ The Models API response can be used to determine which models are available for 
 
   - `Capabilities ModelCapabilities`
 
-    Model capability information.
+    Object mapping capability names to their support details. Keys are always present for all known capabilities.
 
     - `Batch CapabilitySupport`
 
@@ -191,15 +191,15 @@ The Models API response can be used to determine which models are available for 
 
       - `ClearThinking20251015 CapabilitySupport`
 
-        Indicates whether a capability is supported.
+        Whether the clear_thinking_20251015 strategy is supported.
 
       - `ClearToolUses20250919 CapabilitySupport`
 
-        Indicates whether a capability is supported.
+        Whether the clear_tool_uses_20250919 strategy is supported.
 
       - `Compact20260112 CapabilitySupport`
 
-        Indicates whether a capability is supported.
+        Whether the compact_20260112 strategy is supported.
 
       - `Supported bool`
 
@@ -231,7 +231,7 @@ The Models API response can be used to determine which models are available for 
 
       - `Xhigh CapabilitySupport`
 
-        Indicates whether a capability is supported.
+        Whether the model supports xhigh effort level.
 
     - `ImageInput CapabilitySupport`
 
@@ -537,7 +537,7 @@ The Models API response can be used to determine information about a specific mo
 
   - `Capabilities ModelCapabilities`
 
-    Model capability information.
+    Object mapping capability names to their support details. Keys are always present for all known capabilities.
 
     - `Batch CapabilitySupport`
 
@@ -561,15 +561,15 @@ The Models API response can be used to determine information about a specific mo
 
       - `ClearThinking20251015 CapabilitySupport`
 
-        Indicates whether a capability is supported.
+        Whether the clear_thinking_20251015 strategy is supported.
 
       - `ClearToolUses20250919 CapabilitySupport`
 
-        Indicates whether a capability is supported.
+        Whether the clear_tool_uses_20250919 strategy is supported.
 
       - `Compact20260112 CapabilitySupport`
 
-        Indicates whether a capability is supported.
+        Whether the compact_20260112 strategy is supported.
 
       - `Supported bool`
 
@@ -601,7 +601,7 @@ The Models API response can be used to determine information about a specific mo
 
       - `Xhigh CapabilitySupport`
 
-        Indicates whether a capability is supported.
+        Whether the model supports xhigh effort level.
 
     - `ImageInput CapabilitySupport`
 
@@ -776,7 +776,7 @@ func main() {
 
   - `ClearThinking20251015 CapabilitySupport`
 
-    Indicates whether a capability is supported.
+    Whether the clear_thinking_20251015 strategy is supported.
 
     - `Supported bool`
 
@@ -784,11 +784,11 @@ func main() {
 
   - `ClearToolUses20250919 CapabilitySupport`
 
-    Indicates whether a capability is supported.
+    Whether the clear_tool_uses_20250919 strategy is supported.
 
   - `Compact20260112 CapabilitySupport`
 
-    Indicates whether a capability is supported.
+    Whether the compact_20260112 strategy is supported.
 
   - `Supported bool`
 
@@ -826,7 +826,7 @@ func main() {
 
   - `Xhigh CapabilitySupport`
 
-    Indicates whether a capability is supported.
+    Whether the model supports xhigh effort level.
 
 ### Model Capabilities
 
@@ -856,15 +856,15 @@ func main() {
 
     - `ClearThinking20251015 CapabilitySupport`
 
-      Indicates whether a capability is supported.
+      Whether the clear_thinking_20251015 strategy is supported.
 
     - `ClearToolUses20250919 CapabilitySupport`
 
-      Indicates whether a capability is supported.
+      Whether the clear_tool_uses_20250919 strategy is supported.
 
     - `Compact20260112 CapabilitySupport`
 
-      Indicates whether a capability is supported.
+      Whether the compact_20260112 strategy is supported.
 
     - `Supported bool`
 
@@ -896,7 +896,7 @@ func main() {
 
     - `Xhigh CapabilitySupport`
 
-      Indicates whether a capability is supported.
+      Whether the model supports xhigh effort level.
 
   - `ImageInput CapabilitySupport`
 
@@ -948,7 +948,7 @@ func main() {
 
   - `Capabilities ModelCapabilities`
 
-    Model capability information.
+    Object mapping capability names to their support details. Keys are always present for all known capabilities.
 
     - `Batch CapabilitySupport`
 
@@ -972,15 +972,15 @@ func main() {
 
       - `ClearThinking20251015 CapabilitySupport`
 
-        Indicates whether a capability is supported.
+        Whether the clear_thinking_20251015 strategy is supported.
 
       - `ClearToolUses20250919 CapabilitySupport`
 
-        Indicates whether a capability is supported.
+        Whether the clear_tool_uses_20250919 strategy is supported.
 
       - `Compact20260112 CapabilitySupport`
 
-        Indicates whether a capability is supported.
+        Whether the compact_20260112 strategy is supported.
 
       - `Supported bool`
 
@@ -1012,7 +1012,7 @@ func main() {
 
       - `Xhigh CapabilitySupport`
 
-        Indicates whether a capability is supported.
+        Whether the model supports xhigh effort level.
 
     - `ImageInput CapabilitySupport`
 

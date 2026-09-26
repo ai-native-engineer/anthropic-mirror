@@ -6,13 +6,13 @@ Using AI to increase the pace of scientific progress is a core part of Anthropic
 
 Science
 
-## How Claude is uplifting biomolecular modeling
+## Yes, Claude can do Nine Loops
 
-We're sharing how Claude made the open-source models that scientists use to predict and design biomolecules faster and more memory-efficient. Claude optimized more than 30 of these models in just under four weeks, speeding them up roughly 4x on average. It also created a low-memory mode that enables the accurate prediction of biomolecular systems larger than 10,000 tokens (amino acids, nucleotides, and atoms from small molecules and ions) on a single NVIDIA GPU node.
+In this guest post, physicist and science writer Matt von Hippel shares what happened when he issued a challenge to AI companies regarding a problem in his former subfield of theoretical physics.
 
-[Read more](https://www.anthropic.com/research/claude-uplifts-biomolecular-modeling)
+[Read more](https://www.anthropic.com/research/yes-claude-can-do-nine-loops)
 
-![How Claude is uplifting biomolecular modeling](https://www-cdn.anthropic.com/images/4zrzovbb/website/a65d1913ec56de3b90beadf1be2609b03898b42d-3800x1522.png)
+![Yes, Claude can do Nine Loops](https://www-cdn.anthropic.com/images/4zrzovbb/website/2ed453f8c87d2166b09940a859cd193b29678a88-3840x2160.png)
 
 ## Publications
 
@@ -20,6 +20,9 @@ Search
 
 DateCategoryTitle
 
+* [Sep 25, 2026Science
+
+  Yes, Claude can do Nine Loops](https://www.anthropic.com/research/yes-claude-can-do-nine-loops)
 * [Sep 17, 2026Science
 
   How Claude is uplifting biomolecular modeling](https://www.anthropic.com/research/claude-uplifts-biomolecular-modeling)
@@ -47,9 +50,8 @@ DateCategoryTitle
 * [Mar 23, 2026Science
 
   Long-running Claude for scientific computing](https://www.anthropic.com/research/long-running-Claude)
-* [Mar 23, 2026Science
 
-  Vibe physics: The AI grad student](https://www.anthropic.com/research/vibe-physics)
+[See more](#)
 
 Join the Research team
 

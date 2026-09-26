@@ -10,7 +10,7 @@ Q&A | Claude
 
 Case Study
 
-![Case Study](https://assets.claude.com/7bd78f3fc4499bf19803654bccce01dc433f426d.jpg)
+![Case Study](https://assets.claude.com/7bd78f3fc4499bf19803654bccce01dc433f426d.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Pacific Community Ventures scales worker feedback 10x with Claude
 
@@ -48,7 +48,7 @@ Sachi ShenoyChief Data Officer, Pacific Community Ventures
 
 Nonprofits
 
-![Nonprofits](https://assets.claude.com/b46529adbd87da89ebb1e8191178d53278f93d1b.jpg)
+![Nonprofits](https://assets.claude.com/b46529adbd87da89ebb1e8191178d53278f93d1b.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Turn limited resources into lasting impact. Generate grant proposals, track program outcomes, and free your team to focus on serving your community.
 
@@ -71,5 +71,3 @@ Bulbul GuptaPresident, Pacific Community Ventures
 **Shenoy:** One thing I'd love to build with Claude is our own internal knowledge base. Like any nonprofit, we're sitting on so much information, and much of it in our staff's heads in different shapes and forms. I'd love to wrap that all up into something rich enough that everyone at PCV can self-serve when they need a historical data point or a stat for a report. I know we can get there.
 
 **Gupta:** The bigger thing we are building toward is a national financial model designed for underserved entrepreneurs and communities, built from the data of CDFIs across the country rather than borrowed from anyone else.
-
-Pacific Community Ventures Q&A | Claude | Claude by Anthropic

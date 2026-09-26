@@ -6,7 +6,7 @@ Case study | Claude Platform
 
 [Try Claude](https://claude.ai)
 
-![Video thumbnail](https://assets.claude.com/363f972d0a4d291a65f4ea65358d9a0a9a8df32d.jpg)
+![Video thumbnail](https://assets.claude.com/363f972d0a4d291a65f4ea65358d9a0a9a8df32d.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Industry:
 :   Software
@@ -39,7 +39,7 @@ inside a single agent
 
 ## The challenge
 
-![](https://assets.claude.com/6fe2411aee6587d0dc3532f08a30bcc7ec0e3271.jpg)
+![](https://assets.claude.com/6fe2411aee6587d0dc3532f08a30bcc7ec0e3271.jpg?w=2400&q=75&fm=webp&fit=max)
 
 "Claude knew when to stop and knew which tools to call. When some tool returned an error message, it would know what alternative way to try." —Kay Zhu
 
@@ -51,7 +51,7 @@ The team kept expanding the runtime—first to parallel queries, then to backgro
 
 The architecture underneath, though, was a directed graph of predefined workflow nodes, and that design was hitting a ceiling. "It was too rigid," Zhu said. "It often broke on edge cases." Search satisfaction in the field has hovered around 80% for a decade, Zhu noted, no matter how much better the underlying systems get. Users adapt: as the system handles more, they ask harder questions, and the satisfaction rate stays flat. Genspark was seeing the same pattern. Simple questions ran through too many steps. Hard questions hit walls the workflow didn't know how to route around. The system that had taken Genspark to millions of users could no longer go where users wanted to go.
 
-![Problem Solvers landing page](https://assets.claude.com/516bf8e49c81e551455b1e24a0fc3678725df957.jpg)
+![Problem Solvers landing page](https://assets.claude.com/516bf8e49c81e551455b1e24a0fc3678725df957.jpg?w=2400&q=75&fm=webp&fit=max)
 
 The most driven founders are problem solvers. Watch their unscripted conversations with the Anthropic engineers.
 
@@ -73,7 +73,7 @@ That shift, from architecture as constraint to architecture as adaptive runtime,
 
 Claude Code
 
-![Claude Code](https://assets.claude.com/38e8385d1c5f9c0f71c486994e22fc5861a4522d.jpg)
+![Claude Code](https://assets.claude.com/38e8385d1c5f9c0f71c486994e22fc5861a4522d.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
 
@@ -85,7 +85,7 @@ Kay ZhuCo-founder and CTO, Genspark
 
 ## The outcome
 
-![](https://assets.claude.com/6c8cf5cf12067719cc0355bff5404ea785da125c.jpg)
+![](https://assets.claude.com/6c8cf5cf12067719cc0355bff5404ea785da125c.jpg?w=2400&q=75&fm=webp&fit=max)
 
 "We want to bring the Claude Code experience that software engineers have to all white-collar workers." —Kay Zhu
 

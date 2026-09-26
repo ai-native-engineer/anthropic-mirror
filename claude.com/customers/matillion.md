@@ -30,7 +30,7 @@ Sophisticated data transformations that took a customer 40 hours now take 1 hour
 
 Introducing Claude Code
 
-![Introducing Claude Code](https://assets.claude.com/56575a2d86ba511e0095b0cb9a92cafe7079c820.jpg)
+![Introducing Claude Code](https://assets.claude.com/56575a2d86ba511e0095b0cb9a92cafe7079c820.jpg?w=2400&q=75&fm=webp&fit=max)
 
 See Claude Code in action—from concept to commit in one seamless workflow.
 
@@ -94,5 +94,3 @@ Julian WiffenChief of AI and Data Science, Matillion
 ### Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
 ### How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)
-
-Matillion Claude Code case study | Claude by Anthropic

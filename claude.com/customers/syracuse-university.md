@@ -10,7 +10,7 @@ Q&A | Claude Enterprise
 
 Education
 
-![Education](https://assets.claude.com/b3e6d0547ee5dc0654c639ece4b89778e2edb536.jpg)
+![Education](https://assets.claude.com/b3e6d0547ee5dc0654c639ece4b89778e2edb536.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Trusted, responsible AI tools for students and educators, from personalized learning to research assistance.
 
@@ -92,7 +92,7 @@ When I grew up in the late '70s and '80s, I had an encyclopedia. That was it. Th
 
 Claude Code
 
-![Claude Code](https://assets.claude.com/38e8385d1c5f9c0f71c486994e22fc5861a4522d.jpg)
+![Claude Code](https://assets.claude.com/38e8385d1c5f9c0f71c486994e22fc5861a4522d.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
 

@@ -32,42 +32,6 @@ Location
 
 Date
 
-US
-
-Miami | Claude Para Todos: Edición Latina
-
-Miami, US
-
-September 24, 2026
-
-The DOCK, 400 NW 26th St, Miami, FL 33127, USA
-
-[Miami | Claude Para Todos: Edición Latina](https://luma.com/claude-uy67)Miami | Claude Para Todos: Edición Latina
-
-CO
-
-Medellin | Claude Meetup para Solopreneurs
-
-Medellín, CO
-
-September 24, 2026
-
-On.going: Centro de Emprendimiento de Impacto de EAFIT, Cl. 5 Sur #43C-80, El Poblado, Medellín, El Poblado, Medellín, Antioquia, Colombia
-
-[Medellin | Claude Meetup para Solopreneurs](https://luma.com/claude-qhnd)Medellin | Claude Meetup para Solopreneurs
-
-US
-
-San Francisco | Claude For Spatial Computing
-
-San Francisco, US
-
-September 24, 2026
-
-Homebrew Club, 111 Maiden Ln #540, San Francisco, CA 94108, USA
-
-[San Francisco | Claude For Spatial Computing](https://luma.com/claudeforspatialcomputing)San Francisco | Claude For Spatial Computing
-
 IN
 
 Bangalore | FOSS Coffee Meet
@@ -127,6 +91,42 @@ September 25, 2026
 Anakin Skywalker, 4th floor, 168, 19th Main Rd, Sector 4, HSR Layout, Bengaluru, Karnataka 560102, India
 
 [Bangalore | Claude Opus Build Day](https://luma.com/claude-x5dm)Bangalore | Claude Opus Build Day
+
+IN
+
+Bangalore | Claude Impact Lab - Creature Commons
+
+Bengaluru, IN
+
+September 25, 2026
+
+Anakin Skywalker, 4th floor, 168, 19th Main Rd, Sector 4, HSR Layout, Bengaluru, Karnataka 560102, India
+
+[Bangalore | Claude Impact Lab - Creature Commons](https://luma.com/claude-p7gg)Bangalore | Claude Impact Lab - Creature Commons
+
+TH
+
+Chiang Mai | Claude Code Impact Lab
+
+Amphoe Mueang Chiang Mai, TH
+
+September 26, 2026
+
+Mövenpick Suriwongse Chiang Mai, 110 chang khlan Rd, Tambon Chang Khlan, Amphoe Mueang Chiang Mai, Chang Wat Chiang Mai 50100, Thailand
+
+[Chiang Mai | Claude Code Impact Lab](https://luma.com/claude-ru1w)Chiang Mai | Claude Code Impact Lab
+
+US
+
+San Francisco | Claude Opus 5.5 Build Day
+
+San Francisco, US
+
+September 26, 2026
+
+AGI, Inc., 170 St Germain Ave, San Francisco, CA 94114, USA
+
+[San Francisco | Claude Opus 5.5 Build Day](https://luma.com/claudebuildday)San Francisco | Claude Opus 5.5 Build Day
 
 [View more](https://claude.com/community?46f68bc1_page=2)
 

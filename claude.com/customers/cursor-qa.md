@@ -6,7 +6,7 @@ Q&A | Claude Platform
 
 [Try Claude](https://claude.ai)
 
-![Video thumbnail](https://assets.claude.com/35263bf572b1ea343eafabd13f3535e5c772f6fd.jpg)
+![Video thumbnail](https://assets.claude.com/35263bf572b1ea343eafabd13f3535e5c772f6fd.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Industry:
 :   Software
@@ -28,13 +28,13 @@ builds software with Cursor
 
 in two years
 
-![Problem Solvers landing page](https://assets.claude.com/516bf8e49c81e551455b1e24a0fc3678725df957.jpg)
+![Problem Solvers landing page](https://assets.claude.com/516bf8e49c81e551455b1e24a0fc3678725df957.jpg?w=2400&q=75&fm=webp&fit=max)
 
 The most driven founders are problem solvers. Watch their unscripted conversations with the Anthropic engineers.
 
 [Read more](https://claude.com/problem-solvers)
 
-![](https://assets.claude.com/bcef56f06975ec56f0a57f21859c05c6e681da14.jpg)
+![](https://assets.claude.com/bcef56f06975ec56f0a57f21859c05c6e681da14.jpg?w=2400&q=75&fm=webp&fit=max)
 
 "We started working on Cursor at the end of 2022, and the premise was that eventually all of software was going to flow through models." —Michael Truell, Cursor co-founder
 
@@ -56,7 +56,7 @@ The most driven founders are problem solvers. Watch their unscripted conversatio
 
 Michael Truell Co-founder, Cursor
 
-![](https://assets.claude.com/c59bbbff1fc956b21017d4acac31c27c4a7d24f8.jpg)
+![](https://assets.claude.com/c59bbbff1fc956b21017d4acac31c27c4a7d24f8.jpg?w=2400&q=75&fm=webp&fit=max)
 
 "Each model release is a moment where new things become possible in the product." —Michael Truell, Cursor co-founder
 
@@ -80,7 +80,7 @@ Over the last 12 months, the models have gotten capable enough to do longer and 
 
 AI agents
 
-![AI agents](https://assets.claude.com/bdc16daf5e533d3c67f77bbbed786c7d7e693dce.jpg)
+![AI agents](https://assets.claude.com/bdc16daf5e533d3c67f77bbbed786c7d7e693dce.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Build powerful AI agents that reason through complex problems and execute tasks autonomously with reliable results.
 
@@ -90,7 +90,7 @@ Build powerful AI agents that reason through complex problems and execute tasks 
 
 Michael Truell Co-founder, Cursor
 
-![](https://assets.claude.com/e8d8f96ffb4c0f7056b92aa85b8af6d3876817ee.jpg)
+![](https://assets.claude.com/e8d8f96ffb4c0f7056b92aa85b8af6d3876817ee.jpg?w=2400&q=75&fm=webp&fit=max)
 
 "The biggest trend we're excited about is coding agents that can run for hours or days productively and really work with you." —Michael Truell, Cursor co-founder
 
@@ -104,7 +104,7 @@ Michael Truell Co-founder, Cursor
 
 Choosing the right Claude model
 
-![Choosing the right Claude model](https://assets.claude.com/7388619b452db0af26c78442a275c86c5ebe3124.jpg)
+![Choosing the right Claude model](https://assets.claude.com/7388619b452db0af26c78442a275c86c5ebe3124.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Learn when to use Haiku, Sonnet, or Opus to get better results and stay inside your rate limit. A practical guide to picking the right Claude model.
 

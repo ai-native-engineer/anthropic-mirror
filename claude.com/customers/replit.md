@@ -6,7 +6,7 @@ Case study | Claude Platform
 
 [Try Claude](https://claude.ai)
 
-![Video thumbnail](https://assets.claude.com/e28ca8e052ce3a12f0a264037b3b1c9a3ec186c2.jpg)
+![Video thumbnail](https://assets.claude.com/e28ca8e052ce3a12f0a264037b3b1c9a3ec186c2.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Industry:
 :   Software
@@ -54,7 +54,7 @@ Closing the gap meant building an AI agent that could own an entire development 
 
 ‍
 
-![Problem Solvers landing page](https://assets.claude.com/516bf8e49c81e551455b1e24a0fc3678725df957.jpg)
+![Problem Solvers landing page](https://assets.claude.com/516bf8e49c81e551455b1e24a0fc3678725df957.jpg?w=2400&q=75&fm=webp&fit=max)
 
 The most driven founders are problem solvers. Watch their unscripted conversations with the Anthropic engineers.
 

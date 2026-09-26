@@ -37,7 +37,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     List of requests for prompt completion. Each is an individual request to create a Message.
 
-    maxItems: 100000, minItems: 1
+    minItems: 1, maxItems: 100000
 
     - `String customId`
 
@@ -45,7 +45,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       Must be unique for each request within the Message Batch.
 
-      maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,64}$
+      minLength: 1, maxLength: 64, pattern: ^[a-zA-Z0-9_-]{1,64}$
 
     - `Params params`
 
@@ -165,7 +165,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `Optional<String> documentTitle`
 
-                    maxLength: 500, minLength: 1
+                    minLength: 1, maxLength: 500
 
                   - `long endCharIndex`
 
@@ -185,7 +185,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `Optional<String> documentTitle`
 
-                    maxLength: 500, minLength: 1
+                    minLength: 1, maxLength: 500
 
                   - `long endPageNumber`
 
@@ -209,7 +209,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `Optional<String> documentTitle`
 
-                    maxLength: 500, minLength: 1
+                    minLength: 1, maxLength: 500
 
                   - `long endBlockIndex`
 
@@ -233,7 +233,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `Optional<String> title`
 
-                    maxLength: 512, minLength: 1
+                    minLength: 1, maxLength: 512
 
                   - `String url`
 
@@ -389,7 +389,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `Optional<String> title`
 
-                maxLength: 500, minLength: 1
+                minLength: 1, maxLength: 500
 
             - `class SearchResultBlockParam`
 
@@ -453,7 +453,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `String name`
 
-                maxLength: 200, minLength: 1
+                minLength: 1, maxLength: 200
 
               - `Optional<CacheControlEphemeral> cacheControl`
 
@@ -489,7 +489,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 For a toolset member tool_use, the toolset family this member belongs to.
 
-                maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
+                minLength: 1, maxLength: 64, pattern: ^[a-zA-Z0-9_-]+$
 
             - `class ToolResultBlockParam`
 
@@ -525,7 +525,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     - `String toolName`
 
-                      maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+                      minLength: 1, maxLength: 256, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
                     - `Optional<CacheControlEphemeral> cacheControl`
 
@@ -553,7 +553,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                         The caller-assigned identifier for this tab, unique within the inventory.
 
-                        maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+                        minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
                       - `String title`
 
@@ -579,7 +579,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                       Tabs opened and download state changes during this call. "Nothing to report" is expressed by omitting the field, never by an empty list.
 
-                      maxItems: 200, minItems: 1
+                      minItems: 1, maxItems: 200
 
                       - `class BrowserStateChangeTabOpened`
 
@@ -597,7 +597,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           The `tab_id` of the opened tab, present in `tabs`.
 
-                          maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+                          minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
                       - `class BrowserStateChangeDownloadStarted`
 
@@ -609,7 +609,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-                          maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+                          minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
                         - `String url`
 
@@ -630,7 +630,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-                          maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+                          minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
                         - `String url`
 
@@ -642,7 +642,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           Where the executor saved the file, on the executor's filesystem. Only included when another tool in the same environment can read the file at that path.
 
-                          pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$, maxLength: 4096
+                          maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
                         - `Optional<Long> sizeBytes`
 
@@ -660,7 +660,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-                          maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+                          minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
                         - `String url`
 
@@ -672,7 +672,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           The failure or cancellation detail, when known.
 
-                          pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$, maxLength: 4096
+                          maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
               - `Optional<Boolean> isError`
 
@@ -680,7 +680,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 For a toolset member tool_result, the toolset family of the paired tool_use.
 
-                maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
+                minLength: 1, maxLength: 64, pattern: ^[a-zA-Z0-9_-]+$
 
             - `class ServerToolUseBlockParam`
 
@@ -1058,7 +1058,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     - `String toolName`
 
-                      maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+                      minLength: 1, maxLength: 256, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
                     - `Optional<CacheControlEphemeral> cacheControl`
 
@@ -1135,10 +1135,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           Powerful intelligence for long-running agents and coding
 
-        - `CLAUDE_MYTHOS_PREVIEW("claude-mythos-preview")`
-
-          New class of intelligence, strongest in coding and cybersecurity
-
         - `CLAUDE_OPUS_4_6("claude-opus-4-6")`
 
           Powerful intelligence for long-running agents and coding
@@ -1170,6 +1166,12 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
         - `CLAUDE_SONNET_4_5_20250929("claude-sonnet-4-5-20250929")`
 
           High-performance model for agents and coding
+
+        - `CLAUDE_MYTHOS_PREVIEW("claude-mythos-preview")`
+
+          **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+          New class of intelligence, strongest in coding and cybersecurity
 
       - `Optional<CacheControlEphemeral> cacheControl`
 
@@ -1205,20 +1207,19 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               Skill ID
 
-              maxLength: 64, minLength: 1
+              minLength: 1, maxLength: 64
 
             - `Optional<String> version`
 
               Skill version or 'latest' for most recent version
 
-              maxLength: 64, minLength: 1
+              minLength: 1, maxLength: 64
 
         - `String`
 
       - `Optional<DiagnosticsParam> diagnostics`
 
-        Request-level diagnostics. Currently carries the previous response
-        id for prompt-cache divergence reporting.
+        Request-level diagnostics. Supply `previous_message_id` to have the response include `diagnostics.cache_miss_reason` explaining any prompt-cache divergence from that prior request.
 
         - `Optional<String> previousMessageId`
 
@@ -1248,7 +1249,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `Optional<Effort> effort`
 
-          All possible effort levels.
+          How much effort the model should put into its response. Higher effort levels may result in more thorough analysis but take longer.
+
+          Valid values are `low`, `medium`, `high`, `xhigh`, or `max`.
 
           - `LOW("low")`
 
@@ -1498,7 +1501,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             This is how the tool will be called by the model and in `tool_use` blocks.
 
-            maxLength: 128, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,128}$
+            minLength: 1, maxLength: 128, pattern: ^[a-zA-Z0-9_-]{1,128}$
 
           - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -1715,12 +1718,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           - `Optional<BrowserToolsetConfigs> configs`
 
-            Per-member configuration for `browser_toolset_20260801`: one
-            optional field per member tool, keyed by the member name — the same
-            name the member's `tool_use` blocks carry. Every member is an
-            accepted key, and a member's defaults apply wherever its key is
-            absent. Unknown keys are rejected: the field set is this toolset
-            version's complete member set.
+            Sparse per-member overrides, keyed by member name. Absent, null, and {} are equivalent; a member's defaults apply wherever its key is absent.
 
             - `Optional<BrowserTypeConfig> type`
 
@@ -2147,12 +2145,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           - `Optional<ComputerToolsetConfigs> configs`
 
-            Per-member configuration for `computer_toolset_20260801`: one
-            optional field per member tool, keyed by the member name — the same
-            name the member's `tool_use` blocks carry. Every member is an
-            accepted key, and a member's defaults apply wherever its key is
-            absent. Unknown keys are rejected: the field set is this toolset
-            version's complete member set.
+            Sparse per-member overrides, keyed by member name. Absent, null, and {} are equivalent; a member's defaults apply wherever its key is absent.
 
             - `Optional<ComputerTypeConfig> type`
 
@@ -2506,7 +2499,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             Maximum number of times the tool can be used in the API request.
 
-            exclusiveMinimum: 0
+            minimum: 1
 
           - `Optional<Boolean> strict`
 
@@ -2522,25 +2515,25 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               The city of the user.
 
-              maxLength: 255, minLength: 1
+              minLength: 1, maxLength: 255
 
             - `Optional<String> country`
 
               The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
 
-              maxLength: 2, minLength: 2
+              minLength: 2, maxLength: 2
 
             - `Optional<String> region`
 
               The region of the user.
 
-              maxLength: 255, minLength: 1
+              minLength: 1, maxLength: 255
 
             - `Optional<String> timezone`
 
               The [IANA timezone](https://nodatime.org/TimeZones) of the user.
 
-              maxLength: 255, minLength: 1
+              minLength: 1, maxLength: 255
 
         - `class WebFetchTool20250910`
 
@@ -2586,13 +2579,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-            exclusiveMinimum: 0
+            minimum: 1
 
           - `Optional<Long> maxUses`
 
             Maximum number of times the tool can be used in the API request.
 
-            exclusiveMinimum: 0
+            minimum: 1
 
           - `Optional<Boolean> strict`
 
@@ -2600,12 +2593,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           - `Optional<WebFetchUrlSources> urlSources`
 
-            Which sources contribute to the set of URLs web fetch may fetch.
-
-            Each key is a tagged variant: `user_input` is `all` or `none`; the
-            two tool filters are `all`, `none`, `only` (only the named tools'
-            results) or `except` (every result but the named tools'). A named tool
-            must be declared in this request's `tools[]`.
+            Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
 
             - `Optional<ClientToolResults> clientToolResults`
 
@@ -2729,7 +2717,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             Maximum number of times the tool can be used in the API request.
 
-            exclusiveMinimum: 0
+            minimum: 1
 
           - `Optional<Boolean> strict`
 
@@ -2783,13 +2771,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-            exclusiveMinimum: 0
+            minimum: 1
 
           - `Optional<Long> maxUses`
 
             Maximum number of times the tool can be used in the API request.
 
-            exclusiveMinimum: 0
+            minimum: 1
 
           - `Optional<Boolean> strict`
 
@@ -2797,12 +2785,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           - `Optional<WebFetchUrlSources> urlSources`
 
-            Which sources contribute to the set of URLs web fetch may fetch.
-
-            Each key is a tagged variant: `user_input` is `all` or `none`; the
-            two tool filters are `all`, `none`, `only` (only the named tools'
-            results) or `except` (every result but the named tools'). A named tool
-            must be declared in this request's `tools[]`.
+            Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
 
         - `class WebFetchTool20260309`
 
@@ -2850,13 +2833,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-            exclusiveMinimum: 0
+            minimum: 1
 
           - `Optional<Long> maxUses`
 
             Maximum number of times the tool can be used in the API request.
 
-            exclusiveMinimum: 0
+            minimum: 1
 
           - `Optional<Boolean> strict`
 
@@ -2864,12 +2847,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           - `Optional<WebFetchUrlSources> urlSources`
 
-            Which sources contribute to the set of URLs web fetch may fetch.
-
-            Each key is a tagged variant: `user_input` is `all` or `none`; the
-            two tool filters are `all`, `none`, `only` (only the named tools'
-            results) or `except` (every result but the named tools'). A named tool
-            must be declared in this request's `tools[]`.
+            Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
 
           - `Optional<Boolean> useCache`
 
@@ -2915,7 +2893,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             Maximum number of times the tool can be used in the API request.
 
-            exclusiveMinimum: 0
+            minimum: 1
 
           - `Optional<ResponseInclusion> responseInclusion`
 
@@ -2977,13 +2955,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-            exclusiveMinimum: 0
+            minimum: 1
 
           - `Optional<Long> maxUses`
 
             Maximum number of times the tool can be used in the API request.
 
-            exclusiveMinimum: 0
+            minimum: 1
 
           - `Optional<ResponseInclusion> responseInclusion`
 
@@ -2999,12 +2977,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           - `Optional<WebFetchUrlSources> urlSources`
 
-            Which sources contribute to the set of URLs web fetch may fetch.
-
-            Each key is a tagged variant: `user_input` is `all` or `none`; the
-            two tool filters are `all`, `none`, `only` (only the named tools'
-            results) or `except` (every result but the named tools'). A named tool
-            must be declared in this request's `tools[]`.
+            Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
 
           - `Optional<Boolean> useCache`
 
@@ -3092,7 +3065,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         Note that even with `temperature` of `0.0`, the results will not be fully deterministic.
 
-        maximum: 1, minimum: 0
+        minimum: 0, maximum: 1
 
       - `Optional<Long> topK`
 
@@ -3116,7 +3089,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         Recommended for advanced use cases only.
 
-        maximum: 1, minimum: 0
+        minimum: 0, maximum: 1
 
 ### Returns
 
@@ -3465,7 +3438,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     Defaults to `20`. Ranges from `1` to `1000`.
 
-    maximum: 1000, minimum: 1
+    minimum: 1, maximum: 1000
 
   - `Optional<String> workspaceId`
 
@@ -3924,7 +3897,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `Optional<Container> container`
 
-          Information about the container used in the request (for the code execution tool)
+          Information about the container used in this request.
+
+          This will be non-null if a container tool (e.g. code execution) was used.
 
           - `String id`
 
@@ -3952,13 +3927,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               Skill ID
 
-              maxLength: 64, minLength: 1
+              minLength: 1, maxLength: 64
 
             - `String version`
 
               The resolved version: a skill version ID for custom skills.
 
-              maxLength: 64, minLength: 1
+              minLength: 1, maxLength: 64
 
         - `List<ContentBlock> content`
 
@@ -4119,8 +4094,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `String text`
 
-              minLength: 0
-
           - `class ThinkingBlock`
 
             - `JsonValue type = "thinking"`
@@ -4193,7 +4166,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               For a toolset member tool_use, the toolset family.
 
-              maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
+              minLength: 1, maxLength: 64, pattern: ^[a-zA-Z0-9_-]+$
 
           - `class ServerToolUseBlock`
 
@@ -4579,7 +4552,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `String toolName`
 
-                    maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+                    minLength: 1, maxLength: 256, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
             - `String toolUseId`
 
@@ -4595,8 +4568,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `Optional<Diagnostics> diagnostics`
 
-          Request-level diagnostics: why the prompt cache could not fully reuse
-          the prefix of the request named by `diagnostics.previous_message_id`.
+          Request-level diagnostics. `null` when the request did not supply `diagnostics`, or when it did and no prompt-cache divergence was detected.
 
           - `Optional<CacheMissReason> cacheMissReason`
 
@@ -4684,10 +4656,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             Powerful intelligence for long-running agents and coding
 
-          - `CLAUDE_MYTHOS_PREVIEW("claude-mythos-preview")`
-
-            New class of intelligence, strongest in coding and cybersecurity
-
           - `CLAUDE_OPUS_4_6("claude-opus-4-6")`
 
             Powerful intelligence for long-running agents and coding
@@ -4720,6 +4688,12 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             High-performance model for agents and coding
 
+          - `CLAUDE_MYTHOS_PREVIEW("claude-mythos-preview")`
+
+            **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+            New class of intelligence, strongest in coding and cybersecurity
+
         - `JsonValue role = "assistant"`
 
           Conversational role of the generated message.
@@ -4728,13 +4702,17 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `Optional<RefusalStopDetails> stopDetails`
 
-          Structured information about a refusal.
+          Structured information about why model output stopped.
+
+          This is `null` when the `stop_reason` has no additional detail to report.
 
           - `JsonValue type = "refusal"`
 
           - `Optional<Category> category`
 
-            The policy category that triggered a refusal.
+            The policy category that triggered the refusal.
+
+            `null` when the refusal doesn't map to a named category.
 
             - `CYBER("cyber")`
 
@@ -5230,7 +5208,9 @@ public final class Main {
 
         - `Optional<Container> container`
 
-          Information about the container used in the request (for the code execution tool)
+          Information about the container used in this request.
+
+          This will be non-null if a container tool (e.g. code execution) was used.
 
           - `String id`
 
@@ -5258,13 +5238,13 @@ public final class Main {
 
               Skill ID
 
-              maxLength: 64, minLength: 1
+              minLength: 1, maxLength: 64
 
             - `String version`
 
               The resolved version: a skill version ID for custom skills.
 
-              maxLength: 64, minLength: 1
+              minLength: 1, maxLength: 64
 
         - `List<ContentBlock> content`
 
@@ -5425,8 +5405,6 @@ public final class Main {
 
             - `String text`
 
-              minLength: 0
-
           - `class ThinkingBlock`
 
             - `JsonValue type = "thinking"`
@@ -5499,7 +5477,7 @@ public final class Main {
 
               For a toolset member tool_use, the toolset family.
 
-              maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
+              minLength: 1, maxLength: 64, pattern: ^[a-zA-Z0-9_-]+$
 
           - `class ServerToolUseBlock`
 
@@ -5885,7 +5863,7 @@ public final class Main {
 
                   - `String toolName`
 
-                    maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+                    minLength: 1, maxLength: 256, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
             - `String toolUseId`
 
@@ -5901,8 +5879,7 @@ public final class Main {
 
         - `Optional<Diagnostics> diagnostics`
 
-          Request-level diagnostics: why the prompt cache could not fully reuse
-          the prefix of the request named by `diagnostics.previous_message_id`.
+          Request-level diagnostics. `null` when the request did not supply `diagnostics`, or when it did and no prompt-cache divergence was detected.
 
           - `Optional<CacheMissReason> cacheMissReason`
 
@@ -5990,10 +5967,6 @@ public final class Main {
 
             Powerful intelligence for long-running agents and coding
 
-          - `CLAUDE_MYTHOS_PREVIEW("claude-mythos-preview")`
-
-            New class of intelligence, strongest in coding and cybersecurity
-
           - `CLAUDE_OPUS_4_6("claude-opus-4-6")`
 
             Powerful intelligence for long-running agents and coding
@@ -6026,6 +5999,12 @@ public final class Main {
 
             High-performance model for agents and coding
 
+          - `CLAUDE_MYTHOS_PREVIEW("claude-mythos-preview")`
+
+            **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+            New class of intelligence, strongest in coding and cybersecurity
+
         - `JsonValue role = "assistant"`
 
           Conversational role of the generated message.
@@ -6034,13 +6013,17 @@ public final class Main {
 
         - `Optional<RefusalStopDetails> stopDetails`
 
-          Structured information about a refusal.
+          Structured information about why model output stopped.
+
+          This is `null` when the `stop_reason` has no additional detail to report.
 
           - `JsonValue type = "refusal"`
 
           - `Optional<Category> category`
 
-            The policy category that triggered a refusal.
+            The policy category that triggered the refusal.
+
+            `null` when the refusal doesn't map to a named category.
 
             - `CYBER("cyber")`
 
@@ -6342,7 +6325,9 @@ public final class Main {
 
       - `Optional<Container> container`
 
-        Information about the container used in the request (for the code execution tool)
+        Information about the container used in this request.
+
+        This will be non-null if a container tool (e.g. code execution) was used.
 
         - `String id`
 
@@ -6370,13 +6355,13 @@ public final class Main {
 
             Skill ID
 
-            maxLength: 64, minLength: 1
+            minLength: 1, maxLength: 64
 
           - `String version`
 
             The resolved version: a skill version ID for custom skills.
 
-            maxLength: 64, minLength: 1
+            minLength: 1, maxLength: 64
 
       - `List<ContentBlock> content`
 
@@ -6537,8 +6522,6 @@ public final class Main {
 
           - `String text`
 
-            minLength: 0
-
         - `class ThinkingBlock`
 
           - `JsonValue type = "thinking"`
@@ -6611,7 +6594,7 @@ public final class Main {
 
             For a toolset member tool_use, the toolset family.
 
-            maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
+            minLength: 1, maxLength: 64, pattern: ^[a-zA-Z0-9_-]+$
 
         - `class ServerToolUseBlock`
 
@@ -6997,7 +6980,7 @@ public final class Main {
 
                 - `String toolName`
 
-                  maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+                  minLength: 1, maxLength: 256, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
           - `String toolUseId`
 
@@ -7013,8 +6996,7 @@ public final class Main {
 
       - `Optional<Diagnostics> diagnostics`
 
-        Request-level diagnostics: why the prompt cache could not fully reuse
-        the prefix of the request named by `diagnostics.previous_message_id`.
+        Request-level diagnostics. `null` when the request did not supply `diagnostics`, or when it did and no prompt-cache divergence was detected.
 
         - `Optional<CacheMissReason> cacheMissReason`
 
@@ -7102,10 +7084,6 @@ public final class Main {
 
           Powerful intelligence for long-running agents and coding
 
-        - `CLAUDE_MYTHOS_PREVIEW("claude-mythos-preview")`
-
-          New class of intelligence, strongest in coding and cybersecurity
-
         - `CLAUDE_OPUS_4_6("claude-opus-4-6")`
 
           Powerful intelligence for long-running agents and coding
@@ -7138,6 +7116,12 @@ public final class Main {
 
           High-performance model for agents and coding
 
+        - `CLAUDE_MYTHOS_PREVIEW("claude-mythos-preview")`
+
+          **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+          New class of intelligence, strongest in coding and cybersecurity
+
       - `JsonValue role = "assistant"`
 
         Conversational role of the generated message.
@@ -7146,13 +7130,17 @@ public final class Main {
 
       - `Optional<RefusalStopDetails> stopDetails`
 
-        Structured information about a refusal.
+        Structured information about why model output stopped.
+
+        This is `null` when the `stop_reason` has no additional detail to report.
 
         - `JsonValue type = "refusal"`
 
         - `Optional<Category> category`
 
-          The policy category that triggered a refusal.
+          The policy category that triggered the refusal.
+
+          `null` when the refusal doesn't map to a named category.
 
           - `CYBER("cyber")`
 
@@ -7416,7 +7404,9 @@ public final class Main {
 
     - `Optional<Container> container`
 
-      Information about the container used in the request (for the code execution tool)
+      Information about the container used in this request.
+
+      This will be non-null if a container tool (e.g. code execution) was used.
 
       - `String id`
 
@@ -7444,13 +7434,13 @@ public final class Main {
 
           Skill ID
 
-          maxLength: 64, minLength: 1
+          minLength: 1, maxLength: 64
 
         - `String version`
 
           The resolved version: a skill version ID for custom skills.
 
-          maxLength: 64, minLength: 1
+          minLength: 1, maxLength: 64
 
     - `List<ContentBlock> content`
 
@@ -7611,8 +7601,6 @@ public final class Main {
 
         - `String text`
 
-          minLength: 0
-
       - `class ThinkingBlock`
 
         - `JsonValue type = "thinking"`
@@ -7685,7 +7673,7 @@ public final class Main {
 
           For a toolset member tool_use, the toolset family.
 
-          maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
+          minLength: 1, maxLength: 64, pattern: ^[a-zA-Z0-9_-]+$
 
       - `class ServerToolUseBlock`
 
@@ -8071,7 +8059,7 @@ public final class Main {
 
               - `String toolName`
 
-                maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+                minLength: 1, maxLength: 256, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
         - `String toolUseId`
 
@@ -8087,8 +8075,7 @@ public final class Main {
 
     - `Optional<Diagnostics> diagnostics`
 
-      Request-level diagnostics: why the prompt cache could not fully reuse
-      the prefix of the request named by `diagnostics.previous_message_id`.
+      Request-level diagnostics. `null` when the request did not supply `diagnostics`, or when it did and no prompt-cache divergence was detected.
 
       - `Optional<CacheMissReason> cacheMissReason`
 
@@ -8176,10 +8163,6 @@ public final class Main {
 
         Powerful intelligence for long-running agents and coding
 
-      - `CLAUDE_MYTHOS_PREVIEW("claude-mythos-preview")`
-
-        New class of intelligence, strongest in coding and cybersecurity
-
       - `CLAUDE_OPUS_4_6("claude-opus-4-6")`
 
         Powerful intelligence for long-running agents and coding
@@ -8212,6 +8195,12 @@ public final class Main {
 
         High-performance model for agents and coding
 
+      - `CLAUDE_MYTHOS_PREVIEW("claude-mythos-preview")`
+
+        **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+        New class of intelligence, strongest in coding and cybersecurity
+
     - `JsonValue role = "assistant"`
 
       Conversational role of the generated message.
@@ -8220,13 +8209,17 @@ public final class Main {
 
     - `Optional<RefusalStopDetails> stopDetails`
 
-      Structured information about a refusal.
+      Structured information about why model output stopped.
+
+      This is `null` when the `stop_reason` has no additional detail to report.
 
       - `JsonValue type = "refusal"`
 
       - `Optional<Category> category`
 
-        The policy category that triggered a refusal.
+        The policy category that triggered the refusal.
+
+        `null` when the refusal doesn't map to a named category.
 
         - `CYBER("cyber")`
 

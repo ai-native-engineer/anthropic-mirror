@@ -56,7 +56,7 @@ Braintrust integrated Claude into key features to enhance their platform:
 2. Job Description Generator: This Claude-powered assistant helps clients quickly create compelling job postings, increasing the number of qualified applicants.
 3. Semantic Search: A feature in development that allows recruiters to search for candidates using natural language queries instead of rigid filters.
 
-![Braintrust product screen](https://assets.claude.com/9d7b7b0b458c70ae55bf09c22eaf4abd031f5d18.jpg)
+![Braintrust product screen](https://assets.claude.com/9d7b7b0b458c70ae55bf09c22eaf4abd031f5d18.jpg?w=2400&q=75&fm=webp&fit=max)
 
 ## Better outcomes for employers and job seekers
 
@@ -81,5 +81,3 @@ As Braintrust continues to innovate with Claude, they aim to create a recruiting
 ### micro1 transforms technical recruiting with Claude](https://claude.com/customers/micro1)[![Skillfully](https://assets.claude.com/4d045f8f15c950f0b55087335dd918f70f8db501.svg)
 
 ### Skillfully transforms hiring through AI-powered skill simulations with Claude](https://claude.com/customers/skillfully)
-
-Braintrust Claude Platform (API) case study | Claude by Anthropic

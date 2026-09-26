@@ -136,7 +136,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `DocumentTitle string`
 
-                maxLength: 500, minLength: 1
+                minLength: 1, maxLength: 500
 
               - `EndCharIndex int64`
 
@@ -156,7 +156,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `DocumentTitle string`
 
-                maxLength: 500, minLength: 1
+                minLength: 1, maxLength: 500
 
               - `EndPageNumber int64`
 
@@ -180,7 +180,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `DocumentTitle string`
 
-                maxLength: 500, minLength: 1
+                minLength: 1, maxLength: 500
 
               - `EndBlockIndex int64`
 
@@ -204,7 +204,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `Title string`
 
-                maxLength: 512, minLength: 1
+                minLength: 1, maxLength: 512
 
               - `URL string`
 
@@ -360,7 +360,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `Title string Optional`
 
-            maxLength: 500, minLength: 1
+            minLength: 1, maxLength: 500
 
         - `type BetaSearchResultBlockParamResp`
 
@@ -424,7 +424,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `Name string`
 
-            maxLength: 200, minLength: 1
+            minLength: 1, maxLength: 200
 
           - `CacheControl BetaCacheControlEphemeral Optional`
 
@@ -460,7 +460,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             For a toolset member tool_use, the toolset family this member belongs to.
 
-            maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
+            minLength: 1, maxLength: 64, pattern: ^[a-zA-Z0-9_-]+$
 
         - `type BetaToolResultBlockParamResp`
 
@@ -494,7 +494,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 - `ToolName string`
 
-                  maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+                  minLength: 1, maxLength: 256, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
                 - `CacheControl BetaCacheControlEphemeral Optional`
 
@@ -522,7 +522,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                     The caller-assigned identifier for this tab, unique within the inventory.
 
-                    maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+                    minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
                   - `Title string`
 
@@ -548,7 +548,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                   Tabs opened and download state changes during this call. "Nothing to report" is expressed by omitting the field, never by an empty list.
 
-                  maxItems: 200, minItems: 1
+                  minItems: 1, maxItems: 200
 
                   - `type BetaBrowserStateChangeTabOpened`
 
@@ -566,7 +566,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                       The `tab_id` of the opened tab, present in `tabs`.
 
-                      maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+                      minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
                   - `type BetaBrowserStateChangeDownloadStarted`
 
@@ -578,7 +578,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                       The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-                      maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+                      minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
                     - `URL string`
 
@@ -599,7 +599,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                       The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-                      maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+                      minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
                     - `URL string`
 
@@ -611,7 +611,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                       Where the executor saved the file, on the executor's filesystem. Only included when another tool in the same environment can read the file at that path.
 
-                      pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$, maxLength: 4096
+                      maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
                     - `SizeBytes int64 Optional`
 
@@ -629,7 +629,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                       The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-                      maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+                      minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
                     - `URL string`
 
@@ -641,7 +641,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                       The failure or cancellation detail, when known.
 
-                      pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$, maxLength: 4096
+                      maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
           - `IsError bool Optional`
 
@@ -649,7 +649,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             For a toolset member tool_result, the toolset family of the paired tool_use.
 
-            maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
+            minLength: 1, maxLength: 64, pattern: ^[a-zA-Z0-9_-]+$
 
         - `type BetaServerToolUseBlockParamResp`
 
@@ -1081,7 +1081,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 - `ToolName string`
 
-                  maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+                  minLength: 1, maxLength: 256, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
                 - `CacheControl BetaCacheControlEphemeral Optional`
 
@@ -1273,7 +1273,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                         This is how the tool will be called by the model and in `tool_use` blocks.
 
-                        maxLength: 128, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,128}$
+                        minLength: 1, maxLength: 128, pattern: ^[a-zA-Z0-9_-]{1,128}$
 
                       - `AllowedCallers []string Optional`
 
@@ -1524,12 +1524,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                       - `Configs BetaBrowserToolsetConfigs Optional`
 
-                        Per-member configuration for `browser_toolset_20260801`: one
-                        optional field per member tool, keyed by the member name — the same
-                        name the member's `tool_use` blocks carry. Every member is an
-                        accepted key, and a member's defaults apply wherever its key is
-                        absent. Unknown keys are rejected: the field set is this toolset
-                        version's complete member set.
+                        Sparse per-member overrides, keyed by member name. Absent, null, and {} are equivalent; a member's defaults apply wherever its key is absent.
 
                         - `Type BetaBrowserTypeConfig Optional`
 
@@ -2150,12 +2145,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                       - `Configs BetaComputerToolsetConfigs Optional`
 
-                        Per-member configuration for `computer_toolset_20260801`: one
-                        optional field per member tool, keyed by the member name — the same
-                        name the member's `tool_use` blocks carry. Every member is an
-                        accepted key, and a member's defaults apply wherever its key is
-                        absent. Unknown keys are rejected: the field set is this toolset
-                        version's complete member set.
+                        Sparse per-member overrides, keyed by member name. Absent, null, and {} are equivalent; a member's defaults apply wherever its key is absent.
 
                         - `Type BetaComputerTypeConfig Optional`
 
@@ -2509,7 +2499,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                         Maximum number of times the tool can be used in the API request.
 
-                        exclusiveMinimum: 0
+                        minimum: 1
 
                       - `Strict bool Optional`
 
@@ -2525,25 +2515,25 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                           The city of the user.
 
-                          maxLength: 255, minLength: 1
+                          minLength: 1, maxLength: 255
 
                         - `Country string Optional`
 
                           The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
 
-                          maxLength: 2, minLength: 2
+                          minLength: 2, maxLength: 2
 
                         - `Region string Optional`
 
                           The region of the user.
 
-                          maxLength: 255, minLength: 1
+                          minLength: 1, maxLength: 255
 
                         - `Timezone string Optional`
 
                           The [IANA timezone](https://nodatime.org/TimeZones) of the user.
 
-                          maxLength: 255, minLength: 1
+                          minLength: 1, maxLength: 255
 
                     - `type BetaWebFetchTool20250910`
 
@@ -2589,13 +2579,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                         Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-                        exclusiveMinimum: 0
+                        minimum: 1
 
                       - `MaxUses int64 Optional`
 
                         Maximum number of times the tool can be used in the API request.
 
-                        exclusiveMinimum: 0
+                        minimum: 1
 
                       - `Strict bool Optional`
 
@@ -2603,12 +2593,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                       - `URLSources BetaWebFetchURLSources Optional`
 
-                        Which sources contribute to the set of URLs web fetch may fetch.
-
-                        Each key is a tagged variant: `user_input` is `all` or `none`; the
-                        two tool filters are `all`, `none`, `only` (only the named tools'
-                        results) or `except` (every result but the named tools'). A named tool
-                        must be declared in this request's `tools[]`.
+                        Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
 
                         - `ClientToolResults BetaWebFetchURLSourcesClientToolResultsUnion Optional`
 
@@ -2732,7 +2717,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                         Maximum number of times the tool can be used in the API request.
 
-                        exclusiveMinimum: 0
+                        minimum: 1
 
                       - `Strict bool Optional`
 
@@ -2786,13 +2771,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                         Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-                        exclusiveMinimum: 0
+                        minimum: 1
 
                       - `MaxUses int64 Optional`
 
                         Maximum number of times the tool can be used in the API request.
 
-                        exclusiveMinimum: 0
+                        minimum: 1
 
                       - `Strict bool Optional`
 
@@ -2800,12 +2785,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                       - `URLSources BetaWebFetchURLSources Optional`
 
-                        Which sources contribute to the set of URLs web fetch may fetch.
-
-                        Each key is a tagged variant: `user_input` is `all` or `none`; the
-                        two tool filters are `all`, `none`, `only` (only the named tools'
-                        results) or `except` (every result but the named tools'). A named tool
-                        must be declared in this request's `tools[]`.
+                        Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
 
                     - `type BetaWebFetchTool20260309`
 
@@ -2853,13 +2833,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                         Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-                        exclusiveMinimum: 0
+                        minimum: 1
 
                       - `MaxUses int64 Optional`
 
                         Maximum number of times the tool can be used in the API request.
 
-                        exclusiveMinimum: 0
+                        minimum: 1
 
                       - `Strict bool Optional`
 
@@ -2867,12 +2847,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                       - `URLSources BetaWebFetchURLSources Optional`
 
-                        Which sources contribute to the set of URLs web fetch may fetch.
-
-                        Each key is a tagged variant: `user_input` is `all` or `none`; the
-                        two tool filters are `all`, `none`, `only` (only the named tools'
-                        results) or `except` (every result but the named tools'). A named tool
-                        must be declared in this request's `tools[]`.
+                        Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
 
                       - `UseCache bool Optional`
 
@@ -2918,7 +2893,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                         Maximum number of times the tool can be used in the API request.
 
-                        exclusiveMinimum: 0
+                        minimum: 1
 
                       - `ResponseInclusion BetaWebSearchTool20260318ResponseInclusion Optional`
 
@@ -2980,13 +2955,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                         Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-                        exclusiveMinimum: 0
+                        minimum: 1
 
                       - `MaxUses int64 Optional`
 
                         Maximum number of times the tool can be used in the API request.
 
-                        exclusiveMinimum: 0
+                        minimum: 1
 
                       - `ResponseInclusion BetaWebFetchTool20260318ResponseInclusion Optional`
 
@@ -3002,12 +2977,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                       - `URLSources BetaWebFetchURLSources Optional`
 
-                        Which sources contribute to the set of URLs web fetch may fetch.
-
-                        Each key is a tagged variant: `user_input` is `all` or `none`; the
-                        two tool filters are `all`, `none`, `only` (only the named tools'
-                        results) or `except` (every result but the named tools'). A named tool
-                        must be declared in this request's `tools[]`.
+                        Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
 
                       - `UseCache bool Optional`
 
@@ -3022,6 +2992,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
                         The model that will complete your prompt.
 
                         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+                        - `string`
 
                         - `type Model string`
 
@@ -3065,10 +3037,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                             Powerful intelligence for long-running agents and coding
 
-                          - `const ModelClaudeMythosPreview Model = "claude-mythos-preview"`
-
-                            New class of intelligence, strongest in coding and cybersecurity
-
                           - `const ModelClaudeOpus4_6 Model = "claude-opus-4-6"`
 
                             Powerful intelligence for long-running agents and coding
@@ -3101,7 +3069,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                             High-performance model for agents and coding
 
-                        - `string`
+                          - `const ModelClaudeMythosPreview Model = "claude-mythos-preview"`
+
+                            **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+                            New class of intelligence, strongest in coding and cybersecurity
 
                       - `Name Advisor`
 
@@ -3141,7 +3113,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                         Maximum number of times the tool can be used in the API request.
 
-                        exclusiveMinimum: 0
+                        minimum: 1
 
                       - `Strict bool Optional`
 
@@ -3232,7 +3204,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                         Name of the MCP server to configure tools for
 
-                        maxLength: 255, minLength: 1
+                        minLength: 1, maxLength: 255
 
                       - `CacheControl BetaCacheControlEphemeral Optional`
 
@@ -3342,7 +3314,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             The name of the MCP server this listing came from, as `mcp_servers` declares it.
 
-            maxLength: 255, minLength: 1
+            minLength: 1, maxLength: 255
 
           - `Tools []BetaMCPToolParamResp`
 
@@ -3424,7 +3396,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `Effort BetaSystemMessageOutputConfigEffort Optional`
 
-        All possible effort levels.
+        How much effort the model should put into its response. Higher effort levels may result in more thorough analysis but take longer.
+
+        Valid values are `low`, `medium`, `high`, `xhigh`, or `max`.
 
         - `const BetaSystemMessageOutputConfigEffortLow BetaSystemMessageOutputConfigEffort = "low"`
 
@@ -3448,14 +3422,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
   - `Compaction param.Field[BetaCompactionConfig] Optional`
 
-    Body param: Compact the whole conversation and return a signed `compaction` block,
-    alone, that a later request sends back first in `messages`, in place of
-    the messages it summarizes. There is no trigger and no pause flag: sending
-    the parameter compacts, and nothing is sampled after the block.
+    Body param: Compaction configuration.
 
-    The summarization prompt is the server's own unless `instructions` are
-    given, which then replace it for this request; a value that is empty or
-    only whitespace counts as absent.
+    When set on `POST /v1/messages`, the request is a compaction request: the conversation in `messages` is summarized and the response holds only the resulting `compaction` block (`stop_reason` `"compaction"`), which later requests send first in `messages` in place of the messages it summarizes. `POST /v1/messages/count_tokens` accepts this parameter and ignores it: the count it returns is for the conversation in `messages` as sent. Cannot be combined with `context_management`.
 
   - `Container param.Field[BetaMessageNewParamsContainerUnion] Optional`
 
@@ -3487,13 +3456,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           Skill ID
 
-          maxLength: 64, minLength: 1
+          minLength: 1, maxLength: 64
 
         - `Version string Optional`
 
           Skill version or 'latest' for most recent version
 
-          maxLength: 64, minLength: 1
+          minLength: 1, maxLength: 64
 
     - `string`
 
@@ -3505,8 +3474,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
   - `Diagnostics param.Field[BetaDiagnosticsParamResp] Optional`
 
-    Body param: Request-level diagnostics. Currently carries the previous response
-    id for prompt-cache divergence reporting.
+    Body param: Request-level diagnostics. Supply `previous_message_id` to have the response include `diagnostics.cache_miss_reason` explaining any prompt-cache divergence from that prior request.
 
   - `FallbackCreditToken param.Field[BetaMessageNewParamsFallbackCreditTokenUnion] Optional`
 
@@ -3547,7 +3515,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         The opaque `fallback_credit_token` from a prior refusal's `stop_details` — the same string the bare-string form carries.
 
-        maxLength: 2048, minLength: 1
+        minLength: 1, maxLength: 2048
 
       - `Mode BetaFallbackCreditTokenParamMode Optional`
 
@@ -3605,7 +3573,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
   - `Speed param.Field[BetaMessageNewParamsSpeed] Optional`
 
-    Body param: Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+    Body param: The inference speed mode for this request. `"fast"` enables high output-tokens-per-second inference.
 
     - `const BetaMessageNewParamsSpeedStandard BetaMessageNewParamsSpeed = "standard"`
 
@@ -3928,7 +3896,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     Note that even with `temperature` of `0.0`, the results will not be fully deterministic.
 
-    maximum: 1, minimum: 0
+    minimum: 0, maximum: 1
 
   - `TopK param.Field[int64] Optional`
 
@@ -3952,7 +3920,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     Recommended for advanced use cases only.
 
-    maximum: 1, minimum: 0
+    minimum: 0, maximum: 1
 
 ### Returns
 
@@ -3974,7 +3942,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
   - `Container BetaContainer`
 
-    Information about the container used in the request (for the code execution tool)
+    Information about the container used in this request.
+
+    This will be non-null if a container tool (e.g. code execution) was used.
 
     - `ID string`
 
@@ -4002,13 +3972,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         Skill ID
 
-        maxLength: 64, minLength: 1
+        minLength: 1, maxLength: 64
 
       - `Version string`
 
         The resolved version: a skill version ID for custom skills.
 
-        maxLength: 64, minLength: 1
+        minLength: 1, maxLength: 64
 
   - `Content []BetaContentBlockUnion`
 
@@ -4181,8 +4151,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `Text string`
 
-        minLength: 0
-
     - `type BetaThinkingBlock`
 
       - `Type Thinking`
@@ -4261,7 +4229,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         For a toolset member tool_use, the toolset family.
 
-        maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
+        minLength: 1, maxLength: 64, pattern: ^[a-zA-Z0-9_-]+$
 
     - `type BetaServerToolUseBlock`
 
@@ -4765,7 +4733,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `ToolName string`
 
-              maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+              minLength: 1, maxLength: 256, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
       - `ToolUseID string`
 
@@ -4814,8 +4782,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
             The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
 
           - `Text string`
-
-            minLength: 0
 
       - `IsError bool`
 
@@ -4954,7 +4920,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                     This is how the tool will be called by the model and in `tool_use` blocks.
 
-                    maxLength: 128, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,128}$
+                    minLength: 1, maxLength: 128, pattern: ^[a-zA-Z0-9_-]{1,128}$
 
                   - `AllowedCallers []string Optional`
 
@@ -5218,12 +5184,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                   - `Configs BetaBrowserToolsetConfigs Optional`
 
-                    Per-member configuration for `browser_toolset_20260801`: one
-                    optional field per member tool, keyed by the member name — the same
-                    name the member's `tool_use` blocks carry. Every member is an
-                    accepted key, and a member's defaults apply wherever its key is
-                    absent. Unknown keys are rejected: the field set is this toolset
-                    version's complete member set.
+                    Sparse per-member overrides, keyed by member name. Absent, null, and {} are equivalent; a member's defaults apply wherever its key is absent.
 
                     - `Type BetaBrowserTypeConfig Optional`
 
@@ -5844,12 +5805,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                   - `Configs BetaComputerToolsetConfigs Optional`
 
-                    Per-member configuration for `computer_toolset_20260801`: one
-                    optional field per member tool, keyed by the member name — the same
-                    name the member's `tool_use` blocks carry. Every member is an
-                    accepted key, and a member's defaults apply wherever its key is
-                    absent. Unknown keys are rejected: the field set is this toolset
-                    version's complete member set.
+                    Sparse per-member overrides, keyed by member name. Absent, null, and {} are equivalent; a member's defaults apply wherever its key is absent.
 
                     - `Type BetaComputerTypeConfig Optional`
 
@@ -6203,7 +6159,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                     Maximum number of times the tool can be used in the API request.
 
-                    exclusiveMinimum: 0
+                    minimum: 1
 
                   - `Strict bool Optional`
 
@@ -6219,25 +6175,25 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                       The city of the user.
 
-                      maxLength: 255, minLength: 1
+                      minLength: 1, maxLength: 255
 
                     - `Country string Optional`
 
                       The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
 
-                      maxLength: 2, minLength: 2
+                      minLength: 2, maxLength: 2
 
                     - `Region string Optional`
 
                       The region of the user.
 
-                      maxLength: 255, minLength: 1
+                      minLength: 1, maxLength: 255
 
                     - `Timezone string Optional`
 
                       The [IANA timezone](https://nodatime.org/TimeZones) of the user.
 
-                      maxLength: 255, minLength: 1
+                      minLength: 1, maxLength: 255
 
                 - `type BetaWebFetchTool20250910`
 
@@ -6285,13 +6241,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                     Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-                    exclusiveMinimum: 0
+                    minimum: 1
 
                   - `MaxUses int64 Optional`
 
                     Maximum number of times the tool can be used in the API request.
 
-                    exclusiveMinimum: 0
+                    minimum: 1
 
                   - `Strict bool Optional`
 
@@ -6299,12 +6255,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                   - `URLSources BetaWebFetchURLSources Optional`
 
-                    Which sources contribute to the set of URLs web fetch may fetch.
-
-                    Each key is a tagged variant: `user_input` is `all` or `none`; the
-                    two tool filters are `all`, `none`, `only` (only the named tools'
-                    results) or `except` (every result but the named tools'). A named tool
-                    must be declared in this request's `tools[]`.
+                    Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
 
                     - `ClientToolResults BetaWebFetchURLSourcesClientToolResultsUnion Optional`
 
@@ -6428,7 +6379,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                     Maximum number of times the tool can be used in the API request.
 
-                    exclusiveMinimum: 0
+                    minimum: 1
 
                   - `Strict bool Optional`
 
@@ -6482,13 +6433,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                     Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-                    exclusiveMinimum: 0
+                    minimum: 1
 
                   - `MaxUses int64 Optional`
 
                     Maximum number of times the tool can be used in the API request.
 
-                    exclusiveMinimum: 0
+                    minimum: 1
 
                   - `Strict bool Optional`
 
@@ -6496,12 +6447,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                   - `URLSources BetaWebFetchURLSources Optional`
 
-                    Which sources contribute to the set of URLs web fetch may fetch.
-
-                    Each key is a tagged variant: `user_input` is `all` or `none`; the
-                    two tool filters are `all`, `none`, `only` (only the named tools'
-                    results) or `except` (every result but the named tools'). A named tool
-                    must be declared in this request's `tools[]`.
+                    Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
 
                 - `type BetaWebFetchTool20260309`
 
@@ -6549,13 +6495,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                     Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-                    exclusiveMinimum: 0
+                    minimum: 1
 
                   - `MaxUses int64 Optional`
 
                     Maximum number of times the tool can be used in the API request.
 
-                    exclusiveMinimum: 0
+                    minimum: 1
 
                   - `Strict bool Optional`
 
@@ -6563,12 +6509,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                   - `URLSources BetaWebFetchURLSources Optional`
 
-                    Which sources contribute to the set of URLs web fetch may fetch.
-
-                    Each key is a tagged variant: `user_input` is `all` or `none`; the
-                    two tool filters are `all`, `none`, `only` (only the named tools'
-                    results) or `except` (every result but the named tools'). A named tool
-                    must be declared in this request's `tools[]`.
+                    Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
 
                   - `UseCache bool Optional`
 
@@ -6614,7 +6555,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                     Maximum number of times the tool can be used in the API request.
 
-                    exclusiveMinimum: 0
+                    minimum: 1
 
                   - `ResponseInclusion BetaWebSearchTool20260318ResponseInclusion Optional`
 
@@ -6676,13 +6617,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                     Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-                    exclusiveMinimum: 0
+                    minimum: 1
 
                   - `MaxUses int64 Optional`
 
                     Maximum number of times the tool can be used in the API request.
 
-                    exclusiveMinimum: 0
+                    minimum: 1
 
                   - `ResponseInclusion BetaWebFetchTool20260318ResponseInclusion Optional`
 
@@ -6698,12 +6639,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                   - `URLSources BetaWebFetchURLSources Optional`
 
-                    Which sources contribute to the set of URLs web fetch may fetch.
-
-                    Each key is a tagged variant: `user_input` is `all` or `none`; the
-                    two tool filters are `all`, `none`, `only` (only the named tools'
-                    results) or `except` (every result but the named tools'). A named tool
-                    must be declared in this request's `tools[]`.
+                    Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
 
                   - `UseCache bool Optional`
 
@@ -6718,6 +6654,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
                     The model that will complete your prompt.
 
                     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+                    - `string`
 
                     - `type Model string`
 
@@ -6761,10 +6699,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                         Powerful intelligence for long-running agents and coding
 
-                      - `const ModelClaudeMythosPreview Model = "claude-mythos-preview"`
-
-                        New class of intelligence, strongest in coding and cybersecurity
-
                       - `const ModelClaudeOpus4_6 Model = "claude-opus-4-6"`
 
                         Powerful intelligence for long-running agents and coding
@@ -6797,7 +6731,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                         High-performance model for agents and coding
 
-                    - `string`
+                      - `const ModelClaudeMythosPreview Model = "claude-mythos-preview"`
+
+                        **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+                        New class of intelligence, strongest in coding and cybersecurity
 
                   - `Name Advisor`
 
@@ -6837,7 +6775,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                     Maximum number of times the tool can be used in the API request.
 
-                    exclusiveMinimum: 0
+                    minimum: 1
 
                   - `Strict bool Optional`
 
@@ -6928,7 +6866,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                     Name of the MCP server to configure tools for
 
-                    maxLength: 255, minLength: 1
+                    minLength: 1, maxLength: 255
 
                   - `CacheControl BetaCacheControlEphemeral Optional`
 
@@ -7043,7 +6981,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `Category BetaFallbackRefusalTriggerCategory`
 
-          The policy category that triggered a refusal.
+          The policy category that triggered the `from` model's refusal at this hop. `null` when the refusal doesn't map to a named category. Same vocabulary as `stop_details.category`.
 
           - `const BetaFallbackRefusalTriggerCategoryCyber BetaFallbackRefusalTriggerCategory = "cyber"`
 
@@ -7138,8 +7076,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
   - `Diagnostics BetaDiagnostics`
 
-    Request-level diagnostics: why the prompt cache could not fully reuse
-    the prefix of the request named by `diagnostics.previous_message_id`.
+    Request-level diagnostics. `null` when the request did not supply `diagnostics`, or when it did and no prompt-cache divergence was detected.
 
     - `CacheMissReason BetaCacheMissReasonUnion`
 
@@ -7213,7 +7150,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
   - `StopDetails BetaRefusalStopDetails`
 
-    Structured information about a refusal.
+    Structured information about why model output stopped.
+
+    This is `null` when the `stop_reason` has no additional detail to report.
 
     - `Type Refusal`
 
@@ -7221,7 +7160,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `Category BetaRefusalStopDetailsCategory`
 
-      The policy category that triggered a refusal.
+      The policy category that triggered the refusal.
+
+      `null` when the refusal doesn't map to a named category.
 
       - `const BetaRefusalStopDetailsCategoryCyber BetaRefusalStopDetailsCategory = "cyber"`
 
@@ -7379,6 +7320,10 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
     - `FallbackCredit BetaFallbackCreditUsage`
 
       Outcome of the `fallback_credit_token` presented on this request.
+
+      Present on every response to a non-batch request that carried a
+      `fallback_credit_token`, in either redemption mode; absent otherwise (batch
+      items accept and ignore the token and carry no outcome object).
 
       - `Status BetaFallbackCreditUsageStatusUnion`
 
@@ -7703,7 +7648,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `Speed BetaUsageSpeed`
 
-      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+      The inference speed mode used for this request.
 
       - `const BetaUsageSpeedStandard BetaUsageSpeed = "standard"`
 
@@ -7829,11 +7774,15 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `Container BetaContainer`
 
-        Information about the container used in the request (for the code execution tool)
+        Information about the container used in this request.
+
+        This will be non-null if a container tool (e.g. code execution) was used.
 
       - `StopDetails BetaRefusalStopDetails`
 
-        Structured information about a refusal.
+        Structured information about why model output stopped.
+
+        This is `null` when the `stop_reason` has no additional detail to report.
 
       - `StopReason BetaStopReason`
 
@@ -7866,6 +7815,10 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
       - `FallbackCredit BetaFallbackCreditUsage`
 
         Outcome of the `fallback_credit_token` presented on this request.
+
+        Present on every response to a non-batch request that carried a
+        `fallback_credit_token`, in either redemption mode; absent otherwise (batch
+        items accept and ignore the token and carry no outcome object).
 
       - `InputTokens int64`
 
@@ -8355,7 +8308,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `DocumentTitle string`
 
-                maxLength: 500, minLength: 1
+                minLength: 1, maxLength: 500
 
               - `EndCharIndex int64`
 
@@ -8375,7 +8328,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `DocumentTitle string`
 
-                maxLength: 500, minLength: 1
+                minLength: 1, maxLength: 500
 
               - `EndPageNumber int64`
 
@@ -8399,7 +8352,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `DocumentTitle string`
 
-                maxLength: 500, minLength: 1
+                minLength: 1, maxLength: 500
 
               - `EndBlockIndex int64`
 
@@ -8423,7 +8376,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `Title string`
 
-                maxLength: 512, minLength: 1
+                minLength: 1, maxLength: 512
 
               - `URL string`
 
@@ -8579,7 +8532,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
           - `Title string Optional`
 
-            maxLength: 500, minLength: 1
+            minLength: 1, maxLength: 500
 
         - `type BetaSearchResultBlockParamResp`
 
@@ -8643,7 +8596,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
           - `Name string`
 
-            maxLength: 200, minLength: 1
+            minLength: 1, maxLength: 200
 
           - `CacheControl BetaCacheControlEphemeral Optional`
 
@@ -8679,7 +8632,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             For a toolset member tool_use, the toolset family this member belongs to.
 
-            maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
+            minLength: 1, maxLength: 64, pattern: ^[a-zA-Z0-9_-]+$
 
         - `type BetaToolResultBlockParamResp`
 
@@ -8713,7 +8666,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 - `ToolName string`
 
-                  maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+                  minLength: 1, maxLength: 256, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
                 - `CacheControl BetaCacheControlEphemeral Optional`
 
@@ -8741,7 +8694,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                     The caller-assigned identifier for this tab, unique within the inventory.
 
-                    maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+                    minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
                   - `Title string`
 
@@ -8767,7 +8720,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                   Tabs opened and download state changes during this call. "Nothing to report" is expressed by omitting the field, never by an empty list.
 
-                  maxItems: 200, minItems: 1
+                  minItems: 1, maxItems: 200
 
                   - `type BetaBrowserStateChangeTabOpened`
 
@@ -8785,7 +8738,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                       The `tab_id` of the opened tab, present in `tabs`.
 
-                      maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+                      minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
                   - `type BetaBrowserStateChangeDownloadStarted`
 
@@ -8797,7 +8750,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                       The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-                      maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+                      minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
                     - `URL string`
 
@@ -8818,7 +8771,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                       The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-                      maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+                      minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
                     - `URL string`
 
@@ -8830,7 +8783,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                       Where the executor saved the file, on the executor's filesystem. Only included when another tool in the same environment can read the file at that path.
 
-                      pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$, maxLength: 4096
+                      maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
                     - `SizeBytes int64 Optional`
 
@@ -8848,7 +8801,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                       The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-                      maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+                      minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
                     - `URL string`
 
@@ -8860,7 +8813,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                       The failure or cancellation detail, when known.
 
-                      pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$, maxLength: 4096
+                      maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
           - `IsError bool Optional`
 
@@ -8868,7 +8821,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             For a toolset member tool_result, the toolset family of the paired tool_use.
 
-            maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
+            minLength: 1, maxLength: 64, pattern: ^[a-zA-Z0-9_-]+$
 
         - `type BetaServerToolUseBlockParamResp`
 
@@ -9300,7 +9253,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 - `ToolName string`
 
-                  maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+                  minLength: 1, maxLength: 256, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
                 - `CacheControl BetaCacheControlEphemeral Optional`
 
@@ -9492,7 +9445,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                         This is how the tool will be called by the model and in `tool_use` blocks.
 
-                        maxLength: 128, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,128}$
+                        minLength: 1, maxLength: 128, pattern: ^[a-zA-Z0-9_-]{1,128}$
 
                       - `AllowedCallers []string Optional`
 
@@ -9743,12 +9696,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                       - `Configs BetaBrowserToolsetConfigs Optional`
 
-                        Per-member configuration for `browser_toolset_20260801`: one
-                        optional field per member tool, keyed by the member name — the same
-                        name the member's `tool_use` blocks carry. Every member is an
-                        accepted key, and a member's defaults apply wherever its key is
-                        absent. Unknown keys are rejected: the field set is this toolset
-                        version's complete member set.
+                        Sparse per-member overrides, keyed by member name. Absent, null, and {} are equivalent; a member's defaults apply wherever its key is absent.
 
                         - `Type BetaBrowserTypeConfig Optional`
 
@@ -10369,12 +10317,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                       - `Configs BetaComputerToolsetConfigs Optional`
 
-                        Per-member configuration for `computer_toolset_20260801`: one
-                        optional field per member tool, keyed by the member name — the same
-                        name the member's `tool_use` blocks carry. Every member is an
-                        accepted key, and a member's defaults apply wherever its key is
-                        absent. Unknown keys are rejected: the field set is this toolset
-                        version's complete member set.
+                        Sparse per-member overrides, keyed by member name. Absent, null, and {} are equivalent; a member's defaults apply wherever its key is absent.
 
                         - `Type BetaComputerTypeConfig Optional`
 
@@ -10728,7 +10671,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                         Maximum number of times the tool can be used in the API request.
 
-                        exclusiveMinimum: 0
+                        minimum: 1
 
                       - `Strict bool Optional`
 
@@ -10744,25 +10687,25 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                           The city of the user.
 
-                          maxLength: 255, minLength: 1
+                          minLength: 1, maxLength: 255
 
                         - `Country string Optional`
 
                           The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
 
-                          maxLength: 2, minLength: 2
+                          minLength: 2, maxLength: 2
 
                         - `Region string Optional`
 
                           The region of the user.
 
-                          maxLength: 255, minLength: 1
+                          minLength: 1, maxLength: 255
 
                         - `Timezone string Optional`
 
                           The [IANA timezone](https://nodatime.org/TimeZones) of the user.
 
-                          maxLength: 255, minLength: 1
+                          minLength: 1, maxLength: 255
 
                     - `type BetaWebFetchTool20250910`
 
@@ -10808,13 +10751,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                         Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-                        exclusiveMinimum: 0
+                        minimum: 1
 
                       - `MaxUses int64 Optional`
 
                         Maximum number of times the tool can be used in the API request.
 
-                        exclusiveMinimum: 0
+                        minimum: 1
 
                       - `Strict bool Optional`
 
@@ -10822,12 +10765,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                       - `URLSources BetaWebFetchURLSources Optional`
 
-                        Which sources contribute to the set of URLs web fetch may fetch.
-
-                        Each key is a tagged variant: `user_input` is `all` or `none`; the
-                        two tool filters are `all`, `none`, `only` (only the named tools'
-                        results) or `except` (every result but the named tools'). A named tool
-                        must be declared in this request's `tools[]`.
+                        Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
 
                         - `ClientToolResults BetaWebFetchURLSourcesClientToolResultsUnion Optional`
 
@@ -10951,7 +10889,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                         Maximum number of times the tool can be used in the API request.
 
-                        exclusiveMinimum: 0
+                        minimum: 1
 
                       - `Strict bool Optional`
 
@@ -11005,13 +10943,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                         Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-                        exclusiveMinimum: 0
+                        minimum: 1
 
                       - `MaxUses int64 Optional`
 
                         Maximum number of times the tool can be used in the API request.
 
-                        exclusiveMinimum: 0
+                        minimum: 1
 
                       - `Strict bool Optional`
 
@@ -11019,12 +10957,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                       - `URLSources BetaWebFetchURLSources Optional`
 
-                        Which sources contribute to the set of URLs web fetch may fetch.
-
-                        Each key is a tagged variant: `user_input` is `all` or `none`; the
-                        two tool filters are `all`, `none`, `only` (only the named tools'
-                        results) or `except` (every result but the named tools'). A named tool
-                        must be declared in this request's `tools[]`.
+                        Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
 
                     - `type BetaWebFetchTool20260309`
 
@@ -11072,13 +11005,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                         Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-                        exclusiveMinimum: 0
+                        minimum: 1
 
                       - `MaxUses int64 Optional`
 
                         Maximum number of times the tool can be used in the API request.
 
-                        exclusiveMinimum: 0
+                        minimum: 1
 
                       - `Strict bool Optional`
 
@@ -11086,12 +11019,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                       - `URLSources BetaWebFetchURLSources Optional`
 
-                        Which sources contribute to the set of URLs web fetch may fetch.
-
-                        Each key is a tagged variant: `user_input` is `all` or `none`; the
-                        two tool filters are `all`, `none`, `only` (only the named tools'
-                        results) or `except` (every result but the named tools'). A named tool
-                        must be declared in this request's `tools[]`.
+                        Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
 
                       - `UseCache bool Optional`
 
@@ -11137,7 +11065,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                         Maximum number of times the tool can be used in the API request.
 
-                        exclusiveMinimum: 0
+                        minimum: 1
 
                       - `ResponseInclusion BetaWebSearchTool20260318ResponseInclusion Optional`
 
@@ -11199,13 +11127,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                         Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-                        exclusiveMinimum: 0
+                        minimum: 1
 
                       - `MaxUses int64 Optional`
 
                         Maximum number of times the tool can be used in the API request.
 
-                        exclusiveMinimum: 0
+                        minimum: 1
 
                       - `ResponseInclusion BetaWebFetchTool20260318ResponseInclusion Optional`
 
@@ -11221,12 +11149,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                       - `URLSources BetaWebFetchURLSources Optional`
 
-                        Which sources contribute to the set of URLs web fetch may fetch.
-
-                        Each key is a tagged variant: `user_input` is `all` or `none`; the
-                        two tool filters are `all`, `none`, `only` (only the named tools'
-                        results) or `except` (every result but the named tools'). A named tool
-                        must be declared in this request's `tools[]`.
+                        Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
 
                       - `UseCache bool Optional`
 
@@ -11241,6 +11164,8 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
                         The model that will complete your prompt.
 
                         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+                        - `string`
 
                         - `type Model string`
 
@@ -11284,10 +11209,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                             Powerful intelligence for long-running agents and coding
 
-                          - `const ModelClaudeMythosPreview Model = "claude-mythos-preview"`
-
-                            New class of intelligence, strongest in coding and cybersecurity
-
                           - `const ModelClaudeOpus4_6 Model = "claude-opus-4-6"`
 
                             Powerful intelligence for long-running agents and coding
@@ -11320,7 +11241,11 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                             High-performance model for agents and coding
 
-                        - `string`
+                          - `const ModelClaudeMythosPreview Model = "claude-mythos-preview"`
+
+                            **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+                            New class of intelligence, strongest in coding and cybersecurity
 
                       - `Name Advisor`
 
@@ -11360,7 +11285,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                         Maximum number of times the tool can be used in the API request.
 
-                        exclusiveMinimum: 0
+                        minimum: 1
 
                       - `Strict bool Optional`
 
@@ -11451,7 +11376,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                         Name of the MCP server to configure tools for
 
-                        maxLength: 255, minLength: 1
+                        minLength: 1, maxLength: 255
 
                       - `CacheControl BetaCacheControlEphemeral Optional`
 
@@ -11561,7 +11486,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             The name of the MCP server this listing came from, as `mcp_servers` declares it.
 
-            maxLength: 255, minLength: 1
+            minLength: 1, maxLength: 255
 
           - `Tools []BetaMCPToolParamResp`
 
@@ -11643,7 +11568,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       - `Effort BetaSystemMessageOutputConfigEffort Optional`
 
-        All possible effort levels.
+        How much effort the model should put into its response. Higher effort levels may result in more thorough analysis but take longer.
+
+        Valid values are `low`, `medium`, `high`, `xhigh`, or `max`.
 
         - `const BetaSystemMessageOutputConfigEffortLow BetaSystemMessageOutputConfigEffort = "low"`
 
@@ -11667,14 +11594,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
   - `Compaction param.Field[BetaCompactionConfig] Optional`
 
-    Body param: Compact the whole conversation and return a signed `compaction` block,
-    alone, that a later request sends back first in `messages`, in place of
-    the messages it summarizes. There is no trigger and no pause flag: sending
-    the parameter compacts, and nothing is sampled after the block.
+    Body param: Compaction configuration.
 
-    The summarization prompt is the server's own unless `instructions` are
-    given, which then replace it for this request; a value that is empty or
-    only whitespace counts as absent.
+    When set on `POST /v1/messages`, the request is a compaction request: the conversation in `messages` is summarized and the response holds only the resulting `compaction` block (`stop_reason` `"compaction"`), which later requests send first in `messages` in place of the messages it summarizes. `POST /v1/messages/count_tokens` accepts this parameter and ignores it: the count it returns is for the conversation in `messages` as sent. Cannot be combined with `context_management`.
 
   - `ContextManagement param.Field[BetaContextManagementConfig] Optional`
 
@@ -11708,7 +11630,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
   - `Speed param.Field[BetaMessageCountTokensParamsSpeed] Optional`
 
-    Body param: Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+    Body param: The inference speed mode for this request. `"fast"` enables high output-tokens-per-second inference.
 
     - `const BetaMessageCountTokensParamsSpeedStandard BetaMessageCountTokensParamsSpeed = "standard"`
 
@@ -12131,6 +12053,8 @@ func main() {
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+    - `string`
+
     - `type Model string`
 
       The model that will complete your prompt.
@@ -12173,10 +12097,6 @@ func main() {
 
         Powerful intelligence for long-running agents and coding
 
-      - `const ModelClaudeMythosPreview Model = "claude-mythos-preview"`
-
-        New class of intelligence, strongest in coding and cybersecurity
-
       - `const ModelClaudeOpus4_6 Model = "claude-opus-4-6"`
 
         Powerful intelligence for long-running agents and coding
@@ -12209,7 +12129,11 @@ func main() {
 
         High-performance model for agents and coding
 
-    - `string`
+      - `const ModelClaudeMythosPreview Model = "claude-mythos-preview"`
+
+        **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+        New class of intelligence, strongest in coding and cybersecurity
 
   - `OutputTokens int64`
 
@@ -12281,6 +12205,8 @@ func main() {
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+    - `string`
+
     - `type Model string`
 
       The model that will complete your prompt.
@@ -12323,10 +12249,6 @@ func main() {
 
         Powerful intelligence for long-running agents and coding
 
-      - `const ModelClaudeMythosPreview Model = "claude-mythos-preview"`
-
-        New class of intelligence, strongest in coding and cybersecurity
-
       - `const ModelClaudeOpus4_6 Model = "claude-opus-4-6"`
 
         Powerful intelligence for long-running agents and coding
@@ -12359,7 +12281,11 @@ func main() {
 
         High-performance model for agents and coding
 
-    - `string`
+      - `const ModelClaudeMythosPreview Model = "claude-mythos-preview"`
+
+        **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+        New class of intelligence, strongest in coding and cybersecurity
 
   - `Name Advisor`
 
@@ -12416,7 +12342,7 @@ func main() {
 
     Maximum number of times the tool can be used in the API request.
 
-    exclusiveMinimum: 0
+    minimum: 1
 
   - `Strict bool Optional`
 
@@ -13240,7 +13166,7 @@ func main() {
 
       The caller-assigned identifier for this tab, unique within the inventory.
 
-      maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+      minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
     - `Title string`
 
@@ -13283,7 +13209,7 @@ func main() {
 
     Tabs opened and download state changes during this call. "Nothing to report" is expressed by omitting the field, never by an empty list.
 
-    maxItems: 200, minItems: 1
+    minItems: 1, maxItems: 200
 
     - `type BetaBrowserStateChangeTabOpened`
 
@@ -13301,7 +13227,7 @@ func main() {
 
         The `tab_id` of the opened tab, present in `tabs`.
 
-        maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+        minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
     - `type BetaBrowserStateChangeDownloadStarted`
 
@@ -13313,7 +13239,7 @@ func main() {
 
         The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-        maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+        minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
       - `URL string`
 
@@ -13334,7 +13260,7 @@ func main() {
 
         The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-        maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+        minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
       - `URL string`
 
@@ -13346,7 +13272,7 @@ func main() {
 
         Where the executor saved the file, on the executor's filesystem. Only included when another tool in the same environment can read the file at that path.
 
-        pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$, maxLength: 4096
+        maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
       - `SizeBytes int64 Optional`
 
@@ -13364,7 +13290,7 @@ func main() {
 
         The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-        maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+        minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
       - `URL string`
 
@@ -13376,7 +13302,7 @@ func main() {
 
         The failure or cancellation detail, when known.
 
-        pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$, maxLength: 4096
+        maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
 ### Beta Browser State Change
 
@@ -13398,7 +13324,7 @@ func main() {
 
       The `tab_id` of the opened tab, present in `tabs`.
 
-      maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+      minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
   - `type BetaBrowserStateChangeDownloadStarted`
 
@@ -13410,7 +13336,7 @@ func main() {
 
       The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-      maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+      minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
     - `URL string`
 
@@ -13431,7 +13357,7 @@ func main() {
 
       The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-      maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+      minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
     - `URL string`
 
@@ -13443,7 +13369,7 @@ func main() {
 
       Where the executor saved the file, on the executor's filesystem. Only included when another tool in the same environment can read the file at that path.
 
-      pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$, maxLength: 4096
+      maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
     - `SizeBytes int64 Optional`
 
@@ -13461,7 +13387,7 @@ func main() {
 
       The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-      maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+      minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
     - `URL string`
 
@@ -13473,7 +13399,7 @@ func main() {
 
       The failure or cancellation detail, when known.
 
-      pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$, maxLength: 4096
+      maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
 ### Beta Browser State Change Download Completed
 
@@ -13490,7 +13416,7 @@ func main() {
 
     The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-    maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+    minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
   - `URL string`
 
@@ -13502,7 +13428,7 @@ func main() {
 
     Where the executor saved the file, on the executor's filesystem. Only included when another tool in the same environment can read the file at that path.
 
-    pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$, maxLength: 4096
+    maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
   - `SizeBytes int64 Optional`
 
@@ -13522,7 +13448,7 @@ func main() {
 
     The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-    maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+    minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
   - `URL string`
 
@@ -13534,7 +13460,7 @@ func main() {
 
     The failure or cancellation detail, when known.
 
-    pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$, maxLength: 4096
+    maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
 ### Beta Browser State Change Download Started
 
@@ -13548,7 +13474,7 @@ func main() {
 
     The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-    maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+    minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
   - `URL string`
 
@@ -13574,7 +13500,7 @@ func main() {
 
     The `tab_id` of the opened tab, present in `tabs`.
 
-    maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+    minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
 ### Beta Browser State Tab Entry
 
@@ -13593,7 +13519,7 @@ func main() {
 
     The caller-assigned identifier for this tab, unique within the inventory.
 
-    maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+    minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
   - `Title string`
 
@@ -13659,12 +13585,7 @@ func main() {
 
   - `Configs BetaBrowserToolsetConfigs Optional`
 
-    Per-member configuration for `browser_toolset_20260801`: one
-    optional field per member tool, keyed by the member name — the same
-    name the member's `tool_use` blocks carry. Every member is an
-    accepted key, and a member's defaults apply wherever its key is
-    absent. Unknown keys are rejected: the field set is this toolset
-    version's complete member set.
+    Sparse per-member overrides, keyed by member name. Absent, null, and {} are equivalent; a member's defaults apply wherever its key is absent.
 
     - `Type BetaBrowserTypeConfig Optional`
 
@@ -14672,7 +14593,7 @@ func main() {
 
   - `DocumentTitle string`
 
-    maxLength: 500, minLength: 1
+    minLength: 1, maxLength: 500
 
   - `EndCharIndex int64`
 
@@ -14740,7 +14661,7 @@ func main() {
 
   - `DocumentTitle string`
 
-    maxLength: 500, minLength: 1
+    minLength: 1, maxLength: 500
 
   - `EndBlockIndex int64`
 
@@ -14792,7 +14713,7 @@ func main() {
 
   - `DocumentTitle string`
 
-    maxLength: 500, minLength: 1
+    minLength: 1, maxLength: 500
 
   - `EndPageNumber int64`
 
@@ -14886,7 +14807,7 @@ func main() {
 
   - `Title string`
 
-    maxLength: 512, minLength: 1
+    minLength: 1, maxLength: 512
 
   - `URL string`
 
@@ -15906,7 +15827,7 @@ func main() {
 
                 This is how the tool will be called by the model and in `tool_use` blocks.
 
-                maxLength: 128, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,128}$
+                minLength: 1, maxLength: 128, pattern: ^[a-zA-Z0-9_-]{1,128}$
 
               - `AllowedCallers []string Optional`
 
@@ -16170,12 +16091,7 @@ func main() {
 
               - `Configs BetaBrowserToolsetConfigs Optional`
 
-                Per-member configuration for `browser_toolset_20260801`: one
-                optional field per member tool, keyed by the member name — the same
-                name the member's `tool_use` blocks carry. Every member is an
-                accepted key, and a member's defaults apply wherever its key is
-                absent. Unknown keys are rejected: the field set is this toolset
-                version's complete member set.
+                Sparse per-member overrides, keyed by member name. Absent, null, and {} are equivalent; a member's defaults apply wherever its key is absent.
 
                 - `Type BetaBrowserTypeConfig Optional`
 
@@ -16796,12 +16712,7 @@ func main() {
 
               - `Configs BetaComputerToolsetConfigs Optional`
 
-                Per-member configuration for `computer_toolset_20260801`: one
-                optional field per member tool, keyed by the member name — the same
-                name the member's `tool_use` blocks carry. Every member is an
-                accepted key, and a member's defaults apply wherever its key is
-                absent. Unknown keys are rejected: the field set is this toolset
-                version's complete member set.
+                Sparse per-member overrides, keyed by member name. Absent, null, and {} are equivalent; a member's defaults apply wherever its key is absent.
 
                 - `Type BetaComputerTypeConfig Optional`
 
@@ -17155,7 +17066,7 @@ func main() {
 
                 Maximum number of times the tool can be used in the API request.
 
-                exclusiveMinimum: 0
+                minimum: 1
 
               - `Strict bool Optional`
 
@@ -17171,25 +17082,25 @@ func main() {
 
                   The city of the user.
 
-                  maxLength: 255, minLength: 1
+                  minLength: 1, maxLength: 255
 
                 - `Country string Optional`
 
                   The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
 
-                  maxLength: 2, minLength: 2
+                  minLength: 2, maxLength: 2
 
                 - `Region string Optional`
 
                   The region of the user.
 
-                  maxLength: 255, minLength: 1
+                  minLength: 1, maxLength: 255
 
                 - `Timezone string Optional`
 
                   The [IANA timezone](https://nodatime.org/TimeZones) of the user.
 
-                  maxLength: 255, minLength: 1
+                  minLength: 1, maxLength: 255
 
             - `type BetaWebFetchTool20250910`
 
@@ -17237,13 +17148,13 @@ func main() {
 
                 Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-                exclusiveMinimum: 0
+                minimum: 1
 
               - `MaxUses int64 Optional`
 
                 Maximum number of times the tool can be used in the API request.
 
-                exclusiveMinimum: 0
+                minimum: 1
 
               - `Strict bool Optional`
 
@@ -17251,12 +17162,7 @@ func main() {
 
               - `URLSources BetaWebFetchURLSources Optional`
 
-                Which sources contribute to the set of URLs web fetch may fetch.
-
-                Each key is a tagged variant: `user_input` is `all` or `none`; the
-                two tool filters are `all`, `none`, `only` (only the named tools'
-                results) or `except` (every result but the named tools'). A named tool
-                must be declared in this request's `tools[]`.
+                Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
 
                 - `ClientToolResults BetaWebFetchURLSourcesClientToolResultsUnion Optional`
 
@@ -17380,7 +17286,7 @@ func main() {
 
                 Maximum number of times the tool can be used in the API request.
 
-                exclusiveMinimum: 0
+                minimum: 1
 
               - `Strict bool Optional`
 
@@ -17434,13 +17340,13 @@ func main() {
 
                 Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-                exclusiveMinimum: 0
+                minimum: 1
 
               - `MaxUses int64 Optional`
 
                 Maximum number of times the tool can be used in the API request.
 
-                exclusiveMinimum: 0
+                minimum: 1
 
               - `Strict bool Optional`
 
@@ -17448,12 +17354,7 @@ func main() {
 
               - `URLSources BetaWebFetchURLSources Optional`
 
-                Which sources contribute to the set of URLs web fetch may fetch.
-
-                Each key is a tagged variant: `user_input` is `all` or `none`; the
-                two tool filters are `all`, `none`, `only` (only the named tools'
-                results) or `except` (every result but the named tools'). A named tool
-                must be declared in this request's `tools[]`.
+                Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
 
             - `type BetaWebFetchTool20260309`
 
@@ -17501,13 +17402,13 @@ func main() {
 
                 Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-                exclusiveMinimum: 0
+                minimum: 1
 
               - `MaxUses int64 Optional`
 
                 Maximum number of times the tool can be used in the API request.
 
-                exclusiveMinimum: 0
+                minimum: 1
 
               - `Strict bool Optional`
 
@@ -17515,12 +17416,7 @@ func main() {
 
               - `URLSources BetaWebFetchURLSources Optional`
 
-                Which sources contribute to the set of URLs web fetch may fetch.
-
-                Each key is a tagged variant: `user_input` is `all` or `none`; the
-                two tool filters are `all`, `none`, `only` (only the named tools'
-                results) or `except` (every result but the named tools'). A named tool
-                must be declared in this request's `tools[]`.
+                Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
 
               - `UseCache bool Optional`
 
@@ -17566,7 +17462,7 @@ func main() {
 
                 Maximum number of times the tool can be used in the API request.
 
-                exclusiveMinimum: 0
+                minimum: 1
 
               - `ResponseInclusion BetaWebSearchTool20260318ResponseInclusion Optional`
 
@@ -17628,13 +17524,13 @@ func main() {
 
                 Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-                exclusiveMinimum: 0
+                minimum: 1
 
               - `MaxUses int64 Optional`
 
                 Maximum number of times the tool can be used in the API request.
 
-                exclusiveMinimum: 0
+                minimum: 1
 
               - `ResponseInclusion BetaWebFetchTool20260318ResponseInclusion Optional`
 
@@ -17650,12 +17546,7 @@ func main() {
 
               - `URLSources BetaWebFetchURLSources Optional`
 
-                Which sources contribute to the set of URLs web fetch may fetch.
-
-                Each key is a tagged variant: `user_input` is `all` or `none`; the
-                two tool filters are `all`, `none`, `only` (only the named tools'
-                results) or `except` (every result but the named tools'). A named tool
-                must be declared in this request's `tools[]`.
+                Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
 
               - `UseCache bool Optional`
 
@@ -17670,6 +17561,8 @@ func main() {
                 The model that will complete your prompt.
 
                 See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+                - `string`
 
                 - `type Model string`
 
@@ -17713,10 +17606,6 @@ func main() {
 
                     Powerful intelligence for long-running agents and coding
 
-                  - `const ModelClaudeMythosPreview Model = "claude-mythos-preview"`
-
-                    New class of intelligence, strongest in coding and cybersecurity
-
                   - `const ModelClaudeOpus4_6 Model = "claude-opus-4-6"`
 
                     Powerful intelligence for long-running agents and coding
@@ -17749,7 +17638,11 @@ func main() {
 
                     High-performance model for agents and coding
 
-                - `string`
+                  - `const ModelClaudeMythosPreview Model = "claude-mythos-preview"`
+
+                    **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+                    New class of intelligence, strongest in coding and cybersecurity
 
               - `Name Advisor`
 
@@ -17789,7 +17682,7 @@ func main() {
 
                 Maximum number of times the tool can be used in the API request.
 
-                exclusiveMinimum: 0
+                minimum: 1
 
               - `Strict bool Optional`
 
@@ -17880,7 +17773,7 @@ func main() {
 
                 Name of the MCP server to configure tools for
 
-                maxLength: 255, minLength: 1
+                minLength: 1, maxLength: 255
 
               - `CacheControl BetaCacheControlEphemeral Optional`
 
@@ -18085,7 +17978,7 @@ func main() {
 
                 This is how the tool will be called by the model and in `tool_use` blocks.
 
-                maxLength: 128, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,128}$
+                minLength: 1, maxLength: 128, pattern: ^[a-zA-Z0-9_-]{1,128}$
 
               - `AllowedCallers []string Optional`
 
@@ -18336,12 +18229,7 @@ func main() {
 
               - `Configs BetaBrowserToolsetConfigs Optional`
 
-                Per-member configuration for `browser_toolset_20260801`: one
-                optional field per member tool, keyed by the member name — the same
-                name the member's `tool_use` blocks carry. Every member is an
-                accepted key, and a member's defaults apply wherever its key is
-                absent. Unknown keys are rejected: the field set is this toolset
-                version's complete member set.
+                Sparse per-member overrides, keyed by member name. Absent, null, and {} are equivalent; a member's defaults apply wherever its key is absent.
 
                 - `Type BetaBrowserTypeConfig Optional`
 
@@ -18962,12 +18850,7 @@ func main() {
 
               - `Configs BetaComputerToolsetConfigs Optional`
 
-                Per-member configuration for `computer_toolset_20260801`: one
-                optional field per member tool, keyed by the member name — the same
-                name the member's `tool_use` blocks carry. Every member is an
-                accepted key, and a member's defaults apply wherever its key is
-                absent. Unknown keys are rejected: the field set is this toolset
-                version's complete member set.
+                Sparse per-member overrides, keyed by member name. Absent, null, and {} are equivalent; a member's defaults apply wherever its key is absent.
 
                 - `Type BetaComputerTypeConfig Optional`
 
@@ -19321,7 +19204,7 @@ func main() {
 
                 Maximum number of times the tool can be used in the API request.
 
-                exclusiveMinimum: 0
+                minimum: 1
 
               - `Strict bool Optional`
 
@@ -19337,25 +19220,25 @@ func main() {
 
                   The city of the user.
 
-                  maxLength: 255, minLength: 1
+                  minLength: 1, maxLength: 255
 
                 - `Country string Optional`
 
                   The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
 
-                  maxLength: 2, minLength: 2
+                  minLength: 2, maxLength: 2
 
                 - `Region string Optional`
 
                   The region of the user.
 
-                  maxLength: 255, minLength: 1
+                  minLength: 1, maxLength: 255
 
                 - `Timezone string Optional`
 
                   The [IANA timezone](https://nodatime.org/TimeZones) of the user.
 
-                  maxLength: 255, minLength: 1
+                  minLength: 1, maxLength: 255
 
             - `type BetaWebFetchTool20250910`
 
@@ -19403,13 +19286,13 @@ func main() {
 
                 Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-                exclusiveMinimum: 0
+                minimum: 1
 
               - `MaxUses int64 Optional`
 
                 Maximum number of times the tool can be used in the API request.
 
-                exclusiveMinimum: 0
+                minimum: 1
 
               - `Strict bool Optional`
 
@@ -19417,12 +19300,7 @@ func main() {
 
               - `URLSources BetaWebFetchURLSources Optional`
 
-                Which sources contribute to the set of URLs web fetch may fetch.
-
-                Each key is a tagged variant: `user_input` is `all` or `none`; the
-                two tool filters are `all`, `none`, `only` (only the named tools'
-                results) or `except` (every result but the named tools'). A named tool
-                must be declared in this request's `tools[]`.
+                Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
 
                 - `ClientToolResults BetaWebFetchURLSourcesClientToolResultsUnion Optional`
 
@@ -19546,7 +19424,7 @@ func main() {
 
                 Maximum number of times the tool can be used in the API request.
 
-                exclusiveMinimum: 0
+                minimum: 1
 
               - `Strict bool Optional`
 
@@ -19600,13 +19478,13 @@ func main() {
 
                 Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-                exclusiveMinimum: 0
+                minimum: 1
 
               - `MaxUses int64 Optional`
 
                 Maximum number of times the tool can be used in the API request.
 
-                exclusiveMinimum: 0
+                minimum: 1
 
               - `Strict bool Optional`
 
@@ -19614,12 +19492,7 @@ func main() {
 
               - `URLSources BetaWebFetchURLSources Optional`
 
-                Which sources contribute to the set of URLs web fetch may fetch.
-
-                Each key is a tagged variant: `user_input` is `all` or `none`; the
-                two tool filters are `all`, `none`, `only` (only the named tools'
-                results) or `except` (every result but the named tools'). A named tool
-                must be declared in this request's `tools[]`.
+                Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
 
             - `type BetaWebFetchTool20260309`
 
@@ -19667,13 +19540,13 @@ func main() {
 
                 Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-                exclusiveMinimum: 0
+                minimum: 1
 
               - `MaxUses int64 Optional`
 
                 Maximum number of times the tool can be used in the API request.
 
-                exclusiveMinimum: 0
+                minimum: 1
 
               - `Strict bool Optional`
 
@@ -19681,12 +19554,7 @@ func main() {
 
               - `URLSources BetaWebFetchURLSources Optional`
 
-                Which sources contribute to the set of URLs web fetch may fetch.
-
-                Each key is a tagged variant: `user_input` is `all` or `none`; the
-                two tool filters are `all`, `none`, `only` (only the named tools'
-                results) or `except` (every result but the named tools'). A named tool
-                must be declared in this request's `tools[]`.
+                Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
 
               - `UseCache bool Optional`
 
@@ -19732,7 +19600,7 @@ func main() {
 
                 Maximum number of times the tool can be used in the API request.
 
-                exclusiveMinimum: 0
+                minimum: 1
 
               - `ResponseInclusion BetaWebSearchTool20260318ResponseInclusion Optional`
 
@@ -19794,13 +19662,13 @@ func main() {
 
                 Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-                exclusiveMinimum: 0
+                minimum: 1
 
               - `MaxUses int64 Optional`
 
                 Maximum number of times the tool can be used in the API request.
 
-                exclusiveMinimum: 0
+                minimum: 1
 
               - `ResponseInclusion BetaWebFetchTool20260318ResponseInclusion Optional`
 
@@ -19816,12 +19684,7 @@ func main() {
 
               - `URLSources BetaWebFetchURLSources Optional`
 
-                Which sources contribute to the set of URLs web fetch may fetch.
-
-                Each key is a tagged variant: `user_input` is `all` or `none`; the
-                two tool filters are `all`, `none`, `only` (only the named tools'
-                results) or `except` (every result but the named tools'). A named tool
-                must be declared in this request's `tools[]`.
+                Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
 
               - `UseCache bool Optional`
 
@@ -19836,6 +19699,8 @@ func main() {
                 The model that will complete your prompt.
 
                 See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+                - `string`
 
                 - `type Model string`
 
@@ -19879,10 +19744,6 @@ func main() {
 
                     Powerful intelligence for long-running agents and coding
 
-                  - `const ModelClaudeMythosPreview Model = "claude-mythos-preview"`
-
-                    New class of intelligence, strongest in coding and cybersecurity
-
                   - `const ModelClaudeOpus4_6 Model = "claude-opus-4-6"`
 
                     Powerful intelligence for long-running agents and coding
@@ -19915,7 +19776,11 @@ func main() {
 
                     High-performance model for agents and coding
 
-                - `string`
+                  - `const ModelClaudeMythosPreview Model = "claude-mythos-preview"`
+
+                    **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+                    New class of intelligence, strongest in coding and cybersecurity
 
               - `Name Advisor`
 
@@ -19955,7 +19820,7 @@ func main() {
 
                 Maximum number of times the tool can be used in the API request.
 
-                exclusiveMinimum: 0
+                minimum: 1
 
               - `Strict bool Optional`
 
@@ -20046,7 +19911,7 @@ func main() {
 
                 Name of the MCP server to configure tools for
 
-                maxLength: 255, minLength: 1
+                minLength: 1, maxLength: 255
 
               - `CacheControl BetaCacheControlEphemeral Optional`
 
@@ -20430,12 +20295,7 @@ func main() {
 
   - `Configs BetaComputerToolsetConfigs Optional`
 
-    Per-member configuration for `computer_toolset_20260801`: one
-    optional field per member tool, keyed by the member name — the same
-    name the member's `tool_use` blocks carry. Every member is an
-    accepted key, and a member's defaults apply wherever its key is
-    absent. Unknown keys are rejected: the field set is this toolset
-    version's complete member set.
+    Sparse per-member overrides, keyed by member name. Absent, null, and {} are equivalent; a member's defaults apply wherever its key is absent.
 
     - `Type BetaComputerTypeConfig Optional`
 
@@ -20944,13 +20804,13 @@ func main() {
 
       Skill ID
 
-      maxLength: 64, minLength: 1
+      minLength: 1, maxLength: 64
 
     - `Version string`
 
       The resolved version: a skill version ID for custom skills.
 
-      maxLength: 64, minLength: 1
+      minLength: 1, maxLength: 64
 
 ### Beta Container Params
 
@@ -20980,13 +20840,13 @@ func main() {
 
       Skill ID
 
-      maxLength: 64, minLength: 1
+      minLength: 1, maxLength: 64
 
     - `Version string Optional`
 
       Skill version or 'latest' for most recent version
 
-      maxLength: 64, minLength: 1
+      minLength: 1, maxLength: 64
 
 ### Beta Container Skill
 
@@ -21006,13 +20866,13 @@ func main() {
 
     Skill ID
 
-    maxLength: 64, minLength: 1
+    minLength: 1, maxLength: 64
 
   - `Version string`
 
     The resolved version: a skill version ID for custom skills.
 
-    maxLength: 64, minLength: 1
+    minLength: 1, maxLength: 64
 
 ### Beta Container Upload Block
 
@@ -21204,8 +21064,6 @@ func main() {
 
     - `Text string`
 
-      minLength: 0
-
   - `type BetaThinkingBlock`
 
     - `Type Thinking`
@@ -21284,7 +21142,7 @@ func main() {
 
       For a toolset member tool_use, the toolset family.
 
-      maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
+      minLength: 1, maxLength: 64, pattern: ^[a-zA-Z0-9_-]+$
 
   - `type BetaServerToolUseBlock`
 
@@ -21788,7 +21646,7 @@ func main() {
 
           - `ToolName string`
 
-            maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+            minLength: 1, maxLength: 256, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
     - `ToolUseID string`
 
@@ -21837,8 +21695,6 @@ func main() {
           The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
 
         - `Text string`
-
-          minLength: 0
 
     - `IsError bool`
 
@@ -21977,7 +21833,7 @@ func main() {
 
                   This is how the tool will be called by the model and in `tool_use` blocks.
 
-                  maxLength: 128, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,128}$
+                  minLength: 1, maxLength: 128, pattern: ^[a-zA-Z0-9_-]{1,128}$
 
                 - `AllowedCallers []string Optional`
 
@@ -22241,12 +22097,7 @@ func main() {
 
                 - `Configs BetaBrowserToolsetConfigs Optional`
 
-                  Per-member configuration for `browser_toolset_20260801`: one
-                  optional field per member tool, keyed by the member name — the same
-                  name the member's `tool_use` blocks carry. Every member is an
-                  accepted key, and a member's defaults apply wherever its key is
-                  absent. Unknown keys are rejected: the field set is this toolset
-                  version's complete member set.
+                  Sparse per-member overrides, keyed by member name. Absent, null, and {} are equivalent; a member's defaults apply wherever its key is absent.
 
                   - `Type BetaBrowserTypeConfig Optional`
 
@@ -22867,12 +22718,7 @@ func main() {
 
                 - `Configs BetaComputerToolsetConfigs Optional`
 
-                  Per-member configuration for `computer_toolset_20260801`: one
-                  optional field per member tool, keyed by the member name — the same
-                  name the member's `tool_use` blocks carry. Every member is an
-                  accepted key, and a member's defaults apply wherever its key is
-                  absent. Unknown keys are rejected: the field set is this toolset
-                  version's complete member set.
+                  Sparse per-member overrides, keyed by member name. Absent, null, and {} are equivalent; a member's defaults apply wherever its key is absent.
 
                   - `Type BetaComputerTypeConfig Optional`
 
@@ -23226,7 +23072,7 @@ func main() {
 
                   Maximum number of times the tool can be used in the API request.
 
-                  exclusiveMinimum: 0
+                  minimum: 1
 
                 - `Strict bool Optional`
 
@@ -23242,25 +23088,25 @@ func main() {
 
                     The city of the user.
 
-                    maxLength: 255, minLength: 1
+                    minLength: 1, maxLength: 255
 
                   - `Country string Optional`
 
                     The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
 
-                    maxLength: 2, minLength: 2
+                    minLength: 2, maxLength: 2
 
                   - `Region string Optional`
 
                     The region of the user.
 
-                    maxLength: 255, minLength: 1
+                    minLength: 1, maxLength: 255
 
                   - `Timezone string Optional`
 
                     The [IANA timezone](https://nodatime.org/TimeZones) of the user.
 
-                    maxLength: 255, minLength: 1
+                    minLength: 1, maxLength: 255
 
               - `type BetaWebFetchTool20250910`
 
@@ -23308,13 +23154,13 @@ func main() {
 
                   Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-                  exclusiveMinimum: 0
+                  minimum: 1
 
                 - `MaxUses int64 Optional`
 
                   Maximum number of times the tool can be used in the API request.
 
-                  exclusiveMinimum: 0
+                  minimum: 1
 
                 - `Strict bool Optional`
 
@@ -23322,12 +23168,7 @@ func main() {
 
                 - `URLSources BetaWebFetchURLSources Optional`
 
-                  Which sources contribute to the set of URLs web fetch may fetch.
-
-                  Each key is a tagged variant: `user_input` is `all` or `none`; the
-                  two tool filters are `all`, `none`, `only` (only the named tools'
-                  results) or `except` (every result but the named tools'). A named tool
-                  must be declared in this request's `tools[]`.
+                  Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
 
                   - `ClientToolResults BetaWebFetchURLSourcesClientToolResultsUnion Optional`
 
@@ -23451,7 +23292,7 @@ func main() {
 
                   Maximum number of times the tool can be used in the API request.
 
-                  exclusiveMinimum: 0
+                  minimum: 1
 
                 - `Strict bool Optional`
 
@@ -23505,13 +23346,13 @@ func main() {
 
                   Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-                  exclusiveMinimum: 0
+                  minimum: 1
 
                 - `MaxUses int64 Optional`
 
                   Maximum number of times the tool can be used in the API request.
 
-                  exclusiveMinimum: 0
+                  minimum: 1
 
                 - `Strict bool Optional`
 
@@ -23519,12 +23360,7 @@ func main() {
 
                 - `URLSources BetaWebFetchURLSources Optional`
 
-                  Which sources contribute to the set of URLs web fetch may fetch.
-
-                  Each key is a tagged variant: `user_input` is `all` or `none`; the
-                  two tool filters are `all`, `none`, `only` (only the named tools'
-                  results) or `except` (every result but the named tools'). A named tool
-                  must be declared in this request's `tools[]`.
+                  Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
 
               - `type BetaWebFetchTool20260309`
 
@@ -23572,13 +23408,13 @@ func main() {
 
                   Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-                  exclusiveMinimum: 0
+                  minimum: 1
 
                 - `MaxUses int64 Optional`
 
                   Maximum number of times the tool can be used in the API request.
 
-                  exclusiveMinimum: 0
+                  minimum: 1
 
                 - `Strict bool Optional`
 
@@ -23586,12 +23422,7 @@ func main() {
 
                 - `URLSources BetaWebFetchURLSources Optional`
 
-                  Which sources contribute to the set of URLs web fetch may fetch.
-
-                  Each key is a tagged variant: `user_input` is `all` or `none`; the
-                  two tool filters are `all`, `none`, `only` (only the named tools'
-                  results) or `except` (every result but the named tools'). A named tool
-                  must be declared in this request's `tools[]`.
+                  Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
 
                 - `UseCache bool Optional`
 
@@ -23637,7 +23468,7 @@ func main() {
 
                   Maximum number of times the tool can be used in the API request.
 
-                  exclusiveMinimum: 0
+                  minimum: 1
 
                 - `ResponseInclusion BetaWebSearchTool20260318ResponseInclusion Optional`
 
@@ -23699,13 +23530,13 @@ func main() {
 
                   Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-                  exclusiveMinimum: 0
+                  minimum: 1
 
                 - `MaxUses int64 Optional`
 
                   Maximum number of times the tool can be used in the API request.
 
-                  exclusiveMinimum: 0
+                  minimum: 1
 
                 - `ResponseInclusion BetaWebFetchTool20260318ResponseInclusion Optional`
 
@@ -23721,12 +23552,7 @@ func main() {
 
                 - `URLSources BetaWebFetchURLSources Optional`
 
-                  Which sources contribute to the set of URLs web fetch may fetch.
-
-                  Each key is a tagged variant: `user_input` is `all` or `none`; the
-                  two tool filters are `all`, `none`, `only` (only the named tools'
-                  results) or `except` (every result but the named tools'). A named tool
-                  must be declared in this request's `tools[]`.
+                  Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
 
                 - `UseCache bool Optional`
 
@@ -23741,6 +23567,8 @@ func main() {
                   The model that will complete your prompt.
 
                   See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+                  - `string`
 
                   - `type Model string`
 
@@ -23784,10 +23612,6 @@ func main() {
 
                       Powerful intelligence for long-running agents and coding
 
-                    - `const ModelClaudeMythosPreview Model = "claude-mythos-preview"`
-
-                      New class of intelligence, strongest in coding and cybersecurity
-
                     - `const ModelClaudeOpus4_6 Model = "claude-opus-4-6"`
 
                       Powerful intelligence for long-running agents and coding
@@ -23820,7 +23644,11 @@ func main() {
 
                       High-performance model for agents and coding
 
-                  - `string`
+                    - `const ModelClaudeMythosPreview Model = "claude-mythos-preview"`
+
+                      **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+                      New class of intelligence, strongest in coding and cybersecurity
 
                 - `Name Advisor`
 
@@ -23860,7 +23688,7 @@ func main() {
 
                   Maximum number of times the tool can be used in the API request.
 
-                  exclusiveMinimum: 0
+                  minimum: 1
 
                 - `Strict bool Optional`
 
@@ -23951,7 +23779,7 @@ func main() {
 
                   Name of the MCP server to configure tools for
 
-                  maxLength: 255, minLength: 1
+                  minLength: 1, maxLength: 255
 
                 - `CacheControl BetaCacheControlEphemeral Optional`
 
@@ -24066,7 +23894,7 @@ func main() {
 
       - `Category BetaFallbackRefusalTriggerCategory`
 
-        The policy category that triggered a refusal.
+        The policy category that triggered the `from` model's refusal at this hop. `null` when the refusal doesn't map to a named category. Same vocabulary as `stop_details.category`.
 
         - `const BetaFallbackRefusalTriggerCategoryCyber BetaFallbackRefusalTriggerCategory = "cyber"`
 
@@ -24156,7 +23984,7 @@ func main() {
 
         - `DocumentTitle string`
 
-          maxLength: 500, minLength: 1
+          minLength: 1, maxLength: 500
 
         - `EndCharIndex int64`
 
@@ -24176,7 +24004,7 @@ func main() {
 
         - `DocumentTitle string`
 
-          maxLength: 500, minLength: 1
+          minLength: 1, maxLength: 500
 
         - `EndPageNumber int64`
 
@@ -24200,7 +24028,7 @@ func main() {
 
         - `DocumentTitle string`
 
-          maxLength: 500, minLength: 1
+          minLength: 1, maxLength: 500
 
         - `EndBlockIndex int64`
 
@@ -24224,7 +24052,7 @@ func main() {
 
         - `Title string`
 
-          maxLength: 512, minLength: 1
+          minLength: 1, maxLength: 512
 
         - `URL string`
 
@@ -24380,7 +24208,7 @@ func main() {
 
     - `Title string Optional`
 
-      maxLength: 500, minLength: 1
+      minLength: 1, maxLength: 500
 
   - `type BetaSearchResultBlockParamResp`
 
@@ -24444,7 +24272,7 @@ func main() {
 
     - `Name string`
 
-      maxLength: 200, minLength: 1
+      minLength: 1, maxLength: 200
 
     - `CacheControl BetaCacheControlEphemeral Optional`
 
@@ -24480,7 +24308,7 @@ func main() {
 
       For a toolset member tool_use, the toolset family this member belongs to.
 
-      maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
+      minLength: 1, maxLength: 64, pattern: ^[a-zA-Z0-9_-]+$
 
   - `type BetaToolResultBlockParamResp`
 
@@ -24514,7 +24342,7 @@ func main() {
 
           - `ToolName string`
 
-            maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+            minLength: 1, maxLength: 256, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
           - `CacheControl BetaCacheControlEphemeral Optional`
 
@@ -24542,7 +24370,7 @@ func main() {
 
               The caller-assigned identifier for this tab, unique within the inventory.
 
-              maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+              minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
             - `Title string`
 
@@ -24568,7 +24396,7 @@ func main() {
 
             Tabs opened and download state changes during this call. "Nothing to report" is expressed by omitting the field, never by an empty list.
 
-            maxItems: 200, minItems: 1
+            minItems: 1, maxItems: 200
 
             - `type BetaBrowserStateChangeTabOpened`
 
@@ -24586,7 +24414,7 @@ func main() {
 
                 The `tab_id` of the opened tab, present in `tabs`.
 
-                maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+                minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
             - `type BetaBrowserStateChangeDownloadStarted`
 
@@ -24598,7 +24426,7 @@ func main() {
 
                 The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-                maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+                minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
               - `URL string`
 
@@ -24619,7 +24447,7 @@ func main() {
 
                 The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-                maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+                minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
               - `URL string`
 
@@ -24631,7 +24459,7 @@ func main() {
 
                 Where the executor saved the file, on the executor's filesystem. Only included when another tool in the same environment can read the file at that path.
 
-                pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$, maxLength: 4096
+                maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
               - `SizeBytes int64 Optional`
 
@@ -24649,7 +24477,7 @@ func main() {
 
                 The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-                maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+                minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
               - `URL string`
 
@@ -24661,7 +24489,7 @@ func main() {
 
                 The failure or cancellation detail, when known.
 
-                pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$, maxLength: 4096
+                maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
     - `IsError bool Optional`
 
@@ -24669,7 +24497,7 @@ func main() {
 
       For a toolset member tool_result, the toolset family of the paired tool_use.
 
-      maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
+      minLength: 1, maxLength: 64, pattern: ^[a-zA-Z0-9_-]+$
 
   - `type BetaServerToolUseBlockParamResp`
 
@@ -25101,7 +24929,7 @@ func main() {
 
           - `ToolName string`
 
-            maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+            minLength: 1, maxLength: 256, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
           - `CacheControl BetaCacheControlEphemeral Optional`
 
@@ -25293,7 +25121,7 @@ func main() {
 
                   This is how the tool will be called by the model and in `tool_use` blocks.
 
-                  maxLength: 128, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,128}$
+                  minLength: 1, maxLength: 128, pattern: ^[a-zA-Z0-9_-]{1,128}$
 
                 - `AllowedCallers []string Optional`
 
@@ -25544,12 +25372,7 @@ func main() {
 
                 - `Configs BetaBrowserToolsetConfigs Optional`
 
-                  Per-member configuration for `browser_toolset_20260801`: one
-                  optional field per member tool, keyed by the member name — the same
-                  name the member's `tool_use` blocks carry. Every member is an
-                  accepted key, and a member's defaults apply wherever its key is
-                  absent. Unknown keys are rejected: the field set is this toolset
-                  version's complete member set.
+                  Sparse per-member overrides, keyed by member name. Absent, null, and {} are equivalent; a member's defaults apply wherever its key is absent.
 
                   - `Type BetaBrowserTypeConfig Optional`
 
@@ -26170,12 +25993,7 @@ func main() {
 
                 - `Configs BetaComputerToolsetConfigs Optional`
 
-                  Per-member configuration for `computer_toolset_20260801`: one
-                  optional field per member tool, keyed by the member name — the same
-                  name the member's `tool_use` blocks carry. Every member is an
-                  accepted key, and a member's defaults apply wherever its key is
-                  absent. Unknown keys are rejected: the field set is this toolset
-                  version's complete member set.
+                  Sparse per-member overrides, keyed by member name. Absent, null, and {} are equivalent; a member's defaults apply wherever its key is absent.
 
                   - `Type BetaComputerTypeConfig Optional`
 
@@ -26529,7 +26347,7 @@ func main() {
 
                   Maximum number of times the tool can be used in the API request.
 
-                  exclusiveMinimum: 0
+                  minimum: 1
 
                 - `Strict bool Optional`
 
@@ -26545,25 +26363,25 @@ func main() {
 
                     The city of the user.
 
-                    maxLength: 255, minLength: 1
+                    minLength: 1, maxLength: 255
 
                   - `Country string Optional`
 
                     The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
 
-                    maxLength: 2, minLength: 2
+                    minLength: 2, maxLength: 2
 
                   - `Region string Optional`
 
                     The region of the user.
 
-                    maxLength: 255, minLength: 1
+                    minLength: 1, maxLength: 255
 
                   - `Timezone string Optional`
 
                     The [IANA timezone](https://nodatime.org/TimeZones) of the user.
 
-                    maxLength: 255, minLength: 1
+                    minLength: 1, maxLength: 255
 
               - `type BetaWebFetchTool20250910`
 
@@ -26609,13 +26427,13 @@ func main() {
 
                   Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-                  exclusiveMinimum: 0
+                  minimum: 1
 
                 - `MaxUses int64 Optional`
 
                   Maximum number of times the tool can be used in the API request.
 
-                  exclusiveMinimum: 0
+                  minimum: 1
 
                 - `Strict bool Optional`
 
@@ -26623,12 +26441,7 @@ func main() {
 
                 - `URLSources BetaWebFetchURLSources Optional`
 
-                  Which sources contribute to the set of URLs web fetch may fetch.
-
-                  Each key is a tagged variant: `user_input` is `all` or `none`; the
-                  two tool filters are `all`, `none`, `only` (only the named tools'
-                  results) or `except` (every result but the named tools'). A named tool
-                  must be declared in this request's `tools[]`.
+                  Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
 
                   - `ClientToolResults BetaWebFetchURLSourcesClientToolResultsUnion Optional`
 
@@ -26752,7 +26565,7 @@ func main() {
 
                   Maximum number of times the tool can be used in the API request.
 
-                  exclusiveMinimum: 0
+                  minimum: 1
 
                 - `Strict bool Optional`
 
@@ -26806,13 +26619,13 @@ func main() {
 
                   Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-                  exclusiveMinimum: 0
+                  minimum: 1
 
                 - `MaxUses int64 Optional`
 
                   Maximum number of times the tool can be used in the API request.
 
-                  exclusiveMinimum: 0
+                  minimum: 1
 
                 - `Strict bool Optional`
 
@@ -26820,12 +26633,7 @@ func main() {
 
                 - `URLSources BetaWebFetchURLSources Optional`
 
-                  Which sources contribute to the set of URLs web fetch may fetch.
-
-                  Each key is a tagged variant: `user_input` is `all` or `none`; the
-                  two tool filters are `all`, `none`, `only` (only the named tools'
-                  results) or `except` (every result but the named tools'). A named tool
-                  must be declared in this request's `tools[]`.
+                  Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
 
               - `type BetaWebFetchTool20260309`
 
@@ -26873,13 +26681,13 @@ func main() {
 
                   Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-                  exclusiveMinimum: 0
+                  minimum: 1
 
                 - `MaxUses int64 Optional`
 
                   Maximum number of times the tool can be used in the API request.
 
-                  exclusiveMinimum: 0
+                  minimum: 1
 
                 - `Strict bool Optional`
 
@@ -26887,12 +26695,7 @@ func main() {
 
                 - `URLSources BetaWebFetchURLSources Optional`
 
-                  Which sources contribute to the set of URLs web fetch may fetch.
-
-                  Each key is a tagged variant: `user_input` is `all` or `none`; the
-                  two tool filters are `all`, `none`, `only` (only the named tools'
-                  results) or `except` (every result but the named tools'). A named tool
-                  must be declared in this request's `tools[]`.
+                  Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
 
                 - `UseCache bool Optional`
 
@@ -26938,7 +26741,7 @@ func main() {
 
                   Maximum number of times the tool can be used in the API request.
 
-                  exclusiveMinimum: 0
+                  minimum: 1
 
                 - `ResponseInclusion BetaWebSearchTool20260318ResponseInclusion Optional`
 
@@ -26973,3 +26776,239 @@ func main() {
                   - `const BetaWebFetchTool20260318AllowedCallerCodeExecution20250825 BetaWebFetchTool20260318AllowedCaller = "code_execution_20250825"`
 
                   - `const BetaWebFetchTool20260318AllowedCallerCodeExecution20260120 BetaWebFetchTool20260318AllowedCaller = "code_execution_20260120"`
+
+                  - `const BetaWebFetchTool20260318AllowedCallerCodeExecution20260521 BetaWebFetchTool20260318AllowedCaller = "code_execution_20260521"`
+
+                - `AllowedDomains []string Optional`
+
+                  List of domains to allow fetching from
+
+                - `BlockedDomains []string Optional`
+
+                  List of domains to block fetching from
+
+                - `CacheControl BetaCacheControlEphemeral Optional`
+
+                  Create a cache control breakpoint at this content block.
+
+                - `Citations BetaCitationsConfigParamResp Optional`
+
+                  Citations configuration for fetched documents. Citations are disabled by default.
+
+                - `DeferLoading bool Optional`
+
+                  If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                - `MaxContentTokens int64 Optional`
+
+                  Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
+
+                  minimum: 1
+
+                - `MaxUses int64 Optional`
+
+                  Maximum number of times the tool can be used in the API request.
+
+                  minimum: 1
+
+                - `ResponseInclusion BetaWebFetchTool20260318ResponseInclusion Optional`
+
+                  How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
+
+                  - `const BetaWebFetchTool20260318ResponseInclusionFull BetaWebFetchTool20260318ResponseInclusion = "full"`
+
+                  - `const BetaWebFetchTool20260318ResponseInclusionExcluded BetaWebFetchTool20260318ResponseInclusion = "excluded"`
+
+                - `Strict bool Optional`
+
+                  When true, guarantees schema validation on tool names and inputs
+
+                - `URLSources BetaWebFetchURLSources Optional`
+
+                  Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
+
+                - `UseCache bool Optional`
+
+                  Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
+
+              - `type BetaAdvisorTool20260301`
+
+                - `Type Advisor20260301`
+
+                - `Model Model`
+
+                  The model that will complete your prompt.
+
+                  See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+                  - `string`
+
+                  - `type Model string`
+
+                    The model that will complete your prompt.
+
+                    See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+                    - `const ModelClaudeFable5_1 Model = "claude-fable-5-1"`
+
+                      Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+                    - `const ModelClaudeOpus5_5 Model = "claude-opus-5-5"`
+
+                      Powerful intelligence for coding, knowledge work, and long-running agents
+
+                    - `const ModelClaudeMythos5_1 Model = "claude-mythos-5-1"`
+
+                      Our most capable model for cybersecurity and biology research, available through trusted access programs
+
+                    - `const ModelClaudeSonnet5 Model = "claude-sonnet-5"`
+
+                      High-performance model for coding and agents
+
+                    - `const ModelClaudeFable5 Model = "claude-fable-5"`
+
+                      Next generation of intelligence for the hardest knowledge work and coding problems
+
+                    - `const ModelClaudeMythos5 Model = "claude-mythos-5"`
+
+                      Most capable model for cybersecurity and biology research
+
+                    - `const ModelClaudeOpus5 Model = "claude-opus-5"`
+
+                      Powerful intelligence for long-running agents and coding
+
+                    - `const ModelClaudeOpus4_8 Model = "claude-opus-4-8"`
+
+                      Powerful intelligence for long-running agents and coding
+
+                    - `const ModelClaudeOpus4_7 Model = "claude-opus-4-7"`
+
+                      Powerful intelligence for long-running agents and coding
+
+                    - `const ModelClaudeOpus4_6 Model = "claude-opus-4-6"`
+
+                      Powerful intelligence for long-running agents and coding
+
+                    - `const ModelClaudeSonnet4_6 Model = "claude-sonnet-4-6"`
+
+                      Best combination of speed and intelligence
+
+                    - `const ModelClaudeHaiku4_5 Model = "claude-haiku-4-5"`
+
+                      Fastest model with near-frontier intelligence
+
+                    - `const ModelClaudeHaiku4_5_20251001 Model = "claude-haiku-4-5-20251001"`
+
+                      Fastest model with near-frontier intelligence
+
+                    - `const ModelClaudeOpus4_5 Model = "claude-opus-4-5"`
+
+                      Powerful intelligence for long-running agents and coding
+
+                    - `const ModelClaudeOpus4_5_20251101 Model = "claude-opus-4-5-20251101"`
+
+                      Powerful intelligence for long-running agents and coding
+
+                    - `const ModelClaudeSonnet4_5 Model = "claude-sonnet-4-5"`
+
+                      High-performance model for agents and coding
+
+                    - `const ModelClaudeSonnet4_5_20250929 Model = "claude-sonnet-4-5-20250929"`
+
+                      High-performance model for agents and coding
+
+                    - `const ModelClaudeMythosPreview Model = "claude-mythos-preview"`
+
+                      **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+                      New class of intelligence, strongest in coding and cybersecurity
+
+                - `Name Advisor`
+
+                  Name of the tool.
+
+                  This is how the tool will be called by the model and in `tool_use` blocks.
+
+                - `AllowedCallers []string Optional`
+
+                  - `const BetaAdvisorTool20260301AllowedCallerDirect BetaAdvisorTool20260301AllowedCaller = "direct"`
+
+                  - `const BetaAdvisorTool20260301AllowedCallerCodeExecution20250825 BetaAdvisorTool20260301AllowedCaller = "code_execution_20250825"`
+
+                  - `const BetaAdvisorTool20260301AllowedCallerCodeExecution20260120 BetaAdvisorTool20260301AllowedCaller = "code_execution_20260120"`
+
+                  - `const BetaAdvisorTool20260301AllowedCallerCodeExecution20260521 BetaAdvisorTool20260301AllowedCaller = "code_execution_20260521"`
+
+                - `CacheControl BetaCacheControlEphemeral Optional`
+
+                  Create a cache control breakpoint at this content block.
+
+                - `Caching BetaCacheControlEphemeral Optional`
+
+                  Caching for the advisor's own prompt. When set, each advisor call writes a cache entry at the given TTL so subsequent calls in the same conversation read the stable prefix. When omitted, the advisor prompt is not cached.
+
+                - `DeferLoading bool Optional`
+
+                  If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                - `MaxTokens int64 Optional`
+
+                  Bounds the advisor's total output (thinking + text) per call. When the advisor hits this cap, the returned advisor_result or advisor_redacted_result block carries stop_reason='max_tokens', and a truncation note is appended to the advice text the worker model sees (inside the encrypted blob in redacted mode). When set, the server also emits a remaining-tokens budget block in the advisor's prompt so the advisor self-shapes toward the cap. When omitted, the advisor model's default output cap applies and no budget block is emitted.
+
+                  minimum: 1024
+
+                - `MaxUses int64 Optional`
+
+                  Maximum number of times the tool can be used in the API request.
+
+                  minimum: 1
+
+                - `Strict bool Optional`
+
+                  When true, guarantees schema validation on tool names and inputs
+
+              - `type BetaToolSearchToolBm25_20251119`
+
+                - `Type BetaToolSearchToolBm25_20251119Type`
+
+                  - `const BetaToolSearchToolBm25_20251119TypeToolSearchToolBm25_20251119 BetaToolSearchToolBm25_20251119Type = "tool_search_tool_bm25_20251119"`
+
+                  - `const BetaToolSearchToolBm25_20251119TypeToolSearchToolBm25 BetaToolSearchToolBm25_20251119Type = "tool_search_tool_bm25"`
+
+                - `Name ToolSearchToolBm25`
+
+                  Name of the tool.
+
+                  This is how the tool will be called by the model and in `tool_use` blocks.
+
+                - `AllowedCallers []string Optional`
+
+                  - `const BetaToolSearchToolBm25_20251119AllowedCallerDirect BetaToolSearchToolBm25_20251119AllowedCaller = "direct"`
+
+                  - `const BetaToolSearchToolBm25_20251119AllowedCallerCodeExecution20250825 BetaToolSearchToolBm25_20251119AllowedCaller = "code_execution_20250825"`
+
+                  - `const BetaToolSearchToolBm25_20251119AllowedCallerCodeExecution20260120 BetaToolSearchToolBm25_20251119AllowedCaller = "code_execution_20260120"`
+
+                  - `const BetaToolSearchToolBm25_20251119AllowedCallerCodeExecution20260521 BetaToolSearchToolBm25_20251119AllowedCaller = "code_execution_20260521"`
+
+                - `CacheControl BetaCacheControlEphemeral Optional`
+
+                  Create a cache control breakpoint at this content block.
+
+                - `DeferLoading bool Optional`
+
+                  If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+                - `Strict bool Optional`
+
+                  When true, guarantees schema validation on tool names and inputs
+
+              - `type BetaToolSearchToolRegex20251119`
+
+                - `Type BetaToolSearchToolRegex20251119Type`
+
+                  - `const BetaToolSearchToolRegex20251119TypeToolSearchToolRegex20251119 BetaToolSearchToolRegex20251119Type = "tool_search_tool_regex_20251119"`
+
+                  - `const BetaToolSearchToolRegex20251119TypeToolSearchToolRegex BetaToolSearchToolRegex20251119Type = "tool_search_tool_regex"`
+
+                - `Name ToolSearchToolRegex`

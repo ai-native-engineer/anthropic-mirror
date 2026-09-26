@@ -75,11 +75,11 @@ List Deployment Runs
 
   - `BetaManagedAgentsAgentReference agent`
 
-    A resolved agent reference with a concrete version.
+    Snapshot of the agent at fire time. Always fully resolved — deployments pin agent + version.
 
   - `\Datetime createdAt`
 
-    A timestamp in RFC 3339 format
+    Time this run record was persisted.
 
   - `string deploymentID`
 
@@ -87,7 +87,7 @@ List Deployment Runs
 
   - `?Error error`
 
-    Why the run failed to create a session. The type identifies the failure; message is human-readable detail.
+    Populated on creation failure. Null on success. Exactly one of `session_id` or `error` is non-null.
 
   - `?string sessionID`
 
@@ -95,7 +95,7 @@ List Deployment Runs
 
   - `BetaManagedAgentsTriggerContext triggerContext`
 
-    Describes what triggered a deployment run, with trigger-specific metadata.
+    What triggered this run and trigger-specific metadata.
 
 ### Example
 
@@ -189,11 +189,11 @@ Get Deployment Run
 
   - `BetaManagedAgentsAgentReference agent`
 
-    A resolved agent reference with a concrete version.
+    Snapshot of the agent at fire time. Always fully resolved — deployments pin agent + version.
 
   - `\Datetime createdAt`
 
-    A timestamp in RFC 3339 format
+    Time this run record was persisted.
 
   - `string deploymentID`
 
@@ -201,7 +201,7 @@ Get Deployment Run
 
   - `?Error error`
 
-    Why the run failed to create a session. The type identifies the failure; message is human-readable detail.
+    Populated on creation failure. Null on success. Exactly one of `session_id` or `error` is non-null.
 
   - `?string sessionID`
 
@@ -209,7 +209,7 @@ Get Deployment Run
 
   - `BetaManagedAgentsTriggerContext triggerContext`
 
-    Describes what triggered a deployment run, with trigger-specific metadata.
+    What triggered this run and trigger-specific metadata.
 
 ### Example
 
@@ -278,11 +278,11 @@ var_dump($betaManagedAgentsDeploymentRun);
 
   - `BetaManagedAgentsAgentReference agent`
 
-    A resolved agent reference with a concrete version.
+    Snapshot of the agent at fire time. Always fully resolved — deployments pin agent + version.
 
   - `\Datetime createdAt`
 
-    A timestamp in RFC 3339 format
+    Time this run record was persisted.
 
   - `string deploymentID`
 
@@ -290,7 +290,7 @@ var_dump($betaManagedAgentsDeploymentRun);
 
   - `?Error error`
 
-    Why the run failed to create a session. The type identifies the failure; message is human-readable detail.
+    Populated on creation failure. Null on success. Exactly one of `session_id` or `error` is non-null.
 
   - `?string sessionID`
 
@@ -298,7 +298,7 @@ var_dump($betaManagedAgentsDeploymentRun);
 
   - `BetaManagedAgentsTriggerContext triggerContext`
 
-    Describes what triggered a deployment run, with trigger-specific metadata.
+    What triggered this run and trigger-specific metadata.
 
 ### Beta Managed Agents Environment Archived Run Error
 
@@ -374,7 +374,7 @@ var_dump($betaManagedAgentsDeploymentRun);
 
   - `\Datetime scheduledAt`
 
-    A timestamp in RFC 3339 format
+    The UTC instant at which the cron expression matched in the configured timezone, before jitter is applied. At most one run is recorded per (`deployment_id`, `scheduled_at`) pair.
 
 ### Beta Managed Agents Self Hosted Resources Unsupported Run Error
 
@@ -436,7 +436,7 @@ var_dump($betaManagedAgentsDeploymentRun);
 
     - `\Datetime scheduledAt`
 
-      A timestamp in RFC 3339 format
+      The UTC instant at which the cron expression matched in the configured timezone, before jitter is applied. At most one run is recorded per (`deployment_id`, `scheduled_at`) pair.
 
   - `class BetaManagedAgentsManualTriggerContext`
 

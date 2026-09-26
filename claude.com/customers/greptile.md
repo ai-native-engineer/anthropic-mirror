@@ -66,7 +66,7 @@ The team also uses hooks to inject determinism where it matters. For code review
 
 ## The outcome
 
-![](https://assets.claude.com/30b6e0463300201b51d360ef5af1b70986b90b80.png)
+![](https://assets.claude.com/30b6e0463300201b51d360ef5af1b70986b90b80.png?w=2400&q=75&fm=webp&fit=max)
 
 Greptile catches a precision calculation bug in NVIDIA's PhysicsNeMo, then backs it up with evidence when the author pushes back.
 

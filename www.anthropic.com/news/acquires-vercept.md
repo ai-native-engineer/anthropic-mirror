@@ -15,3 +15,5 @@ This acquisition follows the recent launch of Claude [Sonnet 4.6](https://www.an
 Vercept is the latest team we’ve brought into Anthropic, following the acquisition of [Bun](https://www.anthropic.com/news/anthropic-acquires-bun-as-claude-code-reaches-usd1b-milestone). We look for teams whose technical ambitions match ours, whose work advances our capabilities, and whose approach to building AI is grounded in the same principles of safety and rigor that guide everything we do.
 
 We’re also looking for individuals. If you're interested in joining Anthropic’s engineering team, visit our [careers page](https://www.anthropic.com/jobs).
+
+Anthropic acquires Vercept \ Anthropic

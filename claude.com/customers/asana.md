@@ -46,7 +46,7 @@ Bringing Asana’s Work Graph and Claude together, Asana found an ideal partner 
 
 Asana integrated Claude into their proprietary Work Graph® data model through collaboration in Anthropic's Early Access Programs. The Asana Work Graph is a unique data model that captures work-related relationships, context, and information across an entire organization. This provides the necessary structure that allows AI to access the context needed to surface reliable, accurate insights.
 
-![Asana product screenshot](https://assets.claude.com/db9c4bd81ffa83361c1962508458e1a7e20c3f2f.jpg)
+![Asana product screenshot](https://assets.claude.com/db9c4bd81ffa83361c1962508458e1a7e20c3f2f.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Eric Pelz, Head of Technology for AI at Asana, emphasizes the importance of integrating AI into existing workflows, saying, "The most effective way to adopt AI across your team is in the context of your existing work and processes. Rather than redefining how you work from first principles, you can build on top of how you already collaborate, utilizing AI to remove bottlenecks, add helpful insights, or even preemptively escalate to get support."
 
@@ -99,5 +99,3 @@ By collaborating with Anthropic and leveraging Claude, Asana aims to redefine pr
 ### Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
 ### How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)
-
-Asana Claude Platform (API) case study | Claude by Anthropic

@@ -46,7 +46,7 @@ Speaker(s)
 
 ## Watch recording
 
-![Opening keynote](https://assets.claude.com/98602063a3a180a175cb64a72cc6093856fc3b7d.jpg?w=1600&auto=format)
+![Opening keynote](https://assets.claude.com/98602063a3a180a175cb64a72cc6093856fc3b7d.jpg?w=2400&q=75&fm=webp&fit=max)
 
 ## Anthropic's developer conference, recorded
 

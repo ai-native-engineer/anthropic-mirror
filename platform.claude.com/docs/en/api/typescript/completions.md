@@ -37,6 +37,8 @@ Future models and features will not be compatible with Text Completions. See our
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+    - `(string & {})`
+
     - `"claude-fable-5-1" | "claude-opus-5-5" | "claude-mythos-5-1" | 15 more`
 
       - `"claude-fable-5-1"`
@@ -75,10 +77,6 @@ Future models and features will not be compatible with Text Completions. See our
 
         Powerful intelligence for long-running agents and coding
 
-      - `"claude-mythos-preview"`
-
-        New class of intelligence, strongest in coding and cybersecurity
-
       - `"claude-opus-4-6"`
 
         Powerful intelligence for long-running agents and coding
@@ -111,7 +109,11 @@ Future models and features will not be compatible with Text Completions. See our
 
         High-performance model for agents and coding
 
-    - `(string & {})`
+      - `"claude-mythos-preview"`
+
+        **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+        New class of intelligence, strongest in coding and cybersecurity
 
   - `prompt: string`
 
@@ -177,7 +179,7 @@ Future models and features will not be compatible with Text Completions. See our
 
     Note that even with `temperature` of `0.0`, the results will not be fully deterministic.
 
-    maximum: 1, minimum: 0
+    minimum: 0, maximum: 1
 
   - `top_k?: number`
 
@@ -201,7 +203,7 @@ Future models and features will not be compatible with Text Completions. See our
 
     Recommended for advanced use cases only.
 
-    maximum: 1, minimum: 0
+    minimum: 0, maximum: 1
 
   - `betas?: Array<AnthropicBeta>`
 
@@ -337,6 +339,8 @@ Future models and features will not be compatible with Text Completions. See our
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+    - `(string & {})`
+
     - `"claude-fable-5-1" | "claude-opus-5-5" | "claude-mythos-5-1" | 15 more`
 
       - `"claude-fable-5-1"`
@@ -375,10 +379,6 @@ Future models and features will not be compatible with Text Completions. See our
 
         Powerful intelligence for long-running agents and coding
 
-      - `"claude-mythos-preview"`
-
-        New class of intelligence, strongest in coding and cybersecurity
-
       - `"claude-opus-4-6"`
 
         Powerful intelligence for long-running agents and coding
@@ -411,7 +411,11 @@ Future models and features will not be compatible with Text Completions. See our
 
         High-performance model for agents and coding
 
-    - `(string & {})`
+      - `"claude-mythos-preview"`
+
+        **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+        New class of intelligence, strongest in coding and cybersecurity
 
   - `stop_reason: string | null`
 
@@ -482,6 +486,8 @@ console.log(completion.id);
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+    - `(string & {})`
+
     - `"claude-fable-5-1" | "claude-opus-5-5" | "claude-mythos-5-1" | 15 more`
 
       - `"claude-fable-5-1"`
@@ -520,10 +526,6 @@ console.log(completion.id);
 
         Powerful intelligence for long-running agents and coding
 
-      - `"claude-mythos-preview"`
-
-        New class of intelligence, strongest in coding and cybersecurity
-
       - `"claude-opus-4-6"`
 
         Powerful intelligence for long-running agents and coding
@@ -556,7 +558,11 @@ console.log(completion.id);
 
         High-performance model for agents and coding
 
-    - `(string & {})`
+      - `"claude-mythos-preview"`
+
+        **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+        New class of intelligence, strongest in coding and cybersecurity
 
   - `stop_reason: string | null`
 

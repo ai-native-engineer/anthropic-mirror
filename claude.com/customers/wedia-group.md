@@ -58,7 +58,7 @@ Claude's multilingual capabilities were also a key factor for Wedia. The system 
 
 "Claude allows all this information to be brought together in several languages," noted Olivier. "The translation tools provided through Claude automatically translate the caption and metadata into multiple languages."
 
-![Wedia Product Screenshot](https://assets.claude.com/96bd15cac066999d409adc514f50649a30271932.jpg)
+![Wedia Product Screenshot](https://assets.claude.com/96bd15cac066999d409adc514f50649a30271932.jpg?w=2400&q=75&fm=webp&fit=max)
 
 ## Efficiency gains and quality improvements with Claude
 
@@ -83,5 +83,3 @@ Looking ahead, Wedia sees Claude as a key enabler of their product roadmap, with
 ### Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
 ### How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)
-
-Wedia Group Claude Platform (API) case study | Claude by Anthropic

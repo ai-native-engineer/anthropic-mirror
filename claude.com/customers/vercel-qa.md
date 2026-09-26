@@ -30,7 +30,7 @@ are written by non-developers
 
 How to create Skills
 
-![How to create Skills](https://assets.claude.com/597f5f4383bc4f65ab162f9b1a712d5347dcec9a.jpg)
+![How to create Skills](https://assets.claude.com/597f5f4383bc4f65ab162f9b1a712d5347dcec9a.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Follow our step-by-step guide to write custom skills that extend Claude's capabilities with real examples and practical patterns.
 
@@ -84,7 +84,7 @@ Skills are great right now. Honestly, we hope a lot of them eventually become ob
 
 Improving frontend design through Skills
 
-![Improving frontend design through Skills](https://assets.claude.com/eab98d037de55c9f2fa64adfb1f05902c43fa56d.jpg)
+![Improving frontend design through Skills](https://assets.claude.com/eab98d037de55c9f2fa64adfb1f05902c43fa56d.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Build richer, more customized frontend interfaces with Claude. Learn how Skills unlock better typography, animations, and design quality.
 

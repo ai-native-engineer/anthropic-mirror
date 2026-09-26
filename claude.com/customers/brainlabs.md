@@ -49,7 +49,7 @@ For Brainlabs's CTO Ben Vincent, the principle was simple. "If you're doing some
 
 How to create Skills
 
-![How to create Skills](https://assets.claude.com/597f5f4383bc4f65ab162f9b1a712d5347dcec9a.jpg)
+![How to create Skills](https://assets.claude.com/597f5f4383bc4f65ab162f9b1a712d5347dcec9a.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Follow our step-by-step guide to write custom skills that extend Claude's capabilities with real examples and practical patterns.
 
@@ -77,7 +77,7 @@ The team has put the agent to work on its own projects, including managing the C
 
 Skills explained
 
-![Skills explained](https://assets.claude.com/2c1a10b16f371961f69f0cc86318a5e89137faf3.jpg)
+![Skills explained](https://assets.claude.com/2c1a10b16f371961f69f0cc86318a5e89137faf3.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Where do Skills fit in the Claude stack alongside prompts, Projects, MCP, and subagents? Learn what tool to use when—and how they work together.
 

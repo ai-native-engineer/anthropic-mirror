@@ -23,7 +23,7 @@ Create Credential
 
 - `auth: Auth`
 
-  Authentication details for creating a credential.
+  Authentication configuration for the credential.
 
   - `class BetaManagedAgentsMCPOAuthCreateParams`
 
@@ -51,7 +51,7 @@ Create Credential
 
     - `refresh: Optional[BetaManagedAgentsMCPOAuthRefreshParams]`
 
-      OAuth refresh token parameters for creating a credential with refresh support.
+      Refresh token configuration, if the credential supports token refresh.
 
       - `client_id: str`
 
@@ -317,13 +317,13 @@ Create Credential
 
   - `archived_at: Optional[datetime]`
 
-    A timestamp in RFC 3339 format
+    When the credential was archived. Null if not archived.
 
     format: date-time
 
   - `auth: Auth`
 
-    Authentication details for a credential.
+    Authentication configuration for this credential.
 
     - `class BetaManagedAgentsMCPOAuthAuthResponse`
 
@@ -343,7 +343,7 @@ Create Credential
 
       - `refresh: Optional[BetaManagedAgentsMCPOAuthRefreshResponse]`
 
-        OAuth refresh token configuration returned in credential responses.
+        Refresh token configuration, if the credential supports token refresh.
 
         - `client_id: str`
 
@@ -652,13 +652,13 @@ List Credentials
 
   - `archived_at: Optional[datetime]`
 
-    A timestamp in RFC 3339 format
+    When the credential was archived. Null if not archived.
 
     format: date-time
 
   - `auth: Auth`
 
-    Authentication details for a credential.
+    Authentication configuration for this credential.
 
     - `class BetaManagedAgentsMCPOAuthAuthResponse`
 
@@ -678,7 +678,7 @@ List Credentials
 
       - `refresh: Optional[BetaManagedAgentsMCPOAuthRefreshResponse]`
 
-        OAuth refresh token configuration returned in credential responses.
+        Refresh token configuration, if the credential supports token refresh.
 
         - `client_id: str`
 
@@ -978,13 +978,13 @@ Get Credential
 
   - `archived_at: Optional[datetime]`
 
-    A timestamp in RFC 3339 format
+    When the credential was archived. Null if not archived.
 
     format: date-time
 
   - `auth: Auth`
 
-    Authentication details for a credential.
+    Authentication configuration for this credential.
 
     - `class BetaManagedAgentsMCPOAuthAuthResponse`
 
@@ -1004,7 +1004,7 @@ Get Credential
 
       - `refresh: Optional[BetaManagedAgentsMCPOAuthRefreshResponse]`
 
-        OAuth refresh token configuration returned in credential responses.
+        Refresh token configuration, if the credential supports token refresh.
 
         - `client_id: str`
 
@@ -1177,7 +1177,7 @@ Update Credential
 
 - `auth: Optional[Auth]`
 
-  Updated authentication details for a credential.
+  Updated authentication configuration. The `type` is immutable; the variant sent must match the stored credential's type.
 
   - `class BetaManagedAgentsMCPOAuthUpdateParams`
 
@@ -1199,7 +1199,7 @@ Update Credential
 
     - `refresh: Optional[BetaManagedAgentsMCPOAuthRefreshUpdateParams]`
 
-      Parameters for updating OAuth refresh token configuration.
+      Updated refresh token configuration.
 
       - `refresh_token: Optional[str]`
 
@@ -1429,13 +1429,13 @@ Update Credential
 
   - `archived_at: Optional[datetime]`
 
-    A timestamp in RFC 3339 format
+    When the credential was archived. Null if not archived.
 
     format: date-time
 
   - `auth: Auth`
 
-    Authentication details for a credential.
+    Authentication configuration for this credential.
 
     - `class BetaManagedAgentsMCPOAuthAuthResponse`
 
@@ -1455,7 +1455,7 @@ Update Credential
 
       - `refresh: Optional[BetaManagedAgentsMCPOAuthRefreshResponse]`
 
-        OAuth refresh token configuration returned in credential responses.
+        Refresh token configuration, if the credential supports token refresh.
 
         - `client_id: str`
 
@@ -1917,13 +1917,13 @@ Archive Credential
 
   - `archived_at: Optional[datetime]`
 
-    A timestamp in RFC 3339 format
+    When the credential was archived. Null if not archived.
 
     format: date-time
 
   - `auth: Auth`
 
-    Authentication details for a credential.
+    Authentication configuration for this credential.
 
     - `class BetaManagedAgentsMCPOAuthAuthResponse`
 
@@ -1943,7 +1943,7 @@ Archive Credential
 
       - `refresh: Optional[BetaManagedAgentsMCPOAuthRefreshResponse]`
 
-        OAuth refresh token configuration returned in credential responses.
+        Refresh token configuration, if the credential supports token refresh.
 
         - `client_id: str`
 
@@ -2242,11 +2242,11 @@ Validate Credential
 
   - `mcp_probe: Optional[BetaManagedAgentsMCPProbe]`
 
-    The failing step of an MCP validation probe.
+    Details of the failing MCP probe step. Null when the probe succeeded.
 
     - `http_response: Optional[BetaManagedAgentsRefreshHTTPResponse]`
 
-      An HTTP response captured during a credential validation probe.
+      The captured HTTP error response. Null when no HTTP response was received (timeout, DNS, TLS).
 
       - `body: str`
 
@@ -2272,20 +2272,15 @@ Validate Credential
 
   - `refresh: Optional[BetaManagedAgentsRefreshObject]`
 
-    Outcome of a refresh-token exchange attempted during credential validation.
+    Details of the refresh-token exchange attempted on a 401. Null when no refresh was attempted.
 
     - `http_response: Optional[BetaManagedAgentsRefreshHTTPResponse]`
 
-      An HTTP response captured during a credential validation probe.
+      The captured HTTP error response from the token endpoint. Populated only when `status` is `failed`.
 
     - `status: Literal["succeeded", "failed", "connect_error", "no_refresh_token"]`
 
-      Outcome of a refresh-token exchange attempted during credential validation.
-
-      - `succeeded` - The token endpoint returned a new access token.
-      - `failed` - The token endpoint returned an error response. See `http_response` for detail.
-      - `connect_error` - The token endpoint could not be reached (DNS, TLS, or connection error).
-      - `no_refresh_token` - No refresh token is stored for the credential, so no exchange was attempted.
+      Outcome of the refresh attempt.
 
       - `"succeeded"`
 
@@ -2305,7 +2300,7 @@ Validate Credential
 
   - `status: BetaManagedAgentsCredentialValidationStatus`
 
-    Overall verdict of a credential validation probe.
+    Overall verdict of the validation probe.
 
     - `"valid"`
 
@@ -2321,7 +2316,7 @@ Validate Credential
 
   - `validated_at: datetime`
 
-    A timestamp in RFC 3339 format
+    When the validation probe was performed.
 
     format: date-time
 
@@ -2396,13 +2391,13 @@ print(beta_managed_agents_credential_validation.credential_id)
 
   - `archived_at: Optional[datetime]`
 
-    A timestamp in RFC 3339 format
+    When the credential was archived. Null if not archived.
 
     format: date-time
 
   - `auth: Auth`
 
-    Authentication details for a credential.
+    Authentication configuration for this credential.
 
     - `class BetaManagedAgentsMCPOAuthAuthResponse`
 
@@ -2422,7 +2417,7 @@ print(beta_managed_agents_credential_validation.credential_id)
 
       - `refresh: Optional[BetaManagedAgentsMCPOAuthRefreshResponse]`
 
-        OAuth refresh token configuration returned in credential responses.
+        Refresh token configuration, if the credential supports token refresh.
 
         - `client_id: str`
 
@@ -2574,11 +2569,11 @@ print(beta_managed_agents_credential_validation.credential_id)
 
   - `mcp_probe: Optional[BetaManagedAgentsMCPProbe]`
 
-    The failing step of an MCP validation probe.
+    Details of the failing MCP probe step. Null when the probe succeeded.
 
     - `http_response: Optional[BetaManagedAgentsRefreshHTTPResponse]`
 
-      An HTTP response captured during a credential validation probe.
+      The captured HTTP error response. Null when no HTTP response was received (timeout, DNS, TLS).
 
       - `body: str`
 
@@ -2604,20 +2599,15 @@ print(beta_managed_agents_credential_validation.credential_id)
 
   - `refresh: Optional[BetaManagedAgentsRefreshObject]`
 
-    Outcome of a refresh-token exchange attempted during credential validation.
+    Details of the refresh-token exchange attempted on a 401. Null when no refresh was attempted.
 
     - `http_response: Optional[BetaManagedAgentsRefreshHTTPResponse]`
 
-      An HTTP response captured during a credential validation probe.
+      The captured HTTP error response from the token endpoint. Populated only when `status` is `failed`.
 
     - `status: Literal["succeeded", "failed", "connect_error", "no_refresh_token"]`
 
-      Outcome of a refresh-token exchange attempted during credential validation.
-
-      - `succeeded` - The token endpoint returned a new access token.
-      - `failed` - The token endpoint returned an error response. See `http_response` for detail.
-      - `connect_error` - The token endpoint could not be reached (DNS, TLS, or connection error).
-      - `no_refresh_token` - No refresh token is stored for the credential, so no exchange was attempted.
+      Outcome of the refresh attempt.
 
       - `"succeeded"`
 
@@ -2637,7 +2627,7 @@ print(beta_managed_agents_credential_validation.credential_id)
 
   - `status: BetaManagedAgentsCredentialValidationStatus`
 
-    Overall verdict of a credential validation probe.
+    Overall verdict of the validation probe.
 
     - `"valid"`
 
@@ -2653,7 +2643,7 @@ print(beta_managed_agents_credential_validation.credential_id)
 
   - `validated_at: datetime`
 
-    A timestamp in RFC 3339 format
+    When the validation probe was performed.
 
     format: date-time
 
@@ -2666,10 +2656,6 @@ print(beta_managed_agents_credential_validation.credential_id)
 - `type BetaManagedAgentsCredentialValidationStatus = Literal["valid", "invalid", "unknown"]`
 
   Overall verdict of a credential validation probe.
-
-  - `valid` - The credential successfully authenticated against its MCP server.
-  - `invalid` - The probe reached the MCP server and was rejected, and a refresh (if attempted) did not recover it.
-  - `unknown` - The probe could not determine validity — for example, a transport error or a successful refresh that was not re-probed.
 
   - `"valid"`
 
@@ -2923,7 +2909,7 @@ print(beta_managed_agents_credential_validation.credential_id)
 
   - `refresh: Optional[BetaManagedAgentsMCPOAuthRefreshResponse]`
 
-    OAuth refresh token configuration returned in credential responses.
+    Refresh token configuration, if the credential supports token refresh.
 
     - `client_id: str`
 
@@ -2989,7 +2975,7 @@ print(beta_managed_agents_credential_validation.credential_id)
 
   - `refresh: Optional[BetaManagedAgentsMCPOAuthRefreshParams]`
 
-    OAuth refresh token parameters for creating a credential with refresh support.
+    Refresh token configuration, if the credential supports token refresh.
 
     - `client_id: str`
 
@@ -3229,7 +3215,7 @@ print(beta_managed_agents_credential_validation.credential_id)
 
   - `refresh: Optional[BetaManagedAgentsMCPOAuthRefreshUpdateParams]`
 
-    Parameters for updating OAuth refresh token configuration.
+    Updated refresh token configuration.
 
     - `refresh_token: Optional[str]`
 
@@ -3277,7 +3263,7 @@ print(beta_managed_agents_credential_validation.credential_id)
 
   - `http_response: Optional[BetaManagedAgentsRefreshHTTPResponse]`
 
-    An HTTP response captured during a credential validation probe.
+    The captured HTTP error response. Null when no HTTP response was received (timeout, DNS, TLS).
 
     - `body: str`
 
@@ -3333,7 +3319,7 @@ print(beta_managed_agents_credential_validation.credential_id)
 
   - `http_response: Optional[BetaManagedAgentsRefreshHTTPResponse]`
 
-    An HTTP response captured during a credential validation probe.
+    The captured HTTP error response from the token endpoint. Populated only when `status` is `failed`.
 
     - `body: str`
 
@@ -3355,12 +3341,7 @@ print(beta_managed_agents_credential_validation.credential_id)
 
   - `status: Literal["succeeded", "failed", "connect_error", "no_refresh_token"]`
 
-    Outcome of a refresh-token exchange attempted during credential validation.
-
-    - `succeeded` - The token endpoint returned a new access token.
-    - `failed` - The token endpoint returned an error response. See `http_response` for detail.
-    - `connect_error` - The token endpoint could not be reached (DNS, TLS, or connection error).
-    - `no_refresh_token` - No refresh token is stored for the credential, so no exchange was attempted.
+    Outcome of the refresh attempt.
 
     - `"succeeded"`
 

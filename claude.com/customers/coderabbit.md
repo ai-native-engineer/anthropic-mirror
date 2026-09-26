@@ -61,7 +61,7 @@ CodeRabbit leverages Claude to deliver:
 * Early error and bug detection with improvement suggestions
 * Unified quality assurance combining linting and security tools
 
-![CodeRabbit product screen](https://assets.claude.com/6e0e350fbff98e231e22f3dd7005d50b69b01ad5.png)
+![CodeRabbit product screen](https://assets.claude.com/6e0e350fbff98e231e22f3dd7005d50b69b01ad5.png?w=2400&q=75&fm=webp&fit=max)
 
 ## Transforming development team productivity
 

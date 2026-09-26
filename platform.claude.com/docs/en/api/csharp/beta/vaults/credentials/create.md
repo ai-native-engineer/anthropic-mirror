@@ -23,7 +23,7 @@ Create Credential
 
   - `required Auth auth`
 
-    Body param: Authentication details for creating a credential.
+    Body param: Authentication configuration for the credential.
 
     - `class BetaManagedAgentsMcpOAuthCreateParams`
 
@@ -51,7 +51,7 @@ Create Credential
 
       - `BetaManagedAgentsMcpOAuthRefreshParams? Refresh`
 
-        OAuth refresh token parameters for creating a credential with refresh support.
+        Refresh token configuration, if the credential supports token refresh.
 
         - `required string ClientID`
 
@@ -313,13 +313,13 @@ Create Credential
 
   - `required DateTimeOffset? ArchivedAt`
 
-    A timestamp in RFC 3339 format
+    When the credential was archived. Null if not archived.
 
     format: date-time
 
   - `required Auth Auth`
 
-    Authentication details for a credential.
+    Authentication configuration for this credential.
 
     - `class BetaManagedAgentsMcpOAuthAuthResponse`
 
@@ -339,7 +339,7 @@ Create Credential
 
       - `BetaManagedAgentsMcpOAuthRefreshResponse? Refresh`
 
-        OAuth refresh token configuration returned in credential responses.
+        Refresh token configuration, if the credential supports token refresh.
 
         - `required string ClientID`
 

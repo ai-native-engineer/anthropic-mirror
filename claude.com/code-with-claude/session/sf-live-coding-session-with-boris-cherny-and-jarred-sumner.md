@@ -30,7 +30,7 @@ Speaker(s)
 
 ## Watch recording
 
-![Live coding session with Boris Cherny and Jarred Sumner](https://assets.claude.com/7a5a003940ec430059c51d1859893bc380181912.jpg?w=1600&auto=format)
+![Live coding session with Boris Cherny and Jarred Sumner](https://assets.claude.com/7a5a003940ec430059c51d1859893bc380181912.jpg?w=2400&q=75&fm=webp&fit=max)
 
 ## Anthropic's developer conference, recorded
 

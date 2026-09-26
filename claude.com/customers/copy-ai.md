@@ -53,7 +53,7 @@ For example, Copy.ai uses Claude for the following:
 * Brand voice adaptation: The platform uses Claude to maintain consistent brand voice across various content types and authors.
 * Research and fact-checking: Claude helps gather and incorporate relevant statistics and facts to substantiate content claims.
 
-![App screen from the Copy.ai platform](https://assets.claude.com/58e283d6ae00e6faa9779f8052ebd73d57609a2e.jpg)
+![App screen from the Copy.ai platform](https://assets.claude.com/58e283d6ae00e6faa9779f8052ebd73d57609a2e.jpg?w=2400&q=75&fm=webp&fit=max)
 
 "In the content creation field, quality and creativity are critical. Marketers need to have confidence in the outputs being generated," says Kyle Coleman, Chief Marketing Officer at Copy.ai. "Claude enhances our content solutions at Copy.ai by helping us deliver more human-like, creative content and empowering marketers to produce crucial materials that can significantly impact their marketing efforts."
 

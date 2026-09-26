@@ -360,3 +360,5 @@ Erik Schluntz optimized the SWE-bench agent and wrote this blog post. Simon Bigg
 ## Get the developer newsletter
 
 Product updates, how-tos, community spotlights, and more. Delivered monthly to your inbox.
+
+Claude SWE-Bench Performance \ Anthropic

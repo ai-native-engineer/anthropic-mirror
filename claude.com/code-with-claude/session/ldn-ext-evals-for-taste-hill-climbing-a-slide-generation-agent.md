@@ -27,5 +27,3 @@ Speaker(s)
 Keynotes, demos, and conversations with the teams behind Claude. Recorded at Code w/ Claude 2026 San Francisco and ready to replay.
 
 [Browse recordings](https://claude.com/code-with-claude/london)
-
-Evals for taste: Hill-climbing a slide-generation agent | Session | Code w/ Claude 2026

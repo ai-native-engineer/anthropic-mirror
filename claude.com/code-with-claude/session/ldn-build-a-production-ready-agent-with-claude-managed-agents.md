@@ -27,7 +27,7 @@ Speaker(s)
 
 ## Watch recording
 
-![Build a production-ready agent with Claude Managed Agents](https://assets.claude.com/b79d4f3e492d3aa6a53b489f657616ea6a44b1e0.jpg?w=1600&auto=format)
+![Build a production-ready agent with Claude Managed Agents](https://assets.claude.com/b79d4f3e492d3aa6a53b489f657616ea6a44b1e0.jpg?w=2400&q=75&fm=webp&fit=max)
 
 ## Anthropic's developer conference, recorded
 

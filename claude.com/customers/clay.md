@@ -40,7 +40,7 @@ Clay's AI-powered platform helps RevOps and growth teams run highly personalized
 
 The platform offers various features to streamline sales processes. Claygent, the platform’s AI research agent, helps in building and enriching lead lists. The data organization feature transforms broad CRM segments into specific, targeted lists. Additionally, the platform generates personalized messaging, creating tailored content for cold calls and email campaigns, leading to increased revenue at lower costs.
 
-![](https://assets.claude.com/7d04bbc9f2a6fe4af12b92f6e08fc7b97fa17e59.png)
+![](https://assets.claude.com/7d04bbc9f2a6fe4af12b92f6e08fc7b97fa17e59.png?w=2400&q=75&fm=webp&fit=max)
 
 ## Meeting user demand for Claude
 

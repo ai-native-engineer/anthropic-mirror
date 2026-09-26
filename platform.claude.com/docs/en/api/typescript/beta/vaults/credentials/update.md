@@ -27,7 +27,7 @@ Update Credential
 
   - `auth?: BetaManagedAgentsMCPOAuthUpdateParams | BetaManagedAgentsStaticBearerUpdateParams | BetaManagedAgentsEnvironmentVariableUpdateParams`
 
-    Body param: Updated authentication details for a credential.
+    Body param: Updated authentication configuration. The `type` is immutable; the variant sent must match the stored credential's type.
 
     - `interface BetaManagedAgentsMCPOAuthUpdateParams`
 
@@ -49,7 +49,7 @@ Update Credential
 
       - `refresh?: BetaManagedAgentsMCPOAuthRefreshUpdateParams | null`
 
-        Parameters for updating OAuth refresh token configuration.
+        Updated refresh token configuration.
 
         - `refresh_token?: string | null`
 
@@ -279,13 +279,13 @@ Update Credential
 
   - `archived_at: string | null`
 
-    A timestamp in RFC 3339 format
+    When the credential was archived. Null if not archived.
 
     format: date-time
 
   - `auth: BetaManagedAgentsMCPOAuthAuthResponse | BetaManagedAgentsStaticBearerAuthResponse | BetaManagedAgentsEnvironmentVariableAuthResponse`
 
-    Authentication details for a credential.
+    Authentication configuration for this credential.
 
     - `interface BetaManagedAgentsMCPOAuthAuthResponse`
 
@@ -305,7 +305,7 @@ Update Credential
 
       - `refresh?: BetaManagedAgentsMCPOAuthRefreshResponse | null`
 
-        OAuth refresh token configuration returned in credential responses.
+        Refresh token configuration, if the credential supports token refresh.
 
         - `client_id: string`
 

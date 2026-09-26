@@ -6,7 +6,7 @@ Case study | Claude Platform
 
 [Try Claude](https://claude.ai)
 
-![Video thumbnail](https://assets.claude.com/beb45dd518dfb27f8ab6b59fd424c0548015d552.jpg)
+![Video thumbnail](https://assets.claude.com/beb45dd518dfb27f8ab6b59fd424c0548015d552.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Industry:
 :   Software
@@ -30,7 +30,7 @@ Time savings when CSMs used Claude for direct troubleshooting of customer escala
 
 Q&A
 
-![Q&A](https://assets.claude.com/99e4b8403743aa6517ad05b9bea7ee2244ac437e.jpg)
+![Q&A](https://assets.claude.com/99e4b8403743aa6517ad05b9bea7ee2244ac437e.jpg?w=2400&q=75&fm=webp&fit=max)
 
 HubSpot product and marketing leaders on scaling Claude Cowork
 
@@ -38,7 +38,7 @@ HubSpot product and marketing leaders on scaling Claude Cowork
 
 Claude Code
 
-![Claude Code](https://assets.claude.com/38e8385d1c5f9c0f71c486994e22fc5861a4522d.jpg)
+![Claude Code](https://assets.claude.com/38e8385d1c5f9c0f71c486994e22fc5861a4522d.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
 
@@ -62,7 +62,7 @@ HubSpot's teams faced a common challenge across the organization: too much manua
 
 On the engineering side, the challenge was navigating HubSpot's distributed codebase—thousands of services interacting with each other daily. When teams needed to tackle large-scale migrations or understand unfamiliar code, the learning curve slowed everything down.
 
-![](https://assets.claude.com/b57c4661ccb8ccb263b73b5beed4e348bf6b2613.png)
+![](https://assets.claude.com/b57c4661ccb8ccb263b73b5beed4e348bf6b2613.png?w=2400&q=75&fm=webp&fit=max)
 
 The team ran internal benchmarks using a battery of engineering tasks from real HubSpot work. Claude consistently required the least human intervention to reach finished solutions.
 
@@ -78,7 +78,7 @@ For marketing and customer success, Claude projects were the catalyst for adopti
 
 ‍
 
-![](https://assets.claude.com/393189f230cc8ef0f04928594a0286fd99dcf1bf.png)
+![](https://assets.claude.com/393189f230cc8ef0f04928594a0286fd99dcf1bf.png?w=2400&q=75&fm=webp&fit=max)
 
 Francesco Signoretti, Engineering Lead on HubSpot's Developer Experience AI team
 
@@ -92,7 +92,7 @@ The impact is measurable across departments. Marketing reports a 40% productivit
 
 "Claude gives me the support and time to be a more strategic partner for my customers," Caruthers says. "As a result, they're now telling me our conversations are more meaningful than ever."
 
-![](https://assets.claude.com/8a02c1aa66e144c4738b35601cd4aaa8e37f8cbd.png)
+![](https://assets.claude.com/8a02c1aa66e144c4738b35601cd4aaa8e37f8cbd.png?w=2400&q=75&fm=webp&fit=max)
 
 Engineering uses Claude Code for development work, connecting it to HubSpot's infrastructure through MCP.
 

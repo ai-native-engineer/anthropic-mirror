@@ -10,7 +10,15 @@ Jun 17, 2022
 
 In this paper, we report an architectural change which appears to substantially increase the fraction of MLP neurons which appear to be "interpretable" (i.e. respond to an articulable property of the input), at little to no cost to ML performance. Specifically, we replace the activation function with a softmax linear unit (which we term SoLU) and show that this significantly increases the fraction of neurons in the MLP layers which seem to correspond to readily human-understandable concepts, phrases, or categories on quick investigation, as measured by randomized and blinded experiments. We then study our SoLU models and use them to gain several new insights about how information is processed in transformers. However, we also discover some evidence that the superposition hypothesis is true and there is no free lunch: SoLU may be making some features more interpretable by “hiding” others and thus making them even more deeply uninterpretable. Despite this, SoLU still seems like a net win, as in practical terms it substantially increases the fraction of neurons we are able to understand.
 
+### Yes, Claude can do Nine Loops
+
+Guest writer and physicist Matt von Hippel shares what happened when he issued a challenge to AI companies to solve a problem in his former subfield of theoretical physics.
+
+[Read more](https://www.anthropic.com/research/yes-claude-can-do-nine-loops)
+
 ### Project Swap: What happens when agents trade for us?
+
+To see what works and what breaks when agents are sent into a market, we made a miniature market of Claudes—a more controlled sequel to Project Deal, our first experiment with agents interacting in a marketplace on people's behalf.
 
 [Read more](https://www.anthropic.com/research/project-swap)
 
@@ -20,8 +28,4 @@ Claude made the open-source models that scientists use to predict and design bio
 
 [Read more](https://www.anthropic.com/research/claude-uplifts-biomolecular-modeling)
 
-### Measuring tactical intelligence targeting and conventional weapons capabilities of AI models
-
-Anthropic’s Frontier Red Team developed new evaluations to measure AI capabilities in tactical intelligence targeting and conventional weapons development.
-
-[Read more](https://www.anthropic.com/research/intelligence-targeting-conventional-weapons-capabilities)
+Softmax linear units \ Anthropic

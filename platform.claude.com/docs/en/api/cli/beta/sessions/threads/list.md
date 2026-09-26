@@ -57,7 +57,7 @@ List Session Threads
 
     - `agent: BetaManagedAgentsSessionThreadAgent or BetaManagedAgentsAdvisor`
 
-      The resolved agent a `session_thread` runs.
+      Resolved agent definition for this thread. Snapshot of the agent at thread creation time.
 
       - `beta_managed_agents_session_thread_agent: object`
 
@@ -81,7 +81,7 @@ List Session Threads
 
           Model identifier and configuration.
 
-          - `id: "claude-opus-5-5" or "claude-fable-5-1" or "claude-sonnet-5" or 12 more or string`
+          - `id: string or "claude-opus-5-5" or "claude-fable-5-1" or "claude-sonnet-5" or 12 more`
 
             The model that will power your agent.
 
@@ -149,7 +149,7 @@ List Session Threads
 
           - `effort: optional BetaManagedAgentsEffortLow or BetaManagedAgentsEffortMedium or BetaManagedAgentsEffortHigh or 2 more`
 
-            How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+            How hard Claude works on each inference call. One of `low`, `medium`, `high`, `xhigh`, `max`. Always present; resolved to the per-model default at save time when not supplied.
 
             - `beta_managed_agents_effort_low: object`
 
@@ -187,7 +187,7 @@ List Session Threads
 
           - `speed: optional "standard" or "fast"`
 
-            Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+            Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Defaults to `standard`. Not all models support `fast`; invalid combinations are rejected at create time.
 
             - `"standard"`
 
@@ -591,13 +591,13 @@ List Session Threads
 
     - `archived_at: string`
 
-      A timestamp in RFC 3339 format
+      When the thread was archived. Null if not archived.
 
       format: date-time
 
     - `created_at: string`
 
-      A timestamp in RFC 3339 format
+      When the thread was created.
 
       format: date-time
 
@@ -611,7 +611,7 @@ List Session Threads
 
     - `stats: object`
 
-      Timing statistics for a session thread.
+      Timing statistics for this thread. Null until the thread's first status transition.
 
       - `active_seconds: optional number`
 
@@ -633,7 +633,7 @@ List Session Threads
 
     - `status: "running" or "idle" or "rescheduling" or "terminated"`
 
-      SessionThreadStatus enum
+      Current execution status of the thread.
 
       - `"running"`
 
@@ -645,13 +645,13 @@ List Session Threads
 
     - `updated_at: string`
 
-      A timestamp in RFC 3339 format
+      When the thread was last updated.
 
       format: date-time
 
     - `usage: object`
 
-      Cumulative token usage for a session thread across all turns.
+      Cumulative token usage for this thread. Null until the thread's first idle transition.
 
       - `active_seconds: optional number`
 
@@ -661,7 +661,7 @@ List Session Threads
 
       - `cache_creation: optional object`
 
-        Prompt-cache creation token usage broken down by cache lifetime.
+        Tokens used to create prompt cache entries, broken down by cache TTL.
 
         - `ephemeral_1h_input_tokens: optional number`
 
@@ -689,7 +689,7 @@ List Session Threads
 
       - `list_cost: optional object`
 
-        A monetary amount in a specific currency.
+        Cumulative list cost of this thread across all turns, priced at public list rates. Absent until cost tracking is available for the thread. Each figure is rounded to the nearest cent independently and the session's aggregate `usage.list_cost` additionally includes session runtime, so per-thread costs do not sum exactly to the session figure; the session figure is authoritative and is what a budget is enforced against.
 
         - `amount: string`
 
@@ -707,7 +707,7 @@ List Session Threads
 
       - `server_tool_use: optional object`
 
-        Cumulative count of server-executed tool invocations, broken down by tool.
+        Cumulative server-executed tool usage across all turns of this thread. Absent until server-tool tracking is available for the thread.
 
         - `web_fetch_requests: optional number`
 

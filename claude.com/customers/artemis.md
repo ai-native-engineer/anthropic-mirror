@@ -53,7 +53,7 @@ The problem runs deep. A skilled detection engineer in any security organization
 
 How security teams use Claude
 
-![How security teams use Claude](https://assets.claude.com/eae38b41a06a5518c4438cb1d721b9b42647cfe2.jpg)
+![How security teams use Claude](https://assets.claude.com/eae38b41a06a5518c4438cb1d721b9b42647cfe2.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Claude helps security teams investigate threats, validate findings, and resolve issues faster.
 
@@ -69,7 +69,7 @@ Artemis evaluated multiple model providers before building its platform on Claud
 
 Claude on Amazon Bedrock
 
-![Claude on Amazon Bedrock](https://assets.claude.com/3bf99530eb5387631c2eb5a95f92a81c5020c4ef.png)
+![Claude on Amazon Bedrock](https://assets.claude.com/3bf99530eb5387631c2eb5a95f92a81c5020c4ef.png?w=2400&q=75&fm=webp&fit=max)
 
 Build innovative AI applications with safer systems from Anthropic, supported by secure infrastructure from AWS.
 

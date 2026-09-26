@@ -54,7 +54,7 @@ Rocket Money had already built the underlying machinery, with millions of users 
 
 Q&A: Rocket Money on building agents that fix their own code
 
-![Q&A: Rocket Money on building agents that fix their own code](https://assets.claude.com/42628d0586b397e10585e4eee5249b6e1412e733.jpg)
+![Q&A: Rocket Money on building agents that fix their own code](https://assets.claude.com/42628d0586b397e10585e4eee5249b6e1412e733.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Anthropic spoke with Rocket Money's engineering team about the architecture behind Rowan and their approach to building agents in consumer AI.
 
@@ -80,7 +80,7 @@ Because Rowan handles money, the architecture is also built to be auditable. Str
 
 Choosing the right Claude model
 
-![Choosing the right Claude model](https://assets.claude.com/7388619b452db0af26c78442a275c86c5ebe3124.jpg)
+![Choosing the right Claude model](https://assets.claude.com/7388619b452db0af26c78442a275c86c5ebe3124.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Learn when to use Haiku, Sonnet, or Opus to get better results and stay inside your rate limit. A practical guide to picking the right Claude model.
 

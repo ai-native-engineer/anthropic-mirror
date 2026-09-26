@@ -55,7 +55,7 @@ Conventional delivery would have taken at least twice the available time and mon
 
 Claude on Amazon Bedrock
 
-![Claude on Amazon Bedrock](https://assets.claude.com/3bf99530eb5387631c2eb5a95f92a81c5020c4ef.png)
+![Claude on Amazon Bedrock](https://assets.claude.com/3bf99530eb5387631c2eb5a95f92a81c5020c4ef.png?w=2400&q=75&fm=webp&fit=max)
 
 Build innovative AI applications with safer systems from Anthropic, supported by secure infrastructure from AWS.
 
@@ -85,7 +85,7 @@ The design philosophy is deliberately restrained. "Trust the model," Bae advised
 
 Claude Code
 
-![Claude Code](https://assets.claude.com/38e8385d1c5f9c0f71c486994e22fc5861a4522d.jpg)
+![Claude Code](https://assets.claude.com/38e8385d1c5f9c0f71c486994e22fc5861a4522d.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
 

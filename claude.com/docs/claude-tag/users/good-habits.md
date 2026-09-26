@@ -141,7 +141,7 @@ When Claude gets something wrong, or learns something worth keeping, where you p
 
 | You want Claude to know | Put it in | Who can write it | Reaches |
 | --- | --- | --- | --- |
-| How this channel should behave: format, tone, when to respond | [**Channel memory**](https://claude.com/docs/claude-tag/users/memory) (say it and ask Claude to remember) | Anyone in the channel | This channel (or workspace, from a public channel) |
+| How this channel should behave: format, tone, when to respond | [**Channel memory**](https://claude.com/docs/claude-tag/users/memory) (say it and ask Claude to remember) | Anyone in the channel | This channel; the whole workspace only if Claude saves it as a workspace note from a public channel |
 | Conventions and setup for one repository: file layout, PR labels, dependencies to install | **`CLAUDE.md`** at the repo root ([loaded when the repo is](https://claude.com/docs/claude-tag/admins/configure-github#what-loads-from-a-repository)) | Anyone with repo write | Any session that works in that repo, from any channel |
 | Standing rules for this channel that outrank memory | The [**Configure** page](#configure-claude-for-a-channel), in the **Channel instructions** field | Channel members, unless an admin has [restricted it](https://claude.com/docs/claude-tag/admins/attach-to-scope#restrict-who-can-set-channel-instructions) | This channel |
 | How to use a tool correctly, or follow a specific process, org-wide | [**A skill**](https://claude.com/docs/claude-tag/admins/skills-repo) in your org’s plugin marketplace | An organization Owner adds it; anyone can ask Claude to open a PR proposing the change | Every channel under the scope it’s attached to |

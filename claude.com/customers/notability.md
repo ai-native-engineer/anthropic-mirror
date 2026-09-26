@@ -47,7 +47,7 @@ Students were already searching for a fix, bringing AI tools into their studying
 
 Education
 
-![Education](https://assets.claude.com/b3e6d0547ee5dc0654c639ece4b89778e2edb536.jpg)
+![Education](https://assets.claude.com/b3e6d0547ee5dc0654c639ece4b89778e2edb536.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Trusted, responsible AI tools for students and educators, from personalized learning to research assistance.
 
@@ -71,7 +71,7 @@ User reports have moved steadily in one direction: since Learn’s early release
 
 Choosing the right Claude model
 
-![Choosing the right Claude model](https://assets.claude.com/7388619b452db0af26c78442a275c86c5ebe3124.jpg)
+![Choosing the right Claude model](https://assets.claude.com/7388619b452db0af26c78442a275c86c5ebe3124.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Learn when to use Haiku, Sonnet, or Opus to get better results and stay inside your rate limit. A practical guide to picking the right Claude model.
 
@@ -93,7 +93,7 @@ Notability plans to continue investing in ways to make a student's own material 
 
 Claude Enterprise
 
-![Claude Enterprise](https://assets.claude.com/50a00469e498d2c960d9e45f1a4a37d2d7a92f2e.jpg)
+![Claude Enterprise](https://assets.claude.com/50a00469e498d2c960d9e45f1a4a37d2d7a92f2e.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Put Claude to work across your organization. Help everyone think deeper, do more, and build securely.
 

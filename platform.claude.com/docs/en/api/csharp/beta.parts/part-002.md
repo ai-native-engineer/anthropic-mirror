@@ -3,260 +3,6 @@
 
 <!-- chunk-start -->
 
-    - `StructuredOutputs2025_11_13("structured-outputs-2025-11-13")`
-
-    - `TaskBudgets2026_03_13("task-budgets-2026-03-13")`
-
-    - `ThinkingDisplayUpdates2026_08_18("thinking-display-updates-2026-08-18")`
-
-    - `CEUserManagement2026_07_13("ce-user-management-2026-07-13")`
-
-    - `MidConversationOutputConfig2026_07_01("mid-conversation-output-config-2026-07-01")`
-
-    - `ThinkingBindingControls2026_08_01("thinking-binding-controls-2026-08-01")`
-
-    - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
-
-    - `Compact2026_09_04("compact-2026-09-04")`
-
-    - `InlineTools2026_09_15("inline-tools-2026-09-15")`
-
-    - `McpClient2026_09_15("mcp-client-2026-09-15")`
-
-  - `string workspaceID`
-
-    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
-
-    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
-
-#### Returns
-
-- `class BetaEnvironment`
-
-  Unified Environment resource for both cloud and self-hosted environments.
-
-  - `JsonElement Type = "environment"`
-
-    The type of object (always 'environment')
-
-  - `required string ID`
-
-    Environment identifier (e.g., 'env_...')
-
-  - `required string? ArchivedAt`
-
-    RFC 3339 timestamp when environment was archived, or null if not archived
-
-  - `required Config Config`
-
-    Environment configuration (either Anthropic Cloud or self-hosted)
-
-    - `class BetaCloudConfig`
-
-      `cloud` environment configuration.
-
-      - `JsonElement Type = "cloud"`
-
-        Environment type
-
-      - `required Networking Networking`
-
-        Network configuration policy.
-
-        - `class BetaUnrestrictedNetwork`
-
-          Unrestricted network access.
-
-          - `JsonElement Type = "unrestricted"`
-
-            Network policy type
-
-        - `class BetaLimitedNetwork`
-
-          Limited network access.
-
-          - `JsonElement Type = "limited"`
-
-            Network policy type
-
-          - `required bool AllowMcpServers`
-
-            Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
-
-          - `required bool AllowPackageManagers`
-
-            Permits outbound access to public package registries (PyPI, npm, etc.) beyond those listed in the `allowed_hosts` array.
-
-          - `required IReadOnlyList<string> AllowedHosts`
-
-            Specifies domains the container can reach.
-
-      - `required BetaPackages Packages`
-
-        Package manager configuration.
-
-        - `Type Type`
-
-          Package configuration type
-
-        - `required IReadOnlyList<string> Apt`
-
-          Ubuntu/Debian packages to install
-
-        - `required IReadOnlyList<string> Cargo`
-
-          Rust packages to install
-
-        - `required IReadOnlyList<string> Gem`
-
-          Ruby packages to install
-
-        - `required IReadOnlyList<string> Go`
-
-          Go packages to install
-
-        - `required IReadOnlyList<string> Npm`
-
-          Node.js packages to install
-
-        - `required IReadOnlyList<string> Pip`
-
-          Python packages to install
-
-    - `class BetaSelfHostedConfig`
-
-      Configuration for self-hosted environments.
-
-      - `JsonElement Type = "self_hosted"`
-
-        Environment type
-
-  - `required string CreatedAt`
-
-    RFC 3339 timestamp when environment was created
-
-  - `required string? Description`
-
-    User-provided description for the environment; null when unset
-
-  - `required IReadOnlyDictionary<string, string> Metadata`
-
-    User-provided metadata key-value pairs
-
-  - `required string Name`
-
-    Human-readable name for the environment
-
-  - `required string UpdatedAt`
-
-    RFC 3339 timestamp when environment was last updated
-
-  - `Scope Scope`
-
-    The visibility scope for this environment. 'organization' means visible to all accounts. 'account' means visible only to the owning account.
-
-    - `Organization("organization")`
-
-    - `Account("account")`
-
-#### Example
-
-```csharp
-EnvironmentUpdateParams parameters = new()
-{
-    EnvironmentID = "env_011CZkZ9X2dpNyB7HsEFoRfW"
-};
-
-var betaEnvironment = await client.Beta.Environments.Update(parameters);
-
-Console.WriteLine(betaEnvironment);
-```
-
-##### Response (200)
-
-```json
-{
-  "id": "env_011CZkZ9X2dpNyB7HsEFoRfW",
-  "archived_at": null,
-  "config": {
-    "networking": {
-      "allow_mcp_servers": false,
-      "allow_package_managers": true,
-      "allowed_hosts": [
-        "api.example.com"
-      ],
-      "type": "limited"
-    },
-    "packages": {
-      "apt": [
-        "string"
-      ],
-      "cargo": [
-        "string"
-      ],
-      "gem": [
-        "string"
-      ],
-      "go": [
-        "string"
-      ],
-      "npm": [
-        "string"
-      ],
-      "pip": [
-        "pandas",
-        "numpy"
-      ],
-      "type": "packages"
-    },
-    "type": "cloud"
-  },
-  "created_at": "2026-03-15T10:00:00Z",
-  "description": "Python environment with data-analysis packages.",
-  "metadata": {},
-  "name": "python-data-analysis",
-  "type": "environment",
-  "updated_at": "2026-03-15T10:00:00Z",
-  "scope": "organization"
-}
-```
-
-### Delete Environment
-
-`BetaEnvironmentDeleteResponse Beta.Environments.Delete(parameters, cancellationToken = default)`
-
-**DELETE** `/v1/environments/{environment_id}`
-
-Delete an environment by ID. Returns a confirmation of the deletion.
-
-#### Parameters
-
-- `EnvironmentDeleteParams parameters`
-
-  - `required string environmentID`
-
-  - `IReadOnlyList<AnthropicBeta> betas`
-
-    Optional header to specify the beta version(s) you want to use.
-
-    - `MessageBatches2024_09_24("message-batches-2024-09-24")`
-
-    - `PromptCaching2024_07_31("prompt-caching-2024-07-31")`
-
-    - `ComputerUse2024_10_22("computer-use-2024-10-22")`
-
-    - `ComputerUse2025_01_24("computer-use-2025-01-24")`
-
-    - `Pdfs2024_09_25("pdfs-2024-09-25")`
-
-    - `TokenCounting2024_11_01("token-counting-2024-11-01")`
-
-    - `TokenEfficientTools2025_02_19("token-efficient-tools-2025-02-19")`
-
-    - `Output128k2025_02_19("output-128k-2025-02-19")`
-
-    - `FilesApi2025_04_14("files-api-2025-04-14")`
-
     - `McpClient2025_04_04("mcp-client-2025-04-04")`
 
     - `McpClient2025_11_20("mcp-client-2025-11-20")`
@@ -1896,7 +1642,7 @@ List work items in an environment.
 
     Query param: Maximum number of work items to return
 
-    maximum: 1000, minimum: 1
+    minimum: 1, maximum: 1000
 
   - `string? page`
 
@@ -2824,7 +2570,7 @@ Create Session
 
           - `Speed? Speed`
 
-            Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+            Inference speed mode. Defaults to `standard`.
 
             - `Standard("standard")`
 
@@ -2906,7 +2652,7 @@ Create Session
 
               - `PermissionPolicy? PermissionPolicy`
 
-                Permission policy for tool execution.
+                Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
                 - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -2942,7 +2688,7 @@ Create Session
 
               - `PermissionPolicy? PermissionPolicy`
 
-                Permission policy for tool execution.
+                Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
                 - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -2972,7 +2718,7 @@ Create Session
 
               - `PermissionPolicy? PermissionPolicy`
 
-                Permission policy for tool execution.
+                Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
                 - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -3002,7 +2748,7 @@ Create Session
 
               - `PermissionPolicy? PermissionPolicy`
 
-                Permission policy for tool execution.
+                Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
                 - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -3032,7 +2778,7 @@ Create Session
 
               - `PermissionPolicy? PermissionPolicy`
 
-                Permission policy for tool execution.
+                Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
                 - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -3062,7 +2808,7 @@ Create Session
 
               - `PermissionPolicy? PermissionPolicy`
 
-                Permission policy for tool execution.
+                Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
                 - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -3106,7 +2852,7 @@ Create Session
 
               - `PermissionPolicy? PermissionPolicy`
 
-                Permission policy for tool execution.
+                Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
                 - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -3144,7 +2890,7 @@ Create Session
 
               - `PermissionPolicy? PermissionPolicy`
 
-                Permission policy for tool execution.
+                Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
                 - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -3190,7 +2936,7 @@ Create Session
 
           - `BetaManagedAgentsAgentToolsetDefaultConfigParams? DefaultConfig`
 
-            Default configuration for all tools in a toolset.
+            Default configuration applied to all tools in this set.
 
             - `bool? Enabled`
 
@@ -3198,7 +2944,7 @@ Create Session
 
             - `PermissionPolicy? PermissionPolicy`
 
-              Permission policy for tool execution.
+              Default permission policy for tools. Controls whether tool calls are auto-approved or require confirmation.
 
               - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -3240,7 +2986,7 @@ Create Session
 
             - `PermissionPolicy? PermissionPolicy`
 
-              Permission policy for tool execution.
+              Permission policy for this tool. Overrides the `default_config` setting.
 
               - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -3256,7 +3002,7 @@ Create Session
 
           - `BetaManagedAgentsMcpToolsetDefaultConfigParams? DefaultConfig`
 
-            Default configuration for all tools from an MCP server.
+            Default configuration for all tools from this server.
 
             - `bool? Enabled`
 
@@ -3264,7 +3010,7 @@ Create Session
 
             - `PermissionPolicy? PermissionPolicy`
 
-              Permission policy for tool execution.
+              Default permission policy for tools from this server.
 
               - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -3292,7 +3038,7 @@ Create Session
 
           - `required BetaManagedAgentsCustomToolInputSchema InputSchema`
 
-            JSON Schema for custom tool input parameters.
+            JSON Schema defining the expected input parameters for the tool.
 
             - `JsonElement Type = "object"`
 
@@ -3320,7 +3066,7 @@ Create Session
 
   - `BetaManagedAgentsBudgetLimit budget`
 
-    Body param: A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+    Body param: Enforced spend ceiling for the session. Omit to create an uncapped session. Every model the session can run — the agent's model and each callable agent's model — must have a public list price, or the request is rejected with reason `model_not_budgetable`.
 
   - `IReadOnlyList<InitialEvent> initialEvents`
 
@@ -3356,7 +3102,7 @@ Create Session
 
           - `required Source Source`
 
-            Union type for image source variants.
+            The source of the image data.
 
             - `class BetaManagedAgentsBase64ImageSource`
 
@@ -3408,7 +3154,7 @@ Create Session
 
           - `required Source Source`
 
-            Union type for document source variants.
+            The source of the document data.
 
             - `class BetaManagedAgentsBase64DocumentSource`
 
@@ -3494,7 +3240,7 @@ Create Session
 
       - `required Rubric Rubric`
 
-        Rubric for grading the quality of an outcome.
+        How to grade the outcome. Text or file reference.
 
         - `class BetaManagedAgentsFileRubricParams`
 
@@ -3610,7 +3356,7 @@ Create Session
 
       - `Access? Access`
 
-        Access mode for an attached memory store.
+        Access mode for the mounted store. Defaults to read_write. read_only mounts the store as a read-only filesystem.
 
         - `ReadWrite("read_write")`
 
@@ -3838,7 +3584,7 @@ Create Session
 
       - `Effort Effort`
 
-        How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+        How hard Claude works on each inference call. One of `low`, `medium`, `high`, `xhigh`, `max`. Always present; resolved to the per-model default at save time when not supplied.
 
         - `class BetaManagedAgentsEffortLow`
 
@@ -3876,7 +3622,7 @@ Create Session
 
       - `Speed Speed`
 
-        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Defaults to `standard`. Not all models support `fast`; invalid combinations are rejected at create time.
 
         - `Standard("standard")`
 
@@ -3884,7 +3630,7 @@ Create Session
 
     - `required BetaManagedAgentsSessionMultiagentCoordinator? Multiagent`
 
-      Resolved coordinator topology with full agent definitions for each roster member.
+      Resolved multiagent orchestration configuration. Null when the agent is single-threaded.
 
       - `required Type Type`
 
@@ -4340,19 +4086,19 @@ Create Session
 
   - `required DateTimeOffset? ArchivedAt`
 
-    A timestamp in RFC 3339 format
+    When the session was archived. Null if not archived.
 
     format: date-time
 
   - `required BetaManagedAgentsBudgetLimit? Budget`
 
-    A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+    The session's enforced spend ceiling, or null when no budget is set.
 
     - `required Type Type`
 
     - `required BetaMonetaryAmount MaxListCost`
 
-      A monetary amount in a specific currency.
+      Maximum list cost the session may accrue. List price is used regardless of any negotiated discount, so the cap fires at or before the actual charge.
 
       - `required string Amount`
 
@@ -4380,7 +4126,7 @@ Create Session
 
     - `required DateTimeOffset? CompletedAt`
 
-      A timestamp in RFC 3339 format
+      When the outcome reached a terminal result. Null while `pending`/`running`/`evaluating`.
 
       format: date-time
 
@@ -4486,7 +4232,7 @@ Create Session
 
       - `Access? Access`
 
-        Access mode for an attached memory store.
+        Access mode for the mounted store. Defaults to `read_write`. `read_only` mounts the store as a read-only filesystem.
 
         - `ReadWrite("read_write")`
 
@@ -4512,7 +4258,7 @@ Create Session
 
   - `required BetaManagedAgentsSessionStats Stats`
 
-    Timing statistics for a session.
+    Timing statistics for the session.
 
     - `double ActiveSeconds`
 
@@ -4556,7 +4302,7 @@ Create Session
 
   - `required BetaManagedAgentsSessionUsage Usage`
 
-    Cumulative token usage for a session across all turns.
+    Cumulative token usage for the session.
 
     - `double ActiveSeconds`
 
@@ -4566,7 +4312,7 @@ Create Session
 
     - `BetaManagedAgentsCacheCreationUsage CacheCreation`
 
-      Prompt-cache creation token usage broken down by cache lifetime.
+      Tokens used to create prompt cache entries, broken down by cache TTL.
 
       - `int Ephemeral1hInputTokens`
 
@@ -4594,7 +4340,7 @@ Create Session
 
     - `BetaMonetaryAmount? ListCost`
 
-      A monetary amount in a specific currency.
+      Cumulative list cost of the session across all turns, priced at public list rates. Absent until cost tracking is available for the session.
 
     - `int OutputTokens`
 
@@ -4604,7 +4350,7 @@ Create Session
 
     - `BetaManagedAgentsServerToolUsage? ServerToolUse`
 
-      Cumulative count of server-executed tool invocations, broken down by tool.
+      Cumulative server-executed tool usage across all turns. Absent until server-tool tracking is available for the session.
 
       - `int WebFetchRequests`
 
@@ -5136,7 +4882,7 @@ List Sessions
 
       - `Effort Effort`
 
-        How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+        How hard Claude works on each inference call. One of `low`, `medium`, `high`, `xhigh`, `max`. Always present; resolved to the per-model default at save time when not supplied.
 
         - `class BetaManagedAgentsEffortLow`
 
@@ -5174,7 +4920,7 @@ List Sessions
 
       - `Speed Speed`
 
-        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Defaults to `standard`. Not all models support `fast`; invalid combinations are rejected at create time.
 
         - `Standard("standard")`
 
@@ -5182,7 +4928,7 @@ List Sessions
 
     - `required BetaManagedAgentsSessionMultiagentCoordinator? Multiagent`
 
-      Resolved coordinator topology with full agent definitions for each roster member.
+      Resolved multiagent orchestration configuration. Null when the agent is single-threaded.
 
       - `required Type Type`
 
@@ -5638,19 +5384,19 @@ List Sessions
 
   - `required DateTimeOffset? ArchivedAt`
 
-    A timestamp in RFC 3339 format
+    When the session was archived. Null if not archived.
 
     format: date-time
 
   - `required BetaManagedAgentsBudgetLimit? Budget`
 
-    A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+    The session's enforced spend ceiling, or null when no budget is set.
 
     - `required Type Type`
 
     - `required BetaMonetaryAmount MaxListCost`
 
-      A monetary amount in a specific currency.
+      Maximum list cost the session may accrue. List price is used regardless of any negotiated discount, so the cap fires at or before the actual charge.
 
       - `required string Amount`
 
@@ -5678,7 +5424,7 @@ List Sessions
 
     - `required DateTimeOffset? CompletedAt`
 
-      A timestamp in RFC 3339 format
+      When the outcome reached a terminal result. Null while `pending`/`running`/`evaluating`.
 
       format: date-time
 
@@ -5784,7 +5530,7 @@ List Sessions
 
       - `Access? Access`
 
-        Access mode for an attached memory store.
+        Access mode for the mounted store. Defaults to `read_write`. `read_only` mounts the store as a read-only filesystem.
 
         - `ReadWrite("read_write")`
 
@@ -5810,7 +5556,7 @@ List Sessions
 
   - `required BetaManagedAgentsSessionStats Stats`
 
-    Timing statistics for a session.
+    Timing statistics for the session.
 
     - `double ActiveSeconds`
 
@@ -5854,7 +5600,7 @@ List Sessions
 
   - `required BetaManagedAgentsSessionUsage Usage`
 
-    Cumulative token usage for a session across all turns.
+    Cumulative token usage for the session.
 
     - `double ActiveSeconds`
 
@@ -5864,7 +5610,7 @@ List Sessions
 
     - `BetaManagedAgentsCacheCreationUsage CacheCreation`
 
-      Prompt-cache creation token usage broken down by cache lifetime.
+      Tokens used to create prompt cache entries, broken down by cache TTL.
 
       - `int Ephemeral1hInputTokens`
 
@@ -5892,7 +5638,7 @@ List Sessions
 
     - `BetaMonetaryAmount? ListCost`
 
-      A monetary amount in a specific currency.
+      Cumulative list cost of the session across all turns, priced at public list rates. Absent until cost tracking is available for the session.
 
     - `int OutputTokens`
 
@@ -5902,7 +5648,7 @@ List Sessions
 
     - `BetaManagedAgentsServerToolUsage? ServerToolUse`
 
-      Cumulative count of server-executed tool invocations, broken down by tool.
+      Cumulative server-executed tool usage across all turns. Absent until server-tool tracking is available for the session.
 
       - `int WebFetchRequests`
 
@@ -6356,7 +6102,7 @@ Get Session
 
       - `Effort Effort`
 
-        How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+        How hard Claude works on each inference call. One of `low`, `medium`, `high`, `xhigh`, `max`. Always present; resolved to the per-model default at save time when not supplied.
 
         - `class BetaManagedAgentsEffortLow`
 
@@ -6394,7 +6140,7 @@ Get Session
 
       - `Speed Speed`
 
-        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Defaults to `standard`. Not all models support `fast`; invalid combinations are rejected at create time.
 
         - `Standard("standard")`
 
@@ -6402,7 +6148,7 @@ Get Session
 
     - `required BetaManagedAgentsSessionMultiagentCoordinator? Multiagent`
 
-      Resolved coordinator topology with full agent definitions for each roster member.
+      Resolved multiagent orchestration configuration. Null when the agent is single-threaded.
 
       - `required Type Type`
 
@@ -6858,19 +6604,19 @@ Get Session
 
   - `required DateTimeOffset? ArchivedAt`
 
-    A timestamp in RFC 3339 format
+    When the session was archived. Null if not archived.
 
     format: date-time
 
   - `required BetaManagedAgentsBudgetLimit? Budget`
 
-    A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+    The session's enforced spend ceiling, or null when no budget is set.
 
     - `required Type Type`
 
     - `required BetaMonetaryAmount MaxListCost`
 
-      A monetary amount in a specific currency.
+      Maximum list cost the session may accrue. List price is used regardless of any negotiated discount, so the cap fires at or before the actual charge.
 
       - `required string Amount`
 
@@ -6898,7 +6644,7 @@ Get Session
 
     - `required DateTimeOffset? CompletedAt`
 
-      A timestamp in RFC 3339 format
+      When the outcome reached a terminal result. Null while `pending`/`running`/`evaluating`.
 
       format: date-time
 
@@ -7004,7 +6750,7 @@ Get Session
 
       - `Access? Access`
 
-        Access mode for an attached memory store.
+        Access mode for the mounted store. Defaults to `read_write`. `read_only` mounts the store as a read-only filesystem.
 
         - `ReadWrite("read_write")`
 
@@ -7030,7 +6776,7 @@ Get Session
 
   - `required BetaManagedAgentsSessionStats Stats`
 
-    Timing statistics for a session.
+    Timing statistics for the session.
 
     - `double ActiveSeconds`
 
@@ -7074,7 +6820,7 @@ Get Session
 
   - `required BetaManagedAgentsSessionUsage Usage`
 
-    Cumulative token usage for a session across all turns.
+    Cumulative token usage for the session.
 
     - `double ActiveSeconds`
 
@@ -7084,7 +6830,7 @@ Get Session
 
     - `BetaManagedAgentsCacheCreationUsage CacheCreation`
 
-      Prompt-cache creation token usage broken down by cache lifetime.
+      Tokens used to create prompt cache entries, broken down by cache TTL.
 
       - `int Ephemeral1hInputTokens`
 
@@ -7112,7 +6858,7 @@ Get Session
 
     - `BetaMonetaryAmount? ListCost`
 
-      A monetary amount in a specific currency.
+      Cumulative list cost of the session across all turns, priced at public list rates. Absent until cost tracking is available for the session.
 
     - `int OutputTokens`
 
@@ -7122,7 +6868,7 @@ Get Session
 
     - `BetaManagedAgentsServerToolUsage? ServerToolUse`
 
-      Cumulative count of server-executed tool invocations, broken down by tool.
+      Cumulative server-executed tool usage across all turns. Absent until server-tool tracking is available for the session.
 
       - `int WebFetchRequests`
 
@@ -7369,11 +7115,11 @@ Update Session
 
   - `BetaManagedAgentsSessionAgentUpdate agent`
 
-    Body param: Mid-session agent configuration update. Only `tools` and `mcp_servers` are updatable. Full replacement: the provided array becomes the new value. To preserve existing entries, GET the session, modify the array, and POST it back.
+    Body param: Agent configuration update. Only `tools` and `mcp_servers` are updatable mid-session. Only valid for sessions created from an agent or deployment reference. The session must not be running.
 
   - `BetaManagedAgentsBudgetLimit? budget`
 
-    Body param: A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+    Body param: Enforced spend ceiling for the session. Set an object to replace the budget of a session that was created with one, or `null` to remove it; omit to preserve. A budget cannot be added to a session created without one (rejected with reason `budget_create_only`), and a removed budget cannot be re-added. Allowed in any non-terminated status. Lowering `max_list_cost` to at or below the session's consumed list cost is rejected with reason `budget_not_raised`, and every model the session can run must have a public list price or the request is rejected with reason `model_not_budgetable`.
 
   - `IReadOnlyDictionary<string, string>? metadata`
 
@@ -7595,7 +7341,7 @@ Update Session
 
       - `Effort Effort`
 
-        How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+        How hard Claude works on each inference call. One of `low`, `medium`, `high`, `xhigh`, `max`. Always present; resolved to the per-model default at save time when not supplied.
 
         - `class BetaManagedAgentsEffortLow`
 
@@ -7633,7 +7379,7 @@ Update Session
 
       - `Speed Speed`
 
-        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Defaults to `standard`. Not all models support `fast`; invalid combinations are rejected at create time.
 
         - `Standard("standard")`
 
@@ -7641,7 +7387,7 @@ Update Session
 
     - `required BetaManagedAgentsSessionMultiagentCoordinator? Multiagent`
 
-      Resolved coordinator topology with full agent definitions for each roster member.
+      Resolved multiagent orchestration configuration. Null when the agent is single-threaded.
 
       - `required Type Type`
 
@@ -8097,19 +7843,19 @@ Update Session
 
   - `required DateTimeOffset? ArchivedAt`
 
-    A timestamp in RFC 3339 format
+    When the session was archived. Null if not archived.
 
     format: date-time
 
   - `required BetaManagedAgentsBudgetLimit? Budget`
 
-    A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+    The session's enforced spend ceiling, or null when no budget is set.
 
     - `required Type Type`
 
     - `required BetaMonetaryAmount MaxListCost`
 
-      A monetary amount in a specific currency.
+      Maximum list cost the session may accrue. List price is used regardless of any negotiated discount, so the cap fires at or before the actual charge.
 
       - `required string Amount`
 
@@ -8137,7 +7883,7 @@ Update Session
 
     - `required DateTimeOffset? CompletedAt`
 
-      A timestamp in RFC 3339 format
+      When the outcome reached a terminal result. Null while `pending`/`running`/`evaluating`.
 
       format: date-time
 
@@ -8243,7 +7989,7 @@ Update Session
 
       - `Access? Access`
 
-        Access mode for an attached memory store.
+        Access mode for the mounted store. Defaults to `read_write`. `read_only` mounts the store as a read-only filesystem.
 
         - `ReadWrite("read_write")`
 
@@ -8269,7 +8015,7 @@ Update Session
 
   - `required BetaManagedAgentsSessionStats Stats`
 
-    Timing statistics for a session.
+    Timing statistics for the session.
 
     - `double ActiveSeconds`
 
@@ -8313,7 +8059,7 @@ Update Session
 
   - `required BetaManagedAgentsSessionUsage Usage`
 
-    Cumulative token usage for a session across all turns.
+    Cumulative token usage for the session.
 
     - `double ActiveSeconds`
 
@@ -8323,7 +8069,7 @@ Update Session
 
     - `BetaManagedAgentsCacheCreationUsage CacheCreation`
 
-      Prompt-cache creation token usage broken down by cache lifetime.
+      Tokens used to create prompt cache entries, broken down by cache TTL.
 
       - `int Ephemeral1hInputTokens`
 
@@ -8351,7 +8097,7 @@ Update Session
 
     - `BetaMonetaryAmount? ListCost`
 
-      A monetary amount in a specific currency.
+      Cumulative list cost of the session across all turns, priced at public list rates. Absent until cost tracking is available for the session.
 
     - `int OutputTokens`
 
@@ -8361,7 +8107,7 @@ Update Session
 
     - `BetaManagedAgentsServerToolUsage? ServerToolUse`
 
-      Cumulative count of server-executed tool invocations, broken down by tool.
+      Cumulative server-executed tool usage across all turns. Absent until server-tool tracking is available for the session.
 
       - `int WebFetchRequests`
 
@@ -8962,7 +8708,7 @@ Archive Session
 
       - `Effort Effort`
 
-        How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+        How hard Claude works on each inference call. One of `low`, `medium`, `high`, `xhigh`, `max`. Always present; resolved to the per-model default at save time when not supplied.
 
         - `class BetaManagedAgentsEffortLow`
 
@@ -9000,7 +8746,7 @@ Archive Session
 
       - `Speed Speed`
 
-        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Defaults to `standard`. Not all models support `fast`; invalid combinations are rejected at create time.
 
         - `Standard("standard")`
 
@@ -9008,7 +8754,7 @@ Archive Session
 
     - `required BetaManagedAgentsSessionMultiagentCoordinator? Multiagent`
 
-      Resolved coordinator topology with full agent definitions for each roster member.
+      Resolved multiagent orchestration configuration. Null when the agent is single-threaded.
 
       - `required Type Type`
 
@@ -9464,19 +9210,19 @@ Archive Session
 
   - `required DateTimeOffset? ArchivedAt`
 
-    A timestamp in RFC 3339 format
+    When the session was archived. Null if not archived.
 
     format: date-time
 
   - `required BetaManagedAgentsBudgetLimit? Budget`
 
-    A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+    The session's enforced spend ceiling, or null when no budget is set.
 
     - `required Type Type`
 
     - `required BetaMonetaryAmount MaxListCost`
 
-      A monetary amount in a specific currency.
+      Maximum list cost the session may accrue. List price is used regardless of any negotiated discount, so the cap fires at or before the actual charge.
 
       - `required string Amount`
 
@@ -9504,7 +9250,7 @@ Archive Session
 
     - `required DateTimeOffset? CompletedAt`
 
-      A timestamp in RFC 3339 format
+      When the outcome reached a terminal result. Null while `pending`/`running`/`evaluating`.
 
       format: date-time
 
@@ -9610,7 +9356,7 @@ Archive Session
 
       - `Access? Access`
 
-        Access mode for an attached memory store.
+        Access mode for the mounted store. Defaults to `read_write`. `read_only` mounts the store as a read-only filesystem.
 
         - `ReadWrite("read_write")`
 
@@ -9636,7 +9382,7 @@ Archive Session
 
   - `required BetaManagedAgentsSessionStats Stats`
 
-    Timing statistics for a session.
+    Timing statistics for the session.
 
     - `double ActiveSeconds`
 
@@ -9680,7 +9426,7 @@ Archive Session
 
   - `required BetaManagedAgentsSessionUsage Usage`
 
-    Cumulative token usage for a session across all turns.
+    Cumulative token usage for the session.
 
     - `double ActiveSeconds`
 
@@ -9690,7 +9436,7 @@ Archive Session
 
     - `BetaManagedAgentsCacheCreationUsage CacheCreation`
 
-      Prompt-cache creation token usage broken down by cache lifetime.
+      Tokens used to create prompt cache entries, broken down by cache TTL.
 
       - `int Ephemeral1hInputTokens`
 
@@ -9718,7 +9464,7 @@ Archive Session
 
     - `BetaMonetaryAmount? ListCost`
 
-      A monetary amount in a specific currency.
+      Cumulative list cost of the session across all turns, priced at public list rates. Absent until cost tracking is available for the session.
 
     - `int OutputTokens`
 
@@ -9728,7 +9474,7 @@ Archive Session
 
     - `BetaManagedAgentsServerToolUsage? ServerToolUse`
 
-      Cumulative count of server-executed tool invocations, broken down by tool.
+      Cumulative server-executed tool usage across all turns. Absent until server-tool tracking is available for the session.
 
       - `int WebFetchRequests`
 
@@ -10167,7 +9913,7 @@ List Events
 
         - `required Source Source`
 
-          Union type for image source variants.
+          The source of the image data.
 
           - `class BetaManagedAgentsBase64ImageSource`
 
@@ -10219,7 +9965,7 @@ List Events
 
         - `required Source Source`
 
-          Union type for document source variants.
+          The source of the document data.
 
           - `class BetaManagedAgentsBase64DocumentSource`
 
@@ -10295,7 +10041,7 @@ List Events
 
     - `DateTimeOffset? ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the agent finished processing this message.
 
       format: date-time
 
@@ -10311,7 +10057,7 @@ List Events
 
     - `DateTimeOffset? ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the interrupt was processed.
 
       format: date-time
 
@@ -10331,7 +10077,7 @@ List Events
 
     - `required Result Result`
 
-      UserToolConfirmationResult enum
+      The confirmation result: 'allow' or 'deny'.
 
       - `Allow("allow")`
 
@@ -10349,7 +10095,7 @@ List Events
 
     - `DateTimeOffset? ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the confirmation was processed.
 
       format: date-time
 
@@ -10395,7 +10141,7 @@ List Events
 
         - `required BetaManagedAgentsSearchResultCitations Citations`
 
-          Citation settings for a search result.
+          Citation settings for this search result.
 
           - `required bool Enabled`
 
@@ -10431,7 +10177,7 @@ List Events
 
     - `DateTimeOffset? ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this result was processed.
 
       format: date-time
 
@@ -10459,7 +10205,7 @@ List Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this tool use was processed.
 
       format: date-time
 
@@ -10491,7 +10237,7 @@ List Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this response was generated.
 
       format: date-time
 
@@ -10507,7 +10253,7 @@ List Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this thinking was produced.
 
       format: date-time
 
@@ -10535,13 +10281,13 @@ List Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this event was processed.
 
       format: date-time
 
     - `BetaManagedAgentsAgentEvaluatedPermission EvaluatedPermission`
 
-      AgentEvaluatedPermission enum
+      The evaluated permission policy for this tool invocation.
 
       - `Allow("allow")`
 
@@ -10551,7 +10297,7 @@ List Events
 
     - `BetaManagedAgentsAgentToolEvaluation Evaluation`
 
-      Names the resolved permission_policy that produced evaluated_permission, and under auto carries the judgement. Open union: clients must tolerate unknown variants.
+      Which resolved permission_policy produced evaluated_permission: always_allow, always_ask, or auto (with the server's per-invocation judgement). Absent only when the server refused the call before any policy applied (for example, the named tool is not enabled in the session); such a refusal has evaluated_permission deny. An event recorded before this field existed reads as the arm its evaluated_permission implies (always_allow for allow, always_ask for ask).
 
       - `class BetaManagedAgentsAgentToolEvaluationAlwaysAllow`
 
@@ -10573,7 +10319,7 @@ List Events
 
         - `required BetaManagedAgentsAgentAutoEvaluatedPermission EvaluatedPermission`
 
-          The server's per-invocation judgement under the auto permission policy. Its type always equals the event's top-level evaluated_permission. Open union: clients must tolerate unknown variants.
+          The server's judgement for this invocation.
 
           - `class BetaManagedAgentsAgentAutoEvaluatedPermissionAllow`
 
@@ -10625,7 +10371,7 @@ List Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this event was processed.
 
       format: date-time
 
@@ -10673,17 +10419,17 @@ List Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this event was processed.
 
       format: date-time
 
     - `BetaManagedAgentsAgentEvaluatedPermission EvaluatedPermission`
 
-      AgentEvaluatedPermission enum
+      The evaluated permission policy for this tool invocation.
 
     - `BetaManagedAgentsAgentToolEvaluation Evaluation`
 
-      Names the resolved permission_policy that produced evaluated_permission, and under auto carries the judgement. Open union: clients must tolerate unknown variants.
+      Which resolved permission_policy produced evaluated_permission: always_allow, always_ask, or auto (with the server's per-invocation judgement). Absent only when the server refused the call before any policy applied (for example, the named tool is not enabled in the session); such a refusal has evaluated_permission deny. An event recorded before this field existed reads as the arm its evaluated_permission implies (always_allow for allow, always_ask for ask).
 
     - `string? SessionThreadID`
 
@@ -10701,7 +10447,7 @@ List Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this event was processed.
 
       format: date-time
 
@@ -10769,7 +10515,7 @@ List Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the message was received.
 
       format: date-time
 
@@ -10809,7 +10555,7 @@ List Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the message was sent.
 
       format: date-time
 
@@ -10833,7 +10579,7 @@ List Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when compaction was processed.
 
       format: date-time
 
@@ -10861,7 +10607,7 @@ List Events
 
         - `required RetryStatus RetryStatus`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
           - `class BetaManagedAgentsRetryStatusRetrying`
 
@@ -10893,7 +10639,7 @@ List Events
 
         - `required RetryStatus RetryStatus`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
           - `class BetaManagedAgentsRetryStatusRetrying`
 
@@ -10919,7 +10665,7 @@ List Events
 
         - `required RetryStatus RetryStatus`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
           - `class BetaManagedAgentsRetryStatusRetrying`
 
@@ -10945,7 +10691,7 @@ List Events
 
         - `required RetryStatus RetryStatus`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
           - `class BetaManagedAgentsRetryStatusRetrying`
 
@@ -10975,7 +10721,7 @@ List Events
 
         - `required RetryStatus RetryStatus`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
           - `class BetaManagedAgentsRetryStatusRetrying`
 
@@ -11005,7 +10751,7 @@ List Events
 
         - `required RetryStatus RetryStatus`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
           - `class BetaManagedAgentsRetryStatusRetrying`
 
@@ -11031,7 +10777,7 @@ List Events
 
         - `required RetryStatus RetryStatus`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
           - `class BetaManagedAgentsRetryStatusRetrying`
 
@@ -11061,7 +10807,7 @@ List Events
 
         - `required RetryStatus RetryStatus`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
           - `class BetaManagedAgentsRetryStatusRetrying`
 
@@ -11081,7 +10827,7 @@ List Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the error occurred.
 
       format: date-time
 
@@ -11097,7 +10843,7 @@ List Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp of status change.
 
       format: date-time
 
@@ -11113,7 +10859,7 @@ List Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp of status change.
 
       format: date-time
 
@@ -11129,7 +10875,7 @@ List Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp of status change.
 
       format: date-time
 
@@ -11175,7 +10921,7 @@ List Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp of status change.
 
       format: date-time
 
@@ -11195,7 +10941,7 @@ List Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the thread was created.
 
       format: date-time
 
@@ -11225,7 +10971,7 @@ List Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when outcome evaluation started.
 
       format: date-time
 
@@ -11259,7 +11005,7 @@ List Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when outcome evaluation ended.
 
       format: date-time
 
@@ -11269,7 +11015,7 @@ List Events
 
     - `required BetaManagedAgentsSpanModelUsage Usage`
 
-      Token usage for a single model request.
+      Aggregate token usage for this evaluation cycle. Sums across all grader model requests within the cycle.
 
       - `required int CacheCreationInputTokens`
 
@@ -11297,7 +11043,7 @@ List Events
 
       - `Speed? Speed`
 
-        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+        Inference speed tier this request actually ran at. Mirrors `usage.speed` on /v1/messages. Only present when the fast-mode beta is active.
 
         - `Standard("standard")`
 
@@ -11315,7 +11061,7 @@ List Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the model request started.
 
       format: date-time
 
@@ -11339,11 +11085,11 @@ List Events
 
     - `required BetaManagedAgentsSpanModelUsage ModelUsage`
 
-      Token usage for a single model request.
+      Token usage for this model request.
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the model request completed.
 
       format: date-time
 
@@ -11369,7 +11115,7 @@ List Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this heartbeat was emitted.
 
       format: date-time
 
@@ -11399,13 +11145,13 @@ List Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the outcome was accepted.
 
       format: date-time
 
     - `required Rubric Rubric`
 
-      Rubric for grading the quality of an outcome.
+      How to grade the outcome. File rubrics are currently resolved to their text content; clients should handle both variants.
 
       - `class BetaManagedAgentsFileRubric`
 
@@ -11439,7 +11185,7 @@ List Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the session was deleted.
 
       format: date-time
 
@@ -11459,7 +11205,7 @@ List Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp of the status transition.
 
       format: date-time
 
@@ -11483,7 +11229,7 @@ List Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp of the status transition.
 
       format: date-time
 
@@ -11525,7 +11271,7 @@ List Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp of the status transition.
 
       format: date-time
 
@@ -11573,7 +11319,7 @@ List Events
 
     - `DateTimeOffset? ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this result was processed.
 
       format: date-time
 
@@ -11597,7 +11343,7 @@ List Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp of the status transition.
 
       format: date-time
 
@@ -11617,13 +11363,13 @@ List Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the update was applied.
 
       format: date-time
 
     - `BetaManagedAgentsSessionAgent? Agent`
 
-      Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
+      The session's effective agent configuration after the update. Present only when the update changed `agent` (tools or mcp_servers); when present it is the full materialised snapshot, not a diff.
 
       - `required Type Type`
 
@@ -11711,7 +11457,7 @@ List Events
 
         - `Effort Effort`
 
-          How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+          How hard Claude works on each inference call. One of `low`, `medium`, `high`, `xhigh`, `max`. Always present; resolved to the per-model default at save time when not supplied.
 
           - `class BetaManagedAgentsEffortLow`
 
@@ -11749,7 +11495,7 @@ List Events
 
         - `Speed Speed`
 
-          Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+          Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Defaults to `standard`. Not all models support `fast`; invalid combinations are rejected at create time.
 
           - `Standard("standard")`
 
@@ -11757,7 +11503,7 @@ List Events
 
       - `required BetaManagedAgentsSessionMultiagentCoordinator? Multiagent`
 
-        Resolved coordinator topology with full agent definitions for each roster member.
+        Resolved multiagent orchestration configuration. Null when the agent is single-threaded.
 
         - `required Type Type`
 
@@ -12213,13 +11959,13 @@ List Events
 
     - `BetaManagedAgentsBudgetLimit? Budget`
 
-      A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+      The session's budget after the update: the new budget when set or replaced, or null when the update removed it. Present only when the update changed the budget.
 
       - `required Type Type`
 
       - `required BetaMonetaryAmount MaxListCost`
 
-        A monetary amount in a specific currency.
+        Maximum list cost the session may accrue. List price is used regardless of any negotiated discount, so the cap fires at or before the actual charge.
 
         - `required string Amount`
 
@@ -12261,7 +12007,7 @@ List Events
 
     - `DateTimeOffset? ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this system message was processed.
 
       format: date-time
 
@@ -12277,13 +12023,13 @@ List Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the snapshot was taken.
 
       format: date-time
 
     - `required BetaManagedAgentsSessionUsageSnapshot Usage`
 
-      Point-in-time snapshot of a session's cumulative usage.
+      The session's cumulative usage at the snapshot time.
 
       - `double ActiveSeconds`
 
@@ -12293,7 +12039,7 @@ List Events
 
       - `BetaManagedAgentsCacheCreationUsage CacheCreation`
 
-        Prompt-cache creation token usage broken down by cache lifetime.
+        Tokens used to create prompt cache entries, broken down by cache TTL.
 
         - `int Ephemeral1hInputTokens`
 
@@ -12321,7 +12067,7 @@ List Events
 
       - `BetaMonetaryAmount ListCost`
 
-        A monetary amount in a specific currency.
+        Cumulative list cost of the session across all turns, priced at public list rates.
 
       - `int OutputTokens`
 
@@ -12331,7 +12077,7 @@ List Events
 
       - `BetaManagedAgentsServerToolUsage ServerToolUse`
 
-        Cumulative count of server-executed tool invocations, broken down by tool.
+        Cumulative server-executed tool usage across all turns.
 
         - `int WebFetchRequests`
 
@@ -12347,7 +12093,7 @@ List Events
 
     - `BetaManagedAgentsBudgetLimit? Budget`
 
-      A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+      The session's configured budget at the snapshot time, or null when the session has no budget.
 
 #### Example
 
@@ -12446,7 +12192,7 @@ Send Events
 
           - `required Source Source`
 
-            Union type for image source variants.
+            The source of the image data.
 
             - `class BetaManagedAgentsBase64ImageSource`
 
@@ -12498,7 +12244,7 @@ Send Events
 
           - `required Source Source`
 
-            Union type for document source variants.
+            The source of the document data.
 
             - `class BetaManagedAgentsBase64DocumentSource`
 
@@ -12590,7 +12336,7 @@ Send Events
 
       - `required Result Result`
 
-        UserToolConfirmationResult enum
+        The confirmation result: 'allow' or 'deny'.
 
         - `Allow("allow")`
 
@@ -12644,7 +12390,7 @@ Send Events
 
           - `required BetaManagedAgentsSearchResultCitations Citations`
 
-            Citation settings for a search result.
+            Citation settings for this search result.
 
             - `required bool Enabled`
 
@@ -12690,7 +12436,7 @@ Send Events
 
       - `required Rubric Rubric`
 
-        Rubric for grading the quality of an outcome.
+        How to grade the outcome. Text or file reference.
 
         - `class BetaManagedAgentsFileRubricParams`
 
@@ -12924,7 +12670,7 @@ Send Events
 
           - `required Source Source`
 
-            Union type for image source variants.
+            The source of the image data.
 
             - `class BetaManagedAgentsBase64ImageSource`
 
@@ -12976,7 +12722,7 @@ Send Events
 
           - `required Source Source`
 
-            Union type for document source variants.
+            The source of the document data.
 
             - `class BetaManagedAgentsBase64DocumentSource`
 
@@ -13052,7 +12798,7 @@ Send Events
 
       - `DateTimeOffset? ProcessedAt`
 
-        A timestamp in RFC 3339 format
+        Timestamp when the agent finished processing this message.
 
         format: date-time
 
@@ -13068,7 +12814,7 @@ Send Events
 
       - `DateTimeOffset? ProcessedAt`
 
-        A timestamp in RFC 3339 format
+        Timestamp when the interrupt was processed.
 
         format: date-time
 
@@ -13088,7 +12834,7 @@ Send Events
 
       - `required Result Result`
 
-        UserToolConfirmationResult enum
+        The confirmation result: 'allow' or 'deny'.
 
         - `Allow("allow")`
 
@@ -13106,7 +12852,7 @@ Send Events
 
       - `DateTimeOffset? ProcessedAt`
 
-        A timestamp in RFC 3339 format
+        Timestamp when the confirmation was processed.
 
         format: date-time
 
@@ -13152,7 +12898,7 @@ Send Events
 
           - `required BetaManagedAgentsSearchResultCitations Citations`
 
-            Citation settings for a search result.
+            Citation settings for this search result.
 
             - `required bool Enabled`
 
@@ -13188,7 +12934,7 @@ Send Events
 
       - `DateTimeOffset? ProcessedAt`
 
-        A timestamp in RFC 3339 format
+        Timestamp when this result was processed.
 
         format: date-time
 
@@ -13222,13 +12968,13 @@ Send Events
 
       - `required DateTimeOffset ProcessedAt`
 
-        A timestamp in RFC 3339 format
+        Timestamp when the outcome was accepted.
 
         format: date-time
 
       - `required Rubric Rubric`
 
-        Rubric for grading the quality of an outcome.
+        How to grade the outcome. File rubrics are currently resolved to their text content; clients should handle both variants.
 
         - `class BetaManagedAgentsFileRubric`
 
@@ -13290,7 +13036,7 @@ Send Events
 
       - `DateTimeOffset? ProcessedAt`
 
-        A timestamp in RFC 3339 format
+        Timestamp when this result was processed.
 
         format: date-time
 
@@ -13322,7 +13068,7 @@ Send Events
 
       - `DateTimeOffset? ProcessedAt`
 
-        A timestamp in RFC 3339 format
+        Timestamp when this system message was processed.
 
         format: date-time
 
@@ -13544,7 +13290,7 @@ Stream Events
 
         - `required Source Source`
 
-          Union type for image source variants.
+          The source of the image data.
 
           - `class BetaManagedAgentsBase64ImageSource`
 
@@ -13596,7 +13342,7 @@ Stream Events
 
         - `required Source Source`
 
-          Union type for document source variants.
+          The source of the document data.
 
           - `class BetaManagedAgentsBase64DocumentSource`
 
@@ -13672,7 +13418,7 @@ Stream Events
 
     - `DateTimeOffset? ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the agent finished processing this message.
 
       format: date-time
 
@@ -13688,7 +13434,7 @@ Stream Events
 
     - `DateTimeOffset? ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the interrupt was processed.
 
       format: date-time
 
@@ -13708,7 +13454,7 @@ Stream Events
 
     - `required Result Result`
 
-      UserToolConfirmationResult enum
+      The confirmation result: 'allow' or 'deny'.
 
       - `Allow("allow")`
 
@@ -13726,7 +13472,7 @@ Stream Events
 
     - `DateTimeOffset? ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the confirmation was processed.
 
       format: date-time
 
@@ -13772,7 +13518,7 @@ Stream Events
 
         - `required BetaManagedAgentsSearchResultCitations Citations`
 
-          Citation settings for a search result.
+          Citation settings for this search result.
 
           - `required bool Enabled`
 
@@ -13808,7 +13554,7 @@ Stream Events
 
     - `DateTimeOffset? ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this result was processed.
 
       format: date-time
 
@@ -13836,7 +13582,7 @@ Stream Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this tool use was processed.
 
       format: date-time
 
@@ -13868,7 +13614,7 @@ Stream Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this response was generated.
 
       format: date-time
 
@@ -13884,7 +13630,7 @@ Stream Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this thinking was produced.
 
       format: date-time
 
@@ -13912,13 +13658,13 @@ Stream Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this event was processed.
 
       format: date-time
 
     - `BetaManagedAgentsAgentEvaluatedPermission EvaluatedPermission`
 
-      AgentEvaluatedPermission enum
+      The evaluated permission policy for this tool invocation.
 
       - `Allow("allow")`
 
@@ -13928,7 +13674,7 @@ Stream Events
 
     - `BetaManagedAgentsAgentToolEvaluation Evaluation`
 
-      Names the resolved permission_policy that produced evaluated_permission, and under auto carries the judgement. Open union: clients must tolerate unknown variants.
+      Which resolved permission_policy produced evaluated_permission: always_allow, always_ask, or auto (with the server's per-invocation judgement). Absent only when the server refused the call before any policy applied (for example, the named tool is not enabled in the session); such a refusal has evaluated_permission deny. An event recorded before this field existed reads as the arm its evaluated_permission implies (always_allow for allow, always_ask for ask).
 
       - `class BetaManagedAgentsAgentToolEvaluationAlwaysAllow`
 
@@ -13950,7 +13696,7 @@ Stream Events
 
         - `required BetaManagedAgentsAgentAutoEvaluatedPermission EvaluatedPermission`
 
-          The server's per-invocation judgement under the auto permission policy. Its type always equals the event's top-level evaluated_permission. Open union: clients must tolerate unknown variants.
+          The server's judgement for this invocation.
 
           - `class BetaManagedAgentsAgentAutoEvaluatedPermissionAllow`
 
@@ -14002,7 +13748,7 @@ Stream Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this event was processed.
 
       format: date-time
 
@@ -14050,17 +13796,17 @@ Stream Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this event was processed.
 
       format: date-time
 
     - `BetaManagedAgentsAgentEvaluatedPermission EvaluatedPermission`
 
-      AgentEvaluatedPermission enum
+      The evaluated permission policy for this tool invocation.
 
     - `BetaManagedAgentsAgentToolEvaluation Evaluation`
 
-      Names the resolved permission_policy that produced evaluated_permission, and under auto carries the judgement. Open union: clients must tolerate unknown variants.
+      Which resolved permission_policy produced evaluated_permission: always_allow, always_ask, or auto (with the server's per-invocation judgement). Absent only when the server refused the call before any policy applied (for example, the named tool is not enabled in the session); such a refusal has evaluated_permission deny. An event recorded before this field existed reads as the arm its evaluated_permission implies (always_allow for allow, always_ask for ask).
 
     - `string? SessionThreadID`
 
@@ -14078,7 +13824,7 @@ Stream Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this event was processed.
 
       format: date-time
 
@@ -14146,7 +13892,7 @@ Stream Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the message was received.
 
       format: date-time
 
@@ -14186,7 +13932,7 @@ Stream Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the message was sent.
 
       format: date-time
 
@@ -14210,7 +13956,7 @@ Stream Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when compaction was processed.
 
       format: date-time
 
@@ -14238,7 +13984,7 @@ Stream Events
 
         - `required RetryStatus RetryStatus`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
           - `class BetaManagedAgentsRetryStatusRetrying`
 
@@ -14270,7 +14016,7 @@ Stream Events
 
         - `required RetryStatus RetryStatus`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
           - `class BetaManagedAgentsRetryStatusRetrying`
 
@@ -14296,7 +14042,7 @@ Stream Events
 
         - `required RetryStatus RetryStatus`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
           - `class BetaManagedAgentsRetryStatusRetrying`
 
@@ -14322,7 +14068,7 @@ Stream Events
 
         - `required RetryStatus RetryStatus`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
           - `class BetaManagedAgentsRetryStatusRetrying`
 
@@ -14352,7 +14098,7 @@ Stream Events
 
         - `required RetryStatus RetryStatus`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
           - `class BetaManagedAgentsRetryStatusRetrying`
 
@@ -14382,7 +14128,7 @@ Stream Events
 
         - `required RetryStatus RetryStatus`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
           - `class BetaManagedAgentsRetryStatusRetrying`
 
@@ -14408,7 +14154,7 @@ Stream Events
 
         - `required RetryStatus RetryStatus`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
           - `class BetaManagedAgentsRetryStatusRetrying`
 
@@ -14438,7 +14184,7 @@ Stream Events
 
         - `required RetryStatus RetryStatus`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
           - `class BetaManagedAgentsRetryStatusRetrying`
 
@@ -14458,7 +14204,7 @@ Stream Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the error occurred.
 
       format: date-time
 
@@ -14474,7 +14220,7 @@ Stream Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp of status change.
 
       format: date-time
 
@@ -14490,7 +14236,7 @@ Stream Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp of status change.
 
       format: date-time
 
@@ -14506,7 +14252,7 @@ Stream Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp of status change.
 
       format: date-time
 
@@ -14552,7 +14298,7 @@ Stream Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp of status change.
 
       format: date-time
 
@@ -14572,7 +14318,7 @@ Stream Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the thread was created.
 
       format: date-time
 
@@ -14602,7 +14348,7 @@ Stream Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when outcome evaluation started.
 
       format: date-time
 
@@ -14636,7 +14382,7 @@ Stream Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when outcome evaluation ended.
 
       format: date-time
 
@@ -14646,7 +14392,7 @@ Stream Events
 
     - `required BetaManagedAgentsSpanModelUsage Usage`
 
-      Token usage for a single model request.
+      Aggregate token usage for this evaluation cycle. Sums across all grader model requests within the cycle.
 
       - `required int CacheCreationInputTokens`
 
@@ -14674,7 +14420,7 @@ Stream Events
 
       - `Speed? Speed`
 
-        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+        Inference speed tier this request actually ran at. Mirrors `usage.speed` on /v1/messages. Only present when the fast-mode beta is active.
 
         - `Standard("standard")`
 
@@ -14692,7 +14438,7 @@ Stream Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the model request started.
 
       format: date-time
 
@@ -14716,11 +14462,11 @@ Stream Events
 
     - `required BetaManagedAgentsSpanModelUsage ModelUsage`
 
-      Token usage for a single model request.
+      Token usage for this model request.
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the model request completed.
 
       format: date-time
 
@@ -14746,7 +14492,7 @@ Stream Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this heartbeat was emitted.
 
       format: date-time
 
@@ -14776,13 +14522,13 @@ Stream Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the outcome was accepted.
 
       format: date-time
 
     - `required Rubric Rubric`
 
-      Rubric for grading the quality of an outcome.
+      How to grade the outcome. File rubrics are currently resolved to their text content; clients should handle both variants.
 
       - `class BetaManagedAgentsFileRubric`
 
@@ -14816,7 +14562,7 @@ Stream Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the session was deleted.
 
       format: date-time
 
@@ -14836,7 +14582,7 @@ Stream Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp of the status transition.
 
       format: date-time
 
@@ -14860,7 +14606,7 @@ Stream Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp of the status transition.
 
       format: date-time
 
@@ -14902,7 +14648,7 @@ Stream Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp of the status transition.
 
       format: date-time
 
@@ -14950,7 +14696,7 @@ Stream Events
 
     - `DateTimeOffset? ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this result was processed.
 
       format: date-time
 
@@ -14974,7 +14720,7 @@ Stream Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp of the status transition.
 
       format: date-time
 
@@ -14994,13 +14740,13 @@ Stream Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the update was applied.
 
       format: date-time
 
     - `BetaManagedAgentsSessionAgent? Agent`
 
-      Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
+      The session's effective agent configuration after the update. Present only when the update changed `agent` (tools or mcp_servers); when present it is the full materialised snapshot, not a diff.
 
       - `required Type Type`
 
@@ -15088,7 +14834,7 @@ Stream Events
 
         - `Effort Effort`
 
-          How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+          How hard Claude works on each inference call. One of `low`, `medium`, `high`, `xhigh`, `max`. Always present; resolved to the per-model default at save time when not supplied.
 
           - `class BetaManagedAgentsEffortLow`
 
@@ -15126,7 +14872,7 @@ Stream Events
 
         - `Speed Speed`
 
-          Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+          Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Defaults to `standard`. Not all models support `fast`; invalid combinations are rejected at create time.
 
           - `Standard("standard")`
 
@@ -15134,7 +14880,7 @@ Stream Events
 
       - `required BetaManagedAgentsSessionMultiagentCoordinator? Multiagent`
 
-        Resolved coordinator topology with full agent definitions for each roster member.
+        Resolved multiagent orchestration configuration. Null when the agent is single-threaded.
 
         - `required Type Type`
 
@@ -15590,13 +15336,13 @@ Stream Events
 
     - `BetaManagedAgentsBudgetLimit? Budget`
 
-      A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+      The session's budget after the update: the new budget when set or replaced, or null when the update removed it. Present only when the update changed the budget.
 
       - `required Type Type`
 
       - `required BetaMonetaryAmount MaxListCost`
 
-        A monetary amount in a specific currency.
+        Maximum list cost the session may accrue. List price is used regardless of any negotiated discount, so the cap fires at or before the actual charge.
 
         - `required string Amount`
 
@@ -15654,13 +15400,11 @@ Stream Events
 
       - `required BetaManagedAgentsTextBlock Content`
 
-        Regular text content.
+        A partial element of the content array at index, typed like the element itself — the same shape the buffered agent.message carries in content.
 
       - `long Index`
 
         Which entry in the previewed event's content array this fragment lands in. Insert content as that entry when the index is new; append to the existing entry otherwise.
-
-        format: uint32
 
     - `required string EventID`
 
@@ -15690,7 +15434,7 @@ Stream Events
 
     - `DateTimeOffset? ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this system message was processed.
 
       format: date-time
 
@@ -15706,13 +15450,13 @@ Stream Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the snapshot was taken.
 
       format: date-time
 
     - `required BetaManagedAgentsSessionUsageSnapshot Usage`
 
-      Point-in-time snapshot of a session's cumulative usage.
+      The session's cumulative usage at the snapshot time.
 
       - `double ActiveSeconds`
 
@@ -15722,7 +15466,7 @@ Stream Events
 
       - `BetaManagedAgentsCacheCreationUsage CacheCreation`
 
-        Prompt-cache creation token usage broken down by cache lifetime.
+        Tokens used to create prompt cache entries, broken down by cache TTL.
 
         - `int Ephemeral1hInputTokens`
 
@@ -15750,7 +15494,7 @@ Stream Events
 
       - `BetaMonetaryAmount ListCost`
 
-        A monetary amount in a specific currency.
+        Cumulative list cost of the session across all turns, priced at public list rates.
 
       - `int OutputTokens`
 
@@ -15760,7 +15504,7 @@ Stream Events
 
       - `BetaManagedAgentsServerToolUsage ServerToolUse`
 
-        Cumulative count of server-executed tool invocations, broken down by tool.
+        Cumulative server-executed tool usage across all turns.
 
         - `int WebFetchRequests`
 
@@ -15776,7 +15520,7 @@ Stream Events
 
     - `BetaManagedAgentsBudgetLimit? Budget`
 
-      A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+      The session's configured budget at the snapshot time, or null when the session has no budget.
 
 #### Example
 
@@ -16216,7 +15960,7 @@ List Session Resources
 
     - `Access? Access`
 
-      Access mode for an attached memory store.
+      Access mode for the mounted store. Defaults to `read_write`. `read_only` mounts the store as a read-only filesystem.
 
       - `ReadWrite("read_write")`
 
@@ -16495,7 +16239,7 @@ Get Session Resource
 
     - `Access? Access`
 
-      Access mode for an attached memory store.
+      Access mode for the mounted store. Defaults to `read_write`. `read_only` mounts the store as a read-only filesystem.
 
       - `ReadWrite("read_write")`
 
@@ -16766,7 +16510,7 @@ Update Session Resource
 
     - `Access? Access`
 
-      Access mode for an attached memory store.
+      Access mode for the mounted store. Defaults to `read_write`. `read_only` mounts the store as a read-only filesystem.
 
       - `ReadWrite("read_write")`
 
@@ -17129,7 +16873,7 @@ List Session Threads
 
   - `required Agent Agent`
 
-    The resolved agent a `session_thread` runs.
+    Resolved agent definition for this thread. Snapshot of the agent at thread creation time.
 
     - `class BetaManagedAgentsSessionThreadAgent`
 
@@ -17221,7 +16965,7 @@ List Session Threads
 
         - `Effort Effort`
 
-          How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+          How hard Claude works on each inference call. One of `low`, `medium`, `high`, `xhigh`, `max`. Always present; resolved to the per-model default at save time when not supplied.
 
           - `class BetaManagedAgentsEffortLow`
 
@@ -17259,7 +17003,7 @@ List Session Threads
 
         - `Speed Speed`
 
-          Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+          Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Defaults to `standard`. Not all models support `fast`; invalid combinations are rejected at create time.
 
           - `Standard("standard")`
 
@@ -17663,13 +17407,13 @@ List Session Threads
 
   - `required DateTimeOffset? ArchivedAt`
 
-    A timestamp in RFC 3339 format
+    When the thread was archived. Null if not archived.
 
     format: date-time
 
   - `required DateTimeOffset CreatedAt`
 
-    A timestamp in RFC 3339 format
+    When the thread was created.
 
     format: date-time
 
@@ -17683,7 +17427,7 @@ List Session Threads
 
   - `required BetaManagedAgentsSessionThreadStats? Stats`
 
-    Timing statistics for a session thread.
+    Timing statistics for this thread. Null until the thread's first status transition.
 
     - `double ActiveSeconds`
 
@@ -17705,7 +17449,7 @@ List Session Threads
 
   - `required BetaManagedAgentsSessionThreadStatus Status`
 
-    SessionThreadStatus enum
+    Current execution status of the thread.
 
     - `Running("running")`
 
@@ -17717,13 +17461,13 @@ List Session Threads
 
   - `required DateTimeOffset UpdatedAt`
 
-    A timestamp in RFC 3339 format
+    When the thread was last updated.
 
     format: date-time
 
   - `required BetaManagedAgentsSessionThreadUsage? Usage`
 
-    Cumulative token usage for a session thread across all turns.
+    Cumulative token usage for this thread. Null until the thread's first idle transition.
 
     - `double ActiveSeconds`
 
@@ -17733,7 +17477,7 @@ List Session Threads
 
     - `BetaManagedAgentsCacheCreationUsage CacheCreation`
 
-      Prompt-cache creation token usage broken down by cache lifetime.
+      Tokens used to create prompt cache entries, broken down by cache TTL.
 
       - `int Ephemeral1hInputTokens`
 
@@ -17761,7 +17505,7 @@ List Session Threads
 
     - `BetaMonetaryAmount? ListCost`
 
-      A monetary amount in a specific currency.
+      Cumulative list cost of this thread across all turns, priced at public list rates. Absent until cost tracking is available for the thread. Each figure is rounded to the nearest cent independently and the session's aggregate `usage.list_cost` additionally includes session runtime, so per-thread costs do not sum exactly to the session figure; the session figure is authoritative and is what a budget is enforced against.
 
       - `required string Amount`
 
@@ -17779,7 +17523,7 @@ List Session Threads
 
     - `BetaManagedAgentsServerToolUsage? ServerToolUse`
 
-      Cumulative count of server-executed tool invocations, broken down by tool.
+      Cumulative server-executed tool usage across all turns of this thread. Absent until server-tool tracking is available for the thread.
 
       - `int WebFetchRequests`
 
@@ -18042,7 +17786,7 @@ Get Session Thread
 
   - `required Agent Agent`
 
-    The resolved agent a `session_thread` runs.
+    Resolved agent definition for this thread. Snapshot of the agent at thread creation time.
 
     - `class BetaManagedAgentsSessionThreadAgent`
 
@@ -18134,7 +17878,7 @@ Get Session Thread
 
         - `Effort Effort`
 
-          How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+          How hard Claude works on each inference call. One of `low`, `medium`, `high`, `xhigh`, `max`. Always present; resolved to the per-model default at save time when not supplied.
 
           - `class BetaManagedAgentsEffortLow`
 
@@ -18172,7 +17916,7 @@ Get Session Thread
 
         - `Speed Speed`
 
-          Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+          Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Defaults to `standard`. Not all models support `fast`; invalid combinations are rejected at create time.
 
           - `Standard("standard")`
 
@@ -18576,13 +18320,13 @@ Get Session Thread
 
   - `required DateTimeOffset? ArchivedAt`
 
-    A timestamp in RFC 3339 format
+    When the thread was archived. Null if not archived.
 
     format: date-time
 
   - `required DateTimeOffset CreatedAt`
 
-    A timestamp in RFC 3339 format
+    When the thread was created.
 
     format: date-time
 
@@ -18596,7 +18340,7 @@ Get Session Thread
 
   - `required BetaManagedAgentsSessionThreadStats? Stats`
 
-    Timing statistics for a session thread.
+    Timing statistics for this thread. Null until the thread's first status transition.
 
     - `double ActiveSeconds`
 
@@ -18618,7 +18362,7 @@ Get Session Thread
 
   - `required BetaManagedAgentsSessionThreadStatus Status`
 
-    SessionThreadStatus enum
+    Current execution status of the thread.
 
     - `Running("running")`
 
@@ -18630,13 +18374,13 @@ Get Session Thread
 
   - `required DateTimeOffset UpdatedAt`
 
-    A timestamp in RFC 3339 format
+    When the thread was last updated.
 
     format: date-time
 
   - `required BetaManagedAgentsSessionThreadUsage? Usage`
 
-    Cumulative token usage for a session thread across all turns.
+    Cumulative token usage for this thread. Null until the thread's first idle transition.
 
     - `double ActiveSeconds`
 
@@ -18646,7 +18390,7 @@ Get Session Thread
 
     - `BetaManagedAgentsCacheCreationUsage CacheCreation`
 
-      Prompt-cache creation token usage broken down by cache lifetime.
+      Tokens used to create prompt cache entries, broken down by cache TTL.
 
       - `int Ephemeral1hInputTokens`
 
@@ -18674,7 +18418,7 @@ Get Session Thread
 
     - `BetaMonetaryAmount? ListCost`
 
-      A monetary amount in a specific currency.
+      Cumulative list cost of this thread across all turns, priced at public list rates. Absent until cost tracking is available for the thread. Each figure is rounded to the nearest cent independently and the session's aggregate `usage.list_cost` additionally includes session runtime, so per-thread costs do not sum exactly to the session figure; the session figure is authoritative and is what a budget is enforced against.
 
       - `required string Amount`
 
@@ -18692,7 +18436,7 @@ Get Session Thread
 
     - `BetaManagedAgentsServerToolUsage? ServerToolUse`
 
-      Cumulative count of server-executed tool invocations, broken down by tool.
+      Cumulative server-executed tool usage across all turns of this thread. Absent until server-tool tracking is available for the thread.
 
       - `int WebFetchRequests`
 
@@ -18949,7 +18693,7 @@ Archive Session Thread
 
   - `required Agent Agent`
 
-    The resolved agent a `session_thread` runs.
+    Resolved agent definition for this thread. Snapshot of the agent at thread creation time.
 
     - `class BetaManagedAgentsSessionThreadAgent`
 
@@ -19041,7 +18785,7 @@ Archive Session Thread
 
         - `Effort Effort`
 
-          How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+          How hard Claude works on each inference call. One of `low`, `medium`, `high`, `xhigh`, `max`. Always present; resolved to the per-model default at save time when not supplied.
 
           - `class BetaManagedAgentsEffortLow`
 
@@ -19079,7 +18823,7 @@ Archive Session Thread
 
         - `Speed Speed`
 
-          Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+          Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Defaults to `standard`. Not all models support `fast`; invalid combinations are rejected at create time.
 
           - `Standard("standard")`
 
@@ -19483,13 +19227,13 @@ Archive Session Thread
 
   - `required DateTimeOffset? ArchivedAt`
 
-    A timestamp in RFC 3339 format
+    When the thread was archived. Null if not archived.
 
     format: date-time
 
   - `required DateTimeOffset CreatedAt`
 
-    A timestamp in RFC 3339 format
+    When the thread was created.
 
     format: date-time
 
@@ -19503,7 +19247,7 @@ Archive Session Thread
 
   - `required BetaManagedAgentsSessionThreadStats? Stats`
 
-    Timing statistics for a session thread.
+    Timing statistics for this thread. Null until the thread's first status transition.
 
     - `double ActiveSeconds`
 
@@ -19525,7 +19269,7 @@ Archive Session Thread
 
   - `required BetaManagedAgentsSessionThreadStatus Status`
 
-    SessionThreadStatus enum
+    Current execution status of the thread.
 
     - `Running("running")`
 
@@ -19537,13 +19281,13 @@ Archive Session Thread
 
   - `required DateTimeOffset UpdatedAt`
 
-    A timestamp in RFC 3339 format
+    When the thread was last updated.
 
     format: date-time
 
   - `required BetaManagedAgentsSessionThreadUsage? Usage`
 
-    Cumulative token usage for a session thread across all turns.
+    Cumulative token usage for this thread. Null until the thread's first idle transition.
 
     - `double ActiveSeconds`
 
@@ -19553,7 +19297,7 @@ Archive Session Thread
 
     - `BetaManagedAgentsCacheCreationUsage CacheCreation`
 
-      Prompt-cache creation token usage broken down by cache lifetime.
+      Tokens used to create prompt cache entries, broken down by cache TTL.
 
       - `int Ephemeral1hInputTokens`
 
@@ -19581,7 +19325,7 @@ Archive Session Thread
 
     - `BetaMonetaryAmount? ListCost`
 
-      A monetary amount in a specific currency.
+      Cumulative list cost of this thread across all turns, priced at public list rates. Absent until cost tracking is available for the thread. Each figure is rounded to the nearest cent independently and the session's aggregate `usage.list_cost` additionally includes session runtime, so per-thread costs do not sum exactly to the session figure; the session figure is authoritative and is what a budget is enforced against.
 
       - `required string Amount`
 
@@ -19599,7 +19343,7 @@ Archive Session Thread
 
     - `BetaManagedAgentsServerToolUsage? ServerToolUse`
 
-      Cumulative count of server-executed tool invocations, broken down by tool.
+      Cumulative server-executed tool usage across all turns of this thread. Absent until server-tool tracking is available for the thread.
 
       - `int WebFetchRequests`
 
@@ -19894,7 +19638,7 @@ List Session Thread Events
 
         - `required Source Source`
 
-          Union type for image source variants.
+          The source of the image data.
 
           - `class BetaManagedAgentsBase64ImageSource`
 
@@ -19946,7 +19690,7 @@ List Session Thread Events
 
         - `required Source Source`
 
-          Union type for document source variants.
+          The source of the document data.
 
           - `class BetaManagedAgentsBase64DocumentSource`
 
@@ -20022,7 +19766,7 @@ List Session Thread Events
 
     - `DateTimeOffset? ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the agent finished processing this message.
 
       format: date-time
 
@@ -20038,7 +19782,7 @@ List Session Thread Events
 
     - `DateTimeOffset? ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the interrupt was processed.
 
       format: date-time
 
@@ -20058,7 +19802,7 @@ List Session Thread Events
 
     - `required Result Result`
 
-      UserToolConfirmationResult enum
+      The confirmation result: 'allow' or 'deny'.
 
       - `Allow("allow")`
 
@@ -20076,7 +19820,7 @@ List Session Thread Events
 
     - `DateTimeOffset? ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the confirmation was processed.
 
       format: date-time
 
@@ -20122,7 +19866,7 @@ List Session Thread Events
 
         - `required BetaManagedAgentsSearchResultCitations Citations`
 
-          Citation settings for a search result.
+          Citation settings for this search result.
 
           - `required bool Enabled`
 
@@ -20158,7 +19902,7 @@ List Session Thread Events
 
     - `DateTimeOffset? ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this result was processed.
 
       format: date-time
 
@@ -20186,7 +19930,7 @@ List Session Thread Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this tool use was processed.
 
       format: date-time
 
@@ -20218,7 +19962,7 @@ List Session Thread Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this response was generated.
 
       format: date-time
 
@@ -20234,7 +19978,7 @@ List Session Thread Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this thinking was produced.
 
       format: date-time
 
@@ -20262,13 +20006,13 @@ List Session Thread Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this event was processed.
 
       format: date-time
 
     - `BetaManagedAgentsAgentEvaluatedPermission EvaluatedPermission`
 
-      AgentEvaluatedPermission enum
+      The evaluated permission policy for this tool invocation.
 
       - `Allow("allow")`
 
@@ -20278,7 +20022,7 @@ List Session Thread Events
 
     - `BetaManagedAgentsAgentToolEvaluation Evaluation`
 
-      Names the resolved permission_policy that produced evaluated_permission, and under auto carries the judgement. Open union: clients must tolerate unknown variants.
+      Which resolved permission_policy produced evaluated_permission: always_allow, always_ask, or auto (with the server's per-invocation judgement). Absent only when the server refused the call before any policy applied (for example, the named tool is not enabled in the session); such a refusal has evaluated_permission deny. An event recorded before this field existed reads as the arm its evaluated_permission implies (always_allow for allow, always_ask for ask).
 
       - `class BetaManagedAgentsAgentToolEvaluationAlwaysAllow`
 
@@ -20300,7 +20044,7 @@ List Session Thread Events
 
         - `required BetaManagedAgentsAgentAutoEvaluatedPermission EvaluatedPermission`
 
-          The server's per-invocation judgement under the auto permission policy. Its type always equals the event's top-level evaluated_permission. Open union: clients must tolerate unknown variants.
+          The server's judgement for this invocation.
 
           - `class BetaManagedAgentsAgentAutoEvaluatedPermissionAllow`
 
@@ -20352,7 +20096,7 @@ List Session Thread Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this event was processed.
 
       format: date-time
 
@@ -20400,17 +20144,17 @@ List Session Thread Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this event was processed.
 
       format: date-time
 
     - `BetaManagedAgentsAgentEvaluatedPermission EvaluatedPermission`
 
-      AgentEvaluatedPermission enum
+      The evaluated permission policy for this tool invocation.
 
     - `BetaManagedAgentsAgentToolEvaluation Evaluation`
 
-      Names the resolved permission_policy that produced evaluated_permission, and under auto carries the judgement. Open union: clients must tolerate unknown variants.
+      Which resolved permission_policy produced evaluated_permission: always_allow, always_ask, or auto (with the server's per-invocation judgement). Absent only when the server refused the call before any policy applied (for example, the named tool is not enabled in the session); such a refusal has evaluated_permission deny. An event recorded before this field existed reads as the arm its evaluated_permission implies (always_allow for allow, always_ask for ask).
 
     - `string? SessionThreadID`
 
@@ -20428,7 +20172,7 @@ List Session Thread Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this event was processed.
 
       format: date-time
 
@@ -20496,7 +20240,7 @@ List Session Thread Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the message was received.
 
       format: date-time
 
@@ -20536,7 +20280,7 @@ List Session Thread Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the message was sent.
 
       format: date-time
 
@@ -20560,7 +20304,7 @@ List Session Thread Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when compaction was processed.
 
       format: date-time
 
@@ -20588,7 +20332,7 @@ List Session Thread Events
 
         - `required RetryStatus RetryStatus`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
           - `class BetaManagedAgentsRetryStatusRetrying`
 
@@ -20620,7 +20364,7 @@ List Session Thread Events
 
         - `required RetryStatus RetryStatus`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
           - `class BetaManagedAgentsRetryStatusRetrying`
 
@@ -20646,7 +20390,7 @@ List Session Thread Events
 
         - `required RetryStatus RetryStatus`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
           - `class BetaManagedAgentsRetryStatusRetrying`
 
@@ -20672,7 +20416,7 @@ List Session Thread Events
 
         - `required RetryStatus RetryStatus`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
           - `class BetaManagedAgentsRetryStatusRetrying`
 
@@ -20702,7 +20446,7 @@ List Session Thread Events
 
         - `required RetryStatus RetryStatus`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
           - `class BetaManagedAgentsRetryStatusRetrying`
 
@@ -20732,7 +20476,7 @@ List Session Thread Events
 
         - `required RetryStatus RetryStatus`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
           - `class BetaManagedAgentsRetryStatusRetrying`
 
@@ -20758,7 +20502,7 @@ List Session Thread Events
 
         - `required RetryStatus RetryStatus`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
           - `class BetaManagedAgentsRetryStatusRetrying`
 
@@ -20788,7 +20532,7 @@ List Session Thread Events
 
         - `required RetryStatus RetryStatus`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
           - `class BetaManagedAgentsRetryStatusRetrying`
 
@@ -20808,7 +20552,7 @@ List Session Thread Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the error occurred.
 
       format: date-time
 
@@ -20824,7 +20568,7 @@ List Session Thread Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp of status change.
 
       format: date-time
 
@@ -20840,7 +20584,7 @@ List Session Thread Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp of status change.
 
       format: date-time
 
@@ -20856,7 +20600,7 @@ List Session Thread Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp of status change.
 
       format: date-time
 
@@ -20902,7 +20646,7 @@ List Session Thread Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp of status change.
 
       format: date-time
 
@@ -20922,7 +20666,7 @@ List Session Thread Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the thread was created.
 
       format: date-time
 
@@ -20952,7 +20696,7 @@ List Session Thread Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when outcome evaluation started.
 
       format: date-time
 
@@ -20986,7 +20730,7 @@ List Session Thread Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when outcome evaluation ended.
 
       format: date-time
 
@@ -20996,7 +20740,7 @@ List Session Thread Events
 
     - `required BetaManagedAgentsSpanModelUsage Usage`
 
-      Token usage for a single model request.
+      Aggregate token usage for this evaluation cycle. Sums across all grader model requests within the cycle.
 
       - `required int CacheCreationInputTokens`
 
@@ -21024,7 +20768,7 @@ List Session Thread Events
 
       - `Speed? Speed`
 
-        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+        Inference speed tier this request actually ran at. Mirrors `usage.speed` on /v1/messages. Only present when the fast-mode beta is active.
 
         - `Standard("standard")`
 
@@ -21042,7 +20786,7 @@ List Session Thread Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the model request started.
 
       format: date-time
 
@@ -21066,11 +20810,11 @@ List Session Thread Events
 
     - `required BetaManagedAgentsSpanModelUsage ModelUsage`
 
-      Token usage for a single model request.
+      Token usage for this model request.
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the model request completed.
 
       format: date-time
 
@@ -21096,7 +20840,7 @@ List Session Thread Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this heartbeat was emitted.
 
       format: date-time
 
@@ -21126,13 +20870,13 @@ List Session Thread Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the outcome was accepted.
 
       format: date-time
 
     - `required Rubric Rubric`
 
-      Rubric for grading the quality of an outcome.
+      How to grade the outcome. File rubrics are currently resolved to their text content; clients should handle both variants.
 
       - `class BetaManagedAgentsFileRubric`
 
@@ -21166,7 +20910,7 @@ List Session Thread Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the session was deleted.
 
       format: date-time
 
@@ -21186,7 +20930,7 @@ List Session Thread Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp of the status transition.
 
       format: date-time
 
@@ -21210,7 +20954,7 @@ List Session Thread Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp of the status transition.
 
       format: date-time
 
@@ -21252,7 +20996,7 @@ List Session Thread Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp of the status transition.
 
       format: date-time
 
@@ -21300,7 +21044,7 @@ List Session Thread Events
 
     - `DateTimeOffset? ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this result was processed.
 
       format: date-time
 
@@ -21324,7 +21068,7 @@ List Session Thread Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp of the status transition.
 
       format: date-time
 
@@ -21344,13 +21088,13 @@ List Session Thread Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the update was applied.
 
       format: date-time
 
     - `BetaManagedAgentsSessionAgent? Agent`
 
-      Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
+      The session's effective agent configuration after the update. Present only when the update changed `agent` (tools or mcp_servers); when present it is the full materialised snapshot, not a diff.
 
       - `required Type Type`
 
@@ -21438,7 +21182,7 @@ List Session Thread Events
 
         - `Effort Effort`
 
-          How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+          How hard Claude works on each inference call. One of `low`, `medium`, `high`, `xhigh`, `max`. Always present; resolved to the per-model default at save time when not supplied.
 
           - `class BetaManagedAgentsEffortLow`
 
@@ -21476,7 +21220,7 @@ List Session Thread Events
 
         - `Speed Speed`
 
-          Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+          Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Defaults to `standard`. Not all models support `fast`; invalid combinations are rejected at create time.
 
           - `Standard("standard")`
 
@@ -21484,7 +21228,7 @@ List Session Thread Events
 
       - `required BetaManagedAgentsSessionMultiagentCoordinator? Multiagent`
 
-        Resolved coordinator topology with full agent definitions for each roster member.
+        Resolved multiagent orchestration configuration. Null when the agent is single-threaded.
 
         - `required Type Type`
 
@@ -21940,13 +21684,13 @@ List Session Thread Events
 
     - `BetaManagedAgentsBudgetLimit? Budget`
 
-      A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+      The session's budget after the update: the new budget when set or replaced, or null when the update removed it. Present only when the update changed the budget.
 
       - `required Type Type`
 
       - `required BetaMonetaryAmount MaxListCost`
 
-        A monetary amount in a specific currency.
+        Maximum list cost the session may accrue. List price is used regardless of any negotiated discount, so the cap fires at or before the actual charge.
 
         - `required string Amount`
 
@@ -21988,7 +21732,7 @@ List Session Thread Events
 
     - `DateTimeOffset? ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this system message was processed.
 
       format: date-time
 
@@ -22004,13 +21748,13 @@ List Session Thread Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the snapshot was taken.
 
       format: date-time
 
     - `required BetaManagedAgentsSessionUsageSnapshot Usage`
 
-      Point-in-time snapshot of a session's cumulative usage.
+      The session's cumulative usage at the snapshot time.
 
       - `double ActiveSeconds`
 
@@ -22020,7 +21764,7 @@ List Session Thread Events
 
       - `BetaManagedAgentsCacheCreationUsage CacheCreation`
 
-        Prompt-cache creation token usage broken down by cache lifetime.
+        Tokens used to create prompt cache entries, broken down by cache TTL.
 
         - `int Ephemeral1hInputTokens`
 
@@ -22048,7 +21792,7 @@ List Session Thread Events
 
       - `BetaMonetaryAmount ListCost`
 
-        A monetary amount in a specific currency.
+        Cumulative list cost of the session across all turns, priced at public list rates.
 
       - `int OutputTokens`
 
@@ -22058,7 +21802,7 @@ List Session Thread Events
 
       - `BetaManagedAgentsServerToolUsage ServerToolUse`
 
-        Cumulative count of server-executed tool invocations, broken down by tool.
+        Cumulative server-executed tool usage across all turns.
 
         - `int WebFetchRequests`
 
@@ -22074,7 +21818,7 @@ List Session Thread Events
 
     - `BetaManagedAgentsBudgetLimit? Budget`
 
-      A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+      The session's configured budget at the snapshot time, or null when the session has no budget.
 
 #### Example
 
@@ -22287,7 +22031,7 @@ Stream Session Thread Events
 
         - `required Source Source`
 
-          Union type for image source variants.
+          The source of the image data.
 
           - `class BetaManagedAgentsBase64ImageSource`
 
@@ -22339,7 +22083,7 @@ Stream Session Thread Events
 
         - `required Source Source`
 
-          Union type for document source variants.
+          The source of the document data.
 
           - `class BetaManagedAgentsBase64DocumentSource`
 
@@ -22415,7 +22159,7 @@ Stream Session Thread Events
 
     - `DateTimeOffset? ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the agent finished processing this message.
 
       format: date-time
 
@@ -22431,7 +22175,7 @@ Stream Session Thread Events
 
     - `DateTimeOffset? ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the interrupt was processed.
 
       format: date-time
 
@@ -22451,7 +22195,7 @@ Stream Session Thread Events
 
     - `required Result Result`
 
-      UserToolConfirmationResult enum
+      The confirmation result: 'allow' or 'deny'.
 
       - `Allow("allow")`
 
@@ -22469,7 +22213,7 @@ Stream Session Thread Events
 
     - `DateTimeOffset? ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the confirmation was processed.
 
       format: date-time
 
@@ -22515,7 +22259,7 @@ Stream Session Thread Events
 
         - `required BetaManagedAgentsSearchResultCitations Citations`
 
-          Citation settings for a search result.
+          Citation settings for this search result.
 
           - `required bool Enabled`
 
@@ -22551,7 +22295,7 @@ Stream Session Thread Events
 
     - `DateTimeOffset? ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this result was processed.
 
       format: date-time
 
@@ -22579,7 +22323,7 @@ Stream Session Thread Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this tool use was processed.
 
       format: date-time
 
@@ -22611,7 +22355,7 @@ Stream Session Thread Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this response was generated.
 
       format: date-time
 
@@ -22627,7 +22371,7 @@ Stream Session Thread Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this thinking was produced.
 
       format: date-time
 
@@ -22655,13 +22399,13 @@ Stream Session Thread Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this event was processed.
 
       format: date-time
 
     - `BetaManagedAgentsAgentEvaluatedPermission EvaluatedPermission`
 
-      AgentEvaluatedPermission enum
+      The evaluated permission policy for this tool invocation.
 
       - `Allow("allow")`
 
@@ -22671,7 +22415,7 @@ Stream Session Thread Events
 
     - `BetaManagedAgentsAgentToolEvaluation Evaluation`
 
-      Names the resolved permission_policy that produced evaluated_permission, and under auto carries the judgement. Open union: clients must tolerate unknown variants.
+      Which resolved permission_policy produced evaluated_permission: always_allow, always_ask, or auto (with the server's per-invocation judgement). Absent only when the server refused the call before any policy applied (for example, the named tool is not enabled in the session); such a refusal has evaluated_permission deny. An event recorded before this field existed reads as the arm its evaluated_permission implies (always_allow for allow, always_ask for ask).
 
       - `class BetaManagedAgentsAgentToolEvaluationAlwaysAllow`
 
@@ -22693,7 +22437,7 @@ Stream Session Thread Events
 
         - `required BetaManagedAgentsAgentAutoEvaluatedPermission EvaluatedPermission`
 
-          The server's per-invocation judgement under the auto permission policy. Its type always equals the event's top-level evaluated_permission. Open union: clients must tolerate unknown variants.
+          The server's judgement for this invocation.
 
           - `class BetaManagedAgentsAgentAutoEvaluatedPermissionAllow`
 
@@ -22745,7 +22489,7 @@ Stream Session Thread Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this event was processed.
 
       format: date-time
 
@@ -22793,17 +22537,17 @@ Stream Session Thread Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this event was processed.
 
       format: date-time
 
     - `BetaManagedAgentsAgentEvaluatedPermission EvaluatedPermission`
 
-      AgentEvaluatedPermission enum
+      The evaluated permission policy for this tool invocation.
 
     - `BetaManagedAgentsAgentToolEvaluation Evaluation`
 
-      Names the resolved permission_policy that produced evaluated_permission, and under auto carries the judgement. Open union: clients must tolerate unknown variants.
+      Which resolved permission_policy produced evaluated_permission: always_allow, always_ask, or auto (with the server's per-invocation judgement). Absent only when the server refused the call before any policy applied (for example, the named tool is not enabled in the session); such a refusal has evaluated_permission deny. An event recorded before this field existed reads as the arm its evaluated_permission implies (always_allow for allow, always_ask for ask).
 
     - `string? SessionThreadID`
 
@@ -22821,7 +22565,7 @@ Stream Session Thread Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this event was processed.
 
       format: date-time
 
@@ -22889,7 +22633,7 @@ Stream Session Thread Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the message was received.
 
       format: date-time
 
@@ -22929,7 +22673,7 @@ Stream Session Thread Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the message was sent.
 
       format: date-time
 
@@ -22953,7 +22697,7 @@ Stream Session Thread Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when compaction was processed.
 
       format: date-time
 
@@ -22981,7 +22725,7 @@ Stream Session Thread Events
 
         - `required RetryStatus RetryStatus`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
           - `class BetaManagedAgentsRetryStatusRetrying`
 
@@ -23013,7 +22757,7 @@ Stream Session Thread Events
 
         - `required RetryStatus RetryStatus`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
           - `class BetaManagedAgentsRetryStatusRetrying`
 
@@ -23039,7 +22783,7 @@ Stream Session Thread Events
 
         - `required RetryStatus RetryStatus`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
           - `class BetaManagedAgentsRetryStatusRetrying`
 
@@ -23065,7 +22809,7 @@ Stream Session Thread Events
 
         - `required RetryStatus RetryStatus`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
           - `class BetaManagedAgentsRetryStatusRetrying`
 
@@ -23095,7 +22839,7 @@ Stream Session Thread Events
 
         - `required RetryStatus RetryStatus`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
           - `class BetaManagedAgentsRetryStatusRetrying`
 
@@ -23125,7 +22869,7 @@ Stream Session Thread Events
 
         - `required RetryStatus RetryStatus`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
           - `class BetaManagedAgentsRetryStatusRetrying`
 
@@ -23151,7 +22895,7 @@ Stream Session Thread Events
 
         - `required RetryStatus RetryStatus`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
           - `class BetaManagedAgentsRetryStatusRetrying`
 
@@ -23181,7 +22925,7 @@ Stream Session Thread Events
 
         - `required RetryStatus RetryStatus`
 
-          What the client should do next in response to this error.
+          What the client should do next.
 
           - `class BetaManagedAgentsRetryStatusRetrying`
 
@@ -23201,7 +22945,7 @@ Stream Session Thread Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the error occurred.
 
       format: date-time
 
@@ -23217,7 +22961,7 @@ Stream Session Thread Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp of status change.
 
       format: date-time
 
@@ -23233,7 +22977,7 @@ Stream Session Thread Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp of status change.
 
       format: date-time
 
@@ -23249,7 +22993,7 @@ Stream Session Thread Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp of status change.
 
       format: date-time
 
@@ -23295,7 +23039,7 @@ Stream Session Thread Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp of status change.
 
       format: date-time
 
@@ -23315,7 +23059,7 @@ Stream Session Thread Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the thread was created.
 
       format: date-time
 
@@ -23345,7 +23089,7 @@ Stream Session Thread Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when outcome evaluation started.
 
       format: date-time
 
@@ -23379,7 +23123,7 @@ Stream Session Thread Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when outcome evaluation ended.
 
       format: date-time
 
@@ -23389,7 +23133,7 @@ Stream Session Thread Events
 
     - `required BetaManagedAgentsSpanModelUsage Usage`
 
-      Token usage for a single model request.
+      Aggregate token usage for this evaluation cycle. Sums across all grader model requests within the cycle.
 
       - `required int CacheCreationInputTokens`
 
@@ -23417,7 +23161,7 @@ Stream Session Thread Events
 
       - `Speed? Speed`
 
-        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+        Inference speed tier this request actually ran at. Mirrors `usage.speed` on /v1/messages. Only present when the fast-mode beta is active.
 
         - `Standard("standard")`
 
@@ -23435,7 +23179,7 @@ Stream Session Thread Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the model request started.
 
       format: date-time
 
@@ -23459,11 +23203,11 @@ Stream Session Thread Events
 
     - `required BetaManagedAgentsSpanModelUsage ModelUsage`
 
-      Token usage for a single model request.
+      Token usage for this model request.
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the model request completed.
 
       format: date-time
 
@@ -23489,7 +23233,7 @@ Stream Session Thread Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this heartbeat was emitted.
 
       format: date-time
 
@@ -23519,13 +23263,13 @@ Stream Session Thread Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the outcome was accepted.
 
       format: date-time
 
     - `required Rubric Rubric`
 
-      Rubric for grading the quality of an outcome.
+      How to grade the outcome. File rubrics are currently resolved to their text content; clients should handle both variants.
 
       - `class BetaManagedAgentsFileRubric`
 
@@ -23559,7 +23303,7 @@ Stream Session Thread Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the session was deleted.
 
       format: date-time
 
@@ -23579,7 +23323,7 @@ Stream Session Thread Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp of the status transition.
 
       format: date-time
 
@@ -23603,7 +23347,7 @@ Stream Session Thread Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp of the status transition.
 
       format: date-time
 
@@ -23645,7 +23389,7 @@ Stream Session Thread Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp of the status transition.
 
       format: date-time
 
@@ -23693,7 +23437,7 @@ Stream Session Thread Events
 
     - `DateTimeOffset? ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this result was processed.
 
       format: date-time
 
@@ -23717,7 +23461,7 @@ Stream Session Thread Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp of the status transition.
 
       format: date-time
 
@@ -23737,13 +23481,13 @@ Stream Session Thread Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the update was applied.
 
       format: date-time
 
     - `BetaManagedAgentsSessionAgent? Agent`
 
-      Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
+      The session's effective agent configuration after the update. Present only when the update changed `agent` (tools or mcp_servers); when present it is the full materialised snapshot, not a diff.
 
       - `required Type Type`
 
@@ -23831,7 +23575,7 @@ Stream Session Thread Events
 
         - `Effort Effort`
 
-          How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+          How hard Claude works on each inference call. One of `low`, `medium`, `high`, `xhigh`, `max`. Always present; resolved to the per-model default at save time when not supplied.
 
           - `class BetaManagedAgentsEffortLow`
 
@@ -23869,7 +23613,7 @@ Stream Session Thread Events
 
         - `Speed Speed`
 
-          Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+          Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Defaults to `standard`. Not all models support `fast`; invalid combinations are rejected at create time.
 
           - `Standard("standard")`
 
@@ -23877,7 +23621,7 @@ Stream Session Thread Events
 
       - `required BetaManagedAgentsSessionMultiagentCoordinator? Multiagent`
 
-        Resolved coordinator topology with full agent definitions for each roster member.
+        Resolved multiagent orchestration configuration. Null when the agent is single-threaded.
 
         - `required Type Type`
 
@@ -24333,13 +24077,13 @@ Stream Session Thread Events
 
     - `BetaManagedAgentsBudgetLimit? Budget`
 
-      A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+      The session's budget after the update: the new budget when set or replaced, or null when the update removed it. Present only when the update changed the budget.
 
       - `required Type Type`
 
       - `required BetaMonetaryAmount MaxListCost`
 
-        A monetary amount in a specific currency.
+        Maximum list cost the session may accrue. List price is used regardless of any negotiated discount, so the cap fires at or before the actual charge.
 
         - `required string Amount`
 
@@ -24397,13 +24141,11 @@ Stream Session Thread Events
 
       - `required BetaManagedAgentsTextBlock Content`
 
-        Regular text content.
+        A partial element of the content array at index, typed like the element itself — the same shape the buffered agent.message carries in content.
 
       - `long Index`
 
         Which entry in the previewed event's content array this fragment lands in. Insert content as that entry when the index is new; append to the existing entry otherwise.
-
-        format: uint32
 
     - `required string EventID`
 
@@ -24433,7 +24175,7 @@ Stream Session Thread Events
 
     - `DateTimeOffset? ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when this system message was processed.
 
       format: date-time
 
@@ -24449,13 +24191,13 @@ Stream Session Thread Events
 
     - `required DateTimeOffset ProcessedAt`
 
-      A timestamp in RFC 3339 format
+      Timestamp when the snapshot was taken.
 
       format: date-time
 
     - `required BetaManagedAgentsSessionUsageSnapshot Usage`
 
-      Point-in-time snapshot of a session's cumulative usage.
+      The session's cumulative usage at the snapshot time.
 
       - `double ActiveSeconds`
 
@@ -24465,7 +24207,7 @@ Stream Session Thread Events
 
       - `BetaManagedAgentsCacheCreationUsage CacheCreation`
 
-        Prompt-cache creation token usage broken down by cache lifetime.
+        Tokens used to create prompt cache entries, broken down by cache TTL.
 
         - `int Ephemeral1hInputTokens`
 
@@ -24493,7 +24235,7 @@ Stream Session Thread Events
 
       - `BetaMonetaryAmount ListCost`
 
-        A monetary amount in a specific currency.
+        Cumulative list cost of the session across all turns, priced at public list rates.
 
       - `int OutputTokens`
 
@@ -24503,7 +24245,7 @@ Stream Session Thread Events
 
       - `BetaManagedAgentsServerToolUsage ServerToolUse`
 
-        Cumulative count of server-executed tool invocations, broken down by tool.
+        Cumulative server-executed tool usage across all turns.
 
         - `int WebFetchRequests`
 
@@ -24519,7 +24261,7 @@ Stream Session Thread Events
 
     - `BetaManagedAgentsBudgetLimit? Budget`
 
-      A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+      The session's configured budget at the snapshot time, or null when the session has no budget.
 
 #### Example
 
@@ -24630,7 +24372,7 @@ Create Deployment
 
           - `required Source Source`
 
-            Union type for image source variants.
+            The source of the image data.
 
             - `class BetaManagedAgentsBase64ImageSource`
 
@@ -24682,7 +24424,7 @@ Create Deployment
 
           - `required Source Source`
 
-            Union type for document source variants.
+            The source of the document data.
 
             - `class BetaManagedAgentsBase64DocumentSource`
 
@@ -24768,7 +24510,7 @@ Create Deployment
 
       - `required Rubric Rubric`
 
-        Rubric for grading the quality of an outcome.
+        How to grade the outcome. Text or file reference.
 
         - `class BetaManagedAgentsFileRubricParams`
 
@@ -24824,7 +24566,7 @@ Create Deployment
 
   - `BetaManagedAgentsBudgetLimit? budget`
 
-    Body param: A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+    Body param: Enforced spend ceiling stamped onto each session created from this deployment, copied at session-creation time. Omit to leave sessions uncapped. The deployment agent's model must have a public list price, or the request is rejected; a multiagent roster is re-validated in full when each fire copies the cap, which fails closed the same way.
 
   - `string? description`
 
@@ -24918,7 +24660,7 @@ Create Deployment
 
       - `Access? Access`
 
-        Access mode for an attached memory store.
+        Access mode for the mounted store. Defaults to read_write. read_only mounts the store as a read-only filesystem.
 
         - `ReadWrite("read_write")`
 
@@ -24932,7 +24674,7 @@ Create Deployment
 
   - `BetaManagedAgentsScheduleParams? schedule`
 
-    Body param: 5-field POSIX cron schedule. Literal wall-clock matching in the configured timezone.
+    Body param: Optional recurring cron schedule. When present, the deployment fires automatically. Both expression and timezone are required when schedule is set.
 
   - `IReadOnlyList<string> vaultIds`
 
@@ -25058,7 +24800,7 @@ Create Deployment
 
   - `required BetaManagedAgentsAgentReference Agent`
 
-    A resolved agent reference with a concrete version.
+    Reference to the agent this deployment runs, resolved to a concrete version.
 
     - `required Type Type`
 
@@ -25070,13 +24812,13 @@ Create Deployment
 
   - `required DateTimeOffset? ArchivedAt`
 
-    A timestamp in RFC 3339 format
+    Time the deployment was archived. Null if not archived.
 
     format: date-time
 
   - `required DateTimeOffset CreatedAt`
 
-    A timestamp in RFC 3339 format
+    Time the deployment was created.
 
     format: date-time
 
@@ -25122,7 +24864,7 @@ Create Deployment
 
           - `required Source Source`
 
-            Union type for image source variants.
+            The source of the image data.
 
             - `class BetaManagedAgentsBase64ImageSource`
 
@@ -25174,7 +24916,7 @@ Create Deployment
 
           - `required Source Source`
 
-            Union type for document source variants.
+            The source of the document data.
 
             - `class BetaManagedAgentsBase64DocumentSource`
 
@@ -25260,7 +25002,7 @@ Create Deployment
 
       - `required Rubric Rubric`
 
-        Rubric for grading the quality of an outcome.
+        How to grade the outcome. Text or file reference.
 
         - `class BetaManagedAgentsFileRubric`
 
@@ -25316,7 +25058,7 @@ Create Deployment
 
   - `required BetaManagedAgentsDeploymentPausedReason? PausedReason`
 
-    Why a deployment is paused. Non-null exactly when `status` is `paused`.
+    Why the deployment is `paused`. Non-null exactly when `status` is `paused`; null otherwise.
 
     - `class BetaManagedAgentsManualDeploymentPausedReason`
 
@@ -25332,7 +25074,7 @@ Create Deployment
 
       - `required BetaManagedAgentsDeploymentPausedReasonError Error`
 
-        The error that triggered an auto-pause. Matches the failed run's `error.type`.
+        The failed run's error.
 
         - `class BetaManagedAgentsEnvironmentArchivedDeploymentPausedReasonError`
 
@@ -25486,7 +25228,7 @@ Create Deployment
 
       - `Access? Access`
 
-        Access mode for an attached memory store.
+        Access mode for the mounted store. Defaults to `read_write`. `read_only` mounts the store as a read-only filesystem.
 
         - `ReadWrite("read_write")`
 
@@ -25498,7 +25240,7 @@ Create Deployment
 
   - `required BetaManagedAgentsSchedule? Schedule`
 
-    5-field POSIX cron schedule with computed runtime timestamps.
+    Recurring cron schedule. Presence enables scheduled execution; null means manual-only. Includes computed timestamps (next fire times, last run) on the cron variant.
 
     - `required Type Type`
 
@@ -25516,7 +25258,7 @@ Create Deployment
 
     - `DateTimeOffset? LastRunAt`
 
-      A timestamp in RFC 3339 format
+      Time the most recent scheduled run actually started. Null until one completes; preserved after the deployment is archived. Manual runs do not update this.
 
       format: date-time
 
@@ -25526,7 +25268,7 @@ Create Deployment
 
   - `required BetaManagedAgentsDeploymentStatus Status`
 
-    Lifecycle status of a deployment.
+    Computed status of the deployment: `active` or `paused`. Archived deployments report `active` with `archived_at` set.
 
     - `Active("active")`
 
@@ -25538,7 +25280,7 @@ Create Deployment
 
   - `required DateTimeOffset UpdatedAt`
 
-    A timestamp in RFC 3339 format
+    Time the deployment was last updated.
 
     format: date-time
 
@@ -25548,13 +25290,13 @@ Create Deployment
 
   - `BetaManagedAgentsBudgetLimit? Budget`
 
-    A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+    Spend ceiling stamped onto each session created from this deployment. Absent when no budget is set.
 
     - `required Type Type`
 
     - `required BetaMonetaryAmount MaxListCost`
 
-      A monetary amount in a specific currency.
+      Maximum list cost the session may accrue. List price is used regardless of any negotiated discount, so the cap fires at or before the actual charge.
 
       - `required string Amount`
 
@@ -25827,7 +25569,7 @@ List Deployments
 
   - `required BetaManagedAgentsAgentReference Agent`
 
-    A resolved agent reference with a concrete version.
+    Reference to the agent this deployment runs, resolved to a concrete version.
 
     - `required Type Type`
 
@@ -25839,13 +25581,13 @@ List Deployments
 
   - `required DateTimeOffset? ArchivedAt`
 
-    A timestamp in RFC 3339 format
+    Time the deployment was archived. Null if not archived.
 
     format: date-time
 
   - `required DateTimeOffset CreatedAt`
 
-    A timestamp in RFC 3339 format
+    Time the deployment was created.
 
     format: date-time
 
@@ -25891,7 +25633,7 @@ List Deployments
 
           - `required Source Source`
 
-            Union type for image source variants.
+            The source of the image data.
 
             - `class BetaManagedAgentsBase64ImageSource`
 
@@ -25943,7 +25685,7 @@ List Deployments
 
           - `required Source Source`
 
-            Union type for document source variants.
+            The source of the document data.
 
             - `class BetaManagedAgentsBase64DocumentSource`
 
@@ -26029,7 +25771,7 @@ List Deployments
 
       - `required Rubric Rubric`
 
-        Rubric for grading the quality of an outcome.
+        How to grade the outcome. Text or file reference.
 
         - `class BetaManagedAgentsFileRubric`
 
@@ -26085,7 +25827,7 @@ List Deployments
 
   - `required BetaManagedAgentsDeploymentPausedReason? PausedReason`
 
-    Why a deployment is paused. Non-null exactly when `status` is `paused`.
+    Why the deployment is `paused`. Non-null exactly when `status` is `paused`; null otherwise.
 
     - `class BetaManagedAgentsManualDeploymentPausedReason`
 
@@ -26101,7 +25843,7 @@ List Deployments
 
       - `required BetaManagedAgentsDeploymentPausedReasonError Error`
 
-        The error that triggered an auto-pause. Matches the failed run's `error.type`.
+        The failed run's error.
 
         - `class BetaManagedAgentsEnvironmentArchivedDeploymentPausedReasonError`
 
@@ -26255,7 +25997,7 @@ List Deployments
 
       - `Access? Access`
 
-        Access mode for an attached memory store.
+        Access mode for the mounted store. Defaults to `read_write`. `read_only` mounts the store as a read-only filesystem.
 
         - `ReadWrite("read_write")`
 
@@ -26267,7 +26009,7 @@ List Deployments
 
   - `required BetaManagedAgentsSchedule? Schedule`
 
-    5-field POSIX cron schedule with computed runtime timestamps.
+    Recurring cron schedule. Presence enables scheduled execution; null means manual-only. Includes computed timestamps (next fire times, last run) on the cron variant.
 
     - `required Type Type`
 
@@ -26285,7 +26027,7 @@ List Deployments
 
     - `DateTimeOffset? LastRunAt`
 
-      A timestamp in RFC 3339 format
+      Time the most recent scheduled run actually started. Null until one completes; preserved after the deployment is archived. Manual runs do not update this.
 
       format: date-time
 
@@ -26295,7 +26037,7 @@ List Deployments
 
   - `required BetaManagedAgentsDeploymentStatus Status`
 
-    Lifecycle status of a deployment.
+    Computed status of the deployment: `active` or `paused`. Archived deployments report `active` with `archived_at` set.
 
     - `Active("active")`
 
@@ -26307,7 +26049,7 @@ List Deployments
 
   - `required DateTimeOffset UpdatedAt`
 
-    A timestamp in RFC 3339 format
+    Time the deployment was last updated.
 
     format: date-time
 
@@ -26317,13 +26059,13 @@ List Deployments
 
   - `BetaManagedAgentsBudgetLimit? Budget`
 
-    A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+    Spend ceiling stamped onto each session created from this deployment. Absent when no budget is set.
 
     - `required Type Type`
 
     - `required BetaMonetaryAmount MaxListCost`
 
-      A monetary amount in a specific currency.
+      Maximum list cost the session may accrue. List price is used regardless of any negotiated discount, so the cap fires at or before the actual charge.
 
       - `required string Amount`
 
@@ -26553,7 +26295,7 @@ Get Deployment
 
   - `required BetaManagedAgentsAgentReference Agent`
 
-    A resolved agent reference with a concrete version.
+    Reference to the agent this deployment runs, resolved to a concrete version.
 
     - `required Type Type`
 
@@ -26565,13 +26307,13 @@ Get Deployment
 
   - `required DateTimeOffset? ArchivedAt`
 
-    A timestamp in RFC 3339 format
+    Time the deployment was archived. Null if not archived.
 
     format: date-time
 
   - `required DateTimeOffset CreatedAt`
 
-    A timestamp in RFC 3339 format
+    Time the deployment was created.
 
     format: date-time
 
@@ -26617,7 +26359,7 @@ Get Deployment
 
           - `required Source Source`
 
-            Union type for image source variants.
+            The source of the image data.
 
             - `class BetaManagedAgentsBase64ImageSource`
 
@@ -26669,7 +26411,7 @@ Get Deployment
 
           - `required Source Source`
 
-            Union type for document source variants.
+            The source of the document data.
 
             - `class BetaManagedAgentsBase64DocumentSource`
 
@@ -26755,7 +26497,7 @@ Get Deployment
 
       - `required Rubric Rubric`
 
-        Rubric for grading the quality of an outcome.
+        How to grade the outcome. Text or file reference.
 
         - `class BetaManagedAgentsFileRubric`
 
@@ -26811,7 +26553,7 @@ Get Deployment
 
   - `required BetaManagedAgentsDeploymentPausedReason? PausedReason`
 
-    Why a deployment is paused. Non-null exactly when `status` is `paused`.
+    Why the deployment is `paused`. Non-null exactly when `status` is `paused`; null otherwise.
 
     - `class BetaManagedAgentsManualDeploymentPausedReason`
 
@@ -26827,7 +26569,7 @@ Get Deployment
 
       - `required BetaManagedAgentsDeploymentPausedReasonError Error`
 
-        The error that triggered an auto-pause. Matches the failed run's `error.type`.
+        The failed run's error.
 
         - `class BetaManagedAgentsEnvironmentArchivedDeploymentPausedReasonError`
 
@@ -26981,7 +26723,7 @@ Get Deployment
 
       - `Access? Access`
 
-        Access mode for an attached memory store.
+        Access mode for the mounted store. Defaults to `read_write`. `read_only` mounts the store as a read-only filesystem.
 
         - `ReadWrite("read_write")`
 
@@ -26993,7 +26735,7 @@ Get Deployment
 
   - `required BetaManagedAgentsSchedule? Schedule`
 
-    5-field POSIX cron schedule with computed runtime timestamps.
+    Recurring cron schedule. Presence enables scheduled execution; null means manual-only. Includes computed timestamps (next fire times, last run) on the cron variant.
 
     - `required Type Type`
 
@@ -27011,7 +26753,7 @@ Get Deployment
 
     - `DateTimeOffset? LastRunAt`
 
-      A timestamp in RFC 3339 format
+      Time the most recent scheduled run actually started. Null until one completes; preserved after the deployment is archived. Manual runs do not update this.
 
       format: date-time
 
@@ -27021,7 +26763,7 @@ Get Deployment
 
   - `required BetaManagedAgentsDeploymentStatus Status`
 
-    Lifecycle status of a deployment.
+    Computed status of the deployment: `active` or `paused`. Archived deployments report `active` with `archived_at` set.
 
     - `Active("active")`
 
@@ -27033,7 +26775,7 @@ Get Deployment
 
   - `required DateTimeOffset UpdatedAt`
 
-    A timestamp in RFC 3339 format
+    Time the deployment was last updated.
 
     format: date-time
 
@@ -27043,13 +26785,13 @@ Get Deployment
 
   - `BetaManagedAgentsBudgetLimit? Budget`
 
-    A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+    Spend ceiling stamped onto each session created from this deployment. Absent when no budget is set.
 
     - `required Type Type`
 
     - `required BetaMonetaryAmount MaxListCost`
 
-      A monetary amount in a specific currency.
+      Maximum list cost the session may accrue. List price is used regardless of any negotiated discount, so the cap fires at or before the actual charge.
 
       - `required string Amount`
 
@@ -27181,7 +26923,7 @@ Update Deployment
 
   - `BetaManagedAgentsBudgetLimit? budget`
 
-    Body param: A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+    Body param: Spend ceiling for future sessions. Full replacement. Omit to preserve; send null to clear (sessions created afterwards are uncapped). The deployment agent's model must have a public list price, or the request is rejected; a multiagent roster is re-validated in full when each fire copies the cap, which fails closed the same way.
 
   - `string? description`
 
@@ -27229,7 +26971,7 @@ Update Deployment
 
           - `required Source Source`
 
-            Union type for image source variants.
+            The source of the image data.
 
             - `class BetaManagedAgentsBase64ImageSource`
 
@@ -27281,7 +27023,7 @@ Update Deployment
 
           - `required Source Source`
 
-            Union type for document source variants.
+            The source of the document data.
 
             - `class BetaManagedAgentsBase64DocumentSource`
 
@@ -27367,7 +27109,7 @@ Update Deployment
 
       - `required Rubric Rubric`
 
-        Rubric for grading the quality of an outcome.
+        How to grade the outcome. Text or file reference.
 
         - `class BetaManagedAgentsFileRubricParams`
 
@@ -27507,7 +27249,7 @@ Update Deployment
 
       - `Access? Access`
 
-        Access mode for an attached memory store.
+        Access mode for the mounted store. Defaults to read_write. read_only mounts the store as a read-only filesystem.
 
         - `ReadWrite("read_write")`
 
@@ -27521,7 +27263,7 @@ Update Deployment
 
   - `BetaManagedAgentsScheduleParams? schedule`
 
-    Body param: 5-field POSIX cron schedule. Literal wall-clock matching in the configured timezone.
+    Body param: Cron schedule. Full replacement. Omit to preserve; send null to clear (revert to manual-only).
 
   - `IReadOnlyList<string>? vaultIds`
 
@@ -27647,7 +27389,7 @@ Update Deployment
 
   - `required BetaManagedAgentsAgentReference Agent`
 
-    A resolved agent reference with a concrete version.
+    Reference to the agent this deployment runs, resolved to a concrete version.
 
     - `required Type Type`
 
@@ -27659,13 +27401,13 @@ Update Deployment
 
   - `required DateTimeOffset? ArchivedAt`
 
-    A timestamp in RFC 3339 format
+    Time the deployment was archived. Null if not archived.
 
     format: date-time
 
   - `required DateTimeOffset CreatedAt`
 
-    A timestamp in RFC 3339 format
+    Time the deployment was created.
 
     format: date-time
 
@@ -27711,7 +27453,7 @@ Update Deployment
 
           - `required Source Source`
 
-            Union type for image source variants.
+            The source of the image data.
 
             - `class BetaManagedAgentsBase64ImageSource`
 
@@ -27763,7 +27505,7 @@ Update Deployment
 
           - `required Source Source`
 
-            Union type for document source variants.
+            The source of the document data.
 
             - `class BetaManagedAgentsBase64DocumentSource`
 
@@ -27849,7 +27591,7 @@ Update Deployment
 
       - `required Rubric Rubric`
 
-        Rubric for grading the quality of an outcome.
+        How to grade the outcome. Text or file reference.
 
         - `class BetaManagedAgentsFileRubric`
 
@@ -27905,7 +27647,7 @@ Update Deployment
 
   - `required BetaManagedAgentsDeploymentPausedReason? PausedReason`
 
-    Why a deployment is paused. Non-null exactly when `status` is `paused`.
+    Why the deployment is `paused`. Non-null exactly when `status` is `paused`; null otherwise.
 
     - `class BetaManagedAgentsManualDeploymentPausedReason`
 
@@ -27921,7 +27663,7 @@ Update Deployment
 
       - `required BetaManagedAgentsDeploymentPausedReasonError Error`
 
-        The error that triggered an auto-pause. Matches the failed run's `error.type`.
+        The failed run's error.
 
         - `class BetaManagedAgentsEnvironmentArchivedDeploymentPausedReasonError`
 
@@ -28075,7 +27817,7 @@ Update Deployment
 
       - `Access? Access`
 
-        Access mode for an attached memory store.
+        Access mode for the mounted store. Defaults to `read_write`. `read_only` mounts the store as a read-only filesystem.
 
         - `ReadWrite("read_write")`
 
@@ -28087,7 +27829,7 @@ Update Deployment
 
   - `required BetaManagedAgentsSchedule? Schedule`
 
-    5-field POSIX cron schedule with computed runtime timestamps.
+    Recurring cron schedule. Presence enables scheduled execution; null means manual-only. Includes computed timestamps (next fire times, last run) on the cron variant.
 
     - `required Type Type`
 
@@ -28105,7 +27847,7 @@ Update Deployment
 
     - `DateTimeOffset? LastRunAt`
 
-      A timestamp in RFC 3339 format
+      Time the most recent scheduled run actually started. Null until one completes; preserved after the deployment is archived. Manual runs do not update this.
 
       format: date-time
 
@@ -28115,7 +27857,7 @@ Update Deployment
 
   - `required BetaManagedAgentsDeploymentStatus Status`
 
-    Lifecycle status of a deployment.
+    Computed status of the deployment: `active` or `paused`. Archived deployments report `active` with `archived_at` set.
 
     - `Active("active")`
 
@@ -28127,7 +27869,7 @@ Update Deployment
 
   - `required DateTimeOffset UpdatedAt`
 
-    A timestamp in RFC 3339 format
+    Time the deployment was last updated.
 
     format: date-time
 
@@ -28137,13 +27879,13 @@ Update Deployment
 
   - `BetaManagedAgentsBudgetLimit? Budget`
 
-    A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+    Spend ceiling stamped onto each session created from this deployment. Absent when no budget is set.
 
     - `required Type Type`
 
     - `required BetaMonetaryAmount MaxListCost`
 
-      A monetary amount in a specific currency.
+      Maximum list cost the session may accrue. List price is used regardless of any negotiated discount, so the cap fires at or before the actual charge.
 
       - `required string Amount`
 
@@ -28369,7 +28111,7 @@ Archive Deployment
 
   - `required BetaManagedAgentsAgentReference Agent`
 
-    A resolved agent reference with a concrete version.
+    Reference to the agent this deployment runs, resolved to a concrete version.
 
     - `required Type Type`
 
@@ -28381,13 +28123,13 @@ Archive Deployment
 
   - `required DateTimeOffset? ArchivedAt`
 
-    A timestamp in RFC 3339 format
+    Time the deployment was archived. Null if not archived.
 
     format: date-time
 
   - `required DateTimeOffset CreatedAt`
 
-    A timestamp in RFC 3339 format
+    Time the deployment was created.
 
     format: date-time
 
@@ -28433,7 +28175,7 @@ Archive Deployment
 
           - `required Source Source`
 
-            Union type for image source variants.
+            The source of the image data.
 
             - `class BetaManagedAgentsBase64ImageSource`
 
@@ -28485,7 +28227,7 @@ Archive Deployment
 
           - `required Source Source`
 
-            Union type for document source variants.
+            The source of the document data.
 
             - `class BetaManagedAgentsBase64DocumentSource`
 
@@ -28571,7 +28313,7 @@ Archive Deployment
 
       - `required Rubric Rubric`
 
-        Rubric for grading the quality of an outcome.
+        How to grade the outcome. Text or file reference.
 
         - `class BetaManagedAgentsFileRubric`
 
@@ -28627,7 +28369,7 @@ Archive Deployment
 
   - `required BetaManagedAgentsDeploymentPausedReason? PausedReason`
 
-    Why a deployment is paused. Non-null exactly when `status` is `paused`.
+    Why the deployment is `paused`. Non-null exactly when `status` is `paused`; null otherwise.
 
     - `class BetaManagedAgentsManualDeploymentPausedReason`
 
@@ -28643,7 +28385,7 @@ Archive Deployment
 
       - `required BetaManagedAgentsDeploymentPausedReasonError Error`
 
-        The error that triggered an auto-pause. Matches the failed run's `error.type`.
+        The failed run's error.
 
         - `class BetaManagedAgentsEnvironmentArchivedDeploymentPausedReasonError`
 
@@ -28797,7 +28539,7 @@ Archive Deployment
 
       - `Access? Access`
 
-        Access mode for an attached memory store.
+        Access mode for the mounted store. Defaults to `read_write`. `read_only` mounts the store as a read-only filesystem.
 
         - `ReadWrite("read_write")`
 
@@ -28809,7 +28551,7 @@ Archive Deployment
 
   - `required BetaManagedAgentsSchedule? Schedule`
 
-    5-field POSIX cron schedule with computed runtime timestamps.
+    Recurring cron schedule. Presence enables scheduled execution; null means manual-only. Includes computed timestamps (next fire times, last run) on the cron variant.
 
     - `required Type Type`
 
@@ -28827,7 +28569,7 @@ Archive Deployment
 
     - `DateTimeOffset? LastRunAt`
 
-      A timestamp in RFC 3339 format
+      Time the most recent scheduled run actually started. Null until one completes; preserved after the deployment is archived. Manual runs do not update this.
 
       format: date-time
 
@@ -28837,7 +28579,7 @@ Archive Deployment
 
   - `required BetaManagedAgentsDeploymentStatus Status`
 
-    Lifecycle status of a deployment.
+    Computed status of the deployment: `active` or `paused`. Archived deployments report `active` with `archived_at` set.
 
     - `Active("active")`
 
@@ -28849,7 +28591,7 @@ Archive Deployment
 
   - `required DateTimeOffset UpdatedAt`
 
-    A timestamp in RFC 3339 format
+    Time the deployment was last updated.
 
     format: date-time
 
@@ -28859,13 +28601,13 @@ Archive Deployment
 
   - `BetaManagedAgentsBudgetLimit? Budget`
 
-    A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+    Spend ceiling stamped onto each session created from this deployment. Absent when no budget is set.
 
     - `required Type Type`
 
     - `required BetaMonetaryAmount MaxListCost`
 
-      A monetary amount in a specific currency.
+      Maximum list cost the session may accrue. List price is used regardless of any negotiated discount, so the cap fires at or before the actual charge.
 
       - `required string Amount`
 
@@ -29091,7 +28833,7 @@ Run Deployment Now
 
   - `required BetaManagedAgentsAgentReference Agent`
 
-    A resolved agent reference with a concrete version.
+    Snapshot of the agent at fire time. Always fully resolved — deployments pin agent + version.
 
     - `required Type Type`
 
@@ -29103,7 +28845,7 @@ Run Deployment Now
 
   - `required DateTimeOffset CreatedAt`
 
-    A timestamp in RFC 3339 format
+    Time this run record was persisted.
 
     format: date-time
 
@@ -29113,7 +28855,7 @@ Run Deployment Now
 
   - `required Error? Error`
 
-    Why the run failed to create a session. The type identifies the failure; message is human-readable detail.
+    Populated on creation failure. Null on success. Exactly one of `session_id` or `error` is non-null.
 
     - `class BetaManagedAgentsEnvironmentArchivedRunError`
 
@@ -29281,7 +29023,7 @@ Run Deployment Now
 
   - `required BetaManagedAgentsTriggerContext TriggerContext`
 
-    Describes what triggered a deployment run, with trigger-specific metadata.
+    What triggered this run and trigger-specific metadata.
 
     - `class BetaManagedAgentsScheduleTriggerContext`
 
@@ -29291,7 +29033,7 @@ Run Deployment Now
 
       - `required DateTimeOffset ScheduledAt`
 
-        A timestamp in RFC 3339 format
+        The UTC instant at which the cron expression matched in the configured timezone, before jitter is applied. At most one run is recorded per (`deployment_id`, `scheduled_at`) pair.
 
         format: date-time
 
@@ -29475,7 +29217,7 @@ Pause Deployment
 
   - `required BetaManagedAgentsAgentReference Agent`
 
-    A resolved agent reference with a concrete version.
+    Reference to the agent this deployment runs, resolved to a concrete version.
 
     - `required Type Type`
 
@@ -29487,13 +29229,13 @@ Pause Deployment
 
   - `required DateTimeOffset? ArchivedAt`
 
-    A timestamp in RFC 3339 format
+    Time the deployment was archived. Null if not archived.
 
     format: date-time
 
   - `required DateTimeOffset CreatedAt`
 
-    A timestamp in RFC 3339 format
+    Time the deployment was created.
 
     format: date-time
 
@@ -29539,7 +29281,7 @@ Pause Deployment
 
           - `required Source Source`
 
-            Union type for image source variants.
+            The source of the image data.
 
             - `class BetaManagedAgentsBase64ImageSource`
 
@@ -29591,7 +29333,7 @@ Pause Deployment
 
           - `required Source Source`
 
-            Union type for document source variants.
+            The source of the document data.
 
             - `class BetaManagedAgentsBase64DocumentSource`
 
@@ -29677,7 +29419,7 @@ Pause Deployment
 
       - `required Rubric Rubric`
 
-        Rubric for grading the quality of an outcome.
+        How to grade the outcome. Text or file reference.
 
         - `class BetaManagedAgentsFileRubric`
 
@@ -29733,7 +29475,7 @@ Pause Deployment
 
   - `required BetaManagedAgentsDeploymentPausedReason? PausedReason`
 
-    Why a deployment is paused. Non-null exactly when `status` is `paused`.
+    Why the deployment is `paused`. Non-null exactly when `status` is `paused`; null otherwise.
 
     - `class BetaManagedAgentsManualDeploymentPausedReason`
 
@@ -29749,7 +29491,7 @@ Pause Deployment
 
       - `required BetaManagedAgentsDeploymentPausedReasonError Error`
 
-        The error that triggered an auto-pause. Matches the failed run's `error.type`.
+        The failed run's error.
 
         - `class BetaManagedAgentsEnvironmentArchivedDeploymentPausedReasonError`
 
@@ -29903,7 +29645,7 @@ Pause Deployment
 
       - `Access? Access`
 
-        Access mode for an attached memory store.
+        Access mode for the mounted store. Defaults to `read_write`. `read_only` mounts the store as a read-only filesystem.
 
         - `ReadWrite("read_write")`
 
@@ -29915,7 +29657,7 @@ Pause Deployment
 
   - `required BetaManagedAgentsSchedule? Schedule`
 
-    5-field POSIX cron schedule with computed runtime timestamps.
+    Recurring cron schedule. Presence enables scheduled execution; null means manual-only. Includes computed timestamps (next fire times, last run) on the cron variant.
 
     - `required Type Type`
 
@@ -29933,7 +29675,7 @@ Pause Deployment
 
     - `DateTimeOffset? LastRunAt`
 
-      A timestamp in RFC 3339 format
+      Time the most recent scheduled run actually started. Null until one completes; preserved after the deployment is archived. Manual runs do not update this.
 
       format: date-time
 
@@ -29943,7 +29685,7 @@ Pause Deployment
 
   - `required BetaManagedAgentsDeploymentStatus Status`
 
-    Lifecycle status of a deployment.
+    Computed status of the deployment: `active` or `paused`. Archived deployments report `active` with `archived_at` set.
 
     - `Active("active")`
 
@@ -29955,7 +29697,7 @@ Pause Deployment
 
   - `required DateTimeOffset UpdatedAt`
 
-    A timestamp in RFC 3339 format
+    Time the deployment was last updated.
 
     format: date-time
 
@@ -29965,13 +29707,13 @@ Pause Deployment
 
   - `BetaManagedAgentsBudgetLimit? Budget`
 
-    A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+    Spend ceiling stamped onto each session created from this deployment. Absent when no budget is set.
 
     - `required Type Type`
 
     - `required BetaMonetaryAmount MaxListCost`
 
-      A monetary amount in a specific currency.
+      Maximum list cost the session may accrue. List price is used regardless of any negotiated discount, so the cap fires at or before the actual charge.
 
       - `required string Amount`
 
@@ -30197,7 +29939,7 @@ Unpause Deployment
 
   - `required BetaManagedAgentsAgentReference Agent`
 
-    A resolved agent reference with a concrete version.
+    Reference to the agent this deployment runs, resolved to a concrete version.
 
     - `required Type Type`
 
@@ -30209,13 +29951,13 @@ Unpause Deployment
 
   - `required DateTimeOffset? ArchivedAt`
 
-    A timestamp in RFC 3339 format
+    Time the deployment was archived. Null if not archived.
 
     format: date-time
 
   - `required DateTimeOffset CreatedAt`
 
-    A timestamp in RFC 3339 format
+    Time the deployment was created.
 
     format: date-time
 
@@ -30261,7 +30003,7 @@ Unpause Deployment
 
           - `required Source Source`
 
-            Union type for image source variants.
+            The source of the image data.
 
             - `class BetaManagedAgentsBase64ImageSource`
 
@@ -30313,7 +30055,7 @@ Unpause Deployment
 
           - `required Source Source`
 
-            Union type for document source variants.
+            The source of the document data.
 
             - `class BetaManagedAgentsBase64DocumentSource`
 
@@ -30399,7 +30141,7 @@ Unpause Deployment
 
       - `required Rubric Rubric`
 
-        Rubric for grading the quality of an outcome.
+        How to grade the outcome. Text or file reference.
 
         - `class BetaManagedAgentsFileRubric`
 
@@ -30455,7 +30197,7 @@ Unpause Deployment
 
   - `required BetaManagedAgentsDeploymentPausedReason? PausedReason`
 
-    Why a deployment is paused. Non-null exactly when `status` is `paused`.
+    Why the deployment is `paused`. Non-null exactly when `status` is `paused`; null otherwise.
 
     - `class BetaManagedAgentsManualDeploymentPausedReason`
 
@@ -30471,7 +30213,7 @@ Unpause Deployment
 
       - `required BetaManagedAgentsDeploymentPausedReasonError Error`
 
-        The error that triggered an auto-pause. Matches the failed run's `error.type`.
+        The failed run's error.
 
         - `class BetaManagedAgentsEnvironmentArchivedDeploymentPausedReasonError`
 
@@ -30625,7 +30367,7 @@ Unpause Deployment
 
       - `Access? Access`
 
-        Access mode for an attached memory store.
+        Access mode for the mounted store. Defaults to `read_write`. `read_only` mounts the store as a read-only filesystem.
 
         - `ReadWrite("read_write")`
 
@@ -30637,7 +30379,7 @@ Unpause Deployment
 
   - `required BetaManagedAgentsSchedule? Schedule`
 
-    5-field POSIX cron schedule with computed runtime timestamps.
+    Recurring cron schedule. Presence enables scheduled execution; null means manual-only. Includes computed timestamps (next fire times, last run) on the cron variant.
 
     - `required Type Type`
 
@@ -30655,7 +30397,7 @@ Unpause Deployment
 
     - `DateTimeOffset? LastRunAt`
 
-      A timestamp in RFC 3339 format
+      Time the most recent scheduled run actually started. Null until one completes; preserved after the deployment is archived. Manual runs do not update this.
 
       format: date-time
 
@@ -30665,7 +30407,7 @@ Unpause Deployment
 
   - `required BetaManagedAgentsDeploymentStatus Status`
 
-    Lifecycle status of a deployment.
+    Computed status of the deployment: `active` or `paused`. Archived deployments report `active` with `archived_at` set.
 
     - `Active("active")`
 
@@ -30677,7 +30419,7 @@ Unpause Deployment
 
   - `required DateTimeOffset UpdatedAt`
 
-    A timestamp in RFC 3339 format
+    Time the deployment was last updated.
 
     format: date-time
 
@@ -30687,13 +30429,13 @@ Unpause Deployment
 
   - `BetaManagedAgentsBudgetLimit? Budget`
 
-    A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+    Spend ceiling stamped onto each session created from this deployment. Absent when no budget is set.
 
     - `required Type Type`
 
     - `required BetaMonetaryAmount MaxListCost`
 
-      A monetary amount in a specific currency.
+      Maximum list cost the session may accrue. List price is used regardless of any negotiated discount, so the cap fires at or before the actual charge.
 
       - `required string Amount`
 
@@ -30963,7 +30705,7 @@ List Deployment Runs
 
   - `required BetaManagedAgentsAgentReference Agent`
 
-    A resolved agent reference with a concrete version.
+    Snapshot of the agent at fire time. Always fully resolved — deployments pin agent + version.
 
     - `required Type Type`
 
@@ -30975,7 +30717,7 @@ List Deployment Runs
 
   - `required DateTimeOffset CreatedAt`
 
-    A timestamp in RFC 3339 format
+    Time this run record was persisted.
 
     format: date-time
 
@@ -30985,7 +30727,7 @@ List Deployment Runs
 
   - `required Error? Error`
 
-    Why the run failed to create a session. The type identifies the failure; message is human-readable detail.
+    Populated on creation failure. Null on success. Exactly one of `session_id` or `error` is non-null.
 
     - `class BetaManagedAgentsEnvironmentArchivedRunError`
 
@@ -31153,7 +30895,7 @@ List Deployment Runs
 
   - `required BetaManagedAgentsTriggerContext TriggerContext`
 
-    Describes what triggered a deployment run, with trigger-specific metadata.
+    What triggered this run and trigger-specific metadata.
 
     - `class BetaManagedAgentsScheduleTriggerContext`
 
@@ -31163,7 +30905,7 @@ List Deployment Runs
 
       - `required DateTimeOffset ScheduledAt`
 
-        A timestamp in RFC 3339 format
+        The UTC instant at which the cron expression matched in the configured timezone, before jitter is applied. At most one run is recorded per (`deployment_id`, `scheduled_at`) pair.
 
         format: date-time
 
@@ -31351,7 +31093,7 @@ Get Deployment Run
 
   - `required BetaManagedAgentsAgentReference Agent`
 
-    A resolved agent reference with a concrete version.
+    Snapshot of the agent at fire time. Always fully resolved — deployments pin agent + version.
 
     - `required Type Type`
 
@@ -31363,7 +31105,7 @@ Get Deployment Run
 
   - `required DateTimeOffset CreatedAt`
 
-    A timestamp in RFC 3339 format
+    Time this run record was persisted.
 
     format: date-time
 
@@ -31373,7 +31115,7 @@ Get Deployment Run
 
   - `required Error? Error`
 
-    Why the run failed to create a session. The type identifies the failure; message is human-readable detail.
+    Populated on creation failure. Null on success. Exactly one of `session_id` or `error` is non-null.
 
     - `class BetaManagedAgentsEnvironmentArchivedRunError`
 
@@ -31541,7 +31283,7 @@ Get Deployment Run
 
   - `required BetaManagedAgentsTriggerContext TriggerContext`
 
-    Describes what triggered a deployment run, with trigger-specific metadata.
+    What triggered this run and trigger-specific metadata.
 
     - `class BetaManagedAgentsScheduleTriggerContext`
 
@@ -31551,7 +31293,7 @@ Get Deployment Run
 
       - `required DateTimeOffset ScheduledAt`
 
-        A timestamp in RFC 3339 format
+        The UTC instant at which the cron expression matched in the configured timezone, before jitter is applied. At most one run is recorded per (`deployment_id`, `scheduled_at`) pair.
 
         format: date-time
 
@@ -31743,7 +31485,7 @@ Create Vault
 
   - `required DateTimeOffset? ArchivedAt`
 
-    A timestamp in RFC 3339 format
+    When the vault was archived. Null if not archived.
 
     format: date-time
 
@@ -31939,7 +31681,7 @@ List Vaults
 
   - `required DateTimeOffset? ArchivedAt`
 
-    A timestamp in RFC 3339 format
+    When the vault was archived. Null if not archived.
 
     format: date-time
 
@@ -32132,7 +31874,7 @@ Get Vault
 
   - `required DateTimeOffset? ArchivedAt`
 
-    A timestamp in RFC 3339 format
+    When the vault was archived. Null if not archived.
 
     format: date-time
 
@@ -32331,7 +32073,7 @@ Update Vault
 
   - `required DateTimeOffset? ArchivedAt`
 
-    A timestamp in RFC 3339 format
+    When the vault was archived. Null if not archived.
 
     format: date-time
 
@@ -32676,7 +32418,7 @@ Archive Vault
 
   - `required DateTimeOffset? ArchivedAt`
 
-    A timestamp in RFC 3339 format
+    When the vault was archived. Null if not archived.
 
     format: date-time
 
@@ -32749,7 +32491,7 @@ Create Credential
 
   - `required Auth auth`
 
-    Body param: Authentication details for creating a credential.
+    Body param: Authentication configuration for the credential.
 
     - `class BetaManagedAgentsMcpOAuthCreateParams`
 
@@ -32777,7 +32519,7 @@ Create Credential
 
       - `BetaManagedAgentsMcpOAuthRefreshParams? Refresh`
 
-        OAuth refresh token parameters for creating a credential with refresh support.
+        Refresh token configuration, if the credential supports token refresh.
 
         - `required string ClientID`
 
@@ -33039,13 +32781,13 @@ Create Credential
 
   - `required DateTimeOffset? ArchivedAt`
 
-    A timestamp in RFC 3339 format
+    When the credential was archived. Null if not archived.
 
     format: date-time
 
   - `required Auth Auth`
 
-    Authentication details for a credential.
+    Authentication configuration for this credential.
 
     - `class BetaManagedAgentsMcpOAuthAuthResponse`
 
@@ -33065,7 +32807,7 @@ Create Credential
 
       - `BetaManagedAgentsMcpOAuthRefreshResponse? Refresh`
 
-        OAuth refresh token configuration returned in credential responses.
+        Refresh token configuration, if the credential supports token refresh.
 
         - `required string ClientID`
 
@@ -33369,13 +33111,13 @@ List Credentials
 
   - `required DateTimeOffset? ArchivedAt`
 
-    A timestamp in RFC 3339 format
+    When the credential was archived. Null if not archived.
 
     format: date-time
 
   - `required Auth Auth`
 
-    Authentication details for a credential.
+    Authentication configuration for this credential.
 
     - `class BetaManagedAgentsMcpOAuthAuthResponse`
 
@@ -33395,7 +33137,7 @@ List Credentials
 
       - `BetaManagedAgentsMcpOAuthRefreshResponse? Refresh`
 
-        OAuth refresh token configuration returned in credential responses.
+        Refresh token configuration, if the credential supports token refresh.
 
         - `required string ClientID`
 
@@ -33690,13 +33432,13 @@ Get Credential
 
   - `required DateTimeOffset? ArchivedAt`
 
-    A timestamp in RFC 3339 format
+    When the credential was archived. Null if not archived.
 
     format: date-time
 
   - `required Auth Auth`
 
-    Authentication details for a credential.
+    Authentication configuration for this credential.
 
     - `class BetaManagedAgentsMcpOAuthAuthResponse`
 
@@ -33716,7 +33458,7 @@ Get Credential
 
       - `BetaManagedAgentsMcpOAuthRefreshResponse? Refresh`
 
-        OAuth refresh token configuration returned in credential responses.
+        Refresh token configuration, if the credential supports token refresh.
 
         - `required string ClientID`
 
@@ -33887,7 +33629,7 @@ Update Credential
 
   - `Auth auth`
 
-    Body param: Updated authentication details for a credential.
+    Body param: Updated authentication configuration. The `type` is immutable; the variant sent must match the stored credential's type.
 
     - `class BetaManagedAgentsMcpOAuthUpdateParams`
 
@@ -33909,7 +33651,7 @@ Update Credential
 
       - `BetaManagedAgentsMcpOAuthRefreshUpdateParams? Refresh`
 
-        Parameters for updating OAuth refresh token configuration.
+        Updated refresh token configuration.
 
         - `string? RefreshToken`
 
@@ -34135,13 +33877,13 @@ Update Credential
 
   - `required DateTimeOffset? ArchivedAt`
 
-    A timestamp in RFC 3339 format
+    When the credential was archived. Null if not archived.
 
     format: date-time
 
   - `required Auth Auth`
 
-    Authentication details for a credential.
+    Authentication configuration for this credential.
 
     - `class BetaManagedAgentsMcpOAuthAuthResponse`
 
@@ -34161,7 +33903,7 @@ Update Credential
 
       - `BetaManagedAgentsMcpOAuthRefreshResponse? Refresh`
 
-        OAuth refresh token configuration returned in credential responses.
+        Refresh token configuration, if the credential supports token refresh.
 
         - `required string ClientID`
 
@@ -34611,13 +34353,13 @@ Archive Credential
 
   - `required DateTimeOffset? ArchivedAt`
 
-    A timestamp in RFC 3339 format
+    When the credential was archived. Null if not archived.
 
     format: date-time
 
   - `required Auth Auth`
 
-    Authentication details for a credential.
+    Authentication configuration for this credential.
 
     - `class BetaManagedAgentsMcpOAuthAuthResponse`
 
@@ -34637,7 +34379,7 @@ Archive Credential
 
       - `BetaManagedAgentsMcpOAuthRefreshResponse? Refresh`
 
-        OAuth refresh token configuration returned in credential responses.
+        Refresh token configuration, if the credential supports token refresh.
 
         - `required string ClientID`
 
@@ -34930,11 +34672,11 @@ Validate Credential
 
   - `required BetaManagedAgentsMcpProbe? McpProbe`
 
-    The failing step of an MCP validation probe.
+    Details of the failing MCP probe step. Null when the probe succeeded.
 
     - `required BetaManagedAgentsRefreshHttpResponse? HttpResponse`
 
-      An HTTP response captured during a credential validation probe.
+      The captured HTTP error response. Null when no HTTP response was received (timeout, DNS, TLS).
 
       - `required string Body`
 
@@ -34960,15 +34702,15 @@ Validate Credential
 
   - `required BetaManagedAgentsRefreshObject? Refresh`
 
-    Outcome of a refresh-token exchange attempted during credential validation.
+    Details of the refresh-token exchange attempted on a 401. Null when no refresh was attempted.
 
     - `required BetaManagedAgentsRefreshHttpResponse? HttpResponse`
 
-      An HTTP response captured during a credential validation probe.
+      The captured HTTP error response from the token endpoint. Populated only when `status` is `failed`.
 
     - `required Status Status`
 
-      Outcome of a refresh-token exchange attempted during credential validation.
+      Outcome of the refresh attempt.
 
       - `Succeeded("succeeded")`
 
@@ -34988,7 +34730,7 @@ Validate Credential
 
   - `required BetaManagedAgentsCredentialValidationStatus Status`
 
-    Overall verdict of a credential validation probe.
+    Overall verdict of the validation probe.
 
     - `Valid("valid")`
 
@@ -35004,7 +34746,7 @@ Validate Credential
 
   - `required DateTimeOffset ValidatedAt`
 
-    A timestamp in RFC 3339 format
+    When the validation probe was performed.
 
     format: date-time
 
@@ -35207,7 +34949,7 @@ Create a memory store
 
   - `required DateTimeOffset CreatedAt`
 
-    A timestamp in RFC 3339 format
+    Timestamp when the store was created.
 
     format: date-time
 
@@ -35217,13 +34959,13 @@ Create a memory store
 
   - `required DateTimeOffset UpdatedAt`
 
-    A timestamp in RFC 3339 format
+    Timestamp when the store's `name`, `description`, or `metadata` was last modified. Memory writes inside the store do not advance this.
 
     format: date-time
 
   - `DateTimeOffset? ArchivedAt`
 
-    A timestamp in RFC 3339 format
+    Timestamp when the store was archived, or `null` if active. Set once and never cleared; archiving is one-way. Archived stores are read-only and cannot be attached to new sessions.
 
     format: date-time
 
@@ -35420,7 +35162,7 @@ List memory stores
 
   - `required DateTimeOffset CreatedAt`
 
-    A timestamp in RFC 3339 format
+    Timestamp when the store was created.
 
     format: date-time
 
@@ -35430,13 +35172,13 @@ List memory stores
 
   - `required DateTimeOffset UpdatedAt`
 
-    A timestamp in RFC 3339 format
+    Timestamp when the store's `name`, `description`, or `metadata` was last modified. Memory writes inside the store do not advance this.
 
     format: date-time
 
   - `DateTimeOffset? ArchivedAt`
 
-    A timestamp in RFC 3339 format
+    Timestamp when the store was archived, or `null` if active. Set once and never cleared; archiving is one-way. Archived stores are read-only and cannot be attached to new sessions.
 
     format: date-time
 
@@ -35618,7 +35360,7 @@ Retrieve a memory store
 
   - `required DateTimeOffset CreatedAt`
 
-    A timestamp in RFC 3339 format
+    Timestamp when the store was created.
 
     format: date-time
 
@@ -35628,13 +35370,13 @@ Retrieve a memory store
 
   - `required DateTimeOffset UpdatedAt`
 
-    A timestamp in RFC 3339 format
+    Timestamp when the store's `name`, `description`, or `metadata` was last modified. Memory writes inside the store do not advance this.
 
     format: date-time
 
   - `DateTimeOffset? ArchivedAt`
 
-    A timestamp in RFC 3339 format
+    Timestamp when the store was archived, or `null` if active. Set once and never cleared; archiving is one-way. Archived stores are read-only and cannot be attached to new sessions.
 
     format: date-time
 
@@ -35705,315 +35447,3 @@ Update a memory store
   - `string? name`
 
     Body param: New human-readable name for the store. 1–255 characters; no control characters. Renaming changes the slug used for the store's `mount_path` in sessions created after the update.
-
-    minLength: 1, maxLength: 255
-
-  - `IReadOnlyList<AnthropicBeta> betas`
-
-    Header param: Optional header to specify the beta version(s) you want to use.
-
-    - `MessageBatches2024_09_24("message-batches-2024-09-24")`
-
-    - `PromptCaching2024_07_31("prompt-caching-2024-07-31")`
-
-    - `ComputerUse2024_10_22("computer-use-2024-10-22")`
-
-    - `ComputerUse2025_01_24("computer-use-2025-01-24")`
-
-    - `Pdfs2024_09_25("pdfs-2024-09-25")`
-
-    - `TokenCounting2024_11_01("token-counting-2024-11-01")`
-
-    - `TokenEfficientTools2025_02_19("token-efficient-tools-2025-02-19")`
-
-    - `Output128k2025_02_19("output-128k-2025-02-19")`
-
-    - `FilesApi2025_04_14("files-api-2025-04-14")`
-
-    - `McpClient2025_04_04("mcp-client-2025-04-04")`
-
-    - `McpClient2025_11_20("mcp-client-2025-11-20")`
-
-    - `DevFullThinking2025_05_14("dev-full-thinking-2025-05-14")`
-
-    - `InterleavedThinking2025_05_14("interleaved-thinking-2025-05-14")`
-
-    - `CodeExecution2025_05_22("code-execution-2025-05-22")`
-
-    - `ExtendedCacheTtl2025_04_11("extended-cache-ttl-2025-04-11")`
-
-    - `Context1m2025_08_07("context-1m-2025-08-07")`
-
-    - `ContextManagement2025_06_27("context-management-2025-06-27")`
-
-    - `ModelContextWindowExceeded2025_08_26("model-context-window-exceeded-2025-08-26")`
-
-    - `Skills2025_10_02("skills-2025-10-02")`
-
-    - `FastMode2026_02_01("fast-mode-2026-02-01")`
-
-    - `Output300k2026_03_24("output-300k-2026-03-24")`
-
-    - `UserProfiles2026_03_24("user-profiles-2026-03-24")`
-
-    - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
-
-    - `UserProfiles2026_09_04("user-profiles-2026-09-04")`
-
-    - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
-
-    - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
-
-    - `CacheDiagnosis2026_04_07("cache-diagnosis-2026-04-07")`
-
-    - `Dreaming2026_04_21("dreaming-2026-04-21")`
-
-    - `ThinkingTokenCount2026_05_13("thinking-token-count-2026-05-13")`
-
-    - `ServerSideFallback2026_06_01("server-side-fallback-2026-06-01")`
-
-    - `ServerSideFallback2026_07_01("server-side-fallback-2026-07-01")`
-
-    - `FallbackCredit2026_06_01("fallback-credit-2026-06-01")`
-
-    - `FallbackCredit2026_07_01("fallback-credit-2026-07-01")`
-
-    - `AgentMemory2026_07_22("agent-memory-2026-07-22")`
-
-    - `MidConversationToolChanges2026_07_01("mid-conversation-tool-changes-2026-07-01")`
-
-    - `Compact2026_01_12("compact-2026-01-12")`
-
-    - `ComputerUse2025_11_24("computer-use-2025-11-24")`
-
-    - `McpTunnels2026_06_22("mcp-tunnels-2026-06-22")`
-
-    - `StructuredOutputs2025_11_13("structured-outputs-2025-11-13")`
-
-    - `TaskBudgets2026_03_13("task-budgets-2026-03-13")`
-
-    - `ThinkingDisplayUpdates2026_08_18("thinking-display-updates-2026-08-18")`
-
-    - `CEUserManagement2026_07_13("ce-user-management-2026-07-13")`
-
-    - `MidConversationOutputConfig2026_07_01("mid-conversation-output-config-2026-07-01")`
-
-    - `ThinkingBindingControls2026_08_01("thinking-binding-controls-2026-08-01")`
-
-    - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
-
-    - `Compact2026_09_04("compact-2026-09-04")`
-
-    - `InlineTools2026_09_15("inline-tools-2026-09-15")`
-
-    - `McpClient2026_09_15("mcp-client-2026-09-15")`
-
-  - `string workspaceID`
-
-    Header param: Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
-
-    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
-
-#### Returns
-
-- `class BetaManagedAgentsMemoryStore`
-
-  A `memory_store`: a named container for agent memories, scoped to a workspace. Attach a store to a session via `resources[]` to mount it as a directory the agent can read and write.
-
-  - `required Type Type`
-
-  - `required string ID`
-
-    Unique identifier for the memory store (a `memstore_...` tagged ID). Use this when attaching the store to a session, or in the `{memory_store_id}` path parameter of subsequent calls.
-
-  - `required DateTimeOffset CreatedAt`
-
-    A timestamp in RFC 3339 format
-
-    format: date-time
-
-  - `required string Name`
-
-    Human-readable name for the store. 1–255 characters. The store's mount-path slug under `/mnt/memory/` is derived from this name.
-
-  - `required DateTimeOffset UpdatedAt`
-
-    A timestamp in RFC 3339 format
-
-    format: date-time
-
-  - `DateTimeOffset? ArchivedAt`
-
-    A timestamp in RFC 3339 format
-
-    format: date-time
-
-  - `string Description`
-
-    Free-text description of what the store contains, up to 1024 characters. Included in the agent's system prompt when the store is attached, so word it to be useful to the agent. Empty string when unset.
-
-  - `IReadOnlyDictionary<string, string> Metadata`
-
-    Arbitrary key-value tags for your own bookkeeping (such as the end user a store belongs to). Up to 16 pairs; keys 1–64 characters; values up to 512 characters. Returned on retrieve/list but not filterable.
-
-#### Example
-
-```csharp
-MemoryStoreUpdateParams parameters = new()
-{
-    MemoryStoreID = "memory_store_id"
-};
-
-var betaManagedAgentsMemoryStore = await client.Beta.MemoryStores.Update(parameters);
-
-Console.WriteLine(betaManagedAgentsMemoryStore);
-```
-
-##### Response (200)
-
-```json
-{
-  "id": "id",
-  "created_at": "2019-12-27T18:11:19.117Z",
-  "name": "name",
-  "type": "memory_store",
-  "updated_at": "2019-12-27T18:11:19.117Z",
-  "archived_at": "2019-12-27T18:11:19.117Z",
-  "description": "description",
-  "metadata": {
-    "foo": "string"
-  }
-}
-```
-
-### Delete a memory store
-
-`BetaManagedAgentsDeletedMemoryStore Beta.MemoryStores.Delete(parameters, cancellationToken = default)`
-
-**DELETE** `/v1/memory_stores/{memory_store_id}`
-
-Delete a memory store
-
-#### Parameters
-
-- `MemoryStoreDeleteParams parameters`
-
-  - `required string memoryStoreID`
-
-    ID of the memory store to permanently delete (a `memstore_...` identifier). Required. Deletion cascades to all memories and memory versions in the store and cannot be undone.
-
-  - `IReadOnlyList<AnthropicBeta> betas`
-
-    Optional header to specify the beta version(s) you want to use.
-
-    - `MessageBatches2024_09_24("message-batches-2024-09-24")`
-
-    - `PromptCaching2024_07_31("prompt-caching-2024-07-31")`
-
-    - `ComputerUse2024_10_22("computer-use-2024-10-22")`
-
-    - `ComputerUse2025_01_24("computer-use-2025-01-24")`
-
-    - `Pdfs2024_09_25("pdfs-2024-09-25")`
-
-    - `TokenCounting2024_11_01("token-counting-2024-11-01")`
-
-    - `TokenEfficientTools2025_02_19("token-efficient-tools-2025-02-19")`
-
-    - `Output128k2025_02_19("output-128k-2025-02-19")`
-
-    - `FilesApi2025_04_14("files-api-2025-04-14")`
-
-    - `McpClient2025_04_04("mcp-client-2025-04-04")`
-
-    - `McpClient2025_11_20("mcp-client-2025-11-20")`
-
-    - `DevFullThinking2025_05_14("dev-full-thinking-2025-05-14")`
-
-    - `InterleavedThinking2025_05_14("interleaved-thinking-2025-05-14")`
-
-    - `CodeExecution2025_05_22("code-execution-2025-05-22")`
-
-    - `ExtendedCacheTtl2025_04_11("extended-cache-ttl-2025-04-11")`
-
-    - `Context1m2025_08_07("context-1m-2025-08-07")`
-
-    - `ContextManagement2025_06_27("context-management-2025-06-27")`
-
-    - `ModelContextWindowExceeded2025_08_26("model-context-window-exceeded-2025-08-26")`
-
-    - `Skills2025_10_02("skills-2025-10-02")`
-
-    - `FastMode2026_02_01("fast-mode-2026-02-01")`
-
-    - `Output300k2026_03_24("output-300k-2026-03-24")`
-
-    - `UserProfiles2026_03_24("user-profiles-2026-03-24")`
-
-    - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
-
-    - `UserProfiles2026_09_04("user-profiles-2026-09-04")`
-
-    - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
-
-    - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
-
-    - `CacheDiagnosis2026_04_07("cache-diagnosis-2026-04-07")`
-
-    - `Dreaming2026_04_21("dreaming-2026-04-21")`
-
-    - `ThinkingTokenCount2026_05_13("thinking-token-count-2026-05-13")`
-
-    - `ServerSideFallback2026_06_01("server-side-fallback-2026-06-01")`
-
-    - `ServerSideFallback2026_07_01("server-side-fallback-2026-07-01")`
-
-    - `FallbackCredit2026_06_01("fallback-credit-2026-06-01")`
-
-    - `FallbackCredit2026_07_01("fallback-credit-2026-07-01")`
-
-    - `AgentMemory2026_07_22("agent-memory-2026-07-22")`
-
-    - `MidConversationToolChanges2026_07_01("mid-conversation-tool-changes-2026-07-01")`
-
-    - `Compact2026_01_12("compact-2026-01-12")`
-
-    - `ComputerUse2025_11_24("computer-use-2025-11-24")`
-
-    - `McpTunnels2026_06_22("mcp-tunnels-2026-06-22")`
-
-    - `StructuredOutputs2025_11_13("structured-outputs-2025-11-13")`
-
-    - `TaskBudgets2026_03_13("task-budgets-2026-03-13")`
-
-    - `ThinkingDisplayUpdates2026_08_18("thinking-display-updates-2026-08-18")`
-
-    - `CEUserManagement2026_07_13("ce-user-management-2026-07-13")`
-
-    - `MidConversationOutputConfig2026_07_01("mid-conversation-output-config-2026-07-01")`
-
-    - `ThinkingBindingControls2026_08_01("thinking-binding-controls-2026-08-01")`
-
-    - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
-
-    - `Compact2026_09_04("compact-2026-09-04")`
-
-    - `InlineTools2026_09_15("inline-tools-2026-09-15")`
-
-    - `McpClient2026_09_15("mcp-client-2026-09-15")`
-
-  - `string workspaceID`
-
-    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
-
-    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
-
-#### Returns
-
-- `class BetaManagedAgentsDeletedMemoryStore`
-
-  Confirmation that a `memory_store` was deleted.
-
-  - `required Type Type`
-
-  - `required string ID`

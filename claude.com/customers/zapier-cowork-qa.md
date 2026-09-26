@@ -30,7 +30,7 @@ synthesizing live data from 6 engineering systems in one Cowork session.
 
 Cowork
 
-![Cowork](https://assets.claude.com/9716b96b8df867765a639f3ea8a07170508200bf.jpg)
+![Cowork](https://assets.claude.com/9716b96b8df867765a639f3ea8a07170508200bf.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Give Claude access to your local files and let it complete tasks autonomously. Agentic capabilities for non-technical knowledge work.
 
@@ -110,7 +110,7 @@ The barrier between "having an idea" and "shipping something" has collapsed. The
 
 Claude Enterprise, now available self-serve
 
-![Claude Enterprise, now available self-serve](https://assets.claude.com/72d1034a360474d7ac2b1ae9b198d5b09a23d97c.jpg)
+![Claude Enterprise, now available self-serve](https://assets.claude.com/72d1034a360474d7ac2b1ae9b198d5b09a23d97c.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Any organization can now purchase Claude Enterprise directly—no sales conversation required. Set up SSO, invite team members, and start working in minutes.
 

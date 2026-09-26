@@ -67,7 +67,7 @@ When [defining your agent](https://platform.claude.com/docs/en/managed-agents/ag
   )
   ```
 
-  <MultiFileExample language="cli" label="CLI">
+  <CodeGroupItem>
     ```bash CLI
     ant apply engineering-lead.md reviewer.md test-writer.md
     ```
@@ -111,7 +111,7 @@ When [defining your agent](https://platform.claude.com/docs/en/managed-agents/ag
       You write unit tests.
       ```
     </File>
-  </MultiFileExample>
+  </CodeGroupItem>
 
   ```python Python
   coordinator = client.beta.agents.create(
@@ -447,7 +447,7 @@ Create the researcher, which declares the GitHub MCP server, and the coordinator
   )
   ```
 
-  <MultiFileExample language="cli" label="CLI">
+  <CodeGroupItem>
     ```bash CLI
     ant apply coordinator.md researcher.md
     ```
@@ -482,7 +482,7 @@ Create the researcher, which declares the GitHub MCP server, and the coordinator
       ---
       ```
     </File>
-  </MultiFileExample>
+  </CodeGroupItem>
 
   ```python Python
   research_agent = client.beta.agents.create(

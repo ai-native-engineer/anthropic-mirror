@@ -47,7 +47,7 @@ Update Deployment
 
   - `BetaManagedAgentsBudgetLimit? budget`
 
-    Body param: A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+    Body param: Spend ceiling for future sessions. Full replacement. Omit to preserve; send null to clear (sessions created afterwards are uncapped). The deployment agent's model must have a public list price, or the request is rejected; a multiagent roster is re-validated in full when each fire copies the cap, which fails closed the same way.
 
   - `string? description`
 
@@ -95,7 +95,7 @@ Update Deployment
 
           - `required Source Source`
 
-            Union type for image source variants.
+            The source of the image data.
 
             - `class BetaManagedAgentsBase64ImageSource`
 
@@ -147,7 +147,7 @@ Update Deployment
 
           - `required Source Source`
 
-            Union type for document source variants.
+            The source of the document data.
 
             - `class BetaManagedAgentsBase64DocumentSource`
 
@@ -233,7 +233,7 @@ Update Deployment
 
       - `required Rubric Rubric`
 
-        Rubric for grading the quality of an outcome.
+        How to grade the outcome. Text or file reference.
 
         - `class BetaManagedAgentsFileRubricParams`
 
@@ -373,7 +373,7 @@ Update Deployment
 
       - `Access? Access`
 
-        Access mode for an attached memory store.
+        Access mode for the mounted store. Defaults to read_write. read_only mounts the store as a read-only filesystem.
 
         - `ReadWrite("read_write")`
 
@@ -387,7 +387,7 @@ Update Deployment
 
   - `BetaManagedAgentsScheduleParams? schedule`
 
-    Body param: 5-field POSIX cron schedule. Literal wall-clock matching in the configured timezone.
+    Body param: Cron schedule. Full replacement. Omit to preserve; send null to clear (revert to manual-only).
 
   - `IReadOnlyList<string>? vaultIds`
 
@@ -513,7 +513,7 @@ Update Deployment
 
   - `required BetaManagedAgentsAgentReference Agent`
 
-    A resolved agent reference with a concrete version.
+    Reference to the agent this deployment runs, resolved to a concrete version.
 
     - `required Type Type`
 
@@ -525,13 +525,13 @@ Update Deployment
 
   - `required DateTimeOffset? ArchivedAt`
 
-    A timestamp in RFC 3339 format
+    Time the deployment was archived. Null if not archived.
 
     format: date-time
 
   - `required DateTimeOffset CreatedAt`
 
-    A timestamp in RFC 3339 format
+    Time the deployment was created.
 
     format: date-time
 
@@ -577,7 +577,7 @@ Update Deployment
 
           - `required Source Source`
 
-            Union type for image source variants.
+            The source of the image data.
 
             - `class BetaManagedAgentsBase64ImageSource`
 
@@ -629,7 +629,7 @@ Update Deployment
 
           - `required Source Source`
 
-            Union type for document source variants.
+            The source of the document data.
 
             - `class BetaManagedAgentsBase64DocumentSource`
 
@@ -715,7 +715,7 @@ Update Deployment
 
       - `required Rubric Rubric`
 
-        Rubric for grading the quality of an outcome.
+        How to grade the outcome. Text or file reference.
 
         - `class BetaManagedAgentsFileRubric`
 
@@ -771,7 +771,7 @@ Update Deployment
 
   - `required BetaManagedAgentsDeploymentPausedReason? PausedReason`
 
-    Why a deployment is paused. Non-null exactly when `status` is `paused`.
+    Why the deployment is `paused`. Non-null exactly when `status` is `paused`; null otherwise.
 
     - `class BetaManagedAgentsManualDeploymentPausedReason`
 
@@ -787,7 +787,7 @@ Update Deployment
 
       - `required BetaManagedAgentsDeploymentPausedReasonError Error`
 
-        The error that triggered an auto-pause. Matches the failed run's `error.type`.
+        The failed run's error.
 
         - `class BetaManagedAgentsEnvironmentArchivedDeploymentPausedReasonError`
 
@@ -941,7 +941,7 @@ Update Deployment
 
       - `Access? Access`
 
-        Access mode for an attached memory store.
+        Access mode for the mounted store. Defaults to `read_write`. `read_only` mounts the store as a read-only filesystem.
 
         - `ReadWrite("read_write")`
 
@@ -953,7 +953,7 @@ Update Deployment
 
   - `required BetaManagedAgentsSchedule? Schedule`
 
-    5-field POSIX cron schedule with computed runtime timestamps.
+    Recurring cron schedule. Presence enables scheduled execution; null means manual-only. Includes computed timestamps (next fire times, last run) on the cron variant.
 
     - `required Type Type`
 
@@ -971,7 +971,7 @@ Update Deployment
 
     - `DateTimeOffset? LastRunAt`
 
-      A timestamp in RFC 3339 format
+      Time the most recent scheduled run actually started. Null until one completes; preserved after the deployment is archived. Manual runs do not update this.
 
       format: date-time
 
@@ -981,7 +981,7 @@ Update Deployment
 
   - `required BetaManagedAgentsDeploymentStatus Status`
 
-    Lifecycle status of a deployment.
+    Computed status of the deployment: `active` or `paused`. Archived deployments report `active` with `archived_at` set.
 
     - `Active("active")`
 
@@ -993,7 +993,7 @@ Update Deployment
 
   - `required DateTimeOffset UpdatedAt`
 
-    A timestamp in RFC 3339 format
+    Time the deployment was last updated.
 
     format: date-time
 
@@ -1003,13 +1003,13 @@ Update Deployment
 
   - `BetaManagedAgentsBudgetLimit? Budget`
 
-    A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+    Spend ceiling stamped onto each session created from this deployment. Absent when no budget is set.
 
     - `required Type Type`
 
     - `required BetaMonetaryAmount MaxListCost`
 
-      A monetary amount in a specific currency.
+      Maximum list cost the session may accrue. List price is used regardless of any negotiated discount, so the cap fires at or before the actual charge.
 
       - `required string Amount`
 

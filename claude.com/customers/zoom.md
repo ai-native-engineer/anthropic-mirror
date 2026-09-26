@@ -63,7 +63,7 @@ This agility in development and deployment has led to tangible outcomes:
 * Rapid integration of new AI models, with features being enhanced within just two weeks of new model releases
 * Increased user engagement and satisfaction
 
-![Zoom product screenshot](https://assets.claude.com/4a4b6154bafc1d7bb52ff036f4092603a433bfbe.jpg)![Zoom product screenshot](https://assets.claude.com/aedd1d2ddd4beefb8b32add436349da2c23b8479.jpg)
+![Zoom product screenshot](https://assets.claude.com/4a4b6154bafc1d7bb52ff036f4092603a433bfbe.jpg?w=2400&q=75&fm=webp&fit=max)![Zoom product screenshot](https://assets.claude.com/aedd1d2ddd4beefb8b32add436349da2c23b8479.jpg?w=2400&q=75&fm=webp&fit=max)
 
 ## Selecting Claude for trusted, high-quality AI integration
 

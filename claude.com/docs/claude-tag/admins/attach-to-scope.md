@@ -24,7 +24,7 @@ Bundles stack downward. A channel gets whatever is attached at Default Slack acc
 | Channel | A single Slack channel, public or private | Inherits Default Slack access and workspace, plus channel-level bundles |
 
 The same stacking applies in reverse. Detaching a bundle from a channel removes only that channel’s additions, and bundles attached at the workspace or Default Slack access still apply there.
-Memory is also scoped, but differently: there is no organization-wide memory, public-channel entries are shared across the workspace, and a private channel reads workspace memory but writes only to its own store. See [What Claude Tag remembers](https://claude.com/docs/claude-tag/users/memory).
+Memory is also scoped, but differently: there is no organization-wide memory, each channel keeps its own notes, workspace notes saved from public channels are read across the workspace, and a private channel reads the workspace notes but writes only to its own store. See [What Claude Tag remembers](https://claude.com/docs/claude-tag/users/memory).
 DMs run under the user’s own claude.ai account, so bundles attached here apply only in channels. See [how DMs work in this model](https://claude.com/docs/claude-tag/concepts/agent-identity#direct-message-channels).
 
 ##  Attach the bundle
@@ -136,9 +136,9 @@ By default, anyone in a channel who is also a member of your Claude organization
 | --- | --- |
 | **Inherit** | Follow the parent scope’s setting |
 | **Allow** | Members can edit channel instructions from the Configure link |
-| **Block** | The Configure page is read-only for members, with a note that only admins can change channel instructions. Claude also declines to make a model the channel default when anyone asks in a thread |
+| **Block** | Members can’t change channel instructions, the channel’s default model, or its [**Respond automatically**](https://claude.com/docs/claude-tag/users/when-claude-responds#turn-automatic-replies-on-or-off) setting |
 
-A chain of scopes that all inherit resolves to **Allow**. Set **Block** at the workspace or Default Slack access scope to lock channel instructions across every channel beneath it. A [channel manager](https://claude.com/docs/claude-tag/admins/restrict-access#delegate-channel-setup-to-channel-managers) can still edit instructions and the default model from the Configure page in a channel assigned to them when **Block** is set.
+A chain of scopes that all inherit resolves to **Allow**. Set **Block** at the workspace or Default Slack access scope to lock channel instructions across every channel beneath it. A [channel manager](https://claude.com/docs/claude-tag/admins/restrict-access#delegate-channel-setup-to-channel-managers) can still edit instructions, change the default model, and switch the **Respond automatically** toggle from the Configure page in a channel assigned to them when **Block** is set.
 
 ##  Verify the bundle is live
 

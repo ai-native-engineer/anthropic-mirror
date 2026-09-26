@@ -27,7 +27,7 @@ Speaker(s)
 
 ## Watch recording
 
-![Build AI agents using Claude in Microsoft Foundry](https://assets.claude.com/8acea47fb097c274d4204c601ded4aef3ec48837.jpg?w=1600&auto=format)
+![Build AI agents using Claude in Microsoft Foundry](https://assets.claude.com/8acea47fb097c274d4204c601ded4aef3ec48837.jpg?w=2400&q=75&fm=webp&fit=max)
 
 ## Anthropic's developer conference, recorded
 

@@ -30,7 +30,7 @@ for a 12-year-old regulated healthcare company to go company-wide on Claude Ente
 
 Case Study: League
 
-![Case Study: League](https://assets.claude.com/50bd1123d85ebeb78848384b857f918c348a5f7d.jpg)
+![Case Study: League](https://assets.claude.com/50bd1123d85ebeb78848384b857f918c348a5f7d.jpg?w=2400&q=75&fm=webp&fit=max)
 
 League cuts product development cycle times in half with Claude
 
@@ -70,7 +70,7 @@ The ceiling also keeps moving. Every release I've picked up has let me hand off 
 
 Claude for Healthcare
 
-![Claude for Healthcare](https://assets.claude.com/3cc055deed02884f4a1b81019a962925687fccc3.jpg)
+![Claude for Healthcare](https://assets.claude.com/3cc055deed02884f4a1b81019a962925687fccc3.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Claude helps healthcare organizations move faster without sacrificing accuracy, safety, or compliance. Less administrative work, more time with the people you serve.
 

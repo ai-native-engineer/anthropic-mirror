@@ -30,7 +30,7 @@ across research, operations, and administration
 
 Life sciences
 
-![Life sciences](https://assets.claude.com/ccdf26b0f90168b1c63679a9900fe73b88e731c6.jpg)
+![Life sciences](https://assets.claude.com/ccdf26b0f90168b1c63679a9900fe73b88e731c6.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Accelerate science, from discovery through translation. Move faster with Claude while maintaining the accuracy your work demands.
 
@@ -88,7 +88,7 @@ We've been using machine learning in this space for a long time. Twenty-five yea
 
 Advancing Claude in healthcare and the life sciences
 
-![Advancing Claude in healthcare and the life sciences](https://assets.claude.com/2245c8d44d57bbbd808ee21e2a14a250946d583b.png)
+![Advancing Claude in healthcare and the life sciences](https://assets.claude.com/2245c8d44d57bbbd808ee21e2a14a250946d583b.png?w=2400&q=75&fm=webp&fit=max)
 
 Transform healthcare from insight to action
 

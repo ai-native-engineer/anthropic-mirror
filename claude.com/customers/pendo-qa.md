@@ -30,7 +30,7 @@ processing billions of data points using Claude Managed Agents and Claude Code
 
 Claude Managed Agents: Get to production 10x faster
 
-![Claude Managed Agents: Get to production 10x faster](https://assets.claude.com/ff7c99d19d7cdf50b2e9bf56cc15f9f5d406ce19.jpg)
+![Claude Managed Agents: Get to production 10x faster](https://assets.claude.com/ff7c99d19d7cdf50b2e9bf56cc15f9f5d406ce19.jpg?w=2400&q=75&fm=webp&fit=max)
 
 We're launching Claude Managed Agents, a suite of composable APIs for building and deploying cloud-hosted agents at scale.
 
@@ -106,7 +106,7 @@ For Pendo, building Novus was more than a product decision. It was a signal abou
 
 AI agents
 
-![AI agents](https://assets.claude.com/bdc16daf5e533d3c67f77bbbed786c7d7e693dce.jpg)
+![AI agents](https://assets.claude.com/bdc16daf5e533d3c67f77bbbed786c7d7e693dce.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Build powerful AI agents that reason through complex problems and execute tasks autonomously with reliable results.
 

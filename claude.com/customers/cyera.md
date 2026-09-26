@@ -53,7 +53,7 @@ Cyera's own customers show where that leads: employees without an AI tool at wor
 
 Q&A: Cyera on Claude Cowork
 
-![Q&A: Cyera on Claude Cowork](https://assets.claude.com/3055ffaf42863e80c8c854ddf2e662352394ab97.jpg)
+![Q&A: Cyera on Claude Cowork](https://assets.claude.com/3055ffaf42863e80c8c854ddf2e662352394ab97.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Read how Cyera uses Claude Cowork as the front door to 40 tools.
 
@@ -85,7 +85,7 @@ After a brief pilot to iterate on feedback from cross-departmental leaders, Cyer
 
 Cowork
 
-![Cowork](https://assets.claude.com/9716b96b8df867765a639f3ea8a07170508200bf.jpg)
+![Cowork](https://assets.claude.com/9716b96b8df867765a639f3ea8a07170508200bf.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Give Claude access to your local files and let it complete tasks autonomously. Agentic capabilities for non-technical knowledge work.
 

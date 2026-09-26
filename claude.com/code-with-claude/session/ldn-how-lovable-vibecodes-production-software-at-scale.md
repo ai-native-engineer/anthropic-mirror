@@ -24,7 +24,7 @@ Speaker(s)
 
 ## Watch recording
 
-![How Lovable vibecodes production software at scale](https://assets.claude.com/034dc8ebe8e60f0ec7a20ed978c84c32e9ace3c4.jpg?w=1600&auto=format)
+![How Lovable vibecodes production software at scale](https://assets.claude.com/034dc8ebe8e60f0ec7a20ed978c84c32e9ace3c4.jpg?w=2400&q=75&fm=webp&fit=max)
 
 ## Anthropic's developer conference, recorded
 

@@ -52,7 +52,6 @@ Fast-growing connectors this week.
 1. 01![](https://assets.claude.com/115f44da14dfc74606c952a792ad297d7d46a001.svg?w=128&fit=max&auto=format)[Vanguard Advisor Tools](https://claude.com/marketplace/connectors/vanguard-advisor-tools)Access Vanguard models data and content from Claude
 2. 02![](https://assets.claude.com/f1b1e7da13cf74e3bf008094d9452a58c29acab6.jpg?w=128&fit=max&auto=format)[BlackRock Advisor Center](https://claude.com/marketplace/connectors/blackrock-advisor-center)Build, analyze, and compare portfolios for advisors
 3. 03![](https://app.paxton.ai/images/paxton-favicon.png)[Paxton Legal Research](https://claude.com/marketplace/connectors/paxton-legal-research)Research U.S. law in Claude—with citations you can open and verify.
-4. 04![](https://compass.maryland.gov/assets/compass-icon.png)[Maryland Community Compass](https://claude.com/marketplace/connectors/maryland-compass)Maryland's neighborhood development data platform.
 
 ### Connectors for Connector category: Productivity
 
@@ -75,7 +74,7 @@ Legal, finance, and engineering tools powered by Claude, that can count toward y
 
 [Explore agents and products](https://claude.com/marketplace/agents-products)
 
-![](https://assets.claude.com/1da6f2934772e13a362b6520b5ca167fe004b7e7.png)
+![](https://assets.claude.com/1da6f2934772e13a362b6520b5ca167fe004b7e7.png?w=2400&q=75&fm=webp&fit=max)
 
 ![](https://assets.claude.com/b2934abd4aa98f7edfdbd265be89e6493825459f.svg)
 

@@ -24,7 +24,7 @@ Speaker(s)
 
 ## Watch recording
 
-![Memory and dreaming for self-learning agents](https://assets.claude.com/1f8b3202a671f38037f70de8ccb20374b7985af0.jpg?w=1600&auto=format)
+![Memory and dreaming for self-learning agents](https://assets.claude.com/1f8b3202a671f38037f70de8ccb20374b7985af0.jpg?w=2400&q=75&fm=webp&fit=max)
 
 ## Anthropic's developer conference, recorded
 

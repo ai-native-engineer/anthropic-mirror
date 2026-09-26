@@ -30,7 +30,7 @@ Friday project tracking cut from over 90 minutes to ~10 minutes
 
 Cowork
 
-![Cowork](https://assets.claude.com/9716b96b8df867765a639f3ea8a07170508200bf.jpg)
+![Cowork](https://assets.claude.com/9716b96b8df867765a639f3ea8a07170508200bf.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Give Claude access to your local files and let it complete tasks autonomously. Agentic capabilities for non-technical knowledge work.
 
@@ -90,7 +90,7 @@ The magic is in the Cowork project I've set up, which acts as the main holder of
 
 Claude Opus 5
 
-![Claude Opus 5 ](https://assets.claude.com/0f426c4849e7fc6002b883393277ac62afd9eb93.jpg)
+![Claude Opus 5 ](https://assets.claude.com/0f426c4849e7fc6002b883393277ac62afd9eb93.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Claude Opus 5 provides greatly improved performance for the same cost as its predecessor, Opus 4.8.
 

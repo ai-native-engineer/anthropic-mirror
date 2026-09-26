@@ -72,7 +72,7 @@ The capability runs under Box's existing Anthropic agreement, which contractuall
 
 Choosing the right Claude model
 
-![Choosing the right Claude model](https://assets.claude.com/7388619b452db0af26c78442a275c86c5ebe3124.jpg)
+![Choosing the right Claude model](https://assets.claude.com/7388619b452db0af26c78442a275c86c5ebe3124.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Learn when to use Haiku, Sonnet, or Opus to get better results and stay inside your rate limit. A practical guide to picking the right Claude model.
 
@@ -90,7 +90,7 @@ The principle that emerged: use pre-built skills where the expertise is general 
 
 How enterprises are building AI agents in 2026
 
-![How enterprises are building AI agents in 2026](https://assets.claude.com/faaa398e4d7a94cfce273d40c67bf04482996e0d.png)
+![How enterprises are building AI agents in 2026](https://assets.claude.com/faaa398e4d7a94cfce273d40c67bf04482996e0d.png?w=2400&q=75&fm=webp&fit=max)
 
 New research from 500+ technical leaders reveals how enterprises are deploying AI agents—and why 80% already report measurable ROI.
 

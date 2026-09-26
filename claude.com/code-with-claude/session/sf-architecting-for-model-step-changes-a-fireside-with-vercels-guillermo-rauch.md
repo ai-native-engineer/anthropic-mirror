@@ -30,7 +30,7 @@ Speaker(s)
 
 ## Watch recording
 
-![Architecting for model step-changes: A fireside with Vercel's Guillermo Rauch](https://assets.claude.com/61cfd43bdd45564802d4e3c2e4ae92caf1b16937.jpg?w=1600&auto=format)
+![Architecting for model step-changes: A fireside with Vercel's Guillermo Rauch](https://assets.claude.com/61cfd43bdd45564802d4e3c2e4ae92caf1b16937.jpg?w=2400&q=75&fm=webp&fit=max)
 
 ## Anthropic's developer conference, recorded
 

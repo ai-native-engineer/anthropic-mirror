@@ -40,7 +40,7 @@ From its initial release, Cody has allowed developers to select Claude as the la
 
 “Claude 3 models excel at following instructions, generating production-ready code without requiring manual intervention or code snippets,” says Philipp Spiess, Software Engineer at Sourcegraph. “We’re confident that it effectively meets developers’ needs and propels their projects forward.”
 
-![App screen in the Sourcegraph platform](https://assets.claude.com/e42d8641e00b7bce58a3f5d10214e9a5a1fc5329.png)
+![App screen in the Sourcegraph platform](https://assets.claude.com/e42d8641e00b7bce58a3f5d10214e9a5a1fc5329.png?w=2400&q=75&fm=webp&fit=max)
 
 ## Improving developer workflows with the Claude 3 model family
 
@@ -50,7 +50,7 @@ Claude 3 Sonnet serves as the default model for the free version of Cody, with i
 
 The Claude 3 model family is integral to Cody’s chat and custom command features. Developers can ask questions and receive answers related to their entire codebase, which helps quickly resolve issues and understand complex code interactions. They can also request Cody to perform specific tasks, such as refactoring code or generating documentation, with the custom commands feature. With the near-perfect recall accuracy of Claude 3 Opus, Cody gives developers even better results because it can understand large amounts of code context without missing key information.
 
-![App screen in the Sourcegraph platform](https://assets.claude.com/363b03799e5077e2f14ba6761d6a9299fb95062e.png)
+![App screen in the Sourcegraph platform](https://assets.claude.com/363b03799e5077e2f14ba6761d6a9299fb95062e.png?w=2400&q=75&fm=webp&fit=max)
 
 “We’ve decided to use Claude as our default chat model in Cody,” says Liu. “It’s fantastic at incorporating the context we provide into accurate answers about a user’s private codebase and writing code that fits within the context of your code. The family of models, from Opus to Haiku, provides several great points along the frontier of speed and intelligence that power multiple Cody features.”
 

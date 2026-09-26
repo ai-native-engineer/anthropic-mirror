@@ -30,7 +30,7 @@ at major banks, investment firms, and advisory practices
 
 Financial services
 
-![Financial services](https://assets.claude.com/650d7729c393e0a6c243ebe61f9b6401c93fd1c8.jpg)
+![Financial services](https://assets.claude.com/650d7729c393e0a6c243ebe61f9b6401c93fd1c8.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Accelerate financial due diligence, modeling, and analysis with enterprise-grade AI built for compliance and security.
 
@@ -90,7 +90,7 @@ Our evaluation framework goes beyond measuring raw financial intelligence. We pl
 
 Choosing the right Claude model
 
-![Choosing the right Claude model](https://assets.claude.com/7388619b452db0af26c78442a275c86c5ebe3124.jpg)
+![Choosing the right Claude model](https://assets.claude.com/7388619b452db0af26c78442a275c86c5ebe3124.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Learn when to use Haiku, Sonnet, or Opus to get better results and stay inside your rate limit. A practical guide to picking the right Claude model.
 

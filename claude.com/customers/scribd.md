@@ -64,7 +64,7 @@ For an enterprise like Scribd, Inc., trust and reliability were crucial factors.
 
 The impact of implementing Claude-generated metadata has been significant for Scribd. By adding AI-generated descriptions to document pages, the company saw a substantial increase in users who view content and ultimately sign up as subscribers.
 
-![Scribd product screenshot](https://assets.claude.com/7a55ce4198685ace351601abd45790b2659b8324.jpg)
+![Scribd product screenshot](https://assets.claude.com/7a55ce4198685ace351601abd45790b2659b8324.jpg?w=2400&q=75&fm=webp&fit=max)
 
 "Having the content right there at first glance gives the user more context about the particular document versus having to read through the whole thing," Neola says. "We saw a 7% increase in the users who are viewing it that ultimately come to the site and then sign up and become subscribers."
 
@@ -87,5 +87,3 @@ With Claude's ability to process and enhance millions of documents efficiently, 
 ### Orange localizes manga at an unprecedented scale with Claude](https://claude.com/customers/orange)[![WRTN](https://assets.claude.com/c3f8213b72f494f94cf99ec6d2abf77e5129ef74.svg)
 
 ### WRTN pioneers AI entertainment and storytelling across Asia with Claude](https://claude.com/customers/wrtn)
-
-Scribd Claude Platform (API) case study | Claude by Anthropic

@@ -30,7 +30,7 @@ Speaker(s)
 
 ## Watch recording
 
-![Evaluating and improving Replit Agent at scale](https://assets.claude.com/88306937a62809ce4218e990c2bae7bf0e16e3cb.jpg?w=1600&auto=format)
+![Evaluating and improving Replit Agent at scale](https://assets.claude.com/88306937a62809ce4218e990c2bae7bf0e16e3cb.jpg?w=2400&q=75&fm=webp&fit=max)
 
 ## Anthropic's developer conference, recorded
 

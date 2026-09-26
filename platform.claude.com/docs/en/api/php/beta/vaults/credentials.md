@@ -23,7 +23,7 @@ Create Credential
 
 - `auth: Auth`
 
-  Authentication details for creating a credential.
+  Authentication configuration for the credential.
 
 - `displayName?:optional string`
 
@@ -55,11 +55,11 @@ Create Credential
 
   - `?\Datetime archivedAt`
 
-    A timestamp in RFC 3339 format
+    When the credential was archived. Null if not archived.
 
   - `Auth auth`
 
-    Authentication details for a credential.
+    Authentication configuration for this credential.
 
   - `\Datetime createdAt`
 
@@ -175,11 +175,11 @@ List Credentials
 
   - `?\Datetime archivedAt`
 
-    A timestamp in RFC 3339 format
+    When the credential was archived. Null if not archived.
 
   - `Auth auth`
 
-    Authentication details for a credential.
+    Authentication configuration for this credential.
 
   - `\Datetime createdAt`
 
@@ -288,11 +288,11 @@ Get Credential
 
   - `?\Datetime archivedAt`
 
-    A timestamp in RFC 3339 format
+    When the credential was archived. Null if not archived.
 
   - `Auth auth`
 
-    Authentication details for a credential.
+    Authentication configuration for this credential.
 
   - `\Datetime createdAt`
 
@@ -374,7 +374,7 @@ Update Credential
 
 - `auth?:optional Auth`
 
-  Updated authentication details for a credential.
+  Updated authentication configuration. The `type` is immutable; the variant sent must match the stored credential's type.
 
 - `displayName?:optional string`
 
@@ -406,11 +406,11 @@ Update Credential
 
   - `?\Datetime archivedAt`
 
-    A timestamp in RFC 3339 format
+    When the credential was archived. Null if not archived.
 
   - `Auth auth`
 
-    Authentication details for a credential.
+    Authentication configuration for this credential.
 
   - `\Datetime createdAt`
 
@@ -596,11 +596,11 @@ Archive Credential
 
   - `?\Datetime archivedAt`
 
-    A timestamp in RFC 3339 format
+    When the credential was archived. Null if not archived.
 
   - `Auth auth`
 
-    Authentication details for a credential.
+    Authentication configuration for this credential.
 
   - `\Datetime createdAt`
 
@@ -706,19 +706,19 @@ Validate Credential
 
   - `?ManagedAgentsMCPProbe mcpProbe`
 
-    The failing step of an MCP validation probe.
+    Details of the failing MCP probe step. Null when the probe succeeded.
 
   - `?ManagedAgentsRefreshObject refresh`
 
-    Outcome of a refresh-token exchange attempted during credential validation.
+    Details of the refresh-token exchange attempted on a 401. Null when no refresh was attempted.
 
   - `ManagedAgentsCredentialValidationStatus status`
 
-    Overall verdict of a credential validation probe.
+    Overall verdict of the validation probe.
 
   - `\Datetime validatedAt`
 
-    A timestamp in RFC 3339 format
+    When the validation probe was performed.
 
   - `string vaultID`
 
@@ -792,11 +792,11 @@ var_dump($betaManagedAgentsCredentialValidation);
 
   - `?\Datetime archivedAt`
 
-    A timestamp in RFC 3339 format
+    When the credential was archived. Null if not archived.
 
   - `Auth auth`
 
-    Authentication details for a credential.
+    Authentication configuration for this credential.
 
   - `\Datetime createdAt`
 
@@ -850,19 +850,19 @@ var_dump($betaManagedAgentsCredentialValidation);
 
   - `?ManagedAgentsMCPProbe mcpProbe`
 
-    The failing step of an MCP validation probe.
+    Details of the failing MCP probe step. Null when the probe succeeded.
 
   - `?ManagedAgentsRefreshObject refresh`
 
-    Outcome of a refresh-token exchange attempted during credential validation.
+    Details of the refresh-token exchange attempted on a 401. Null when no refresh was attempted.
 
   - `ManagedAgentsCredentialValidationStatus status`
 
-    Overall verdict of a credential validation probe.
+    Overall verdict of the validation probe.
 
   - `\Datetime validatedAt`
 
-    A timestamp in RFC 3339 format
+    When the validation probe was performed.
 
   - `string vaultID`
 
@@ -1024,7 +1024,7 @@ var_dump($betaManagedAgentsCredentialValidation);
 
   - `?ManagedAgentsMCPOAuthRefreshResponse refresh`
 
-    OAuth refresh token configuration returned in credential responses.
+    Refresh token configuration, if the credential supports token refresh.
 
 ### Beta Managed Agents MCP OAuth Create Params
 
@@ -1046,7 +1046,7 @@ var_dump($betaManagedAgentsCredentialValidation);
 
   - `?ManagedAgentsMCPOAuthRefreshParams refresh`
 
-    OAuth refresh token parameters for creating a credential with refresh support.
+    Refresh token configuration, if the credential supports token refresh.
 
 ### Beta Managed Agents MCP OAuth Refresh Params
 
@@ -1126,7 +1126,7 @@ var_dump($betaManagedAgentsCredentialValidation);
 
   - `?ManagedAgentsMCPOAuthRefreshUpdateParams refresh`
 
-    Parameters for updating OAuth refresh token configuration.
+    Updated refresh token configuration.
 
 ### Beta Managed Agents MCP Probe
 
@@ -1134,7 +1134,7 @@ var_dump($betaManagedAgentsCredentialValidation);
 
   - `?ManagedAgentsRefreshHTTPResponse httpResponse`
 
-    An HTTP response captured during a credential validation probe.
+    The captured HTTP error response. Null when no HTTP response was received (timeout, DNS, TLS).
 
   - `string method`
 
@@ -1166,11 +1166,11 @@ var_dump($betaManagedAgentsCredentialValidation);
 
   - `?ManagedAgentsRefreshHTTPResponse httpResponse`
 
-    An HTTP response captured during a credential validation probe.
+    The captured HTTP error response from the token endpoint. Populated only when `status` is `failed`.
 
   - `Status status`
 
-    Outcome of a refresh-token exchange attempted during credential validation.
+    Outcome of the refresh attempt.
 
 ### Beta Managed Agents Static Bearer Auth Response
 

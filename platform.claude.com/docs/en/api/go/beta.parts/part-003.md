@@ -3,6 +3,236 @@
 
 <!-- chunk-start -->
 
+      The deployment is paused. Autonomous triggers are suppressed; manual runs are still permitted.
+
+  - `UpdatedAt Time`
+
+    Time the deployment was last updated.
+
+    format: date-time
+
+  - `VaultIDs []string`
+
+    Vault IDs supplying stored credentials for sessions created from this deployment.
+
+  - `Budget BetaManagedAgentsBudgetLimit Optional`
+
+    Spend ceiling stamped onto each session created from this deployment. Absent when no budget is set.
+
+    - `Type BetaManagedAgentsBudgetLimitType`
+
+    - `MaxListCost BetaMonetaryAmount`
+
+      Maximum list cost the session may accrue. List price is used regardless of any negotiated discount, so the cap fires at or before the actual charge.
+
+      - `Amount string`
+
+        Amount in minor units of the currency, as an integer decimal string with no leading zeros: "2500" is $25.00 and "50" is fifty cents. A string rather than a number so no float rounding is ever applied.
+
+      - `Currency BetaCurrency`
+
+        Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
+
+#### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+
+	"github.com/anthropics/anthropic-sdk-go"
+	"github.com/anthropics/anthropic-sdk-go/option"
+)
+
+func main() {
+	client := anthropic.NewClient(
+		option.WithAPIKey("my-anthropic-api-key"),
+	)
+	betaManagedAgentsDeployment, err := client.Beta.Deployments.Get(
+		context.TODO(),
+		"depl_011CZkZcDH3vPqd7xnEfwTai",
+		anthropic.BetaDeploymentGetParams{},
+	)
+	if err != nil {
+		panic(err.Error())
+	}
+	fmt.Printf("%+v\n", betaManagedAgentsDeployment.ID)
+}
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "depl_011CZkZcDH3vPqd7xnEfwTai",
+  "agent": {
+    "id": "agent_011CZkYpogX7uDKUyvBTophP",
+    "type": "agent",
+    "version": 1
+  },
+  "archived_at": null,
+  "created_at": "2026-03-15T10:00:00Z",
+  "description": "Compiles yesterday's orders into a report every weekday morning.",
+  "environment_id": "env_011CZkZ9X2dpNyB7HsEFoRfW",
+  "initial_events": [
+    {
+      "content": [
+        {
+          "text": "Compile yesterday's orders into report.md.",
+          "type": "text"
+        }
+      ],
+      "type": "user.message"
+    }
+  ],
+  "metadata": {},
+  "name": "Daily order report",
+  "paused_reason": {
+    "type": "manual"
+  },
+  "resources": [
+    {
+      "type": "github_repository",
+      "url": "url",
+      "checkout": {
+        "name": "main",
+        "type": "branch"
+      },
+      "mount_path": "mount_path"
+    }
+  ],
+  "schedule": {
+    "expression": "0 9 * * 1-5",
+    "timezone": "America/Los_Angeles",
+    "type": "cron",
+    "last_run_at": "2026-03-16T16:00:09Z",
+    "upcoming_runs_at": [
+      "2026-03-17T16:00:00Z",
+      "2026-03-18T16:00:00Z"
+    ]
+  },
+  "status": "active",
+  "type": "deployment",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "vault_ids": [
+    "vlt_011CZkZDLs7fYzm1hXNPeRjv"
+  ],
+  "budget": {
+    "max_list_cost": {
+      "amount": "2500",
+      "currency": "USD"
+    },
+    "type": "limit"
+  }
+}
+```
+
+### Update Deployment
+
+`client.Beta.Deployments.Update(ctx, deploymentID, params) (*BetaManagedAgentsDeployment, error)`
+
+**POST** `/v1/deployments/{deployment_id}`
+
+Update Deployment
+
+#### Parameters
+
+- `deploymentID string`
+
+  Unique identifier of the deployment to update.
+
+- `params BetaDeploymentUpdateParams`
+
+  - `Agent param.Field[BetaDeploymentUpdateParamsAgentUnion] Optional`
+
+    Body param: Agent to deploy. Accepts the `agent` ID string, which re-pins to the latest version, or an `agent` object with both id and version specified. Omit to preserve. Cannot be cleared.
+
+    - `string`
+
+    - `type BetaManagedAgentsAgentParamsResp`
+
+      Specification for an Agent. Provide a specific `version` or use the short-form `agent="agent_id"` for the most recent version
+
+      - `Type BetaManagedAgentsAgentParamsType`
+
+      - `ID string`
+
+        The `agent` ID.
+
+        minLength: 1, maxLength: 128
+
+      - `Version int64 Optional`
+
+        The specific `agent` version to use. Omit to use the latest version. Must be at least 1 if specified.
+
+        format: int32
+
+  - `Budget param.Field[BetaManagedAgentsBudgetLimit] Optional`
+
+    Body param: Spend ceiling for future sessions. Full replacement. Omit to preserve; send null to clear (sessions created afterwards are uncapped). The deployment agent's model must have a public list price, or the request is rejected; a multiagent roster is re-validated in full when each fire copies the cap, which fails closed the same way.
+
+  - `Description param.Field[string] Optional`
+
+    Body param: Description. Omit to preserve; send empty string or null to clear.
+
+    maxLength: 2048
+
+  - `EnvironmentID param.Field[string] Optional`
+
+    Body param: ID of the `environment` where sessions run. Omit to preserve. Cannot be cleared.
+
+    maxLength: 128
+
+  - `InitialEvents param.Field[[]BetaManagedAgentsDeploymentInitialEventParamsUnionResp] Optional`
+
+    Body param: Initial events. Full replacement. Omit to preserve. Cannot be cleared. At least 1, maximum 50.
+
+    - `type BetaManagedAgentsUserMessageEventParams`
+
+      Parameters for sending a user message to the session.
+
+      - `Type BetaManagedAgentsUserMessageEventParamsType`
+
+      - `Content []BetaManagedAgentsUserMessageEventParamsContentUnionResp`
+
+        Array of content blocks for the user message.
+
+        - `type BetaManagedAgentsTextBlock`
+
+          Regular text content.
+
+          - `Type BetaManagedAgentsTextBlockType`
+
+          - `Text string`
+
+            The text content.
+
+            minLength: 1
+
+        - `type BetaManagedAgentsImageBlock`
+
+          Image content specified directly as base64 data or as a reference via a URL.
+
+          - `Type BetaManagedAgentsImageBlockType`
+
+          - `Source BetaManagedAgentsImageBlockSourceUnion`
+
+            The source of the image data.
+
+            - `type BetaManagedAgentsBase64ImageSource`
+
+              Base64-encoded image data.
+
+              - `Type BetaManagedAgentsBase64ImageSourceType`
+
+              - `Data string`
+
+                Base64-encoded image data.
+
+                minLength: 1
+
               - `MediaType string`
 
                 MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
@@ -41,7 +271,7 @@
 
           - `Source BetaManagedAgentsDocumentBlockSourceUnion`
 
-            Union type for document source variants.
+            The source of the document data.
 
             - `type BetaManagedAgentsBase64DocumentSource`
 
@@ -127,7 +357,7 @@
 
       - `Rubric BetaManagedAgentsUserDefineOutcomeEventParamsRubricUnionResp`
 
-        Rubric for grading the quality of an outcome.
+        How to grade the outcome. Text or file reference.
 
         - `type BetaManagedAgentsFileRubricParams`
 
@@ -267,7 +497,7 @@
 
       - `Access BetaManagedAgentsMemoryStoreResourceParamAccess Optional`
 
-        Access mode for an attached memory store.
+        Access mode for the mounted store. Defaults to read_write. read_only mounts the store as a read-only filesystem.
 
         - `const BetaManagedAgentsMemoryStoreResourceParamAccessReadWrite BetaManagedAgentsMemoryStoreResourceParamAccess = "read_write"`
 
@@ -281,7 +511,7 @@
 
   - `Schedule param.Field[BetaManagedAgentsScheduleParamsResp] Optional`
 
-    Body param: 5-field POSIX cron schedule. Literal wall-clock matching in the configured timezone.
+    Body param: Cron schedule. Full replacement. Omit to preserve; send null to clear (revert to manual-only).
 
   - `VaultIDs param.Field[[]string] Optional`
 
@@ -411,7 +641,7 @@
 
   - `Agent BetaManagedAgentsAgentReference`
 
-    A resolved agent reference with a concrete version.
+    Reference to the agent this deployment runs, resolved to a concrete version.
 
     - `Type BetaManagedAgentsAgentReferenceType`
 
@@ -423,13 +653,13 @@
 
   - `ArchivedAt Time`
 
-    A timestamp in RFC 3339 format
+    Time the deployment was archived. Null if not archived.
 
     format: date-time
 
   - `CreatedAt Time`
 
-    A timestamp in RFC 3339 format
+    Time the deployment was created.
 
     format: date-time
 
@@ -475,7 +705,7 @@
 
           - `Source BetaManagedAgentsImageBlockSourceUnion`
 
-            Union type for image source variants.
+            The source of the image data.
 
             - `type BetaManagedAgentsBase64ImageSource`
 
@@ -527,7 +757,7 @@
 
           - `Source BetaManagedAgentsDocumentBlockSourceUnion`
 
-            Union type for document source variants.
+            The source of the document data.
 
             - `type BetaManagedAgentsBase64DocumentSource`
 
@@ -613,7 +843,7 @@
 
       - `Rubric BetaManagedAgentsDeploymentUserDefineOutcomeEventRubricUnion`
 
-        Rubric for grading the quality of an outcome.
+        How to grade the outcome. Text or file reference.
 
         - `type BetaManagedAgentsFileRubric`
 
@@ -669,7 +899,7 @@
 
   - `PausedReason BetaManagedAgentsDeploymentPausedReasonUnion`
 
-    Why a deployment is paused. Non-null exactly when `status` is `paused`.
+    Why the deployment is `paused`. Non-null exactly when `status` is `paused`; null otherwise.
 
     - `type BetaManagedAgentsManualDeploymentPausedReason`
 
@@ -685,7 +915,7 @@
 
       - `Error BetaManagedAgentsDeploymentPausedReasonErrorUnion`
 
-        The error that triggered an auto-pause. Matches the failed run's `error.type`.
+        The failed run's error.
 
         - `type BetaManagedAgentsEnvironmentArchivedDeploymentPausedReasonError`
 
@@ -839,7 +1069,7 @@
 
       - `Access BetaManagedAgentsMemoryStoreResourceConfigAccess Optional`
 
-        Access mode for an attached memory store.
+        Access mode for the mounted store. Defaults to `read_write`. `read_only` mounts the store as a read-only filesystem.
 
         - `const BetaManagedAgentsMemoryStoreResourceConfigAccessReadWrite BetaManagedAgentsMemoryStoreResourceConfigAccess = "read_write"`
 
@@ -851,7 +1081,7 @@
 
   - `Schedule BetaManagedAgentsSchedule`
 
-    5-field POSIX cron schedule with computed runtime timestamps.
+    Recurring cron schedule. Presence enables scheduled execution; null means manual-only. Includes computed timestamps (next fire times, last run) on the cron variant.
 
     - `Type BetaManagedAgentsScheduleType`
 
@@ -869,7 +1099,7 @@
 
     - `LastRunAt Time Optional`
 
-      A timestamp in RFC 3339 format
+      Time the most recent scheduled run actually started. Null until one completes; preserved after the deployment is archived. Manual runs do not update this.
 
       format: date-time
 
@@ -879,7 +1109,7 @@
 
   - `Status BetaManagedAgentsDeploymentStatus`
 
-    Lifecycle status of a deployment.
+    Computed status of the deployment: `active` or `paused`. Archived deployments report `active` with `archived_at` set.
 
     - `const BetaManagedAgentsDeploymentStatusActive BetaManagedAgentsDeploymentStatus = "active"`
 
@@ -891,7 +1121,7 @@
 
   - `UpdatedAt Time`
 
-    A timestamp in RFC 3339 format
+    Time the deployment was last updated.
 
     format: date-time
 
@@ -901,13 +1131,13 @@
 
   - `Budget BetaManagedAgentsBudgetLimit Optional`
 
-    A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+    Spend ceiling stamped onto each session created from this deployment. Absent when no budget is set.
 
     - `Type BetaManagedAgentsBudgetLimitType`
 
     - `MaxListCost BetaMonetaryAmount`
 
-      A monetary amount in a specific currency.
+      Maximum list cost the session may accrue. List price is used regardless of any negotiated discount, so the cap fires at or before the actual charge.
 
       - `Amount string`
 
@@ -1153,7 +1383,7 @@ Archive Deployment
 
   - `Agent BetaManagedAgentsAgentReference`
 
-    A resolved agent reference with a concrete version.
+    Reference to the agent this deployment runs, resolved to a concrete version.
 
     - `Type BetaManagedAgentsAgentReferenceType`
 
@@ -1165,13 +1395,13 @@ Archive Deployment
 
   - `ArchivedAt Time`
 
-    A timestamp in RFC 3339 format
+    Time the deployment was archived. Null if not archived.
 
     format: date-time
 
   - `CreatedAt Time`
 
-    A timestamp in RFC 3339 format
+    Time the deployment was created.
 
     format: date-time
 
@@ -1217,7 +1447,7 @@ Archive Deployment
 
           - `Source BetaManagedAgentsImageBlockSourceUnion`
 
-            Union type for image source variants.
+            The source of the image data.
 
             - `type BetaManagedAgentsBase64ImageSource`
 
@@ -1269,7 +1499,7 @@ Archive Deployment
 
           - `Source BetaManagedAgentsDocumentBlockSourceUnion`
 
-            Union type for document source variants.
+            The source of the document data.
 
             - `type BetaManagedAgentsBase64DocumentSource`
 
@@ -1355,7 +1585,7 @@ Archive Deployment
 
       - `Rubric BetaManagedAgentsDeploymentUserDefineOutcomeEventRubricUnion`
 
-        Rubric for grading the quality of an outcome.
+        How to grade the outcome. Text or file reference.
 
         - `type BetaManagedAgentsFileRubric`
 
@@ -1411,7 +1641,7 @@ Archive Deployment
 
   - `PausedReason BetaManagedAgentsDeploymentPausedReasonUnion`
 
-    Why a deployment is paused. Non-null exactly when `status` is `paused`.
+    Why the deployment is `paused`. Non-null exactly when `status` is `paused`; null otherwise.
 
     - `type BetaManagedAgentsManualDeploymentPausedReason`
 
@@ -1427,7 +1657,7 @@ Archive Deployment
 
       - `Error BetaManagedAgentsDeploymentPausedReasonErrorUnion`
 
-        The error that triggered an auto-pause. Matches the failed run's `error.type`.
+        The failed run's error.
 
         - `type BetaManagedAgentsEnvironmentArchivedDeploymentPausedReasonError`
 
@@ -1581,7 +1811,7 @@ Archive Deployment
 
       - `Access BetaManagedAgentsMemoryStoreResourceConfigAccess Optional`
 
-        Access mode for an attached memory store.
+        Access mode for the mounted store. Defaults to `read_write`. `read_only` mounts the store as a read-only filesystem.
 
         - `const BetaManagedAgentsMemoryStoreResourceConfigAccessReadWrite BetaManagedAgentsMemoryStoreResourceConfigAccess = "read_write"`
 
@@ -1593,7 +1823,7 @@ Archive Deployment
 
   - `Schedule BetaManagedAgentsSchedule`
 
-    5-field POSIX cron schedule with computed runtime timestamps.
+    Recurring cron schedule. Presence enables scheduled execution; null means manual-only. Includes computed timestamps (next fire times, last run) on the cron variant.
 
     - `Type BetaManagedAgentsScheduleType`
 
@@ -1611,7 +1841,7 @@ Archive Deployment
 
     - `LastRunAt Time Optional`
 
-      A timestamp in RFC 3339 format
+      Time the most recent scheduled run actually started. Null until one completes; preserved after the deployment is archived. Manual runs do not update this.
 
       format: date-time
 
@@ -1621,7 +1851,7 @@ Archive Deployment
 
   - `Status BetaManagedAgentsDeploymentStatus`
 
-    Lifecycle status of a deployment.
+    Computed status of the deployment: `active` or `paused`. Archived deployments report `active` with `archived_at` set.
 
     - `const BetaManagedAgentsDeploymentStatusActive BetaManagedAgentsDeploymentStatus = "active"`
 
@@ -1633,7 +1863,7 @@ Archive Deployment
 
   - `UpdatedAt Time`
 
-    A timestamp in RFC 3339 format
+    Time the deployment was last updated.
 
     format: date-time
 
@@ -1643,13 +1873,13 @@ Archive Deployment
 
   - `Budget BetaManagedAgentsBudgetLimit Optional`
 
-    A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+    Spend ceiling stamped onto each session created from this deployment. Absent when no budget is set.
 
     - `Type BetaManagedAgentsBudgetLimitType`
 
     - `MaxListCost BetaMonetaryAmount`
 
-      A monetary amount in a specific currency.
+      Maximum list cost the session may accrue. List price is used regardless of any negotiated discount, so the cap fires at or before the actual charge.
 
       - `Amount string`
 
@@ -1895,7 +2125,7 @@ Run Deployment Now
 
   - `Agent BetaManagedAgentsAgentReference`
 
-    A resolved agent reference with a concrete version.
+    Snapshot of the agent at fire time. Always fully resolved — deployments pin agent + version.
 
     - `Type BetaManagedAgentsAgentReferenceType`
 
@@ -1907,7 +2137,7 @@ Run Deployment Now
 
   - `CreatedAt Time`
 
-    A timestamp in RFC 3339 format
+    Time this run record was persisted.
 
     format: date-time
 
@@ -1917,7 +2147,7 @@ Run Deployment Now
 
   - `Error BetaManagedAgentsDeploymentRunErrorUnion`
 
-    Why the run failed to create a session. The type identifies the failure; message is human-readable detail.
+    Populated on creation failure. Null on success. Exactly one of `session_id` or `error` is non-null.
 
     - `type BetaManagedAgentsEnvironmentArchivedRunError`
 
@@ -2085,7 +2315,7 @@ Run Deployment Now
 
   - `TriggerContext BetaManagedAgentsTriggerContextUnion`
 
-    Describes what triggered a deployment run, with trigger-specific metadata.
+    What triggered this run and trigger-specific metadata.
 
     - `type BetaManagedAgentsScheduleTriggerContext`
 
@@ -2095,7 +2325,7 @@ Run Deployment Now
 
       - `ScheduledAt Time`
 
-        A timestamp in RFC 3339 format
+        The UTC instant at which the cron expression matched in the configured timezone, before jitter is applied. At most one run is recorded per (`deployment_id`, `scheduled_at`) pair.
 
         format: date-time
 
@@ -2299,7 +2529,7 @@ Pause Deployment
 
   - `Agent BetaManagedAgentsAgentReference`
 
-    A resolved agent reference with a concrete version.
+    Reference to the agent this deployment runs, resolved to a concrete version.
 
     - `Type BetaManagedAgentsAgentReferenceType`
 
@@ -2311,13 +2541,13 @@ Pause Deployment
 
   - `ArchivedAt Time`
 
-    A timestamp in RFC 3339 format
+    Time the deployment was archived. Null if not archived.
 
     format: date-time
 
   - `CreatedAt Time`
 
-    A timestamp in RFC 3339 format
+    Time the deployment was created.
 
     format: date-time
 
@@ -2363,7 +2593,7 @@ Pause Deployment
 
           - `Source BetaManagedAgentsImageBlockSourceUnion`
 
-            Union type for image source variants.
+            The source of the image data.
 
             - `type BetaManagedAgentsBase64ImageSource`
 
@@ -2415,7 +2645,7 @@ Pause Deployment
 
           - `Source BetaManagedAgentsDocumentBlockSourceUnion`
 
-            Union type for document source variants.
+            The source of the document data.
 
             - `type BetaManagedAgentsBase64DocumentSource`
 
@@ -2501,7 +2731,7 @@ Pause Deployment
 
       - `Rubric BetaManagedAgentsDeploymentUserDefineOutcomeEventRubricUnion`
 
-        Rubric for grading the quality of an outcome.
+        How to grade the outcome. Text or file reference.
 
         - `type BetaManagedAgentsFileRubric`
 
@@ -2557,7 +2787,7 @@ Pause Deployment
 
   - `PausedReason BetaManagedAgentsDeploymentPausedReasonUnion`
 
-    Why a deployment is paused. Non-null exactly when `status` is `paused`.
+    Why the deployment is `paused`. Non-null exactly when `status` is `paused`; null otherwise.
 
     - `type BetaManagedAgentsManualDeploymentPausedReason`
 
@@ -2573,7 +2803,7 @@ Pause Deployment
 
       - `Error BetaManagedAgentsDeploymentPausedReasonErrorUnion`
 
-        The error that triggered an auto-pause. Matches the failed run's `error.type`.
+        The failed run's error.
 
         - `type BetaManagedAgentsEnvironmentArchivedDeploymentPausedReasonError`
 
@@ -2727,7 +2957,7 @@ Pause Deployment
 
       - `Access BetaManagedAgentsMemoryStoreResourceConfigAccess Optional`
 
-        Access mode for an attached memory store.
+        Access mode for the mounted store. Defaults to `read_write`. `read_only` mounts the store as a read-only filesystem.
 
         - `const BetaManagedAgentsMemoryStoreResourceConfigAccessReadWrite BetaManagedAgentsMemoryStoreResourceConfigAccess = "read_write"`
 
@@ -2739,7 +2969,7 @@ Pause Deployment
 
   - `Schedule BetaManagedAgentsSchedule`
 
-    5-field POSIX cron schedule with computed runtime timestamps.
+    Recurring cron schedule. Presence enables scheduled execution; null means manual-only. Includes computed timestamps (next fire times, last run) on the cron variant.
 
     - `Type BetaManagedAgentsScheduleType`
 
@@ -2757,7 +2987,7 @@ Pause Deployment
 
     - `LastRunAt Time Optional`
 
-      A timestamp in RFC 3339 format
+      Time the most recent scheduled run actually started. Null until one completes; preserved after the deployment is archived. Manual runs do not update this.
 
       format: date-time
 
@@ -2767,7 +2997,7 @@ Pause Deployment
 
   - `Status BetaManagedAgentsDeploymentStatus`
 
-    Lifecycle status of a deployment.
+    Computed status of the deployment: `active` or `paused`. Archived deployments report `active` with `archived_at` set.
 
     - `const BetaManagedAgentsDeploymentStatusActive BetaManagedAgentsDeploymentStatus = "active"`
 
@@ -2779,7 +3009,7 @@ Pause Deployment
 
   - `UpdatedAt Time`
 
-    A timestamp in RFC 3339 format
+    Time the deployment was last updated.
 
     format: date-time
 
@@ -2789,13 +3019,13 @@ Pause Deployment
 
   - `Budget BetaManagedAgentsBudgetLimit Optional`
 
-    A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+    Spend ceiling stamped onto each session created from this deployment. Absent when no budget is set.
 
     - `Type BetaManagedAgentsBudgetLimitType`
 
     - `MaxListCost BetaMonetaryAmount`
 
-      A monetary amount in a specific currency.
+      Maximum list cost the session may accrue. List price is used regardless of any negotiated discount, so the cap fires at or before the actual charge.
 
       - `Amount string`
 
@@ -3041,7 +3271,7 @@ Unpause Deployment
 
   - `Agent BetaManagedAgentsAgentReference`
 
-    A resolved agent reference with a concrete version.
+    Reference to the agent this deployment runs, resolved to a concrete version.
 
     - `Type BetaManagedAgentsAgentReferenceType`
 
@@ -3053,13 +3283,13 @@ Unpause Deployment
 
   - `ArchivedAt Time`
 
-    A timestamp in RFC 3339 format
+    Time the deployment was archived. Null if not archived.
 
     format: date-time
 
   - `CreatedAt Time`
 
-    A timestamp in RFC 3339 format
+    Time the deployment was created.
 
     format: date-time
 
@@ -3105,7 +3335,7 @@ Unpause Deployment
 
           - `Source BetaManagedAgentsImageBlockSourceUnion`
 
-            Union type for image source variants.
+            The source of the image data.
 
             - `type BetaManagedAgentsBase64ImageSource`
 
@@ -3157,7 +3387,7 @@ Unpause Deployment
 
           - `Source BetaManagedAgentsDocumentBlockSourceUnion`
 
-            Union type for document source variants.
+            The source of the document data.
 
             - `type BetaManagedAgentsBase64DocumentSource`
 
@@ -3243,7 +3473,7 @@ Unpause Deployment
 
       - `Rubric BetaManagedAgentsDeploymentUserDefineOutcomeEventRubricUnion`
 
-        Rubric for grading the quality of an outcome.
+        How to grade the outcome. Text or file reference.
 
         - `type BetaManagedAgentsFileRubric`
 
@@ -3299,7 +3529,7 @@ Unpause Deployment
 
   - `PausedReason BetaManagedAgentsDeploymentPausedReasonUnion`
 
-    Why a deployment is paused. Non-null exactly when `status` is `paused`.
+    Why the deployment is `paused`. Non-null exactly when `status` is `paused`; null otherwise.
 
     - `type BetaManagedAgentsManualDeploymentPausedReason`
 
@@ -3315,7 +3545,7 @@ Unpause Deployment
 
       - `Error BetaManagedAgentsDeploymentPausedReasonErrorUnion`
 
-        The error that triggered an auto-pause. Matches the failed run's `error.type`.
+        The failed run's error.
 
         - `type BetaManagedAgentsEnvironmentArchivedDeploymentPausedReasonError`
 
@@ -3469,7 +3699,7 @@ Unpause Deployment
 
       - `Access BetaManagedAgentsMemoryStoreResourceConfigAccess Optional`
 
-        Access mode for an attached memory store.
+        Access mode for the mounted store. Defaults to `read_write`. `read_only` mounts the store as a read-only filesystem.
 
         - `const BetaManagedAgentsMemoryStoreResourceConfigAccessReadWrite BetaManagedAgentsMemoryStoreResourceConfigAccess = "read_write"`
 
@@ -3481,7 +3711,7 @@ Unpause Deployment
 
   - `Schedule BetaManagedAgentsSchedule`
 
-    5-field POSIX cron schedule with computed runtime timestamps.
+    Recurring cron schedule. Presence enables scheduled execution; null means manual-only. Includes computed timestamps (next fire times, last run) on the cron variant.
 
     - `Type BetaManagedAgentsScheduleType`
 
@@ -3499,7 +3729,7 @@ Unpause Deployment
 
     - `LastRunAt Time Optional`
 
-      A timestamp in RFC 3339 format
+      Time the most recent scheduled run actually started. Null until one completes; preserved after the deployment is archived. Manual runs do not update this.
 
       format: date-time
 
@@ -3509,7 +3739,7 @@ Unpause Deployment
 
   - `Status BetaManagedAgentsDeploymentStatus`
 
-    Lifecycle status of a deployment.
+    Computed status of the deployment: `active` or `paused`. Archived deployments report `active` with `archived_at` set.
 
     - `const BetaManagedAgentsDeploymentStatusActive BetaManagedAgentsDeploymentStatus = "active"`
 
@@ -3521,7 +3751,7 @@ Unpause Deployment
 
   - `UpdatedAt Time`
 
-    A timestamp in RFC 3339 format
+    Time the deployment was last updated.
 
     format: date-time
 
@@ -3531,13 +3761,13 @@ Unpause Deployment
 
   - `Budget BetaManagedAgentsBudgetLimit Optional`
 
-    A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+    Spend ceiling stamped onto each session created from this deployment. Absent when no budget is set.
 
     - `Type BetaManagedAgentsBudgetLimitType`
 
     - `MaxListCost BetaMonetaryAmount`
 
-      A monetary amount in a specific currency.
+      Maximum list cost the session may accrue. List price is used regardless of any negotiated discount, so the cap fires at or before the actual charge.
 
       - `Amount string`
 
@@ -3827,7 +4057,7 @@ List Deployment Runs
 
   - `Agent BetaManagedAgentsAgentReference`
 
-    A resolved agent reference with a concrete version.
+    Snapshot of the agent at fire time. Always fully resolved — deployments pin agent + version.
 
     - `Type BetaManagedAgentsAgentReferenceType`
 
@@ -3839,7 +4069,7 @@ List Deployment Runs
 
   - `CreatedAt Time`
 
-    A timestamp in RFC 3339 format
+    Time this run record was persisted.
 
     format: date-time
 
@@ -3849,7 +4079,7 @@ List Deployment Runs
 
   - `Error BetaManagedAgentsDeploymentRunErrorUnion`
 
-    Why the run failed to create a session. The type identifies the failure; message is human-readable detail.
+    Populated on creation failure. Null on success. Exactly one of `session_id` or `error` is non-null.
 
     - `type BetaManagedAgentsEnvironmentArchivedRunError`
 
@@ -4017,7 +4247,7 @@ List Deployment Runs
 
   - `TriggerContext BetaManagedAgentsTriggerContextUnion`
 
-    Describes what triggered a deployment run, with trigger-specific metadata.
+    What triggered this run and trigger-specific metadata.
 
     - `type BetaManagedAgentsScheduleTriggerContext`
 
@@ -4027,7 +4257,7 @@ List Deployment Runs
 
       - `ScheduledAt Time`
 
-        A timestamp in RFC 3339 format
+        The UTC instant at which the cron expression matched in the configured timezone, before jitter is applied. At most one run is recorded per (`deployment_id`, `scheduled_at`) pair.
 
         format: date-time
 
@@ -4232,7 +4462,7 @@ Get Deployment Run
 
   - `Agent BetaManagedAgentsAgentReference`
 
-    A resolved agent reference with a concrete version.
+    Snapshot of the agent at fire time. Always fully resolved — deployments pin agent + version.
 
     - `Type BetaManagedAgentsAgentReferenceType`
 
@@ -4244,7 +4474,7 @@ Get Deployment Run
 
   - `CreatedAt Time`
 
-    A timestamp in RFC 3339 format
+    Time this run record was persisted.
 
     format: date-time
 
@@ -4254,7 +4484,7 @@ Get Deployment Run
 
   - `Error BetaManagedAgentsDeploymentRunErrorUnion`
 
-    Why the run failed to create a session. The type identifies the failure; message is human-readable detail.
+    Populated on creation failure. Null on success. Exactly one of `session_id` or `error` is non-null.
 
     - `type BetaManagedAgentsEnvironmentArchivedRunError`
 
@@ -4422,7 +4652,7 @@ Get Deployment Run
 
   - `TriggerContext BetaManagedAgentsTriggerContextUnion`
 
-    Describes what triggered a deployment run, with trigger-specific metadata.
+    What triggered this run and trigger-specific metadata.
 
     - `type BetaManagedAgentsScheduleTriggerContext`
 
@@ -4432,7 +4662,7 @@ Get Deployment Run
 
       - `ScheduledAt Time`
 
-        A timestamp in RFC 3339 format
+        The UTC instant at which the cron expression matched in the configured timezone, before jitter is applied. At most one run is recorded per (`deployment_id`, `scheduled_at`) pair.
 
         format: date-time
 
@@ -4644,7 +4874,7 @@ Create Vault
 
   - `ArchivedAt Time`
 
-    A timestamp in RFC 3339 format
+    When the vault was archived. Null if not archived.
 
     format: date-time
 
@@ -4861,7 +5091,7 @@ List Vaults
 
   - `ArchivedAt Time`
 
-    A timestamp in RFC 3339 format
+    When the vault was archived. Null if not archived.
 
     format: date-time
 
@@ -5071,7 +5301,7 @@ Get Vault
 
   - `ArchivedAt Time`
 
-    A timestamp in RFC 3339 format
+    When the vault was archived. Null if not archived.
 
     format: date-time
 
@@ -5290,7 +5520,7 @@ Update Vault
 
   - `ArchivedAt Time`
 
-    A timestamp in RFC 3339 format
+    When the vault was archived. Null if not archived.
 
     format: date-time
 
@@ -5675,7 +5905,7 @@ Archive Vault
 
   - `ArchivedAt Time`
 
-    A timestamp in RFC 3339 format
+    When the vault was archived. Null if not archived.
 
     format: date-time
 
@@ -5764,7 +5994,7 @@ Create Credential
 
   - `Auth param.Field[BetaVaultCredentialNewParamsAuthUnion]`
 
-    Body param: Authentication details for creating a credential.
+    Body param: Authentication configuration for the credential.
 
     - `type BetaManagedAgentsMCPOAuthCreateParamsResp`
 
@@ -5792,7 +6022,7 @@ Create Credential
 
       - `Refresh BetaManagedAgentsMCPOAuthRefreshParamsResp Optional`
 
-        OAuth refresh token parameters for creating a credential with refresh support.
+        Refresh token configuration, if the credential supports token refresh.
 
         - `ClientID string`
 
@@ -6058,13 +6288,13 @@ Create Credential
 
   - `ArchivedAt Time`
 
-    A timestamp in RFC 3339 format
+    When the credential was archived. Null if not archived.
 
     format: date-time
 
   - `Auth BetaManagedAgentsCredentialAuthUnion`
 
-    Authentication details for a credential.
+    Authentication configuration for this credential.
 
     - `type BetaManagedAgentsMCPOAuthAuthResponse`
 
@@ -6084,7 +6314,7 @@ Create Credential
 
       - `Refresh BetaManagedAgentsMCPOAuthRefreshResponse Optional`
 
-        OAuth refresh token configuration returned in credential responses.
+        Refresh token configuration, if the credential supports token refresh.
 
         - `ClientID string`
 
@@ -6410,13 +6640,13 @@ List Credentials
 
   - `ArchivedAt Time`
 
-    A timestamp in RFC 3339 format
+    When the credential was archived. Null if not archived.
 
     format: date-time
 
   - `Auth BetaManagedAgentsCredentialAuthUnion`
 
-    Authentication details for a credential.
+    Authentication configuration for this credential.
 
     - `type BetaManagedAgentsMCPOAuthAuthResponse`
 
@@ -6436,7 +6666,7 @@ List Credentials
 
       - `Refresh BetaManagedAgentsMCPOAuthRefreshResponse Optional`
 
-        OAuth refresh token configuration returned in credential responses.
+        Refresh token configuration, if the credential supports token refresh.
 
         - `ClientID string`
 
@@ -6749,13 +6979,13 @@ Get Credential
 
   - `ArchivedAt Time`
 
-    A timestamp in RFC 3339 format
+    When the credential was archived. Null if not archived.
 
     format: date-time
 
   - `Auth BetaManagedAgentsCredentialAuthUnion`
 
-    Authentication details for a credential.
+    Authentication configuration for this credential.
 
     - `type BetaManagedAgentsMCPOAuthAuthResponse`
 
@@ -6775,7 +7005,7 @@ Get Credential
 
       - `Refresh BetaManagedAgentsMCPOAuthRefreshResponse Optional`
 
-        OAuth refresh token configuration returned in credential responses.
+        Refresh token configuration, if the credential supports token refresh.
 
         - `ClientID string`
 
@@ -6963,7 +7193,7 @@ Update Credential
 
   - `Auth param.Field[BetaVaultCredentialUpdateParamsAuthUnion] Optional`
 
-    Body param: Updated authentication details for a credential.
+    Body param: Updated authentication configuration. The `type` is immutable; the variant sent must match the stored credential's type.
 
     - `type BetaManagedAgentsMCPOAuthUpdateParamsResp`
 
@@ -6985,7 +7215,7 @@ Update Credential
 
       - `Refresh BetaManagedAgentsMCPOAuthRefreshUpdateParamsResp Optional`
 
-        Parameters for updating OAuth refresh token configuration.
+        Updated refresh token configuration.
 
         - `RefreshToken string Optional`
 
@@ -7215,13 +7445,13 @@ Update Credential
 
   - `ArchivedAt Time`
 
-    A timestamp in RFC 3339 format
+    When the credential was archived. Null if not archived.
 
     format: date-time
 
   - `Auth BetaManagedAgentsCredentialAuthUnion`
 
-    Authentication details for a credential.
+    Authentication configuration for this credential.
 
     - `type BetaManagedAgentsMCPOAuthAuthResponse`
 
@@ -7241,7 +7471,7 @@ Update Credential
 
       - `Refresh BetaManagedAgentsMCPOAuthRefreshResponse Optional`
 
-        OAuth refresh token configuration returned in credential responses.
+        Refresh token configuration, if the credential supports token refresh.
 
         - `ClientID string`
 
@@ -7733,13 +7963,13 @@ Archive Credential
 
   - `ArchivedAt Time`
 
-    A timestamp in RFC 3339 format
+    When the credential was archived. Null if not archived.
 
     format: date-time
 
   - `Auth BetaManagedAgentsCredentialAuthUnion`
 
-    Authentication details for a credential.
+    Authentication configuration for this credential.
 
     - `type BetaManagedAgentsMCPOAuthAuthResponse`
 
@@ -7759,7 +7989,7 @@ Archive Credential
 
       - `Refresh BetaManagedAgentsMCPOAuthRefreshResponse Optional`
 
-        OAuth refresh token configuration returned in credential responses.
+        Refresh token configuration, if the credential supports token refresh.
 
         - `ClientID string`
 
@@ -8073,11 +8303,11 @@ Validate Credential
 
   - `MCPProbe BetaManagedAgentsMCPProbe`
 
-    The failing step of an MCP validation probe.
+    Details of the failing MCP probe step. Null when the probe succeeded.
 
     - `HTTPResponse BetaManagedAgentsRefreshHTTPResponse`
 
-      An HTTP response captured during a credential validation probe.
+      The captured HTTP error response. Null when no HTTP response was received (timeout, DNS, TLS).
 
       - `Body string`
 
@@ -8103,15 +8333,15 @@ Validate Credential
 
   - `Refresh BetaManagedAgentsRefreshObject`
 
-    Outcome of a refresh-token exchange attempted during credential validation.
+    Details of the refresh-token exchange attempted on a 401. Null when no refresh was attempted.
 
     - `HTTPResponse BetaManagedAgentsRefreshHTTPResponse`
 
-      An HTTP response captured during a credential validation probe.
+      The captured HTTP error response from the token endpoint. Populated only when `status` is `failed`.
 
     - `Status BetaManagedAgentsRefreshObjectStatus`
 
-      Outcome of a refresh-token exchange attempted during credential validation.
+      Outcome of the refresh attempt.
 
       - `const BetaManagedAgentsRefreshObjectStatusSucceeded BetaManagedAgentsRefreshObjectStatus = "succeeded"`
 
@@ -8131,7 +8361,7 @@ Validate Credential
 
   - `Status BetaManagedAgentsCredentialValidationStatus`
 
-    Overall verdict of a credential validation probe.
+    Overall verdict of the validation probe.
 
     - `const BetaManagedAgentsCredentialValidationStatusValid BetaManagedAgentsCredentialValidationStatus = "valid"`
 
@@ -8147,7 +8377,7 @@ Validate Credential
 
   - `ValidatedAt Time`
 
-    A timestamp in RFC 3339 format
+    When the validation probe was performed.
 
     format: date-time
 
@@ -8371,7 +8601,7 @@ Create a memory store
 
   - `CreatedAt Time`
 
-    A timestamp in RFC 3339 format
+    Timestamp when the store was created.
 
     format: date-time
 
@@ -8381,13 +8611,13 @@ Create a memory store
 
   - `UpdatedAt Time`
 
-    A timestamp in RFC 3339 format
+    Timestamp when the store's `name`, `description`, or `metadata` was last modified. Memory writes inside the store do not advance this.
 
     format: date-time
 
   - `ArchivedAt Time Optional`
 
-    A timestamp in RFC 3339 format
+    Timestamp when the store was archived, or `null` if active. Set once and never cleared; archiving is one-way. Archived stores are read-only and cannot be attached to new sessions.
 
     format: date-time
 
@@ -8605,7 +8835,7 @@ List memory stores
 
   - `CreatedAt Time`
 
-    A timestamp in RFC 3339 format
+    Timestamp when the store was created.
 
     format: date-time
 
@@ -8615,13 +8845,13 @@ List memory stores
 
   - `UpdatedAt Time`
 
-    A timestamp in RFC 3339 format
+    Timestamp when the store's `name`, `description`, or `metadata` was last modified. Memory writes inside the store do not advance this.
 
     format: date-time
 
   - `ArchivedAt Time Optional`
 
-    A timestamp in RFC 3339 format
+    Timestamp when the store was archived, or `null` if active. Set once and never cleared; archiving is one-way. Archived stores are read-only and cannot be attached to new sessions.
 
     format: date-time
 
@@ -8820,7 +9050,7 @@ Retrieve a memory store
 
   - `CreatedAt Time`
 
-    A timestamp in RFC 3339 format
+    Timestamp when the store was created.
 
     format: date-time
 
@@ -8830,13 +9060,13 @@ Retrieve a memory store
 
   - `UpdatedAt Time`
 
-    A timestamp in RFC 3339 format
+    Timestamp when the store's `name`, `description`, or `metadata` was last modified. Memory writes inside the store do not advance this.
 
     format: date-time
 
   - `ArchivedAt Time Optional`
 
-    A timestamp in RFC 3339 format
+    Timestamp when the store was archived, or `null` if active. Set once and never cleared; archiving is one-way. Archived stores are read-only and cannot be attached to new sessions.
 
     format: date-time
 
@@ -9050,7 +9280,7 @@ Update a memory store
 
   - `CreatedAt Time`
 
-    A timestamp in RFC 3339 format
+    Timestamp when the store was created.
 
     format: date-time
 
@@ -9060,13 +9290,13 @@ Update a memory store
 
   - `UpdatedAt Time`
 
-    A timestamp in RFC 3339 format
+    Timestamp when the store's `name`, `description`, or `metadata` was last modified. Memory writes inside the store do not advance this.
 
     format: date-time
 
   - `ArchivedAt Time Optional`
 
-    A timestamp in RFC 3339 format
+    Timestamp when the store was archived, or `null` if active. Set once and never cleared; archiving is one-way. Archived stores are read-only and cannot be attached to new sessions.
 
     format: date-time
 
@@ -9440,7 +9670,7 @@ Archive a memory store
 
   - `CreatedAt Time`
 
-    A timestamp in RFC 3339 format
+    Timestamp when the store was created.
 
     format: date-time
 
@@ -9450,13 +9680,13 @@ Archive a memory store
 
   - `UpdatedAt Time`
 
-    A timestamp in RFC 3339 format
+    Timestamp when the store's `name`, `description`, or `metadata` was last modified. Memory writes inside the store do not advance this.
 
     format: date-time
 
   - `ArchivedAt Time Optional`
 
-    A timestamp in RFC 3339 format
+    Timestamp when the store was archived, or `null` if active. Set once and never cleared; archiving is one-way. Archived stores are read-only and cannot be attached to new sessions.
 
     format: date-time
 
@@ -9680,7 +9910,7 @@ Create a memory
 
   - `CreatedAt Time`
 
-    A timestamp in RFC 3339 format
+    When this memory was created, in RFC 3339 format.
 
     format: date-time
 
@@ -9698,7 +9928,7 @@ Create a memory
 
   - `UpdatedAt Time`
 
-    A timestamp in RFC 3339 format
+    When this memory was last modified, in RFC 3339 format. Use this as a cheap freshness signal; for who made the change, look up the head version's `created_by` via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list).
 
     format: date-time
 
@@ -9933,7 +10163,7 @@ List memories
 
     - `CreatedAt Time`
 
-      A timestamp in RFC 3339 format
+      When this memory was created, in RFC 3339 format.
 
       format: date-time
 
@@ -9951,7 +10181,7 @@ List memories
 
     - `UpdatedAt Time`
 
-      A timestamp in RFC 3339 format
+      When this memory was last modified, in RFC 3339 format. Use this as a cheap freshness signal; for who made the change, look up the head version's `created_by` via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list).
 
       format: date-time
 
@@ -10178,7 +10408,7 @@ Retrieve a memory
 
   - `CreatedAt Time`
 
-    A timestamp in RFC 3339 format
+    When this memory was created, in RFC 3339 format.
 
     format: date-time
 
@@ -10196,7 +10426,7 @@ Retrieve a memory
 
   - `UpdatedAt Time`
 
-    A timestamp in RFC 3339 format
+    When this memory was last modified, in RFC 3339 format. Use this as a cheap freshness signal; for who made the change, look up the head version's `created_by` via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list).
 
     format: date-time
 
@@ -10288,7 +10518,7 @@ Update a memory
 
   - `Precondition param.Field[BetaManagedAgentsPrecondition] Optional`
 
-    Body param: Optimistic-concurrency precondition: the update applies only if the memory's stored `content_sha256` equals the supplied value. On mismatch, the request returns `memory_precondition_failed_error` (HTTP 409); re-read the memory and retry against the fresh state. If the precondition fails but the stored state already exactly matches the requested `content` and `path`, the server returns 200 instead of 409.
+    Body param: Optional optimistic-concurrency precondition. When supplied, the update applies only if the memory's current state matches; on mismatch the request returns `memory_precondition_failed_error` (HTTP 409). When omitted, the update is unconditional.
 
   - `Betas param.Field[[]AnthropicBeta] Optional`
 
@@ -10424,7 +10654,7 @@ Update a memory
 
   - `CreatedAt Time`
 
-    A timestamp in RFC 3339 format
+    When this memory was created, in RFC 3339 format.
 
     format: date-time
 
@@ -10442,7 +10672,7 @@ Update a memory
 
   - `UpdatedAt Time`
 
-    A timestamp in RFC 3339 format
+    When this memory was last modified, in RFC 3339 format. Use this as a cheap freshness signal; for who made the change, look up the head version's `created_by` via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list).
 
     format: date-time
 
@@ -10876,7 +11106,7 @@ List memory versions
 
   - `CreatedAt Time`
 
-    A timestamp in RFC 3339 format
+    When this version was written, in RFC 3339 format.
 
     format: date-time
 
@@ -10890,7 +11120,7 @@ List memory versions
 
   - `Operation BetaManagedAgentsMemoryVersionOperation`
 
-    The kind of mutation a `memory_version` records. Every non-no-op mutation to a memory appends exactly one version row with one of these values.
+    The kind of mutation this version records: `created`, `modified`, or `deleted`.
 
     - `const BetaManagedAgentsMemoryVersionOperationCreated BetaManagedAgentsMemoryVersionOperation = "created"`
 
@@ -10920,7 +11150,7 @@ List memory versions
 
   - `CreatedBy BetaManagedAgentsActorUnion Optional`
 
-    Identifies who performed an operation. Recorded when the operation happens and not updated afterwards, so the ID may refer to a user, service account, API key, or session that has since been deleted.
+    Who performed this write: one of `session_actor`, `api_actor`, `user_actor`, or `service_account_actor`; `null` when no writer is recorded. Captured at write time and preserved through redaction. A `session_actor` is an agent writing through the store's mounted filesystem at `/mnt/memory/`. The API key that created that session is not recorded on agent writes, so attribution names who made the write, not who is ultimately responsible; look up session provenance via the [Sessions API](/docs/en/api/beta/sessions/retrieve).
 
     - `type BetaManagedAgentsSessionActor`
 
@@ -10976,13 +11206,13 @@ List memory versions
 
   - `RedactedAt Time Optional`
 
-    A timestamp in RFC 3339 format
+    When this version was redacted, in RFC 3339 format, or `null` if it has not been redacted. When set, `content`, `path`, `content_size_bytes`, and `content_sha256` are all `null`. See [Redact a memory version](/docs/en/api/beta/memory_stores/memory_versions/redact).
 
     format: date-time
 
   - `RedactedBy BetaManagedAgentsActorUnion Optional`
 
-    Identifies who performed an operation. Recorded when the operation happens and not updated afterwards, so the ID may refer to a user, service account, API key, or session that has since been deleted.
+    Who redacted this version, or `null` if it has not been redacted. In practice always an `api_actor`, `user_actor`, or `service_account_actor` (agents do not have a redact capability).
 
 #### Example
 
@@ -11192,7 +11422,7 @@ Retrieve a memory version
 
   - `CreatedAt Time`
 
-    A timestamp in RFC 3339 format
+    When this version was written, in RFC 3339 format.
 
     format: date-time
 
@@ -11206,7 +11436,7 @@ Retrieve a memory version
 
   - `Operation BetaManagedAgentsMemoryVersionOperation`
 
-    The kind of mutation a `memory_version` records. Every non-no-op mutation to a memory appends exactly one version row with one of these values.
+    The kind of mutation this version records: `created`, `modified`, or `deleted`.
 
     - `const BetaManagedAgentsMemoryVersionOperationCreated BetaManagedAgentsMemoryVersionOperation = "created"`
 
@@ -11236,7 +11466,7 @@ Retrieve a memory version
 
   - `CreatedBy BetaManagedAgentsActorUnion Optional`
 
-    Identifies who performed an operation. Recorded when the operation happens and not updated afterwards, so the ID may refer to a user, service account, API key, or session that has since been deleted.
+    Who performed this write: one of `session_actor`, `api_actor`, `user_actor`, or `service_account_actor`; `null` when no writer is recorded. Captured at write time and preserved through redaction. A `session_actor` is an agent writing through the store's mounted filesystem at `/mnt/memory/`. The API key that created that session is not recorded on agent writes, so attribution names who made the write, not who is ultimately responsible; look up session provenance via the [Sessions API](/docs/en/api/beta/sessions/retrieve).
 
     - `type BetaManagedAgentsSessionActor`
 
@@ -11292,13 +11522,13 @@ Retrieve a memory version
 
   - `RedactedAt Time Optional`
 
-    A timestamp in RFC 3339 format
+    When this version was redacted, in RFC 3339 format, or `null` if it has not been redacted. When set, `content`, `path`, `content_size_bytes`, and `content_sha256` are all `null`. See [Redact a memory version](/docs/en/api/beta/memory_stores/memory_versions/redact).
 
     format: date-time
 
   - `RedactedBy BetaManagedAgentsActorUnion Optional`
 
-    Identifies who performed an operation. Recorded when the operation happens and not updated afterwards, so the ID may refer to a user, service account, API key, or session that has since been deleted.
+    Who redacted this version, or `null` if it has not been redacted. In practice always an `api_actor`, `user_actor`, or `service_account_actor` (agents do not have a redact capability).
 
 #### Example
 
@@ -11501,7 +11731,7 @@ Redact a memory version
 
   - `CreatedAt Time`
 
-    A timestamp in RFC 3339 format
+    When this version was written, in RFC 3339 format.
 
     format: date-time
 
@@ -11515,7 +11745,7 @@ Redact a memory version
 
   - `Operation BetaManagedAgentsMemoryVersionOperation`
 
-    The kind of mutation a `memory_version` records. Every non-no-op mutation to a memory appends exactly one version row with one of these values.
+    The kind of mutation this version records: `created`, `modified`, or `deleted`.
 
     - `const BetaManagedAgentsMemoryVersionOperationCreated BetaManagedAgentsMemoryVersionOperation = "created"`
 
@@ -11545,7 +11775,7 @@ Redact a memory version
 
   - `CreatedBy BetaManagedAgentsActorUnion Optional`
 
-    Identifies who performed an operation. Recorded when the operation happens and not updated afterwards, so the ID may refer to a user, service account, API key, or session that has since been deleted.
+    Who performed this write: one of `session_actor`, `api_actor`, `user_actor`, or `service_account_actor`; `null` when no writer is recorded. Captured at write time and preserved through redaction. A `session_actor` is an agent writing through the store's mounted filesystem at `/mnt/memory/`. The API key that created that session is not recorded on agent writes, so attribution names who made the write, not who is ultimately responsible; look up session provenance via the [Sessions API](/docs/en/api/beta/sessions/retrieve).
 
     - `type BetaManagedAgentsSessionActor`
 
@@ -11601,13 +11831,13 @@ Redact a memory version
 
   - `RedactedAt Time Optional`
 
-    A timestamp in RFC 3339 format
+    When this version was redacted, in RFC 3339 format, or `null` if it has not been redacted. When set, `content`, `path`, `content_size_bytes`, and `content_sha256` are all `null`. See [Redact a memory version](/docs/en/api/beta/memory_stores/memory_versions/redact).
 
     format: date-time
 
   - `RedactedBy BetaManagedAgentsActorUnion Optional`
 
-    Identifies who performed an operation. Recorded when the operation happens and not updated afterwards, so the ID may refer to a user, service account, API key, or session that has since been deleted.
+    Who redacted this version, or `null` if it has not been redacted. In practice always an `api_actor`, `user_actor`, or `service_account_actor` (agents do not have a redact capability).
 
 #### Example
 
@@ -11828,13 +12058,13 @@ Upload File
 
     Original filename of the uploaded file.
 
-    maxLength: 500, minLength: 1
+    minLength: 1, maxLength: 500
 
   - `MimeType string`
 
     MIME type of the file.
 
-    maxLength: 255, minLength: 1
+    minLength: 1, maxLength: 255
 
   - `SizeBytes int64`
 
@@ -11936,7 +12166,7 @@ List Files
 
     Defaults to `20`. Ranges from `1` to `1000`.
 
-    maximum: 1000, minimum: 1
+    minimum: 1, maximum: 1000
 
   - `Page param.Field[string] Optional`
 
@@ -12082,13 +12312,13 @@ List Files
 
     Original filename of the uploaded file.
 
-    maxLength: 500, minLength: 1
+    minLength: 1, maxLength: 500
 
   - `MimeType string`
 
     MIME type of the file.
 
-    maxLength: 255, minLength: 1
+    minLength: 1, maxLength: 255
 
   - `SizeBytes int64`
 
@@ -12480,13 +12710,13 @@ Get File Metadata
 
     Original filename of the uploaded file.
 
-    maxLength: 500, minLength: 1
+    minLength: 1, maxLength: 500
 
   - `MimeType string`
 
     MIME type of the file.
 
-    maxLength: 255, minLength: 1
+    minLength: 1, maxLength: 255
 
   - `SizeBytes int64`
 
@@ -14734,7 +14964,7 @@ Create User Profile
 
   - `AccessType param.Field[BetaUserProfileNewParamsAccessType] Optional`
 
-    Body param: How the platform uses the API on behalf of the entity this profile represents. `application`: the platform sells a product that uses the API behind the scenes, and the profile represents an individual end-user of that product. `passthrough`: the platform resells raw inference, and the profile identifies the resold-to company.
+    Body param: How the platform uses the API for this entity. `application` (default): the profile represents an individual end-user of the platform's product. `passthrough`: the profile identifies a company the platform resells Claude access to.
 
     - `const BetaUserProfileNewParamsAccessTypeApplication BetaUserProfileNewParamsAccessType = "application"`
 
@@ -14756,7 +14986,7 @@ Create User Profile
 
   - `ExternalUserOnboardedAt param.Field[Time] Optional`
 
-    Body param: A timestamp in RFC 3339 format
+    Body param: When the entity this profile represents opened its account with the platform, in RFC 3339 format: for an `application` profile, when the end-user signed up; for a `passthrough` profile, when the company became the platform's customer. Must be a complete timestamp no more than 1 minute in the future. Optional. Accepted under the `user-profiles-2026-08-18` beta header; under `user-profiles-2026-09-04` send `external_user_details.onboarded_at` instead.
 
     format: date-time
 
@@ -14898,7 +15128,7 @@ Create User Profile
 
   - `CreatedAt Time`
 
-    A timestamp in RFC 3339 format
+    When this user profile was created, in RFC 3339 format.
 
     format: date-time
 
@@ -14922,13 +15152,13 @@ Create User Profile
 
   - `UpdatedAt Time`
 
-    A timestamp in RFC 3339 format
+    When this user profile was last modified, in RFC 3339 format. Trust-grant status changes also bump this timestamp.
 
     format: date-time
 
   - `AccessType BetaUserProfileAccessType Optional`
 
-    How the platform uses the API on behalf of the entity this profile represents. `application`: the platform sells a product that uses the API behind the scenes, and the profile represents an individual end-user of that product. `passthrough`: the platform resells raw inference, and the profile identifies the resold-to company.
+    How the platform uses the API for this entity: `application` (default) or `passthrough`. Present under the `user-profiles-2026-08-18` and later beta headers.
 
     - `const BetaUserProfileAccessTypeApplication BetaUserProfileAccessType = "application"`
 
@@ -14944,11 +15174,11 @@ Create User Profile
 
   - `ExternalUserDetails BetaUserProfileExternalUserDetails Optional`
 
-    Details about the entity this profile represents, as the platform states them. Anthropic does not verify them. Every field is present, `null` until the platform supplies a value.
+    Details about the entity this profile represents, as the platform states them; not verified by Anthropic. Present under the `user-profiles-2026-09-04` beta header, with every field present and `null` until the platform supplies a value; the earlier beta headers serve `reference_id` as the top-level `external_id`, and `user-profiles-2026-08-18` serves `onboarded_at` as `external_user_onboarded_at`.
 
     - `AccountStatus BetaUserProfileExternalUserDetailsAccountStatus`
 
-      The status of the entity's account on the platform, as the platform states it: `active`; `suspended`, when the platform has restricted the account and may restore it; or `blocked`, when the platform has barred it. It records the platform's decision only; the statuses in `trust_grants` are Anthropic's and do not follow it.
+      The status of the entity's account on the platform: `active`, `suspended` or `blocked`. `null` until the platform supplies one.
 
       - `const BetaUserProfileExternalUserDetailsAccountStatusActive BetaUserProfileExternalUserDetailsAccountStatus = "active"`
 
@@ -14972,7 +15202,7 @@ Create User Profile
 
     - `EntityType BetaUserProfileExternalUserDetailsEntityType`
 
-      What kind of entity the profile represents, as the platform states it: `individual`, `business`, `non_profit` or `government`.
+      What kind of entity the profile represents: `individual`, `business`, `non_profit` or `government`. `null` until the platform supplies one.
 
       - `const BetaUserProfileExternalUserDetailsEntityTypeIndividual BetaUserProfileExternalUserDetailsEntityType = "individual"`
 
@@ -14988,7 +15218,7 @@ Create User Profile
 
     - `OnboardedAt Time`
 
-      A timestamp in RFC 3339 format
+      When the entity opened its account with the platform, as stated by the platform, in RFC 3339 format (UTC). `null` until the platform supplies one.
 
       format: date-time
 
@@ -14998,7 +15228,7 @@ Create User Profile
 
   - `ExternalUserOnboardedAt Time Optional`
 
-    A timestamp in RFC 3339 format
+    When the entity this profile represents opened its account with the platform, as stated by the platform, in RFC 3339 format (UTC). `null` until the platform supplies one. Present under the `user-profiles-2026-08-18` beta header; under `user-profiles-2026-09-04` the value is `external_user_details.onboarded_at`.
 
     format: date-time
 
@@ -15237,7 +15467,7 @@ List User Profiles
 
   - `CreatedAt Time`
 
-    A timestamp in RFC 3339 format
+    When this user profile was created, in RFC 3339 format.
 
     format: date-time
 
@@ -15261,13 +15491,13 @@ List User Profiles
 
   - `UpdatedAt Time`
 
-    A timestamp in RFC 3339 format
+    When this user profile was last modified, in RFC 3339 format. Trust-grant status changes also bump this timestamp.
 
     format: date-time
 
   - `AccessType BetaUserProfileAccessType Optional`
 
-    How the platform uses the API on behalf of the entity this profile represents. `application`: the platform sells a product that uses the API behind the scenes, and the profile represents an individual end-user of that product. `passthrough`: the platform resells raw inference, and the profile identifies the resold-to company.
+    How the platform uses the API for this entity: `application` (default) or `passthrough`. Present under the `user-profiles-2026-08-18` and later beta headers.
 
     - `const BetaUserProfileAccessTypeApplication BetaUserProfileAccessType = "application"`
 
@@ -15283,11 +15513,11 @@ List User Profiles
 
   - `ExternalUserDetails BetaUserProfileExternalUserDetails Optional`
 
-    Details about the entity this profile represents, as the platform states them. Anthropic does not verify them. Every field is present, `null` until the platform supplies a value.
+    Details about the entity this profile represents, as the platform states them; not verified by Anthropic. Present under the `user-profiles-2026-09-04` beta header, with every field present and `null` until the platform supplies a value; the earlier beta headers serve `reference_id` as the top-level `external_id`, and `user-profiles-2026-08-18` serves `onboarded_at` as `external_user_onboarded_at`.
 
     - `AccountStatus BetaUserProfileExternalUserDetailsAccountStatus`
 
-      The status of the entity's account on the platform, as the platform states it: `active`; `suspended`, when the platform has restricted the account and may restore it; or `blocked`, when the platform has barred it. It records the platform's decision only; the statuses in `trust_grants` are Anthropic's and do not follow it.
+      The status of the entity's account on the platform: `active`, `suspended` or `blocked`. `null` until the platform supplies one.
 
       - `const BetaUserProfileExternalUserDetailsAccountStatusActive BetaUserProfileExternalUserDetailsAccountStatus = "active"`
 
@@ -15311,7 +15541,7 @@ List User Profiles
 
     - `EntityType BetaUserProfileExternalUserDetailsEntityType`
 
-      What kind of entity the profile represents, as the platform states it: `individual`, `business`, `non_profit` or `government`.
+      What kind of entity the profile represents: `individual`, `business`, `non_profit` or `government`. `null` until the platform supplies one.
 
       - `const BetaUserProfileExternalUserDetailsEntityTypeIndividual BetaUserProfileExternalUserDetailsEntityType = "individual"`
 
@@ -15327,7 +15557,7 @@ List User Profiles
 
     - `OnboardedAt Time`
 
-      A timestamp in RFC 3339 format
+      When the entity opened its account with the platform, as stated by the platform, in RFC 3339 format (UTC). `null` until the platform supplies one.
 
       format: date-time
 
@@ -15337,7 +15567,7 @@ List User Profiles
 
   - `ExternalUserOnboardedAt Time Optional`
 
-    A timestamp in RFC 3339 format
+    When the entity this profile represents opened its account with the platform, as stated by the platform, in RFC 3339 format (UTC). `null` until the platform supplies one. Present under the `user-profiles-2026-08-18` beta header; under `user-profiles-2026-09-04` the value is `external_user_details.onboarded_at`.
 
     format: date-time
 
@@ -15549,7 +15779,7 @@ Get User Profile
 
   - `CreatedAt Time`
 
-    A timestamp in RFC 3339 format
+    When this user profile was created, in RFC 3339 format.
 
     format: date-time
 
@@ -15573,13 +15803,13 @@ Get User Profile
 
   - `UpdatedAt Time`
 
-    A timestamp in RFC 3339 format
+    When this user profile was last modified, in RFC 3339 format. Trust-grant status changes also bump this timestamp.
 
     format: date-time
 
   - `AccessType BetaUserProfileAccessType Optional`
 
-    How the platform uses the API on behalf of the entity this profile represents. `application`: the platform sells a product that uses the API behind the scenes, and the profile represents an individual end-user of that product. `passthrough`: the platform resells raw inference, and the profile identifies the resold-to company.
+    How the platform uses the API for this entity: `application` (default) or `passthrough`. Present under the `user-profiles-2026-08-18` and later beta headers.
 
     - `const BetaUserProfileAccessTypeApplication BetaUserProfileAccessType = "application"`
 
@@ -15595,11 +15825,11 @@ Get User Profile
 
   - `ExternalUserDetails BetaUserProfileExternalUserDetails Optional`
 
-    Details about the entity this profile represents, as the platform states them. Anthropic does not verify them. Every field is present, `null` until the platform supplies a value.
+    Details about the entity this profile represents, as the platform states them; not verified by Anthropic. Present under the `user-profiles-2026-09-04` beta header, with every field present and `null` until the platform supplies a value; the earlier beta headers serve `reference_id` as the top-level `external_id`, and `user-profiles-2026-08-18` serves `onboarded_at` as `external_user_onboarded_at`.
 
     - `AccountStatus BetaUserProfileExternalUserDetailsAccountStatus`
 
-      The status of the entity's account on the platform, as the platform states it: `active`; `suspended`, when the platform has restricted the account and may restore it; or `blocked`, when the platform has barred it. It records the platform's decision only; the statuses in `trust_grants` are Anthropic's and do not follow it.
+      The status of the entity's account on the platform: `active`, `suspended` or `blocked`. `null` until the platform supplies one.
 
       - `const BetaUserProfileExternalUserDetailsAccountStatusActive BetaUserProfileExternalUserDetailsAccountStatus = "active"`
 
@@ -15623,7 +15853,7 @@ Get User Profile
 
     - `EntityType BetaUserProfileExternalUserDetailsEntityType`
 
-      What kind of entity the profile represents, as the platform states it: `individual`, `business`, `non_profit` or `government`.
+      What kind of entity the profile represents: `individual`, `business`, `non_profit` or `government`. `null` until the platform supplies one.
 
       - `const BetaUserProfileExternalUserDetailsEntityTypeIndividual BetaUserProfileExternalUserDetailsEntityType = "individual"`
 
@@ -15639,7 +15869,7 @@ Get User Profile
 
     - `OnboardedAt Time`
 
-      A timestamp in RFC 3339 format
+      When the entity opened its account with the platform, as stated by the platform, in RFC 3339 format (UTC). `null` until the platform supplies one.
 
       format: date-time
 
@@ -15649,7 +15879,7 @@ Get User Profile
 
   - `ExternalUserOnboardedAt Time Optional`
 
-    A timestamp in RFC 3339 format
+    When the entity this profile represents opened its account with the platform, as stated by the platform, in RFC 3339 format (UTC). `null` until the platform supplies one. Present under the `user-profiles-2026-08-18` beta header; under `user-profiles-2026-09-04` the value is `external_user_details.onboarded_at`.
 
     format: date-time
 
@@ -15734,7 +15964,7 @@ Update User Profile
 
   - `AccessType param.Field[BetaUserProfileUpdateParamsAccessType] Optional`
 
-    Body param: How the platform uses the API on behalf of the entity this profile represents. `application`: the platform sells a product that uses the API behind the scenes, and the profile represents an individual end-user of that product. `passthrough`: the platform resells raw inference, and the profile identifies the resold-to company.
+    Body param: If present, replaces the stored access type. Omit to leave unchanged.
 
     - `const BetaUserProfileUpdateParamsAccessTypeApplication BetaUserProfileUpdateParamsAccessType = "application"`
 
@@ -15756,7 +15986,7 @@ Update User Profile
 
   - `ExternalUserOnboardedAt param.Field[Time] Optional`
 
-    Body param: A timestamp in RFC 3339 format
+    Body param: If present, replaces the stored account creation time. Omit to leave unchanged; once set, the value cannot be cleared and `null` is rejected. Must be a complete RFC 3339 timestamp no more than 1 minute in the future. Accepted under the `user-profiles-2026-08-18` beta header; under `user-profiles-2026-09-04` send `external_user_details.onboarded_at` instead.
 
     format: date-time
 
@@ -15898,7 +16128,7 @@ Update User Profile
 
   - `CreatedAt Time`
 
-    A timestamp in RFC 3339 format
+    When this user profile was created, in RFC 3339 format.
 
     format: date-time
 
@@ -15922,13 +16152,13 @@ Update User Profile
 
   - `UpdatedAt Time`
 
-    A timestamp in RFC 3339 format
+    When this user profile was last modified, in RFC 3339 format. Trust-grant status changes also bump this timestamp.
 
     format: date-time
 
   - `AccessType BetaUserProfileAccessType Optional`
 
-    How the platform uses the API on behalf of the entity this profile represents. `application`: the platform sells a product that uses the API behind the scenes, and the profile represents an individual end-user of that product. `passthrough`: the platform resells raw inference, and the profile identifies the resold-to company.
+    How the platform uses the API for this entity: `application` (default) or `passthrough`. Present under the `user-profiles-2026-08-18` and later beta headers.
 
     - `const BetaUserProfileAccessTypeApplication BetaUserProfileAccessType = "application"`
 
@@ -15944,11 +16174,11 @@ Update User Profile
 
   - `ExternalUserDetails BetaUserProfileExternalUserDetails Optional`
 
-    Details about the entity this profile represents, as the platform states them. Anthropic does not verify them. Every field is present, `null` until the platform supplies a value.
+    Details about the entity this profile represents, as the platform states them; not verified by Anthropic. Present under the `user-profiles-2026-09-04` beta header, with every field present and `null` until the platform supplies a value; the earlier beta headers serve `reference_id` as the top-level `external_id`, and `user-profiles-2026-08-18` serves `onboarded_at` as `external_user_onboarded_at`.
 
     - `AccountStatus BetaUserProfileExternalUserDetailsAccountStatus`
 
-      The status of the entity's account on the platform, as the platform states it: `active`; `suspended`, when the platform has restricted the account and may restore it; or `blocked`, when the platform has barred it. It records the platform's decision only; the statuses in `trust_grants` are Anthropic's and do not follow it.
+      The status of the entity's account on the platform: `active`, `suspended` or `blocked`. `null` until the platform supplies one.
 
       - `const BetaUserProfileExternalUserDetailsAccountStatusActive BetaUserProfileExternalUserDetailsAccountStatus = "active"`
 
@@ -15972,7 +16202,7 @@ Update User Profile
 
     - `EntityType BetaUserProfileExternalUserDetailsEntityType`
 
-      What kind of entity the profile represents, as the platform states it: `individual`, `business`, `non_profit` or `government`.
+      What kind of entity the profile represents: `individual`, `business`, `non_profit` or `government`. `null` until the platform supplies one.
 
       - `const BetaUserProfileExternalUserDetailsEntityTypeIndividual BetaUserProfileExternalUserDetailsEntityType = "individual"`
 
@@ -15988,7 +16218,7 @@ Update User Profile
 
     - `OnboardedAt Time`
 
-      A timestamp in RFC 3339 format
+      When the entity opened its account with the platform, as stated by the platform, in RFC 3339 format (UTC). `null` until the platform supplies one.
 
       format: date-time
 
@@ -15998,7 +16228,7 @@ Update User Profile
 
   - `ExternalUserOnboardedAt Time Optional`
 
-    A timestamp in RFC 3339 format
+    When the entity this profile represents opened its account with the platform, as stated by the platform, in RFC 3339 format (UTC). `null` until the platform supplies one. Present under the `user-profiles-2026-08-18` beta header; under `user-profiles-2026-09-04` the value is `external_user_details.onboarded_at`.
 
     format: date-time
 
@@ -16203,7 +16433,7 @@ Create Enrollment URL
 
   - `ExpiresAt Time`
 
-    A timestamp in RFC 3339 format
+    When this enrollment URL expires, in RFC 3339 format.
 
     format: date-time
 
@@ -16328,7 +16558,9 @@ See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams
 
       - `Speed BetaDreamModelConfigParamSpeed Optional`
 
-        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+        How fast the model generates output for the dream. Defaults to `standard`.
+
+        Dreams accept only `standard`.
 
         - `const BetaDreamModelConfigParamSpeedStandard BetaDreamModelConfigParamSpeed = "standard"`
 
@@ -16476,25 +16708,27 @@ See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams
 
   - `ArchivedAt Time`
 
-    A timestamp in RFC 3339 format
+    When the dream was archived, in RFC 3339, or `null` if it hasn't been archived.
 
     format: date-time
 
   - `CreatedAt Time`
 
-    A timestamp in RFC 3339 format
+    When the dream was created, in RFC 3339.
+
+    Lists of dreams are sorted by this time, newest first.
 
     format: date-time
 
   - `EndedAt Time`
 
-    A timestamp in RFC 3339 format
+    When the dream reached `completed`, `failed`, or `canceled`, in RFC 3339, or `null` if it is still `pending` or `running`.
 
     format: date-time
 
   - `Error BetaDreamError`
 
-    Failure detail for a Dream whose `status` is `failed`.
+    Why the dream failed, or `null` if `status` isn't `failed`.
 
     - `Type string`
 
@@ -16558,7 +16792,7 @@ See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams
 
     - `Speed BetaDreamModelConfigSpeed Optional`
 
-      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+      How fast the model generates output for the dream. Always `standard`.
 
       - `const BetaDreamModelConfigSpeedStandard BetaDreamModelConfigSpeed = "standard"`
 
@@ -16566,7 +16800,7 @@ See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams
 
   - `OutputBehavior BetaOutputBehaviorUnion`
 
-    Which memory store a dream writes its result to. Defaults to `create_new` when left out of a create request.
+    Where the dream writes its result, as set in the request that created the dream. If that request left out `output_behavior`, the dream used the `create_new` behavior.
 
     - `type BetaOutputBehaviorCreateNew`
 
@@ -16652,11 +16886,7 @@ See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams
 
   - `Usage BetaDreamUsage`
 
-    The tokens that a dream has used so far.
-
-    The counts are zero while the dream is `pending` and update while it is `running`. They can keep changing after a cancel.
-
-    See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#billing) for how dreams are billed. See the [prompt caching guide](https://platform.claude.com/docs/en/build-with-claude/prompt-caching#tracking-cache-performance) for how the input token counts add up.
+    The dream's token counts, which stop changing once its `status` is `completed` or `failed`. After a cancel, they can keep changing.
 
     - `CacheCreationInputTokens int64`
 
@@ -16969,25 +17199,27 @@ See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams
 
   - `ArchivedAt Time`
 
-    A timestamp in RFC 3339 format
+    When the dream was archived, in RFC 3339, or `null` if it hasn't been archived.
 
     format: date-time
 
   - `CreatedAt Time`
 
-    A timestamp in RFC 3339 format
+    When the dream was created, in RFC 3339.
+
+    Lists of dreams are sorted by this time, newest first.
 
     format: date-time
 
   - `EndedAt Time`
 
-    A timestamp in RFC 3339 format
+    When the dream reached `completed`, `failed`, or `canceled`, in RFC 3339, or `null` if it is still `pending` or `running`.
 
     format: date-time
 
   - `Error BetaDreamError`
 
-    Failure detail for a Dream whose `status` is `failed`.
+    Why the dream failed, or `null` if `status` isn't `failed`.
 
     - `Type string`
 
@@ -17051,7 +17283,7 @@ See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams
 
     - `Speed BetaDreamModelConfigSpeed Optional`
 
-      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+      How fast the model generates output for the dream. Always `standard`.
 
       - `const BetaDreamModelConfigSpeedStandard BetaDreamModelConfigSpeed = "standard"`
 
@@ -17059,7 +17291,7 @@ See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams
 
   - `OutputBehavior BetaOutputBehaviorUnion`
 
-    Which memory store a dream writes its result to. Defaults to `create_new` when left out of a create request.
+    Where the dream writes its result, as set in the request that created the dream. If that request left out `output_behavior`, the dream used the `create_new` behavior.
 
     - `type BetaOutputBehaviorCreateNew`
 
@@ -17145,11 +17377,7 @@ See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams
 
   - `Usage BetaDreamUsage`
 
-    The tokens that a dream has used so far.
-
-    The counts are zero while the dream is `pending` and update while it is `running`. They can keep changing after a cancel.
-
-    See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#billing) for how dreams are billed. See the [prompt caching guide](https://platform.claude.com/docs/en/build-with-claude/prompt-caching#tracking-cache-performance) for how the input token counts add up.
+    The dream's token counts, which stop changing once its `status` is `completed` or `failed`. After a cancel, they can keep changing.
 
     - `CacheCreationInputTokens int64`
 
@@ -17399,25 +17627,27 @@ See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams
 
   - `ArchivedAt Time`
 
-    A timestamp in RFC 3339 format
+    When the dream was archived, in RFC 3339, or `null` if it hasn't been archived.
 
     format: date-time
 
   - `CreatedAt Time`
 
-    A timestamp in RFC 3339 format
+    When the dream was created, in RFC 3339.
+
+    Lists of dreams are sorted by this time, newest first.
 
     format: date-time
 
   - `EndedAt Time`
 
-    A timestamp in RFC 3339 format
+    When the dream reached `completed`, `failed`, or `canceled`, in RFC 3339, or `null` if it is still `pending` or `running`.
 
     format: date-time
 
   - `Error BetaDreamError`
 
-    Failure detail for a Dream whose `status` is `failed`.
+    Why the dream failed, or `null` if `status` isn't `failed`.
 
     - `Type string`
 
@@ -17481,7 +17711,7 @@ See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams
 
     - `Speed BetaDreamModelConfigSpeed Optional`
 
-      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+      How fast the model generates output for the dream. Always `standard`.
 
       - `const BetaDreamModelConfigSpeedStandard BetaDreamModelConfigSpeed = "standard"`
 
@@ -17489,7 +17719,7 @@ See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams
 
   - `OutputBehavior BetaOutputBehaviorUnion`
 
-    Which memory store a dream writes its result to. Defaults to `create_new` when left out of a create request.
+    Where the dream writes its result, as set in the request that created the dream. If that request left out `output_behavior`, the dream used the `create_new` behavior.
 
     - `type BetaOutputBehaviorCreateNew`
 
@@ -17575,11 +17805,7 @@ See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams
 
   - `Usage BetaDreamUsage`
 
-    The tokens that a dream has used so far.
-
-    The counts are zero while the dream is `pending` and update while it is `running`. They can keep changing after a cancel.
-
-    See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#billing) for how dreams are billed. See the [prompt caching guide](https://platform.claude.com/docs/en/build-with-claude/prompt-caching#tracking-cache-performance) for how the input token counts add up.
+    The dream's token counts, which stop changing once its `status` is `completed` or `failed`. After a cancel, they can keep changing.
 
     - `CacheCreationInputTokens int64`
 
@@ -17828,25 +18054,27 @@ See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams
 
   - `ArchivedAt Time`
 
-    A timestamp in RFC 3339 format
+    When the dream was archived, in RFC 3339, or `null` if it hasn't been archived.
 
     format: date-time
 
   - `CreatedAt Time`
 
-    A timestamp in RFC 3339 format
+    When the dream was created, in RFC 3339.
+
+    Lists of dreams are sorted by this time, newest first.
 
     format: date-time
 
   - `EndedAt Time`
 
-    A timestamp in RFC 3339 format
+    When the dream reached `completed`, `failed`, or `canceled`, in RFC 3339, or `null` if it is still `pending` or `running`.
 
     format: date-time
 
   - `Error BetaDreamError`
 
-    Failure detail for a Dream whose `status` is `failed`.
+    Why the dream failed, or `null` if `status` isn't `failed`.
 
     - `Type string`
 
@@ -17910,7 +18138,7 @@ See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams
 
     - `Speed BetaDreamModelConfigSpeed Optional`
 
-      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+      How fast the model generates output for the dream. Always `standard`.
 
       - `const BetaDreamModelConfigSpeedStandard BetaDreamModelConfigSpeed = "standard"`
 
@@ -17918,7 +18146,7 @@ See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams
 
   - `OutputBehavior BetaOutputBehaviorUnion`
 
-    Which memory store a dream writes its result to. Defaults to `create_new` when left out of a create request.
+    Where the dream writes its result, as set in the request that created the dream. If that request left out `output_behavior`, the dream used the `create_new` behavior.
 
     - `type BetaOutputBehaviorCreateNew`
 
@@ -18004,11 +18232,7 @@ See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams
 
   - `Usage BetaDreamUsage`
 
-    The tokens that a dream has used so far.
-
-    The counts are zero while the dream is `pending` and update while it is `running`. They can keep changing after a cancel.
-
-    See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#billing) for how dreams are billed. See the [prompt caching guide](https://platform.claude.com/docs/en/build-with-claude/prompt-caching#tracking-cache-performance) for how the input token counts add up.
+    The dream's token counts, which stop changing once its `status` is `completed` or `failed`. After a cancel, they can keep changing.
 
     - `CacheCreationInputTokens int64`
 
@@ -18257,25 +18481,27 @@ See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams
 
   - `ArchivedAt Time`
 
-    A timestamp in RFC 3339 format
+    When the dream was archived, in RFC 3339, or `null` if it hasn't been archived.
 
     format: date-time
 
   - `CreatedAt Time`
 
-    A timestamp in RFC 3339 format
+    When the dream was created, in RFC 3339.
+
+    Lists of dreams are sorted by this time, newest first.
 
     format: date-time
 
   - `EndedAt Time`
 
-    A timestamp in RFC 3339 format
+    When the dream reached `completed`, `failed`, or `canceled`, in RFC 3339, or `null` if it is still `pending` or `running`.
 
     format: date-time
 
   - `Error BetaDreamError`
 
-    Failure detail for a Dream whose `status` is `failed`.
+    Why the dream failed, or `null` if `status` isn't `failed`.
 
     - `Type string`
 
@@ -18339,7 +18565,7 @@ See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams
 
     - `Speed BetaDreamModelConfigSpeed Optional`
 
-      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+      How fast the model generates output for the dream. Always `standard`.
 
       - `const BetaDreamModelConfigSpeedStandard BetaDreamModelConfigSpeed = "standard"`
 
@@ -18347,7 +18573,7 @@ See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams
 
   - `OutputBehavior BetaOutputBehaviorUnion`
 
-    Which memory store a dream writes its result to. Defaults to `create_new` when left out of a create request.
+    Where the dream writes its result, as set in the request that created the dream. If that request left out `output_behavior`, the dream used the `create_new` behavior.
 
     - `type BetaOutputBehaviorCreateNew`
 
@@ -18433,11 +18659,7 @@ See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams
 
   - `Usage BetaDreamUsage`
 
-    The tokens that a dream has used so far.
-
-    The counts are zero while the dream is `pending` and update while it is `running`. They can keep changing after a cancel.
-
-    See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#billing) for how dreams are billed. See the [prompt caching guide](https://platform.claude.com/docs/en/build-with-claude/prompt-caching#tracking-cache-performance) for how the input token counts add up.
+    The dream's token counts, which stop changing once its `status` is `completed` or `failed`. After a cancel, they can keep changing.
 
     - `CacheCreationInputTokens int64`
 
@@ -18682,13 +18904,13 @@ Creates a tunnel. Creation allocates a fresh hostname and provisions the tunnel;
 
   - `ArchivedAt Time`
 
-    A timestamp in RFC 3339 format
+    RFC 3339 datetime string indicating when the tunnel was archived. Null if it is not archived.
 
     format: date-time
 
   - `CreatedAt Time`
 
-    A timestamp in RFC 3339 format
+    RFC 3339 datetime string indicating when the tunnel was created.
 
     format: date-time
 
@@ -18880,13 +19102,13 @@ Fetches a tunnel by ID.
 
   - `ArchivedAt Time`
 
-    A timestamp in RFC 3339 format
+    RFC 3339 datetime string indicating when the tunnel was archived. Null if it is not archived.
 
     format: date-time
 
   - `CreatedAt Time`
 
-    A timestamp in RFC 3339 format
+    RFC 3339 datetime string indicating when the tunnel was created.
 
     format: date-time
 
@@ -19092,13 +19314,13 @@ Lists tunnels. Results are ordered by creation time, newest first; archived tunn
 
   - `ArchivedAt Time`
 
-    A timestamp in RFC 3339 format
+    RFC 3339 datetime string indicating when the tunnel was archived. Null if it is not archived.
 
     format: date-time
 
   - `CreatedAt Time`
 
-    A timestamp in RFC 3339 format
+    RFC 3339 datetime string indicating when the tunnel was created.
 
     format: date-time
 
@@ -19295,13 +19517,13 @@ Archives a tunnel. Archival is irreversible: every non-archived certificate on t
 
   - `ArchivedAt Time`
 
-    A timestamp in RFC 3339 format
+    RFC 3339 datetime string indicating when the tunnel was archived. Null if it is not archived.
 
     format: date-time
 
   - `CreatedAt Time`
 
-    A timestamp in RFC 3339 format
+    RFC 3339 datetime string indicating when the tunnel was created.
 
     format: date-time
 
@@ -19877,19 +20099,19 @@ Registers a public CA certificate on a tunnel. Anthropic verifies the gateway's 
 
   - `ArchivedAt Time`
 
-    A timestamp in RFC 3339 format
+    RFC 3339 datetime string indicating when the certificate was archived. Null if it is still in the trusted set.
 
     format: date-time
 
   - `CreatedAt Time`
 
-    A timestamp in RFC 3339 format
+    RFC 3339 datetime string indicating when the certificate was registered.
 
     format: date-time
 
   - `ExpiresAt Time`
 
-    A timestamp in RFC 3339 format
+    RFC 3339 datetime string indicating when the certificate expires, or `null` if it does not expire.
 
     format: date-time
 
@@ -20092,19 +20314,19 @@ Fetches a tunnel certificate by ID.
 
   - `ArchivedAt Time`
 
-    A timestamp in RFC 3339 format
+    RFC 3339 datetime string indicating when the certificate was archived. Null if it is still in the trusted set.
 
     format: date-time
 
   - `CreatedAt Time`
 
-    A timestamp in RFC 3339 format
+    RFC 3339 datetime string indicating when the certificate was registered.
 
     format: date-time
 
   - `ExpiresAt Time`
 
-    A timestamp in RFC 3339 format
+    RFC 3339 datetime string indicating when the certificate expires, or `null` if it does not expire.
 
     format: date-time
 
@@ -20317,19 +20539,19 @@ Lists the certificates registered on a tunnel. Archived certificates are exclude
 
   - `ArchivedAt Time`
 
-    A timestamp in RFC 3339 format
+    RFC 3339 datetime string indicating when the certificate was archived. Null if it is still in the trusted set.
 
     format: date-time
 
   - `CreatedAt Time`
 
-    A timestamp in RFC 3339 format
+    RFC 3339 datetime string indicating when the certificate was registered.
 
     format: date-time
 
   - `ExpiresAt Time`
 
-    A timestamp in RFC 3339 format
+    RFC 3339 datetime string indicating when the certificate expires, or `null` if it does not expire.
 
     format: date-time
 
@@ -20535,19 +20757,19 @@ Archives a tunnel certificate, removing it from the set Anthropic trusts for the
 
   - `ArchivedAt Time`
 
-    A timestamp in RFC 3339 format
+    RFC 3339 datetime string indicating when the certificate was archived. Null if it is still in the trusted set.
 
     format: date-time
 
   - `CreatedAt Time`
 
-    A timestamp in RFC 3339 format
+    RFC 3339 datetime string indicating when the certificate was registered.
 
     format: date-time
 
   - `ExpiresAt Time`
 
-    A timestamp in RFC 3339 format
+    RFC 3339 datetime string indicating when the certificate expires, or `null` if it does not expire.
 
     format: date-time
 
@@ -20703,7 +20925,7 @@ List API Keys
 
     Defaults to `20`. Ranges from `1` to `1000`.
 
-    maximum: 1000, minimum: 1
+    minimum: 1, maximum: 1000
 
   - `Status param.Field[BetaOrganizationAPIKeyListParamsStatus] Optional`
 
@@ -21114,7 +21336,7 @@ Update API Key
 
     Name of the API key.
 
-    maxLength: 500, minLength: 1
+    minLength: 1, maxLength: 500
 
   - `Status param.Field[BetaOrganizationAPIKeyUpdateParamsStatus] Optional`
 
@@ -21378,7 +21600,7 @@ Create an external key config owned by the caller's organization.
 
     Human-friendly display name.
 
-    maxLength: 255, minLength: 1
+    minLength: 1, maxLength: 255
 
   - `Geo param.Field[BetaOrganizationExternalKeyNewParamsGeo] Optional`
 
@@ -21560,7 +21782,7 @@ Results are ordered by creation time (newest first). Use the
 
     Number of results per page.
 
-    maximum: 100, minimum: 1
+    minimum: 1, maximum: 100
 
   - `Page param.Field[string] Optional`
 
@@ -21911,7 +22133,7 @@ encrypted data requires the original key identity to decrypt.
 
     Human-friendly display name.
 
-    maxLength: 255, minLength: 1
+    minLength: 1, maxLength: 255
 
   - `Geo param.Field[BetaOrganizationExternalKeyUpdateParamsGeo] Optional`
 
@@ -22307,7 +22529,7 @@ matched as the JWT's `iss` claim and is not fetched.
 
     Body param: Slug identifier (lowercase, digits, hyphens). Unique within the organization; a duplicate name returns 409.
 
-    maxLength: 255, minLength: 1
+    minLength: 1, maxLength: 255
 
   - `CheckJTI param.Field[bool] Optional`
 
@@ -22367,7 +22589,7 @@ matched as the JWT's `iss` claim and is not fetched.
 
     Body param: Maximum allowed iat→exp spread for assertions from this issuer (1-176400 seconds, i.e. up to 49h). Defaults to 3600 (1h). Assertions must carry both `iat` and `exp`; a missing `iat` is rejected.
 
-    maximum: 176400, exclusiveMinimum: 0
+    minimum: 1, maximum: 176400
 
   - `Betas param.Field[[]AnthropicBeta] Optional`
 
@@ -22584,11 +22806,7 @@ matched as the JWT's `iss` claim and is not fetched.
 
   - `PollStatus BetaFederationIssuerPollStatus`
 
-    Status of automatic JWKS polling for a federation issuer.
-
-    Anthropic periodically fetches the issuer's signing keys in the
-    background. These fields summarize the most recent fetches so the
-    health of the JWKS endpoint can be monitored.
+    Live state of Anthropic's JWKS polling for this issuer. Populated on both single-issuer retrieval and list responses, including archived issuers. Typically null for inline-key issuers (no polling), or when poll status is temporarily unavailable or polling has not started yet.
 
     - `ConsecutiveFailures int64`
 
@@ -22698,7 +22916,7 @@ Archived issuers are excluded unless `include_archived=true`.
 
     Query param: Number of results per page.
 
-    maximum: 100, minimum: 1
+    minimum: 1, maximum: 100
 
   - `Page param.Field[string] Optional`
 
@@ -22919,11 +23137,7 @@ Archived issuers are excluded unless `include_archived=true`.
 
   - `PollStatus BetaFederationIssuerPollStatus`
 
-    Status of automatic JWKS polling for a federation issuer.
-
-    Anthropic periodically fetches the issuer's signing keys in the
-    background. These fields summarize the most recent fetches so the
-    health of the JWKS endpoint can be monitored.
+    Live state of Anthropic's JWKS polling for this issuer. Populated on both single-issuer retrieval and list responses, including archived issuers. Typically null for inline-key issuers (no polling), or when poll status is temporarily unavailable or polling has not started yet.
 
     - `ConsecutiveFailures int64`
 
@@ -23244,11 +23458,7 @@ Retrieve a federation issuer by its ID (`fdis_...`).
 
   - `PollStatus BetaFederationIssuerPollStatus`
 
-    Status of automatic JWKS polling for a federation issuer.
-
-    Anthropic periodically fetches the issuer's signing keys in the
-    background. These fields summarize the most recent fetches so the
-    health of the JWKS endpoint can be monitored.
+    Live state of Anthropic's JWKS polling for this issuer. Populated on both single-issuer retrieval and list responses, including archived issuers. Typically null for inline-key issuers (no polling), or when poll status is temporarily unavailable or polling has not started yet.
 
     - `ConsecutiveFailures int64`
 
@@ -23428,13 +23638,13 @@ session.
 
     Body param: Maximum allowed iat→exp spread for assertions from this issuer (1-176400 seconds, i.e. up to 49h). Assertions must carry both `iat` and `exp`; a missing `iat` is rejected.
 
-    maximum: 176400, exclusiveMinimum: 0
+    minimum: 1, maximum: 176400
 
   - `Name param.Field[string] Optional`
 
     Body param: Replaces the slug identifier (lowercase, digits, hyphens). Unique within the organization; a duplicate name returns 409.
 
-    maxLength: 255, minLength: 1
+    minLength: 1, maxLength: 255
 
   - `Betas param.Field[[]AnthropicBeta] Optional`
 
@@ -23651,11 +23861,7 @@ session.
 
   - `PollStatus BetaFederationIssuerPollStatus`
 
-    Status of automatic JWKS polling for a federation issuer.
-
-    Anthropic periodically fetches the issuer's signing keys in the
-    background. These fields summarize the most recent fetches so the
-    health of the JWKS endpoint can be monitored.
+    Live state of Anthropic's JWKS polling for this issuer. Populated on both single-issuer retrieval and list responses, including archived issuers. Typically null for inline-key issuers (no polling), or when poll status is temporarily unavailable or polling has not started yet.
 
     - `ConsecutiveFailures int64`
 
@@ -23980,11 +24186,7 @@ issuer cannot be changed), or recreate them against another issuer.
 
   - `PollStatus BetaFederationIssuerPollStatus`
 
-    Status of automatic JWKS polling for a federation issuer.
-
-    Anthropic periodically fetches the issuer's signing keys in the
-    background. These fields summarize the most recent fetches so the
-    health of the JWKS endpoint can be monitored.
+    Live state of Anthropic's JWKS polling for this issuer. Populated on both single-issuer retrieval and list responses, including archived issuers. Typically null for inline-key issuers (no polling), or when poll status is temporarily unavailable or polling has not started yet.
 
     - `ConsecutiveFailures int64`
 
@@ -24113,7 +24315,7 @@ manage rules whose `oauth_scope` is `workspace:developer` or
 
     Body param: Slug identifier (lowercase, digits, hyphens). Unique within the organization; a duplicate name returns 409.
 
-    maxLength: 255, minLength: 1
+    minLength: 1, maxLength: 255
 
   - `OAuthScope param.Field[string]`
 
@@ -24143,7 +24345,7 @@ manage rules whose `oauth_scope` is `workspace:developer` or
 
     Body param: Lifetime in seconds for access tokens minted via this rule (60-86400). Defaults to 3600 (1h). Minted tokens are capped at `max(60, min(this value, 2 × remaining assertion validity))` seconds.
 
-    maximum: 86400, minimum: 60
+    minimum: 60, maximum: 86400
 
   - `WorkspaceID param.Field[string] Optional`
 
@@ -24490,7 +24692,7 @@ unless `include_archived=true`.
 
     Query param: Number of results per page.
 
-    maximum: 100, minimum: 1
+    minimum: 1, maximum: 100
 
   - `Page param.Field[string] Optional`
 
@@ -25181,17 +25383,13 @@ Console session.
 
   - `Match param.Field[BetaFederationRuleMatch] Optional`
 
-    Body param: Does the incoming JWT qualify?
-
-    All populated fields must pass; omitted fields are skipped. At least one
-    of `subject_prefix` (other than a wildcard-only value like `*`), `claims`,
-    or `condition` is required; `audience` alone is not sufficient.
+    Body param: Replaces the entire match object. All populated matcher fields must pass.
 
   - `Name param.Field[string] Optional`
 
     Body param: Replaces the slug identifier (lowercase, digits, hyphens). Unique within the organization; a duplicate name returns 409.
 
-    maxLength: 255, minLength: 1
+    minLength: 1, maxLength: 255
 
   - `OAuthScope param.Field[string] Optional`
 
@@ -25201,13 +25399,13 @@ Console session.
 
   - `Target param.Field[BetaServiceAccountTarget] Optional`
 
-    Body param: Bind to a fixed service account by ID.
+    Body param: Replaces the entire target object. Currently always a `service_account` target.
 
   - `TokenLifetimeSeconds param.Field[int64] Optional`
 
     Body param: Replaces the lifetime in seconds for access tokens minted via this rule (60-86400). Minted tokens are capped at `max(60, min(this value, 2 × remaining assertion validity))` seconds.
 
-    maximum: 86400, minimum: 60
+    minimum: 60, maximum: 86400
 
   - `WorkspaceID param.Field[string] Optional`
 
@@ -26094,7 +26292,7 @@ rules with `applies_to_all_workspaces` or a legacy single
 
     Query param: Number of results per page.
 
-    maximum: 100, minimum: 1
+    minimum: 1, maximum: 100
 
   - `Page param.Field[string] Optional`
 
@@ -26667,7 +26865,7 @@ List the organization's invites.
 
     Defaults to `20`. Ranges from `1` to `1000`.
 
-    maximum: 1000, minimum: 1
+    minimum: 1, maximum: 1000
 
   - `Roles param.Field[[]string] Optional`
 
@@ -27036,7 +27234,7 @@ accounts.
 
     Body param: Slug identifier (lowercase, digits, hyphens). Unique within the organization; a duplicate name returns 409.
 
-    maxLength: 255, minLength: 1
+    minLength: 1, maxLength: 255
 
   - `Description param.Field[string] Optional`
 
@@ -27290,7 +27488,7 @@ archived service accounts.
 
     Query param: Number of results per page.
 
-    maximum: 100, minimum: 1
+    minimum: 1, maximum: 100
 
   - `Page param.Field[string] Optional`
 
@@ -28489,7 +28687,7 @@ page to recover.
 
     Query param: Number of results per page.
 
-    maximum: 100, minimum: 1
+    minimum: 1, maximum: 100
 
   - `Page param.Field[string] Optional`
 
@@ -28909,7 +29107,7 @@ List the organization's members.
 
     Defaults to `20`. Ranges from `1` to `1000`.
 
-    maximum: 1000, minimum: 1
+    minimum: 1, maximum: 1000
 
   - `Roles param.Field[[]string] Optional`
 
@@ -29342,7 +29540,7 @@ List Workspaces
 
     Defaults to `20`. Ranges from `1` to `1000`.
 
-    maximum: 1000, minimum: 1
+    minimum: 1, maximum: 1000
 
 #### Returns
 
@@ -29512,7 +29710,7 @@ Create Workspace
 
     Body param: Name of the Workspace.
 
-    maxLength: 40, minLength: 1
+    minLength: 1, maxLength: 40
 
   - `DataResidency param.Field[BetaDataResidencyCreateConfig] Optional`
 
@@ -29994,7 +30192,7 @@ Update Workspace
 
     Name of the Workspace.
 
-    maxLength: 40, minLength: 1
+    minLength: 1, maxLength: 40
 
   - `Tags param.Field[map[string, string]] Optional`
 
@@ -30065,453 +30263,3 @@ Update Workspace
       - `const BetaDataResidencyDefaultInferenceGeoGlobal BetaDataResidencyDefaultInferenceGeo = "global"`
 
       - `const BetaDataResidencyDefaultInferenceGeoUs BetaDataResidencyDefaultInferenceGeo = "us"`
-
-    - `WorkspaceGeo BetaDataResidencyWorkspaceGeo`
-
-      Geographic region for workspace data storage. Immutable after creation.
-
-  - `DisplayColor string`
-
-    Hex color code representing the Workspace in the Anthropic Console.
-
-  - `ExternalKeyID string`
-
-    ID of the customer-managed encryption key (CMEK) configuration to use for this
-    Workspace. Setting this field requires CMEK to be enabled for your
-    organization. When set, data stored for this Workspace is encrypted with the
-    referenced key. Create key configurations with the External Keys API. On
-    Claude Platform on AWS the value is the AWS KMS key ARN, and the key must be a
-    single-Region key in the same AWS account and Region as the Workspace. On that
-    platform the key is validated against this Workspace when it is attached, so a
-    key-policy problem is reported as an error on this request. This field is write-once:
-    once a key is attached to a Workspace it cannot be detached or replaced. To
-    rotate key material, rotate the underlying key on your cloud KMS; the
-    `external_key_id` stays the same.
-
-  - `Name string`
-
-    Name of the Workspace.
-
-  - `Tags map[string, string]`
-
-    User-defined tags as string key-value pairs. Keys may not begin with `anthropic`.
-
-#### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-
-	"github.com/anthropics/anthropic-sdk-go"
-	"github.com/anthropics/anthropic-sdk-go/option"
-)
-
-func main() {
-	client := anthropic.NewClient(
-		option.WithAPIKey("my-anthropic-api-key"),
-	)
-	betaWorkspace, err := client.Beta.Organization.Workspaces.Update(
-		context.TODO(),
-		"workspace_id",
-		anthropic.BetaOrganizationWorkspaceUpdateParams{},
-	)
-	if err != nil {
-		panic(err.Error())
-	}
-	fmt.Printf("%+v\n", betaWorkspace.ID)
-}
-```
-
-##### Response (200)
-
-```json
-{
-  "id": "wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ",
-  "archived_at": "2024-11-01T23:59:27.427722Z",
-  "compartment_id": "f8a7b6c5-4d3e-4f1a-8b9c-0d1e2f3a4b5c",
-  "created_at": "2024-10-30T23:58:27.427722Z",
-  "data_residency": {
-    "allowed_inference_geos": "unrestricted",
-    "default_inference_geo": "global",
-    "workspace_geo": "us"
-  },
-  "display_color": "#6C5BB9",
-  "external_key_id": "ekey_01SDCCSbTxrXDpWc1phhtcfK",
-  "name": "Workspace Name",
-  "tags": {
-    "env": "prod",
-    "team": "platform"
-  },
-  "type": "workspace"
-}
-```
-
-### Archive Workspace
-
-`client.Beta.Organization.Workspaces.Archive(ctx, workspaceID) (*BetaWorkspace, error)`
-
-**POST** `/v1/organizations/workspaces/{workspace_id}/archive`
-
-Archive Workspace
-
-#### Parameters
-
-- `workspaceID string`
-
-#### Returns
-
-- `type BetaWorkspace`
-
-  - `Type Workspace`
-
-    Object type.
-
-    For Workspaces, this is always `"workspace"`.
-
-    default: workspace
-
-  - `ID string`
-
-    ID of the Workspace.
-
-  - `ArchivedAt Time`
-
-    RFC 3339 datetime string indicating when the Workspace was archived, or `null` if the Workspace is not archived.
-
-    format: date-time
-
-  - `CompartmentID string`
-
-    Identifier for this Workspace's encryption compartment. When you configure a
-    customer-managed encryption key (CMEK) on AWS, reference this value in your
-    KMS key-policy condition so the key is scoped to this compartment. On GCP and
-    Azure, Anthropic enforces the compartment binding automatically; you do not
-    need to reference this value in your key configuration. See the CMEK
-    integration guide for the required key configuration; unless your organization
-    is on Claude Platform on AWS, it includes a separate value used during key
-    validation. On Claude Platform on AWS there is no separate validation value:
-    the key is validated against this Workspace's own value when it is attached, so
-    if your key policy uses the compartment condition, add this value to it before
-    attaching the key.
-
-  - `CreatedAt Time`
-
-    RFC 3339 datetime string indicating when the Workspace was created.
-
-    format: date-time
-
-  - `DataResidency BetaDataResidency`
-
-    Data residency configuration.
-
-    - `AllowedInferenceGeos BetaDataResidencyAllowedInferenceGeosUnion`
-
-      Permitted inference geo values. 'unrestricted' means all geos are allowed.
-
-      - `type BetaDataResidencyAllowedInferenceGeosGeos []BetaAllowedInferenceGeo`
-
-        - `const BetaAllowedInferenceGeoGlobal BetaAllowedInferenceGeo = "global"`
-
-        - `const BetaAllowedInferenceGeoUs BetaAllowedInferenceGeo = "us"`
-
-      - `type Unrestricted string`
-
-    - `DefaultInferenceGeo BetaDataResidencyDefaultInferenceGeo`
-
-      Default inference geo applied when requests omit the parameter.
-
-      - `const BetaDataResidencyDefaultInferenceGeoGlobal BetaDataResidencyDefaultInferenceGeo = "global"`
-
-      - `const BetaDataResidencyDefaultInferenceGeoUs BetaDataResidencyDefaultInferenceGeo = "us"`
-
-    - `WorkspaceGeo BetaDataResidencyWorkspaceGeo`
-
-      Geographic region for workspace data storage. Immutable after creation.
-
-  - `DisplayColor string`
-
-    Hex color code representing the Workspace in the Anthropic Console.
-
-  - `ExternalKeyID string`
-
-    ID of the customer-managed encryption key (CMEK) configuration to use for this
-    Workspace. Setting this field requires CMEK to be enabled for your
-    organization. When set, data stored for this Workspace is encrypted with the
-    referenced key. Create key configurations with the External Keys API. On
-    Claude Platform on AWS the value is the AWS KMS key ARN, and the key must be a
-    single-Region key in the same AWS account and Region as the Workspace. On that
-    platform the key is validated against this Workspace when it is attached, so a
-    key-policy problem is reported as an error on this request. This field is write-once:
-    once a key is attached to a Workspace it cannot be detached or replaced. To
-    rotate key material, rotate the underlying key on your cloud KMS; the
-    `external_key_id` stays the same.
-
-  - `Name string`
-
-    Name of the Workspace.
-
-  - `Tags map[string, string]`
-
-    User-defined tags as string key-value pairs. Keys may not begin with `anthropic`.
-
-#### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-
-	"github.com/anthropics/anthropic-sdk-go"
-	"github.com/anthropics/anthropic-sdk-go/option"
-)
-
-func main() {
-	client := anthropic.NewClient(
-		option.WithAPIKey("my-anthropic-api-key"),
-	)
-	betaWorkspace, err := client.Beta.Organization.Workspaces.Archive(context.TODO(), "workspace_id")
-	if err != nil {
-		panic(err.Error())
-	}
-	fmt.Printf("%+v\n", betaWorkspace.ID)
-}
-```
-
-##### Response (200)
-
-```json
-{
-  "id": "wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ",
-  "archived_at": "2024-11-01T23:59:27.427722Z",
-  "compartment_id": "f8a7b6c5-4d3e-4f1a-8b9c-0d1e2f3a4b5c",
-  "created_at": "2024-10-30T23:58:27.427722Z",
-  "data_residency": {
-    "allowed_inference_geos": "unrestricted",
-    "default_inference_geo": "global",
-    "workspace_geo": "us"
-  },
-  "display_color": "#6C5BB9",
-  "external_key_id": "ekey_01SDCCSbTxrXDpWc1phhtcfK",
-  "name": "Workspace Name",
-  "tags": {
-    "env": "prod",
-    "team": "platform"
-  },
-  "type": "workspace"
-}
-```
-
-## Beta › Organization › Workspaces › Rate Limits
-
-### List Workspace Rate Limits
-
-`client.Beta.Organization.Workspaces.RateLimits.List(ctx, workspaceID, query) (*PageCursor[BetaWorkspaceRateLimit], error)`
-
-**GET** `/v1/organizations/workspaces/{workspace_id}/rate_limits`
-
-List a workspace's rate limits.
-
-By default, returns only the groups and limiter types that have a
-workspace-level override. With `include_inherited=true`, returns every
-group with organization-level limits the workspace can see, listing for
-each the values it inherits from the organization as well as its own
-overrides. Each value's `source` says which it is.
-
-When `limit` is omitted, every matching entry is returned in a single
-page; when `limit` truncates the result, follow `next_page` to fetch
-the remaining entries.
-
-#### Parameters
-
-- `workspaceID string`
-
-  The ID of the workspace.
-
-- `query BetaOrganizationWorkspaceRateLimitListParams`
-
-  - `GroupType param.Field[BetaOrganizationWorkspaceRateLimitListParamsGroupType] Optional`
-
-    Filter by group type.
-
-    - `const BetaOrganizationWorkspaceRateLimitListParamsGroupTypeBatch BetaOrganizationWorkspaceRateLimitListParamsGroupType = "batch"`
-
-    - `const BetaOrganizationWorkspaceRateLimitListParamsGroupTypeFiles BetaOrganizationWorkspaceRateLimitListParamsGroupType = "files"`
-
-    - `const BetaOrganizationWorkspaceRateLimitListParamsGroupTypeModelGroup BetaOrganizationWorkspaceRateLimitListParamsGroupType = "model_group"`
-
-    - `const BetaOrganizationWorkspaceRateLimitListParamsGroupTypeSkills BetaOrganizationWorkspaceRateLimitListParamsGroupType = "skills"`
-
-    - `const BetaOrganizationWorkspaceRateLimitListParamsGroupTypeTokenCount BetaOrganizationWorkspaceRateLimitListParamsGroupType = "token_count"`
-
-    - `const BetaOrganizationWorkspaceRateLimitListParamsGroupTypeWebSearch BetaOrganizationWorkspaceRateLimitListParamsGroupType = "web_search"`
-
-  - `IncludeInherited param.Field[bool] Optional`
-
-    Also list the limiter values the workspace inherits from the organization, including groups with no workspace-level override.
-
-  - `Limit param.Field[int64] Optional`
-
-    Maximum number of items to return per page. Ranges from `1` to `1000`.
-
-    When omitted, every remaining entry is returned in a single page and `next_page` is `null`.
-
-    maximum: 1000, minimum: 1
-
-  - `Page param.Field[string] Optional`
-
-    Opaque cursor from a previous response's `next_page`.
-
-#### Returns
-
-- `type BetaWorkspaceRateLimit`
-
-  - `Type WorkspaceRateLimit`
-
-    Object type. Always `workspace_rate_limit` for workspace rate-limit entries.
-
-    default: workspace_rate_limit
-
-  - `Group BetaWorkspaceRateLimitGroupUnion`
-
-    The rate-limit group this entry's limits apply to. Its `type` equals `group_type`.
-
-    - `type BetaOrganizationRateLimitModelGroup`
-
-      - `Type ModelGroup`
-
-        Always `model_group`: a family of models.
-
-        default: model_group
-
-      - `ID string`
-
-        Opaque identifier of the rate-limit group (for example, `rlg_01VPTCmyiu5ZLsWkcxYG2pY8`). It is the same in every organization and never changes, unlike the entry's own identifier, which differs per organization.
-
-      - `DisplayName string`
-
-        Human-readable name of the model group (for example, `Claude Sonnet 4.x`). For display only; it may change.
-
-    - `type BetaOrganizationRateLimitBatchGroup`
-
-      - `Type Batch`
-
-        Always `batch`: the Message Batches API.
-
-        default: batch
-
-      - `ID string`
-
-        Opaque identifier of the rate-limit group (for example, `rlg_01VPTCmyiu5ZLsWkcxYG2pY8`). It is the same in every organization and never changes, unlike the entry's own identifier, which differs per organization.
-
-    - `type BetaOrganizationRateLimitTokenCountGroup`
-
-      - `Type TokenCount`
-
-        Always `token_count`: the Token Count API.
-
-        default: token_count
-
-      - `ID string`
-
-        Opaque identifier of the rate-limit group (for example, `rlg_01VPTCmyiu5ZLsWkcxYG2pY8`). It is the same in every organization and never changes, unlike the entry's own identifier, which differs per organization.
-
-    - `type BetaOrganizationRateLimitFilesGroup`
-
-      - `Type Files`
-
-        Always `files`: the Files API.
-
-        default: files
-
-      - `ID string`
-
-        Opaque identifier of the rate-limit group (for example, `rlg_01VPTCmyiu5ZLsWkcxYG2pY8`). It is the same in every organization and never changes, unlike the entry's own identifier, which differs per organization.
-
-    - `type BetaOrganizationRateLimitSkillsGroup`
-
-      - `Type Skills`
-
-        Always `skills`: the Skills API.
-
-        default: skills
-
-      - `ID string`
-
-        Opaque identifier of the rate-limit group (for example, `rlg_01VPTCmyiu5ZLsWkcxYG2pY8`). It is the same in every organization and never changes, unlike the entry's own identifier, which differs per organization.
-
-    - `type BetaOrganizationRateLimitWebSearchGroup`
-
-      - `Type WebSearch`
-
-        Always `web_search`: the Messages API web search tool.
-
-        default: web_search
-
-      - `ID string`
-
-        Opaque identifier of the rate-limit group (for example, `rlg_01VPTCmyiu5ZLsWkcxYG2pY8`). It is the same in every organization and never changes, unlike the entry's own identifier, which differs per organization.
-
-  - `Limits []BetaWorkspaceRateLimitValue`
-
-    The workspace's limiter values for this group. By default only the limiter types with a workspace-level override are listed. With `include_inherited` set to `true`, the limiter types the workspace inherits from the organization are listed too, each marked by `source`.
-
-    - `Type string`
-
-      The limiter type (for example, `requests_per_minute` or `input_tokens_per_minute`).
-
-    - `OrgLimit int64`
-
-      The organization-level value for the same limiter type, for reference. `null` when the organization has no limit configured for this limiter type.
-
-    - `Source BetaWorkspaceRateLimitValueSourceUnion`
-
-      Where `value` comes from. `organization` values are listed only when `include_inherited` is `true`, and then `value` equals `org_limit`.
-
-      - `type BetaWorkspaceRateLimitWorkspaceSource`
-
-        - `Type Workspace`
-
-          Always `workspace`: a workspace-level override is stored.
-
-          default: workspace
-
-      - `type BetaWorkspaceRateLimitOrganizationSource`
-
-        - `Type Organization`
-
-          Always `organization`: no workspace-level override is stored, so the organization's value applies.
-
-          default: organization
-
-    - `Value int64`
-
-      The workspace's value for this limiter type: the workspace-level override when `source.type` is `workspace`, otherwise the organization's value.
-
-  - `Models []string`
-
-    Model names this entry's limits apply to, including aliases. `null` when `group_type` is not `"model_group"`.
-
-  - `RateLimitID string`
-
-    The `id` of the organization's RateLimit entry this entry applies to.
-
-  - `WorkspaceID string`
-
-    ID of the Workspace this entry applies to.
-
-  - `GroupType BetaWorkspaceRateLimitGroupType`
-
-    **Deprecated**: Use `group.type` instead. `group_type` is still returned and always equals `group.type`.
-
-    Deprecated: use `group.type` instead. The kind of rate-limit group this entry represents. `model_group` entries apply to a family of models (listed in `models`); other values apply to an API-surface category and have `models` set to `null`. Always equal to `group.type`.
-
-    - `const BetaWorkspaceRateLimitGroupTypeBatch BetaWorkspaceRateLimitGroupType = "batch"`
-
-    - `const BetaWorkspaceRateLimitGroupTypeFiles BetaWorkspaceRateLimitGroupType = "files"`
-
-    - `const BetaWorkspaceRateLimitGroupTypeModelGroup BetaWorkspaceRateLimitGroupType = "model_group"`

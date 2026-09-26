@@ -31,16 +31,6 @@ Bring Addepar portfolio intelligence into Claude
 
 [Add Addepar MCP in Claude (opens in new tab)](https://claude.ai/directory/bc2b011f-5db9-4aef-9df0-fe500264075d "Add in Claude")
 
-![](https://www.google.com/s2/favicons?domain=amazon.com&sz=96)
-
-### [Amazon Selling Partner](https://claude.com/marketplace/connectors/amazon-selling-partner)
-
-Anthropic verifiedNew
-
-Amazon Selling Partner MCP
-
-[Add Amazon Selling Partner in Claude (opens in new tab)](https://claude.ai/directory/921c3435-ce00-4c0b-8809-4647b3cb108f "Add in Claude")
-
 ![](https://www.google.com/s2/favicons?domain=wealth.com&sz=96)
 
 ### [Wealth.com](https://claude.com/marketplace/connectors/wealth-com)
@@ -57,6 +47,16 @@ Bring Orion Connect portfolio data and Redtail CRM together in Claude — prep f
 
 [Add Orion in Claude (opens in new tab)](https://claude.ai/directory/ae7131fa-f9e7-4f96-b776-b582c7fa09a1 "Add in Claude")
 
+![](https://www.google.com/s2/favicons?domain=amazon.com&sz=96)
+
+### [Amazon Selling Partner](https://claude.com/marketplace/connectors/amazon-selling-partner)
+
+Anthropic verifiedNew
+
+Amazon Selling Partner MCP
+
+[Add Amazon Selling Partner in Claude (opens in new tab)](https://claude.ai/directory/921c3435-ce00-4c0b-8809-4647b3cb108f "Add in Claude")
+
 ![](https://assets.claude.com/115f44da14dfc74606c952a792ad297d7d46a001.svg?w=128&fit=max&auto=format)
 
 ### [Vanguard Advisor Tools](https://claude.com/marketplace/connectors/vanguard-advisor-tools)
@@ -67,10 +67,12 @@ Access Vanguard models data and content from Claude
 
 [Add Vanguard Advisor Tools in Claude (opens in new tab)](https://claude.ai/directory/863961af-d744-41ca-b600-9970b4826cb3 "Add in Claude")
 
-![](https://cdn.crmworkspace.com/assets/favicon.svg)
+![](https://assets.claude.com/f1b1e7da13cf74e3bf008094d9452a58c29acab6.jpg?w=128&fit=max&auto=format)
 
-### [Wealthbox](https://claude.com/marketplace/connectors/wealthbox)
+### [BlackRock Advisor Center](https://claude.com/marketplace/connectors/blackrock-advisor-center)
 
-Search, update, and manage Wealthbox data from inside Claude
+Anthropic verifiedTrending
 
-[Add Wealthbox in Claude (opens in new tab)](https://claude.ai/directory/95dfb71b-dd9a-4176-adc4-293d6d7246eb "Add in Claude")
+Build, analyze, and compare portfolios for advisors
+
+[Add BlackRock Advisor Center in Claude (opens in new tab)](https://claude.ai/directory/1f085c38-f40c-4079-87ab-1c4dd7ae67dd "Add in Claude")

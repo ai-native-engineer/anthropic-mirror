@@ -8,11 +8,11 @@ Sep 7, 2023
 
 ![](https://www-cdn.anthropic.com/images/4zrzovbb/website/2504af2b3cd3b1d254bb0fff79d8eefb0db037c7-2880x1620.jpg)
 
-Today, we’re introducing a paid plan for our [Claude.ai](https://claude.ai/redirect/website.v1.fa5b2ab5-b970-40a6-ae4a-026e57df8a45) chat experience, currently available in the US and UK.
+Today, we’re introducing a paid plan for our [Claude.ai](https://claude.ai/redirect/website.v1.df1d225c-eda0-4622-94a3-59947914931b) chat experience, currently available in the US and UK.
 
 Since launching in July, users tell us they’ve chosen Claude.ai as their day-to-day AI assistant for its longer context windows, faster outputs, complex reasoning capabilities, and more. Many also shared that they would value more file uploads and conversations over longer periods.
 
-With [Claude Pro](https://claude.ai/redirect/website.v1.fa5b2ab5-b970-40a6-ae4a-026e57df8a45/settings/billing?action=subscribe), subscribers can now gain **5x more usage** of our latest model, Claude 2, for a monthly price of $20 (US) or £18 (UK).
+With [Claude Pro](https://claude.ai/redirect/website.v1.df1d225c-eda0-4622-94a3-59947914931b/settings/billing?action=subscribe), subscribers can now gain **5x more usage** of our latest model, Claude 2, for a monthly price of $20 (US) or £18 (UK).
 
 This means you can level up your productivity across a range of tasks, including summarizing research papers, querying contracts, and iterating further on coding projects—like this recent [demo](https://www.youtube.com/watch?v=oVsHikXgK9Y) of building an interactive map.
 

@@ -64,10 +64,10 @@ Connect your Notion workspace to search, update, and power workflows across tool
 
 [Add Notion in Claude (opens in new tab)](https://claude.ai/directory/69f3a300-cc60-48c4-b237-dfac56530dbf "Add in Claude")
 
-![](https://assets.claude.com/8aa6ad728cfe811f74a7b65b92b44fe774b1fe17.jpg?w=128&fit=max&auto=format)
+![](https://www.google.com/s2/favicons?domain=thelinks.ai&sz=96)
 
-### [Atlassian MCP](https://claude.com/marketplace/connectors/atlassian)
+### [Links Connect](https://claude.com/marketplace/connectors/links-connect)
 
-Search, read and update Jira, Confluence, Bitbucket, Loom and other Atlassian apps with your existing Atlassian permissions.
+Live financial data. Let Claude do the rest.
 
-[Add Atlassian MCP in Claude (opens in new tab)](https://claude.ai/directory/11ba10d9-477b-4988-bd1c-90a7fa680dc1 "Add in Claude")
+[Add Links Connect in Claude (opens in new tab)](https://claude.ai/directory/cb34f851-d450-4cd8-8197-c292bbdcb2f2 "Add in Claude")

@@ -30,8 +30,6 @@ Only use connectors from developers you trust. Anthropic does not control which 
 
 ### [Rome2Rio](https://claude.com/marketplace/connectors/rome2rio)
 
-Anthropic verifiedTrending
-
 Discover how to get anywhere
 
 [Add Rome2Rio in Claude (opens in new tab)](https://claude.ai/directory/0c84f0ce-49ad-468f-babb-3efab67f5aeb "Add in Claude")

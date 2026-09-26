@@ -24,7 +24,7 @@ Speaker(s)
 
 ## Watch recording
 
-![The thinking lever](https://assets.claude.com/338859ff4f038eda9e4363f5c712f759fa5fa9aa.jpg?w=1600&auto=format)
+![The thinking lever](https://assets.claude.com/338859ff4f038eda9e4363f5c712f759fa5fa9aa.jpg?w=2400&q=75&fm=webp&fit=max)
 
 ## Anthropic's developer conference, recorded
 

@@ -6,7 +6,7 @@ Q&A | Claude Managed Agents
 
 [Try Claude](https://claude.ai)
 
-![Video thumbnail](https://assets.claude.com/b19de8f09f55762fddbd414cc9831ddd5a2254b5.jpg)
+![Video thumbnail](https://assets.claude.com/b19de8f09f55762fddbd414cc9831ddd5a2254b5.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Industry:
 :   Software
@@ -30,7 +30,7 @@ not chat
 
 Case Study: Notion
 
-![Case Study: Notion](https://assets.claude.com/1251e47b710d3ece843ec079f8d14f4553d7546a.jpg)
+![Case Study: Notion](https://assets.claude.com/1251e47b710d3ece843ec079f8d14f4553d7546a.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Learn how Notion uses Claude to power enterprise AI search, reduce costs by 90% with prompt caching, and build agent workflows.
 
@@ -92,7 +92,7 @@ Every agent that you create is locked down from a permission standpoint by defau
 
 Claude Managed Agents: Get to production 10x faster
 
-![Claude Managed Agents: Get to production 10x faster](https://assets.claude.com/ff7c99d19d7cdf50b2e9bf56cc15f9f5d406ce19.jpg)
+![Claude Managed Agents: Get to production 10x faster](https://assets.claude.com/ff7c99d19d7cdf50b2e9bf56cc15f9f5d406ce19.jpg?w=2400&q=75&fm=webp&fit=max)
 
 We're launching Claude Managed Agents, a suite of composable APIs for building and deploying cloud-hosted agents at scale.
 

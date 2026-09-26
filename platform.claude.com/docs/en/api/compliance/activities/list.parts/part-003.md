@@ -3,48 +3,6 @@
 
 <!-- chunk-start -->
 
-        - `current_value: optional object or null`
-
-          Setting value immediately after this change
-
-          - `domain_filters: object or null`
-
-            Allowed/blocked domain filters shared by web_search and web_fetch tools.
-
-            - `allowed_domains: optional array of string or null`
-
-            - `blocked_domains: optional array of string or null`
-
-          - `is_enabled: boolean`
-
-        - `previous_value: optional object or null`
-
-          Setting value immediately before this change
-
-          - `domain_filters: object or null`
-
-            Allowed/blocked domain filters shared by web_search and web_fetch tools.
-
-            - `allowed_domains: optional array of string or null`
-
-            - `blocked_domains: optional array of string or null`
-
-          - `is_enabled: boolean`
-
-      - `WebFetchAPISettings object`
-
-        The web fetch API setting was changed for the organization.
-
-        - `type: optional "web_fetch_api_settings"`
-
-          default: web_fetch_api_settings
-
-        - `current_value: optional object or null`
-
-          Setting value immediately after this change
-
-          - `domain_filters: object or null`
-
             Allowed/blocked domain filters shared by web_search and web_fetch tools.
 
             - `allowed_domains: optional array of string or null`
@@ -8050,7 +8008,7 @@
 
     - `event_data: optional object or null`
 
-      A nested object within a compliance activity payload.
+      Details of the authentication attempt.
 
       - `external_client_id: optional string or null`
 
@@ -8078,7 +8036,7 @@
 
     - `status: optional object or null`
 
-      A nested object within a compliance activity payload.
+      The outcome of the token exchange.
 
       - `outcome: string`
 
@@ -9992,7 +9950,7 @@
 
     - `event_data: optional object or null`
 
-      A nested object within a compliance activity payload.
+      Details of the authentication attempt.
 
       - `federation_rule_id: optional string or null`
 
@@ -10004,7 +9962,7 @@
 
       - `oidc_token: optional object or null`
 
-        A nested object within a compliance activity payload.
+        Details of the presented OIDC token.
 
         - `claims: optional map[unknown] or null`
 
@@ -10044,7 +10002,7 @@
 
     - `status: optional object or null`
 
-      A nested object within a compliance activity payload.
+      The outcome of the token exchange.
 
       - `outcome: string`
 
@@ -42507,3 +42465,51 @@
         An external identity asserted by a trusted provider — a cloud-provider
         gateway or a customer-registered federation issuer — acting without an
         Anthropic-provisioned account or service account.
+
+        - `type: optional "federated_actor"`
+
+          default: federated_actor
+
+        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
+
+          - `FederatedActorAwsProvider object`
+
+            Asserting party: the AWS account the organization is bound to.
+
+            - `type: optional "aws"`
+
+              default: aws
+
+            - `account_id: string`
+
+            - `signed_principal: string`
+
+              The AWS-signed ARN of the IAM principal that requested the token.
+
+          - `FederatedActorAzureProvider object`
+
+            Asserting party: the Azure subscription the organization is bound to.
+
+            - `type: optional "azure"`
+
+              default: azure
+
+            - `subscription_id: string`
+
+          - `FederatedActorGcpProvider object`
+
+            Asserting party: the GCP project the organization is bound to.
+
+            - `type: optional "gcp"`
+
+              default: gcp
+
+            - `project_number: string`
+
+          - `FederatedActorOidcProvider object`
+
+            Asserting party: a customer-registered OIDC federation issuer.
+
+            - `type: optional "oidc"`
+
+              default: oidc

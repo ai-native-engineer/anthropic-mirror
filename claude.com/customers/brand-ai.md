@@ -64,7 +64,7 @@ Global brands particularly benefit from the platform's ability to scale brand co
 
 The platform stands out for its focus on brand enhancement rather than just efficiency. "A lot of AI is built around optimization and self-serving efficiency. But brand.ai has been born with the desire to liberate," said Rob Campbell, Chief Strategy Officer at Colenso BBDO. "It's created for inclusivity and understanding, and that unlocks potential for brands that most marketing AI models fail to even recognize."
 
-![Brand.ai product screen](https://assets.claude.com/2cd60b93b202f29bf7bc7b7c2ea446e8c66d7c9e.png)
+![Brand.ai product screen](https://assets.claude.com/2cd60b93b202f29bf7bc7b7c2ea446e8c66d7c9e.png?w=2400&q=75&fm=webp&fit=max)
 
 ## Transforming organizations through AI-powered brand management
 

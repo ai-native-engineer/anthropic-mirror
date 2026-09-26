@@ -52,7 +52,7 @@ As Jamf grew globally across service desk, infrastructure, and client platform e
 
 Q&A: Cowork at Jamf
 
-![Q&A: Cowork at Jamf](https://assets.claude.com/a5f7928134bdc40e0135443315cc9fe1f8f93ce3.jpg)
+![Q&A: Cowork at Jamf](https://assets.claude.com/a5f7928134bdc40e0135443315cc9fe1f8f93ce3.jpg?w=2400&q=75&fm=webp&fit=max)
 
 How Jamf's engineering team turns structured workflows into interactive tools with Cowork
 
@@ -80,7 +80,7 @@ The result: 285 documented use cases across every department without compliance 
 
 Claude on Amazon Bedrock
 
-![Claude on Amazon Bedrock](https://assets.claude.com/3bf99530eb5387631c2eb5a95f92a81c5020c4ef.png)
+![Claude on Amazon Bedrock](https://assets.claude.com/3bf99530eb5387631c2eb5a95f92a81c5020c4ef.png?w=2400&q=75&fm=webp&fit=max)
 
 Build innovative AI applications with safer systems from Anthropic, supported by secure infrastructure from AWS.
 

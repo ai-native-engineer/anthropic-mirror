@@ -30,7 +30,7 @@ one iteration
 
 Connectors: Twilio
 
-![Connectors: Twilio](https://assets.claude.com/ce8d7ec382544fee8cefe5ae7cdc38110e665f7d.jpg)
+![Connectors: Twilio](https://assets.claude.com/ce8d7ec382544fee8cefe5ae7cdc38110e665f7d.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Build powerful communications and customer engagement
 
@@ -100,7 +100,7 @@ This pattern held everywhere. When headless sessions wasted money on infrastruct
 
 Claude Code
 
-![Claude Code](https://assets.claude.com/38e8385d1c5f9c0f71c486994e22fc5861a4522d.jpg)
+![Claude Code](https://assets.claude.com/38e8385d1c5f9c0f71c486994e22fc5861a4522d.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
 
@@ -136,7 +136,7 @@ And write your collaboration guidelines early. On day four, I wrote this into ou
 
 Skills
 
-![Skills](https://assets.claude.com/143afdc0f503ccbec15a051fa5dcf71bb6bb1da0.jpg)
+![Skills](https://assets.claude.com/143afdc0f503ccbec15a051fa5dcf71bb6bb1da0.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Get consistent results on specialized tasks. Skills package your expertise so Claude delivers expert-level output every time.
 

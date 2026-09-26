@@ -3,618 +3,6 @@
 
 <!-- chunk-start -->
 
-      - `Optional<BetaCacheControlEphemeral> cacheControl`
-
-        Create a cache control breakpoint at this content block.
-
-      - `Optional<BetaCitationsConfigParam> citations`
-
-        Citations configuration for fetched documents. Citations are disabled by default.
-
-        - `Optional<Boolean> enabled`
-
-      - `Optional<Boolean> deferLoading`
-
-        If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-      - `Optional<Long> maxContentTokens`
-
-        Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
-
-        exclusiveMinimum: 0
-
-      - `Optional<Long> maxUses`
-
-        Maximum number of times the tool can be used in the API request.
-
-        exclusiveMinimum: 0
-
-      - `Optional<Boolean> strict`
-
-        When true, guarantees schema validation on tool names and inputs
-
-      - `Optional<BetaWebFetchUrlSources> urlSources`
-
-        Which sources contribute to the set of URLs web fetch may fetch.
-
-        Each key is a tagged variant: `user_input` is `all` or `none`; the
-        two tool filters are `all`, `none`, `only` (only the named tools'
-        results) or `except` (every result but the named tools'). A named tool
-        must be declared in this request's `tools[]`.
-
-        - `Optional<ClientToolResults> clientToolResults`
-
-          Which client tools' results contribute fetchable URLs: "all", "none", or an only or except list of client tool names from tools[].
-
-          - `class BetaWebFetchUrlSourceAll`
-
-            The `url_sources` variant under which a source contributes in
-            full: every result of the tool filter's source, or all user input.
-
-            - `JsonValue type = "all"`
-
-          - `class BetaWebFetchUrlSourceNone`
-
-            The `url_sources` variant under which a source contributes nothing:
-            no result of the tool filter's source, or no user input.
-
-            - `JsonValue type = "none"`
-
-          - `class BetaWebFetchUrlSourceOnly`
-
-            The tool filter variant under which only the named tools' results
-            contribute.
-
-            - `JsonValue type = "only"`
-
-            - `List<BetaWebFetchUrlSourceToolReference> tools`
-
-              - `JsonValue type = "tool_reference"`
-
-              - `String name`
-
-          - `class BetaWebFetchUrlSourceExcept`
-
-            The tool filter variant under which every result but the named
-            tools' contributes.
-
-            - `JsonValue type = "except"`
-
-            - `List<BetaWebFetchUrlSourceToolReference> tools`
-
-              - `JsonValue type = "tool_reference"`
-
-              - `String name`
-
-        - `Optional<ServerToolResults> serverToolResults`
-
-          Which server tools' results contribute fetchable URLs: "all", "none", or an only or except list of server tool names from tools[]; only web_search and web_fetch results ever contribute.
-
-          - `class BetaWebFetchUrlSourceAll`
-
-            The `url_sources` variant under which a source contributes in
-            full: every result of the tool filter's source, or all user input.
-
-          - `class BetaWebFetchUrlSourceNone`
-
-            The `url_sources` variant under which a source contributes nothing:
-            no result of the tool filter's source, or no user input.
-
-          - `class BetaWebFetchUrlSourceOnly`
-
-            The tool filter variant under which only the named tools' results
-            contribute.
-
-          - `class BetaWebFetchUrlSourceExcept`
-
-            The tool filter variant under which every result but the named
-            tools' contributes.
-
-        - `Optional<UserInput> userInput`
-
-          Whether URLs in user messages are fetchable: "all" or "none".
-
-          - `class BetaWebFetchUrlSourceAll`
-
-            The `url_sources` variant under which a source contributes in
-            full: every result of the tool filter's source, or all user input.
-
-          - `class BetaWebFetchUrlSourceNone`
-
-            The `url_sources` variant under which a source contributes nothing:
-            no result of the tool filter's source, or no user input.
-
-    - `class BetaWebSearchTool20260209`
-
-      - `JsonValue type = "web_search_20260209"`
-
-      - `JsonValue name = "web_search"`
-
-        Name of the tool.
-
-        This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `Optional<List<AllowedCaller>> allowedCallers`
-
-        - `DIRECT("direct")`
-
-        - `CODE_EXECUTION_20250825("code_execution_20250825")`
-
-        - `CODE_EXECUTION_20260120("code_execution_20260120")`
-
-        - `CODE_EXECUTION_20260521("code_execution_20260521")`
-
-      - `Optional<List<String>> allowedDomains`
-
-        If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
-
-      - `Optional<List<String>> blockedDomains`
-
-        If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
-
-      - `Optional<BetaCacheControlEphemeral> cacheControl`
-
-        Create a cache control breakpoint at this content block.
-
-      - `Optional<Boolean> deferLoading`
-
-        If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-      - `Optional<Long> maxUses`
-
-        Maximum number of times the tool can be used in the API request.
-
-        exclusiveMinimum: 0
-
-      - `Optional<Boolean> strict`
-
-        When true, guarantees schema validation on tool names and inputs
-
-      - `Optional<BetaUserLocation> userLocation`
-
-        Parameters for the user's location. Used to provide more relevant search results.
-
-    - `class BetaWebFetchTool20260209`
-
-      - `JsonValue type = "web_fetch_20260209"`
-
-      - `JsonValue name = "web_fetch"`
-
-        Name of the tool.
-
-        This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `Optional<List<AllowedCaller>> allowedCallers`
-
-        - `DIRECT("direct")`
-
-        - `CODE_EXECUTION_20250825("code_execution_20250825")`
-
-        - `CODE_EXECUTION_20260120("code_execution_20260120")`
-
-        - `CODE_EXECUTION_20260521("code_execution_20260521")`
-
-      - `Optional<List<String>> allowedDomains`
-
-        List of domains to allow fetching from
-
-      - `Optional<List<String>> blockedDomains`
-
-        List of domains to block fetching from
-
-      - `Optional<BetaCacheControlEphemeral> cacheControl`
-
-        Create a cache control breakpoint at this content block.
-
-      - `Optional<BetaCitationsConfigParam> citations`
-
-        Citations configuration for fetched documents. Citations are disabled by default.
-
-      - `Optional<Boolean> deferLoading`
-
-        If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-      - `Optional<Long> maxContentTokens`
-
-        Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
-
-        exclusiveMinimum: 0
-
-      - `Optional<Long> maxUses`
-
-        Maximum number of times the tool can be used in the API request.
-
-        exclusiveMinimum: 0
-
-      - `Optional<Boolean> strict`
-
-        When true, guarantees schema validation on tool names and inputs
-
-      - `Optional<BetaWebFetchUrlSources> urlSources`
-
-        Which sources contribute to the set of URLs web fetch may fetch.
-
-        Each key is a tagged variant: `user_input` is `all` or `none`; the
-        two tool filters are `all`, `none`, `only` (only the named tools'
-        results) or `except` (every result but the named tools'). A named tool
-        must be declared in this request's `tools[]`.
-
-    - `class BetaWebFetchTool20260309`
-
-      Web fetch tool with use_cache parameter for bypassing cached content.
-
-      - `JsonValue type = "web_fetch_20260309"`
-
-      - `JsonValue name = "web_fetch"`
-
-        Name of the tool.
-
-        This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `Optional<List<AllowedCaller>> allowedCallers`
-
-        - `DIRECT("direct")`
-
-        - `CODE_EXECUTION_20250825("code_execution_20250825")`
-
-        - `CODE_EXECUTION_20260120("code_execution_20260120")`
-
-        - `CODE_EXECUTION_20260521("code_execution_20260521")`
-
-      - `Optional<List<String>> allowedDomains`
-
-        List of domains to allow fetching from
-
-      - `Optional<List<String>> blockedDomains`
-
-        List of domains to block fetching from
-
-      - `Optional<BetaCacheControlEphemeral> cacheControl`
-
-        Create a cache control breakpoint at this content block.
-
-      - `Optional<BetaCitationsConfigParam> citations`
-
-        Citations configuration for fetched documents. Citations are disabled by default.
-
-      - `Optional<Boolean> deferLoading`
-
-        If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-      - `Optional<Long> maxContentTokens`
-
-        Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
-
-        exclusiveMinimum: 0
-
-      - `Optional<Long> maxUses`
-
-        Maximum number of times the tool can be used in the API request.
-
-        exclusiveMinimum: 0
-
-      - `Optional<Boolean> strict`
-
-        When true, guarantees schema validation on tool names and inputs
-
-      - `Optional<BetaWebFetchUrlSources> urlSources`
-
-        Which sources contribute to the set of URLs web fetch may fetch.
-
-        Each key is a tagged variant: `user_input` is `all` or `none`; the
-        two tool filters are `all`, `none`, `only` (only the named tools'
-        results) or `except` (every result but the named tools'). A named tool
-        must be declared in this request's `tools[]`.
-
-      - `Optional<Boolean> useCache`
-
-        Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
-
-    - `class BetaWebSearchTool20260318`
-
-      - `JsonValue type = "web_search_20260318"`
-
-      - `JsonValue name = "web_search"`
-
-        Name of the tool.
-
-        This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `Optional<List<AllowedCaller>> allowedCallers`
-
-        - `DIRECT("direct")`
-
-        - `CODE_EXECUTION_20250825("code_execution_20250825")`
-
-        - `CODE_EXECUTION_20260120("code_execution_20260120")`
-
-        - `CODE_EXECUTION_20260521("code_execution_20260521")`
-
-      - `Optional<List<String>> allowedDomains`
-
-        If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
-
-      - `Optional<List<String>> blockedDomains`
-
-        If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
-
-      - `Optional<BetaCacheControlEphemeral> cacheControl`
-
-        Create a cache control breakpoint at this content block.
-
-      - `Optional<Boolean> deferLoading`
-
-        If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-      - `Optional<Long> maxUses`
-
-        Maximum number of times the tool can be used in the API request.
-
-        exclusiveMinimum: 0
-
-      - `Optional<ResponseInclusion> responseInclusion`
-
-        How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
-
-        - `FULL("full")`
-
-        - `EXCLUDED("excluded")`
-
-      - `Optional<Boolean> strict`
-
-        When true, guarantees schema validation on tool names and inputs
-
-      - `Optional<BetaUserLocation> userLocation`
-
-        Parameters for the user's location. Used to provide more relevant search results.
-
-    - `class BetaWebFetchTool20260318`
-
-      - `JsonValue type = "web_fetch_20260318"`
-
-      - `JsonValue name = "web_fetch"`
-
-        Name of the tool.
-
-        This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `Optional<List<AllowedCaller>> allowedCallers`
-
-        - `DIRECT("direct")`
-
-        - `CODE_EXECUTION_20250825("code_execution_20250825")`
-
-        - `CODE_EXECUTION_20260120("code_execution_20260120")`
-
-        - `CODE_EXECUTION_20260521("code_execution_20260521")`
-
-      - `Optional<List<String>> allowedDomains`
-
-        List of domains to allow fetching from
-
-      - `Optional<List<String>> blockedDomains`
-
-        List of domains to block fetching from
-
-      - `Optional<BetaCacheControlEphemeral> cacheControl`
-
-        Create a cache control breakpoint at this content block.
-
-      - `Optional<BetaCitationsConfigParam> citations`
-
-        Citations configuration for fetched documents. Citations are disabled by default.
-
-      - `Optional<Boolean> deferLoading`
-
-        If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-      - `Optional<Long> maxContentTokens`
-
-        Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
-
-        exclusiveMinimum: 0
-
-      - `Optional<Long> maxUses`
-
-        Maximum number of times the tool can be used in the API request.
-
-        exclusiveMinimum: 0
-
-      - `Optional<ResponseInclusion> responseInclusion`
-
-        How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
-
-        - `FULL("full")`
-
-        - `EXCLUDED("excluded")`
-
-      - `Optional<Boolean> strict`
-
-        When true, guarantees schema validation on tool names and inputs
-
-      - `Optional<BetaWebFetchUrlSources> urlSources`
-
-        Which sources contribute to the set of URLs web fetch may fetch.
-
-        Each key is a tagged variant: `user_input` is `all` or `none`; the
-        two tool filters are `all`, `none`, `only` (only the named tools'
-        results) or `except` (every result but the named tools'). A named tool
-        must be declared in this request's `tools[]`.
-
-      - `Optional<Boolean> useCache`
-
-        Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
-
-    - `class BetaAdvisorTool20260301`
-
-      - `JsonValue type = "advisor_20260301"`
-
-      - `Model model`
-
-        The model that will complete your prompt.
-
-        See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
-        - `CLAUDE_FABLE_5_1("claude-fable-5-1")`
-
-          Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
-
-        - `CLAUDE_OPUS_5_5("claude-opus-5-5")`
-
-          Powerful intelligence for coding, knowledge work, and long-running agents
-
-        - `CLAUDE_MYTHOS_5_1("claude-mythos-5-1")`
-
-          Our most capable model for cybersecurity and biology research, available through trusted access programs
-
-        - `CLAUDE_SONNET_5("claude-sonnet-5")`
-
-          High-performance model for coding and agents
-
-        - `CLAUDE_FABLE_5("claude-fable-5")`
-
-          Next generation of intelligence for the hardest knowledge work and coding problems
-
-        - `CLAUDE_MYTHOS_5("claude-mythos-5")`
-
-          Most capable model for cybersecurity and biology research
-
-        - `CLAUDE_OPUS_5("claude-opus-5")`
-
-          Powerful intelligence for long-running agents and coding
-
-        - `CLAUDE_OPUS_4_8("claude-opus-4-8")`
-
-          Powerful intelligence for long-running agents and coding
-
-        - `CLAUDE_OPUS_4_7("claude-opus-4-7")`
-
-          Powerful intelligence for long-running agents and coding
-
-        - `CLAUDE_MYTHOS_PREVIEW("claude-mythos-preview")`
-
-          New class of intelligence, strongest in coding and cybersecurity
-
-        - `CLAUDE_OPUS_4_6("claude-opus-4-6")`
-
-          Powerful intelligence for long-running agents and coding
-
-        - `CLAUDE_SONNET_4_6("claude-sonnet-4-6")`
-
-          Best combination of speed and intelligence
-
-        - `CLAUDE_HAIKU_4_5("claude-haiku-4-5")`
-
-          Fastest model with near-frontier intelligence
-
-        - `CLAUDE_HAIKU_4_5_20251001("claude-haiku-4-5-20251001")`
-
-          Fastest model with near-frontier intelligence
-
-        - `CLAUDE_OPUS_4_5("claude-opus-4-5")`
-
-          Powerful intelligence for long-running agents and coding
-
-        - `CLAUDE_OPUS_4_5_20251101("claude-opus-4-5-20251101")`
-
-          Powerful intelligence for long-running agents and coding
-
-        - `CLAUDE_SONNET_4_5("claude-sonnet-4-5")`
-
-          High-performance model for agents and coding
-
-        - `CLAUDE_SONNET_4_5_20250929("claude-sonnet-4-5-20250929")`
-
-          High-performance model for agents and coding
-
-      - `JsonValue name = "advisor"`
-
-        Name of the tool.
-
-        This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `Optional<List<AllowedCaller>> allowedCallers`
-
-        - `DIRECT("direct")`
-
-        - `CODE_EXECUTION_20250825("code_execution_20250825")`
-
-        - `CODE_EXECUTION_20260120("code_execution_20260120")`
-
-        - `CODE_EXECUTION_20260521("code_execution_20260521")`
-
-      - `Optional<BetaCacheControlEphemeral> cacheControl`
-
-        Create a cache control breakpoint at this content block.
-
-      - `Optional<BetaCacheControlEphemeral> caching`
-
-        Caching for the advisor's own prompt. When set, each advisor call writes a cache entry at the given TTL so subsequent calls in the same conversation read the stable prefix. When omitted, the advisor prompt is not cached.
-
-      - `Optional<Boolean> deferLoading`
-
-        If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-      - `Optional<Long> maxTokens`
-
-        Bounds the advisor's total output (thinking + text) per call. When the advisor hits this cap, the returned advisor_result or advisor_redacted_result block carries stop_reason='max_tokens', and a truncation note is appended to the advice text the worker model sees (inside the encrypted blob in redacted mode). When set, the server also emits a remaining-tokens budget block in the advisor's prompt so the advisor self-shapes toward the cap. When omitted, the advisor model's default output cap applies and no budget block is emitted.
-
-        minimum: 1024
-
-      - `Optional<Long> maxUses`
-
-        Maximum number of times the tool can be used in the API request.
-
-        exclusiveMinimum: 0
-
-      - `Optional<Boolean> strict`
-
-        When true, guarantees schema validation on tool names and inputs
-
-    - `class BetaToolSearchToolBm25_20251119`
-
-      - `Type type`
-
-        - `TOOL_SEARCH_TOOL_BM25_20251119("tool_search_tool_bm25_20251119")`
-
-        - `TOOL_SEARCH_TOOL_BM25("tool_search_tool_bm25")`
-
-      - `JsonValue name = "tool_search_tool_bm25"`
-
-        Name of the tool.
-
-        This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `Optional<List<AllowedCaller>> allowedCallers`
-
-        - `DIRECT("direct")`
-
-        - `CODE_EXECUTION_20250825("code_execution_20250825")`
-
-        - `CODE_EXECUTION_20260120("code_execution_20260120")`
-
-        - `CODE_EXECUTION_20260521("code_execution_20260521")`
-
-      - `Optional<BetaCacheControlEphemeral> cacheControl`
-
-        Create a cache control breakpoint at this content block.
-
-      - `Optional<Boolean> deferLoading`
-
-        If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-      - `Optional<Boolean> strict`
-
-        When true, guarantees schema validation on tool names and inputs
-
-    - `class BetaToolSearchToolRegex20251119`
-
-      - `Type type`
-
-        - `TOOL_SEARCH_TOOL_REGEX_20251119("tool_search_tool_regex_20251119")`
-
-        - `TOOL_SEARCH_TOOL_REGEX("tool_search_tool_regex")`
-
       - `JsonValue name = "tool_search_tool_regex"`
 
         Name of the tool.
@@ -656,7 +44,7 @@
 
         Name of the MCP server to configure tools for
 
-        maxLength: 255, minLength: 1
+        minLength: 1, maxLength: 255
 
       - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -730,7 +118,7 @@
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-        maxLength: 128, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,128}$
+        minLength: 1, maxLength: 128, pattern: ^[a-zA-Z0-9_-]{1,128}$
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -998,12 +386,7 @@
 
       - `Optional<BetaBrowserToolsetConfigs> configs`
 
-        Per-member configuration for `browser_toolset_20260801`: one
-        optional field per member tool, keyed by the member name — the same
-        name the member's `tool_use` blocks carry. Every member is an
-        accepted key, and a member's defaults apply wherever its key is
-        absent. Unknown keys are rejected: the field set is this toolset
-        version's complete member set.
+        Sparse per-member overrides, keyed by member name. Absent, null, and {} are equivalent; a member's defaults apply wherever its key is absent.
 
         - `Optional<BetaBrowserTypeConfig> type`
 
@@ -1624,12 +1007,7 @@
 
       - `Optional<BetaComputerToolsetConfigs> configs`
 
-        Per-member configuration for `computer_toolset_20260801`: one
-        optional field per member tool, keyed by the member name — the same
-        name the member's `tool_use` blocks carry. Every member is an
-        accepted key, and a member's defaults apply wherever its key is
-        absent. Unknown keys are rejected: the field set is this toolset
-        version's complete member set.
+        Sparse per-member overrides, keyed by member name. Absent, null, and {} are equivalent; a member's defaults apply wherever its key is absent.
 
         - `Optional<BetaComputerTypeConfig> type`
 
@@ -1983,7 +1361,7 @@
 
         Maximum number of times the tool can be used in the API request.
 
-        exclusiveMinimum: 0
+        minimum: 1
 
       - `Optional<Boolean> strict`
 
@@ -1999,25 +1377,25 @@
 
           The city of the user.
 
-          maxLength: 255, minLength: 1
+          minLength: 1, maxLength: 255
 
         - `Optional<String> country`
 
           The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
 
-          maxLength: 2, minLength: 2
+          minLength: 2, maxLength: 2
 
         - `Optional<String> region`
 
           The region of the user.
 
-          maxLength: 255, minLength: 1
+          minLength: 1, maxLength: 255
 
         - `Optional<String> timezone`
 
           The [IANA timezone](https://nodatime.org/TimeZones) of the user.
 
-          maxLength: 255, minLength: 1
+          minLength: 1, maxLength: 255
 
     - `class BetaWebFetchTool20250910`
 
@@ -2065,13 +1443,13 @@
 
         Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-        exclusiveMinimum: 0
+        minimum: 1
 
       - `Optional<Long> maxUses`
 
         Maximum number of times the tool can be used in the API request.
 
-        exclusiveMinimum: 0
+        minimum: 1
 
       - `Optional<Boolean> strict`
 
@@ -2079,12 +1457,7 @@
 
       - `Optional<BetaWebFetchUrlSources> urlSources`
 
-        Which sources contribute to the set of URLs web fetch may fetch.
-
-        Each key is a tagged variant: `user_input` is `all` or `none`; the
-        two tool filters are `all`, `none`, `only` (only the named tools'
-        results) or `except` (every result but the named tools'). A named tool
-        must be declared in this request's `tools[]`.
+        Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
 
         - `Optional<ClientToolResults> clientToolResults`
 
@@ -2208,7 +1581,7 @@
 
         Maximum number of times the tool can be used in the API request.
 
-        exclusiveMinimum: 0
+        minimum: 1
 
       - `Optional<Boolean> strict`
 
@@ -2262,13 +1635,13 @@
 
         Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-        exclusiveMinimum: 0
+        minimum: 1
 
       - `Optional<Long> maxUses`
 
         Maximum number of times the tool can be used in the API request.
 
-        exclusiveMinimum: 0
+        minimum: 1
 
       - `Optional<Boolean> strict`
 
@@ -2276,12 +1649,7 @@
 
       - `Optional<BetaWebFetchUrlSources> urlSources`
 
-        Which sources contribute to the set of URLs web fetch may fetch.
-
-        Each key is a tagged variant: `user_input` is `all` or `none`; the
-        two tool filters are `all`, `none`, `only` (only the named tools'
-        results) or `except` (every result but the named tools'). A named tool
-        must be declared in this request's `tools[]`.
+        Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
 
     - `class BetaWebFetchTool20260309`
 
@@ -2329,13 +1697,13 @@
 
         Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-        exclusiveMinimum: 0
+        minimum: 1
 
       - `Optional<Long> maxUses`
 
         Maximum number of times the tool can be used in the API request.
 
-        exclusiveMinimum: 0
+        minimum: 1
 
       - `Optional<Boolean> strict`
 
@@ -2343,12 +1711,7 @@
 
       - `Optional<BetaWebFetchUrlSources> urlSources`
 
-        Which sources contribute to the set of URLs web fetch may fetch.
-
-        Each key is a tagged variant: `user_input` is `all` or `none`; the
-        two tool filters are `all`, `none`, `only` (only the named tools'
-        results) or `except` (every result but the named tools'). A named tool
-        must be declared in this request's `tools[]`.
+        Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
 
       - `Optional<Boolean> useCache`
 
@@ -2394,7 +1757,7 @@
 
         Maximum number of times the tool can be used in the API request.
 
-        exclusiveMinimum: 0
+        minimum: 1
 
       - `Optional<ResponseInclusion> responseInclusion`
 
@@ -2456,13 +1819,13 @@
 
         Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-        exclusiveMinimum: 0
+        minimum: 1
 
       - `Optional<Long> maxUses`
 
         Maximum number of times the tool can be used in the API request.
 
-        exclusiveMinimum: 0
+        minimum: 1
 
       - `Optional<ResponseInclusion> responseInclusion`
 
@@ -2478,12 +1841,7 @@
 
       - `Optional<BetaWebFetchUrlSources> urlSources`
 
-        Which sources contribute to the set of URLs web fetch may fetch.
-
-        Each key is a tagged variant: `user_input` is `all` or `none`; the
-        two tool filters are `all`, `none`, `only` (only the named tools'
-        results) or `except` (every result but the named tools'). A named tool
-        must be declared in this request's `tools[]`.
+        Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
 
       - `Optional<Boolean> useCache`
 
@@ -2535,10 +1893,6 @@
 
           Powerful intelligence for long-running agents and coding
 
-        - `CLAUDE_MYTHOS_PREVIEW("claude-mythos-preview")`
-
-          New class of intelligence, strongest in coding and cybersecurity
-
         - `CLAUDE_OPUS_4_6("claude-opus-4-6")`
 
           Powerful intelligence for long-running agents and coding
@@ -2570,6 +1924,12 @@
         - `CLAUDE_SONNET_4_5_20250929("claude-sonnet-4-5-20250929")`
 
           High-performance model for agents and coding
+
+        - `CLAUDE_MYTHOS_PREVIEW("claude-mythos-preview")`
+
+          **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+          New class of intelligence, strongest in coding and cybersecurity
 
       - `JsonValue name = "advisor"`
 
@@ -2609,7 +1969,7 @@
 
         Maximum number of times the tool can be used in the API request.
 
-        exclusiveMinimum: 0
+        minimum: 1
 
       - `Optional<Boolean> strict`
 
@@ -2700,7 +2060,7 @@
 
         Name of the MCP server to configure tools for
 
-        maxLength: 255, minLength: 1
+        minLength: 1, maxLength: 255
 
       - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -3087,7 +2447,7 @@
 
   - `String toolName`
 
-    maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+    minLength: 1, maxLength: 256, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
 ### Beta Tool Reference Block Param
 
@@ -3099,7 +2459,7 @@
 
   - `String toolName`
 
-    maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+    minLength: 1, maxLength: 256, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
   - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -3185,7 +2545,7 @@
 
             - `Optional<String> documentTitle`
 
-              maxLength: 500, minLength: 1
+              minLength: 1, maxLength: 500
 
             - `long endCharIndex`
 
@@ -3205,7 +2565,7 @@
 
             - `Optional<String> documentTitle`
 
-              maxLength: 500, minLength: 1
+              minLength: 1, maxLength: 500
 
             - `long endPageNumber`
 
@@ -3229,7 +2589,7 @@
 
             - `Optional<String> documentTitle`
 
-              maxLength: 500, minLength: 1
+              minLength: 1, maxLength: 500
 
             - `long endBlockIndex`
 
@@ -3253,7 +2613,7 @@
 
             - `Optional<String> title`
 
-              maxLength: 512, minLength: 1
+              minLength: 1, maxLength: 512
 
             - `String url`
 
@@ -3437,7 +2797,7 @@
 
         - `Optional<String> title`
 
-          maxLength: 500, minLength: 1
+          minLength: 1, maxLength: 500
 
       - `class BetaToolReferenceBlockParam`
 
@@ -3447,7 +2807,7 @@
 
         - `String toolName`
 
-          maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+          minLength: 1, maxLength: 256, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
         - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -3475,7 +2835,7 @@
 
             The caller-assigned identifier for this tab, unique within the inventory.
 
-            maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+            minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
           - `String title`
 
@@ -3501,7 +2861,7 @@
 
           Tabs opened and download state changes during this call. "Nothing to report" is expressed by omitting the field, never by an empty list.
 
-          maxItems: 200, minItems: 1
+          minItems: 1, maxItems: 200
 
           - `class BetaBrowserStateChangeTabOpened`
 
@@ -3519,7 +2879,7 @@
 
               The `tab_id` of the opened tab, present in `tabs`.
 
-              maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+              minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
           - `class BetaBrowserStateChangeDownloadStarted`
 
@@ -3531,7 +2891,7 @@
 
               The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-              maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+              minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
             - `String url`
 
@@ -3552,7 +2912,7 @@
 
               The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-              maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+              minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
             - `String url`
 
@@ -3564,7 +2924,7 @@
 
               Where the executor saved the file, on the executor's filesystem. Only included when another tool in the same environment can read the file at that path.
 
-              pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$, maxLength: 4096
+              maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
             - `Optional<Long> sizeBytes`
 
@@ -3582,7 +2942,7 @@
 
               The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-              maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+              minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
             - `String url`
 
@@ -3594,7 +2954,7 @@
 
               The failure or cancellation detail, when known.
 
-              pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$, maxLength: 4096
+              maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
   - `Optional<Boolean> isError`
 
@@ -3602,7 +2962,7 @@
 
     For a toolset member tool_result, the toolset family of the paired tool_use.
 
-    maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
+    minLength: 1, maxLength: 64, pattern: ^[a-zA-Z0-9_-]+$
 
 ### Beta Tool Search Tool Bm25 20251119
 
@@ -3748,7 +3108,7 @@
 
         - `String toolName`
 
-          maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+          minLength: 1, maxLength: 256, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
   - `String toolUseId`
 
@@ -3788,7 +3148,7 @@
 
         - `String toolName`
 
-          maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+          minLength: 1, maxLength: 256, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
         - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -3867,7 +3227,7 @@
 
     - `String toolName`
 
-      maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+      minLength: 1, maxLength: 256, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
 ### Beta Tool Search Tool Search Result Block Param
 
@@ -3881,7 +3241,7 @@
 
     - `String toolName`
 
-      maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+      minLength: 1, maxLength: 256, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
     - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -4148,7 +3508,7 @@
 
       This is how the tool will be called by the model and in `tool_use` blocks.
 
-      maxLength: 128, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,128}$
+      minLength: 1, maxLength: 128, pattern: ^[a-zA-Z0-9_-]{1,128}$
 
     - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -4416,12 +3776,7 @@
 
     - `Optional<BetaBrowserToolsetConfigs> configs`
 
-      Per-member configuration for `browser_toolset_20260801`: one
-      optional field per member tool, keyed by the member name — the same
-      name the member's `tool_use` blocks carry. Every member is an
-      accepted key, and a member's defaults apply wherever its key is
-      absent. Unknown keys are rejected: the field set is this toolset
-      version's complete member set.
+      Sparse per-member overrides, keyed by member name. Absent, null, and {} are equivalent; a member's defaults apply wherever its key is absent.
 
       - `Optional<BetaBrowserTypeConfig> type`
 
@@ -5042,12 +4397,7 @@
 
     - `Optional<BetaComputerToolsetConfigs> configs`
 
-      Per-member configuration for `computer_toolset_20260801`: one
-      optional field per member tool, keyed by the member name — the same
-      name the member's `tool_use` blocks carry. Every member is an
-      accepted key, and a member's defaults apply wherever its key is
-      absent. Unknown keys are rejected: the field set is this toolset
-      version's complete member set.
+      Sparse per-member overrides, keyed by member name. Absent, null, and {} are equivalent; a member's defaults apply wherever its key is absent.
 
       - `Optional<BetaComputerTypeConfig> type`
 
@@ -5401,7 +4751,7 @@
 
       Maximum number of times the tool can be used in the API request.
 
-      exclusiveMinimum: 0
+      minimum: 1
 
     - `Optional<Boolean> strict`
 
@@ -5417,25 +4767,25 @@
 
         The city of the user.
 
-        maxLength: 255, minLength: 1
+        minLength: 1, maxLength: 255
 
       - `Optional<String> country`
 
         The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
 
-        maxLength: 2, minLength: 2
+        minLength: 2, maxLength: 2
 
       - `Optional<String> region`
 
         The region of the user.
 
-        maxLength: 255, minLength: 1
+        minLength: 1, maxLength: 255
 
       - `Optional<String> timezone`
 
         The [IANA timezone](https://nodatime.org/TimeZones) of the user.
 
-        maxLength: 255, minLength: 1
+        minLength: 1, maxLength: 255
 
   - `class BetaWebFetchTool20250910`
 
@@ -5483,13 +4833,13 @@
 
       Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-      exclusiveMinimum: 0
+      minimum: 1
 
     - `Optional<Long> maxUses`
 
       Maximum number of times the tool can be used in the API request.
 
-      exclusiveMinimum: 0
+      minimum: 1
 
     - `Optional<Boolean> strict`
 
@@ -5497,12 +4847,7 @@
 
     - `Optional<BetaWebFetchUrlSources> urlSources`
 
-      Which sources contribute to the set of URLs web fetch may fetch.
-
-      Each key is a tagged variant: `user_input` is `all` or `none`; the
-      two tool filters are `all`, `none`, `only` (only the named tools'
-      results) or `except` (every result but the named tools'). A named tool
-      must be declared in this request's `tools[]`.
+      Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
 
       - `Optional<ClientToolResults> clientToolResults`
 
@@ -5626,7 +4971,7 @@
 
       Maximum number of times the tool can be used in the API request.
 
-      exclusiveMinimum: 0
+      minimum: 1
 
     - `Optional<Boolean> strict`
 
@@ -5680,13 +5025,13 @@
 
       Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-      exclusiveMinimum: 0
+      minimum: 1
 
     - `Optional<Long> maxUses`
 
       Maximum number of times the tool can be used in the API request.
 
-      exclusiveMinimum: 0
+      minimum: 1
 
     - `Optional<Boolean> strict`
 
@@ -5694,12 +5039,7 @@
 
     - `Optional<BetaWebFetchUrlSources> urlSources`
 
-      Which sources contribute to the set of URLs web fetch may fetch.
-
-      Each key is a tagged variant: `user_input` is `all` or `none`; the
-      two tool filters are `all`, `none`, `only` (only the named tools'
-      results) or `except` (every result but the named tools'). A named tool
-      must be declared in this request's `tools[]`.
+      Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
 
   - `class BetaWebFetchTool20260309`
 
@@ -5747,13 +5087,13 @@
 
       Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-      exclusiveMinimum: 0
+      minimum: 1
 
     - `Optional<Long> maxUses`
 
       Maximum number of times the tool can be used in the API request.
 
-      exclusiveMinimum: 0
+      minimum: 1
 
     - `Optional<Boolean> strict`
 
@@ -5761,12 +5101,7 @@
 
     - `Optional<BetaWebFetchUrlSources> urlSources`
 
-      Which sources contribute to the set of URLs web fetch may fetch.
-
-      Each key is a tagged variant: `user_input` is `all` or `none`; the
-      two tool filters are `all`, `none`, `only` (only the named tools'
-      results) or `except` (every result but the named tools'). A named tool
-      must be declared in this request's `tools[]`.
+      Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
 
     - `Optional<Boolean> useCache`
 
@@ -5812,7 +5147,7 @@
 
       Maximum number of times the tool can be used in the API request.
 
-      exclusiveMinimum: 0
+      minimum: 1
 
     - `Optional<ResponseInclusion> responseInclusion`
 
@@ -5874,13 +5209,13 @@
 
       Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-      exclusiveMinimum: 0
+      minimum: 1
 
     - `Optional<Long> maxUses`
 
       Maximum number of times the tool can be used in the API request.
 
-      exclusiveMinimum: 0
+      minimum: 1
 
     - `Optional<ResponseInclusion> responseInclusion`
 
@@ -5896,12 +5231,7 @@
 
     - `Optional<BetaWebFetchUrlSources> urlSources`
 
-      Which sources contribute to the set of URLs web fetch may fetch.
-
-      Each key is a tagged variant: `user_input` is `all` or `none`; the
-      two tool filters are `all`, `none`, `only` (only the named tools'
-      results) or `except` (every result but the named tools'). A named tool
-      must be declared in this request's `tools[]`.
+      Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
 
     - `Optional<Boolean> useCache`
 
@@ -5953,10 +5283,6 @@
 
         Powerful intelligence for long-running agents and coding
 
-      - `CLAUDE_MYTHOS_PREVIEW("claude-mythos-preview")`
-
-        New class of intelligence, strongest in coding and cybersecurity
-
       - `CLAUDE_OPUS_4_6("claude-opus-4-6")`
 
         Powerful intelligence for long-running agents and coding
@@ -5988,6 +5314,12 @@
       - `CLAUDE_SONNET_4_5_20250929("claude-sonnet-4-5-20250929")`
 
         High-performance model for agents and coding
+
+      - `CLAUDE_MYTHOS_PREVIEW("claude-mythos-preview")`
+
+        **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+        New class of intelligence, strongest in coding and cybersecurity
 
     - `JsonValue name = "advisor"`
 
@@ -6027,7 +5359,7 @@
 
       Maximum number of times the tool can be used in the API request.
 
-      exclusiveMinimum: 0
+      minimum: 1
 
     - `Optional<Boolean> strict`
 
@@ -6118,7 +5450,7 @@
 
       Name of the MCP server to configure tools for
 
-      maxLength: 255, minLength: 1
+      minLength: 1, maxLength: 255
 
     - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -6204,7 +5536,7 @@
 
     For a toolset member tool_use, the toolset family.
 
-    maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
+    minLength: 1, maxLength: 64, pattern: ^[a-zA-Z0-9_-]+$
 
 ### Beta Tool Use Block Param
 
@@ -6220,7 +5552,7 @@
 
   - `String name`
 
-    maxLength: 200, minLength: 1
+    minLength: 1, maxLength: 200
 
   - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -6273,7 +5605,7 @@
 
     For a toolset member tool_use, the toolset family this member belongs to.
 
-    maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
+    minLength: 1, maxLength: 64, pattern: ^[a-zA-Z0-9_-]+$
 
 ### Beta Tool Uses Keep
 
@@ -6346,6 +5678,10 @@
   - `Optional<BetaFallbackCreditUsage> fallbackCredit`
 
     Outcome of the `fallback_credit_token` presented on this request.
+
+    Present on every response to a non-batch request that carried a
+    `fallback_credit_token`, in either redemption mode; absent otherwise (batch
+    items accept and ignore the token and carry no outcome object).
 
     - `Status status`
 
@@ -6505,10 +5841,6 @@
 
           Powerful intelligence for long-running agents and coding
 
-        - `CLAUDE_MYTHOS_PREVIEW("claude-mythos-preview")`
-
-          New class of intelligence, strongest in coding and cybersecurity
-
         - `CLAUDE_OPUS_4_6("claude-opus-4-6")`
 
           Powerful intelligence for long-running agents and coding
@@ -6540,6 +5872,12 @@
         - `CLAUDE_SONNET_4_5_20250929("claude-sonnet-4-5-20250929")`
 
           High-performance model for agents and coding
+
+        - `CLAUDE_MYTHOS_PREVIEW("claude-mythos-preview")`
+
+          **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+          New class of intelligence, strongest in coding and cybersecurity
 
       - `long outputTokens`
 
@@ -6730,7 +6068,7 @@
 
   - `Optional<Speed> speed`
 
-    Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+    The inference speed mode used for this request.
 
     - `STANDARD("standard")`
 
@@ -6746,25 +6084,25 @@
 
     The city of the user.
 
-    maxLength: 255, minLength: 1
+    minLength: 1, maxLength: 255
 
   - `Optional<String> country`
 
     The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
 
-    maxLength: 2, minLength: 2
+    minLength: 2, maxLength: 2
 
   - `Optional<String> region`
 
     The region of the user.
 
-    maxLength: 255, minLength: 1
+    minLength: 1, maxLength: 255
 
   - `Optional<String> timezone`
 
     The [IANA timezone](https://nodatime.org/TimeZones) of the user.
 
-    maxLength: 255, minLength: 1
+    minLength: 1, maxLength: 255
 
 ### Beta Web Fetch Block
 
@@ -6897,7 +6235,7 @@
 
                   - `Optional<String> documentTitle`
 
-                    maxLength: 500, minLength: 1
+                    minLength: 1, maxLength: 500
 
                   - `long endCharIndex`
 
@@ -6917,7 +6255,7 @@
 
                   - `Optional<String> documentTitle`
 
-                    maxLength: 500, minLength: 1
+                    minLength: 1, maxLength: 500
 
                   - `long endPageNumber`
 
@@ -6941,7 +6279,7 @@
 
                   - `Optional<String> documentTitle`
 
-                    maxLength: 500, minLength: 1
+                    minLength: 1, maxLength: 500
 
                   - `long endBlockIndex`
 
@@ -6965,7 +6303,7 @@
 
                   - `Optional<String> title`
 
-                    maxLength: 512, minLength: 1
+                    minLength: 1, maxLength: 512
 
                   - `String url`
 
@@ -7083,7 +6421,7 @@
 
     - `Optional<String> title`
 
-      maxLength: 500, minLength: 1
+      minLength: 1, maxLength: 500
 
   - `String url`
 
@@ -7158,13 +6496,13 @@
 
     Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-    exclusiveMinimum: 0
+    minimum: 1
 
   - `Optional<Long> maxUses`
 
     Maximum number of times the tool can be used in the API request.
 
-    exclusiveMinimum: 0
+    minimum: 1
 
   - `Optional<Boolean> strict`
 
@@ -7172,12 +6510,7 @@
 
   - `Optional<BetaWebFetchUrlSources> urlSources`
 
-    Which sources contribute to the set of URLs web fetch may fetch.
-
-    Each key is a tagged variant: `user_input` is `all` or `none`; the
-    two tool filters are `all`, `none`, `only` (only the named tools'
-    results) or `except` (every result but the named tools'). A named tool
-    must be declared in this request's `tools[]`.
+    Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
 
     - `Optional<ClientToolResults> clientToolResults`
 
@@ -7326,13 +6659,13 @@
 
     Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-    exclusiveMinimum: 0
+    minimum: 1
 
   - `Optional<Long> maxUses`
 
     Maximum number of times the tool can be used in the API request.
 
-    exclusiveMinimum: 0
+    minimum: 1
 
   - `Optional<Boolean> strict`
 
@@ -7340,12 +6673,7 @@
 
   - `Optional<BetaWebFetchUrlSources> urlSources`
 
-    Which sources contribute to the set of URLs web fetch may fetch.
-
-    Each key is a tagged variant: `user_input` is `all` or `none`; the
-    two tool filters are `all`, `none`, `only` (only the named tools'
-    results) or `except` (every result but the named tools'). A named tool
-    must be declared in this request's `tools[]`.
+    Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
 
     - `Optional<ClientToolResults> clientToolResults`
 
@@ -7496,13 +6824,13 @@
 
     Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-    exclusiveMinimum: 0
+    minimum: 1
 
   - `Optional<Long> maxUses`
 
     Maximum number of times the tool can be used in the API request.
 
-    exclusiveMinimum: 0
+    minimum: 1
 
   - `Optional<Boolean> strict`
 
@@ -7510,12 +6838,7 @@
 
   - `Optional<BetaWebFetchUrlSources> urlSources`
 
-    Which sources contribute to the set of URLs web fetch may fetch.
-
-    Each key is a tagged variant: `user_input` is `all` or `none`; the
-    two tool filters are `all`, `none`, `only` (only the named tools'
-    results) or `except` (every result but the named tools'). A named tool
-    must be declared in this request's `tools[]`.
+    Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
 
     - `Optional<ClientToolResults> clientToolResults`
 
@@ -7668,13 +6991,13 @@
 
     Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-    exclusiveMinimum: 0
+    minimum: 1
 
   - `Optional<Long> maxUses`
 
     Maximum number of times the tool can be used in the API request.
 
-    exclusiveMinimum: 0
+    minimum: 1
 
   - `Optional<ResponseInclusion> responseInclusion`
 
@@ -7690,12 +7013,7 @@
 
   - `Optional<BetaWebFetchUrlSources> urlSources`
 
-    Which sources contribute to the set of URLs web fetch may fetch.
-
-    Each key is a tagged variant: `user_input` is `all` or `none`; the
-    two tool filters are `all`, `none`, `only` (only the named tools'
-    results) or `except` (every result but the named tools'). A named tool
-    must be declared in this request's `tools[]`.
+    Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
 
     - `Optional<ClientToolResults> clientToolResults`
 
@@ -8008,7 +7326,7 @@
 
                       - `Optional<String> documentTitle`
 
-                        maxLength: 500, minLength: 1
+                        minLength: 1, maxLength: 500
 
                       - `long endCharIndex`
 
@@ -8028,7 +7346,7 @@
 
                       - `Optional<String> documentTitle`
 
-                        maxLength: 500, minLength: 1
+                        minLength: 1, maxLength: 500
 
                       - `long endPageNumber`
 
@@ -8052,7 +7370,7 @@
 
                       - `Optional<String> documentTitle`
 
-                        maxLength: 500, minLength: 1
+                        minLength: 1, maxLength: 500
 
                       - `long endBlockIndex`
 
@@ -8076,7 +7394,7 @@
 
                       - `Optional<String> title`
 
-                        maxLength: 512, minLength: 1
+                        minLength: 1, maxLength: 512
 
                       - `String url`
 
@@ -8194,7 +7512,7 @@
 
         - `Optional<String> title`
 
-          maxLength: 500, minLength: 1
+          minLength: 1, maxLength: 500
 
       - `String url`
 
@@ -8557,7 +7875,7 @@
 
     Maximum number of times the tool can be used in the API request.
 
-    exclusiveMinimum: 0
+    minimum: 1
 
   - `Optional<Boolean> strict`
 
@@ -8573,25 +7891,25 @@
 
       The city of the user.
 
-      maxLength: 255, minLength: 1
+      minLength: 1, maxLength: 255
 
     - `Optional<String> country`
 
       The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
 
-      maxLength: 2, minLength: 2
+      minLength: 2, maxLength: 2
 
     - `Optional<String> region`
 
       The region of the user.
 
-      maxLength: 255, minLength: 1
+      minLength: 1, maxLength: 255
 
     - `Optional<String> timezone`
 
       The [IANA timezone](https://nodatime.org/TimeZones) of the user.
 
-      maxLength: 255, minLength: 1
+      minLength: 1, maxLength: 255
 
 ### Beta Web Search Tool 20260209
 
@@ -8652,7 +7970,7 @@
 
     Maximum number of times the tool can be used in the API request.
 
-    exclusiveMinimum: 0
+    minimum: 1
 
   - `Optional<Boolean> strict`
 
@@ -8668,25 +7986,25 @@
 
       The city of the user.
 
-      maxLength: 255, minLength: 1
+      minLength: 1, maxLength: 255
 
     - `Optional<String> country`
 
       The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
 
-      maxLength: 2, minLength: 2
+      minLength: 2, maxLength: 2
 
     - `Optional<String> region`
 
       The region of the user.
 
-      maxLength: 255, minLength: 1
+      minLength: 1, maxLength: 255
 
     - `Optional<String> timezone`
 
       The [IANA timezone](https://nodatime.org/TimeZones) of the user.
 
-      maxLength: 255, minLength: 1
+      minLength: 1, maxLength: 255
 
 ### Beta Web Search Tool 20260318
 
@@ -8747,7 +8065,7 @@
 
     Maximum number of times the tool can be used in the API request.
 
-    exclusiveMinimum: 0
+    minimum: 1
 
   - `Optional<ResponseInclusion> responseInclusion`
 
@@ -8771,25 +8089,25 @@
 
       The city of the user.
 
-      maxLength: 255, minLength: 1
+      minLength: 1, maxLength: 255
 
     - `Optional<String> country`
 
       The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
 
-      maxLength: 2, minLength: 2
+      minLength: 2, maxLength: 2
 
     - `Optional<String> region`
 
       The region of the user.
 
-      maxLength: 255, minLength: 1
+      minLength: 1, maxLength: 255
 
     - `Optional<String> timezone`
 
       The [IANA timezone](https://nodatime.org/TimeZones) of the user.
 
-      maxLength: 255, minLength: 1
+      minLength: 1, maxLength: 255
 
 ### Beta Web Search Tool Request Error
 
@@ -9204,7 +8522,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     List of requests for prompt completion. Each is an individual request to create a Message.
 
-    maxItems: 100000, minItems: 1
+    minItems: 1, maxItems: 100000
 
     - `String customId`
 
@@ -9212,7 +8530,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       Must be unique for each request within the Message Batch.
 
-      maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,64}$
+      minLength: 1, maxLength: 64, pattern: ^[a-zA-Z0-9_-]{1,64}$
 
     - `Params params`
 
@@ -9332,7 +8650,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `Optional<String> documentTitle`
 
-                    maxLength: 500, minLength: 1
+                    minLength: 1, maxLength: 500
 
                   - `long endCharIndex`
 
@@ -9352,7 +8670,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `Optional<String> documentTitle`
 
-                    maxLength: 500, minLength: 1
+                    minLength: 1, maxLength: 500
 
                   - `long endPageNumber`
 
@@ -9376,7 +8694,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `Optional<String> documentTitle`
 
-                    maxLength: 500, minLength: 1
+                    minLength: 1, maxLength: 500
 
                   - `long endBlockIndex`
 
@@ -9400,7 +8718,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `Optional<String> title`
 
-                    maxLength: 512, minLength: 1
+                    minLength: 1, maxLength: 512
 
                   - `String url`
 
@@ -9556,7 +8874,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `Optional<String> title`
 
-                maxLength: 500, minLength: 1
+                minLength: 1, maxLength: 500
 
             - `class BetaSearchResultBlockParam`
 
@@ -9620,7 +8938,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `String name`
 
-                maxLength: 200, minLength: 1
+                minLength: 1, maxLength: 200
 
               - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -9656,7 +8974,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 For a toolset member tool_use, the toolset family this member belongs to.
 
-                maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
+                minLength: 1, maxLength: 64, pattern: ^[a-zA-Z0-9_-]+$
 
             - `class BetaToolResultBlockParam`
 
@@ -9692,7 +9010,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     - `String toolName`
 
-                      maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+                      minLength: 1, maxLength: 256, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
                     - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -9720,7 +9038,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                         The caller-assigned identifier for this tab, unique within the inventory.
 
-                        maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+                        minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
                       - `String title`
 
@@ -9746,7 +9064,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                       Tabs opened and download state changes during this call. "Nothing to report" is expressed by omitting the field, never by an empty list.
 
-                      maxItems: 200, minItems: 1
+                      minItems: 1, maxItems: 200
 
                       - `class BetaBrowserStateChangeTabOpened`
 
@@ -9764,7 +9082,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           The `tab_id` of the opened tab, present in `tabs`.
 
-                          maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+                          minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
                       - `class BetaBrowserStateChangeDownloadStarted`
 
@@ -9776,7 +9094,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-                          maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+                          minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
                         - `String url`
 
@@ -9797,7 +9115,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-                          maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+                          minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
                         - `String url`
 
@@ -9809,7 +9127,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           Where the executor saved the file, on the executor's filesystem. Only included when another tool in the same environment can read the file at that path.
 
-                          pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$, maxLength: 4096
+                          maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
                         - `Optional<Long> sizeBytes`
 
@@ -9827,7 +9145,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-                          maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+                          minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
                         - `String url`
 
@@ -9839,7 +9157,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           The failure or cancellation detail, when known.
 
-                          pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$, maxLength: 4096
+                          maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
               - `Optional<Boolean> isError`
 
@@ -9847,7 +9165,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 For a toolset member tool_result, the toolset family of the paired tool_use.
 
-                maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
+                minLength: 1, maxLength: 64, pattern: ^[a-zA-Z0-9_-]+$
 
             - `class BetaServerToolUseBlockParam`
 
@@ -10279,7 +9597,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     - `String toolName`
 
-                      maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+                      minLength: 1, maxLength: 256, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
                     - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -10471,7 +9789,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                             This is how the tool will be called by the model and in `tool_use` blocks.
 
-                            maxLength: 128, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,128}$
+                            minLength: 1, maxLength: 128, pattern: ^[a-zA-Z0-9_-]{1,128}$
 
                           - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -10722,12 +10040,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           - `Optional<BetaBrowserToolsetConfigs> configs`
 
-                            Per-member configuration for `browser_toolset_20260801`: one
-                            optional field per member tool, keyed by the member name — the same
-                            name the member's `tool_use` blocks carry. Every member is an
-                            accepted key, and a member's defaults apply wherever its key is
-                            absent. Unknown keys are rejected: the field set is this toolset
-                            version's complete member set.
+                            Sparse per-member overrides, keyed by member name. Absent, null, and {} are equivalent; a member's defaults apply wherever its key is absent.
 
                             - `Optional<BetaBrowserTypeConfig> type`
 
@@ -11348,12 +10661,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           - `Optional<BetaComputerToolsetConfigs> configs`
 
-                            Per-member configuration for `computer_toolset_20260801`: one
-                            optional field per member tool, keyed by the member name — the same
-                            name the member's `tool_use` blocks carry. Every member is an
-                            accepted key, and a member's defaults apply wherever its key is
-                            absent. Unknown keys are rejected: the field set is this toolset
-                            version's complete member set.
+                            Sparse per-member overrides, keyed by member name. Absent, null, and {} are equivalent; a member's defaults apply wherever its key is absent.
 
                             - `Optional<BetaComputerTypeConfig> type`
 
@@ -11707,7 +11015,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                             Maximum number of times the tool can be used in the API request.
 
-                            exclusiveMinimum: 0
+                            minimum: 1
 
                           - `Optional<Boolean> strict`
 
@@ -11723,25 +11031,25 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                               The city of the user.
 
-                              maxLength: 255, minLength: 1
+                              minLength: 1, maxLength: 255
 
                             - `Optional<String> country`
 
                               The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
 
-                              maxLength: 2, minLength: 2
+                              minLength: 2, maxLength: 2
 
                             - `Optional<String> region`
 
                               The region of the user.
 
-                              maxLength: 255, minLength: 1
+                              minLength: 1, maxLength: 255
 
                             - `Optional<String> timezone`
 
                               The [IANA timezone](https://nodatime.org/TimeZones) of the user.
 
-                              maxLength: 255, minLength: 1
+                              minLength: 1, maxLength: 255
 
                         - `class BetaWebFetchTool20250910`
 
@@ -11787,13 +11095,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                             Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-                            exclusiveMinimum: 0
+                            minimum: 1
 
                           - `Optional<Long> maxUses`
 
                             Maximum number of times the tool can be used in the API request.
 
-                            exclusiveMinimum: 0
+                            minimum: 1
 
                           - `Optional<Boolean> strict`
 
@@ -11801,12 +11109,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           - `Optional<BetaWebFetchUrlSources> urlSources`
 
-                            Which sources contribute to the set of URLs web fetch may fetch.
-
-                            Each key is a tagged variant: `user_input` is `all` or `none`; the
-                            two tool filters are `all`, `none`, `only` (only the named tools'
-                            results) or `except` (every result but the named tools'). A named tool
-                            must be declared in this request's `tools[]`.
+                            Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
 
                             - `Optional<ClientToolResults> clientToolResults`
 
@@ -11930,7 +11233,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                             Maximum number of times the tool can be used in the API request.
 
-                            exclusiveMinimum: 0
+                            minimum: 1
 
                           - `Optional<Boolean> strict`
 
@@ -11984,13 +11287,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                             Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-                            exclusiveMinimum: 0
+                            minimum: 1
 
                           - `Optional<Long> maxUses`
 
                             Maximum number of times the tool can be used in the API request.
 
-                            exclusiveMinimum: 0
+                            minimum: 1
 
                           - `Optional<Boolean> strict`
 
@@ -11998,12 +11301,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           - `Optional<BetaWebFetchUrlSources> urlSources`
 
-                            Which sources contribute to the set of URLs web fetch may fetch.
-
-                            Each key is a tagged variant: `user_input` is `all` or `none`; the
-                            two tool filters are `all`, `none`, `only` (only the named tools'
-                            results) or `except` (every result but the named tools'). A named tool
-                            must be declared in this request's `tools[]`.
+                            Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
 
                         - `class BetaWebFetchTool20260309`
 
@@ -12051,13 +11349,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                             Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-                            exclusiveMinimum: 0
+                            minimum: 1
 
                           - `Optional<Long> maxUses`
 
                             Maximum number of times the tool can be used in the API request.
 
-                            exclusiveMinimum: 0
+                            minimum: 1
 
                           - `Optional<Boolean> strict`
 
@@ -12065,12 +11363,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           - `Optional<BetaWebFetchUrlSources> urlSources`
 
-                            Which sources contribute to the set of URLs web fetch may fetch.
-
-                            Each key is a tagged variant: `user_input` is `all` or `none`; the
-                            two tool filters are `all`, `none`, `only` (only the named tools'
-                            results) or `except` (every result but the named tools'). A named tool
-                            must be declared in this request's `tools[]`.
+                            Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
 
                           - `Optional<Boolean> useCache`
 
@@ -12116,7 +11409,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                             Maximum number of times the tool can be used in the API request.
 
-                            exclusiveMinimum: 0
+                            minimum: 1
 
                           - `Optional<ResponseInclusion> responseInclusion`
 
@@ -12178,13 +11471,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                             Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-                            exclusiveMinimum: 0
+                            minimum: 1
 
                           - `Optional<Long> maxUses`
 
                             Maximum number of times the tool can be used in the API request.
 
-                            exclusiveMinimum: 0
+                            minimum: 1
 
                           - `Optional<ResponseInclusion> responseInclusion`
 
@@ -12200,12 +11493,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           - `Optional<BetaWebFetchUrlSources> urlSources`
 
-                            Which sources contribute to the set of URLs web fetch may fetch.
-
-                            Each key is a tagged variant: `user_input` is `all` or `none`; the
-                            two tool filters are `all`, `none`, `only` (only the named tools'
-                            results) or `except` (every result but the named tools'). A named tool
-                            must be declared in this request's `tools[]`.
+                            Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
 
                           - `Optional<Boolean> useCache`
 
@@ -12257,10 +11545,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                               Powerful intelligence for long-running agents and coding
 
-                            - `CLAUDE_MYTHOS_PREVIEW("claude-mythos-preview")`
-
-                              New class of intelligence, strongest in coding and cybersecurity
-
                             - `CLAUDE_OPUS_4_6("claude-opus-4-6")`
 
                               Powerful intelligence for long-running agents and coding
@@ -12292,6 +11576,12 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
                             - `CLAUDE_SONNET_4_5_20250929("claude-sonnet-4-5-20250929")`
 
                               High-performance model for agents and coding
+
+                            - `CLAUDE_MYTHOS_PREVIEW("claude-mythos-preview")`
+
+                              **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+                              New class of intelligence, strongest in coding and cybersecurity
 
                           - `JsonValue name = "advisor"`
 
@@ -12331,7 +11621,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                             Maximum number of times the tool can be used in the API request.
 
-                            exclusiveMinimum: 0
+                            minimum: 1
 
                           - `Optional<Boolean> strict`
 
@@ -12422,7 +11712,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                             Name of the MCP server to configure tools for
 
-                            maxLength: 255, minLength: 1
+                            minLength: 1, maxLength: 255
 
                           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -12532,7 +11822,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 The name of the MCP server this listing came from, as `mcp_servers` declares it.
 
-                maxLength: 255, minLength: 1
+                minLength: 1, maxLength: 255
 
               - `List<BetaMcpToolParam> tools`
 
@@ -12614,7 +11904,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           - `Optional<Effort> effort`
 
-            All possible effort levels.
+            How much effort the model should put into its response. Higher effort levels may result in more thorough analysis but take longer.
+
+            Valid values are `low`, `medium`, `high`, `xhigh`, or `max`.
 
             - `LOW("low")`
 
@@ -12638,14 +11930,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `Optional<BetaCompactionConfig> compaction`
 
-        Compact the whole conversation and return a signed `compaction` block,
-        alone, that a later request sends back first in `messages`, in place of
-        the messages it summarizes. There is no trigger and no pause flag: sending
-        the parameter compacts, and nothing is sampled after the block.
+        Compaction configuration.
 
-        The summarization prompt is the server's own unless `instructions` are
-        given, which then replace it for this request; a value that is empty or
-        only whitespace counts as absent.
+        When set on `POST /v1/messages`, the request is a compaction request: the conversation in `messages` is summarized and the response holds only the resulting `compaction` block (`stop_reason` `"compaction"`), which later requests send first in `messages` in place of the messages it summarizes. `POST /v1/messages/count_tokens` accepts this parameter and ignores it: the count it returns is for the conversation in `messages` as sent. Cannot be combined with `context_management`.
 
         - `JsonValue type = "summarize"`
 
@@ -12685,13 +11972,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               Skill ID
 
-              maxLength: 64, minLength: 1
+              minLength: 1, maxLength: 64
 
             - `Optional<String> version`
 
               Skill version or 'latest' for most recent version
 
-              maxLength: 64, minLength: 1
+              minLength: 1, maxLength: 64
 
         - `String`
 
@@ -12704,8 +11991,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
         - `Optional<List<Edit>> edits`
 
           List of context management edits to apply
-
-          minItems: 0
 
           - `class BetaClearToolUses20250919Edit`
 
@@ -12805,8 +12090,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `Optional<BetaDiagnosticsParam> diagnostics`
 
-        Request-level diagnostics. Currently carries the previous response
-        id for prompt-cache divergence reporting.
+        Request-level diagnostics. Supply `previous_message_id` to have the response include `diagnostics.cache_miss_reason` explaining any prompt-cache divergence from that prior request.
 
         - `Optional<String> previousMessageId`
 
@@ -12853,7 +12137,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             The opaque `fallback_credit_token` from a prior refusal's `stop_details` — the same string the bare-string form carries.
 
-            maxLength: 2048, minLength: 1
+            minLength: 1, maxLength: 2048
 
           - `Optional<Mode> mode`
 
@@ -12881,7 +12165,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `Optional<Effort> effort`
 
-              All possible effort levels.
+              How much effort the model should put into its response. Higher effort levels may result in more thorough analysis but take longer.
+
+              Valid values are `low`, `medium`, `high`, `xhigh`, or `max`.
 
               - `LOW("low")`
 
@@ -12905,7 +12191,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `Optional<BetaTokenTaskBudget> taskBudget`
 
-              User-configurable total token budget across contexts.
+              Configuration for token budget tracking across contexts.
 
               - `JsonValue type = "tokens"`
 
@@ -12949,17 +12235,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `Optional<BetaThinkingBlockBinding> blockBinding`
 
-                Controls for block binding: what happens when a thinking block this
-                request sends back fails the conversation check. Every field is optional;
-                an empty object means every default.
+                Controls for block binding: what happens when a thinking block this request sends back fails the conversation check. `null`, absent or an empty object means every default.
 
                 - `Optional<BetaThinkingPrefixMismatchBehavior> prefixMismatchBehavior`
 
-                  What happens when a thinking block in `messages` fails the conversation
-                  check: it was created in a different conversation, or the messages before
-                  it have changed since. `"error"` (the default) fails the request with a
-                  400 error. `"drop_block"` removes the failing blocks and the request
-                  proceeds; the model no longer sees the dropped reasoning.
+                  "error" (default) | "drop_block". What happens when a thinking block in `messages` fails the conversation check (it was created in a different conversation, or the messages before it have changed since). "error" fails the request with a 400 error. "drop_block" removes the failing blocks and the request proceeds; each removal is reported in `input_transformations`.
 
                   - `ERROR("error")`
 
@@ -12985,9 +12265,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `Optional<BetaThinkingBlockBinding> blockBinding`
 
-                Controls for block binding: what happens when a thinking block this
-                request sends back fails the conversation check. Every field is optional;
-                an empty object means every default.
+                Controls for block binding: what happens when a thinking block this request sends back fails the conversation check. `null`, absent or an empty object means every default.
 
               - `Optional<Display> display`
 
@@ -13053,7 +12331,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `Optional<Speed> speed`
 
-        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+        The inference speed mode for this request. `"fast"` enables high output-tokens-per-second inference.
 
         - `STANDARD("standard")`
 
@@ -13322,7 +12600,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         Note that even with `temperature` of `0.0`, the results will not be fully deterministic.
 
-        maximum: 1, minimum: 0
+        minimum: 0, maximum: 1
 
       - `Optional<Long> topK`
 
@@ -13346,7 +12624,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         Recommended for advanced use cases only.
 
-        maximum: 1, minimum: 0
+        minimum: 0, maximum: 1
 
 #### Returns
 
@@ -13795,7 +13073,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     Defaults to `20`. Ranges from `1` to `1000`.
 
-    maximum: 1000, minimum: 1
+    minimum: 1, maximum: 1000
 
   - `Optional<List<AnthropicBeta>> betas`
 
@@ -14654,7 +13932,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `Optional<BetaContainer> container`
 
-          Information about the container used in the request (for the code execution tool)
+          Information about the container used in this request.
+
+          This will be non-null if a container tool (e.g. code execution) was used.
 
           - `String id`
 
@@ -14682,13 +13962,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               Skill ID
 
-              maxLength: 64, minLength: 1
+              minLength: 1, maxLength: 64
 
             - `String version`
 
               The resolved version: a skill version ID for custom skills.
 
-              maxLength: 64, minLength: 1
+              minLength: 1, maxLength: 64
 
         - `List<BetaContentBlock> content`
 
@@ -14849,8 +14129,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `String text`
 
-              minLength: 0
-
           - `class BetaThinkingBlock`
 
             - `JsonValue type = "thinking"`
@@ -14923,7 +14201,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               For a toolset member tool_use, the toolset family.
 
-              maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
+              minLength: 1, maxLength: 64, pattern: ^[a-zA-Z0-9_-]+$
 
           - `class BetaServerToolUseBlock`
 
@@ -15363,7 +14641,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `String toolName`
 
-                    maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+                    minLength: 1, maxLength: 256, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
             - `String toolUseId`
 
@@ -15406,8 +14684,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
                   The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
 
                 - `String text`
-
-                  minLength: 0
 
             - `boolean isError`
 
@@ -15530,7 +14806,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           This is how the tool will be called by the model and in `tool_use` blocks.
 
-                          maxLength: 128, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,128}$
+                          minLength: 1, maxLength: 128, pattern: ^[a-zA-Z0-9_-]{1,128}$
 
                         - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -15794,12 +15070,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                         - `Optional<BetaBrowserToolsetConfigs> configs`
 
-                          Per-member configuration for `browser_toolset_20260801`: one
-                          optional field per member tool, keyed by the member name — the same
-                          name the member's `tool_use` blocks carry. Every member is an
-                          accepted key, and a member's defaults apply wherever its key is
-                          absent. Unknown keys are rejected: the field set is this toolset
-                          version's complete member set.
+                          Sparse per-member overrides, keyed by member name. Absent, null, and {} are equivalent; a member's defaults apply wherever its key is absent.
 
                           - `Optional<BetaBrowserTypeConfig> type`
 
@@ -16420,12 +15691,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                         - `Optional<BetaComputerToolsetConfigs> configs`
 
-                          Per-member configuration for `computer_toolset_20260801`: one
-                          optional field per member tool, keyed by the member name — the same
-                          name the member's `tool_use` blocks carry. Every member is an
-                          accepted key, and a member's defaults apply wherever its key is
-                          absent. Unknown keys are rejected: the field set is this toolset
-                          version's complete member set.
+                          Sparse per-member overrides, keyed by member name. Absent, null, and {} are equivalent; a member's defaults apply wherever its key is absent.
 
                           - `Optional<BetaComputerTypeConfig> type`
 
@@ -16779,7 +16045,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           Maximum number of times the tool can be used in the API request.
 
-                          exclusiveMinimum: 0
+                          minimum: 1
 
                         - `Optional<Boolean> strict`
 
@@ -16795,25 +16061,25 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                             The city of the user.
 
-                            maxLength: 255, minLength: 1
+                            minLength: 1, maxLength: 255
 
                           - `Optional<String> country`
 
                             The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
 
-                            maxLength: 2, minLength: 2
+                            minLength: 2, maxLength: 2
 
                           - `Optional<String> region`
 
                             The region of the user.
 
-                            maxLength: 255, minLength: 1
+                            minLength: 1, maxLength: 255
 
                           - `Optional<String> timezone`
 
                             The [IANA timezone](https://nodatime.org/TimeZones) of the user.
 
-                            maxLength: 255, minLength: 1
+                            minLength: 1, maxLength: 255
 
                       - `class BetaWebFetchTool20250910`
 
@@ -16861,13 +16127,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-                          exclusiveMinimum: 0
+                          minimum: 1
 
                         - `Optional<Long> maxUses`
 
                           Maximum number of times the tool can be used in the API request.
 
-                          exclusiveMinimum: 0
+                          minimum: 1
 
                         - `Optional<Boolean> strict`
 
@@ -16875,12 +16141,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                         - `Optional<BetaWebFetchUrlSources> urlSources`
 
-                          Which sources contribute to the set of URLs web fetch may fetch.
-
-                          Each key is a tagged variant: `user_input` is `all` or `none`; the
-                          two tool filters are `all`, `none`, `only` (only the named tools'
-                          results) or `except` (every result but the named tools'). A named tool
-                          must be declared in this request's `tools[]`.
+                          Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
 
                           - `Optional<ClientToolResults> clientToolResults`
 
@@ -17004,7 +16265,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           Maximum number of times the tool can be used in the API request.
 
-                          exclusiveMinimum: 0
+                          minimum: 1
 
                         - `Optional<Boolean> strict`
 
@@ -17058,13 +16319,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-                          exclusiveMinimum: 0
+                          minimum: 1
 
                         - `Optional<Long> maxUses`
 
                           Maximum number of times the tool can be used in the API request.
 
-                          exclusiveMinimum: 0
+                          minimum: 1
 
                         - `Optional<Boolean> strict`
 
@@ -17072,12 +16333,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                         - `Optional<BetaWebFetchUrlSources> urlSources`
 
-                          Which sources contribute to the set of URLs web fetch may fetch.
-
-                          Each key is a tagged variant: `user_input` is `all` or `none`; the
-                          two tool filters are `all`, `none`, `only` (only the named tools'
-                          results) or `except` (every result but the named tools'). A named tool
-                          must be declared in this request's `tools[]`.
+                          Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
 
                       - `class BetaWebFetchTool20260309`
 
@@ -17125,13 +16381,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-                          exclusiveMinimum: 0
+                          minimum: 1
 
                         - `Optional<Long> maxUses`
 
                           Maximum number of times the tool can be used in the API request.
 
-                          exclusiveMinimum: 0
+                          minimum: 1
 
                         - `Optional<Boolean> strict`
 
@@ -17139,12 +16395,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                         - `Optional<BetaWebFetchUrlSources> urlSources`
 
-                          Which sources contribute to the set of URLs web fetch may fetch.
-
-                          Each key is a tagged variant: `user_input` is `all` or `none`; the
-                          two tool filters are `all`, `none`, `only` (only the named tools'
-                          results) or `except` (every result but the named tools'). A named tool
-                          must be declared in this request's `tools[]`.
+                          Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
 
                         - `Optional<Boolean> useCache`
 
@@ -17190,7 +16441,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           Maximum number of times the tool can be used in the API request.
 
-                          exclusiveMinimum: 0
+                          minimum: 1
 
                         - `Optional<ResponseInclusion> responseInclusion`
 
@@ -17252,13 +16503,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-                          exclusiveMinimum: 0
+                          minimum: 1
 
                         - `Optional<Long> maxUses`
 
                           Maximum number of times the tool can be used in the API request.
 
-                          exclusiveMinimum: 0
+                          minimum: 1
 
                         - `Optional<ResponseInclusion> responseInclusion`
 
@@ -17274,12 +16525,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                         - `Optional<BetaWebFetchUrlSources> urlSources`
 
-                          Which sources contribute to the set of URLs web fetch may fetch.
-
-                          Each key is a tagged variant: `user_input` is `all` or `none`; the
-                          two tool filters are `all`, `none`, `only` (only the named tools'
-                          results) or `except` (every result but the named tools'). A named tool
-                          must be declared in this request's `tools[]`.
+                          Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
 
                         - `Optional<Boolean> useCache`
 
@@ -17331,10 +16577,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                             Powerful intelligence for long-running agents and coding
 
-                          - `CLAUDE_MYTHOS_PREVIEW("claude-mythos-preview")`
-
-                            New class of intelligence, strongest in coding and cybersecurity
-
                           - `CLAUDE_OPUS_4_6("claude-opus-4-6")`
 
                             Powerful intelligence for long-running agents and coding
@@ -17366,6 +16608,12 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
                           - `CLAUDE_SONNET_4_5_20250929("claude-sonnet-4-5-20250929")`
 
                             High-performance model for agents and coding
+
+                          - `CLAUDE_MYTHOS_PREVIEW("claude-mythos-preview")`
+
+                            **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+                            New class of intelligence, strongest in coding and cybersecurity
 
                         - `JsonValue name = "advisor"`
 
@@ -17405,7 +16653,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           Maximum number of times the tool can be used in the API request.
 
-                          exclusiveMinimum: 0
+                          minimum: 1
 
                         - `Optional<Boolean> strict`
 
@@ -17496,7 +16744,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           Name of the MCP server to configure tools for
 
-                          maxLength: 255, minLength: 1
+                          minLength: 1, maxLength: 255
 
                         - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -17605,7 +16853,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `Optional<Category> category`
 
-                The policy category that triggered a refusal.
+                The policy category that triggered the `from` model's refusal at this hop. `null` when the refusal doesn't map to a named category. Same vocabulary as `stop_details.category`.
 
                 - `CYBER("cyber")`
 
@@ -17694,8 +16942,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `Optional<BetaDiagnostics> diagnostics`
 
-          Request-level diagnostics: why the prompt cache could not fully reuse
-          the prefix of the request named by `diagnostics.previous_message_id`.
+          Request-level diagnostics. `null` when the request did not supply `diagnostics`, or when it did and no prompt-cache divergence was detected.
 
           - `Optional<BetaCacheMissReason> cacheMissReason`
 
@@ -17755,13 +17002,17 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `Optional<BetaRefusalStopDetails> stopDetails`
 
-          Structured information about a refusal.
+          Structured information about why model output stopped.
+
+          This is `null` when the `stop_reason` has no additional detail to report.
 
           - `JsonValue type = "refusal"`
 
           - `Optional<Category> category`
 
-            The policy category that triggered a refusal.
+            The policy category that triggered the refusal.
+
+            `null` when the refusal doesn't map to a named category.
 
             - `CYBER("cyber")`
 
@@ -17919,6 +17170,10 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
           - `Optional<BetaFallbackCreditUsage> fallbackCredit`
 
             Outcome of the `fallback_credit_token` presented on this request.
+
+            Present on every response to a non-batch request that carried a
+            `fallback_credit_token`, in either redemption mode; absent otherwise (batch
+            items accept and ignore the token and carry no outcome object).
 
             - `Status status`
 
@@ -18231,7 +17486,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           - `Optional<Speed> speed`
 
-            Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+            The inference speed mode used for this request.
 
             - `STANDARD("standard")`
 

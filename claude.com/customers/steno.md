@@ -46,7 +46,7 @@ Steno chose Claude 3 Opus to drive Transcript Genius, its AI-powered transcript 
 
 “We had a proof of concept up within a week,” says Dan Anderson, Co-Founder and Chief Technology Officer at Steno, noting that they were able to build everything needed with one and a half engineers on the project.
 
-![App screen from Steno platform](https://assets.claude.com/97393eae42e22dc4b95024cfde07c7066a1e44d6.png)
+![App screen from Steno platform](https://assets.claude.com/97393eae42e22dc4b95024cfde07c7066a1e44d6.png?w=2400&q=75&fm=webp&fit=max)
 
 ## A solution attorneys can trust
 
@@ -54,7 +54,7 @@ With Transcript Genius, attorneys can easily search, analyze, and interrogate th
 
 “I’m litigating a legal malpractice case right now, and I asked the model to find all evidence of legal malpractice in a particular transcript,” says Dylan Ruga, President and Chief Legal Officer at Steno. “The model was able to understand four things you need to prove legal malpractice and find specific evidence relevant to those four things, which is super impressive, because there was nothing in the transcript itself that talked about the elements of proving a legal malpractice case.”
 
-![App screen of the Steno platform](https://assets.claude.com/733fb2ead12b86ada27a51a3df4de11c364f8d86.jpg)
+![App screen of the Steno platform](https://assets.claude.com/733fb2ead12b86ada27a51a3df4de11c364f8d86.jpg?w=2400&q=75&fm=webp&fit=max)
 
 In the legal world, attorneys need to trust in a system before they can rely on it, and the legal world has been rightfully skeptical of many players in the generative AI space. “We’ve heard horror stories of other models citing cases that don’t actually exist. We want to build trust with our customers, and working with a high-integrity model like Claude helps preserve that trust,” Dan says.
 

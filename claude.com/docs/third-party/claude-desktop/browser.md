@@ -38,13 +38,14 @@ If your devices use a [bootstrap server](https://claude.com/docs/third-party/cla
 
 ###  Restrict which sites Claude can open
 
-[`builtinBrowserDefaultDomainPolicy`](https://claude.com/docs/third-party/claude-desktop/configuration#builtinbrowserdefaultdomainpolicy) decides whether Claude can open every site except the ones you block, or only the sites you allow.
+[`builtinBrowserDefaultDomainPolicy`](https://claude.com/docs/third-party/claude-desktop/configuration#builtinbrowserdefaultdomainpolicy) decides whether Claude can open every site except the ones you block, or only the sites you allow. Under either value, a site that Anthropic’s [site safety check](#site-safety-check) blocks stays blocked to Claude, even when `builtinBrowserAllowedDomains` lists it.
 
 | Value | Behavior |
 | --- | --- |
 | Unset or `allow` | Claude can open every site except the entries in [`builtinBrowserBlockedDomains`](https://claude.com/docs/third-party/claude-desktop/configuration#builtinbrowserblockeddomains) |
 | `block` | Claude can open only the entries in [`builtinBrowserAllowedDomains`](https://claude.com/docs/third-party/claude-desktop/configuration#builtinbrowseralloweddomains) |
 
+The policy also governs sites that the site safety check flags for confirmation rather than blocks. Under the default `allow` policy, Claude asks the user before each of its actions on such a site. Under `block`, listing the site in `builtinBrowserAllowedDomains` is your organization vouching for it, so Claude works with it without asking before each action. For a site on your private network, Claude Desktop still asks before each action until the user chooses **Always allow** for that site.
 For example, this configuration lets Claude open only a documentation site and a wiki:
 
 ```

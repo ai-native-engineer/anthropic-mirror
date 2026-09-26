@@ -30,7 +30,7 @@ Speaker(s)
 
 ## Watch recording
 
-![How to get to production faster with Claude Managed Agents](https://assets.claude.com/f123386f351a52df5736886633e0f570aee03250.jpg?w=1600&auto=format)
+![How to get to production faster with Claude Managed Agents](https://assets.claude.com/f123386f351a52df5736886633e0f570aee03250.jpg?w=2400&q=75&fm=webp&fit=max)
 
 ## Anthropic's developer conference, recorded
 

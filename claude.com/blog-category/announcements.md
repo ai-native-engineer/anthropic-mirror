@@ -18,6 +18,22 @@ Grid
 
 List
 
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d229061abf091318fc81_6905c83d0735e1bc430025fdd1748d1406079036-1000x1000.svg)
+
+Sep 25, 2026
+
+Build plugins for Claude
+
+Product announcements
+
+Build plugins for Claude
+
+September 25, 2026
+
+[Build plugins for Claude](https://claude.com/blog/build-plugins-for-claude)Build plugins for Claude
+
+[Build plugins for Claude](#)Build plugins for Claude
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22deea97e4a5b5e5739_8d339ae8ecedecc1409db8f5bbb99c958db56946-1000x1000.svg)
 
 Sep 24, 2026
@@ -242,22 +258,6 @@ August 20, 2026
 
 [Build production agents with computer use, the Skills API, and the Files API](#)Build production agents with computer use, the Skills API, and the Files API
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2238ce207f9b2011d3f_e44a6b53398f189b9fd0d4f70516db614ac84db3-1000x1000.svg)
-
-Aug 13, 2026
-
-Self-service data analytics in Slack: how Anthropic deploys Claude Tag for ad-hoc questions
-
-Agents
-
-Self-service data analytics in Slack: how Anthropic deploys Claude Tag for ad-hoc questions
-
-August 13, 2026
-
-[Self-service data analytics in Slack: how Anthropic deploys Claude Tag for ad-hoc questions](https://claude.com/blog/self-service-data-analytics-in-slack-how-anthropic-deploys-claude-tag-for-ad-hoc-questions)Self-service data analytics in Slack: how Anthropic deploys Claude Tag for ad-hoc questions
-
-[Self-service data analytics in Slack: how Anthropic deploys Claude Tag for ad-hoc questions](#)Self-service data analytics in Slack: how Anthropic deploys Claude Tag for ad-hoc questions
-
 [View more](https://claude.com/blog-category/announcements?1e959936_page=2)
 
 Category
@@ -265,6 +265,22 @@ Category
 Product
 
 Usecase
+
+### Build plugins for Claude
+
+Category
+
+Product announcements
+
+Product
+
+Usecase
+
+September 25, 2026
+
+[Build plugins for Claude](https://claude.com/blog/build-plugins-for-claude)Build plugins for Claude
+
+[Build plugins for Claude](#)Build plugins for Claude
 
 ### Claude Tag now supports personal connectors in channels
 
@@ -489,22 +505,6 @@ August 20, 2026
 [Build production agents with computer use, the Skills API, and the Files API](https://claude.com/blog/computer-use-skills-api-files-api)Build production agents with computer use, the Skills API, and the Files API
 
 [Build production agents with computer use, the Skills API, and the Files API](#)Build production agents with computer use, the Skills API, and the Files API
-
-### Self-service data analytics in Slack: how Anthropic deploys Claude Tag for ad-hoc questions
-
-Category
-
-Agents
-
-Product
-
-Usecase
-
-August 13, 2026
-
-[Self-service data analytics in Slack: how Anthropic deploys Claude Tag for ad-hoc questions](https://claude.com/blog/self-service-data-analytics-in-slack-how-anthropic-deploys-claude-tag-for-ad-hoc-questions)Self-service data analytics in Slack: how Anthropic deploys Claude Tag for ad-hoc questions
-
-[Self-service data analytics in Slack: how Anthropic deploys Claude Tag for ad-hoc questions](#)Self-service data analytics in Slack: how Anthropic deploys Claude Tag for ad-hoc questions
 
 [View more](https://claude.com/blog-category/announcements?2f226f2c_page=2)
 

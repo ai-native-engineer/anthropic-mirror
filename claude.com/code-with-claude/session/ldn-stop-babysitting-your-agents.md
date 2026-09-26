@@ -27,7 +27,7 @@ Speaker(s)
 
 ## Watch recording
 
-![Stop babysitting your agents](https://assets.claude.com/72876989963e2115069c58734233f9453461ff15.jpg?w=1600&auto=format)
+![Stop babysitting your agents](https://assets.claude.com/72876989963e2115069c58734233f9453461ff15.jpg?w=2400&q=75&fm=webp&fit=max)
 
 ## Anthropic's developer conference, recorded
 

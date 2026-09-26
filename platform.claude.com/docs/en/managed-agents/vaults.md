@@ -39,7 +39,7 @@ A vault is the collection of `credentials` associated with an end user. Give it 
   EOF
   ```
 
-  <MultiFileExample language="cli" label="CLI">
+  <CodeGroupItem>
     ```bash CLI
     ant beta:vaults create < alice.vault.yaml
     ```
@@ -51,7 +51,7 @@ A vault is the collection of `credentials` associated with an end user. Give it 
         external_user_id: usr_abc123
       ```
     </File>
-  </MultiFileExample>
+  </CodeGroupItem>
 
   ```python Python
   vault = client.beta.vaults.create(

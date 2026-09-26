@@ -10,6 +10,10 @@
 
 Work Claude does in channels bills to your **organization’s usage balance**, not to individual seats. The **spend limit** is a cap you set on how much of that balance Claude Tag can use each month.
 
+##  How Claude Tag usage is billed
+
+Slack users can work with Claude in channels [without holding a Claude seat](https://claude.com/docs/claude-tag/admins/restrict-access#restrict-who-can-use-claude).
+
 | Work | Bills to | Capped by |
 | --- | --- | --- |
 | Channel work | Your organization’s usage balance | The spend limit, plus any [per-channel limits](https://claude.com/docs/claude-tag/admins/restrict-access#set-spend-limits) |

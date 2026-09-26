@@ -30,7 +30,7 @@ using Claude Enterprise
 
 Cowork
 
-![Cowork](https://assets.claude.com/9716b96b8df867765a639f3ea8a07170508200bf.jpg)
+![Cowork](https://assets.claude.com/9716b96b8df867765a639f3ea8a07170508200bf.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Give Claude access to your local files and let it complete tasks autonomously. Agentic capabilities for non-technical knowledge work.
 
@@ -88,7 +88,7 @@ Don't overthink the first skill. Pick a workflow that's annoying, structured, an
 
 Claude Enterprise, now available self-serve
 
-![Claude Enterprise, now available self-serve](https://assets.claude.com/72d1034a360474d7ac2b1ae9b198d5b09a23d97c.jpg)
+![Claude Enterprise, now available self-serve](https://assets.claude.com/72d1034a360474d7ac2b1ae9b198d5b09a23d97c.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Any organization can now purchase Claude Enterprise directly—no sales conversation required. Set up SSO, invite team members, and start working in minutes.
 
@@ -107,5 +107,3 @@ Nick BenyoSoftware Engineer, Jamf
 ### Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
 ### How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)
-
-Jamf Claude Cowork case study | Claude by Anthropic

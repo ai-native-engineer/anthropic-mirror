@@ -55,8 +55,6 @@ Sell, serve, and operate at scale with Salesforce.
 
 ### [Maryland Community Compass](https://claude.com/marketplace/connectors/maryland-compass)
 
-Anthropic verifiedTrending
-
 Maryland's neighborhood development data platform.
 
 [Add Maryland Community Compass in Claude (opens in new tab)](https://claude.ai/directory/68edb405-8774-419f-b9d8-32f0a95229dd "Add in Claude")

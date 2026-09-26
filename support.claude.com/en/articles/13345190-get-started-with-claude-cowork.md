@@ -150,7 +150,7 @@ To set global instructions:
 2. Click "Edit" next to **Global instructions**.
 3. Type your instructions in the text box and click "Save":
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2525926874/15324ac4155d7802272e8bdef04b/ec66cd09-a4db-4f1d-8f30-226c9d126333?expires=1790297100&signature=e928905f5f84dd9384ffbaca73b8e6d89dfce6b96f81f050dc63ac1c41c2ef3b&req=diUlE8B8m4lYXfMW1HO4zcDl69juP1ax8iWjaktE943ft6b4tRBpHSfvT0bp%0AAt0%2BZzVSAyy%2FW2eDmoA%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2525926874/15324ac4155d7802272e8bdef04b/ec66cd09-a4db-4f1d-8f30-226c9d126333?expires=1790297100&signature=e928905f5f84dd9384ffbaca73b8e6d89dfce6b96f81f050dc63ac1c41c2ef3b&req=diUlE8B8m4lYXfMW1HO4zcDl69juP1ax8iWjaktE943ft6b4tRBpHSfvT0bp%0AAt0%2BZzVSAyy%2FW2eDmoA%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2525926874/15324ac4155d7802272e8bdef04b/ec66cd09-a4db-4f1d-8f30-226c9d126333?expires=1790424000&signature=472c056879b5f563f3d6d79573da651b50c0c09157543cd0552fe2c79690e297&req=diUlE8B8m4lYXfMW3nq%2BgcqgxG%2BC3LLeb1GMqW%2FkK1dCm7hQFa1yKW6lA5Pv%0A6PtF5lwr8QBktAmL04wBON85y5o%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2525926874/15324ac4155d7802272e8bdef04b/ec66cd09-a4db-4f1d-8f30-226c9d126333?expires=1790424000&signature=472c056879b5f563f3d6d79573da651b50c0c09157543cd0552fe2c79690e297&req=diUlE8B8m4lYXfMW3nq%2BgcqgxG%2BC3LLeb1GMqW%2FkK1dCm7hQFa1yKW6lA5Pv%0A6PtF5lwr8QBktAmL04wBON85y5o%3D%0A)
 
 ### Folder instructions
 
@@ -160,7 +160,7 @@ Folder instructions add project-specific context to Cowork when you select a loc
 
 ## Claude Cowork plugins
 
-Plugins customize how Claude works for your role, team, and company in Cowork. Each one bundles skills, connectors, and sub-agents into a single package. For details on finding, installing, and customizing plugins, see **[Use plugins in Cowork](https://support.claude.com/en/articles/13837440-use-plugins-in-cowork)**.
+Plugins customize how Claude works for your role, team, and company. Each one bundles skills, connectors, and sub-agents into a single package. A plugin you add is saved to your account, so it works in chat and Claude Code as well as Cowork. For details on finding, adding, and customizing plugins, see [**Use plugins in Claude**](https://support.claude.com/en/articles/13837440-use-plugins-in-cowork).
 
 ---
 
@@ -268,8 +268,8 @@ Multi-step tasks use more of your usage than quick questions. Group related work
 
 Check that you've granted Claude the appropriate file access permissions. Review the output location Claude specified when completing the task.
 
-* [Get started with Claude in Chrome](https://support.claude.com/en/articles/12012173-get-started-with-claude-in-chrome)
 * [Use Claude Cowork safely](https://support.claude.com/en/articles/13364135-use-claude-cowork-safely)
 * [Use Claude Cowork on Team and Enterprise plans](https://support.claude.com/en/articles/13455879-use-claude-cowork-on-team-and-enterprise-plans)
+* [Schedule recurring tasks in Claude Cowork](https://support.claude.com/en/articles/13854387-schedule-recurring-tasks-in-claude-cowork)
 * [Claude Cowork architecture overview](https://support.claude.com/en/articles/14479288-claude-cowork-architecture-overview)
 * [Use Claude Cowork on web, desktop, and mobile](https://support.claude.com/en/articles/15520349-use-claude-cowork-on-web-desktop-and-mobile)

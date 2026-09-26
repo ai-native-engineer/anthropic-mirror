@@ -42,7 +42,7 @@ Speaker(s)
 
 ## Watch recording
 
-![Building AI-native: Inside the stacks powering Cognition, Gamma, and Harvey](https://assets.claude.com/fdf1e84665c2d8ccf57be0b1e5dd3bf06bbb8ac1.jpg?w=1600&auto=format)
+![Building AI-native: Inside the stacks powering Cognition, Gamma, and Harvey](https://assets.claude.com/fdf1e84665c2d8ccf57be0b1e5dd3bf06bbb8ac1.jpg?w=2400&q=75&fm=webp&fit=max)
 
 ## Anthropic's developer conference, recorded
 

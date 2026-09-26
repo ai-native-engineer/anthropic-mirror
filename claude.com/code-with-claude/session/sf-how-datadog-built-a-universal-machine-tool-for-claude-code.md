@@ -24,7 +24,7 @@ Speaker(s)
 
 ## Watch recording
 
-![How Datadog built a universal machine tool for Claude Code](https://assets.claude.com/167788052e2f63ab88489418d20ecf16e09253ba.jpg?w=1600&auto=format)
+![How Datadog built a universal machine tool for Claude Code](https://assets.claude.com/167788052e2f63ab88489418d20ecf16e09253ba.jpg?w=2400&q=75&fm=webp&fit=max)
 
 ## Anthropic's developer conference, recorded
 

@@ -60,7 +60,7 @@ and out would pop the paper. We are not there yet, of course. I tried giving thi
 
 To go about this scientifically, I encapsulated all the work. The rules were strict:
 
-* Only give text prompts to [Claude Code](https://claude.ai/redirect/website.v1.8bdac8a2-9059-4da6-b601-a43106c0d0bf/code). No editing files directly.
+* Only give text prompts to [Claude Code](https://claude.ai/redirect/website.v1.ff38a584-eff7-4c5f-8b76-410999dc8eb8/code). No editing files directly.
 * Don’t cut and paste my own calculations into the chat.
 * But pasting Gemini or GPT calculations was OK, as long as they were only text-prompted.
 
@@ -70,7 +70,7 @@ My question was: is there a set of prompts, like instructions to a talented G2, 
 
 I knew from experience that LLMs struggle with context and organization over long projects. So I started by asking Claude to come up with a plan of attack: what tasks needed to be done in what order. I also asked GPT 5.2 and Gemini 3.0. Then, I had all three LLMs merge the best ideas from each, using web interfaces and copying one to another. Next, I gave those merges to Claude, asking it to break the outline into detailed subsections. The result is [here](https://www-cdn.anthropic.com/2595299ccf7f8b9a9c74823c24faaa5d9b216804.pdf). There were 102 separate tasks across seven stages.
 
-From there, I turned to [Claude Code](https://claude.ai/redirect/website.v1.8bdac8a2-9059-4da6-b601-a43106c0d0bf/code), using the extension in VS Code.
+From there, I turned to [Claude Code](https://claude.ai/redirect/website.v1.ff38a584-eff7-4c5f-8b76-410999dc8eb8/code), using the extension in VS Code.
 
 ![A screen grab of Claude code](https://www-cdn.anthropic.com/images/4zrzovbb/website/2277f287d82a9a6087bc70c6d16cfd6648634d7e-1600x967.jpg)
 
@@ -2389,7 +2389,15 @@ In addition to the growth in interest, the tools themselves have been steadily i
 
 ####
 
+### Yes, Claude can do Nine Loops
+
+Guest writer and physicist Matt von Hippel shares what happened when he issued a challenge to AI companies to solve a problem in his former subfield of theoretical physics.
+
+[Read more](https://www.anthropic.com/research/yes-claude-can-do-nine-loops)
+
 ### Project Swap: What happens when agents trade for us?
+
+To see what works and what breaks when agents are sent into a market, we made a miniature market of Claudes—a more controlled sequel to Project Deal, our first experiment with agents interacting in a marketplace on people's behalf.
 
 [Read more](https://www.anthropic.com/research/project-swap)
 
@@ -2398,12 +2406,6 @@ In addition to the growth in interest, the tools themselves have been steadily i
 Claude made the open-source models that scientists use to predict and design biomolecules faster and more memory-efficient. Claude optimized more than 30 of these models in just under four weeks, speeding them up roughly 4x on average. It also created a low-memory mode that enables the accurate prediction of biomolecular systems larger than 10,000 tokens (amino acids, nucleotides, and atoms from small molecules and ions) on a single NVIDIA GPU node.
 
 [Read more](https://www.anthropic.com/research/claude-uplifts-biomolecular-modeling)
-
-### Measuring tactical intelligence targeting and conventional weapons capabilities of AI models
-
-Anthropic’s Frontier Red Team developed new evaluations to measure AI capabilities in tactical intelligence targeting and conventional weapons development.
-
-[Read more](https://www.anthropic.com/research/intelligence-targeting-conventional-weapons-capabilities)
 
 ## Subscribe to Anthropic Science
 

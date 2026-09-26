@@ -6,11 +6,11 @@ Q&A | Claude Cowork
 
 [Try Claude](https://claude.ai)
 
-![Video thumbnail](https://assets.claude.com/59ba841a296fc2aef5543931ca42941b80cce806.png)
+![Video thumbnail](https://assets.claude.com/59ba841a296fc2aef5543931ca42941b80cce806.png?w=2400&q=75&fm=webp&fit=max)
 
 Case Study: Thomson Reuters
 
-![Case Study: Thomson Reuters ](https://assets.claude.com/93bf8345b6e1c004d338dc0bc0a62884a5953eff.jpg)
+![Case Study: Thomson Reuters ](https://assets.claude.com/93bf8345b6e1c004d338dc0bc0a62884a5953eff.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Thomson Reuters uses Claude in Amazon Bedrock as part of its strategy to power its legal AI platform, CoCounsel.
 
@@ -18,7 +18,7 @@ Thomson Reuters uses Claude in Amazon Bedrock as part of its strategy to power i
 
 Cowork
 
-![Cowork](https://assets.claude.com/9716b96b8df867765a639f3ea8a07170508200bf.jpg)
+![Cowork](https://assets.claude.com/9716b96b8df867765a639f3ea8a07170508200bf.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Give Claude access to your local files and let it complete tasks autonomously. Agentic capabilities for non-technical knowledge work.
 

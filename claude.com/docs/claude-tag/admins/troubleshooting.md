@@ -35,7 +35,7 @@ What you expected to see while running [setup](https://claude.com/docs/claude-ta
 | A connected tool to work in your test | “I can’t reach…” | Claude isn’t told about a connection added after the thread started. Ask it to use the service by name, or start a fresh thread. |
 | The **Where Claude Tag works** section with a **+ Connect** button | Only the legacy Claude in Slack toggles | Your organization isn’t enabled for Claude Tag. Contact your account team. |
 | Claude to respond in Slack | ”Claude Tag has been turned off for your Claude organization…” | The **Enable Claude Tag for your organization** toggle is off. An Owner turns it on at [`claude.ai/admin-settings/claude-tag`](https://claude.ai/admin-settings/claude-tag). See [the troubleshooting entry](#claude-tag-is-turned-off-for-your-organization). |
-| Claude to respond in Slack | ”Claude Tag is unavailable because Routines aren’t enabled for your organization…” | Routines isn’t enabled for your Claude organization, which Claude Tag requires. An admin enables Routines at [`claude.ai/admin-settings/claude-code`](https://claude.ai/admin-settings/claude-code), then anyone can mention `@Claude` again. See [the troubleshooting entry](#claude-tag-is-unavailable-because-routines-are-not-enabled). |
+| Claude to respond in Slack | ”Claude Tag is unavailable because Routines aren’t enabled for your organization…” | Routines isn’t enabled for your Claude organization, which Claude Tag requires. An admin turns on [**Admin settings > Capabilities > Remote sessions > Routines**](https://claude.ai/admin-settings/capabilities). Anyone can then mention `@Claude` again. See [the troubleshooting entry](#claude-tag-is-unavailable-because-routines-are-not-enabled). |
 | Claude to respond in Slack | ”Claude in Slack is not available for your organization” or “Claude isn’t available for organizations with restricted compliance settings.” | The paired Claude organization has a restricted compliance configuration, such as Zero Data Retention (ZDR), that Claude Tag can’t run under. No setting lifts the restriction; contact your account team. See [the troubleshooting entry](#restricted-compliance-settings-block-claude-tag). |
 | The **Slack** tab to list your scopes | ”Couldn’t load Slack scopes. Reload the page to try again.” | Reload the page. See [Couldn’t load Slack scopes](#couldn%E2%80%99t-load-slack-scopes). |
 | A reply in your test channel | ”Couldn’t check this channel just now” | Mention `@Claude` again. See [Couldn’t check this channel just now](#couldn%E2%80%99t-check-this-channel-just-now). |
@@ -119,7 +119,7 @@ Slack’s audit log shows Claude joining a channel with no inviter recorded, and
 Either a member selected **Add to channel** on a channel Claude suggested in a direct message, or the channel’s name matches an [auto-join channel pattern](https://claude.com/docs/claude-tag/admins/restrict-access#block-or-auto-join-channels-by-name) an admin set, and Claude joined the public channel when it was created or renamed. Claude’s welcome message, the introduction it posts when a member first opens a direct message with it, suggests a few public channels, each with an **Add to channel** button. Selecting one directs Claude to add itself to that channel.
 Claude performs that join with its own `channels:join` permission, so Slack’s audit log records the join as the Claude app and shows no inviter; the member’s selection is not visible in Slack’s log. Outside those two paths, Claude never joins a channel unprompted. [What the Claude Slack app can access](https://claude.com/docs/claude-tag/admins/for-slack-admins) covers how members add it.
 **How to resolve**
-Nothing is misconfigured. If an auto-join pattern brought Claude in, review the patterns in the scope’s **Advanced** section. If Claude shouldn’t be in the channel, remove it with `/remove @Claude`, or [set the scope’s Claude Tag version to Off](https://claude.com/docs/claude-tag/admins/restrict-access#quiet-or-remove-claude-tag) so it stops responding there even if it’s added again. If you have the [**Enable Claude Tag** switch](https://claude.com/docs/claude-tag/admins/workspaces#turn-claude-tag-on-or-off-on-the-team-plan) instead of per-scope version settings, remove Claude and add a [blocked channel pattern](https://claude.com/docs/claude-tag/admins/restrict-access#block-or-auto-join-channels-by-name) for the channel’s name. If you want every join in the audit log attributed to a person, ask members to add Claude with `/invite @Claude` rather than the buttons; Slack records an invite as the inviting member’s action.
+Nothing is misconfigured. If an auto-join pattern brought Claude in, review the patterns in the scope’s **Advanced** section. If Claude shouldn’t be in the channel, remove it with `/remove @Claude`, or [turn the scope’s **Enable Claude Tag in this channel** switch off](https://claude.com/docs/claude-tag/admins/restrict-access#quiet-or-remove-claude-tag) so it stops responding there even if it’s added again. If you have the single [**Enable Claude Tag** switch](https://claude.com/docs/claude-tag/admins/workspaces#turn-claude-tag-on-or-off-on-the-team-plan) instead of the per-scope switches, remove Claude and add a [blocked channel pattern](https://claude.com/docs/claude-tag/admins/restrict-access#block-or-auto-join-channels-by-name) for the channel’s name. If you want every join in the audit log attributed to a person, ask members to add Claude with `/invite @Claude` rather than the buttons; Slack records an invite as the inviting member’s action.
 
 ##  Guest and shared channels
 
@@ -355,7 +355,7 @@ In the message, “claude.ai → Admin settings → Claude Code” is a link to 
 **What it means**
 Your organization doesn’t have Routines enabled, which Claude Tag requires. Anyone who mentions Claude in a channel or DMs it gets this reply, and Claude does no work. The “Couldn’t verify” reply means the check couldn’t complete rather than that Routines is off.
 **How to resolve**
-An admin enables Routines from the Claude Code page in admin settings, at [`claude.ai/admin-settings/claude-code`](https://claude.ai/admin-settings/claude-code). Once Routines is enabled for your organization, mention Claude again; a normal reply means the setting took effect. For the “Couldn’t verify” reply, wait a moment and mention Claude again.
+An admin goes to [**Admin settings > Capabilities > Remote sessions**](https://claude.ai/admin-settings/capabilities) and turns on the **Routines** toggle. Once Routines is enabled for your organization, mention Claude again; a normal reply means the setting took effect. For the “Couldn’t verify” reply, wait a moment and mention Claude again.
 
 ###  Restricted compliance settings block Claude Tag
 
@@ -384,16 +384,15 @@ Claude replies in the channel:
 
 Only the first sentence is fixed. A sender who isn’t a Slack workspace admin is told to ask their Claude workspace owner to re-enable it, with a link to the Claude Tag product page instead of admin settings.
 **What it means**
-This channel’s scope has **Claude Tag version** set to **Off**. If you have the [**Enable Claude Tag** switch](https://claude.com/docs/claude-tag/admins/workspaces#turn-claude-tag-on-or-off-on-the-team-plan) instead of per-scope version settings, the same notice means the switch is off, or the channel’s workspace is set to **Off** on its own.
+This channel’s **Enable Claude Tag in this channel** switch is off, either set on the channel’s scope itself or inherited from a scope above it. If you have the single [**Enable Claude Tag** switch](https://claude.com/docs/claude-tag/admins/workspaces#turn-claude-tag-on-or-off-on-the-team-plan) instead of the per-scope switches, the same notice means the switch is off, or the channel’s workspace is switched off on its own.
 **How to resolve**
 An Owner turns the scope back on:
 
 1. Open [`claude.ai/admin-settings/claude-tag`](https://claude.ai/admin-settings/claude-tag).
 2. Under **Claude Tag’s access**, open the **Slack** tab and select the channel’s scope.
-3. Expand **Advanced**.
-4. Set **Claude Tag version** to **New**.
+3. Turn on the **Enable Claude Tag in this channel** switch at the top of the scope’s panel.
 
-If you have the [**Enable Claude Tag** switch](https://claude.com/docs/claude-tag/admins/workspaces#turn-claude-tag-on-or-off-on-the-team-plan) instead of per-scope version settings, check that the switch is on at [`claude.ai/admin-settings/claude-tag`](https://claude.ai/admin-settings/claude-tag) → **Claude Tag’s access** → **Slack** → **Default Slack** → **Enable Claude Tag**. If the fix worked, a mention in the channel gets a reply.
+If you have the single [**Enable Claude Tag** switch](https://claude.com/docs/claude-tag/admins/workspaces#turn-claude-tag-on-or-off-on-the-team-plan) instead of the per-scope switches, check that the switch is on at [`claude.ai/admin-settings/claude-tag`](https://claude.ai/admin-settings/claude-tag) → **Claude Tag’s access** → **Slack** → **Default Slack** → **Enable Claude Tag**. If the fix worked, a mention in the channel gets a reply.
 
 ##  Access and connections
 

@@ -30,7 +30,7 @@ Smarter, more consistent PR reviews catch issues before they reach patients
 
 Advancing Claude in healthcare and the life sciences
 
-![Advancing Claude in healthcare and the life sciences](https://assets.claude.com/2245c8d44d57bbbd808ee21e2a14a250946d583b.png)
+![Advancing Claude in healthcare and the life sciences](https://assets.claude.com/2245c8d44d57bbbd808ee21e2a14a250946d583b.png?w=2400&q=75&fm=webp&fit=max)
 
 Transform healthcare from insight to action
 
@@ -38,7 +38,7 @@ Transform healthcare from insight to action
 
 Introducing Claude Code
 
-![Introducing Claude Code](https://assets.claude.com/56575a2d86ba511e0095b0cb9a92cafe7079c820.jpg)
+![Introducing Claude Code](https://assets.claude.com/56575a2d86ba511e0095b0cb9a92cafe7079c820.jpg?w=2400&q=75&fm=webp&fit=max)
 
 See Claude Code in action—from concept to commit in one seamless workflow.
 

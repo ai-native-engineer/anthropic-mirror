@@ -8,7 +8,7 @@ Businesses build with Claude for the problems that matter most. Our customers in
 
 Customer story
 
-![Customer story](https://assets.claude.com/d3c8d931ab80d077e21a9424346c14718630b2dd.jpg)
+![Customer story](https://assets.claude.com/d3c8d931ab80d077e21a9424346c14718630b2dd.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Notion is building a workspace for teams and agents
 
@@ -16,7 +16,7 @@ Notion is building a workspace for teams and agents
 
 Customer story
 
-![Customer story](https://assets.claude.com/94bee71bd65f3d89aaa8fc3325f6410679dd308d.jpg)
+![Customer story](https://assets.claude.com/94bee71bd65f3d89aaa8fc3325f6410679dd308d.jpg?w=2400&q=75&fm=webp&fit=max)
 
 How Slack uses Claude for AI search and summaries
 
@@ -24,7 +24,7 @@ How Slack uses Claude for AI search and summaries
 
 Customer story
 
-![Customer story](https://assets.claude.com/4515e2c1eb222d2d790b9bb2b3f0c1c55745dd77.jpg)
+![Customer story](https://assets.claude.com/4515e2c1eb222d2d790b9bb2b3f0c1c55745dd77.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Figma transforms ideas into interactive software
 
@@ -32,7 +32,7 @@ Figma transforms ideas into interactive software
 
 Customer story
 
-![Customer story](https://assets.claude.com/860551e06b62b4ab3f90f4759a2122cc3bbc5031.jpg)
+![Customer story](https://assets.claude.com/860551e06b62b4ab3f90f4759a2122cc3bbc5031.jpg?w=2400&q=75&fm=webp&fit=max)
 
 HubSpot reclaims time for creativity with Claude
 

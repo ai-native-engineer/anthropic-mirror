@@ -4,7 +4,29 @@ Connector URL`https://api.tineo.ai/mcp/claude`
 
 More[Documentation (opens in new tab)](https://api.tineo.ai/docs/claude.html)[Support (opens in new tab)](mailto:support@tineo.ai)[Privacy policy (opens in new tab)](https://tineo.ai/privacy)
 
-Find your trips, review itinerary details, and maintain saved travel plans with Tineo. Keep flights, stays, transport, and activities together in your Tineo account. Ask for your upcoming trips, inspect a hotel stay, or create and update an itinerary item. A Tineo account is required. Editing an itinerary changes your Tineo records; it does not change a reservation with a travel provider or charge a payment card.
+Plan trips with friends and your AI assistant, and keep everything in one place. Tineo brings flights, stays, transport, activities, tickets, and travel documents into a shared itinerary you can build and update as your plans take shape.
+
+Tineo app available on iOS, Android, MacOS, Windows, and the web!
+
+Looking for a TripIt alternative? Tineo combines travel organization with conversational planning, travel search, and collaboration. Add plans directly, forward booking confirmations, connect a supported email account, or tell Claude or the Tineo assistant what you want to add or change.
+
+Connect Tineo to Claude to:
+
+• Create trips and add or edit itinerary items.
+
+• Search flights, hotels, Airbnb stays, restaurants, and things to do.
+
+• Invite travel companions and assign travelers to individual plans.
+
+• Check flight status and trip weather, generate packing lists, and review expenses.
+
+• Find details across your trips and travel documents.
+
+Plan together in Tineo with shared itineraries, polls, and checklists, so everyone can help shape the trip and keep up with changes.
+
+A Tineo account is required. Changes update your Tineo itinerary; they do not book, cancel, or change reservations with travel providers or charge your card.
+
+Learn more on https://tineo.ai
 
 ## Tools
 
@@ -39,52 +61,50 @@ Only use connectors from developers you trust. Anthropic does not control which 
 
 ## Related connectors
 
-![](https://www.rome2rio.com/favicon.ico)
+![](https://assets.claude.com/a8994e05e594a562449127d44e0fe86c31d8e41c.svg?w=128&fit=max&auto=format)
 
-### [Rome2Rio](https://claude.com/marketplace/connectors/rome2rio)
+### [Google Drive](https://claude.com/marketplace/connectors/google-drive)
 
-Anthropic verifiedTrending
+Search, read, and upload files instantly
 
-Discover how to get anywhere
+[Add Google Drive in Claude (opens in new tab)](https://claude.ai/directory/b89f7865-a755-4f86-8062-c3bd651740ce "Add in Claude")
 
-[Add Rome2Rio in Claude (opens in new tab)](https://claude.ai/directory/0c84f0ce-49ad-468f-babb-3efab67f5aeb "Add in Claude")
+![](https://assets.claude.com/53ca8822f4c024f9b358b1e44148a1dc3c616dbe.svg?w=128&fit=max&auto=format)
 
-![](https://resources.turo.com/resources/img/favicon.ico)
+### [Gmail](https://claude.com/marketplace/connectors/gmail)
 
-### [Turo](https://claude.com/marketplace/connectors/turo)
+Draft replies, summarize threads, & search your inbox
 
-Search Turo car rentals
+[Add Gmail in Claude (opens in new tab)](https://claude.ai/directory/2701e52f-b826-4aaf-8b25-11f2a97c98b0 "Add in Claude")
 
-[Add Turo in Claude (opens in new tab)](https://claude.ai/directory/6ba1d80c-6de8-4f4a-9900-f7aa164f063f "Add in Claude")
+![](https://assets.claude.com/646945a1897f9146e5221ee6ace82001a2e52f4d.svg?w=128&fit=max&auto=format)
 
-![](https://www.google.com/s2/favicons?domain=accuweather.com&sz=96)
+### [Google Calendar](https://claude.com/marketplace/connectors/google-calendar)
 
-### [AccuWeather®](https://claude.com/marketplace/connectors/accuweather)
+Manage your schedule and coordinate meetings effortlessly
 
-Hyper-local forecasts & alerts
+[Add Google Calendar in Claude (opens in new tab)](https://claude.ai/directory/2a838eaa-f7b4-4bc2-bd47-c326f3c813c5 "Add in Claude")
 
-[Add AccuWeather® in Claude (opens in new tab)](https://claude.ai/directory/111502a6-f2e8-45ee-bcf7-a7d325367723 "Add in Claude")
+![](https://assets.claude.com/20c8443aa72ae4e4d77f923e6c33314713f965e8.svg?w=128&fit=max&auto=format)
 
-![](https://assets.claude.com/8d547f19ecd0534343f8d8b3a7657e18e50ca23f.jpg?w=128&fit=max&auto=format)
+### [Microsoft 365](https://claude.com/marketplace/connectors/microsoft-365)
 
-### [Trivago](https://claude.com/marketplace/connectors/trivago)
+Access your company's SharePoint, OneDrive, Outlook, and Teams directly in Claude
 
-Use trivago's powerful metasearch to find your ideal hotel and compare prices from multiple providers.
+[Add Microsoft 365 in Claude (opens in new tab)](https://claude.ai/directory/ce0c9cda-5ea5-44c5-9cf2-40810dfa6582 "Add in Claude")
 
-[Add Trivago in Claude (opens in new tab)](https://claude.ai/directory/81cc5080-a204-4aa1-a694-fa868a3c8718 "Add in Claude")
+![](https://assets.claude.com/517cb0a746dcf968ce8efda7613b69101b536a52.svg?w=128&fit=max&auto=format)
 
-![](https://www.directbooker.ai/android-chrome-512x512.png)
+### [Notion](https://claude.com/marketplace/connectors/notion)
 
-### [DirectBooker](https://claude.com/marketplace/connectors/directbooker)
+Connect your Notion workspace to search, update, and power workflows across tools
 
-Find great hotels, then book direct. Search, availability, and reservations.
+[Add Notion in Claude (opens in new tab)](https://claude.ai/directory/69f3a300-cc60-48c4-b237-dfac56530dbf "Add in Claude")
 
-[Add DirectBooker in Claude (opens in new tab)](https://claude.ai/directory/97369a45-f230-4124-9b9b-2944a26bca46 "Add in Claude")
+![](https://assets.claude.com/bdf25f3db0bfe9b74855f504c31bd8522659edae.svg?w=128&fit=max&auto=format)
 
-![](https://www.google.com/s2/favicons?domain=novasol.com&sz=96)
+### [Slack](https://claude.com/marketplace/connectors/slack)
 
-### [Novasol](https://claude.com/marketplace/connectors/novasol)
+Send messages, create canvases, and fetch Slack data
 
-Search holiday homes across Europe
-
-[Add Novasol in Claude (opens in new tab)](https://claude.ai/directory/7d0c1f98-2dca-4468-b57d-10e4c3592c2d "Add in Claude")
+[Add Slack in Claude (opens in new tab)](https://claude.ai/directory/597f662f-36de-437e-836e-5a81013cbfbe "Add in Claude")

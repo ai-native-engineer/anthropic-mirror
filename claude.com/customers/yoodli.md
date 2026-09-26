@@ -49,7 +49,7 @@ The bar for any AI-powered alternative was high. "These tools often get one real
 
 Choosing the right Claude model
 
-![Choosing the right Claude model](https://assets.claude.com/7388619b452db0af26c78442a275c86c5ebe3124.jpg)
+![Choosing the right Claude model](https://assets.claude.com/7388619b452db0af26c78442a275c86c5ebe3124.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Learn when to use Haiku, Sonnet, or Opus to get better results and stay inside your rate limit. A practical guide to picking the right Claude model.
 
@@ -73,7 +73,7 @@ The hardest technical challenge was the tradeoff between intelligence and latenc
 
 Introducing Claude Sonnet 4.6
 
-![Introducing Claude Sonnet 4.6 ](https://assets.claude.com/ed4441933d84103efbafec32505ce83cf3b1dcc6.png)
+![Introducing Claude Sonnet 4.6 ](https://assets.claude.com/ed4441933d84103efbafec32505ce83cf3b1dcc6.png?w=2400&q=75&fm=webp&fit=max)
 
 Hybrid reasoning model with superior intelligence for agents, featuring a 1M context window
 
@@ -106,5 +106,3 @@ Derek SessionsCTO, Yoodli
 ### Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
 ### How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)
-
-Yoodli Claude Platform (API) case study | Claude by Anthropic

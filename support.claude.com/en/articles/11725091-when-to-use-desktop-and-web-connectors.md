@@ -20,7 +20,7 @@ Desktop extensions run locally and are only available in Claude Desktop and Clau
 
 ## Plugins work with both
 
-A plugin can bundle either remote or local MCP servers (or both). Installing a plugin that references a remote MCP makes it available everywhere; one that references a local MCP works in Desktop and Claude Code.
+A plugin can bundle either remote or local MCP servers (or both). Adding a plugin that references a remote MCP makes it available everywhere. One that references a local MCP works in Cowork and Claude Code, not in chat.
 
 ## Quick guide
 
@@ -40,8 +40,8 @@ A plugin can bundle either remote or local MCP servers (or both). Installing a p
 * Install a desktop extension: Open Claude Desktop → Settings → Extensions
 * Building your own? See the **[connector building docs](https://claude.com/docs/connectors/building)** for remote connectors or the **[MCPB guide](https://claude.com/docs/connectors/building/mcpb)** for local ones.
 
-* [Getting Started with Local MCP Servers on Claude Desktop](https://support.claude.com/en/articles/10949351-getting-started-with-local-mcp-servers-on-claude-desktop)
+* [Install Claude Desktop](https://support.claude.com/en/articles/10065433-install-claude-desktop)
 * [Get started with custom connectors using remote MCP](https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp)
 * [Use connectors to extend Claude's capabilities](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities)
-* [Deploying enterprise-grade MCP servers with desktop extensions](https://support.claude.com/en/articles/12702546-deploying-enterprise-grade-mcp-servers-with-desktop-extensions)
+* [Use Claude Cowork on Team and Enterprise plans](https://support.claude.com/en/articles/13455879-use-claude-cowork-on-team-and-enterprise-plans)
 * [Use Claude Cowork on web, desktop, and mobile](https://support.claude.com/en/articles/15520349-use-claude-cowork-on-web-desktop-and-mobile)

@@ -47,7 +47,7 @@ When Gradial launched, the team built its architecture and agent harness as mult
 
 Introducing Claude Opus 4.7
 
-![Introducing Claude Opus 4.7](https://assets.claude.com/8f53ced47c279491a8187467424cba10156184d9.jpg)
+![Introducing Claude Opus 4.7](https://assets.claude.com/8f53ced47c279491a8187467424cba10156184d9.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Opus 4.7 is a notable improvement on Opus 4.6 in advanced software engineering, with particular gains on the most difficult tasks.
 
@@ -75,7 +75,7 @@ Gradial deploys Claude directly and through different cloud providers, integrate
 
 Claude Code
 
-![Claude Code](https://assets.claude.com/38e8385d1c5f9c0f71c486994e22fc5861a4522d.jpg)
+![Claude Code](https://assets.claude.com/38e8385d1c5f9c0f71c486994e22fc5861a4522d.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
 
@@ -112,5 +112,3 @@ Doug TallmadgeCo-founder and CEO, Gradial
 ### Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
 ### How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)
-
-Gradial Claude Platform (API) case study | Claude by Anthropic

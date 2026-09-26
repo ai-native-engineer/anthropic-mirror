@@ -87,7 +87,7 @@ in my entire career.
 </details>
 
 
-![Video thumbnail](https://assets.claude.com/952771917afd684f86ea53705f68e0b9ca6f969f.png)
+![Video thumbnail](https://assets.claude.com/952771917afd684f86ea53705f68e0b9ca6f969f.png?w=2400&q=75&fm=webp&fit=max)
 
 Industry:
 :   Software
@@ -111,7 +111,7 @@ Claude excels at processing lengthy discussions and providing personalized tone 
 
 Claude Code
 
-![Claude Code](https://assets.claude.com/38e8385d1c5f9c0f71c486994e22fc5861a4522d.jpg)
+![Claude Code](https://assets.claude.com/38e8385d1c5f9c0f71c486994e22fc5861a4522d.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
 
@@ -119,7 +119,7 @@ Anthropic's agentic coding tool. Claude Code understands your codebase, edits fi
 
 Introducing Agent Skills
 
-![Introducing Agent Skills](https://assets.claude.com/c703a5641a48ab5b6a904a9d6b0fef8d4975e92d.jpg)
+![Introducing Agent Skills](https://assets.claude.com/c703a5641a48ab5b6a904a9d6b0fef8d4975e92d.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Claude can now use Skills—folders with instructions, scripts, and resources—to become a specialist at specific tasks when you need it.
 
@@ -135,7 +135,7 @@ Through this collaboration, Slack has:
 * Respected content and channel permissions for enterprise security
 * Provided personalized tone and format for user interactions
 
-![](https://assets.claude.com/30f5713ef52f6ac17684c58788541ada07e8110c.png)
+![](https://assets.claude.com/30f5713ef52f6ac17684c58788541ada07e8110c.png?w=2400&q=75&fm=webp&fit=max)
 
 Slack’s AI delivers prompt conversation summaries of channels and threads, highlighting key decisions and action items, tailored to the user.
 
@@ -150,7 +150,7 @@ Technical advantages that power this transformation include:
 
 "Anthropic has been instrumental as we’ve built our AI solution” said Ananya Helmich, VP of Software Engineering at Slack. “The exceptional quality and high performance of Claude models empower us to build AI-driven solutions that truly make a difference for our customers.”
 
-![](https://assets.claude.com/51e661efc7ce62e5b6660fd11934edf9cc994cc7.png)
+![](https://assets.claude.com/51e661efc7ce62e5b6660fd11934edf9cc994cc7.png?w=2400&q=75&fm=webp&fit=max)
 
 Robert Ansel, Staff Site Reliability Engineer, said the team uses Claude Code to fix bugs and power teams to move faster.
 

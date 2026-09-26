@@ -12,7 +12,7 @@ Groups let you organize members into logical collections—by team, department, 
 
 Groups can be created manually or synced automatically from your identity provider via SCIM. Each organization can have up to 1000 groups. There's no limit on how many groups a member can belong to, though belonging to more than 250 can slow performance.
 
-In addition to spend limits, Enterprise admins can use groups to control plugin access in Cowork. Each plugin in your organization's marketplace can have group-level overrides that determine whether it's available, pre-installed, required, or hidden for members of a specific group. For details, see **[Manage Cowork plugins for your organization](https://support.claude.com/en/articles/13837433-manage-cowork-plugins-for-your-organization)**.
+In addition to spend limits, Enterprise admins can use groups to control plugin access in chat, Cowork, and Claude Code. Each plugin in your organization's marketplace can have group-level overrides that set it to "Available to install," "Installed by default," "Required," or "Not available" for members of a specific group. For details, see **[Manage plugins for your organization](https://support.claude.com/en/articles/13837433-manage-cowork-plugins-for-your-organization)**.
 
 ---
 
@@ -159,6 +159,8 @@ When determining a member's effective spend limit, the system evaluates in this 
 1. **Individual limit**—if the member has an individual spend limit set, that limit applies regardless of group membership.
 2. **Group limit**—if the member has no individual limit, the system checks their group memberships. If the member belongs to multiple groups with spend limits, your **Multi-group spend limit** setting determines whether the higher or lower limit applies.
 3. **No limit**—if the member has no individual limit and belongs to no groups with spend limits, no spend limit is applied.
+
+For a view of how spend limits are affecting your organization, see the **Blocked by a spend limit** section at the top of **[Organization settings > Usage](https://claude.ai/admin-settings/usage)**. **Blocked by a spend limit** is built for usage-based Enterprise plans. Orgs without usage-based seats only see how many members are blocked or near their limit right now. Learn more about **[monitoring usage and spend on Enterprise plans](https://support.claude.com/en/articles/11526368-how-am-i-billed-for-my-enterprise-plan#h_ae17ec8236)**.
 
 * [Migrate your organization from Team to Enterprise](https://support.claude.com/en/articles/13779868-migrate-your-organization-from-team-to-enterprise)
 * [Manage custom roles on Enterprise plans](https://support.claude.com/en/articles/13930452-manage-custom-roles-on-enterprise-plans)

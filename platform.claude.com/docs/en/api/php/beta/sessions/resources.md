@@ -175,7 +175,7 @@ List Session Resources
 
     - `?Access access`
 
-      Access mode for an attached memory store.
+      Access mode for the mounted store. Defaults to `read_write`. `read_only` mounts the store as a read-only filesystem.
 
     - `?string description`
 
@@ -319,7 +319,7 @@ Get Session Resource
 
     - `?Access access`
 
-      Access mode for an attached memory store.
+      Access mode for the mounted store. Defaults to `read_write`. `read_only` mounts the store as a read-only filesystem.
 
     - `?string description`
 
@@ -453,7 +453,7 @@ Update Session Resource
 
     - `?Access access`
 
-      Access mode for an attached memory store.
+      Access mode for the mounted store. Defaults to `read_write`. `read_only` mounts the store as a read-only filesystem.
 
     - `?string description`
 
@@ -636,7 +636,7 @@ var_dump($betaManagedAgentsDeleteSessionResource);
 
   - `?Access access`
 
-    Access mode for an attached memory store.
+    Access mode for the mounted store. Defaults to `read_write`. `read_only` mounts the store as a read-only filesystem.
 
   - `?string description`
 
@@ -706,7 +706,7 @@ var_dump($betaManagedAgentsDeleteSessionResource);
 
     - `?Access access`
 
-      Access mode for an attached memory store.
+      Access mode for the mounted store. Defaults to `read_write`. `read_only` mounts the store as a read-only filesystem.
 
     - `?string description`
 

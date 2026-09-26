@@ -3,245 +3,6 @@
 
 <!-- chunk-start -->
 
-                  - `const BetaWebFetchTool20260318AllowedCallerCodeExecution20260521 BetaWebFetchTool20260318AllowedCaller = "code_execution_20260521"`
-
-                - `AllowedDomains []string Optional`
-
-                  List of domains to allow fetching from
-
-                - `BlockedDomains []string Optional`
-
-                  List of domains to block fetching from
-
-                - `CacheControl BetaCacheControlEphemeral Optional`
-
-                  Create a cache control breakpoint at this content block.
-
-                - `Citations BetaCitationsConfigParamResp Optional`
-
-                  Citations configuration for fetched documents. Citations are disabled by default.
-
-                - `DeferLoading bool Optional`
-
-                  If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-                - `MaxContentTokens int64 Optional`
-
-                  Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
-
-                  exclusiveMinimum: 0
-
-                - `MaxUses int64 Optional`
-
-                  Maximum number of times the tool can be used in the API request.
-
-                  exclusiveMinimum: 0
-
-                - `ResponseInclusion BetaWebFetchTool20260318ResponseInclusion Optional`
-
-                  How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
-
-                  - `const BetaWebFetchTool20260318ResponseInclusionFull BetaWebFetchTool20260318ResponseInclusion = "full"`
-
-                  - `const BetaWebFetchTool20260318ResponseInclusionExcluded BetaWebFetchTool20260318ResponseInclusion = "excluded"`
-
-                - `Strict bool Optional`
-
-                  When true, guarantees schema validation on tool names and inputs
-
-                - `URLSources BetaWebFetchURLSources Optional`
-
-                  Which sources contribute to the set of URLs web fetch may fetch.
-
-                  Each key is a tagged variant: `user_input` is `all` or `none`; the
-                  two tool filters are `all`, `none`, `only` (only the named tools'
-                  results) or `except` (every result but the named tools'). A named tool
-                  must be declared in this request's `tools[]`.
-
-                - `UseCache bool Optional`
-
-                  Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
-
-              - `type BetaAdvisorTool20260301`
-
-                - `Type Advisor20260301`
-
-                - `Model Model`
-
-                  The model that will complete your prompt.
-
-                  See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
-                  - `type Model string`
-
-                    The model that will complete your prompt.
-
-                    See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
-                    - `const ModelClaudeFable5_1 Model = "claude-fable-5-1"`
-
-                      Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
-
-                    - `const ModelClaudeOpus5_5 Model = "claude-opus-5-5"`
-
-                      Powerful intelligence for coding, knowledge work, and long-running agents
-
-                    - `const ModelClaudeMythos5_1 Model = "claude-mythos-5-1"`
-
-                      Our most capable model for cybersecurity and biology research, available through trusted access programs
-
-                    - `const ModelClaudeSonnet5 Model = "claude-sonnet-5"`
-
-                      High-performance model for coding and agents
-
-                    - `const ModelClaudeFable5 Model = "claude-fable-5"`
-
-                      Next generation of intelligence for the hardest knowledge work and coding problems
-
-                    - `const ModelClaudeMythos5 Model = "claude-mythos-5"`
-
-                      Most capable model for cybersecurity and biology research
-
-                    - `const ModelClaudeOpus5 Model = "claude-opus-5"`
-
-                      Powerful intelligence for long-running agents and coding
-
-                    - `const ModelClaudeOpus4_8 Model = "claude-opus-4-8"`
-
-                      Powerful intelligence for long-running agents and coding
-
-                    - `const ModelClaudeOpus4_7 Model = "claude-opus-4-7"`
-
-                      Powerful intelligence for long-running agents and coding
-
-                    - `const ModelClaudeMythosPreview Model = "claude-mythos-preview"`
-
-                      New class of intelligence, strongest in coding and cybersecurity
-
-                    - `const ModelClaudeOpus4_6 Model = "claude-opus-4-6"`
-
-                      Powerful intelligence for long-running agents and coding
-
-                    - `const ModelClaudeSonnet4_6 Model = "claude-sonnet-4-6"`
-
-                      Best combination of speed and intelligence
-
-                    - `const ModelClaudeHaiku4_5 Model = "claude-haiku-4-5"`
-
-                      Fastest model with near-frontier intelligence
-
-                    - `const ModelClaudeHaiku4_5_20251001 Model = "claude-haiku-4-5-20251001"`
-
-                      Fastest model with near-frontier intelligence
-
-                    - `const ModelClaudeOpus4_5 Model = "claude-opus-4-5"`
-
-                      Powerful intelligence for long-running agents and coding
-
-                    - `const ModelClaudeOpus4_5_20251101 Model = "claude-opus-4-5-20251101"`
-
-                      Powerful intelligence for long-running agents and coding
-
-                    - `const ModelClaudeSonnet4_5 Model = "claude-sonnet-4-5"`
-
-                      High-performance model for agents and coding
-
-                    - `const ModelClaudeSonnet4_5_20250929 Model = "claude-sonnet-4-5-20250929"`
-
-                      High-performance model for agents and coding
-
-                  - `string`
-
-                - `Name Advisor`
-
-                  Name of the tool.
-
-                  This is how the tool will be called by the model and in `tool_use` blocks.
-
-                - `AllowedCallers []string Optional`
-
-                  - `const BetaAdvisorTool20260301AllowedCallerDirect BetaAdvisorTool20260301AllowedCaller = "direct"`
-
-                  - `const BetaAdvisorTool20260301AllowedCallerCodeExecution20250825 BetaAdvisorTool20260301AllowedCaller = "code_execution_20250825"`
-
-                  - `const BetaAdvisorTool20260301AllowedCallerCodeExecution20260120 BetaAdvisorTool20260301AllowedCaller = "code_execution_20260120"`
-
-                  - `const BetaAdvisorTool20260301AllowedCallerCodeExecution20260521 BetaAdvisorTool20260301AllowedCaller = "code_execution_20260521"`
-
-                - `CacheControl BetaCacheControlEphemeral Optional`
-
-                  Create a cache control breakpoint at this content block.
-
-                - `Caching BetaCacheControlEphemeral Optional`
-
-                  Caching for the advisor's own prompt. When set, each advisor call writes a cache entry at the given TTL so subsequent calls in the same conversation read the stable prefix. When omitted, the advisor prompt is not cached.
-
-                - `DeferLoading bool Optional`
-
-                  If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-                - `MaxTokens int64 Optional`
-
-                  Bounds the advisor's total output (thinking + text) per call. When the advisor hits this cap, the returned advisor_result or advisor_redacted_result block carries stop_reason='max_tokens', and a truncation note is appended to the advice text the worker model sees (inside the encrypted blob in redacted mode). When set, the server also emits a remaining-tokens budget block in the advisor's prompt so the advisor self-shapes toward the cap. When omitted, the advisor model's default output cap applies and no budget block is emitted.
-
-                  minimum: 1024
-
-                - `MaxUses int64 Optional`
-
-                  Maximum number of times the tool can be used in the API request.
-
-                  exclusiveMinimum: 0
-
-                - `Strict bool Optional`
-
-                  When true, guarantees schema validation on tool names and inputs
-
-              - `type BetaToolSearchToolBm25_20251119`
-
-                - `Type BetaToolSearchToolBm25_20251119Type`
-
-                  - `const BetaToolSearchToolBm25_20251119TypeToolSearchToolBm25_20251119 BetaToolSearchToolBm25_20251119Type = "tool_search_tool_bm25_20251119"`
-
-                  - `const BetaToolSearchToolBm25_20251119TypeToolSearchToolBm25 BetaToolSearchToolBm25_20251119Type = "tool_search_tool_bm25"`
-
-                - `Name ToolSearchToolBm25`
-
-                  Name of the tool.
-
-                  This is how the tool will be called by the model and in `tool_use` blocks.
-
-                - `AllowedCallers []string Optional`
-
-                  - `const BetaToolSearchToolBm25_20251119AllowedCallerDirect BetaToolSearchToolBm25_20251119AllowedCaller = "direct"`
-
-                  - `const BetaToolSearchToolBm25_20251119AllowedCallerCodeExecution20250825 BetaToolSearchToolBm25_20251119AllowedCaller = "code_execution_20250825"`
-
-                  - `const BetaToolSearchToolBm25_20251119AllowedCallerCodeExecution20260120 BetaToolSearchToolBm25_20251119AllowedCaller = "code_execution_20260120"`
-
-                  - `const BetaToolSearchToolBm25_20251119AllowedCallerCodeExecution20260521 BetaToolSearchToolBm25_20251119AllowedCaller = "code_execution_20260521"`
-
-                - `CacheControl BetaCacheControlEphemeral Optional`
-
-                  Create a cache control breakpoint at this content block.
-
-                - `DeferLoading bool Optional`
-
-                  If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-                - `Strict bool Optional`
-
-                  When true, guarantees schema validation on tool names and inputs
-
-              - `type BetaToolSearchToolRegex20251119`
-
-                - `Type BetaToolSearchToolRegex20251119Type`
-
-                  - `const BetaToolSearchToolRegex20251119TypeToolSearchToolRegex20251119 BetaToolSearchToolRegex20251119Type = "tool_search_tool_regex_20251119"`
-
-                  - `const BetaToolSearchToolRegex20251119TypeToolSearchToolRegex BetaToolSearchToolRegex20251119Type = "tool_search_tool_regex"`
-
-                - `Name ToolSearchToolRegex`
-
                   Name of the tool.
 
                   This is how the tool will be called by the model and in `tool_use` blocks.
@@ -281,7 +42,7 @@
 
                   Name of the MCP server to configure tools for
 
-                  maxLength: 255, minLength: 1
+                  minLength: 1, maxLength: 255
 
                 - `CacheControl BetaCacheControlEphemeral Optional`
 
@@ -391,7 +152,7 @@
 
       The name of the MCP server this listing came from, as `mcp_servers` declares it.
 
-      maxLength: 255, minLength: 1
+      minLength: 1, maxLength: 255
 
     - `Tools []BetaMCPToolParamResp`
 
@@ -502,7 +263,7 @@
 
             - `DocumentTitle string`
 
-              maxLength: 500, minLength: 1
+              minLength: 1, maxLength: 500
 
             - `EndCharIndex int64`
 
@@ -522,7 +283,7 @@
 
             - `DocumentTitle string`
 
-              maxLength: 500, minLength: 1
+              minLength: 1, maxLength: 500
 
             - `EndPageNumber int64`
 
@@ -546,7 +307,7 @@
 
             - `DocumentTitle string`
 
-              maxLength: 500, minLength: 1
+              minLength: 1, maxLength: 500
 
             - `EndBlockIndex int64`
 
@@ -570,7 +331,7 @@
 
             - `Title string`
 
-              maxLength: 512, minLength: 1
+              minLength: 1, maxLength: 512
 
             - `URL string`
 
@@ -709,7 +470,7 @@
 
         - `DocumentTitle string`
 
-          maxLength: 500, minLength: 1
+          minLength: 1, maxLength: 500
 
         - `EndCharIndex int64`
 
@@ -729,7 +490,7 @@
 
         - `DocumentTitle string`
 
-          maxLength: 500, minLength: 1
+          minLength: 1, maxLength: 500
 
         - `EndPageNumber int64`
 
@@ -753,7 +514,7 @@
 
         - `DocumentTitle string`
 
-          maxLength: 500, minLength: 1
+          minLength: 1, maxLength: 500
 
         - `EndBlockIndex int64`
 
@@ -777,7 +538,7 @@
 
         - `Title string`
 
-          maxLength: 512, minLength: 1
+          minLength: 1, maxLength: 512
 
         - `URL string`
 
@@ -876,8 +637,6 @@
   - `Edits []BetaContextManagementConfigEditUnion Optional`
 
     List of context management edits to apply
-
-    minItems: 0
 
     - `type BetaClearToolUses20250919Edit`
 
@@ -1229,6 +988,8 @@
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+      - `string`
+
       - `type Model string`
 
         The model that will complete your prompt.
@@ -1271,10 +1032,6 @@
 
           Powerful intelligence for long-running agents and coding
 
-        - `const ModelClaudeMythosPreview Model = "claude-mythos-preview"`
-
-          New class of intelligence, strongest in coding and cybersecurity
-
         - `const ModelClaudeOpus4_6 Model = "claude-opus-4-6"`
 
           Powerful intelligence for long-running agents and coding
@@ -1307,7 +1064,11 @@
 
           High-performance model for agents and coding
 
-      - `string`
+        - `const ModelClaudeMythosPreview Model = "claude-mythos-preview"`
+
+          **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+          New class of intelligence, strongest in coding and cybersecurity
 
   - `To BetaFallbackInfo`
 
@@ -1323,7 +1084,7 @@
 
     - `Category BetaFallbackRefusalTriggerCategory`
 
-      The policy category that triggered a refusal.
+      The policy category that triggered the `from` model's refusal at this hop. `null` when the refusal doesn't map to a named category. Same vocabulary as `stop_details.category`.
 
       - `const BetaFallbackRefusalTriggerCategoryCyber BetaFallbackRefusalTriggerCategory = "cyber"`
 
@@ -1375,6 +1136,8 @@
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+      - `string`
+
       - `type Model string`
 
         The model that will complete your prompt.
@@ -1417,10 +1180,6 @@
 
           Powerful intelligence for long-running agents and coding
 
-        - `const ModelClaudeMythosPreview Model = "claude-mythos-preview"`
-
-          New class of intelligence, strongest in coding and cybersecurity
-
         - `const ModelClaudeOpus4_6 Model = "claude-opus-4-6"`
 
           Powerful intelligence for long-running agents and coding
@@ -1453,7 +1212,11 @@
 
           High-performance model for agents and coding
 
-      - `string`
+        - `const ModelClaudeMythosPreview Model = "claude-mythos-preview"`
+
+          **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+          New class of intelligence, strongest in coding and cybersecurity
 
   - `To BetaFallbackInfoParamResp`
 
@@ -1542,7 +1305,7 @@
 
     The opaque `fallback_credit_token` from a prior refusal's `stop_details` — the same string the bare-string form carries.
 
-    maxLength: 2048, minLength: 1
+    minLength: 1, maxLength: 2048
 
   - `Mode BetaFallbackCreditTokenParamMode Optional`
 
@@ -1638,6 +1401,8 @@
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+    - `string`
+
     - `type Model string`
 
       The model that will complete your prompt.
@@ -1680,10 +1445,6 @@
 
         Powerful intelligence for long-running agents and coding
 
-      - `const ModelClaudeMythosPreview Model = "claude-mythos-preview"`
-
-        New class of intelligence, strongest in coding and cybersecurity
-
       - `const ModelClaudeOpus4_6 Model = "claude-opus-4-6"`
 
         Powerful intelligence for long-running agents and coding
@@ -1716,7 +1477,11 @@
 
         High-performance model for agents and coding
 
-    - `string`
+      - `const ModelClaudeMythosPreview Model = "claude-mythos-preview"`
+
+        **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+        New class of intelligence, strongest in coding and cybersecurity
 
 ### Beta Fallback Info Param
 
@@ -1730,6 +1495,8 @@
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+    - `string`
+
     - `type Model string`
 
       The model that will complete your prompt.
@@ -1772,10 +1539,6 @@
 
         Powerful intelligence for long-running agents and coding
 
-      - `const ModelClaudeMythosPreview Model = "claude-mythos-preview"`
-
-        New class of intelligence, strongest in coding and cybersecurity
-
       - `const ModelClaudeOpus4_6 Model = "claude-opus-4-6"`
 
         Powerful intelligence for long-running agents and coding
@@ -1808,7 +1571,11 @@
 
         High-performance model for agents and coding
 
-    - `string`
+      - `const ModelClaudeMythosPreview Model = "claude-mythos-preview"`
+
+        **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+        New class of intelligence, strongest in coding and cybersecurity
 
 ### Beta Fallback Message Iteration Usage
 
@@ -1869,6 +1636,8 @@
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+    - `string`
+
     - `type Model string`
 
       The model that will complete your prompt.
@@ -1911,10 +1680,6 @@
 
         Powerful intelligence for long-running agents and coding
 
-      - `const ModelClaudeMythosPreview Model = "claude-mythos-preview"`
-
-        New class of intelligence, strongest in coding and cybersecurity
-
       - `const ModelClaudeOpus4_6 Model = "claude-opus-4-6"`
 
         Powerful intelligence for long-running agents and coding
@@ -1947,7 +1712,11 @@
 
         High-performance model for agents and coding
 
-    - `string`
+      - `const ModelClaudeMythosPreview Model = "claude-mythos-preview"`
+
+        **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+        New class of intelligence, strongest in coding and cybersecurity
 
   - `OutputTokens int64`
 
@@ -1972,6 +1741,8 @@
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+    - `string`
+
     - `type Model string`
 
       The model that will complete your prompt.
@@ -2014,10 +1785,6 @@
 
         Powerful intelligence for long-running agents and coding
 
-      - `const ModelClaudeMythosPreview Model = "claude-mythos-preview"`
-
-        New class of intelligence, strongest in coding and cybersecurity
-
       - `const ModelClaudeOpus4_6 Model = "claude-opus-4-6"`
 
         Powerful intelligence for long-running agents and coding
@@ -2050,7 +1817,11 @@
 
         High-performance model for agents and coding
 
-    - `string`
+      - `const ModelClaudeMythosPreview Model = "claude-mythos-preview"`
+
+        **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+        New class of intelligence, strongest in coding and cybersecurity
 
   - `MaxTokens int64 Optional`
 
@@ -2058,7 +1829,9 @@
 
     - `Effort BetaOutputConfigEffort Optional`
 
-      All possible effort levels.
+      How much effort the model should put into its response. Higher effort levels may result in more thorough analysis but take longer.
+
+      Valid values are `low`, `medium`, `high`, `xhigh`, or `max`.
 
       - `const BetaOutputConfigEffortLow BetaOutputConfigEffort = "low"`
 
@@ -2082,7 +1855,7 @@
 
     - `TaskBudget BetaTokenTaskBudget Optional`
 
-      User-configurable total token budget across contexts.
+      Configuration for token budget tracking across contexts.
 
       - `Type Tokens`
 
@@ -2126,17 +1899,11 @@
 
       - `BlockBinding BetaThinkingBlockBinding Optional`
 
-        Controls for block binding: what happens when a thinking block this
-        request sends back fails the conversation check. Every field is optional;
-        an empty object means every default.
+        Controls for block binding: what happens when a thinking block this request sends back fails the conversation check. `null`, absent or an empty object means every default.
 
         - `PrefixMismatchBehavior BetaThinkingPrefixMismatchBehavior Optional`
 
-          What happens when a thinking block in `messages` fails the conversation
-          check: it was created in a different conversation, or the messages before
-          it have changed since. `"error"` (the default) fails the request with a
-          400 error. `"drop_block"` removes the failing blocks and the request
-          proceeds; the model no longer sees the dropped reasoning.
+          "error" (default) | "drop_block". What happens when a thinking block in `messages` fails the conversation check (it was created in a different conversation, or the messages before it have changed since). "error" fails the request with a 400 error. "drop_block" removes the failing blocks and the request proceeds; each removal is reported in `input_transformations`.
 
           - `const BetaThinkingPrefixMismatchBehaviorError BetaThinkingPrefixMismatchBehavior = "error"`
 
@@ -2162,9 +1929,7 @@
 
       - `BlockBinding BetaThinkingBlockBinding Optional`
 
-        Controls for block binding: what happens when a thinking block this
-        request sends back fails the conversation check. Every field is optional;
-        an empty object means every default.
+        Controls for block binding: what happens when a thinking block this request sends back fails the conversation check. `null`, absent or an empty object means every default.
 
       - `Display BetaThinkingConfigAdaptiveDisplay Optional`
 
@@ -2188,7 +1953,7 @@
 
   - `Category BetaFallbackRefusalTriggerCategory`
 
-    The policy category that triggered a refusal.
+    The policy category that triggered the `from` model's refusal at this hop. `null` when the refusal doesn't map to a named category. Same vocabulary as `stop_details.category`.
 
     - `const BetaFallbackRefusalTriggerCategoryCyber BetaFallbackRefusalTriggerCategory = "cyber"`
 
@@ -2223,6 +1988,8 @@
       The model that will complete your prompt.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+      - `string`
 
       - `type Model string`
 
@@ -2266,10 +2033,6 @@
 
           Powerful intelligence for long-running agents and coding
 
-        - `const ModelClaudeMythosPreview Model = "claude-mythos-preview"`
-
-          New class of intelligence, strongest in coding and cybersecurity
-
         - `const ModelClaudeOpus4_6 Model = "claude-opus-4-6"`
 
           Powerful intelligence for long-running agents and coding
@@ -2302,7 +2065,11 @@
 
           High-performance model for agents and coding
 
-      - `string`
+        - `const ModelClaudeMythosPreview Model = "claude-mythos-preview"`
+
+          **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+          New class of intelligence, strongest in coding and cybersecurity
 
     - `MaxTokens int64 Optional`
 
@@ -2310,7 +2077,9 @@
 
       - `Effort BetaOutputConfigEffort Optional`
 
-        All possible effort levels.
+        How much effort the model should put into its response. Higher effort levels may result in more thorough analysis but take longer.
+
+        Valid values are `low`, `medium`, `high`, `xhigh`, or `max`.
 
         - `const BetaOutputConfigEffortLow BetaOutputConfigEffort = "low"`
 
@@ -2334,7 +2103,7 @@
 
       - `TaskBudget BetaTokenTaskBudget Optional`
 
-        User-configurable total token budget across contexts.
+        Configuration for token budget tracking across contexts.
 
         - `Type Tokens`
 
@@ -2378,17 +2147,11 @@
 
         - `BlockBinding BetaThinkingBlockBinding Optional`
 
-          Controls for block binding: what happens when a thinking block this
-          request sends back fails the conversation check. Every field is optional;
-          an empty object means every default.
+          Controls for block binding: what happens when a thinking block this request sends back fails the conversation check. `null`, absent or an empty object means every default.
 
           - `PrefixMismatchBehavior BetaThinkingPrefixMismatchBehavior Optional`
 
-            What happens when a thinking block in `messages` fails the conversation
-            check: it was created in a different conversation, or the messages before
-            it have changed since. `"error"` (the default) fails the request with a
-            400 error. `"drop_block"` removes the failing blocks and the request
-            proceeds; the model no longer sees the dropped reasoning.
+            "error" (default) | "drop_block". What happens when a thinking block in `messages` fails the conversation check (it was created in a different conversation, or the messages before it have changed since). "error" fails the request with a 400 error. "drop_block" removes the failing blocks and the request proceeds; each removal is reported in `input_transformations`.
 
             - `const BetaThinkingPrefixMismatchBehaviorError BetaThinkingPrefixMismatchBehavior = "error"`
 
@@ -2414,9 +2177,7 @@
 
         - `BlockBinding BetaThinkingBlockBinding Optional`
 
-          Controls for block binding: what happens when a thinking block this
-          request sends back fails the conversation check. Every field is optional;
-          an empty object means every default.
+          Controls for block binding: what happens when a thinking block this request sends back fails the conversation check. `null`, absent or an empty object means every default.
 
         - `Display BetaThinkingConfigAdaptiveDisplay Optional`
 
@@ -2706,6 +2467,8 @@
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+      - `string`
+
       - `type Model string`
 
         The model that will complete your prompt.
@@ -2748,10 +2511,6 @@
 
           Powerful intelligence for long-running agents and coding
 
-        - `const ModelClaudeMythosPreview Model = "claude-mythos-preview"`
-
-          New class of intelligence, strongest in coding and cybersecurity
-
         - `const ModelClaudeOpus4_6 Model = "claude-opus-4-6"`
 
           Powerful intelligence for long-running agents and coding
@@ -2784,7 +2543,11 @@
 
           High-performance model for agents and coding
 
-      - `string`
+        - `const ModelClaudeMythosPreview Model = "claude-mythos-preview"`
+
+          **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+          New class of intelligence, strongest in coding and cybersecurity
 
     - `OutputTokens int64`
 
@@ -3006,7 +2769,7 @@
 
     The name of the MCP server this listing came from, as `mcp_servers` declares it.
 
-    maxLength: 255, minLength: 1
+    minLength: 1, maxLength: 255
 
   - `Tools []BetaMCPToolParamResp`
 
@@ -3201,8 +2964,6 @@
 
       - `Text string`
 
-        minLength: 0
-
   - `IsError bool`
 
     default: false
@@ -3287,7 +3048,7 @@
 
     Name of the MCP server to configure tools for
 
-    maxLength: 255, minLength: 1
+    minLength: 1, maxLength: 255
 
   - `CacheControl BetaCacheControlEphemeral Optional`
 
@@ -3417,7 +3178,7 @@
 
       Optional line range for viewing specific lines
 
-      maxItems: 2, minItems: 2
+      minItems: 2, maxItems: 2
 
   - `type BetaMemoryTool20250818CreateCommand`
 
@@ -3619,7 +3380,7 @@
 
     Optional line range for viewing specific lines
 
-    maxItems: 2, minItems: 2
+    minItems: 2, maxItems: 2
 
 ### Beta Message
 
@@ -3641,7 +3402,9 @@
 
   - `Container BetaContainer`
 
-    Information about the container used in the request (for the code execution tool)
+    Information about the container used in this request.
+
+    This will be non-null if a container tool (e.g. code execution) was used.
 
     - `ID string`
 
@@ -3669,13 +3432,13 @@
 
         Skill ID
 
-        maxLength: 64, minLength: 1
+        minLength: 1, maxLength: 64
 
       - `Version string`
 
         The resolved version: a skill version ID for custom skills.
 
-        maxLength: 64, minLength: 1
+        minLength: 1, maxLength: 64
 
   - `Content []BetaContentBlockUnion`
 
@@ -3848,8 +3611,6 @@
 
       - `Text string`
 
-        minLength: 0
-
     - `type BetaThinkingBlock`
 
       - `Type Thinking`
@@ -3928,7 +3689,7 @@
 
         For a toolset member tool_use, the toolset family.
 
-        maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
+        minLength: 1, maxLength: 64, pattern: ^[a-zA-Z0-9_-]+$
 
     - `type BetaServerToolUseBlock`
 
@@ -4432,7 +4193,7 @@
 
             - `ToolName string`
 
-              maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+              minLength: 1, maxLength: 256, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
       - `ToolUseID string`
 
@@ -4481,8 +4242,6 @@
             The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
 
           - `Text string`
-
-            minLength: 0
 
       - `IsError bool`
 
@@ -4621,7 +4380,7 @@
 
                     This is how the tool will be called by the model and in `tool_use` blocks.
 
-                    maxLength: 128, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,128}$
+                    minLength: 1, maxLength: 128, pattern: ^[a-zA-Z0-9_-]{1,128}$
 
                   - `AllowedCallers []string Optional`
 
@@ -4885,12 +4644,7 @@
 
                   - `Configs BetaBrowserToolsetConfigs Optional`
 
-                    Per-member configuration for `browser_toolset_20260801`: one
-                    optional field per member tool, keyed by the member name — the same
-                    name the member's `tool_use` blocks carry. Every member is an
-                    accepted key, and a member's defaults apply wherever its key is
-                    absent. Unknown keys are rejected: the field set is this toolset
-                    version's complete member set.
+                    Sparse per-member overrides, keyed by member name. Absent, null, and {} are equivalent; a member's defaults apply wherever its key is absent.
 
                     - `Type BetaBrowserTypeConfig Optional`
 
@@ -5511,12 +5265,7 @@
 
                   - `Configs BetaComputerToolsetConfigs Optional`
 
-                    Per-member configuration for `computer_toolset_20260801`: one
-                    optional field per member tool, keyed by the member name — the same
-                    name the member's `tool_use` blocks carry. Every member is an
-                    accepted key, and a member's defaults apply wherever its key is
-                    absent. Unknown keys are rejected: the field set is this toolset
-                    version's complete member set.
+                    Sparse per-member overrides, keyed by member name. Absent, null, and {} are equivalent; a member's defaults apply wherever its key is absent.
 
                     - `Type BetaComputerTypeConfig Optional`
 
@@ -5870,7 +5619,7 @@
 
                     Maximum number of times the tool can be used in the API request.
 
-                    exclusiveMinimum: 0
+                    minimum: 1
 
                   - `Strict bool Optional`
 
@@ -5886,25 +5635,25 @@
 
                       The city of the user.
 
-                      maxLength: 255, minLength: 1
+                      minLength: 1, maxLength: 255
 
                     - `Country string Optional`
 
                       The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
 
-                      maxLength: 2, minLength: 2
+                      minLength: 2, maxLength: 2
 
                     - `Region string Optional`
 
                       The region of the user.
 
-                      maxLength: 255, minLength: 1
+                      minLength: 1, maxLength: 255
 
                     - `Timezone string Optional`
 
                       The [IANA timezone](https://nodatime.org/TimeZones) of the user.
 
-                      maxLength: 255, minLength: 1
+                      minLength: 1, maxLength: 255
 
                 - `type BetaWebFetchTool20250910`
 
@@ -5952,13 +5701,13 @@
 
                     Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-                    exclusiveMinimum: 0
+                    minimum: 1
 
                   - `MaxUses int64 Optional`
 
                     Maximum number of times the tool can be used in the API request.
 
-                    exclusiveMinimum: 0
+                    minimum: 1
 
                   - `Strict bool Optional`
 
@@ -5966,12 +5715,7 @@
 
                   - `URLSources BetaWebFetchURLSources Optional`
 
-                    Which sources contribute to the set of URLs web fetch may fetch.
-
-                    Each key is a tagged variant: `user_input` is `all` or `none`; the
-                    two tool filters are `all`, `none`, `only` (only the named tools'
-                    results) or `except` (every result but the named tools'). A named tool
-                    must be declared in this request's `tools[]`.
+                    Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
 
                     - `ClientToolResults BetaWebFetchURLSourcesClientToolResultsUnion Optional`
 
@@ -6095,7 +5839,7 @@
 
                     Maximum number of times the tool can be used in the API request.
 
-                    exclusiveMinimum: 0
+                    minimum: 1
 
                   - `Strict bool Optional`
 
@@ -6149,13 +5893,13 @@
 
                     Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-                    exclusiveMinimum: 0
+                    minimum: 1
 
                   - `MaxUses int64 Optional`
 
                     Maximum number of times the tool can be used in the API request.
 
-                    exclusiveMinimum: 0
+                    minimum: 1
 
                   - `Strict bool Optional`
 
@@ -6163,12 +5907,7 @@
 
                   - `URLSources BetaWebFetchURLSources Optional`
 
-                    Which sources contribute to the set of URLs web fetch may fetch.
-
-                    Each key is a tagged variant: `user_input` is `all` or `none`; the
-                    two tool filters are `all`, `none`, `only` (only the named tools'
-                    results) or `except` (every result but the named tools'). A named tool
-                    must be declared in this request's `tools[]`.
+                    Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
 
                 - `type BetaWebFetchTool20260309`
 
@@ -6216,13 +5955,13 @@
 
                     Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-                    exclusiveMinimum: 0
+                    minimum: 1
 
                   - `MaxUses int64 Optional`
 
                     Maximum number of times the tool can be used in the API request.
 
-                    exclusiveMinimum: 0
+                    minimum: 1
 
                   - `Strict bool Optional`
 
@@ -6230,12 +5969,7 @@
 
                   - `URLSources BetaWebFetchURLSources Optional`
 
-                    Which sources contribute to the set of URLs web fetch may fetch.
-
-                    Each key is a tagged variant: `user_input` is `all` or `none`; the
-                    two tool filters are `all`, `none`, `only` (only the named tools'
-                    results) or `except` (every result but the named tools'). A named tool
-                    must be declared in this request's `tools[]`.
+                    Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
 
                   - `UseCache bool Optional`
 
@@ -6281,7 +6015,7 @@
 
                     Maximum number of times the tool can be used in the API request.
 
-                    exclusiveMinimum: 0
+                    minimum: 1
 
                   - `ResponseInclusion BetaWebSearchTool20260318ResponseInclusion Optional`
 
@@ -6343,13 +6077,13 @@
 
                     Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-                    exclusiveMinimum: 0
+                    minimum: 1
 
                   - `MaxUses int64 Optional`
 
                     Maximum number of times the tool can be used in the API request.
 
-                    exclusiveMinimum: 0
+                    minimum: 1
 
                   - `ResponseInclusion BetaWebFetchTool20260318ResponseInclusion Optional`
 
@@ -6365,12 +6099,7 @@
 
                   - `URLSources BetaWebFetchURLSources Optional`
 
-                    Which sources contribute to the set of URLs web fetch may fetch.
-
-                    Each key is a tagged variant: `user_input` is `all` or `none`; the
-                    two tool filters are `all`, `none`, `only` (only the named tools'
-                    results) or `except` (every result but the named tools'). A named tool
-                    must be declared in this request's `tools[]`.
+                    Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
 
                   - `UseCache bool Optional`
 
@@ -6385,6 +6114,8 @@
                     The model that will complete your prompt.
 
                     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+                    - `string`
 
                     - `type Model string`
 
@@ -6428,10 +6159,6 @@
 
                         Powerful intelligence for long-running agents and coding
 
-                      - `const ModelClaudeMythosPreview Model = "claude-mythos-preview"`
-
-                        New class of intelligence, strongest in coding and cybersecurity
-
                       - `const ModelClaudeOpus4_6 Model = "claude-opus-4-6"`
 
                         Powerful intelligence for long-running agents and coding
@@ -6464,7 +6191,11 @@
 
                         High-performance model for agents and coding
 
-                    - `string`
+                      - `const ModelClaudeMythosPreview Model = "claude-mythos-preview"`
+
+                        **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+                        New class of intelligence, strongest in coding and cybersecurity
 
                   - `Name Advisor`
 
@@ -6504,7 +6235,7 @@
 
                     Maximum number of times the tool can be used in the API request.
 
-                    exclusiveMinimum: 0
+                    minimum: 1
 
                   - `Strict bool Optional`
 
@@ -6595,7 +6326,7 @@
 
                     Name of the MCP server to configure tools for
 
-                    maxLength: 255, minLength: 1
+                    minLength: 1, maxLength: 255
 
                   - `CacheControl BetaCacheControlEphemeral Optional`
 
@@ -6710,7 +6441,7 @@
 
         - `Category BetaFallbackRefusalTriggerCategory`
 
-          The policy category that triggered a refusal.
+          The policy category that triggered the `from` model's refusal at this hop. `null` when the refusal doesn't map to a named category. Same vocabulary as `stop_details.category`.
 
           - `const BetaFallbackRefusalTriggerCategoryCyber BetaFallbackRefusalTriggerCategory = "cyber"`
 
@@ -6805,8 +6536,7 @@
 
   - `Diagnostics BetaDiagnostics`
 
-    Request-level diagnostics: why the prompt cache could not fully reuse
-    the prefix of the request named by `diagnostics.previous_message_id`.
+    Request-level diagnostics. `null` when the request did not supply `diagnostics`, or when it did and no prompt-cache divergence was detected.
 
     - `CacheMissReason BetaCacheMissReasonUnion`
 
@@ -6880,7 +6610,9 @@
 
   - `StopDetails BetaRefusalStopDetails`
 
-    Structured information about a refusal.
+    Structured information about why model output stopped.
+
+    This is `null` when the `stop_reason` has no additional detail to report.
 
     - `Type Refusal`
 
@@ -6888,7 +6620,9 @@
 
     - `Category BetaRefusalStopDetailsCategory`
 
-      The policy category that triggered a refusal.
+      The policy category that triggered the refusal.
+
+      `null` when the refusal doesn't map to a named category.
 
       - `const BetaRefusalStopDetailsCategoryCyber BetaRefusalStopDetailsCategory = "cyber"`
 
@@ -7046,6 +6780,10 @@
     - `FallbackCredit BetaFallbackCreditUsage`
 
       Outcome of the `fallback_credit_token` presented on this request.
+
+      Present on every response to a non-batch request that carried a
+      `fallback_credit_token`, in either redemption mode; absent otherwise (batch
+      items accept and ignore the token and carry no outcome object).
 
       - `Status BetaFallbackCreditUsageStatusUnion`
 
@@ -7370,7 +7108,7 @@
 
     - `Speed BetaUsageSpeed`
 
-      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+      The inference speed mode used for this request.
 
       - `const BetaUsageSpeedStandard BetaUsageSpeed = "standard"`
 
@@ -7491,6 +7229,10 @@
   - `FallbackCredit BetaFallbackCreditUsage`
 
     Outcome of the `fallback_credit_token` presented on this request.
+
+    Present on every response to a non-batch request that carried a
+    `fallback_credit_token`, in either redemption mode; absent otherwise (batch
+    items accept and ignore the token and carry no outcome object).
 
     - `Status BetaFallbackCreditUsageStatusUnion`
 
@@ -7628,6 +7370,8 @@
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+        - `string`
+
         - `type Model string`
 
           The model that will complete your prompt.
@@ -7670,10 +7414,6 @@
 
             Powerful intelligence for long-running agents and coding
 
-          - `const ModelClaudeMythosPreview Model = "claude-mythos-preview"`
-
-            New class of intelligence, strongest in coding and cybersecurity
-
           - `const ModelClaudeOpus4_6 Model = "claude-opus-4-6"`
 
             Powerful intelligence for long-running agents and coding
@@ -7706,7 +7446,11 @@
 
             High-performance model for agents and coding
 
-        - `string`
+          - `const ModelClaudeMythosPreview Model = "claude-mythos-preview"`
+
+            **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+            New class of intelligence, strongest in coding and cybersecurity
 
       - `OutputTokens int64`
 
@@ -7941,6 +7685,8 @@
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+    - `string`
+
     - `type Model string`
 
       The model that will complete your prompt.
@@ -7983,10 +7729,6 @@
 
         Powerful intelligence for long-running agents and coding
 
-      - `const ModelClaudeMythosPreview Model = "claude-mythos-preview"`
-
-        New class of intelligence, strongest in coding and cybersecurity
-
       - `const ModelClaudeOpus4_6 Model = "claude-opus-4-6"`
 
         Powerful intelligence for long-running agents and coding
@@ -8019,7 +7761,11 @@
 
         High-performance model for agents and coding
 
-    - `string`
+      - `const ModelClaudeMythosPreview Model = "claude-mythos-preview"`
+
+        **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+        New class of intelligence, strongest in coding and cybersecurity
 
   - `OutputTokens int64`
 
@@ -8078,7 +7824,7 @@
 
             - `DocumentTitle string`
 
-              maxLength: 500, minLength: 1
+              minLength: 1, maxLength: 500
 
             - `EndCharIndex int64`
 
@@ -8098,7 +7844,7 @@
 
             - `DocumentTitle string`
 
-              maxLength: 500, minLength: 1
+              minLength: 1, maxLength: 500
 
             - `EndPageNumber int64`
 
@@ -8122,7 +7868,7 @@
 
             - `DocumentTitle string`
 
-              maxLength: 500, minLength: 1
+              minLength: 1, maxLength: 500
 
             - `EndBlockIndex int64`
 
@@ -8146,7 +7892,7 @@
 
             - `Title string`
 
-              maxLength: 512, minLength: 1
+              minLength: 1, maxLength: 512
 
             - `URL string`
 
@@ -8302,7 +8048,7 @@
 
         - `Title string Optional`
 
-          maxLength: 500, minLength: 1
+          minLength: 1, maxLength: 500
 
       - `type BetaSearchResultBlockParamResp`
 
@@ -8366,7 +8112,7 @@
 
         - `Name string`
 
-          maxLength: 200, minLength: 1
+          minLength: 1, maxLength: 200
 
         - `CacheControl BetaCacheControlEphemeral Optional`
 
@@ -8402,7 +8148,7 @@
 
           For a toolset member tool_use, the toolset family this member belongs to.
 
-          maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
+          minLength: 1, maxLength: 64, pattern: ^[a-zA-Z0-9_-]+$
 
       - `type BetaToolResultBlockParamResp`
 
@@ -8436,7 +8182,7 @@
 
               - `ToolName string`
 
-                maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+                minLength: 1, maxLength: 256, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
               - `CacheControl BetaCacheControlEphemeral Optional`
 
@@ -8464,7 +8210,7 @@
 
                   The caller-assigned identifier for this tab, unique within the inventory.
 
-                  maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+                  minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
                 - `Title string`
 
@@ -8490,7 +8236,7 @@
 
                 Tabs opened and download state changes during this call. "Nothing to report" is expressed by omitting the field, never by an empty list.
 
-                maxItems: 200, minItems: 1
+                minItems: 1, maxItems: 200
 
                 - `type BetaBrowserStateChangeTabOpened`
 
@@ -8508,7 +8254,7 @@
 
                     The `tab_id` of the opened tab, present in `tabs`.
 
-                    maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+                    minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
                 - `type BetaBrowserStateChangeDownloadStarted`
 
@@ -8520,7 +8266,7 @@
 
                     The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-                    maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+                    minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
                   - `URL string`
 
@@ -8541,7 +8287,7 @@
 
                     The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-                    maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+                    minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
                   - `URL string`
 
@@ -8553,7 +8299,7 @@
 
                     Where the executor saved the file, on the executor's filesystem. Only included when another tool in the same environment can read the file at that path.
 
-                    pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$, maxLength: 4096
+                    maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
                   - `SizeBytes int64 Optional`
 
@@ -8571,7 +8317,7 @@
 
                     The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-                    maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+                    minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
                   - `URL string`
 
@@ -8583,7 +8329,7 @@
 
                     The failure or cancellation detail, when known.
 
-                    pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$, maxLength: 4096
+                    maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
         - `IsError bool Optional`
 
@@ -8591,7 +8337,7 @@
 
           For a toolset member tool_result, the toolset family of the paired tool_use.
 
-          maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
+          minLength: 1, maxLength: 64, pattern: ^[a-zA-Z0-9_-]+$
 
       - `type BetaServerToolUseBlockParamResp`
 
@@ -9023,7 +8769,7 @@
 
               - `ToolName string`
 
-                maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+                minLength: 1, maxLength: 256, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
               - `CacheControl BetaCacheControlEphemeral Optional`
 
@@ -9215,7 +8961,7 @@
 
                       This is how the tool will be called by the model and in `tool_use` blocks.
 
-                      maxLength: 128, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,128}$
+                      minLength: 1, maxLength: 128, pattern: ^[a-zA-Z0-9_-]{1,128}$
 
                     - `AllowedCallers []string Optional`
 
@@ -9466,12 +9212,7 @@
 
                     - `Configs BetaBrowserToolsetConfigs Optional`
 
-                      Per-member configuration for `browser_toolset_20260801`: one
-                      optional field per member tool, keyed by the member name — the same
-                      name the member's `tool_use` blocks carry. Every member is an
-                      accepted key, and a member's defaults apply wherever its key is
-                      absent. Unknown keys are rejected: the field set is this toolset
-                      version's complete member set.
+                      Sparse per-member overrides, keyed by member name. Absent, null, and {} are equivalent; a member's defaults apply wherever its key is absent.
 
                       - `Type BetaBrowserTypeConfig Optional`
 
@@ -10092,12 +9833,7 @@
 
                     - `Configs BetaComputerToolsetConfigs Optional`
 
-                      Per-member configuration for `computer_toolset_20260801`: one
-                      optional field per member tool, keyed by the member name — the same
-                      name the member's `tool_use` blocks carry. Every member is an
-                      accepted key, and a member's defaults apply wherever its key is
-                      absent. Unknown keys are rejected: the field set is this toolset
-                      version's complete member set.
+                      Sparse per-member overrides, keyed by member name. Absent, null, and {} are equivalent; a member's defaults apply wherever its key is absent.
 
                       - `Type BetaComputerTypeConfig Optional`
 
@@ -10451,7 +10187,7 @@
 
                       Maximum number of times the tool can be used in the API request.
 
-                      exclusiveMinimum: 0
+                      minimum: 1
 
                     - `Strict bool Optional`
 
@@ -10467,25 +10203,25 @@
 
                         The city of the user.
 
-                        maxLength: 255, minLength: 1
+                        minLength: 1, maxLength: 255
 
                       - `Country string Optional`
 
                         The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
 
-                        maxLength: 2, minLength: 2
+                        minLength: 2, maxLength: 2
 
                       - `Region string Optional`
 
                         The region of the user.
 
-                        maxLength: 255, minLength: 1
+                        minLength: 1, maxLength: 255
 
                       - `Timezone string Optional`
 
                         The [IANA timezone](https://nodatime.org/TimeZones) of the user.
 
-                        maxLength: 255, minLength: 1
+                        minLength: 1, maxLength: 255
 
                   - `type BetaWebFetchTool20250910`
 
@@ -10531,13 +10267,13 @@
 
                       Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-                      exclusiveMinimum: 0
+                      minimum: 1
 
                     - `MaxUses int64 Optional`
 
                       Maximum number of times the tool can be used in the API request.
 
-                      exclusiveMinimum: 0
+                      minimum: 1
 
                     - `Strict bool Optional`
 
@@ -10545,12 +10281,7 @@
 
                     - `URLSources BetaWebFetchURLSources Optional`
 
-                      Which sources contribute to the set of URLs web fetch may fetch.
-
-                      Each key is a tagged variant: `user_input` is `all` or `none`; the
-                      two tool filters are `all`, `none`, `only` (only the named tools'
-                      results) or `except` (every result but the named tools'). A named tool
-                      must be declared in this request's `tools[]`.
+                      Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
 
                       - `ClientToolResults BetaWebFetchURLSourcesClientToolResultsUnion Optional`
 
@@ -10674,7 +10405,7 @@
 
                       Maximum number of times the tool can be used in the API request.
 
-                      exclusiveMinimum: 0
+                      minimum: 1
 
                     - `Strict bool Optional`
 
@@ -10728,13 +10459,13 @@
 
                       Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-                      exclusiveMinimum: 0
+                      minimum: 1
 
                     - `MaxUses int64 Optional`
 
                       Maximum number of times the tool can be used in the API request.
 
-                      exclusiveMinimum: 0
+                      minimum: 1
 
                     - `Strict bool Optional`
 
@@ -10742,12 +10473,7 @@
 
                     - `URLSources BetaWebFetchURLSources Optional`
 
-                      Which sources contribute to the set of URLs web fetch may fetch.
-
-                      Each key is a tagged variant: `user_input` is `all` or `none`; the
-                      two tool filters are `all`, `none`, `only` (only the named tools'
-                      results) or `except` (every result but the named tools'). A named tool
-                      must be declared in this request's `tools[]`.
+                      Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
 
                   - `type BetaWebFetchTool20260309`
 
@@ -10795,13 +10521,13 @@
 
                       Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-                      exclusiveMinimum: 0
+                      minimum: 1
 
                     - `MaxUses int64 Optional`
 
                       Maximum number of times the tool can be used in the API request.
 
-                      exclusiveMinimum: 0
+                      minimum: 1
 
                     - `Strict bool Optional`
 
@@ -10809,12 +10535,7 @@
 
                     - `URLSources BetaWebFetchURLSources Optional`
 
-                      Which sources contribute to the set of URLs web fetch may fetch.
-
-                      Each key is a tagged variant: `user_input` is `all` or `none`; the
-                      two tool filters are `all`, `none`, `only` (only the named tools'
-                      results) or `except` (every result but the named tools'). A named tool
-                      must be declared in this request's `tools[]`.
+                      Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
 
                     - `UseCache bool Optional`
 
@@ -10860,7 +10581,7 @@
 
                       Maximum number of times the tool can be used in the API request.
 
-                      exclusiveMinimum: 0
+                      minimum: 1
 
                     - `ResponseInclusion BetaWebSearchTool20260318ResponseInclusion Optional`
 
@@ -10922,13 +10643,13 @@
 
                       Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-                      exclusiveMinimum: 0
+                      minimum: 1
 
                     - `MaxUses int64 Optional`
 
                       Maximum number of times the tool can be used in the API request.
 
-                      exclusiveMinimum: 0
+                      minimum: 1
 
                     - `ResponseInclusion BetaWebFetchTool20260318ResponseInclusion Optional`
 
@@ -10944,12 +10665,7 @@
 
                     - `URLSources BetaWebFetchURLSources Optional`
 
-                      Which sources contribute to the set of URLs web fetch may fetch.
-
-                      Each key is a tagged variant: `user_input` is `all` or `none`; the
-                      two tool filters are `all`, `none`, `only` (only the named tools'
-                      results) or `except` (every result but the named tools'). A named tool
-                      must be declared in this request's `tools[]`.
+                      Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
 
                     - `UseCache bool Optional`
 
@@ -10964,6 +10680,8 @@
                       The model that will complete your prompt.
 
                       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+                      - `string`
 
                       - `type Model string`
 
@@ -11007,10 +10725,6 @@
 
                           Powerful intelligence for long-running agents and coding
 
-                        - `const ModelClaudeMythosPreview Model = "claude-mythos-preview"`
-
-                          New class of intelligence, strongest in coding and cybersecurity
-
                         - `const ModelClaudeOpus4_6 Model = "claude-opus-4-6"`
 
                           Powerful intelligence for long-running agents and coding
@@ -11043,7 +10757,11 @@
 
                           High-performance model for agents and coding
 
-                      - `string`
+                        - `const ModelClaudeMythosPreview Model = "claude-mythos-preview"`
+
+                          **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+                          New class of intelligence, strongest in coding and cybersecurity
 
                     - `Name Advisor`
 
@@ -11083,7 +10801,7 @@
 
                       Maximum number of times the tool can be used in the API request.
 
-                      exclusiveMinimum: 0
+                      minimum: 1
 
                     - `Strict bool Optional`
 
@@ -11174,7 +10892,7 @@
 
                       Name of the MCP server to configure tools for
 
-                      maxLength: 255, minLength: 1
+                      minLength: 1, maxLength: 255
 
                     - `CacheControl BetaCacheControlEphemeral Optional`
 
@@ -11284,7 +11002,7 @@
 
           The name of the MCP server this listing came from, as `mcp_servers` declares it.
 
-          maxLength: 255, minLength: 1
+          minLength: 1, maxLength: 255
 
         - `Tools []BetaMCPToolParamResp`
 
@@ -11366,7 +11084,9 @@
 
     - `Effort BetaSystemMessageOutputConfigEffort Optional`
 
-      All possible effort levels.
+      How much effort the model should put into its response. Higher effort levels may result in more thorough analysis but take longer.
+
+      Valid values are `low`, `medium`, `high`, `xhigh`, or `max`.
 
       - `const BetaSystemMessageOutputConfigEffortLow BetaSystemMessageOutputConfigEffort = "low"`
 
@@ -11412,7 +11132,9 @@
 
   - `Effort BetaOutputConfigEffort Optional`
 
-    All possible effort levels.
+    How much effort the model should put into its response. Higher effort levels may result in more thorough analysis but take longer.
+
+    Valid values are `low`, `medium`, `high`, `xhigh`, or `max`.
 
     - `const BetaOutputConfigEffortLow BetaOutputConfigEffort = "low"`
 
@@ -11436,7 +11158,7 @@
 
   - `TaskBudget BetaTokenTaskBudget Optional`
 
-    User-configurable total token budget across contexts.
+    Configuration for token budget tracking across contexts.
 
     - `Type Tokens`
 
@@ -12025,8 +11747,6 @@
 
       - `Text string`
 
-        minLength: 0
-
     - `type BetaThinkingBlock`
 
       - `Type Thinking`
@@ -12105,7 +11825,7 @@
 
         For a toolset member tool_use, the toolset family.
 
-        maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
+        minLength: 1, maxLength: 64, pattern: ^[a-zA-Z0-9_-]+$
 
     - `type BetaServerToolUseBlock`
 
@@ -12609,7 +12329,7 @@
 
             - `ToolName string`
 
-              maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+              minLength: 1, maxLength: 256, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
       - `ToolUseID string`
 
@@ -12658,8 +12378,6 @@
             The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
 
           - `Text string`
-
-            minLength: 0
 
       - `IsError bool`
 
@@ -12798,7 +12516,7 @@
 
                     This is how the tool will be called by the model and in `tool_use` blocks.
 
-                    maxLength: 128, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,128}$
+                    minLength: 1, maxLength: 128, pattern: ^[a-zA-Z0-9_-]{1,128}$
 
                   - `AllowedCallers []string Optional`
 
@@ -13062,12 +12780,7 @@
 
                   - `Configs BetaBrowserToolsetConfigs Optional`
 
-                    Per-member configuration for `browser_toolset_20260801`: one
-                    optional field per member tool, keyed by the member name — the same
-                    name the member's `tool_use` blocks carry. Every member is an
-                    accepted key, and a member's defaults apply wherever its key is
-                    absent. Unknown keys are rejected: the field set is this toolset
-                    version's complete member set.
+                    Sparse per-member overrides, keyed by member name. Absent, null, and {} are equivalent; a member's defaults apply wherever its key is absent.
 
                     - `Type BetaBrowserTypeConfig Optional`
 
@@ -13688,12 +13401,7 @@
 
                   - `Configs BetaComputerToolsetConfigs Optional`
 
-                    Per-member configuration for `computer_toolset_20260801`: one
-                    optional field per member tool, keyed by the member name — the same
-                    name the member's `tool_use` blocks carry. Every member is an
-                    accepted key, and a member's defaults apply wherever its key is
-                    absent. Unknown keys are rejected: the field set is this toolset
-                    version's complete member set.
+                    Sparse per-member overrides, keyed by member name. Absent, null, and {} are equivalent; a member's defaults apply wherever its key is absent.
 
                     - `Type BetaComputerTypeConfig Optional`
 
@@ -14047,7 +13755,7 @@
 
                     Maximum number of times the tool can be used in the API request.
 
-                    exclusiveMinimum: 0
+                    minimum: 1
 
                   - `Strict bool Optional`
 
@@ -14063,25 +13771,25 @@
 
                       The city of the user.
 
-                      maxLength: 255, minLength: 1
+                      minLength: 1, maxLength: 255
 
                     - `Country string Optional`
 
                       The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
 
-                      maxLength: 2, minLength: 2
+                      minLength: 2, maxLength: 2
 
                     - `Region string Optional`
 
                       The region of the user.
 
-                      maxLength: 255, minLength: 1
+                      minLength: 1, maxLength: 255
 
                     - `Timezone string Optional`
 
                       The [IANA timezone](https://nodatime.org/TimeZones) of the user.
 
-                      maxLength: 255, minLength: 1
+                      minLength: 1, maxLength: 255
 
                 - `type BetaWebFetchTool20250910`
 
@@ -14129,13 +13837,13 @@
 
                     Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-                    exclusiveMinimum: 0
+                    minimum: 1
 
                   - `MaxUses int64 Optional`
 
                     Maximum number of times the tool can be used in the API request.
 
-                    exclusiveMinimum: 0
+                    minimum: 1
 
                   - `Strict bool Optional`
 
@@ -14143,12 +13851,7 @@
 
                   - `URLSources BetaWebFetchURLSources Optional`
 
-                    Which sources contribute to the set of URLs web fetch may fetch.
-
-                    Each key is a tagged variant: `user_input` is `all` or `none`; the
-                    two tool filters are `all`, `none`, `only` (only the named tools'
-                    results) or `except` (every result but the named tools'). A named tool
-                    must be declared in this request's `tools[]`.
+                    Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
 
                     - `ClientToolResults BetaWebFetchURLSourcesClientToolResultsUnion Optional`
 
@@ -14272,7 +13975,7 @@
 
                     Maximum number of times the tool can be used in the API request.
 
-                    exclusiveMinimum: 0
+                    minimum: 1
 
                   - `Strict bool Optional`
 
@@ -14326,13 +14029,13 @@
 
                     Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-                    exclusiveMinimum: 0
+                    minimum: 1
 
                   - `MaxUses int64 Optional`
 
                     Maximum number of times the tool can be used in the API request.
 
-                    exclusiveMinimum: 0
+                    minimum: 1
 
                   - `Strict bool Optional`
 
@@ -14340,12 +14043,7 @@
 
                   - `URLSources BetaWebFetchURLSources Optional`
 
-                    Which sources contribute to the set of URLs web fetch may fetch.
-
-                    Each key is a tagged variant: `user_input` is `all` or `none`; the
-                    two tool filters are `all`, `none`, `only` (only the named tools'
-                    results) or `except` (every result but the named tools'). A named tool
-                    must be declared in this request's `tools[]`.
+                    Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
 
                 - `type BetaWebFetchTool20260309`
 
@@ -14393,13 +14091,13 @@
 
                     Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-                    exclusiveMinimum: 0
+                    minimum: 1
 
                   - `MaxUses int64 Optional`
 
                     Maximum number of times the tool can be used in the API request.
 
-                    exclusiveMinimum: 0
+                    minimum: 1
 
                   - `Strict bool Optional`
 
@@ -14407,12 +14105,7 @@
 
                   - `URLSources BetaWebFetchURLSources Optional`
 
-                    Which sources contribute to the set of URLs web fetch may fetch.
-
-                    Each key is a tagged variant: `user_input` is `all` or `none`; the
-                    two tool filters are `all`, `none`, `only` (only the named tools'
-                    results) or `except` (every result but the named tools'). A named tool
-                    must be declared in this request's `tools[]`.
+                    Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
 
                   - `UseCache bool Optional`
 
@@ -14458,7 +14151,7 @@
 
                     Maximum number of times the tool can be used in the API request.
 
-                    exclusiveMinimum: 0
+                    minimum: 1
 
                   - `ResponseInclusion BetaWebSearchTool20260318ResponseInclusion Optional`
 
@@ -14520,13 +14213,13 @@
 
                     Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-                    exclusiveMinimum: 0
+                    minimum: 1
 
                   - `MaxUses int64 Optional`
 
                     Maximum number of times the tool can be used in the API request.
 
-                    exclusiveMinimum: 0
+                    minimum: 1
 
                   - `ResponseInclusion BetaWebFetchTool20260318ResponseInclusion Optional`
 
@@ -14542,12 +14235,7 @@
 
                   - `URLSources BetaWebFetchURLSources Optional`
 
-                    Which sources contribute to the set of URLs web fetch may fetch.
-
-                    Each key is a tagged variant: `user_input` is `all` or `none`; the
-                    two tool filters are `all`, `none`, `only` (only the named tools'
-                    results) or `except` (every result but the named tools'). A named tool
-                    must be declared in this request's `tools[]`.
+                    Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
 
                   - `UseCache bool Optional`
 
@@ -14562,6 +14250,8 @@
                     The model that will complete your prompt.
 
                     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+                    - `string`
 
                     - `type Model string`
 
@@ -14605,10 +14295,6 @@
 
                         Powerful intelligence for long-running agents and coding
 
-                      - `const ModelClaudeMythosPreview Model = "claude-mythos-preview"`
-
-                        New class of intelligence, strongest in coding and cybersecurity
-
                       - `const ModelClaudeOpus4_6 Model = "claude-opus-4-6"`
 
                         Powerful intelligence for long-running agents and coding
@@ -14641,7 +14327,11 @@
 
                         High-performance model for agents and coding
 
-                    - `string`
+                      - `const ModelClaudeMythosPreview Model = "claude-mythos-preview"`
+
+                        **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+                        New class of intelligence, strongest in coding and cybersecurity
 
                   - `Name Advisor`
 
@@ -14681,7 +14371,7 @@
 
                     Maximum number of times the tool can be used in the API request.
 
-                    exclusiveMinimum: 0
+                    minimum: 1
 
                   - `Strict bool Optional`
 
@@ -14772,7 +14462,7 @@
 
                     Name of the MCP server to configure tools for
 
-                    maxLength: 255, minLength: 1
+                    minLength: 1, maxLength: 255
 
                   - `CacheControl BetaCacheControlEphemeral Optional`
 
@@ -14887,7 +14577,7 @@
 
         - `Category BetaFallbackRefusalTriggerCategory`
 
-          The policy category that triggered a refusal.
+          The policy category that triggered the `from` model's refusal at this hop. `null` when the refusal doesn't map to a named category. Same vocabulary as `stop_details.category`.
 
           - `const BetaFallbackRefusalTriggerCategoryCyber BetaFallbackRefusalTriggerCategory = "cyber"`
 
@@ -15002,7 +14692,9 @@
 
     - `Container BetaContainer`
 
-      Information about the container used in the request (for the code execution tool)
+      Information about the container used in this request.
+
+      This will be non-null if a container tool (e.g. code execution) was used.
 
       - `ID string`
 
@@ -15030,17 +14722,19 @@
 
           Skill ID
 
-          maxLength: 64, minLength: 1
+          minLength: 1, maxLength: 64
 
         - `Version string`
 
           The resolved version: a skill version ID for custom skills.
 
-          maxLength: 64, minLength: 1
+          minLength: 1, maxLength: 64
 
     - `StopDetails BetaRefusalStopDetails`
 
-      Structured information about a refusal.
+      Structured information about why model output stopped.
+
+      This is `null` when the `stop_reason` has no additional detail to report.
 
       - `Type Refusal`
 
@@ -15048,7 +14742,9 @@
 
       - `Category BetaRefusalStopDetailsCategory`
 
-        The policy category that triggered a refusal.
+        The policy category that triggered the refusal.
+
+        `null` when the refusal doesn't map to a named category.
 
         - `const BetaRefusalStopDetailsCategoryCyber BetaRefusalStopDetailsCategory = "cyber"`
 
@@ -15172,6 +14868,10 @@
     - `FallbackCredit BetaFallbackCreditUsage`
 
       Outcome of the `fallback_credit_token` presented on this request.
+
+      Present on every response to a non-batch request that carried a
+      `fallback_credit_token`, in either redemption mode; absent otherwise (batch
+      items accept and ignore the token and carry no outcome object).
 
       - `Status BetaFallbackCreditUsageStatusUnion`
 
@@ -15309,6 +15009,8 @@
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+          - `string`
+
           - `type Model string`
 
             The model that will complete your prompt.
@@ -15351,10 +15053,6 @@
 
               Powerful intelligence for long-running agents and coding
 
-            - `const ModelClaudeMythosPreview Model = "claude-mythos-preview"`
-
-              New class of intelligence, strongest in coding and cybersecurity
-
             - `const ModelClaudeOpus4_6 Model = "claude-opus-4-6"`
 
               Powerful intelligence for long-running agents and coding
@@ -15387,7 +15085,11 @@
 
               High-performance model for agents and coding
 
-          - `string`
+            - `const ModelClaudeMythosPreview Model = "claude-mythos-preview"`
+
+              **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+              New class of intelligence, strongest in coding and cybersecurity
 
         - `OutputTokens int64`
 
@@ -15692,7 +15394,9 @@
 
     - `Container BetaContainer`
 
-      Information about the container used in the request (for the code execution tool)
+      Information about the container used in this request.
+
+      This will be non-null if a container tool (e.g. code execution) was used.
 
       - `ID string`
 
@@ -15720,13 +15424,13 @@
 
           Skill ID
 
-          maxLength: 64, minLength: 1
+          minLength: 1, maxLength: 64
 
         - `Version string`
 
           The resolved version: a skill version ID for custom skills.
 
-          maxLength: 64, minLength: 1
+          minLength: 1, maxLength: 64
 
     - `Content []BetaContentBlockUnion`
 
@@ -15899,8 +15603,6 @@
 
         - `Text string`
 
-          minLength: 0
-
       - `type BetaThinkingBlock`
 
         - `Type Thinking`
@@ -15979,7 +15681,7 @@
 
           For a toolset member tool_use, the toolset family.
 
-          maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
+          minLength: 1, maxLength: 64, pattern: ^[a-zA-Z0-9_-]+$
 
       - `type BetaServerToolUseBlock`
 
@@ -16483,7 +16185,7 @@
 
               - `ToolName string`
 
-                maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+                minLength: 1, maxLength: 256, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
         - `ToolUseID string`
 
@@ -16532,8 +16234,6 @@
               The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
 
             - `Text string`
-
-              minLength: 0
 
         - `IsError bool`
 
@@ -16672,7 +16372,7 @@
 
                       This is how the tool will be called by the model and in `tool_use` blocks.
 
-                      maxLength: 128, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,128}$
+                      minLength: 1, maxLength: 128, pattern: ^[a-zA-Z0-9_-]{1,128}$
 
                     - `AllowedCallers []string Optional`
 
@@ -16936,12 +16636,7 @@
 
                     - `Configs BetaBrowserToolsetConfigs Optional`
 
-                      Per-member configuration for `browser_toolset_20260801`: one
-                      optional field per member tool, keyed by the member name — the same
-                      name the member's `tool_use` blocks carry. Every member is an
-                      accepted key, and a member's defaults apply wherever its key is
-                      absent. Unknown keys are rejected: the field set is this toolset
-                      version's complete member set.
+                      Sparse per-member overrides, keyed by member name. Absent, null, and {} are equivalent; a member's defaults apply wherever its key is absent.
 
                       - `Type BetaBrowserTypeConfig Optional`
 
@@ -17562,12 +17257,7 @@
 
                     - `Configs BetaComputerToolsetConfigs Optional`
 
-                      Per-member configuration for `computer_toolset_20260801`: one
-                      optional field per member tool, keyed by the member name — the same
-                      name the member's `tool_use` blocks carry. Every member is an
-                      accepted key, and a member's defaults apply wherever its key is
-                      absent. Unknown keys are rejected: the field set is this toolset
-                      version's complete member set.
+                      Sparse per-member overrides, keyed by member name. Absent, null, and {} are equivalent; a member's defaults apply wherever its key is absent.
 
                       - `Type BetaComputerTypeConfig Optional`
 
@@ -17921,7 +17611,7 @@
 
                       Maximum number of times the tool can be used in the API request.
 
-                      exclusiveMinimum: 0
+                      minimum: 1
 
                     - `Strict bool Optional`
 
@@ -17937,25 +17627,25 @@
 
                         The city of the user.
 
-                        maxLength: 255, minLength: 1
+                        minLength: 1, maxLength: 255
 
                       - `Country string Optional`
 
                         The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
 
-                        maxLength: 2, minLength: 2
+                        minLength: 2, maxLength: 2
 
                       - `Region string Optional`
 
                         The region of the user.
 
-                        maxLength: 255, minLength: 1
+                        minLength: 1, maxLength: 255
 
                       - `Timezone string Optional`
 
                         The [IANA timezone](https://nodatime.org/TimeZones) of the user.
 
-                        maxLength: 255, minLength: 1
+                        minLength: 1, maxLength: 255
 
                   - `type BetaWebFetchTool20250910`
 
@@ -18003,13 +17693,13 @@
 
                       Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-                      exclusiveMinimum: 0
+                      minimum: 1
 
                     - `MaxUses int64 Optional`
 
                       Maximum number of times the tool can be used in the API request.
 
-                      exclusiveMinimum: 0
+                      minimum: 1
 
                     - `Strict bool Optional`
 
@@ -18017,12 +17707,7 @@
 
                     - `URLSources BetaWebFetchURLSources Optional`
 
-                      Which sources contribute to the set of URLs web fetch may fetch.
-
-                      Each key is a tagged variant: `user_input` is `all` or `none`; the
-                      two tool filters are `all`, `none`, `only` (only the named tools'
-                      results) or `except` (every result but the named tools'). A named tool
-                      must be declared in this request's `tools[]`.
+                      Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
 
                       - `ClientToolResults BetaWebFetchURLSourcesClientToolResultsUnion Optional`
 
@@ -18146,7 +17831,7 @@
 
                       Maximum number of times the tool can be used in the API request.
 
-                      exclusiveMinimum: 0
+                      minimum: 1
 
                     - `Strict bool Optional`
 
@@ -18200,13 +17885,13 @@
 
                       Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-                      exclusiveMinimum: 0
+                      minimum: 1
 
                     - `MaxUses int64 Optional`
 
                       Maximum number of times the tool can be used in the API request.
 
-                      exclusiveMinimum: 0
+                      minimum: 1
 
                     - `Strict bool Optional`
 
@@ -18214,12 +17899,7 @@
 
                     - `URLSources BetaWebFetchURLSources Optional`
 
-                      Which sources contribute to the set of URLs web fetch may fetch.
-
-                      Each key is a tagged variant: `user_input` is `all` or `none`; the
-                      two tool filters are `all`, `none`, `only` (only the named tools'
-                      results) or `except` (every result but the named tools'). A named tool
-                      must be declared in this request's `tools[]`.
+                      Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
 
                   - `type BetaWebFetchTool20260309`
 
@@ -18267,13 +17947,13 @@
 
                       Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-                      exclusiveMinimum: 0
+                      minimum: 1
 
                     - `MaxUses int64 Optional`
 
                       Maximum number of times the tool can be used in the API request.
 
-                      exclusiveMinimum: 0
+                      minimum: 1
 
                     - `Strict bool Optional`
 
@@ -18281,12 +17961,7 @@
 
                     - `URLSources BetaWebFetchURLSources Optional`
 
-                      Which sources contribute to the set of URLs web fetch may fetch.
-
-                      Each key is a tagged variant: `user_input` is `all` or `none`; the
-                      two tool filters are `all`, `none`, `only` (only the named tools'
-                      results) or `except` (every result but the named tools'). A named tool
-                      must be declared in this request's `tools[]`.
+                      Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
 
                     - `UseCache bool Optional`
 
@@ -18332,7 +18007,7 @@
 
                       Maximum number of times the tool can be used in the API request.
 
-                      exclusiveMinimum: 0
+                      minimum: 1
 
                     - `ResponseInclusion BetaWebSearchTool20260318ResponseInclusion Optional`
 
@@ -18394,13 +18069,13 @@
 
                       Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-                      exclusiveMinimum: 0
+                      minimum: 1
 
                     - `MaxUses int64 Optional`
 
                       Maximum number of times the tool can be used in the API request.
 
-                      exclusiveMinimum: 0
+                      minimum: 1
 
                     - `ResponseInclusion BetaWebFetchTool20260318ResponseInclusion Optional`
 
@@ -18416,12 +18091,7 @@
 
                     - `URLSources BetaWebFetchURLSources Optional`
 
-                      Which sources contribute to the set of URLs web fetch may fetch.
-
-                      Each key is a tagged variant: `user_input` is `all` or `none`; the
-                      two tool filters are `all`, `none`, `only` (only the named tools'
-                      results) or `except` (every result but the named tools'). A named tool
-                      must be declared in this request's `tools[]`.
+                      Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
 
                     - `UseCache bool Optional`
 
@@ -18436,6 +18106,8 @@
                       The model that will complete your prompt.
 
                       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+                      - `string`
 
                       - `type Model string`
 
@@ -18479,10 +18151,6 @@
 
                           Powerful intelligence for long-running agents and coding
 
-                        - `const ModelClaudeMythosPreview Model = "claude-mythos-preview"`
-
-                          New class of intelligence, strongest in coding and cybersecurity
-
                         - `const ModelClaudeOpus4_6 Model = "claude-opus-4-6"`
 
                           Powerful intelligence for long-running agents and coding
@@ -18515,7 +18183,11 @@
 
                           High-performance model for agents and coding
 
-                      - `string`
+                        - `const ModelClaudeMythosPreview Model = "claude-mythos-preview"`
+
+                          **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+                          New class of intelligence, strongest in coding and cybersecurity
 
                     - `Name Advisor`
 
@@ -18555,7 +18227,7 @@
 
                       Maximum number of times the tool can be used in the API request.
 
-                      exclusiveMinimum: 0
+                      minimum: 1
 
                     - `Strict bool Optional`
 
@@ -18646,7 +18318,7 @@
 
                       Name of the MCP server to configure tools for
 
-                      maxLength: 255, minLength: 1
+                      minLength: 1, maxLength: 255
 
                     - `CacheControl BetaCacheControlEphemeral Optional`
 
@@ -18761,7 +18433,7 @@
 
           - `Category BetaFallbackRefusalTriggerCategory`
 
-            The policy category that triggered a refusal.
+            The policy category that triggered the `from` model's refusal at this hop. `null` when the refusal doesn't map to a named category. Same vocabulary as `stop_details.category`.
 
             - `const BetaFallbackRefusalTriggerCategoryCyber BetaFallbackRefusalTriggerCategory = "cyber"`
 
@@ -18856,8 +18528,7 @@
 
     - `Diagnostics BetaDiagnostics`
 
-      Request-level diagnostics: why the prompt cache could not fully reuse
-      the prefix of the request named by `diagnostics.previous_message_id`.
+      Request-level diagnostics. `null` when the request did not supply `diagnostics`, or when it did and no prompt-cache divergence was detected.
 
       - `CacheMissReason BetaCacheMissReasonUnion`
 
@@ -18931,7 +18602,9 @@
 
     - `StopDetails BetaRefusalStopDetails`
 
-      Structured information about a refusal.
+      Structured information about why model output stopped.
+
+      This is `null` when the `stop_reason` has no additional detail to report.
 
       - `Type Refusal`
 
@@ -18939,7 +18612,9 @@
 
       - `Category BetaRefusalStopDetailsCategory`
 
-        The policy category that triggered a refusal.
+        The policy category that triggered the refusal.
+
+        `null` when the refusal doesn't map to a named category.
 
         - `const BetaRefusalStopDetailsCategoryCyber BetaRefusalStopDetailsCategory = "cyber"`
 
@@ -19097,6 +18772,10 @@
       - `FallbackCredit BetaFallbackCreditUsage`
 
         Outcome of the `fallback_credit_token` presented on this request.
+
+        Present on every response to a non-batch request that carried a
+        `fallback_credit_token`, in either redemption mode; absent otherwise (batch
+        items accept and ignore the token and carry no outcome object).
 
         - `Status BetaFallbackCreditUsageStatusUnion`
 
@@ -19421,7 +19100,7 @@
 
       - `Speed BetaUsageSpeed`
 
-        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+        The inference speed mode used for this request.
 
         - `const BetaUsageSpeedStandard BetaUsageSpeed = "standard"`
 
@@ -19559,7 +19238,9 @@
 
       - `Container BetaContainer`
 
-        Information about the container used in the request (for the code execution tool)
+        Information about the container used in this request.
+
+        This will be non-null if a container tool (e.g. code execution) was used.
 
         - `ID string`
 
@@ -19587,13 +19268,13 @@
 
             Skill ID
 
-            maxLength: 64, minLength: 1
+            minLength: 1, maxLength: 64
 
           - `Version string`
 
             The resolved version: a skill version ID for custom skills.
 
-            maxLength: 64, minLength: 1
+            minLength: 1, maxLength: 64
 
       - `Content []BetaContentBlockUnion`
 
@@ -19766,8 +19447,6 @@
 
           - `Text string`
 
-            minLength: 0
-
         - `type BetaThinkingBlock`
 
           - `Type Thinking`
@@ -19846,7 +19525,7 @@
 
             For a toolset member tool_use, the toolset family.
 
-            maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
+            minLength: 1, maxLength: 64, pattern: ^[a-zA-Z0-9_-]+$
 
         - `type BetaServerToolUseBlock`
 
@@ -20350,7 +20029,7 @@
 
                 - `ToolName string`
 
-                  maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+                  minLength: 1, maxLength: 256, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
           - `ToolUseID string`
 
@@ -20399,8 +20078,6 @@
                 The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
 
               - `Text string`
-
-                minLength: 0
 
           - `IsError bool`
 
@@ -20539,7 +20216,7 @@
 
                         This is how the tool will be called by the model and in `tool_use` blocks.
 
-                        maxLength: 128, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,128}$
+                        minLength: 1, maxLength: 128, pattern: ^[a-zA-Z0-9_-]{1,128}$
 
                       - `AllowedCallers []string Optional`
 
@@ -20803,12 +20480,7 @@
 
                       - `Configs BetaBrowserToolsetConfigs Optional`
 
-                        Per-member configuration for `browser_toolset_20260801`: one
-                        optional field per member tool, keyed by the member name — the same
-                        name the member's `tool_use` blocks carry. Every member is an
-                        accepted key, and a member's defaults apply wherever its key is
-                        absent. Unknown keys are rejected: the field set is this toolset
-                        version's complete member set.
+                        Sparse per-member overrides, keyed by member name. Absent, null, and {} are equivalent; a member's defaults apply wherever its key is absent.
 
                         - `Type BetaBrowserTypeConfig Optional`
 
@@ -21429,12 +21101,7 @@
 
                       - `Configs BetaComputerToolsetConfigs Optional`
 
-                        Per-member configuration for `computer_toolset_20260801`: one
-                        optional field per member tool, keyed by the member name — the same
-                        name the member's `tool_use` blocks carry. Every member is an
-                        accepted key, and a member's defaults apply wherever its key is
-                        absent. Unknown keys are rejected: the field set is this toolset
-                        version's complete member set.
+                        Sparse per-member overrides, keyed by member name. Absent, null, and {} are equivalent; a member's defaults apply wherever its key is absent.
 
                         - `Type BetaComputerTypeConfig Optional`
 
@@ -21788,7 +21455,7 @@
 
                         Maximum number of times the tool can be used in the API request.
 
-                        exclusiveMinimum: 0
+                        minimum: 1
 
                       - `Strict bool Optional`
 
@@ -21804,25 +21471,25 @@
 
                           The city of the user.
 
-                          maxLength: 255, minLength: 1
+                          minLength: 1, maxLength: 255
 
                         - `Country string Optional`
 
                           The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
 
-                          maxLength: 2, minLength: 2
+                          minLength: 2, maxLength: 2
 
                         - `Region string Optional`
 
                           The region of the user.
 
-                          maxLength: 255, minLength: 1
+                          minLength: 1, maxLength: 255
 
                         - `Timezone string Optional`
 
                           The [IANA timezone](https://nodatime.org/TimeZones) of the user.
 
-                          maxLength: 255, minLength: 1
+                          minLength: 1, maxLength: 255
 
                     - `type BetaWebFetchTool20250910`
 
@@ -21870,13 +21537,13 @@
 
                         Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-                        exclusiveMinimum: 0
+                        minimum: 1
 
                       - `MaxUses int64 Optional`
 
                         Maximum number of times the tool can be used in the API request.
 
-                        exclusiveMinimum: 0
+                        minimum: 1
 
                       - `Strict bool Optional`
 
@@ -21884,12 +21551,7 @@
 
                       - `URLSources BetaWebFetchURLSources Optional`
 
-                        Which sources contribute to the set of URLs web fetch may fetch.
-
-                        Each key is a tagged variant: `user_input` is `all` or `none`; the
-                        two tool filters are `all`, `none`, `only` (only the named tools'
-                        results) or `except` (every result but the named tools'). A named tool
-                        must be declared in this request's `tools[]`.
+                        Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
 
                         - `ClientToolResults BetaWebFetchURLSourcesClientToolResultsUnion Optional`
 
@@ -22013,7 +21675,7 @@
 
                         Maximum number of times the tool can be used in the API request.
 
-                        exclusiveMinimum: 0
+                        minimum: 1
 
                       - `Strict bool Optional`
 
@@ -22067,13 +21729,13 @@
 
                         Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-                        exclusiveMinimum: 0
+                        minimum: 1
 
                       - `MaxUses int64 Optional`
 
                         Maximum number of times the tool can be used in the API request.
 
-                        exclusiveMinimum: 0
+                        minimum: 1
 
                       - `Strict bool Optional`
 
@@ -22081,12 +21743,7 @@
 
                       - `URLSources BetaWebFetchURLSources Optional`
 
-                        Which sources contribute to the set of URLs web fetch may fetch.
-
-                        Each key is a tagged variant: `user_input` is `all` or `none`; the
-                        two tool filters are `all`, `none`, `only` (only the named tools'
-                        results) or `except` (every result but the named tools'). A named tool
-                        must be declared in this request's `tools[]`.
+                        Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
 
                     - `type BetaWebFetchTool20260309`
 
@@ -22134,13 +21791,13 @@
 
                         Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-                        exclusiveMinimum: 0
+                        minimum: 1
 
                       - `MaxUses int64 Optional`
 
                         Maximum number of times the tool can be used in the API request.
 
-                        exclusiveMinimum: 0
+                        minimum: 1
 
                       - `Strict bool Optional`
 
@@ -22148,12 +21805,7 @@
 
                       - `URLSources BetaWebFetchURLSources Optional`
 
-                        Which sources contribute to the set of URLs web fetch may fetch.
-
-                        Each key is a tagged variant: `user_input` is `all` or `none`; the
-                        two tool filters are `all`, `none`, `only` (only the named tools'
-                        results) or `except` (every result but the named tools'). A named tool
-                        must be declared in this request's `tools[]`.
+                        Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
 
                       - `UseCache bool Optional`
 
@@ -22199,7 +21851,7 @@
 
                         Maximum number of times the tool can be used in the API request.
 
-                        exclusiveMinimum: 0
+                        minimum: 1
 
                       - `ResponseInclusion BetaWebSearchTool20260318ResponseInclusion Optional`
 
@@ -22261,13 +21913,13 @@
 
                         Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-                        exclusiveMinimum: 0
+                        minimum: 1
 
                       - `MaxUses int64 Optional`
 
                         Maximum number of times the tool can be used in the API request.
 
-                        exclusiveMinimum: 0
+                        minimum: 1
 
                       - `ResponseInclusion BetaWebFetchTool20260318ResponseInclusion Optional`
 
@@ -22283,12 +21935,7 @@
 
                       - `URLSources BetaWebFetchURLSources Optional`
 
-                        Which sources contribute to the set of URLs web fetch may fetch.
-
-                        Each key is a tagged variant: `user_input` is `all` or `none`; the
-                        two tool filters are `all`, `none`, `only` (only the named tools'
-                        results) or `except` (every result but the named tools'). A named tool
-                        must be declared in this request's `tools[]`.
+                        Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
 
                       - `UseCache bool Optional`
 
@@ -22303,6 +21950,8 @@
                         The model that will complete your prompt.
 
                         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+                        - `string`
 
                         - `type Model string`
 
@@ -22346,10 +21995,6 @@
 
                             Powerful intelligence for long-running agents and coding
 
-                          - `const ModelClaudeMythosPreview Model = "claude-mythos-preview"`
-
-                            New class of intelligence, strongest in coding and cybersecurity
-
                           - `const ModelClaudeOpus4_6 Model = "claude-opus-4-6"`
 
                             Powerful intelligence for long-running agents and coding
@@ -22382,7 +22027,11 @@
 
                             High-performance model for agents and coding
 
-                        - `string`
+                          - `const ModelClaudeMythosPreview Model = "claude-mythos-preview"`
+
+                            **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+                            New class of intelligence, strongest in coding and cybersecurity
 
                       - `Name Advisor`
 
@@ -22422,7 +22071,7 @@
 
                         Maximum number of times the tool can be used in the API request.
 
-                        exclusiveMinimum: 0
+                        minimum: 1
 
                       - `Strict bool Optional`
 
@@ -22513,7 +22162,7 @@
 
                         Name of the MCP server to configure tools for
 
-                        maxLength: 255, minLength: 1
+                        minLength: 1, maxLength: 255
 
                       - `CacheControl BetaCacheControlEphemeral Optional`
 
@@ -22628,7 +22277,7 @@
 
             - `Category BetaFallbackRefusalTriggerCategory`
 
-              The policy category that triggered a refusal.
+              The policy category that triggered the `from` model's refusal at this hop. `null` when the refusal doesn't map to a named category. Same vocabulary as `stop_details.category`.
 
               - `const BetaFallbackRefusalTriggerCategoryCyber BetaFallbackRefusalTriggerCategory = "cyber"`
 
@@ -22723,8 +22372,7 @@
 
       - `Diagnostics BetaDiagnostics`
 
-        Request-level diagnostics: why the prompt cache could not fully reuse
-        the prefix of the request named by `diagnostics.previous_message_id`.
+        Request-level diagnostics. `null` when the request did not supply `diagnostics`, or when it did and no prompt-cache divergence was detected.
 
         - `CacheMissReason BetaCacheMissReasonUnion`
 
@@ -22798,7 +22446,9 @@
 
       - `StopDetails BetaRefusalStopDetails`
 
-        Structured information about a refusal.
+        Structured information about why model output stopped.
+
+        This is `null` when the `stop_reason` has no additional detail to report.
 
         - `Type Refusal`
 
@@ -22806,7 +22456,9 @@
 
         - `Category BetaRefusalStopDetailsCategory`
 
-          The policy category that triggered a refusal.
+          The policy category that triggered the refusal.
+
+          `null` when the refusal doesn't map to a named category.
 
           - `const BetaRefusalStopDetailsCategoryCyber BetaRefusalStopDetailsCategory = "cyber"`
 
@@ -22964,6 +22616,10 @@
         - `FallbackCredit BetaFallbackCreditUsage`
 
           Outcome of the `fallback_credit_token` presented on this request.
+
+          Present on every response to a non-batch request that carried a
+          `fallback_credit_token`, in either redemption mode; absent otherwise (batch
+          items accept and ignore the token and carry no outcome object).
 
           - `Status BetaFallbackCreditUsageStatusUnion`
 
@@ -23288,7 +22944,7 @@
 
         - `Speed BetaUsageSpeed`
 
-          Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+          The inference speed mode used for this request.
 
           - `const BetaUsageSpeedStandard BetaUsageSpeed = "standard"`
 
@@ -23404,11 +23060,15 @@
 
       - `Container BetaContainer`
 
-        Information about the container used in the request (for the code execution tool)
+        Information about the container used in this request.
+
+        This will be non-null if a container tool (e.g. code execution) was used.
 
       - `StopDetails BetaRefusalStopDetails`
 
-        Structured information about a refusal.
+        Structured information about why model output stopped.
+
+        This is `null` when the `stop_reason` has no additional detail to report.
 
       - `StopReason BetaStopReason`
 
@@ -23441,6 +23101,10 @@
       - `FallbackCredit BetaFallbackCreditUsage`
 
         Outcome of the `fallback_credit_token` presented on this request.
+
+        Present on every response to a non-batch request that carried a
+        `fallback_credit_token`, in either redemption mode; absent otherwise (batch
+        items accept and ignore the token and carry no outcome object).
 
       - `InputTokens int64`
 
@@ -23708,7 +23372,9 @@
 
   - `Category BetaRefusalStopDetailsCategory`
 
-    The policy category that triggered a refusal.
+    The policy category that triggered the refusal.
+
+    `null` when the refusal doesn't map to a named category.
 
     - `const BetaRefusalStopDetailsCategoryCyber BetaRefusalStopDetailsCategory = "cyber"`
 
@@ -23864,7 +23530,7 @@
 
                 - `DocumentTitle string`
 
-                  maxLength: 500, minLength: 1
+                  minLength: 1, maxLength: 500
 
                 - `EndCharIndex int64`
 
@@ -23884,7 +23550,7 @@
 
                 - `DocumentTitle string`
 
-                  maxLength: 500, minLength: 1
+                  minLength: 1, maxLength: 500
 
                 - `EndPageNumber int64`
 
@@ -23908,7 +23574,7 @@
 
                 - `DocumentTitle string`
 
-                  maxLength: 500, minLength: 1
+                  minLength: 1, maxLength: 500
 
                 - `EndBlockIndex int64`
 
@@ -23932,7 +23598,7 @@
 
                 - `Title string`
 
-                  maxLength: 512, minLength: 1
+                  minLength: 1, maxLength: 512
 
                 - `URL string`
 
@@ -24050,7 +23716,7 @@
 
   - `Title string Optional`
 
-    maxLength: 500, minLength: 1
+    minLength: 1, maxLength: 500
 
 ### Beta Request MCP Server Tool Configuration
 
@@ -24139,7 +23805,7 @@
 
           - `DocumentTitle string`
 
-            maxLength: 500, minLength: 1
+            minLength: 1, maxLength: 500
 
           - `EndCharIndex int64`
 
@@ -24159,7 +23825,7 @@
 
           - `DocumentTitle string`
 
-            maxLength: 500, minLength: 1
+            minLength: 1, maxLength: 500
 
           - `EndPageNumber int64`
 
@@ -24183,7 +23849,7 @@
 
           - `DocumentTitle string`
 
-            maxLength: 500, minLength: 1
+            minLength: 1, maxLength: 500
 
           - `EndBlockIndex int64`
 
@@ -24207,7 +23873,7 @@
 
           - `Title string`
 
-            maxLength: 512, minLength: 1
+            minLength: 1, maxLength: 512
 
           - `URL string`
 
@@ -24332,7 +23998,7 @@
 
             This is how the tool will be called by the model and in `tool_use` blocks.
 
-            maxLength: 128, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,128}$
+            minLength: 1, maxLength: 128, pattern: ^[a-zA-Z0-9_-]{1,128}$
 
           - `AllowedCallers []string Optional`
 
@@ -24600,12 +24266,7 @@
 
           - `Configs BetaBrowserToolsetConfigs Optional`
 
-            Per-member configuration for `browser_toolset_20260801`: one
-            optional field per member tool, keyed by the member name — the same
-            name the member's `tool_use` blocks carry. Every member is an
-            accepted key, and a member's defaults apply wherever its key is
-            absent. Unknown keys are rejected: the field set is this toolset
-            version's complete member set.
+            Sparse per-member overrides, keyed by member name. Absent, null, and {} are equivalent; a member's defaults apply wherever its key is absent.
 
             - `Type BetaBrowserTypeConfig Optional`
 
@@ -25226,12 +24887,7 @@
 
           - `Configs BetaComputerToolsetConfigs Optional`
 
-            Per-member configuration for `computer_toolset_20260801`: one
-            optional field per member tool, keyed by the member name — the same
-            name the member's `tool_use` blocks carry. Every member is an
-            accepted key, and a member's defaults apply wherever its key is
-            absent. Unknown keys are rejected: the field set is this toolset
-            version's complete member set.
+            Sparse per-member overrides, keyed by member name. Absent, null, and {} are equivalent; a member's defaults apply wherever its key is absent.
 
             - `Type BetaComputerTypeConfig Optional`
 
@@ -25585,7 +25241,7 @@
 
             Maximum number of times the tool can be used in the API request.
 
-            exclusiveMinimum: 0
+            minimum: 1
 
           - `Strict bool Optional`
 
@@ -25601,25 +25257,25 @@
 
               The city of the user.
 
-              maxLength: 255, minLength: 1
+              minLength: 1, maxLength: 255
 
             - `Country string Optional`
 
               The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
 
-              maxLength: 2, minLength: 2
+              minLength: 2, maxLength: 2
 
             - `Region string Optional`
 
               The region of the user.
 
-              maxLength: 255, minLength: 1
+              minLength: 1, maxLength: 255
 
             - `Timezone string Optional`
 
               The [IANA timezone](https://nodatime.org/TimeZones) of the user.
 
-              maxLength: 255, minLength: 1
+              minLength: 1, maxLength: 255
 
         - `type BetaWebFetchTool20250910`
 
@@ -25667,13 +25323,13 @@
 
             Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-            exclusiveMinimum: 0
+            minimum: 1
 
           - `MaxUses int64 Optional`
 
             Maximum number of times the tool can be used in the API request.
 
-            exclusiveMinimum: 0
+            minimum: 1
 
           - `Strict bool Optional`
 
@@ -25681,12 +25337,7 @@
 
           - `URLSources BetaWebFetchURLSources Optional`
 
-            Which sources contribute to the set of URLs web fetch may fetch.
-
-            Each key is a tagged variant: `user_input` is `all` or `none`; the
-            two tool filters are `all`, `none`, `only` (only the named tools'
-            results) or `except` (every result but the named tools'). A named tool
-            must be declared in this request's `tools[]`.
+            Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
 
             - `ClientToolResults BetaWebFetchURLSourcesClientToolResultsUnion Optional`
 
@@ -25810,7 +25461,7 @@
 
             Maximum number of times the tool can be used in the API request.
 
-            exclusiveMinimum: 0
+            minimum: 1
 
           - `Strict bool Optional`
 
@@ -25864,13 +25515,13 @@
 
             Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-            exclusiveMinimum: 0
+            minimum: 1
 
           - `MaxUses int64 Optional`
 
             Maximum number of times the tool can be used in the API request.
 
-            exclusiveMinimum: 0
+            minimum: 1
 
           - `Strict bool Optional`
 
@@ -25878,12 +25529,7 @@
 
           - `URLSources BetaWebFetchURLSources Optional`
 
-            Which sources contribute to the set of URLs web fetch may fetch.
-
-            Each key is a tagged variant: `user_input` is `all` or `none`; the
-            two tool filters are `all`, `none`, `only` (only the named tools'
-            results) or `except` (every result but the named tools'). A named tool
-            must be declared in this request's `tools[]`.
+            Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
 
         - `type BetaWebFetchTool20260309`
 
@@ -25931,13 +25577,13 @@
 
             Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-            exclusiveMinimum: 0
+            minimum: 1
 
           - `MaxUses int64 Optional`
 
             Maximum number of times the tool can be used in the API request.
 
-            exclusiveMinimum: 0
+            minimum: 1
 
           - `Strict bool Optional`
 
@@ -25945,12 +25591,7 @@
 
           - `URLSources BetaWebFetchURLSources Optional`
 
-            Which sources contribute to the set of URLs web fetch may fetch.
-
-            Each key is a tagged variant: `user_input` is `all` or `none`; the
-            two tool filters are `all`, `none`, `only` (only the named tools'
-            results) or `except` (every result but the named tools'). A named tool
-            must be declared in this request's `tools[]`.
+            Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
 
           - `UseCache bool Optional`
 
@@ -25996,7 +25637,7 @@
 
             Maximum number of times the tool can be used in the API request.
 
-            exclusiveMinimum: 0
+            minimum: 1
 
           - `ResponseInclusion BetaWebSearchTool20260318ResponseInclusion Optional`
 
@@ -26058,13 +25699,13 @@
 
             Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-            exclusiveMinimum: 0
+            minimum: 1
 
           - `MaxUses int64 Optional`
 
             Maximum number of times the tool can be used in the API request.
 
-            exclusiveMinimum: 0
+            minimum: 1
 
           - `ResponseInclusion BetaWebFetchTool20260318ResponseInclusion Optional`
 
@@ -26080,12 +25721,7 @@
 
           - `URLSources BetaWebFetchURLSources Optional`
 
-            Which sources contribute to the set of URLs web fetch may fetch.
-
-            Each key is a tagged variant: `user_input` is `all` or `none`; the
-            two tool filters are `all`, `none`, `only` (only the named tools'
-            results) or `except` (every result but the named tools'). A named tool
-            must be declared in this request's `tools[]`.
+            Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
 
           - `UseCache bool Optional`
 
@@ -26100,6 +25736,8 @@
             The model that will complete your prompt.
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+            - `string`
 
             - `type Model string`
 
@@ -26143,10 +25781,6 @@
 
                 Powerful intelligence for long-running agents and coding
 
-              - `const ModelClaudeMythosPreview Model = "claude-mythos-preview"`
-
-                New class of intelligence, strongest in coding and cybersecurity
-
               - `const ModelClaudeOpus4_6 Model = "claude-opus-4-6"`
 
                 Powerful intelligence for long-running agents and coding
@@ -26179,7 +25813,11 @@
 
                 High-performance model for agents and coding
 
-            - `string`
+              - `const ModelClaudeMythosPreview Model = "claude-mythos-preview"`
+
+                **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+                New class of intelligence, strongest in coding and cybersecurity
 
           - `Name Advisor`
 
@@ -26219,7 +25857,7 @@
 
             Maximum number of times the tool can be used in the API request.
 
-            exclusiveMinimum: 0
+            minimum: 1
 
           - `Strict bool Optional`
 
@@ -26310,7 +25948,7 @@
 
             Name of the MCP server to configure tools for
 
-            maxLength: 255, minLength: 1
+            minLength: 1, maxLength: 255
 
           - `CacheControl BetaCacheControlEphemeral Optional`
 
@@ -26448,7 +26086,7 @@
 
     This is how the tool will be called by the model and in `tool_use` blocks.
 
-    maxLength: 128, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,128}$
+    minLength: 1, maxLength: 128, pattern: ^[a-zA-Z0-9_-]{1,128}$
 
   - `AllowedCallers []string Optional`
 
@@ -26573,7 +26211,7 @@
 
             This is how the tool will be called by the model and in `tool_use` blocks.
 
-            maxLength: 128, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,128}$
+            minLength: 1, maxLength: 128, pattern: ^[a-zA-Z0-9_-]{1,128}$
 
           - `AllowedCallers []string Optional`
 
@@ -26837,12 +26475,7 @@
 
           - `Configs BetaBrowserToolsetConfigs Optional`
 
-            Per-member configuration for `browser_toolset_20260801`: one
-            optional field per member tool, keyed by the member name — the same
-            name the member's `tool_use` blocks carry. Every member is an
-            accepted key, and a member's defaults apply wherever its key is
-            absent. Unknown keys are rejected: the field set is this toolset
-            version's complete member set.
+            Sparse per-member overrides, keyed by member name. Absent, null, and {} are equivalent; a member's defaults apply wherever its key is absent.
 
             - `Type BetaBrowserTypeConfig Optional`
 
@@ -27065,3 +26698,436 @@
               `navigate`'s config overrides.
 
               - `DeferLoading bool Optional`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `Enabled bool Optional`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `NewTab BetaBrowserNewTabConfig Optional`
+
+              `new_tab`'s config overrides.
+
+              - `DeferLoading bool Optional`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `Enabled bool Optional`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `ReadConsole BetaBrowserReadConsoleConfig Optional`
+
+              `read_console`'s config overrides.
+
+              - `DeferLoading bool Optional`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `Enabled bool Optional`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `ReadNetwork BetaBrowserReadNetworkConfig Optional`
+
+              `read_network`'s config overrides.
+
+              - `DeferLoading bool Optional`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `Enabled bool Optional`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `ReadPage BetaBrowserReadPageConfig Optional`
+
+              `read_page`'s config overrides.
+
+              - `DeferLoading bool Optional`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `Enabled bool Optional`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `RightClick BetaBrowserRightClickConfig Optional`
+
+              `right_click`'s config overrides.
+
+              - `DeferLoading bool Optional`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `Enabled bool Optional`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `Screenshot BetaBrowserScreenshotConfig Optional`
+
+              `screenshot`'s config overrides.
+
+              - `DeferLoading bool Optional`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `Enabled bool Optional`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `Scroll BetaBrowserScrollConfig Optional`
+
+              `scroll`'s config overrides.
+
+              - `DeferLoading bool Optional`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `Enabled bool Optional`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `ScrollTo BetaBrowserScrollToConfig Optional`
+
+              `scroll_to`'s config overrides.
+
+              - `DeferLoading bool Optional`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `Enabled bool Optional`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `SwitchTab BetaBrowserSwitchTabConfig Optional`
+
+              `switch_tab`'s config overrides.
+
+              - `DeferLoading bool Optional`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `Enabled bool Optional`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `TripleClick BetaBrowserTripleClickConfig Optional`
+
+              `triple_click`'s config overrides.
+
+              - `DeferLoading bool Optional`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `Enabled bool Optional`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `Wait BetaBrowserWaitConfig Optional`
+
+              `wait`'s config overrides.
+
+              - `DeferLoading bool Optional`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `Enabled bool Optional`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `Zoom BetaBrowserZoomConfig Optional`
+
+              `zoom`'s config overrides.
+
+              - `DeferLoading bool Optional`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `Enabled bool Optional`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+        - `type BetaToolComputerUse20241022`
+
+          - `Type Computer20241022`
+
+          - `DisplayHeightPx int64`
+
+            The height of the display in pixels.
+
+            minimum: 1
+
+          - `DisplayWidthPx int64`
+
+            The width of the display in pixels.
+
+            minimum: 1
+
+          - `Name Computer`
+
+            Name of the tool.
+
+            This is how the tool will be called by the model and in `tool_use` blocks.
+
+          - `AllowedCallers []string Optional`
+
+            - `const BetaToolComputerUse20241022AllowedCallerDirect BetaToolComputerUse20241022AllowedCaller = "direct"`
+
+            - `const BetaToolComputerUse20241022AllowedCallerCodeExecution20250825 BetaToolComputerUse20241022AllowedCaller = "code_execution_20250825"`
+
+            - `const BetaToolComputerUse20241022AllowedCallerCodeExecution20260120 BetaToolComputerUse20241022AllowedCaller = "code_execution_20260120"`
+
+            - `const BetaToolComputerUse20241022AllowedCallerCodeExecution20260521 BetaToolComputerUse20241022AllowedCaller = "code_execution_20260521"`
+
+          - `CacheControl BetaCacheControlEphemeral Optional`
+
+            Create a cache control breakpoint at this content block.
+
+          - `DeferLoading bool Optional`
+
+            If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+          - `DisplayNumber int64 Optional`
+
+            The X11 display number (e.g. 0, 1) for the display.
+
+            minimum: 0
+
+          - `InputExamples []map[string, any] Optional`
+
+          - `Strict bool Optional`
+
+            When true, guarantees schema validation on tool names and inputs
+
+        - `type BetaMemoryTool20250818`
+
+          - `Type Memory20250818`
+
+          - `Name Memory`
+
+            Name of the tool.
+
+            This is how the tool will be called by the model and in `tool_use` blocks.
+
+          - `AllowedCallers []string Optional`
+
+            - `const BetaMemoryTool20250818AllowedCallerDirect BetaMemoryTool20250818AllowedCaller = "direct"`
+
+            - `const BetaMemoryTool20250818AllowedCallerCodeExecution20250825 BetaMemoryTool20250818AllowedCaller = "code_execution_20250825"`
+
+            - `const BetaMemoryTool20250818AllowedCallerCodeExecution20260120 BetaMemoryTool20250818AllowedCaller = "code_execution_20260120"`
+
+            - `const BetaMemoryTool20250818AllowedCallerCodeExecution20260521 BetaMemoryTool20250818AllowedCaller = "code_execution_20260521"`
+
+          - `CacheControl BetaCacheControlEphemeral Optional`
+
+            Create a cache control breakpoint at this content block.
+
+          - `DeferLoading bool Optional`
+
+            If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+          - `InputExamples []map[string, any] Optional`
+
+          - `Strict bool Optional`
+
+            When true, guarantees schema validation on tool names and inputs
+
+        - `type BetaToolComputerUse20250124`
+
+          - `Type Computer20250124`
+
+          - `DisplayHeightPx int64`
+
+            The height of the display in pixels.
+
+            minimum: 1
+
+          - `DisplayWidthPx int64`
+
+            The width of the display in pixels.
+
+            minimum: 1
+
+          - `Name Computer`
+
+            Name of the tool.
+
+            This is how the tool will be called by the model and in `tool_use` blocks.
+
+          - `AllowedCallers []string Optional`
+
+            - `const BetaToolComputerUse20250124AllowedCallerDirect BetaToolComputerUse20250124AllowedCaller = "direct"`
+
+            - `const BetaToolComputerUse20250124AllowedCallerCodeExecution20250825 BetaToolComputerUse20250124AllowedCaller = "code_execution_20250825"`
+
+            - `const BetaToolComputerUse20250124AllowedCallerCodeExecution20260120 BetaToolComputerUse20250124AllowedCaller = "code_execution_20260120"`
+
+            - `const BetaToolComputerUse20250124AllowedCallerCodeExecution20260521 BetaToolComputerUse20250124AllowedCaller = "code_execution_20260521"`
+
+          - `CacheControl BetaCacheControlEphemeral Optional`
+
+            Create a cache control breakpoint at this content block.
+
+          - `DeferLoading bool Optional`
+
+            If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+          - `DisplayNumber int64 Optional`
+
+            The X11 display number (e.g. 0, 1) for the display.
+
+            minimum: 0
+
+          - `InputExamples []map[string, any] Optional`
+
+          - `Strict bool Optional`
+
+            When true, guarantees schema validation on tool names and inputs
+
+        - `type BetaToolTextEditor20241022`
+
+          - `Type TextEditor20241022`
+
+          - `Name StrReplaceEditor`
+
+            Name of the tool.
+
+            This is how the tool will be called by the model and in `tool_use` blocks.
+
+          - `AllowedCallers []string Optional`
+
+            - `const BetaToolTextEditor20241022AllowedCallerDirect BetaToolTextEditor20241022AllowedCaller = "direct"`
+
+            - `const BetaToolTextEditor20241022AllowedCallerCodeExecution20250825 BetaToolTextEditor20241022AllowedCaller = "code_execution_20250825"`
+
+            - `const BetaToolTextEditor20241022AllowedCallerCodeExecution20260120 BetaToolTextEditor20241022AllowedCaller = "code_execution_20260120"`
+
+            - `const BetaToolTextEditor20241022AllowedCallerCodeExecution20260521 BetaToolTextEditor20241022AllowedCaller = "code_execution_20260521"`
+
+          - `CacheControl BetaCacheControlEphemeral Optional`
+
+            Create a cache control breakpoint at this content block.
+
+          - `DeferLoading bool Optional`
+
+            If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+          - `InputExamples []map[string, any] Optional`
+
+          - `Strict bool Optional`
+
+            When true, guarantees schema validation on tool names and inputs
+
+        - `type BetaToolComputerUse20251124`
+
+          - `Type Computer20251124`
+
+          - `DisplayHeightPx int64`
+
+            The height of the display in pixels.
+
+            minimum: 1
+
+          - `DisplayWidthPx int64`
+
+            The width of the display in pixels.
+
+            minimum: 1
+
+          - `Name Computer`
+
+            Name of the tool.
+
+            This is how the tool will be called by the model and in `tool_use` blocks.
+
+          - `AllowedCallers []string Optional`
+
+            - `const BetaToolComputerUse20251124AllowedCallerDirect BetaToolComputerUse20251124AllowedCaller = "direct"`
+
+            - `const BetaToolComputerUse20251124AllowedCallerCodeExecution20250825 BetaToolComputerUse20251124AllowedCaller = "code_execution_20250825"`
+
+            - `const BetaToolComputerUse20251124AllowedCallerCodeExecution20260120 BetaToolComputerUse20251124AllowedCaller = "code_execution_20260120"`
+
+            - `const BetaToolComputerUse20251124AllowedCallerCodeExecution20260521 BetaToolComputerUse20251124AllowedCaller = "code_execution_20260521"`
+
+          - `CacheControl BetaCacheControlEphemeral Optional`
+
+            Create a cache control breakpoint at this content block.
+
+          - `DeferLoading bool Optional`
+
+            If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+          - `DisplayNumber int64 Optional`
+
+            The X11 display number (e.g. 0, 1) for the display.
+
+            minimum: 0
+
+          - `EnableZoom bool Optional`
+
+            Whether to enable an action to take a zoomed-in screenshot of the screen.
+
+          - `InputExamples []map[string, any] Optional`
+
+          - `Strict bool Optional`
+
+            When true, guarantees schema validation on tool names and inputs
+
+        - `type BetaComputerToolset20260801`
+
+          The computer toolset: a single `tools[]` entry (carrying no
+          `name`) that declares the computer tool family. The model is
+          served the family's tool with any members disabled via `configs`
+          removed from its schema. Every member is enabled by default, zoom
+          included. The single-tool options `display_number` and
+          `enable_zoom` are not fields of a toolset entry — it carries only
+          `type`, `configs`, and `cache_control`; zoom is controlled
+          via `configs.zoom.enabled`.
+
+          - `Type ComputerToolset20260801`
+
+          - `CacheControl BetaCacheControlEphemeral Optional`
+
+            Create a cache control breakpoint at this content block.
+
+          - `Configs BetaComputerToolsetConfigs Optional`
+
+            Sparse per-member overrides, keyed by member name. Absent, null, and {} are equivalent; a member's defaults apply wherever its key is absent.
+
+            - `Type BetaComputerTypeConfig Optional`
+
+              `type`'s config overrides.
+
+              - `DeferLoading bool Optional`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `Enabled bool Optional`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `CursorPosition BetaComputerCursorPositionConfig Optional`
+
+              `cursor_position`'s config overrides.
+
+              - `DeferLoading bool Optional`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `Enabled bool Optional`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `DoubleClick BetaComputerDoubleClickConfig Optional`
+
+              `double_click`'s config overrides.
+
+              - `DeferLoading bool Optional`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `Enabled bool Optional`

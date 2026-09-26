@@ -24,7 +24,7 @@ Speaker(s)
 
 ## Watch recording
 
-![Giving coding agents their own computers: How Cursor built cloud agents](https://assets.claude.com/e0d4c1b57e333a0ac2e7c79d4dffe818a5bbd732.jpg?w=1600&auto=format)
+![Giving coding agents their own computers: How Cursor built cloud agents](https://assets.claude.com/e0d4c1b57e333a0ac2e7c79d4dffe818a5bbd732.jpg?w=2400&q=75&fm=webp&fit=max)
 
 ## Anthropic's developer conference, recorded
 

@@ -53,7 +53,7 @@ New customer activation depended on documentation, example code, and Vapi's fiel
 
 Building agents with the Claude Agent SDK
 
-![Building agents with the Claude Agent SDK ](https://assets.claude.com/8a8df6660b8f39d6a0a88896d12215466857b588.jpg)
+![Building agents with the Claude Agent SDK ](https://assets.claude.com/8a8df6660b8f39d6a0a88896d12215466857b588.jpg?w=2400&q=75&fm=webp&fit=max)
 
 The Claude Agent SDK is a collection of tools that helps developers build powerful agents on top of Claude Code.
 
@@ -85,7 +85,7 @@ Beyond Composer, customers building voice agents on Vapi can also select Claude 
 
 Introducing Agent Skills
 
-![Introducing Agent Skills](https://assets.claude.com/c703a5641a48ab5b6a904a9d6b0fef8d4975e92d.jpg)
+![Introducing Agent Skills](https://assets.claude.com/c703a5641a48ab5b6a904a9d6b0fef8d4975e92d.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Claude can now use Skills—folders with instructions, scripts, and resources—to become a specialist at specific tasks when you need it.
 

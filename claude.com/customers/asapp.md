@@ -63,7 +63,7 @@ The experience represents a fundamental shift in automated service for end custo
 
 Customers quickly transition from terse, command-like interactions to full, natural conversations within just a few exchanges. The platform maintains context throughout conversations, meaning customers don't have to repeat information. The interaction quality is so convincing that customers often ask mid-conversation if they're speaking with a real person, and saying "thank you" to GenerativeAgent at the end.
 
-![](https://assets.claude.com/6341bf3f104922fe1b4ed6ffa714f55b29b5a47f.jpg)
+![](https://assets.claude.com/6341bf3f104922fe1b4ed6ffa714f55b29b5a47f.jpg?w=2400&q=75&fm=webp&fit=max)
 
 ## The future of AI-powered customer service
 

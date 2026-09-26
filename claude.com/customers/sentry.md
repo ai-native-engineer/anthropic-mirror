@@ -30,7 +30,7 @@ Over 1 million RCAs
 
 Claude Managed Agents: Get to production 10x faster
 
-![Claude Managed Agents: Get to production 10x faster](https://assets.claude.com/ff7c99d19d7cdf50b2e9bf56cc15f9f5d406ce19.jpg)
+![Claude Managed Agents: Get to production 10x faster](https://assets.claude.com/ff7c99d19d7cdf50b2e9bf56cc15f9f5d406ce19.jpg?w=2400&q=75&fm=webp&fit=max)
 
 We're launching Claude Managed Agents, a suite of composable APIs for building and deploying cloud-hosted agents at scale.
 
@@ -96,7 +96,7 @@ Sentry is building toward a workflow where the most actionable bugs are detected
 
 How security teams use Claude
 
-![How security teams use Claude](https://assets.claude.com/eae38b41a06a5518c4438cb1d721b9b42647cfe2.jpg)
+![How security teams use Claude](https://assets.claude.com/eae38b41a06a5518c4438cb1d721b9b42647cfe2.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Claude helps security teams investigate threats, validate findings, and resolve issues faster.
 

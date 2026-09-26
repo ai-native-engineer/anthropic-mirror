@@ -42,7 +42,7 @@ Speaker(s)
 
 ## Watch recording
 
-![Building AI-native at enterprise scale: monday.com, Doctolib, and Delivery Hero](https://assets.claude.com/c57e888dbdc6b3515287ce2b5bd7839c7f852061.jpg?w=1600&auto=format)
+![Building AI-native at enterprise scale: monday.com, Doctolib, and Delivery Hero](https://assets.claude.com/c57e888dbdc6b3515287ce2b5bd7839c7f852061.jpg?w=2400&q=75&fm=webp&fit=max)
 
 ## Anthropic's developer conference, recorded
 

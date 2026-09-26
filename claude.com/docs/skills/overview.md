@@ -9,49 +9,72 @@
 [Skip to main content](#content-area)
 
 Skills are directories containing instructions, scripts, and resources that Claude dynamically loads to handle specific tasks. Each skill has a `SKILL.md` file that defines when it should be activated and what instructions Claude should follow.
+This page is for people who want to find, turn on, and use skills in Claude.
 
-##  Availability
+* Skills are available on Pro, Max, Team, and Enterprise plans. They run in Claude’s code sandbox, so **Code execution and file creation** must be on: turn it on under [**Settings > Capabilities**](https://claude.ai/settings/capabilities), or on Team and Enterprise plans ask an Owner to turn it on under **Organization settings > Capabilities**
+* If you want to write a skill of your own, see [Create custom skills](https://claude.com/docs/skills/how-to)
 
-Skills are available for users on Pro, Max, Team, and Enterprise plans. The Skills feature requires code execution to be enabled.
+For the steps, go to [Find, turn on, and use skills](#find-turn-on-and-use-skills).
 
-##  How skills work
+##  Understand how skills work
 
-Skills use progressive disclosure to manage context efficiently:
+Claude doesn’t read every skill in full at the start of a conversation. It works through three stages:
 
-1. **Metadata loading**: Claude reads skill names and descriptions at startup (~100 tokens each)
-2. **Activation**: When a task matches a skill’s description, Claude loads the full `SKILL.md` content
-3. **Resource loading**: Additional files (scripts, references) are loaded only when needed
+* **Knows what’s available**: Claude sees each skill’s name and one-line description
+* **Loads the one that fits**: when your request matches a description, Claude reads that skill’s `SKILL.md` instructions
+* **Opens extra files only when needed**: if the instructions point to scripts or reference files, Claude opens them at that point
 
-This approach prevents context window overload while providing specialized capabilities on demand.
+A skill’s description matters because it’s the only part Claude sees before deciding to use the skill.
+
+##  Find, turn on, and use skills
+
+All of your skills are listed at [**Customize > Skills**](https://claude.ai/customize/skills) in claude.ai and the desktop app, including skills that came inside a plugin.
+
+1
+
+Open Customize > Skills
+
+The **Your skills** tab lists the skills you have, grouped by where they came from: **Created by you**, **From your organization**, **Shared with you**, and **From Anthropic & Partners**. The **Discover** tab lists skills you can add.
+
+2
+
+Turn a skill on
+
+Select **Turn on** on the skill’s row, or open the skill and use the switch at the top of its page. A skill’s instructions and any scripts it carries run as part of your conversation, and skills someone shares with you or that you upload yourself aren’t reviewed by Anthropic, so open the skill and read its `SKILL.md` and files before you turn it on.
+
+3
+
+Use it in a conversation
+
+Describe your task, and Claude loads a skill that’s turned on when the task matches the skill’s description. To pick one yourself, type `/` in the message box and select the skill.
+
+A plugin’s skills appear on **Your skills** too, labeled with the plugin’s name. They turn on and off with the plugin, which you manage from [**Customize > Plugins**](https://claude.com/docs/plugins/overview#manage-installed-plugins).
+On Team and Enterprise plans, a skill’s page also shows **Adoption**, **Activity**, and **You** figures for how much your organization and you have used it. [How a plugin is used in your organization](https://claude.com/docs/plugins/overview#track-plugin-usage-in-your-organization) explains each one.
 
 ##  Types of skills
 
-* **Anthropic skills**: Pre-built skills for document creation (Excel, Word, PowerPoint, PDF) that activate automatically when relevant.
-* **Partner skills**: Skills from partners like Notion, Figma, and Atlassian designed for seamless MCP connector integration.
-* **Organization-provisioned skills**: Skills deployed organization-wide by Team and Enterprise administrators.
-* **Custom skills**: Skills you create for specialized workflows—generating emails, applying brand guidelines, integrating with tools like JIRA or Linear, and more!
+The skills available to you come from several sources:
 
-##  Skills vs. other features
+* **Anthropic skills**: pre-built skills for creating Excel, Word, PowerPoint, and PDF documents that activate automatically when relevant
+* **Partner skills**: skills from Anthropic’s partners, built to work with their MCP connectors
+* **Organization-provisioned skills**: skills that an Owner on a Team or Enterprise plan deploys organization-wide
+* **Custom skills**: skills you create for specialized workflows, such as generating emails, applying brand guidelines, and integrating with your issue tracker
+
+##  Compare skills with other features
 
 | Feature | Purpose |
 | --- | --- |
-| **Skills** | Task-specific procedures that load dynamically |
-| **[Plugins](https://claude.com/docs/plugins/overview)** | Shareable packages that bundle skills, connectors, slash commands, and sub-agents |
-| **Projects** | Static background knowledge always loaded in specific chats |
-| **MCP** | Connects Claude to external services |
-| **Custom Instructions** | Broad preferences applied to all conversations |
+| **Skills** | Task-specific procedures that Claude loads when a request matches |
+| **[Plugins](https://claude.com/docs/plugins/overview)** | Packages that contain several skills together with connectors, commands, and agents, so that you add them as one unit |
+| **[Projects](https://support.claude.com/en/articles/9517075-what-are-projects)** | Background knowledge that’s always loaded in that project’s chats |
+| **[MCP connectors](https://claude.com/docs/connectors/getting-started)** | Connections that let Claude reach external services and data |
 
-##  Open standard
+##  Use skills beyond Claude
 
-Skills follow the [Agent Skills specification](https://agentskills.io/specification), a platform-agnostic standard. Skills you create can work across any platform adopting the standard.
-See [Creating custom skills](https://claude.com/docs/skills/how-to) to learn how to build your own, or bundle skills into [plugins](https://claude.com/docs/plugins/overview) to share them with your team.
+Skills follow the [Agent Skills specification](https://agentskills.io/specification), an open standard, so a skill you write for Claude also works in other tools that adopt the specification.
 
-##  Related topics
+##  Next steps
 
-## Skills in Claude Code
-
-Create, install, and invoke skills from the Claude Code CLI.
-
-## Plugins
-
-Bundle skills with connectors and commands.
+* [Create custom skills](https://claude.com/docs/skills/how-to): create, structure, and test your own skill
+* [Plugins](https://claude.com/docs/plugins/overview): add a plugin that bundles skills with connectors and commands
+* [Skills in Claude Code](https://code.claude.com/docs/en/skills): create, install, and invoke skills from the Claude Code CLI

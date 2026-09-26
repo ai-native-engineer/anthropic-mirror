@@ -50,22 +50,6 @@ September 23, 2026
 
 [How to prepare for AI-driven code modernization projects](#) How to prepare for AI-driven code modernization projects
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2279047e82efc257633_6c7219042e95bfef1a126ad5ee8b2c7def8b8b0a-1000x1000.svg)
-
-Sep 22, 2026
-
-What a task costs on Opus 5.5
-
-Claude Code
-
-What a task costs on Opus 5.5
-
-September 22, 2026
-
-[What a task costs on Opus 5.5](https://claude.com/blog/what-a-task-costs-on-opus-5-5)What a task costs on Opus 5.5
-
-[What a task costs on Opus 5.5](#)What a task costs on Opus 5.5
-
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a42c9bc20d2072552ef256a_Node-EnterpriseAgents.svg)
 
 Sep 17, 2026
@@ -258,6 +242,22 @@ July 24, 2026
 
 [Claude models explained: choosing the best model for your use case](#)Claude models explained: choosing the best model for your use case
 
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d224d39f9b8e905d1823_b68cbb43d7c8f56f0b14cc867e8d4d74445f78b0-1000x1000.svg)
+
+Jul 22, 2026
+
+Building verification loops in Claude Code with skills
+
+Claude Code
+
+Building verification loops in Claude Code with skills
+
+July 22, 2026
+
+[Building verification loops in Claude Code with skills](https://claude.com/blog/building-verification-loops-in-claude-code-with-skills)Building verification loops in Claude Code with skills
+
+[Building verification loops in Claude Code with skills](#)Building verification loops in Claude Code with skills
+
 [View more](https://claude.com/blog-category/claude-code?1e959936_page=2)
 
 Category
@@ -297,22 +297,6 @@ September 23, 2026
 [How to prepare for AI-driven code modernization projects](https://claude.com/blog/how-to-prepare-for-ai-driven-code-modernization-projects) How to prepare for AI-driven code modernization projects
 
 [How to prepare for AI-driven code modernization projects](#) How to prepare for AI-driven code modernization projects
-
-### What a task costs on Opus 5.5
-
-Category
-
-Claude Code
-
-Product
-
-Usecase
-
-September 22, 2026
-
-[What a task costs on Opus 5.5](https://claude.com/blog/what-a-task-costs-on-opus-5-5)What a task costs on Opus 5.5
-
-[What a task costs on Opus 5.5](#)What a task costs on Opus 5.5
 
 ### Projects redesigned: from folder to conversation
 
@@ -505,6 +489,22 @@ July 24, 2026
 [Claude models explained: choosing the best model for your use case](https://claude.com/blog/claude-models-explained-choosing-the-best-model-for-your-use-case)Claude models explained: choosing the best model for your use case
 
 [Claude models explained: choosing the best model for your use case](#)Claude models explained: choosing the best model for your use case
+
+### Building verification loops in Claude Code with skills
+
+Category
+
+Claude Code
+
+Product
+
+Usecase
+
+July 22, 2026
+
+[Building verification loops in Claude Code with skills](https://claude.com/blog/building-verification-loops-in-claude-code-with-skills)Building verification loops in Claude Code with skills
+
+[Building verification loops in Claude Code with skills](#)Building verification loops in Claude Code with skills
 
 [View more](https://claude.com/blog-category/claude-code?2f226f2c_page=2)
 

@@ -35,6 +35,13 @@ Done: Pulled p99 latency from DatadogDone: Diffed deploy 4f2c1 against mainDone:
 Claude Tag is available on Team and Enterprise plans, on Anthropic’s first-party service. It isn’t available on individual plans (Free, Pro, or Max), or for third-party deployments. To use it, your organization pairs its Slack workspace with its Claude organization; see [the setup overview](https://claude.com/docs/claude-tag/admins/setup-overview) for the full prerequisites.
 If you’re choosing between Claude products for Slack-shaped work, [how Claude Tag differs from Cowork and Claude Code](https://claude.com/docs/claude-tag/concepts/how-it-works#how-claude-tag-differs-from-cowork-and-claude-code) compares them directly: team work in shared channels is Claude Tag; personal work on your own files is Cowork or Claude Code.
 
+###  Who needs a Claude seat
+
+Slack users don’t each need a Claude seat to work with Claude in channels.
+
+* **In channels**: by default, anyone in the paired Slack workspace can tag `@Claude` in a channel, and an Owner can [restrict who can use Claude](https://claude.com/docs/claude-tag/admins/restrict-access#restrict-who-can-use-claude) to people in your Claude organization or, on Enterprise, to specific roles. Channel work bills by usage to your organization’s usage balance, under a [spend limit](https://claude.com/docs/claude-tag/admins/set-spend-limit) an Owner sets.
+* **In DMs**: a DM with Claude runs on the sender’s own Claude account and bills to that person’s seat, so DMs need a seat that includes Claude Code.
+
 ##  Where Claude Tag runs
 
 Claude Tag works in Slack. You interact with it by writing in a Slack channel, thread, or direct message, and it replies there. Mention `@Claude` in a channel to guarantee it picks the message up.

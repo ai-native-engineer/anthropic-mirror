@@ -33,7 +33,7 @@ among top 100 contributors, with 90%+ of engineers using Claude Code daily
 
 Claude Code
 
-![Claude Code](https://assets.claude.com/38e8385d1c5f9c0f71c486994e22fc5861a4522d.jpg)
+![Claude Code](https://assets.claude.com/38e8385d1c5f9c0f71c486994e22fc5861a4522d.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
 
@@ -89,7 +89,7 @@ Benodis sees the current mission as embedding Claude Code into every part of the
 
 Claude Code on the web
 
-![Claude Code on the web](https://assets.claude.com/f86dde63aac75ae3fcf058b66769625b7dd62988.jpg)
+![Claude Code on the web](https://assets.claude.com/f86dde63aac75ae3fcf058b66769625b7dd62988.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Delegate coding tasks directly from your browser. Kick off multiple sessions in parallel across repositories, with real-time progress tracking.
 

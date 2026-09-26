@@ -1,9 +1,10 @@
 # claude (YouTube)
 
-영상 208개. 썸네일 + 자막(있으면 접이식, 없으면 '자막없음').
+영상 209개. 썸네일 + 자막(있으면 접이식, 없으면 '자막없음').
 
+- [Building verification loops in Claude Code](claude/260925-building-verification-loops-in-claude-code.md) — 2026-09-25
 - [Patrick Collison on Claude Code at Stripe](claude/260924-patrick-collison-on-claude-code-at-stripe.md) — 2026-09-24
-- [How AI is being used in humanitarian work](claude/260924-how-ai-is-being-used-in-humanitarian-work.md) — 2026-09-24 (자막없음)
+- [Using AI in humanitarian work](claude/260924-using-ai-in-humanitarian-work.md) — 2026-09-24 (자막없음)
 - [Using Claude Opus 5.5 as your daily driver](claude/260923-using-claude-opus-5-5-as-your-daily-driver.md) — 2026-09-23 (자막없음)
 - [Introducing Claude Opus 5.5](claude/260922-introducing-claude-opus-5-5.md) — 2026-09-22 (자막없음)
 - [GPS, explained by Claude Opus 5.5](claude/260922-gps-explained-by-claude-opus-5-5.md) — 2026-09-22

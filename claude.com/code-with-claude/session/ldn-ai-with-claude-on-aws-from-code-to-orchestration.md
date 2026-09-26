@@ -27,7 +27,7 @@ Speaker(s)
 
 ## Watch recording
 
-![AI with Claude on AWS: From code to orchestration](https://assets.claude.com/a5afb5ed837b6fdc1478097ffea1b195d40484ba.jpg?w=1600&auto=format)
+![AI with Claude on AWS: From code to orchestration](https://assets.claude.com/a5afb5ed837b6fdc1478097ffea1b195d40484ba.jpg?w=2400&q=75&fm=webp&fit=max)
 
 ## Anthropic's developer conference, recorded
 

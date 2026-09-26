@@ -49,7 +49,7 @@ _(자막 없음)_
 </details>
 
 
-![App screen from Gamma platform](https://assets.claude.com/f83a51303b0617e38416856aadf1ab769dbbf54e.jpg)
+![App screen from Gamma platform](https://assets.claude.com/f83a51303b0617e38416856aadf1ab769dbbf54e.jpg?w=2400&q=75&fm=webp&fit=max)
 
 As it became clear that the AI generation flow was a primary driver of Gamma’s business growth, the team started to dig into the data to understand just how well their initial LLM choices were performing.
 
@@ -67,7 +67,7 @@ In fact, positive feedback for advanced use cases increased 30%. Gamma users res
 
 Based on the positive outcome of the A/B test, Gamma quickly shipped the new version of their app to production—and that initial 30% improvement in user satisfaction has driven a 20% increase in conversions from free to paid.
 
-![App screen from Gamma platform](https://assets.claude.com/28e3457134b62f6ee28ac05f0cc49ab991bb302a.jpg)
+![App screen from Gamma platform](https://assets.claude.com/28e3457134b62f6ee28ac05f0cc49ab991bb302a.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Today, Claude powers well over half of Gamma’s AI features. Though they consider themselves an AI-native company, they no longer feel sharp pressure to aggressively hire AI specialists onto their 16-person team, which supports 17 million users. “One benefit of models like Claude being so good is that we haven’t had to build a huge team around AI,” Jon says. “We’ve been able to focus more on productizing the experience versus training our own models or even fine-tuning them, because there’s already so much we can do.”
 

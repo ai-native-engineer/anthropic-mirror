@@ -58,7 +58,7 @@ Eric Pace, who leads Cox's AI Center of Excellence, had been fielding the same r
 
 Q&A: Cox Communications
 
-![Q&A: Cox Communications](https://assets.claude.com/b7d33f6423f00381ed5d8609dd320f74ae6f42b1.jpg)
+![Q&A: Cox Communications](https://assets.claude.com/b7d33f6423f00381ed5d8609dd320f74ae6f42b1.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Cox Communications President Mark Greatrex sat down with Anthropic to talk about rolling out AI to 15,000 people.
 
@@ -112,7 +112,7 @@ Cox is running the pilot on a broader segment of small business buyers who purch
 
 Cowork
 
-![Cowork](https://assets.claude.com/9716b96b8df867765a639f3ea8a07170508200bf.jpg)
+![Cowork](https://assets.claude.com/9716b96b8df867765a639f3ea8a07170508200bf.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Give Claude access to your local files and let it complete tasks autonomously. Agentic capabilities for non-technical knowledge work.
 

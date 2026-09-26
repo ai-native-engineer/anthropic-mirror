@@ -24,7 +24,7 @@ Speaker(s)
 
 ## Watch recording
 
-![Designing with Claude: From prompt to production](https://assets.claude.com/ec1227452561159f497813e7fc081a6d6ca4831b.jpg?w=1600&auto=format)
+![Designing with Claude: From prompt to production](https://assets.claude.com/ec1227452561159f497813e7fc081a6d6ca4831b.jpg?w=2400&q=75&fm=webp&fit=max)
 
 ## Anthropic's developer conference, recorded
 

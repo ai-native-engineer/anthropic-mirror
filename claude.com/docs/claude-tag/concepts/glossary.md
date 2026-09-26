@@ -26,7 +26,7 @@ A member of your Claude organization whom an Owner has named to set up specific 
 
 ##  Channel memory
 
-Facts Claude retains while working in a channel, including facts you told it to remember and notes it writes itself. Entries from public channels are shared across the workspace; entries from private channels are saved to that channel’s own store. See [What Claude Tag remembers](https://claude.com/docs/claude-tag/users/memory).
+Facts Claude retains while working in a channel, including facts you told it to remember and notes it writes itself. Each channel keeps its own entries. From a public channel Claude can also save workspace notes, which it reads in every channel in the workspace. See [What Claude Tag remembers](https://claude.com/docs/claude-tag/users/memory).
 
 ##  The earlier Claude in Slack
 
@@ -36,15 +36,15 @@ Claude Tag is the second generation of the Claude app in Slack:
 | --- | --- | --- |
 | Identity | Each user links their own claude.ai account | One agent identity with org-level service credentials |
 | Sessions | Spawned per request | One persistent session per thread, shared |
-| Memory | None | Shared workspace memory plus private-channel memory |
+| Memory | None | Per-channel memory, plus workspace notes shared from public channels |
 | Proactive work | None | Routines and channel watching |
 
-Your admin chooses which generation answers `@Claude` in a given channel, so two channels in the same workspace can work differently. See [Migrate from the earlier Claude in Slack](https://claude.com/docs/claude-tag/admins/workspaces#set-the-version-for-a-scope).
+Your admin chooses which generation answers `@Claude` in a given channel, so two channels in the same workspace can work differently. See [Migrate from the earlier Claude in Slack](https://claude.com/docs/claude-tag/admins/workspaces#turn-claude-tag-on-or-off-and-set-the-version-for-a-scope).
 
 ##  Connection
 
 A credential for one external service that Claude uses on the channel’s behalf, like a Datadog API key or a GitHub App installation. Connections belong to the agent identity, not to any user, and are grouped into [Access bundles](#access-bundle) by an admin.
-A connection is not a connector. A connector belongs to your personal claude.ai account. A channel session uses the channel’s connections. In organizations where [personal connectors in channels](https://claude.com/docs/claude-tag/concepts/personal-connectors) is available, Claude can also use your connectors there for your own tasks, after you allow it. A DM uses your own account instead, as [how DMs work in this model](https://claude.com/docs/claude-tag/concepts/agent-identity#direct-message-channels) describes.
+A connection is not a connector. A connector belongs to your personal claude.ai account. A channel session uses the channel’s connections. With [personal connectors in channels](https://claude.com/docs/claude-tag/concepts/personal-connectors), Claude can also use your connectors there for your own tasks, after you allow it. A DM uses your own account instead, as [how DMs work in this model](https://claude.com/docs/claude-tag/concepts/agent-identity#direct-message-channels) describes.
 
 ##  Connector
 

@@ -8,10 +8,10 @@ EFS combines the privacy of zero data retention (ZDR) with state-of-the-art safe
 
 Please complete the following form so we can confirm your organization's eligibility as we expand access to EFS.
 
+---
+
 Completing this form does not guarantee your organization access to the controls. For more information please reach out to your account team.
 
 ## Transform how your organization operates with Claude
 
-Get started
-
-[Get started](https://claude.ai/login)Get started
+[Get started](https://claude.ai/login)

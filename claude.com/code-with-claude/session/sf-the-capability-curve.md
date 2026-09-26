@@ -24,7 +24,7 @@ Speaker(s)
 
 ## Watch recording
 
-![The capability curve](https://assets.claude.com/244b2eb6be1a3b4e0777aca9c78ff9ab7c766faf.jpg?w=1600&auto=format)
+![The capability curve](https://assets.claude.com/244b2eb6be1a3b4e0777aca9c78ff9ab7c766faf.jpg?w=2400&q=75&fm=webp&fit=max)
 
 ## Anthropic's developer conference, recorded
 

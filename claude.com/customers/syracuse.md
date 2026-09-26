@@ -52,7 +52,7 @@ In October 2025, Syracuse gave every student, faculty member, and staff member a
 
 Q&A with Syracuse's Chief Digital Officer
 
-![Q&A with Syracuse's Chief Digital Officer](https://assets.claude.com/7562a03ac6d09545d2614da96b88ad3c8756168b.jpg)
+![Q&A with Syracuse's Chief Digital Officer](https://assets.claude.com/7562a03ac6d09545d2614da96b88ad3c8756168b.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Why Syracuse University gave Claude to 30,000 students, faculty, and staff
 
@@ -86,7 +86,7 @@ One soon-to-be-released project gives deans access to donor reports filtered by 
 
 Education
 
-![Education](https://assets.claude.com/b3e6d0547ee5dc0654c639ece4b89778e2edb536.jpg)
+![Education](https://assets.claude.com/b3e6d0547ee5dc0654c639ece4b89778e2edb536.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Trusted, responsible AI tools for students and educators, from personalized learning to research assistance.
 
@@ -123,5 +123,3 @@ Jeff RubinSenior Vice President and Chief Digital Officer, Syracuse University
 ### The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude](https://claude.com/customers/epilepsy-foundation)[![Epilepsy Foundation](https://assets.claude.com/446cc4df1be577720df85748fa3813fa0837e3b8.png)
 
 ### How the Epilepsy Foundation uses Claude across the organization](https://claude.com/customers/epilepsy-foundation-qa)
-
-Syracuse University Claude Enterprise case study | Claude by Anthropic

@@ -30,7 +30,7 @@ of Claude Code usage is from non-developers
 
 The Enterprise AI Transformation Guide for Healthcare & Life Sciences
 
-![The Enterprise AI Transformation Guide for Healthcare & Life Sciences](https://assets.claude.com/c5ab9a4570d97f2864fdab84b83b2ae79e618f39.jpg)
+![The Enterprise AI Transformation Guide for Healthcare & Life Sciences](https://assets.claude.com/c5ab9a4570d97f2864fdab84b83b2ae79e618f39.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Accelerate your enterprise AI transformation with proven strategies from Anthropic's customers.
 
@@ -38,7 +38,7 @@ Accelerate your enterprise AI transformation with proven strategies from Anthrop
 
 Advancing Claude in healthcare and the life sciences
 
-![Advancing Claude in healthcare and the life sciences](https://assets.claude.com/2245c8d44d57bbbd808ee21e2a14a250946d583b.png)
+![Advancing Claude in healthcare and the life sciences](https://assets.claude.com/2245c8d44d57bbbd808ee21e2a14a250946d583b.png?w=2400&q=75&fm=webp&fit=max)
 
 Transform healthcare from insight to action
 

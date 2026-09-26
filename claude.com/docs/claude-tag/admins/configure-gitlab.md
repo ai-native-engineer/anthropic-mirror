@@ -53,7 +53,7 @@ At [`claude.ai/admin-settings/claude-tag`](https://claude.ai/admin-settings/clau
 
 Connect GitLab
 
-Click **Connect** next to **GitLab** and paste the token into **Personal access token**.
+Click **Connect** next to **GitLab** and paste the token into **Claude’s personal access token**.
 
 3
 

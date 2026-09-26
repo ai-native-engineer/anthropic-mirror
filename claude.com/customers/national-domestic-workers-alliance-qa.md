@@ -30,7 +30,7 @@ Elected councils of nannies, cleaners, and home care workers shape product decis
 
 Case Study
 
-![Case Study](https://assets.claude.com/e22914cfadc338c8868718e688b781a853ca82fe.jpg)
+![Case Study](https://assets.claude.com/e22914cfadc338c8868718e688b781a853ca82fe.jpg?w=2400&q=75&fm=webp&fit=max)
 
 National Domestic Workers Alliance helps domestic workers advocate for better pay with Claude
 
@@ -82,7 +82,7 @@ That is why worker governance is central to Ask Aya. Workers help set the red li
 
 Nonprofits
 
-![Nonprofits](https://assets.claude.com/b46529adbd87da89ebb1e8191178d53278f93d1b.jpg)
+![Nonprofits](https://assets.claude.com/b46529adbd87da89ebb1e8191178d53278f93d1b.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Turn limited resources into lasting impact. Generate grant proposals, track program outcomes, and free your team to focus on serving your community.
 

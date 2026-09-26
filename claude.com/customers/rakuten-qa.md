@@ -30,7 +30,7 @@ in initial critical errors
 
 Claude Managed Agents: Get to production 10x faster
 
-![Claude Managed Agents: Get to production 10x faster](https://assets.claude.com/ff7c99d19d7cdf50b2e9bf56cc15f9f5d406ce19.jpg)
+![Claude Managed Agents: Get to production 10x faster](https://assets.claude.com/ff7c99d19d7cdf50b2e9bf56cc15f9f5d406ce19.jpg?w=2400&q=75&fm=webp&fit=max)
 
 We're launching Claude Managed Agents, a suite of composable APIs for building and deploying cloud-hosted agents at scale.
 
@@ -92,7 +92,7 @@ When agents retain memory at scale, the organization itself learns. Today, insti
 
 Case Study: Rakuten
 
-![Case Study: Rakuten](https://assets.claude.com/93db54b4af90793b8d000d9690f17d18c86facf7.jpg)
+![Case Study: Rakuten](https://assets.claude.com/93db54b4af90793b8d000d9690f17d18c86facf7.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Rakuten uses Claude Code to accelerate software development, achieving 7 hours of autonomous coding and reducing feature delivery time from 24 days to 5 with 99.9% accuracy.
 

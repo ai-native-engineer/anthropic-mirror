@@ -30,7 +30,7 @@ use the MagicSchool platform across 13,000 schools and districts
 
 Case Study: MagicSchool transforms K-12 education for 7 million educators
 
-![Case Study: MagicSchool transforms K-12 education for 7 million educators](https://assets.claude.com/5a0d6c45780823112f6367928b3eada848b7f7a9.png)
+![Case Study: MagicSchool transforms K-12 education for 7 million educators](https://assets.claude.com/5a0d6c45780823112f6367928b3eada848b7f7a9.png?w=2400&q=75&fm=webp&fit=max)
 
 With Claude, MagicSchool supports 13,000+ schools and districts and millions of students.
 
@@ -100,7 +100,7 @@ Our moderation tool has consistently been effective at identifying real signals 
 
 Education
 
-![Education](https://assets.claude.com/b3e6d0547ee5dc0654c639ece4b89778e2edb536.jpg)
+![Education](https://assets.claude.com/b3e6d0547ee5dc0654c639ece4b89778e2edb536.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Trusted, responsible AI tools for students and educators, from personalized learning to research assistance.
 
@@ -119,5 +119,3 @@ Keanon O'KeefeSenior Product Manager, AI Trust, Safety, and Quality
 ### The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude](https://claude.com/customers/epilepsy-foundation)[![Epilepsy Foundation](https://assets.claude.com/446cc4df1be577720df85748fa3813fa0837e3b8.png)
 
 ### How the Epilepsy Foundation uses Claude across the organization](https://claude.com/customers/epilepsy-foundation-qa)
-
-MagicSchool Q&A | Claude Platform (API) | Claude by Anthropic

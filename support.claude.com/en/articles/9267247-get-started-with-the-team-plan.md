@@ -46,7 +46,7 @@ If you choose to keep your personal account, your Team plan creates a separate C
 To use only your Team plan after upgrading separately, you'll need to **[cancel your paid subscription](https://support.claude.com/en/articles/8325617-how-do-i-cancel-my-paid-claude-subscription)** and **[delete your individual Claude account](https://support.claude.com/en/articles/9028421-how-can-i-delete-my-claude-account)**.
 
 * [What is the Pro plan?](https://support.claude.com/en/articles/8325606-what-is-the-pro-plan)
+* [What is the Team plan?](https://support.claude.com/en/articles/9266767-what-is-the-team-plan)
 * [Move your personal Claude account to a Team or Enterprise organization](https://support.claude.com/en/articles/9267400-move-your-personal-claude-account-to-a-team-or-enterprise-organization)
-* [Use Claude Code with your Team or Enterprise plan](https://support.claude.com/en/articles/11845131-use-claude-code-with-your-team-or-enterprise-plan)
 * [Request a refund for a paid Claude plan](https://support.claude.com/en/articles/12386328-request-a-refund-for-a-paid-claude-plan)
 * [Team plan billing FAQs](https://support.claude.com/en/articles/12997503-team-plan-billing-faqs)

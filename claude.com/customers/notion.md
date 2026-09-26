@@ -51,7 +51,7 @@ But as AI agents became capable of producing real work, a second challenge emerg
 
 Q&A: Notion Product Manager Eric Liu
 
-![Q&A: Notion Product Manager Eric Liu ](https://assets.claude.com/1251e47b710d3ece843ec079f8d14f4553d7546a.jpg)
+![Q&A: Notion Product Manager Eric Liu ](https://assets.claude.com/1251e47b710d3ece843ec079f8d14f4553d7546a.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Notion product manager Eric Liu explains how his team built agent orchestration with Claude managed agents.
 
@@ -69,7 +69,7 @@ As Notion expanded into agent workflows, Claude's strengths proved equally relev
 
 Claude Managed Agents: Get to production 10x faster
 
-![Claude Managed Agents: Get to production 10x faster](https://assets.claude.com/ff7c99d19d7cdf50b2e9bf56cc15f9f5d406ce19.jpg)
+![Claude Managed Agents: Get to production 10x faster](https://assets.claude.com/ff7c99d19d7cdf50b2e9bf56cc15f9f5d406ce19.jpg?w=2400&q=75&fm=webp&fit=max)
 
 We're launching Claude Managed Agents, a suite of composable APIs for building and deploying cloud-hosted agents at scale.
 

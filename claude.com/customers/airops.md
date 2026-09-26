@@ -49,7 +49,7 @@ AirOps scores every piece of content against dozens of checks before it publishe
 
 Building agents with the Claude Agent SDK
 
-![Building agents with the Claude Agent SDK ](https://assets.claude.com/8a8df6660b8f39d6a0a88896d12215466857b588.jpg)
+![Building agents with the Claude Agent SDK ](https://assets.claude.com/8a8df6660b8f39d6a0a88896d12215466857b588.jpg?w=2400&q=75&fm=webp&fit=max)
 
 The Claude Agent SDK is a collection of tools that helps developers build powerful agents on top of Claude Code.
 
@@ -89,7 +89,7 @@ The SDK also changed how the engineering team spends its time. The team now spen
 
 Introducing Agent Skills
 
-![Introducing Agent Skills](https://assets.claude.com/c703a5641a48ab5b6a904a9d6b0fef8d4975e92d.jpg)
+![Introducing Agent Skills](https://assets.claude.com/c703a5641a48ab5b6a904a9d6b0fef8d4975e92d.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Claude can now use Skills—folders with instructions, scripts, and resources—to become a specialist at specific tasks when you need it.
 
@@ -128,5 +128,3 @@ Alex HallidayCEO, AirOps
 ### Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
 ### How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)
-
-AirOps Claude Platform (API) case study | Claude by Anthropic

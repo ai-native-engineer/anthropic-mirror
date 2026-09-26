@@ -153,7 +153,7 @@ Create Vault
 
   - `archived_at: string | null`
 
-    A timestamp in RFC 3339 format
+    When the vault was archived. Null if not archived.
 
     format: date-time
 
@@ -359,7 +359,7 @@ List Vaults
 
   - `archived_at: string | null`
 
-    A timestamp in RFC 3339 format
+    When the vault was archived. Null if not archived.
 
     format: date-time
 
@@ -559,7 +559,7 @@ Get Vault
 
   - `archived_at: string | null`
 
-    A timestamp in RFC 3339 format
+    When the vault was archived. Null if not archived.
 
     format: date-time
 
@@ -765,7 +765,7 @@ Update Vault
 
   - `archived_at: string | null`
 
-    A timestamp in RFC 3339 format
+    When the vault was archived. Null if not archived.
 
     format: date-time
 
@@ -1122,7 +1122,7 @@ Archive Vault
 
   - `archived_at: string | null`
 
-    A timestamp in RFC 3339 format
+    When the vault was archived. Null if not archived.
 
     format: date-time
 
@@ -1206,7 +1206,7 @@ console.log(betaManagedAgentsVault.id);
 
   - `archived_at: string | null`
 
-    A timestamp in RFC 3339 format
+    When the vault was archived. Null if not archived.
 
     format: date-time
 
@@ -1250,7 +1250,7 @@ Create Credential
 
   - `auth: BetaManagedAgentsMCPOAuthCreateParams | BetaManagedAgentsStaticBearerCreateParams | BetaManagedAgentsEnvironmentVariableCreateParams`
 
-    Body param: Authentication details for creating a credential.
+    Body param: Authentication configuration for the credential.
 
     - `interface BetaManagedAgentsMCPOAuthCreateParams`
 
@@ -1278,7 +1278,7 @@ Create Credential
 
       - `refresh?: BetaManagedAgentsMCPOAuthRefreshParams | null`
 
-        OAuth refresh token parameters for creating a credential with refresh support.
+        Refresh token configuration, if the credential supports token refresh.
 
         - `client_id: string`
 
@@ -1544,13 +1544,13 @@ Create Credential
 
   - `archived_at: string | null`
 
-    A timestamp in RFC 3339 format
+    When the credential was archived. Null if not archived.
 
     format: date-time
 
   - `auth: BetaManagedAgentsMCPOAuthAuthResponse | BetaManagedAgentsStaticBearerAuthResponse | BetaManagedAgentsEnvironmentVariableAuthResponse`
 
-    Authentication details for a credential.
+    Authentication configuration for this credential.
 
     - `interface BetaManagedAgentsMCPOAuthAuthResponse`
 
@@ -1570,7 +1570,7 @@ Create Credential
 
       - `refresh?: BetaManagedAgentsMCPOAuthRefreshResponse | null`
 
-        OAuth refresh token configuration returned in credential responses.
+        Refresh token configuration, if the credential supports token refresh.
 
         - `client_id: string`
 
@@ -1882,13 +1882,13 @@ List Credentials
 
   - `archived_at: string | null`
 
-    A timestamp in RFC 3339 format
+    When the credential was archived. Null if not archived.
 
     format: date-time
 
   - `auth: BetaManagedAgentsMCPOAuthAuthResponse | BetaManagedAgentsStaticBearerAuthResponse | BetaManagedAgentsEnvironmentVariableAuthResponse`
 
-    Authentication details for a credential.
+    Authentication configuration for this credential.
 
     - `interface BetaManagedAgentsMCPOAuthAuthResponse`
 
@@ -1908,7 +1908,7 @@ List Credentials
 
       - `refresh?: BetaManagedAgentsMCPOAuthRefreshResponse | null`
 
-        OAuth refresh token configuration returned in credential responses.
+        Refresh token configuration, if the credential supports token refresh.
 
         - `client_id: string`
 
@@ -2209,13 +2209,13 @@ Get Credential
 
   - `archived_at: string | null`
 
-    A timestamp in RFC 3339 format
+    When the credential was archived. Null if not archived.
 
     format: date-time
 
   - `auth: BetaManagedAgentsMCPOAuthAuthResponse | BetaManagedAgentsStaticBearerAuthResponse | BetaManagedAgentsEnvironmentVariableAuthResponse`
 
-    Authentication details for a credential.
+    Authentication configuration for this credential.
 
     - `interface BetaManagedAgentsMCPOAuthAuthResponse`
 
@@ -2235,7 +2235,7 @@ Get Credential
 
       - `refresh?: BetaManagedAgentsMCPOAuthRefreshResponse | null`
 
-        OAuth refresh token configuration returned in credential responses.
+        Refresh token configuration, if the credential supports token refresh.
 
         - `client_id: string`
 
@@ -2409,7 +2409,7 @@ Update Credential
 
   - `auth?: BetaManagedAgentsMCPOAuthUpdateParams | BetaManagedAgentsStaticBearerUpdateParams | BetaManagedAgentsEnvironmentVariableUpdateParams`
 
-    Body param: Updated authentication details for a credential.
+    Body param: Updated authentication configuration. The `type` is immutable; the variant sent must match the stored credential's type.
 
     - `interface BetaManagedAgentsMCPOAuthUpdateParams`
 
@@ -2431,7 +2431,7 @@ Update Credential
 
       - `refresh?: BetaManagedAgentsMCPOAuthRefreshUpdateParams | null`
 
-        Parameters for updating OAuth refresh token configuration.
+        Updated refresh token configuration.
 
         - `refresh_token?: string | null`
 
@@ -2661,13 +2661,13 @@ Update Credential
 
   - `archived_at: string | null`
 
-    A timestamp in RFC 3339 format
+    When the credential was archived. Null if not archived.
 
     format: date-time
 
   - `auth: BetaManagedAgentsMCPOAuthAuthResponse | BetaManagedAgentsStaticBearerAuthResponse | BetaManagedAgentsEnvironmentVariableAuthResponse`
 
-    Authentication details for a credential.
+    Authentication configuration for this credential.
 
     - `interface BetaManagedAgentsMCPOAuthAuthResponse`
 
@@ -2687,7 +2687,7 @@ Update Credential
 
       - `refresh?: BetaManagedAgentsMCPOAuthRefreshResponse | null`
 
-        OAuth refresh token configuration returned in credential responses.
+        Refresh token configuration, if the credential supports token refresh.
 
         - `client_id: string`
 
@@ -3151,13 +3151,13 @@ Archive Credential
 
   - `archived_at: string | null`
 
-    A timestamp in RFC 3339 format
+    When the credential was archived. Null if not archived.
 
     format: date-time
 
   - `auth: BetaManagedAgentsMCPOAuthAuthResponse | BetaManagedAgentsStaticBearerAuthResponse | BetaManagedAgentsEnvironmentVariableAuthResponse`
 
-    Authentication details for a credential.
+    Authentication configuration for this credential.
 
     - `interface BetaManagedAgentsMCPOAuthAuthResponse`
 
@@ -3177,7 +3177,7 @@ Archive Credential
 
       - `refresh?: BetaManagedAgentsMCPOAuthRefreshResponse | null`
 
-        OAuth refresh token configuration returned in credential responses.
+        Refresh token configuration, if the credential supports token refresh.
 
         - `client_id: string`
 
@@ -3477,11 +3477,11 @@ Validate Credential
 
   - `mcp_probe: BetaManagedAgentsMCPProbe | null`
 
-    The failing step of an MCP validation probe.
+    Details of the failing MCP probe step. Null when the probe succeeded.
 
     - `http_response: BetaManagedAgentsRefreshHTTPResponse | null`
 
-      An HTTP response captured during a credential validation probe.
+      The captured HTTP error response. Null when no HTTP response was received (timeout, DNS, TLS).
 
       - `body: string`
 
@@ -3507,20 +3507,15 @@ Validate Credential
 
   - `refresh: BetaManagedAgentsRefreshObject | null`
 
-    Outcome of a refresh-token exchange attempted during credential validation.
+    Details of the refresh-token exchange attempted on a 401. Null when no refresh was attempted.
 
     - `http_response: BetaManagedAgentsRefreshHTTPResponse | null`
 
-      An HTTP response captured during a credential validation probe.
+      The captured HTTP error response from the token endpoint. Populated only when `status` is `failed`.
 
     - `status: "succeeded" | "failed" | "connect_error" | "no_refresh_token"`
 
-      Outcome of a refresh-token exchange attempted during credential validation.
-
-      - `succeeded` - The token endpoint returned a new access token.
-      - `failed` - The token endpoint returned an error response. See `http_response` for detail.
-      - `connect_error` - The token endpoint could not be reached (DNS, TLS, or connection error).
-      - `no_refresh_token` - No refresh token is stored for the credential, so no exchange was attempted.
+      Outcome of the refresh attempt.
 
       - `"succeeded"`
 
@@ -3540,7 +3535,7 @@ Validate Credential
 
   - `status: BetaManagedAgentsCredentialValidationStatus`
 
-    Overall verdict of a credential validation probe.
+    Overall verdict of the validation probe.
 
     - `"valid"`
 
@@ -3556,7 +3551,7 @@ Validate Credential
 
   - `validated_at: string`
 
-    A timestamp in RFC 3339 format
+    When the validation probe was performed.
 
     format: date-time
 

@@ -86,5 +86,3 @@ Automate workflows across thousands of apps via conversation
 Search trusted Microsoft docs to power your development
 
 [Add Microsoft Learn in Claude (opens in new tab)](https://claude.ai/directory/89a7ddf5-2a6b-410c-be11-aa0e1a1b35a6 "Add in Claude")
-
-Bitrise MCP connector | Claude by Anthropic

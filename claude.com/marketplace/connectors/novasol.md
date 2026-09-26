@@ -22,8 +22,6 @@ Only use connectors from developers you trust. Anthropic does not control which 
 
 ### [Rome2Rio](https://claude.com/marketplace/connectors/rome2rio)
 
-Anthropic verifiedTrending
-
 Discover how to get anywhere
 
 [Add Rome2Rio in Claude (opens in new tab)](https://claude.ai/directory/0c84f0ce-49ad-468f-babb-3efab67f5aeb "Add in Claude")
@@ -36,14 +34,6 @@ Search Turo car rentals
 
 [Add Turo in Claude (opens in new tab)](https://claude.ai/directory/6ba1d80c-6de8-4f4a-9900-f7aa164f063f "Add in Claude")
 
-![](https://www.google.com/s2/favicons?domain=accuweather.com&sz=96)
-
-### [AccuWeather®](https://claude.com/marketplace/connectors/accuweather)
-
-Hyper-local forecasts & alerts
-
-[Add AccuWeather® in Claude (opens in new tab)](https://claude.ai/directory/111502a6-f2e8-45ee-bcf7-a7d325367723 "Add in Claude")
-
 ![](https://tineo.ai/favicon/favicon-96x96.png)
 
 ### [Tineo](https://claude.com/marketplace/connectors/tineo)
@@ -51,6 +41,14 @@ Hyper-local forecasts & alerts
 Connect Tineo to Claude to review trips, flights, hotels and activities, and add or update itinerary details. Organize and share plans with friends in Tineo.
 
 [Add Tineo in Claude (opens in new tab)](https://claude.ai/directory/47af3906-6905-49b7-bde9-363c6b6fa3b8 "Add in Claude")
+
+![](https://www.google.com/s2/favicons?domain=accuweather.com&sz=96)
+
+### [AccuWeather®](https://claude.com/marketplace/connectors/accuweather)
+
+Hyper-local forecasts & alerts
+
+[Add AccuWeather® in Claude (opens in new tab)](https://claude.ai/directory/111502a6-f2e8-45ee-bcf7-a7d325367723 "Add in Claude")
 
 ![](https://assets.claude.com/8d547f19ecd0534343f8d8b3a7657e18e50ca23f.jpg?w=128&fit=max&auto=format)
 

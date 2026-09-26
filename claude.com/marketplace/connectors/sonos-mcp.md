@@ -49,14 +49,6 @@ Search, organize, and take action on your Dropbox content
 
 [Add Dropbox in Claude (opens in new tab)](https://claude.ai/directory/1e4280cc-037c-47f0-9873-56bea1871bdb "Add in Claude")
 
-![](https://eleven-public-cdn.elevenlabs.io/mcp/elevenlabs-symbol.png)
-
-### [ElevenLabs](https://claude.com/marketplace/connectors/elevenlabs)
-
-Manage your ElevenAgents voice agents in your chat
-
-[Add ElevenLabs in Claude (opens in new tab)](https://claude.ai/directory/4a542638-16d2-4bd1-9937-efa473d3f2f0 "Add in Claude")
-
 ![](https://www.google.com/s2/favicons?domain=vidiq.com&sz=96)
 
 ### [vidIQ](https://claude.com/marketplace/connectors/vidiq)
@@ -64,6 +56,14 @@ Manage your ElevenAgents voice agents in your chat
 Research and create for YouTube, Instagram & TikTok
 
 [Add vidIQ in Claude (opens in new tab)](https://claude.ai/directory/dc5bb20f-6ebd-4dbe-a47e-c2d20fa25acc "Add in Claude")
+
+![](https://eleven-public-cdn.elevenlabs.io/mcp/elevenlabs-symbol.png)
+
+### [ElevenLabs](https://claude.com/marketplace/connectors/elevenlabs)
+
+Manage your ElevenAgents voice agents in your chat
+
+[Add ElevenLabs in Claude (opens in new tab)](https://claude.ai/directory/4a542638-16d2-4bd1-9937-efa473d3f2f0 "Add in Claude")
 
 ![](https://cdn.prod.website-files.com/685be7dcd32275d3830651d3/685be7dcd32275d383065e48_RS_favicon.png)
 

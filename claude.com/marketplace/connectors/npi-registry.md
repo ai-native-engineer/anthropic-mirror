@@ -14,14 +14,6 @@ The NPI Registry Connector gives Claude access to the US National Provider Ident
 
 ## Related connectors
 
-![](https://storage.googleapis.com/media-assets-299d7136-cb52-d546-ee02-34bc1307c35f/mcp-directory/icons/pubmed.svg)
-
-### [PubMed](https://claude.com/marketplace/connectors/pubmed)
-
-Search biomedical literature from PubMed
-
-[Add PubMed in Claude (opens in new tab)](https://claude.ai/directory/81cc5080-a204-4aa1-a694-fa868a3c8721 "Add in Claude")
-
 ![](https://assets.claude.com/23c6180c65e1de99954e3002499e0da7124de02d.svg?w=128&fit=max&auto=format)
 
 ### [Strava](https://claude.com/marketplace/connectors/strava)
@@ -29,6 +21,14 @@ Search biomedical literature from PubMed
 Analyze, summarize, and explore your Strava data
 
 [Add Strava in Claude (opens in new tab)](https://claude.ai/directory/135cc9eb-d5aa-4e24-81b0-6e78a3cff862 "Add in Claude")
+
+![](https://storage.googleapis.com/media-assets-299d7136-cb52-d546-ee02-34bc1307c35f/mcp-directory/icons/pubmed.svg)
+
+### [PubMed](https://claude.com/marketplace/connectors/pubmed)
+
+Search biomedical literature from PubMed
+
+[Add PubMed in Claude (opens in new tab)](https://claude.ai/directory/81cc5080-a204-4aa1-a694-fa868a3c8721 "Add in Claude")
 
 ![](https://assets.claude.com/50afe60d8823ba81e9343bc066bf19aa40e1b76a.svg?w=128&fit=max&auto=format)
 

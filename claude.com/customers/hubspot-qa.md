@@ -28,7 +28,7 @@ Multi-week internal builds compressed to three hours
 
 Case Study: HubSpot
 
-![Case Study: HubSpot](https://assets.claude.com/9ae0d87e26e07fd8f66264f7539baec91c0bdd6a.jpg)
+![Case Study: HubSpot](https://assets.claude.com/9ae0d87e26e07fd8f66264f7539baec91c0bdd6a.jpg?w=2400&q=75&fm=webp&fit=max)
 
 HubSpot reclaims time for creativity with Claude
 
@@ -82,7 +82,7 @@ Now, the BRD shows up to the kickoff meeting before we do. Using Cowork, we deve
 
 Cowork
 
-![Cowork](https://assets.claude.com/9716b96b8df867765a639f3ea8a07170508200bf.jpg)
+![Cowork](https://assets.claude.com/9716b96b8df867765a639f3ea8a07170508200bf.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Give Claude access to your local files and let it complete tasks autonomously. Agentic capabilities for non-technical knowledge work.
 
@@ -108,7 +108,7 @@ Third, treat your personal and team knowledge bases as architecture. Information
 
 Skills explained
 
-![Skills explained](https://assets.claude.com/2c1a10b16f371961f69f0cc86318a5e89137faf3.jpg)
+![Skills explained](https://assets.claude.com/2c1a10b16f371961f69f0cc86318a5e89137faf3.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Where do Skills fit in the Claude stack alongside prompts, Projects, MCP, and subagents? Learn what tool to use when—and how they work together.
 

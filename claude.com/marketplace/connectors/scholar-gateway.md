@@ -1,12 +1,10 @@
 <!-- source: https://claude.com/marketplace/connectors/scholar-gateway -->
 
-Connector URL`https://connector.scholargateway.ai/mcp`
+Connector URL`https://connector.scholargateway.ai/v2/mcp`
 
-More[Documentation (opens in new tab)](https://docs.scholargateway.ai/)[Support (opens in new tab)](http://support.scholargateway.ai/)[Privacy policy (opens in new tab)](https://www.wiley.com/privacy)
+More[Documentation (opens in new tab)](https://www.wiley.com/en-us/research/products/wiley-scholar-gateway/getting-started)[Support (opens in new tab)](https://support.scholargateway.ai/s/)[Privacy policy (opens in new tab)](https://www.wiley.com/privacy)
 
-Scholar Gateway enables Claude to generate responses grounded in peer-reviewed sources with verifiable citations and DOI links. The Scholar Gateway Connector searches current literature from Wiley journals and research databases to deliver evidence-backed answers with complete source metadata. This enables you to verify that claims are backed with sourced research — ensuring your Claude-assisted research meets professional research standards.
-
-Note: The Scholar Gateway Connector provides access to Wiley content only, additional publisher sources will be added soon. Authentication required, please reach out to Wiley at scholargateway@wiley.com.
+Wiley Scholar Gateway enables Claude to generate responses grounded in peer-reviewed sources with verifiable citations and DOI links. The Wiley Scholar Gateway Connector searches current literature from Wiley journals to deliver evidence-backed answers with complete source metadata. This enables you to verify that claims are backed with sourced research — ensuring your Claude-assisted research meets professional research standards.
 
 ## Tools
 
@@ -40,14 +38,6 @@ Access ClinicalTrials.gov data
 
 [Add Clinical Trials in Claude (opens in new tab)](https://claude.ai/directory/c1754944-3ad1-49ab-bec5-9aeae3a6a9a3 "Add in Claude")
 
-![](https://www.google.com/s2/favicons?domain=mavenbio.com&sz=96)
-
-### [Maven Bio](https://claude.com/marketplace/connectors/maven-bio)
-
-Biopharma catalysts, pipelines, trials, deals, and the citable primary sources behind them
-
-[Add Maven Bio in Claude (opens in new tab)](https://claude.ai/directory/f5a911e0-39a7-4dc3-bbde-fb9b6b2aaa02 "Add in Claude")
-
 ![](https://storage.googleapis.com/media-assets-299d7136-cb52-d546-ee02-34bc1307c35f/mcp-directory/icons/biorxiv.png)
 
 ### [bioRxiv](https://claude.com/marketplace/connectors/biorxiv)
@@ -55,6 +45,14 @@ Biopharma catalysts, pipelines, trials, deals, and the citable primary sources b
 Access bioRxiv and medRxiv preprint data
 
 [Add bioRxiv in Claude (opens in new tab)](https://claude.ai/directory/7f750eb6-c3cb-47d7-9269-d35c43fe9925 "Add in Claude")
+
+![](https://www.google.com/s2/favicons?domain=mavenbio.com&sz=96)
+
+### [Maven Bio](https://claude.com/marketplace/connectors/maven-bio)
+
+Biopharma catalysts, pipelines, trials, deals, and the citable primary sources behind them
+
+[Add Maven Bio in Claude (opens in new tab)](https://claude.ai/directory/f5a911e0-39a7-4dc3-bbde-fb9b6b2aaa02 "Add in Claude")
 
 ![](https://storage.googleapis.com/media-assets-299d7136-cb52-d546-ee02-34bc1307c35f/mcp-directory/icons/chembl.png)
 

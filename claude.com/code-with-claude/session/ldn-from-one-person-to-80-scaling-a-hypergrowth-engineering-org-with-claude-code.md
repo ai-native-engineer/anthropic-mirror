@@ -30,7 +30,7 @@ Speaker(s)
 
 ## Watch recording
 
-![From one person to 80: Scaling a hypergrowth engineering org with Claude Code](https://assets.claude.com/91b648f81781b026582f8e41898c599e877c2a64.jpg?w=1600&auto=format)
+![From one person to 80: Scaling a hypergrowth engineering org with Claude Code](https://assets.claude.com/91b648f81781b026582f8e41898c599e877c2a64.jpg?w=2400&q=75&fm=webp&fit=max)
 
 ## Anthropic's developer conference, recorded
 

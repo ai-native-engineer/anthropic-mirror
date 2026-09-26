@@ -6,11 +6,11 @@ Q&A | Ramp
 
 [Office Hours with Boris Cherny](https://claude.com/office-hours)
 
-![Video thumbnail](https://assets.claude.com/f11d3038b5cc94aedb5d8538949c01a4c4fb3fa6.jpg)
+![Video thumbnail](https://assets.claude.com/f11d3038b5cc94aedb5d8538949c01a4c4fb3fa6.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Office Hours with Boris Cherny
 
-![Office Hours with Boris Cherny](https://assets.claude.com/9173e999ae52ee5dfc9111debd93828f096cf0cd.jpg)
+![Office Hours with Boris Cherny](https://assets.claude.com/9173e999ae52ee5dfc9111debd93828f096cf0cd.jpg?w=2400&q=75&fm=webp&fit=max)
 
 The best engineering teams are rethinking how they work with AI. Boris Cherny talks with technical leaders to uncover what's changing for their teams, from how they’re building with Claude Code to organization design, and the shifting workflows that come with it.
 
@@ -108,7 +108,7 @@ Rahul Sengottuvelu Chief Technology Officer, Ramp
 
 How Anthropic teams use Claude Code
 
-![How Anthropic teams use Claude Code](https://assets.claude.com/1b3f54eec0c96a79b1a32faa26e694975cd21329.jpg)
+![How Anthropic teams use Claude Code](https://assets.claude.com/1b3f54eec0c96a79b1a32faa26e694975cd21329.jpg?w=2400&q=75&fm=webp&fit=max)
 
 From debugging production issues to navigating unfamiliar codebases to building custom automation—here's how teams across Anthropic use Claude Code.
 
@@ -146,7 +146,7 @@ Rahul Sengottuvelu Chief Technology Officer, Ramp
 
 Claude Enterprise
 
-![Claude Enterprise](https://assets.claude.com/50a00469e498d2c960d9e45f1a4a37d2d7a92f2e.jpg)
+![Claude Enterprise](https://assets.claude.com/50a00469e498d2c960d9e45f1a4a37d2d7a92f2e.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Put Claude to work across your organization. Help everyone think deeper, do more, and build securely.
 

@@ -52,7 +52,7 @@ But the deepest constraint was context. A single deal can involve more than a hu
 
 Building agents with the Claude Agent SDK
 
-![Building agents with the Claude Agent SDK ](https://assets.claude.com/8a8df6660b8f39d6a0a88896d12215466857b588.jpg)
+![Building agents with the Claude Agent SDK ](https://assets.claude.com/8a8df6660b8f39d6a0a88896d12215466857b588.jpg?w=2400&q=75&fm=webp&fit=max)
 
 The Claude Agent SDK is a collection of tools that helps developers build powerful agents on top of Claude Code.
 
@@ -66,7 +66,7 @@ The team started investigating solutions: custom compaction, auto-summarization,
 
 The Agent SDK's built-in context management, including subagent orchestration and automatic compaction, meant the team could stop building workarounds and focus on banking workflows.
 
-![](https://assets.claude.com/0203401ce7b6c71e76c0d741eaddc9b19ed6631e.png)
+![](https://assets.claude.com/0203401ce7b6c71e76c0d741eaddc9b19ed6631e.png?w=2400&q=75&fm=webp&fit=max)
 
 Archie, OffDeal's Claude-powered agent, drafts personalized chaser emails to 34 buyers from within the firm's Deal Portal. All names shown have been modified to preserve client confidentiality.
 
@@ -82,7 +82,7 @@ The skill architecture also opened up iteration to non-engineers. When OffDeal n
 
 Financial services
 
-![Financial services](https://assets.claude.com/650d7729c393e0a6c243ebe61f9b6401c93fd1c8.jpg)
+![Financial services](https://assets.claude.com/650d7729c393e0a6c243ebe61f9b6401c93fd1c8.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Accelerate financial due diligence, modeling, and analysis with enterprise-grade AI built for compliance and security.
 

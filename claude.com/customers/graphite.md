@@ -65,7 +65,7 @@ The platform focuses on objective bugs, not subjective suggestions. It addresses
 
 When issues are identified, the system automatically generates fix suggestions for developers to implement with a single click, reducing the traditional fix-and-review cycle time.
 
-![Graphite product screen ](https://assets.claude.com/9c81978c9821c8343ef714405a86a37630cb446f.png)![Graphite product screen](https://assets.claude.com/f869115db6ed9c178059435adb8636fc452d1a15.png)
+![Graphite product screen ](https://assets.claude.com/9c81978c9821c8343ef714405a86a37630cb446f.png?w=2400&q=75&fm=webp&fit=max)![Graphite product screen](https://assets.claude.com/f869115db6ed9c178059435adb8636fc452d1a15.png?w=2400&q=75&fm=webp&fit=max)
 
 ## Delivering measurable impact for development teams
 

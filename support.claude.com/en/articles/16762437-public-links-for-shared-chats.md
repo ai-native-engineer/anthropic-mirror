@@ -49,5 +49,5 @@ No. On Team and Enterprise plans, shared chats are only visible to signed-in mem
 * [Manage project visibility and sharing](https://support.claude.com/en/articles/9519189-manage-project-visibility-and-sharing)
 * [Share artifacts](https://support.claude.com/en/articles/9547008-share-artifacts)
 * [Share and unshare chats](https://support.claude.com/en/articles/10593882-share-and-unshare-chats)
-* [Join an organization via invite link](https://support.claude.com/en/articles/13776697-join-an-organization-via-invite-link)
+* [Use plugins in Claude](https://support.claude.com/en/articles/13837440-use-plugins-in-claude)
 * [Share a chat with specific people](https://support.claude.com/en/articles/16762496-share-a-chat-with-specific-people)

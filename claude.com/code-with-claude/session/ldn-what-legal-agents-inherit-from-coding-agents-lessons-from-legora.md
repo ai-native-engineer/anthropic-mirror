@@ -24,7 +24,7 @@ Speaker(s)
 
 ## Watch recording
 
-![What legal agents inherit from coding agents: Lessons from Legora](https://assets.claude.com/b58059e694c2531e9a6d9c5a825b2de422f41067.jpg?w=1600&auto=format)
+![What legal agents inherit from coding agents: Lessons from Legora](https://assets.claude.com/b58059e694c2531e9a6d9c5a825b2de422f41067.jpg?w=2400&q=75&fm=webp&fit=max)
 
 ## Anthropic's developer conference, recorded
 

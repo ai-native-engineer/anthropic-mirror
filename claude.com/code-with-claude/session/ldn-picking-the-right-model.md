@@ -27,7 +27,7 @@ Speaker(s)
 
 ## Watch recording
 
-![Picking the right model](https://assets.claude.com/12396b0e852e5512c66aaf4825224a86c599d2c4.jpg?w=1600&auto=format)
+![Picking the right model](https://assets.claude.com/12396b0e852e5512c66aaf4825224a86c599d2c4.jpg?w=2400&q=75&fm=webp&fit=max)
 
 ## Anthropic's developer conference, recorded
 

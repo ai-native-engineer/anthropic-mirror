@@ -50,7 +50,7 @@ That labor puts a hard ceiling on how many cases a firm can take, and clients’
 
 Claude for Statrtups
 
-![Claude for Statrtups ](https://assets.claude.com/516bf8e49c81e551455b1e24a0fc3678725df957.jpg)
+![Claude for Statrtups ](https://assets.claude.com/516bf8e49c81e551455b1e24a0fc3678725df957.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Join the founders building on Claude. Access community and resources to accelerate your growth.
 
@@ -78,7 +78,7 @@ Eve turns the same tooling on itself, building Claude Code into every engineerin
 
 Choosing the right Claude model
 
-![Choosing the right Claude model](https://assets.claude.com/7388619b452db0af26c78442a275c86c5ebe3124.jpg)
+![Choosing the right Claude model](https://assets.claude.com/7388619b452db0af26c78442a275c86c5ebe3124.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Learn when to use Haiku, Sonnet, or Opus to get better results and stay inside your rate limit. A practical guide to picking the right Claude model.
 

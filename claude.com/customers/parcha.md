@@ -87,5 +87,3 @@ Miguel Rios BerriosCTO, Parcha
 ### How Satispay's engineers write 75% of their code with Claude](https://claude.com/customers/satispay)[![OffDeal](https://assets.claude.com/0144c459af1814dfb5bd273db786703ffcf1cce6.svg)
 
 ### OffDeal powers every stage of M&A advisory with one Claude-based agent](https://claude.com/customers/offdeal)
-
-Parcha Claude Platform (API) case study | Claude by Anthropic

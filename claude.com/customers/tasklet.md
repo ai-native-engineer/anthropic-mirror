@@ -66,7 +66,7 @@ Every LLM call in Tasklet's product goes to a Claude model. Users working on sta
 
 Introducing Claude Opus 4.6
 
-![Introducing Claude Opus 4.6](https://assets.claude.com/d7a4c17612163424a76462db8e58b65621bdf903.jpg)
+![Introducing Claude Opus 4.6](https://assets.claude.com/d7a4c17612163424a76462db8e58b65621bdf903.jpg?w=2400&q=75&fm=webp&fit=max)
 
 We’re upgrading our smartest model. The new Claude Opus 4.6 improves on its predecessor’s coding skills. It plans more carefully, sustains agentic tasks for longer, and features a 1M token context window.
 
@@ -90,7 +90,7 @@ Tasklet's roadmap is shaped by the same bet that started the company: every mode
 
 Claude Platform
 
-![Claude Platform](https://assets.claude.com/13caeda2fa5b274f70a676cfe2a8149b865f5e12.jpg)
+![Claude Platform](https://assets.claude.com/13caeda2fa5b274f70a676cfe2a8149b865f5e12.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Use the Claude API to create new user experiences, products, and ways to work with the most advanced AI models on the market.
 
@@ -109,5 +109,3 @@ Andrew LeeCEO, Tasklet
 ### Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
 ### How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)
-
-Tasklet Claude Platform (API) case study | Claude by Anthropic

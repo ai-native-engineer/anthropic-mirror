@@ -30,7 +30,7 @@ Speaker(s)
 
 ## Watch recording
 
-![Caching, harnesses, and advisors: Building on Claude at GitHub scale](https://assets.claude.com/094d9c142e1c388c78c24b727cf1f0277305dc11.jpg?w=1600&auto=format)
+![Caching, harnesses, and advisors: Building on Claude at GitHub scale](https://assets.claude.com/094d9c142e1c388c78c24b727cf1f0277305dc11.jpg?w=2400&q=75&fm=webp&fit=max)
 
 ## Anthropic's developer conference, recorded
 

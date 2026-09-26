@@ -30,7 +30,7 @@ via WhatsApp, text, and phone services
 
 Beneficial Deployments
 
-![Beneficial Deployments](https://assets.claude.com/bd2f6616dd97e9699cf8d4a806c93022b8741492.png)
+![Beneficial Deployments](https://assets.claude.com/bd2f6616dd97e9699cf8d4a806c93022b8741492.png?w=2400&q=75&fm=webp&fit=max)
 
 Accelerate the work that matters most
 
@@ -94,7 +94,7 @@ We've also been clear philosophically: AI is not going in front of the survivor.
 
 Nonprofits
 
-![Nonprofits](https://assets.claude.com/b46529adbd87da89ebb1e8191178d53278f93d1b.jpg)
+![Nonprofits](https://assets.claude.com/b46529adbd87da89ebb1e8191178d53278f93d1b.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Turn limited resources into lasting impact. Generate grant proposals, track program outcomes, and free your team to focus on serving your community.
 

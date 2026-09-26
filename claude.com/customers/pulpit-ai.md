@@ -56,7 +56,7 @@ With Claude, Pulpit AI offers innovative features for pastors and congregation m
 * Multi-format content: A single sermon can be transformed into devotionals, social media posts, e-books, and discipleship materials.
 * Improved sermons: Pastors can get AI-powered feedback on their sermons, with suggestions for clearer introductions or future ideas.
 
-![Pulpit AI product screenshot](https://assets.claude.com/6b0b2f09fb644230c3ba06ba272d17627a502e81.jpg)
+![Pulpit AI product screenshot](https://assets.claude.com/6b0b2f09fb644230c3ba06ba272d17627a502e81.jpg?w=2400&q=75&fm=webp&fit=max)
 
 ## Expanded reach, empowered pastors, engaged congregations
 

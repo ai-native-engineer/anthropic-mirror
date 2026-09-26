@@ -53,7 +53,7 @@ Before Presien created /loop with Claude, safety workflows were manual and react
 
 Explore MCP
 
-![Explore MCP](https://assets.claude.com/27fe73dbb12100740bc7776c3bfa4e9d92af5c51.jpg)
+![Explore MCP](https://assets.claude.com/27fe73dbb12100740bc7776c3bfa4e9d92af5c51.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Try out MCP Connectors in Claude.ai
 
@@ -79,7 +79,7 @@ Claude connects to this data through MCP servers. When /loop identifies a cluste
 
 Choosing the right Claude model
 
-![Choosing the right Claude model](https://assets.claude.com/7388619b452db0af26c78442a275c86c5ebe3124.jpg)
+![Choosing the right Claude model](https://assets.claude.com/7388619b452db0af26c78442a275c86c5ebe3124.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Learn when to use Haiku, Sonnet, or Opus to get better results and stay inside your rate limit. A practical guide to picking the right Claude model.
 
@@ -120,5 +120,3 @@ Mark RichardsCEO, Presien
 ### Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
 ### How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)
-
-Presien Claude Platform (API) case study | Claude by Anthropic

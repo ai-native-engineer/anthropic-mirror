@@ -16,7 +16,7 @@ Where you tag Claude decides whose tools it uses and who sees the result.
 
 * **Channel** for shared team work. The work happens in the open, so anything Claude does in the thread, including its checklist and results, is visible to everyone in the channel, and anyone can reply to steer the work. An admin sets what Claude can reach in each channel, and everyone who asks there gets the same access. By default you don’t need a Claude account to tag Claude in a channel; the work bills to the organization. An admin can [restrict who can invoke Claude](https://claude.com/docs/claude-tag/admins/restrict-access#restrict-who-can-use-claude).
   + Example: `@Claude where are we on the launch checklist? Pull what's still open from this channel and #design-review.`
-* **DM** for personal tasks. A DM runs on your own claude.ai account with [your own connectors](https://claude.com/docs/connectors/overview). Every DM message reaches Claude without an @-mention. You can also DM Claude questions about getting started, like how to word a task or what to try first. DMs are one-to-one only; group DMs aren’t supported.
+* **DM** for personal tasks. A DM runs on your own claude.ai account with [your own connectors](https://claude.com/docs/connectors/getting-started). Every DM message reaches Claude without an @-mention. You can also DM Claude questions about getting started, like how to word a task or what to try first. DMs are one-to-one only; group DMs aren’t supported.
   + Example: `Pull my afternoon meetings from my calendar and draft a one-line prep note for each.`
 
 See [team channels and personal DMs](https://claude.com/docs/claude-tag/concepts/how-it-works#team-channels-and-personal-dms) for the full comparison.
@@ -81,7 +81,7 @@ After you’ve handed Claude a task, the first question is what it has to work w
 | Private channels and DMs | Only from inside them. Adding Claude to a private channel lets it work there, but the channel stays unreadable from any other channel or DM. |
 | A link you paste, like a Google Doc or a webpage | Only if your admin allowed that site for this channel. If not, Claude tells you it can’t reach it. For files in your personal Drive or Google account, DM Claude instead; [a DM uses your own connectors](https://claude.com/docs/claude-tag/concepts/agent-identity#direct-message-channels) |
 | A Slack canvas | No |
-| A message you edited after sending | Yes. Each edit sends Claude a note showing the text before and after the edit. An edit never starts a new task on its own, so to be sure a correction is picked up, say it in a new reply. Deleting a reply doesn’t notify Claude, and deleting the thread’s first message before anyone replies closes the session; see [Reply in the thread to steer](https://claude.com/docs/claude-tag/concepts/how-it-works#reply-in-the-thread-to-steer) |
+| A message you edited after sending | Yes. Each edit sends Claude a note showing the text before and after the edit. An edit never starts a new task on its own, so to be sure a correction is picked up, say it in a new reply; see [Reply in the thread to steer](https://claude.com/docs/claude-tag/concepts/how-it-works#reply-in-the-thread-to-steer) |
 
 The fastest way to find out for your channel is to ask: `@Claude can you read the doc I just linked?` gets you a yes or a “that site isn’t allowed here.”
 
@@ -114,7 +114,7 @@ Set instructions for a channel by telling Claude there, the way you’d ask anyo
 @Claude remember for this channel: keep replies short, and always include a link to the source.
 ```
 
-The instruction saves to channel memory and applies to everyone’s threads. Public-channel memory is also [shared across your workspace](https://claude.com/docs/claude-tag/users/memory). Verify with “what do you remember about this channel?”
+The instruction saves to [channel memory](https://claude.com/docs/claude-tag/users/memory) and applies to everyone’s threads in the channel. Verify with “what do you remember about this channel?”
 
 ##  Related resources
 

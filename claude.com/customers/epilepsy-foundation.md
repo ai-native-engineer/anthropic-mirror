@@ -53,7 +53,7 @@ No fixed path could fit everyone. "No two people have the same epilepsy journey,
 
 Q&A: The Epilepsy Foundation
 
-![Q&A: The Epilepsy Foundation ](https://assets.claude.com/241e023e2a98a4dc66029fe1a3c16e696eb50883.jpg)
+![Q&A: The Epilepsy Foundation ](https://assets.claude.com/241e023e2a98a4dc66029fe1a3c16e696eb50883.jpg?w=2400&q=75&fm=webp&fit=max)
 
 How the Epilepsy Foundation uses Claude across the organization
 
@@ -83,7 +83,7 @@ Over time, the team noticed Sage doing useful things no one had explicitly progr
 
 Beneficial Deployments
 
-![Beneficial Deployments](https://assets.claude.com/bd2f6616dd97e9699cf8d4a806c93022b8741492.png)
+![Beneficial Deployments](https://assets.claude.com/bd2f6616dd97e9699cf8d4a806c93022b8741492.png?w=2400&q=75&fm=webp&fit=max)
 
 Accelerate the work that matters most
 

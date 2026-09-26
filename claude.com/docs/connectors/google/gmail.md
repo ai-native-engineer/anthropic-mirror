@@ -8,74 +8,65 @@
 
 [Skip to main content](#content-area)
 
-The Gmail integration enables Claude to search your emails and provide answers based on your email content, reducing time spent retrieving information.
+The Gmail connector lets Claude search your email and answer questions from what it finds, with citations that link back to the messages it used. It’s available on Pro, Max, Team, and Enterprise plans. On Team and Enterprise plans, an Owner or Primary Owner enables it for the organization before members can connect.
+By the end of this page you have connected your Google account and asked Claude a first question about your email. Claude reads and searches email only; it can’t create, send, or modify messages.
 
-Available on Pro, Max, Team, and Enterprise plans.
+If your organization uses Outlook, see [Microsoft 365](https://claude.com/docs/connectors/microsoft/365) instead.
 
 ##  Connect Gmail
 
-1. In claude.ai, go to **Customize > Connectors**.
-2. Find Gmail and click **Connect**.
-3. Sign in to your Google account and grant the requested permissions.
+You connect Gmail once from your connector settings, and Claude can then search your email in any conversation where you turn the connector on.
 
-On Team and Enterprise plans, an Owner or Primary Owner must enable the integration for your organization before it appears in your connector list. For the full walkthrough, including troubleshooting, see [Get started with connectors](https://claude.com/docs/connectors/getting-started).
+1
 
-##  How to use Gmail integration
+Open your connectors
 
-###  1. Ask a question
+Go to [**Customize > Connectors**](https://claude.ai/customize/connectors) in claude.ai. **Customize** is the page that holds your connectors, skills, and plugins.
 
-Simply ask Claude a question that needs email information. Claude automatically detects when email data is needed.
-**Example questions:**
+2
 
-* “What did Sarah say about the project deadline?”
-* “Find emails about the Q4 budget review”
-* “Summarize my conversation with the sales team last week”
+Connect Gmail
 
-###  2. Review Claude’s response
+Find **Gmail** in the list and select **Connect**.
 
-Claude provides answers that include:
+3
 
-* Clear answers to your questions
-* Citations indicating which emails were used
-* Links to original sources when applicable
+Sign in to Google
 
-###  3. Follow up
+Sign in to your Google account and grant the requested permissions.
 
-You can ask for more details, such as:
+When the connection succeeds, the **Connect** button on the Gmail connector changes to **Disconnect**.
+On Team and Enterprise plans, Gmail doesn’t appear in your connector list until an Owner or Primary Owner enables it for your organization. For the full walkthrough, including troubleshooting, see [Get started with connectors](https://claude.com/docs/connectors/getting-started).
 
-* Requesting additional email information
-* Finding related threads
-* Summarizing longer conversations
+##  Try the connector
 
-##  Understanding citations
+In a conversation, select **+** at the lower left of the message box, select **Connectors**, and turn on **Gmail**. Then ask a question that needs your email. Claude detects when email data is needed and searches Gmail to answer. For example, ask Claude:
 
-Citations show which specific emails Claude used to answer your question. You can follow links back to original sources for verification and additional context.
+* What did Sarah say about the project deadline?
+* Find emails about the Q4 budget review
+* Summarize my conversation with the sales team last week
+
+Claude’s answer includes citations that show which emails it used, with links to the original messages where applicable, so you can open a message to verify the answer or read more context. You can follow up in the same conversation to ask for more detail, find related threads, or summarize a longer exchange.
 
 ##  Privacy and data handling
 
-###  Authentication
+You authenticate directly with your Google account, and Claude’s access follows these rules:
 
-You must authenticate directly to your Google account. For Claude for Work (Team/Enterprise) plans, an Owner or Primary Owner must enable integrations at the account level.
-
-###  Data access
-
-* Claude accesses only data from your connected Google account
-* Access occurs only when you explicitly request it
-* Minimum information is retrieved to answer your question
-* Your existing Gmail permissions are mirrored
+* Claude accesses only data from the Google account you connected
+* Claude searches your email only when your request calls for it
+* Claude retrieves the minimum information needed to answer your question
+* Your existing Gmail permissions apply, so Claude can search only the email you can access
 
 ##  Limitations
 
-* Claude cannot create, send, or modify emails
-* Embedded images in emails are not visible to Claude
-* Only emails you have access to can be searched
+The connector is read-only, and some email content isn’t visible to Claude:
 
-##  Related topics
+* Claude can’t create, send, or modify emails
+* Claude can’t see images embedded in emails
+* Claude can search only the emails you have access to
 
-## Google Calendar
+##  Next steps
 
-Access your calendar information.
-
-## Google Drive
-
-Connect your documents.
+* [Google Calendar](https://claude.com/docs/connectors/google/calendar): access your calendar information
+* [Google Drive](https://claude.com/docs/connectors/google/drive): search and read your Drive files
+* [Connectors directory](https://claude.com/docs/connectors/directory): browse verified and community integrations

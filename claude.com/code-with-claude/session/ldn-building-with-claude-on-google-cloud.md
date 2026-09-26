@@ -24,7 +24,7 @@ Speaker(s)
 
 ## Watch recording
 
-![Building with Claude on Google Cloud](https://assets.claude.com/c7147e60bdece0f489039f1d7495d24d3e7fc5db.jpg?w=1600&auto=format)
+![Building with Claude on Google Cloud](https://assets.claude.com/c7147e60bdece0f489039f1d7495d24d3e7fc5db.jpg?w=2400&q=75&fm=webp&fit=max)
 
 ## Anthropic's developer conference, recorded
 

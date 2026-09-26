@@ -71,7 +71,7 @@ The following feature developments were led by the customer support team's new c
 
 Kaushik adds, "Claude has effectively promoted us customer supporters at Gumroad. Just months ago, we primarily answered creators' questions after they reached out. Now, not only do we resolve queries faster but also actively improve the platform by shipping features and squashing bugs."
 
-![Gumroad mockup](https://assets.claude.com/48f244ea049038bf8411b0e7c1ac94d5f4f9d22f.jpg)
+![Gumroad mockup](https://assets.claude.com/48f244ea049038bf8411b0e7c1ac94d5f4f9d22f.jpg?w=2400&q=75&fm=webp&fit=max)
 
 ## Driving impressive business results and user benefits
 

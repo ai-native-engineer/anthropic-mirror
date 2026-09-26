@@ -69,7 +69,7 @@ The tables below compare the feature set of Claude Desktop on third-party (3P) t
 | Feature toggles (web search, local MCP, etc.) | ✓ | ✓ |
 | Auto-updates | ✓ | ✓ |
 | Per-user usage caps | ✓ | ✓ |
-| [Data retention policies](https://claude.com/docs/third-party/claude-desktop/configuration#chatsessionretentiondays) | ✓ | ✓ |
+| [Data retention policies](https://claude.com/docs/third-party/claude-desktop/data-storage#automatic-deletion-of-idle-sessions) | ✓ | ✓ |
 | Compliance API | ✓ | — ‡ |
 | Analytics API | ✓ | — ‡ |
 | OpenTelemetry export | ✓ | ✓ |

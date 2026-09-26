@@ -30,7 +30,7 @@ Decision-making accuracy improved by over 30%
 
 Customer support
 
-![Customer support](https://assets.claude.com/140d607a40b73026a239c3cd8100f1b9c94bb169.jpg)
+![Customer support](https://assets.claude.com/140d607a40b73026a239c3cd8100f1b9c94bb169.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Build AI support agents with a more human touch and transform your customer experience.
 
@@ -38,7 +38,7 @@ Build AI support agents with a more human touch and transform your customer expe
 
 Introducing Agent Skills
 
-![Introducing Agent Skills](https://assets.claude.com/c703a5641a48ab5b6a904a9d6b0fef8d4975e92d.jpg)
+![Introducing Agent Skills](https://assets.claude.com/c703a5641a48ab5b6a904a9d6b0fef8d4975e92d.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Claude can now use Skills—folders with instructions, scripts, and resources—to become a specialist at specific tasks when you need it.
 
@@ -53,7 +53,7 @@ Claude can now use Skills—folders with instructions, scripts, and resources—
 * Reduced customer support resolution time by over 87%
 * Improved decision-making accuracy by over 30%
 
-![](https://assets.claude.com/11ac29d52be8e81c6df6b7a4c93319abe9996bcd.png)
+![](https://assets.claude.com/11ac29d52be8e81c6df6b7a4c93319abe9996bcd.png?w=2400&q=75&fm=webp&fit=max)
 
 "Claude's personality is really what stuck out to me," said Elyse Hovanesian, Product Lead for AI in Support. "It felt organic."
 
@@ -81,7 +81,7 @@ The team started with drivers, whose needs are complex and varied. Driver onboar
 
 "Claude's personality is really what stuck out to me," said Hovanesian. "It felt organic. Our customers were conversing more and opening up about the issues they were having, which then enabled us to solve them better."
 
-![](https://assets.claude.com/8089f10c3c62ce52e3466db128bdffb327265553.png)
+![](https://assets.claude.com/8089f10c3c62ce52e3466db128bdffb327265553.png?w=2400&q=75&fm=webp&fit=max)
 
 Lyft reinvested its savings in programs like Lyft Silver that give older riders dedicated one-on-one support.
 

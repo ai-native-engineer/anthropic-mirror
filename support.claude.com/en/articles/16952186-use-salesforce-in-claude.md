@@ -10,7 +10,7 @@ After your admin connects Salesforce for the organization, you just need to link
 
 To link your Salesforce account in Claude:
 
-1. Navigate to **[Settings > Plugins](https://preview.claude.ai/new#customize/plugins)**.
+1. Navigate to **[Customize > Plugins](https://preview.claude.ai/new#customize/plugins)**.
 2. Find and open **Salesforce in Claude.**
 3. Click "Add," then click the toggle to enable the plugin if your admin hasn’t already done so for you.
 4. Click "Add to Claude." You’ll see a modal with a link to the AgentExchange public listing.

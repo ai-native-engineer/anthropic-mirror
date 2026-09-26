@@ -51,7 +51,7 @@ Reps needed 3 to 6 months, sometimes more, to get comfortable with a new product
 
 Claude Fable
 
-![Claude Fable](https://assets.claude.com/c4cccb47d2ee2cf151f52b084554003b801e6a75.jpg)
+![Claude Fable](https://assets.claude.com/c4cccb47d2ee2cf151f52b084554003b801e6a75.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Next generation of intelligence for the hardest knowledge work and coding problems.
 
@@ -75,7 +75,7 @@ For example, Kest pointed Fable at Salesforce to map every object, field, and re
 
 Claude Code
 
-![Claude Code](https://assets.claude.com/38e8385d1c5f9c0f71c486994e22fc5861a4522d.jpg)
+![Claude Code](https://assets.claude.com/38e8385d1c5f9c0f71c486994e22fc5861a4522d.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
 

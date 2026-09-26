@@ -6,7 +6,7 @@ Q&A | Claude Platform
 
 [Try Claude](https://claude.ai)
 
-![Video thumbnail](https://assets.claude.com/9d1bb7a3e975709514ee3337201df52330edf814.jpg)
+![Video thumbnail](https://assets.claude.com/9d1bb7a3e975709514ee3337201df52330edf814.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Industry:
 :   Software
@@ -24,13 +24,13 @@ Location:
 
 per week after adopting Claude Sonnet 3.6
 
-![Problem Solvers landing page](https://assets.claude.com/516bf8e49c81e551455b1e24a0fc3678725df957.jpg)
+![Problem Solvers landing page](https://assets.claude.com/516bf8e49c81e551455b1e24a0fc3678725df957.jpg?w=2400&q=75&fm=webp&fit=max)
 
 The most driven founders are problem solvers. Watch their unscripted conversations with the Anthropic engineers.
 
 [Read more](https://claude.com/problem-solvers)
 
-![](https://assets.claude.com/79e69363abf8229785d0b20187dfcfece31aead8.png)
+![](https://assets.claude.com/79e69363abf8229785d0b20187dfcfece31aead8.png?w=2400&q=75&fm=webp&fit=max)
 
 "There’s so much more for us to do together than separate, and that’s what we’re excited about." —Scott Wu
 
@@ -52,7 +52,7 @@ Real-world success for us looks like this: a well-scoped ticket comes in, the ag
 
 **Scott:** The whole idea is getting you to a point where you as a human can operate in terms of higher level decisions and trade-offs and not have to think about every single little detail in the code. Devin will send you a screen video recording of ‘You told me to fix a bug, I fixed it, here's the PR, but by the way, I actually went through and clicked through myself to make sure it works now.’ And here's like a video of that working.
 
-![](https://assets.claude.com/72ab209a0f97734d7de623d31aaa08aa2636b359.png)
+![](https://assets.claude.com/72ab209a0f97734d7de623d31aaa08aa2636b359.png?w=2400&q=75&fm=webp&fit=max)
 
 "The far-out vision is Devin not just being an IC engineer, but giving it much higher-level goals." —Walden Yan
 
@@ -90,7 +90,7 @@ And there's so much depth in software engineering as a whole. VM sandboxing alon
 
 So much of software engineering is actually maintenance and fixing bugs, not building new software. If you can free up their time by having Devin automatically start responding to bugs, that would be massively helpful. We are seeing the new Claude models getting quite good at using third-party MCPs to look at logs and incidents.
 
-![](https://assets.claude.com/68cf96b0ecc009bcfd6842920b5777fab4a4c3b8.png)
+![](https://assets.claude.com/68cf96b0ecc009bcfd6842920b5777fab4a4c3b8.png?w=2400&q=75&fm=webp&fit=max)
 
 "Claude models have been ahead of the curve at being able to follow through and consistently work on a longer-running task." —Scott Wu
 
@@ -110,7 +110,7 @@ That's exciting because it means way more people will get the chance to build so
 
 Choosing the right Claude model
 
-![Choosing the right Claude model](https://assets.claude.com/7388619b452db0af26c78442a275c86c5ebe3124.jpg)
+![Choosing the right Claude model](https://assets.claude.com/7388619b452db0af26c78442a275c86c5ebe3124.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Learn when to use Haiku, Sonnet, or Opus to get better results and stay inside your rate limit. A practical guide to picking the right Claude model.
 

@@ -66,7 +66,7 @@ The AI Assistant functions like a dedicated business consultant available around
 
 This approach transforms the Assistant from a simple help desk into a true business advisor that understands each merchant's unique context and goals.
 
-![Grab product screen](https://assets.claude.com/9f03cacb979aca061eb205a9daa407473bdada9b.jpg)
+![Grab product screen](https://assets.claude.com/9f03cacb979aca061eb205a9daa407473bdada9b.jpg?w=2400&q=75&fm=webp&fit=max)
 
 ## Driving business growth across the region
 

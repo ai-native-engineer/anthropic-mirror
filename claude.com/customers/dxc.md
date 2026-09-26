@@ -51,7 +51,7 @@ Those backlogs carried real cost. Time is one of the key drivers of claim severi
 
 Choosing the right Claude model
 
-![Choosing the right Claude model](https://assets.claude.com/7388619b452db0af26c78442a275c86c5ebe3124.jpg)
+![Choosing the right Claude model](https://assets.claude.com/7388619b452db0af26c78442a275c86c5ebe3124.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Learn when to use Haiku, Sonnet, or Opus to get better results and stay inside your rate limit. A practical guide to picking the right Claude model.
 
@@ -73,7 +73,7 @@ Assure gives that reasoning somewhere to run. Document intelligence reads and st
 
 Claude Platform
 
-![Claude Platform](https://assets.claude.com/13caeda2fa5b274f70a676cfe2a8149b865f5e12.jpg)
+![Claude Platform](https://assets.claude.com/13caeda2fa5b274f70a676cfe2a8149b865f5e12.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Use the Claude API to create new user experiences, products, and ways to work with the most advanced AI models on the market.
 

@@ -2,247 +2,6 @@
 <!-- part of: https://platform.claude.com/docs/en/api/go/messages -->
 
 <!-- chunk-start -->
-  "ended_at": "2024-08-20T18:37:24.100435Z",
-  "expires_at": "2024-08-20T18:37:24.100435Z",
-  "processing_status": "in_progress",
-  "request_counts": {
-    "canceled": 10,
-    "errored": 30,
-    "expired": 10,
-    "processing": 100,
-    "succeeded": 50
-  },
-  "results_url": "https://api.anthropic.com/v1/messages/batches/msgbatch_013Zva2CMHLNnXjNJJKqJ2EF/results",
-  "type": "message_batch"
-}
-```
-
-### Delete a Message Batch
-
-`client.Messages.Batches.Delete(ctx, messageBatchID, body) (*DeletedMessageBatch, error)`
-
-**DELETE** `/v1/messages/batches/{message_batch_id}`
-
-Delete a Message Batch.
-
-Message Batches can only be deleted once they've finished processing. If you'd like to delete an in-progress batch, you must first cancel it.
-
-Learn more about the Message Batches API in our [user guide](https://platform.claude.com/docs/en/build-with-claude/batch-processing)
-
-#### Parameters
-
-- `messageBatchID string`
-
-  ID of the Message Batch.
-
-- `body MessageBatchDeleteParams`
-
-  - `WorkspaceID param.Field[string] Optional`
-
-    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
-
-    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
-
-#### Returns
-
-- `type DeletedMessageBatch`
-
-  - `Type MessageBatchDeleted`
-
-    Deleted object type.
-
-    For Message Batches, this is always `"message_batch_deleted"`.
-
-    default: message_batch_deleted
-
-  - `ID string`
-
-    ID of the Message Batch.
-
-#### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-
-	"github.com/anthropics/anthropic-sdk-go"
-	"github.com/anthropics/anthropic-sdk-go/option"
-)
-
-func main() {
-	client := anthropic.NewClient(
-		option.WithAPIKey("my-anthropic-api-key"),
-	)
-	deletedMessageBatch, err := client.Messages.Batches.Delete(
-		context.TODO(),
-		"message_batch_id",
-		anthropic.MessageBatchDeleteParams{},
-	)
-	if err != nil {
-		panic(err.Error())
-	}
-	fmt.Printf("%+v\n", deletedMessageBatch.ID)
-}
-```
-
-##### Response (200)
-
-```json
-{
-  "id": "msgbatch_013Zva2CMHLNnXjNJJKqJ2EF",
-  "type": "message_batch_deleted"
-}
-```
-
-### Retrieve Message Batch results
-
-`client.Messages.Batches.Results(ctx, messageBatchID, query) (*MessageBatchIndividualResponse, error)`
-
-**GET** `/v1/messages/batches/{message_batch_id}/results`
-
-Streams the results of a Message Batch as a `.jsonl` file.
-
-Each line in the file is a JSON object containing the result of a single request in the Message Batch. Results are not guaranteed to be in the same order as requests. Use the `custom_id` field to match results to requests.
-
-Learn more about the Message Batches API in our [user guide](https://platform.claude.com/docs/en/build-with-claude/batch-processing)
-
-#### Parameters
-
-- `messageBatchID string`
-
-  ID of the Message Batch.
-
-- `query MessageBatchResultsParams`
-
-  - `WorkspaceID param.Field[string] Optional`
-
-    Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
-
-    Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
-
-#### Returns
-
-- `type MessageBatchIndividualResponse`
-
-  This is a single line in the response `.jsonl` file and does not represent the response as a whole.
-
-  - `CustomID string`
-
-    Developer-provided ID created for each request in a Message Batch. Useful for matching results to requests, as results may be given out of request order.
-
-    Must be unique for each request within the Message Batch.
-
-  - `Result MessageBatchResultUnion`
-
-    Processing result for this request.
-
-    Contains a Message output if processing was successful, an error response if processing failed, or the reason why processing was not attempted, such as cancellation or expiration.
-
-    - `type MessageBatchSucceededResult`
-
-      - `Type Succeeded`
-
-        default: succeeded
-
-      - `Message Message`
-
-        - `Type Message`
-
-          Object type.
-
-          For Messages, this is always `"message"`.
-
-          default: message
-
-        - `ID string`
-
-          Unique object identifier.
-
-          The format and length of IDs may change over time.
-
-        - `Container Container`
-
-          Information about the container used in the request (for the code execution tool)
-
-          - `ID string`
-
-            Identifier for the container used in this request
-
-          - `ExpiresAt Time`
-
-            The time at which the container will expire.
-
-            format: date-time
-
-          - `Skills []ContainerSkill`
-
-            Skills loaded in the container
-
-            - `Type ContainerSkillType`
-
-              Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
-
-              - `const ContainerSkillTypeAnthropic ContainerSkillType = "anthropic"`
-
-              - `const ContainerSkillTypeCustom ContainerSkillType = "custom"`
-
-            - `SkillID string`
-
-              Skill ID
-
-              maxLength: 64, minLength: 1
-
-            - `Version string`
-
-              The resolved version: a skill version ID for custom skills.
-
-              maxLength: 64, minLength: 1
-
-        - `Content []ContentBlockUnion`
-
-          Content generated by the model.
-
-          This is an array of content blocks, each of which has a `type` that determines its shape.
-
-          Example:
-
-          ```json
-          [{"type": "text", "text": "Hi, I'm Claude."}]
-          ```
-
-          If the request input `messages` ended with an `assistant` turn, then the response `content` will continue directly from that last turn. You can use this to constrain the model's output.
-
-          For example, if the input `messages` were:
-
-          ```json
-          [
-            {"role": "user", "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"},
-            {"role": "assistant", "content": "The best answer is ("}
-          ]
-          ```
-
-          Then the response `content` might be:
-
-          ```json
-          [{"type": "text", "text": "B)"}]
-          ```
-
-          - `type TextBlock`
-
-            - `Type Text`
-
-              default: text
-
-            - `Citations []TextCitationUnion`
-
-              Citations supporting the text block.
-
-              The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
-
-              - `type CitationCharLocation`
 
                 - `Type CharLocation`
 
@@ -372,8 +131,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `Text string`
 
-              minLength: 0
-
           - `type ThinkingBlock`
 
             - `Type Thinking`
@@ -454,7 +211,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               For a toolset member tool_use, the toolset family.
 
-              maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
+              minLength: 1, maxLength: 64, pattern: ^[a-zA-Z0-9_-]+$
 
           - `type ServerToolUseBlock`
 
@@ -902,7 +659,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `ToolName string`
 
-                    maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+                    minLength: 1, maxLength: 256, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
             - `ToolUseID string`
 
@@ -920,8 +677,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `Diagnostics Diagnostics`
 
-          Request-level diagnostics: why the prompt cache could not fully reuse
-          the prefix of the request named by `diagnostics.previous_message_id`.
+          Request-level diagnostics. `null` when the request did not supply `diagnostics`, or when it did and no prompt-cache divergence was detected.
 
           - `CacheMissReason CacheMissReasonUnion`
 
@@ -985,6 +741,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+          - `string`
+
           - `type Model string`
 
             The model that will complete your prompt.
@@ -1027,10 +785,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               Powerful intelligence for long-running agents and coding
 
-            - `const ModelClaudeMythosPreview Model = "claude-mythos-preview"`
-
-              New class of intelligence, strongest in coding and cybersecurity
-
             - `const ModelClaudeOpus4_6 Model = "claude-opus-4-6"`
 
               Powerful intelligence for long-running agents and coding
@@ -1063,7 +817,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               High-performance model for agents and coding
 
-          - `string`
+            - `const ModelClaudeMythosPreview Model = "claude-mythos-preview"`
+
+              **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+              New class of intelligence, strongest in coding and cybersecurity
 
         - `Role Assistant`
 
@@ -1075,7 +833,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `StopDetails RefusalStopDetails`
 
-          Structured information about a refusal.
+          Structured information about why model output stopped.
+
+          This is `null` when the `stop_reason` has no additional detail to report.
 
           - `Type Refusal`
 
@@ -1083,7 +843,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           - `Category RefusalStopDetailsCategory`
 
-            The policy category that triggered a refusal.
+            The policy category that triggered the refusal.
+
+            `null` when the refusal doesn't map to a named category.
 
             - `const RefusalStopDetailsCategoryCyber RefusalStopDetailsCategory = "cyber"`
 

@@ -6,7 +6,7 @@ Case study | Claude Platform
 
 [Try Claude](https://claude.ai)
 
-![Video thumbnail](https://assets.claude.com/9ee7c6164adc668e76493c863e3e3b49a5327f20.jpg)
+![Video thumbnail](https://assets.claude.com/9ee7c6164adc668e76493c863e3e3b49a5327f20.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Industry:
 :   Software
@@ -38,7 +38,7 @@ on the platform, 200,000+ per day
 
 ## The challenge
 
-![](https://assets.claude.com/e508e5a061c2a1bcbe4d2fe3538ffc017040ad71.png)
+![](https://assets.claude.com/e508e5a061c2a1bcbe4d2fe3538ffc017040ad71.png?w=2400&q=75&fm=webp&fit=max)
 
 “Claude has a strong combination of great coding abilities and conversational abilities.” —Anton Osika, Lovable CEO and co-founder
 
@@ -50,7 +50,7 @@ In early 2023, he built a weekend side project to help developers move faster wi
 
 Anton says he pictured far more people building software and running whole businesses on it: founders, teams driving change inside companies and government, and domain experts who knew exactly what their work needed. The team needed a capable model at the core of its product.
 
-![Problem Solvers landing page](https://assets.claude.com/516bf8e49c81e551455b1e24a0fc3678725df957.jpg)
+![Problem Solvers landing page](https://assets.claude.com/516bf8e49c81e551455b1e24a0fc3678725df957.jpg?w=2400&q=75&fm=webp&fit=max)
 
 The most driven founders are problem solvers. Watch their unscripted conversations with the Anthropic engineers.
 
@@ -58,7 +58,7 @@ The most driven founders are problem solvers. Watch their unscripted conversatio
 
 ## The solution
 
-![](https://assets.claude.com/1c94b487506bc224ae52be9fc2ac342dc596f22f.png)
+![](https://assets.claude.com/1c94b487506bc224ae52be9fc2ac342dc596f22f.png?w=2400&q=75&fm=webp&fit=max)
 
 “Something that I think is very, very rare in AI is a trusted brand that people love and keep coming back to. To have that trusted brand, that's not something that you magically achieve.” —Anton Osika, Lovable CEO and co-founder
 
@@ -78,7 +78,7 @@ Every new Claude release goes through the same evaluation Lovable has run from t
 
 Choosing the right Claude model
 
-![Choosing the right Claude model](https://assets.claude.com/7388619b452db0af26c78442a275c86c5ebe3124.jpg)
+![Choosing the right Claude model](https://assets.claude.com/7388619b452db0af26c78442a275c86c5ebe3124.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Learn when to use Haiku, Sonnet, or Opus to get better results and stay inside your rate limit. A practical guide to picking the right Claude model.
 
@@ -88,7 +88,7 @@ Anton OsikaCEO and co-founder, Lovable
 
 ## The outcome
 
-![](https://assets.claude.com/102194dac43adf680201e80eff6cb861d3885248.jpg)
+![](https://assets.claude.com/102194dac43adf680201e80eff6cb861d3885248.jpg?w=2400&q=75&fm=webp&fit=max)
 
 “Claude Opus 4.5 was the next big step change in reliability on long-horizon tasks, unlocking a new class of projects.” —Alexandre Pesant, Lovable product lead
 

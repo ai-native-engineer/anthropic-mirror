@@ -24,7 +24,7 @@ Speaker(s)
 
 ## Watch recording
 
-![Running an AI-native engineering org](https://assets.claude.com/3e60ed18e3897ab1ced5e96f8eb2c8e3a61803e6.jpg?w=1600&auto=format)
+![Running an AI-native engineering org](https://assets.claude.com/3e60ed18e3897ab1ced5e96f8eb2c8e3a61803e6.jpg?w=2400&q=75&fm=webp&fit=max)
 
 ## Anthropic's developer conference, recorded
 

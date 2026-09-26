@@ -6,7 +6,7 @@ Case study | Claude Platform
 
 [Try Claude](https://claude.ai)
 
-![Video thumbnail](https://assets.claude.com/bc408f1de16c14c88cd9f4d8cc5ea498b23c6218.jpg)
+![Video thumbnail](https://assets.claude.com/bc408f1de16c14c88cd9f4d8cc5ea498b23c6218.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Industry:
 :   Legal

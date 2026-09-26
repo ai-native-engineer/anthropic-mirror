@@ -24,7 +24,7 @@ Speaker(s)
 
 ## Watch recording
 
-![The prompting playbook](https://assets.claude.com/109669d24eddb4485c7a00b11e106bd59f4978e4.jpg?w=1600&auto=format)
+![The prompting playbook](https://assets.claude.com/109669d24eddb4485c7a00b11e106bd59f4978e4.jpg?w=2400&q=75&fm=webp&fit=max)
 
 ## Anthropic's developer conference, recorded
 

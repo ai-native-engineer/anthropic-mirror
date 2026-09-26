@@ -105,5 +105,3 @@ Yoonseok YangCo-founder, Pensive
 ### Why Syracuse University gave Claude to 30,000 students, faculty, and staff](https://claude.com/customers/syracuse-university)[![RileyBot](https://assets.claude.com/14b0586643ee08e0793d5b808b741c51db9d4814.png)
 
 ### RileyBot creates safe AI learning experiences for students with Claude](https://claude.com/customers/rileybot)
-
-Pensive Claude Platform (API) case study | Claude by Anthropic

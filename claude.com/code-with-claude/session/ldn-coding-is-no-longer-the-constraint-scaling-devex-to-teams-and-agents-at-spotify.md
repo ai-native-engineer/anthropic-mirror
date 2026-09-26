@@ -24,7 +24,7 @@ Speaker(s)
 
 ## Watch recording
 
-![Coding is no longer the constraint: Scaling devex to teams and agents at Spotify](https://assets.claude.com/2812c560b8695cc89aab4cba9594b465f354fb11.jpg?w=1600&auto=format)
+![Coding is no longer the constraint: Scaling devex to teams and agents at Spotify](https://assets.claude.com/2812c560b8695cc89aab4cba9594b465f354fb11.jpg?w=2400&q=75&fm=webp&fit=max)
 
 ## Anthropic's developer conference, recorded
 

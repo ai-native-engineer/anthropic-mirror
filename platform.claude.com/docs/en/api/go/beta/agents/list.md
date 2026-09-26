@@ -165,7 +165,7 @@ List Agents
 
   - `ArchivedAt Time`
 
-    A timestamp in RFC 3339 format
+    When the agent was archived. Null if not archived.
 
     format: date-time
 
@@ -196,6 +196,8 @@ List Agents
       The model that will power your agent.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+      - `string`
 
       - `type BetaManagedAgentsModel string`
 
@@ -263,11 +265,9 @@ List Agents
 
           High-performance model for agents and coding
 
-      - `string`
-
     - `Effort BetaManagedAgentsModelConfigEffortUnion Optional`
 
-      How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+      How hard Claude works on each inference call. One of `low`, `medium`, `high`, `xhigh`, `max`. Always present; resolved to the per-model default at save time when not supplied.
 
       - `type BetaManagedAgentsEffortLow`
 
@@ -305,7 +305,7 @@ List Agents
 
     - `Speed BetaManagedAgentsModelConfigSpeed Optional`
 
-      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Defaults to `standard`. Not all models support `fast`; invalid combinations are rejected at create time.
 
       - `const BetaManagedAgentsModelConfigSpeedStandard BetaManagedAgentsModelConfigSpeed = "standard"`
 
@@ -313,7 +313,7 @@ List Agents
 
   - `Multiagent BetaManagedAgentsMultiagent`
 
-    Resolved coordinator topology with a concrete agent roster.
+    Multiagent orchestration configuration. Null when the agent is single-threaded.
 
     - `Type BetaManagedAgentsMultiagentType`
 

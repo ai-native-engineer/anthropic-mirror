@@ -86,5 +86,3 @@ micro1 aims to transform lives by democratizing access to opportunities. By comb
 ### Skillfully transforms hiring through AI-powered skill simulations with Claude](https://claude.com/customers/skillfully)[![Braintrust](https://assets.claude.com/e902bcd557abee20fb67ab82f79395b90141b73c.svg)
 
 ### Braintrust revolutionizes talent acquisition and career growth with Claude](https://claude.com/customers/braintrust)
-
-micro1 Claude Platform (API) case study | Claude by Anthropic

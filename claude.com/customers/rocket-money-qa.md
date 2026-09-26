@@ -10,7 +10,7 @@ Q&A | Claude
 
 Case Study: Rocket Money
 
-![Case Study: Rocket Money ](https://assets.claude.com/55641b76423c99ec1c176980d33a7b516065a73c.jpg)
+![Case Study: Rocket Money ](https://assets.claude.com/55641b76423c99ec1c176980d33a7b516065a73c.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Read how Rocket Money built its personal finance agent with Claude.
 

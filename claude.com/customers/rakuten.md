@@ -30,7 +30,7 @@ of sustained autonomous coding on complex refactoring
 
 Case Study: Rakuten
 
-![Case Study: Rakuten](https://assets.claude.com/93db54b4af90793b8d000d9690f17d18c86facf7.jpg)
+![Case Study: Rakuten](https://assets.claude.com/93db54b4af90793b8d000d9690f17d18c86facf7.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Rakuten uses Claude Managed Agents to turn every employee into a builder—shipping major releases every two weeks instead of quarterly and cutting critical errors by 97%.
 
@@ -102,7 +102,7 @@ Rakuten's AI-nization offers a blueprint for enterprise transformation. By givin
 
 Claude Code
 
-![Claude Code](https://assets.claude.com/38e8385d1c5f9c0f71c486994e22fc5861a4522d.jpg)
+![Claude Code](https://assets.claude.com/38e8385d1c5f9c0f71c486994e22fc5861a4522d.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
 

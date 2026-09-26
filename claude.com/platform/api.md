@@ -608,13 +608,13 @@ Joel Hron, CTO
 
 ## Technical resources
 
-[CLI, SDKs, and libraries](https://platform.claude.com/docs/en/cli-sdks-libraries/overview)CLI, SDKs, and libraries
+[Reducing cost and improving performance with Claude Platform](https://claude.com/blog/reducing-cost-and-improving-performance-with-claude-platform)Reducing cost and improving performance with Claude Platform
 
-CLI, SDKs, and libraries
+Reducing cost and improving performance with Claude Platform
 
-Docs
+Blog
 
-[Docs](https://platform.claude.com/docs/en/cli-sdks-libraries/overview)Docs
+[Blog](https://claude.com/blog/reducing-cost-and-improving-performance-with-claude-platform)Blog
 
 [Demystifying evals for AI agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents)Demystifying evals for AI agents
 
@@ -640,13 +640,13 @@ Docs
 
 [Docs](https://platform.claude.com/docs/en/managed-agents/overview)Docs
 
-[Reducing cost and improving performance with Claude Platform](https://claude.com/blog/reducing-cost-and-improving-performance-with-claude-platform)Reducing cost and improving performance with Claude Platform
+[CLI, SDKs, and libraries](https://platform.claude.com/docs/en/cli-sdks-libraries/overview)CLI, SDKs, and libraries
 
-Reducing cost and improving performance with Claude Platform
+CLI, SDKs, and libraries
 
-Blog
+Docs
 
-[Blog](https://claude.com/blog/reducing-cost-and-improving-performance-with-claude-platform)Blog
+[Docs](https://platform.claude.com/docs/en/cli-sdks-libraries/overview)Docs
 
 [Building agents that reach production systems with MCP](https://claude.com/blog/building-agents-that-reach-production-systems-with-mcp)Building agents that reach production systems with MCP
 

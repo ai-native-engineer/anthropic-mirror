@@ -9,11 +9,11 @@
 [Skip to main content](#content-area)
 
 Personal connectors are the tools you add to your own claude.ai account, like your calendar or your email. When a task you ask for in a Slack channel needs one of your own tools, Claude can offer to use your connector for it.
-Connector use in channels is available to a limited number of organizations. If Claude never offers to use your connectors in a channel, connector use in channels may not be available to your organization, and the channel works with admin-attached connections as described in [how agent identity works](https://claude.com/docs/claude-tag/concepts/agent-identity).
+Personal connectors in channels are on for every organization on the Team plan, with nothing for an admin to set up. On the Enterprise plan, the **Personal connectors** section at [`claude.ai/admin-settings/claude-tag`](https://claude.ai/admin-settings/claude-tag) says when they turn on for your organization. A channel also keeps working with the connections an admin attached to it, as described in [how agent identity works](https://claude.com/docs/claude-tag/concepts/agent-identity).
 
 ##  Where your connectors apply
 
-In organizations where connector use in channels is available, Claude can use your personal connectors for the requests you make in a channel.
+Claude can use your personal connectors for the requests you make in a channel.
 
 * **Approval**: Claude asks you before it starts using your connectors in a channel.
 * **Access**: Claude works with your permissions and reaches only what your account can reach.
@@ -27,7 +27,7 @@ Claude uses your connectors only while working on a request you made yourself.
 * **Claude starts work on its own.** [Routines](https://claude.com/docs/claude-tag/users/proactivity) and other work Claude starts on its own in a channel use the channel’s connections, never your connectors.
 * **You ask in a direct message (DM).** Your connectors apply on their own, because a DM runs on [your own claude.ai account](https://claude.com/docs/claude-tag/concepts/agent-identity#direct-message-channels).
 
-To add or remove connectors on your account, open the **Customize > Connectors** page on claude.ai; see [connectors on claude.ai](https://claude.com/docs/connectors/overview) for setup.
+To add or remove connectors on your account, open the **Customize > Connectors** page on claude.ai; see [connectors on claude.ai](https://claude.com/docs/connectors/getting-started) for setup.
 
 ##  Control connector use
 
@@ -60,7 +60,15 @@ Before a result posts directly, Claude checks it for private or sensitive conten
 
 The check is a screen, not a guarantee, and it doesn’t consider whether other people in the channel have the same access you do. For sensitive topics, choose **Allow with review** so you see every result before it posts, and use judgment about what you bring into a shared channel.
 Once you approve a held result, Claude posts it in the thread where you asked.
-On the Enterprise plan, an Owner can set the review rule for a scope with the **Delegated task results** setting, at [`claude.ai/admin-settings/claude-tag`](https://claude.ai/admin-settings/claude-tag) → **Claude Tag’s access** → **Slack** → the scope → **Advanced** → **Delegated task results**. **Require review** removes **Allow** from the prompt and **Auto mode** from the **Home** tab, so Claude holds every result for your review. **Share without review** removes **Allow with review** from both.
+
+###  Admin controls for personal connectors
+
+Admins manage personal connectors for the whole organization in the **Personal connectors** section at [`claude.ai/admin-settings/claude-tag`](https://claude.ai/admin-settings/claude-tag). The settings there apply to every workspace and channel.
+
+* **Require human review of every message.** On the Enterprise plan, an admin can turn this switch on so that Claude holds every result for the requester’s review, not only the ones the sensitive-content check flags. With it on, the prompt no longer offers **Allow** and the **Home** tab no longer offers **Auto mode**. On the Team plan, results the check doesn’t flag post without review.
+* **Sensitive information requiring review.** Lists what the check looks for. An Owner can add topics of your own under **Additional topics**, for example “Board meeting notes are confidential”, and Claude holds results that touch them.
+
+There is no setting that turns personal connectors in channels off for an organization. To keep a service out of channels entirely, manage the connector itself in your organization’s [connector settings](https://claude.com/docs/connectors/getting-started).
 
 ###  Stop connector use
 
@@ -79,5 +87,5 @@ Results stay visible in the channel. What Claude posts back to a channel thread 
 ##  Related resources
 
 * [How agent identity works](https://claude.com/docs/claude-tag/concepts/agent-identity): whose identity and access Claude uses in channels and DMs
-* [Connectors](https://claude.com/docs/connectors/overview): set up and manage connectors on your claude.ai account
+* [Connectors](https://claude.com/docs/connectors/getting-started): set up and manage connectors on your claude.ai account
 * [Get started](https://claude.com/docs/claude-tag/users/getting-started): hand Claude your first task in a channel

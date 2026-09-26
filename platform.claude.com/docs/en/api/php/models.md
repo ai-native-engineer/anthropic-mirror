@@ -63,7 +63,7 @@ The Models API response can be used to determine which models are available for 
 
   - `?ModelCapabilities capabilities`
 
-    Model capability information.
+    Object mapping capability names to their support details. Keys are always present for all known capabilities.
 
   - `\Datetime createdAt`
 
@@ -226,7 +226,7 @@ The Models API response can be used to determine information about a specific mo
 
   - `?ModelCapabilities capabilities`
 
-    Model capability information.
+    Object mapping capability names to their support details. Keys are always present for all known capabilities.
 
   - `\Datetime createdAt`
 
@@ -352,15 +352,15 @@ var_dump($modelInfo);
 
   - `?CapabilitySupport clearThinking20251015`
 
-    Indicates whether a capability is supported.
+    Whether the clear_thinking_20251015 strategy is supported.
 
   - `?CapabilitySupport clearToolUses20250919`
 
-    Indicates whether a capability is supported.
+    Whether the clear_tool_uses_20250919 strategy is supported.
 
   - `?CapabilitySupport compact20260112`
 
-    Indicates whether a capability is supported.
+    Whether the compact_20260112 strategy is supported.
 
   - `bool supported`
 
@@ -392,7 +392,7 @@ var_dump($modelInfo);
 
   - `?CapabilitySupport xhigh`
 
-    Indicates whether a capability is supported.
+    Whether the model supports xhigh effort level.
 
 ### Model Capabilities
 
@@ -450,7 +450,7 @@ var_dump($modelInfo);
 
   - `?ModelCapabilities capabilities`
 
-    Model capability information.
+    Object mapping capability names to their support details. Keys are always present for all known capabilities.
 
   - `\Datetime createdAt`
 

@@ -50,7 +50,7 @@ GitLab hit its stride when more advanced AI models became available. The company
 
 GitLab chose Claude 3 models to power their AI-powered Duo features due to their performance and the fully featured developer experience. "We see consistently strong performance from Claude 3 models for thoughtful, holistic, and contextualized code generation and other software development-related tasks," McCaslin notes, attributing this partly to Claude's long context window.
 
-![Gitlab product mockup](https://assets.claude.com/d134923ae1767c2daa38d52efe556f67ec2135be.jpg)
+![Gitlab product mockup](https://assets.claude.com/d134923ae1767c2daa38d52efe556f67ec2135be.jpg?w=2400&q=75&fm=webp&fit=max)
 
 ## Empowering engineers and ensuring reliability
 
@@ -79,5 +79,3 @@ By choosing Claude, GitLab has found foundation models that provide powerful AI 
 ### Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)[![Rocket Money](https://assets.claude.com/cabc58f91e6bcb5b5ed8fb2da747e25daaf3aea0.svg)
 
 ### How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)
-
-GitLab Claude Platform (API) case study | Claude by Anthropic

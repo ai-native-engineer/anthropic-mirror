@@ -58,7 +58,7 @@ Seats that activate during the window earn the credit. Credits issued during the
 If we detect abuse, we may put the promotion on hold and hide the promotion admin panel. Your admin will also receive an email if that is the case. You can fill out **[this form](https://docs.google.com/forms/d/e/1FAIpQLSdVQd-gfK63yowPR0PfTZs74PuYcB1qJUHh3VxGdR7tN9rYQg/viewform)** to request a review of your organization’s recent activation activity.
 
 * [Use Claude Code with your Team or Enterprise plan](https://support.claude.com/en/articles/11845131-use-claude-code-with-your-team-or-enterprise-plan)
+* [View usage analytics for Team and Enterprise plans](https://support.claude.com/en/articles/12883420-view-usage-analytics-for-team-and-enterprise-plans)
 * [Use Claude Cowork on Team and Enterprise plans](https://support.claude.com/en/articles/13455879-use-claude-cowork-on-team-and-enterprise-plans)
-* [Monitor Claude Cowork activity with OpenTelemetry](https://support.claude.com/en/articles/14477985-monitor-claude-cowork-activity-with-opentelemetry)
+* [Claude Code on Console to Enterprise migration](https://support.claude.com/en/articles/14128775-claude-code-on-console-to-enterprise-migration)
 * [Use the Claude Agent SDK with your Claude plan](https://support.claude.com/en/articles/15036540-use-the-claude-agent-sdk-with-your-claude-plan)
-* [Claude Fable models on your plan](https://support.claude.com/en/articles/15424964-claude-fable-models-on-your-plan)

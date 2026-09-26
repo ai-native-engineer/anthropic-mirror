@@ -36,7 +36,7 @@ Speaker(s)
 
 ## Watch recording
 
-![A conversation with Dario Amodei & Daniela Amodei](https://assets.claude.com/fa97f4bc4c66967ad97db60e5d9203818e0bfb04.jpg?w=1600&auto=format)
+![A conversation with Dario Amodei & Daniela Amodei](https://assets.claude.com/fa97f4bc4c66967ad97db60e5d9203818e0bfb04.jpg?w=2400&q=75&fm=webp&fit=max)
 
 ## Anthropic's developer conference, recorded
 

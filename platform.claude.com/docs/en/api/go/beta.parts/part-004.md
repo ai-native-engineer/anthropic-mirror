@@ -3,6 +3,456 @@
 
 <!-- chunk-start -->
 
+    - `WorkspaceGeo BetaDataResidencyWorkspaceGeo`
+
+      Geographic region for workspace data storage. Immutable after creation.
+
+  - `DisplayColor string`
+
+    Hex color code representing the Workspace in the Anthropic Console.
+
+  - `ExternalKeyID string`
+
+    ID of the customer-managed encryption key (CMEK) configuration to use for this
+    Workspace. Setting this field requires CMEK to be enabled for your
+    organization. When set, data stored for this Workspace is encrypted with the
+    referenced key. Create key configurations with the External Keys API. On
+    Claude Platform on AWS the value is the AWS KMS key ARN, and the key must be a
+    single-Region key in the same AWS account and Region as the Workspace. On that
+    platform the key is validated against this Workspace when it is attached, so a
+    key-policy problem is reported as an error on this request. This field is write-once:
+    once a key is attached to a Workspace it cannot be detached or replaced. To
+    rotate key material, rotate the underlying key on your cloud KMS; the
+    `external_key_id` stays the same.
+
+  - `Name string`
+
+    Name of the Workspace.
+
+  - `Tags map[string, string]`
+
+    User-defined tags as string key-value pairs. Keys may not begin with `anthropic`.
+
+#### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+
+	"github.com/anthropics/anthropic-sdk-go"
+	"github.com/anthropics/anthropic-sdk-go/option"
+)
+
+func main() {
+	client := anthropic.NewClient(
+		option.WithAPIKey("my-anthropic-api-key"),
+	)
+	betaWorkspace, err := client.Beta.Organization.Workspaces.Update(
+		context.TODO(),
+		"workspace_id",
+		anthropic.BetaOrganizationWorkspaceUpdateParams{},
+	)
+	if err != nil {
+		panic(err.Error())
+	}
+	fmt.Printf("%+v\n", betaWorkspace.ID)
+}
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ",
+  "archived_at": "2024-11-01T23:59:27.427722Z",
+  "compartment_id": "f8a7b6c5-4d3e-4f1a-8b9c-0d1e2f3a4b5c",
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "data_residency": {
+    "allowed_inference_geos": "unrestricted",
+    "default_inference_geo": "global",
+    "workspace_geo": "us"
+  },
+  "display_color": "#6C5BB9",
+  "external_key_id": "ekey_01SDCCSbTxrXDpWc1phhtcfK",
+  "name": "Workspace Name",
+  "tags": {
+    "env": "prod",
+    "team": "platform"
+  },
+  "type": "workspace"
+}
+```
+
+### Archive Workspace
+
+`client.Beta.Organization.Workspaces.Archive(ctx, workspaceID) (*BetaWorkspace, error)`
+
+**POST** `/v1/organizations/workspaces/{workspace_id}/archive`
+
+Archive Workspace
+
+#### Parameters
+
+- `workspaceID string`
+
+#### Returns
+
+- `type BetaWorkspace`
+
+  - `Type Workspace`
+
+    Object type.
+
+    For Workspaces, this is always `"workspace"`.
+
+    default: workspace
+
+  - `ID string`
+
+    ID of the Workspace.
+
+  - `ArchivedAt Time`
+
+    RFC 3339 datetime string indicating when the Workspace was archived, or `null` if the Workspace is not archived.
+
+    format: date-time
+
+  - `CompartmentID string`
+
+    Identifier for this Workspace's encryption compartment. When you configure a
+    customer-managed encryption key (CMEK) on AWS, reference this value in your
+    KMS key-policy condition so the key is scoped to this compartment. On GCP and
+    Azure, Anthropic enforces the compartment binding automatically; you do not
+    need to reference this value in your key configuration. See the CMEK
+    integration guide for the required key configuration; unless your organization
+    is on Claude Platform on AWS, it includes a separate value used during key
+    validation. On Claude Platform on AWS there is no separate validation value:
+    the key is validated against this Workspace's own value when it is attached, so
+    if your key policy uses the compartment condition, add this value to it before
+    attaching the key.
+
+  - `CreatedAt Time`
+
+    RFC 3339 datetime string indicating when the Workspace was created.
+
+    format: date-time
+
+  - `DataResidency BetaDataResidency`
+
+    Data residency configuration.
+
+    - `AllowedInferenceGeos BetaDataResidencyAllowedInferenceGeosUnion`
+
+      Permitted inference geo values. 'unrestricted' means all geos are allowed.
+
+      - `type BetaDataResidencyAllowedInferenceGeosGeos []BetaAllowedInferenceGeo`
+
+        - `const BetaAllowedInferenceGeoGlobal BetaAllowedInferenceGeo = "global"`
+
+        - `const BetaAllowedInferenceGeoUs BetaAllowedInferenceGeo = "us"`
+
+      - `type Unrestricted string`
+
+    - `DefaultInferenceGeo BetaDataResidencyDefaultInferenceGeo`
+
+      Default inference geo applied when requests omit the parameter.
+
+      - `const BetaDataResidencyDefaultInferenceGeoGlobal BetaDataResidencyDefaultInferenceGeo = "global"`
+
+      - `const BetaDataResidencyDefaultInferenceGeoUs BetaDataResidencyDefaultInferenceGeo = "us"`
+
+    - `WorkspaceGeo BetaDataResidencyWorkspaceGeo`
+
+      Geographic region for workspace data storage. Immutable after creation.
+
+  - `DisplayColor string`
+
+    Hex color code representing the Workspace in the Anthropic Console.
+
+  - `ExternalKeyID string`
+
+    ID of the customer-managed encryption key (CMEK) configuration to use for this
+    Workspace. Setting this field requires CMEK to be enabled for your
+    organization. When set, data stored for this Workspace is encrypted with the
+    referenced key. Create key configurations with the External Keys API. On
+    Claude Platform on AWS the value is the AWS KMS key ARN, and the key must be a
+    single-Region key in the same AWS account and Region as the Workspace. On that
+    platform the key is validated against this Workspace when it is attached, so a
+    key-policy problem is reported as an error on this request. This field is write-once:
+    once a key is attached to a Workspace it cannot be detached or replaced. To
+    rotate key material, rotate the underlying key on your cloud KMS; the
+    `external_key_id` stays the same.
+
+  - `Name string`
+
+    Name of the Workspace.
+
+  - `Tags map[string, string]`
+
+    User-defined tags as string key-value pairs. Keys may not begin with `anthropic`.
+
+#### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+
+	"github.com/anthropics/anthropic-sdk-go"
+	"github.com/anthropics/anthropic-sdk-go/option"
+)
+
+func main() {
+	client := anthropic.NewClient(
+		option.WithAPIKey("my-anthropic-api-key"),
+	)
+	betaWorkspace, err := client.Beta.Organization.Workspaces.Archive(context.TODO(), "workspace_id")
+	if err != nil {
+		panic(err.Error())
+	}
+	fmt.Printf("%+v\n", betaWorkspace.ID)
+}
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ",
+  "archived_at": "2024-11-01T23:59:27.427722Z",
+  "compartment_id": "f8a7b6c5-4d3e-4f1a-8b9c-0d1e2f3a4b5c",
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "data_residency": {
+    "allowed_inference_geos": "unrestricted",
+    "default_inference_geo": "global",
+    "workspace_geo": "us"
+  },
+  "display_color": "#6C5BB9",
+  "external_key_id": "ekey_01SDCCSbTxrXDpWc1phhtcfK",
+  "name": "Workspace Name",
+  "tags": {
+    "env": "prod",
+    "team": "platform"
+  },
+  "type": "workspace"
+}
+```
+
+## Beta › Organization › Workspaces › Rate Limits
+
+### List Workspace Rate Limits
+
+`client.Beta.Organization.Workspaces.RateLimits.List(ctx, workspaceID, query) (*PageCursor[BetaWorkspaceRateLimit], error)`
+
+**GET** `/v1/organizations/workspaces/{workspace_id}/rate_limits`
+
+List a workspace's rate limits.
+
+By default, returns only the groups and limiter types that have a
+workspace-level override. With `include_inherited=true`, returns every
+group with organization-level limits the workspace can see, listing for
+each the values it inherits from the organization as well as its own
+overrides. Each value's `source` says which it is.
+
+When `limit` is omitted, every matching entry is returned in a single
+page; when `limit` truncates the result, follow `next_page` to fetch
+the remaining entries.
+
+#### Parameters
+
+- `workspaceID string`
+
+  The ID of the workspace.
+
+- `query BetaOrganizationWorkspaceRateLimitListParams`
+
+  - `GroupType param.Field[BetaOrganizationWorkspaceRateLimitListParamsGroupType] Optional`
+
+    Filter by group type.
+
+    - `const BetaOrganizationWorkspaceRateLimitListParamsGroupTypeBatch BetaOrganizationWorkspaceRateLimitListParamsGroupType = "batch"`
+
+    - `const BetaOrganizationWorkspaceRateLimitListParamsGroupTypeFiles BetaOrganizationWorkspaceRateLimitListParamsGroupType = "files"`
+
+    - `const BetaOrganizationWorkspaceRateLimitListParamsGroupTypeModelGroup BetaOrganizationWorkspaceRateLimitListParamsGroupType = "model_group"`
+
+    - `const BetaOrganizationWorkspaceRateLimitListParamsGroupTypeSkills BetaOrganizationWorkspaceRateLimitListParamsGroupType = "skills"`
+
+    - `const BetaOrganizationWorkspaceRateLimitListParamsGroupTypeTokenCount BetaOrganizationWorkspaceRateLimitListParamsGroupType = "token_count"`
+
+    - `const BetaOrganizationWorkspaceRateLimitListParamsGroupTypeWebSearch BetaOrganizationWorkspaceRateLimitListParamsGroupType = "web_search"`
+
+  - `IncludeInherited param.Field[bool] Optional`
+
+    Also list the limiter values the workspace inherits from the organization, including groups with no workspace-level override.
+
+  - `Limit param.Field[int64] Optional`
+
+    Maximum number of items to return per page. Ranges from `1` to `1000`.
+
+    When omitted, every remaining entry is returned in a single page and `next_page` is `null`.
+
+    minimum: 1, maximum: 1000
+
+  - `Page param.Field[string] Optional`
+
+    Opaque cursor from a previous response's `next_page`.
+
+#### Returns
+
+- `type BetaWorkspaceRateLimit`
+
+  - `Type WorkspaceRateLimit`
+
+    Object type. Always `workspace_rate_limit` for workspace rate-limit entries.
+
+    default: workspace_rate_limit
+
+  - `Group BetaWorkspaceRateLimitGroupUnion`
+
+    The rate-limit group this entry's limits apply to. Its `type` equals `group_type`.
+
+    - `type BetaOrganizationRateLimitModelGroup`
+
+      - `Type ModelGroup`
+
+        Always `model_group`: a family of models.
+
+        default: model_group
+
+      - `ID string`
+
+        Opaque identifier of the rate-limit group (for example, `rlg_01VPTCmyiu5ZLsWkcxYG2pY8`). It is the same in every organization and never changes, unlike the entry's own identifier, which differs per organization.
+
+      - `DisplayName string`
+
+        Human-readable name of the model group (for example, `Claude Sonnet 4.x`). For display only; it may change.
+
+    - `type BetaOrganizationRateLimitBatchGroup`
+
+      - `Type Batch`
+
+        Always `batch`: the Message Batches API.
+
+        default: batch
+
+      - `ID string`
+
+        Opaque identifier of the rate-limit group (for example, `rlg_01VPTCmyiu5ZLsWkcxYG2pY8`). It is the same in every organization and never changes, unlike the entry's own identifier, which differs per organization.
+
+    - `type BetaOrganizationRateLimitTokenCountGroup`
+
+      - `Type TokenCount`
+
+        Always `token_count`: the Token Count API.
+
+        default: token_count
+
+      - `ID string`
+
+        Opaque identifier of the rate-limit group (for example, `rlg_01VPTCmyiu5ZLsWkcxYG2pY8`). It is the same in every organization and never changes, unlike the entry's own identifier, which differs per organization.
+
+    - `type BetaOrganizationRateLimitFilesGroup`
+
+      - `Type Files`
+
+        Always `files`: the Files API.
+
+        default: files
+
+      - `ID string`
+
+        Opaque identifier of the rate-limit group (for example, `rlg_01VPTCmyiu5ZLsWkcxYG2pY8`). It is the same in every organization and never changes, unlike the entry's own identifier, which differs per organization.
+
+    - `type BetaOrganizationRateLimitSkillsGroup`
+
+      - `Type Skills`
+
+        Always `skills`: the Skills API.
+
+        default: skills
+
+      - `ID string`
+
+        Opaque identifier of the rate-limit group (for example, `rlg_01VPTCmyiu5ZLsWkcxYG2pY8`). It is the same in every organization and never changes, unlike the entry's own identifier, which differs per organization.
+
+    - `type BetaOrganizationRateLimitWebSearchGroup`
+
+      - `Type WebSearch`
+
+        Always `web_search`: the Messages API web search tool.
+
+        default: web_search
+
+      - `ID string`
+
+        Opaque identifier of the rate-limit group (for example, `rlg_01VPTCmyiu5ZLsWkcxYG2pY8`). It is the same in every organization and never changes, unlike the entry's own identifier, which differs per organization.
+
+  - `Limits []BetaWorkspaceRateLimitValue`
+
+    The workspace's limiter values for this group. By default only the limiter types with a workspace-level override are listed. With `include_inherited` set to `true`, the limiter types the workspace inherits from the organization are listed too, each marked by `source`.
+
+    - `Type string`
+
+      The limiter type (for example, `requests_per_minute` or `input_tokens_per_minute`).
+
+    - `OrgLimit int64`
+
+      The organization-level value for the same limiter type, for reference. `null` when the organization has no limit configured for this limiter type.
+
+    - `Source BetaWorkspaceRateLimitValueSourceUnion`
+
+      Where `value` comes from. `organization` values are listed only when `include_inherited` is `true`, and then `value` equals `org_limit`.
+
+      - `type BetaWorkspaceRateLimitWorkspaceSource`
+
+        - `Type Workspace`
+
+          Always `workspace`: a workspace-level override is stored.
+
+          default: workspace
+
+      - `type BetaWorkspaceRateLimitOrganizationSource`
+
+        - `Type Organization`
+
+          Always `organization`: no workspace-level override is stored, so the organization's value applies.
+
+          default: organization
+
+    - `Value int64`
+
+      The workspace's value for this limiter type: the workspace-level override when `source.type` is `workspace`, otherwise the organization's value.
+
+  - `Models []string`
+
+    Model names this entry's limits apply to, including aliases. `null` when `group_type` is not `"model_group"`.
+
+  - `RateLimitID string`
+
+    The `id` of the organization's RateLimit entry this entry applies to.
+
+  - `WorkspaceID string`
+
+    ID of the Workspace this entry applies to.
+
+  - `GroupType BetaWorkspaceRateLimitGroupType`
+
+    **Deprecated**: Use `group.type` instead. `group_type` is still returned and always equals `group.type`.
+
+    Deprecated: use `group.type` instead. The kind of rate-limit group this entry represents. `model_group` entries apply to a family of models (listed in `models`); other values apply to an API-surface category and have `models` set to `null`. Always equal to `group.type`.
+
+    - `const BetaWorkspaceRateLimitGroupTypeBatch BetaWorkspaceRateLimitGroupType = "batch"`
+
+    - `const BetaWorkspaceRateLimitGroupTypeFiles BetaWorkspaceRateLimitGroupType = "files"`
+
+    - `const BetaWorkspaceRateLimitGroupTypeModelGroup BetaWorkspaceRateLimitGroupType = "model_group"`
+
     - `const BetaWorkspaceRateLimitGroupTypeSkills BetaWorkspaceRateLimitGroupType = "skills"`
 
     - `const BetaWorkspaceRateLimitGroupTypeTokenCount BetaWorkspaceRateLimitGroupType = "token_count"`
@@ -104,7 +554,7 @@ List Workspace Members
 
     Defaults to `20`. Ranges from `1` to `1000`.
 
-    maximum: 1000, minimum: 1
+    minimum: 1, maximum: 1000
 
 #### Returns
 
@@ -597,7 +1047,7 @@ omitted from the results.
 
     Query param: Number of results per page.
 
-    maximum: 100, minimum: 1
+    minimum: 1, maximum: 100
 
   - `Page param.Field[string] Optional`
 
@@ -1682,7 +2132,7 @@ the remaining entries.
 
     When omitted, every remaining entry is returned in a single page and `next_page` is `null`.
 
-    maximum: 1000, minimum: 1
+    minimum: 1, maximum: 1000
 
   - `Model param.Field[string] Optional`
 

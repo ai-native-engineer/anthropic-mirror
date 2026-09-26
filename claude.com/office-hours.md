@@ -14,7 +14,7 @@ Chief Executive Officer
 
 ![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5adfff1546febae66f812_Stripe_dark.svg)![Stripe](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5adfff1546febae66f812_Stripe_dark.svg)
 
-About 55% of Stripe's pull requests now start as a prompt, with Claude Code doing the work in an isolated dev box. Patrick Collison explains how Stripe keeps five and a half nines of reliability,, how one engineer merged 600 AI-written pull requests in six months with a single revert, and why he expects AI to raise the quality of Stripe's code.
+About 36% of Stripe's pull requests now start as a prompt, with Claude Code doing the work in an isolated dev box. Patrick Collison explains how Stripe keeps five and a half nines of reliability,, how one engineer merged 600 AI-written pull requests in six months with a single revert, and why he expects AI to raise the quality of Stripe's code.
 
 “Stripe operates with five and a half nines of reliability. At the same time, we want to be developing and launching new products and features extremely quickly.”
 

@@ -33,7 +33,7 @@ The Models API response can be used to determine which models are available for 
 
   Defaults to `20`. Ranges from `1` to `1000`.
 
-  maximum: 1000, minimum: 1
+  minimum: 1, maximum: 1000
 
 - `--beta: optional array of AnthropicBeta`
 
@@ -67,7 +67,7 @@ The Models API response can be used to determine which models are available for 
 
     - `capabilities: object`
 
-      Model capability information.
+      Object mapping capability names to their support details. Keys are always present for all known capabilities.
 
       - `batch: object`
 
@@ -95,9 +95,7 @@ The Models API response can be used to determine which models are available for 
 
       - `compaction: object`
 
-        Compaction capability details: whether the model accepts the top-level
-        `compaction` request parameter, with one entry per supported
-        `compaction.type` value.
+        Server-side compaction support (the top-level `compaction` parameter) and the accepted `compaction.type` values.
 
         - `summarize: object`
 
@@ -117,7 +115,7 @@ The Models API response can be used to determine which models are available for 
 
         - `clear_thinking_20251015: object`
 
-          Indicates whether a capability is supported.
+          Whether the clear_thinking_20251015 strategy is supported.
 
           - `supported: boolean`
 
@@ -125,7 +123,7 @@ The Models API response can be used to determine which models are available for 
 
         - `clear_tool_uses_20250919: object`
 
-          Indicates whether a capability is supported.
+          Whether the clear_tool_uses_20250919 strategy is supported.
 
           - `supported: boolean`
 
@@ -133,7 +131,7 @@ The Models API response can be used to determine which models are available for 
 
         - `compact_20260112: object`
 
-          Indicates whether a capability is supported.
+          Whether the compact_20260112 strategy is supported.
 
           - `supported: boolean`
 
@@ -185,7 +183,7 @@ The Models API response can be used to determine which models are available for 
 
         - `xhigh: object`
 
-          Indicates whether a capability is supported.
+          Whether the model supports xhigh effort level.
 
           - `supported: boolean`
 
@@ -416,7 +414,7 @@ The Models API response can be used to determine information about a specific mo
 
   - `capabilities: object`
 
-    Model capability information.
+    Object mapping capability names to their support details. Keys are always present for all known capabilities.
 
     - `batch: object`
 
@@ -444,9 +442,7 @@ The Models API response can be used to determine information about a specific mo
 
     - `compaction: object`
 
-      Compaction capability details: whether the model accepts the top-level
-      `compaction` request parameter, with one entry per supported
-      `compaction.type` value.
+      Server-side compaction support (the top-level `compaction` parameter) and the accepted `compaction.type` values.
 
       - `summarize: object`
 
@@ -466,7 +462,7 @@ The Models API response can be used to determine information about a specific mo
 
       - `clear_thinking_20251015: object`
 
-        Indicates whether a capability is supported.
+        Whether the clear_thinking_20251015 strategy is supported.
 
         - `supported: boolean`
 
@@ -474,7 +470,7 @@ The Models API response can be used to determine information about a specific mo
 
       - `clear_tool_uses_20250919: object`
 
-        Indicates whether a capability is supported.
+        Whether the clear_tool_uses_20250919 strategy is supported.
 
         - `supported: boolean`
 
@@ -482,7 +478,7 @@ The Models API response can be used to determine information about a specific mo
 
       - `compact_20260112: object`
 
-        Indicates whether a capability is supported.
+        Whether the compact_20260112 strategy is supported.
 
         - `supported: boolean`
 
@@ -534,7 +530,7 @@ The Models API response can be used to determine information about a specific mo
 
       - `xhigh: object`
 
-        Indicates whether a capability is supported.
+        Whether the model supports xhigh effort level.
 
         - `supported: boolean`
 
@@ -741,7 +737,7 @@ ant beta:models retrieve \
 
   - `clear_thinking_20251015: object`
 
-    Indicates whether a capability is supported.
+    Whether the clear_thinking_20251015 strategy is supported.
 
     - `supported: boolean`
 
@@ -749,7 +745,7 @@ ant beta:models retrieve \
 
   - `clear_tool_uses_20250919: object`
 
-    Indicates whether a capability is supported.
+    Whether the clear_tool_uses_20250919 strategy is supported.
 
     - `supported: boolean`
 
@@ -757,7 +753,7 @@ ant beta:models retrieve \
 
   - `compact_20260112: object`
 
-    Indicates whether a capability is supported.
+    Whether the compact_20260112 strategy is supported.
 
     - `supported: boolean`
 
@@ -811,7 +807,7 @@ ant beta:models retrieve \
 
   - `xhigh: object`
 
-    Indicates whether a capability is supported.
+    Whether the model supports xhigh effort level.
 
     - `supported: boolean`
 
@@ -849,9 +845,7 @@ ant beta:models retrieve \
 
   - `compaction: object`
 
-    Compaction capability details: whether the model accepts the top-level
-    `compaction` request parameter, with one entry per supported
-    `compaction.type` value.
+    Server-side compaction support (the top-level `compaction` parameter) and the accepted `compaction.type` values.
 
     - `summarize: object`
 
@@ -871,7 +865,7 @@ ant beta:models retrieve \
 
     - `clear_thinking_20251015: object`
 
-      Indicates whether a capability is supported.
+      Whether the clear_thinking_20251015 strategy is supported.
 
       - `supported: boolean`
 
@@ -879,7 +873,7 @@ ant beta:models retrieve \
 
     - `clear_tool_uses_20250919: object`
 
-      Indicates whether a capability is supported.
+      Whether the clear_tool_uses_20250919 strategy is supported.
 
       - `supported: boolean`
 
@@ -887,7 +881,7 @@ ant beta:models retrieve \
 
     - `compact_20260112: object`
 
-      Indicates whether a capability is supported.
+      Whether the compact_20260112 strategy is supported.
 
       - `supported: boolean`
 
@@ -939,7 +933,7 @@ ant beta:models retrieve \
 
     - `xhigh: object`
 
-      Indicates whether a capability is supported.
+      Whether the model supports xhigh effort level.
 
       - `supported: boolean`
 
@@ -1017,7 +1011,7 @@ ant beta:models retrieve \
 
   - `capabilities: object`
 
-    Model capability information.
+    Object mapping capability names to their support details. Keys are always present for all known capabilities.
 
     - `batch: object`
 
@@ -1045,9 +1039,7 @@ ant beta:models retrieve \
 
     - `compaction: object`
 
-      Compaction capability details: whether the model accepts the top-level
-      `compaction` request parameter, with one entry per supported
-      `compaction.type` value.
+      Server-side compaction support (the top-level `compaction` parameter) and the accepted `compaction.type` values.
 
       - `summarize: object`
 
@@ -1067,7 +1059,7 @@ ant beta:models retrieve \
 
       - `clear_thinking_20251015: object`
 
-        Indicates whether a capability is supported.
+        Whether the clear_thinking_20251015 strategy is supported.
 
         - `supported: boolean`
 
@@ -1075,7 +1067,7 @@ ant beta:models retrieve \
 
       - `clear_tool_uses_20250919: object`
 
-        Indicates whether a capability is supported.
+        Whether the clear_tool_uses_20250919 strategy is supported.
 
         - `supported: boolean`
 
@@ -1083,7 +1075,7 @@ ant beta:models retrieve \
 
       - `compact_20260112: object`
 
-        Indicates whether a capability is supported.
+        Whether the compact_20260112 strategy is supported.
 
         - `supported: boolean`
 
@@ -1135,7 +1127,7 @@ ant beta:models retrieve \
 
       - `xhigh: object`
 
-        Indicates whether a capability is supported.
+        Whether the model supports xhigh effort level.
 
         - `supported: boolean`
 

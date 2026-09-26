@@ -39,7 +39,7 @@ Give the store a `name` and a `description`. The description is passed to the ag
     -d '{"name": "User Preferences", "description": "Per-user preferences and project context."}'
   ```
 
-  <MultiFileExample language="cli" label="CLI">
+  <CodeGroupItem>
     ```bash CLI
     ant apply memory_store.yaml
     ```
@@ -51,7 +51,7 @@ Give the store a `name` and a `description`. The description is passed to the ag
       description: Per-user preferences and project context.
       ```
     </File>
-  </MultiFileExample>
+  </CodeGroupItem>
 
   ```python Python
   store = client.beta.memory_stores.create(

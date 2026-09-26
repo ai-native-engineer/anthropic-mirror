@@ -11,7 +11,7 @@
 Connections are added inside an [Access bundle](https://claude.com/docs/claude-tag/admins/add-connections#your-first-access-bundle). At [`claude.ai/admin-settings/claude-tag`](https://claude.ai/admin-settings/claude-tag), open **Access bundles** in the left navigation, click into a bundle (or **Create** one), and go to its **Credentials** tab.
 
 Connecting Google Drive, Calendar, and Gmail lets Claude read documents, spreadsheets, calendar events, and email from any channel under the bundle’s scope. You add it as a connection inside an [Access bundle](https://claude.com/docs/claude-tag/admins/add-connections); the credential belongs to the agent, not to any person.
-This is an HTTP API connection, not a personal claude.ai connector. A member’s own Google connector applies in DMs. In organizations where [personal connectors in channels](https://claude.com/docs/claude-tag/concepts/personal-connectors) is available, Claude can also use it in a channel for that member’s own tasks, after the member allows it.
+This is an HTTP API connection, not a personal claude.ai connector. A member’s own Google connector applies in DMs. With [personal connectors in channels](https://claude.com/docs/claude-tag/concepts/personal-connectors), Claude can also use it in a channel for that member’s own tasks, after the member allows it.
 
 ##  Choose OAuth or a service account
 
@@ -38,11 +38,12 @@ In the bundle, click **Connect** next to **Custom tool** and choose **GCP access
 | Field | Value |
 | --- | --- |
 | GCP service account key (JSON) | The JSON key file from Google Cloud Console |
-| Scopes (optional) | The Google API scopes to request (for example `https://www.googleapis.com/auth/drive.readonly`). The field is labeled optional, but Drive and Calendar calls fail without the matching scope listed here. |
+| Scopes (optional) | The Google API scopes to request (for example `https://www.googleapis.com/auth/drive.readonly`). If you leave the field empty, the connection requests `https://www.googleapis.com/auth/cloud-platform`. |
 | Subject (optional) | A user email to impersonate via domain-wide delegation. Set this for Workspace data (Drive, Calendar, Gmail, Docs). |
 | Allowed websites | `*.googleapis.com` |
 
-For Google Workspace data (Drive, Calendar, Gmail, Docs), the service account needs domain-wide delegation configured in your Google Admin console with the matching API scopes. Google’s guide is at [developers.google.com/identity/protocols/oauth2/service-account](https://developers.google.com/identity/protocols/oauth2/service-account#delegatingauthority).
+For Google Workspace data (Drive, Calendar, Gmail, Docs), the service account needs domain-wide delegation configured in your Google Admin console. In the service account’s domain-wide delegation entry, list every scope you entered in **Scopes**, or `https://www.googleapis.com/auth/cloud-platform` if you left **Scopes** empty. Google’s guide is at [developers.google.com/identity/protocols/oauth2/service-account](https://developers.google.com/identity/protocols/oauth2/service-account#delegatingauthority).
+Google refuses the token request when the domain-wide delegation entry is missing one of the requested scopes. Claude then reports HTTP 502 with a reason that starts with `injection failed ("<connection name>")`.
 The Agent Proxy injects the credential at the network boundary; the model and the sandbox are not given the key. See [how Agent Proxy works](https://claude.com/docs/claude-tag/concepts/agent-identity#agent-proxy).
 
 ##  Verify the connection

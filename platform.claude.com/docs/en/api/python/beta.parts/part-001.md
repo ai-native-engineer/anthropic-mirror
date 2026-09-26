@@ -466,7 +466,7 @@ The Models API response can be used to determine which models are available for 
 
   Defaults to `20`. Ranges from `1` to `1000`.
 
-  default: 20, maximum: 1000, minimum: 1
+  default: 20, minimum: 1, maximum: 1000
 
 - `betas: Optional[List[AnthropicBetaParam]]`
 
@@ -600,7 +600,7 @@ The Models API response can be used to determine which models are available for 
 
   - `capabilities: Optional[BetaModelCapabilities]`
 
-    Model capability information.
+    Object mapping capability names to their support details. Keys are always present for all known capabilities.
 
     - `batch: BetaCapabilitySupport`
 
@@ -620,9 +620,7 @@ The Models API response can be used to determine which models are available for 
 
     - `compaction: Optional[BetaCompactionCapability]`
 
-      Compaction capability details: whether the model accepts the top-level
-      `compaction` request parameter, with one entry per supported
-      `compaction.type` value.
+      Server-side compaction support (the top-level `compaction` parameter) and the accepted `compaction.type` values.
 
       - `summarize: BetaCapabilitySupport`
 
@@ -638,15 +636,15 @@ The Models API response can be used to determine which models are available for 
 
       - `clear_thinking_20251015: Optional[BetaCapabilitySupport]`
 
-        Indicates whether a capability is supported.
+        Whether the clear_thinking_20251015 strategy is supported.
 
       - `clear_tool_uses_20250919: Optional[BetaCapabilitySupport]`
 
-        Indicates whether a capability is supported.
+        Whether the clear_tool_uses_20250919 strategy is supported.
 
       - `compact_20260112: Optional[BetaCapabilitySupport]`
 
-        Indicates whether a capability is supported.
+        Whether the compact_20260112 strategy is supported.
 
       - `supported: bool`
 
@@ -678,7 +676,7 @@ The Models API response can be used to determine which models are available for 
 
       - `xhigh: Optional[BetaCapabilitySupport]`
 
-        Indicates whether a capability is supported.
+        Whether the model supports xhigh effort level.
 
     - `image_input: BetaCapabilitySupport`
 
@@ -984,7 +982,7 @@ The Models API response can be used to determine information about a specific mo
 
   - `capabilities: Optional[BetaModelCapabilities]`
 
-    Model capability information.
+    Object mapping capability names to their support details. Keys are always present for all known capabilities.
 
     - `batch: BetaCapabilitySupport`
 
@@ -1004,9 +1002,7 @@ The Models API response can be used to determine information about a specific mo
 
     - `compaction: Optional[BetaCompactionCapability]`
 
-      Compaction capability details: whether the model accepts the top-level
-      `compaction` request parameter, with one entry per supported
-      `compaction.type` value.
+      Server-side compaction support (the top-level `compaction` parameter) and the accepted `compaction.type` values.
 
       - `summarize: BetaCapabilitySupport`
 
@@ -1022,15 +1018,15 @@ The Models API response can be used to determine information about a specific mo
 
       - `clear_thinking_20251015: Optional[BetaCapabilitySupport]`
 
-        Indicates whether a capability is supported.
+        Whether the clear_thinking_20251015 strategy is supported.
 
       - `clear_tool_uses_20250919: Optional[BetaCapabilitySupport]`
 
-        Indicates whether a capability is supported.
+        Whether the clear_tool_uses_20250919 strategy is supported.
 
       - `compact_20260112: Optional[BetaCapabilitySupport]`
 
-        Indicates whether a capability is supported.
+        Whether the compact_20260112 strategy is supported.
 
       - `supported: bool`
 
@@ -1062,7 +1058,7 @@ The Models API response can be used to determine information about a specific mo
 
       - `xhigh: Optional[BetaCapabilitySupport]`
 
-        Indicates whether a capability is supported.
+        Whether the model supports xhigh effort level.
 
     - `image_input: BetaCapabilitySupport`
 
@@ -1342,7 +1338,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `document_title: Optional[str]`
 
-              maxLength: 500, minLength: 1
+              minLength: 1, maxLength: 500
 
             - `end_char_index: int`
 
@@ -1362,7 +1358,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `document_title: Optional[str]`
 
-              maxLength: 500, minLength: 1
+              minLength: 1, maxLength: 500
 
             - `end_page_number: int`
 
@@ -1386,7 +1382,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `document_title: Optional[str]`
 
-              maxLength: 500, minLength: 1
+              minLength: 1, maxLength: 500
 
             - `end_block_index: int`
 
@@ -1410,7 +1406,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `title: Optional[str]`
 
-              maxLength: 512, minLength: 1
+              minLength: 1, maxLength: 512
 
             - `url: str`
 
@@ -1566,7 +1562,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `title: Optional[str]`
 
-          maxLength: 500, minLength: 1
+          minLength: 1, maxLength: 500
 
       - `class BetaSearchResultBlockParam`
 
@@ -1630,7 +1626,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `name: str`
 
-          maxLength: 200, minLength: 1
+          minLength: 1, maxLength: 200
 
         - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -1666,7 +1662,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           For a toolset member tool_use, the toolset family this member belongs to.
 
-          maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
+          minLength: 1, maxLength: 64, pattern: ^[a-zA-Z0-9_-]+$
 
       - `class BetaToolResultBlockParam`
 
@@ -1702,7 +1698,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `tool_name: str`
 
-                maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+                minLength: 1, maxLength: 256, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
               - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -1730,7 +1726,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                   The caller-assigned identifier for this tab, unique within the inventory.
 
-                  maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+                  minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
                 - `title: str`
 
@@ -1756,7 +1752,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 Tabs opened and download state changes during this call. "Nothing to report" is expressed by omitting the field, never by an empty list.
 
-                maxItems: 200, minItems: 1
+                minItems: 1, maxItems: 200
 
                 - `class BetaBrowserStateChangeTabOpened`
 
@@ -1774,7 +1770,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                     The `tab_id` of the opened tab, present in `tabs`.
 
-                    maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+                    minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
                 - `class BetaBrowserStateChangeDownloadStarted`
 
@@ -1786,7 +1782,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                     The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-                    maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+                    minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
                   - `url: str`
 
@@ -1807,7 +1803,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                     The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-                    maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+                    minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
                   - `url: str`
 
@@ -1819,7 +1815,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                     Where the executor saved the file, on the executor's filesystem. Only included when another tool in the same environment can read the file at that path.
 
-                    pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$, maxLength: 4096
+                    maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
                   - `size_bytes: Optional[int]`
 
@@ -1837,7 +1833,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                     The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-                    maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+                    minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
                   - `url: str`
 
@@ -1849,7 +1845,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                     The failure or cancellation detail, when known.
 
-                    pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$, maxLength: 4096
+                    maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
         - `is_error: Optional[bool]`
 
@@ -1857,7 +1853,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           For a toolset member tool_result, the toolset family of the paired tool_use.
 
-          maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
+          minLength: 1, maxLength: 64, pattern: ^[a-zA-Z0-9_-]+$
 
       - `class BetaServerToolUseBlockParam`
 
@@ -2289,7 +2285,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `tool_name: str`
 
-                maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+                minLength: 1, maxLength: 256, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
               - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -2481,7 +2477,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                       This is how the tool will be called by the model and in `tool_use` blocks.
 
-                      maxLength: 128, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,128}$
+                      minLength: 1, maxLength: 128, pattern: ^[a-zA-Z0-9_-]{1,128}$
 
                     - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -2732,12 +2728,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                     - `configs: Optional[BetaBrowserToolsetConfigs]`
 
-                      Per-member configuration for `browser_toolset_20260801`: one
-                      optional field per member tool, keyed by the member name — the same
-                      name the member's `tool_use` blocks carry. Every member is an
-                      accepted key, and a member's defaults apply wherever its key is
-                      absent. Unknown keys are rejected: the field set is this toolset
-                      version's complete member set.
+                      Sparse per-member overrides, keyed by member name. Absent, null, and {} are equivalent; a member's defaults apply wherever its key is absent.
 
                       - `type: Optional[BetaBrowserTypeConfig]`
 
@@ -3358,12 +3349,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                     - `configs: Optional[BetaComputerToolsetConfigs]`
 
-                      Per-member configuration for `computer_toolset_20260801`: one
-                      optional field per member tool, keyed by the member name — the same
-                      name the member's `tool_use` blocks carry. Every member is an
-                      accepted key, and a member's defaults apply wherever its key is
-                      absent. Unknown keys are rejected: the field set is this toolset
-                      version's complete member set.
+                      Sparse per-member overrides, keyed by member name. Absent, null, and {} are equivalent; a member's defaults apply wherever its key is absent.
 
                       - `type: Optional[BetaComputerTypeConfig]`
 
@@ -3717,7 +3703,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                       Maximum number of times the tool can be used in the API request.
 
-                      exclusiveMinimum: 0
+                      minimum: 1
 
                     - `strict: Optional[bool]`
 
@@ -3733,25 +3719,25 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                         The city of the user.
 
-                        maxLength: 255, minLength: 1
+                        minLength: 1, maxLength: 255
 
                       - `country: Optional[str]`
 
                         The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
 
-                        maxLength: 2, minLength: 2
+                        minLength: 2, maxLength: 2
 
                       - `region: Optional[str]`
 
                         The region of the user.
 
-                        maxLength: 255, minLength: 1
+                        minLength: 1, maxLength: 255
 
                       - `timezone: Optional[str]`
 
                         The [IANA timezone](https://nodatime.org/TimeZones) of the user.
 
-                        maxLength: 255, minLength: 1
+                        minLength: 1, maxLength: 255
 
                   - `class BetaWebFetchTool20250910`
 
@@ -3797,13 +3783,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                       Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-                      exclusiveMinimum: 0
+                      minimum: 1
 
                     - `max_uses: Optional[int]`
 
                       Maximum number of times the tool can be used in the API request.
 
-                      exclusiveMinimum: 0
+                      minimum: 1
 
                     - `strict: Optional[bool]`
 
@@ -3811,12 +3797,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                     - `url_sources: Optional[BetaWebFetchURLSources]`
 
-                      Which sources contribute to the set of URLs web fetch may fetch.
-
-                      Each key is a tagged variant: `user_input` is `all` or `none`; the
-                      two tool filters are `all`, `none`, `only` (only the named tools'
-                      results) or `except` (every result but the named tools'). A named tool
-                      must be declared in this request's `tools[]`.
+                      Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
 
                       - `client_tool_results: Optional[ClientToolResults]`
 
@@ -3940,7 +3921,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                       Maximum number of times the tool can be used in the API request.
 
-                      exclusiveMinimum: 0
+                      minimum: 1
 
                     - `strict: Optional[bool]`
 
@@ -3994,13 +3975,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                       Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-                      exclusiveMinimum: 0
+                      minimum: 1
 
                     - `max_uses: Optional[int]`
 
                       Maximum number of times the tool can be used in the API request.
 
-                      exclusiveMinimum: 0
+                      minimum: 1
 
                     - `strict: Optional[bool]`
 
@@ -4008,12 +3989,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                     - `url_sources: Optional[BetaWebFetchURLSources]`
 
-                      Which sources contribute to the set of URLs web fetch may fetch.
-
-                      Each key is a tagged variant: `user_input` is `all` or `none`; the
-                      two tool filters are `all`, `none`, `only` (only the named tools'
-                      results) or `except` (every result but the named tools'). A named tool
-                      must be declared in this request's `tools[]`.
+                      Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
 
                   - `class BetaWebFetchTool20260309`
 
@@ -4061,13 +4037,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                       Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-                      exclusiveMinimum: 0
+                      minimum: 1
 
                     - `max_uses: Optional[int]`
 
                       Maximum number of times the tool can be used in the API request.
 
-                      exclusiveMinimum: 0
+                      minimum: 1
 
                     - `strict: Optional[bool]`
 
@@ -4075,12 +4051,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                     - `url_sources: Optional[BetaWebFetchURLSources]`
 
-                      Which sources contribute to the set of URLs web fetch may fetch.
-
-                      Each key is a tagged variant: `user_input` is `all` or `none`; the
-                      two tool filters are `all`, `none`, `only` (only the named tools'
-                      results) or `except` (every result but the named tools'). A named tool
-                      must be declared in this request's `tools[]`.
+                      Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
 
                     - `use_cache: Optional[bool]`
 
@@ -4126,7 +4097,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                       Maximum number of times the tool can be used in the API request.
 
-                      exclusiveMinimum: 0
+                      minimum: 1
 
                     - `response_inclusion: Optional[Literal["full", "excluded"]]`
 
@@ -4188,13 +4159,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                       Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-                      exclusiveMinimum: 0
+                      minimum: 1
 
                     - `max_uses: Optional[int]`
 
                       Maximum number of times the tool can be used in the API request.
 
-                      exclusiveMinimum: 0
+                      minimum: 1
 
                     - `response_inclusion: Optional[Literal["full", "excluded"]]`
 
@@ -4210,12 +4181,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                     - `url_sources: Optional[BetaWebFetchURLSources]`
 
-                      Which sources contribute to the set of URLs web fetch may fetch.
-
-                      Each key is a tagged variant: `user_input` is `all` or `none`; the
-                      two tool filters are `all`, `none`, `only` (only the named tools'
-                      results) or `except` (every result but the named tools'). A named tool
-                      must be declared in this request's `tools[]`.
+                      Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
 
                     - `use_cache: Optional[bool]`
 
@@ -4231,30 +4197,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+                      - `str`
+
                       - `Literal["claude-fable-5-1", "claude-opus-5-5", "claude-mythos-5-1", 15 more]`
 
                         The model that will complete your prompt.
 
                         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
-                        - `claude-fable-5-1` - Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
-                        - `claude-opus-5-5` - Powerful intelligence for coding, knowledge work, and long-running agents
-                        - `claude-mythos-5-1` - Our most capable model for cybersecurity and biology research, available through trusted access programs
-                        - `claude-sonnet-5` - High-performance model for coding and agents
-                        - `claude-fable-5` - Next generation of intelligence for the hardest knowledge work and coding problems
-                        - `claude-mythos-5` - Most capable model for cybersecurity and biology research
-                        - `claude-opus-5` - Powerful intelligence for long-running agents and coding
-                        - `claude-opus-4-8` - Powerful intelligence for long-running agents and coding
-                        - `claude-opus-4-7` - Powerful intelligence for long-running agents and coding
-                        - `claude-mythos-preview` - Deprecated: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
-                        - `claude-opus-4-6` - Powerful intelligence for long-running agents and coding
-                        - `claude-sonnet-4-6` - Best combination of speed and intelligence
-                        - `claude-haiku-4-5` - Fastest model with near-frontier intelligence
-                        - `claude-haiku-4-5-20251001` - Fastest model with near-frontier intelligence
-                        - `claude-opus-4-5` - Powerful intelligence for long-running agents and coding
-                        - `claude-opus-4-5-20251101` - Powerful intelligence for long-running agents and coding
-                        - `claude-sonnet-4-5` - High-performance model for agents and coding
-                        - `claude-sonnet-4-5-20250929` - High-performance model for agents and coding
 
                         - `"claude-fable-5-1"`
 
@@ -4292,10 +4241,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                           Powerful intelligence for long-running agents and coding
 
-                        - `"claude-mythos-preview"`
-
-                          New class of intelligence, strongest in coding and cybersecurity
-
                         - `"claude-opus-4-6"`
 
                           Powerful intelligence for long-running agents and coding
@@ -4328,7 +4273,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                           High-performance model for agents and coding
 
-                      - `str`
+                        - `"claude-mythos-preview"`
+
+                          **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+                          New class of intelligence, strongest in coding and cybersecurity
 
                     - `name: Literal["advisor"]`
 
@@ -4368,7 +4317,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                       Maximum number of times the tool can be used in the API request.
 
-                      exclusiveMinimum: 0
+                      minimum: 1
 
                     - `strict: Optional[bool]`
 
@@ -4459,7 +4408,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                       Name of the MCP server to configure tools for
 
-                      maxLength: 255, minLength: 1
+                      minLength: 1, maxLength: 255
 
                     - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -4569,7 +4518,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           The name of the MCP server this listing came from, as `mcp_servers` declares it.
 
-          maxLength: 255, minLength: 1
+          minLength: 1, maxLength: 255
 
         - `tools: List[BetaMCPToolParam]`
 
@@ -4651,7 +4600,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `effort: Optional[Literal["low", "medium", "high", 2 more]]`
 
-      All possible effort levels.
+      How much effort the model should put into its response. Higher effort levels may result in more thorough analysis but take longer.
+
+      Valid values are `low`, `medium`, `high`, `xhigh`, or `max`.
 
       - `"low"`
 
@@ -4675,14 +4626,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
 - `compaction: Optional[BetaCompactionConfigParam]`
 
-  Compact the whole conversation and return a signed `compaction` block,
-  alone, that a later request sends back first in `messages`, in place of
-  the messages it summarizes. There is no trigger and no pause flag: sending
-  the parameter compacts, and nothing is sampled after the block.
+  Compaction configuration.
 
-  The summarization prompt is the server's own unless `instructions` are
-  given, which then replace it for this request; a value that is empty or
-  only whitespace counts as absent.
+  When set on `POST /v1/messages`, the request is a compaction request: the conversation in `messages` is summarized and the response holds only the resulting `compaction` block (`stop_reason` `"compaction"`), which later requests send first in `messages` in place of the messages it summarizes. `POST /v1/messages/count_tokens` accepts this parameter and ignores it: the count it returns is for the conversation in `messages` as sent. Cannot be combined with `context_management`.
 
   - `type: Literal["summarize"]`
 
@@ -4722,13 +4668,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         Skill ID
 
-        maxLength: 64, minLength: 1
+        minLength: 1, maxLength: 64
 
       - `version: Optional[str]`
 
         Skill version or 'latest' for most recent version
 
-        maxLength: 64, minLength: 1
+        minLength: 1, maxLength: 64
 
   - `str`
 
@@ -4741,8 +4687,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
   - `edits: Optional[List[Edit]]`
 
     List of context management edits to apply
-
-    minItems: 0
 
     - `class BetaClearToolUses20250919Edit`
 
@@ -4842,8 +4786,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
 - `diagnostics: Optional[BetaDiagnosticsParam]`
 
-  Request-level diagnostics. Currently carries the previous response
-  id for prompt-cache divergence reporting.
+  Request-level diagnostics. Supply `previous_message_id` to have the response include `diagnostics.cache_miss_reason` explaining any prompt-cache divergence from that prior request.
 
   - `previous_message_id: Optional[str]`
 
@@ -4890,7 +4833,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       The opaque `fallback_credit_token` from a prior refusal's `stop_details` — the same string the bare-string form carries.
 
-      maxLength: 2048, minLength: 1
+      minLength: 1, maxLength: 2048
 
     - `mode: Optional[Literal["strict", "best_effort"]]`
 
@@ -4918,7 +4861,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `effort: Optional[Literal["low", "medium", "high", 2 more]]`
 
-        All possible effort levels.
+        How much effort the model should put into its response. Higher effort levels may result in more thorough analysis but take longer.
+
+        Valid values are `low`, `medium`, `high`, `xhigh`, or `max`.
 
         - `"low"`
 
@@ -4942,7 +4887,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `task_budget: Optional[BetaTokenTaskBudget]`
 
-        User-configurable total token budget across contexts.
+        Configuration for token budget tracking across contexts.
 
         - `type: Literal["tokens"]`
 
@@ -4986,17 +4931,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `block_binding: Optional[BetaThinkingBlockBinding]`
 
-          Controls for block binding: what happens when a thinking block this
-          request sends back fails the conversation check. Every field is optional;
-          an empty object means every default.
+          Controls for block binding: what happens when a thinking block this request sends back fails the conversation check. `null`, absent or an empty object means every default.
 
           - `prefix_mismatch_behavior: Optional[BetaThinkingPrefixMismatchBehavior]`
 
-            What happens when a thinking block in `messages` fails the conversation
-            check: it was created in a different conversation, or the messages before
-            it have changed since. `"error"` (the default) fails the request with a
-            400 error. `"drop_block"` removes the failing blocks and the request
-            proceeds; the model no longer sees the dropped reasoning.
+            "error" (default) | "drop_block". What happens when a thinking block in `messages` fails the conversation check (it was created in a different conversation, or the messages before it have changed since). "error" fails the request with a 400 error. "drop_block" removes the failing blocks and the request proceeds; each removal is reported in `input_transformations`.
 
             - `"error"`
 
@@ -5022,9 +4961,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `block_binding: Optional[BetaThinkingBlockBinding]`
 
-          Controls for block binding: what happens when a thinking block this
-          request sends back fails the conversation check. Every field is optional;
-          an empty object means every default.
+          Controls for block binding: what happens when a thinking block this request sends back fails the conversation check. `null`, absent or an empty object means every default.
 
         - `display: Optional[Literal["summarized", "omitted", "updates"]]`
 
@@ -5090,7 +5027,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
 - `speed: Optional[Literal["standard", "fast"]]`
 
-  Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+  The inference speed mode for this request. `"fast"` enables high output-tokens-per-second inference.
 
   - `"standard"`
 
@@ -5475,7 +5412,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
   - `container: Optional[BetaContainer]`
 
-    Information about the container used in the request (for the code execution tool)
+    Information about the container used in this request.
+
+    This will be non-null if a container tool (e.g. code execution) was used.
 
     - `id: str`
 
@@ -5503,13 +5442,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         Skill ID
 
-        maxLength: 64, minLength: 1
+        minLength: 1, maxLength: 64
 
       - `version: str`
 
         The resolved version: a skill version ID for custom skills.
 
-        maxLength: 64, minLength: 1
+        minLength: 1, maxLength: 64
 
   - `content: List[BetaContentBlock]`
 
@@ -5682,8 +5621,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `text: str`
 
-        minLength: 0
-
     - `class BetaThinkingBlock`
 
       - `type: Literal["thinking"]`
@@ -5762,7 +5699,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         For a toolset member tool_use, the toolset family.
 
-        maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
+        minLength: 1, maxLength: 64, pattern: ^[a-zA-Z0-9_-]+$
 
     - `class BetaServerToolUseBlock`
 
@@ -6266,7 +6203,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `tool_name: str`
 
-              maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+              minLength: 1, maxLength: 256, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
       - `tool_use_id: str`
 
@@ -6315,8 +6252,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
             The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
 
           - `text: str`
-
-            minLength: 0
 
       - `is_error: bool`
 
@@ -6455,7 +6390,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                     This is how the tool will be called by the model and in `tool_use` blocks.
 
-                    maxLength: 128, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,128}$
+                    minLength: 1, maxLength: 128, pattern: ^[a-zA-Z0-9_-]{1,128}$
 
                   - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -6719,12 +6654,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                   - `configs: Optional[BetaBrowserToolsetConfigs]`
 
-                    Per-member configuration for `browser_toolset_20260801`: one
-                    optional field per member tool, keyed by the member name — the same
-                    name the member's `tool_use` blocks carry. Every member is an
-                    accepted key, and a member's defaults apply wherever its key is
-                    absent. Unknown keys are rejected: the field set is this toolset
-                    version's complete member set.
+                    Sparse per-member overrides, keyed by member name. Absent, null, and {} are equivalent; a member's defaults apply wherever its key is absent.
 
                     - `type: Optional[BetaBrowserTypeConfig]`
 
@@ -7345,12 +7275,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                   - `configs: Optional[BetaComputerToolsetConfigs]`
 
-                    Per-member configuration for `computer_toolset_20260801`: one
-                    optional field per member tool, keyed by the member name — the same
-                    name the member's `tool_use` blocks carry. Every member is an
-                    accepted key, and a member's defaults apply wherever its key is
-                    absent. Unknown keys are rejected: the field set is this toolset
-                    version's complete member set.
+                    Sparse per-member overrides, keyed by member name. Absent, null, and {} are equivalent; a member's defaults apply wherever its key is absent.
 
                     - `type: Optional[BetaComputerTypeConfig]`
 
@@ -7704,7 +7629,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                     Maximum number of times the tool can be used in the API request.
 
-                    exclusiveMinimum: 0
+                    minimum: 1
 
                   - `strict: Optional[bool]`
 
@@ -7720,25 +7645,25 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                       The city of the user.
 
-                      maxLength: 255, minLength: 1
+                      minLength: 1, maxLength: 255
 
                     - `country: Optional[str]`
 
                       The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
 
-                      maxLength: 2, minLength: 2
+                      minLength: 2, maxLength: 2
 
                     - `region: Optional[str]`
 
                       The region of the user.
 
-                      maxLength: 255, minLength: 1
+                      minLength: 1, maxLength: 255
 
                     - `timezone: Optional[str]`
 
                       The [IANA timezone](https://nodatime.org/TimeZones) of the user.
 
-                      maxLength: 255, minLength: 1
+                      minLength: 1, maxLength: 255
 
                 - `class BetaWebFetchTool20250910`
 
@@ -7786,13 +7711,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                     Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-                    exclusiveMinimum: 0
+                    minimum: 1
 
                   - `max_uses: Optional[int]`
 
                     Maximum number of times the tool can be used in the API request.
 
-                    exclusiveMinimum: 0
+                    minimum: 1
 
                   - `strict: Optional[bool]`
 
@@ -7800,12 +7725,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                   - `url_sources: Optional[BetaWebFetchURLSources]`
 
-                    Which sources contribute to the set of URLs web fetch may fetch.
-
-                    Each key is a tagged variant: `user_input` is `all` or `none`; the
-                    two tool filters are `all`, `none`, `only` (only the named tools'
-                    results) or `except` (every result but the named tools'). A named tool
-                    must be declared in this request's `tools[]`.
+                    Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
 
                     - `client_tool_results: Optional[ClientToolResults]`
 
@@ -7929,7 +7849,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                     Maximum number of times the tool can be used in the API request.
 
-                    exclusiveMinimum: 0
+                    minimum: 1
 
                   - `strict: Optional[bool]`
 
@@ -7983,13 +7903,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                     Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-                    exclusiveMinimum: 0
+                    minimum: 1
 
                   - `max_uses: Optional[int]`
 
                     Maximum number of times the tool can be used in the API request.
 
-                    exclusiveMinimum: 0
+                    minimum: 1
 
                   - `strict: Optional[bool]`
 
@@ -7997,12 +7917,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                   - `url_sources: Optional[BetaWebFetchURLSources]`
 
-                    Which sources contribute to the set of URLs web fetch may fetch.
-
-                    Each key is a tagged variant: `user_input` is `all` or `none`; the
-                    two tool filters are `all`, `none`, `only` (only the named tools'
-                    results) or `except` (every result but the named tools'). A named tool
-                    must be declared in this request's `tools[]`.
+                    Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
 
                 - `class BetaWebFetchTool20260309`
 
@@ -8050,13 +7965,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                     Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-                    exclusiveMinimum: 0
+                    minimum: 1
 
                   - `max_uses: Optional[int]`
 
                     Maximum number of times the tool can be used in the API request.
 
-                    exclusiveMinimum: 0
+                    minimum: 1
 
                   - `strict: Optional[bool]`
 
@@ -8064,12 +7979,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                   - `url_sources: Optional[BetaWebFetchURLSources]`
 
-                    Which sources contribute to the set of URLs web fetch may fetch.
-
-                    Each key is a tagged variant: `user_input` is `all` or `none`; the
-                    two tool filters are `all`, `none`, `only` (only the named tools'
-                    results) or `except` (every result but the named tools'). A named tool
-                    must be declared in this request's `tools[]`.
+                    Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
 
                   - `use_cache: Optional[bool]`
 
@@ -8115,7 +8025,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                     Maximum number of times the tool can be used in the API request.
 
-                    exclusiveMinimum: 0
+                    minimum: 1
 
                   - `response_inclusion: Optional[Literal["full", "excluded"]]`
 
@@ -8177,13 +8087,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                     Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-                    exclusiveMinimum: 0
+                    minimum: 1
 
                   - `max_uses: Optional[int]`
 
                     Maximum number of times the tool can be used in the API request.
 
-                    exclusiveMinimum: 0
+                    minimum: 1
 
                   - `response_inclusion: Optional[Literal["full", "excluded"]]`
 
@@ -8199,12 +8109,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                   - `url_sources: Optional[BetaWebFetchURLSources]`
 
-                    Which sources contribute to the set of URLs web fetch may fetch.
-
-                    Each key is a tagged variant: `user_input` is `all` or `none`; the
-                    two tool filters are `all`, `none`, `only` (only the named tools'
-                    results) or `except` (every result but the named tools'). A named tool
-                    must be declared in this request's `tools[]`.
+                    Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
 
                   - `use_cache: Optional[bool]`
 
@@ -8220,30 +8125,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+                    - `str`
+
                     - `Literal["claude-fable-5-1", "claude-opus-5-5", "claude-mythos-5-1", 15 more]`
 
                       The model that will complete your prompt.
 
                       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
-                      - `claude-fable-5-1` - Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
-                      - `claude-opus-5-5` - Powerful intelligence for coding, knowledge work, and long-running agents
-                      - `claude-mythos-5-1` - Our most capable model for cybersecurity and biology research, available through trusted access programs
-                      - `claude-sonnet-5` - High-performance model for coding and agents
-                      - `claude-fable-5` - Next generation of intelligence for the hardest knowledge work and coding problems
-                      - `claude-mythos-5` - Most capable model for cybersecurity and biology research
-                      - `claude-opus-5` - Powerful intelligence for long-running agents and coding
-                      - `claude-opus-4-8` - Powerful intelligence for long-running agents and coding
-                      - `claude-opus-4-7` - Powerful intelligence for long-running agents and coding
-                      - `claude-mythos-preview` - Deprecated: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
-                      - `claude-opus-4-6` - Powerful intelligence for long-running agents and coding
-                      - `claude-sonnet-4-6` - Best combination of speed and intelligence
-                      - `claude-haiku-4-5` - Fastest model with near-frontier intelligence
-                      - `claude-haiku-4-5-20251001` - Fastest model with near-frontier intelligence
-                      - `claude-opus-4-5` - Powerful intelligence for long-running agents and coding
-                      - `claude-opus-4-5-20251101` - Powerful intelligence for long-running agents and coding
-                      - `claude-sonnet-4-5` - High-performance model for agents and coding
-                      - `claude-sonnet-4-5-20250929` - High-performance model for agents and coding
 
                       - `"claude-fable-5-1"`
 
@@ -8281,10 +8169,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                         Powerful intelligence for long-running agents and coding
 
-                      - `"claude-mythos-preview"`
-
-                        New class of intelligence, strongest in coding and cybersecurity
-
                       - `"claude-opus-4-6"`
 
                         Powerful intelligence for long-running agents and coding
@@ -8317,7 +8201,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                         High-performance model for agents and coding
 
-                    - `str`
+                      - `"claude-mythos-preview"`
+
+                        **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+                        New class of intelligence, strongest in coding and cybersecurity
 
                   - `name: Literal["advisor"]`
 
@@ -8357,7 +8245,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                     Maximum number of times the tool can be used in the API request.
 
-                    exclusiveMinimum: 0
+                    minimum: 1
 
                   - `strict: Optional[bool]`
 
@@ -8448,7 +8336,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                     Name of the MCP server to configure tools for
 
-                    maxLength: 255, minLength: 1
+                    minLength: 1, maxLength: 255
 
                   - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -8563,13 +8451,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `category: Optional[Literal["cyber", "bio", "frontier_llm", 2 more]]`
 
-          The policy category that triggered a refusal.
-
-          - `cyber` - The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
-          - `bio` - The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
-          - `frontier_llm` - The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
-          - `reasoning_extraction` - The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
-          - `general_harms` - The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
+          The policy category that triggered the `from` model's refusal at this hop. `null` when the refusal doesn't map to a named category. Same vocabulary as `stop_details.category`.
 
           - `"cyber"`
 
@@ -8664,8 +8546,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
   - `diagnostics: Optional[BetaDiagnostics]`
 
-    Request-level diagnostics: why the prompt cache could not fully reuse
-    the prefix of the request named by `diagnostics.previous_message_id`.
+    Request-level diagnostics. `null` when the request did not supply `diagnostics`, or when it did and no prompt-cache divergence was detected.
 
     - `cache_miss_reason: Optional[BetaCacheMissReason]`
 
@@ -8739,7 +8620,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
   - `stop_details: Optional[BetaRefusalStopDetails]`
 
-    Structured information about a refusal.
+    Structured information about why model output stopped.
+
+    This is `null` when the `stop_reason` has no additional detail to report.
 
     - `type: Literal["refusal"]`
 
@@ -8747,13 +8630,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `category: Optional[Literal["cyber", "bio", "frontier_llm", 2 more]]`
 
-      The policy category that triggered a refusal.
+      The policy category that triggered the refusal.
 
-      - `cyber` - The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
-      - `bio` - The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
-      - `frontier_llm` - The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
-      - `reasoning_extraction` - The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
-      - `general_harms` - The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
+      `null` when the refusal doesn't map to a named category.
 
       - `"cyber"`
 
@@ -8911,6 +8790,10 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
     - `fallback_credit: Optional[BetaFallbackCreditUsage]`
 
       Outcome of the `fallback_credit_token` presented on this request.
+
+      Present on every response to a non-batch request that carried a
+      `fallback_credit_token`, in either redemption mode; absent otherwise (batch
+      items accept and ignore the token and carry no outcome object).
 
       - `status: Status`
 
@@ -9235,7 +9118,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `speed: Optional[Literal["standard", "fast"]]`
 
-      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+      The inference speed mode used for this request.
 
       - `"standard"`
 
@@ -9361,11 +9244,15 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `container: Optional[BetaContainer]`
 
-        Information about the container used in the request (for the code execution tool)
+        Information about the container used in this request.
+
+        This will be non-null if a container tool (e.g. code execution) was used.
 
       - `stop_details: Optional[BetaRefusalStopDetails]`
 
-        Structured information about a refusal.
+        Structured information about why model output stopped.
+
+        This is `null` when the `stop_reason` has no additional detail to report.
 
       - `stop_reason: Optional[BetaStopReason]`
 
@@ -9398,6 +9285,10 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
       - `fallback_credit: Optional[BetaFallbackCreditUsage]`
 
         Outcome of the `fallback_credit_token` presented on this request.
+
+        Present on every response to a non-batch request that carried a
+        `fallback_credit_token`, in either redemption mode; absent otherwise (batch
+        items accept and ignore the token and carry no outcome object).
 
       - `input_tokens: Optional[int]`
 
@@ -9875,7 +9766,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             - `document_title: Optional[str]`
 
-              maxLength: 500, minLength: 1
+              minLength: 1, maxLength: 500
 
             - `end_char_index: int`
 
@@ -9895,7 +9786,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             - `document_title: Optional[str]`
 
-              maxLength: 500, minLength: 1
+              minLength: 1, maxLength: 500
 
             - `end_page_number: int`
 
@@ -9919,7 +9810,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             - `document_title: Optional[str]`
 
-              maxLength: 500, minLength: 1
+              minLength: 1, maxLength: 500
 
             - `end_block_index: int`
 
@@ -9943,7 +9834,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             - `title: Optional[str]`
 
-              maxLength: 512, minLength: 1
+              minLength: 1, maxLength: 512
 
             - `url: str`
 
@@ -10099,7 +9990,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `title: Optional[str]`
 
-          maxLength: 500, minLength: 1
+          minLength: 1, maxLength: 500
 
       - `class BetaSearchResultBlockParam`
 
@@ -10163,7 +10054,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `name: str`
 
-          maxLength: 200, minLength: 1
+          minLength: 1, maxLength: 200
 
         - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -10199,7 +10090,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
           For a toolset member tool_use, the toolset family this member belongs to.
 
-          maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
+          minLength: 1, maxLength: 64, pattern: ^[a-zA-Z0-9_-]+$
 
       - `class BetaToolResultBlockParam`
 
@@ -10235,7 +10126,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `tool_name: str`
 
-                maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+                minLength: 1, maxLength: 256, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
               - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -10263,7 +10154,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                   The caller-assigned identifier for this tab, unique within the inventory.
 
-                  maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+                  minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
                 - `title: str`
 
@@ -10289,7 +10180,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 Tabs opened and download state changes during this call. "Nothing to report" is expressed by omitting the field, never by an empty list.
 
-                maxItems: 200, minItems: 1
+                minItems: 1, maxItems: 200
 
                 - `class BetaBrowserStateChangeTabOpened`
 
@@ -10307,7 +10198,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                     The `tab_id` of the opened tab, present in `tabs`.
 
-                    maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+                    minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
                 - `class BetaBrowserStateChangeDownloadStarted`
 
@@ -10319,7 +10210,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                     The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-                    maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+                    minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
                   - `url: str`
 
@@ -10340,7 +10231,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                     The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-                    maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+                    minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
                   - `url: str`
 
@@ -10352,7 +10243,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                     Where the executor saved the file, on the executor's filesystem. Only included when another tool in the same environment can read the file at that path.
 
-                    pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$, maxLength: 4096
+                    maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
                   - `size_bytes: Optional[int]`
 
@@ -10370,7 +10261,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                     The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-                    maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+                    minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
                   - `url: str`
 
@@ -10382,7 +10273,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                     The failure or cancellation detail, when known.
 
-                    pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$, maxLength: 4096
+                    maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
         - `is_error: Optional[bool]`
 
@@ -10390,7 +10281,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
           For a toolset member tool_result, the toolset family of the paired tool_use.
 
-          maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
+          minLength: 1, maxLength: 64, pattern: ^[a-zA-Z0-9_-]+$
 
       - `class BetaServerToolUseBlockParam`
 
@@ -10822,7 +10713,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `tool_name: str`
 
-                maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+                minLength: 1, maxLength: 256, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
               - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -11014,7 +10905,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                       This is how the tool will be called by the model and in `tool_use` blocks.
 
-                      maxLength: 128, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,128}$
+                      minLength: 1, maxLength: 128, pattern: ^[a-zA-Z0-9_-]{1,128}$
 
                     - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -11265,12 +11156,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                     - `configs: Optional[BetaBrowserToolsetConfigs]`
 
-                      Per-member configuration for `browser_toolset_20260801`: one
-                      optional field per member tool, keyed by the member name — the same
-                      name the member's `tool_use` blocks carry. Every member is an
-                      accepted key, and a member's defaults apply wherever its key is
-                      absent. Unknown keys are rejected: the field set is this toolset
-                      version's complete member set.
+                      Sparse per-member overrides, keyed by member name. Absent, null, and {} are equivalent; a member's defaults apply wherever its key is absent.
 
                       - `type: Optional[BetaBrowserTypeConfig]`
 
@@ -11891,12 +11777,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                     - `configs: Optional[BetaComputerToolsetConfigs]`
 
-                      Per-member configuration for `computer_toolset_20260801`: one
-                      optional field per member tool, keyed by the member name — the same
-                      name the member's `tool_use` blocks carry. Every member is an
-                      accepted key, and a member's defaults apply wherever its key is
-                      absent. Unknown keys are rejected: the field set is this toolset
-                      version's complete member set.
+                      Sparse per-member overrides, keyed by member name. Absent, null, and {} are equivalent; a member's defaults apply wherever its key is absent.
 
                       - `type: Optional[BetaComputerTypeConfig]`
 
@@ -12250,7 +12131,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                       Maximum number of times the tool can be used in the API request.
 
-                      exclusiveMinimum: 0
+                      minimum: 1
 
                     - `strict: Optional[bool]`
 
@@ -12266,25 +12147,25 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                         The city of the user.
 
-                        maxLength: 255, minLength: 1
+                        minLength: 1, maxLength: 255
 
                       - `country: Optional[str]`
 
                         The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
 
-                        maxLength: 2, minLength: 2
+                        minLength: 2, maxLength: 2
 
                       - `region: Optional[str]`
 
                         The region of the user.
 
-                        maxLength: 255, minLength: 1
+                        minLength: 1, maxLength: 255
 
                       - `timezone: Optional[str]`
 
                         The [IANA timezone](https://nodatime.org/TimeZones) of the user.
 
-                        maxLength: 255, minLength: 1
+                        minLength: 1, maxLength: 255
 
                   - `class BetaWebFetchTool20250910`
 
@@ -12330,13 +12211,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                       Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-                      exclusiveMinimum: 0
+                      minimum: 1
 
                     - `max_uses: Optional[int]`
 
                       Maximum number of times the tool can be used in the API request.
 
-                      exclusiveMinimum: 0
+                      minimum: 1
 
                     - `strict: Optional[bool]`
 
@@ -12344,12 +12225,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                     - `url_sources: Optional[BetaWebFetchURLSources]`
 
-                      Which sources contribute to the set of URLs web fetch may fetch.
-
-                      Each key is a tagged variant: `user_input` is `all` or `none`; the
-                      two tool filters are `all`, `none`, `only` (only the named tools'
-                      results) or `except` (every result but the named tools'). A named tool
-                      must be declared in this request's `tools[]`.
+                      Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
 
                       - `client_tool_results: Optional[ClientToolResults]`
 
@@ -12473,7 +12349,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                       Maximum number of times the tool can be used in the API request.
 
-                      exclusiveMinimum: 0
+                      minimum: 1
 
                     - `strict: Optional[bool]`
 
@@ -12527,13 +12403,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                       Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-                      exclusiveMinimum: 0
+                      minimum: 1
 
                     - `max_uses: Optional[int]`
 
                       Maximum number of times the tool can be used in the API request.
 
-                      exclusiveMinimum: 0
+                      minimum: 1
 
                     - `strict: Optional[bool]`
 
@@ -12541,12 +12417,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                     - `url_sources: Optional[BetaWebFetchURLSources]`
 
-                      Which sources contribute to the set of URLs web fetch may fetch.
-
-                      Each key is a tagged variant: `user_input` is `all` or `none`; the
-                      two tool filters are `all`, `none`, `only` (only the named tools'
-                      results) or `except` (every result but the named tools'). A named tool
-                      must be declared in this request's `tools[]`.
+                      Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
 
                   - `class BetaWebFetchTool20260309`
 
@@ -12594,13 +12465,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                       Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-                      exclusiveMinimum: 0
+                      minimum: 1
 
                     - `max_uses: Optional[int]`
 
                       Maximum number of times the tool can be used in the API request.
 
-                      exclusiveMinimum: 0
+                      minimum: 1
 
                     - `strict: Optional[bool]`
 
@@ -12608,12 +12479,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                     - `url_sources: Optional[BetaWebFetchURLSources]`
 
-                      Which sources contribute to the set of URLs web fetch may fetch.
-
-                      Each key is a tagged variant: `user_input` is `all` or `none`; the
-                      two tool filters are `all`, `none`, `only` (only the named tools'
-                      results) or `except` (every result but the named tools'). A named tool
-                      must be declared in this request's `tools[]`.
+                      Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
 
                     - `use_cache: Optional[bool]`
 
@@ -12659,7 +12525,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                       Maximum number of times the tool can be used in the API request.
 
-                      exclusiveMinimum: 0
+                      minimum: 1
 
                     - `response_inclusion: Optional[Literal["full", "excluded"]]`
 
@@ -12721,13 +12587,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                       Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-                      exclusiveMinimum: 0
+                      minimum: 1
 
                     - `max_uses: Optional[int]`
 
                       Maximum number of times the tool can be used in the API request.
 
-                      exclusiveMinimum: 0
+                      minimum: 1
 
                     - `response_inclusion: Optional[Literal["full", "excluded"]]`
 
@@ -12743,12 +12609,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                     - `url_sources: Optional[BetaWebFetchURLSources]`
 
-                      Which sources contribute to the set of URLs web fetch may fetch.
-
-                      Each key is a tagged variant: `user_input` is `all` or `none`; the
-                      two tool filters are `all`, `none`, `only` (only the named tools'
-                      results) or `except` (every result but the named tools'). A named tool
-                      must be declared in this request's `tools[]`.
+                      Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
 
                     - `use_cache: Optional[bool]`
 
@@ -12764,30 +12625,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+                      - `str`
+
                       - `Literal["claude-fable-5-1", "claude-opus-5-5", "claude-mythos-5-1", 15 more]`
 
                         The model that will complete your prompt.
 
                         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
-                        - `claude-fable-5-1` - Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
-                        - `claude-opus-5-5` - Powerful intelligence for coding, knowledge work, and long-running agents
-                        - `claude-mythos-5-1` - Our most capable model for cybersecurity and biology research, available through trusted access programs
-                        - `claude-sonnet-5` - High-performance model for coding and agents
-                        - `claude-fable-5` - Next generation of intelligence for the hardest knowledge work and coding problems
-                        - `claude-mythos-5` - Most capable model for cybersecurity and biology research
-                        - `claude-opus-5` - Powerful intelligence for long-running agents and coding
-                        - `claude-opus-4-8` - Powerful intelligence for long-running agents and coding
-                        - `claude-opus-4-7` - Powerful intelligence for long-running agents and coding
-                        - `claude-mythos-preview` - Deprecated: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
-                        - `claude-opus-4-6` - Powerful intelligence for long-running agents and coding
-                        - `claude-sonnet-4-6` - Best combination of speed and intelligence
-                        - `claude-haiku-4-5` - Fastest model with near-frontier intelligence
-                        - `claude-haiku-4-5-20251001` - Fastest model with near-frontier intelligence
-                        - `claude-opus-4-5` - Powerful intelligence for long-running agents and coding
-                        - `claude-opus-4-5-20251101` - Powerful intelligence for long-running agents and coding
-                        - `claude-sonnet-4-5` - High-performance model for agents and coding
-                        - `claude-sonnet-4-5-20250929` - High-performance model for agents and coding
 
                         - `"claude-fable-5-1"`
 
@@ -12825,10 +12669,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                           Powerful intelligence for long-running agents and coding
 
-                        - `"claude-mythos-preview"`
-
-                          New class of intelligence, strongest in coding and cybersecurity
-
                         - `"claude-opus-4-6"`
 
                           Powerful intelligence for long-running agents and coding
@@ -12861,7 +12701,11 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                           High-performance model for agents and coding
 
-                      - `str`
+                        - `"claude-mythos-preview"`
+
+                          **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+                          New class of intelligence, strongest in coding and cybersecurity
 
                     - `name: Literal["advisor"]`
 
@@ -12901,7 +12745,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                       Maximum number of times the tool can be used in the API request.
 
-                      exclusiveMinimum: 0
+                      minimum: 1
 
                     - `strict: Optional[bool]`
 
@@ -12992,7 +12836,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                       Name of the MCP server to configure tools for
 
-                      maxLength: 255, minLength: 1
+                      minLength: 1, maxLength: 255
 
                     - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -13102,7 +12946,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
           The name of the MCP server this listing came from, as `mcp_servers` declares it.
 
-          maxLength: 255, minLength: 1
+          minLength: 1, maxLength: 255
 
         - `tools: List[BetaMCPToolParam]`
 
@@ -13184,7 +13028,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `effort: Optional[Literal["low", "medium", "high", 2 more]]`
 
-      All possible effort levels.
+      How much effort the model should put into its response. Higher effort levels may result in more thorough analysis but take longer.
+
+      Valid values are `low`, `medium`, `high`, `xhigh`, or `max`.
 
       - `"low"`
 
@@ -13208,14 +13054,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
 - `compaction: Optional[BetaCompactionConfigParam]`
 
-  Compact the whole conversation and return a signed `compaction` block,
-  alone, that a later request sends back first in `messages`, in place of
-  the messages it summarizes. There is no trigger and no pause flag: sending
-  the parameter compacts, and nothing is sampled after the block.
+  Compaction configuration.
 
-  The summarization prompt is the server's own unless `instructions` are
-  given, which then replace it for this request; a value that is empty or
-  only whitespace counts as absent.
+  When set on `POST /v1/messages`, the request is a compaction request: the conversation in `messages` is summarized and the response holds only the resulting `compaction` block (`stop_reason` `"compaction"`), which later requests send first in `messages` in place of the messages it summarizes. `POST /v1/messages/count_tokens` accepts this parameter and ignores it: the count it returns is for the conversation in `messages` as sent. Cannot be combined with `context_management`.
 
   - `type: Literal["summarize"]`
 
@@ -13234,8 +13075,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
   - `edits: Optional[List[Edit]]`
 
     List of context management edits to apply
-
-    minItems: 0
 
     - `class BetaClearToolUses20250919Edit`
 
@@ -13359,7 +13198,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
   - `effort: Optional[Literal["low", "medium", "high", 2 more]]`
 
-    All possible effort levels.
+    How much effort the model should put into its response. Higher effort levels may result in more thorough analysis but take longer.
+
+    Valid values are `low`, `medium`, `high`, `xhigh`, or `max`.
 
     - `"low"`
 
@@ -13383,7 +13224,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
   - `task_budget: Optional[BetaTokenTaskBudget]`
 
-    User-configurable total token budget across contexts.
+    Configuration for token budget tracking across contexts.
 
     - `type: Literal["tokens"]`
 
@@ -13403,7 +13244,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
 - `speed: Optional[Literal["standard", "fast"]]`
 
-  Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+  The inference speed mode for this request. `"fast"` enables high output-tokens-per-second inference.
 
   - `"standard"`
 
@@ -13455,17 +13296,11 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `block_binding: Optional[BetaThinkingBlockBinding]`
 
-      Controls for block binding: what happens when a thinking block this
-      request sends back fails the conversation check. Every field is optional;
-      an empty object means every default.
+      Controls for block binding: what happens when a thinking block this request sends back fails the conversation check. `null`, absent or an empty object means every default.
 
       - `prefix_mismatch_behavior: Optional[BetaThinkingPrefixMismatchBehavior]`
 
-        What happens when a thinking block in `messages` fails the conversation
-        check: it was created in a different conversation, or the messages before
-        it have changed since. `"error"` (the default) fails the request with a
-        400 error. `"drop_block"` removes the failing blocks and the request
-        proceeds; the model no longer sees the dropped reasoning.
+        "error" (default) | "drop_block". What happens when a thinking block in `messages` fails the conversation check (it was created in a different conversation, or the messages before it have changed since). "error" fails the request with a 400 error. "drop_block" removes the failing blocks and the request proceeds; each removal is reported in `input_transformations`.
 
         - `"error"`
 
@@ -13491,9 +13326,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `block_binding: Optional[BetaThinkingBlockBinding]`
 
-      Controls for block binding: what happens when a thinking block this
-      request sends back fails the conversation check. Every field is optional;
-      an empty object means every default.
+      Controls for block binding: what happens when a thinking block this request sends back fails the conversation check. `null`, absent or an empty object means every default.
 
     - `display: Optional[Literal["summarized", "omitted", "updates"]]`
 
@@ -13884,7 +13717,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   List of requests for prompt completion. Each is an individual request to create a Message.
 
-  maxItems: 100000, minItems: 1
+  minItems: 1, maxItems: 100000
 
   - `custom_id: str`
 
@@ -13892,7 +13725,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     Must be unique for each request within the Message Batch.
 
-    maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,64}$
+    minLength: 1, maxLength: 64, pattern: ^[a-zA-Z0-9_-]{1,64}$
 
   - `params: RequestParams`
 
@@ -14012,7 +13845,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `document_title: Optional[str]`
 
-                  maxLength: 500, minLength: 1
+                  minLength: 1, maxLength: 500
 
                 - `end_char_index: int`
 
@@ -14032,7 +13865,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `document_title: Optional[str]`
 
-                  maxLength: 500, minLength: 1
+                  minLength: 1, maxLength: 500
 
                 - `end_page_number: int`
 
@@ -14056,7 +13889,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `document_title: Optional[str]`
 
-                  maxLength: 500, minLength: 1
+                  minLength: 1, maxLength: 500
 
                 - `end_block_index: int`
 
@@ -14080,7 +13913,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `title: Optional[str]`
 
-                  maxLength: 512, minLength: 1
+                  minLength: 1, maxLength: 512
 
                 - `url: str`
 
@@ -14236,7 +14069,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `title: Optional[str]`
 
-              maxLength: 500, minLength: 1
+              minLength: 1, maxLength: 500
 
           - `class BetaSearchResultBlockParam`
 
@@ -14300,7 +14133,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `name: str`
 
-              maxLength: 200, minLength: 1
+              minLength: 1, maxLength: 200
 
             - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -14336,7 +14169,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               For a toolset member tool_use, the toolset family this member belongs to.
 
-              maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
+              minLength: 1, maxLength: 64, pattern: ^[a-zA-Z0-9_-]+$
 
           - `class BetaToolResultBlockParam`
 
@@ -14372,7 +14205,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `tool_name: str`
 
-                    maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+                    minLength: 1, maxLength: 256, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
                   - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -14400,7 +14233,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                       The caller-assigned identifier for this tab, unique within the inventory.
 
-                      maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+                      minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
                     - `title: str`
 
@@ -14426,7 +14259,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     Tabs opened and download state changes during this call. "Nothing to report" is expressed by omitting the field, never by an empty list.
 
-                    maxItems: 200, minItems: 1
+                    minItems: 1, maxItems: 200
 
                     - `class BetaBrowserStateChangeTabOpened`
 
@@ -14444,7 +14277,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                         The `tab_id` of the opened tab, present in `tabs`.
 
-                        maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+                        minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
                     - `class BetaBrowserStateChangeDownloadStarted`
 
@@ -14456,7 +14289,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                         The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-                        maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+                        minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
                       - `url: str`
 
@@ -14477,7 +14310,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                         The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-                        maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+                        minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
                       - `url: str`
 
@@ -14489,7 +14322,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                         Where the executor saved the file, on the executor's filesystem. Only included when another tool in the same environment can read the file at that path.
 
-                        pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$, maxLength: 4096
+                        maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
                       - `size_bytes: Optional[int]`
 
@@ -14507,7 +14340,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                         The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-                        maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+                        minLength: 1, maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
                       - `url: str`
 
@@ -14519,7 +14352,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                         The failure or cancellation detail, when known.
 
-                        pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$, maxLength: 4096
+                        maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
             - `is_error: Optional[bool]`
 
@@ -14527,7 +14360,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               For a toolset member tool_result, the toolset family of the paired tool_use.
 
-              maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
+              minLength: 1, maxLength: 64, pattern: ^[a-zA-Z0-9_-]+$
 
           - `class BetaServerToolUseBlockParam`
 
@@ -14959,7 +14792,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `tool_name: str`
 
-                    maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+                    minLength: 1, maxLength: 256, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
                   - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -15151,7 +14984,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           This is how the tool will be called by the model and in `tool_use` blocks.
 
-                          maxLength: 128, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,128}$
+                          minLength: 1, maxLength: 128, pattern: ^[a-zA-Z0-9_-]{1,128}$
 
                         - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -15402,12 +15235,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                         - `configs: Optional[BetaBrowserToolsetConfigs]`
 
-                          Per-member configuration for `browser_toolset_20260801`: one
-                          optional field per member tool, keyed by the member name — the same
-                          name the member's `tool_use` blocks carry. Every member is an
-                          accepted key, and a member's defaults apply wherever its key is
-                          absent. Unknown keys are rejected: the field set is this toolset
-                          version's complete member set.
+                          Sparse per-member overrides, keyed by member name. Absent, null, and {} are equivalent; a member's defaults apply wherever its key is absent.
 
                           - `type: Optional[BetaBrowserTypeConfig]`
 
@@ -16028,12 +15856,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                         - `configs: Optional[BetaComputerToolsetConfigs]`
 
-                          Per-member configuration for `computer_toolset_20260801`: one
-                          optional field per member tool, keyed by the member name — the same
-                          name the member's `tool_use` blocks carry. Every member is an
-                          accepted key, and a member's defaults apply wherever its key is
-                          absent. Unknown keys are rejected: the field set is this toolset
-                          version's complete member set.
+                          Sparse per-member overrides, keyed by member name. Absent, null, and {} are equivalent; a member's defaults apply wherever its key is absent.
 
                           - `type: Optional[BetaComputerTypeConfig]`
 
@@ -16387,7 +16210,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           Maximum number of times the tool can be used in the API request.
 
-                          exclusiveMinimum: 0
+                          minimum: 1
 
                         - `strict: Optional[bool]`
 
@@ -16403,25 +16226,25 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                             The city of the user.
 
-                            maxLength: 255, minLength: 1
+                            minLength: 1, maxLength: 255
 
                           - `country: Optional[str]`
 
                             The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
 
-                            maxLength: 2, minLength: 2
+                            minLength: 2, maxLength: 2
 
                           - `region: Optional[str]`
 
                             The region of the user.
 
-                            maxLength: 255, minLength: 1
+                            minLength: 1, maxLength: 255
 
                           - `timezone: Optional[str]`
 
                             The [IANA timezone](https://nodatime.org/TimeZones) of the user.
 
-                            maxLength: 255, minLength: 1
+                            minLength: 1, maxLength: 255
 
                       - `class BetaWebFetchTool20250910`
 
@@ -16467,13 +16290,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-                          exclusiveMinimum: 0
+                          minimum: 1
 
                         - `max_uses: Optional[int]`
 
                           Maximum number of times the tool can be used in the API request.
 
-                          exclusiveMinimum: 0
+                          minimum: 1
 
                         - `strict: Optional[bool]`
 
@@ -16481,12 +16304,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                         - `url_sources: Optional[BetaWebFetchURLSources]`
 
-                          Which sources contribute to the set of URLs web fetch may fetch.
-
-                          Each key is a tagged variant: `user_input` is `all` or `none`; the
-                          two tool filters are `all`, `none`, `only` (only the named tools'
-                          results) or `except` (every result but the named tools'). A named tool
-                          must be declared in this request's `tools[]`.
+                          Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
 
                           - `client_tool_results: Optional[ClientToolResults]`
 
@@ -16610,7 +16428,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           Maximum number of times the tool can be used in the API request.
 
-                          exclusiveMinimum: 0
+                          minimum: 1
 
                         - `strict: Optional[bool]`
 
@@ -16664,13 +16482,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-                          exclusiveMinimum: 0
+                          minimum: 1
 
                         - `max_uses: Optional[int]`
 
                           Maximum number of times the tool can be used in the API request.
 
-                          exclusiveMinimum: 0
+                          minimum: 1
 
                         - `strict: Optional[bool]`
 
@@ -16678,12 +16496,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                         - `url_sources: Optional[BetaWebFetchURLSources]`
 
-                          Which sources contribute to the set of URLs web fetch may fetch.
-
-                          Each key is a tagged variant: `user_input` is `all` or `none`; the
-                          two tool filters are `all`, `none`, `only` (only the named tools'
-                          results) or `except` (every result but the named tools'). A named tool
-                          must be declared in this request's `tools[]`.
+                          Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
 
                       - `class BetaWebFetchTool20260309`
 
@@ -16731,13 +16544,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-                          exclusiveMinimum: 0
+                          minimum: 1
 
                         - `max_uses: Optional[int]`
 
                           Maximum number of times the tool can be used in the API request.
 
-                          exclusiveMinimum: 0
+                          minimum: 1
 
                         - `strict: Optional[bool]`
 
@@ -16745,12 +16558,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                         - `url_sources: Optional[BetaWebFetchURLSources]`
 
-                          Which sources contribute to the set of URLs web fetch may fetch.
-
-                          Each key is a tagged variant: `user_input` is `all` or `none`; the
-                          two tool filters are `all`, `none`, `only` (only the named tools'
-                          results) or `except` (every result but the named tools'). A named tool
-                          must be declared in this request's `tools[]`.
+                          Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
 
                         - `use_cache: Optional[bool]`
 
@@ -16796,7 +16604,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           Maximum number of times the tool can be used in the API request.
 
-                          exclusiveMinimum: 0
+                          minimum: 1
 
                         - `response_inclusion: Optional[Literal["full", "excluded"]]`
 
@@ -16858,13 +16666,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-                          exclusiveMinimum: 0
+                          minimum: 1
 
                         - `max_uses: Optional[int]`
 
                           Maximum number of times the tool can be used in the API request.
 
-                          exclusiveMinimum: 0
+                          minimum: 1
 
                         - `response_inclusion: Optional[Literal["full", "excluded"]]`
 
@@ -16880,12 +16688,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                         - `url_sources: Optional[BetaWebFetchURLSources]`
 
-                          Which sources contribute to the set of URLs web fetch may fetch.
-
-                          Each key is a tagged variant: `user_input` is `all` or `none`; the
-                          two tool filters are `all`, `none`, `only` (only the named tools'
-                          results) or `except` (every result but the named tools'). A named tool
-                          must be declared in this request's `tools[]`.
+                          Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
 
                         - `use_cache: Optional[bool]`
 
@@ -16901,30 +16704,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+                          - `str`
+
                           - `Literal["claude-fable-5-1", "claude-opus-5-5", "claude-mythos-5-1", 15 more]`
 
                             The model that will complete your prompt.
 
                             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
-                            - `claude-fable-5-1` - Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
-                            - `claude-opus-5-5` - Powerful intelligence for coding, knowledge work, and long-running agents
-                            - `claude-mythos-5-1` - Our most capable model for cybersecurity and biology research, available through trusted access programs
-                            - `claude-sonnet-5` - High-performance model for coding and agents
-                            - `claude-fable-5` - Next generation of intelligence for the hardest knowledge work and coding problems
-                            - `claude-mythos-5` - Most capable model for cybersecurity and biology research
-                            - `claude-opus-5` - Powerful intelligence for long-running agents and coding
-                            - `claude-opus-4-8` - Powerful intelligence for long-running agents and coding
-                            - `claude-opus-4-7` - Powerful intelligence for long-running agents and coding
-                            - `claude-mythos-preview` - Deprecated: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
-                            - `claude-opus-4-6` - Powerful intelligence for long-running agents and coding
-                            - `claude-sonnet-4-6` - Best combination of speed and intelligence
-                            - `claude-haiku-4-5` - Fastest model with near-frontier intelligence
-                            - `claude-haiku-4-5-20251001` - Fastest model with near-frontier intelligence
-                            - `claude-opus-4-5` - Powerful intelligence for long-running agents and coding
-                            - `claude-opus-4-5-20251101` - Powerful intelligence for long-running agents and coding
-                            - `claude-sonnet-4-5` - High-performance model for agents and coding
-                            - `claude-sonnet-4-5-20250929` - High-performance model for agents and coding
 
                             - `"claude-fable-5-1"`
 
@@ -16962,10 +16748,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                               Powerful intelligence for long-running agents and coding
 
-                            - `"claude-mythos-preview"`
-
-                              New class of intelligence, strongest in coding and cybersecurity
-
                             - `"claude-opus-4-6"`
 
                               Powerful intelligence for long-running agents and coding
@@ -16998,7 +16780,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                               High-performance model for agents and coding
 
-                          - `str`
+                            - `"claude-mythos-preview"`
+
+                              **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+                              New class of intelligence, strongest in coding and cybersecurity
 
                         - `name: Literal["advisor"]`
 
@@ -17038,7 +16824,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           Maximum number of times the tool can be used in the API request.
 
-                          exclusiveMinimum: 0
+                          minimum: 1
 
                         - `strict: Optional[bool]`
 
@@ -17129,7 +16915,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           Name of the MCP server to configure tools for
 
-                          maxLength: 255, minLength: 1
+                          minLength: 1, maxLength: 255
 
                         - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -17239,7 +17025,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               The name of the MCP server this listing came from, as `mcp_servers` declares it.
 
-              maxLength: 255, minLength: 1
+              minLength: 1, maxLength: 255
 
             - `tools: List[BetaMCPToolParam]`
 
@@ -17321,7 +17107,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `effort: Optional[Literal["low", "medium", "high", 2 more]]`
 
-          All possible effort levels.
+          How much effort the model should put into its response. Higher effort levels may result in more thorough analysis but take longer.
+
+          Valid values are `low`, `medium`, `high`, `xhigh`, or `max`.
 
           - `"low"`
 
@@ -17345,14 +17133,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     - `compaction: Optional[BetaCompactionConfigParam]`
 
-      Compact the whole conversation and return a signed `compaction` block,
-      alone, that a later request sends back first in `messages`, in place of
-      the messages it summarizes. There is no trigger and no pause flag: sending
-      the parameter compacts, and nothing is sampled after the block.
+      Compaction configuration.
 
-      The summarization prompt is the server's own unless `instructions` are
-      given, which then replace it for this request; a value that is empty or
-      only whitespace counts as absent.
+      When set on `POST /v1/messages`, the request is a compaction request: the conversation in `messages` is summarized and the response holds only the resulting `compaction` block (`stop_reason` `"compaction"`), which later requests send first in `messages` in place of the messages it summarizes. `POST /v1/messages/count_tokens` accepts this parameter and ignores it: the count it returns is for the conversation in `messages` as sent. Cannot be combined with `context_management`.
 
       - `type: Literal["summarize"]`
 
@@ -17392,13 +17175,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             Skill ID
 
-            maxLength: 64, minLength: 1
+            minLength: 1, maxLength: 64
 
           - `version: Optional[str]`
 
             Skill version or 'latest' for most recent version
 
-            maxLength: 64, minLength: 1
+            minLength: 1, maxLength: 64
 
       - `str`
 
@@ -17411,8 +17194,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
       - `edits: Optional[List[Edit]]`
 
         List of context management edits to apply
-
-        minItems: 0
 
         - `class BetaClearToolUses20250919Edit`
 
@@ -17512,8 +17293,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     - `diagnostics: Optional[BetaDiagnosticsParam]`
 
-      Request-level diagnostics. Currently carries the previous response
-      id for prompt-cache divergence reporting.
+      Request-level diagnostics. Supply `previous_message_id` to have the response include `diagnostics.cache_miss_reason` explaining any prompt-cache divergence from that prior request.
 
       - `previous_message_id: Optional[str]`
 
@@ -17560,7 +17340,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           The opaque `fallback_credit_token` from a prior refusal's `stop_details` — the same string the bare-string form carries.
 
-          maxLength: 2048, minLength: 1
+          minLength: 1, maxLength: 2048
 
         - `mode: Optional[Literal["strict", "best_effort"]]`
 
@@ -17588,7 +17368,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           - `effort: Optional[Literal["low", "medium", "high", 2 more]]`
 
-            All possible effort levels.
+            How much effort the model should put into its response. Higher effort levels may result in more thorough analysis but take longer.
+
+            Valid values are `low`, `medium`, `high`, `xhigh`, or `max`.
 
             - `"low"`
 
@@ -17612,7 +17394,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           - `task_budget: Optional[BetaTokenTaskBudget]`
 
-            User-configurable total token budget across contexts.
+            Configuration for token budget tracking across contexts.
 
             - `type: Literal["tokens"]`
 
@@ -17656,17 +17438,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `block_binding: Optional[BetaThinkingBlockBinding]`
 
-              Controls for block binding: what happens when a thinking block this
-              request sends back fails the conversation check. Every field is optional;
-              an empty object means every default.
+              Controls for block binding: what happens when a thinking block this request sends back fails the conversation check. `null`, absent or an empty object means every default.
 
               - `prefix_mismatch_behavior: Optional[BetaThinkingPrefixMismatchBehavior]`
 
-                What happens when a thinking block in `messages` fails the conversation
-                check: it was created in a different conversation, or the messages before
-                it have changed since. `"error"` (the default) fails the request with a
-                400 error. `"drop_block"` removes the failing blocks and the request
-                proceeds; the model no longer sees the dropped reasoning.
+                "error" (default) | "drop_block". What happens when a thinking block in `messages` fails the conversation check (it was created in a different conversation, or the messages before it have changed since). "error" fails the request with a 400 error. "drop_block" removes the failing blocks and the request proceeds; each removal is reported in `input_transformations`.
 
                 - `"error"`
 
@@ -17692,9 +17468,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `block_binding: Optional[BetaThinkingBlockBinding]`
 
-              Controls for block binding: what happens when a thinking block this
-              request sends back fails the conversation check. Every field is optional;
-              an empty object means every default.
+              Controls for block binding: what happens when a thinking block this request sends back fails the conversation check. `null`, absent or an empty object means every default.
 
             - `display: Optional[Literal["summarized", "omitted", "updates"]]`
 
@@ -17760,7 +17534,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     - `speed: Optional[Literal["standard", "fast"]]`
 
-      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+      The inference speed mode for this request. `"fast"` enables high output-tokens-per-second inference.
 
       - `"standard"`
 
@@ -18591,7 +18365,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   Defaults to `20`. Ranges from `1` to `1000`.
 
-  default: 20, maximum: 1000, minimum: 1
+  default: 20, minimum: 1, maximum: 1000
 
 - `betas: Optional[List[AnthropicBetaParam]]`
 
@@ -19477,7 +19251,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `container: Optional[BetaContainer]`
 
-          Information about the container used in the request (for the code execution tool)
+          Information about the container used in this request.
+
+          This will be non-null if a container tool (e.g. code execution) was used.
 
           - `id: str`
 
@@ -19505,13 +19281,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               Skill ID
 
-              maxLength: 64, minLength: 1
+              minLength: 1, maxLength: 64
 
             - `version: str`
 
               The resolved version: a skill version ID for custom skills.
 
-              maxLength: 64, minLength: 1
+              minLength: 1, maxLength: 64
 
         - `content: List[BetaContentBlock]`
 
@@ -19684,8 +19460,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `text: str`
 
-              minLength: 0
-
           - `class BetaThinkingBlock`
 
             - `type: Literal["thinking"]`
@@ -19764,7 +19538,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               For a toolset member tool_use, the toolset family.
 
-              maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
+              minLength: 1, maxLength: 64, pattern: ^[a-zA-Z0-9_-]+$
 
           - `class BetaServerToolUseBlock`
 
@@ -20268,7 +20042,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `tool_name: str`
 
-                    maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+                    minLength: 1, maxLength: 256, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
             - `tool_use_id: str`
 
@@ -20317,8 +20091,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
                   The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
 
                 - `text: str`
-
-                  minLength: 0
 
             - `is_error: bool`
 
@@ -20457,7 +20229,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           This is how the tool will be called by the model and in `tool_use` blocks.
 
-                          maxLength: 128, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,128}$
+                          minLength: 1, maxLength: 128, pattern: ^[a-zA-Z0-9_-]{1,128}$
 
                         - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -20721,12 +20493,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                         - `configs: Optional[BetaBrowserToolsetConfigs]`
 
-                          Per-member configuration for `browser_toolset_20260801`: one
-                          optional field per member tool, keyed by the member name — the same
-                          name the member's `tool_use` blocks carry. Every member is an
-                          accepted key, and a member's defaults apply wherever its key is
-                          absent. Unknown keys are rejected: the field set is this toolset
-                          version's complete member set.
+                          Sparse per-member overrides, keyed by member name. Absent, null, and {} are equivalent; a member's defaults apply wherever its key is absent.
 
                           - `type: Optional[BetaBrowserTypeConfig]`
 
@@ -21347,12 +21114,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                         - `configs: Optional[BetaComputerToolsetConfigs]`
 
-                          Per-member configuration for `computer_toolset_20260801`: one
-                          optional field per member tool, keyed by the member name — the same
-                          name the member's `tool_use` blocks carry. Every member is an
-                          accepted key, and a member's defaults apply wherever its key is
-                          absent. Unknown keys are rejected: the field set is this toolset
-                          version's complete member set.
+                          Sparse per-member overrides, keyed by member name. Absent, null, and {} are equivalent; a member's defaults apply wherever its key is absent.
 
                           - `type: Optional[BetaComputerTypeConfig]`
 
@@ -21706,7 +21468,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           Maximum number of times the tool can be used in the API request.
 
-                          exclusiveMinimum: 0
+                          minimum: 1
 
                         - `strict: Optional[bool]`
 
@@ -21722,25 +21484,25 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                             The city of the user.
 
-                            maxLength: 255, minLength: 1
+                            minLength: 1, maxLength: 255
 
                           - `country: Optional[str]`
 
                             The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
 
-                            maxLength: 2, minLength: 2
+                            minLength: 2, maxLength: 2
 
                           - `region: Optional[str]`
 
                             The region of the user.
 
-                            maxLength: 255, minLength: 1
+                            minLength: 1, maxLength: 255
 
                           - `timezone: Optional[str]`
 
                             The [IANA timezone](https://nodatime.org/TimeZones) of the user.
 
-                            maxLength: 255, minLength: 1
+                            minLength: 1, maxLength: 255
 
                       - `class BetaWebFetchTool20250910`
 
@@ -21788,13 +21550,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-                          exclusiveMinimum: 0
+                          minimum: 1
 
                         - `max_uses: Optional[int]`
 
                           Maximum number of times the tool can be used in the API request.
 
-                          exclusiveMinimum: 0
+                          minimum: 1
 
                         - `strict: Optional[bool]`
 
@@ -21802,12 +21564,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                         - `url_sources: Optional[BetaWebFetchURLSources]`
 
-                          Which sources contribute to the set of URLs web fetch may fetch.
-
-                          Each key is a tagged variant: `user_input` is `all` or `none`; the
-                          two tool filters are `all`, `none`, `only` (only the named tools'
-                          results) or `except` (every result but the named tools'). A named tool
-                          must be declared in this request's `tools[]`.
+                          Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
 
                           - `client_tool_results: Optional[ClientToolResults]`
 
@@ -21931,7 +21688,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           Maximum number of times the tool can be used in the API request.
 
-                          exclusiveMinimum: 0
+                          minimum: 1
 
                         - `strict: Optional[bool]`
 
@@ -21985,13 +21742,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-                          exclusiveMinimum: 0
+                          minimum: 1
 
                         - `max_uses: Optional[int]`
 
                           Maximum number of times the tool can be used in the API request.
 
-                          exclusiveMinimum: 0
+                          minimum: 1
 
                         - `strict: Optional[bool]`
 
@@ -21999,12 +21756,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                         - `url_sources: Optional[BetaWebFetchURLSources]`
 
-                          Which sources contribute to the set of URLs web fetch may fetch.
-
-                          Each key is a tagged variant: `user_input` is `all` or `none`; the
-                          two tool filters are `all`, `none`, `only` (only the named tools'
-                          results) or `except` (every result but the named tools'). A named tool
-                          must be declared in this request's `tools[]`.
+                          Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
 
                       - `class BetaWebFetchTool20260309`
 
@@ -22052,13 +21804,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-                          exclusiveMinimum: 0
+                          minimum: 1
 
                         - `max_uses: Optional[int]`
 
                           Maximum number of times the tool can be used in the API request.
 
-                          exclusiveMinimum: 0
+                          minimum: 1
 
                         - `strict: Optional[bool]`
 
@@ -22066,12 +21818,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                         - `url_sources: Optional[BetaWebFetchURLSources]`
 
-                          Which sources contribute to the set of URLs web fetch may fetch.
-
-                          Each key is a tagged variant: `user_input` is `all` or `none`; the
-                          two tool filters are `all`, `none`, `only` (only the named tools'
-                          results) or `except` (every result but the named tools'). A named tool
-                          must be declared in this request's `tools[]`.
+                          Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
 
                         - `use_cache: Optional[bool]`
 
@@ -22117,7 +21864,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           Maximum number of times the tool can be used in the API request.
 
-                          exclusiveMinimum: 0
+                          minimum: 1
 
                         - `response_inclusion: Optional[Literal["full", "excluded"]]`
 
@@ -22179,13 +21926,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-                          exclusiveMinimum: 0
+                          minimum: 1
 
                         - `max_uses: Optional[int]`
 
                           Maximum number of times the tool can be used in the API request.
 
-                          exclusiveMinimum: 0
+                          minimum: 1
 
                         - `response_inclusion: Optional[Literal["full", "excluded"]]`
 
@@ -22201,12 +21948,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                         - `url_sources: Optional[BetaWebFetchURLSources]`
 
-                          Which sources contribute to the set of URLs web fetch may fetch.
-
-                          Each key is a tagged variant: `user_input` is `all` or `none`; the
-                          two tool filters are `all`, `none`, `only` (only the named tools'
-                          results) or `except` (every result but the named tools'). A named tool
-                          must be declared in this request's `tools[]`.
+                          Which sources contribute to the set of URLs the tool may fetch. Omitted means every source.
 
                         - `use_cache: Optional[bool]`
 
@@ -22222,30 +21964,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+                          - `str`
+
                           - `Literal["claude-fable-5-1", "claude-opus-5-5", "claude-mythos-5-1", 15 more]`
 
                             The model that will complete your prompt.
 
                             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
-                            - `claude-fable-5-1` - Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
-                            - `claude-opus-5-5` - Powerful intelligence for coding, knowledge work, and long-running agents
-                            - `claude-mythos-5-1` - Our most capable model for cybersecurity and biology research, available through trusted access programs
-                            - `claude-sonnet-5` - High-performance model for coding and agents
-                            - `claude-fable-5` - Next generation of intelligence for the hardest knowledge work and coding problems
-                            - `claude-mythos-5` - Most capable model for cybersecurity and biology research
-                            - `claude-opus-5` - Powerful intelligence for long-running agents and coding
-                            - `claude-opus-4-8` - Powerful intelligence for long-running agents and coding
-                            - `claude-opus-4-7` - Powerful intelligence for long-running agents and coding
-                            - `claude-mythos-preview` - Deprecated: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
-                            - `claude-opus-4-6` - Powerful intelligence for long-running agents and coding
-                            - `claude-sonnet-4-6` - Best combination of speed and intelligence
-                            - `claude-haiku-4-5` - Fastest model with near-frontier intelligence
-                            - `claude-haiku-4-5-20251001` - Fastest model with near-frontier intelligence
-                            - `claude-opus-4-5` - Powerful intelligence for long-running agents and coding
-                            - `claude-opus-4-5-20251101` - Powerful intelligence for long-running agents and coding
-                            - `claude-sonnet-4-5` - High-performance model for agents and coding
-                            - `claude-sonnet-4-5-20250929` - High-performance model for agents and coding
 
                             - `"claude-fable-5-1"`
 
@@ -22283,10 +22008,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                               Powerful intelligence for long-running agents and coding
 
-                            - `"claude-mythos-preview"`
-
-                              New class of intelligence, strongest in coding and cybersecurity
-
                             - `"claude-opus-4-6"`
 
                               Powerful intelligence for long-running agents and coding
@@ -22319,7 +22040,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                               High-performance model for agents and coding
 
-                          - `str`
+                            - `"claude-mythos-preview"`
+
+                              **Deprecated**: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+                              New class of intelligence, strongest in coding and cybersecurity
 
                         - `name: Literal["advisor"]`
 
@@ -22359,7 +22084,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           Maximum number of times the tool can be used in the API request.
 
-                          exclusiveMinimum: 0
+                          minimum: 1
 
                         - `strict: Optional[bool]`
 
@@ -22450,7 +22175,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           Name of the MCP server to configure tools for
 
-                          maxLength: 255, minLength: 1
+                          minLength: 1, maxLength: 255
 
                         - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -22565,13 +22290,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `category: Optional[Literal["cyber", "bio", "frontier_llm", 2 more]]`
 
-                The policy category that triggered a refusal.
-
-                - `cyber` - The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
-                - `bio` - The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
-                - `frontier_llm` - The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
-                - `reasoning_extraction` - The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
-                - `general_harms` - The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
+                The policy category that triggered the `from` model's refusal at this hop. `null` when the refusal doesn't map to a named category. Same vocabulary as `stop_details.category`.
 
                 - `"cyber"`
 
@@ -22666,8 +22385,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `diagnostics: Optional[BetaDiagnostics]`
 
-          Request-level diagnostics: why the prompt cache could not fully reuse
-          the prefix of the request named by `diagnostics.previous_message_id`.
+          Request-level diagnostics. `null` when the request did not supply `diagnostics`, or when it did and no prompt-cache divergence was detected.
 
           - `cache_miss_reason: Optional[BetaCacheMissReason]`
 
@@ -22741,7 +22459,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `stop_details: Optional[BetaRefusalStopDetails]`
 
-          Structured information about a refusal.
+          Structured information about why model output stopped.
+
+          This is `null` when the `stop_reason` has no additional detail to report.
 
           - `type: Literal["refusal"]`
 
@@ -22749,13 +22469,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           - `category: Optional[Literal["cyber", "bio", "frontier_llm", 2 more]]`
 
-            The policy category that triggered a refusal.
+            The policy category that triggered the refusal.
 
-            - `cyber` - The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
-            - `bio` - The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
-            - `frontier_llm` - The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
-            - `reasoning_extraction` - The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
-            - `general_harms` - The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
+            `null` when the refusal doesn't map to a named category.
 
             - `"cyber"`
 
@@ -22913,6 +22629,10 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
           - `fallback_credit: Optional[BetaFallbackCreditUsage]`
 
             Outcome of the `fallback_credit_token` presented on this request.
+
+            Present on every response to a non-batch request that carried a
+            `fallback_credit_token`, in either redemption mode; absent otherwise (batch
+            items accept and ignore the token and carry no outcome object).
 
             - `status: Status`
 
@@ -23237,7 +22957,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           - `speed: Optional[Literal["standard", "fast"]]`
 
-            Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+            The inference speed mode used for this request.
 
             - `"standard"`
 
@@ -23490,29 +23210,15 @@ Create Agent
 
   Model identifier. Accepts the [model string](https://platform.claude.com/docs/en/about-claude/models/overview#latest-models-comparison), e.g. `claude-opus-5`, or a `model_config` object for additional configuration control
 
-  - `Union[Literal["claude-opus-5-5", "claude-fable-5-1", "claude-sonnet-5", 12 more], str]`
+  - `Union[str, Literal["claude-opus-5-5", "claude-fable-5-1", "claude-sonnet-5", 12 more]]`
+
+    - `str`
 
     - `Literal["claude-opus-5-5", "claude-fable-5-1", "claude-sonnet-5", 12 more]`
 
       The model that will power your agent.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
-      - `claude-opus-5-5` - Powerful intelligence for coding, knowledge work, and long-running agents
-      - `claude-fable-5-1` - Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
-      - `claude-sonnet-5` - High-performance model for coding and agents
-      - `claude-fable-5` - Next generation of intelligence for the hardest knowledge work and coding problems
-      - `claude-opus-5` - Powerful intelligence for long-running agents and coding
-      - `claude-opus-4-8` - Powerful intelligence for long-running agents and coding
-      - `claude-opus-4-7` - Powerful intelligence for long-running agents and coding
-      - `claude-opus-4-6` - Powerful intelligence for long-running agents and coding
-      - `claude-sonnet-4-6` - Best combination of speed and intelligence
-      - `claude-haiku-4-5` - Fastest model with near-frontier intelligence
-      - `claude-haiku-4-5-20251001` - Fastest model with near-frontier intelligence
-      - `claude-opus-4-5` - Powerful intelligence for long-running agents and coding
-      - `claude-opus-4-5-20251101` - Powerful intelligence for long-running agents and coding
-      - `claude-sonnet-4-5` - High-performance model for agents and coding
-      - `claude-sonnet-4-5-20250929` - High-performance model for agents and coding
 
       - `"claude-opus-5-5"`
 
@@ -23574,8 +23280,6 @@ Create Agent
 
         High-performance model for agents and coding
 
-    - `str`
-
   - `class BetaManagedAgentsModelConfigParams`
 
     An object that defines additional configuration control over model use
@@ -23586,29 +23290,13 @@ Create Agent
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+      - `str`
+
       - `Literal["claude-opus-5-5", "claude-fable-5-1", "claude-sonnet-5", 12 more]`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
-        - `claude-opus-5-5` - Powerful intelligence for coding, knowledge work, and long-running agents
-        - `claude-fable-5-1` - Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
-        - `claude-sonnet-5` - High-performance model for coding and agents
-        - `claude-fable-5` - Next generation of intelligence for the hardest knowledge work and coding problems
-        - `claude-opus-5` - Powerful intelligence for long-running agents and coding
-        - `claude-opus-4-8` - Powerful intelligence for long-running agents and coding
-        - `claude-opus-4-7` - Powerful intelligence for long-running agents and coding
-        - `claude-opus-4-6` - Powerful intelligence for long-running agents and coding
-        - `claude-sonnet-4-6` - Best combination of speed and intelligence
-        - `claude-haiku-4-5` - Fastest model with near-frontier intelligence
-        - `claude-haiku-4-5-20251001` - Fastest model with near-frontier intelligence
-        - `claude-opus-4-5` - Powerful intelligence for long-running agents and coding
-        - `claude-opus-4-5-20251101` - Powerful intelligence for long-running agents and coding
-        - `claude-sonnet-4-5` - High-performance model for agents and coding
-        - `claude-sonnet-4-5-20250929` - High-performance model for agents and coding
-
-      - `str`
 
     - `effort: Optional[Effort]`
 
@@ -23617,12 +23305,6 @@ Create Agent
       - `Literal["low", "medium", "high", 2 more]`
 
         How hard Claude works on each turn. Higher levels favor reasoning depth over latency. Not all models accept every level; invalid combinations are rejected at create time.
-
-        - `low` - Low effort. Favors latency over reasoning depth.
-        - `medium` - Medium effort. Balances latency and reasoning depth.
-        - `high` - High effort. Favors reasoning depth.
-        - `xhigh` - Extra-high effort. Not all models accept this level.
-        - `max` - Maximum effort. Favors reasoning depth over latency.
 
         - `"low"`
 
@@ -23680,7 +23362,7 @@ Create Agent
 
     - `speed: Optional[Literal["standard", "fast"]]`
 
-      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+      Inference speed mode. Defaults to `standard`.
 
       - `"standard"`
 
@@ -23722,7 +23404,7 @@ Create Agent
 
 - `multiagent: Optional[BetaManagedAgentsMultiagentParams]`
 
-  A coordinator topology: the session's primary thread orchestrates work by spawning session threads, each running an agent drawn from the `agents` roster.
+  Multiagent orchestration configuration. Currently supports the `coordinator` topology with a roster of 1-20 agents.
 
   - `type: Literal["coordinator"]`
 
@@ -23844,7 +23526,7 @@ Create Agent
 
         - `permission_policy: Optional[PermissionPolicy]`
 
-          Permission policy for tool execution.
+          Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
           - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -23880,7 +23562,7 @@ Create Agent
 
         - `permission_policy: Optional[PermissionPolicy]`
 
-          Permission policy for tool execution.
+          Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
           - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -23910,7 +23592,7 @@ Create Agent
 
         - `permission_policy: Optional[PermissionPolicy]`
 
-          Permission policy for tool execution.
+          Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
           - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -23940,7 +23622,7 @@ Create Agent
 
         - `permission_policy: Optional[PermissionPolicy]`
 
-          Permission policy for tool execution.
+          Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
           - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -23970,7 +23652,7 @@ Create Agent
 
         - `permission_policy: Optional[PermissionPolicy]`
 
-          Permission policy for tool execution.
+          Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
           - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -24000,7 +23682,7 @@ Create Agent
 
         - `permission_policy: Optional[PermissionPolicy]`
 
-          Permission policy for tool execution.
+          Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
           - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -24044,7 +23726,7 @@ Create Agent
 
         - `permission_policy: Optional[PermissionPolicy]`
 
-          Permission policy for tool execution.
+          Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
           - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -24082,7 +23764,7 @@ Create Agent
 
         - `permission_policy: Optional[PermissionPolicy]`
 
-          Permission policy for tool execution.
+          Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
           - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -24128,7 +23810,7 @@ Create Agent
 
     - `default_config: Optional[BetaManagedAgentsAgentToolsetDefaultConfigParams]`
 
-      Default configuration for all tools in a toolset.
+      Default configuration applied to all tools in this set.
 
       - `enabled: Optional[bool]`
 
@@ -24136,7 +23818,7 @@ Create Agent
 
       - `permission_policy: Optional[PermissionPolicy]`
 
-        Permission policy for tool execution.
+        Default permission policy for tools. Controls whether tool calls are auto-approved or require confirmation.
 
         - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -24178,7 +23860,7 @@ Create Agent
 
       - `permission_policy: Optional[PermissionPolicy]`
 
-        Permission policy for tool execution.
+        Permission policy for this tool. Overrides the `default_config` setting.
 
         - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -24194,7 +23876,7 @@ Create Agent
 
     - `default_config: Optional[BetaManagedAgentsMCPToolsetDefaultConfigParams]`
 
-      Default configuration for all tools from an MCP server.
+      Default configuration for all tools from this server.
 
       - `enabled: Optional[bool]`
 
@@ -24202,7 +23884,7 @@ Create Agent
 
       - `permission_policy: Optional[PermissionPolicy]`
 
-        Permission policy for tool execution.
+        Default permission policy for tools from this server.
 
         - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -24230,7 +23912,7 @@ Create Agent
 
     - `input_schema: BetaManagedAgentsCustomToolInputSchema`
 
-      JSON Schema for custom tool input parameters.
+      JSON Schema defining the expected input parameters for the tool.
 
       - `type: Literal["object"]`
 
@@ -24366,7 +24048,7 @@ Create Agent
 
   - `archived_at: Optional[datetime]`
 
-    A timestamp in RFC 3339 format
+    When the agent was archived. Null if not archived.
 
     format: date-time
 
@@ -24398,27 +24080,13 @@ Create Agent
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+      - `str`
+
       - `Literal["claude-opus-5-5", "claude-fable-5-1", "claude-sonnet-5", 12 more]`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
-        - `claude-opus-5-5` - Powerful intelligence for coding, knowledge work, and long-running agents
-        - `claude-fable-5-1` - Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
-        - `claude-sonnet-5` - High-performance model for coding and agents
-        - `claude-fable-5` - Next generation of intelligence for the hardest knowledge work and coding problems
-        - `claude-opus-5` - Powerful intelligence for long-running agents and coding
-        - `claude-opus-4-8` - Powerful intelligence for long-running agents and coding
-        - `claude-opus-4-7` - Powerful intelligence for long-running agents and coding
-        - `claude-opus-4-6` - Powerful intelligence for long-running agents and coding
-        - `claude-sonnet-4-6` - Best combination of speed and intelligence
-        - `claude-haiku-4-5` - Fastest model with near-frontier intelligence
-        - `claude-haiku-4-5-20251001` - Fastest model with near-frontier intelligence
-        - `claude-opus-4-5` - Powerful intelligence for long-running agents and coding
-        - `claude-opus-4-5-20251101` - Powerful intelligence for long-running agents and coding
-        - `claude-sonnet-4-5` - High-performance model for agents and coding
-        - `claude-sonnet-4-5-20250929` - High-performance model for agents and coding
 
         - `"claude-opus-5-5"`
 
@@ -24480,11 +24148,9 @@ Create Agent
 
           High-performance model for agents and coding
 
-      - `str`
-
     - `effort: Optional[Effort]`
 
-      How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+      How hard Claude works on each inference call. One of `low`, `medium`, `high`, `xhigh`, `max`. Always present; resolved to the per-model default at save time when not supplied.
 
       - `class BetaManagedAgentsEffortLow`
 
@@ -24522,7 +24188,7 @@ Create Agent
 
     - `speed: Optional[Literal["standard", "fast"]]`
 
-      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Defaults to `standard`. Not all models support `fast`; invalid combinations are rejected at create time.
 
       - `"standard"`
 
@@ -24530,7 +24196,7 @@ Create Agent
 
   - `multiagent: Optional[BetaManagedAgentsMultiagent]`
 
-    Resolved coordinator topology with a concrete agent roster.
+    Multiagent orchestration configuration. Null when the agent is single-threaded.
 
     - `type: Literal["coordinator"]`
 
@@ -25207,7 +24873,7 @@ List Agents
 
   - `archived_at: Optional[datetime]`
 
-    A timestamp in RFC 3339 format
+    When the agent was archived. Null if not archived.
 
     format: date-time
 
@@ -25239,27 +24905,13 @@ List Agents
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+      - `str`
+
       - `Literal["claude-opus-5-5", "claude-fable-5-1", "claude-sonnet-5", 12 more]`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
-        - `claude-opus-5-5` - Powerful intelligence for coding, knowledge work, and long-running agents
-        - `claude-fable-5-1` - Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
-        - `claude-sonnet-5` - High-performance model for coding and agents
-        - `claude-fable-5` - Next generation of intelligence for the hardest knowledge work and coding problems
-        - `claude-opus-5` - Powerful intelligence for long-running agents and coding
-        - `claude-opus-4-8` - Powerful intelligence for long-running agents and coding
-        - `claude-opus-4-7` - Powerful intelligence for long-running agents and coding
-        - `claude-opus-4-6` - Powerful intelligence for long-running agents and coding
-        - `claude-sonnet-4-6` - Best combination of speed and intelligence
-        - `claude-haiku-4-5` - Fastest model with near-frontier intelligence
-        - `claude-haiku-4-5-20251001` - Fastest model with near-frontier intelligence
-        - `claude-opus-4-5` - Powerful intelligence for long-running agents and coding
-        - `claude-opus-4-5-20251101` - Powerful intelligence for long-running agents and coding
-        - `claude-sonnet-4-5` - High-performance model for agents and coding
-        - `claude-sonnet-4-5-20250929` - High-performance model for agents and coding
 
         - `"claude-opus-5-5"`
 
@@ -25321,11 +24973,9 @@ List Agents
 
           High-performance model for agents and coding
 
-      - `str`
-
     - `effort: Optional[Effort]`
 
-      How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+      How hard Claude works on each inference call. One of `low`, `medium`, `high`, `xhigh`, `max`. Always present; resolved to the per-model default at save time when not supplied.
 
       - `class BetaManagedAgentsEffortLow`
 
@@ -25363,7 +25013,7 @@ List Agents
 
     - `speed: Optional[Literal["standard", "fast"]]`
 
-      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Defaults to `standard`. Not all models support `fast`; invalid combinations are rejected at create time.
 
       - `"standard"`
 
@@ -25371,7 +25021,7 @@ List Agents
 
   - `multiagent: Optional[BetaManagedAgentsMultiagent]`
 
-    Resolved coordinator topology with a concrete agent roster.
+    Multiagent orchestration configuration. Null when the agent is single-threaded.
 
     - `type: Literal["coordinator"]`
 
@@ -26035,7 +25685,7 @@ Get Agent
 
   - `archived_at: Optional[datetime]`
 
-    A timestamp in RFC 3339 format
+    When the agent was archived. Null if not archived.
 
     format: date-time
 
@@ -26067,27 +25717,13 @@ Get Agent
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+      - `str`
+
       - `Literal["claude-opus-5-5", "claude-fable-5-1", "claude-sonnet-5", 12 more]`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
-        - `claude-opus-5-5` - Powerful intelligence for coding, knowledge work, and long-running agents
-        - `claude-fable-5-1` - Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
-        - `claude-sonnet-5` - High-performance model for coding and agents
-        - `claude-fable-5` - Next generation of intelligence for the hardest knowledge work and coding problems
-        - `claude-opus-5` - Powerful intelligence for long-running agents and coding
-        - `claude-opus-4-8` - Powerful intelligence for long-running agents and coding
-        - `claude-opus-4-7` - Powerful intelligence for long-running agents and coding
-        - `claude-opus-4-6` - Powerful intelligence for long-running agents and coding
-        - `claude-sonnet-4-6` - Best combination of speed and intelligence
-        - `claude-haiku-4-5` - Fastest model with near-frontier intelligence
-        - `claude-haiku-4-5-20251001` - Fastest model with near-frontier intelligence
-        - `claude-opus-4-5` - Powerful intelligence for long-running agents and coding
-        - `claude-opus-4-5-20251101` - Powerful intelligence for long-running agents and coding
-        - `claude-sonnet-4-5` - High-performance model for agents and coding
-        - `claude-sonnet-4-5-20250929` - High-performance model for agents and coding
 
         - `"claude-opus-5-5"`
 
@@ -26149,11 +25785,9 @@ Get Agent
 
           High-performance model for agents and coding
 
-      - `str`
-
     - `effort: Optional[Effort]`
 
-      How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+      How hard Claude works on each inference call. One of `low`, `medium`, `high`, `xhigh`, `max`. Always present; resolved to the per-model default at save time when not supplied.
 
       - `class BetaManagedAgentsEffortLow`
 
@@ -26191,7 +25825,7 @@ Get Agent
 
     - `speed: Optional[Literal["standard", "fast"]]`
 
-      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Defaults to `standard`. Not all models support `fast`; invalid combinations are rejected at create time.
 
       - `"standard"`
 
@@ -26199,7 +25833,7 @@ Get Agent
 
   - `multiagent: Optional[BetaManagedAgentsMultiagent]`
 
-    Resolved coordinator topology with a concrete agent roster.
+    Multiagent orchestration configuration. Null when the agent is single-threaded.
 
     - `type: Literal["coordinator"]`
 
@@ -26763,29 +26397,15 @@ Update Agent
 
   Model identifier. Accepts the [model string](https://platform.claude.com/docs/en/about-claude/models/overview#latest-models-comparison), e.g. `claude-opus-5`, or a `model_config` object for additional configuration control. Omit to preserve. Cannot be cleared.
 
-  - `Union[Literal["claude-opus-5-5", "claude-fable-5-1", "claude-sonnet-5", 12 more], str]`
+  - `Union[str, Literal["claude-opus-5-5", "claude-fable-5-1", "claude-sonnet-5", 12 more]]`
+
+    - `str`
 
     - `Literal["claude-opus-5-5", "claude-fable-5-1", "claude-sonnet-5", 12 more]`
 
       The model that will power your agent.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
-      - `claude-opus-5-5` - Powerful intelligence for coding, knowledge work, and long-running agents
-      - `claude-fable-5-1` - Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
-      - `claude-sonnet-5` - High-performance model for coding and agents
-      - `claude-fable-5` - Next generation of intelligence for the hardest knowledge work and coding problems
-      - `claude-opus-5` - Powerful intelligence for long-running agents and coding
-      - `claude-opus-4-8` - Powerful intelligence for long-running agents and coding
-      - `claude-opus-4-7` - Powerful intelligence for long-running agents and coding
-      - `claude-opus-4-6` - Powerful intelligence for long-running agents and coding
-      - `claude-sonnet-4-6` - Best combination of speed and intelligence
-      - `claude-haiku-4-5` - Fastest model with near-frontier intelligence
-      - `claude-haiku-4-5-20251001` - Fastest model with near-frontier intelligence
-      - `claude-opus-4-5` - Powerful intelligence for long-running agents and coding
-      - `claude-opus-4-5-20251101` - Powerful intelligence for long-running agents and coding
-      - `claude-sonnet-4-5` - High-performance model for agents and coding
-      - `claude-sonnet-4-5-20250929` - High-performance model for agents and coding
 
       - `"claude-opus-5-5"`
 
@@ -26847,8 +26467,6 @@ Update Agent
 
         High-performance model for agents and coding
 
-    - `str`
-
   - `class BetaManagedAgentsModelConfigParams`
 
     An object that defines additional configuration control over model use
@@ -26859,29 +26477,13 @@ Update Agent
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+      - `str`
+
       - `Literal["claude-opus-5-5", "claude-fable-5-1", "claude-sonnet-5", 12 more]`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
-        - `claude-opus-5-5` - Powerful intelligence for coding, knowledge work, and long-running agents
-        - `claude-fable-5-1` - Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
-        - `claude-sonnet-5` - High-performance model for coding and agents
-        - `claude-fable-5` - Next generation of intelligence for the hardest knowledge work and coding problems
-        - `claude-opus-5` - Powerful intelligence for long-running agents and coding
-        - `claude-opus-4-8` - Powerful intelligence for long-running agents and coding
-        - `claude-opus-4-7` - Powerful intelligence for long-running agents and coding
-        - `claude-opus-4-6` - Powerful intelligence for long-running agents and coding
-        - `claude-sonnet-4-6` - Best combination of speed and intelligence
-        - `claude-haiku-4-5` - Fastest model with near-frontier intelligence
-        - `claude-haiku-4-5-20251001` - Fastest model with near-frontier intelligence
-        - `claude-opus-4-5` - Powerful intelligence for long-running agents and coding
-        - `claude-opus-4-5-20251101` - Powerful intelligence for long-running agents and coding
-        - `claude-sonnet-4-5` - High-performance model for agents and coding
-        - `claude-sonnet-4-5-20250929` - High-performance model for agents and coding
-
-      - `str`
 
     - `effort: Optional[Effort]`
 
@@ -26890,12 +26492,6 @@ Update Agent
       - `Literal["low", "medium", "high", 2 more]`
 
         How hard Claude works on each turn. Higher levels favor reasoning depth over latency. Not all models accept every level; invalid combinations are rejected at create time.
-
-        - `low` - Low effort. Favors latency over reasoning depth.
-        - `medium` - Medium effort. Balances latency and reasoning depth.
-        - `high` - High effort. Favors reasoning depth.
-        - `xhigh` - Extra-high effort. Not all models accept this level.
-        - `max` - Maximum effort. Favors reasoning depth over latency.
 
         - `"low"`
 
@@ -26953,7 +26549,7 @@ Update Agent
 
     - `speed: Optional[Literal["standard", "fast"]]`
 
-      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+      Inference speed mode. Defaults to `standard`.
 
       - `"standard"`
 
@@ -26961,7 +26557,7 @@ Update Agent
 
 - `multiagent: Optional[BetaManagedAgentsMultiagentParams]`
 
-  A coordinator topology: the session's primary thread orchestrates work by spawning session threads, each running an agent drawn from the `agents` roster.
+  Multiagent orchestration configuration. Full replacement. Omit to preserve; send null to clear.
 
   - `type: Literal["coordinator"]`
 
@@ -27089,7 +26685,7 @@ Update Agent
 
         - `permission_policy: Optional[PermissionPolicy]`
 
-          Permission policy for tool execution.
+          Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
           - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -27125,7 +26721,7 @@ Update Agent
 
         - `permission_policy: Optional[PermissionPolicy]`
 
-          Permission policy for tool execution.
+          Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
           - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -27155,7 +26751,7 @@ Update Agent
 
         - `permission_policy: Optional[PermissionPolicy]`
 
-          Permission policy for tool execution.
+          Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
           - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -27185,7 +26781,7 @@ Update Agent
 
         - `permission_policy: Optional[PermissionPolicy]`
 
-          Permission policy for tool execution.
+          Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
           - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -27215,7 +26811,7 @@ Update Agent
 
         - `permission_policy: Optional[PermissionPolicy]`
 
-          Permission policy for tool execution.
+          Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
           - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -27245,7 +26841,7 @@ Update Agent
 
         - `permission_policy: Optional[PermissionPolicy]`
 
-          Permission policy for tool execution.
+          Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
           - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -27289,7 +26885,7 @@ Update Agent
 
         - `permission_policy: Optional[PermissionPolicy]`
 
-          Permission policy for tool execution.
+          Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
           - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -27327,7 +26923,7 @@ Update Agent
 
         - `permission_policy: Optional[PermissionPolicy]`
 
-          Permission policy for tool execution.
+          Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
           - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -27373,7 +26969,7 @@ Update Agent
 
     - `default_config: Optional[BetaManagedAgentsAgentToolsetDefaultConfigParams]`
 
-      Default configuration for all tools in a toolset.
+      Default configuration applied to all tools in this set.
 
       - `enabled: Optional[bool]`
 
@@ -27381,7 +26977,7 @@ Update Agent
 
       - `permission_policy: Optional[PermissionPolicy]`
 
-        Permission policy for tool execution.
+        Default permission policy for tools. Controls whether tool calls are auto-approved or require confirmation.
 
         - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -27423,7 +27019,7 @@ Update Agent
 
       - `permission_policy: Optional[PermissionPolicy]`
 
-        Permission policy for tool execution.
+        Permission policy for this tool. Overrides the `default_config` setting.
 
         - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -27439,7 +27035,7 @@ Update Agent
 
     - `default_config: Optional[BetaManagedAgentsMCPToolsetDefaultConfigParams]`
 
-      Default configuration for all tools from an MCP server.
+      Default configuration for all tools from this server.
 
       - `enabled: Optional[bool]`
 
@@ -27447,7 +27043,7 @@ Update Agent
 
       - `permission_policy: Optional[PermissionPolicy]`
 
-        Permission policy for tool execution.
+        Default permission policy for tools from this server.
 
         - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -27475,7 +27071,7 @@ Update Agent
 
     - `input_schema: BetaManagedAgentsCustomToolInputSchema`
 
-      JSON Schema for custom tool input parameters.
+      JSON Schema defining the expected input parameters for the tool.
 
       - `type: Literal["object"]`
 
@@ -27617,7 +27213,7 @@ Update Agent
 
   - `archived_at: Optional[datetime]`
 
-    A timestamp in RFC 3339 format
+    When the agent was archived. Null if not archived.
 
     format: date-time
 
@@ -27649,27 +27245,13 @@ Update Agent
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+      - `str`
+
       - `Literal["claude-opus-5-5", "claude-fable-5-1", "claude-sonnet-5", 12 more]`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
-        - `claude-opus-5-5` - Powerful intelligence for coding, knowledge work, and long-running agents
-        - `claude-fable-5-1` - Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
-        - `claude-sonnet-5` - High-performance model for coding and agents
-        - `claude-fable-5` - Next generation of intelligence for the hardest knowledge work and coding problems
-        - `claude-opus-5` - Powerful intelligence for long-running agents and coding
-        - `claude-opus-4-8` - Powerful intelligence for long-running agents and coding
-        - `claude-opus-4-7` - Powerful intelligence for long-running agents and coding
-        - `claude-opus-4-6` - Powerful intelligence for long-running agents and coding
-        - `claude-sonnet-4-6` - Best combination of speed and intelligence
-        - `claude-haiku-4-5` - Fastest model with near-frontier intelligence
-        - `claude-haiku-4-5-20251001` - Fastest model with near-frontier intelligence
-        - `claude-opus-4-5` - Powerful intelligence for long-running agents and coding
-        - `claude-opus-4-5-20251101` - Powerful intelligence for long-running agents and coding
-        - `claude-sonnet-4-5` - High-performance model for agents and coding
-        - `claude-sonnet-4-5-20250929` - High-performance model for agents and coding
 
         - `"claude-opus-5-5"`
 
@@ -27731,11 +27313,9 @@ Update Agent
 
           High-performance model for agents and coding
 
-      - `str`
-
     - `effort: Optional[Effort]`
 
-      How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+      How hard Claude works on each inference call. One of `low`, `medium`, `high`, `xhigh`, `max`. Always present; resolved to the per-model default at save time when not supplied.
 
       - `class BetaManagedAgentsEffortLow`
 
@@ -27773,7 +27353,7 @@ Update Agent
 
     - `speed: Optional[Literal["standard", "fast"]]`
 
-      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Defaults to `standard`. Not all models support `fast`; invalid combinations are rejected at create time.
 
       - `"standard"`
 
@@ -27781,7 +27361,7 @@ Update Agent
 
   - `multiagent: Optional[BetaManagedAgentsMultiagent]`
 
-    Resolved coordinator topology with a concrete agent roster.
+    Multiagent orchestration configuration. Null when the agent is single-threaded.
 
     - `type: Literal["coordinator"]`
 
@@ -28436,7 +28016,7 @@ Archive Agent
 
   - `archived_at: Optional[datetime]`
 
-    A timestamp in RFC 3339 format
+    When the agent was archived. Null if not archived.
 
     format: date-time
 
@@ -28468,27 +28048,13 @@ Archive Agent
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+      - `str`
+
       - `Literal["claude-opus-5-5", "claude-fable-5-1", "claude-sonnet-5", 12 more]`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
-        - `claude-opus-5-5` - Powerful intelligence for coding, knowledge work, and long-running agents
-        - `claude-fable-5-1` - Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
-        - `claude-sonnet-5` - High-performance model for coding and agents
-        - `claude-fable-5` - Next generation of intelligence for the hardest knowledge work and coding problems
-        - `claude-opus-5` - Powerful intelligence for long-running agents and coding
-        - `claude-opus-4-8` - Powerful intelligence for long-running agents and coding
-        - `claude-opus-4-7` - Powerful intelligence for long-running agents and coding
-        - `claude-opus-4-6` - Powerful intelligence for long-running agents and coding
-        - `claude-sonnet-4-6` - Best combination of speed and intelligence
-        - `claude-haiku-4-5` - Fastest model with near-frontier intelligence
-        - `claude-haiku-4-5-20251001` - Fastest model with near-frontier intelligence
-        - `claude-opus-4-5` - Powerful intelligence for long-running agents and coding
-        - `claude-opus-4-5-20251101` - Powerful intelligence for long-running agents and coding
-        - `claude-sonnet-4-5` - High-performance model for agents and coding
-        - `claude-sonnet-4-5-20250929` - High-performance model for agents and coding
 
         - `"claude-opus-5-5"`
 
@@ -28550,11 +28116,9 @@ Archive Agent
 
           High-performance model for agents and coding
 
-      - `str`
-
     - `effort: Optional[Effort]`
 
-      How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+      How hard Claude works on each inference call. One of `low`, `medium`, `high`, `xhigh`, `max`. Always present; resolved to the per-model default at save time when not supplied.
 
       - `class BetaManagedAgentsEffortLow`
 
@@ -28592,7 +28156,7 @@ Archive Agent
 
     - `speed: Optional[Literal["standard", "fast"]]`
 
-      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Defaults to `standard`. Not all models support `fast`; invalid combinations are rejected at create time.
 
       - `"standard"`
 
@@ -28600,7 +28164,7 @@ Archive Agent
 
   - `multiagent: Optional[BetaManagedAgentsMultiagent]`
 
-    Resolved coordinator topology with a concrete agent roster.
+    Multiagent orchestration configuration. Null when the agent is single-threaded.
 
     - `type: Literal["coordinator"]`
 
@@ -29266,7 +28830,7 @@ List Agent Versions
 
   - `archived_at: Optional[datetime]`
 
-    A timestamp in RFC 3339 format
+    When the agent was archived. Null if not archived.
 
     format: date-time
 
@@ -29298,27 +28862,13 @@ List Agent Versions
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+      - `str`
+
       - `Literal["claude-opus-5-5", "claude-fable-5-1", "claude-sonnet-5", 12 more]`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
-        - `claude-opus-5-5` - Powerful intelligence for coding, knowledge work, and long-running agents
-        - `claude-fable-5-1` - Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
-        - `claude-sonnet-5` - High-performance model for coding and agents
-        - `claude-fable-5` - Next generation of intelligence for the hardest knowledge work and coding problems
-        - `claude-opus-5` - Powerful intelligence for long-running agents and coding
-        - `claude-opus-4-8` - Powerful intelligence for long-running agents and coding
-        - `claude-opus-4-7` - Powerful intelligence for long-running agents and coding
-        - `claude-opus-4-6` - Powerful intelligence for long-running agents and coding
-        - `claude-sonnet-4-6` - Best combination of speed and intelligence
-        - `claude-haiku-4-5` - Fastest model with near-frontier intelligence
-        - `claude-haiku-4-5-20251001` - Fastest model with near-frontier intelligence
-        - `claude-opus-4-5` - Powerful intelligence for long-running agents and coding
-        - `claude-opus-4-5-20251101` - Powerful intelligence for long-running agents and coding
-        - `claude-sonnet-4-5` - High-performance model for agents and coding
-        - `claude-sonnet-4-5-20250929` - High-performance model for agents and coding
 
         - `"claude-opus-5-5"`
 
@@ -29380,11 +28930,9 @@ List Agent Versions
 
           High-performance model for agents and coding
 
-      - `str`
-
     - `effort: Optional[Effort]`
 
-      How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+      How hard Claude works on each inference call. One of `low`, `medium`, `high`, `xhigh`, `max`. Always present; resolved to the per-model default at save time when not supplied.
 
       - `class BetaManagedAgentsEffortLow`
 
@@ -29422,7 +28970,7 @@ List Agent Versions
 
     - `speed: Optional[Literal["standard", "fast"]]`
 
-      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Defaults to `standard`. Not all models support `fast`; invalid combinations are rejected at create time.
 
       - `"standard"`
 
@@ -29430,7 +28978,7 @@ List Agent Versions
 
   - `multiagent: Optional[BetaManagedAgentsMultiagent]`
 
-    Resolved coordinator topology with a concrete agent roster.
+    Multiagent orchestration configuration. Null when the agent is single-threaded.
 
     - `type: Literal["coordinator"]`
 
@@ -29970,7 +29518,7 @@ Create a new environment with the specified configuration.
 
   Human-readable name for the environment
 
-  maxLength: 256, minLength: 1
+  minLength: 1, maxLength: 256
 
 - `config: Optional[Config]`
 
@@ -30024,11 +29572,7 @@ Create a new environment with the specified configuration.
 
     - `packages: Optional[BetaPackagesParams]`
 
-      Specify packages (and optionally their versions) available in this environment.
-
-      When versioning, use the version semantics relevant for the package manager, e.g. for `pip` use `package==1.0.0`. You are responsible for validating the package and version exist. Unversioned installs the latest.
-
-      Under `limited` networking, requires `networking.allow_package_managers` to be `true`.
+      Package manager configuration. Under `limited` networking, requires `networking.allow_package_managers` to be `true`. Omit on update to preserve the existing value.
 
       - `type: Optional[Literal["packages"]]`
 
@@ -30416,7 +29960,7 @@ List environments with pagination support.
 
   Maximum number of environments to return
 
-  default: 20, maximum: 1000, minimum: 1
+  default: 20, minimum: 1, maximum: 1000
 
 - `page: Optional[str]`
 
@@ -30763,3 +30307,1594 @@ Retrieve a specific environment by ID.
     - `"computer-use-2024-10-22"`
 
     - `"computer-use-2025-01-24"`
+
+    - `"pdfs-2024-09-25"`
+
+    - `"token-counting-2024-11-01"`
+
+    - `"token-efficient-tools-2025-02-19"`
+
+    - `"output-128k-2025-02-19"`
+
+    - `"files-api-2025-04-14"`
+
+    - `"mcp-client-2025-04-04"`
+
+    - `"mcp-client-2025-11-20"`
+
+    - `"dev-full-thinking-2025-05-14"`
+
+    - `"interleaved-thinking-2025-05-14"`
+
+    - `"code-execution-2025-05-22"`
+
+    - `"extended-cache-ttl-2025-04-11"`
+
+    - `"context-1m-2025-08-07"`
+
+    - `"context-management-2025-06-27"`
+
+    - `"model-context-window-exceeded-2025-08-26"`
+
+    - `"skills-2025-10-02"`
+
+    - `"fast-mode-2026-02-01"`
+
+    - `"output-300k-2026-03-24"`
+
+    - `"user-profiles-2026-03-24"`
+
+    - `"user-profiles-2026-08-18"`
+
+    - `"user-profiles-2026-09-04"`
+
+    - `"advisor-tool-2026-03-01"`
+
+    - `"managed-agents-2026-04-01"`
+
+    - `"cache-diagnosis-2026-04-07"`
+
+    - `"dreaming-2026-04-21"`
+
+    - `"thinking-token-count-2026-05-13"`
+
+    - `"server-side-fallback-2026-06-01"`
+
+    - `"server-side-fallback-2026-07-01"`
+
+    - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
+
+    - `"mid-conversation-tool-changes-2026-07-01"`
+
+    - `"compact-2026-01-12"`
+
+    - `"computer-use-2025-11-24"`
+
+    - `"mcp-tunnels-2026-06-22"`
+
+    - `"structured-outputs-2025-11-13"`
+
+    - `"task-budgets-2026-03-13"`
+
+    - `"thinking-display-updates-2026-08-18"`
+
+    - `"ce-user-management-2026-07-13"`
+
+    - `"mid-conversation-output-config-2026-07-01"`
+
+    - `"thinking-binding-controls-2026-08-01"`
+
+    - `"mid-conversation-system-clear-at-2026-08-21"`
+
+    - `"compact-2026-09-04"`
+
+    - `"inline-tools-2026-09-15"`
+
+    - `"mcp-client-2026-09-15"`
+
+- `workspace_id: Optional[str]`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `class BetaEnvironment`
+
+  Unified Environment resource for both cloud and self-hosted environments.
+
+  - `type: Literal["environment"]`
+
+    The type of object (always 'environment')
+
+    default: environment
+
+  - `id: str`
+
+    Environment identifier (e.g., 'env_...')
+
+  - `archived_at: Optional[str]`
+
+    RFC 3339 timestamp when environment was archived, or null if not archived
+
+  - `config: Config`
+
+    Environment configuration (either Anthropic Cloud or self-hosted)
+
+    - `class BetaCloudConfig`
+
+      `cloud` environment configuration.
+
+      - `type: Literal["cloud"]`
+
+        Environment type
+
+      - `networking: Networking`
+
+        Network configuration policy.
+
+        - `class BetaUnrestrictedNetwork`
+
+          Unrestricted network access.
+
+          - `type: Literal["unrestricted"]`
+
+            Network policy type
+
+        - `class BetaLimitedNetwork`
+
+          Limited network access.
+
+          - `type: Literal["limited"]`
+
+            Network policy type
+
+          - `allow_mcp_servers: bool`
+
+            Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
+
+          - `allow_package_managers: bool`
+
+            Permits outbound access to public package registries (PyPI, npm, etc.) beyond those listed in the `allowed_hosts` array.
+
+          - `allowed_hosts: List[str]`
+
+            Specifies domains the container can reach.
+
+      - `packages: BetaPackages`
+
+        Package manager configuration.
+
+        - `type: Optional[Literal["packages"]]`
+
+          Package configuration type
+
+          default: packages
+
+        - `apt: List[str]`
+
+          Ubuntu/Debian packages to install
+
+        - `cargo: List[str]`
+
+          Rust packages to install
+
+        - `gem: List[str]`
+
+          Ruby packages to install
+
+        - `go: List[str]`
+
+          Go packages to install
+
+        - `npm: List[str]`
+
+          Node.js packages to install
+
+        - `pip: List[str]`
+
+          Python packages to install
+
+    - `class BetaSelfHostedConfig`
+
+      Configuration for self-hosted environments.
+
+      - `type: Literal["self_hosted"]`
+
+        Environment type
+
+  - `created_at: str`
+
+    RFC 3339 timestamp when environment was created
+
+  - `description: Optional[str]`
+
+    User-provided description for the environment; null when unset
+
+  - `metadata: Dict[str, str]`
+
+    User-provided metadata key-value pairs
+
+  - `name: str`
+
+    Human-readable name for the environment
+
+  - `updated_at: str`
+
+    RFC 3339 timestamp when environment was last updated
+
+  - `scope: Optional[Literal["organization", "account"]]`
+
+    The visibility scope for this environment. 'organization' means visible to all accounts. 'account' means visible only to the owning account.
+
+    - `"organization"`
+
+    - `"account"`
+
+#### Example
+
+```python
+import os
+from anthropic import Anthropic
+
+client = Anthropic(
+    api_key=os.environ.get(
+        "ANTHROPIC_API_KEY"
+    ),  # This is the default and can be omitted
+)
+beta_environment = client.beta.environments.retrieve(
+    environment_id="env_011CZkZ9X2dpNyB7HsEFoRfW",
+)
+print(beta_environment.id)
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "env_011CZkZ9X2dpNyB7HsEFoRfW",
+  "archived_at": null,
+  "config": {
+    "networking": {
+      "allow_mcp_servers": false,
+      "allow_package_managers": true,
+      "allowed_hosts": [
+        "api.example.com"
+      ],
+      "type": "limited"
+    },
+    "packages": {
+      "apt": [
+        "string"
+      ],
+      "cargo": [
+        "string"
+      ],
+      "gem": [
+        "string"
+      ],
+      "go": [
+        "string"
+      ],
+      "npm": [
+        "string"
+      ],
+      "pip": [
+        "pandas",
+        "numpy"
+      ],
+      "type": "packages"
+    },
+    "type": "cloud"
+  },
+  "created_at": "2026-03-15T10:00:00Z",
+  "description": "Python environment with data-analysis packages.",
+  "metadata": {},
+  "name": "python-data-analysis",
+  "type": "environment",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "scope": "organization"
+}
+```
+
+### Update Environment
+
+`beta.environments.update(environment_id, **kwargs)  -> BetaEnvironment`
+
+**POST** `/v1/environments/{environment_id}`
+
+Update an existing environment's configuration.
+
+#### Parameters
+
+- `environment_id: str`
+
+- `config: Optional[Config]`
+
+  Updated environment configuration
+
+  - `class BetaCloudConfigParams`
+
+    Request params for `cloud` environment configuration.
+
+    Fields default to null; on update, omitted fields preserve the
+    existing value.
+
+    - `type: Literal["cloud"]`
+
+      Environment type
+
+    - `networking: Optional[Networking]`
+
+      Network configuration policy. Omit on update to preserve the existing value.
+
+      - `class BetaUnrestrictedNetwork`
+
+        Unrestricted network access.
+
+        - `type: Literal["unrestricted"]`
+
+          Network policy type
+
+      - `class BetaLimitedNetworkParams`
+
+        Limited network request params.
+
+        Fields default to null; on update, omitted fields preserve the
+        existing value.
+
+        - `type: Literal["limited"]`
+
+          Network policy type
+
+        - `allow_mcp_servers: Optional[bool]`
+
+          Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array. Defaults to `false`.
+
+        - `allow_package_managers: Optional[bool]`
+
+          Permits outbound access to public package registries (PyPI, npm, etc.) beyond those listed in the `allowed_hosts` array. Defaults to `false` on creation. Must be `true` when `packages` are specified.
+
+        - `allowed_hosts: Optional[List[str]]`
+
+          Specifies domains the container can reach.
+
+    - `packages: Optional[BetaPackagesParams]`
+
+      Package manager configuration. Under `limited` networking, requires `networking.allow_package_managers` to be `true`. Omit on update to preserve the existing value.
+
+      - `type: Optional[Literal["packages"]]`
+
+        Package configuration type
+
+        default: packages
+
+      - `apt: Optional[List[str]]`
+
+        Ubuntu/Debian packages to install
+
+      - `cargo: Optional[List[str]]`
+
+        Rust packages to install
+
+      - `gem: Optional[List[str]]`
+
+        Ruby packages to install
+
+      - `go: Optional[List[str]]`
+
+        Go packages to install
+
+      - `npm: Optional[List[str]]`
+
+        Node.js packages to install
+
+      - `pip: Optional[List[str]]`
+
+        Python packages to install
+
+  - `class BetaSelfHostedConfigParams`
+
+    Request params for `self_hosted` environment configuration.
+
+    - `type: Literal["self_hosted"]`
+
+      Environment type
+
+- `description: Optional[str]`
+
+  Updated description of the environment. Omit to preserve; null clears to null; an empty string is stored as an empty string.
+
+  maxLength: 1024
+
+- `metadata: Optional[Dict[str, Optional[str]]]`
+
+  User-provided metadata key-value pairs. Set a value to null or empty string to delete the key.
+
+- `name: Optional[str]`
+
+  Updated name for the environment
+
+  minLength: 1, maxLength: 256
+
+- `scope: Optional[Literal["organization", "account"]]`
+
+  The visibility scope for this environment. 'organization' makes the environment visible to all accounts. 'account' restricts visibility to the owning account only.
+
+  - `"organization"`
+
+  - `"account"`
+
+- `betas: Optional[List[AnthropicBetaParam]]`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `str`
+
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 45 more]`
+
+    - `"message-batches-2024-09-24"`
+
+    - `"prompt-caching-2024-07-31"`
+
+    - `"computer-use-2024-10-22"`
+
+    - `"computer-use-2025-01-24"`
+
+    - `"pdfs-2024-09-25"`
+
+    - `"token-counting-2024-11-01"`
+
+    - `"token-efficient-tools-2025-02-19"`
+
+    - `"output-128k-2025-02-19"`
+
+    - `"files-api-2025-04-14"`
+
+    - `"mcp-client-2025-04-04"`
+
+    - `"mcp-client-2025-11-20"`
+
+    - `"dev-full-thinking-2025-05-14"`
+
+    - `"interleaved-thinking-2025-05-14"`
+
+    - `"code-execution-2025-05-22"`
+
+    - `"extended-cache-ttl-2025-04-11"`
+
+    - `"context-1m-2025-08-07"`
+
+    - `"context-management-2025-06-27"`
+
+    - `"model-context-window-exceeded-2025-08-26"`
+
+    - `"skills-2025-10-02"`
+
+    - `"fast-mode-2026-02-01"`
+
+    - `"output-300k-2026-03-24"`
+
+    - `"user-profiles-2026-03-24"`
+
+    - `"user-profiles-2026-08-18"`
+
+    - `"user-profiles-2026-09-04"`
+
+    - `"advisor-tool-2026-03-01"`
+
+    - `"managed-agents-2026-04-01"`
+
+    - `"cache-diagnosis-2026-04-07"`
+
+    - `"dreaming-2026-04-21"`
+
+    - `"thinking-token-count-2026-05-13"`
+
+    - `"server-side-fallback-2026-06-01"`
+
+    - `"server-side-fallback-2026-07-01"`
+
+    - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
+
+    - `"mid-conversation-tool-changes-2026-07-01"`
+
+    - `"compact-2026-01-12"`
+
+    - `"computer-use-2025-11-24"`
+
+    - `"mcp-tunnels-2026-06-22"`
+
+    - `"structured-outputs-2025-11-13"`
+
+    - `"task-budgets-2026-03-13"`
+
+    - `"thinking-display-updates-2026-08-18"`
+
+    - `"ce-user-management-2026-07-13"`
+
+    - `"mid-conversation-output-config-2026-07-01"`
+
+    - `"thinking-binding-controls-2026-08-01"`
+
+    - `"mid-conversation-system-clear-at-2026-08-21"`
+
+    - `"compact-2026-09-04"`
+
+    - `"inline-tools-2026-09-15"`
+
+    - `"mcp-client-2026-09-15"`
+
+- `workspace_id: Optional[str]`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `class BetaEnvironment`
+
+  Unified Environment resource for both cloud and self-hosted environments.
+
+  - `type: Literal["environment"]`
+
+    The type of object (always 'environment')
+
+    default: environment
+
+  - `id: str`
+
+    Environment identifier (e.g., 'env_...')
+
+  - `archived_at: Optional[str]`
+
+    RFC 3339 timestamp when environment was archived, or null if not archived
+
+  - `config: Config`
+
+    Environment configuration (either Anthropic Cloud or self-hosted)
+
+    - `class BetaCloudConfig`
+
+      `cloud` environment configuration.
+
+      - `type: Literal["cloud"]`
+
+        Environment type
+
+      - `networking: Networking`
+
+        Network configuration policy.
+
+        - `class BetaUnrestrictedNetwork`
+
+          Unrestricted network access.
+
+          - `type: Literal["unrestricted"]`
+
+            Network policy type
+
+        - `class BetaLimitedNetwork`
+
+          Limited network access.
+
+          - `type: Literal["limited"]`
+
+            Network policy type
+
+          - `allow_mcp_servers: bool`
+
+            Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
+
+          - `allow_package_managers: bool`
+
+            Permits outbound access to public package registries (PyPI, npm, etc.) beyond those listed in the `allowed_hosts` array.
+
+          - `allowed_hosts: List[str]`
+
+            Specifies domains the container can reach.
+
+      - `packages: BetaPackages`
+
+        Package manager configuration.
+
+        - `type: Optional[Literal["packages"]]`
+
+          Package configuration type
+
+          default: packages
+
+        - `apt: List[str]`
+
+          Ubuntu/Debian packages to install
+
+        - `cargo: List[str]`
+
+          Rust packages to install
+
+        - `gem: List[str]`
+
+          Ruby packages to install
+
+        - `go: List[str]`
+
+          Go packages to install
+
+        - `npm: List[str]`
+
+          Node.js packages to install
+
+        - `pip: List[str]`
+
+          Python packages to install
+
+    - `class BetaSelfHostedConfig`
+
+      Configuration for self-hosted environments.
+
+      - `type: Literal["self_hosted"]`
+
+        Environment type
+
+  - `created_at: str`
+
+    RFC 3339 timestamp when environment was created
+
+  - `description: Optional[str]`
+
+    User-provided description for the environment; null when unset
+
+  - `metadata: Dict[str, str]`
+
+    User-provided metadata key-value pairs
+
+  - `name: str`
+
+    Human-readable name for the environment
+
+  - `updated_at: str`
+
+    RFC 3339 timestamp when environment was last updated
+
+  - `scope: Optional[Literal["organization", "account"]]`
+
+    The visibility scope for this environment. 'organization' means visible to all accounts. 'account' means visible only to the owning account.
+
+    - `"organization"`
+
+    - `"account"`
+
+#### Example
+
+```python
+import os
+from anthropic import Anthropic
+
+client = Anthropic(
+    api_key=os.environ.get(
+        "ANTHROPIC_API_KEY"
+    ),  # This is the default and can be omitted
+)
+beta_environment = client.beta.environments.update(
+    environment_id="env_011CZkZ9X2dpNyB7HsEFoRfW",
+)
+print(beta_environment.id)
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "env_011CZkZ9X2dpNyB7HsEFoRfW",
+  "archived_at": null,
+  "config": {
+    "networking": {
+      "allow_mcp_servers": false,
+      "allow_package_managers": true,
+      "allowed_hosts": [
+        "api.example.com"
+      ],
+      "type": "limited"
+    },
+    "packages": {
+      "apt": [
+        "string"
+      ],
+      "cargo": [
+        "string"
+      ],
+      "gem": [
+        "string"
+      ],
+      "go": [
+        "string"
+      ],
+      "npm": [
+        "string"
+      ],
+      "pip": [
+        "pandas",
+        "numpy"
+      ],
+      "type": "packages"
+    },
+    "type": "cloud"
+  },
+  "created_at": "2026-03-15T10:00:00Z",
+  "description": "Python environment with data-analysis packages.",
+  "metadata": {},
+  "name": "python-data-analysis",
+  "type": "environment",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "scope": "organization"
+}
+```
+
+### Delete Environment
+
+`beta.environments.delete(environment_id, **kwargs)  -> BetaEnvironmentDeleteResponse`
+
+**DELETE** `/v1/environments/{environment_id}`
+
+Delete an environment by ID. Returns a confirmation of the deletion.
+
+#### Parameters
+
+- `environment_id: str`
+
+- `betas: Optional[List[AnthropicBetaParam]]`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `str`
+
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 45 more]`
+
+    - `"message-batches-2024-09-24"`
+
+    - `"prompt-caching-2024-07-31"`
+
+    - `"computer-use-2024-10-22"`
+
+    - `"computer-use-2025-01-24"`
+
+    - `"pdfs-2024-09-25"`
+
+    - `"token-counting-2024-11-01"`
+
+    - `"token-efficient-tools-2025-02-19"`
+
+    - `"output-128k-2025-02-19"`
+
+    - `"files-api-2025-04-14"`
+
+    - `"mcp-client-2025-04-04"`
+
+    - `"mcp-client-2025-11-20"`
+
+    - `"dev-full-thinking-2025-05-14"`
+
+    - `"interleaved-thinking-2025-05-14"`
+
+    - `"code-execution-2025-05-22"`
+
+    - `"extended-cache-ttl-2025-04-11"`
+
+    - `"context-1m-2025-08-07"`
+
+    - `"context-management-2025-06-27"`
+
+    - `"model-context-window-exceeded-2025-08-26"`
+
+    - `"skills-2025-10-02"`
+
+    - `"fast-mode-2026-02-01"`
+
+    - `"output-300k-2026-03-24"`
+
+    - `"user-profiles-2026-03-24"`
+
+    - `"user-profiles-2026-08-18"`
+
+    - `"user-profiles-2026-09-04"`
+
+    - `"advisor-tool-2026-03-01"`
+
+    - `"managed-agents-2026-04-01"`
+
+    - `"cache-diagnosis-2026-04-07"`
+
+    - `"dreaming-2026-04-21"`
+
+    - `"thinking-token-count-2026-05-13"`
+
+    - `"server-side-fallback-2026-06-01"`
+
+    - `"server-side-fallback-2026-07-01"`
+
+    - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
+
+    - `"mid-conversation-tool-changes-2026-07-01"`
+
+    - `"compact-2026-01-12"`
+
+    - `"computer-use-2025-11-24"`
+
+    - `"mcp-tunnels-2026-06-22"`
+
+    - `"structured-outputs-2025-11-13"`
+
+    - `"task-budgets-2026-03-13"`
+
+    - `"thinking-display-updates-2026-08-18"`
+
+    - `"ce-user-management-2026-07-13"`
+
+    - `"mid-conversation-output-config-2026-07-01"`
+
+    - `"thinking-binding-controls-2026-08-01"`
+
+    - `"mid-conversation-system-clear-at-2026-08-21"`
+
+    - `"compact-2026-09-04"`
+
+    - `"inline-tools-2026-09-15"`
+
+    - `"mcp-client-2026-09-15"`
+
+- `workspace_id: Optional[str]`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `class BetaEnvironmentDeleteResponse`
+
+  Response after deleting an environment.
+
+  - `type: Literal["environment_deleted"]`
+
+    The type of response
+
+    default: environment_deleted
+
+  - `id: str`
+
+    Environment identifier
+
+#### Example
+
+```python
+import os
+from anthropic import Anthropic
+
+client = Anthropic(
+    api_key=os.environ.get(
+        "ANTHROPIC_API_KEY"
+    ),  # This is the default and can be omitted
+)
+beta_environment_delete_response = client.beta.environments.delete(
+    environment_id="env_011CZkZ9X2dpNyB7HsEFoRfW",
+)
+print(beta_environment_delete_response.id)
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "env_011CZkZ9X2dpNyB7HsEFoRfW",
+  "type": "environment_deleted"
+}
+```
+
+### Archive Environment
+
+`beta.environments.archive(environment_id, **kwargs)  -> BetaEnvironment`
+
+**POST** `/v1/environments/{environment_id}/archive`
+
+Archive an environment by ID. Archived environments cannot be used to create new sessions.
+
+#### Parameters
+
+- `environment_id: str`
+
+- `betas: Optional[List[AnthropicBetaParam]]`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `str`
+
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 45 more]`
+
+    - `"message-batches-2024-09-24"`
+
+    - `"prompt-caching-2024-07-31"`
+
+    - `"computer-use-2024-10-22"`
+
+    - `"computer-use-2025-01-24"`
+
+    - `"pdfs-2024-09-25"`
+
+    - `"token-counting-2024-11-01"`
+
+    - `"token-efficient-tools-2025-02-19"`
+
+    - `"output-128k-2025-02-19"`
+
+    - `"files-api-2025-04-14"`
+
+    - `"mcp-client-2025-04-04"`
+
+    - `"mcp-client-2025-11-20"`
+
+    - `"dev-full-thinking-2025-05-14"`
+
+    - `"interleaved-thinking-2025-05-14"`
+
+    - `"code-execution-2025-05-22"`
+
+    - `"extended-cache-ttl-2025-04-11"`
+
+    - `"context-1m-2025-08-07"`
+
+    - `"context-management-2025-06-27"`
+
+    - `"model-context-window-exceeded-2025-08-26"`
+
+    - `"skills-2025-10-02"`
+
+    - `"fast-mode-2026-02-01"`
+
+    - `"output-300k-2026-03-24"`
+
+    - `"user-profiles-2026-03-24"`
+
+    - `"user-profiles-2026-08-18"`
+
+    - `"user-profiles-2026-09-04"`
+
+    - `"advisor-tool-2026-03-01"`
+
+    - `"managed-agents-2026-04-01"`
+
+    - `"cache-diagnosis-2026-04-07"`
+
+    - `"dreaming-2026-04-21"`
+
+    - `"thinking-token-count-2026-05-13"`
+
+    - `"server-side-fallback-2026-06-01"`
+
+    - `"server-side-fallback-2026-07-01"`
+
+    - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
+
+    - `"mid-conversation-tool-changes-2026-07-01"`
+
+    - `"compact-2026-01-12"`
+
+    - `"computer-use-2025-11-24"`
+
+    - `"mcp-tunnels-2026-06-22"`
+
+    - `"structured-outputs-2025-11-13"`
+
+    - `"task-budgets-2026-03-13"`
+
+    - `"thinking-display-updates-2026-08-18"`
+
+    - `"ce-user-management-2026-07-13"`
+
+    - `"mid-conversation-output-config-2026-07-01"`
+
+    - `"thinking-binding-controls-2026-08-01"`
+
+    - `"mid-conversation-system-clear-at-2026-08-21"`
+
+    - `"compact-2026-09-04"`
+
+    - `"inline-tools-2026-09-15"`
+
+    - `"mcp-client-2026-09-15"`
+
+- `workspace_id: Optional[str]`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `class BetaEnvironment`
+
+  Unified Environment resource for both cloud and self-hosted environments.
+
+  - `type: Literal["environment"]`
+
+    The type of object (always 'environment')
+
+    default: environment
+
+  - `id: str`
+
+    Environment identifier (e.g., 'env_...')
+
+  - `archived_at: Optional[str]`
+
+    RFC 3339 timestamp when environment was archived, or null if not archived
+
+  - `config: Config`
+
+    Environment configuration (either Anthropic Cloud or self-hosted)
+
+    - `class BetaCloudConfig`
+
+      `cloud` environment configuration.
+
+      - `type: Literal["cloud"]`
+
+        Environment type
+
+      - `networking: Networking`
+
+        Network configuration policy.
+
+        - `class BetaUnrestrictedNetwork`
+
+          Unrestricted network access.
+
+          - `type: Literal["unrestricted"]`
+
+            Network policy type
+
+        - `class BetaLimitedNetwork`
+
+          Limited network access.
+
+          - `type: Literal["limited"]`
+
+            Network policy type
+
+          - `allow_mcp_servers: bool`
+
+            Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
+
+          - `allow_package_managers: bool`
+
+            Permits outbound access to public package registries (PyPI, npm, etc.) beyond those listed in the `allowed_hosts` array.
+
+          - `allowed_hosts: List[str]`
+
+            Specifies domains the container can reach.
+
+      - `packages: BetaPackages`
+
+        Package manager configuration.
+
+        - `type: Optional[Literal["packages"]]`
+
+          Package configuration type
+
+          default: packages
+
+        - `apt: List[str]`
+
+          Ubuntu/Debian packages to install
+
+        - `cargo: List[str]`
+
+          Rust packages to install
+
+        - `gem: List[str]`
+
+          Ruby packages to install
+
+        - `go: List[str]`
+
+          Go packages to install
+
+        - `npm: List[str]`
+
+          Node.js packages to install
+
+        - `pip: List[str]`
+
+          Python packages to install
+
+    - `class BetaSelfHostedConfig`
+
+      Configuration for self-hosted environments.
+
+      - `type: Literal["self_hosted"]`
+
+        Environment type
+
+  - `created_at: str`
+
+    RFC 3339 timestamp when environment was created
+
+  - `description: Optional[str]`
+
+    User-provided description for the environment; null when unset
+
+  - `metadata: Dict[str, str]`
+
+    User-provided metadata key-value pairs
+
+  - `name: str`
+
+    Human-readable name for the environment
+
+  - `updated_at: str`
+
+    RFC 3339 timestamp when environment was last updated
+
+  - `scope: Optional[Literal["organization", "account"]]`
+
+    The visibility scope for this environment. 'organization' means visible to all accounts. 'account' means visible only to the owning account.
+
+    - `"organization"`
+
+    - `"account"`
+
+#### Example
+
+```python
+import os
+from anthropic import Anthropic
+
+client = Anthropic(
+    api_key=os.environ.get(
+        "ANTHROPIC_API_KEY"
+    ),  # This is the default and can be omitted
+)
+beta_environment = client.beta.environments.archive(
+    environment_id="env_011CZkZ9X2dpNyB7HsEFoRfW",
+)
+print(beta_environment.id)
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "env_011CZkZ9X2dpNyB7HsEFoRfW",
+  "archived_at": null,
+  "config": {
+    "networking": {
+      "allow_mcp_servers": false,
+      "allow_package_managers": true,
+      "allowed_hosts": [
+        "api.example.com"
+      ],
+      "type": "limited"
+    },
+    "packages": {
+      "apt": [
+        "string"
+      ],
+      "cargo": [
+        "string"
+      ],
+      "gem": [
+        "string"
+      ],
+      "go": [
+        "string"
+      ],
+      "npm": [
+        "string"
+      ],
+      "pip": [
+        "pandas",
+        "numpy"
+      ],
+      "type": "packages"
+    },
+    "type": "cloud"
+  },
+  "created_at": "2026-03-15T10:00:00Z",
+  "description": "Python environment with data-analysis packages.",
+  "metadata": {},
+  "name": "python-data-analysis",
+  "type": "environment",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "scope": "organization"
+}
+```
+
+## Beta › Environments › Work
+
+### Get Work Item
+
+`beta.environments.work.retrieve(work_id, **kwargs)  -> BetaSelfHostedWork`
+
+**GET** `/v1/environments/{environment_id}/work/{work_id}`
+
+Note: these endpoints are called automatically by the pre-built environment worker provided in the SDKs and CLI, for orchestrating sessions with self-hosted sandbox environments. They are included here as a reference; you do not need to invoke them directly.
+
+Retrieve detailed information about a specific work item.
+
+#### Parameters
+
+- `environment_id: str`
+
+- `work_id: str`
+
+- `betas: Optional[List[AnthropicBetaParam]]`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `str`
+
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 45 more]`
+
+    - `"message-batches-2024-09-24"`
+
+    - `"prompt-caching-2024-07-31"`
+
+    - `"computer-use-2024-10-22"`
+
+    - `"computer-use-2025-01-24"`
+
+    - `"pdfs-2024-09-25"`
+
+    - `"token-counting-2024-11-01"`
+
+    - `"token-efficient-tools-2025-02-19"`
+
+    - `"output-128k-2025-02-19"`
+
+    - `"files-api-2025-04-14"`
+
+    - `"mcp-client-2025-04-04"`
+
+    - `"mcp-client-2025-11-20"`
+
+    - `"dev-full-thinking-2025-05-14"`
+
+    - `"interleaved-thinking-2025-05-14"`
+
+    - `"code-execution-2025-05-22"`
+
+    - `"extended-cache-ttl-2025-04-11"`
+
+    - `"context-1m-2025-08-07"`
+
+    - `"context-management-2025-06-27"`
+
+    - `"model-context-window-exceeded-2025-08-26"`
+
+    - `"skills-2025-10-02"`
+
+    - `"fast-mode-2026-02-01"`
+
+    - `"output-300k-2026-03-24"`
+
+    - `"user-profiles-2026-03-24"`
+
+    - `"user-profiles-2026-08-18"`
+
+    - `"user-profiles-2026-09-04"`
+
+    - `"advisor-tool-2026-03-01"`
+
+    - `"managed-agents-2026-04-01"`
+
+    - `"cache-diagnosis-2026-04-07"`
+
+    - `"dreaming-2026-04-21"`
+
+    - `"thinking-token-count-2026-05-13"`
+
+    - `"server-side-fallback-2026-06-01"`
+
+    - `"server-side-fallback-2026-07-01"`
+
+    - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
+
+    - `"mid-conversation-tool-changes-2026-07-01"`
+
+    - `"compact-2026-01-12"`
+
+    - `"computer-use-2025-11-24"`
+
+    - `"mcp-tunnels-2026-06-22"`
+
+    - `"structured-outputs-2025-11-13"`
+
+    - `"task-budgets-2026-03-13"`
+
+    - `"thinking-display-updates-2026-08-18"`
+
+    - `"ce-user-management-2026-07-13"`
+
+    - `"mid-conversation-output-config-2026-07-01"`
+
+    - `"thinking-binding-controls-2026-08-01"`
+
+    - `"mid-conversation-system-clear-at-2026-08-21"`
+
+    - `"compact-2026-09-04"`
+
+    - `"inline-tools-2026-09-15"`
+
+    - `"mcp-client-2026-09-15"`
+
+- `workspace_id: Optional[str]`
+
+  Optional header to select the Workspace for this request. The value is a Workspace ID (for example, `wrkspc_011CZkZaBF1tNoB5wlCeusgy`).
+
+  Only needed for credentials that can act on more than one Workspace. A credential that belongs to a specific Workspace may omit it; if sent, it must match that Workspace.
+
+#### Returns
+
+- `class BetaSelfHostedWork`
+
+  Work resource representing a unit of work in a self-hosted environment.
+
+  Work items are queued when sessions are created or when long-dormant sessions
+  receive new messages. The environment worker polls for work to execute in a
+  self-hosted sandbox.
+
+  - `type: Literal["work"]`
+
+    The type of object (always 'work')
+
+    default: work
+
+  - `id: str`
+
+    Work identifier (e.g., 'work_...')
+
+  - `acknowledged_at: Optional[str]`
+
+    RFC 3339 timestamp when the work item was acknowledged and assigned to a self-hosted sandbox
+
+  - `created_at: str`
+
+    RFC 3339 timestamp when work was created
+
+  - `data: BetaSessionWorkData`
+
+    The actual work to be performed
+
+    - `type: Literal["session"]`
+
+      Type of work data
+
+    - `id: str`
+
+      Session identifier (e.g., 'session_...')
+
+  - `environment_id: str`
+
+    Environment identifier this work belongs to (e.g., `env_...`)
+
+  - `latest_heartbeat_at: Optional[str]`
+
+    RFC 3339 timestamp of the most recent heartbeat
+
+  - `metadata: Dict[str, str]`
+
+    User-provided metadata key-value pairs associated with this work item
+
+  - `secret: Optional[str]`
+
+    Credential payload used by the environment worker to execute this work item. May be populated when polling for work; null on all other retrieval paths.
+
+  - `started_at: Optional[str]`
+
+    RFC 3339 timestamp when work execution started
+
+  - `state: Literal["queued", "starting", "active", 2 more]`
+
+    Current state of the work item
+
+    - `"queued"`
+
+    - `"starting"`
+
+    - `"active"`
+
+    - `"stopping"`
+
+    - `"stopped"`
+
+  - `stop_requested_at: Optional[str]`
+
+    RFC 3339 timestamp when stop was requested
+
+  - `stopped_at: Optional[str]`
+
+    RFC 3339 timestamp when work execution stopped
+
+#### Example
+
+```python
+import os
+from anthropic import Anthropic
+
+client = Anthropic(
+    api_key=os.environ.get(
+        "ANTHROPIC_API_KEY"
+    ),  # This is the default and can be omitted
+)
+beta_self_hosted_work = client.beta.environments.work.retrieve(
+    work_id="work_id",
+    environment_id="env_011CZkZ9X2dpNyB7HsEFoRfW",
+)
+print(beta_self_hosted_work.id)
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "id",
+  "acknowledged_at": "acknowledged_at",
+  "created_at": "created_at",
+  "data": {
+    "id": "id",
+    "type": "session"
+  },
+  "environment_id": "environment_id",
+  "latest_heartbeat_at": "latest_heartbeat_at",
+  "metadata": {
+    "foo": "string"
+  },
+  "secret": "secret",
+  "started_at": "started_at",
+  "state": "queued",
+  "stop_requested_at": "stop_requested_at",
+  "stopped_at": "stopped_at",
+  "type": "work"
+}
+```
+
+### Poll for Work
+
+`beta.environments.work.poll(environment_id, **kwargs)  -> BetaSelfHostedWork`
+
+**GET** `/v1/environments/{environment_id}/work/poll`
+
+Note: these endpoints are called automatically by the pre-built environment worker provided in the SDKs and CLI, for orchestrating sessions with self-hosted sandbox environments. They are included here as a reference; you do not need to invoke them directly.
+
+Long poll for work items in the queue.
+
+#### Parameters
+
+- `environment_id: str`
+
+- `block_ms: Optional[int]`
+
+  How long to wait for work to arrive before returning. Must be 1-999 in milliseconds. Defaults to non-blocking (returns immediately if no work is available).
+
+  minimum: 1
+
+- `reclaim_older_than_ms: Optional[int]`
+
+  Reclaim unacknowledged work items older than this many milliseconds. If omitted, uses the default (5000ms).
+
+  minimum: 1
+
+- `betas: Optional[List[AnthropicBetaParam]]`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `str`
+
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 45 more]`
+
+    - `"message-batches-2024-09-24"`
+
+    - `"prompt-caching-2024-07-31"`
+
+    - `"computer-use-2024-10-22"`
+
+    - `"computer-use-2025-01-24"`
+
+    - `"pdfs-2024-09-25"`
+
+    - `"token-counting-2024-11-01"`
+
+    - `"token-efficient-tools-2025-02-19"`
+
+    - `"output-128k-2025-02-19"`
+
+    - `"files-api-2025-04-14"`
+
+    - `"mcp-client-2025-04-04"`
+
+    - `"mcp-client-2025-11-20"`
+
+    - `"dev-full-thinking-2025-05-14"`
+
+    - `"interleaved-thinking-2025-05-14"`
+
+    - `"code-execution-2025-05-22"`
+
+    - `"extended-cache-ttl-2025-04-11"`
+
+    - `"context-1m-2025-08-07"`
+
+    - `"context-management-2025-06-27"`
+
+    - `"model-context-window-exceeded-2025-08-26"`
+
+    - `"skills-2025-10-02"`
+
+    - `"fast-mode-2026-02-01"`
+
+    - `"output-300k-2026-03-24"`
+
+    - `"user-profiles-2026-03-24"`
+
+    - `"user-profiles-2026-08-18"`
+
+    - `"user-profiles-2026-09-04"`
+
+    - `"advisor-tool-2026-03-01"`
+
+    - `"managed-agents-2026-04-01"`
+
+    - `"cache-diagnosis-2026-04-07"`
+
+    - `"dreaming-2026-04-21"`
+
+    - `"thinking-token-count-2026-05-13"`
+
+    - `"server-side-fallback-2026-06-01"`
+
+    - `"server-side-fallback-2026-07-01"`
+
+    - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
+
+    - `"mid-conversation-tool-changes-2026-07-01"`
+
+    - `"compact-2026-01-12"`
+
+    - `"computer-use-2025-11-24"`
+
+    - `"mcp-tunnels-2026-06-22"`
+
+    - `"structured-outputs-2025-11-13"`
+
+    - `"task-budgets-2026-03-13"`
+
+    - `"thinking-display-updates-2026-08-18"`
+
+    - `"ce-user-management-2026-07-13"`
+
+    - `"mid-conversation-output-config-2026-07-01"`

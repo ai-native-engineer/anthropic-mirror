@@ -50,7 +50,7 @@ The strain showed up in three places: volume, language, and consistency. Teams h
 
 Q&A: Mercy Corps
 
-![Q&A: Mercy Corps ](https://assets.claude.com/a15693f14e23e900d2b8384289817c1350c8af76.jpg)
+![Q&A: Mercy Corps ](https://assets.claude.com/a15693f14e23e900d2b8384289817c1350c8af76.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Read the Q&A with AI Solutions and Delivery Manager Nayid Orozco on AI's biggest shift in humanitarian work.
 
@@ -80,7 +80,7 @@ In the current test flow, a report comes in, often in a local language. Direct i
 
 Nonprofits
 
-![Nonprofits](https://assets.claude.com/b46529adbd87da89ebb1e8191178d53278f93d1b.jpg)
+![Nonprofits](https://assets.claude.com/b46529adbd87da89ebb1e8191178d53278f93d1b.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Turn limited resources into lasting impact. Generate grant proposals, track program outcomes, and free your team to focus on serving your community.
 

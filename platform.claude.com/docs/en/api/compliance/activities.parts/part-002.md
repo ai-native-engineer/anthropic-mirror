@@ -3,47 +3,6 @@
 
 <!-- chunk-start -->
 
-        - `workos_event_id: string`
-
-        - `idp_connection_type: optional string or null`
-
-      - `FederatedIdentityActor object`
-
-        A federated external workload authenticated via a verified OIDC token.
-
-        Carries the verified issuer, subject, and audience claims from the
-        presented JWT.
-
-        - `type: optional "federated_identity_actor"`
-
-          default: federated_identity_actor
-
-        - `issuer: string`
-
-        - `subject: string`
-
-        - `audience: optional array of string`
-
-        - `ip_address: optional string or null`
-
-        - `user_agent: optional string or null`
-
-      - `FederatedActor object`
-
-        An external identity asserted by a trusted provider — a cloud-provider
-        gateway or a customer-registered federation issuer — acting without an
-        Anthropic-provisioned account or service account.
-
-        - `type: optional "federated_actor"`
-
-          default: federated_actor
-
-        - `provider: FederatedActorAwsProvider or FederatedActorAzureProvider or FederatedActorGcpProvider or FederatedActorOidcProvider`
-
-          - `FederatedActorAwsProvider object`
-
-            Asserting party: the AWS account the organization is bound to.
-
             - `type: optional "aws"`
 
               default: aws
@@ -42144,7 +42103,7 @@
 
           - `duration: number`
 
-            maximum: 2147483647, minimum: -2147483648
+            minimum: -2147483648, maximum: 2147483647
 
           - `timescale: "day" or "indefinite" or "month"`
 
@@ -42172,7 +42131,7 @@
 
           - `duration: number`
 
-            maximum: 2147483647, minimum: -2147483648
+            minimum: -2147483648, maximum: 2147483647
 
           - `timescale: "day" or "indefinite" or "month"`
 
@@ -42525,3 +42484,45 @@
         - `type: optional "web_search_api_settings"`
 
           default: web_search_api_settings
+
+        - `current_value: optional object or null`
+
+          Setting value immediately after this change
+
+          - `domain_filters: object or null`
+
+            Allowed/blocked domain filters shared by web_search and web_fetch tools.
+
+            - `allowed_domains: optional array of string or null`
+
+            - `blocked_domains: optional array of string or null`
+
+          - `is_enabled: boolean`
+
+        - `previous_value: optional object or null`
+
+          Setting value immediately before this change
+
+          - `domain_filters: object or null`
+
+            Allowed/blocked domain filters shared by web_search and web_fetch tools.
+
+            - `allowed_domains: optional array of string or null`
+
+            - `blocked_domains: optional array of string or null`
+
+          - `is_enabled: boolean`
+
+      - `WebFetchAPISettings object`
+
+        The web fetch API setting was changed for the organization.
+
+        - `type: optional "web_fetch_api_settings"`
+
+          default: web_fetch_api_settings
+
+        - `current_value: optional object or null`
+
+          Setting value immediately after this change
+
+          - `domain_filters: object or null`

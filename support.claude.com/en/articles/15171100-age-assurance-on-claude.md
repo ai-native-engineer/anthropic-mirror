@@ -20,7 +20,7 @@ Yoti offers several ways to confirm you're 18 or over. You can choose whichever 
 
 Yoti is an independently audited age verification provider for SOC2 compliance. Your selfie, document images, and any personal data are deleted by Yoti as soon as your age is checked. Anthropic never sees your ID or image; we receive only a pass/fail result and do not process or store any personal data from the verification.
 
-* [Install Claude Desktop](https://support.claude.com/en/articles/10065433-install-claude-desktop)
+* [Use connectors to extend Claude's capabilities](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities)
 * [Claude Code on the web](https://support.claude.com/en/articles/12618689-claude-code-on-the-web)
 * [Minimum age requirement access restriction](https://support.claude.com/en/articles/13117299-minimum-age-requirement-access-restriction)
 * [Identity verification on Claude](https://support.claude.com/en/articles/14328960-identity-verification-on-claude)

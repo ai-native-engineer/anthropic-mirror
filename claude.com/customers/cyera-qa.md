@@ -33,7 +33,7 @@ of Claude
 
 Case Study: Cyera
 
-![Case Study: Cyera](https://assets.claude.com/89033767e94ac58e818dacfe00536ac44f651b8b.jpg)
+![Case Study: Cyera](https://assets.claude.com/89033767e94ac58e818dacfe00536ac44f651b8b.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Read how Cyera scales agentic AI across 1,500 employees with Claude Enterprise.
 
@@ -91,7 +91,7 @@ One thing I'm pushing very hard is that there are no more errors in tickets when
 
 Cowork
 
-![Cowork](https://assets.claude.com/9716b96b8df867765a639f3ea8a07170508200bf.jpg)
+![Cowork](https://assets.claude.com/9716b96b8df867765a639f3ea8a07170508200bf.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Give Claude access to your local files and let it complete tasks autonomously. Agentic capabilities for non-technical knowledge work.
 

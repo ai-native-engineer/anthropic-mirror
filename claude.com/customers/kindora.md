@@ -47,7 +47,7 @@ In 2024 when Steele co-founded Outdoorithm Collective, a nonprofit connecting ur
 
 Kindora MCP Connector
 
-![Kindora MCP Connector](https://assets.claude.com/5ad9ad1569259eb3c62ddac9659134fe0aff025d.jpg)
+![Kindora MCP Connector](https://assets.claude.com/5ad9ad1569259eb3c62ddac9659134fe0aff025d.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Kindora’s MCP connector lets nonprofits access its prospecting tools directly within Claude.
 
@@ -75,7 +75,7 @@ Steele’s background is in chemical engineering and philanthropy, not software 
 
 Nonprofits
 
-![Nonprofits](https://assets.claude.com/b46529adbd87da89ebb1e8191178d53278f93d1b.jpg)
+![Nonprofits](https://assets.claude.com/b46529adbd87da89ebb1e8191178d53278f93d1b.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Turn limited resources into lasting impact. Generate grant proposals, track program outcomes, and free your team to focus on serving your community.
 

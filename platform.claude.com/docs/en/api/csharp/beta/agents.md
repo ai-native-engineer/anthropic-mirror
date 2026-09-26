@@ -223,7 +223,7 @@ Create Agent
 
       - `Speed? Speed`
 
-        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+        Inference speed mode. Defaults to `standard`.
 
         - `Standard("standard")`
 
@@ -265,7 +265,7 @@ Create Agent
 
   - `BetaManagedAgentsMultiagentParams? multiagent`
 
-    Body param: A coordinator topology: the session's primary thread orchestrates work by spawning session threads, each running an agent drawn from the `agents` roster.
+    Body param: Multiagent orchestration configuration. Currently supports the `coordinator` topology with a roster of 1-20 agents.
 
   - `IReadOnlyList<BetaManagedAgentsSkillParams> skills`
 
@@ -343,7 +343,7 @@ Create Agent
 
           - `PermissionPolicy? PermissionPolicy`
 
-            Permission policy for tool execution.
+            Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
             - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -379,7 +379,7 @@ Create Agent
 
           - `PermissionPolicy? PermissionPolicy`
 
-            Permission policy for tool execution.
+            Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
             - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -409,7 +409,7 @@ Create Agent
 
           - `PermissionPolicy? PermissionPolicy`
 
-            Permission policy for tool execution.
+            Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
             - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -439,7 +439,7 @@ Create Agent
 
           - `PermissionPolicy? PermissionPolicy`
 
-            Permission policy for tool execution.
+            Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
             - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -469,7 +469,7 @@ Create Agent
 
           - `PermissionPolicy? PermissionPolicy`
 
-            Permission policy for tool execution.
+            Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
             - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -499,7 +499,7 @@ Create Agent
 
           - `PermissionPolicy? PermissionPolicy`
 
-            Permission policy for tool execution.
+            Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
             - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -543,7 +543,7 @@ Create Agent
 
           - `PermissionPolicy? PermissionPolicy`
 
-            Permission policy for tool execution.
+            Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
             - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -581,7 +581,7 @@ Create Agent
 
           - `PermissionPolicy? PermissionPolicy`
 
-            Permission policy for tool execution.
+            Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
             - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -627,7 +627,7 @@ Create Agent
 
       - `BetaManagedAgentsAgentToolsetDefaultConfigParams? DefaultConfig`
 
-        Default configuration for all tools in a toolset.
+        Default configuration applied to all tools in this set.
 
         - `bool? Enabled`
 
@@ -635,7 +635,7 @@ Create Agent
 
         - `PermissionPolicy? PermissionPolicy`
 
-          Permission policy for tool execution.
+          Default permission policy for tools. Controls whether tool calls are auto-approved or require confirmation.
 
           - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -677,7 +677,7 @@ Create Agent
 
         - `PermissionPolicy? PermissionPolicy`
 
-          Permission policy for tool execution.
+          Permission policy for this tool. Overrides the `default_config` setting.
 
           - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -693,7 +693,7 @@ Create Agent
 
       - `BetaManagedAgentsMcpToolsetDefaultConfigParams? DefaultConfig`
 
-        Default configuration for all tools from an MCP server.
+        Default configuration for all tools from this server.
 
         - `bool? Enabled`
 
@@ -701,7 +701,7 @@ Create Agent
 
         - `PermissionPolicy? PermissionPolicy`
 
-          Permission policy for tool execution.
+          Default permission policy for tools from this server.
 
           - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -729,7 +729,7 @@ Create Agent
 
       - `required BetaManagedAgentsCustomToolInputSchema InputSchema`
 
-        JSON Schema for custom tool input parameters.
+        JSON Schema defining the expected input parameters for the tool.
 
         - `JsonElement Type = "object"`
 
@@ -861,7 +861,7 @@ Create Agent
 
   - `required DateTimeOffset? ArchivedAt`
 
-    A timestamp in RFC 3339 format
+    When the agent was archived. Null if not archived.
 
     format: date-time
 
@@ -955,7 +955,7 @@ Create Agent
 
     - `Effort Effort`
 
-      How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+      How hard Claude works on each inference call. One of `low`, `medium`, `high`, `xhigh`, `max`. Always present; resolved to the per-model default at save time when not supplied.
 
       - `class BetaManagedAgentsEffortLow`
 
@@ -993,7 +993,7 @@ Create Agent
 
     - `Speed Speed`
 
-      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Defaults to `standard`. Not all models support `fast`; invalid combinations are rejected at create time.
 
       - `Standard("standard")`
 
@@ -1001,7 +1001,7 @@ Create Agent
 
   - `required BetaManagedAgentsMultiagent? Multiagent`
 
-    Resolved coordinator topology with a concrete agent roster.
+    Multiagent orchestration configuration. Null when the agent is single-threaded.
 
     - `required Type Type`
 
@@ -1672,7 +1672,7 @@ List Agents
 
   - `required DateTimeOffset? ArchivedAt`
 
-    A timestamp in RFC 3339 format
+    When the agent was archived. Null if not archived.
 
     format: date-time
 
@@ -1766,7 +1766,7 @@ List Agents
 
     - `Effort Effort`
 
-      How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+      How hard Claude works on each inference call. One of `low`, `medium`, `high`, `xhigh`, `max`. Always present; resolved to the per-model default at save time when not supplied.
 
       - `class BetaManagedAgentsEffortLow`
 
@@ -1804,7 +1804,7 @@ List Agents
 
     - `Speed Speed`
 
-      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Defaults to `standard`. Not all models support `fast`; invalid combinations are rejected at create time.
 
       - `Standard("standard")`
 
@@ -1812,7 +1812,7 @@ List Agents
 
   - `required BetaManagedAgentsMultiagent? Multiagent`
 
-    Resolved coordinator topology with a concrete agent roster.
+    Multiagent orchestration configuration. Null when the agent is single-threaded.
 
     - `required Type Type`
 
@@ -2470,7 +2470,7 @@ Get Agent
 
   - `required DateTimeOffset? ArchivedAt`
 
-    A timestamp in RFC 3339 format
+    When the agent was archived. Null if not archived.
 
     format: date-time
 
@@ -2564,7 +2564,7 @@ Get Agent
 
     - `Effort Effort`
 
-      How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+      How hard Claude works on each inference call. One of `low`, `medium`, `high`, `xhigh`, `max`. Always present; resolved to the per-model default at save time when not supplied.
 
       - `class BetaManagedAgentsEffortLow`
 
@@ -2602,7 +2602,7 @@ Get Agent
 
     - `Speed Speed`
 
-      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Defaults to `standard`. Not all models support `fast`; invalid combinations are rejected at create time.
 
       - `Standard("standard")`
 
@@ -2610,7 +2610,7 @@ Get Agent
 
   - `required BetaManagedAgentsMultiagent? Multiagent`
 
-    Resolved coordinator topology with a concrete agent roster.
+    Multiagent orchestration configuration. Null when the agent is single-threaded.
 
     - `required Type Type`
 
@@ -3372,7 +3372,7 @@ Update Agent
 
       - `Speed? Speed`
 
-        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+        Inference speed mode. Defaults to `standard`.
 
         - `Standard("standard")`
 
@@ -3380,7 +3380,7 @@ Update Agent
 
   - `BetaManagedAgentsMultiagentParams? multiagent`
 
-    Body param: A coordinator topology: the session's primary thread orchestrates work by spawning session threads, each running an agent drawn from the `agents` roster.
+    Body param: Multiagent orchestration configuration. Full replacement. Omit to preserve; send null to clear.
 
   - `string name`
 
@@ -3464,7 +3464,7 @@ Update Agent
 
           - `PermissionPolicy? PermissionPolicy`
 
-            Permission policy for tool execution.
+            Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
             - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -3500,7 +3500,7 @@ Update Agent
 
           - `PermissionPolicy? PermissionPolicy`
 
-            Permission policy for tool execution.
+            Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
             - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -3530,7 +3530,7 @@ Update Agent
 
           - `PermissionPolicy? PermissionPolicy`
 
-            Permission policy for tool execution.
+            Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
             - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -3560,7 +3560,7 @@ Update Agent
 
           - `PermissionPolicy? PermissionPolicy`
 
-            Permission policy for tool execution.
+            Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
             - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -3590,7 +3590,7 @@ Update Agent
 
           - `PermissionPolicy? PermissionPolicy`
 
-            Permission policy for tool execution.
+            Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
             - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -3620,7 +3620,7 @@ Update Agent
 
           - `PermissionPolicy? PermissionPolicy`
 
-            Permission policy for tool execution.
+            Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
             - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -3664,7 +3664,7 @@ Update Agent
 
           - `PermissionPolicy? PermissionPolicy`
 
-            Permission policy for tool execution.
+            Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
             - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -3702,7 +3702,7 @@ Update Agent
 
           - `PermissionPolicy? PermissionPolicy`
 
-            Permission policy for tool execution.
+            Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
             - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -3748,7 +3748,7 @@ Update Agent
 
       - `BetaManagedAgentsAgentToolsetDefaultConfigParams? DefaultConfig`
 
-        Default configuration for all tools in a toolset.
+        Default configuration applied to all tools in this set.
 
         - `bool? Enabled`
 
@@ -3756,7 +3756,7 @@ Update Agent
 
         - `PermissionPolicy? PermissionPolicy`
 
-          Permission policy for tool execution.
+          Default permission policy for tools. Controls whether tool calls are auto-approved or require confirmation.
 
           - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -3798,7 +3798,7 @@ Update Agent
 
         - `PermissionPolicy? PermissionPolicy`
 
-          Permission policy for tool execution.
+          Permission policy for this tool. Overrides the `default_config` setting.
 
           - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -3814,7 +3814,7 @@ Update Agent
 
       - `BetaManagedAgentsMcpToolsetDefaultConfigParams? DefaultConfig`
 
-        Default configuration for all tools from an MCP server.
+        Default configuration for all tools from this server.
 
         - `bool? Enabled`
 
@@ -3822,7 +3822,7 @@ Update Agent
 
         - `PermissionPolicy? PermissionPolicy`
 
-          Permission policy for tool execution.
+          Default permission policy for tools from this server.
 
           - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -3850,7 +3850,7 @@ Update Agent
 
       - `required BetaManagedAgentsCustomToolInputSchema InputSchema`
 
-        JSON Schema for custom tool input parameters.
+        JSON Schema defining the expected input parameters for the tool.
 
         - `JsonElement Type = "object"`
 
@@ -3988,7 +3988,7 @@ Update Agent
 
   - `required DateTimeOffset? ArchivedAt`
 
-    A timestamp in RFC 3339 format
+    When the agent was archived. Null if not archived.
 
     format: date-time
 
@@ -4082,7 +4082,7 @@ Update Agent
 
     - `Effort Effort`
 
-      How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+      How hard Claude works on each inference call. One of `low`, `medium`, `high`, `xhigh`, `max`. Always present; resolved to the per-model default at save time when not supplied.
 
       - `class BetaManagedAgentsEffortLow`
 
@@ -4120,7 +4120,7 @@ Update Agent
 
     - `Speed Speed`
 
-      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Defaults to `standard`. Not all models support `fast`; invalid combinations are rejected at create time.
 
       - `Standard("standard")`
 
@@ -4128,7 +4128,7 @@ Update Agent
 
   - `required BetaManagedAgentsMultiagent? Multiagent`
 
-    Resolved coordinator topology with a concrete agent roster.
+    Multiagent orchestration configuration. Null when the agent is single-threaded.
 
     - `required Type Type`
 
@@ -4776,7 +4776,7 @@ Archive Agent
 
   - `required DateTimeOffset? ArchivedAt`
 
-    A timestamp in RFC 3339 format
+    When the agent was archived. Null if not archived.
 
     format: date-time
 
@@ -4870,7 +4870,7 @@ Archive Agent
 
     - `Effort Effort`
 
-      How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+      How hard Claude works on each inference call. One of `low`, `medium`, `high`, `xhigh`, `max`. Always present; resolved to the per-model default at save time when not supplied.
 
       - `class BetaManagedAgentsEffortLow`
 
@@ -4908,7 +4908,7 @@ Archive Agent
 
     - `Speed Speed`
 
-      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Defaults to `standard`. Not all models support `fast`; invalid combinations are rejected at create time.
 
       - `Standard("standard")`
 
@@ -4916,7 +4916,7 @@ Archive Agent
 
   - `required BetaManagedAgentsMultiagent? Multiagent`
 
-    Resolved coordinator topology with a concrete agent roster.
+    Multiagent orchestration configuration. Null when the agent is single-threaded.
 
     - `required Type Type`
 
@@ -5456,7 +5456,7 @@ Console.WriteLine(betaManagedAgentsAgent);
 
   - `required DateTimeOffset? ArchivedAt`
 
-    A timestamp in RFC 3339 format
+    When the agent was archived. Null if not archived.
 
     format: date-time
 
@@ -5550,7 +5550,7 @@ Console.WriteLine(betaManagedAgentsAgent);
 
     - `Effort Effort`
 
-      How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+      How hard Claude works on each inference call. One of `low`, `medium`, `high`, `xhigh`, `max`. Always present; resolved to the per-model default at save time when not supplied.
 
       - `class BetaManagedAgentsEffortLow`
 
@@ -5588,7 +5588,7 @@ Console.WriteLine(betaManagedAgentsAgent);
 
     - `Speed Speed`
 
-      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Defaults to `standard`. Not all models support `fast`; invalid combinations are rejected at create time.
 
       - `Standard("standard")`
 
@@ -5596,7 +5596,7 @@ Console.WriteLine(betaManagedAgentsAgent);
 
   - `required BetaManagedAgentsMultiagent? Multiagent`
 
-    Resolved coordinator topology with a concrete agent roster.
+    Multiagent orchestration configuration. Null when the agent is single-threaded.
 
     - `required Type Type`
 
@@ -6318,7 +6318,7 @@ Console.WriteLine(betaManagedAgentsAgent);
 
     - `PermissionPolicy? PermissionPolicy`
 
-      Permission policy for tool execution.
+      Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
       - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -6354,7 +6354,7 @@ Console.WriteLine(betaManagedAgentsAgent);
 
     - `PermissionPolicy? PermissionPolicy`
 
-      Permission policy for tool execution.
+      Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
       - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -6384,7 +6384,7 @@ Console.WriteLine(betaManagedAgentsAgent);
 
     - `PermissionPolicy? PermissionPolicy`
 
-      Permission policy for tool execution.
+      Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
       - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -6414,7 +6414,7 @@ Console.WriteLine(betaManagedAgentsAgent);
 
     - `PermissionPolicy? PermissionPolicy`
 
-      Permission policy for tool execution.
+      Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
       - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -6444,7 +6444,7 @@ Console.WriteLine(betaManagedAgentsAgent);
 
     - `PermissionPolicy? PermissionPolicy`
 
-      Permission policy for tool execution.
+      Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
       - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -6474,7 +6474,7 @@ Console.WriteLine(betaManagedAgentsAgent);
 
     - `PermissionPolicy? PermissionPolicy`
 
-      Permission policy for tool execution.
+      Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
       - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -6518,7 +6518,7 @@ Console.WriteLine(betaManagedAgentsAgent);
 
     - `PermissionPolicy? PermissionPolicy`
 
-      Permission policy for tool execution.
+      Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
       - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -6556,7 +6556,7 @@ Console.WriteLine(betaManagedAgentsAgent);
 
     - `PermissionPolicy? PermissionPolicy`
 
-      Permission policy for tool execution.
+      Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
       - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -6642,7 +6642,7 @@ Console.WriteLine(betaManagedAgentsAgent);
 
   - `PermissionPolicy? PermissionPolicy`
 
-    Permission policy for tool execution.
+    Default permission policy for tools. Controls whether tool calls are auto-approved or require confirmation.
 
     - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -7061,7 +7061,7 @@ Console.WriteLine(betaManagedAgentsAgent);
 
       - `PermissionPolicy? PermissionPolicy`
 
-        Permission policy for tool execution.
+        Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
         - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -7097,7 +7097,7 @@ Console.WriteLine(betaManagedAgentsAgent);
 
       - `PermissionPolicy? PermissionPolicy`
 
-        Permission policy for tool execution.
+        Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
         - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -7127,7 +7127,7 @@ Console.WriteLine(betaManagedAgentsAgent);
 
       - `PermissionPolicy? PermissionPolicy`
 
-        Permission policy for tool execution.
+        Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
         - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -7157,7 +7157,7 @@ Console.WriteLine(betaManagedAgentsAgent);
 
       - `PermissionPolicy? PermissionPolicy`
 
-        Permission policy for tool execution.
+        Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
         - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -7187,7 +7187,7 @@ Console.WriteLine(betaManagedAgentsAgent);
 
       - `PermissionPolicy? PermissionPolicy`
 
-        Permission policy for tool execution.
+        Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
         - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -7217,7 +7217,7 @@ Console.WriteLine(betaManagedAgentsAgent);
 
       - `PermissionPolicy? PermissionPolicy`
 
-        Permission policy for tool execution.
+        Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
         - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -7261,7 +7261,7 @@ Console.WriteLine(betaManagedAgentsAgent);
 
       - `PermissionPolicy? PermissionPolicy`
 
-        Permission policy for tool execution.
+        Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
         - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -7299,7 +7299,7 @@ Console.WriteLine(betaManagedAgentsAgent);
 
       - `PermissionPolicy? PermissionPolicy`
 
-        Permission policy for tool execution.
+        Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
         - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -7345,7 +7345,7 @@ Console.WriteLine(betaManagedAgentsAgent);
 
   - `BetaManagedAgentsAgentToolsetDefaultConfigParams? DefaultConfig`
 
-    Default configuration for all tools in a toolset.
+    Default configuration applied to all tools in this set.
 
     - `bool? Enabled`
 
@@ -7353,7 +7353,7 @@ Console.WriteLine(betaManagedAgentsAgent);
 
     - `PermissionPolicy? PermissionPolicy`
 
-      Permission policy for tool execution.
+      Default permission policy for tools. Controls whether tool calls are auto-approved or require confirmation.
 
       - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -7510,7 +7510,7 @@ Console.WriteLine(betaManagedAgentsAgent);
 
   - `PermissionPolicy? PermissionPolicy`
 
-    Permission policy for tool execution.
+    Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
     - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -7612,7 +7612,7 @@ Console.WriteLine(betaManagedAgentsAgent);
 
   - `required BetaManagedAgentsCustomToolInputSchema InputSchema`
 
-    JSON Schema for custom tool input parameters.
+    JSON Schema defining the expected input parameters for the tool.
 
     - `JsonElement Type = "object"`
 
@@ -7678,7 +7678,7 @@ Console.WriteLine(betaManagedAgentsAgent);
 
   - `PermissionPolicy? PermissionPolicy`
 
-    Permission policy for tool execution.
+    Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
     - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -7790,7 +7790,7 @@ Console.WriteLine(betaManagedAgentsAgent);
 
   - `PermissionPolicy? PermissionPolicy`
 
-    Permission policy for tool execution.
+    Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
     - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -7862,7 +7862,7 @@ Console.WriteLine(betaManagedAgentsAgent);
 
   - `PermissionPolicy? PermissionPolicy`
 
-    Permission policy for tool execution.
+    Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
     - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -7944,7 +7944,7 @@ Console.WriteLine(betaManagedAgentsAgent);
 
   - `PermissionPolicy? PermissionPolicy`
 
-    Permission policy for tool execution.
+    Permission policy for this tool. Overrides the `default_config` setting.
 
     - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -8064,7 +8064,7 @@ Console.WriteLine(betaManagedAgentsAgent);
 
   - `PermissionPolicy? PermissionPolicy`
 
-    Permission policy for tool execution.
+    Default permission policy for tools from this server.
 
     - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -8114,7 +8114,7 @@ Console.WriteLine(betaManagedAgentsAgent);
 
     - `PermissionPolicy? PermissionPolicy`
 
-      Permission policy for tool execution.
+      Permission policy for this tool. Overrides the `default_config` setting.
 
       - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -8136,7 +8136,7 @@ Console.WriteLine(betaManagedAgentsAgent);
 
   - `BetaManagedAgentsMcpToolsetDefaultConfigParams? DefaultConfig`
 
-    Default configuration for all tools from an MCP server.
+    Default configuration for all tools from this server.
 
     - `bool? Enabled`
 
@@ -8144,7 +8144,7 @@ Console.WriteLine(betaManagedAgentsAgent);
 
     - `PermissionPolicy? PermissionPolicy`
 
-      Permission policy for tool execution.
+      Default permission policy for tools from this server.
 
       - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -8232,7 +8232,7 @@ Console.WriteLine(betaManagedAgentsAgent);
 
   - `Effort Effort`
 
-    How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+    How hard Claude works on each inference call. One of `low`, `medium`, `high`, `xhigh`, `max`. Always present; resolved to the per-model default at save time when not supplied.
 
     - `class BetaManagedAgentsEffortLow`
 
@@ -8270,7 +8270,7 @@ Console.WriteLine(betaManagedAgentsAgent);
 
   - `Speed Speed`
 
-    Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+    Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Defaults to `standard`. Not all models support `fast`; invalid combinations are rejected at create time.
 
     - `Standard("standard")`
 
@@ -8412,7 +8412,7 @@ Console.WriteLine(betaManagedAgentsAgent);
 
   - `Speed? Speed`
 
-    Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+    Inference speed mode. Defaults to `standard`.
 
     - `Standard("standard")`
 
@@ -8562,7 +8562,7 @@ Console.WriteLine(betaManagedAgentsAgent);
 
   - `PermissionPolicy? PermissionPolicy`
 
-    Permission policy for tool execution.
+    Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
     - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -8674,7 +8674,7 @@ Console.WriteLine(betaManagedAgentsAgent);
 
     - `Effort Effort`
 
-      How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+      How hard Claude works on each inference call. One of `low`, `medium`, `high`, `xhigh`, `max`. Always present; resolved to the per-model default at save time when not supplied.
 
       - `class BetaManagedAgentsEffortLow`
 
@@ -8712,7 +8712,7 @@ Console.WriteLine(betaManagedAgentsAgent);
 
     - `Speed Speed`
 
-      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Defaults to `standard`. Not all models support `fast`; invalid combinations are rejected at create time.
 
       - `Standard("standard")`
 
@@ -9272,7 +9272,7 @@ Console.WriteLine(betaManagedAgentsAgent);
 
   - `PermissionPolicy? PermissionPolicy`
 
-    Permission policy for tool execution.
+    Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
     - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -9386,7 +9386,7 @@ Console.WriteLine(betaManagedAgentsAgent);
 
   - `PermissionPolicy? PermissionPolicy`
 
-    Permission policy for tool execution.
+    Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
     - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -9488,7 +9488,7 @@ Console.WriteLine(betaManagedAgentsAgent);
 
   - `PermissionPolicy? PermissionPolicy`
 
-    Permission policy for tool execution.
+    Permission policy for this tool. Controls whether tool calls are auto-approved or require confirmation.
 
     - `class BetaManagedAgentsAlwaysAllowPolicy`
 
@@ -9654,7 +9654,7 @@ List Agent Versions
 
   - `required DateTimeOffset? ArchivedAt`
 
-    A timestamp in RFC 3339 format
+    When the agent was archived. Null if not archived.
 
     format: date-time
 
@@ -9748,7 +9748,7 @@ List Agent Versions
 
     - `Effort Effort`
 
-      How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+      How hard Claude works on each inference call. One of `low`, `medium`, `high`, `xhigh`, `max`. Always present; resolved to the per-model default at save time when not supplied.
 
       - `class BetaManagedAgentsEffortLow`
 
@@ -9786,7 +9786,7 @@ List Agent Versions
 
     - `Speed Speed`
 
-      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Defaults to `standard`. Not all models support `fast`; invalid combinations are rejected at create time.
 
       - `Standard("standard")`
 
@@ -9794,7 +9794,7 @@ List Agent Versions
 
   - `required BetaManagedAgentsMultiagent? Multiagent`
 
-    Resolved coordinator topology with a concrete agent roster.
+    Multiagent orchestration configuration. Null when the agent is single-threaded.
 
     - `required Type Type`
 

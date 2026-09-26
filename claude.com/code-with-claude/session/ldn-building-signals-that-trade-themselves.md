@@ -24,7 +24,7 @@ Speaker(s)
 
 ## Watch recording
 
-![Building signals that trade themselves](https://assets.claude.com/c268f5f05813de8bc37086f227a0e9b9a577c2f3.jpg?w=1600&auto=format)
+![Building signals that trade themselves](https://assets.claude.com/c268f5f05813de8bc37086f227a0e9b9a577c2f3.jpg?w=2400&q=75&fm=webp&fit=max)
 
 ## Anthropic's developer conference, recorded
 

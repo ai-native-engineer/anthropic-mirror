@@ -49,7 +49,7 @@ One California firm juggled 1,500+ active cases, 250 of them in litigation at an
 
 Choosing the right Claude model
 
-![Choosing the right Claude model](https://assets.claude.com/7388619b452db0af26c78442a275c86c5ebe3124.jpg)
+![Choosing the right Claude model](https://assets.claude.com/7388619b452db0af26c78442a275c86c5ebe3124.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Learn when to use Haiku, Sonnet, or Opus to get better results and stay inside your rate limit. A practical guide to picking the right Claude model.
 
@@ -77,7 +77,7 @@ Another feature that totals what a case is worth on paper works off records the 
 
 Claude Enterprise
 
-![Claude Enterprise](https://assets.claude.com/50a00469e498d2c960d9e45f1a4a37d2d7a92f2e.jpg)
+![Claude Enterprise](https://assets.claude.com/50a00469e498d2c960d9e45f1a4a37d2d7a92f2e.jpg?w=2400&q=75&fm=webp&fit=max)
 
 Put Claude to work across your organization. Help everyone think deeper, do more, and build securely.
 

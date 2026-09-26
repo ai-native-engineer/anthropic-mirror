@@ -149,7 +149,7 @@ The Models API response can be used to determine information about a specific mo
 
   - `required BetaModelCapabilities? Capabilities`
 
-    Model capability information.
+    Object mapping capability names to their support details. Keys are always present for all known capabilities.
 
     - `required BetaCapabilitySupport Batch`
 
@@ -169,9 +169,7 @@ The Models API response can be used to determine information about a specific mo
 
     - `required BetaCompactionCapability? Compaction`
 
-      Compaction capability details: whether the model accepts the top-level
-      `compaction` request parameter, with one entry per supported
-      `compaction.type` value.
+      Server-side compaction support (the top-level `compaction` parameter) and the accepted `compaction.type` values.
 
       - `required BetaCapabilitySupport Summarize`
 
@@ -187,15 +185,15 @@ The Models API response can be used to determine information about a specific mo
 
       - `required BetaCapabilitySupport? ClearThinking20251015`
 
-        Indicates whether a capability is supported.
+        Whether the clear_thinking_20251015 strategy is supported.
 
       - `required BetaCapabilitySupport? ClearToolUses20250919`
 
-        Indicates whether a capability is supported.
+        Whether the clear_tool_uses_20250919 strategy is supported.
 
       - `required BetaCapabilitySupport? Compact20260112`
 
-        Indicates whether a capability is supported.
+        Whether the compact_20260112 strategy is supported.
 
       - `required bool Supported`
 
@@ -227,7 +225,7 @@ The Models API response can be used to determine information about a specific mo
 
       - `required BetaCapabilitySupport? Xhigh`
 
-        Indicates whether a capability is supported.
+        Whether the model supports xhigh effort level.
 
     - `required BetaCapabilitySupport ImageInput`
 

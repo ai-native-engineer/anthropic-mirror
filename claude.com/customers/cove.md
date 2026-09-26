@@ -46,7 +46,7 @@ The user and the AI can both edit all content in the workspace, allowing them to
 
 “People come to Cove to collaborate with AI on a variety of personal and work projects,” says Stephen Chau, co-founder of Cove. “Just some examples include planning kids' birthday parties, building exercise and meal plans, working on business plans, finding sales prospects, designing home renovations, and more.”
 
-![Cove product screen](https://assets.claude.com/f3d3487b5077307ec7fb436e8f281df25f3f181e.png)
+![Cove product screen](https://assets.claude.com/f3d3487b5077307ec7fb436e8f281df25f3f181e.png?w=2400&q=75&fm=webp&fit=max)
 
 ## Why Cove chose Claude
 
