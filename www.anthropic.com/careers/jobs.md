@@ -858,9 +858,9 @@ Apply](https://job-boards.greenhouse.io/anthropic/jobs/5392007008)
 
 ## Finance
 
-50 Open Roles
+49 Open Roles
 
-50 Open Roles
+49 Open Roles
 
 [Accounting, Revenue Internal Controls
 
@@ -978,11 +978,7 @@ Apply](https://job-boards.greenhouse.io/anthropic/jobs/5357943008)[Head of Reven
 
 San Francisco, CA | New York City, NY | Seattle, WA
 
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5365524008)[Infrastructure Tax Lead
-
-Remote-Friendly (Travel-Required) | San Francisco, CA | New York City, NY
-
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5123851008)[International Indirect Tax, VAT/GST
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/5365524008)[International Indirect Tax, VAT/GST
 
 Dublin, IE
 
@@ -1250,9 +1246,9 @@ Apply](https://job-boards.greenhouse.io/anthropic/jobs/5420232008)
 
 ## People
 
-12 Open Roles
+11 Open Roles
 
-12 Open Roles
+11 Open Roles
 
 [APAC Recruiting Coordinator
 
@@ -1278,11 +1274,7 @@ Apply](https://job-boards.greenhouse.io/anthropic/jobs/5106199008)[Recruiter, AI
 
 San Francisco, CA | Seattle, WA
 
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/4935314008)[Recruiter, G&A
-
-San Francisco, CA | New York City, NY
-
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5411707008)[Recruiter, Mergers & Acquisitions
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/4935314008)[Recruiter, Mergers & Acquisitions
 
 San Francisco, CA
 

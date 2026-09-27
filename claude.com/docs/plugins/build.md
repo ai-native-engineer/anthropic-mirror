@@ -1,5 +1,13 @@
 <!-- source: https://claude.com/docs/plugins/build -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 A plugin is a folder that packages skills, MCP connectors, commands, and agents, in any combination, so that people add them together. This page is the reference for that folder: what each file is and contains, the manifest fields every app reads, how an MCP connector and its skill fit together, and how to test the plugin on claude.ai, in Cowork, and in Claude Code.
 [Build your first plugin](https://claude.com/docs/plugins/quickstart) walks you through making one end to end.
 
@@ -117,6 +125,8 @@ When something is missing on one surface and present on another, check it agains
 ##  Add Claude Code-only components
 
 Claude Code loads everything on this page and also supports components the other apps skip, such as language servers, executables in `bin/`, per-user configuration prompts, output styles, and dependencies between plugins. A plugin that includes them still installs on claude.ai and in Cowork, except that a top-level `bin/` directory stops claude.ai and Cowork from installing it at all. The Claude Code docs cover [each component](https://code.claude.com/docs/en/plugins/components) and [testing and debugging](https://code.claude.com/docs/en/plugins/create#test-and-debug) there.
+
+##  Next steps
 
 Once the plugin works, you can distribute it through your organization, your own marketplace, or the directory:
 

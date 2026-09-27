@@ -68,7 +68,7 @@ Your feedback directly shapes how we improve Claude's browser capabilities and s
 * **Thumbs up/down** on Claude's responses in the side panel.
 * **Report suspected prompt injection** if Claude behaves unexpectedly.
 
-  + **Email [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#186d6b7d6a6b797e7d6c615879766c706a7768717b367b7775)** to report any safety issues or unexpected behaviors.
+  + **Email [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#443137213637252221303d04252a302c362b342d276a272b29)** to report any safety issues or unexpected behaviors.
 * **[Contact Support](https://support.claude.com/en/articles/9015913-how-to-get-support)** for technical issues or account problems.
 
 ### What we're learning

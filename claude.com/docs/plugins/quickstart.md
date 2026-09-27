@@ -1,5 +1,13 @@
 <!-- source: https://claude.com/docs/plugins/quickstart -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 By the end of this quickstart, you have a working example plugin with one skill and, optionally, one remote MCP connector, tested in Claude Code, validated, and pushed to GitHub, which is everything a plugin needs before you submit it to [Anthropic’s directory](https://claude.com/docs/directory/publish). A plugin is a folder that packages skills, MCP connectors, commands, and agents, in any combination, so that people add them together.
 This quickstart is for developers who have Claude Code installed and want to learn the plugin format by building one. You can follow it with a product that has a remote MCP server, or with only a skill.
 
@@ -18,6 +26,8 @@ Check that you have each of these before you create the plugin:
 
 The steps in this section build a plugin named `expense-reports` for a fictional finance product whose MCP server is at `mcp.example.com`. Replace the names and values with your own.
 
+1
+
 Write the manifest
 
 Create a folder named `expense-reports`, and create `.claude-plugin/plugin.json` inside it. Put only the manifest inside `.claude-plugin/`. Everything else goes at the plugin’s top level.The directory requires the manifest, and the example has the fields that every surface and the directory read:
@@ -34,6 +44,8 @@ Create a folder named `expense-reports`, and create `.claude-plugin/plugin.json`
 ```
 
 People install and refer to the plugin by its `name`. Use lowercase words joined by hyphens, make the name specific to your product, and never change it after release. [Manifest and plugin name](https://claude.com/docs/plugins/pre-submission-checklist#manifest-and-plugin-name) lists the directory’s checks on the name.
+
+2
 
 Add a skill
 
@@ -55,6 +67,8 @@ To file an expense:
 
 Claude decides when to load the skill from the `description` line, so write it as the situations a user would be in. [Create custom skills](https://claude.com/docs/skills/how-to) covers the frontmatter fields, resource files, scripts, and testing.
 
+3
+
 Add an MCP connector
 
 Skip this step if your plugin has only a skill. If your product has a remote MCP server, create `.mcp.json` at the plugin root and reference the server by URL:
@@ -71,6 +85,8 @@ Skip this step if your plugin has only a skill. If your product has a remote MCP
 ```
 
 There is no server at `mcp.example.com`, so this example connector fails to connect when you test the plugin. Replace the URL with your own server’s, or leave `.mcp.json` out.Don’t put API keys or other secrets in this file, because every person who installs the plugin receives its files. On claude.ai and in Cowork, the entry is listed on the plugin’s **Connectors** tab, where the user [adds or connects it](https://claude.com/docs/plugins/overview#bundled-connectors) and signs in through your server’s OAuth flow. On Team and Enterprise plans, an Owner adds the connector for the organization, and members then connect with their own account.
+
+4
 
 Write the README
 
@@ -133,13 +149,19 @@ The [Plugin pre-submission checklist](https://claude.com/docs/plugins/pre-submis
 
 The directory reads plugins from repositories on github.com, so the plugin folder goes in a GitHub repository.
 
+1
+
 Create the repository
 
 Create an empty repository on github.com for the plugin. The repository must be public before the listing goes live.
 
+2
+
 Remove system files
 
 Remove `.DS_Store`, `Thumbs.db`, `desktop.ini`, and `__MACOSX` entries from the plugin folder, and add them to `.gitignore`. Validation blocks a plugin that contains them.
+
+3
 
 Commit and push
 
@@ -159,6 +181,8 @@ The repository’s page on github.com now shows `.claude-plugin/`, `skills/`, an
 
 The `expense-reports` plugin you built on this page is a small demonstration of the format, so there’s no reason to submit it: the directory is for plugins other people will use, and it refuses a name another organization has already listed. Use the same steps to build your own plugin, with its own name, skills, and connector.
 When your plugin validates and is pushed to a public GitHub repository, submit it from the developer portal at [claude.ai/directory/manage](https://claude.ai/directory/manage): select **Submit new**, choose **Plugin bundle**, and follow [Submit a plugin](https://claude.com/docs/plugins/submit#submit-a-plugin) for each field and for what happens after you submit. If your plugin points at a remote MCP server you run, [submit that server as a connector too](https://claude.com/docs/directory/publish#submit-your-plugin-and-your-mcp-server-as-a-connector). [Who can submit to the directory](https://claude.com/docs/directory/publish#confirm-you-can-submit-to-the-directory) has the plan and role requirements.
+
+##  Next steps
 
 * [Plugin structure and testing](https://claude.com/docs/plugins/build): look up the folder layout and manifest fields, and test on claude.ai and in Cowork
 * [Plugin pre-submission checklist](https://claude.com/docs/plugins/pre-submission-checklist): fix each validation and scan finding before you submit

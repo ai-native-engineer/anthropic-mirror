@@ -1,5 +1,13 @@
 <!-- source: https://claude.com/docs/connectors/building/quickstart -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 An MCP server is a program that gives Claude tools it can call, and people who use Claude see it as a connector. In this quickstart you write one in about 50 lines of JavaScript with no build step: a server with a single `roll_dice` tool that runs on your machine, which you then connect to [Claude Code](https://code.claude.com/docs/en/setup), Anthropic’s command-line coding tool, and watch Claude call. At the end you have a working server you understand line by line, ready to grow into your own product’s tools, wrap in a [plugin](https://claude.com/docs/plugins/quickstart), or host for people on claude.ai.
 This quickstart is for developers who haven’t built an MCP server before and want to see every piece working before they add authentication, hosting, and real tools.
 
@@ -20,6 +28,8 @@ Check that you have each of these:
 
 The project is a folder with a `package.json` and two dependencies: the [MCP TypeScript SDK](https://github.com/modelcontextprotocol/typescript-sdk), which also works from plain JavaScript, and `zod`, which the SDK uses to describe tool inputs.
 
+1
+
 Make a folder for the server
 
 In your terminal, create a folder named `mcp-quickstart` and move into it. Every later command on this page runs from this folder:
@@ -29,6 +39,8 @@ mkdir mcp-quickstart
 cd mcp-quickstart
 ```
 
+2
+
 Create package.json
 
 Create a default `package.json`, then set `"type": "module"` in it so Node.js treats the project’s files as ES modules:
@@ -37,6 +49,8 @@ Create a default `package.json`, then set `"type": "module"` in it so Node.js tr
 npm init -y
 npm pkg set type=module
 ```
+
+3
 
 Install the SDK
 
@@ -125,6 +139,8 @@ Each part of the file has one job:
 
 Before you involve Claude, start the server and send it MCP requests yourself with `curl`, so you know it works on its own.
 
+1
+
 Start the server
 
 In your first terminal, from the `mcp-quickstart` folder, start the server:
@@ -140,6 +156,8 @@ quickstart-server listening on http://localhost:3000/mcp
 ```
 
 Leave this terminal open. If you see `failed to listen on 3000` instead, another program is using the port. Stop that program and run the command again.
+
+2
 
 List the server's tools
 
@@ -158,6 +176,8 @@ The reply is one server-sent event whose `data` line lists `roll_dice` with the 
 event: message
 data: {"result":{"tools":[{"name":"roll_dice","title":"Roll dice","description":"Roll `count` dice with `sides` sides each. Returns each roll and the total.","inputSchema":{...},"execution":{"taskSupport":"forbidden"}}]},"jsonrpc":"2.0","id":2}
 ```
+
+3
 
 Call the tool
 
@@ -181,6 +201,8 @@ data: {"result":{"content":[{"type":"text","text":"Rolled 3d20: [16, 10, 20] tot
 
 With the server answering on its own, register it with Claude Code and have Claude call the tool from a prompt. Run these commands in your second terminal from the `mcp-quickstart` folder, because `claude mcp add` saves the server for the current project folder by default, and Claude Code only sees it when you run from that same folder.
 
+1
+
 Add the server to Claude Code
 
 Register the server under the name `quickstart`, with the HTTP transport and the local URL:
@@ -194,6 +216,8 @@ Claude Code confirms where it saved the entry:
 ```
 Added HTTP MCP server quickstart with URL: http://localhost:3000/mcp to local config
 ```
+
+2
 
 Check the connection
 
@@ -212,6 +236,8 @@ quickstart: http://localhost:3000/mcp (HTTP) - ✔ Connected
 ```
 
 If it shows an error instead, check that `node server.mjs` is still running in the first terminal.
+
+3
 
 Ask Claude to roll dice
 
@@ -233,6 +259,8 @@ Rolled 3d20 via the quickstart server:
 
 **Total: 21**
 ```
+
+4
 
 Confirm the tool ran
 
@@ -272,6 +300,8 @@ claude mcp remove quickstart
 ```
 
 Claude Code confirms with `Removed MCP server "quickstart" from local config`.
+
+##  Next steps
 
 * [Add an interactive UI to your MCP server](https://claude.com/docs/connectors/building/mcp-apps/quickstart): give `roll_dice` a small UI that shows the dice inside the conversation
 * [Build an MCP server for Claude](https://claude.com/docs/connectors/building/index): plan a real server around what Claude’s client supports, including authentication, result size limits, and timeouts

@@ -1,5 +1,13 @@
 <!-- source: https://claude.com/docs/build/overview -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 To bring your product or workflow into Claude, you build a [plugin](https://claude.com/docs/plugins/build): a package people add once and then use on claude.ai, in the desktop and mobile apps, in Cowork, and in Claude Code. A plugin packages whatever your integration needs, in any combination, and a plugin with only one of these pieces is complete:
 
 * **[An MCP connector](https://claude.com/docs/connectors/building/index)**: include one when Claude needs to reach your product or data. It points at an MCP server that you build and host
@@ -67,6 +75,8 @@ Usage figures for a directory listing are in the developer portal, and figures f
 * **A connector listed in the directory**: [Manage your directory listing](https://claude.com/docs/connectors/building/managing-your-listing#server-health-and-usage-metrics) covers the dashboard’s server health, usage by product and by tool, and error breakdown
 * **A plugin you rolled out to your organization’s Claude Code users**: [Measure and evaluate plugins](https://code.claude.com/docs/en/plugins/measure) covers what a plugin costs in context, whether it’s used, and the OpenTelemetry events that answer organization-wide questions
 * **A plugin or skill used inside your organization on claude.ai**: [How a plugin is used in your organization](https://claude.com/docs/plugins/overview#track-plugin-usage-in-your-organization) covers the adoption and activity figures on its page in **Customize**
+
+##  Next steps
 
 * [Build your first plugin](https://claude.com/docs/plugins/quickstart): build a small example plugin, test it, and push it to GitHub, ready to submit your own
 * [Plugin structure and testing](https://claude.com/docs/plugins/build): the folder layout, manifest, skills, MCP server reference, and testing

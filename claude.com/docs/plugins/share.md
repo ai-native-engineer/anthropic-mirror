@@ -1,5 +1,13 @@
 <!-- source: https://claude.com/docs/plugins/share -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 On a Team or Enterprise plan, you can get a [plugin](https://claude.com/docs/plugins/overview) you made to other people in your organization. You share it with specific people yourself, or you publish it to your organization’s library, where an Owner decides who can find and install it.
 This page is for someone on a Team or Enterprise plan who created or uploaded a plugin, for example with [Create a plugin with Claude](https://claude.com/docs/plugins/create-with-claude).
 
@@ -25,9 +33,13 @@ You can get the plugin to specific people, to your organization’s library, to 
 
 Sharing gives the people you name your plugin in their **Customize > Plugins** list, turned off until they turn it on. To share with specific people:
 
+1
+
 Open the plugin and select Share
 
 Go to [**Customize > Plugins**](https://claude.ai/customize/plugins) in claude.ai or the desktop app and open the plugin. Select **Share** at the top of its page. The plugin’s menu in your **Your plugins** list has the same **Share** item.
+
+2
 
 Add people
 
@@ -74,6 +86,8 @@ You see the result on the plugin’s own page, which shows whether the submissio
 * **While it’s waiting**: you can withdraw it from the plugin’s page
 * **If it’s denied**: the page shows the date and the reviewer’s reason, and **Publish to org** is available again so that you can revise the plugin and submit a new request
 * **After a version is published**: later edits reach your organization only when you publish again
+
+##  Next steps
 
 * [Create a plugin with Claude](https://claude.com/docs/plugins/create-with-claude): make a plugin in claude.ai or the desktop app with Claude’s help
 * [Manage plugins for your organization](https://claude.com/docs/plugins/admin): if you’re an Owner, turn sharing and publishing on or off for members

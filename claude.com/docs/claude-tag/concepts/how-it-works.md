@@ -16,7 +16,7 @@ This page covers:
 * [Starting a session](#start-a-session), [tracking progress](#track-claude%E2%80%99s-progress), and [steering mid-thread](#reply-in-the-thread-to-steer): what to type, what to watch, and who can redirect
 * [Team channels and personal DMs](#team-channels-and-personal-dms): which surface to use, and how access differs between them
 * [Key concepts](#key-concepts): agent identity, scheduling, and memory defined
-* [Lifecycle of a request](#lifecycle-of-a-request): the five-step loop, [the checklist](#how-the-checklist-updates), [per-channel access](#channel-access), and [scheduled tasks](#one-off-and-scheduled-tasks)
+* [Lifecycle of a request](#lifecycle-of-a-request): the five-step loop, [the checklist](#how-the-checklist-updates), [per-channel access](#channel-access), [other channels](#what-claude-can-do-in-other-channels), and [scheduled tasks](#one-off-and-scheduled-tasks)
 * [Session context and memory](#session-context-and-memory): what Claude reads, what survives idle, and what carries across channels
 
 ##  Walk through a Claude Tag session
@@ -103,7 +103,7 @@ Anthropic offers several ways to work with Claude on real tasks; they reach the 
 | Who sees the work | Everyone in the channel | Just you | Just you |
 | Best for | Shared work the team should see and steer | Personal research and drafting | Hands-on coding in your own checkout |
 
-The short version: **team work → Claude Tag; personal work → Cowork or Claude Code.** Claude Tag’s connections authenticate the agent itself with service accounts, not any person. Personal connectors apply in a Claude Tag DM, which runs on your own claude.ai account, the same way Cowork does. In organizations where [personal connectors in channels](https://claude.com/docs/claude-tag/concepts/personal-connectors) is available, Claude can also use your personal connectors in a channel for your own tasks, after you allow it.
+The short version: **team work → Claude Tag; personal work → Cowork or Claude Code.** Claude Tag’s connections authenticate the agent itself with service accounts, not any person. Personal connectors apply in a Claude Tag DM, which runs on your own claude.ai account, the same way Cowork does.
 
 ##  Key concepts
 
@@ -146,7 +146,7 @@ Claude posts each session’s result in the thread you asked in, choosing the fo
 | A page kept current | Any of the above, edited in place over time | Digests, indexes, standing reports |
 | A hosted page | A web page published on claude.ai, linked in the thread | Dashboards, prototypes, reports |
 
-A hosted page stays available after the session ends, and Claude updates it when you ask in the thread. Anyone with access to the channel can open it; [artifact visibility](https://claude.com/docs/claude-tag/concepts/security-and-data#artifact-visibility) covers the access model. These are the same artifacts [Claude Code publishes](https://code.claude.com/docs/en/artifacts), with channel-based access in place of owner-controlled sharing.
+A hosted page stays available after the session ends, and Claude updates it when you ask in the thread. Anyone with access to the channel can open it. [Artifact visibility](https://claude.com/docs/claude-tag/concepts/security-and-data#artifact-visibility) covers the access model. These are the same artifacts [Claude Code publishes](https://code.claude.com/docs/en/artifacts), with channel-based access in place of owner-controlled sharing.
 For code work, the result is usually a draft pull request opened under the Claude GitHub App, with the link posted in the thread.
 
 ###  How the checklist updates
@@ -165,7 +165,24 @@ Because access is set per channel rather than per person, the way to find out wh
 
 * **Ask what Claude can reach.** In any channel, `@Claude what can you access from this channel?` lists its current reach.
 * **If Claude cannot reach something, the channel was not granted access.** Another channel may have the access, and an organization Owner can add it. [How agent identity works](https://claude.com/docs/claude-tag/concepts/agent-identity) covers the model.
-* **Personal connectors are separate from channel connections.** A connection an admin attaches to a channel is separate from a connector on your personal claude.ai account. Your own connectors work in your DMs. With [personal connectors in channels](https://claude.com/docs/claude-tag/concepts/personal-connectors), Claude can also use them in a channel for your own tasks, after you allow it.
+* **Personal connectors are separate from channel connections.** A connection an admin attaches to a channel is separate from a connector on your personal claude.ai account. Your own connectors work in your DMs. Claude can also [use them in a channel](https://claude.com/docs/claude-tag/concepts/personal-connectors) for your own tasks, after you allow it.
+
+###  What Claude can do in other channels
+
+A session works in the channel or DM where you asked, and it can also reach other public channels that Claude is a member of. For example, ask in `#team-eng` to “post a summary of this thread in #announcements”, and Claude posts the summary in `#announcements` as a new top-level message.
+Where you ask decides what Claude can do in the other channel:
+
+| Where you ask | Read the other channel | Post, reply, or react there |
+| --- | --- | --- |
+| A public channel | Yes, unless the channel you ask in includes guests | Yes |
+| A private channel | Yes, unless the channel you ask in includes guests | No |
+| A DM with Claude | Yes | New top-level posts only, each after you select **Approve and post** |
+
+* **Attribution line**: every message Claude posts outside the conversation you asked from carries a line under it that names where it came from. When you ask in a thread, the line links back to that thread and names whoever last addressed Claude there, as in “Sent by Claude in #team-eng on behalf of @jordan”. When you ask in a DM, the line names the person who approved the post, as in “Sent by Claude, approved by @jordan”.
+* **Replies**: replies under a message Claude posted in another channel don’t reach the session you asked in. To follow up on the original task, reply in the thread where you asked.
+* **Which channels Claude can post into**: a public channel in the same Slack workspace that Claude is already a member of. Claude can’t post into a Slack Connect channel or a [channel shared across workspaces](https://claude.com/docs/claude-tag/admins/restrict-access#channels-shared-across-workspaces-in-your-enterprise-grid), wherever you ask from.
+* **If Claude isn’t a member of the target channel**: when you ask from a channel, add Claude by sending `/invite @Claude` from inside the target channel. When you ask from a DM, approving the post adds Claude to the target channel.
+* **Channels with guests**: Claude can post into a [channel that includes guests](https://claude.com/docs/claude-tag/admins/restrict-access#restrict-guest-channels) only when the **How should Claude work in channels with guests** setting covering that channel is **Full access**.
 
 ###  One-off and scheduled tasks
 

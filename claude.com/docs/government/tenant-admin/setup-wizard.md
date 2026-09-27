@@ -40,7 +40,7 @@ Once single sign-on is connected, people sign in from Claude Desktop or the web 
 
 ##  Step 4: Provisioning (optional)
 
-This step is optional. If your identity provider supports SCIM, which is a standard way for directory systems to push users and group memberships into other applications, you can connect it here so that accounts are created automatically rather than at first sign-in.
+This step is optional. If your identity provider supports SCIM, which is a standard way for directory systems to push users and group memberships into other applications, you can connect it here so that accounts are created automatically.
 Like single sign-on, this step is unavailable until you have verified at least one domain on Step 2.
 Copy the **Tenant URL** shown on this step into your identity provider’s SCIM connector, then click **Generate token** and paste the token into the connector’s secret token field. The token is shown only once, so copy it before closing the page. If you need to rotate it later, generate a new one and revoke the old one with the **Revoke** button.
 You do not have to finish the provider-side setup before moving on. Once your provider has pushed at least one group, you can come back to the Routing step (or the [Identity and access](https://claude.com/docs/government/tenant-admin/identity-and-access#scim-provisioning) page) and add rules that place people by group membership.

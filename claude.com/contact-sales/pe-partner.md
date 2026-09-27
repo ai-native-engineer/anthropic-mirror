@@ -7,5 +7,3 @@ We partner with private equity firms to drive Claude adoption and success in the
 Who should apply:
 
 Private equity firms that invest in companies across stages, with portfolio companies already building on or eager to adopt Claude.
-
-PE Partner program | Claude by Anthropic

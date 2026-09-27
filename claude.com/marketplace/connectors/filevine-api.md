@@ -83,10 +83,10 @@ Intelligent, secure contract management by Docusign
 
 [Add Docusign in Claude (opens in new tab)](https://claude.ai/directory/a876b642-2b05-4808-a565-deeb271802fd "Add in Claude")
 
-![](https://assets.claude.com/1a01745b4fbcfb8d75f0f2a761024720abbd6cb2.jpg?w=128&fit=max&auto=format)
+![](https://www.google.com/s2/favicons?domain=patlytics.ai&sz=96)
 
-### [Harvey](https://claude.com/marketplace/connectors/harvey)
+### [Patlytics](https://claude.com/marketplace/connectors/patlytics)
 
-Answer legal queries, search vaults, and research
+Prior art, claims, and portfolio search
 
-[Add Harvey in Claude (opens in new tab)](https://claude.ai/directory/a428b976-7973-467f-9588-6b72643af755 "Add in Claude")
+[Add Patlytics in Claude (opens in new tab)](https://claude.ai/directory/bbf58559-0ce4-4567-a5c9-947ce33e9f81 "Add in Claude")

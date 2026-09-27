@@ -2,7 +2,7 @@
 
 Connector URL`https://sellingpartner-ai.amazon.com/mcp`
 
-More[Documentation (opens in new tab)](https://sellercentral.amazon.com/)[Support (opens in new tab)](https://sellercentral.amazon.com/)[Privacy policy (opens in new tab)](https://www.amazon.com/gp/help/customer/display.html?nodeId=GX7NJQ4ZB8MHFRNJ)
+More[Documentation (opens in new tab)](https://sellercentral.amazon.com/help/hub/reference/?redirectSource=HelpHub)[Support (opens in new tab)](https://sellercentral.amazon.com/cu/contact-us?serviceId=MINIMAL_SCORE)[Privacy policy (opens in new tab)](https://www.amazon.com/gp/help/customer/display.html?nodeId=GX7NJQ4ZB8MHFRNJ)
 
 Connect your Amazon Seller Central account to Claude. Ask about sales, inventory, and listing performance and get recommendations grounded in your own data, not generic advice. Review and approve every action, without switching back to Seller Central. Currently in beta.
 

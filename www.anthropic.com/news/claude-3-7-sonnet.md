@@ -23,7 +23,7 @@ Claude 3.7 Sonnet shows particularly strong improvements in coding and front-end
 
 ![Screen showing Claude Code onboarding](https://www-cdn.anthropic.com/images/4zrzovbb/website/4a4df6b6629f9814aec4eb9323028130f43a8d70-1920x1080.png)
 
-Claude 3.7 Sonnet is now available on all [Claude](https://claude.ai/redirect/website.v1.4e88e842-8c2d-41b4-9e38-844bf5f3d415/new) plans—including Free, Pro, Team, and Enterprise—as well as the [Claude Developer Platform](https://docs.claude.com/en/docs/about-claude/models), [Amazon Bedrock](https://aws.amazon.com/bedrock/claude/), and [Google Cloud’s Vertex AI](https://cloud.google.com/vertex-ai/generative-ai/docs/partner-models/use-claude). Extended thinking mode is available on all surfaces except the free Claude tier.
+Claude 3.7 Sonnet is now available on all [Claude](https://claude.ai/redirect/website.v1.a6a58d4a-8559-443d-a4ab-b0482794d0c8/new) plans—including Free, Pro, Team, and Enterprise—as well as the [Claude Developer Platform](https://docs.claude.com/en/docs/about-claude/models), [Amazon Bedrock](https://aws.amazon.com/bedrock/claude/), and [Google Cloud’s Vertex AI](https://cloud.google.com/vertex-ai/generative-ai/docs/partner-models/use-claude). Extended thinking mode is available on all surfaces except the free Claude tier.
 
 In both standard and extended thinking modes, Claude 3.7 Sonnet has the same price as its predecessors: $3 per million input tokens and $15 per million output tokens—which includes thinking tokens.
 
@@ -132,3 +132,5 @@ This results in a score of 70.3% on the subset of n=489 verified tasks which wor
 * astropy\_\_astropy-8872
 * sphinx-doc\_\_sphinx-8595
 * sphinx-doc\_\_sphinx-9711
+
+Claude 3.7 Sonnet and Claude Code \ Anthropic

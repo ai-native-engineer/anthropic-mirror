@@ -268,7 +268,9 @@ What Claude Code does with a synced skill's body depends on where the session ru
   Edit a skill during a session
 </h3>
 
-Claude Code watches skill directories for file changes, except in [bare mode](/docs/en/headless#start-faster-with-bare-mode). When you add, edit, or remove a skill under `~/.claude/skills/`, the project `.claude/skills/`, or a `.claude/skills/` inside an `--add-dir` directory, Claude Code picks up the change within the current session, without a restart. If you create a top-level skills directory that didn't exist when the session started, restart Claude Code so it can watch the new directory.
+Claude Code watches skill directories for file changes, except in [bare mode](/docs/en/headless#start-faster-with-bare-mode). When you add, edit, or remove a skill under `~/.claude/skills/`, the project `.claude/skills/`, or a `.claude/skills/` inside an `--add-dir` directory, Claude Code picks up the change within the current session, without a restart.
+
+If you create a top-level skills directory that didn't exist when the session started, run [`/reload-skills`](/docs/en/commands#all-commands) to pick up the skills you put there. Claude Code isn't watching that directory yet, so run `/reload-skills` again after each later change there.
 
 Live change detection covers `SKILL.md` text only. For a skill folder that is also a [plugin](/docs/en/plugins/loading#plugins-shared-through-a-repository), changes to `hooks/`, `.mcp.json`, `agents/`, and `output-styles/` need `/reload-plugins` to take effect.
 
@@ -1095,7 +1097,7 @@ If Claude uses your skill when you don't want it:
 
 ### Skill descriptions are cut short
 
-Claude Code loads a listing of skill names and descriptions into context so Claude knows what's available. The listing always contains every skill name, but if you have many skills, Claude Code shortens descriptions to fit the listing's character budget, which can strip the keywords Claude needs to match your request. The budget scales at 1% of the model's context window. When the listing overflows, Claude Code drops descriptions starting with the skills you invoke least, so the skills you use most keep their full text.
+Claude Code loads a listing of skill names and descriptions into context so Claude knows what's available. The listing always contains every skill name, but if you have many skills, Claude Code drops some descriptions to fit the listing's character budget, which removes the keywords Claude needs to match your request. The budget scales at 1% of the model's context window. When the listing overflows, Claude Code drops descriptions starting with the skills you invoke least, so the skills you use most keep their full text.
 
 Run `/doctor` for an estimate of the listing's context cost and its biggest contributors. To find skills worth turning off, run [`/skill-doctor`](#find-unused-skills). When the listing exceeds its budget, Claude Code also writes a warning to the debug log, visible with [`--debug`](/docs/en/cli-reference#cli-flags).
 

@@ -52,6 +52,8 @@ Fast-growing connectors this week.
 1. 01![](https://assets.claude.com/115f44da14dfc74606c952a792ad297d7d46a001.svg?w=128&fit=max&auto=format)[Vanguard Advisor Tools](https://claude.com/marketplace/connectors/vanguard-advisor-tools)Access Vanguard models data and content from Claude
 2. 02![](https://assets.claude.com/f1b1e7da13cf74e3bf008094d9452a58c29acab6.jpg?w=128&fit=max&auto=format)[BlackRock Advisor Center](https://claude.com/marketplace/connectors/blackrock-advisor-center)Build, analyze, and compare portfolios for advisors
 3. 03![](https://app.paxton.ai/images/paxton-favicon.png)[Paxton Legal Research](https://claude.com/marketplace/connectors/paxton-legal-research)Research U.S. law in Claude—with citations you can open and verify.
+4. 04![](https://bd3.bdreporting.com/content/logo.svg)[Black Diamond](https://claude.com/marketplace/connectors/black-diamond)Client, portfolio, and performance data for advisors
+5. 05![](https://www.google.com/s2/favicons?domain=amazon.com&sz=96)[Amazon Selling Partner](https://claude.com/marketplace/connectors/amazon-selling-partner)Amazon Selling Partner MCP
 
 ### Connectors for Connector category: Productivity
 

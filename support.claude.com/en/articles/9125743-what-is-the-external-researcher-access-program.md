@@ -25,7 +25,7 @@ Please complete the following application form with details about your team and 
 2. If successful, we will apply $1000 in API credits to the account. For rare special cases, we may approve a higher quantity of credit.
 3. **Please note that given the substantial number of applications we receive (sometimes thousands in a single week), we regret that we cannot provide individual responses to unapproved submissions.** In addition, we reserve the right to reject submissions for any reason and will not be able to provide explanations for each individual applicant. However, we appreciate the time and effort put into each submission and will carefully review all entries. Thank you for your understanding.
 
-If you are having an issue that requires a response urgently (e.g., you’ve suddenly run out of your credits before a major conference), please email [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#17657264727665747f7265767474726464577679637f6578677e743974787a). However, please note that we will not be able to respond if your question is already addressed by the following FAQ.
+If you are having an issue that requires a response urgently (e.g., you’ve suddenly run out of your credits before a major conference), please email [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#91e3f4e2f4f0e3f2f9f4e3f0f2f2f4e2e2d1f0ffe5f9e3fee1f8f2bff2fefc). However, please note that we will not be able to respond if your question is already addressed by the following FAQ.
 
 ---
 

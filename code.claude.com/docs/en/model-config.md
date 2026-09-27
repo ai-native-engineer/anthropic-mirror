@@ -624,6 +624,8 @@ Each level trades token spend against capability. The default suits most coding 
 
 The effort scale is calibrated per model, so the same level name does not represent the same underlying value across models.
 
+Opus 5.5 [defaults to `medium`](#adjust-effort-level), one level below Opus 5's default of `high`. In Anthropic's testing, Opus 5.5 at `medium` matches or exceeds Opus 5 at `high` on coding and knowledge-work evaluations. At a given level, Opus 5.5 tends to think more per turn than Opus 5. When you move from Opus 5 to Opus 5.5, start at `medium` rather than carrying over the level you used on Opus 5. To test levels against your own work, see [Calibrate effort](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-opus-5-5#calibrate-effort) in the Opus 5.5 prompting guide.
+
 #### Use ultrathink for one-off deep reasoning
 
 Include `ultrathink` anywhere in your prompt to request deeper reasoning on that turn without changing your session effort setting. Claude Code recognizes the keyword and adds an in-context instruction. The effort level sent to the API is unchanged. Claude Code passes other phrases such as "think", "think hard", and "think more" through as ordinary prompt text and doesn't recognize them as keywords.
@@ -809,6 +811,8 @@ Use the following environment variables to control the model names that the alia
 | `ANTHROPIC_DEFAULT_HAIKU_MODEL`  | The model to use for `haiku`, or [background functionality](/docs/en/costs#background-token-usage)                                                                                                                                                                                                                                                                                                                                                                                         |
 | `CLAUDE_CODE_SUBAGENT_MODEL`     | The default model for [subagents](/docs/en/sub-agents#choose-a-model), [agent team](/docs/en/agent-teams#specify-teammates-and-models) teammates, and [workflow](/docs/en/workflows) agents that aren't assigned a model another way. Accepts an alias such as `haiku` or a full model name. A per-invocation model or a definition's `model` field, including `inherit`, takes precedence. To change that, set [`CLAUDE_CODE_SUBAGENT_MODEL_FORCE`](/docs/en/sub-agents#run-every-subagent-on-one-model) |
 
+On third-party providers, [Customize pinned model display and capabilities](#customize-pinned-model-display-and-capabilities) describes what a pinned model's row in the `/model` picker shows.
+
 Note: `ANTHROPIC_SMALL_FAST_MODEL` is deprecated in favor of
 `ANTHROPIC_DEFAULT_HAIKU_MODEL`.
 
@@ -933,12 +937,12 @@ When `availableModels` is set in [managed settings](/docs/en/managed-settings), 
 
 Claude Code automatically uses [prompt caching](/docs/en/prompt-caching) to optimize performance and reduce costs. You can disable prompt caching globally or for specific model tiers:
 
-| Environment variable            | Description                                                                                       |
-| ------------------------------- | ------------------------------------------------------------------------------------------------- |
-| `DISABLE_PROMPT_CACHING`        | Set to `1` to disable prompt caching for all models. Takes precedence over the per-model settings |
-| `DISABLE_PROMPT_CACHING_HAIKU`  | Set to `1` to disable prompt caching for Haiku models only                                        |
-| `DISABLE_PROMPT_CACHING_SONNET` | Set to `1` to disable prompt caching for Sonnet models only                                       |
-| `DISABLE_PROMPT_CACHING_OPUS`   | Set to `1` to disable prompt caching for Opus models only                                         |
-| `DISABLE_PROMPT_CACHING_FABLE`  | Set to `1` to disable prompt caching for Fable models only                                        |
+| Environment variable            | Description                                                                                                   |
+| ------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| `DISABLE_PROMPT_CACHING`        | Set to `1` to disable prompt caching for all models. Takes precedence over the per-model settings             |
+| `DISABLE_PROMPT_CACHING_HAIKU`  | Set to `1` to disable prompt caching for the [default Haiku model](/docs/en/prompt-caching#disable-prompt-caching) |
+| `DISABLE_PROMPT_CACHING_SONNET` | Set to `1` to disable prompt caching for Sonnet models only                                                   |
+| `DISABLE_PROMPT_CACHING_OPUS`   | Set to `1` to disable prompt caching for Opus models only                                                     |
+| `DISABLE_PROMPT_CACHING_FABLE`  | Set to `1` to disable prompt caching for Fable models only                                                    |
 
 To choose the cache TTL for the main conversation and for subagents separately, see [choose the TTL yourself](/docs/en/prompt-caching#choose-the-ttl-yourself). For what triggers a cache miss, see [How Claude Code uses prompt caching](/docs/en/prompt-caching).

@@ -57,5 +57,3 @@ Claude made the open-source models that scientists use to predict and design bio
 ## Subscribe to Anthropic Science
 
 Features on AI-assisted discoveries, practical workflows, and field notes across the sciences.
-
-Introducing our Science Blog \ Anthropic

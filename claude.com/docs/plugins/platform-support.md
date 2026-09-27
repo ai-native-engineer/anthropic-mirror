@@ -1,5 +1,13 @@
 <!-- source: https://claude.com/docs/plugins/platform-support -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 You can install the same plugin folder everywhere you use Claude, but chat, Cowork, and Claude Code each load a different subset of what the folder can contain. A surface skips a component it doesn’t load, so a plugin can look complete in one place and partial in another.
 This page is for anyone checking a component or behavior before relying on it, whether you’re installing a plugin, building one, or submitting one to the directory.
 

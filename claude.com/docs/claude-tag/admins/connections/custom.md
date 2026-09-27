@@ -46,7 +46,7 @@ After saving, where the credential has an allow rule, you can narrow it by HTTP 
 | **GCP IAP (with Service Account Key)** | Google Cloud services behind Identity-Aware Proxy |
 | **OAuth 2.0 JWT bearer** | APIs that accept a JWT signed with your private key in exchange for an access token (DocuSign, for example) |
 | **OAuth 2.0 client credentials** | Machine-to-machine OAuth with a client ID and secret |
-| **MCP Connector** | OAuth sign-in. Sign in once as an admin; the agent acts as that account. |
+| **MCP Connector** | OAuth sign-in to one of the providers in the picker or to a [remote MCP connector](https://claude.com/docs/connectors/custom/add-unlisted) your organization has added on claude.ai. Sign in once as an admin; the agent acts as that account. Other OAuth APIs can’t be connected this way. |
 
 The **MCP Connector** type signs in to a connector from your organization’s connector library. If you register a new connector from this form with **Add custom connector…**, that connector is added to the library on the **Connectors** page at [`claude.ai/admin-settings/connectors`](https://claude.ai/admin-settings/connectors), not only to the bundle. Removing the connection from the bundle later leaves the library entry in place.
 

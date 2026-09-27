@@ -55,14 +55,6 @@ Sell, serve, and operate at scale with Salesforce.
 
 [Add Salesforce - Beta in Claude (opens in new tab)](https://claude.ai/directory/a352dbf6-c732-43d4-84c1-0bbb389d3921 "Add in Claude")
 
-![](https://compass.maryland.gov/assets/compass-icon.png)
-
-### [Maryland Community Compass](https://claude.com/marketplace/connectors/maryland-compass)
-
-Maryland's neighborhood development data platform.
-
-[Add Maryland Community Compass in Claude (opens in new tab)](https://claude.ai/directory/68edb405-8774-419f-b9d8-32f0a95229dd "Add in Claude")
-
 ![](https://assets.claude.com/dc0fbde8ffbaf1dfce40a72f61df8d9befc9b08a.png?w=128&fit=max&auto=format)
 
 ### [Vibe Prospecting](https://claude.com/marketplace/connectors/vibeprospecting)
@@ -86,3 +78,11 @@ Track ocean shipments and containers
 Find UI & UX design references
 
 [Add Mobbin in Claude (opens in new tab)](https://claude.ai/directory/705ad993-53e3-4be6-b32c-cc9cff5225f6 "Add in Claude")
+
+![](https://compass.maryland.gov/assets/compass-icon.png)
+
+### [Maryland Community Compass](https://claude.com/marketplace/connectors/maryland-compass)
+
+Maryland's neighborhood development data platform.
+
+[Add Maryland Community Compass in Claude (opens in new tab)](https://claude.ai/directory/68edb405-8774-419f-b9d8-32f0a95229dd "Add in Claude")

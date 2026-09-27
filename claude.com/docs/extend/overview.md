@@ -1,5 +1,13 @@
 <!-- source: https://claude.com/docs/extend/overview -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 You can customize Claude with [MCP connectors](https://claude.com/docs/connectors/getting-started), [skills](https://claude.com/docs/skills/overview), and [plugins](https://claude.com/docs/plugins/overview). MCP connectors give Claude access to a tool or data source, and skills teach it how to do a task the way you or your team does it. Plugins package skills, MCP connectors, commands, and agents into one unit that you can install once and share with others.
 You add all three from the [**Customize**](https://claude.ai/customize) page in claude.ai or the Claude desktop app. [Plugin feature support across platforms](https://claude.com/docs/plugins/platform-support) lists which parts of a plugin work in chat, Cowork, and Claude Code.
 
@@ -40,6 +48,8 @@ The diagram shows where each of the three acts when you send one request.
 
 Connectors, skills, and plugins you add in claude.ai or the desktop app are saved to your account, so you have them in chat on the web, desktop, and mobile wherever you sign in. Claude Code picks them up when you sign in there with the same account. A plugin on your account also loads in your Cowork tasks. Things you add from the Claude Code command line stay on that machine.
 In chat, you can use a plugin’s skills, commands, and connectors. Cowork and Claude Code also run its agents. [Plugin feature support across platforms](https://claude.com/docs/plugins/platform-support) lists each component by app.
+
+##  Next steps
 
 * [Add your first connector](https://claude.com/docs/connectors/getting-started): connect one from the directory and use it in a conversation
 * [Skills overview](https://claude.com/docs/skills/overview): turn on a skill Anthropic provides or add one of your own

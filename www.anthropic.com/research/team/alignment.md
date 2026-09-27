@@ -84,5 +84,3 @@ DateCategoryTitle
 Join the Research team
 
 [See open roles](https://www.anthropic.com/jobs)
-
-Alignment Research \ Anthropic

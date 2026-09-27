@@ -1,5 +1,13 @@
 <!-- source: https://claude.com/docs/plugins/create-with-claude -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 A [plugin](https://claude.com/docs/plugins/overview) packages skills, commands, and connectors. You can make one for yourself in claude.ai or the Claude desktop app without writing files: from [**Customize > Plugins**](https://claude.ai/customize/plugins), select **Add > Create with Claude**, describe what you need, and save the plugin Claude produces to your account.
 A plugin you create this way is for you. It lives on your account, and on a Team or Enterprise plan you can [share it](https://claude.com/docs/plugins/share) with specific people or your whole organization from its page in Customize. It isn’t a directory listing; if you later want that, see [Submit a plugin you created with Claude](#submit-a-plugin-you-created-with-claude) at the end of this page.
 
@@ -16,9 +24,13 @@ When you create a plugin with Claude, you start a conversation from the **Add** 
 
 To start a new plugin:
 
+1
+
 Open the Add menu
 
 Go to [**Customize > Plugins**](https://claude.ai/customize/plugins) in claude.ai or the desktop app and select **Add**.
+
+2
 
 Choose how to create it
 
@@ -33,13 +45,19 @@ If neither item appears in the **Add** menu, plugin creation isn’t available o
 
 After you choose **Create with Claude**, a conversation opens where you tell Claude what the plugin is for, and Claude assembles it as a `.plugin` file that you save to your account:
 
+1
+
 Describe what the plugin is for
 
 Tell Claude the job the plugin should help with, in the same words you’d use to explain it to a colleague: the task, when it comes up, and what a good result looks like.
 
+2
+
 Answer Claude's questions
 
 Answer Claude’s follow-up questions, such as which of your connectors the plugin should use. You can change any of it later.
+
+3
 
 Save the plugin Claude assembles
 
@@ -49,17 +67,25 @@ Claude writes the skills and commands, includes the connectors you chose, and sh
 
 Check the plugin before you rely on it:
 
+1
+
 Open the plugin
 
 Open **Customize > Plugins** and select the new plugin.
+
+2
 
 Read what it contains
 
 Read the skills, commands, and connectors it contains.
 
+3
+
 Sign in to its connectors
 
 Sign in to any bundled connector from the plugin’s page.
+
+4
 
 Try it on a real request
 
@@ -79,17 +105,25 @@ To give the plugin to other people in your organization, see [Share a plugin wit
 
 Anthropic’s directory reads plugins from a GitHub repository, so a plugin that lives only on your account can’t be submitted as it is. If you decide you want it listed, get its files from the same conversation and go through the normal submission route:
 
+1
+
 Ask Claude for the plugin as a folder
 
 In the conversation where Claude made the plugin, ask for it “as a plugin folder I can push to GitHub for the directory”, download the zip Claude produces, and check that it has `.claude-plugin/plugin.json`, the `skills/` folder, a `README.md`, and a `LICENSE`.
+
+2
 
 Check the manifest and README
 
 Unzip the folder and compare `plugin.json` with [Write the manifest](https://claude.com/docs/plugins/build#write-the-manifest). Claude may include fields the manifest doesn’t use and leaves placeholders such as your name for you to fill in. If you have Claude Code installed, run `claude plugin validate` on the folder, as [Check the plugin on your machine](https://claude.com/docs/plugins/pre-submission-checklist#check-the-plugin-on-your-machine-optional) describes.
 
+3
+
 Push and submit
 
 Push the folder to a public GitHub repository, then follow [Submit a plugin](https://claude.com/docs/plugins/submit).
+
+##  Next steps
 
 * [Plugins](https://claude.com/docs/plugins/overview#manage-installed-plugins): turn off, remove, or update plugins on your account
 * [Plugin feature support across platforms](https://claude.com/docs/plugins/platform-support): check which of the plugin’s components work in chat, Cowork, and Claude Code

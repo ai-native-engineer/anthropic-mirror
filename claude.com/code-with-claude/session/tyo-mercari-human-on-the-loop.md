@@ -573,3 +573,5 @@ Evening reception
 Keynotes, demos, and conversations with the teams behind Claude. Recorded at Code w/ Claude 2026 Tokyo and ready to replay.
 
 [Browse recordings](https://claude.com/code-with-claude/tokyo)
+
+Toward human-on-the-loop: How Mercari is transforming our software development into AI-native | Session | Code w/ Claude 2026

@@ -142,7 +142,7 @@ Browser automation and end-to-end testing MCP server by Microsoft. Enables Claud
 
 ## Trending connectors
 
-Show all 5
+Show all 6
 
 ![](https://assets.claude.com/115f44da14dfc74606c952a792ad297d7d46a001.svg?w=128&fit=max&auto=format)
 
@@ -174,15 +174,25 @@ Research U.S. law in Claude—with citations you can open and verify.
 
 [Add Paxton Legal Research in Claude (opens in new tab)](https://claude.ai/directory/4285c08a-451c-46e7-a320-7ccc0d6447b1 "Add in Claude")
 
-![](https://www.google.com/s2/favicons?domain=cargurus.com&sz=96)
+![](https://bd3.bdreporting.com/content/logo.svg)
 
-### [CarGurus](https://claude.com/marketplace/connectors/cargurus)
+### [Black Diamond](https://claude.com/marketplace/connectors/black-diamond)
 
 Anthropic verifiedTrending
 
-Find, buy, and research cars
+Client, portfolio, and performance data for advisors
 
-[Add CarGurus in Claude (opens in new tab)](https://claude.ai/directory/f78c2d49-167a-4299-9b23-94197eb4b649 "Add in Claude")
+[Add Black Diamond in Claude (opens in new tab)](https://claude.ai/directory/e70ee54f-74a8-454f-9bd5-3a70e17da172 "Add in Claude")
+
+![](https://www.google.com/s2/favicons?domain=amazon.com&sz=96)
+
+### [Amazon Selling Partner](https://claude.com/marketplace/connectors/amazon-selling-partner)
+
+Anthropic verifiedTrending
+
+Amazon Selling Partner MCP
+
+[Add Amazon Selling Partner in Claude (opens in new tab)](https://claude.ai/directory/921c3435-ce00-4c0b-8809-4647b3cb108f "Add in Claude")
 
 ![](https://www.carrefour.com/themes/custom/c4com/img/logo_dark.svg)
 
@@ -196,13 +206,13 @@ Faites vos courses rapidement
 
 ## New connectors
 
-Show all 8
+Show all 5
 
 ![](https://www.google.com/s2/favicons?domain=amazon.com&sz=96)
 
 ### [Amazon Selling Partner](https://claude.com/marketplace/connectors/amazon-selling-partner)
 
-Anthropic verifiedNew
+Anthropic verifiedTrending
 
 Amazon Selling Partner MCP
 
@@ -242,41 +252,11 @@ Research U.S. law in Claude—with citations you can open and verify.
 
 ### [Black Diamond](https://claude.com/marketplace/connectors/black-diamond)
 
-Anthropic verifiedNew
+Anthropic verifiedTrending
 
 Client, portfolio, and performance data for advisors
 
 [Add Black Diamond in Claude (opens in new tab)](https://claude.ai/directory/e70ee54f-74a8-454f-9bd5-3a70e17da172 "Add in Claude")
-
-![](https://www.google.com/s2/favicons?domain=freshbooks.com&sz=96)
-
-### [FreshBooks](https://claude.com/marketplace/connectors/freshbooks)
-
-Anthropic verifiedNew
-
-Ask Claude how your business is really doing — straight from your FreshBooks financials
-
-[Add FreshBooks in Claude (opens in new tab)](https://claude.ai/directory/d45f13bc-1614-4827-8e99-ce563b29958d "Add in Claude")
-
-![](https://breezing.io/favicon.png)
-
-### [Breezing](https://claude.com/marketplace/connectors/breezing)
-
-Anthropic verifiedNew
-
-Crypto accounting for Xero, QuickBooks and Bexio Alternative: Categorize, reconcile and book crypto in your ledger
-
-[Add Breezing in Claude (opens in new tab)](https://claude.ai/directory/6af0ef66-c76e-4ce1-a63d-95554e60b4ca "Add in Claude")
-
-![](https://app.superbooks.io/icons/icon-512.png)
-
-### [SuperBooks](https://claude.com/marketplace/connectors/superbooks)
-
-Anthropic verifiedNew
-
-Financial OS for small businesses
-
-[Add SuperBooks in Claude (opens in new tab)](https://claude.ai/directory/f80d20ad-23dc-46d7-bca4-0057424eb163 "Add in Claude")
 
 ## All connectors
 
@@ -402,14 +382,6 @@ Design, combine, and edit with Adobe pro tools
 
 [Add Adobe in Claude (opens in new tab)](https://claude.ai/directory/22854937-9510-4b57-9230-62c820102d8f "Add in Claude")
 
-![](https://assets.claude.com/b334d34d91a0e4cbb5ea5a343e7a618f91bfb3a3.jpg?w=128&fit=max&auto=format)
-
-### [Indeed](https://claude.com/marketplace/connectors/indeed)
-
-Search for jobs on Indeed
-
-[Add Indeed in Claude (opens in new tab)](https://claude.ai/directory/78cb9092-b837-4439-845d-fdccd5723e7f "Add in Claude")
-
 ![](https://www.google.com/s2/favicons?domain=monday.com&sz=96)
 
 ### [monday.com](https://claude.com/marketplace/connectors/monday)
@@ -418,13 +390,13 @@ monday.com project management & CRM for projects, tasks, portfolios, boards, wor
 
 [Add monday.com in Claude (opens in new tab)](https://claude.ai/directory/49e0f9ba-7d45-4fb6-b098-55eec956fbc6 "Add in Claude")
 
-![](https://assets.claude.com/73fb34c4126e99aa21f0f63e48c061963454ee06.svg?w=128&fit=max&auto=format)
+![](https://assets.claude.com/b334d34d91a0e4cbb5ea5a343e7a618f91bfb3a3.jpg?w=128&fit=max&auto=format)
 
-### [Addepar MCP](https://claude.com/marketplace/connectors/addepar)
+### [Indeed](https://claude.com/marketplace/connectors/indeed)
 
-Bring Addepar portfolio intelligence into Claude
+Search for jobs on Indeed
 
-[Add Addepar MCP in Claude (opens in new tab)](https://claude.ai/directory/bc2b011f-5db9-4aef-9df0-fe500264075d "Add in Claude")
+[Add Indeed in Claude (opens in new tab)](https://claude.ai/directory/78cb9092-b837-4439-845d-fdccd5723e7f "Add in Claude")
 
 ![](https://assets.claude.com/1f1b0d51c9561a9bd4de38331a65b5af8069e0a8.svg?w=128&fit=max&auto=format)
 
@@ -434,13 +406,13 @@ Music and podcast recommendations, just for you.
 
 [Add Spotify in Claude (opens in new tab)](https://claude.ai/directory/86925244-b3bb-415b-b7e8-6e3cd1392247 "Add in Claude")
 
-![](https://www.rome2rio.com/favicon.ico)
+![](https://assets.claude.com/73fb34c4126e99aa21f0f63e48c061963454ee06.svg?w=128&fit=max&auto=format)
 
-### [Rome2Rio](https://claude.com/marketplace/connectors/rome2rio)
+### [Addepar MCP](https://claude.com/marketplace/connectors/addepar)
 
-Discover how to get anywhere
+Bring Addepar portfolio intelligence into Claude
 
-[Add Rome2Rio in Claude (opens in new tab)](https://claude.ai/directory/0c84f0ce-49ad-468f-babb-3efab67f5aeb "Add in Claude")
+[Add Addepar MCP in Claude (opens in new tab)](https://claude.ai/directory/bc2b011f-5db9-4aef-9df0-fe500264075d "Add in Claude")
 
 ![](https://assets.claude.com/37ce5968b2e46e9c696132cd4970baeeff9a08f0.jpg?w=128&fit=max&auto=format)
 
@@ -465,6 +437,14 @@ Search, edit and get insights on your Box content
 Access and create new content on Miro boards
 
 [Add Miro in Claude (opens in new tab)](https://claude.ai/directory/72480fb8-32ed-4075-b1c4-79e09c858b29 "Add in Claude")
+
+![](https://assets.claude.com/625f40fd713ca178d49e75e5f8df15e0e0843d40.png?w=128&fit=max&auto=format)
+
+### [Shopify](https://claude.com/marketplace/connectors/shopify)
+
+Build, manage, and analyze your Shopify store
+
+[Add Shopify in Claude (opens in new tab)](https://claude.ai/directory/80917cb7-3071-4fca-b053-a4262d356c60 "Add in Claude")
 
 ![](https://assets.claude.com/f8c4f0634cd056e248c7ea396b1839b922470ac6.jpg?w=128&fit=max&auto=format)
 

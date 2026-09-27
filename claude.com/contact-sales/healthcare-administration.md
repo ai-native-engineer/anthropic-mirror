@@ -7,5 +7,3 @@ Claude helps payers modernize legacy systems, build agents for complex workflows
 ## Transform how your organization operates with Claude
 
 [Get started](https://claude.ai)
-
-Contact us about your Healthcare Administration use case | Claude by Anthropic

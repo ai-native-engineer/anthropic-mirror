@@ -1,5 +1,13 @@
 <!-- source: https://claude.com/docs/plugins/org-rollout -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 You can get your organization’s own plugin to every member two ways, and each reaches different people:
 
 * **Organization settings on claude.ai**: members get the plugin on their accounts, where chat and Cowork use it. Plugins you add this way stay private to your organization
@@ -29,17 +37,25 @@ A plugin on a member’s account reaches Claude Code as a synced plugin in Cowor
 
 Use both routes when the plugin is for people in chat and Cowork and also for developers whose Claude Code sessions don’t sync from a claude.ai account.
 
+1
+
 Lay out the repository as a marketplace
 
 Put the plugin in a Git repository with a `.claude-plugin/marketplace.json` that lists it. You use the same repository for both routes. [Create a marketplace](https://code.claude.com/docs/en/plugins/create-marketplace) in the Claude Code docs covers the format.
+
+2
 
 Check the repository against the organization sync rules
 
 Organization sync is stricter than Claude Code about the repository’s visibility and about which plugin source types it accepts, and it rejects a plugin with a top-level `bin/` directory. Check [the plugin sources that organization sync accepts](https://claude.com/docs/plugins/org-sync#plugin-sources-that-organization-sync-accepts) before you continue.
 
+3
+
 Sync the repository from organization settings
 
 In [**Organization settings > Plugins & skills**](https://claude.ai/admin-settings/skills?tab=inventory), add the repository as [Add your own plugins](https://claude.com/docs/plugins/admin#add-your-own-plugins) describes, then [set each plugin’s availability](https://claude.com/docs/plugins/admin#set-availability).
+
+4
 
 Register the same marketplace in managed settings
 
@@ -69,13 +85,19 @@ You release an update by pushing to the repository. How the update reaches peopl
 Organization sync reads the repository’s default branch, and members get the new version after the marketplace syncs. It syncs when an Owner selects **Re-sync** or, with **Sync automatically** on, when someone pushes to the default branch. Nothing syncs on a schedule. Tags aren’t read, so a tag by itself releases nothing.
 **Re-sync** syncs the marketplace now, so members get the version on the default branch without waiting for a push. To re-sync:
 
+1
+
 Open the Marketplaces tab
 
 Go to [**Organization settings > Plugins & skills > Marketplaces**](https://claude.ai/admin-settings/skills?tab=marketplaces).
 
+2
+
 Re-sync the marketplace
 
 Open the menu in the marketplace’s row and select **Re-sync**.
+
+3
 
 Retry if you synced recently
 
@@ -85,6 +107,8 @@ If you see **You synced recently**, wait the number of seconds the message gives
 
 Claude Code refreshes a marketplace and updates the plugins installed from it when auto-update is on for that marketplace. [Set update policy](https://code.claude.com/docs/en/plugins/org#set-update-policy) covers turning it on for your fleet.
 If your `plugin.json` sets `version`, raise it with every release, because Claude Code compares it to decide whether an installed plugin has an update.
+
+##  Next steps
 
 * [Sync your organization’s plugins from a repository](https://claude.com/docs/plugins/org-sync): check your repository and plugin sources against the rules organization sync enforces
 * [Manage plugins for your organization](https://claude.com/docs/plugins/admin): set availability for everyone or for user groups, and control what members can add themselves

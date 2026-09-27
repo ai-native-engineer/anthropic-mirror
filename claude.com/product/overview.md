@@ -1,1197 +1,823 @@
 <!-- source: https://claude.com/product/overview -->
 
+[Skip to main content](#main-content)
+
 Latest news
 
-[Next](#)Next
+Claude Cowork is now just Claude.
 
-## Claude Fable 5.1
+Rolling out to Pro and Max, with more plans to follow.
 
-Our frontier model, sharper on the hardest problems and longest-running agents
+[Read what changed (opens in new tab)](https://claude.com/blog/cowork-is-now-claude/)
+
+![](https://assets.claude.com/82c296c6728990b32f78abb702912d16db00119b.jpg)
+
+Campaign readout
+
+Call prep
+
+Audience intelligence
+
+QBR deck
+
+![](https://assets.claude.com/e35ba05b5a40d12a35234499adbacc46e2889b70.jpg?fm=webp&fit=max&w=480)
+
+Earnings comps
+
+CRM hygiene
+
+![](https://assets.claude.com/9cec7edabcc5f77906914605328a2c36a9dc6db1.jpg?fm=webp&fit=max&w=480)
+
+Month-end close
+
+JD check
+
+![](https://assets.claude.com/a2113b58785939b1928fe6c21bd44497bf45add0.jpg?fm=webp&fit=max&w=480)
+
+Budget reforecast
+
+Survey readout
+
+Legal research drafting
+
+Merit analysis
+
+Deposition prep
+
+Action tracking
+
+Contract redline
+
+Metrics dashboard
+
+![](https://assets.claude.com/6e8c9bf8b77945072c8d7a781943a306a0303235.jpg?fm=webp&fit=max&w=480)
+
+Asset creation
+
+QBR deck
+
+![](https://assets.claude.com/ecc7fdab5f73275fe815c099a822959ffb4b0aff.jpg?fm=webp&fit=max&w=480)
+
+Campaign readout
+
+Call prep
+
+![](https://assets.claude.com/9b592c27d3ab8a1d7bf823b51cd3c5ba270280f3.jpg?fm=webp&fit=max&w=480)
+
+Audience intelligence
+
+![](https://assets.claude.com/2802213d5468288f14af6698106b46e1bc9dfb26.jpg?fm=webp&fit=max&w=480)
+
+Earnings comps
+
+JD check
+
+![](https://assets.claude.com/089bf117acd2c695fef361227cc4d0a9f30255e6.jpg?fm=webp&fit=max&w=480)
+
+Month-end close
+
+Survey readout
+
+![](https://assets.claude.com/82bc7d365eb1653b6107062e040f630b38de5b07.jpg?fm=webp&fit=max&w=480)
+
+Budget reforecast
+
+![](https://assets.claude.com/0b30bec8012436d49e8320908a4635cca98c9c35.jpg?fm=webp&fit=max&w=480)
+
+Merit analysis
+
+Action tracking
+
+![](https://assets.claude.com/4ae1f10ca8d1f4fd6a91c0c3d847f5b487eaa770.jpg?fm=webp&fit=max&w=480)
+
+Contract redline
+
+Metrics dashboard
+
+![](https://assets.claude.com/c36a02deb99d94e377969a66221c0160ed178ad9.jpg?fm=webp&fit=max&w=480)
+
+Deposition prep
+
+Feedback digest
+
+# Give Claude more
+
+Hand Claude a task, not just a question. Tackle routines, tangled ideas, and big projects.
+
+[Try Claude](https://claude.ai)[Download for macOS](https://claude.ai/api/desktop/darwin/universal/dmg/latest/redirect)
+
+![](https://assets.claude.com/34484a65640fb6585c2bfd40fe7f0743a429df61.jpg?fm=webp&fit=max&w=960)
+
+01
+
+### Take tasks off your desk
+
+Ask Claude for more than an answer: mine data, pull information together, or make a first draft. Get time back to make a call.
+
+02
+
+### Turn ideas into something real
+
+Bring in a half-formed idea and get back a polished deck, working prototype, financial model, or draft you can edit and put your name on.
+
+03
+
+### Extend what you can do
+
+Build on your ideas, clarify problems, uncover insights, expand logic, and take on work you couldn’t get to before.
+
+EveryoneHand off a task of any size.MarketingShare an idea, get a draft back.SalesMore time with customers.FinanceReview more, reconcile less.Human resourcesFocus on people, not ops.LegalClaude drafts, you decide.ProductLess digging, more decisions.
+
+For everyone
+
+* Everyone
+* Marketing
+* Sales
+* Finance
+* Human resources
+* Legal
+* Product
+
+8:00 AMProduct
+
+### Keep up with meetings all day
+
+Claude reads each transcript, pulls action items and owners into one list, posts it for the team in Slack, and follows up on opens before the next meeting on Google Calendar.
+
+> “”
+
+After each of my meetings this week, read the transcript and pull out action items and owners. Post a running list to my team channel and remind owners two days before the next meeting if their item’s still open.
+
+Opus High
+
+Splitting decisions from action items first
+
+![Google Calendar](https://claude.com/static/product-overview/marks/google-calendar.svg)Check the week’s meetings, next team sync Thursday
+
+![Slack](https://claude.com/static/product-overview/marks/slack.svg)Post the running list to #product-team
+
+Now standing: after every meeting this week
+
+[![Google Calendar](https://claude.com/static/product-overview/marks/google-calendar.svg)From Calendar](https://claude.com/marketplace/connectors-plugins)[![Slack](https://claude.com/static/product-overview/marks/slack.svg)From Slack](https://claude.com/product/tag)
+
+[Try it in Claude](https://claude.ai/new?q=After+each+of+my+meetings+this+week%2C+read+the+transcript+and+pull+out+action+items+and+owners.+Post+a+running+list+to+my+team+channel+and+remind+owners+two+days+before+the+next+meeting+if+their+item%E2%80%99s+still+open.&utm_source=claude_com&utm_medium=web&utm_campaign=product_overview&utm_content=roles_action-tracking)
+
+1. The conversation2. The result
+
+Pull customer feedback from Slack, email, and support from the last week. Group it into themes with counts, tie each to a roadmap item, and post the digest to my team channel.
+
+Opus High
+
+Matching themes to roadmap items before counting
+
+![Slack](https://claude.com/static/product-overview/marks/slack.svg)Read 128 messages in #feedback, Aug 24–30
+
+![Gmail](https://claude.com/static/product-overview/marks/gmail.svg)Read 46 support threads and survey replies
+
+![Microsoft Word](https://claude.com/static/product-overview/marks/word.svg)Write the digest, what-to-watch first
+
+[![Slack](https://claude.com/static/product-overview/marks/slack.svg)From Slack](https://claude.com/product/tag)[![Gmail](https://claude.com/static/product-overview/marks/gmail.svg)From Gmail](https://claude.com/marketplace/connectors-plugins)[![Microsoft Word](https://claude.com/static/product-overview/marks/word.svg)From Word](https://claude.com/marketplace/connectors-plugins)
+
+[Try it in Claude](https://claude.ai/new?q=Pull+customer+feedback+from+Slack%2C+email%2C+and+support+from+the+last+week.+Group+it+into+themes+with+counts%2C+tie+each+to+a+roadmap+item%2C+and+post+the+digest+to+my+team+channel.&utm_source=claude_com&utm_medium=web&utm_campaign=product_overview&utm_content=roles_feedback-digest)
+
+1. The conversation2. The result
+
+Roll the H2 budget with the new headcount plan.
+
+Opus High
+
+There are two headcount plans in the folder — v3 is newer, but v2 still carries the contractor lines. Which is the plan of record?
+
+v3. Contractors moved to the ops budget.
+
+![Google Drive](https://claude.com/static/product-overview/marks/google-drive.svg)Open headcount-plan-v3.xlsx
+
+![Microsoft Excel](https://claude.com/static/product-overview/marks/excel.svg)Re-phase H2, flag every cell I touched
+
+[![Google Drive](https://claude.com/static/product-overview/marks/google-drive.svg)From Drive](https://claude.com/marketplace/connectors-plugins)[![Microsoft Excel](https://claude.com/static/product-overview/marks/excel.svg)From Excel](https://claude.com/marketplace/connectors-plugins)
+
+[Try it in Claude](https://claude.ai/new?q=Roll+the+H2+budget+with+the+new+headcount+plan.&utm_source=claude_com&utm_medium=web&utm_campaign=product_overview&utm_content=roles_h2-reforecast)
+
+1. The conversation2. The result
+
+Every Monday, pull last week’s web, ad, and channel numbers from Amplitude and BigQuery, compare to the week before, flag anything that moved more than 10%, and put it in a deck I can review before it goes out.
+
+Opus High
+
+Deciding which moves clear the 10% bar
+
+![Amplitude](https://claude.com/static/product-overview/marks/amplitude.svg)Pull web views and sign-ups, Aug 17–23
+
+![Google BigQuery](https://claude.com/static/product-overview/marks/bigquery.svg)Pull ad, email and social against Aug 10–16
+
+![Microsoft PowerPoint](https://claude.com/static/product-overview/marks/powerpoint.svg)Build seven slides, one per channel
+
+Now standing: Mondays before stand-up
+
+[![Amplitude](https://claude.com/static/product-overview/marks/amplitude.svg)From Amplitude](https://claude.com/marketplace/connectors-plugins)[![Google BigQuery](https://claude.com/static/product-overview/marks/bigquery.svg)From BigQuery](https://claude.com/marketplace/connectors-plugins)[![Microsoft PowerPoint](https://claude.com/static/product-overview/marks/powerpoint.svg)From PowerPoint](https://claude.com/marketplace/connectors-plugins)
+
+[Try it in Claude](https://claude.ai/new?q=Every+Monday%2C+pull+last+week%E2%80%99s+web%2C+ad%2C+and+channel+numbers+from+Amplitude+and+BigQuery%2C+compare+to+the+week+before%2C+flag+anything+that+moved+more+than+10%25%2C+and+put+it+in+a+deck+I+can+review+before+it+goes+out.&utm_source=claude_com&utm_medium=web&utm_campaign=product_overview&utm_content=roles_campaign-readout)
+
+1. The conversation2. The result
+
+Build a social set for the Fall Readout using our brand guidelines. Three 4:5 posts — a stat, a headline, and a trend — as one proof sheet.
+
+Opus High
+
+Reading the brand guidelines before designing anything
+
+![Google Drive](https://claude.com/static/product-overview/marks/google-drive.svg)Open Brand-guidelines.pdf
+
+![Google Drive](https://claude.com/static/product-overview/marks/google-drive.svg)Deliver the proof sheet: three 4:5 posts
+
+[![Google Drive](https://claude.com/static/product-overview/marks/google-drive.svg)From Drive](https://claude.com/marketplace/connectors-plugins)
+
+[Try it in Claude](https://claude.ai/new?q=Build+a+social+set+for+the+Fall+Readout+using+our+brand+guidelines.+Three+4%3A5+posts+%E2%80%94+a+stat%2C+a+headline%2C+and+a+trend+%E2%80%94+as+one+proof+sheet.&utm_source=claude_com&utm_medium=web&utm_campaign=product_overview&utm_content=roles_asset-creation)
+
+1. The conversation2. The result
+
+Read every reply in my Gmail label [survey] and the #brand-mentions Slack channel from the last 30 days. Group the feedback into themes, count how often each comes up, and tell me what to prioritize.
+
+Opus High
+
+Sorting replies from chatter before counting anything
+
+![Gmail](https://claude.com/static/product-overview/marks/gmail.svg)Read 214 replies in [survey], Jul 27 – Aug 25
+
+![Slack](https://claude.com/static/product-overview/marks/slack.svg)Read 183 mentions in #brand-mentions
+
+![Microsoft Word](https://claude.com/static/product-overview/marks/word.svg)Write the readout, priorities first
+
+[![Gmail](https://claude.com/static/product-overview/marks/gmail.svg)From Gmail](https://claude.com/marketplace/connectors-plugins)[![Slack](https://claude.com/static/product-overview/marks/slack.svg)From Slack](https://claude.com/product/tag)[![Microsoft Word](https://claude.com/static/product-overview/marks/word.svg)From Word](https://claude.com/marketplace/connectors-plugins)
+
+[Try it in Claude](https://claude.ai/new?q=Read+every+reply+in+my+Gmail+label+%5Bsurvey%5D+and+the+%23brand-mentions+Slack+channel+from+the+last+30+days.+Group+the+feedback+into+themes%2C+count+how+often+each+comes+up%2C+and+tell+me+what+to+prioritize.&utm_source=claude_com&utm_medium=web&utm_campaign=product_overview&utm_content=roles_audience-intelligence)
+
+1. The conversation2. The result
+
+I’ve got a call with Meridian at 2 and I know nothing about it.
+
+Opus High
+
+There are three Meridians in the CRM — the health one has a meeting on your calendar today. Want the whole account history, or just what’s changed since the last call?
+
+That one. Enough that I don’t look unprepared.
+
+Working out which Meridian on today’s calendar, and who’s on the invite
+
+![Salesforce](https://claude.com/static/product-overview/marks/salesforce.svg)Pull the account history and open deals
+
+![Slack](https://claude.com/static/product-overview/marks/slack.svg)Read the deal thread, Jun 30 – Aug 14
+
+![Microsoft Word](https://claude.com/static/product-overview/marks/word.svg)Write the brief
+
+[![Google Calendar](https://claude.com/static/product-overview/marks/google-calendar.svg)From Calendar](https://claude.com/marketplace/connectors-plugins)[![Salesforce](https://claude.com/static/product-overview/marks/salesforce.svg)From Salesforce](https://claude.com/marketplace/connectors-plugins)[![Slack](https://claude.com/static/product-overview/marks/slack.svg)From Slack](https://claude.com/marketplace/connectors-plugins)
+
+[Try it in Claude](https://claude.ai/new?q=I%E2%80%99ve+got+a+call+with+Meridian+at+2+and+I+know+nothing+about+it.&utm_source=claude_com&utm_medium=web&utm_campaign=product_overview&utm_content=roles_call-prep)
+
+1. The conversation2. The result
+
+Put together the QBR for Northfield.
+
+Opus High
+
+Q2 just closed — that one, or the quarter in flight? And is this for their exec team or ours?
+
+Q2. Ours.
+
+Reading the closed quarter, not the live one
+
+![Salesforce](https://claude.com/static/product-overview/marks/salesforce.svg)Pull seat and usage exports
+
+![Microsoft Excel](https://claude.com/static/product-overview/marks/excel.svg)Compare against Q1
+
+![Microsoft PowerPoint](https://claude.com/static/product-overview/marks/powerpoint.svg)Build five slides
+
+[![Salesforce](https://claude.com/static/product-overview/marks/salesforce.svg)From Salesforce](https://claude.com/marketplace/connectors-plugins)[![Microsoft Excel](https://claude.com/static/product-overview/marks/excel.svg)From Excel](https://claude.com/marketplace/connectors-plugins)[![Microsoft PowerPoint](https://claude.com/static/product-overview/marks/powerpoint.svg)From PowerPoint](https://claude.com/marketplace/connectors-plugins)
+
+[Try it in Claude](https://claude.ai/new?q=Put+together+the+QBR+for+Northfield.&utm_source=claude_com&utm_medium=web&utm_campaign=product_overview&utm_content=roles_qbr-deck)
+
+1. The conversation2. The result
+
+Read my last week of call transcripts and notes, then update the matching Salesforce opportunities: next steps, notes, methodology, and competition. Show me the changes before saving.
+
+Opus High
+
+Matching five transcripts to three open opportunities
+
+![Gong](https://claude.com/static/product-overview/marks/gong.svg)Read the week’s call transcripts and notes
+
+![Microsoft Word](https://claude.com/static/product-overview/marks/word.svg)Draft 11 field updates, nothing saved
+
+[![Gong](https://claude.com/static/product-overview/marks/gong.svg)From Gong](https://claude.com/marketplace/connectors-plugins)[![Salesforce](https://claude.com/static/product-overview/marks/salesforce.svg)From Salesforce](https://claude.com/marketplace/connectors-plugins)[![Microsoft Word](https://claude.com/static/product-overview/marks/word.svg)From Word](https://claude.com/marketplace/connectors-plugins)
+
+[Try it in Claude](https://claude.ai/new?q=Read+my+last+week+of+call+transcripts+and+notes%2C+then+update+the+matching+Salesforce+opportunities%3A+next+steps%2C+notes%2C+methodology%2C+and+competition.+Show+me+the+changes+before+saving.&utm_source=claude_com&utm_medium=web&utm_campaign=product_overview&utm_content=roles_crm-hygiene)
+
+1. The conversation2. The result
+
+Pull the latest earnings transcript and 10-Q for Dunhollow. Extract guidance, key KPIs, and commentary, compare to last quarter, and build a comps table against these peers.
+
+Opus High
+
+Separating the price beat from the volume story
+
+![Google Drive](https://claude.com/static/product-overview/marks/google-drive.svg)Read the Q3 transcript and the 10-Q
+
+![Microsoft Excel](https://claude.com/static/product-overview/marks/excel.svg)Build the comps table against five peers
+
+![Microsoft PowerPoint](https://claude.com/static/product-overview/marks/powerpoint.svg)Build the slide, comps table behind it
+
+[![Google Drive](https://claude.com/static/product-overview/marks/google-drive.svg)From Drive](https://claude.com/marketplace/connectors-plugins)[![Microsoft Excel](https://claude.com/static/product-overview/marks/excel.svg)From Excel](https://claude.com/marketplace/connectors-plugins)[![Microsoft PowerPoint](https://claude.com/static/product-overview/marks/powerpoint.svg)From PowerPoint](https://claude.com/marketplace/connectors-plugins)
+
+[Try it in Claude](https://claude.ai/new?q=Pull+the+latest+earnings+transcript+and+10-Q+for+Dunhollow.+Extract+guidance%2C+key+KPIs%2C+and+commentary%2C+compare+to+last+quarter%2C+and+build+a+comps+table+against+these+peers.&utm_source=claude_com&utm_medium=web&utm_campaign=product_overview&utm_content=roles_earnings-comps)
+
+1. The conversation2. The result
+
+Here are this month’s regional actuals exports. Reconcile them into one summary, flag any variances against budget, and note anything that doesn’t tie out.
+
+Opus High
+
+Two exports, two different shapes — mapping them first
+
+![Microsoft Excel](https://claude.com/static/product-overview/marks/excel.svg)Read the NA and EMEA actuals
+
+![Microsoft Excel](https://claude.com/static/product-overview/marks/excel.svg)Convert EMEA at the July average, 1.088
+
+![Microsoft Excel](https://claude.com/static/product-overview/marks/excel.svg)Consolidate and flag three variances
+
+[![Microsoft Excel](https://claude.com/static/product-overview/marks/excel.svg)From Excel](https://claude.com/marketplace/connectors-plugins)
+
+[Try it in Claude](https://claude.ai/new?q=Here+are+this+month%E2%80%99s+regional+actuals+exports.+Reconcile+them+into+one+summary%2C+flag+any+variances+against+budget%2C+and+note+anything+that+doesn%E2%80%99t+tie+out.&utm_source=claude_com&utm_medium=web&utm_campaign=product_overview&utm_content=roles_month-end-close)
+
+1. The conversation2. The result
+
+Roll the H2 budget with the new headcount plan.
+
+Opus High
+
+There are two headcount plans in the folder — v3 is newer, but v2 still carries the contractor lines. Which is the plan of record?
+
+v3. Contractors moved to the ops budget.
+
+![Google Drive](https://claude.com/static/product-overview/marks/google-drive.svg)Open headcount-plan-v3.xlsx
+
+![Microsoft Excel](https://claude.com/static/product-overview/marks/excel.svg)Re-phase H2, flag every cell I touched
+
+[![Google Drive](https://claude.com/static/product-overview/marks/google-drive.svg)From Drive](https://claude.com/marketplace/connectors-plugins)[![Microsoft Excel](https://claude.com/static/product-overview/marks/excel.svg)From Excel](https://claude.com/marketplace/connectors-plugins)
+
+[Try it in Claude](https://claude.ai/new?q=Roll+the+H2+budget+with+the+new+headcount+plan.&utm_source=claude_com&utm_medium=web&utm_campaign=product_overview&utm_content=roles_h2-reforecast)
+
+1. The conversation2. The result
+
+Check this job description against our leveling guide. Give me back an edited version and an interview kit.
+
+Opus High
+
+Reading the draft against the guide, clause by clause
+
+![Google Drive](https://claude.com/static/product-overview/marks/google-drive.svg)Check the draft against leveling guide v4
+
+![Microsoft Word](https://claude.com/static/product-overview/marks/word.svg)Mark seven changes, three leveling, four fairness
+
+![Microsoft Word](https://claude.com/static/product-overview/marks/word.svg)Add the interview kit
+
+[![Google Drive](https://claude.com/static/product-overview/marks/google-drive.svg)From Drive](https://claude.com/marketplace/connectors-plugins)[![Microsoft Word](https://claude.com/static/product-overview/marks/word.svg)From Word](https://claude.com/marketplace/connectors-plugins)
+
+[Try it in Claude](https://claude.ai/new?q=Check+this+job+description+against+our+leveling+guide.+Give+me+back+an+edited+version+and+an+interview+kit.&utm_source=claude_com&utm_medium=web&utm_campaign=product_overview&utm_content=roles_jd-check)
+
+1. The conversation2. The result
+
+Turn the engagement survey export into the exec readout, same shape as last wave.
+
+Opus High
+
+Using the People readout skill, so the shape matches last wave
+
+![Google Drive](https://claude.com/static/product-overview/marks/google-drive.svg)Read 612 responses and 384 comments
+
+![Microsoft PowerPoint](https://claude.com/static/product-overview/marks/powerpoint.svg)Code the comments, build five slides
+
+[![Google Drive](https://claude.com/static/product-overview/marks/google-drive.svg)From Drive](https://claude.com/marketplace/connectors-plugins)[![Microsoft PowerPoint](https://claude.com/static/product-overview/marks/powerpoint.svg)From PowerPoint](https://claude.com/marketplace/connectors-plugins)
+
+[Try it in Claude](https://claude.ai/new?q=Turn+the+engagement+survey+export+into+the+exec+readout%2C+same+shape+as+last+wave.&utm_source=claude_com&utm_medium=web&utm_campaign=product_overview&utm_content=roles_survey-readout)
+
+1. The conversation2. The result
+
+Run the merit analysis on this comp data against the budget, then generate a comp letter for each employee from the template.
+
+Opus High
+
+Working out which increases sit above guideline
+
+![Microsoft Excel](https://claude.com/static/product-overview/marks/excel.svg)Run 751 eligible staff against the 3.0% pool
+
+![Microsoft Excel](https://claude.com/static/product-overview/marks/excel.svg)Flag seven rows, hold four decisions
+
+![Microsoft Word](https://claude.com/static/product-overview/marks/word.svg)Draft 738 comp letters
+
+[![Microsoft Excel](https://claude.com/static/product-overview/marks/excel.svg)From Excel](https://claude.com/marketplace/connectors-plugins)[![Microsoft Word](https://claude.com/static/product-overview/marks/word.svg)From Word](https://claude.com/marketplace/connectors-plugins)
+
+[Try it in Claude](https://claude.ai/new?q=Run+the+merit+analysis+on+this+comp+data+against+the+budget%2C+then+generate+a+comp+letter+for+each+employee+from+the+template.&utm_source=claude_com&utm_medium=web&utm_campaign=product_overview&utm_content=roles_merit-analysis)
+
+1. The conversation2. The result
+
+Research case law on this issue in our jurisdiction. Verify citations against CourtListener, summarize the controlling precedent, and draft a memo on how it applies to our matter.
+
+Opus High
+
+Reading the cases before citing them, not the other way round
+
+![CourtListener](https://claude.com/static/product-overview/marks/courtlistener.svg)Pull the cases, verify all three citations
+
+![Microsoft Word](https://claude.com/static/product-overview/marks/word.svg)Draft the memo, precedent first
+
+[![CourtListener](https://claude.com/static/product-overview/marks/courtlistener.svg)From CourtListener](https://claude.com/marketplace/connectors-plugins)[![Microsoft Word](https://claude.com/static/product-overview/marks/word.svg)From Word](https://claude.com/marketplace/connectors-plugins)
+
+[Try it in Claude](https://claude.ai/new?q=Research+case+law+on+this+issue+in+our+jurisdiction.+Verify+citations+against+CourtListener%2C+summarize+the+controlling+precedent%2C+and+draft+a+memo+on+how+it+applies+to+our+matter.&utm_source=claude_com&utm_medium=web&utm_campaign=product_overview&utm_content=roles_legal-research)
+
+1. The conversation2. The result
+
+Pull every document tagged to the witness in Everlaw, build a chronology of key events, and put deposition questions in a spreadsheet, organized by topic, one row per question, with the supporting document cited and a column to mark each one covered.
+
+Opus High
+
+Chronology first — the questions fall out of the timeline
+
+![Everlaw](https://claude.com/static/product-overview/marks/everlaw.svg)Read 187 tagged documents, Jun 2024 – Jul 2025
+
+![Microsoft Excel](https://claude.com/static/product-overview/marks/excel.svg)Lay out 19 questions across five topics
+
+[![Everlaw](https://claude.com/static/product-overview/marks/everlaw.svg)From Everlaw](https://claude.com/marketplace/connectors-plugins)[![Microsoft Excel](https://claude.com/static/product-overview/marks/excel.svg)From Excel](https://claude.com/marketplace/connectors-plugins)
+
+[Try it in Claude](https://claude.ai/new?q=Pull+every+document+tagged+to+the+witness+in+Everlaw%2C+build+a+chronology+of+key+events%2C+and+put+deposition+questions+in+a+spreadsheet%2C+organized+by+topic%2C+one+row+per+question%2C+with+the+supporting+document+cited+and+a+column+to+mark+each+one+covered.&utm_source=claude_com&utm_medium=web&utm_campaign=product_overview&utm_content=roles_deposition-prep)
+
+1. The conversation2. The result
+
+The Northfield MSA came back. Check it against our playbook and mark it up.
+
+Opus High
+
+v2 differs from v1 in nine places — six of them substantive
+
+![Google Drive](https://claude.com/static/product-overview/marks/google-drive.svg)Open Legal/Playbook.docx
+
+![Microsoft Word](https://claude.com/static/product-overview/marks/word.svg)Redline four clauses, flag two the playbook doesn’t cover
+
+[![Google Drive](https://claude.com/static/product-overview/marks/google-drive.svg)From Drive](https://claude.com/marketplace/connectors-plugins)[![Microsoft Word](https://claude.com/static/product-overview/marks/word.svg)From Word](https://claude.com/marketplace/connectors-plugins)
+
+[Try it in Claude](https://claude.ai/new?q=The+Northfield+MSA+came+back.+Check+it+against+our+playbook+and+mark+it+up.&utm_source=claude_com&utm_medium=web&utm_campaign=product_overview&utm_content=roles_contract-redline)
+
+1. The conversation2. The result
+
+After each of my meetings this week, read the transcript and pull out action items and owners. Post a running list to my team channel and remind owners two days before the next meeting if their item’s still open.
+
+Opus High
+
+Splitting decisions from action items first
+
+![Google Calendar](https://claude.com/static/product-overview/marks/google-calendar.svg)Check the week’s meetings, next team sync Thursday
+
+![Slack](https://claude.com/static/product-overview/marks/slack.svg)Post the running list to #product-team
+
+Now standing: after every meeting this week
+
+[![Google Calendar](https://claude.com/static/product-overview/marks/google-calendar.svg)From Calendar](https://claude.com/marketplace/connectors-plugins)[![Slack](https://claude.com/static/product-overview/marks/slack.svg)From Slack](https://claude.com/product/tag)
+
+[Try it in Claude](https://claude.ai/new?q=After+each+of+my+meetings+this+week%2C+read+the+transcript+and+pull+out+action+items+and+owners.+Post+a+running+list+to+my+team+channel+and+remind+owners+two+days+before+the+next+meeting+if+their+item%E2%80%99s+still+open.&utm_source=claude_com&utm_medium=web&utm_campaign=product_overview&utm_content=roles_action-tracking)
+
+1. The conversation2. The result
+
+Pull customer feedback from Slack, email, and support from the last week. Group it into themes with counts, tie each to a roadmap item, and post the digest to my team channel.
+
+Opus High
+
+Matching themes to roadmap items before counting
+
+![Slack](https://claude.com/static/product-overview/marks/slack.svg)Read 128 messages in #feedback, Aug 24–30
+
+![Gmail](https://claude.com/static/product-overview/marks/gmail.svg)Read 46 support threads and survey replies
+
+![Microsoft Word](https://claude.com/static/product-overview/marks/word.svg)Write the digest, what-to-watch first
+
+[![Slack](https://claude.com/static/product-overview/marks/slack.svg)From Slack](https://claude.com/product/tag)[![Gmail](https://claude.com/static/product-overview/marks/gmail.svg)From Gmail](https://claude.com/marketplace/connectors-plugins)[![Microsoft Word](https://claude.com/static/product-overview/marks/word.svg)From Word](https://claude.com/marketplace/connectors-plugins)
+
+[Try it in Claude](https://claude.ai/new?q=Pull+customer+feedback+from+Slack%2C+email%2C+and+support+from+the+last+week.+Group+it+into+themes+with+counts%2C+tie+each+to+a+roadmap+item%2C+and+post+the+digest+to+my+team+channel.&utm_source=claude_com&utm_medium=web&utm_campaign=product_overview&utm_content=roles_feedback-digest)
+
+1. The conversation2. The result
+
+Connect to my analytics data and build a product metrics dashboard: DAU/WAU, weekly retention, funnel conversion, and feature adoption. Explain any trends I should pay attention to this week.
+
+Opus High
+
+Checking this week against last before charting
+
+![Google BigQuery](https://claude.com/static/product-overview/marks/bigquery.svg)Pull DAU/WAU, retention and funnel, Aug 24–30
+
+![Google Sheets](https://claude.com/static/product-overview/marks/google-sheets.svg)Read the feature-adoption export
+
+Build the dashboard, one chart per metric
+
+[![Google BigQuery](https://claude.com/static/product-overview/marks/bigquery.svg)From BigQuery](https://claude.com/marketplace/connectors-plugins)[![Google Sheets](https://claude.com/static/product-overview/marks/google-sheets.svg)From Sheets](https://claude.com/marketplace/connectors-plugins)
+
+[Try it in Claude](https://claude.ai/new?q=Connect+to+my+analytics+data+and+build+a+product+metrics+dashboard%3A+DAU%2FWAU%2C+weekly+retention%2C+funnel+conversion%2C+and+feature+adoption.+Explain+any+trends+I+should+pay+attention+to+this+week.&utm_source=claude_com&utm_medium=web&utm_campaign=product_overview&utm_content=roles_metrics-dashboard)
+
+1. The conversation2. The result
+
+[Modify prompt](https://claude.ai/new?q=After+each+of+my+meetings+this+week%2C+read+the+transcript+and+pull+out+action+items+and+owners.+Post+a+running+list+to+my+team+channel+and+remind+owners+two+days+before+the+next+meeting+if+their+item%E2%80%99s+still+open.&utm_source=claude_com&utm_medium=web&utm_campaign=product_overview&utm_content=roles_action-tracking)Replay
+
+![](https://claude.com/static/product-overview/marks/gmail.svg)![](https://claude.com/static/product-overview/marks/google-calendar.svg)![](https://claude.com/static/product-overview/marks/google-drive.svg)![](https://claude.com/static/product-overview/marks/excel.svg)![](https://claude.com/static/product-overview/marks/powerpoint.svg)![](https://claude.com/static/product-overview/marks/word.svg)![](https://claude.com/static/product-overview/marks/chrome.svg)![](https://claude.com/static/product-overview/marks/slack.svg)![](https://claude.com/static/product-overview/marks/amplitude.svg)![](https://claude.com/static/product-overview/marks/bigquery.svg)![](https://claude.com/static/product-overview/marks/salesforce.svg)![](https://claude.com/static/product-overview/marks/gong.svg)![](https://claude.com/static/product-overview/marks/claude.svg)
+
+For everyone
+
+* Everyone
+* Marketing
+* Sales
+* Finance
+* Human resources
+* Legal
+* Product
+
+8:00 AM · Product
+
+### Keep up with meetings all day
+
+Claude reads each transcript, pulls action items and owners into one list, posts it for the team in Slack, and follows up on opens before the next meeting on Google Calendar.
+
+After each of my meetings this week, read the transcript and pull out action items and owners. Post a running list to my team channel and remind owners two days before the next meeting if their item’s still open.
+
+Opus High
+
+Splitting decisions from action items first
+
+![Google Calendar](https://claude.com/static/product-overview/marks/google-calendar.svg)Check the week’s meetings, next team sync Thursday
+
+![Slack](https://claude.com/static/product-overview/marks/slack.svg)Post the running list to #product-team
+
+Now standing: after every meeting this week
+
+[![Google Calendar](https://claude.com/static/product-overview/marks/google-calendar.svg)From Calendar](https://claude.com/marketplace/connectors-plugins)[![Slack](https://claude.com/static/product-overview/marks/slack.svg)From Slack](https://claude.com/product/tag)
+
+[Try it in Claude](https://claude.ai/new?q=After+each+of+my+meetings+this+week%2C+read+the+transcript+and+pull+out+action+items+and+owners.+Post+a+running+list+to+my+team+channel+and+remind+owners+two+days+before+the+next+meeting+if+their+item%E2%80%99s+still+open.&utm_source=claude_com&utm_medium=web&utm_campaign=product_overview&utm_content=roles_action-tracking)
+
+1. The conversation2. The result
+
+[Modify prompt](https://claude.ai/new?q=After+each+of+my+meetings+this+week%2C+read+the+transcript+and+pull+out+action+items+and+owners.+Post+a+running+list+to+my+team+channel+and+remind+owners+two+days+before+the+next+meeting+if+their+item%E2%80%99s+still+open.&utm_source=claude_com&utm_medium=web&utm_campaign=product_overview&utm_content=roles_action-tracking)
+
+12:00 PM · Product
+
+### Organize customer feedback into a digest
+
+Claude pulls feedback from Slack, Gmail, support, and survey tools, clusters it by theme, ties it to the roadmap, and delivers a weekly digest in Word everyone can review.
+
+Pull customer feedback from Slack, email, and support from the last week. Group it into themes with counts, tie each to a roadmap item, and post the digest to my team channel.
+
+Opus High
+
+Matching themes to roadmap items before counting
+
+![Slack](https://claude.com/static/product-overview/marks/slack.svg)Read 128 messages in #feedback, Aug 24–30
+
+![Gmail](https://claude.com/static/product-overview/marks/gmail.svg)Read 46 support threads and survey replies
+
+![Microsoft Word](https://claude.com/static/product-overview/marks/word.svg)Write the digest, what-to-watch first
+
+[![Slack](https://claude.com/static/product-overview/marks/slack.svg)From Slack](https://claude.com/product/tag)[![Gmail](https://claude.com/static/product-overview/marks/gmail.svg)From Gmail](https://claude.com/marketplace/connectors-plugins)[![Microsoft Word](https://claude.com/static/product-overview/marks/word.svg)From Word](https://claude.com/marketplace/connectors-plugins)
+
+[Try it in Claude](https://claude.ai/new?q=Pull+customer+feedback+from+Slack%2C+email%2C+and+support+from+the+last+week.+Group+it+into+themes+with+counts%2C+tie+each+to+a+roadmap+item%2C+and+post+the+digest+to+my+team+channel.&utm_source=claude_com&utm_medium=web&utm_campaign=product_overview&utm_content=roles_feedback-digest)
+
+1. The conversation2. The result
+
+[Modify prompt](https://claude.ai/new?q=Pull+customer+feedback+from+Slack%2C+email%2C+and+support+from+the+last+week.+Group+it+into+themes+with+counts%2C+tie+each+to+a+roadmap+item%2C+and+post+the+digest+to+my+team+channel.&utm_source=claude_com&utm_medium=web&utm_campaign=product_overview&utm_content=roles_feedback-digest)
+
+4:00 PM · Finance
+
+### Update your H2 budget for your leadership check-in
+
+Keep your budget up to date. Work with Claude to roll H2 numbers forward with a new headcount plan in Claude for Excel, and it flags every changed cell with notes.
+
+Roll the H2 budget with the new headcount plan.
+
+Opus High
+
+There are two headcount plans in the folder — v3 is newer, but v2 still carries the contractor lines. Which is the plan of record?
+
+v3. Contractors moved to the ops budget.
+
+![Google Drive](https://claude.com/static/product-overview/marks/google-drive.svg)Open headcount-plan-v3.xlsx
+
+![Microsoft Excel](https://claude.com/static/product-overview/marks/excel.svg)Re-phase H2, flag every cell I touched
+
+[![Google Drive](https://claude.com/static/product-overview/marks/google-drive.svg)From Drive](https://claude.com/marketplace/connectors-plugins)[![Microsoft Excel](https://claude.com/static/product-overview/marks/excel.svg)From Excel](https://claude.com/marketplace/connectors-plugins)
+
+[Try it in Claude](https://claude.ai/new?q=Roll+the+H2+budget+with+the+new+headcount+plan.&utm_source=claude_com&utm_medium=web&utm_campaign=product_overview&utm_content=roles_h2-reforecast)
+
+1. The conversation2. The result
+
+[Modify prompt](https://claude.ai/new?q=Roll+the+H2+budget+with+the+new+headcount+plan.&utm_source=claude_com&utm_medium=web&utm_campaign=product_overview&utm_content=roles_h2-reforecast)
+
+[![](https://assets.claude.com/6531ab54c238eace4dae8f264c2b2be54ed48e71.jpg)](https://assets.claude.com/a070095fdb2868850ba1a1927d86c566e4ecc557.mp4)
+
+![Thomson Reuters](https://assets.claude.com/3c80d8dc7dbf6556d1137977873dee26eaffae1d.svg)
+
+[![](https://assets.claude.com/83bc9ef9b2ab2a1c3e5d3ec00b459b12a0932cc2.jpg)](https://assets.claude.com/c19a2749590b99eb2e72631fb9a3300120f722ba.mp4)
+
+![Hubspot](https://assets.claude.com/d6f4aa0286766975a05548621fb66283ec2bfe32.svg)
+
+[![](https://assets.claude.com/b6c75951f006eded50547aa9edd26be95f190ce2.jpg)](https://assets.claude.com/c6695e02e79ef9c78ec3af52126a077d88dc38c8.mp4)
+
+![Airtree](https://assets.claude.com/0a4af388f451cefedf61dba15d9f73962a46c700.png)
+
+> “I gave Claude a call transcript, a couple of knowledge-based articles, and the first output was amazing. It genuinely felt like it was my voice. I felt that I was working with a strategic partner.
+>
+> We had a hospitality business that was struggling with their revenue in terms of where can we find cost savings? Claude was able to take the reporting from the historical standpoint and say, here’s where we see your best performing weekends. Here are the weekends that were not performing as well. That is something so far beyond my typical role as a CSM. My customers are saying like, this is the best conversation I’ve ever had with HubSpot.”
+
+Sarah Caruthers
+
+Senior Customer Success Manager, HubSpot
+
+![](https://assets.claude.com/e159d7ba3a68f115cf5b8131d81a4163855e7a64.svg)![](https://assets.claude.com/e159d7ba3a68f115cf5b8131d81a4163855e7a64.svg)
+
+00:00 / 00:38
+
+> “Cowork (now Claude) helps teams do work at a scale that was hard to justify before. The human role becomes validation, refinement, and decision-making. Not repetitive rework.”
+
+Joel Hron
+
+CTO, Thomson Reuters
+
+> “Hi, I’m Mark. I’m an in-house product lawyer at Anthropic. This morning, a product manager sent me a Slack asking a quick question on a feature that launched a few months ago. Now, I’ve only got a few minutes before my next meeting and none of the context I had when I wrote the original memo about it.
+>
+> Claude pulls the review from the folder. It reads the new Slack and Gmail threads and gives me back what I need in the shape that I think in: what we concluded back then, what’s actually changing, and which parts of the old analysis it touches. I’m not reading a 40-page memo to find three paragraphs. The brief points me at those three paragraphs.
+>
+> I’m checking because my name goes on the reply, and trust but verify is pretty much the whole job. I can use my brain to do more strategic thinking. That’s why I went to law school in the first place.”
+
+Mark Pike
+
+Legal Counsel, Anthropic
+
+![](https://assets.claude.com/1570c68cf10c792c5f990e599b50003a958dab18.svg)![](https://assets.claude.com/1570c68cf10c792c5f990e599b50003a958dab18.svg)
+
+00:00 / 00:41
+
+> “Cowork (now Claude) gives us the ability to schedule and run tasks even when people are offline, taking busywork off their plates so they can focus on actually being marketers.”
+
+Chloe Tambe
+
+Director, AI Transformation, HubSpot
+
+> “Getting data as a product manager is like a pain point. Usually, you have to ping a data science person to help you. Or often product managers can write some kind of basic SQL themselves and will have to query a database that they don’t know that much about.
+>
+> You don’t need to know how to write SQL. You just need to be a human interpreter of that data and that result. I would say it’s like more than automation for me. Like, it’s things that I wouldn’t have otherwise necessarily even been capable of doing independently. So, it’s actually like extending what I can accomplish on my own.
+>
+> I can use Claude to test my product ideas before I even get anyone else in the loop. I can operate much more independently, which is extremely empowering.”
+
+Lisa Crofoot
+
+Product Manager, Anthropic
+
+![](https://assets.claude.com/ba784540c5ce4e75d5c61180d910ae1bcb5bd66c.svg)![](https://assets.claude.com/ba784540c5ce4e75d5c61180d910ae1bcb5bd66c.svg)
+
+00:00 / 00:48
+
+> “Our biggest operational pain point wasn’t access to information; it was that it was scattered across many tools. Cowork (now Claude) hasn’t changed what we do but it has changed how we do it.”
+
+Jackie Vullinghs
+
+Partner, Airtree
+
+## Change the way you work
+
+01
+
+### You don’t need the right words
+
+Say what you need, like you’d tell a colleague. Claude works out the steps, flags when it needs your attention, and hands back the file.
+
+02
+
+### You have control and the final say
+
+In Word and Excel, changes show as tracked edits or highlighted cells so you review. Claude cites sources and asks before it acts, if you prefer.
+
+03
+
+### You don’t need to start over
+
+Claude keeps context, projects, and preferences, repeats a saved skill your way, and runs a scheduled task without being asked.
+
+### See what Claude can do
+
+[See all capabilities](#library)
+
+![Claude](https://claude.com/static/product-overview/claude-logo-lockup.svg)Get it doneAccess toolsMake it yoursStay in controlWork where you wantDon’t start overQuick answers or long tasksParallel tasksFrontier intelligenceScheduled tasksVoiceFinished, editable workArtifactsInteractive visualsThe webConnectorsFiles and foldersBrowser useComputer useSkillsPluginsCustom connectors and MCPsPermissions controlAccess controlsAdministrative tools for Team and EnterpriseCloud providersDesktop, web, mobileClaude in ChromeClaude for Microsoft 365Claude TagMemoryProjectsInstructions for Claude
 
 Learn more
 
-[Learn more](https://www.anthropic.com/claude/fable)Learn more
+### Get it done
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/69e130b671817eddec5f2ec8_opus-4-7.webp)
+* [Quick answers or long tasks](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork) — Ask something quick, or hand off a long, complex task that keeps working after you close your laptop.
+* [Parallel tasks](https://claude.com/product/cowork) — Run several tasks with Claude at the same time.
+* Frontier intelligence — Access to Claude’s latest models for reasoning, coding, and writing.
+* [Scheduled tasks](https://support.claude.com/en/articles/13854387-schedule-recurring-tasks-in-claude-cowork) — Set up work Claude runs again on a schedule you choose.
+* [Voice](https://support.claude.com/en/articles/11101966-use-voice-mode) — Talk to Claude instead of typing.
+* [Finished, editable work](https://support.claude.com/en/articles/12111783-create-and-edit-files-with-claude) — Get editable, polished files, ready for your review.
+* [Artifacts](https://support.claude.com/en/articles/9487310-what-are-artifacts-and-how-do-i-use-them) — Shareable, on-brand designs, slides, and documents. Edit yourself or tell Claude what to change.
+* [Interactive visuals](https://support.claude.com/en/articles/13641943-visual-and-interactive-content) — Build charts, diagrams, and interactive visuals right in the conversation.
 
-# Meet your thinking partner
+### Access tools
 
-Tackle any big, bold, bewildering challenge with Claude.
+* The web — Search the web for current information.
+* [Connectors](https://claude.com/marketplace/connectors-plugins) — Connect the apps you already use, including interactive MCP apps.
+* [Files and folders](https://academy.claude.com/use-cases/organize-files-by-whats-in-them) — Work with the files and folders already on your desktop.
+* [Browser use](https://claude.com/claude-in-chrome) — Browse and act on the web through Claude in Chrome and the built-in browser.
+* [Computer use](https://support.claude.com/en/articles/14128542-let-claude-use-your-computer-in-cowork) — See and use your screen (beta).
 
-Thank you! Your submission has been received!
+### Make it yours
 
-Oops! Something went wrong while submitting the form.
+* [Skills](https://claude.com/skills) — Teach Claude new skills, record them, and share with your team.
+* [Plugins](https://claude.com/marketplace/plugins) — Add plugins from the marketplace to extend what Claude can do.
+* [Custom connectors and MCPs](https://claude.com/marketplace/connectors-plugins) — Build your own connectors and MCPs, including local desktop extensions.
 
-## The AI for problem solvers
+### Stay in control
 
-Download the desktop app:
+* [Permissions control](https://support.claude.com/en/articles/13364135-use-claude-cowork-safely) — Turn on permissions settings so Claude shows its plan and waits for your approval. Redirect or stop anytime.
+* [Access controls](https://support.claude.com/en/articles/13730515-manage-claude-s-tool-access) — Claude works only in the folders and tools you allow, and by default asks before permanently deleting files.
+* [Administrative tools for Team and Enterprise](https://academy.claude.com/tutorials/claude-enterprise-administrator-guide) — Admins set access by team, manage spend limits, and control tool permissions by department. Activity streams to your SIEM through OpenTelemetry.
+* [Cloud providers](https://claude.com/platform/api) — Use a Claude account, or your own cloud provider: Amazon Bedrock, Google Cloud, or Microsoft Foundry.
 
-macOS
+### Work where you want
 
-[macOS](https://claude.ai/api/desktop/darwin/universal/dmg/latest/redirect)macOS
+* [Desktop, web, mobile](https://claude.com/download) — Use Claude on the web, on desktop, or on your phone.
+* [Claude in Chrome](https://claude.com/claude-in-chrome) — Claude lives inside Chrome, ready wherever you browse.
+* [Claude for Microsoft 365](https://claude.com/claude-for-microsoft-365) — Claude lives inside the Microsoft 365 apps you already use.
+* [Claude Tag](https://claude.com/product/tag) — Work with Claude directly in Slack. Tag Claude and it gets things done. In beta for Team and Enterprise plans.
 
-Windows
+### Don’t start over
 
-[Windows](https://claude.ai/api/desktop/win32/x64/setup/latest/redirect)Windows
+* [Memory](https://claude.com/import-memory) — Remember context from past conversations.
+* [Projects](https://support.claude.com/en/articles/9517075-what-are-projects) — Keep context, instructions, and files organized by project.
+* [Instructions for Claude](https://support.claude.com/en/articles/10185728-understanding-claude-s-personalization-features) — Set preferences that apply across every conversation.
 
-Windows (arm64)
+## I'm in Marketing and I need to make the Campaign readout.
 
-[Windows (arm64)](https://claude.ai/api/desktop/win32/arm64/setup/latest/redirect)Windows (arm64)
+Role
 
-Apple
+MarketingSalesFinanceHuman resourcesLegalProduct
 
-[Apple](https://apps.apple.com/us/app/claude-by-anthropic/id6473753684)Apple
+![Campaign readout preview](https://assets.claude.com/2ec4bf68b8f42d0c232437207c5ff2ff914675e0.jpg?fm=webp&w=1200)
 
-Google Play
+View use case — Campaign readout
 
-[Google Play](https://play.google.com/store/apps/details?id=com.anthropic.claude)Google Play
+![Asset creation preview](https://assets.claude.com/e25eeb1c92abffd5ed51c24672cb6157fee38c88.jpg?fm=webp&w=1200)
 
-### Break down problems together
+Task
 
-Claude builds on your ideas, expands on your logic, and simplifies complexity one step at a time.
+Campaign readoutCall prepEarnings compsJD checkLegal research draftingAction trackingAsset creationQBR deckMonth-end closeSurvey readoutDeposition prepFeedback digestAudience intelligenceCRM hygieneBudget reforecastMerit analysisContract redlineMetrics dashboard
 
-### Tackle your toughest work
+## FAQs
 
-Claude provides expert-level collaboration on the things you need to get done—from coding a product to critical data analysis.
+What is Claude?
 
-### Explore what’s next
+Claude is more than an AI assistant: it’s a helpful, intuitive, and powerful collaborator you can put to work on real tasks, not just questions. Point it to files and tools you want it to access, give it a goal or an outcome you want in plain language, and it gets to work. It can produce real files like documents, spreadsheets, and slides that you review, edit, and sign off on.
 
-Like an expert in your pocket, collaborating with Claude expands what you can build on your own or with teams.
+What kind of work can I hand off?
 
-Switching to Claude from another AI provider?
-Import your memory and pick up where you left off.
+Claude can take on anything you want: it can handle routine work like updating metrics, consolidating feedback or data to surface what really needs your opinion, or large projects like audits. Other common use cases include first drafts and editing; creating briefs from meeting notes or account records; reconciling disparate data from different sources and pulling it into a spreadsheet or dashboard; pulling information into slides and presentations, and much more. Not sure where to start or what it can do? Ask Claude.
 
-Start importing
+Claude also works directly in other apps like Slack via [Claude Tag](https://claude.com/product/tag), [Microsoft 365](https://claude.com/claude-for-microsoft-365) services, and on the web through [Claude in Chrome](https://claude.com/claude-in-chrome). For coding, visit [Claude Code](https://claude.com/product/claude-code).
 
-[Start importing](https://claude.com/import-memory)Start importing
+What happened to Claude Cowork?
 
-## How you can use Claude
+Claude Cowork and chat are becoming one Claude, rolling out to Pro and Max over the coming weeks. Everything is where you left it: your chats, projects, artifacts, connectors, and skills. Open the app and pick up where you left off.
 
-Tasks
+What apps does Claude work with?
 
-Learn
+Claude connects with many tools, databases, and applications to do more relevant work through connectors. Visit the [Connectors page](https://claude.com/connectors) to see if the service you want to use is available.
 
-Code
+What kind of files can Claude read, create, edit, and analyze?
 
-Research
+Claude can understand the following file types:
 
-Analyze
+* **Documents and text:** Word documents (.docx, .doc), PDF files (.pdf), Plain text (.txt), Markdown (.md), HTML (.html), JSON (.json), CSV (.csv), TSV (.tsv)
+* **Spreadsheets:** Excel files (.xlsx, .xls, .xlsm)
+* **Presentations:** PowerPoint files (.pptx, .ppt)
+* **Images:** Common formats like .png, .jpg, .jpeg, .gif, .svg, .webp
+* **Data and config:** YAML (.yaml, .yml), XML (.xml), TOML (.toml)
+* **Notebooks:** Jupyter notebooks (.ipynb)
+* **Code files:** Pretty much any programming language: Python (.py), JavaScript (.js), TypeScript (.ts), React (.jsx, .tsx), Java, C/C++, Go, Rust, Ruby, PHP, SQL, shell scripts, etc.
+* You can also use Connectors to view additional files.
 
-Create
+Do I need the desktop app?
 
-Active
+No. Claude runs on web and mobile (iOS and Android). The desktop app is available for macOS, Windows, Windows (arm 64) and adds what web and mobile can’t reach: the folders and applications on your own computer. If that’s where your work lives, start there. To explore all app options, visit the [Download page](https://claude.com/download).
 
-Prompt
+Can I assign tasks from my phone?
 
-Every Monday, pull last week's numbers from our analytics workspace and build me a one-page performance report. Active users, revenue, and conversions up top with week-over-week change, an eight-week revenue trend, and a traffic source breakdown. Flag anything moving the wrong direction.
+Yes. Start a task from your phone, and Claude keeps working in the cloud even when your laptop is closed. Check in, redirect, or review the result from anywhere. Available in Pro, Max, and Team plans automatically. Enterprise plans can opt in.
 
-Connectors
+How much does Claude cost?
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abdac9a60d37ccbb9f396_Amplitude.jpg)
+Claude plans are available for personal, team, and enterprise use and all offer varying usage and cost. To choose a plan that’s right for you, visit the [Pricing page](https://claude.com/pricing).
 
-Amplitude
+## Don’t know where to start? Ask Claude.
 
-![](https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg)
-
-### Delegate tasks
-
-With Claude Cowork, you can start a task at your desk, check in on it from your phone, and get a polished deck, document, or spreadsheet for review. Connect your data, schedule a daily, weekly, or monthly task, and ask for the format you need.
-
-Explore Claude Cowork
-
-[Explore Claude Cowork](https://claude.com/product/cowork)Explore Claude Cowork
-
-Prompt
-
-Design a comprehensive study guide with summaries, practice questions, and memory aids from my course materials.
-
-Attachments
-
-Study notes
-
-4 mb
-
-doc
-
-Psych 101 Syllabus
-
-1.2
-
-pdf
-
-### Psychology 101 comprehensive study guide
-
-#### Table of contents
-
-* Course overview
-* Lecture 1: What is psychology?
-* Lecture 2: Research methods
-* Practice questions
-* Study strategies
-
-#### Course overview
-
-**Meeting times:** MWF 10:10-11:00 AM, Lab Tuesdays 2:00-4:50 PM
-**Office hours:** Tuesdays 1-3 PM, Thursdays 11 AM-1 PM
-
-##### Key dates to remember
-
-* **February 21:** Midterm exam 1
-* **March 7:** Article critique due
-* **April 4:** Midterm exam 2
-* **May 12:** Final exam (8:00-11:00 AM)
-
-##### Grade breakdown
-
-* Midterm exam 1: 20%
-* Midterm exam 2: 20%
-* Final exam: 30%
-* Research participation: 10%
-* Lab assignments & quizzes: 10%
-* Class participation: 5%
-* Article critique: 5%
-
-#### Lecture 1: What is psychology?
-
-##### Core definition
-
-Psychology = The scientific study of behavior and mental processes
-
-##### Key characteristics of psychology as a science
-
-* Uses empirical methods (observation and experimentation)
-* Seeks to describe, explain, predict, and control behavior
-* Builds theories based on systematic research
-* Follows scientific method principles
-
-##### Historical timeline
-
-###### Philosophical roots (Ancient times - 1800s)
-
-**Ancient Greeks: Mind-body problem**
-
-* **Plato:** Mind separate from body (dualism)
-* **Aristotle:** Mind and body connected (monism)
-
-**Later philosophers:**
-
-* **René Descartes:** Cartesian dualism
-* **John Locke:** Empiricism and "blank slate" (tabula rasa)
-
-###### Birth of scientific psychology (1879)
-
-* **Wilhelm Wundt:** First psychology lab in Leipzig, Germany
-* Introduced introspection as research method
-* **Structuralism:** Breaking consciousness into basic elements
-
-##### Early schools of thought
-
-###### Functionalism (William James, G. Stanley Hall)
-
-* **Focus:** Purpose and adaptation of mental processes
-* **Key concept:** "Stream of consciousness"
-
-###### Behaviorism (John Watson, B.F. Skinner)
-
-* **Focus:** Only observable behavior should be studied
-* Rejected introspection and consciousness
-* **Famous quote:** "Give me a dozen healthy infants..."
-
-###### Gestalt psychology (Max Wertheimer, Wolfgang Köhler)
-
-* **Key principle:** "The whole is greater than the sum of its parts"
-* Emphasized perception and problem-solving
-
-###### Psychoanalysis (Sigmund Freud)
-
-* **Focus:** Unconscious mind drives behavior
-* **Methods:** Dream analysis, free association
-* **Concepts:** Defense mechanisms, psychosexual development
-
-##### Modern psychological perspectives
-
-###### Biological perspective
-
-* Brain structure and function
-* Neurotransmitters, hormones, genetics
-* Evolutionary influences
-
-###### Cognitive perspective
-
-* Mental processes: thinking, memory, perception
-* Information processing model
-* Language and problem-solving
-
-###### Behavioral perspective
-
-* Learning through conditioning
-* Environmental influences
-* Behavior modification
-
-###### Humanistic perspective
-
-* Human potential and self-actualization
-* Free will and personal choice
-* **Carl Rogers:** Unconditional positive regard
-* **Abraham Maslow:** Hierarchy of needs
-
-###### Psychodynamic perspective
-
-* Unconscious motivations
-* Early childhood experiences
-* Modern neo-Freudian approaches
-
-###### Sociocultural perspective
-
-* Cultural influences on behavior
-* Social learning and modeling
-* Cross-cultural psychology
-
-##### Major subfields
-
-###### Basic research areas
-
-* **Experimental psychology:** Laboratory studies of learning, memory, cognition
-* **Developmental psychology:** Changes across lifespan
-* **Social psychology:** How others influence our thoughts and behaviors
-* **Personality psychology:** Individual differences and traits
-* **Biological/physiological psychology:** Brain-behavior relationships
-
-###### Applied areas
-
-* **Clinical psychology:** Diagnosis and treatment of mental disorders
-* **Counseling psychology:** Helping people with life problems
-* **Educational psychology:** Learning and teaching processes
-* **Industrial/organizational psychology:** Workplace behavior
-* **Health psychology:** Psychological factors in physical health
-* **Forensic psychology:** Psychology and legal system
-
-#### Lecture 2: Research methods
-
-##### The scientific method in psychology
-
-1. **Observation and question formation**
-   * Notice patterns in behavior
-   * Ask specific, testable questions
-2. **Literature review**
-   * Research existing studies
-   * Identify gaps in knowledge
-3. **Hypothesis formation**
-   * Testable prediction about variables
-   * Must be falsifiable
-4. **Research design → Data collection → Analysis → Interpretation → Replication**
-
-##### Variables in psychological research
-
-###### Independent variable (IV)
-
-* Variable manipulated by researcher
-* The "cause" in cause-and-effect relationship
-
-###### Dependent variable (DV)
-
-* Variable measured by researcher
-* The "effect" in cause-and-effect relationship
-
-###### Confounding variables
-
-* Unwanted variables that might influence results
-* Must be controlled or eliminated
-
-#### Types of research methods
-
-##### Descriptive methods
-
-*Note: Observe and describe, cannot determine cause-and-effect*
-
-##### Case studies
-
-* In-depth study of individual
-* Examples: Phineas Gage, H.M.
-
-##### Surveys
-
-* Questionnaires/interviews with large groups
-
-##### Naturalistic observation
-
-* Observe behavior in natural environment
-
-##### Correlational research
-
-* Examines relationships between variables
-* Correlation coefficient (r) ranges from -1.00 to +1.00
-* **CRITICAL:** Correlation does NOT equal causation!
-* Third variable problem: Unknown factor might cause both
-
-##### Experimental method
-
-* The ONLY method that can determine cause-and-effect relationships
-* **Key features:** Random assignment, manipulation of IV, control of variables
-
-#### Ethics in psychological research
-
-* **Informed consent:** Participants must understand what they're agreeing to
-* **Deception and debriefing:** Minimal deception, full explanation after
-* **Confidentiality:** Protect participants' privacy
-* **Risk-benefit analysis:** Benefits must outweigh risks
-
-#### Practice questions
-
-##### Lecture 1: What is psychology?
-
-###### Multiple choice
-
-1. Psychology is best defined as the scientific study of:
-   * a) Mental illness
-   * b) Behavior and mental processes
-   * c) The brain and nervous system
-   * d) Human interactions
-2. Who established the first psychology laboratory?
-   * a) William James
-   * b) John Watson
-   * c) Wilhelm Wundt
-   * d) Sigmund Freud
-3. The belief that "the whole is greater than the sum of its parts" is associated with:
-   * a) Behaviorism
-   * b) Functionalism
-   * c) Gestalt psychology
-   * d) Psychoanalysis
-
-###### Short answer
-
-1. Explain the difference between dualism and monism in the mind-body problem.
-2. Compare and contrast structuralism and functionalism.
-3. Which psychological perspective would be most likely to study how brain chemistry affects mood? Explain your answer.
-
-##### Lecture 2: Research methods
-
-###### Multiple choice
-
-1. In an experiment studying the effects of caffeine on memory, caffeine would be the:
-   * a) Dependent variable
-   * b) Independent variable
-   * c) Confounding variable
-   * d) Control variable
-2. A correlation coefficient of -0.85 indicates:
-   * a) A weak negative relationship
-   * b) A strong positive relationship
-   * c) A strong negative relationship
-   * d) No relationship
-3. Which research method is the ONLY one that can establish cause-and-effect relationships?
-   * a) Case study
-   * b) Survey
-   * c) Correlational study
-   * d) Experimental method
-
-###### Application scenarios
-
-1. A researcher finds that students who study with music score lower on tests than those who study in silence. The researcher concludes that music causes poor test performance. What's wrong with this conclusion?
-2. Design a simple experiment to test whether exercise improves mood. Identify the IV, DV, and potential confounding variables.
-
-###### Ethics scenario
-
-A researcher wants to study the effects of stress on problem-solving but doesn't tell participants they'll be stressed because it might affect their behavior. Is this ethical? What ethical principles are involved?
-
-### Study strategies
-
-##### For memorizing definitions
-
-* Create flashcards for key terms
-* Use the terms in original sentences
-* Connect terms to real-world examples
-* Practice explaining concepts to others
-
-##### For understanding research methods
-
-* Practice identifying IV and DV in research scenarios
-* Create your own simple experimental designs
-* Look for research examples in news articles
-* Practice explaining why correlation ≠ causation
-
-##### For historical information
-
-* Create a timeline of psychology's development
-* Make concept maps connecting related ideas
-* Use the provided mnemonics
-* Focus on how each approach built on or reacted to previous ones
-
-##### For connecting perspectives to behavior
-
-* Take any behavior (e.g., helping others) and explain it from each perspective
-* Practice identifying which perspective would be most interested in specific research questions
-* Create charts comparing how different perspectives would approach the same problem
-
-##### Exam preparation tips
-
-* Review lecture notes within 24 hours of class
-* Complete practice questions after each topic
-* Form study groups to discuss concepts
-* Use active recall rather than just re-reading
-* Connect new material to previously learned concepts
-* Attend office hours for clarification on difficult topics
-
-#### Final review checklist
-
-##### Before midterm 1:
-
-* Can define psychology and its key characteristics
-* Know major historical figures and their contributions
-* Understand all six modern perspectives
-* Can identify different subfields of psychology
-* Understand research methods and variables
-* Know ethical principles
-* Can analyze research scenarios
-
-##### Study resources:
-
-* Textbook chapters 1-2
-* Lecture notes and recordings
-* Lab manual exercises
-* Practice quizzes on Canvas
-* Office hours for clarification on difficult topics
-* Study groups with classmates
-
-**Remember:** Focus on understanding concepts rather than just memorizing facts. Psychology builds on itself, so master these foundations for success throughout the course!
-
-### Learn
-
-Learn anything through conversation. Upload docs or [[images|Uploading docs and images|Upload any file (PDF, Word, Excel) or image and Claude analyzes it to answer your questions.]] for deeper insights or create visual study aids with [[artifacts|Artifacts|Turn ideas into shareable creations. Build tools, visualizations, and experiences by simply describing what you need.]]. [[Voice|Voice mode|Switch between typing and speaking to Claude. Perfect for when you’re on the move, or want to think out loud.]] makes complex topics easier to digest, while [[projects|Projects|Organize conversations by topic with persistent context. Keep related work together and build on previous insights.]] keep your learning organized.
-
-Prompt
-
-> claude fix the authentication error in our login flow
-
-I'll investigate the auth error. Let me look at the relevant files.
-
-‍
-
-Examining auth-related files...
-
-\* src/services/authService.js
-
-\* src/components/Login.jsx
-
-\* src/store/authSlice.js
-
-‍
-
-Running the login flow...
-
-Error detected: "401 Unauthorized: Token expired"
-
-‍
-
-Root cause:
-
-\* Token refresh mechanism not handling expired tokens correctly
-
-\* Refresh token missing from request header
-
-\* Improper error handling for 401 responses
-
-‍
-
-Updating authService.js with proper refresh logic...
-
-‍
-
-Updating request interceptor for 401 handling...
-
-‍
-
-Testing the fix...
-
-\* Login successful ✓
-
-\* Token refresh working ✓
-
-\* Proper redirection on expired tokens ✓
-
-‍
-
-Authentication error fixed! The login flow now properly handles token expiration.
-
-### Code
-
-Build anything with intelligent help. Debug [[issues,|Code generation and debugging|Write and fix code in any language. Claude explains errors and suggests solutions to accelerate your development.]] learn new languages, optimize algorithms with clear [[explanations|Step-by-step explanations|Complex concepts broken down simply. Learn programming, math, or science with clear explanations tailored to your level.]], or analyze existing [[code|Code analysis|Review existing code with suggestions for optimization and best practices.]].
-
-Prompt
-
-Research shifting consumer behavior patterns post-2024 and create an adaptive business model framework
-
-### Adaptive business model framework for shifting consumer behavior patterns post-2024
-
-#### Executive summary
-
-The business landscape in 2025 is characterized by permanent disruption, where traditional consumer behavior models no longer apply. What once seemed like short-term adaptations born of the COVID-19 pandemic have solidified into lasting behavioral change. Organizations must develop adaptive business models that can respond to five key behavioral forces: increased digital-first behaviors, declining trust in digital channels, Gen Z's growing economic influence, local preference trends, and new value-seeking patterns.
-
-This framework provides a systematic approach for businesses to transform their operations, embrace continuous adaptation, and thrive in an environment where consumer sentiment is no longer neatly aligned with consumer spending. Success requires moving from reactive adjustments to proactive transformation through four strategic imperatives: deep consumer understanding, advanced revenue growth management, dynamic portfolio optimization, and technology capability rewiring.
-
-#### Key consumer behavior shifts driving business model adaptation
-
-##### Digital-first convenience expectations
-
-The behaviors that consumers adopted for coping with life under COVID-19 lockdown—namely, a reliance on digital connectivity and at-home activities—are now permanent parts of their daily lives. This shift has created several critical implications:
-
-**Time allocation changes**: US consumers in 2025 report that they have over three hours more of free time a week, on average, than those in 2019 reported. But they allocate nearly 90 percent of that time to solo activities. The biggest increases are in hobbies, shopping, fitness, and social media engagement.
-
-**Delivery expectations**: Food delivery's share of global food service spending rose from 9 percent in 2019 to 21 percent in 2024. Consumers now expect seamless delivery across categories, with over one-third of consumers across all four regions identifying Amazon or Taobao as their go-to shopping destination for all their needs.
-
-**Convenience premium**: Over 80% of consumers look up brands on platforms like Instagram and TikTok before buying. Almost 70% have made purchases directly through social channels, and nearly 30% buy on the same day they discover something new.
-
-##### Trust paradox in digital channels
-
-A fundamental contradiction exists in consumer digital behavior. Consumers tell us that social media is their least trusted source when making buying decisions, yet it's where they interact with family and friends, who serve as their most trusted sources. This creates complex dynamics:
-
-**Influence vs trust**: While social media has low trust ratings, we see an increase in social media use for product research (32 percent, on average, compared with 27 percent in 2023). In emerging markets, approximately half of consumers research products on social media before purchasing.
-
-**Cross-generational adoption**: Digital engagement is no longer age-restricted. 33 percent of Gen Xers surveyed across Europe and the United States state that they're on TikTok, while 35 percent of baby boomers in those regions report that they're on Instagram.
-
-##### Gen Z economic emergence
-
-Gen Zers (born between 1996 and 2010) are projected to make up not only the largest generation but also the wealthiest in history. Their economic impact is substantial:
-
-**Income growth**: The average 25-year-old Gen Z consumer in the United States has a household income of $40,000, 50 percent higher than the average baby boomer's at the same age.
-
-**Spending acceleration**: Gen Z spending, which is growing twice as fast as previous generations' spending did at the same age, is on pace to eclipse baby boomers' spending globally by 2029. By 2035, Gen Zers will add an additional $8.9 trillion to the global economy.
-
-**Value priorities**: Gen Zers across markets are less likely than members of older generations to define themselves based on life stage milestones, such as getting married and having children. They're much more likely, however, to define themselves based on achievements related to financial security.
-
-**Financial behavior**: Despite financial concerns, more than one-quarter of surveyed Gen Z respondents report using buy-now-pay-later services to make a purchase, and 34 percent of surveyed Gen Zers report a willingness to buy on credit, which is about 13 percentage points higher than other generations.
-
-##### Local preference movement
-
-Over the past five years, we have seen disruptor consumer brands encroach on global, multinational brands. That trend has evolved in 2025: consumers are signaling the importance of buying local from their own markets.
-
-**Local preference statistics**: Globally, 47 percent of consumers identify locally owned companies as important to their purchase decision. The primary motivation is supporting domestic businesses (36% of consumers), followed by better needs alignment (20%).
-
-**Regional variations**: This trend is particularly strong in certain markets. In China, six of the top ten beauty brands with the most market share growth since 2020 are Chinese (up from only two from 2015 to 2020). In Japan, nine of the top ten snack brands are Japanese.
-
-##### Value redefinition patterns
-
-Consumer value-seeking behavior has become increasingly sophisticated and cross-category. Rising prices continue to be the number-one cause for concern among consumers across all 18 of the markets in our survey.
-
-**Trading down complexity**: Globally, 79 percent of surveyed consumers are trading down but not necessarily by purchasing fewer items or seeking discounts at lower-priced retailers. Instead, more than half of surveyed consumers across markets say that they look for deals on every purchase.
-
-**Cross-category optimization**: Cross-category trade-downs—trading down in one category to afford something in another—are becoming more prevalent. In the first half of 2025, more than one-third of consumers surveyed state that they have traded down in one category while planning to splurge in another.
-
-**Splurging persistence**: Even among consumers who state that they're concerned about rising prices, over one-third still have plans to splurge, indicating selective value optimization rather than across-the-board reduction.
-
-#### Adaptive business model framework components
-
-##### Framework overview
-
-The adaptive business model framework consists of four interconnected layers that enable organizations to respond dynamically to shifting consumer behaviors:
-
-1. **Sensing layer**: Continuous market intelligence and consumer insight generation
-2. **Strategy layer**: Adaptive strategic planning and portfolio management
-3. **Execution layer**: Agile operations and technology infrastructure
-4. **Learning layer**: Feedback loops and continuous optimization
-
-This framework recognizes that companies must be really good at learning how to do new things. Those that thrive are quick to read and act on weak signals of change.
-
-##### Layer 1: Sensing layer - Consumer intelligence systems
-
-###### Real-time consumer monitoring
-
-Organizations must build comprehensive consumer intelligence capabilities that go beyond traditional market research. This includes:
-
-* AI-powered social listening tools that track sentiment across platforms
-* Behavioral analytics from owned digital properties
-* Third-party data integration for broader market insights
-* Predictive analytics for early trend identification
-
-###### Cross-generational insight capture
-
-Given the complexity of modern consumer segments, organizations need specialized approaches for different demographic groups:
-
-* Gen Z engagement through native digital channels and micro-influencer partnerships
-* Millennial focus on convenience and value optimization
-* Gen X and Boomer digital adoption monitoring
-* Cultural and regional preference tracking
-
-###### Value perception analysis
-
-Understanding how consumers define and seek value requires sophisticated measurement:
-
-* Cross-category spending pattern analysis
-* Trade-down and splurge behavior prediction
-* Price sensitivity modeling across segments
-* Local vs global brand preference tracking
-
-##### Layer 2: Strategy layer - Dynamic strategic planning
-
-###### Adaptive portfolio management
-
-Consumer players should strive to generate 20 to 30 percent new revenue from their portfolio every ten years. This requires:
-
-**Continuous portfolio evaluation**: Regular assessment of brand performance across markets with local preference considerations. Organizations should evaluate which brands can successfully operate beyond core markets and which should be localized or divested.
-
-**Strategic M&A approach**: Those that leverage M&A&D for growth generate 2.5 percentage points more TSR than those with organic growth alone do. Focus areas include:
-
-* Local brand acquisition in key markets
-* Technology capability acquisitions
-* Vertical integration for supply chain control
-* Platform business model acquisitions
-
-**Innovation pipeline management**: Systematic approach to new product and service development based on emerging consumer behaviors, including convenience-focused offerings and digitally-native experiences.
-
-###### Revenue growth management (RGM) optimization
-
-Offering the right product at the right price at the right time has become more important and harder to do than ever. Advanced RGM requires:
-
-**Dynamic pricing strategies**: AI-powered pricing models that respond to consumer value-seeking behaviors and cross-category trade-offs.
-
-**Personalized promotion deployment**: Targeted promotional spending that reaches consumers at optimal moments with relevant offers.
-
-**Channel optimization**: Strategic presence across discount, wholesale, and premium channels to capture different value-seeking behaviors.
-
-**Partnership innovation**: Collaborative data sharing with retailers for advanced analytics and retail media activation.
-
-##### Layer 3: Execution layer - Agile operations
-
-###### Technology capability rewiring
-
-Consumer businesses that make long-term, transformative investments in rewiring for growth could unlock up to a 15-percentage-point improvement in EBITDA margins. Priority areas include:
-
-**AI and automation integration**: Implementation of agentic AI for consumer insights, demand management, and channel optimization. Among the 140 agentic AI and gen AI use cases that consumer players should prioritize, shaping consumer insights and demand and managing customers and channels represent the greatest value.
-
-**Omnichannel infrastructure**: Seamless integration across digital and physical touchpoints to meet convenience expectations.
-
-**Supply chain agility**: Flexible supply chain configuration to support local preferences and rapid portfolio changes.
-
-**Data architecture modernization**: Real-time data processing capabilities for dynamic decision-making.
-
-###### Experience design optimization
-
-Based on changing consumer expectations, organizations must redesign core experiences:
-
-**Convenience maximization**: Reduction of friction at every touchpoint, with particular focus on delivery speed and reliability.
-
-**Trust building mechanisms**: Authentic communication strategies that leverage trusted sources like family and friends while maintaining digital presence.
-
-**Local market customization**: Tailored offerings that reflect local tastes, trends, and cultural preferences.
-
-**Value communication**: Clear articulation of value propositions that resonate with cross-category optimization behaviors.
-
-##### Layer 4: Learning layer - Continuous adaptation
-
-###### Feedback loop optimization
-
-Systematic capture and integration of performance data to drive continuous improvement:
-
-**Consumer behavior tracking**: Regular monitoring of behavioral changes and preference shifts across demographics.
-
-**Performance analytics**: Real-time assessment of strategic initiative effectiveness with rapid course correction capabilities.
-
-**Competitive intelligence**: Ongoing analysis of disruptive brands and emerging business models.
-
-**Trend anticipation**: Proactive identification of weak signals that could indicate major behavioral shifts.
-
-###### Organizational learning culture
-
-Adaptive strategy execution is a sure-fire way of encouraging flexibility, close communication, and routine operational assessments, ensuring ongoing alignment with internal and external changes. This requires:
-
-**Agility mindset**: Organization-wide embrace of experimentation and rapid iteration.
-
-**Cross-functional collaboration**: Breaking down silos to enable rapid response to consumer insights.
-
-**Decision authority distribution**: Empowering frontline teams to make rapid adjustments based on consumer feedback.
-
-**Knowledge sharing systems**: Systematic capture and distribution of learnings across the organization.
-
-#### Implementation roadmap
-
-##### Phase 1: Foundation building (Months 1-6)
-
-###### **Sensing capability development**
-
-* Implement AI-powered social listening tools
-* Establish real-time behavioral analytics from owned properties
-* Create consumer segmentation models that reflect new behavioral patterns
-* Build cross-category spending analysis capabilities
-
-###### **Strategic assessment**
-
-* Conduct comprehensive business model analysis using adapted frameworks
-* Evaluate portfolio performance against local preference trends
-* Assess current pricing and promotional effectiveness
-* Review technology infrastructure readiness
-
-###### **Organizational preparation**
-
-* Establish adaptive strategy execution teams
-* Implement agile planning processes
-* Create cross-functional consumer insight sharing mechanisms
-* Begin culture transformation toward experimentation mindset
-
-##### Phase 2: Strategy activation (Months 7-12)
-
-###### Consumer-centric transformation
-
-Build 360-degree consumer view capabilities:
-
-* Deploy predictive analytics for churn risk and product preferences
-* Implement personalized recommendation engines
-* Create dynamic customer journey optimization
-* Establish granular behavioral data collection from owned channels
-
-###### Revenue growth management advancement
-
-Implement advanced RGM capabilities:
-
-* Deploy AI-powered pricing optimization models
-* Create real-time promotional effectiveness tracking
-* Establish strategic retailer partnerships with data sharing agreements
-* Implement assortment optimization based on local preferences
-
-###### Portfolio optimization initiation
-
-Begin strategic portfolio moves:
-
-* Identify underperforming brands in local markets
-* Evaluate acquisition targets for local market entry
-* Assess vertical integration opportunities
-* Plan innovation pipeline based on behavioral insights
-
-##### Phase 3: Execution excellence (Months 13-18)
-
-###### Technology capability rewiring
-
-Execute major technology transformation:
-
-* Implement agentic AI for consumer insights and demand management
-* Deploy advanced analytics infrastructure
-* Create omnichannel experience platforms
-* Establish real-time decision-making capabilities
-
-###### Experience optimization
-
-Transform consumer-facing experiences:
-
-* Launch convenience-focused service improvements
-* Implement trust-building communication strategies
-* Deploy locally-customized offerings
-* Create value-focused messaging frameworks
-
-###### Operational agility enhancement
-
-Build responsive operational capabilities:
-
-* Establish supply chain flexibility for rapid portfolio changes
-* Create dynamic pricing and promotion systems
-* Implement cross-category optimization tools
-* Deploy real-time performance monitoring
-
-##### Phase 4: Continuous adaptation (Months 19-24 and ongoing)
-
-###### Learning system optimization
-
-Create systematic learning and adaptation mechanisms:
-
-* Implement continuous consumer behavior monitoring
-* Establish weak signal detection systems
-* Create rapid experimentation frameworks
-* Deploy automated course correction capabilities
-
-###### Competitive advantage solidification
-
-Build sustainable differentiation:
-
-* Develop unique consumer insight capabilities
-* Create proprietary prediction models
-* Establish exclusive partnership networks
-* Build innovation pipeline management systems
-
-###### Culture and capability maturation
-
-Embed adaptive mindset across the organization:
-
-* Complete organizational structure transformation
-* Establish continuous learning programs
-* Create innovation and experimentation rewards systems
-* Build cross-functional collaboration protocols
-
-#### Success metrics and monitoring
-
-##### Leading indicators
-
-###### Consumer engagement metrics
-
-* Social listening sentiment trends across platforms
-* Customer lifetime value progression by segment
-* Cross-category purchase correlation analysis
-* Local brand preference scores in target markets
-
-###### Behavioral prediction accuracy
-
-* Consumer behavior model prediction precision
-* Trend identification lead time
-* Value-seeking pattern anticipation accuracy
-* Splurge vs trade-down forecasting effectiveness
-
-###### Strategic agility indicators
-
-* Time from consumer insight to strategic action
-* Portfolio adaptation speed
-* Innovation pipeline velocity
-* Market entry/exit decision effectiveness
-
-##### Lagging indicators
-
-###### Financial performance
-
-* Revenue growth from new behavioral pattern adaptation
-* Market share gains in key demographics
-* EBITDA margin improvement from technology rewiring
-* Total shareholder return vs. industry benchmarks
-
-###### Market position strength
-
-* Brand preference scores vs. competitors
-* Consumer trust ratings across channels
-* Local market penetration rates
-* Cross-generational engagement levels
-
-###### Operational excellence
-
-* Consumer experience scores
-* Time-to-market for new initiatives
-* Technology system performance metrics
-* Supply chain flexibility indicators
-
-#### Risk management and mitigation
-
-##### Technology risks
-
-**Data privacy and security**: As organizations collect more granular consumer data, privacy regulations and security requirements intensify. Mitigation includes implementing privacy-by-design principles, ensuring GDPR and CCPA compliance, and building robust cybersecurity frameworks.
-
-**AI model bias and accuracy**: Predictive models may perpetuate biases or lose accuracy as consumer behaviors evolve. Regular model auditing, diverse training data, and continuous retraining protocols are essential.
-
-**Technology integration complexity**: Rewiring technology capabilities involves significant integration challenges. Phased implementation, extensive testing, and change management programs reduce integration risks.
-
-##### Market risks
-
-**Consumer behavior volatility**: Rapid changes in consumer preferences could outpace adaptation capabilities. Building flexible systems and maintaining diverse portfolio options provides resilience.
-
-**Competitive response**: Competitors may quickly copy successful adaptations. Developing proprietary capabilities and first-mover advantages in niche segments provides differentiation.
-
-**Economic disruption**: Economic downturns could dramatically shift consumer value-seeking behaviors. Scenario planning and flexible cost structures enable rapid response.
-
-##### Organizational risks
-
-**Change resistance**: Employees may resist adaptive transformation requirements. Comprehensive change management, clear communication of benefits, and performance incentive alignment support adoption.
-
-**Capability gaps**: Organizations may lack skills needed for advanced analytics and adaptive operations. Strategic hiring, training programs, and external partnerships address capability needs.
-
-**Resource allocation conflicts**: Competing priorities may limit transformation investment. Clear ROI demonstration and phased implementation help secure sustained investment.
-
-#### Conclusion
-
-The post-2024 consumer landscape represents a fundamental shift that requires businesses to move beyond traditional reactive adjustments toward proactive adaptive transformation. A new baseline has emerged for consumer decision-making. Despite a high level of uncertainty—not only in consumer sentiment, but also in geopolitical and economic outlook—there are many areas in which brands can find growth.
-
-Success in this environment requires organizations to embrace four strategic imperatives: building deep consumer understanding capabilities, implementing advanced revenue growth management, continuously optimizing portfolio composition, and rewiring technology capabilities for adaptive operations. Organizations that implement this framework systematically will be positioned to thrive in an environment where outcompeting in the coming years means anticipating the needs of an often-unpredictable consumer.
-
-The adaptive business model framework provides a systematic approach for this transformation, emphasizing continuous learning, rapid experimentation, and consumer-centric decision making. Organizations that successfully implement this framework will not only survive the current disruption but establish sustainable competitive advantages in the evolving consumer economy.
-
-By recognizing that brands that can swiftly adapt to the new realities will be well positioned to grow, regardless of the uncertainty ahead, forward-thinking organizations can transform disruption from threat to opportunity, building resilient business models that thrive on change rather than merely enduring it.
-
-—
-
-*This framework synthesizes insights from extensive consumer behavior research across 18 global markets representing 75% of global GDP, incorporating strategic frameworks from leading consulting organizations and academic research on adaptive business systems.*
-
-### Research
-
-Gather information from everywhere (search the [[web,|Web search|Access current information beyond Claude’s knowledge. Find recent data, news, and research to supplement your work.]] connect [[Google Workspace|Google Workspace|Search and pull context from your Gmail, calendar, and docs for a complete picture.]], use custom [[integrations|Integrations|Connect Claude to your favorite tools like JIRA, Zapier, and Intercom, or build your own.]]) and create interactive reports with reliable [[citations|Research artifacts with citations|Build shareable reports with proper citations. Choose from APA, MLA, Chicago, and other citation styles.]] in artifacts.
-
-Note
-
-Interact with the data—hover and toggle views to uncover patterns
-
-Prompt
-
-Create an interactive Gantt chart showing a complex business initiative rollout across different enterprise departments. Include overlapping timelines, milestone markers, and progress indicators. Use the uploaded timeline data to show how HR, Data Analysis, Product Management, Sales, and Marketing teams can execute concurrent project phases with dependencies. Make bars clickable to reveal phase details and expected outcomes.
-
-Attachments
-
-QBI Timeline
-
-727 kb
-
-xlsx
-
-Department Project Phases
-
-55 lines
-
-csv
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/696ab3c6f49d2f3d81e10a69_artifact_enterprise-rollout-mobile.webp)
-
-### Analyze
-
-Make sense of anything complex. [[Analyze data,|Data analysis|Upload files to identify patterns, calculate stats, and get actionable insights for work or personal decisions.]] create [[visualizations|Data visualization|Create charts and diagrams to make data clear. Share insights with visual aids that highlight key patterns.]], review documents, evaluate decisions, or break down key choices.
-
-Prompt
-
-Analyze my content performance and audience data. What patterns should guide my content strategy?
-
-Attachments
-
-Audience Insights Report
-
-3.6 mb
-
-pdf
-
-Content Analytics Report
-
-105 lines
-
-csv
-
-### Content strategy analysis: Performance patterns and strategic recommendations
-
-#### Key performance patterns
-
-##### Top performing content types
-
-###### Case studies dominate conversions
-
-* Customer success stories achieve 15.4-16.8% conversion rates
-* Generate highest revenue attribution ($4,560-$5,240 per piece)
-* Strong engagement across all audience segments
-* **Pattern:** Real-world proof points resonate universally
-
-###### Product tools and resources excel
-
-* ROI calculator achieved 25.3% conversion rate (highest overall)
-* Templates and guides average 21.4% conversion
-* **Technical tutorials:** 24.6% conversion with engaged audiences
-* **Pattern:** Actionable, practical content drives decisions
-
-###### Video content shows mixed performance
-
-* **Technical tutorials:** 24.6% conversion rate
-* **Product demos:** 18.9% conversion rate
-* **General webinars:** 6.8% conversion rate
-* **Pattern:** Specific, educational video content outperforms general presentations
-
-#### Channel performance insights
-
-##### Website content drives revenue
-
-* Averages 13.2% conversion rate across content types
-* Captures high-intent audiences seeking solutions
-* Long-form content performs best (8.9-15.6 minutes average time)
-
-##### LinkedIn balances reach and conversion
-
-* Professional audience aligns with your segments
-* Moderate conversion rates (4.2-7.4%) but consistent performance
-* Strong sharing behavior supports organic reach
-
-##### YouTube technical content opportunity
-
-* Advanced tutorials achieve exceptional conversion (24.6%)
-* Currently underutilized for your technical audience segment
-* Long-form educational content shows promise
-
-##### Instagram and Twitter underperform
-
-* Company culture content generates minimal business impact
-* Low conversion rates (0.9-3.1%) for business goals
-* Resource reallocation opportunity identified
-
-#### Audience alignment analysis
-
-##### Content gaps vs. audience needs
-
-###### Marketing practitioners (42% of audience)
-
-* **Need:** Campaign optimization, ROI proof, workflow efficiency
-* **Gap:** Insufficient how-to guides and process optimization content
-* **Opportunity:** Your templates perform well (21.4% conversion) but production volume low
-
-###### Business leadership (28% of audience)
-
-* **Need:** Competitive advantage, revenue impact, strategic planning
-* **Strength:** Case studies and industry reports perform well
-* **Gap:** Limited executive-focused content formats
-
-###### Technical implementers (8% of audience)
-
-* **Need:** Implementation guides, security considerations, troubleshooting
-* **Major opportunity:** 24.6% conversion rate but minimal content volume
-* **Gap:** Only 2 technical pieces in sample vs. high demand
-
-#### Content consumption patterns
-
-##### Peak engagement alignment
-
-* Tuesday-Thursday content performs best
-* Morning publication (9-11 AM) drives higher engagement
-* Video content optimal on Wednesdays
-
-##### Format preferences match performance
-
-* Marketing practitioners prefer actionable guides → templates convert at 21.4%
-* Business leaders prefer case studies → convert at 15.4-16.8%
-* Technical implementers prefer detailed guides → convert at 24.6%
-
-#### Strategic recommendations
-
-##### Immediate content optimization (next 90 days)
-
-###### Expand high-converting formats
-
-* Double case study production (currently 2/month, target 4/month)
-* Create monthly interactive tool or calculator
-* Develop technical implementation guide series
-
-###### Channel reallocation
-
-* Reduce Instagram/Twitter investment by 60%
-* Increase YouTube technical content production
-* Expand LinkedIn thought leadership posting
-
-###### Content calendar optimization
-
-* Publish primary content Tuesday-Thursday mornings
-* Reserve Mondays for content promotion and distribution
-* Use Fridays for community engagement and social listening
-
-##### Strategic content expansion (next 6 months)
-
-###### Technical audience development
-
-* Current 8% audience generates 24.6% conversion rates
-* **Potential revenue impact:** 3x current technical content ROI
-* **Target:** Monthly technical tutorial series, API documentation updates
-
-###### Industry-specific content tracks
-
-* Create vertical content for healthcare, manufacturing, financial services
-* Develop industry-specific case studies and use cases
-* Customize messaging for different compliance and regulatory needs
-
-###### Video content strategy
-
-* Focus on educational, problem-solving content vs. general presentations
-* Create customer interview series (combines case study + video strengths)
-* Develop technical implementation video library
-
-##### Long-term positioning (next 12 months)
-
-###### Community building initiative
-
-* Leverage high-engagement technical audience for peer discussions
-* Create user-generated content programs
-* Develop customer advisory board for content input
-
-###### International expansion
-
-* 29% of audience outside North America presents localization opportunity
-* Adapt high-performing content for international markets
-* Consider regional compliance and regulatory content needs
-
-###### Competitive differentiation
-
-* Current content volume below industry average (20 vs. 31 pieces/month)
-* Quality metrics above average (4.8% vs. 3.9% engagement)
-* **Strategy:** Maintain quality while strategically increasing volume in high-converting categories
-
-#### Success metrics and targets
-
-##### 90-day targets
-
-* Increase technical content from 10% to 25% of monthly output
-* Achieve 15%+ average conversion rate across all content
-* Generate 1,500+ leads monthly (vs. current 1,342)
-
-##### 6-month targets
-
-* Expand video content to 30% of production
-* Reach 15,000+ monthly website visitors through organic content
-* Achieve $120,000+ monthly revenue attribution
-
-##### 12-month targets
-
-* Build technical community of 2,500+ engaged members
-* Establish thought leadership in 3 industry verticals
-* Generate $200,000+ monthly revenue through content marketing
-
-#### Implementation priority matrix
-
-##### High impact, quick wins
-
-* Expand case study production
-* Create monthly interactive tools
-* Reallocate social media resources to high-performing channels
-
-##### High impact, medium effort
-
-* Develop technical content series
-* Launch customer interview video program
-* Build industry-specific content tracks
-
-##### Strategic investments
-
-* International content localization
-* Community platform development
-* Advanced video production capabilities
-
-Your content strategy should focus on amplifying what's already working (case studies, technical guides, practical tools) while strategically expanding into underutilized high-conversion opportunities, particularly technical content and video education formats.
-
-### Create
-
-Turn ideas into reality. Brainstorm and refine concepts, then bring them to life—from polished [[writing|Writing and content creation|Draft, edit, and polish any kind of writing. Claude helps maintain your voice while improving clarity and structure.]] to interactive [[artifacts|Interactive artifacts|Build interactive content: documents, visualizations, code, and diagrams. Share what you create with anyone, even if they don’t use Claude.]].
-
-## Keep thinking with Claude
-
-[Play video](#)Play video
-
-[](https://cdn.sanity.io/files/4zrzovbb/website/15feae7a3eaae59420c19a101201666aefae8370.mp4)
-
-Your curiosity’s collaborator
-
-Bring your hardest questions to Claude.
-
-What’s a question you want to solve?
-
-Thank you! Your submission has been received!
-
-Oops! Something went wrong while submitting the form.
-
-## Claude models
-
-### Fable 5.1
-
-Next generation intelligence for knowledge work and coding
-
-Days-long projects   •   Deep analysis   •   Fewer check-ins needed
-
-Model details
-
-[Model details](https://www.anthropic.com/claude/fable)Model details
-
-### Mythos 5.1
-
-Our most advanced intelligence, available to select partners
-
-Cybersecurity research   •   Scientific discovery   •   Expert-level analysis
-
-Model details
-
-[Model details](https://www.anthropic.com/claude/mythos)Model details
-
-### Opus 5
-
-Powerful model for complex tasks and deep research
-
-Docs, slides, spreadsheets   •   Complex analysis   •   Deep research
-
-Model details
-
-[Model details](https://www.anthropic.com/claude/opus)Model details
+Claude works with you to tackle your most complex challenges.

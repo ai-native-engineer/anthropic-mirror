@@ -8,7 +8,7 @@
 
 [Skip to main content](#content-area)
 
-This page covers managing Slack workspace pairings after initial setup: adding more workspaces, choosing which Claude Tag version each one runs, turning Claude on or off on the Team plan, and disconnecting one.
+This page covers managing Slack workspace pairings after initial setup: adding more workspaces, installing the app and pairing across a Slack Enterprise Grid, choosing which Claude Tag version each one runs, turning Claude on or off on the Team plan, and disconnecting a workspace.
 A workspace pairing links one Slack workspace (or Enterprise Grid) to your Claude organization so `@Claude` can run there. Your first pairing was created during [setup](https://claude.com/docs/claude-tag/admins/setup-overview). To add more, you must be an Owner in your Claude organization, and a Workspace Admin (or Grid Org Admin) in the Slack workspace you’re adding.
 
 ##  Pair another workspace
@@ -34,10 +34,40 @@ If your organization used the earlier Claude in Slack app, the new workspace is 
 
 **You’ll see:** the new workspace in the Slack row’s connected list and as a scope in the **Claude Tag’s access** section.
 
+##  Set up Claude Tag on Enterprise Grid
+
+On Slack Enterprise Grid, installing the Claude app takes two Slack actions instead of one. A Slack Org Owner or Org Admin installs the app once for the entire Slack organization, then adds the installed app to each workspace where people will use Claude. After that, an Owner in your Claude organization pairs the whole Grid with a single Grid-wide pairing code.
+
+###  Install the app across the Grid
+
+1
+
+Sign in to a workspace in the Grid
+
+As a Slack Org Owner or Org Admin, sign in to one of the Grid’s workspaces rather than the Slack organization admin dashboard. Slack offers **Install to entire organization** only when you start from inside a workspace.
+
+2
+
+Install to the entire organization
+
+On the [Claude for Slack](https://claude.com/claude-for-slack) listing, select **Add to Slack > Install to entire organization**.If some workspaces in the Grid already installed the app on their own, leave those installations in place and choose **Install to entire organization** anyway. Don’t uninstall first, because uninstalling the app from a workspace [deletes that workspace’s Claude data](https://claude.com/docs/claude-tag/concepts/data-lifecycle#actions-in-slack).
+
+3
+
+Add the app to each workspace
+
+From the Slack organization admin dashboard, add the Claude app to each workspace where people will use Claude. Each workspace still needs the app added before people there can invite and mention `@Claude`.
+
 ###  Pair an Enterprise Grid
 
-When a Grid Org Owner or Org Admin sends `@Claude connect`, the reply includes two codes. The `workspace_` code pairs only the workspace it was sent from. The `enterprise_` code pairs every workspace in the grid at once; redeem it when Claude should work across the grid.
-The choice matters for direct messages. On Enterprise Grid, DMs follow each user’s home workspace rather than the workspace you paired, so pairing a single workspace leaves DMs unanswered for users homed in the grid’s other workspaces. The `enterprise_` code covers them all.
+To get the Grid’s pairing codes, a Slack Org Owner or Org Admin sends `@Claude connect`, with no other text, in a channel of any workspace in the Grid. Claude’s reply includes two codes, one beginning `enterprise_` and one beginning `workspace_`. The `enterprise_` code pairs every workspace in the Grid that isn’t already paired on its own. The `workspace_` code pairs only the workspace where `@Claude connect` was sent.
+Paste the `enterprise_` code in one of these places:
+
+* **During setup:** paste the code into the **Paste the pairing code** field on the [setup page](https://claude.com/docs/claude-tag/admins/setup-overview#pair-your-slack-workspace)
+* **After setup:** go to [`claude.ai/admin-settings/claude-tag`](https://claude.ai/admin-settings/claude-tag) > **Where Claude Tag works** > the Slack row’s **⋮** menu > **+ Add workspace**, and paste the code into the dialog
+
+Claude answers a direct message according to the pairing of the sender’s home workspace, so only the Grid-wide pairing covers DMs from every workspace in the Grid.
+To move the Grid-wide pairing to a different Claude organization, an Owner in the Claude organization that holds it disconnects the Grid first. Disconnecting deletes the Claude-side data listed under [Revoke a pairing](#revoke-a-pairing) for every workspace the Grid-wide pairing covered. Messages Claude already posted stay in Slack.
 
 ##  Turn Claude Tag on or off and set the version for a scope
 

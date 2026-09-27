@@ -65,10 +65,12 @@ Automate workflows across thousands of apps via conversation
 
 [Add Zapier in Claude (opens in new tab)](https://claude.ai/directory/1f6f271e-3d29-4241-b35e-8abe6def4891 "Add in Claude")
 
-![](https://www.google.com/s2/favicons?domain=wealth.com&sz=96)
+![](https://www.google.com/s2/favicons?domain=amazon.com&sz=96)
 
-### [Wealth.com](https://claude.com/marketplace/connectors/wealth-com)
+### [Amazon Selling Partner](https://claude.com/marketplace/connectors/amazon-selling-partner)
 
-Bring your clients' estate plans, tax returns, and documents into Claude — with instant snapshots, risk analysis, and advisor-ready summaries.
+Anthropic verifiedTrending
 
-[Add Wealth.com in Claude (opens in new tab)](https://claude.ai/directory/3901f2b7-ddfb-4d32-a0ae-280106224cb1 "Add in Claude")
+Amazon Selling Partner MCP
+
+[Add Amazon Selling Partner in Claude (opens in new tab)](https://claude.ai/directory/921c3435-ce00-4c0b-8809-4647b3cb108f "Add in Claude")

@@ -2,7 +2,7 @@
 
 When you navigate to the **[Claude Console](https://platform.claude.com)**, you will see two different options for logging in to your Console account.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1935026646/d90d1613a3dbe763fef5abb96e3c/image.png?expires=1790382600&signature=8d5b274c7f1b2737adbad667b91e2ad2ac761dbec1979d9b099d52b4f9d27a15&req=dSkkE8l8m4dbX%2FMW1HO4zcrI5onvqIIL8vUNcPt4%2B72ZqU5jy6yt4zQGcpkU%0Asrqy5Q07qu1yfVXQd%2Fg%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1935026646/d90d1613a3dbe763fef5abb96e3c/image.png?expires=1790382600&signature=8d5b274c7f1b2737adbad667b91e2ad2ac761dbec1979d9b099d52b4f9d27a15&req=dSkkE8l8m4dbX%2FMW1HO4zcrI5onvqIIL8vUNcPt4%2B72ZqU5jy6yt4zQGcpkU%0Asrqy5Q07qu1yfVXQd%2Fg%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1935026646/d90d1613a3dbe763fef5abb96e3c/image.png?expires=1790469900&signature=81810896e760b32269f9a636693285f2d629736a6a1e5eb3badd46561b4959d9&req=dSkkE8l8m4dbX%2FMW1HO4zcrI5onopokE8vUNcPt4%2B72Pw7c9Eln16EYkkiH7%0AGMFk5Ik57Ge5MAnyi0o%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1935026646/d90d1613a3dbe763fef5abb96e3c/image.png?expires=1790469900&signature=81810896e760b32269f9a636693285f2d629736a6a1e5eb3badd46561b4959d9&req=dSkkE8l8m4dbX%2FMW1HO4zcrI5onopokE8vUNcPt4%2B72Pw7c9Eln16EYkkiH7%0AGMFk5Ik57Ge5MAnyi0o%3D%0A)
 
 ## Continue with Google
 

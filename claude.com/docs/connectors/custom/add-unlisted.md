@@ -1,5 +1,13 @@
 <!-- source: https://claude.com/docs/connectors/custom/add-unlisted -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 You can connect Claude to a [Model Context Protocol (MCP)](https://claude.com/docs/connectors/building/mcp) server that isn’t listed in the [Connectors Directory](https://claude.com/docs/connectors/directory). You add a remote server by its URL as a custom connector. In Claude Desktop, you can also use a desktop extension, which runs the server on your own computer.
 This page is for people adding a connector to their own Claude and for Team and Enterprise Owners adding one for their organization.
 
@@ -32,17 +40,25 @@ An Owner adds the connector for the organization. On Enterprise plans, a member 
 
 Adding the connector in organization settings makes it appear under [**Customize > Connectors**](https://claude.ai/customize/connectors) for members, with the **Custom** label. To add it:
 
+1
+
 Open organization connectors
 
 Go to [**Organization settings > Connectors**](https://claude.ai/admin-settings/connectors).
+
+2
 
 Add a custom connector
 
 Select **Add**, then **Custom**. If Claude asks for the connector type, choose **Web**.
 
+3
+
 Enter the server URL
 
 Enter the remote MCP server URL.
+
+4
 
 Enter OAuth credentials if needed
 
@@ -58,13 +74,19 @@ Click **Add**.
 
 Once an Owner has added the connector, each member connects to it with their own account:
 
+1
+
 Open Customize > Connectors
 
 Go to **Customize > Connectors**.
 
+2
+
 Find the custom connector
 
 Find the connector with the **Custom** label.
+
+3
 
 Connect
 
@@ -74,17 +96,25 @@ Click **Connect** to authenticate.
 
 You add custom connectors to your own account. On the Free plan, you can add one custom connector.
 
+1
+
 Open Customize > Connectors
 
 Go to **Customize > Connectors**.
+
+2
 
 Add a custom connector
 
 Click **Add custom connector**.
 
+3
+
 Enter the server URL
 
 Enter the remote MCP server URL.
+
+4
 
 Enter OAuth credentials if needed
 
@@ -127,17 +157,25 @@ You can also use request headers in addition to OAuth, including OAuth with your
 
 A request header holds a fixed credential, such as an API key, that Claude stores and sends on every request to your server. To add one:
 
+1
+
 Open Request headers
 
 In the **Add custom connector** dialog, open **Request headers**.
+
+2
 
 Choose the header name
 
 Select a header name from the list, or choose **Custom header** to enter a different name. The list offers standard authentication and routing header names such as `authorization`, `x-api-key`, and `x-auth-token`, which every connector can use.
 
+3
+
 Enter the value
 
 Enter the header value exactly as your server expects to receive it.
+
+4
 
 Mark it required or optional
 
@@ -170,13 +208,19 @@ You can turn each connector on or off for a single conversation. Click the **+**
 
 You can edit a connector’s name or URL, or remove the connector:
 
+1
+
 Open your connectors
 
 Go to **Customize > Connectors**. If you’re a Team or Enterprise Owner, go to **Organization settings > Connectors** instead.
 
+2
+
 Remove or open the menu
 
 Click **Remove**, or select the three-dot menu.
+
+3
 
 Follow the prompts
 
@@ -190,13 +234,19 @@ A desktop extension is a local MCP server packaged with MCPB (MCP Bundles) that 
 You can install a desktop extension in the Claude desktop app when you’re signed in to claude.ai. Your organization can turn extensions off or limit which ones you can install. When extensions are turned off, **Extensions** doesn’t appear in settings.
 To install an extension you have as a `.mcpb` file:
 
+1
+
 Open Settings > Extensions
 
 In the Claude desktop app, go to **Settings > Extensions**.
 
+2
+
 Drag in the file
 
 Drag the `.mcpb` file onto the page. Claude opens a preview of the extension.
+
+3
 
 Install
 
@@ -245,6 +295,8 @@ A desktop extension runs locally with your user permissions:
 ###  Report a malicious server
 
 Report malicious MCP servers to [Anthropic’s Bug Bounty Program](https://www.anthropic.com/responsible-disclosure-policy).
+
+##  Next steps
 
 * [Build an MCP server for Claude](https://claude.com/docs/connectors/building/index): build your own remote MCP server for any tool
 * [Connector verification](https://claude.com/docs/connectors/verification): which directory connectors Anthropic verifies and which are community connectors

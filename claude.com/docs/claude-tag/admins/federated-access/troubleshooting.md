@@ -174,11 +174,18 @@ The sign-in worked, but [Agent Proxy](https://claude.com/docs/claude-tag/concept
 ###  The cloud API answers 403 after a successful exchange
 
 **What you see**
-Claude reports a 403 from an AWS or Google Cloud API, with the provider’s own error body rather than a reason beginning “request blocked”.
+Claude reports a 403 from an AWS or Google API, with the provider’s own error body rather than a reason beginning “request blocked”.
 **What it means**
-The token exchange worked and Claude called the API with the exchanged credential, but the role or identity lacks permission for that action. For Google Cloud, the exchange always requests the `cloud-platform` scope, so IAM alone decides what the credential can do.
+The token exchange worked and Claude called the API with the exchanged credential, but the API refused the call for one of these reasons:
+
+* **A missing permission.** The role or identity lacks permission for that action.
+* **A Google API that needs an OAuth scope of its own.** For Google Cloud, the exchange always requests the `https://www.googleapis.com/auth/cloud-platform` scope, and there’s no setting to change it. Google Cloud APIs accept that scope, and IAM decides what the credential can do on those APIs. APIs that need an OAuth scope of their own, such as the Google Drive, Calendar, and Gmail APIs, answer 403 for insufficient scopes whatever IAM allows.
+
+If the 403 comes from a Google Cloud API, such as Cloud Storage, the OAuth scope isn’t the cause, so check the permission. If the 403 comes from an API that needs an OAuth scope of its own, such as the Google Drive, Calendar, or Gmail API, the cause is the OAuth scope.
 **How to resolve**
-Grant the IAM permission to the AWS role, the Google Cloud service account, or the federated identity when no service account is named. For AWS, a 403 also makes Claude assume the role again on the next request, so a fix takes effect on the next try.
+
+* **A missing permission.** Grant the IAM permission to the AWS role, the Google Cloud service account, or the federated identity when no service account is named. For AWS, a 403 also makes Claude assume the role again on the next request, so a fix takes effect on the next try.
+* **A Google API that needs an OAuth scope of its own.** A federated connection can’t reach that API. To connect Google Drive, Calendar, or Gmail another way, see [Choose OAuth or a service account](https://claude.com/docs/claude-tag/admins/connections/google#choose-oauth-or-a-service-account). If a channel gets both that connection and the federated connection, keep the two from covering the same host; see [Which credential wins](https://claude.com/docs/claude-tag/admins/attach-to-scope#which-credential-wins).
 
 ##  Rejections in your own logs
 

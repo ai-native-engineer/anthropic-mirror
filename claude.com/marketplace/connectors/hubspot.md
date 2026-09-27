@@ -71,14 +71,6 @@ Create presentations, docs, socials, and sites with AI
 
 [Add Gamma in Claude (opens in new tab)](https://claude.ai/directory/ba1eef5a-c510-416e-b5fa-c34d523d81a1 "Add in Claude")
 
-![](https://agent.enrichlabs.ai/avatars/helena.png)
-
-### [Helena by Enrich Labs](https://claude.com/marketplace/connectors/helena-by-enrich-labs)
-
-Your AI marketer for paid ads, SEO, email, social, and analytics
-
-[Add Helena by Enrich Labs in Claude (opens in new tab)](https://claude.ai/directory/0da6abdc-62c3-4272-940b-898189371a48 "Add in Claude")
-
 ![](https://assets.claude.com/47f22a5129fd644c95a682e474b104001065dd42.jpg?w=128&fit=max&auto=format)
 
 ### [Zapier](https://claude.com/marketplace/connectors/zapier)
@@ -86,3 +78,11 @@ Your AI marketer for paid ads, SEO, email, social, and analytics
 Automate workflows across thousands of apps via conversation
 
 [Add Zapier in Claude (opens in new tab)](https://claude.ai/directory/1f6f271e-3d29-4241-b35e-8abe6def4891 "Add in Claude")
+
+![](https://agent.enrichlabs.ai/avatars/helena.png)
+
+### [Helena by Enrich Labs](https://claude.com/marketplace/connectors/helena-by-enrich-labs)
+
+Your AI marketer for paid ads, SEO, email, social, and analytics
+
+[Add Helena by Enrich Labs in Claude (opens in new tab)](https://claude.ai/directory/0da6abdc-62c3-4272-940b-898189371a48 "Add in Claude")

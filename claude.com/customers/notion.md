@@ -15,7 +15,7 @@ Company size:
 :   Large
 
 Product:
-:   Claude Managed Agents on the Claude Platform
+:   Claude Managed Agents
 
 Location:
 :   North America

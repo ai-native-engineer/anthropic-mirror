@@ -1,5 +1,13 @@
 <!-- source: https://claude.com/docs/plugins/admin -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 Owners of a Team or Enterprise organization decide which plugins members can use in claude.ai and Cowork from [**Organization settings > Plugins & skills**](https://claude.ai/admin-settings/skills). You set each plugin’s availability: hidden, available for members to install, installed for everyone, or required. You can also add your organization’s own plugins from a GitHub or GitLab repository or a zip file.
 This page is for Owners, and for Enterprise members whose role includes managing the organization’s plugins.
 
@@ -70,17 +78,25 @@ For an item a member created for themselves, the page shows who created it, who 
 
 For an item your organization uploads, you can make any earlier version the one members get:
 
+1
+
 Open the item's page
 
 On the [**Inventory**](https://claude.ai/admin-settings/skills?tab=inventory) tab, select the item’s row to open its page.
+
+2
 
 Go to Version history
 
 Go to **Version history**. The version members get now is marked **Current**.
 
+3
+
 Compare the earlier version
 
 To see what an earlier version changes, open that version’s menu and select **Compare with current**.
+
+4
 
 Revert to the version
 
@@ -98,17 +114,25 @@ You set a plugin’s availability, add your own plugins, manage synced marketpla
 
 A plugin’s availability decides whether members can see the plugin, install it if they want it, get it installed automatically, or must keep it on. In the plugin’s row menu, this setting is labeled **Default access**. To set it:
 
+1
+
 Open the Inventory tab
 
 Go to [**Organization settings > Plugins & skills**](https://claude.ai/admin-settings/skills?tab=inventory) and stay on the **Inventory** tab.
+
+2
 
 Open the plugin's menu
 
 Open the menu at the end of the plugin’s row.
 
+3
+
 Select Default access
 
 Select **Default access**.
+
+4
 
 Choose a value
 
@@ -132,9 +156,13 @@ In Claude Code sessions that sync the member’s account plugins, a required plu
 
 Adding a plugin or skill of your own puts it on the **Inventory** tab, private to your organization, where you then [set its availability](#set-availability) for members. To add one:
 
+1
+
 Open Plugins & skills
 
 Go to [**Organization settings > Plugins & skills**](https://claude.ai/admin-settings/skills?tab=inventory).
+
+2
 
 Select Add and choose the source
 
@@ -163,17 +191,25 @@ If a sync fails, the marketplace’s page shows the date and the reason, with a 
 
 You can remove a catalog source, such as Anthropic’s directory or a partner catalog, so that members no longer see plugins from it:
 
+1
+
 Open the Marketplaces tab
 
 Open the [**Marketplaces**](https://claude.ai/admin-settings/skills?tab=marketplaces) tab.
+
+2
 
 Find the catalog's row
 
 Find the row that shows **Catalog** under its name. Its **Sync** column reads **Managed by Anthropic**, or **Managed by** the partner’s name for a partner catalog.
 
+3
+
 Remove it from the organization
 
 Open the menu at the end of the row and select **Remove from organization**.
+
+4
 
 Confirm
 
@@ -191,9 +227,13 @@ For the Claude Code command line, the counterpart is managed settings. [Restrict
 
 You can turn plugins and skills off for your whole organization. This also stops Claude Code from loading the plugins it syncs from members’ claude.ai accounts.
 
+1
+
 Open the Policy tab
 
 Go to [**Organization settings > Plugins & skills > Policy**](https://claude.ai/admin-settings/skills?tab=policy).
+
+2
 
 Turn off Skills
 
@@ -210,13 +250,19 @@ Members can share a plugin they made with specific people without involving you.
 
 When someone leaves your organization, the items they shared keep working for the people they shared them with. The **Inventory** tab shows a notice with the number of former members who still share items. To end that sharing:
 
+1
+
 Open the review
 
 On the [**Inventory**](https://claude.ai/admin-settings/skills?tab=inventory) tab, select **Review** in the notice.
 
+2
+
 Stop sharing
 
 Select **Stop sharing** for an item, or stop sharing all of one former member’s items at once.
+
+3
 
 Confirm
 
@@ -249,13 +295,19 @@ Under **Requires review**, nothing reaches other members until a reviewer approv
 Requests to publish wait in [**Organization settings > Plugins & skills > Requests**](https://claude.ai/admin-settings/skills?tab=requests). You can’t review a request you submitted yourself. A pending request that looks similar to other items in your organization is tagged **Possible duplicate**, and its review page lists up to three similar items, each with a **Compare** link.
 To review a request:
 
+1
+
 Open the request
 
 Open the request to see what the member submitted.
 
+2
+
 Approve or deny
 
 Select **Approve** or **Deny**.
+
+3
 
 Set availability or give a reason
 
@@ -269,17 +321,25 @@ On Enterprise plans, you can give a user group its own availability for a plugin
 User groups are the ones listed at **Organization settings > Groups**. They sync from your identity provider through SCIM, or you add one there with **Add group**. If your organization has no groups, the picker shows **No groups in this organization.**
 To set availability for a group, you need to be an Owner or Primary Owner, or hold a custom role with **Libraries** set to **Can manage** and **Identity & Access** set to **Can view**. Then:
 
+1
+
 Open the Inventory tab
 
 Go to [**Organization settings > Plugins & skills**](https://claude.ai/admin-settings/skills?tab=inventory) and stay on the **Inventory** tab.
+
+2
 
 Open the plugin's menu
 
 Open the menu at the end of the plugin’s row. **Default access** is the availability for the whole organization.
 
+3
+
 Select Group access
 
 Select **Group access…**.
+
+4
 
 Choose the group and its availability
 

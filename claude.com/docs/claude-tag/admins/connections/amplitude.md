@@ -12,7 +12,7 @@ Connections are added inside an [Access bundle](https://claude.com/docs/claude-t
 
 Connecting Amplitude lets Claude answer product-analytics questions, such as funnel and retention numbers, event segmentation, a user’s recent activity, and cohort sizes, from any channel under the bundle’s scope. You add it as a connection inside an [Access bundle](https://claude.com/docs/claude-tag/admins/add-connections); the credential belongs to the agent, not to any person.
 You can connect with a project API key and secret key, which you can limit to read requests, or by signing in as an Amplitude user, which gives Claude Amplitude’s MCP tools for creating and editing content as well as reading it.
-For the API key route, pair the connection with a plugin that covers Amplitude so Claude knows how to call the REST API; see [Attach plugins](https://claude.com/docs/claude-tag/admins/add-connections#attach-plugins). A member’s own Amplitude connector on claude.ai is separate from this connection and applies in DMs. With [personal connectors in channels](https://claude.com/docs/claude-tag/concepts/personal-connectors), Claude can also use that connector in a channel for that member’s own tasks, after the member allows it.
+For the API key route, pair the connection with a plugin that covers Amplitude so Claude knows how to call the REST API; see [Attach plugins](https://claude.com/docs/claude-tag/admins/add-connections#attach-plugins). A member’s own Amplitude connector on claude.ai is separate from this connection and applies in DMs. Claude can also [use that connector in a channel](https://claude.com/docs/claude-tag/concepts/personal-connectors) for that member’s own tasks, after the member allows it.
 
 ##  Choose an API key or Amplitude sign-in
 

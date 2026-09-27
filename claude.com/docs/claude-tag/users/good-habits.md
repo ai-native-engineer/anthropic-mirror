@@ -25,6 +25,12 @@ Claude is most useful when the work is somewhere the team can see, steer, and bu
 
 Claude can’t add anyone to a channel, and it doesn’t decide whether a mentioned person is notified. Slack’s prompt to invite or notify someone who isn’t in the channel appears only for messages you type yourself; it never applies to messages Claude posts. Slack delivers Claude’s mention the way it delivers any app-posted message. In a public channel, the person is notified in their Activity view even though they haven’t joined. In a private channel, they aren’t notified and can’t see the message until someone invites them. If you want someone to follow a thread Claude is working in, invite them yourself.
 
+###  Mentioning a user group
+
+Ask Claude to notify a user group, such as an on-call rotation. Claude mentions the group, and Slack notifies its members. If Claude writes the group’s @handle as plain text instead of mentioning the group, Slack notifies no one, so ask Claude to notify the group rather than to include its handle.
+If Claude replies with re-approval guidance instead of mentioning the group, your workspace’s Claude app predates a Slack permission that group mentions need. Ask a Slack admin to re-approve the app, and send them [Slack app permissions](https://claude.com/docs/claude-tag/admins/troubleshooting#slack-app-permissions).
+Claude never pings @channel, @here, or @everyone.
+
 ##  Write tasks that close
 
 The phrasing of a task determines whether it has a verifiable end state, what form the result takes, and how Claude responds while working on it.
@@ -114,6 +120,7 @@ Where you start a thread determines what Claude can reach, who else can pick the
 
 Each thread runs its own session, and the session carries the whole conversation into every reply. Keep follow-ups on the same task in the same thread, where Claude already has the context.
 Start a new thread for each new task. The fresh session begins with full room for the work, picks up any configuration changes made since the old thread began, and keeps each piece of work reviewable on its own. A thread that accumulates many tasks eventually [grows past what one session can hold](https://claude.com/docs/claude-tag/users/troubleshooting#this-conversation-is-too-long-for-me-to-process).
+To start several independent tasks from inside an existing thread, [ask Claude to open a thread for each](https://claude.com/docs/claude-tag/users/prompt-library#fan-out-work-across-threads). To continue the current discussion in a fresh thread, run [`!fork`](https://claude.com/docs/claude-tag/users/commands#fork-a-thread).
 
 ###  Pick the right surface
 
@@ -130,8 +137,9 @@ Channel access belongs to the channel, and DM access belongs to you. A channel c
 [Routines](https://claude.com/docs/claude-tag/users/proactivity) belong to a channel too. You set standing work up in the channel where it should post, and it runs with that channel’s connections. [Work from your own channel](https://claude.com/docs/claude-tag/users/use-cases/your-own-channel) shows what a channel of your own is good for.
 A DM can still answer questions about a public channel when the answer should stay private. Name the channel in the DM, as in `summarize the last week of #product-feedback`. Claude’s Slack search covers public channels in this workspace from a DM the same as from a channel, so the DM advantage is privacy of the answer, not broader reach. Workspace search is unavailable in [channels that include guests](https://claude.com/docs/claude-tag/admins/restrict-access#restrict-guest-channels), so ask from a DM or from a channel without guests.
 Reading a public channel’s full history, rather than what search finds, needs Claude to be a member of that channel. If it says it can’t read a public channel, `/invite @Claude` from inside that channel adds it.
+Claude can also post into other public channels, and the rules depend on where you ask. See [What Claude can do in other channels](https://claude.com/docs/claude-tag/concepts/how-it-works#what-claude-can-do-in-other-channels).
 A private channel is readable only from inside it. Inviting Claude lets it work in that channel, but Claude can’t read the private channel’s messages from any other channel or DM. To ask about a private channel, ask in that channel.
-Channels in a different workspace stay out of reach. Claude also doesn’t answer in a [Slack Connect channel](https://claude.com/docs/claude-tag/admins/restrict-access#slack-connect-channels), one shared with another company.
+Claude can’t post into a channel in a different workspace, and it doesn’t answer in a [Slack Connect channel](https://claude.com/docs/claude-tag/admins/restrict-access#slack-connect-channels), one shared with another company.
 When more than one surface would work, prefer a channel. Work that happens there compounds, because Claude can draw on it in later threads and teammates can find it, redirect it, or build on it.
 If Claude says it can’t reach something in a channel, the channel likely wasn’t granted that access. See [How agent identity works](https://claude.com/docs/claude-tag/concepts/agent-identity).
 

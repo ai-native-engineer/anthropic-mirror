@@ -75,10 +75,10 @@ Automate workflows across thousands of apps via conversation
 
 [Add Zapier in Claude (opens in new tab)](https://claude.ai/directory/1f6f271e-3d29-4241-b35e-8abe6def4891 "Add in Claude")
 
-![](https://www.google.com/s2/favicons?domain=wealth.com&sz=96)
+![](https://resources.swsapp.com/shared/orion.svg)
 
-### [Wealth.com](https://claude.com/marketplace/connectors/wealth-com)
+### [Orion](https://claude.com/marketplace/connectors/orion-advisor-solutions)
 
-Bring your clients' estate plans, tax returns, and documents into Claude — with instant snapshots, risk analysis, and advisor-ready summaries.
+Bring Orion Connect portfolio data and Redtail CRM together in Claude — prep for client meetings, capture follow-ups, prioritize your pipeline, and turn reports into talking points.
 
-[Add Wealth.com in Claude (opens in new tab)](https://claude.ai/directory/3901f2b7-ddfb-4d32-a0ae-280106224cb1 "Add in Claude")
+[Add Orion in Claude (opens in new tab)](https://claude.ai/directory/ae7131fa-f9e7-4f96-b776-b582c7fa09a1 "Add in Claude")

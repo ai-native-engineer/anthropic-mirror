@@ -158,5 +158,3 @@ Claude made the open-source models that scientists use to predict and design bio
 ## Subscribe to the Frontier Red Team newsletter
 
 Get updates on our latest red-teaming research and findings.
-
-Project Vend: Can Claude run a small shop? (And why does that matter?) \ Anthropic

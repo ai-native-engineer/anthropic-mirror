@@ -27,5 +27,3 @@ Anthropic’s Beneficial Deployments team has worked closely with the Ministry o
 Today’s announcement builds on our education partnerships, which help students and educators interact with AI, and marks a significant expansion into the health sector.
 
 Together, these partnerships reflect a long-term collaboration that prioritizes capacity building, responsible deployment, and local autonomy over how new technologies are introduced. By investing in skills, infrastructure, and institutions, we hope to lay the groundwork for AI to deliver lasting value in the sectors that matter most to people’s lives.
-
-Rwanda and Anthropic sign MOU for health and education \ Anthropic

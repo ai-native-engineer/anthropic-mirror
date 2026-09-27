@@ -458,7 +458,9 @@ To turn workflows off for yourself:
 
 To turn workflows off for your whole organization, set `"disableWorkflows": true` in [managed settings](/docs/en/server-managed-settings), or use the toggle on the [Claude Code admin settings](https://claude.ai/admin-settings/claude-code) page.
 
-When workflows are disabled, the bundled workflow commands and the `/workflow-authoring` skill are unavailable, the `ultracode` keyword no longer triggers a run, and `ultracode` is removed from the `/effort` menu.
+When workflows are disabled, the bundled workflow commands and the `/workflow-authoring` skill are unavailable, the `ultracode` keyword no longer triggers a run, and `ultracode` is removed from the `/effort` menu. A run that was already in progress keeps going.
+
+No setting turns off [ultracode](#let-claude-decide-with-ultracode) alone. To keep workflows but rule out ultracode, set an [effort cap](/docs/en/model-config#organization-effort-limits) below `xhigh` on the models you want to cover. Ultracode needs `xhigh`, so it's then [unavailable](/docs/en/model-config#when-ultracode-is-available) on those models.
 
 ## Related resources
 

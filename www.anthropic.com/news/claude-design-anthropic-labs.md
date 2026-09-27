@@ -66,5 +66,3 @@ Claude Design is available for Claude Pro, Max, Team, and Enterprise subscribers
 For Enterprise organizations, Claude Design is off by default. Admins can enable it in [Organization settings](https://support.claude.com/en/articles/14604406-claude-design-admin-guide-for-team-and-enterprise-plans).
 
 Start designing at [claude.com/product/design](https://claude.com/product/design).
-
-Introducing Claude Design by Anthropic Labs \ Anthropic

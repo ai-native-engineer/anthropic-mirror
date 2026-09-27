@@ -44,7 +44,7 @@ Install the Claude app in Slack, get a pairing code from Slack, and paste it on 
 
 Add the Claude app to Slack
 
-**Where:** the Slack Marketplace, at [claude.com/claude-for-slack](https://claude.com/claude-for-slack).Click **Add the Claude app** on the setup page to open the listing, then click **Add to Slack** and approve the permissions. If the app is already installed, click **Add to Slack** anyway: you reinstall over the existing app with its current permissions and keep your settings.
+**Where:** the Slack Marketplace, at [claude.com/claude-for-slack](https://claude.com/claude-for-slack).Click **Add the Claude app** on the setup page to open the listing, then click **Add to Slack** and approve the permissions. If the app is already installed, click **Add to Slack** anyway: you reinstall over the existing app with its current permissions and keep your settings.On Slack Enterprise Grid, installing takes two Slack actions. See [Set up Claude Tag on Enterprise Grid](https://claude.com/docs/claude-tag/admins/workspaces#set-up-claude-tag-on-enterprise-grid) for the steps.
 
 2
 
@@ -89,7 +89,7 @@ Please install the Claude app (https://claude.com/claude-for-slack) in [workspac
 
 If your Slack is on Enterprise Grid
 
-When a Grid org admin sends `@Claude connect`, the reply includes two codes: a `workspace_` code that pairs only that workspace, and an `enterprise_` code that pairs every workspace in the Grid that doesn’t already have its own pairing. Paste the `enterprise_` code if Claude should work across the Grid; DMs for users homed in other Grid workspaces only work with a Grid-wide pairing. See [Pair an Enterprise Grid](https://claude.com/docs/claude-tag/admins/workspaces#pair-an-enterprise-grid).
+When a Slack Org Owner or Org Admin sends `@Claude connect`, the reply includes two codes. One begins `workspace_` and pairs only the workspace the admin sent the command in, and one begins `enterprise_` and pairs the whole Grid. Paste the `enterprise_` code. See [Pair an Enterprise Grid](https://claude.com/docs/claude-tag/admins/workspaces#pair-an-enterprise-grid).
 
 ##  Choose Claude’s first tools
 

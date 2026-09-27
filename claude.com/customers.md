@@ -50,7 +50,7 @@ AutomotiveBeneficial DeploymentsCybersecurityEcommerceEducationEnergyEntertainme
 
 Product
 
-AI PlatformClaude Agent SDKClaude CodeClaude CoworkClaude EnterpriseClaude for NonprofitsClaude Managed AgentsClaude Managed Agents on the Claude PlatformClaude PlatformClaude Tag
+Claude Agent SDKClaude CodeClaude CoworkClaude EnterpriseClaude for NonprofitsClaude Managed AgentsClaude PlatformClaude Tag
 
 Size
 

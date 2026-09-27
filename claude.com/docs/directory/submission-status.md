@@ -1,5 +1,13 @@
 <!-- source: https://claude.com/docs/directory/submission-status -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 After you submit to the directory, the developer portal at [claude.ai/directory/manage](https://claude.ai/directory/manage) shows one status for each submission. The status tells you whether Anthropic is working on the submission, whether it’s waiting on you, or whether it’s live.
 This page is for anyone with a submission in the portal. Review time isn’t fixed.
 
@@ -54,6 +62,8 @@ Include the listing’s name, the organization you submitted from, and the statu
 
 A published listing appears in the directory that claude.ai, the Claude desktop and mobile apps, and Cowork share. [Plugin feature support across platforms](https://claude.com/docs/plugins/platform-support) lists which of a plugin’s components load on each surface.
 A published connector is listed with the **Community** label by default. There’s no application for the **Verified** label. [Connector verification](https://claude.com/docs/connectors/verification#list-your-own-connector) explains how a listing becomes Verified and what each label means to people installing it.
+
+##  Next steps
 
 * [After publishing](https://claude.com/docs/connectors/building/after-publishing): update your server or plugin, and delist
 * [Submit your plugin](https://claude.com/docs/plugins/submit#after-you-submit-a-plugin): follow each new plugin version through the scan, review, and publishing

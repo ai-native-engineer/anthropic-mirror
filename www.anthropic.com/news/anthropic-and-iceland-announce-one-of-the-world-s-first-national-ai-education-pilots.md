@@ -31,5 +31,3 @@ This partnership marks another milestone in Anthropic's commitment to supporting
 Teachers worldwide are using Claude to save hours on lesson planning, create personalized learning materials, and provide individualized support to students, changing how education is delivered. We're building a global network of educators, students, and government teams who are pioneering AI's role in their work. These partnerships represent a core piece of our international expansion: equipping those who are transforming education, advancing scientific research, and modernizing government services for their communities.
 
 We look forward to bringing similar partnerships to more nations as we continue to support educators, ensuring that AI serves those who serve others.
-
-Iceland launches a national AI education pilot \ Anthropic

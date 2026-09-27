@@ -76,5 +76,3 @@ DateCategoryTitle
   Anthropic Economic Index report: Learning curves](https://www.anthropic.com/research/economic-index-march-2026-report)
 
 [See more](#)
-
-Economics \ Anthropic

@@ -1,5 +1,13 @@
 <!-- source: https://claude.com/docs/plugins/org-sync -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 You can distribute your organization’s own plugins by syncing a Git repository that holds them from [**Organization settings > Plugins & skills**](https://claude.ai/admin-settings/skills?tab=inventory). Members then find those plugins under **Customize > Plugins** with the availability you set.
 This page is for the Owner who adds the repository and for the engineer who maintains it. It covers the requirements the repository and its plugin entries must meet for the sync to accept them.
 
@@ -20,17 +28,25 @@ Members don’t need access to the repository themselves, and their Git credenti
 
 When you sync a marketplace from github.com, organization sync reads the repository through the Claude GitHub App, and you choose the availability its plugins start with as you add it. To sync a marketplace from a private or internal repository on github.com:
 
+1
+
 Open Plugins & skills
 
 Go to [**Organization settings > Plugins & skills**](https://claude.ai/admin-settings/skills?tab=inventory).
+
+2
 
 Select Sync from GitHub
 
 Select **Add**, then **Sync from GitHub**.
 
+3
+
 Connect to GitHub
 
 If the dialog shows **Connect to GitHub**, select it and authorize. GitHub returns you to the dialog.
+
+4
 
 Choose the repository
 
@@ -67,9 +83,13 @@ To turn on automatic sync later, open the marketplace from the [**Marketplaces**
 
 Syncing a marketplace from GitLab needs a GitLab configuration for the host first, which holds the access token that organization sync reads the repository with. To sync a marketplace from gitlab.com or a self-managed GitLab instance:
 
+1
+
 Add a GitLab configuration
 
 As an [Owner](https://code.claude.com/docs/en/server-managed-settings#access-control), add a GitLab configuration for that host at [**Organization settings > Claude Code**](https://claude.ai/admin-settings/claude-code). GitLab configurations are in public beta and apply only to plugin marketplace sync.
+
+2
 
 Sync from GitLab
 
@@ -102,6 +122,8 @@ To include private plugins, place the plugin folders inside the marketplace repo
 
 Don’t include a top-level `bin/` directory in any plugin you distribute through organization settings. claude.ai rejects a plugin that has one, whether the plugin arrives by marketplace sync or by direct upload in [**Organization settings > Plugins & skills**](https://claude.ai/admin-settings/skills?tab=inventory). The error message starts with `Plugin contains a top-level bin/ directory`. On marketplace sync, organization sync rejects that plugin and syncs the rest of the marketplace.
 Keep executables in another directory, such as `scripts/`, and reference them as `${CLAUDE_PLUGIN_ROOT}/scripts/<name>` from your [skills, hooks, or MCP server configs](https://code.claude.com/docs/en/plugins/manifest-reference#environment-variables).
+
+##  Next steps
 
 * [Manage plugins for your organization](https://claude.com/docs/plugins/admin#set-availability): set each synced plugin to available, installed by default, or required
 * [Roll out a plugin to your whole organization](https://claude.com/docs/plugins/org-rollout): reach members in claude.ai and Cowork and developers in the Claude Code command line with one plugin

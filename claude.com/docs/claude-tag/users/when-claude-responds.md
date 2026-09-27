@@ -38,7 +38,7 @@ To have Claude answer more kinds of untagged messages in a channel, tell it whic
 ##  Turn automatic replies on or off
 
 The **Respond automatically** setting controls whether Claude replies to a channel’s messages without an @-mention. When it’s on, Claude may reply to a message it judges warrants one, as [What Claude does with a channel message](#what-claude-does-with-a-channel-message) describes. When it’s off, Claude replies in that channel only when someone @-mentions it.
-The setting is on by default, so a channel Claude was just added to replies without @-mentions from the start.
+The setting is on by default.
 Each channel has its own copy of the setting, and there is no workspace- or organization-wide version. To make Claude mention-only across many channels, turn it off in each one.
 All three places below change the same setting, so a change you make in one appears in the others.
 

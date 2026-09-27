@@ -2,13 +2,13 @@
 
 To help you identify legitimate marketing communications from Anthropic, all our marketing emails are sent from addresses ending in anthropic.com or claude.com. Below are the official email addresses we use for marketing communications:
 
-* [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#c1b5a4a0ac81a4aca0a8adefa0afb5a9b3aeb1a8a2efa2aeac)
-* [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#f796879eb7929a969e9bd99699839f8598879e94d994989a)
-* [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#f19f9e85989294b1949c90989ddf909f8599839e819892df929e9c)
-* [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#3a5b544e5248554a5359174e5f5b577a575b5356145b544e5248554a535914595557)
-* [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#97e4f6fbf2e4d7faf6fefbb9f6f9e3ffe5f8e7fef4b9f4f8fa)
-* [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#98f6f7b5eafde8f4e1d8fdf5f9f1f4b6fbf4f9edfcfdb6fbf7f5)
-* [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#bfd1d092cddacfd3c6ffcddaccdadecddcd791ded1cbd7cdd0cfd6dc91dcd0d2)
+* [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#067263676b46636b676f6a286768726e7469766f652865696b)
+* [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#d8b9a8b198bdb5b9b1b4f6b9b6acb0aab7a8b1bbf6bbb7b5)
+* [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#95fbfae1fcf6f0d5f0f8f4fcf9bbf4fbe1fde7fae5fcf6bbf6faf8)
+* [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#83e2edf7ebf1ecf3eae0aef7e6e2eec3eee2eaefade2edf7ebf1ecf3eae0ade0ecee)
+* [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#c8bba9a4adbb88a5a9a1a4e6a9a6bca0baa7b8a1abe6aba7a5)
+* [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#caa4a5e7b8afbaa6b38aafa7aba3a6e4a9a6abbfaeafe4a9a5a7)
+* [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#d3bdbcfea1b6a3bfaa93a1b6a0b6b2a1b0bbfdb2bda7bba1bca3bab0fdb0bcbe)
 
 Please note that these addresses are outbound only with unmonitored inboxes.
 

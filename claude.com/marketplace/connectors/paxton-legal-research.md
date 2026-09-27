@@ -64,10 +64,10 @@ Connect Claude to Filevine through the Filevine API to securely access and work 
 
 [Add Filevine in Claude (opens in new tab)](https://claude.ai/directory/f2949ce2-7f86-4821-9610-40989cb703f3 "Add in Claude")
 
-![](https://assets.claude.com/1a01745b4fbcfb8d75f0f2a761024720abbd6cb2.jpg?w=128&fit=max&auto=format)
+![](https://www.google.com/s2/favicons?domain=patlytics.ai&sz=96)
 
-### [Harvey](https://claude.com/marketplace/connectors/harvey)
+### [Patlytics](https://claude.com/marketplace/connectors/patlytics)
 
-Answer legal queries, search vaults, and research
+Prior art, claims, and portfolio search
 
-[Add Harvey in Claude (opens in new tab)](https://claude.ai/directory/a428b976-7973-467f-9588-6b72643af755 "Add in Claude")
+[Add Patlytics in Claude (opens in new tab)](https://claude.ai/directory/bbf58559-0ce4-4567-a5c9-947ce33e9f81 "Add in Claude")

@@ -32,78 +32,6 @@ Location
 
 Date
 
-IN
-
-Bangalore | FOSS Coffee Meet
-
-Bengaluru, IN
-
-September 25, 2026
-
-Roastea - Curated Coffee And Tea Artisans, 612/3, 80 Feet Rd, next to Akshaya Motors Mercedes Benz Showroom, 4th Block, Koramangala, Bengaluru, Karnataka 560034, India
-
-[Bangalore | FOSS Coffee Meet](https://luma.com/claude-wigr)Bangalore | FOSS Coffee Meet
-
-SE
-
-Stockholm | Fable 5.1 x Opus 5.5 Build Day
-
-Stockholm, SE
-
-September 25, 2026
-
-Epicenter, Malmskillnadsgatan 44a, 111 57 Stockholm, Sweden
-
-[Stockholm | Fable 5.1 x Opus 5.5 Build Day](https://luma.com/claude-kh4r)Stockholm | Fable 5.1 x Opus 5.5 Build Day
-
-MX
-
-Mexico City | Claude for Research Meetup
-
-Lomas Anáhuac, MX
-
-September 25, 2026
-
-Anáhuac University, Av. Universidad Anáhuac 46, Lomas Anahuac, 52786 Lomas Anáhuac, Méx., Mexico
-
-[Mexico City | Claude for Research Meetup](https://luma.com/claude-investigadores)Mexico City | Claude for Research Meetup
-
-US
-
-San Francisco | Claude Meetup - For the Business Moms: The AI Back Office You Didn't Know You Had
-
-San Francisco, US
-
-September 25, 2026
-
-Mox, 1680 Mission St, San Francisco, CA 94103, USA
-
-[San Francisco | Claude Meetup - For the Business Moms: The AI Back Office You Didn't Know You Had](https://luma.com/claude-aly0)San Francisco | Claude Meetup - For the Business Moms: The AI Back Office You Didn't Know You Had
-
-IN
-
-Bangalore | Claude Opus Build Day
-
-Bengaluru, IN
-
-September 25, 2026
-
-Anakin Skywalker, 4th floor, 168, 19th Main Rd, Sector 4, HSR Layout, Bengaluru, Karnataka 560102, India
-
-[Bangalore | Claude Opus Build Day](https://luma.com/claude-x5dm)Bangalore | Claude Opus Build Day
-
-IN
-
-Bangalore | Claude Impact Lab - Creature Commons
-
-Bengaluru, IN
-
-September 25, 2026
-
-Anakin Skywalker, 4th floor, 168, 19th Main Rd, Sector 4, HSR Layout, Bengaluru, Karnataka 560102, India
-
-[Bangalore | Claude Impact Lab - Creature Commons](https://luma.com/claude-p7gg)Bangalore | Claude Impact Lab - Creature Commons
-
 TH
 
 Chiang Mai | Claude Code Impact Lab
@@ -128,9 +56,81 @@ AGI, Inc., 170 St Germain Ave, San Francisco, CA 94114, USA
 
 [San Francisco | Claude Opus 5.5 Build Day](https://luma.com/claudebuildday)San Francisco | Claude Opus 5.5 Build Day
 
+TR
+
+Ankara | Claude for Education: Innovation and Research Meetup
+
+Çankaya, TR
+
+September 27, 2026
+
+CoZone, Mustafa Kemal Mahallesi Bilişim İnovasyon Merkezi ODTÜ Teknokent 280, Mustafa Kemal, D:G, 06510 Çankaya/Ankara, Türkiye
+
+[Ankara | Claude for Education: Innovation and Research Meetup](https://luma.com/claude-m0x7)Ankara | Claude for Education: Innovation and Research Meetup
+
+AU
+
+Sydney | Claude Community x Notion Showcase
+
+Haymarket, AU
+
+September 28, 2026
+
+Tank Stream Labs, Campbell Street, Level 5/24 Campbell St, Haymarket NSW 2000, Australia
+
+[Sydney | Claude Community x Notion Showcase](https://luma.com/claude-anqv)Sydney | Claude Community x Notion Showcase
+
+DE
+
+Munich | Claude Meetup: Claude for Founders
+
+München, DE
+
+September 28, 2026
+
+CUPRA City Garage München, Odeonspl. 1, 80539 München, Germany
+
+[Munich | Claude Meetup: Claude for Founders](https://luma.com/claude-7la4)Munich | Claude Meetup: Claude for Founders
+
+NZ
+
+Auckland | Claude Meetup
+
+Auckland, NZ
+
+September 29, 2026
+
+Auckland University of Technology, 55 Wellesley Street East, Auckland CBD, Auckland 1010, New Zealand
+
+[Auckland | Claude Meetup](https://luma.com/auckland-claude-meetup-30-sep-2026)Auckland | Claude Meetup
+
+IN
+
+Bhopal | Agent and Learn Workshop
+
+Bhopal, IN
+
+September 30, 2026
+
+AIC-RNTU Foundation (Start-up Incubation Centre), Chiklod Road, Bhopal, Madhya Pradesh 464993, India
+
+[Bhopal | Agent and Learn Workshop](https://luma.com/claude-8le5)Bhopal | Agent and Learn Workshop
+
+NO
+
+Oslo | Claude Conversation
+
+Oslo, NO
+
+September 30, 2026
+
+Mesh Youngstorget - Mesh Community, Møllergata 6, 8, 0179 Oslo, Norway
+
+[Oslo | Claude Conversation](https://luma.com/claude-326i)Oslo | Claude Conversation
+
 [View more](https://claude.com/community?46f68bc1_page=2)
 
-1 / 7
+1 / 6
 
 No posts for those filters
 

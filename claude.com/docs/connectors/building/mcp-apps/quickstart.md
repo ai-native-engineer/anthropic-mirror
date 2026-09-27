@@ -1,5 +1,13 @@
 <!-- source: https://claude.com/docs/connectors/building/mcp-apps/quickstart -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 An [MCP App](https://claude.com/docs/connectors/building/mcp-apps/getting-started) is interactive UI that your MCP server renders inside a Claude conversation, such as an interactive chart or map. In this quickstart you give the `roll_dice` tool from [Build your first MCP server for Claude](https://claude.com/docs/connectors/building/quickstart) a small UI that draws each die and has a **Roll again** button, by adding about 50 lines to the same `server.mjs` and no build tooling. At the end your server advertises the UI the way an MCP Apps host expects, and you’ve checked that from the command line.
 This quickstart is for developers who finished the first quickstart and have its server on their machine. It stops at what you can verify locally: seeing the UI render needs the server hosted where Claude can reach it, which the last section covers.
 
@@ -32,6 +40,8 @@ This page was verified with `@modelcontextprotocol/ext-apps@1.7.5`.
 On the server, an MCP App is a resource with a `ui://` URI whose content is the HTML to render, plus a `_meta.ui.resourceUri` field on the tool that points at that resource. When a host that supports MCP Apps calls the tool, it reads that field, fetches the resource, and renders the HTML in a sandboxed frame.
 Make these edits to `server.mjs` in order. If you’d rather paste the whole file, it’s in [The complete file](#the-complete-file) at the end of this section.
 
+1
+
 Import the server helpers
 
 Add one import under the existing SDK imports at the top of `server.mjs`. `registerAppTool` and `registerAppResource` wrap the SDK’s own `registerTool` and `registerResource` and fill in the UI metadata for you:
@@ -45,6 +55,8 @@ import { createMcpExpressApp } from '@modelcontextprotocol/sdk/server/express.js
 import { registerAppTool, registerAppResource, RESOURCE_MIME_TYPE } from '@modelcontextprotocol/ext-apps/server';
 import { z } from 'zod';
 ```
+
+2
 
 Write the UI as an HTML string
 
@@ -88,6 +100,8 @@ const DICE_HTML = `<!DOCTYPE html>
 
 If you change the installed `ext-apps` version, change the version in the `unpkg.com` URL to match.
 
+3
+
 Link the tool to the UI
 
 Inside `buildServer()`, replace the `server.registerTool(` call with `registerAppTool(server,` and make two additions, both highlighted: a `_meta.ui.resourceUri` entry that names the UI resource, and a `structuredContent` object in the result. The UI reads `structuredContent` to draw the dice, and the `content` text stays for hosts that don’t render UI:
@@ -117,6 +131,8 @@ server.mjs
     },
   );
 ```
+
+4
 
 Register the UI resource
 
@@ -245,6 +261,8 @@ app.listen(PORT, '127.0.0.1', (err) => { // Express 5 reports a taken port here 
 
 A host discovers the UI from the `_meta` on the tool in `tools/list` and loads it from `resources/read`, and your server now returns both. You can see both with `curl` before any host is involved.
 
+1
+
 Restart the server
 
 In the terminal where the server runs, press `Ctrl+C` to stop it, then start it again from the `mcp-quickstart` folder so it picks up your edits:
@@ -254,6 +272,8 @@ node server.mjs
 ```
 
 It prints `quickstart-server listening on http://localhost:3000/mcp` as before.
+
+2
 
 Check the tool points at the UI
 
@@ -272,6 +292,8 @@ The `roll_dice` entry now ends with a `_meta` object naming the resource. The he
 data: {"result":{"tools":[{"name":"roll_dice", ... ,"_meta":{"ui":{"resourceUri":"ui://quickstart/dice"},"ui/resourceUri":"ui://quickstart/dice"}}]},"jsonrpc":"2.0","id":2}
 ```
 
+3
+
 Read the UI resource
 
 Fetch the resource the way a host does, by its `ui://` URI:
@@ -288,6 +310,8 @@ The reply carries the MCP App MIME type and your HTML as `text`, shortened here 
 ```
 data: {"result":{"contents":[{"uri":"ui://quickstart/dice","mimeType":"text/html;profile=mcp-app","text":"<!DOCTYPE html>\n<html><head><meta charset=\"utf-8\"> ...
 ```
+
+4
 
 Call the tool and see the structured result
 
@@ -316,6 +340,8 @@ Rendering the UI takes a host that supports MCP Apps, such as the Claude desktop
 * **Run a finished example locally in Claude Desktop**: [Try an example MCP App in Claude Desktop](https://claude.com/docs/connectors/building/mcp-apps/getting-started#try-an-example-mcp-app-in-claude-desktop) connects one of the SDK’s example servers through the desktop app’s configuration file, with nothing to host
 
 Before you host this server for other people, add authentication, because as written it lets anyone who can reach it call its tools. [Authentication for connectors](https://claude.com/docs/connectors/building/authentication) covers the options.
+
+##  Next steps
 
 * [Design guidelines](https://claude.com/docs/connectors/building/mcp-apps/design-guidelines): choose a display mode and use Claude’s style variables so the UI looks native in the conversation
 * [Set `ui.domain` for Claude](https://claude.com/docs/connectors/building/mcp-apps/getting-started#set-ui-domain-for-claude): give the UI a stable sandbox origin, which it needs if it runs its own OAuth flow

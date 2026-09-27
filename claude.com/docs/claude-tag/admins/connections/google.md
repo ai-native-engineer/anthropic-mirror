@@ -11,7 +11,7 @@
 Connections are added inside an [Access bundle](https://claude.com/docs/claude-tag/admins/add-connections#your-first-access-bundle). At [`claude.ai/admin-settings/claude-tag`](https://claude.ai/admin-settings/claude-tag), open **Access bundles** in the left navigation, click into a bundle (or **Create** one), and go to its **Credentials** tab.
 
 Connecting Google Drive, Calendar, and Gmail lets Claude read documents, spreadsheets, calendar events, and email from any channel under the bundle’s scope. You add it as a connection inside an [Access bundle](https://claude.com/docs/claude-tag/admins/add-connections); the credential belongs to the agent, not to any person.
-This is an HTTP API connection, not a personal claude.ai connector. A member’s own Google connector applies in DMs. With [personal connectors in channels](https://claude.com/docs/claude-tag/concepts/personal-connectors), Claude can also use it in a channel for that member’s own tasks, after the member allows it.
+This is an HTTP API connection, not a personal claude.ai connector. A member’s own Google connector applies in DMs. Claude can also [use it in a channel](https://claude.com/docs/claude-tag/concepts/personal-connectors) for that member’s own tasks, after the member allows it.
 
 ##  Choose OAuth or a service account
 

@@ -1,5 +1,13 @@
 <!-- source: https://claude.com/docs/directory/publish -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 The directory is Anthropic’s catalog of plugins and connectors that people browse inside Claude, on the [**Customize**](https://claude.ai/customize) page in claude.ai and the desktop app. A listing reaches people in claude.ai on the web, the desktop and mobile apps, and Cowork, and a plugin they add is also available in their Claude Code sessions.
 This page is for developers who have built a plugin, or the MCP server behind one, and want it listed. Anyone on a paid Claude plan can submit, there’s no partner program to apply to first, and Anthropic checks each submission before it’s listed.
 
@@ -82,13 +90,19 @@ Review time isn’t fixed. Your submission’s current state shows in the portal
 You submit and maintain listings in the developer portal at [claude.ai/directory/manage](https://claude.ai/directory/manage).
 To start a submission:
 
+1
+
 Select Submit new
 
 In the developer portal at [claude.ai/directory/manage](https://claude.ai/directory/manage), select **Submit new**.
 
+2
+
 Choose the submission type
 
 Under **What would you like to submit?**, choose **Plugin bundle** or **MCP connector**.
+
+3
 
 Follow the checklist and submit pages
 
@@ -96,6 +110,8 @@ Work through the checklist and submit pages for that kind:
 
 * [Plugin pre-submission checklist](https://claude.com/docs/plugins/pre-submission-checklist), then [Submit a plugin](https://claude.com/docs/plugins/submit): for a plugin bundle
 * [Connector pre-submission checklist](https://claude.com/docs/connectors/building/review-criteria), then [Submit a connector](https://claude.com/docs/connectors/building/submission): for an MCP connector
+
+##  Next steps
 
 These pages cover building and submitting a first plugin and, once a listing is published, maintaining it from the same portal:
 

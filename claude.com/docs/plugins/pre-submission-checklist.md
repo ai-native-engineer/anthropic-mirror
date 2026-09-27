@@ -1,5 +1,13 @@
 <!-- source: https://claude.com/docs/plugins/pre-submission-checklist -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 Before the [Claude plugin directory](https://claude.com/docs/directory/publish) lists your plugin, the developer portal checks the plugin’s files at two points. Validation runs in the plugin submission form at [claude.ai/directory/manage](https://claude.ai/directory/manage) when you select the **Validate** button. A scan runs after you submit, on each new commit that the directory picks up from the branch or tag that it follows. The scan checks the plugin’s files again and runs a security scan.
 Use this checklist to fix problems before you [submit your plugin](https://claude.com/docs/plugins/submit) from the developer portal on claude.ai. The checklist covers the automated checks only, and every plugin in the directory also has to follow the [Anthropic Software Directory Policy](https://support.claude.com/en/articles/13145358-anthropic-software-directory-policy). Start by [running the checks](#run-the-checks-before-you-submit) and [reading a validation result](#read-a-validation-result). Then use the tables in [what validation and the scan check](#review-what-validation-and-the-scan-check) to fix each finding, and [prepare for the security scan](#prepare-for-the-security-scan) that runs after you submit.
 
@@ -28,17 +36,25 @@ The `claude plugin validate` command only checks that your files are well-formed
 
 The portal’s **Validate** button runs every check in this page’s tables against your repository and gives you a report before you submit anything.
 
+1
+
 Start a submission
 
 Open the [developer portal](https://claude.ai/directory/manage) and select **Submit new**.
+
+2
 
 Choose Plugin bundle
 
 When the portal asks **What would you like to submit?**, select **Plugin bundle**.
 
+3
+
 Enter the repository
 
 On the **Source** step, enter the repository. [Submit your plugin](https://claude.com/docs/plugins/submit#submit-a-plugin) describes each field.
+
+4
 
 Validate
 
@@ -172,13 +188,19 @@ To prepare, make the plugin’s behavior visible in its README and its source:
 
 Validation and the scan check how the plugin is built. They don’t check whether the plugin helps the people who install it. Before you submit, test the plugin’s output and how it loads on the surfaces your users will use:
 
+1
+
 Compare output with and without the plugin
 
 Run the plugin’s skills on real prompts and compare the output with what Claude produces without the plugin. [`claude plugin eval`](https://code.claude.com/docs/en/plugin-evals) runs that comparison for the whole plugin in Claude Code, and [Measure whether the skill improves the output](https://claude.com/docs/skills/how-to#measure-whether-the-skill-improves-the-output) covers one skill at a time.
 
+2
+
 Load the plugin on each surface
 
 Load the plugin on each surface your users will use, as [Test the plugin on each surface](https://claude.com/docs/plugins/build#test-the-plugin-on-each-surface) describes.
+
+##  Next steps
 
 * [Submit your plugin](https://claude.com/docs/plugins/submit): enter the repository in the developer portal, follow the review, and publish
 * [Publish to the directory](https://claude.com/docs/directory/publish): confirm your plan and role can submit, and see what Anthropic’s review involves
