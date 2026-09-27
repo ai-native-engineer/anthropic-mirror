@@ -196,6 +196,7 @@ def absolutize_html(node, base):
 
 
 _MD_IMAGE = re.compile(r"(!\[[^\]]*\]\()(<[^>]+>|[^)\s]+)")
+_EMPTY_MD_IMAGE = re.compile(r"!\[[^\]]*\]\(\s*\)")
 
 
 def absolutize_markdown_images(text, base):
@@ -206,6 +207,10 @@ def absolutize_markdown_images(text, base):
             return m.group(0)
         fixed = absolute_url(base, ref)
         return m.group(1) + (f"<{fixed}>" if wrapped else fixed)
+    # markdownify can preserve an HTML <img src=""> as ![]().  It is not a
+    # usable asset reference and publish validation must not treat it as a
+    # missing local file.
+    text = _EMPTY_MD_IMAGE.sub("", text)
     return _MD_IMAGE.sub(replace, text)
 
 
@@ -553,6 +558,7 @@ def main():
             assert absolute_url(url, "fig.png") == "https://example.com/fig.png"
             assert absolute_url(url, "/_next/image?url=https%3A%2F%2Fcdn.example%2Fx.png&w=64") == "https://cdn.example/x.png"
             assert "https://example.com/docs/x.png" in absolutize_markdown_images("![](/docs/x.png)", url)
+            assert absolutize_markdown_images("before ![]() after", url) == "before  after"
             assert redact_sensitive_query("https://x.test/mcp?tracker=secret") == "https://x.test/mcp?tracker=REDACTED"
             assert html_to_md("<main><p>x  </p></main>") == "x"
             assert html_to_md("<main><img src=''><p>x</p></main>", "https://example.com/page") == "x"
