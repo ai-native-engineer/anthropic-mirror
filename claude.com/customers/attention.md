@@ -6,7 +6,7 @@ Case study | Claude Platform
 
 [Try Claude](https://claude.ai)
 
-![Attention logo](https://assets.claude.com/e07f5ad1ce92ae523410c9a138fd94c34396a874.svg)
+![Attention logo](https://assets.claude.com/8968c4174c6898634813af358b3cc74abf8544f3.svg)
 
 Industry:
 :   Software

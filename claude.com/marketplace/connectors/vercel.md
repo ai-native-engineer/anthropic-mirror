@@ -60,7 +60,7 @@ Search trusted Microsoft docs to power your development
 
 [Add Microsoft Learn in Claude (opens in new tab)](https://claude.ai/directory/89a7ddf5-2a6b-410c-be11-aa0e1a1b35a6 "Add in Claude")
 
-![](https://assets.claude.com/949ea019337356d5cbd4a3709627af61c877e1c2.jpg?w=128&fit=max&auto=format)
+![](https://assets.claude.com/2ccd5ce1a1407eabb9650ba6c5c16c29c96cd098.svg?w=128&fit=max&auto=format)
 
 ### [Lovable](https://claude.com/marketplace/connectors/lovable)
 

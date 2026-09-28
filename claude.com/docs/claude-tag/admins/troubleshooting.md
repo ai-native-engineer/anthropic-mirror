@@ -485,7 +485,7 @@ Claude posts in the thread:
 
 **What it means**
 Claude’s own request failed an authentication check partway through the turn, so it stopped, keeping the work done so far. The cause is usually temporary, such as a GitHub rate limit on the session’s requests, and a retry a few minutes later clears it. When the message repeats, the session likely can’t reach a repository it needs.
-This message doesn’t point at a service you connected. When a connected service’s credential fails, Claude reports that as a tool error inside its reply, not with this notice. A DM sender whose seat doesn’t include Claude Code gets [Your Claude account is connected, but it doesn’t have access in this organization](#your-claude-account-is-connected-but-it-doesn%E2%80%99t-have-access-in-this-organization) instead.
+This message doesn’t point at a service you connected. When a connected service’s credential fails, Claude reports that as a tool error inside its reply, not with this notice. A DM sender whose seat doesn’t qualify for DMs gets [Your Claude account is connected, but it doesn’t have access in this organization](#your-claude-account-is-connected-but-it-doesn%E2%80%99t-have-access-in-this-organization) instead.
 **How to resolve**
 Have the requester mention Claude in the same thread after a few minutes; the session picks up where it stopped. If the message repeats on every retry, check the repository access for that channel with the steps in [GitHub doesn’t work in this channel](#github-doesn%E2%80%99t-work-in-this-channel), then start a new thread. If access checks out and the message still recurs, contact [Anthropic support](https://support.claude.com) with the channel and the time it happened.
 
@@ -496,9 +496,9 @@ Claude replies in the DM:
 > Your Claude account is connected, but it doesn’t have access in this organization yet, usually because it needs a seat that includes Claude Code. A Claude admin can add one in your organization’s settings. Once they do, mention me here and I’ll pick this back up.
 
 **What it means**
-DMs run on the user’s own claude.ai account and need a seat that includes Claude Code; this user’s seat doesn’t include it. Mentioning `@Claude` in a channel doesn’t depend on the sender’s seat.
+DMs run on the user’s own claude.ai account and need a qualifying seat, which this user doesn’t have. A seat that includes Claude Code always qualifies; on the Enterprise plan, a **Standard** or **Usage-Based Chat** seat also qualifies when the user has Cowork. Mentioning `@Claude` in a channel doesn’t depend on the sender’s seat.
 **How to resolve**
-Assign the user a seat that includes Claude Code on the **Members** page at [`claude.ai/admin-settings/members`](https://claude.ai/admin-settings/members), then have them mention Claude in the same DM thread. If the fix worked, the DM gets a reply instead of this message.
+Assign the user a qualifying seat on the **Members** page at [`claude.ai/admin-settings/members`](https://claude.ai/admin-settings/members), then have them mention Claude in the same DM thread. If the fix worked, the DM gets a reply instead of this message.
 
 ##  Session start errors
 

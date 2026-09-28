@@ -714,6 +714,18 @@ No items found.
 
 Explore more product news and best practices for teams building with Claude.
 
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d222061abf091318fb82_423062049d4676b41d52b16068cbb5e21603190e-1000x1000.svg)
+
+Aug 21, 2026
+
+### The AI-native SDLC playbook
+
+Enterprise AI
+
+[The AI-native SDLC playbook](#)The AI-native SDLC playbook
+
+[The AI-native SDLC playbook](https://claude.com/blog/the-ai-native-sdlc-playbook)The AI-native SDLC playbook
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d225e31f7aa22c1f28cb_46e4aa7ea208ed440d5bd9e9e3a0ee66bc336ff1-1000x1000.svg)
 
 Sep 24, 2026
@@ -749,18 +761,6 @@ Agents
 [Reducing cost and improving performance with Claude Platform](#)Reducing cost and improving performance with Claude Platform
 
 [Reducing cost and improving performance with Claude Platform](https://claude.com/blog/reducing-cost-and-improving-performance-with-claude-platform)Reducing cost and improving performance with Claude Platform
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a42c9bc20d2072552ef256a_Node-EnterpriseAgents.svg)
-
-Sep 17, 2026
-
-### Projects redesigned: from folder to conversation
-
-Product announcements
-
-[Projects redesigned: from folder to conversation](#)Projects redesigned: from folder to conversation
-
-[Projects redesigned: from folder to conversation](https://claude.com/blog/projects-redesigned)Projects redesigned: from folder to conversation
 
 ## Transform how your organization operates with Claude
 

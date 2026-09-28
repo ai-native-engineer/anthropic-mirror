@@ -70,15 +70,15 @@ Bring your clients' estate plans, tax returns, and documents into Claude — wit
 
 [Add Wealth.com in Claude (opens in new tab)](https://claude.ai/directory/3901f2b7-ddfb-4d32-a0ae-280106224cb1 "Add in Claude")
 
-![](https://assets.claude.com/115f44da14dfc74606c952a792ad297d7d46a001.svg?w=128&fit=max&auto=format)
+![](https://bd3.bdreporting.com/content/logo.svg)
 
-### [Vanguard Advisor Tools](https://claude.com/marketplace/connectors/vanguard-advisor-tools)
+### [Black Diamond](https://claude.com/marketplace/connectors/black-diamond)
 
 Anthropic verifiedTrending
 
-Access Vanguard models data and content from Claude
+Client, portfolio, and performance data for advisors
 
-[Add Vanguard Advisor Tools in Claude (opens in new tab)](https://claude.ai/directory/863961af-d744-41ca-b600-9970b4826cb3 "Add in Claude")
+[Add Black Diamond in Claude (opens in new tab)](https://claude.ai/directory/e70ee54f-74a8-454f-9bd5-3a70e17da172 "Add in Claude")
 
 ![](https://cdn.crmworkspace.com/assets/favicon.svg)
 
@@ -88,12 +88,10 @@ Search, update, and manage Wealthbox data from inside Claude
 
 [Add Wealthbox in Claude (opens in new tab)](https://claude.ai/directory/95dfb71b-dd9a-4176-adc4-293d6d7246eb "Add in Claude")
 
-![](https://assets.claude.com/f1b1e7da13cf74e3bf008094d9452a58c29acab6.jpg?w=128&fit=max&auto=format)
+![](https://www.gemini.com/favicon.ico)
 
-### [BlackRock Advisor Center](https://claude.com/marketplace/connectors/blackrock-advisor-center)
+### [Gemini](https://claude.com/marketplace/connectors/gemini-mcp)
 
-Anthropic verifiedTrending
+Connect AI assistants to live crypto markets, prediction markets, your trading accounts, all through our secure read-only plugin
 
-Build, analyze, and compare portfolios for advisors
-
-[Add BlackRock Advisor Center in Claude (opens in new tab)](https://claude.ai/directory/1f085c38-f40c-4079-87ab-1c4dd7ae67dd "Add in Claude")
+[Add Gemini in Claude (opens in new tab)](https://claude.ai/directory/88e8f327-f2f0-442b-a60c-9a7c2147d1f1 "Add in Claude")

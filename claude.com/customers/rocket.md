@@ -6,7 +6,7 @@ Case study | Claude Platform
 
 [Try Claude](https://claude.ai)
 
-![Rocket logo](https://assets.claude.com/46604addd735c7df63bc140c81a2bb28aa48305f.png)
+![Rocket logo](https://assets.claude.com/9512e6ec031b0279ff216fab3d11ac4c80afe0a5.svg)
 
 Industry:
 :   Software

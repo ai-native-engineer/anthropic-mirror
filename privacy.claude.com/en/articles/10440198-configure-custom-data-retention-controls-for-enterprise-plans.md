@@ -2,7 +2,7 @@
 
 # Configure custom data retention controls for Enterprise plans
 
-Updated over a week ago
+Updated over 2 weeks ago
 
 This feature is available to Enterprise plan customers. To set custom retention periods for your organization, you must have either a Primary Owner or Owner role.
 

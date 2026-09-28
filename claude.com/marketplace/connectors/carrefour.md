@@ -45,14 +45,6 @@ Amazon Selling Partner MCP
 
 [Add Amazon Selling Partner in Claude (opens in new tab)](https://claude.ai/directory/921c3435-ce00-4c0b-8809-4647b3cb108f "Add in Claude")
 
-![](https://agent.enrichlabs.ai/avatars/helena.png)
-
-### [Helena by Enrich Labs](https://claude.com/marketplace/connectors/helena-by-enrich-labs)
-
-Your AI marketer for paid ads, SEO, email, social, and analytics
-
-[Add Helena by Enrich Labs in Claude (opens in new tab)](https://claude.ai/directory/0da6abdc-62c3-4272-940b-898189371a48 "Add in Claude")
-
 ![](https://assets.claude.com/46519c8cd657205f9f26b243952e1bd41a07d517.svg?w=128&fit=max&auto=format)
 
 ### [Salesforce - Beta](https://claude.com/marketplace/connectors/salesforce-headless-360)
@@ -68,6 +60,14 @@ Sell, serve, and operate at scale with Salesforce.
 Schedule posts, analyze, and manage social media with AI
 
 [Add Metricool Social Media Management in Claude (opens in new tab)](https://claude.ai/directory/70ba6d62-7e98-4ef4-9073-d161d900a95f "Add in Claude")
+
+![](https://agent.enrichlabs.ai/avatars/helena.png)
+
+### [Helena by Enrich Labs](https://claude.com/marketplace/connectors/helena-by-enrich-labs)
+
+Your AI marketer for paid ads, SEO, email, social, and analytics
+
+[Add Helena by Enrich Labs in Claude (opens in new tab)](https://claude.ai/directory/0da6abdc-62c3-4272-940b-898189371a48 "Add in Claude")
 
 ![](https://www.google.com/s2/favicons?domain=cargurus.com&sz=96)
 

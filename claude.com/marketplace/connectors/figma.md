@@ -66,14 +66,6 @@ Access and create new content on Miro boards
 
 [Add Miro in Claude (opens in new tab)](https://claude.ai/directory/72480fb8-32ed-4075-b1c4-79e09c858b29 "Add in Claude")
 
-![](https://agent.enrichlabs.ai/avatars/helena.png)
-
-### [Helena by Enrich Labs](https://claude.com/marketplace/connectors/helena-by-enrich-labs)
-
-Your AI marketer for paid ads, SEO, email, social, and analytics
-
-[Add Helena by Enrich Labs in Claude (opens in new tab)](https://claude.ai/directory/0da6abdc-62c3-4272-940b-898189371a48 "Add in Claude")
-
 ![](https://raw.githubusercontent.com/dropbox/dropbox-ai-plugins/refs/heads/main/codex/assets/logo-light.png)
 
 ### [Dropbox](https://claude.com/marketplace/connectors/dropbox)
@@ -81,3 +73,11 @@ Your AI marketer for paid ads, SEO, email, social, and analytics
 Search, organize, and take action on your Dropbox content
 
 [Add Dropbox in Claude (opens in new tab)](https://claude.ai/directory/1e4280cc-037c-47f0-9873-56bea1871bdb "Add in Claude")
+
+![](https://www.google.com/s2/favicons?domain=moda.app&sz=96)
+
+### [Moda - Slides and Designs](https://claude.com/marketplace/connectors/moda)
+
+Fully editable PowerPoints, Meta ads, motion graphics & social.
+
+[Add Moda - Slides and Designs in Claude (opens in new tab)](https://claude.ai/directory/ea86601d-514b-42e4-aefc-32c6c51baf7e "Add in Claude")

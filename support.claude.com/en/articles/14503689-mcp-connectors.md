@@ -89,4 +89,4 @@ It depends on the connector: admins should review all connector permissions befo
 * [Set up the Microsoft 365 connector](https://support.claude.com/en/articles/12542951-set-up-the-microsoft-365-connector)
 * [MCP: Individual connectors](https://support.claude.com/en/articles/14503703-mcp-individual-connectors)
 * [MCP: Web Search](https://support.claude.com/en/articles/14503775-mcp-web-search)
-* [Model availability in Claude for Government](https://support.claude.com/en/articles/14503794-model-availability-in-claude-for-government)
+* [Authorize MCP connectors for your entire organization](https://support.claude.com/en/articles/15537633-authorize-mcp-connectors-for-your-entire-organization)

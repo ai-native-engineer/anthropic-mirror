@@ -56,7 +56,7 @@ Automate workflows across thousands of apps via conversation
 
 [Add Zapier in Claude (opens in new tab)](https://claude.ai/directory/1f6f271e-3d29-4241-b35e-8abe6def4891 "Add in Claude")
 
-![](https://assets.claude.com/949ea019337356d5cbd4a3709627af61c877e1c2.jpg?w=128&fit=max&auto=format)
+![](https://assets.claude.com/2ccd5ce1a1407eabb9650ba6c5c16c29c96cd098.svg?w=128&fit=max&auto=format)
 
 ### [Lovable](https://claude.com/marketplace/connectors/lovable)
 

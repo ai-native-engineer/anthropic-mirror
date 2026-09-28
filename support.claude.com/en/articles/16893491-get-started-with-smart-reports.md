@@ -24,13 +24,13 @@ Each report includes the following sections:
 
 Workstreams shows what the group used Claude for most, by sessions and by spend, side by side.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2671030907/7b62b605189fe8e9474a20c1eaf2/image.png?expires=1790469900&signature=338834bc4449984d64cd745b40a8902a4d6070768f56d067c26a513d36354cdb&req=diYgF8l9nYhfXvMW1HO4zZse%2BmKYTQEFVa%2FWhnGS4GlK72ZD8FMtDSeuOOzk%0Azk4KZxk7fvNs0d6ycck%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2671030907/7b62b605189fe8e9474a20c1eaf2/image.png?expires=1790469900&signature=338834bc4449984d64cd745b40a8902a4d6070768f56d067c26a513d36354cdb&req=diYgF8l9nYhfXvMW1HO4zZse%2BmKYTQEFVa%2FWhnGS4GlK72ZD8FMtDSeuOOzk%0Azk4KZxk7fvNs0d6ycck%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2671030907/7b62b605189fe8e9474a20c1eaf2/image.png?expires=1790570700&signature=43849fe74de0b5856312da24132b94ab59bdcfe6eb57799b16a750433b329e6e&req=diYgF8l9nYhfXvMW1HO4zZse%2BmKZTAgLVa%2FWhnGS4GkZ%2FmLWeFxsWkLFfON5%0Amw68drhuncWZNuVhVCg%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2671030907/7b62b605189fe8e9474a20c1eaf2/image.png?expires=1790570700&signature=43849fe74de0b5856312da24132b94ab59bdcfe6eb57799b16a750433b329e6e&req=diYgF8l9nYhfXvMW1HO4zZse%2BmKZTAgLVa%2FWhnGS4GkZ%2FmLWeFxsWkLFfON5%0Amw68drhuncWZNuVhVCg%3D%0A)
 
 ### Deliverables produced
 
 Deliverables produced groups sessions by the type of output that was produced. For example, analysis, documentation, content drafts, and code.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2671035220/2a582bc047a6ba46e7dbd6f05d9f/e17881ac-874c-4747-94ca-8679e0301455?expires=1790469900&signature=237f33e77e1e8a017959f7d2bb2614d49e1a0cf0d022d3626c63ff4566783db5&req=diYgF8l9mINdWfMW1HO4zelj06dfldT7YDEFlKbF9Y%2B2qA%2BcFbjJbJWZNcVM%0ALzYKJ5B%2BfTVGGiBNHdw%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2671035220/2a582bc047a6ba46e7dbd6f05d9f/e17881ac-874c-4747-94ca-8679e0301455?expires=1790469900&signature=237f33e77e1e8a017959f7d2bb2614d49e1a0cf0d022d3626c63ff4566783db5&req=diYgF8l9mINdWfMW1HO4zelj06dfldT7YDEFlKbF9Y%2B2qA%2BcFbjJbJWZNcVM%0ALzYKJ5B%2BfTVGGiBNHdw%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2671035220/2a582bc047a6ba46e7dbd6f05d9f/e17881ac-874c-4747-94ca-8679e0301455?expires=1790570700&signature=af242c0d14ad55c219ac4f3df6c072d1352153f8828f4d00dcd4390a26d965b2&req=diYgF8l9mINdWfMW1HO4zelj06delN31YDEFlKbF9Y%2B9D5OtGQdzzLBXamB3%0AgzUfqR7NBzD54nXmGMI%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2671035220/2a582bc047a6ba46e7dbd6f05d9f/e17881ac-874c-4747-94ca-8679e0301455?expires=1790570700&signature=af242c0d14ad55c219ac4f3df6c072d1352153f8828f4d00dcd4390a26d965b2&req=diYgF8l9mINdWfMW1HO4zelj06delN31YDEFlKbF9Y%2B9D5OtGQdzzLBXamB3%0AgzUfqR7NBzD54nXmGMI%3D%0A)
 
 ### Cost per session by type of output
 
@@ -44,17 +44,17 @@ Task outcomesshows what each session produced.
 
 Most common frictions shows what got in the way, by category. For example, a connector that wasn’t set up, output that didn’t match the ask, approval or sign-in gating, tool failures, or rework loops.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2671052365/b69f22b75729e5587563e7ab6830/b1647659-a7ea-403b-89fc-0b150ee97675?expires=1790469900&signature=fd6df6503dae4f9e94b3312352ad8665c8499f442333b26f5a817f10f2dc2e50&req=diYgF8l7n4JZXPMW1HO4zdDitroxUtRYjFK5P3Uf7RgsvBQqQjBrtgl2f1%2Bl%0Atqpmfa4i5zD6EAiSzzo%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2671052365/b69f22b75729e5587563e7ab6830/b1647659-a7ea-403b-89fc-0b150ee97675?expires=1790469900&signature=fd6df6503dae4f9e94b3312352ad8665c8499f442333b26f5a817f10f2dc2e50&req=diYgF8l7n4JZXPMW1HO4zdDitroxUtRYjFK5P3Uf7RgsvBQqQjBrtgl2f1%2Bl%0Atqpmfa4i5zD6EAiSzzo%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2671052365/b69f22b75729e5587563e7ab6830/b1647659-a7ea-403b-89fc-0b150ee97675?expires=1790570700&signature=49bebf7b0e95be19e0f3d24f96bf2e58acae6f836b816acd53de038c9f76fa6a&req=diYgF8l7n4JZXPMW1HO4zdDitrowU91WjFK5P3Uf7Rgl3r4f6GdYs3g3Mnk7%0AS0IxdIi8PbzE4otZwug%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2671052365/b69f22b75729e5587563e7ab6830/b1647659-a7ea-403b-89fc-0b150ee97675?expires=1790570700&signature=49bebf7b0e95be19e0f3d24f96bf2e58acae6f836b816acd53de038c9f76fa6a&req=diYgF8l7n4JZXPMW1HO4zdDitrowU91WjFK5P3Uf7Rgl3r4f6GdYs3g3Mnk7%0AS0IxdIi8PbzE4otZwug%3D%0A)
 
 Click into a category to see more information:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2671053199/b68936dd5d590c5fbcbbc092b332/5ec247b2-cd67-4f3f-97b5-23479b87a5c6?expires=1790469900&signature=1f97142de7fe8341f4186fac3e990fc7bd5263eb8d787f0acfe0310bab528502&req=diYgF8l7noBWUPMW1HO4zbuGO4ssILAVodOVMLl17PU5HB7tWRlrjo7yhtRg%0AlSUAx2THazltfwy8Yh0%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2671053199/b68936dd5d590c5fbcbbc092b332/5ec247b2-cd67-4f3f-97b5-23479b87a5c6?expires=1790469900&signature=1f97142de7fe8341f4186fac3e990fc7bd5263eb8d787f0acfe0310bab528502&req=diYgF8l7noBWUPMW1HO4zbuGO4ssILAVodOVMLl17PU5HB7tWRlrjo7yhtRg%0AlSUAx2THazltfwy8Yh0%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2671053199/b68936dd5d590c5fbcbbc092b332/5ec247b2-cd67-4f3f-97b5-23479b87a5c6?expires=1790570700&signature=89fd7d4d2c430365fd62558e18193559981220f5ddb495be12d15f80f160ea23&req=diYgF8l7noBWUPMW1HO4zbuGO4stIbkbodOVMLl17PVGEDj75WV4yqlORJjc%0AUCuXIdGDcVi77k1KarU%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2671053199/b68936dd5d590c5fbcbbc092b332/5ec247b2-cd67-4f3f-97b5-23479b87a5c6?expires=1790570700&signature=89fd7d4d2c430365fd62558e18193559981220f5ddb495be12d15f80f160ea23&req=diYgF8l7noBWUPMW1HO4zbuGO4stIbkbodOVMLl17PVGEDj75WV4yqlORJjc%0AUCuXIdGDcVi77k1KarU%3D%0A)
 
 ### Inefficiencies
 
 Inefficiencies counts sessions that produced nothing usable and sessions that were personal or off-topic, with their cost (shown only as an aggregate count and cost, with no summaries or drilldown).
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2671036122/90dc848a7adf371a872bd89a2f5e/de86945b-ccfe-4e0f-892d-abacc475c5c4?expires=1790469900&signature=4106b69f27e0b2c73a901efffae04649b3ed88b897499200beeb1fba10354e80&req=diYgF8l9m4BdW%2FMW1HO4zcYfhg%2BSC%2F0TBas8rgXn%2Fb3mSzBYDcUADkx5%2B%2BqL%0AfjVvj8d5GqwfF9T%2FhmY%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2671036122/90dc848a7adf371a872bd89a2f5e/de86945b-ccfe-4e0f-892d-abacc475c5c4?expires=1790469900&signature=4106b69f27e0b2c73a901efffae04649b3ed88b897499200beeb1fba10354e80&req=diYgF8l9m4BdW%2FMW1HO4zcYfhg%2BSC%2F0TBas8rgXn%2Fb3mSzBYDcUADkx5%2B%2BqL%0AfjVvj8d5GqwfF9T%2FhmY%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2671036122/90dc848a7adf371a872bd89a2f5e/de86945b-ccfe-4e0f-892d-abacc475c5c4?expires=1790570700&signature=2c65135bfb3f488067d2c640ab326c9b2dd38b8b94387c684418ef75619f449c&req=diYgF8l9m4BdW%2FMW1HO4zcYfhg%2BTCvQdBas8rgXn%2Fb3Lbwmgm6wRk2Xkwc6Z%0AhitdCflYFSqD40pRt%2B8%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2671036122/90dc848a7adf371a872bd89a2f5e/de86945b-ccfe-4e0f-892d-abacc475c5c4?expires=1790570700&signature=2c65135bfb3f488067d2c640ab326c9b2dd38b8b94387c684418ef75619f449c&req=diYgF8l9m4BdW%2FMW1HO4zcYfhg%2BTCvQdBas8rgXn%2Fb3Lbwmgm6wRk2Xkwc6Z%0AhitdCflYFSqD40pRt%2B8%3D%0A)
 
 ### Reusable skills and workflows to build
 
@@ -64,13 +64,13 @@ Reusable skills and workflows to build identifies repeated patterns that could b
 
 Most expensive sessions lists where spend concentrates.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2671032083/2b075387a4a3473f884a8ba26436/image.png?expires=1790469900&signature=c5ff7b4d7b59e62b15fa3bb518586e69cff02ed012963f3e314e498d8d7bb5f9&req=diYgF8l9n4FXWvMW1HO4zdLkIm%2Bh7E8gnUoxuhUXEhhS%2F2aMFqhRHpPrfMy2%0AfF5WzOjRtADCTSIsbng%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2671032083/2b075387a4a3473f884a8ba26436/image.png?expires=1790469900&signature=c5ff7b4d7b59e62b15fa3bb518586e69cff02ed012963f3e314e498d8d7bb5f9&req=diYgF8l9n4FXWvMW1HO4zdLkIm%2Bh7E8gnUoxuhUXEhhS%2F2aMFqhRHpPrfMy2%0AfF5WzOjRtADCTSIsbng%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2671032083/2b075387a4a3473f884a8ba26436/image.png?expires=1790570700&signature=becb26a6974df7a9bfa78df59d20a32bf11f8f45ed37622e0c8660d3d985f500&req=diYgF8l9n4FXWvMW1HO4zdLkIm%2Bg7UYunUoxuhUXEhj9Md%2B4bpLnwEASnGkI%0Aeoly7jeftNbOLhLOmlI%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2671032083/2b075387a4a3473f884a8ba26436/image.png?expires=1790570700&signature=becb26a6974df7a9bfa78df59d20a32bf11f8f45ed37622e0c8660d3d985f500&req=diYgF8l9n4FXWvMW1HO4zdLkIm%2Bg7UYunUoxuhUXEhj9Md%2B4bpLnwEASnGkI%0Aeoly7jeftNbOLhLOmlI%3D%0A)
 
 ### Complex, autonomous work
 
 Complex, autonomous work showssessions scoring highest on task complexity, time saved, how long Claude worked on its own, and the expertise required.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2671031695/3781b98c5cb9cdc069439aa3d9ab/image.png?expires=1790469900&signature=923d6d917204078f12dfef7f7deebf119f62378da2f97a36bb2adb6687fd8cb7&req=diYgF8l9nIdWXPMW1HO4zcPtgjL1DdbNtjDEKfEvx0O9BqePVYzGBudC1uu5%0AlYGFAh2%2FfZgL%2B%2Ffa9nM%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2671031695/3781b98c5cb9cdc069439aa3d9ab/image.png?expires=1790469900&signature=923d6d917204078f12dfef7f7deebf119f62378da2f97a36bb2adb6687fd8cb7&req=diYgF8l9nIdWXPMW1HO4zcPtgjL1DdbNtjDEKfEvx0O9BqePVYzGBudC1uu5%0AlYGFAh2%2FfZgL%2B%2Ffa9nM%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2671031695/3781b98c5cb9cdc069439aa3d9ab/image.png?expires=1790570700&signature=b19d62cce72e1108b75df81fdaf49be342233ae37cc26db5e08e717e8161db7b&req=diYgF8l9nIdWXPMW1HO4zcPtgjL0DN%2FDtjDEKfEvx0PSnSoVtI9hTWiDoZZH%0AGuQS3IXdFQmJlY48%2FMk%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2671031695/3781b98c5cb9cdc069439aa3d9ab/image.png?expires=1790570700&signature=b19d62cce72e1108b75df81fdaf49be342233ae37cc26db5e08e717e8161db7b&req=diYgF8l9nIdWXPMW1HO4zcPtgjL0DN%2FDtjDEKfEvx0PSnSoVtI9hTWiDoZZH%0AGuQS3IXdFQmJlY48%2FMk%3D%0A)
 
 ### Answers to custom questions
 

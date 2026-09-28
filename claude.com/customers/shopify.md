@@ -74,6 +74,6 @@ Andrew McNamaraDirector of Applied AI, Shopify
 
 ### Inside Rakuten's plan to turn every employee into a builder with Claude Managed Agents](https://claude.com/customers/rakuten-qa)[![Rakuten](https://assets.claude.com/5463fa5a44d12868ceec5ae30bfc8c412cafdeae.svg)
 
-### Rakuten accelerates development with Claude Code](https://claude.com/customers/rakuten)[![L'Oreal](https://assets.claude.com/4e6032e43573d2aac0260633c76ee859d566326a.svg)
+### Rakuten accelerates development with Claude Code](https://claude.com/customers/rakuten)[![L'Oreal](https://assets.claude.com/206c93e387b69b9a7fe23c7b2d3d33d66bc0fc60.svg)
 
 ### L'Oréal advances conversational analytics with Claude](https://claude.com/customers/loreal)

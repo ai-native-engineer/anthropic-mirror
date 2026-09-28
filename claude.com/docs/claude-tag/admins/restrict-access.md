@@ -130,6 +130,7 @@ Each row of the **Auto-join channels** table is one pattern, added with **Add pa
 Removing a pattern row also detaches the row’s bundles. A row marked **Not auto-joined** shows a pattern that still has bundles attached but that the auto-join list no longer carries. Claude joins no new channels for it, but its bundles still attach in matching channels Claude is already in; remove the bundles from the row to end that.
 A pattern is written in lowercase, like Slack channel names, plus two wildcards: `*` matches any run of characters and `?` matches exactly one. `inc-*` matches every channel whose name starts with `inc-`, and `*-confidential-*` matches any name containing `-confidential-`. The blocked list and the auto-join table each hold up to 50 patterns of up to 80 characters.
 A channel that matches a blocked pattern stays off-limits even when it also matches an auto-join pattern. Patterns on **Default Slack access** apply in every connected workspace. A workspace scope can add its own patterns but can’t remove the organization’s.
+About once a week, Claude sends the person who connected the workspace a direct message suggesting public channels to add it to. To stop those messages, select **Stop these suggestions** in any of them.
 
 ###  Restrict guest channels
 

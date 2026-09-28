@@ -92,5 +92,3 @@ By leveraging the simple smartphones already in people's hands, Rising Academies
 ### The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude](https://claude.com/customers/epilepsy-foundation)[![Epilepsy Foundation](https://assets.claude.com/446cc4df1be577720df85748fa3813fa0837e3b8.png)
 
 ### How the Epilepsy Foundation uses Claude across the organization](https://claude.com/customers/epilepsy-foundation-qa)
-
-Rising Academies Claude Platform (API) case study | Claude by Anthropic

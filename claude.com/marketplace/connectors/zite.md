@@ -72,10 +72,10 @@ Send messages, create canvases, and fetch Slack data
 
 [Add Slack in Claude (opens in new tab)](https://claude.ai/directory/597f662f-36de-437e-836e-5a81013cbfbe "Add in Claude")
 
-![](https://www.google.com/s2/favicons?domain=thelinks.ai&sz=96)
+![](https://assets.claude.com/8aa6ad728cfe811f74a7b65b92b44fe774b1fe17.jpg?w=128&fit=max&auto=format)
 
-### [Links Connect](https://claude.com/marketplace/connectors/links-connect)
+### [Atlassian MCP](https://claude.com/marketplace/connectors/atlassian)
 
-Live financial data. Let Claude do the rest.
+Search, read and update Jira, Confluence, Bitbucket, Loom and other Atlassian apps with your existing Atlassian permissions.
 
-[Add Links Connect in Claude (opens in new tab)](https://claude.ai/directory/cb34f851-d450-4cd8-8197-c292bbdcb2f2 "Add in Claude")
+[Add Atlassian MCP in Claude (opens in new tab)](https://claude.ai/directory/11ba10d9-477b-4988-bd1c-90a7fa680dc1 "Add in Claude")

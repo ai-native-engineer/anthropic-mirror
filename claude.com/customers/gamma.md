@@ -6,7 +6,7 @@ Case study | Claude Platform
 
 [Try Claude](https://claude.ai)
 
-![Gamma logo](https://assets.claude.com/ad1b34669ba14e22cf566f80be33e0ee0c5280f1.svg)
+![Gamma logo](https://assets.claude.com/26fe8f5f66b7315aa0d0d8e86e2013e8cdc2847e.svg)
 
 Industry:
 :   Software

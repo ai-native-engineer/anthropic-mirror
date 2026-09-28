@@ -49,11 +49,11 @@ The connectors teams reach for first.
 
 Fast-growing connectors this week.
 
-1. 01![](https://assets.claude.com/115f44da14dfc74606c952a792ad297d7d46a001.svg?w=128&fit=max&auto=format)[Vanguard Advisor Tools](https://claude.com/marketplace/connectors/vanguard-advisor-tools)Access Vanguard models data and content from Claude
-2. 02![](https://assets.claude.com/f1b1e7da13cf74e3bf008094d9452a58c29acab6.jpg?w=128&fit=max&auto=format)[BlackRock Advisor Center](https://claude.com/marketplace/connectors/blackrock-advisor-center)Build, analyze, and compare portfolios for advisors
-3. 03![](https://app.paxton.ai/images/paxton-favicon.png)[Paxton Legal Research](https://claude.com/marketplace/connectors/paxton-legal-research)Research U.S. law in Claude—with citations you can open and verify.
-4. 04![](https://bd3.bdreporting.com/content/logo.svg)[Black Diamond](https://claude.com/marketplace/connectors/black-diamond)Client, portfolio, and performance data for advisors
-5. 05![](https://www.google.com/s2/favicons?domain=amazon.com&sz=96)[Amazon Selling Partner](https://claude.com/marketplace/connectors/amazon-selling-partner)Amazon Selling Partner MCP
+1. 01![](https://bd3.bdreporting.com/content/logo.svg)[Black Diamond](https://claude.com/marketplace/connectors/black-diamond)Client, portfolio, and performance data for advisors
+2. 02![](https://app.paxton.ai/images/paxton-favicon.png)[Paxton Legal Research](https://claude.com/marketplace/connectors/paxton-legal-research)Research U.S. law in Claude—with citations you can open and verify.
+3. 03![](https://www.google.com/s2/favicons?domain=amazon.com&sz=96)[Amazon Selling Partner](https://claude.com/marketplace/connectors/amazon-selling-partner)Amazon Selling Partner MCP
+4. 04![](https://assets.claude.com/115f44da14dfc74606c952a792ad297d7d46a001.svg?w=128&fit=max&auto=format)[Vanguard Advisor Tools](https://claude.com/marketplace/connectors/vanguard-advisor-tools)Access Vanguard models data and content from Claude
+5. 05![](https://assets.claude.com/f1b1e7da13cf74e3bf008094d9452a58c29acab6.jpg?w=128&fit=max&auto=format)[BlackRock Advisor Center](https://claude.com/marketplace/connectors/blackrock-advisor-center)Build, analyze, and compare portfolios for advisors
 
 ### Connectors for Connector category: Productivity
 
@@ -68,7 +68,7 @@ Add the tools productivity teams use every day.
 * [Slack connector![](https://assets.claude.com/bdf25f3db0bfe9b74855f504c31bd8522659edae.svg?w=128&fit=max&auto=format)](https://claude.com/marketplace/connectors/slack)
 * [Atlassian MCP connector![](https://assets.claude.com/8aa6ad728cfe811f74a7b65b92b44fe774b1fe17.jpg?w=128&fit=max&auto=format)](https://claude.com/marketplace/connectors/atlassian)
 * [Asana connector![](https://assets.claude.com/afd2ecc5d1ddcedf60ce9d230297b84286373bdb.jpg?w=128&fit=max&auto=format)](https://claude.com/marketplace/connectors/asana)
-* [Linear connector![](https://assets.claude.com/20e92d594d83fcfd45f6a52b724d0e32ac43b6c6.jpg?w=128&fit=max&auto=format)](https://claude.com/marketplace/connectors/linear)
+* [Linear connector![](https://assets.claude.com/ed172e953866fead6b10ab99ba870471a1ad4053.svg?w=128&fit=max&auto=format)](https://claude.com/marketplace/connectors/linear)
 
 ## Agents and products to buy from our partners
 
@@ -102,7 +102,7 @@ Accelerate outcomes with autonomous intelligence fueled by world-class expertise
 
 Code
 
-![](https://assets.claude.com/f2ce571e7dee9dab1b2ad699d52d275e8fb83a59.png)
+![](https://assets.claude.com/2a378f5e9d136884701abca4f5ee0b0298b6a159.svg)
 
 ### [Gamma](https://claude.com/marketplace/agents-products/gamma)
 

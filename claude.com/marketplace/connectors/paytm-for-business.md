@@ -61,15 +61,15 @@ Bring your clients' estate plans, tax returns, and documents into Claude — wit
 
 [Add Wealth.com in Claude (opens in new tab)](https://claude.ai/directory/3901f2b7-ddfb-4d32-a0ae-280106224cb1 "Add in Claude")
 
-![](https://assets.claude.com/115f44da14dfc74606c952a792ad297d7d46a001.svg?w=128&fit=max&auto=format)
+![](https://bd3.bdreporting.com/content/logo.svg)
 
-### [Vanguard Advisor Tools](https://claude.com/marketplace/connectors/vanguard-advisor-tools)
+### [Black Diamond](https://claude.com/marketplace/connectors/black-diamond)
 
 Anthropic verifiedTrending
 
-Access Vanguard models data and content from Claude
+Client, portfolio, and performance data for advisors
 
-[Add Vanguard Advisor Tools in Claude (opens in new tab)](https://claude.ai/directory/863961af-d744-41ca-b600-9970b4826cb3 "Add in Claude")
+[Add Black Diamond in Claude (opens in new tab)](https://claude.ai/directory/e70ee54f-74a8-454f-9bd5-3a70e17da172 "Add in Claude")
 
 ![](https://cdn.crmworkspace.com/assets/favicon.svg)
 

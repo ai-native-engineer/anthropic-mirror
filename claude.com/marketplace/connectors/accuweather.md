@@ -34,14 +34,6 @@ Discover how to get anywhere
 
 [Add Rome2Rio in Claude (opens in new tab)](https://claude.ai/directory/0c84f0ce-49ad-468f-babb-3efab67f5aeb "Add in Claude")
 
-![](https://resources.turo.com/resources/img/favicon.ico)
-
-### [Turo](https://claude.com/marketplace/connectors/turo)
-
-Search Turo car rentals
-
-[Add Turo in Claude (opens in new tab)](https://claude.ai/directory/6ba1d80c-6de8-4f4a-9900-f7aa164f063f "Add in Claude")
-
 ![](https://tineo.ai/favicon/favicon-96x96.png)
 
 ### [Tineo](https://claude.com/marketplace/connectors/tineo)
@@ -49,6 +41,14 @@ Search Turo car rentals
 Connect Tineo to Claude to review trips, flights, hotels and activities, and add or update itinerary details. Organize and share plans with friends in Tineo.
 
 [Add Tineo in Claude (opens in new tab)](https://claude.ai/directory/47af3906-6905-49b7-bde9-363c6b6fa3b8 "Add in Claude")
+
+![](https://resources.turo.com/resources/img/favicon.ico)
+
+### [Turo](https://claude.com/marketplace/connectors/turo)
+
+Search Turo car rentals
+
+[Add Turo in Claude (opens in new tab)](https://claude.ai/directory/6ba1d80c-6de8-4f4a-9900-f7aa164f063f "Add in Claude")
 
 ![](https://assets.claude.com/8d547f19ecd0534343f8d8b3a7657e18e50ca23f.jpg?w=128&fit=max&auto=format)
 
@@ -66,10 +66,10 @@ Find great hotels, then book direct. Search, availability, and reservations.
 
 [Add DirectBooker in Claude (opens in new tab)](https://claude.ai/directory/97369a45-f230-4124-9b9b-2944a26bca46 "Add in Claude")
 
-![](https://www.google.com/s2/favicons?domain=novasol.com&sz=96)
+![](https://www.google.com/s2/favicons?domain=super.com&sz=96)
 
-### [Novasol](https://claude.com/marketplace/connectors/novasol)
+### [Super.com](https://claude.com/marketplace/connectors/super-com)
 
-Search holiday homes across Europe
+Compare hotels and find the lowest rate
 
-[Add Novasol in Claude (opens in new tab)](https://claude.ai/directory/7d0c1f98-2dca-4468-b57d-10e4c3592c2d "Add in Claude")
+[Add Super.com in Claude (opens in new tab)](https://claude.ai/directory/0454875f-bc80-40cd-b933-d1712714e292 "Add in Claude")

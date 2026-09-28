@@ -47,14 +47,6 @@ Search, edit and get insights on your Box content
 
 [Add Box in Claude (opens in new tab)](https://claude.ai/directory/a5380429-c773-4180-b642-301418240c8c "Add in Claude")
 
-![](https://cdn.prod.website-files.com/69d3ac38e8e442c9fce520b4/6a0742ee5d1bde6d18668e0b_Frame.png)
-
-### [General Legal](https://claude.com/marketplace/connectors/general-legal)
-
-Submit contracts for attorney review, answer their questions, and get redlined documents back — without leaving Claude.
-
-[Add General Legal in Claude (opens in new tab)](https://claude.ai/directory/dba73da3-6015-4b3e-8acc-0ff38e2c511b "Add in Claude")
-
 ![](https://app.paxton.ai/images/paxton-favicon.png)
 
 ### [Paxton Legal Research](https://claude.com/marketplace/connectors/paxton-legal-research)
@@ -81,10 +73,18 @@ Intelligent, secure contract management by Docusign
 
 [Add Docusign in Claude (opens in new tab)](https://claude.ai/directory/a876b642-2b05-4808-a565-deeb271802fd "Add in Claude")
 
-![](https://us-shard-b.filevineapp.com/public/img/logos/fv-logo-64x64.png)
+![](https://cdn.prod.website-files.com/69d3ac38e8e442c9fce520b4/6a0742ee5d1bde6d18668e0b_Frame.png)
 
-### [Filevine](https://claude.com/marketplace/connectors/filevine-api)
+### [General Legal](https://claude.com/marketplace/connectors/general-legal)
 
-Connect Claude to Filevine through the Filevine API to securely access and work with Filevine data and functionality.
+Submit contracts for attorney review, answer their questions, and get redlined documents back — without leaving Claude.
 
-[Add Filevine in Claude (opens in new tab)](https://claude.ai/directory/f2949ce2-7f86-4821-9610-40989cb703f3 "Add in Claude")
+[Add General Legal in Claude (opens in new tab)](https://claude.ai/directory/dba73da3-6015-4b3e-8acc-0ff38e2c511b "Add in Claude")
+
+![](https://assets.claude.com/1a01745b4fbcfb8d75f0f2a761024720abbd6cb2.jpg?w=128&fit=max&auto=format)
+
+### [Harvey](https://claude.com/marketplace/connectors/harvey)
+
+Answer legal queries, search vaults, and research
+
+[Add Harvey in Claude (opens in new tab)](https://claude.ai/directory/a428b976-7973-467f-9588-6b72643af755 "Add in Claude")

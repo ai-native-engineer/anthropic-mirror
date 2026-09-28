@@ -74,12 +74,12 @@ Bring your clients' estate plans, tax returns, and documents into Claude — wit
 
 [Add Wealth.com in Claude (opens in new tab)](https://claude.ai/directory/3901f2b7-ddfb-4d32-a0ae-280106224cb1 "Add in Claude")
 
-![](https://assets.claude.com/115f44da14dfc74606c952a792ad297d7d46a001.svg?w=128&fit=max&auto=format)
+![](https://app.paxton.ai/images/paxton-favicon.png)
 
-### [Vanguard Advisor Tools](https://claude.com/marketplace/connectors/vanguard-advisor-tools)
+### [Paxton Legal Research](https://claude.com/marketplace/connectors/paxton-legal-research)
 
 Anthropic verifiedTrending
 
-Access Vanguard models data and content from Claude
+Research U.S. law in Claude—with citations you can open and verify.
 
-[Add Vanguard Advisor Tools in Claude (opens in new tab)](https://claude.ai/directory/863961af-d744-41ca-b600-9970b4826cb3 "Add in Claude")
+[Add Paxton Legal Research in Claude (opens in new tab)](https://claude.ai/directory/4285c08a-451c-46e7-a320-7ccc0d6447b1 "Add in Claude")

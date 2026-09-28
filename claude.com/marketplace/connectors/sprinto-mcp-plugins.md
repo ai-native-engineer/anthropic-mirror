@@ -63,14 +63,6 @@ Find and enrich company and contact data in Claude for prospecting, lead generat
 
 [Add Vibe Prospecting in Claude (opens in new tab)](https://claude.ai/directory/1bdcb159-b6f0-4f13-bc08-fdb40b007828 "Add in Claude")
 
-![](https://www.google.com/s2/favicons?domain=terminal49.com&sz=96)
-
-### [Terminal49](https://claude.com/marketplace/connectors/terminal49)
-
-Track ocean shipments and containers
-
-[Add Terminal49 in Claude (opens in new tab)](https://claude.ai/directory/e976edae-40c4-4c29-a1f8-6d5b40bc7cee "Add in Claude")
-
 ![](https://storage.googleapis.com/assets.mobbin.com/claude.ai/logo.svg)
 
 ### [Mobbin](https://claude.com/marketplace/connectors/mobbin)
@@ -79,10 +71,18 @@ Find UI & UX design references
 
 [Add Mobbin in Claude (opens in new tab)](https://claude.ai/directory/705ad993-53e3-4be6-b32c-cc9cff5225f6 "Add in Claude")
 
-![](https://compass.maryland.gov/assets/compass-icon.png)
+![](https://www.google.com/s2/favicons?domain=terminal49.com&sz=96)
 
-### [Maryland Community Compass](https://claude.com/marketplace/connectors/maryland-compass)
+### [Terminal49](https://claude.com/marketplace/connectors/terminal49)
 
-Maryland's neighborhood development data platform.
+Track ocean shipments and containers
 
-[Add Maryland Community Compass in Claude (opens in new tab)](https://claude.ai/directory/68edb405-8774-419f-b9d8-32f0a95229dd "Add in Claude")
+[Add Terminal49 in Claude (opens in new tab)](https://claude.ai/directory/e976edae-40c4-4c29-a1f8-6d5b40bc7cee "Add in Claude")
+
+![](https://neon.com/brand/neon-logomark-light-color.svg)
+
+### [Neon](https://claude.com/marketplace/connectors/neon)
+
+Postgres, Object Storage, Managed Better Auth, and more
+
+[Add Neon in Claude (opens in new tab)](https://claude.ai/directory/33e1b084-f45e-4fa3-951a-b08ad61101c9 "Add in Claude")

@@ -4,7 +4,7 @@ Explore here
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d222061abf091318fb82_423062049d4676b41d52b16068cbb5e21603190e-1000x1000.svg)
 
-# The AI-Native SDLC playbook
+# The AI-native SDLC playbook
 
 How to transform your software development lifecycle with AI—stage by stage.
 

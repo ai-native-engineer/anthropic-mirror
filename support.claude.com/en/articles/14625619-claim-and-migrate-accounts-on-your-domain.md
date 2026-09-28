@@ -102,7 +102,7 @@ If you purchased your Enterprise plan directly through Anthropic, you'll see an 
 If you purchased your Enterprise plan through the AWS Marketplace, migrated users will see a message asking them to contact their admin when they try to log in after the migration.
 
 * [Important considerations before enabling single sign-on (SSO) and JIT/SCIM provisioning](https://support.claude.com/en/articles/10276682-important-considerations-before-enabling-single-sign-on-sso-and-jit-scim-provisioning)
-* [Switching to a different Identity Provider (IdP)](https://support.claude.com/en/articles/13443687-switching-to-a-different-identity-provider-idp)
 * [SSO login](https://support.claude.com/en/articles/14503613-sso-login)
+* [Set up SCIM in Claude for Government](https://support.claude.com/en/articles/14503643-set-up-scim-in-claude-for-government)
 * [Respond to an Enterprise domain claim on your Claude account](https://support.claude.com/en/articles/14625626-respond-to-an-enterprise-domain-claim-on-your-claude-account)
 * [Set up Claude for Teachers for your school or district](https://support.claude.com/en/articles/16559896-set-up-claude-for-teachers-for-your-school-or-district)

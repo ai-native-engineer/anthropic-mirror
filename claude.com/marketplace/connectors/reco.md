@@ -53,14 +53,6 @@ Manage databases, authentication, and storage
 
 [Add Supabase in Claude (opens in new tab)](https://claude.ai/directory/11ca66fc-1e98-49d5-ab9b-7cb4672a8f10 "Add in Claude")
 
-![](https://assets.claude.com/73fb34c4126e99aa21f0f63e48c061963454ee06.svg?w=128&fit=max&auto=format)
-
-### [Addepar MCP](https://claude.com/marketplace/connectors/addepar)
-
-Bring Addepar portfolio intelligence into Claude
-
-[Add Addepar MCP in Claude (opens in new tab)](https://claude.ai/directory/bc2b011f-5db9-4aef-9df0-fe500264075d "Add in Claude")
-
 ![](https://assets.claude.com/11f81df36177359e07a76903f59116d6f7e4f856.jpg?w=128&fit=max&auto=format)
 
 ### [Box](https://claude.com/marketplace/connectors/box)
@@ -68,6 +60,14 @@ Bring Addepar portfolio intelligence into Claude
 Search, edit and get insights on your Box content
 
 [Add Box in Claude (opens in new tab)](https://claude.ai/directory/a5380429-c773-4180-b642-301418240c8c "Add in Claude")
+
+![](https://assets.claude.com/73fb34c4126e99aa21f0f63e48c061963454ee06.svg?w=128&fit=max&auto=format)
+
+### [Addepar MCP](https://claude.com/marketplace/connectors/addepar)
+
+Bring Addepar portfolio intelligence into Claude
+
+[Add Addepar MCP in Claude (opens in new tab)](https://claude.ai/directory/bc2b011f-5db9-4aef-9df0-fe500264075d "Add in Claude")
 
 ![](https://assets.claude.com/47f22a5129fd644c95a682e474b104001065dd42.jpg?w=128&fit=max&auto=format)
 

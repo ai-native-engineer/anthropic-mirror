@@ -33,7 +33,7 @@ You use **prompts** to communicate with Claude. The best approach is to speak to
 
 Type your prompt into the chat interface and click the submit button to start a conversation with Claude. You can click the "+" button in the lower left or type "/" to view additional options and commands:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1916208578/2cf2ea52f1f884084b57983a8805/image.png?expires=1790469900&signature=2f3db387c91092d3e60290e081072ee767682aa58288a3e138cc957ea695bfe8&req=dSkmEMt%2BlYRYUfMW1HO4zV2J7C%2FOso6I9crMELaMZPxPmTz%2BV440Gh5evOB7%0Ak4arE1p2FGnMnj40VIw%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1916208578/2cf2ea52f1f884084b57983a8805/image.png?expires=1790469900&signature=2f3db387c91092d3e60290e081072ee767682aa58288a3e138cc957ea695bfe8&req=dSkmEMt%2BlYRYUfMW1HO4zV2J7C%2FOso6I9crMELaMZPxPmTz%2BV440Gh5evOB7%0Ak4arE1p2FGnMnj40VIw%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1916208578/2cf2ea52f1f884084b57983a8805/image.png?expires=1790571600&signature=b2d2c1dcc44a3e740a6d8062abc6444f6bf95db15f890afa9abd865b40c4a5ed&req=dSkmEMt%2BlYRYUfMW1HO4zV2J7C%2FPs4aH9crMELaMZPxnAxzJp5VC6NkEpJZ1%0AR%2FMVBjDbEiO1tZb%2BhUw%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1916208578/2cf2ea52f1f884084b57983a8805/image.png?expires=1790571600&signature=b2d2c1dcc44a3e740a6d8062abc6444f6bf95db15f890afa9abd865b40c4a5ed&req=dSkmEMt%2BlYRYUfMW1HO4zV2J7C%2FPs4aH9crMELaMZPxnAxzJp5VC6NkEpJZ1%0AR%2FMVBjDbEiO1tZb%2BhUw%3D%0A)
 
 ---
 
@@ -89,4 +89,3 @@ Once you've started using Claude, you can:
 * [How do usage and length limits work?](https://support.claude.com/en/articles/11647753-how-do-usage-and-length-limits-work)
 * [Get started with Claude Cowork](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork)
 * [Get started with Claude Design](https://support.claude.com/en/articles/14604416-get-started-with-claude-design)
-* [Claude Fable models on your plan](https://support.claude.com/en/articles/15424964-claude-fable-models-on-your-plan)

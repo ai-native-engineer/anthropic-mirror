@@ -19,7 +19,7 @@ By purchasing, deploying, accessing, or using this product, you agree to comply 
 
 ## Related products
 
-![](https://assets.claude.com/f2ce571e7dee9dab1b2ad699d52d275e8fb83a59.png)
+![](https://assets.claude.com/2a378f5e9d136884701abca4f5ee0b0298b6a159.svg)
 
 ### [Gamma](https://claude.com/marketplace/agents-products/gamma)
 

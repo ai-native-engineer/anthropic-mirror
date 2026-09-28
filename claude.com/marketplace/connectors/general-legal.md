@@ -59,13 +59,13 @@ Intelligent, secure contract management by Docusign
 
 [Add Docusign in Claude (opens in new tab)](https://claude.ai/directory/a876b642-2b05-4808-a565-deeb271802fd "Add in Claude")
 
-![](https://us-shard-b.filevineapp.com/public/img/logos/fv-logo-64x64.png)
+![](https://assets.claude.com/1a01745b4fbcfb8d75f0f2a761024720abbd6cb2.jpg?w=128&fit=max&auto=format)
 
-### [Filevine](https://claude.com/marketplace/connectors/filevine-api)
+### [Harvey](https://claude.com/marketplace/connectors/harvey)
 
-Connect Claude to Filevine through the Filevine API to securely access and work with Filevine data and functionality.
+Answer legal queries, search vaults, and research
 
-[Add Filevine in Claude (opens in new tab)](https://claude.ai/directory/f2949ce2-7f86-4821-9610-40989cb703f3 "Add in Claude")
+[Add Harvey in Claude (opens in new tab)](https://claude.ai/directory/a428b976-7973-467f-9588-6b72643af755 "Add in Claude")
 
 ![](https://www.google.com/s2/favicons?domain=patlytics.ai&sz=96)
 

@@ -14,6 +14,6 @@ Claude for Government is available to U.S. federal, state, and local government 
 
 * [How to get support for Claude for Government](https://support.claude.com/en/articles/13047024-how-to-get-support-for-claude-for-government)
 * [Public Sector FAQs](https://support.claude.com/en/articles/13756069-public-sector-faqs)
-* [MCP connectors](https://support.claude.com/en/articles/14503689-mcp-connectors)
+* [Set up SCIM in Claude for Government](https://support.claude.com/en/articles/14503643-set-up-scim-in-claude-for-government)
 * [MCP: Individual connectors](https://support.claude.com/en/articles/14503703-mcp-individual-connectors)
 * [Model availability in Claude for Government](https://support.claude.com/en/articles/14503794-model-availability-in-claude-for-government)

@@ -63,7 +63,7 @@ Build, manage, and analyze your Shopify store
 
 [Add Shopify in Claude (opens in new tab)](https://claude.ai/directory/80917cb7-3071-4fca-b053-a4262d356c60 "Add in Claude")
 
-![](https://assets.claude.com/f2ce571e7dee9dab1b2ad699d52d275e8fb83a59.png?w=128&fit=max&auto=format)
+![](https://assets.claude.com/2a378f5e9d136884701abca4f5ee0b0298b6a159.svg?w=128&fit=max&auto=format)
 
 ### [Gamma](https://claude.com/marketplace/connectors/gamma)
 
@@ -79,10 +79,10 @@ Automate workflows across thousands of apps via conversation
 
 [Add Zapier in Claude (opens in new tab)](https://claude.ai/directory/1f6f271e-3d29-4241-b35e-8abe6def4891 "Add in Claude")
 
-![](https://agent.enrichlabs.ai/avatars/helena.png)
+![](https://assets.claude.com/46519c8cd657205f9f26b243952e1bd41a07d517.svg?w=128&fit=max&auto=format)
 
-### [Helena by Enrich Labs](https://claude.com/marketplace/connectors/helena-by-enrich-labs)
+### [Salesforce - Beta](https://claude.com/marketplace/connectors/salesforce-headless-360)
 
-Your AI marketer for paid ads, SEO, email, social, and analytics
+Sell, serve, and operate at scale with Salesforce.
 
-[Add Helena by Enrich Labs in Claude (opens in new tab)](https://claude.ai/directory/0da6abdc-62c3-4272-940b-898189371a48 "Add in Claude")
+[Add Salesforce - Beta in Claude (opens in new tab)](https://claude.ai/directory/a352dbf6-c732-43d4-84c1-0bbb389d3921 "Add in Claude")

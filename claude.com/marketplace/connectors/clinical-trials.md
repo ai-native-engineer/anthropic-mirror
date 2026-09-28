@@ -33,14 +33,6 @@ Explore scientific research
 
 [Add Consensus in Claude (opens in new tab)](https://claude.ai/directory/65247229-f0c7-49df-9044-fcbb8b3894c6 "Add in Claude")
 
-![](https://assets.claude.com/f4e416e3635b80335fd10dbd602a88caa4be89ab.jpg?w=128&fit=max&auto=format)
-
-### [Wiley Scholar Gateway](https://claude.com/marketplace/connectors/scholar-gateway)
-
-Enhance responses with scholarly research and citations
-
-[Add Wiley Scholar Gateway in Claude (opens in new tab)](https://claude.ai/directory/ff091334-0f12-4d0e-a973-c00467dd3818 "Add in Claude")
-
 ![](https://storage.googleapis.com/media-assets-299d7136-cb52-d546-ee02-34bc1307c35f/mcp-directory/icons/biorxiv.png)
 
 ### [bioRxiv](https://claude.com/marketplace/connectors/biorxiv)
@@ -49,13 +41,13 @@ Access bioRxiv and medRxiv preprint data
 
 [Add bioRxiv in Claude (opens in new tab)](https://claude.ai/directory/7f750eb6-c3cb-47d7-9269-d35c43fe9925 "Add in Claude")
 
-![](https://www.google.com/s2/favicons?domain=mavenbio.com&sz=96)
+![](https://assets.claude.com/f4e416e3635b80335fd10dbd602a88caa4be89ab.jpg?w=128&fit=max&auto=format)
 
-### [Maven Bio](https://claude.com/marketplace/connectors/maven-bio)
+### [Wiley Scholar Gateway](https://claude.com/marketplace/connectors/scholar-gateway)
 
-Biopharma catalysts, pipelines, trials, deals, and the citable primary sources behind them
+Enhance responses with scholarly research and citations
 
-[Add Maven Bio in Claude (opens in new tab)](https://claude.ai/directory/f5a911e0-39a7-4dc3-bbde-fb9b6b2aaa02 "Add in Claude")
+[Add Wiley Scholar Gateway in Claude (opens in new tab)](https://claude.ai/directory/ff091334-0f12-4d0e-a973-c00467dd3818 "Add in Claude")
 
 ![](https://storage.googleapis.com/media-assets-299d7136-cb52-d546-ee02-34bc1307c35f/mcp-directory/icons/chembl.png)
 
@@ -64,3 +56,11 @@ Biopharma catalysts, pipelines, trials, deals, and the citable primary sources b
 Access the ChEMBL Database
 
 [Add ChEMBL in Claude (opens in new tab)](https://claude.ai/directory/711ccc94-754b-4659-903d-d61b29dd781e "Add in Claude")
+
+![](https://assets.claude.com/2739dd738a15a7888267ca8fed434d10ad7d95e5.jpg?w=128&fit=max&auto=format)
+
+### [Scite](https://claude.com/marketplace/connectors/scite)
+
+Evidence-based answers grounded in research
+
+[Add Scite in Claude (opens in new tab)](https://claude.ai/directory/f65118b4-06cb-468a-b2c7-f203ae7b54ea "Add in Claude")

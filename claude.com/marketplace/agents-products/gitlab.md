@@ -32,7 +32,7 @@ Factory helps enterprises continuously build and operate production software thr
 
 Code
 
-![](https://assets.claude.com/05808b111f43ce4a1a63785df384553b059ce3ee.jpg)
+![](https://assets.claude.com/9e48c05f10cf4adac54a25d183d2d14e38621a56.svg)
 
 ### [Augment](https://claude.com/marketplace/agents-products/augment)
 

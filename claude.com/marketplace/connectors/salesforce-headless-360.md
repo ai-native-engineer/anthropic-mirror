@@ -43,6 +43,16 @@ Manage databases, authentication, and storage
 
 [Add Supabase in Claude (opens in new tab)](https://claude.ai/directory/11ca66fc-1e98-49d5-ab9b-7cb4672a8f10 "Add in Claude")
 
+![](https://www.carrefour.com/themes/custom/c4com/img/logo_dark.svg)
+
+### [Carrefour](https://claude.com/marketplace/connectors/carrefour)
+
+Anthropic verifiedTrending
+
+Faites vos courses rapidement
+
+[Add Carrefour in Claude (opens in new tab)](https://claude.ai/directory/6b4026bc-dd6f-4644-9b66-276b94e9803a "Add in Claude")
+
 ![](https://www.google.com/s2/favicons?domain=monday.com&sz=96)
 
 ### [monday.com](https://claude.com/marketplace/connectors/monday)
@@ -58,11 +68,3 @@ monday.com project management & CRM for projects, tasks, portfolios, boards, wor
 Bring Addepar portfolio intelligence into Claude
 
 [Add Addepar MCP in Claude (opens in new tab)](https://claude.ai/directory/bc2b011f-5db9-4aef-9df0-fe500264075d "Add in Claude")
-
-![](https://assets.claude.com/11f81df36177359e07a76903f59116d6f7e4f856.jpg?w=128&fit=max&auto=format)
-
-### [Box](https://claude.com/marketplace/connectors/box)
-
-Search, edit and get insights on your Box content
-
-[Add Box in Claude (opens in new tab)](https://claude.ai/directory/a5380429-c773-4180-b642-301418240c8c "Add in Claude")

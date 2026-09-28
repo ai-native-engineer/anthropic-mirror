@@ -230,17 +230,17 @@ August 25, 2026
 
 Aug 21, 2026
 
-The AI-Native SDLC playbook
+The AI-native SDLC playbook
 
 Enterprise AI
 
-The AI-Native SDLC playbook
+The AI-native SDLC playbook
 
 August 21, 2026
 
-[The AI-Native SDLC playbook](https://claude.com/blog/the-ai-native-sdlc-playbook)The AI-Native SDLC playbook
+[The AI-native SDLC playbook](https://claude.com/blog/the-ai-native-sdlc-playbook)The AI-native SDLC playbook
 
-[The AI-Native SDLC playbook](#)The AI-Native SDLC playbook
+[The AI-native SDLC playbook](#)The AI-native SDLC playbook
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d223de65e7dcca8267d8_ea364001be6bf6d2e86b58109ead6a779d5771a7-1000x1000.svg)
 
@@ -474,7 +474,7 @@ August 25, 2026
 
 [Bain & Company joins the Claude Partner Network as a Global Premier partner](#)Bain & Company joins the Claude Partner Network as a Global Premier partner
 
-### The AI-Native SDLC playbook
+### The AI-native SDLC playbook
 
 Category
 
@@ -486,9 +486,9 @@ Usecase
 
 August 21, 2026
 
-[The AI-Native SDLC playbook](https://claude.com/blog/the-ai-native-sdlc-playbook)The AI-Native SDLC playbook
+[The AI-native SDLC playbook](https://claude.com/blog/the-ai-native-sdlc-playbook)The AI-native SDLC playbook
 
-[The AI-Native SDLC playbook](#)The AI-Native SDLC playbook
+[The AI-native SDLC playbook](#)The AI-native SDLC playbook
 
 ### Anthropic’s approach to teaching and learning AI
 

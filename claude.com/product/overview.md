@@ -1,7 +1,5 @@
 <!-- source: https://claude.com/product/overview -->
 
-[Skip to main content](#main-content)
-
 Latest news
 
 Claude Cowork is now just Claude.

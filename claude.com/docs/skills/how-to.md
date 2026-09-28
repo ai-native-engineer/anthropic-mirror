@@ -28,7 +28,18 @@ To start, write down the task in one sentence and what a good result looks like.
 
 A skill is a folder named after the skill. The only required file is `SKILL.md`; the other folders are optional and hold material that `SKILL.md` points Claude to. Select a file in the explorer to see what goes in it and what Claude does with it.
 
-The directory name must match the `name` field in your `SKILL.md`.
+As a plain tree, the same skill looks like this. The directory name must match the `name` field in your `SKILL.md`, and everything except `SKILL.md` is optional:
+
+```
+brand-guidelines/
+├── SKILL.md              # required: frontmatter and instructions
+├── references/           # optional: documentation Claude reads when a step calls for it
+│   └── voice-and-tone.md
+├── assets/               # optional: templates and files Claude copies or fills in
+│   └── slide-template.md
+└── scripts/              # optional: code Claude runs while following the skill
+    └── check_contrast.py
+```
 
 ##  Create a `SKILL.md` file
 

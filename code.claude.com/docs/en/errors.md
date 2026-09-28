@@ -231,6 +231,8 @@ Match the message you see to a section below.
 | `Output styles are saved to local settings (.claude/settings.local.json), which this session doesn't load`                                                                                                                                                           | [Command-line errors](#output-styles-are-saved-to-local-settings-which-this-session-doesnt-load)                              |
 | `` `plugin eval` is currently in early access `` / `` `plugin eval` is currently unavailable ``                                                                                                                                                                      | [Plugin errors](#plugin-eval-is-currently-in-early-access)                                                                    |
 | `Marketplace "<name>" is registered from an untrusted source`                                                                                                                                                                                                        | [Plugin errors](#marketplace-is-registered-from-an-untrusted-source)                                                          |
+| `Claude Code refuses the marketplace name "<name>"`                                                                                                                                                                                                                  | [Plugin errors](#claude-code-refuses-the-marketplace-name)                                                                    |
+| `Marketplace name impersonates an official Anthropic/Claude marketplace`                                                                                                                                                                                             | [Plugin errors](#claude-code-refuses-the-marketplace-name)                                                                    |
 | `Marketplace "<name>" is already added from a different source`                                                                                                                                                                                                      | [Plugin errors](#marketplace-is-already-added-from-a-different-source)                                                        |
 | `"<name>" is another spelling of "<reserved>", a reserved marketplace name`                                                                                                                                                                                          | [Plugin errors](#marketplace-name-is-another-spelling-of-a-reserved-name)                                                     |
 | `references ${user_config.*} in a shell-form command`                                                                                                                                                                                                                | [Plugin errors](#plugin-command-references-user-config)                                                                       |
@@ -244,6 +246,8 @@ Match the message you see to a section below.
 | `Failed to load marketplace configuration`                                                                                                                                                                                                                           | [Plugin errors](#failed-to-load-marketplace-configuration)                                                                    |
 | `Marketplace configuration file is corrupted`                                                                                                                                                                                                                        | [Plugin errors](#failed-to-load-marketplace-configuration)                                                                    |
 | `Plugin "<name>@synced" is required by your organization and can't be disabled here`                                                                                                                                                                                 | [Plugin errors](#plugin-is-required-by-your-organization)                                                                     |
+| `"<plugin>" was not uninstalled: it is still switched on in <file>`                                                                                                                                                                                                  | [Plugin errors](#plugin-was-not-uninstalled)                                                                                  |
+| `"<plugin>" was not uninstalled: <file> is there and could not be read`                                                                                                                                                                                              | [Plugin errors](#plugin-was-not-uninstalled)                                                                                  |
 | `would be spawned with zero tools — refusing`                                                                                                                                                                                                                        | [Tool errors](#agent-would-be-spawned-with-zero-tools)                                                                        |
 | `File is covered by a Read deny rule in your permission settings`                                                                                                                                                                                                    | [Tool errors](#file-is-covered-by-a-read-deny-rule)                                                                           |
 | `cannot contain null bytes (\0)`                                                                                                                                                                                                                                     | [Tool errors](#path-cannot-contain-null-bytes)                                                                                |
@@ -263,6 +267,7 @@ Match the message you see to a section below.
 | `Refusing to read <path>: its symlink resolution changed after permission was checked (<reason>)` / `Refusing to search <path>: its symlink resolution changed after permission was checked`                                                                         | [Tool errors](#refusing-after-a-symlink-changed)                                                                              |
 | `Refusing to write <path>: its parent-directory symlink resolution changed after permission was checked` / `Refusing to write <path>: it is a symbolic link. Write to the link's target path instead`                                                                | [Tool errors](#refusing-after-a-symlink-changed)                                                                              |
 | `Refusing to write through symlink: <path>` / `Refusing to write into symlinked directory: <path>`                                                                                                                                                                   | [Tool errors](#refusing-after-a-symlink-changed)                                                                              |
+| `Refusing to write <path>: where it leads on disk could not be determined` / `Refusing to read <path>: where it leads on disk could not be determined`                                                                                                               | [Tool errors](#refusing-after-a-symlink-changed)                                                                              |
 | `Refusing to search <path>: a path one of its Read deny rules is written through changed while the search was being prepared` / `Refusing to search <path>: it could not be opened`                                                                                  | [Tool errors](#refusing-after-a-symlink-changed)                                                                              |
 | `its permission check expired before it ran (too many concurrent file operations)` / `ripgrep was found only by name on PATH`                                                                                                                                        | [Tool errors](#refusing-after-a-symlink-changed)                                                                              |
 | `task output swap refused (tasks dir moved or linked)`                                                                                                                                                                                                               | [Tool errors](#task-output-swap-refused)                                                                                      |
@@ -1271,7 +1276,7 @@ Not signed in to the Cloud gateway — run /login.
 
 Model requests fail with this message when the session has no gateway sign-in, for example because you haven't run `/login` since the policy reached the machine.
 
-If you also have an `ANTHROPIC_API_KEY`, `ANTHROPIC_AUTH_TOKEN`, or `apiKeyHelper` credential configured and the managed settings set `forceLoginMethod`, Claude Code exits at startup instead with a message that begins:
+If the machine also holds an Anthropic-issued credential and the managed settings set `forceLoginMethod` or `forceLoginOrgUUID`, Claude Code exits at startup instead. That credential can be an `ANTHROPIC_API_KEY` or `ANTHROPIC_AUTH_TOKEN` variable, an `apiKeyHelper` setting, or an API key saved by an earlier Claude Console login. The message begins:
 
 ```text theme={null}
 Administrator policy requires a Cloud gateway sign-in on this machine; the
@@ -1282,7 +1287,7 @@ ANTHROPIC_AUTH_TOKEN, or apiKeyHelper) is not used.
 **What to do:**
 
 * Run `/login` and complete the sign-in on the **Cloud gateway** screen
-* For the startup message, remove the `ANTHROPIC_API_KEY`, `ANTHROPIC_AUTH_TOKEN`, or `apiKeyHelper` setting you configured, then start `claude` and run `/login`
+* For the startup message, remove the `ANTHROPIC_API_KEY`, `ANTHROPIC_AUTH_TOKEN`, or `apiKeyHelper` setting you configured. To remove a saved Console API key, run `claude auth logout`, which also removes a saved claude.ai login. If you select a cloud provider with `CLAUDE_CODE_USE_*`, the session then starts with no sign-in. Otherwise start `claude` and run `/login`
 * If you believe the machine shouldn't require the gateway, ask the administrator who manages it to remove `forceLoginMethod` and `forceLoginGatewayUrl` from its managed settings
 
 On v2.1.265, a regression also showed the first message in some LLM-gateway and proxy configurations that authenticate with an API key, `apiKeyHelper`, or custom headers, even with no administrator requirement on the machine. Update to v2.1.266 or later. You don't need to change your configuration.
@@ -3437,6 +3442,28 @@ When the name would need shell quoting, the add-time refusal reads `This marketp
 * Rename the marketplace to a name that doesn't spell a reserved name and add it again
 * For the ignored-entry warning, run the `claude plugin marketplace remove` command it gives, or remove the entry from `~/.claude/plugins/known_marketplaces.json`
 
+<h3 id="claude-code-refuses-the-marketplace-name">
+  Claude Code refuses the marketplace name
+</h3>
+
+A registered marketplace's name [impersonates an official Anthropic marketplace](/docs/en/plugins/marketplace-reference#reserved-names) under the rules that section lists.
+
+If a marketplace was registered under such a name before the check blocked it, the marketplace and the plugins installed from it stop loading, because Claude Code checks the name every time it reads the marketplace's catalog. When the name imitates an official one, `claude plugin list` and the `/plugin` **Errors** tab report each affected plugin with a message that begins:
+
+```text theme={null}
+Claude Code refuses the marketplace name "anthropic-plugins-v2"
+```
+
+For an imitating name, the marketplace's own error reads `Claude Code refuses this marketplace's name: it looks like one of Anthropic's own` instead. `claude plugin marketplace add` refuses any impersonating name with `Marketplace name impersonates an official Anthropic/Claude marketplace`.
+
+Before v2.1.282, `claude plugin list` and `/plugin` reported the plugins of an imitating name as failed to load too, without naming the marketplace's name as the cause.
+
+**What to do:**
+
+* Run `claude plugin marketplace remove <name>`. This also uninstalls the plugins installed from the marketplace and deletes their saved data
+* To keep the marketplace instead, wait until its maintainer renames it, then run `claude plugin marketplace update <name>`
+* If you publish the marketplace, rename it in your `marketplace.json`; users then update the marketplace instead of removing it
+
 ### Marketplace is already added from a different source
 
 You confirmed adding a marketplace through [`/plugin install <plugin> --marketplace <source>`](/docs/en/plugins/install#add-a-marketplace-and-install-in-one-command), and the catalog Claude Code fetched from that source names itself the same as a marketplace you already added from a different source. Claude Code keeps the existing marketplace instead of replacing it, and the plugin isn't installed.
@@ -3626,6 +3653,31 @@ When you try to disable a plugin that a required plugin depends on, Claude Code 
 **What to do:**
 
 * Ask an admin of your claude.ai organization to change the plugin's required status on claude.ai
+
+<h3 id="plugin-was-not-uninstalled">
+  Plugin was not uninstalled
+</h3>
+
+You ran [`claude plugin uninstall`](/docs/en/plugins/cli-reference#plugin-uninstall), or chose **Uninstall** in the `/plugin` **Installed** tab, and the uninstall stopped with a message starting `"<plugin>" was not uninstalled:`.
+
+When Claude Code removed the plugin's entry from `enabledPlugins` and read that scope's settings files back, either the plugin was still switched on there, or a file that could switch it on couldn't be read or checked. Deleting the plugin's saved options, secrets, and data while a settings entry could switch it back on would lose them, so the uninstall stops instead: the plugin stays installed and nothing it saved is deleted.
+
+```text theme={null}
+✘ Failed to uninstall plugin "formatter": "formatter" was not uninstalled: it is still switched on in /home/user/project/.claude/settings.local.json, although the settings change reported no error. It is still installed. Take it out of "enabledPlugins" in that file yourself, then uninstall it again.
+```
+
+The middle of the message names the file and the cause:
+
+* `it is still switched on in <file>, although the settings change reported no error`: the settings write reported success but the entry is still there when the file is read back
+* `it is still switched on in <file>, and the settings change failed (<error>)`: the file couldn't be saved, for the reason in parentheses
+* `<file> is there and could not be read`: the file exists but couldn't be read as settings, for example because it isn't valid JSON, so it may still enable the plugin
+* `<file> (not read: it is on a network path or is a link to one, or could not be checked)`: Claude Code didn't read the project or local settings file because the file, or the `.claude` folder that holds it, is a link that leads to a network location, or because it couldn't examine that path
+
+`claude plugin uninstall` exits 1, and with `--json` the result carries `failureCode: "settings_still_on"`. `/plugin` shows the same message.
+
+**What to do:**
+
+* Follow the last sentence of the message: repair or replace the settings file it names, or remove the plugin's entry from `enabledPlugins` in that file yourself, then run the uninstall again
 
 ## Tool errors
 
@@ -3858,7 +3910,8 @@ Each refusal names its reason:
 
 * `its symlink resolution changed after permission was checked`: a symlink along the path, or at a Grep or Glob search root, was replaced between the permission check and the operation. In a read refusal, the parenthesized phrase names which comparison failed.
 * `its parent-directory symlink resolution changed after permission was checked`: a directory the write path passes through no longer resolves to the approved location
-* `it is a symbolic link. Write to the link's target path instead`: a symbolic link sits at the approved write location itself, for example a `CLAUDE.md` that is a symlink to `AGENTS.md`; the message directs Claude to the link's target
+* `where it leads on disk could not be determined (a link on the way could not be examined, or the links do not resolve)`: Claude Code couldn't follow the path to a final location on disk, for example because symlinks on it form a loop
+* `it is a symbolic link. Write to the link's target path instead`: a symbolic link sits at the requested write location itself, for example a `CLAUDE.md` that is a symlink to `AGENTS.md`; the message directs Claude to the link's target
 * `Refusing to write through symlink: <path>. Resolve the symlink and pass the real target path explicitly.`: the same condition caught when another writer opens the file, such as a write to a symlinked `.mcp.json`
 * `Refusing to write into symlinked directory: <path>`: the directory that holds the file is itself a symbolic link, for example a project's `.claude/` directory linked to another location
 * `a path one of its Read deny rules is written through changed while the search was being prepared. Retry.`: a `Read` deny rule for the search names a path that passes through a symlink, and that link changed while Claude Code was preparing the search
@@ -3875,6 +3928,8 @@ Each refusal names its reason:
 * For the ripgrep refusal, install ripgrep with your package manager so `rg` resolves to an absolute path on `PATH`, or keep searches under the working directory
 
 Before v2.1.251, Claude Code re-checked a path's resolution only for file writes, so a link replaced after the permission check could redirect a read or search to a different location without a message. Of these, only the parent-directory, through-symlink, and symlinked-directory write refusals appear on earlier versions.
+
+Before v2.1.280, the `where it leads on disk could not be determined` refusal didn't appear.
 
 <h3 id="task-output-swap-refused">
   Task output swap refused

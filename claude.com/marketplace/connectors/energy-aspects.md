@@ -59,10 +59,12 @@ Search, edit and get insights on your Box content
 
 [Add Box in Claude (opens in new tab)](https://claude.ai/directory/a5380429-c773-4180-b642-301418240c8c "Add in Claude")
 
-![](https://assets.claude.com/47f22a5129fd644c95a682e474b104001065dd42.jpg?w=128&fit=max&auto=format)
+![](https://www.google.com/s2/favicons?domain=amazon.com&sz=96)
 
-### [Zapier](https://claude.com/marketplace/connectors/zapier)
+### [Amazon Selling Partner](https://claude.com/marketplace/connectors/amazon-selling-partner)
 
-Automate workflows across thousands of apps via conversation
+Anthropic verifiedTrending
 
-[Add Zapier in Claude (opens in new tab)](https://claude.ai/directory/1f6f271e-3d29-4241-b35e-8abe6def4891 "Add in Claude")
+Amazon Selling Partner MCP
+
+[Add Amazon Selling Partner in Claude (opens in new tab)](https://claude.ai/directory/921c3435-ce00-4c0b-8809-4647b3cb108f "Add in Claude")

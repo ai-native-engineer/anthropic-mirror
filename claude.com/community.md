@@ -32,30 +32,6 @@ Location
 
 Date
 
-TH
-
-Chiang Mai | Claude Code Impact Lab
-
-Amphoe Mueang Chiang Mai, TH
-
-September 26, 2026
-
-Mövenpick Suriwongse Chiang Mai, 110 chang khlan Rd, Tambon Chang Khlan, Amphoe Mueang Chiang Mai, Chang Wat Chiang Mai 50100, Thailand
-
-[Chiang Mai | Claude Code Impact Lab](https://luma.com/claude-ru1w)Chiang Mai | Claude Code Impact Lab
-
-US
-
-San Francisco | Claude Opus 5.5 Build Day
-
-San Francisco, US
-
-September 26, 2026
-
-AGI, Inc., 170 St Germain Ave, San Francisco, CA 94114, USA
-
-[San Francisco | Claude Opus 5.5 Build Day](https://luma.com/claudebuildday)San Francisco | Claude Opus 5.5 Build Day
-
 TR
 
 Ankara | Claude for Education: Innovation and Research Meetup
@@ -127,6 +103,30 @@ September 30, 2026
 Mesh Youngstorget - Mesh Community, Møllergata 6, 8, 0179 Oslo, Norway
 
 [Oslo | Claude Conversation](https://luma.com/claude-326i)Oslo | Claude Conversation
+
+US
+
+San Francisco | Claude for Physical AI Agents
+
+San Francisco, US
+
+September 30, 2026
+
+Vizcom HQ, 488 Bryant St, San Francisco, CA 94107, USA
+
+[San Francisco | Claude for Physical AI Agents](https://luma.com/claudeforphysicalaiagents)San Francisco | Claude for Physical AI Agents
+
+JP
+
+Kesennuma | Claude for Business
+
+Kesennuma, JP
+
+October 1, 2026
+
+Pier 7, 1-11 Minamimachikaigan, Kesennuma, Miyagi 988-0018, Japan
+
+[Kesennuma | Claude for Business](https://luma.com/claude-tpx0)Kesennuma | Claude for Business
 
 [View more](https://claude.com/community?46f68bc1_page=2)
 

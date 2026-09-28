@@ -437,5 +437,3 @@ Claude made the open-source models that scientists use to predict and design bio
 ## Subscribe to the Frontier Red Team newsletter
 
 Get updates on our latest red-teaming research and findings.
-
-Project Fetch: Can Claude train a robot dog? \ Anthropic

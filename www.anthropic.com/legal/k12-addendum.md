@@ -22,3 +22,5 @@ In the event of a conflict between this U.S. K-12 PubSec Addendum and the Terms,
 7. **Governing Law; Venue**
    1. **Governing Law.** The Terms will be governed by and construed in accordance with SLED Law.
    2. **Venue.** Section M.7.b of the Terms is deleted in its entirety.
+
+U.S. K-12 Public Sector Addendum to the Anthropic U.S. K-12 Terms of Service \ Anthropic

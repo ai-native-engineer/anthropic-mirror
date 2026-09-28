@@ -86,6 +86,6 @@ To view your memory exactly how Claude sees it, go to **[Settings > Capabilities
 
 * [Get started with Claude](https://support.claude.com/en/articles/8114491-get-started-with-claude)
 * [Use Claude’s chat search and memory to build on previous context](https://support.claude.com/en/articles/11817273-use-claude-s-chat-search-and-memory-to-build-on-previous-context)
-* [Organize your tasks with projects in Claude Cowork](https://support.claude.com/en/articles/14116274-organize-your-tasks-with-projects-in-claude-cowork)
+* [Use Claude with iOS apps](https://support.claude.com/en/articles/11869619-use-claude-with-ios-apps)
 * [Your first day in Claude Code](https://support.claude.com/en/articles/14552382-your-first-day-in-claude-code)
 * [Give Claude context: CLAUDE.md and better prompts](https://support.claude.com/en/articles/14553240-give-claude-context-claude-md-and-better-prompts)

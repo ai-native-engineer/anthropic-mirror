@@ -6,7 +6,7 @@ Case study | Claude Platform
 
 [Contact sales](https://claude.com/contact-sales)
 
-![L'Oreal logo](https://assets.claude.com/4e6032e43573d2aac0260633c76ee859d566326a.svg)
+![L'Oreal logo](https://assets.claude.com/206c93e387b69b9a7fe23c7b2d3d33d66bc0fc60.svg)
 
 Industry:
 :   Ecommerce

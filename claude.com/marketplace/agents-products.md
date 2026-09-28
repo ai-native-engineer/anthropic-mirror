@@ -8,7 +8,7 @@ CodeDataFinancial ServicesLegalSecurity
 
 15 products
 
-![](https://assets.claude.com/05808b111f43ce4a1a63785df384553b059ce3ee.jpg)
+![](https://assets.claude.com/9e48c05f10cf4adac54a25d183d2d14e38621a56.svg)
 
 ### [Augment](https://claude.com/marketplace/agents-products/augment)
 
@@ -56,7 +56,7 @@ Factory helps enterprises continuously build and operate production software thr
 
 Code
 
-![](https://assets.claude.com/f2ce571e7dee9dab1b2ad699d52d275e8fb83a59.png)
+![](https://assets.claude.com/2a378f5e9d136884701abca4f5ee0b0298b6a159.svg)
 
 ### [Gamma](https://claude.com/marketplace/agents-products/gamma)
 
@@ -96,7 +96,7 @@ Run matters end to end, across jurisdictions and languages.
 
 Legal
 
-![](https://assets.claude.com/949ea019337356d5cbd4a3709627af61c877e1c2.jpg)
+![](https://assets.claude.com/2ccd5ce1a1407eabb9650ba6c5c16c29c96cd098.svg)
 
 ### [Lovable](https://claude.com/marketplace/agents-products/lovable)
 

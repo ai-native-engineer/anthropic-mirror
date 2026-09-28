@@ -108,6 +108,6 @@ Anatole RozanCo-founder, Reversia
 
 ### Rakuten accelerates development with Claude Code](https://claude.com/customers/rakuten)[![Shopify](https://assets.claude.com/33de1bc0b1b2c92e879e513e3c14ec213c311ff1.svg)
 
-### How Shopify uses Anthropic’s Claude on Google Cloud to supercharge Sidekick](https://claude.com/customers/shopify)[![L'Oreal](https://assets.claude.com/4e6032e43573d2aac0260633c76ee859d566326a.svg)
+### How Shopify uses Anthropic’s Claude on Google Cloud to supercharge Sidekick](https://claude.com/customers/shopify)[![L'Oreal](https://assets.claude.com/206c93e387b69b9a7fe23c7b2d3d33d66bc0fc60.svg)
 
 ### L'Oréal advances conversational analytics with Claude](https://claude.com/customers/loreal)

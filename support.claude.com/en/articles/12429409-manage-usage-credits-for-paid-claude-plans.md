@@ -36,7 +36,7 @@ To enable usage credits on your paid Claude plan:
 7. You’ll then need to prepay to cover usage beyond your plan limits. Click “Add funds,” enter the amount you want to purchase in the modal, then click “Purchase.”
 8. You can also enable auto-reload to automatically make a purchase when your balance falls below a threshold you set:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1805819785/5e203c38e6ba3f76bfd1dab0d5ce/fe062e7c-18cb-48cc-a7e2-754ac6e6c4be?expires=1790469900&signature=35eaf0781d2e03594f7275979873033e23c4998e8d59b8e433ff743393c7203b&req=dSgnE8F%2FlIZXXPMW1HO4zYj2ABKdo%2FkxopE7m38YdfdVOsGPnVdH14s%2BabJW%0ANwt3rPPmP%2BbfV4tXMm8%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1805819785/5e203c38e6ba3f76bfd1dab0d5ce/fe062e7c-18cb-48cc-a7e2-754ac6e6c4be?expires=1790469900&signature=35eaf0781d2e03594f7275979873033e23c4998e8d59b8e433ff743393c7203b&req=dSgnE8F%2FlIZXXPMW1HO4zYj2ABKdo%2FkxopE7m38YdfdVOsGPnVdH14s%2BabJW%0ANwt3rPPmP%2BbfV4tXMm8%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1805819785/5e203c38e6ba3f76bfd1dab0d5ce/fe062e7c-18cb-48cc-a7e2-754ac6e6c4be?expires=1790571600&signature=32e36e98b464946d18da5b1288136d6e1767a2988bd8683532621f8189f6f5a0&req=dSgnE8F%2FlIZXXPMW1HO4zYj2ABKcovE%2BopE7m38Ydfd%2BOgElv0x34aFXwBO7%0AcycFTTfwLAWL%2FVf%2B4%2Fc%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1805819785/5e203c38e6ba3f76bfd1dab0d5ce/fe062e7c-18cb-48cc-a7e2-754ac6e6c4be?expires=1790571600&signature=32e36e98b464946d18da5b1288136d6e1767a2988bd8683532621f8189f6f5a0&req=dSgnE8F%2FlIZXXPMW1HO4zYj2ABKcovE%2BopE7m38Ydfd%2BOgElv0x34aFXwBO7%0AcycFTTfwLAWL%2FVf%2B4%2Fc%3D%0A)
 
 **Note:** There is a daily redemption limit of $2000.
 
@@ -124,8 +124,8 @@ Yes, you’ll see a clear notification when approaching and reaching your includ
 
 In most cases, usage credits do not expire. However, in certain jurisdictions such as Japan, usage credits expire six months after purchase starting September 10, 2026. You'll receive an email notification seven days before your credits expire, and you can view expiration dates on the Usage page in Settings.
 
+* [How do I pay for my Claude API usage?](https://support.claude.com/en/articles/8977456-how-do-i-pay-for-my-claude-api-usage)
 * [How am I billed for my Enterprise plan?](https://support.claude.com/en/articles/11526368-how-am-i-billed-for-my-enterprise-plan)
-* [How do usage and length limits work?](https://support.claude.com/en/articles/11647753-how-do-usage-and-length-limits-work)
 * [Manage usage credits for Team and seat-based Enterprise plans](https://support.claude.com/en/articles/12005970-manage-usage-credits-for-team-and-seat-based-enterprise-plans)
 * [Buy usage bundles](https://support.claude.com/en/articles/14246112-buy-usage-bundles)
 * [Claude Fable models on your plan](https://support.claude.com/en/articles/15424964-claude-fable-models-on-your-plan)

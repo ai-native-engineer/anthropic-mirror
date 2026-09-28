@@ -100,6 +100,18 @@ No items found.
 
 Explore more product news and best practices for teams building with Claude.
 
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d222061abf091318fb82_423062049d4676b41d52b16068cbb5e21603190e-1000x1000.svg)
+
+Aug 21, 2026
+
+### The AI-native SDLC playbook
+
+Enterprise AI
+
+[The AI-native SDLC playbook](#)The AI-native SDLC playbook
+
+[The AI-native SDLC playbook](https://claude.com/blog/the-ai-native-sdlc-playbook)The AI-native SDLC playbook
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22deea97e4a5b5e5739_8d339ae8ecedecc1409db8f5bbb99c958db56946-1000x1000.svg)
 
 Sep 24, 2026
@@ -135,18 +147,6 @@ Enterprise AI
 [How to prepare for AI-driven code modernization projects](#) How to prepare for AI-driven code modernization projects
 
 [How to prepare for AI-driven code modernization projects](https://claude.com/blog/how-to-prepare-for-ai-driven-code-modernization-projects) How to prepare for AI-driven code modernization projects
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2287f90c57df4c9dd97_c1ef4c0b6882dfe985555b52999d370ea88a3c50-1000x1000.svg)
-
-Sep 17, 2026
-
-### Working at the frontier: How Balyasny Asset Management evaluates and governs Claude Fable 5
-
-Enterprise AI
-
-[Working at the frontier: How Balyasny Asset Management evaluates and governs Claude Fable 5](#)Working at the frontier: How Balyasny Asset Management evaluates and governs Claude Fable 5
-
-[Working at the frontier: How Balyasny Asset Management evaluates and governs Claude Fable 5](https://claude.com/blog/working-at-the-frontier-how-balyasny-asset-management-evaluates-and-governs-claude-fable-5)Working at the frontier: How Balyasny Asset Management evaluates and governs Claude Fable 5
 
 ## Transform how your organization operates with Claude
 

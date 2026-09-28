@@ -52,7 +52,7 @@ Build, manage, and analyze your Shopify store
 
 [Add Shopify in Claude (opens in new tab)](https://claude.ai/directory/80917cb7-3071-4fca-b053-a4262d356c60 "Add in Claude")
 
-![](https://assets.claude.com/f2ce571e7dee9dab1b2ad699d52d275e8fb83a59.png?w=128&fit=max&auto=format)
+![](https://assets.claude.com/2a378f5e9d136884701abca4f5ee0b0298b6a159.svg?w=128&fit=max&auto=format)
 
 ### [Gamma](https://claude.com/marketplace/connectors/gamma)
 

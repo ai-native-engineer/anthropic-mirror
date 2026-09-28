@@ -31,7 +31,7 @@ Our fastest model, a lightweight version of our most powerful AI, at a more affo
 
 ## Availability and pricing
 
-Anyone can chat with Claude using Haiku 4.5 on [Claude.ai](http://claude.ai/redirect/website.v1.adbd0c62-135a-4f64-aec6-2711f7451a10), available on web, iOS, and Android.
+Anyone can chat with Claude using Haiku 4.5 on [Claude.ai](http://claude.ai/redirect/website.v1.44a71f9a-f961-4ab4-9489-517bdae52c21), available on web, iOS, and Android.
 
 For developers, Haiku 4.5 is available on the Claude Platform natively, and in Amazon Bedrock, Google Cloud's Vertex AI, and Microsoft Foundry.
 

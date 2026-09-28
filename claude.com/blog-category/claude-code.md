@@ -102,17 +102,17 @@ August 24, 2026
 
 Aug 21, 2026
 
-The AI-Native SDLC playbook
+The AI-native SDLC playbook
 
 Enterprise AI
 
-The AI-Native SDLC playbook
+The AI-native SDLC playbook
 
 August 21, 2026
 
-[The AI-Native SDLC playbook](https://claude.com/blog/the-ai-native-sdlc-playbook)The AI-Native SDLC playbook
+[The AI-native SDLC playbook](https://claude.com/blog/the-ai-native-sdlc-playbook)The AI-native SDLC playbook
 
-[The AI-Native SDLC playbook](#)The AI-Native SDLC playbook
+[The AI-native SDLC playbook](#)The AI-native SDLC playbook
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d222061abf091318fb82_423062049d4676b41d52b16068cbb5e21603190e-1000x1000.svg)
 
@@ -346,7 +346,7 @@ August 24, 2026
 
 [How an Anthropic field marketer uses Claude Code to send weekly personalized updates to every sales rep](#)How an Anthropic field marketer uses Claude Code to send weekly personalized updates to every sales rep
 
-### The AI-Native SDLC playbook
+### The AI-native SDLC playbook
 
 Category
 
@@ -358,9 +358,9 @@ Usecase
 
 August 21, 2026
 
-[The AI-Native SDLC playbook](https://claude.com/blog/the-ai-native-sdlc-playbook)The AI-Native SDLC playbook
+[The AI-native SDLC playbook](https://claude.com/blog/the-ai-native-sdlc-playbook)The AI-native SDLC playbook
 
-[The AI-Native SDLC playbook](#)The AI-Native SDLC playbook
+[The AI-native SDLC playbook](#)The AI-native SDLC playbook
 
 ### The Claude Code guide for startups
 
